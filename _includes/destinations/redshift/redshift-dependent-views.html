@@ -1,0 +1,11 @@
+{% include misc/data-files.html %}
+
+When a table's structure has changed and Stitch needs to load data into the new structure, an `ALTER` command will be issued. To successfully run this command, dependent views must be temporarily 'dropped' to allow Stitch to re-create the table. If you receive an error that looks like the following, dependent views may be the root cause:
+
+```
+ERROR: cannot drop table SCHEMA.TABLE column type because other objects depend on it
+
+Hint: Use DROP ... CASCADE to drop the dependent objects too.
+``` 
+
+While an hour or two is usually sufficient to complete the process, some very large tables may require more time. **This [troubleshooting guide]({{ link.troubleshooting.view-dependency-errors | prepend: site.baseurl }}) will walk you through how to locate the dependent views and temporarily drop them.**

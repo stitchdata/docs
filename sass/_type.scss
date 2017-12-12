@@ -1,0 +1,79 @@
+html, body {
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	color: $protocol-black;
+	font-size: 15px;
+	font-family: $fira;
+}
+
+.content-column {
+	line-height: 1.75;
+
+	p, ul {
+		margin: 0 0 1rem;
+	}
+}
+
+b, strong {
+	font-weight: 700;
+}
+
+h1, .h1 {
+	display: block;
+	font-size: 2.5rem;
+	margin-top: 3rem;
+	margin-bottom: 1rem;
+	line-height: 3.25rem;
+}
+
+h2, .h2 {
+	display: block;
+	font-size: 1.75rem;
+	margin-bottom: 1.5rem;
+	padding-top: 90px;
+	margin-top: -70px;
+}
+
+h3, .h3, .projectTitle {
+	display: block;
+	font-family: $fira;
+	font-size: 1.35rem;
+	font-weight: 600;
+}
+
+h4, .h4 {
+	display: block;
+	font-family: $fira;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+h5, .h5 {
+	display: block;
+	font-size: 1rem;
+	font-weight: 700;
+	font-family: $fira;
+}
+
+.wf-loading h1
+.wf-loading h2
+.wf-loading h3 {
+	visibility: hidden;
+}
+
+.wf-loading h1
+.wf-loading h2
+.wf-loading h3 {
+	visibility: visible;
+}
+
+p.intro {
+	font-size: 1.15rem;
+}
+
+/*h3 {color: #ED1951; font-weight:normal; font-size:130%;}
+h4 {color: #808080; font-weight:normal; font-size:120%; font-style:italic;}
+body.print h1 {color: #5b893c !important; font-size:28px;}
+body.print h2 {color: #595959 !important; font-size:24px;}
+body.print h3 {color: #E50E51 !important; font-size:14px;}
+body.print h4 {color: #679DCE !important; font-size:14px; font-style: italic;}*/

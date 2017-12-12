@@ -1,0 +1,22 @@
+# -------------------------- #
+#   Required Request Fields  #
+# -------------------------- #
+
+fields:
+  - name: "client_id"
+    description: "This field must contain your [client ID](#client-id)."
+
+  - name: "table_name"
+    description: "This field contains the name of the destination table, ex: `users`. See [Defining Tables](#defining-tables) for more info."
+
+  - name: "sequence"
+    description: "This property tells the {{ integration.display_name }} the order in which data points in the request body should be considered. See [Defining Sequence](#defining-the-sequence) for more info."
+
+  - name: "action"
+    description: "This field contains the action for the endpoint. For the Upsert endpoint, it will always be `upsert`."
+
+  - name: "key_names"
+    description: "This field defines the Primary Key and will contain an array of field names that uniquely identify the row that the record belongs to."
+
+  - name: "data"
+    description: "This field contains the data to be upserted into your data warehouse."

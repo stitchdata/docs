@@ -1,0 +1,147 @@
+{% assign integration = page %}
+{% assign latest-version = site.data.taps.versions.[integration.name].latest-version %}
+
+<!-- 
+Setup & replication details are kept in the latest version of the integration's file
+to prevent duplicate content as much as possible. 
+
+This re-assigns the page variable to the latest version, which will always be in the /[type]-integrations/[integration] folder's root and therefore first when sorted by Liquid.
+
+This re-assignment is only for the setup & replication details. The variable is re-assigned back to `page`
+later on in the template.
+-->
+
+{% if integration.setup-steps %}
+    {% assign integration = page %}
+{% else %}
+    {% if integration.this-version != latest-version %}
+        {% assign integration = site.saas-integrations | where:"name",integration.name | first %}
+    {% endif %}
+{% endif %}
+
+
+<h2 id="setup">Connecting {{ integration.display_name }}</h2>
+
+    <!-- If there are any requirements for setting up the
+    integration, display them here. -->
+    {% if integration.requirements-list or integration.tier == "Premium" %}
+        <h3 id="setup-requirements">{{ integration.display_name }} Setup Requirements</h3>
+            <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
+            <ul>
+                {% if integration.tier == "Premium" %}
+                <li><strong>A paid Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a paid plan is selected after the trial ends.</li>
+                {% endif %}
+            {% for requirement in integration.requirements-list %}
+                <li>
+                    {{ requirement.item | flatify | markdownify }}{% if requirement.reason %}{{ requirement.reason | flatify | markdownify }}{% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+
+        <!-- If there's any additional info about the requirements,
+        display them here. -->
+        {% if integration.requirements-info %}
+            {{ integration.requirements-info | flatify | markdownify }}
+        {% endif %}
+
+    {% endif %}
+
+    
+
+<!-- Markdown gets cranky about spacing, so keep everything flush left. Otherwise the formatting won't render. -->
+
+<!-- CONNECTION INSTRUCTION STEPS -->
+{% for step in integration.setup-steps %}
+
+    {% capture substeps %}
+        {% if step.substeps %}
+            {% capture section-step-number %}
+                {{ forloop.index }}
+            {% endcapture %}
+
+            {% for substep in step.substeps %}
+                {% capture substep-number %}
+                    {{ forloop.index }}
+                {% endcapture %}
+
+                <h4 id="{{ substep.anchor }}">
+                    Step {{ section-step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}
+                </h4>
+
+                {{ substep.content | flatify | markdownify }}
+
+            {% endfor %}
+        {% endif %}
+    {% endcapture %}
+
+
+{% if step.title == "add integration" %}
+<h3 id="add-stitch-data-source">Step {{ forloop.index }}: Add {{ integration.display_name }} as a Stitch Data Source</h3>
+<!-- Includes with Markdown formatting aren't rendered
+correctly when passed into HTML templates, so first we capture
+the content and assign a variable -->
+{% capture connection-setup %}
+{% include integrations/shared-setup/connection-setup.html %}
+{% endcapture %}
+
+<!-- And then use the markdownify filter to correctly
+render the Markdown. This is a Jekyll thing, not a this-site thing. -->
+{{ connection-setup | append: step.content | markdownify }}
+
+{{ substeps }}
+
+
+{% elsif step.title == "historical sync" %}
+<h3 id="define-historical-sync">Step {{ forloop.index }}: Define the Historical Sync</h3>
+{% capture historical-sync %}
+{% include integrations/saas/setup/historical-sync.html %}
+{% endcapture %}
+
+{{ historical-sync | markdownify }}
+
+
+
+{% elsif step.title == "replication frequency" %}
+<h3 id="define-rep-frequency">Step {{ forloop.index }}: Define Replication Frequency</h3>
+{% capture replication-frequency %}
+{% include integrations/shared-setup/replication-frequency.html %}
+{% endcapture %}
+
+{{ replication-frequency | markdownify }}
+
+
+
+{% elsif step.title == "track data" %}
+<h3 id="setting-data-to-replicate">Step {{ forloop.index }}: 
+    {% if integration.whitelist.columns == true %}
+        Set Tables & Columns to Replicate
+    {% else %}
+        Set Tables to Replicate
+    {% endif %}</h3>
+{% capture set-data-to-replicate %}
+{% if step.content %}
+{{ step.content | flatify | markdownify }}
+{% endif %}
+{% include integrations/saas/setup/saas-syncing.html %}
+{% endcapture %}
+
+{{ set-data-to-replicate | markdownify }}
+
+
+
+{% else %}
+    <h3 id="{{ step.anchor }}">Step {{ forloop.index }}: {{ step.title | flatify }}</h3>
+    {{ step.content | flatify | markdownify }}
+
+    {{ substeps }}
+
+        
+{% endif %}
+{% endfor %}
+
+
+{% capture post-setup %}
+{% include integrations/shared-setup/initial-syncs.html %}
+{% endcapture %}
+
+{{ post-setup | markdownify }}

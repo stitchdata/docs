@@ -1,0 +1,108 @@
+---
+layout: page
+---
+{% include misc/data-files.html %}
+{% assign destination = site.destinations | where:"type",page.type | first %}
+
+{% if page.content %}
+{{ content }}
+{% endif %}
+
+<!-- If there are any requirements for setting up the destination, display them here. -->
+{% if page.requirements-list %}
+    <h2 id="setup-requirements">{{ page.display_name }} Setup Requirements</h2>
+        <p>To set up {{ page.display_name }} in Stitch, you need:</p>
+        <ul>
+        {% for requirement in page.requirements-list %}
+            <li>
+                {{ requirement.item | flatify | markdownify }}{% if requirement.reason %}{{ requirement.reason | flatify | markdownify }}{% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+
+    <!-- If there's any additional info about the requirements, display them here. -->
+    {% if page.requirements-info %}
+        {{ page.requirements-info | flatify | markdownify }}
+    {% endif %}
+{% endif %}
+
+<hr>    
+
+<!-- Markdown gets cranky about spacing, so keep everything flush left. Otherwise the formatting won't render. -->
+
+<!-- CONNECTION INSTRUCTION STEPS -->
+{% for step in page.setup-steps %}
+    {% if step.title == "create db user" %}
+        <h2 id="create-database-user">
+            Step {{ forloop.index }}: Create a Stitch {{ page.display_name }} User
+        </h2>
+
+    {% elsif step.title == "connect stitch" %}
+        <h2 id="connect-stitch">
+            Step {{ forloop.index }}: Connect Stitch
+        </h2>
+
+    {% else %}
+        <h2 id="{{ step.anchor }}">
+            Step {{ forloop.index }}: {{ step.title | flatify }}
+        </h2>
+
+    {% endif %}
+    
+    {{ step.content | flatify | markdownify }}
+
+    {% if step.substeps %}
+        {% capture section-step-number %}
+            {{ forloop.index }}
+        {% endcapture %}
+
+        {% for substep in step.substeps %}
+            {% capture substep-number %}
+                {{ forloop.index }}
+            {% endcapture %}
+
+            <h3 id="{{ substep.anchor }}">
+                Step {{ section-step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}
+            </h3>
+
+            {{ substep.content | flatify | markdownify }}
+
+            {% if step.title == "connect stitch" %}
+                {% if forloop.last %}
+                    <h3 id="enter-connection-details-into-stitch">
+                        Step {{ section-step-number | strip }}.{{ substep-number | plus: 1 | strip }}: Enter Connection Details into Stitch
+                    </h3>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if step.title == "connect stitch" %}
+    {% if page.ssh == true %}
+
+    {% capture destination-settings %}
+{% include destinations/setup/destination-settings.html ssh=true %}
+    {% endcapture %}
+
+    {% else %}
+
+    {% capture destination-settings %}
+{% include destinations/setup/destination-settings.html %}
+    {% endcapture %}
+
+    {% endif %}
+
+    {{ destination-settings | flatify | markdownify }}
+    {% endif %}
+
+<hr>
+{% endfor %}
+
+
+
+
+{% capture post-setup %}
+{% include destinations/setup/setup-wrapup.html %}
+{% endcapture %}
+
+{{ post-setup | markdownify }}

@@ -1,0 +1,227 @@
+
+# -------------------------- #
+#        Site Configs        #
+# -------------------------- #
+
+site_title: Stitch Documentation
+description: "Guides and resources for setting up and managing your Stitch data pipeline."
+company_name: Stitch
+host: 127.0.0.1
+port: 4005
+
+# -------------------------- #
+# Links / Permalink Settings #
+# -------------------------- #
+
+url: 
+baseurl: "/docs"
+
+# -------------------------- #
+#     Navigation Settings    #
+# -------------------------- #
+
+# this appears on the top navigation bar next to the home button.
+
+topnav_title: Stitch Docs
+
+# lists sidebars
+
+sidebars:
+- stitchnav
+
+github_editme_path: stitchdata/docs/blob/master
+github_issues: https://github.com/stitchdata/docs/issues
+
+# -------------------------- #
+#           Jekyll           #
+# -------------------------- #
+
+exclude:
+  - .idea/
+  - .gitignore
+  - _templates
+  - _drafts
+
+include: [_pages, _redirects]
+relative_permalinks: false
+
+sass:
+  sass_dir: _sass
+
+
+## The syntax highligher used for rendering code blocks
+highlighter: rouge
+
+## Configs for the Markdown processor
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+## Plugins used by the site
+plugins:
+  - jekyll-redirect-from
+
+# -------------------------- #
+#        Collections         #
+# -------------------------- #
+
+## The collections in stitchdata.com/docs
+## output controls whether Jekyll should create public-facing,
+## rendered files for the collection
+
+collections:
+  account-security:
+   output: true
+  analysis-integrations:
+   output: true
+  data-structure:
+   output: true
+  database-integrations:
+   output: true
+  destinations:
+   output: true
+  integration-schemas:
+   output: false
+  replication:
+   output: true
+  saas-integrations:
+   output: true
+  webhook-integrations:
+   output: true
+  tooltips:
+    output: false
+  troubleshooting:
+   output: true
+
+
+## Collection Defaults
+defaults:    
+## Analysis Integrations
+  - scope:
+      type: analysis-integrations       ## name of the collection
+    values:
+      layout: page                      ## default layout
+      sidebar: stitchnav                ## default sidebar
+      display-summary: "false"          ## controls if page.summary displays in the output
+      toc: false                        ## controls the display of the table of contents
+
+## Account & Security
+  - scope:
+      type: account-security
+    values:
+      layout: page
+      sidebar: stitchnav
+      display-summary: "false"
+      toc: false
+
+## Data Structure
+  - scope:
+      type: data-structure
+    values:
+      layout: page
+      sidebar: stitchnav
+      display-summary: "false"
+      toc: false
+
+## Database Integrations 
+  - scope:
+      type: database-integrations
+    values:
+      layout: database
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+      input: true                     ## controls where the integration displays on the site 
+      incompatible:                   ## list of incompatible destinations
+        redshift: "never"
+        bigquery: "never"
+        postgres: "never"
+        panoply: "never"
+        snowflake: "never"
+
+## Destinations
+  - scope:
+      type: destinations
+    values:
+      layout: destination
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+
+## Replication
+  - scope:
+      type: replication
+    values:
+      layout: page
+      sidebar: stitchnav
+      display-summary: "false"
+      toc: true
+
+## SaaS Integrations
+  - scope:
+      type: saas-integrations
+    values:
+      layout: saas
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+      input: true
+      incompatible:
+        redshift: "never"
+        bigquery: "never"
+        postgres: "never"
+        panoply: "never"
+        snowflake: "never"
+
+## Webhook Integrations
+  - scope:
+      type: webhook-integrations
+    values:
+      layout: webhook
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+      input: true
+      incompatible:
+        redshift: "never"
+        bigquery: "never"
+        postgres: "never"
+        panoply: "never"
+        snowflake: "never"
+
+## Troubleshooting
+  - scope:
+      type: troubleshooting
+    values:
+      layout: page
+      sidebar: stitchnav
+      display-summary: "false"
+      toc: true
+
+# -------------------------- #
+#           Links            #
+# -------------------------- #
+
+# these are (mostly external) links used throughout the site.
+
+## Stitch links
+
+home: https://www.stitchdata.com
+pricing: https://www.stitchdata.com/pricing/
+integrations: https://www.stitchdata.com/integrations/
+status: https://status.stitchdata.com/
+changelog: https://www.stitchdata.com/changelog
+blog: https://blog.stitchdata.com/
+resources: https://www.stitchdata.com/resources/
+data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeline
+support: help@stitchdata.com
+
+## Singer links
+
+singer: https://www.singer.io
+singer-github: https://github.com/singer-io
+singer-roadmap: https://trello.com/b/BMNRnIoU/singer-roadmap
+singer-slack: https://singer-slackin.herokuapp.com

@@ -1,0 +1,38 @@
+{% assign versioned-integrations = site.documents | where:"input",true %}
+
+<table width="100%">
+	<tr>
+		<th>Integration</th>
+		<th>Version</th>
+		<th>Date Released</th>
+		<th>Deprecation Date</th>
+		<th>Link to latest version</th>
+	</tr>
+	{% for integration in versioned-integrations %}
+		{% if integration.this-version %}
+			{% assign released-versions = site.data.taps.versions.[integration.name].released-versions %}
+
+			{% for version in released-versions %}
+				{% if version.deprecation-date %}
+				<tr>
+					<td>
+						<a href="{{ integration.url | prepend: site.baseurl | append: "v" | append: version.number | remove: "." }}">{{ integration.display_name }}</a>
+					</td>
+					<td>
+						{{ version.number }}
+					</td>
+					<td>
+						{{ version.date-released }}
+					</td>
+					<td>
+						{{ version.deprecation-date }}
+					</td>
+					<td>
+						<a href="{{ integration.repo-url }}" target="new">See the code here.</a>
+					</td>
+				</tr>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	{% endfor %}
+</table>

@@ -1,0 +1,72 @@
+---
+layout: page
+---
+
+{% assign integration = page %}
+{% include misc/data-files.html %}
+
+<!-- Support, beta, and Singer notice -->
+{% include notifications/support-beta-singer-notice.html %}
+
+<!-- integration snapshot -->
+{% include integrations/templates/saas-integration-snapshot.html %}
+
+<!-- connection instructions -->
+<h2 id="setup">Connecting {{ integration.display_name }}</h2>
+    {% contentblock setup %}
+    <hr>
+
+<!-- integration replication details -->
+{% ifhascontent replication-notes %}
+    <h2 id="replication">Replicating {{ integration.display_name }} Data</h2>
+        {% contentblock replication-notes %}
+        <hr>
+{% endifhascontent %}
+
+<!--  integration schema details-->
+<h2 id="schema">{{ integration.display_name }} Schema</h2>
+    {% ifhascontent schema-notes %}
+        {% contentblock schema-notes %}
+    {% endifhascontent %}
+
+<!--  displays bulleted list of tables - handy for skimming -->
+    {% unless integration.schema-format == "singer" %}
+        {% if integration.format.schema-list != false %}
+            {% ifhascontent schema-notes %}
+                <h3 id="included-table-list">Included Tables</h3>
+            {% endifhascontent %}
+
+        <!-- only display this section if integration has whitelist support -->
+            {% if integration.whitelist.tables == "Yes" %}
+                <p><strong>Note that these tables won't automatically be created in your data warehouse.</strong> You must set them to sync in the {{ app.page-names.int-details }} page first.</p>
+            {% endif %}
+
+            <!-- integration table list -->
+            
+                <p>Stitch's {{ integration.display_name }} integration includes these tables:</p>
+                    <ul>
+                    {% for table in integration.tables %}
+                        <li><a href="#{{ table.name }}">{{ table.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+        {% endif %}
+    {% endunless %}
+
+    <!-- formatting of integration table listing
+    table-list is used for integrations with 
+    dozens of tables. ex: NetSuite -->
+
+    {% if integration.schema-format == "singer" %}
+        {% include integrations/templates/schemas/table-schemas.html %}
+    {% else %}
+
+        {% if integration.format.list == "table" %}
+            {% include integrations/templates/table-list.html %}
+            <hr>
+        {% else %}
+            {% include integrations/templates/expand-list.html %}
+            <hr>
+        {% endif %}
+    {% endif %}
+
+{{ content }}

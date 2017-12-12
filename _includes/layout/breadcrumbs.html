@@ -1,0 +1,13 @@
+<!-- Credit to JoostS for this code: https://stackoverflow.com/questions/9612235/what-are-some-good-ways-to-implement-breadcrumbs-on-a-jekyll-site -->
+
+
+{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+
+<a href="{{ site.baseurl }}">DOCS</a>
+{% for crumb in crumbs offset: 1 %}
+  {% if forloop.last %}
+    > <strong>{{ page.title | upcase }}</strong>
+  {% else %}
+    > <a href="{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | upcase }}</a>
+  {% endif %}
+{% endfor %}

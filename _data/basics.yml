@@ -1,0 +1,118 @@
+last-updated: "March 13, 2017"
+
+# -------------------------- #
+#     Stitch IP Addresses    #
+# -------------------------- #
+## These must be whitelisted for Stitch to either
+## replicate or write data
+ip-addresses:
+  - ip: "52.23.137.21/32"
+  - ip: "52.204.223.208/32"
+  - ip: "52.204.228.32/32"
+  - ip: "52.204.230.227/32"
+
+
+## Singer Taps that have whitelist restriction features
+## must have these IP addresses whitelisted to replicate
+## data. Ex: Marketo
+singer-ip-addresses:
+  - ip: "34.194.200.23"
+  - ip: "34.198.232.34"
+  - ip: "34.200.177.78"
+
+# -------------------------- #
+#     Import API Endpoints   #
+# -------------------------- #
+import-api:
+  upsert: https://api.stitchdata.com/v2/import/push
+  validate: https://api.stitchdata.com/v2/import/validate
+  status: https://api.stitchdata.com/v2/import/status
+
+
+# -------------------------- #
+#    Supported Data Types    #
+# -------------------------- #
+## If a column shows as 'Unsupported' in the UI,
+## it may be an unsupported data type.
+
+supported-data-types:  
+  - name: "ARRAY"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "BIGINT"
+    supported-by: "all"
+
+  - name: "BIT"
+    supported-by: "all"
+
+  - name: "CHAR"
+    supported-by: "all"
+
+  - name: "DATE"
+    supported-by: "all"
+
+  - name: "DECIMAL"
+    supported-by: "all"
+
+  - name: "DOUBLE"
+    supported-by: "all"
+
+  - name: "FLOAT"
+    supported-by: "all"
+
+  - name: "HSTORE"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "INTEGER"
+    supported-by: "all"
+
+  - name: "JSON"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "JSONB"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "LONGVARCHAR"
+    supported-by: "all"
+
+  - name: "LONGNVARCHAR"
+    supported-by: "all"
+
+  - name: "NCHAR"
+    supported-by: "all"
+
+  - name: "NVARCHAR"
+    supported-by: "all"
+
+  - name: "NUMERIC"
+    supported-by: "all"
+
+  - name: "REAL"
+    supported-by: "all"
+
+  - name: "SMALLINT"
+    supported-by: "all"
+
+  - name: "TIME"
+    supported-by: "all"
+
+  - name: "TIMESTAMP"
+    supported-by: "all"
+
+  - name: "TINYINT"
+    supported-by: "all"
+    notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link in the **Data Type** column for more details."
+
+  - name: "UUID"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "VARBINARY"
+    supported-by: "all"
+
+  - name: "VARCHAR"
+    supported-by: "all"

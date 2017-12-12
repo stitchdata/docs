@@ -1,0 +1,2485 @@
+<!DOCTYPE html>
+<head>
+    <!-- Google Tag Manager  -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXBN5GK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Connect and replicate data from your MySQL database using Stitch's MySQL integration.">
+<meta name="keywords" content="database_integrations,  mysql, database integration, etl mysql, mysql etl">
+<title>MySQL | Stitch Documentation</title>
+
+<meta property="og:title" content="MySQL | Stitch Documentation" />
+<meta property="og:description" content="Connect and replicate data from your MySQL database using Stitch's MySQL integration." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs" />
+<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon.png" />
+<meta property="og:site_name" content="Stitch Docs" />
+
+<meta name="twitter:creator" content="@stitch_data">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@stitch_data" />
+<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon.png" />
+
+<meta name=viewport content="width=1100, user-scalable=1">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/docs/css/bootstrap.min.css">
+<link rel="stylesheet" href="/docs/css/modern-business.css">
+<link rel="stylesheet" href="/docs/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/docs/css/customstyles.css">
+<link rel="stylesheet" href="/docs/css/theme-stitch.css">
+<link rel="stylesheet" href="/docs/css/docsearch.min.css" />
+<link rel="stylesheet" href="/docs/stylesheets/screen.css">
+
+<!-- JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/docs/js/jquery.navgoco.min.js"></script>
+
+<!-- FAVICONS  -->
+<link href="/docs/images/apple-icon-57x57.png" rel="apple-touch-icon" type="image/png" />
+<link href="/docs/images/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" type="image/png" />
+<link href="/docs/images/apple-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114" type="image/png" />
+<link href="/docs/images/favicon-32x32.png" rel="shortcut icon" type="image/png" />
+<link href="/docs/images/favicon-32x32.png" rel="icon" type="image/png" />
+
+<link rel="stylesheet" href="/docs/css/syntax.css">
+
+<!-- TYPEKIT -->
+<script src="https://use.typekit.net/hjq2wqe.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+<style type="text/css">
+	.js .fouc {display: none !important;}
+</style>
+
+<script type="text/javascript">
+	document.documentElement.className = 'js';
+</script>
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+window.__insp = window.__insp || [];
+__insp.push(['wid', 479657659]);
+(function() {
+function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+})();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+    // <script>
+    //     $(document).ready(function() {
+    //         // Initialize navgoco with default options
+    //         $("#mysidebar").navgoco({
+    //             caretHtml: '',
+    //             accordion: true,
+    //             openClass: 'active', // open
+    //             save: false, // leave false or nav highlighting doesn't work right
+    //             cookie: {
+    //                 name: 'navgoco',
+    //                 expires: false,
+    //                 path: '/'
+    //             },
+    //             slide: {
+    //                 duration: 400,
+    //                 easing: 'swing'
+    //             }
+    //         });
+
+    //         $("#collapseAll").click(function(e) {
+    //             e.preventDefault();
+    //             $("#mysidebar").navgoco('toggle', false);
+    //         });
+
+    //         $("#expandAll").click(function(e) {
+    //             e.preventDefault();
+    //             $("#mysidebar").navgoco('toggle', true);
+    //         });
+
+    //     });
+
+    // </script>
+    
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Navigation -->
+<nav class="stitch-docs-navbar">
+    <div class="nav-left">
+        <svg version="1.1" id="stitch_logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 556.9 556.9" style="enable-background:new 0 0 556.9 556.9;" xml:space="preserve" height="38" width="38">
+        <style type="text/css">
+        .st0{fill:#FFCC00;}
+        </style>
+        <path class="st0" d="M556.9,219.9V0H0v297.9h382.8v39H0v0v219.9h556.9V258.9H174.1v-39H556.9z M278.3,499.7
+        c-15.1,0-27.4-12.3-27.4-27.4c0-15.1,12.3-27.4,27.4-27.4c15.1,0,27.4,12.3,27.4,27.4C305.7,487.5,293.5,499.7,278.3,499.7z
+        M401.8,414.9h-247l11.8-39h224L401.8,414.9z M278.3,57.2c15.1,0,27.4,12.3,27.4,27.4c0,15.1-12.3,27.4-27.4,27.4
+        c-15.1,0-27.4-12.3-27.4-27.4C250.9,69.4,263.2,57.2,278.3,57.2z M166.7,180.9l-11.8-39h247l-11.1,39H166.7z"></path>
+        </svg>
+        <a class="navbar-brand" href="/docs/">
+            <span class="projectTitle"> Stitch Docs</span>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="stitch-nav">
+            <!-- entries without drop-downs appear here -->
+            
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com" target="_blank">stitchdata.com</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://github.com/stitchdata/docs#stitch-documentation" target="_blank"><i class="fa fa-github fa-1" aria-hidden="true"></i> Contribute
+</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com/changelog" target="_blank">Changelog</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="/docs/announcements">Announcements</a>
+                        </li>
+                    
+                
+            
+            <li>
+                <!--start search-->
+                <div id="search-demo-container">
+                    <input type="text" id="search-input" placeholder="What can we help you find?">
+                    <ul id="results-container"></ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Page Content -->
+<div id="main">
+    <div class="sidebar-column">
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+<div class="menu-list">
+
+<ul id="mysidebar" class="nav">
+        <!-- Stitch status widget -->
+        <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+            <span class="color-dot"></span>
+            <span class="color-description"></span>
+        </a>
+
+        
+            <!-- Top-level items -->
+            
+                
+                <li>
+                    <a href="/docs/getting-started">Getting Started</a>
+                
+                
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#account--security" aria-expanded="false" aria-controls="account--security">
+                        Account & Security 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="account--security">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/account-security/">Your Stitch Account</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs">Account Settings</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/account-security/managing-team-members">Invite Your Team</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/account-security/billing-faq">Billing</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/account-security/understanding-stitch-billing-replicated-rows">Understand Your Usage</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/account-security/stitch-security">Security</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/account-security/cancelling-your-stitch-account">Cancel Your Account</a>
+                                </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#destinations" aria-expanded="false" aria-controls="destinations">
+                        Destinations 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="destinations">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations">Overview</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/choosing-a-stitch-destination">Choosing a Destination</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/redshift/">Amazon Redshift</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/bigquery/">Google BigQuery</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/panoply/">Panoply.io</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/postgresql/">PostgreSQL</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/snowflake/">Snowflake</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/destinations/switching-destinations">Change Destinations</a>
+                                </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#saas-integrations" aria-expanded="false" aria-controls="saas-integrations">
+                        SaaS Integrations 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="saas-integrations">
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#certified-integrations" aria-expanded="false" aria-controls="certified-integrations">
+                                        Certified Integrations 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="certified-integrations">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/integrations/saas#stitch-certified-integrations">Overview</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                            
+
+                                            
+
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/adroll">AdRoll</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/desk">Desk</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/facebook-ads">Facebook Ads</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/google-adwords">Google Adwords</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/google-analytics">Google Analytics</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/google-ecommerce">Google ECommerce</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/hubspot/">HubSpot</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/import-api/">Import API</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/intercom">Intercom</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/jira">JIRA</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/marketo">Marketo</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/mixpanel">Mixpanel</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/netsuite">NetSuite</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/pardot">Pardot</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/quickbooks">QuickBooks</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/recurly">Recurly</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/salesforce/">Salesforce</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/shopify">Shopify</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/stripe">Stripe</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/trello">Trello</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/xero">Xero</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/zendesk">Zendesk</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/zuora">Zuora</a>
+                                                </li>
+                                            
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#community-integrations" aria-expanded="false" aria-controls="community-integrations">
+                                        Community Integrations 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="community-integrations">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/integrations/saas#stitch-community-integrations
+">Overview</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                            
+
+                                            
+
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/autopilot">Autopilot</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/braintree">Braintree</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/freshdesk">Freshdesk</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/gitlab">GitLab</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/harvest">Harvest</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/outbrain">Outbrain</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/referral-saasquatch">Referral SaaSquatch</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/shippo">Shippo</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/square">Square</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/taboola">Taboola</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/urban-airship">Urban Airship</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/wootric">Wootric</a>
+                                                </li>
+                                            
+                                                <li>
+                                                    <a href="/docs/integrations/saas/zendesk-chat">Zendesk Chat</a>
+                                                </li>
+                                            
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations/saas">All SaaS Integrations</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations">All Integrations</a>
+                                </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#database-integrations" aria-expanded="false" aria-controls="database-integrations">
+                        Database Integrations 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="database-integrations">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations/databases">Overview</a>
+                                </li>
+
+                                
+                                    
+
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/amazon-aurora">Amazon Aurora</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/amazon-rds">Amazon RDS</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/google-cloudsql-mysql">Google CloudSQL MySQL</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/google-cloudsql-postgresql">Google CloudSQL PostgreSQL</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/heroku">Heroku</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/magento">Magento</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/mariadb">MariaDB</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/microsoft-sql-server">Microsoft SQL Server</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/mongodb">MongoDB</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/microsoft-azure">Microsoft Azure</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/mysql">MySQL</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/databases/postgresql">PostgreSQL</a>
+                                            </li>
+                                        
+                                    
+
+                                    <li>
+                                        <a href="/docs/integrations">All Integrations</a>
+                                    </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#webhook-integrations" aria-expanded="false" aria-controls="webhook-integrations">
+                        Webhook Integrations 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="webhook-integrations">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations/webhooks">Overview</a>
+                                </li>
+
+                                
+                                    
+
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/aftership">AfterShip</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/branch">Branch</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/contentful">Contentful</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/customerio">Customer.io</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/delighted">Delighted</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/drip">Drip</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/formkeep">FormKeep</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/iterable">Iterable</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/mailjet">Mailjet</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/mandrill">Mandrill</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/particleio">Particle.io</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/segment">Segment</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/sendgrid">SendGrid</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/sendwithus">SendWithUs</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/sparkpost">SparkPost</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/stitch-incoming-webhooks">Incoming Webhooks</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/vero">Vero</a>
+                                            </li>
+                                        
+                                    
+                                        
+                                            <li>
+                                                <a href="/docs/integrations/webhooks/zapier">Zapier</a>
+                                            </li>
+                                        
+                                    
+
+                                    <li>
+                                        <a href="/docs/integrations">All Integrations</a>
+                                    </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#import-api" aria-expanded="false" aria-controls="import-api">
+                        Import API 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="import-api">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations/import-api">Overview</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations/import-api#auth">Authentication</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/integrations/import-api#return-codes">Return Codes</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#methods" aria-expanded="false" aria-controls="methods">
+                                        Methods 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="methods">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/integrations/import-api#status-method">Status</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/integrations/import-api#validate-method">Validate</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/integrations/import-api#upsert-method">Upsert</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#extracting-data" aria-expanded="false" aria-controls="extracting-data">
+                        Extracting Data 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="extracting-data">
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#replicate-data" aria-expanded="false" aria-controls="replicate-data">
+                                        Replicate Data 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="replicate-data">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/replication/syncing-data">Select Data to Replicate</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/syncing-new-additional-columns">Replicate New & Additional Columns</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replicating-database-views">Database Views</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/syncing-historical-saas-data-resetting-replication-keys">Historical SaaS Data</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#replication-keys" aria-expanded="false" aria-controls="replication-keys">
+                                        Replication Keys 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="replication-keys">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replication-keys">Database Replication Keys</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs">MongoDB Replication Keys</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replication-keys#resetting-replication-keys">Reset Replication Keys</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#replication-methods" aria-expanded="false" aria-controls="replication-methods">
+                                        Replication Methods 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="replication-methods">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replication-methods">Overview</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replication-methods#incremental-replication">Incremental</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replication-methods#append-only-incremental-replication">Append-Only</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/replication-methods#full-table-replication">Full Table</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/replication/replication-frequency">Replication Frequency</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/replication/supported-data-types">Supported Data Types</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/replication/replication-methods#deleted-records--incremental-replication">Deletions</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#monitoring-progress" aria-expanded="false" aria-controls="monitoring-progress">
+                                        Monitoring Progress 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="monitoring-progress">
+                                    <!-- Third-level items -->
+                                    
+                                        <li>
+                                            <a href="/docs/replication/monitoring-replication-progress">Progress Summary</a>
+                                         </li>
+                                    
+                                        <li>
+                                            <a href="/docs/replication/integration-extraction-logs">Extraction Logs</a>
+                                         </li>
+                                    
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        
+
+                                    </ul>
+                                </li>
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#loading-data" aria-expanded="false" aria-controls="loading-data">
+                        Loading Data 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="loading-data">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/data-structure/integration-schemas">Integration Schemas</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/data-structure/loading-stitch-data-into-destinations">Loading Data into Destinations</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/data-structure/nested-data-structures-row-count-impact">Nested Data & Row Counts</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/data-structure/table-structural-changes">Table Schema Changes</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/data-structure/querying-append-only-tables">Append-Only Tables</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/data-structure/identifying-rejected-records">Rejected Records</a>
+                                </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#analysis-integrations" aria-expanded="false" aria-controls="analysis-integrations">
+                        Analysis Integrations 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="analysis-integrations">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/analysis-integrations#analytics-integrations">Analytics</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/analysis-integrations#sql-editors">SQL Edtiors</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/analysis-integrations#data-science">Data Science</a>
+                                </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+                
+                <li>
+                    <a data-toggle="collapse" href="#troubleshooting" aria-expanded="false" aria-controls="troubleshooting">
+                        Troubleshooting 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                
+                
+                
+                    <ul class="collapse" id="troubleshooting">
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/account">Account & Billing</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/destinations">Destinations</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/integrations">Integrations</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/replication">Replication</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/data-discrepancies">Data Discrepancies</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/error-notifications">Error Notifications</a>
+                                </li>
+
+                                
+
+                            
+                        
+                            
+
+                                <li>
+                                    <a href="/docs/troubleshooting/">All Troubleshooting</a>
+                                </li>
+
+                                
+
+                            
+                         
+                    </ul>
+                
+                </li>
+            
+        
+    </ul>
+</div>
+    </div>
+    <div class="content-column">
+        
+        <div class="article">
+            
+        <div class="breadbox">
+            <div class="breadcrumb-container">
+                <div id="breadcrumb-menu" class="menu-left">
+                    <!-- Credit to JoostS for this code: https://stackoverflow.com/questions/9612235/what-are-some-good-ways-to-implement-breadcrumbs-on-a-jekyll-site -->
+
+
+
+
+<a href="/docs">DOCS</a>
+
+  
+    > <a href="/docs/integrations/">INTEGRATIONS</a>
+  
+
+  
+    > <a href="/docs/integrations/databases/">DATABASES</a>
+  
+
+  
+    > <strong>MYSQL</strong>
+  
+
+
+                </div>
+
+                
+            </div>
+        </div>
+        
+            <div class="post-header">
+    <h1 class="post-title-main">MySQL</h1>
+</div>
+
+<div class="post-content">
+<!-- Controls display of page summary -->
+   
+
+<!-- Table of Contents -->
+    
+        
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+    
+
+  
+
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+<!-- SUPPORT, BETA, AND SINGER NOTICE -->
+<div class="alert alert-info" role="alert">
+    <i class="fa fa-life-ring"></i>
+
+        
+            <strong>
+                MySQL is supported by Stitch
+            </strong><br>
+
+            
+                This integration is powered by <a href="https://www.singer.io">Singer's</a> MySQL tap and certified by Stitch. <a href="https://github.com/singer-io/tap-mysql">Check out and contribute to the repo on GitHub</a>.<br><br>
+
+            
+
+            For support, contact <a href="mailto: help@stitchdata.com">Stitch support</a>.
+
+        
+
+    
+</div>
+
+
+<!-- INTEGRATION-SPECIFIC NOTICES -->
+
+
+
+<!-- INTEGRATION SNAPSHOT -->
+    <!-- This file captures the code for Font Awesome icons that are used throughout the site to relay additional info.
+
+To use, include this file and then use variables to print the icons.
+
+You can use a 'replace' filter to insert copy that will create a tooltip. 
+
+Ex:  -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- This captures the values of these variables and outputs them as strings. This is done so the values can be used as tooltips inside the info icons, as variables can't be used inside other variables. -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table width="100%">
+    <tbody>
+        <tr>
+            <!-- Integration Release Status -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Release Status</strong>
+            </td>
+            <td valign="top">
+                Released
+            </td>
+
+            <!-- Integration supported by -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Supported By</strong> 
+<i class="fa fa-question-circle" data-toggle="tooltip" data-original-title="
+Indicates if the integration is supported by Stitch or the Singer community.
+" aria-hidden="true"></i>
+
+            </td>
+            <td valign="top">
+                
+                    Stitch
+                
+            </td>
+        </tr>
+
+        <tr>
+            <!-- Stitch plan (free/paid) required to use integration -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Availability</strong>
+<i class="fa fa-question-circle" data-toggle="tooltip" data-original-title="
+Indicates if a free or paid Stitch plan is required to use the integration.
+" aria-hidden="true"></i>
+
+            </td>
+            <td valign="top">
+                Free
+            </td>
+
+            <!-- Versions of databases Stitch supports  -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Supported Versions</strong>
+            </td>
+            <td valign="top">
+                n/a
+            </td>
+        </tr>
+
+        <tr>
+            <!-- Stitch SSL connection support  -->
+            <td valign="top" align="right">
+                <strong>SSL Connections</strong>
+<i class="fa fa-question-circle" data-toggle="tooltip" data-original-title="
+Indicates if SSL connections are supported for connecting this database to Stitch.
+" aria-hidden="true"></i>
+
+            </td>
+            <td valign="top">
+                
+                    Supported
+                
+            </td>
+            <!-- Stitch VPN connection support  -->
+            <td valign="top" align="right">
+                <strong>VPN Connections</strong>
+            </td>
+            <td valign="top">
+                Unsupported
+            </td>
+        </tr>
+
+        <!-- Whitelisting support -->
+        <tr>
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Whitelisting 
+<i class="fa fa-question-circle" data-toggle="tooltip" data-original-title="
+Indicates whether individual tables and/or columns can be selected for replication.
+" aria-hidden="true"></i>
+
+            </td>
+            <td valign="top">
+                
+                    
+                        Tables and columns
+                    
+                
+            </td>
+
+            <!-- Stitch support for view replication -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>View Replication</strong>
+<i class="fa fa-question-circle" data-toggle="tooltip" data-original-title="
+Indicates if Stitch supports replicating views from this database integration.
+" aria-hidden="true"></i>
+
+            </td>
+            <td valign="top">
+                <!-- For RDS, depends on type of DB being connected. -->
+                
+                    <a href="/docs/replication/replicating-database-views">Supported</a>
+                
+            </td>
+        </tr>
+
+        <!-- Destination/Integration compatibility -->
+        <tr>
+            <td valign="top" width="30%; fixed" align="right">
+                <strong><a href="/docs/destinations/destination-integration-compatibility">Destination Incompatibilities</strong></a>
+<i class="fa fa-question-circle" data-toggle="tooltip" data-original-title="
+Indicates if there are any possible incompatibilities between this integration and any of Stitch's destination offerings.
+" aria-hidden="true"></i>
+
+                </td>
+            <td valign="top" colspan="3">
+                
+                
+                
+                
+
+                
+                    
+                        None
+                    
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- CONNECTION INSTRUCTIONS -->
+    <h2 id="setup">Connecting MySQL</h2>
+
+<!-- If there are any requirements for setting up the destination, display them here. -->
+
+    <h3 id="setup-requirements">MySQL Setup Requirements</h3>
+        <p>To set up MySQL in Stitch, you need:</p>
+        <ul>
+        
+        
+            <li>
+                <p><strong>Permissions in MySQL that allow you to create/manage users.</strong> This is required to create the Stitch database user.</p>
+
+            </li>
+        
+        </ul>
+
+    <!-- If there's any additional info about the requirements, display them here. -->
+    
+
+    <hr>
+
+
+
+
+    
+        <h3 id="whitelist-stitch-ips">Step 1: Whitelist Stitch's IP Addresses</h3>
+
+        
+
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+<p>For the connection to be successful, you’ll need to configure your firewall to allow access from our IP addresses. Whitelist the following IPs before continuing onto the next step:</p>
+
+<ul>
+  <li>
+    <p>52.23.137.21/32</p>
+  </li>
+  <li>
+    <p>52.204.223.208/32</p>
+  </li>
+  <li>
+    <p>52.204.228.32/32</p>
+  </li>
+  <li>
+    <p>52.204.230.227/32</p>
+  </li>
+</ul>
+
+
+
+        <hr>
+
+    
+
+
+
+    
+        <h3 id="retrieve-public-key">Step 2: Retrieve Your Public Key</h3>
+
+        
+
+        
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> If you aren’t using an SSH tunnel, skip this step.</div>
+
+<!-- Images that align to the right with a text wrap -->
+
+<p><img class="right" src="/docs/images//ssh-public-key-singer.png" alt="The Stitch Public Key" align="right" style="padding-left: 15px; width: 400px;" /></p>
+
+<!-- "Normal" images used after breaks in paragraphs -->
+
+<p>The Public Key is used to authorize the Stitch Linux user. If the key isn’t properly installed, Stitch will be unable to access your database.</p>
+
+<p>To retrieve the key:</p>
+
+<ol>
+  <li>
+    <p>On the Stitch Dashboard page, click the <strong>Add Integration</strong> button.</p>
+  </li>
+  <li>
+    <p>Click the <strong>MySQL</strong> icon.</p>
+  </li>
+  <li>
+    <p>Click the <strong>SSH Tunnel</strong> checkbox.</p>
+  </li>
+  <li>
+    <p>The Public Key will display, along with the other SSH fields.</p>
+  </li>
+</ol>
+
+<p>Leave this page open for now - you’ll need it to wrap things up at the end.</p>
+
+
+
+        <hr>
+
+    
+
+
+
+    
+        <h3 id="create-linux-user">Step 3: Create a Stitch Linux User</h3>
+
+        
+
+        
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> If you aren’t using an SSH tunnel, skip this step.</div>
+
+<p><strong>Note:</strong> Anything inside square brackets - <code class="highlighter-rouge">[like this]</code> - is something you need to define when running the commands yourself.</p>
+
+<ol>
+  <li>
+    <p>To create the new user, run the following commands as <code class="highlighter-rouge">root</code> on your Linux server:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adduser <span class="nt">--disabled-password</span> <span class="o">[</span>stitch_username]
+mkdir /home/[stitch_username]/.ssh
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Next, import the Public Key into <code class="highlighter-rouge">authorized_keys</code>. This will ensure the Stitch user has access to the database.</p>
+
+    <p>Copy the entire key into the <code class="highlighter-rouge">authorized_keys</code> file by:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s2">"[PASTE KEY HERE]"</span> <span class="o">&gt;&gt;</span> /home/[stitch_username]/.ssh/authorized_keys
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Alter the permissions on the <code class="highlighter-rouge">/home/[stitch_username]</code> directory to allow access via SSH:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chown <span class="nt">-R</span> <span class="o">[</span>stitch_username]:[stitch_username] /home/[stitch_username]
+chmod <span class="nt">-R</span> 700 /home/[stitch_username]/.ssh
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+
+
+        <hr>
+
+    
+
+
+
+    
+        <h3 id="create-database-user">Step 4: Create a Stitch Database User</h3>
+
+        
+
+        
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> You must have <code class="highlighter-rouge">GRANT</code> privileges to create a database user for Stitch.</div>
+
+<p>To create a database user for Stitch, run the following command when logged into MySQL:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GRANT SELECT ON <span class="k">*</span>.<span class="k">*</span> TO <span class="s1">'[stitch_username]'</span>@<span class="s1">'localhost'</span> IDENTIFIED BY <span class="s1">'[secure password here]'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Replace <code class="highlighter-rouge">[secure password here]</code> with a secure password, which can be different than the SSH password.</p>
+
+<p>If you wish to restrict this user from accessing data in specific databases, tables, or columns, you can instead run <code class="highlighter-rouge">GRANT</code> queries that only allow access to the data you permit.</p>
+
+
+
+        <hr>
+
+    
+
+
+
+    
+        <h3 id="connect-stitch">Step 5: Connect Stitch</h3>
+
+        
+
+        
+
+        
+<ol>
+  <li>
+    <p>On the Stitch Dashboard page, click the <strong>Add Integration</strong> button.</p>
+  </li>
+  <li>
+    <p>Click the <strong>MySQL</strong> icon.</p>
+  </li>
+  <li>
+    <p>Fill in the fields as follows:</p>
+
+    <ul>
+      <li>
+        <p><strong>Integration Name</strong>: Enter a name for the integration. This is the name that will display on the Stitch Dashboard for the integration; it’ll also be used to create the schema in your data warehouse.</p>
+
+        <p>For example, the name “Stitch MySQL” would create a schema called <code class="highlighter-rouge">stitch_mysql</code> in the data warehouse. <strong>Note:</strong> The schema name cannot be changed after the integration is saved.</p>
+      </li>
+      <li>
+        <p><strong>Host (Endpoint)</strong>: Enter the host address (endpoint) used by the MySQL instance.</p>
+
+        <p>In general, this will be <code class="highlighter-rouge">127.0.0.1</code> (localhost), but could also be some other network address (ex: <code class="highlighter-rouge">192.68.0.1</code>) or your server’s public IP address. <strong>Note:</strong> This must be the actual address - entering <code class="highlighter-rouge">localhost</code> into this field will cause connection issues.</p>
+      </li>
+      <li>
+        <p><strong>Port</strong>: Enter the port used by the MySQL instance. The default is <code class="highlighter-rouge">3306</code>.</p>
+      </li>
+      <li>
+        <p><strong>Username</strong>: Enter the Stitch MySQL database user’s username.</p>
+      </li>
+      <li>
+        <p><strong>Password</strong>: Enter the password for the Stitch  database user.</p>
+      </li>
+      <li>
+        <p><strong>Database</strong>:</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="ssh-connection-details">Enter SSH Connection Details</h4>
+
+<p>If you’re using an SSH tunnel to connect your MySQL database to Stitch, you’ll also need to complete the following:</p>
+
+<ol>
+  <li>
+    <p>Click the <strong>SSH Tunnel</strong> checkbox.</p>
+  </li>
+  <li>
+    <p>Fill in the fields as follows:</p>
+
+    <ul>
+      <li>
+        <p><strong>SSH Host</strong>: Enter the IP address or hostname of the server Stitch will SSH into.</p>
+      </li>
+      <li>
+        <p><strong>SSH Port</strong>: Enter the SSH port on your server. (<code class="highlighter-rouge">22</code> by default)</p>
+      </li>
+      <li>
+        <p><strong>SSH User</strong>: Enter the Stitch Linux (SSH) user’s username.</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p>In addition, click the <strong>Connect using SSL</strong> checkbox if you’re using an SSL connection. <strong>Note:</strong> The database must support and allow SSL connections for this setting to work correctly.</p>
+
+
+
+        <hr>
+
+    
+
+
+
+    
+        <h3 id="connect-stitch">Step 6: Define the Replication Frequency</h3>
+
+        
+
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+<p>The <a href="/docs/replication/replication-frequency">Replication Frequency</a>  controls how often Stitch will attempt to extract data from your MySQL integration.</p>
+
+<p><strong>Note</strong>: This setting only affects the frequency of data <strong>extraction</strong> from MySQL, not the interval at which data is loaded into your data warehouse. For example: a one (1) minute Replication Frequency means Stitch will attempt to extract data every minute, but loading the extracted data may take longer than this.</p>
+
+<h4 id="use-the-default-frequency">Use the Default Frequency</h4>
+
+<p>To use the default Replication Frequency (30 minutes), leave the <strong>Use integration default</strong> box checked and click <strong>Check and Save</strong>  to create the integration.</p>
+
+<h4 id="customize-the-frequency">Customize the Frequency</h4>
+
+<p>To adjust the Replication Frequency:</p>
+
+<ol>
+  <li>Uncheck the <strong>Use integration default</strong> checkbox. A slider with various frequencies will display.</li>
+  <li>Click the desired frequency on the slider.</li>
+  <li>Click <strong>Check and Save</strong> to create the integration.</li>
+</ol>
+
+<p>To help prevent overages, consider setting the integration to replicate less frequently. See the <a href="/docs/account-security/understanding-stitch-billing-replicated-rows">Understanding &amp; Reducing Your Row Usage guide</a> for tips on reducing your usage.</p>
+
+<!-- Only display if integration enforces API limits -->
+
+
+
+        <hr>
+
+    
+
+
+
+    
+        <h3 id="sync-data">Step 7: Select Data to Replicate</h3>
+
+        
+
+        
+<p>The last step is to <a href="/docs/replication/syncing-data">select the tables and columns you want to replicate</a>. When you track a table, you’ll also need to define its <a href="/docs/replication/replication-methods">Replication Method</a> and, if using Incremental Replication, its <a href="/docs/replication/replication-keys">Replication Key</a>.</p>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> 
+<strong>MyISAM Tables &amp; Stitch</strong><br />
+Because MyISAM tables implement table-level locking when queries are executed, any time Stitch queries a MyISAM table during a replication job, the entire table will be locked.<br /><br />
+For this reason, we recommend connecting only read replicas to Stitch to prevent locking tables in your production database. Additionally, consider converting tables to the InnoDB format (which only uses row-level locking) where possible.
+</div>
+
+<p>You can track tables and columns by:</p>
+
+<ol>
+  <li>In the Integration Details page, click the <strong>Tables to Replicate</strong> tab.</li>
+  <li>Locate a table you want to replicate.</li>
+  <li>Click the <strong>checkbox</strong> next to the object’s name. A green checkmark means the object is set to replicate.</li>
+  <li>If there are child objects, they’ll automatically display and you’ll be prompted to select some.</li>
+  <li>After you set a table to replicate, the Table Settings page will display. <strong>Note</strong>: When you track a table, by default <strong>all</strong> columns will also be tracked.</li>
+  <li>
+    <p>In the Table Settings page, define the table’s <strong>Replication Method</strong> and, if using Incremental Replication, its <strong>Replication Key</strong>.</p>
+  </li>
+  <li>
+    <p>Repeat this process for every table you want to replicate.</p>
+  </li>
+  <li>Click the <strong>Finalize Your Selections</strong> button to save your data selections.</li>
+</ol>
+
+
+
+        <hr>
+
+    
+
+
+
+
+
+
+<h3 id="initial-sync">MySQL’s Intial Replication Job</h3>
+
+<p>After you finish setting up MySQL, you might see its <strong>Sync Status</strong> show as Pending on either the Stitch Dashboard or in the Integration Details page.</p>
+
+<p>For a new integration, a <strong>Pending</strong> status indicates that Stitch is in the process of scheduling the initial replication job for the integration. This may take some time to complete.</p>
+
+
+<hr>
+
+<!-- REPLICATION DETAILS -->
+
+
+
+<h2 id="extract-data">Extracting Data from MySQL</h2>
+
+<p>When you connect a database as an input, Stitch only needs read-only access to the databases, tables, and columns you want to replicate. There are two processes Stitch runs during the Extraction phase of the replication process: a <strong>structure sync</strong> and a <strong>data sync</strong>.</p>
+
+<h3 id="structure-sync">Structure Sync</h3>
+
+<p>The first part of the replication process is called a <strong>structure sync</strong>. This process will detect any changes to the structure of your database. For example: a new column is added to one of the tables you’re syncing in Stitch.</p>
+
+<p>Stitch runs the following queries on MySQL databases to perform a structure sync:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">SHOW TABLES</code></li>
+  <li><code class="highlighter-rouge">SHOW KEYS FROM [table]</code></li>
+  <li><code class="highlighter-rouge">SELECT * FROM INFORMATION_SCHEMA.TABLES</code></li>
+</ul>
+
+<h3 id="data-sync">Data Sync</h3>
+
+<p>The second step in the Extraction phase is called a <strong>data sync</strong>. This is where Stitch “extracts” data and replicates it. The method Stitch uses is the same for all databases, but differs depending on the Replication Method that each table uses.</p>
+
+<h4 id="full-table-replication">Full Table Replication</h4>
+
+<p>For tables using Full Table Replication, Stitch will run a single query and read out of the resulting cursor in batches:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT column_a, column_b &lt;,...&gt;
+FROM table_a
+</code></pre></div></div>
+
+<h4 id="incremental-replication">Incremental Replication</h4>
+
+<p>For tables using Incremental Replication, Stitch will run a single query and read out of the associated cursor in batches:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT column_a, column_b &lt;,...&gt;
+FROM table_a
+WHERE replication_key_column &gt;=’last_bookmark_value’
+ORDER BY replication_key_column
+</code></pre></div></div>
+
+<h3 id="recommendations">Recommendations</h3>
+
+<p>While we make every effort to ensure the queries that Stitch runs don’t impart significant load on your databases, we still have some recommendations for guaranteeing database performance:</p>
+
+<ul>
+  <li><strong>Use a replica database instead of connecting directly</strong>. We recommend using read replicas in lieu of directly connecting production databases with high availability and performance requirements.</li>
+  <li><strong>Apply indexes to <a href="/docs/replication/replication-keys">Replication Key</a> columns</strong>. We restrict and order our replication queries by this column, so applying an index to the columns you’re using as Replication Keys can improve performance.</li>
+</ul>
+
+
+
+
+
+
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+
+<!-- GitHub Feedback snippet -->
+
+    
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+
+
+
+<table width="100%" class="related-articles">
+    <tbody>
+        <tr>
+            <td valign="top" width="50%; fixed">
+            	<span class="h2">Related</span>
+            </td>
+            <td valign="top" width="50%; fixed">
+            	<span class="h2">Troubleshooting</span>
+            </td>
+        </tr>
+        <tr>
+        	<td valign="top">
+        		<!-- ACCOUNT & BILLING -->
+
+
+
+
+<!-- DESTINATIONS -->
+
+
+
+
+<!-- INTEGRATIONS -->
+
+<!-- All integrations -->
+
+	<ul>
+		<li>
+			<a href="/docs/destinations/destination-integration-compatibility">Destination & Integration Compatibility</a>
+		</li>
+		
+			<li>
+				<a href="/docs/replication/replication-frequency">Replication Frequency</a>
+			</li>
+		
+
+
+<!-- Webhook Integrations -->
+
+
+
+<!-- Database Integrations -->
+
+	<li>
+		<a href="/docs/replication/replication-methods">Replication Methods</a>
+	</li>
+	
+	<!-- Only Mongo-specific docs should display on the MongoDB page -->
+	
+		<li>
+			<a href="/docs/replication/replication-keys">Replication Keys</a>
+		</li>
+	
+	<!-- End Mongo-specific docs -->
+
+	<!-- Display if Stitch supports replicating views -->
+	
+		<li>
+			<a href="/docs/replication/replicating-database-views">Replicating Database Views</a>
+		</li>
+	
+</ul>
+
+
+
+
+<!-- SaaS integrations -->
+
+
+
+
+<!-- REPLICATION -->
+
+
+
+
+<!-- DATA STRUCTURE -->
+
+        	</td>
+        	<td valign="top">
+        		<!-- ACCOUNT & BILLING -->
+
+
+
+
+<!-- DESTINATIONS -->
+
+
+
+
+<!-- INTEGRATIONS -->
+
+<!-- Database integration pages only -->
+
+<!-- Captures the integration's name -->
+
+<ul>
+	<!-- Loops over troubleshooting collection -->
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+		<li>
+			<a href="/docs/troubleshooting/mysql-tinyint1-stored-as-bit">MySQL TINYINT(1)/boolean Columns Stored as BIT</a>
+		</li>
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<li>
+		<a href="/docs/troubleshooting/integrations/database-connection-errors">Database Connection Errors</a>
+	</li>
+
+
+
+<!-- SaaS integration pages only -->
+
+
+
+<!-- All integration pages -->
+
+	<li>
+		<a href="/docs/account-security/understanding-stitch-billing-replicated-rows">Understanding & Reducing Your Usage</a>
+	</li>
+	
+		<li>
+			<a href="/docs/troubleshooting/integrations/reauthorizing-integrations">Re-Authorizing Integrations</a>
+		</li>
+	
+	<li>
+		<a href="/docs/troubleshooting/replication">Replication Issues</a>
+	</li>
+</ul>
+
+
+
+
+<!-- REPLICATION -->
+
+
+
+
+<!-- DATA STRUCTURE -->
+
+        	</td>
+        </tr>
+    </tbody>
+</table>
+
+
+    <hr>
+
+<span class="h2">Questions? Feedback?</span>
+
+<p>Did this article help? If you have questions or feedback, feel free to <a target="_blank" href="https://github.com/stitchdata/docs/blob/master/_database-integrations/mysql.md">submit a pull request</a> with your suggestions, <a href="https://github.com/stitchdata/docs/issues" target="new">open an issue on GitHub</a>, or <a href="mailto: help@stitchdata.com">reach out to us</a>.</p>
+
+
+<!-- Page tags -->
+    
+
+    
+        <div class="tags">
+            <b>Tags: </b>
+            
+            
+                
+                    <a href="/docs/tag_database_integrations" class="btn btn-default navbar-btn cursorNorm" role="button">database integrations</a>
+                
+            
+        </div>
+    
+
+</div>
+
+<footer>
+	&copy;2017 Stitch. All rights reserved. <br />
+	 Site last generated: Dec 12, 2017 <br />
+	<!--<p><img src="/docs/images/company_logo.png" alt="Company logo"/></p>-->
+</footer>
+
+
+
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/docs/js/docsearch.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="//cdn.statuspage.io/se-v2.js"></script>
+
+<script src="/docs/js/toc.js"></script>
+<script src="/docs/js/customscripts.js"></script>
+
+<script type="text/javascript">
+    $(".fouc").removeClass("fouc");
+</script>
+
+<!-- Intercom bubble -->
+<script>
+  window.intercomSettings = {
+    app_id: "okjpf68w"
+  };
+</script>
+<script>
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/okjpf68w';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+</script>
+
+<!-- Algolia search -->
+<script type="text/javascript">
+docsearch({
+  apiKey: '436dcd76593779a2261b623269cf5cfd',
+  indexName: 'stitchdata',
+  inputSelector: '#search-input',
+  debug: false, // Set debug to true if you want to inspect the dropdown
+  algoliaOptions: {
+    hitsPerPage: 10 // Controls how many results display in the dropdown
+  }
+});
+</script>
+
+</body>
+</html>

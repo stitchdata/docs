@@ -1,0 +1,71 @@
+{% assign integration = page %}
+
+{% if integration.db-type == "rds" %}
+  {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
+
+{% elsif integration.db-type == "mssql" %}
+  {% if integration.name == "azure" %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
+  {% else %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
+  {% endif %}
+
+{% elsif integration.name == "heroku" %}
+  {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
+
+{% else %}
+  {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+{% endif %}
+
+{% assign default-field = site.data.ui.database-integration-settings-page.default-fields %}
+{% assign default-copy = site.data.ui.database-integration-settings-page.default-copy %}
+
+
+1. {{ app.menu-paths.add-integration | flatify }}
+{% if integration.name == "rds" %}
+2. Click the icon (ex: MySQL) for the type of database you're connecting.
+{% elsif integration.name == "magento" %}
+2. Click the **MySQL** icon. As Magento is based on MySQL, you can use Stitch's MySQL integration to connect your Magento database.
+{% else %}
+2. Click the **{{ integration.display_name }}** icon.
+{% endif %}
+3. Fill in the fields as follows:
+   {% for field in database-settings %}
+   {% if field.name == "Database" and integration.db-type == "mysql" and integration.name != "rds" and integration.name != "azure" %}
+   - **{{ field.name }}**: {{ field.optional-copy | flatify }}
+   {% else %}
+   - **{{ field.name }}**: {{ field.copy | flatify }}
+   {% endif %}
+   {% endfor %}
+
+{% if integration.ssh == true %}
+
+{% if integration.singer == true %}
+{% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh-singer %}
+{% else %}
+{% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh %}
+{% endif %}
+
+#### Enter SSH Connection Details {#ssh-connection-details}
+
+If you're using an SSH tunnel to connect your {{ integration.display_name }} database to Stitch, you'll also need to complete the following:
+
+{% if integration.singer == true %}
+1. Click the **SSH Tunnel** checkbox.
+{% else %}
+1. Click the **Encryption Type** menu.
+2. Select **SSH Tunnel** to display the SSH fields.
+{% endif %}
+3. Fill in the fields as follows:
+   {% for field in ssh-fields %}
+   - **{{ field.name }}**: {{ field.copy | flatify }}
+   {% endfor %}
+{% endif %}
+
+{% if integration.ssl == true %}
+{% if integration.name == "heroku" %}
+**Remember:** Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data.
+{% else %}
+In addition, click the **{{ default-field.ssl }}** checkbox if you're using an SSL connection. {{ default-copy.ssl }}
+{% endif %}
+{% endif %}

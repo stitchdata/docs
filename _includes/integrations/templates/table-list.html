@@ -1,0 +1,33 @@
+
+<p><strong>For more detailed info on the attributes in each table</strong>, click the table names to check out {{ integration.display_name }}'s documentation.</p>
+
+<table id="sampleTable" class="display">
+   <thead>
+      <tr>
+         <th width="35%; fixed" valign="top">Table Name</th>
+         <th width="18%; fixed" valign="top">Replication Method</th>
+         <th valign="top">Primary Key</th>
+         <th valign="top">Notes</th>
+      </tr>
+   </thead>
+   <tbody>
+   {% for table in integration.tables %}
+      <tr>
+         <td width="35%; fixed" valign="top">
+         	{% if table.doc-link %}
+         		<a href="{{ table.doc-link }}">{{ table.name }}</a>
+         	{% else %}
+         		{{ table.name }}
+         	{% endif %}
+         </td>
+         <td width="18%; fixed" valign="top">{{ table.replication-method }}</td>
+         <td valign="top"><code>{{ table.primary-key }}</code></td>
+         <td valign="top" markdown="span">
+         	{% if table.notes %}
+         		{{ table.notes }}
+         	{% endif %}
+         </td>
+      </tr>
+    {% endfor %}
+	</tbody>
+</table>

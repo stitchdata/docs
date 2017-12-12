@@ -1,0 +1,73 @@
+{% assign integration = page %}
+
+<!-- Lists all released veresions -->
+{% assign released-versions = site.data.taps.versions.[integration.name].released-versions %}
+
+<!-- Pulls the latest version number for the integration -->
+{% assign latest-version = site.data.taps.versions.[integration.name].latest-version %}
+
+<!-- Last, pulls all docs that contain the integration's name in the `name:` Frontmatter variable. -->
+{% assign all-versioned-docs = site.saas-integrations | where:"name",integration.name %}
+
+
+<!-- VERSION SELECTION MENU -->
+
+<!-- This code includes some CSS classes specific to category pages -->
+{% if include.menu-type == "category-page" %}
+<div class="version-toggle">
+    <div class="btn-group">
+        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+            SELECT VERSION <span class="caret"></span>
+        </button>
+        <ol class="dropdown-menu">
+            {% for version in released-versions %}
+                {% for doc in all-versioned-docs %}
+                    {% if version.number == doc.this-version %}
+                        <li class="category-version-toggle">
+                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
+                            {% if version.number == latest-version %} (latest){% endif %}
+                            {% if version.released == false %} (closed beta){% endif %}
+                            {% if version.deprecated == true %} (deprecated){% endif %}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+
+{% else %}
+
+<!-- Otherwise, this version will run & display in the breadbox at the top of the article container. -->
+<div class="version-toggle">
+    <div class="btn-group">
+        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+            {{ integration.this-version | prepend: "version " | upcase }} <span class="caret"></span>
+        </button>
+        <ol class="dropdown-menu">
+            {% for version in released-versions %}
+                {% if version.number == integration.this-version %}
+                    <li class="active">
+                        version {{ version.number }}
+                        {% if version.number == latest-version %} (latest){% endif %}
+                        {% if version.released == false %} (closed beta){% endif %}
+                        {% if version.deprecated == true %} (deprecated){% endif %}
+                        <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                    </li>
+                {% else %}
+                    {% for doc in all-versioned-docs %}
+                        {% if version.number == doc.this-version %}
+                            <li>
+                                <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
+                                {% if version.number == latest-version %} (latest){% endif %}
+                                {% if version.released == false %} (closed beta){% endif %}
+                                {% if version.deprecated == true %} (deprecated){% endif %}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endif %}

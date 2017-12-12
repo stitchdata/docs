@@ -1,0 +1,22 @@
+## Replication Key Requirements
+
+{% if page.title contains "Mongo" %}
+Stitch uses a field you define - called a Replication Key - to identify new and updated data for replication. For Mongo connections, Stitch requires that the Replication Key field:
+
+1. be indexed, AND
+2. exist in the **root** of the document.
+
+If you want to sync Mongo data and are going to add query parameters - which is what [Incremental Replication]({{site.baseurl}}/replication/replication-methods#incremental-replication) does - undue stress could be put on your Mongo database. By indexing the fields you want to sync, that stress can be relieved.
+
+{% else %}
+
+To use [Incremental Replication]({{site.baseurl}}/replication/replication-methods#incremental-replication), a table must contain one of the following column types to be used as the Replication Key:
+
+- a large integer, which includes `BIGINT`, `INT` and `MEDIUMINT`
+- `datetime`
+- `timestamp`
+
+When Stitch replicates your data, it will store the last recorded maximum value in the Replication Key column and compare it against the data source - **not what's in your data warehouse** - to identify new/updated data. 
+
+Any row with a Replication Key value greater than or equal to the stored value is where Stitch will begin the next replication attempt.
+{% endif %}

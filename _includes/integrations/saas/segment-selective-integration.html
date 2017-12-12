@@ -1,0 +1,18 @@
+All data collected by Segment is sent to us by default, but if individual snippets on your site specify which integrations data should be sent to, then these settings will be overridden. 
+
+**If you use [selective integration snippets](https://segment.com/docs/libraries/analytics.js/#selecting-integrations)**, you'll need to add Stitch to the list of integrations before data will flow to your data warehouse.
+
+Here's an example of a snippet that sends data to Stitch, Mixpanel, and KISSMetrics **only**:
+
+```json-doc
+}, {
+  integrations: {
+    'All': false,
+    'Stitch': true,            // 'true' indicates if the integration receives data
+    'Mixpanel': true,
+    'KISSmetrics': true
+   }
+});
+```
+
+When you add Stitch to your snippet, make sure you enter Stitch **exactly** as it appears in the example above.

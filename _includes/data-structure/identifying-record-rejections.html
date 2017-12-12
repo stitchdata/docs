@@ -1,0 +1,11 @@
+## Identifying & Resolving Record Rejections {#identify-record-rejections}
+
+If Stitch is unable to fit data into a table, you'll experience some missing data on your end. To troubleshoot, we recommend taking a look at some of the common causes for dropped/missing data:
+
+- The table name is longer than the data warehoues's character limit
+- A column name is longer than the data warehouse's character limit
+- Stitch's permissions to your data warehouse have been revoked
+- There are column names appended with `__string`, `__bigint`, etc. These are reserved for Stitch.
+- There are column names prepended with `_sdc` or `_rjm`. These are reserved for Stitch.
+
+To pinpoint the problem, check the [Rejection Records table]({{ link.troubleshooting.rejected-records | prepend: site.baseurl }}) for the integration or the Data Loading Behavior rollup for your data warehouse. These rollups contain lists of common data loading scenarios and the expected behavior, including why some records may be rejected by the data warehouse.

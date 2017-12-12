@@ -1,0 +1,481 @@
+## category-name:		## category name
+
+# - id:           ##
+#   summary: ""	## whatever the scenario is. 'default' will use what is in the scenarios.yml file.
+#   result: ""		## whatever the result is. 'default' will use what is in the scenarios.yml file.
+
+#   rejectable: 	## 'true' if this scenario can result in rejected data
+#   error:			## error message text goes here if this scenario will result in an error message
+#   troubleshooting: ""   ## if the user can troubleshoot the error, enter the steps here or link to help. 'default' will use what is in the scenarios.yml file.
+
+scenarios:
+# -------------------------------------------- #
+#                                              #
+#                  PRIMARY KEYS                #
+#                                              #
+# -------------------------------------------- #
+
+## Data arrives without a Primary Key:
+  - id: no-pk
+    summary: default
+    result: |
+      - **Initial sync**: Table is created without Primary Key and no `NOT NULL` columns.
+      - **Subsequent syncs**: If using Incremental Replication, data will be added to the table in an Append-Only fashion.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Data arrives with single Primary Key:
+  - id: single-pk
+    summary: default
+    result: |
+      - **Initial sync:** Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
+      - **Subsequent syncs:** If using Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Data arrives with MULTIPLE Primary Keys:
+  - id: multiple-pks
+    summary: default
+    result: |
+      - **Initial sync**: Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
+      - **Subsequent syncs**: If using Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Primary Key column is changed in the warehouse:
+  - id: pk-column-change
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Primary Key column is removed in the warehouse:
+  - id: remove-pk-column
+    summary: "The table's Primary Key comment is either removed or changed to be incorrectly formatted."
+    result: |
+      Data will continue to be loaded into the table in an Append-Only fashion.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------------------------- #
+#                                              #
+#               REPLICATION KEYS               #
+#                                              #
+# -------------------------------------------- #
+
+## Replicaiton Key contains NULLs
+  - id: null-rep-keys
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------------------------- #
+#                                              #
+#                  DATA TYPES                  #
+#                                              #
+# -------------------------------------------- #
+
+## Column contains multiple data types
+  - id: mixed-data-types
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Table contains nested data
+  - id: nested-data-structures
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------- #
+#   DATA TYPES > VARCHARs    #
+# -------------------------- #
+
+## VARCHAR Storage
+  - id: varchar-storage
+    summary: default
+    result: |
+      {{ destination.display_name }} will type the column as `VARCHAR(n)`, where `n` is the width of the widest record in the column.
+
+      For example: during the initial sync, data in a `VARCHAR` column is found to have a width greater than `128`. {{ destination.display_name }} will create type this column as `VARCHAR(256)` to accommodate the data.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## VARCHAR Widening
+  - id: varchar-widening
+    summary: default
+    result: |
+
+      {{ destination.display_name }} will widen the column to accommodate the width of the largest record up to the limit of `{{ destination.varchar-limit }}`.
+
+      For example: during the initial sync, a `VARCHAR` column is created and typed as `VARCHAR(128)`.
+
+      During a subsequent sync, Stitch identifies data for this column that exceeds the current size maximum of `128` but is less than `256`.
+
+      To accommodate the data, the column will become `VARCHAR(256)`.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## VARCHAR exceeds limit
+  - id: varchar-max-size
+    summary: default
+    result: "{{ destination.display_name }} will truncate the data to the maximumm width of `{{ destination.varchar-limit }}`."
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+
+# -------------------------- #
+#  DATA TYPES > Dates & Time #
+# -------------------------- #
+
+## Column contains date data with timezone info
+  - id: date-with-timezone
+    summary: default
+    result: |
+      {{ destination.display_name }} will store the data as `TIMESTAMP WITHOUT TIME ZONE`. In {{ destination.display_name }}, `TIMESTAMP WITHOUT TIME ZONE` data is stored without timezone information and expressed as UTC.
+
+      Consider the following timestamp:
+
+      ```
+      2017-08-14 11:24:02 GMT-0400 (EDT)
+      ```
+
+      This data would be stored as the following in {{ destination.display_name }}:
+
+      ```
+      2017-08-14 11:24:02
+      ```
+
+      For more info on this data type, refer to [Amazon's Datetime Type documentation](http://docs.aws.amazon.com/redshift/latest/dg/r_Datetime_types.html#r_Datetime_types-timestamp){:target="_blank"}.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column contains timestamp data out of range
+  - id: timestamps-out-of-range
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      timestamp out of range for {{ destination.display_name }} on [TIMESTAMP]
+      ```
+    troubleshooting: default
+
+# -------------------------- #
+#    DATA TYPES > Numeric    #
+# -------------------------- #
+
+## Column contains integer data out of range
+  - id: integer-out-of-range
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      integer out of range for {{ destination.display_name }} on [INTEGER]
+      ```
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination.integer-limit }}."
+
+## Column contains decimal data
+  - id: decimal-storage
+    summary: default
+    result: |
+      {{ destination.display_name }} will truncate data to {{ destination.decimal-range }}.
+
+    rejectable: false
+    error: none
+    troubleshooting: default
+
+## Column contains decimal data out of range
+  - id: decimals-out-of-range
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      decimal out of range for {{ destination.display_name }} on [DECIMAL]
+      ```
+    troubleshooting: default
+
+# -------------------------------------------- #
+#                                              #
+#                     TABLES                   #
+#                                              #
+# -------------------------------------------- #
+
+## Table name is too long
+  - id: table-name-limit
+    summary: default
+    result: |
+      {{ destination.display_name }} will reject all data for the table.
+
+    rejectable: true
+    error: |
+      ```
+      Table name [TABLE] is too long for {{ destination.display_name }}
+      ```
+    troubleshooting: default
+
+## Table contains too many columns
+  - id: column-table-limit
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      ERROR: too many columns
+      ```
+    troubleshooting: default
+
+# -------------------------------------------- #
+#                                              #
+#                   COLUMNS                    #
+#                                              #
+# -------------------------------------------- #
+
+## Completely empty columns
+  - id: all-empty-column
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Only some columns are empty
+  - id: all-empty-columns
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Backfill columns in an Incremental Table
+  - id: backfill-incremental-table
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+
+# -------------------------- #
+#     Add/Remove Columns     #
+# -------------------------- #
+
+## Add new column in SaaS integration/data source
+  - id: new-column-saas-source
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Add column to Stitch-replicated table in warehouse
+  - id: add-column-warehouse
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column is removed from source
+  - id: removed-column-source
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Remove column from Stitch-replicated table in warehouse
+  - id: remove-column-warehouse
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------- #
+#        Column Names        #
+# -------------------------- #
+## Official Docs: http://docs.aws.amazon.com/{{ destination.display_name }}/latest/dg/r_names.html
+
+
+## Duplicate field names
+  - id: duplicate-field-names
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      Field collision on [COLUMN_NAME]
+      ```
+    troubleshooting: default
+
+## Column names contain MiXeDCaSe
+  - id: mixed-case-column-name
+    summary: default
+    result: |
+      {{ destination.display_name }} will convert letters to lowercase. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `CuStOmErId`      | `customerid`             |
+      | `customerID`      | `customerid`             |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column names contain spaces
+  - id: column-name-spaces
+    summary: default
+    result: |
+      {{ destination.display_name }} will maintain spaces. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `customer id`     | `customer id`            |
+      | `CUSTOMER ID`     | `customer id`            |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column name contains unsupported special characters
+  - id: column-name-special-char
+    summary: default
+    result: |
+      {{ destination.display_name }} will remove all special characters. Note that this doesn't include underscores or dollar signs. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `customer!id`     |  | `customerid`             |
+      | `!CUSTOMERID`     |  | `customerid`             |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column name begins with a non-letter character
+  - id: column-name-starts-non-letter
+    summary: default
+    result: |
+      This scenario is unremarkable to {{ destination.display_name }}.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column name is too long
+  - id: column-name-limit
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      Column name [COLUMN] is too long for {{ destination.display_name }}
+      ```
+    troubleshooting: default
+
+# -------------------------------------------- #
+#                                              #
+#              WAREHOUSE CHANGES               #
+#                                              #
+# -------------------------------------------- #
+
+## Customer applies indexes to Stitch-generated columns
+  - id: apply-indices
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Customer applies SORT / DIST Keys to Stitch-generated columns
+  - id: sort-dist-keys
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Customer switches to a new destination of the same type
+  - id: switch-destination-same-type
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Customer revokes Stitch's schema/table permissions
+  - id: revoke-stitch-schema-table-permissions
+    summary: default
+    result: default
+
+    rejectable: none
+    error: |
+      ```
+      ERROR: permission denied for relation [SCHEMA/TABLE]
+      ```
+    troubleshooting: default
+
+## Customer revokes Stitch's warehouse access
+  - id: revoke-stitch-warehouse-access
+    summary: default
+    result: default
+
+    rejectable: false
+    error: |
+      ```
+      FATAL: password authentication failed for user '[STITCH_USER]'
+      ```
+    troubleshooting: default

@@ -1,0 +1,18 @@
+### Replication Key Recommendations
+
+{% if page.title contains "Mongo" %}
+1. **Replication Key fields should contain only one data type.** While Mongo allows you to have multiple data types in a single field, we strongly recommend keeping Replication Key fields to just one. This is because of the way Mongo compares and sorts data types and how this can impact replication.
+
+2. **Date and timestamp fields are great Replication Key candidates**. We’re big fans of using `updatedAt` or `modifiedAt`. This is the best way to ensure that both new records and updates to existing records are captured.
+
+   In some cases - for example, if a table is Append-Only - `createdAt` may also be suitable.
+
+3. **If date or timestamp fields can't be used, Replication Keys should update incrementally.** Fields with `Integer` and `ObjectId` data types can be used as Replication Keys if they update incrementally, which allows Stitch to identify a `MAX` value and detect new records for replication. 
+
+   This is suitable for Append-Only tables only, meaning that the table is only updated with new data. If existing records are ever modified, a field like `updatedAt` or `modifiedAt` should be used instead.
+
+
+{% else %}
+- **For tables where existing records are updated**: We’re big fans of using `updated_at` or `modified_at` columns as Replication Keys. This is the best way to ensure that both new records and updates to existing records are captured.
+- **For <a href="#" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only-rep }}">Append-Only</a> tables**: We recommend using a unique, auto-incrementing integer as the Replication Key for these types of tables. However, a `created_at` date or `timestamp` column may also be suitable.
+{% endif %}

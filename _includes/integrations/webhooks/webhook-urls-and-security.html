@@ -1,0 +1,10 @@
+Stitch allows you to generate up to 2 {{ integration.display_name }} webhook URLs at a time. These URLs contain security access tokens and as such, have access to your {{ integration.display_name }} account. 
+
+If you ever need to change your webhook URL, you can do so in the Integration Settings page after the integration has been created:
+
+1. Click into the integration from the {{ app.page-names.dashboard }} page.
+2. Click the {{ app.buttons.update-int-settings }} button.
+3. In the **Webhook URLs** section, click the **Generate Webhook URL** button.
+4. A new webhook URL will display. Press the **clipboard icon** to copy it.
+4. **Follow the steps in the [Setting Up Webhooks in {{ integration.display_name }}](#setup-webhooks-in-app) section to update the webhook URL in {{ integration.display_name }}.** 
+5. After you've updated the webhook URL in {{ integration.display_name }}, click the **Revoke** button next to the **oldest webhook URL** in Stitch. This will invalidate the token and revoke access.

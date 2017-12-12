@@ -1,0 +1,38 @@
+{% if include.copy == "compatibility" %}
+
+    {% unless page.integration-type == "database" or page.integration-type == "webhook" %}
+        <h2 id="destination-integration-compatibility">Destination & Integration Compatibility</h2>
+
+        <p>Some integrations may be partially or fully incompatible with some of the destinations offered by Stitch. For example: some destinations don’t support storing multiple data types in the same column. If a SaaS integration sends over a column with mixed data types, <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}">some destinations may “reject” the data</a>.</p>
+
+        <p>To see if the integrations you're using are compatible with your destination, check out the <a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination & Integration Compatibility Guide</a>.</p>
+    {% endunless %}
+
+{% elsif include.copy == "current-integrations" %}
+
+    {% case page.integration-type %}
+        {% when 'database' %}
+
+            <p>Ready to connect your database to Stitch? For setup instructions and details on the queries Stitch runs to replicate data, check out the guides below.</p>
+
+            <p>If you don't see what you're looking for in the list below, check out the Singer project. A simple, composable, open-source ETL standard, Singer allows you to extract data from any source. Check out the <a href="{{ site.singer-roadmap }}" target="new">Roadmap</a> or <a href="{{ site.singer-github }}" target="new">GitHub repo</a> to see what's currently being worked on.</p>
+
+            {% assign integrations = site.database-integrations | where:"input",true | sort:"title" %}
+
+    {% else %}
+
+        <p>If you don't see what you're looking for in the list below, check out the Singer project. A simple, composable, open-source ETL standard, Singer allows you to extract data from any source. Check out the <a href="{{ site.singer-roadmap }}" target="new">Roadmap</a> or <a href="{{ site.singer-github }}" target="new">GitHub repo</a> to see what's currently being worked on.</p>
+
+        <p>Additionally, Stitch's Import API or Incoming Webhooks integrations can be used to extract data from sources that don't currently have a native integration.</p>
+
+        {% case page.integration-type %}
+            {% when 'saas' %}
+                {% assign integrations = site.saas-integrations | where:"input",true | sort:"title" %}
+            {% when 'webhook' %}
+                {% assign integrations = site.webhook-integrations | where:"input",true | sort:"title" %}
+            {% when 'all' %}
+                {% assign integrations = site.documents | where:"input",true | sort:"title" %}
+        {% endcase %}
+    {% endcase %}
+
+{% endif %}

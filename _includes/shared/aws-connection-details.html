@@ -1,0 +1,31 @@
+{% if destination.type == "redshift" %}
+{% capture database-name %}Database Name{% endcapture %}
+{% capture master-user %}Master Username{% endcapture %}
+
+{% elsif destination.type == "postgres" %}
+{% capture database-name %}DB Name{% endcapture %}
+{% capture master-user %}Username{% endcapture %}
+{% endif %}
+
+{% include shared/aws-details-nav.html %}
+3. Locate the following fields:
+   - **Endpoint**
+   - **{{ database-name }}:** This is the name of the database you want to connect to Stitch. **This must be a pre-existing database - Stitch won't create one for you.** It could be:
+      - The name of the database you used to launch the instance.
+      - The name of another database within {{ destination.display_name }}. 
+   - **{{ master-user }}:** You'll only need this if you're using the master user's credentials to connect to Stitch.
+   - **Port:** This is the port used by the database.
+
+
+These fields are highlighted in the image below:
+
+{% if destination.type == "postgres" %}
+![PostgreSQL database details page]({{ site.baseurl }}/images/destinations/postgresql-rds-db-details.png)
+
+{% elsif destination.type == "redshift" %}
+{% if page.title contains "SSH" %}
+![Redshift cluster details]({{ site.baseurl }}/images/destinations/redshift-ssh-cluster-details.png)
+{% else %}
+![Redshift cluster details]({{ site.baseurl }}/images/destinations/redshift-db-details.png)
+{% endif %}
+{% endif %} 

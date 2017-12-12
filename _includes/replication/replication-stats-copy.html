@@ -1,0 +1,27 @@
+{% if page.title != "Monitoring Replication Progress" %}
+### Monitoring Replication Progress
+{% endif %}
+
+Want to know where your data is in the replication process? The Replication Stats on the Integration Details page for every integration - **which will display only after the initial sync has completed** - can help you determine where your data is and check up on recently loaded data.
+
+![Integration Replication Stats]({{ site.baseurl }}/images/replication/replication-stats.png)
+
+**These stats are not real-time and will update every few minutes.** Remember to refresh the page if you're eager to watch your data move through Stitch. 
+
+{% if page.title == "Monitoring Replication Progress" %}
+## Stitch's Replication Process
+Each part of the Stitch replication process has its own section and stats. The Stitch replication process consists of three steps:
+
+- Extract
+- Prepare
+- Load
+
+Every integration you connect to Stitch will have these stats on its {{ app.page-names.int-details }} page, which you can access by clicking into the integration from the {{ app.page-names.dashboard }}.
+
+{% include replication/replication-stats.html %}
+
+If your data hasn't shown up after a reasonable amount of time, [reach out to support](mailto: {{ site.support }}).
+
+{% else %}
+**To learn more about how info is displayed in these fields**, check out the [Monitoring Replication Progress guide]({{ link.replication.rep-progress | prepend: site.baseurl }}).
+{% endif %}

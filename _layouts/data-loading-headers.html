@@ -1,0 +1,39 @@
+---
+layout: page
+---
+
+{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign data-loading = site.data.dataloading[page.type].scenarios %}
+{% assign default = site.data.dataloading.scenarios %}
+
+
+<h2>Primary Keys</h2>
+	{% include data-structure/data-loading-tabs.html category="primarykeys" %}
+<hr>
+
+
+<h2>Replication Keys</h2>
+	{% include data-structure/data-loading-tabs.html category="rep-keys" %}
+<hr>
+
+<h2>Tables</h2>
+	{% include data-structure/data-loading-tabs.html category="tables" %}
+<hr>
+
+
+<h2>Columns</h2>
+	{% include data-structure/data-loading-tabs.html category="columns" %}
+<hr>
+
+
+<h2>Data Typing</h2>
+	{% include data-structure/data-loading-tabs.html category="data-types" %}
+<hr>
+
+<h2>Schema Changes</h2>
+	{% include data-structure/data-loading-tabs.html category="schema-change" %}
+<hr>
+
+
+<h2>Data Warehouse Changes</h2>
+	{% include data-structure/data-loading-tabs.html category="warehouse" %}

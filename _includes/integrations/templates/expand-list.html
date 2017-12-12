@@ -1,0 +1,95 @@
+{% include misc/more-info-icons.html %}
+
+
+<!-- This captures the values of these variables and outputs them as strings. This is done so the values can be used as tooltips inside the info icons, as variables can't be used inside other variables. -->
+{% capture append-only %}
+{{ site.data.tooltips.append-only-rep }}
+{% endcapture %}
+
+{% capture incremental %}
+{{ site.data.tooltips.incremental-rep }}
+{% endcapture %}
+
+{% capture full-table %}
+{{ site.data.tooltips.full-table-rep }}
+{% endcapture %}
+
+{% capture nested-structures %}
+{{ site.data.tooltips.nested-structures }}
+{% endcapture %}
+
+<br>
+<div class="panel-group" id="accordion">
+    {% for table in integration.tables %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" id="{{ table.name }}">{{ table.name }}</h4>
+                    <p><strong>Replication Method:</strong> {{ table.replication-method }}
+                        {% if table.replication-method == "Append-Only (Incremental)" %}
+                            {{ question-icon | replace:"TOOLTIP",append-only }}
+
+                        {% elsif table.replication-method == "Incremental" %}
+                            {{ question-icon | replace:"TOOLTIP",incremental }}
+
+                        {% elsif table.replication-method == "Full Table" %}
+                            {{ question-icon | replace:"TOOLTIP",full-table }}
+                        {% endif %}
+                        <br>
+                    {% if table.primary-key %}
+                        <strong>Primary Key:</strong> <code>{{ table.primary-key }}</code>
+                        <br>
+                    {% endif %}
+                    <strong>Contains Nested Structures?:</strong> 
+                        {% if table.nested-structures == true %}  
+                            Yes{{ question-icon | replace:"TOOLTIP",nested-structures }}</p>
+                        {% else %} 
+                            No</p>
+                        {% endif %}
+                        
+                        {% if integration.format.table-desc == false %}
+                            {{ table.description | markdownify }}
+                        {% else %}
+                            <div markdown="1">The <code>{{ table.name }}</code> table contains {{ table.description }}</div>
+                        {% endif %}
+                                    
+                        <p><a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ table.name }}-data">Table Info & Attributes</a></p>
+            </div>
+            <div id="{{ table.name }}-data" class="panel-collapse collapse noCrossRef">
+                <div class="panel-body">
+                    {% if table.notes or table.nested-structures == true %}
+                        {% if table.nested-structures == true %}
+                            <h3 id="{{ table.name }}-nested-structures">{{ table.name }} & Nested Structures</h3>
+                                <p><strong>This table contains nested structures.</strong> If you use a data warehouse that doesn't natively support nested structures, some of the attributes listed below may be in a subtable.<br><br>
+                                
+                                These items are marked with a <code>*</code></p>
+                        {% endif %}
+                                {{ table.notes | markdownify }}	
+                    {% endif %}
+                    {% if table.attribution-window == true and table.name != "SAMPLE_TABLE" %}
+                        <h3 id="{{ table.name }}-attribution-window">Replication & Attribution Windows</h3>
+                            <p>Every time a replication job runs for {{ integration.display_name }}, the past <strong>{{ integration.attribution-window }}</strong>' worth of data will be replicated for this table. As a result, you may see a higher number of replicated rows than what's being generated in {{ integration.display_name }}.</p>
+
+                            <p>Stitch replicates data in this way to account for updates made to existing records within {{ integration.display_name }}'s default attribution window, thus ensuring you won't make decisions based on stale (or false) data.</p>
+                    {% endif %}
+                        {% if table.attributes %}
+                            <h3 id="{{table.name}}-attributes">{{ table.name }} Attributes</h4>
+                                    {% if table.attribute-notes == null %}
+                                        <p>While we try to include everything {{ integration.display_name }} has here, <strong>this may not be a full list of attributes.</strong>
+                                            {% if table.doc-link %}
+                                                Refer to <a href="{{ table.doc-link }}" target="blank">{{ integration.display_name }}'s documentation</a> for a full list and description of each attribute.
+                                            {% endif %}</p>
+                                        {% else %}
+                                        {{ table.attribute-notes | markdownify }}
+                                    {% endif %}
+                                    <ul>
+                                    {% for attribute in table.attributes %}
+                                        <li>{{ attribute.name | markdownify }}</li>
+                                    {% endfor %}
+                        {% endif %}
+                                    </ul>
+                </div>
+            </div>
+        </div>
+       <!-- /.panel -->
+    {% endfor %}
+</div>

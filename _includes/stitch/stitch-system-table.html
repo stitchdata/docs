@@ -1,0 +1,30 @@
+{% if include.table == "system" %}
+	{% assign table-attributes = site.data.stitch.sdc-columns.attributes %}
+
+{% elsif include.table == "rejected" %}
+	{% assign table-attributes = site.data.stitch.rejected-records.attributes %}
+{% endif %}
+
+<table width="100%">
+	{% for column in table-attributes %}
+		<tr>
+			<td width="30%; fixed" align="right">
+				{% if column.name == "_sdc_source_key_" %}
+					<strong>{{ column.name | flatify | append:"[pk-name]" }}</strong>
+				{% else %}
+					<strong>{{ column.name | flatify | replace:"#","0" }}</strong>
+				{% endif %}
+				<br>
+				<code>{{ column.type | upcase }}</code>
+			</td>
+			<td>
+				{{ column.description | flatify | markdownify }}
+			</td>
+			{% if column.data %}
+				<td width="30%; fixed">
+					<code>{{ column.data }}</code>
+				</td>
+			{% endif %}
+		</tr>
+	{% endfor %}
+</table>

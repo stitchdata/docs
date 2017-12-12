@@ -1,0 +1,13 @@
+After you've successfully connected your {{ destination.display_name }} data warehouse to Stitch, you can start adding integrations and replicating data.
+
+For each integration that you add to Stitch, [a schema specific to that integration]({{ link.destinations.storage.stitch-schema | prepend: site.baseurl }}) will be created in your data warehouse. This is where all the tables for that inegration will be stored.
+
+Stitch will encounter dozens of scenarios when replicating and loading your data. To learn more about how {{ destination.display_name }} handles these scenarios, check out the [Data Loading Guide for {{ destination.display_name }}]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}).
+
+### Rejected Records Log
+
+Occasionally, Stitch will encounter data that it can't load into the data warehouse. For example: a table contains more columns than {{ destination.display_name }}'s allowed limit of {{ destination.column-limit }} columns per table.
+
+When this happens, the data will be "rejected" and logged in a table called `_sdc_rejected`. Every integration schema created by Stitch will include this table as well as the other tables in the integration.
+
+**[Learn more about the rejected records log]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }})**

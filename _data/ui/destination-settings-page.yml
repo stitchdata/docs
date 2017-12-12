@@ -1,0 +1,187 @@
+## This file contains the default field names and descriptions for
+## the fields in the Destination Settings page.
+
+## As the required fields vary from destination to destination, 
+## each destination type below lists the fields required for its
+## specific setup and, if applicable, a description that's specific
+## to that destination.
+
+## For example: Snowflake's setup does have a Host field, but the
+## format required isn't an endpoint string or IP address like most
+## other databases would have. It's a URL. In this case, the default
+## copy isn't used.
+
+## The defaults for the fields and descriptions are outlined below.
+## They are set up as references - to use them, type an asterisk and
+## then the ID of whatever reference you want. Jekyll will print the 
+## result.
+
+## Ex: *host-copy
+## Will produce the following when the site is built:
+## "Enter the host address (endpoint) used by the [DESTINATION] instance."
+
+
+# -------------------------- #
+#       Default Fields       #
+# -------------------------- #
+## Defines the default field names in the Destination Settings page.
+
+default-fields:
+  host: &host Host (Endpoint)
+  port: &port Port
+  username: &username Username
+  password: &password Password
+  database: &database Database
+  ssl: &ssl Connect using SSL
+
+# -------------------------- #
+#        Default Copy        #
+# -------------------------- #
+## Default copy for fields. Used when the user doesn't require any 
+## additional or info specific to the destination to complete the setup.
+
+default-copy:
+  host: &host-copy |
+    Enter the host address (endpoint) used by the {{ destination.display_name }} instance.
+  port: &port-copy |
+    Enter the port used by the {{ destination.display_name }} instance. The default is `{{ destination.port }}`.
+  username: &username-copy Enter the Stitch {{ destination.display_name }} user's username.
+  password: &password-copy |
+    Enter the password associated with the Stitch {{ destination.display_name }} user.
+  database: &database-copy |
+    Enter the name of the {{ destination.display_name }} database that you created for Stitch.
+
+# -------------------------- #
+#         SSH Fields         #
+# -------------------------- #
+## These fields are used when the instructions are for connecting
+## a destination using an SSH tunnel.
+
+ssh:
+  - field: Remote Address
+    copy: "Enter the IP address or hostname of the server Stitch will SSH into."
+    redshift-copy: "Enter the bastion box’s IP address. This is the IPv4 CIDR you retrieved in [Step 5](#retrieve-vpc-ip)."
+  - field: SSH Port
+    copy: "Enter the SSH port on your server. (**22** by default)"
+    redshift-copy: "Enter the bastion box’s port. If you’re using the default, this will be **22**."
+  - field: SSH User
+    copy: "Enter the Stitch Linux (SSH) user’s username."
+    redshift-copy: "Enter the Stitch Linux (SSH) user’s username."
+
+# -------------------------- #
+#           Panoply          #
+# -------------------------- #
+
+panoply:
+  - field: *host
+    copy: *host-copy
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: Enter the username of the database user you want to use to connect Panoply to Stitch.
+  - field: *password
+    copy: Enter the password of the database user you want to use to connect Panoply to Stitch.
+  - field: *database
+    copy: Enter the name of the database in your Panoply data warehouse you want to connect to Stitch.
+
+# -------------------------- #
+#          Postgres          #
+# -------------------------- #
+
+postgres:
+  - field: *host
+    copy: *host-copy
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: *database-copy
+
+# -------------------------- #
+#       Heroku-Postgres      #
+# -------------------------- #
+
+heroku-postgres:
+  - field: *host
+    copy: "Paste the host of the Heroku database."
+  - field: *port
+    copy: "Paste the port used by the Heroku database."
+  - field: *username
+    copy: "Paste the username of the Heroku database user."
+  - field: *password
+    copy: |
+      Paste the password of the Heroku database user. Click the **Show** link in the Heroku **Connection Settings** page to reveal it, if you haven't already.
+  - field: *database
+    copy: "Paste the name of the Heroku database."
+  - field: *ssl
+    copy: "Check this box. Heroku requires SSL to connect - if left unchecked, Stitch will be unable to connect to your Heroku database."
+
+
+# -------------------------- #
+#        Postgres-RDS        #
+# -------------------------- #
+postgres-rds:
+  - field: *host
+    copy: &rds |
+      Paste the **Endpoint** address from the {{ destination.display_name }} Details page in AWS into this field.
+
+            Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors. For example: if you used the default port, you’d remove the following from the address: `:{{ destination.port }}`
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: *database-copy
+
+# -------------------------- #
+#     CloudSQL Postgres       #
+# -------------------------- #
+
+cloudsql-postgres:
+  - field: *host
+    copy: "Paste the address that is in the **IPv4 address** field in the Google Console."
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: *database-copy
+
+# -------------------------- #
+#          Redshift          #
+# -------------------------- #
+
+redshift:
+  - field: *host
+    copy: *rds ## Uses same copy as Postgres-RDS
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: *database-copy
+
+# -------------------------- #
+#          Snowflake         #
+# -------------------------- #
+
+snowflake:
+  - field: *host
+    copy: "Enter the URL of your Snowflake account. For example: `stitch.snowflakecomputing.com`"
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: *database-copy
+  - field: Warehouse
+    copy: "Enter the name of the Snowflake warehouse that you created for Stitch."

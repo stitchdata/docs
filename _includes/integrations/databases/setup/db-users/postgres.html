@@ -1,0 +1,13 @@
+Your organization may require a different process, but the simplest way to create this user is to execute the following query when logged into the {{ integration.display_name }} database as a user with the right to grant privileges. This user should also own the schema that Stitch is being granted access to.
+
+{% highlight shell %}
+CREATE USER [stitch username] WITH ENCRYPTED PASSWORD '[secure password]';
+GRANT CONNECT ON DATABASE [database name] TO [stitch username];
+GRANT USAGE ON SCHEMA [schema name] TO [stitch username];
+GRANT SELECT ON ALL TABLES IN SCHEMA [schema name] TO [stitch username];
+ALTER DEFAULT PRIVILEGES IN SCHEMA [schema name] GRANT SELECT ON TABLES TO [stitch username];
+{% endhighlight %}
+
+Replace `[secure password here]` with a secure password{% if integration.ssh == true %}, which can be different than the SSH password.{% else %}.{% endif %} Additionally, make sure you replace `[database name]` and `[schema name]` with the appropriate names in your database.
+
+If you want to connect multiple databases or schemas, repeat this process as necessary.

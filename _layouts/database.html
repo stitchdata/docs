@@ -1,0 +1,52 @@
+---
+layout: page
+---
+{% assign integration = page %}
+{% include misc/data-files.html %}
+
+<!-- SUPPORT, BETA, AND SINGER NOTICE -->
+{% include notifications/support-beta-singer-notice.html %}
+
+
+<!-- INTEGRATION-SPECIFIC NOTICES -->
+{% if integration.notice %}
+    {% capture notice %}
+    {{ integration.notice | flatify | markdownify }}
+    {% endcapture %}
+
+    {% include important.html content=notice %}
+{% endif %}
+
+
+<!-- INTEGRATION SNAPSHOT -->
+    {% include integrations/templates/database-integration-snapshot.html %}
+
+
+<!-- CONNECTION INSTRUCTIONS -->
+    {% include integrations/templates/database-connection-instructions.html %}
+
+<hr>
+
+<!-- REPLICATION DETAILS -->
+{% capture extraction-queries %}
+{% include replication/databases/extraction-queries.html %}
+{% endcapture %}
+
+{{ extraction-queries | flatify | markdownify }}
+
+{% if integration.replication-sections %}
+    <h2 id="replication">{{ integration.display_name }} Replication</h2>
+
+    {% for section in integration.replication-sections %}
+        {% if section.title %}
+            <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
+        {% endif %}
+
+        {{ section.content | flatify | markdownify }}
+    {% endfor %}
+
+    <hr>
+{% endif %}
+
+
+{{ content }}

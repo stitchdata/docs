@@ -1,0 +1,23 @@
+1. The Security Group associated with your {{ destination.display_name }} instance should automatically open in the Security Groups page. If it doesn't, click the name of the appropriate group.
+2. The Security Group's details will display in tabs in the bottom part of the page. Click the **Inbound** tab:
+
+   ![The Security Group page in AWS]({{ site.baseurl }}/images/destinations/aws-security-group-page.png)
+3. In the Inbound tab, click the **Edit** button. This will open the **Edit inbound rules** window.
+4. This is where you’ll add the IP addresses that can access the instance. Fill out the fields in this screen as follows:
+   - **Type:** Select **Custom TCP Rule** from the drop-down.
+   - **Protocol:** This will default to **TCP** - leave it as-is.
+   - **Port Range:** Enter the port associated with the instance. This will be the same port you used to create the instance. (`{{ destination.port }}` is the default)
+   - **Source:** The drop-down will default to **Custom** - leave it as-is. 
+
+      In the field next to the drop-down, copy and paste one of the following IP addresses. You need to add them one at a time, meaning each IP address gets its own rule:
+
+      {% for ip-address in ip-addresses %}
+      - {{ ip-address.ip }}
+      {% endfor %}
+
+      Below is an example of what a rule should look like:
+
+      ![Whitelisting Stitch IP addresses through Inbound Security Group rules.]({{ site.baseurl}}/images/destinations/aws-whitelisting-inbound-rules.png)
+5. Click **Add Rule** to add an additional Inbound rule.
+6. Repeat the previous two steps until all of Stitch's IP addresses (along with any others you may want to whitelist) have been added.
+7. Click **Save**.

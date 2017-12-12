@@ -1,0 +1,30 @@
+{% include misc/data-files.html %}
+
+{% unless page.permalink contains "troubleshooting" or page.permalink contains "analysis-integrations" or page.permalink contains "getting-started" %}
+
+{% if page.permalink contains "account-security" or page.permalink contains "replication" or page.permalink contains "data-structure" %}
+<hr>
+{% endif %}
+
+<table width="100%" class="related-articles">
+    <tbody>
+        <tr>
+            <td valign="top" width="50%; fixed">
+            	<span class="h2">Related</span>
+            </td>
+            <td valign="top" width="50%; fixed">
+            	<span class="h2">Troubleshooting</span>
+            </td>
+        </tr>
+        <tr>
+        	<td valign="top">
+        		{% include layout/related-articles.html %}
+        	</td>
+        	<td valign="top">
+        		{% include layout/troubleshooting-articles.html %}
+        	</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endunless %}

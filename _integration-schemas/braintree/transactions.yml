@@ -1,0 +1,143 @@
+---
+tap: "braintree"
+# version: ""
+
+name: "transactions"
+doc-link: https://developers.braintreepayments.com/reference/request/transaction/search/java
+singer-schema: https://github.com/singer-io/tap-braintree/blob/master/tap_braintree/schemas/transactions.json
+description: |
+  The `transactions` table contains info about the transactions in your Braintree account, including the transaction's status.
+
+notes: |
+  #### Transaction Data & Default Merchant Accounts
+  Our Braintree integration will only replicate transactions for the **default merchant account** in your Braintree instance. You can verify the merchant account set as the default by going to **Settings > Processing > Merchant Accounts** when signed into Braintree.
+
+replication-method: "Incremental"
+api-method:
+  name: "Transaction.search()"
+  doc-link: "https://developers.braintreepayments.com/reference/request/transaction/search/java"
+
+attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The ID of the transaction."
+
+  - name: "created_at"
+    type: "date-time"
+    replication-key: true
+    description: "The datetime when the transaction was created."
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The datetime when the transaction was most recently updated."
+
+  - name: "settlement_batch_id"
+    type: "string"
+    description: "The ID of the settlement batch that the transaction was processed in."
+
+  - name: "status"
+    type: "string"
+    description: "The status of the transaction. For example: `settlement_pending`"
+    doc-link: "https://developers.braintreepayments.com/reference/request/transaction/search/java#status"
+
+  - name: "type"
+    type: "string"
+    description: "Indicates if a transaction is a sale or credit."
+
+  - name: "amount"
+    type: "number"
+    description: "The amount of the transaction."
+
+  - name: "service_fee_amount"
+    type: "number"
+    description: "The portion of a sub-merchant's transaction revenue that was routed to the master merchant account."
+    doc-link: "https://developers.braintreepayments.com/guides/braintree-marketplace/create"
+
+  - name: "order_id"
+    type: "string"
+    description: "The order ID of the transaction."
+
+  - name: "plan_id"
+    type: "string"
+    description: "The plan ID."
+
+  - name: "gateway_rejection_reason"
+    type: "string"
+    description: "Indicates the reason for a status of `gateway_rejected`. For example: `application_incomplete`"
+
+  - name: "processor_authorization_code"
+    type: "string"
+    description: "The authorization code returned by the processor."
+
+  - name: "processor_response_code"
+    type: "string"
+    description: "The processor response code."
+    doc-link: "https://developers.braintreepayments.com/reference/general/processor-responses/authorization-responses"
+
+  - name: "processor_response_text"
+    type: "string"
+    description: "The processor response text."
+    doc-link: "https://developers.braintreepayments.com/reference/general/processor-responses/authorization-responses"
+
+  - name: "recurring"
+    type: "boolean"
+    description: "Indicates if the transaction was passed with a recurring ecommerce indicator (ECI) flag."
+
+  - name: "refunded_transaction_id"
+    type: "string"
+    description: "The sale transaction ID associated with a refund transaction."
+
+  - name: "currency_iso_code"
+    type: "string"
+    description: "The currency for the transaction. For example: `USD`"
+
+  - name: "customer_details"
+    type: "object"
+    description: "The customer details used to process the transaction."
+    object-attributes:
+      - name: "id"
+        type: "string"
+        description: "The ID of the customer."
+
+      - name: "email"
+        type: "string"
+        description: "The email associated with the customer."
+
+  - name: "credit_card_details"
+    type: "object"
+    description: "Details about the credit card associated with the transaction."
+    object-attributes:
+      - name: "customer_location"
+        type: "string"
+        description: |
+          Indicates the customer's billing location. For example: this will be `US` for the United States if the billing address is in the US or if a country isn't specified.
+
+          `International` will be used if the billing country is not the US.
+        doc-link: "https://developers.braintreepayments.com/reference/response/transaction/java#credit_card_details.customer_location"
+
+  - name: "subscription_details"
+    type: "object"
+    description: "Details about the subscription associated with the transaction."
+    object-attributes:
+      - name: "billing_period_start_date"
+        type: "date-time"
+        description: "The start date for the current billing period, regardless of subscription status."
+
+      - name: "billing_period_end_date"
+        type: "date-time"
+        description: "The end date for the current billing period, regardless of subscription status."
+
+  - name: "disbursement_details"
+    type: "object"
+    description: "Details about how the transaction was disbursed."
+    object-attributes:
+      - name: "disbursement_date"
+        type: "date-time"
+        description: "The date that the funds associated with the transaction were disbursed."
+
+      - name: "success"
+        type: "boolean"
+        description: "Indicates if the funds were disbursed successfully."
+---
+

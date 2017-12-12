@@ -1,0 +1,151 @@
+<!-- ACCOUNT & BILLING -->
+{% if page.permalink contains "account-security" %}
+<ul>
+	<!-- Loops over troubleshooting collection -->
+	{% for page in site.troubleshooting %}
+	<!-- If page.type contains the account/billing category, prints the result -->
+		{% if page.type contains "account" or page.type contains "billing" %}
+		<li>
+			<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+		</li>
+		{% endif %}
+	{% endfor %}
+</ul>
+{% endif %}
+
+
+
+<!-- DESTINATIONS -->
+{% if page.permalink contains "destinations" %}
+<!-- Captures the integration's name -->
+{% capture name %}{{ page.type }}{% endcapture %}
+<ul>
+	<!-- Loops over troubleshooting collection -->
+	{% for page in site.troubleshooting %}
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		{% if page.keywords contains name and page.type contains name %}
+		<li>
+			<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+		</li>
+		{% endif %}
+	{% endfor %}
+	<li>
+		<a href="{{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }}">Destination Connection Errors</a>
+	</li>
+</ul>
+{% endif %}
+
+
+
+<!-- INTEGRATIONS -->
+
+<!-- Database integration pages only -->
+{% if page.permalink contains "databases" %}
+<!-- Captures the integration's name -->
+{% capture integration %}{{ page.name }}{% endcapture %}
+<ul>
+	<!-- Loops over troubleshooting collection -->
+	{% for page in site.troubleshooting %}
+
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		{% if page.keywords contains integration and page.type contains "database-integration" %}
+		<li>
+			<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+		</li>
+		{% endif %}
+	{% endfor %}
+	<li>
+		<a href="{{ link.troubleshooting.db-connection-errors | prepend: site.baseurl }}">Database Connection Errors</a>
+	</li>
+{% endif %}
+
+
+<!-- SaaS integration pages only -->
+{% if page.permalink contains "saas" or page.permalink contains "webhooks" %}
+<!-- Captures the integration's name -->
+{% capture integration %}{{ page.name }}{% endcapture %}
+<ul>
+	<!-- Loops over troubleshooting collection -->
+	{% for page in site.troubleshooting %}
+
+		<!-- If page.keywords contain's the integration's name, prints the result -->
+		{% if page.keywords contains integration and page.type contains "saas-integration" %}
+		<li>
+			<a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+		</li>
+		{% endif %}
+	{% endfor %}
+	{% if page.status-url != null %}
+	<li>
+		<a href="{{ link.troubleshooting.third-party-downtime | prepend: site.baseurl }}">Third-Party Downtime</a>
+	</li>
+	{% endif %}
+{% endif %}
+
+
+<!-- All integration pages -->
+{% if page.permalink contains "integrations" %}
+	<li>
+		<a href="{{ link.billing.billing-guide | prepend: site.baseurl }}">Understanding & Reducing Your Usage</a>
+	</li>
+	{% unless page.permalink contains "webhooks" %}
+		<li>
+			<a href="{{ link.troubleshooting.reauth-integrations | prepend: site.baseurl }}">Re-Authorizing Integrations</a>
+		</li>
+	{% endunless %}
+	<li>
+		<a href="{{ site.baseurl }}/troubleshooting/replication">Replication Issues</a>
+	</li>
+</ul>
+{% endif %}
+
+
+
+<!-- REPLICATION -->
+{% if page.permalink contains "replication" %}
+<ul>
+	<li>
+		<a href="{{ link.troubleshooting.discrepancy-guide | prepend: site.baseurl }}">Data Discrepancy Guide</a>
+	</li>
+	<li>
+		<a href="{{ link.troubleshooting.missing-objects | prepend: site.baseurl }}">Missing Objects</a>
+	</li>
+	<li>
+		<a href="{{ link.troubleshooting.column-nulls | prepend: site.baseurl }}">Missing Columns & NULL Values</a>
+	</li>
+	<li>
+		<a href="{{ link.troubleshooting.unsupported-data-types | prepend: site.baseurl }}">Non-Replicating Data & Unsupported Data Types</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination & Integration Compatibility</a>
+	</li>
+</ul>
+{% endif %}
+
+
+
+<!-- DATA STRUCTURE -->
+{% if page.permalink contains "data-structure" %}
+<ul>
+	<li>
+		<a href="{{ link.troubleshooting.discrepancy-guide | prepend: site.baseurl }}">Data Discrepancy Guide</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}">Identifying Rejected Records</a>
+	</li>
+	{% if page.title == "Table Structural Changes" %}
+		<li>
+			<a href="{{ link.troubleshooting.view-dependency-errors | prepend: site.baseurl }}">Redshift & View Dependency Errors</a>
+		</li>
+	{% endif %}
+	{% if page.title contains "Loading" %}
+		{% for doc in site.troubleshooting %}
+			{% if doc.title contains "Data Loading" %}
+			<li>
+				<a href="{{ doc.url | prepend: site.baseurl }}">{{ doc.title }}</a>
+			</li>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+</ul>
+{% endif %}

@@ -1,0 +1,14 @@
+## This file contains the field names and descriptions that apepar
+## in the Destination Switching pages.
+
+
+# -------------------------- #
+#   Historical Data Fields   #
+# -------------------------- #
+
+historical-data:
+  - field: "Replicate new data only"
+    copy: "Stitch will pick up where it left off and only replicate **new** data to your new destination."
+
+  - field: "Replicate historical data"
+    copy: "Stitch will clear all Replication Key values, queue a **full re-sync** of your integrations' data, and replicate all historical data to your new destination. For SaaS integrations, Stitch will replicate data beginning with the start date currently listed in the integration's settings."

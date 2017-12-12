@@ -1,0 +1,43 @@
+<div class="alert alert-info" role="alert">
+    <i class="fa fa-life-ring"></i>
+
+        {% if integration.certified == true %}
+            <strong>
+                {{ integration.display_name }} is supported by Stitch
+            </strong><br>
+
+            {% if integration.singer == true %}
+                This integration is powered by <a href="{{ site.singer }}">Singer's</a> {{ integration.display_name }} tap and certified by Stitch. {% if integration.repo-url %}<a href="{{ integration.repo-url }}">Check out and contribute to the repo on GitHub</a>.{% endif %}<br><br>
+
+            {% else %}
+                This integration is certified by Stitch. 
+            {% endif %}
+
+            For support, contact <a href="mailto: {{ site.support }}">Stitch support</a>.
+
+        {% else %}
+
+            <strong>
+                {{ integration.display_name }} is supported by the Singer community
+            </strong><br>
+
+            This integration is powered by <a href="{{ site.singer }}">Singer's</a> {{ integration.display_name }} tap. For support, <a href="{{ integration.repo-url }}">visit the GitHub repo</a> or <a href="{{ site.singer-slack }}">join the Singer Slack</a>.
+
+        {% endif %}
+
+    {% if integration.status contains "Beta" %}
+        <br><br>
+        <i class="fa fa-info-circle"></i>
+        <strong>
+            {{ integration.display_name }} is in {{ integration.status }}
+        </strong><br>
+
+        {% if integration.status == "Open Beta" %}
+            {{ integration.display_name }} is currently in Open Beta. The info in this article is subject to change.
+
+        {% elsif integration.status == "Closed Beta" %}
+            {{ integration.display_name }} is currently in Closed Beta. <strong>Interested in participating?</strong> <a href="mailto: {{ site.support }}">Get in touch with us</a>.
+        {% endif %}
+
+    {% endif %}
+</div>

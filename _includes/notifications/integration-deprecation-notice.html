@@ -1,0 +1,51 @@
+{% assign integration = page %}
+
+<!-- Lists all released veresions -->
+{% assign released-versions = site.data.taps.versions.[integration.name].released-versions %}
+
+<!-- Pulls the latest version number for the integration -->
+{% assign latest-version = site.data.taps.versions.[integration.name].latest-version %}
+
+<!-- Last, pulls all docs that contain the integration's name in the `name:` Frontmatter variable. -->
+{% assign all-versioned-docs = site.saas-integrations | where:"name",integration.name %}
+
+
+{% for version in released-versions %}
+    {% if version.number == latest-version %}
+        {% capture latest-version-release-date %}
+            {{ version.date-released }}
+        {% endcapture %}
+    {% endif %}
+
+    {% if version.number == integration.this-version %}
+        {% if version.deprecated == true %}
+
+            {% if version.deprecation-date %}
+                {% capture deprecation %}
+                    <strong>Version {{ version.number }} Deprecation</strong><br>
+
+                    This version of the {{ integration.display_name }} integration will be deprecated on <strong>{{ version.deprecation-date }}</strong> and no longer be formally supported by the Stitch Support Team.<br><br>
+
+                    <strong>Connections created from {{ version.date-released }} to {{ latest-version-release-date }} use this version.</strong> <a href="{{ site.baseurl }}/integrations/{% if page.url contains "databases" %}databases{% elsif page.url contains "saas" %}saas{% elsif page.url contains "webhooks" %}webhooks{% endif %}/{{ integration.name }}">
+                        Upgrade to the latest version ({{ latest-version }}) to take advantage of the new enhancements.
+                    </a>
+                {% endcapture %}
+
+            {% else %}
+                {% capture deprecation %}
+                    <strong>Version {{ version.number }} Deprecation</strong><br>
+
+                    A newer version of {{ integration.display_name }} is available in Stitch. This version will still continue to replicate data, but may be deprecated at a future date.<br><br>
+
+                    <a href="{{ site.baseurl }}/integrations/{% if page.url contains "databases" %}databases{% elsif page.url contains "saas" %}saas{% elsif page.url contains "webhooks" %}webhooks{% endif %}/{{ integration.name }}">
+                        Upgrade to the latest version ({{ latest-version }}) to take advantage of the new enhancements.
+                    </a>
+                {% endcapture %}
+                
+            {% endif %}
+
+            {% include important.html content=deprecation %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+

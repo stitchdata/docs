@@ -1,0 +1,40 @@
+Our example table contains the following rows to start with: 
+
+{% highlight markdown %}
+| Name | Age | Type  | Magic   | {{ system-column.sequence }} |
+|------+-----+-------+---------+---------------|
+| Finn | 14  | Human | False   | 1473773877524 |
+| Jake | 6   | Dog   | True    | 1473773877524 |
+{% endhighlight %}
+
+These rows are replicated during the initial sync of the table. Some time later, new rows are added to the table:
+
+{% highlight markdown %}
+| Name      | Age | Type     | Magic  | {{ system-column.sequence }} |
+|-----------+-----+----------+--------+---------------|
+| Bubblegum | 16  | Princess | True   | 1473776585195 |
+| Beamo     | 1   | Game Bot | False  | 1473776585195 |
+{% endhighlight %}
+
+During the next replication job, the new rows are appended to the table, bringing the total row count to 4:
+
+{% highlight markdown %}
+| Name      | Age | Type     | Magic  | {{ system-column.sequence }} |
+|-----------+-----+----------+--------+---------------|
+| Finn      | 14  | Human    | False  | 1473773877524 |
+| Jake      | 6   | Dog      | True   | 1473773877524 |
+| Bubblegum | 16  | Princess | True   | 1473776585195 |  // new rows are appended
+| Beamo     | 1   | Game Bot | False  | 1473776585195 |
+{% endhighlight %}
+
+But what happens when an existing row is updated? If Finn's age were updated to 15, the <strong>existing</strong> row wouldn't be updated - instead, an entirely new row would be appended to the end of the table:
+
+{% highlight markdown %}
+| Name      | Age | Type     | Magic  | {{ system-column.sequence }} |
+|-----------+-----+----------+--------+---------------|
+| Finn      | 14  | Human    | False  | 1473773877524 |
+| Jake      | 6   | Dog      | True   | 1473773877524 |
+| Bubblegum | 16  | Princess | True   | 1473776585195 |
+| Beamo     | 1   | Game Bot | False  | 1473776585195 |
+| Finn      | 15  | Human    | False  | 1473827984228 |  // updated data as new row
+{% endhighlight %}

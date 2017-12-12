@@ -1,0 +1,149 @@
+
+#------------------------------------#
+#           CURRENT COLUMNS          #
+#------------------------------------#
+
+# As part of the replication process, Stitch injects a few system
+# columns into every table it creates in a destination.
+
+# Below is a mapping of the current system columns and their descriptions.
+
+# Should a system column name or function change, this is the section that must be updated.
+
+current-columns:
+  prefix: "_sdc"
+  rjm-prefix: "_rjm"
+
+# RECEIVED_AT
+  received-at: &received-at "_sdc_received_at"
+  received-at-description: &received-at-description |
+    Timestamp indicating when Stitch received the record for loading.
+
+# BATCHED_AT
+  batched-at: &batched-at "_sdc_batched_at"
+  batched-at-description: &batched-at-description |
+    Timestamp indicating when Stitch loaded the batch the record was a part of into the data warehouse.
+
+# SEQUENCE
+  sequence: &sequence "_sdc_sequence"
+  sequence-description: &sequence-description |
+    A Unix epoch (in miliseconds) that indicates the order in which data points were considered for loading.
+
+# TABLE_VERSION
+  table-version: &table-version "_sdc_table_version"
+  table-version-description: &table-version-description |
+    Indicates the version of the table. This column is used to complete a switch-view operation, when necessary.
+
+# SOURCE KEY
+  source-key: &source-key "_sdc_source_key_"
+  source-key-description: &source-key-description |
+    **Applicable only to subtables**, this column forms part of a composite Primary Key for the table. It contains the top level table's Primary Key and will also inherit the Primary Key's data type.
+
+    For example: there is a top-level table (`orders`) with a Primary Key of `order_id` (`INTEGER`). If a subtable were created from `orders`, this column would be named `{{ system-column.source-key | append:"order_id" }}`, be typed as an `INTEGER`, and contain the same values.
+
+# LEVEL ID
+  level-id: &level-id "_sdc_level_#_id"
+  level-id-description: &level-id-description |
+    **Applicable only to subtables**, this column forms part of a composite Primary Key for the table and can be used to associate further nested records to the parent.
+
+    Values in this column will auto-increment for each unique record in the table, beginning with 0. When used with the `{{ system-column.primary-key }}` column(s), a unique identifier for the row is created.
+
+    Depending on the level of nesting, there may be multiple `{{ system-column.level-id | remove: "_#" }}` columns in a subtable.
+
+# PRIMARY_KEY
+  primary-key: &primary-key "_sdc_primary_key"
+  primary-key-description: &primary-key-description |
+    This column acts as a Primary Key if Stitch doesn't detect one. Stitch will use this column to de-dupe data.
+
+# REPLICATION_ID
+  replication-id: &replication-id "_sdc_replication_id"
+  replication-id-description: &replication-id-description |
+    **Applicable only to database integrations**, this column contains an auto-generated ID that Stitch injects when a Primary Key isn't detected. Stitch will use this column to de-dupe data.
+
+# CUSTOMER ID
+  customer-id: &customer-id "_sdc_customer_id"
+  customer-id-description: &customer-id-description |
+    **Applicable only to Google AdWords integrations,** this column contains the AdWords Account ID the data in the row pertains to.
+
+    For example: the `ad_performance_report` table may contain data from several AdWords accounts. The value in the `_sdc_customer_id` column allows you to associate records with the correct AdWords account.
+
+# REPORT DATE TIME
+  report-date-time: &report-date-time "_sdc_report_datetime"
+  report-date-time-description: &report-date-time-description |
+    **Applicable only to Google AdWords inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
+
+#------------------------------------#
+#           LIST OF COLUMNS          #
+#------------------------------------#
+
+# The below list enables the use of a forloop to pull the name and description of all the current system
+# columns. With the exception of the the column's data type and sample data, all info is directly pulled
+# from the mapping above using YAML references. 
+
+# Should a system column name or function change, only the corresponding items in the CURRENT COLUMNS section
+# above need to be updated. Any changes made there will be automatically reflected in this list.
+
+# name: column name
+# type: column's data type
+# applicable-to: some columns are applicable only to certain types of tables or integrations. this indicates the applicable type of table or integration.
+# description: column description
+
+attributes:
+  - name: *received-at
+    type: "timestamp"
+    applicable-to: "all"
+    description: *received-at-description
+    # data: "2016-07-14 19:56:38.58"
+
+  - name: *batched-at
+    type: "timestamp"
+    applicable-to: "all"
+    description: *batched-at-description
+    # data: "2016-07-14 20:01:25.439"
+
+  - name: *sequence
+    type: "integer"
+    applicable-to: "all"
+    description: *sequence-description
+    # data: "1468526197991"
+
+  - name: *table-version
+    type: "integer"
+    applicable-to: "all"
+    description: *table-version-description
+    # data: "0"
+
+  - name: *source-key
+    type: "varies"
+    applicable-to: "subtables"
+    description: *source-key-description
+
+  - name: *level-id
+    type: "integer"
+    applicable-to: "subtables"
+    description: *level-id-description
+    # data: "0"
+
+  - name: *primary-key
+    type: "string"
+    applicable-to: "webhooks"
+    description: *primary-key-description
+    # data: "5d8b9a05-33cc-4d5f-8163-4474814b46c6"
+
+  - name: *replication-id
+    type: "string"
+    applicable-to: "databases"
+    description: *replication-id-description
+    # data: "87329b9c-c61f-4c45-847b-407ee8bab7bd"
+
+  - name: *customer-id
+    type: "string"
+    applicable-to: "google-adwords-tap"
+    description: *customer-id-description
+    # data: ""
+
+  - name: *report-date-time
+    type: "date-time"
+    applicable-to: "google-adwords-tap"
+    description: *report-date-time-description
+    # data: ""

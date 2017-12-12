@@ -1,0 +1,154 @@
+{% include misc/more-info-icons.html %}
+
+<!-- This captures the values of these variables and outputs them as strings. This is done so the values can be used as tooltips inside the info icons, as variables can't be used inside other variables. -->
+
+{% capture availability %}
+{{ site.data.tooltips.integration-availability }}
+{% endcapture %}
+
+{% capture ssl %}
+{{ site.data.tooltips.ssl }}
+{% endcapture %}
+
+{% capture whitelisting %}
+{{ site.data.tooltips.whitelisting }}
+{% endcapture %}
+
+{% capture db-views %}
+{{ site.data.tooltips.db-views }}
+{% endcapture %}
+
+{% capture incompatibilities %}
+{{ site.data.tooltips.destination-incompatibilities }}
+{% endcapture %}
+
+{% capture supported-by %}
+{{ site.data.tooltips.supported-by }}
+{% endcapture %}
+
+<table width="100%">
+    <tbody>
+        <tr>
+            <!-- Integration Release Status -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Release Status</strong>
+            </td>
+            <td valign="top">
+                {{ integration.status }}
+            </td>
+
+            <!-- Integration supported by -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Supported By</strong> {{ question-icon | replace:"TOOLTIP",supported-by }}
+            </td>
+            <td valign="top">
+                {% if integration.certified == true %}
+                    Stitch
+                {% else %}
+                    <a href="{{ integration.repo-url }}">Singer community</a>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <!-- Stitch plan (free/paid) required to use integration -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Availability</strong>{{ question-icon | replace:"TOOLTIP",availability }}
+            </td>
+            <td valign="top">
+                {{ integration.tier }}
+            </td>
+
+            <!-- Versions of databases Stitch supports  -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Supported Versions</strong>
+            </td>
+            <td valign="top">
+                {{ integration.versions }}
+            </td>
+        </tr>
+
+        <tr>
+            <!-- Stitch SSL connection support  -->
+            <td valign="top" align="right">
+                <strong>SSL Connections</strong>{{ question-icon | replace:"TOOLTIP",ssl }}
+            </td>
+            <td valign="top">
+                {% if integration.name == "RDS" %}
+                    Depends on database type
+                {% elsif integration.ssl == true %}
+                    Supported
+                {% elsif integration.ssl == false %}
+                    Unsupported
+                {% endif %}
+            </td>
+            <!-- Stitch VPN connection support  -->
+            <td valign="top" align="right">
+                <strong>VPN Connections</strong>
+            </td>
+            <td valign="top">
+                Unsupported
+            </td>
+        </tr>
+
+        <!-- Whitelisting support -->
+        <tr>
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>Whitelisting {{ question-icon | replace:"TOOLTIP",whitelisting }}
+            </td>
+            <td valign="top">
+                {% if integration.whitelist.tables == "No" or integration.whitelist.tables == false %}
+                    Unsupported
+                {% else %}
+                    {% if integration.whitelist.tables == "Yes" or integration.whitelist.tables == true and integration.whitelist.columns == true %}
+                        Tables and columns
+                    {% else %}
+                        Tables only
+                    {% endif %}
+                {% endif %}
+            </td>
+
+            <!-- Stitch support for view replication -->
+            <td valign="top" width="20%; fixed" align="right">
+                <strong>View Replication</strong>{{ question-icon | replace:"TOOLTIP",db-views }}
+            </td>
+            <td valign="top">
+                <!-- For RDS, depends on type of DB being connected. -->
+                {% if integration.name == "rds" %}
+                    Depends on database type
+                {% elsif integration.sync-views == true %}
+                    <a href="{{ link.replication.db-views | prepend: site.baseurl }}">Supported</a>
+                {% else %}
+                    Unsupported
+                {% endif %}
+            </td>
+        </tr>
+
+        <!-- Destination/Integration compatibility -->
+        <tr>
+            <td valign="top" width="30%; fixed" align="right">
+                <strong><a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination Incompatibilities</strong></a>{{ question-icon | replace:"TOOLTIP",incompatibilities }}
+                </td>
+            <td valign="top" colspan="3">
+                {% assign destinations = site.destinations | where:"destination",true %}
+                {% assign destination-count = 0 %}
+                
+                {% for destination in destinations %}
+                    {% if integration.incompatible[destination.type] == "always" or integration.incompatible[destination.type] == "sometimes" %}
+                        {% capture incompatible-count %}
+                        {{ destination-count | plus: "1" }}
+                        {% endcapture %}
+                    {% endif %}
+                    {% assign destination-count = incompatible-count %}
+                {% endfor %}
+
+                {% assign total-incompatible = incompatible-count | plus: 0 %}
+                    {% if total-incompatible >= 1 %}
+                        Possible incompatibilities. <a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Learn more</a>.
+                    {% else %}
+                        None
+                    {% endif %}
+            </td>
+        </tr>
+    </tbody>
+</table>

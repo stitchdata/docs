@@ -1,0 +1,47 @@
+---
+layout: page
+---
+{% assign integration = page %}
+{% include misc/data-files.html %}
+
+<!-- Support, beta, and Singer notice -->
+{% include notifications/support-beta-singer-notice.html %}
+
+<!-- integration snapshot -->
+{% include integrations/templates/saas-integration-snapshot.html %}
+
+<!-- intro -->
+{% ifhascontent intro %}
+    {% contentblock intro %}
+    <hr>
+{% endifhascontent %}
+
+<!-- connection instructions -->
+<h2 id="setup">Connecting {{ integration.display_name }}</h2>
+    {% contentblock setup %}
+    <hr>
+
+<!-- integration replication details -->
+{% ifhascontent replication-notes %}
+    <h2 id="replication">Replication</h2>
+        {% contentblock replication-notes %}
+        <hr>
+{% endifhascontent %}
+
+<!--  integration schema details -->
+<h2 id="schema">Schema</h2>
+    {% ifhascontent schema-notes %}
+        {% contentblock schema-notes %}
+    {% endifhascontent %}
+
+{% if integration.format.list == "expand" %}
+    {% include integrations/templates/expand-list.html %}
+{% endif %}
+    <hr>
+
+<!-- revoke webhook url instructions -->
+<h2 id="webhook-urls-security">Webhook URLs & Security</h2>
+    {% contentblock revoke-urls %}
+    <hr>
+
+{{ content }}

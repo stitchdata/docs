@@ -1,0 +1,83 @@
+page-names:
+  dashboard: "Stitch Dashboard"
+  billing: "Billing"
+  account: "Account Settings"
+  user-profile: "Your Profile"
+  dw-settings: "Destination Settings"
+  int-details: "Integration Details"
+  int-settings: "Integration Settings"
+  table-settings: "Table Settings"
+
+menu-paths:
+  destination-settings: "**Destination tab**"
+  billing: "**User menu (your icon) > Billing**"
+  add-integration: "On the {{ app.page-names.dashboard }} page, click the {{ app.buttons.add-integration }} button."
+  account-settings: "**User menu (your icon) > Manage Account Settings**"
+  add-user: "In the Team Members section, click **Add a Team Member**."
+  sync: "Click the **checkbox** next to the object's name. A green checkmark means the object is set to replicate."
+  sync-table: "To track a table, click the **checkbox** next to the table's name. A green checkmark means the table is set to replicate."
+  unsync-table: "Click the **checkbox** next to the table's name. A blank or grey checkbox means the table isn't set to replicate."
+  sync-column: "To sync a column, click the **checkbox** next to the column's name. A green checkmark means the column is set to replicate."
+  unsync-column: "Click the **checkbox** next to the column's name. A blank or grey checkbox means the column isn't set to replicate."
+  pause-int: "Click the toggle next to the **Integration is** field, located near the top-right corner of the Integration Details page."
+  finalize-selections: "Click the {{ app.buttons.finalize-data }} button to save your data selections."
+
+buttons:
+## Dashboard
+  add-integration: "**Add Integration**"
+  pause-int: "**Pause Syncing**"
+  resume-int: "**Resume Syncing**"
+
+## Account & Billing
+  add-user: "**Add a Team Member**"
+  update-profile: "**Update Profile**"
+  password: "**Change Password**"
+  company-profile: "**Update Company Profile**"
+  cancel-account: "**Cancel Your Account**"
+
+## Integration Settings
+  update-int-settings: "**Settings**"
+  finish-int-setup: "**All Done**"
+  reset-rep-keys: "**Reset Keys**"
+  tables: "**Tables to Replicate**"
+  finalize-data: "**Finalize Your Selections**"
+  connect-ssl: "**Connect using SSL**"
+  check-and-save: "**Check and Save**"  # Taps use this copy upon creation, vs "Save Integration"
+  create-oauth-integration: "**Authorize**"
+
+## Destinations
+  update-dw-settings: "**Update {{ destination.display_name }} Settings**"
+  change-destination: "**Change Destination**"
+
+## Table Settings
+  save-table-settings: "**Update Settings**"
+  update-table-settings: "**Table Settings**"
+  save-int-settings: "**Save Integration**"
+
+  stop-db: "**Stop Syncing Database**"
+  stop-schema: "**Stop Syncing Schema**"
+  stop-table: "**Stop Syncing Table**"
+
+## Integration Specific
+  adwords-columns: "**Save and Sync**"
+  adwords-confirm: "**Sync Columns**"
+
+  segment: "**Enable With Segment**"
+
+  create-api-token: "**Save and Generate Token**"
+  generate-token: "**Generate Token**"
+
+
+dw:
+  prefix1: "_rjm"
+  current-prefix: "_sdc"
+  primary-key: "_sdc_primary_key"
+  source-key: "_sdc_source_key_"
+  level-id: "_sdc_level_#_id"
+  batched-at: "_sdc_batched_at"
+  received-at: "_sdc_received_at"
+  sequence: "_sdc_sequence"
+  table-version: "_sdc_table_version"
+  replication-id: "_sdc_replication_id"
+  rejected: "_sdc_rejected_at"
+  rejected-table: "_sdc_rejected"

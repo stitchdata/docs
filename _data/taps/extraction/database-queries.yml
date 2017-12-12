@@ -1,0 +1,89 @@
+
+# -------------------------- #
+#         Data Syncs         #
+# -------------------------- #
+
+# The queries used to identify & extract data for
+# replication are the same regardless of database type.
+
+
+data-sync-queries:
+  incremental: |
+    ```
+    SELECT {{ col }}_a, {{ col }}_b <,...>
+    FROM {{ object }}_a
+    WHERE replication_key_{{ col }} >=’last_bookmark_value’
+    ORDER BY replication_key_{{ col }}
+    ```
+  
+  full-table: |
+    ```
+    SELECT {{ col }}_a, {{ col }}_b <,...>
+    FROM {{ object }}_a
+    ```
+
+# -------------------------- #
+#      Structure Syncs       #
+# -------------------------- #
+
+# The query used to run a structure sync is different
+# for each database type.
+
+all-types:
+  - name: "Mongo"
+    type: "mongo"
+  - name: "Microsoft SQL Server"
+    type: "mssql"
+  - name: "MySQL"
+    type: "mysql"
+  - name: "PostgreSQL"
+    type: "postgres"
+
+# -------------------------- #
+#           MongoDB          #
+# -------------------------- #
+
+mongo:
+  structure-sync: |
+    Stitch runs the following queries on Mongo databases to perform a structure sync:
+
+      - `db.getMongo().getDBNames()`
+      - `db.getCollectionNames()`
+
+      For every collection in the database - even those that aren’t set to sync - Stitch also runs the following queries:
+
+      - `db.collection.count()`
+      - `db.collection.getIndexes()`
+
+# -------------------------- #
+#    Microsoft SQL Server    #
+# -------------------------- #
+
+mssql:
+  structure-sync: |
+    To perform a structure sync, Stitch runs queries on the `databases` and `partitions` tables in the `sys` schema.
+
+# -------------------------- #
+#            MySQL           #
+# -------------------------- #
+
+mysql:
+  structure-sync: |
+    {% if integration.dby-type == "rds" %}Stitch runs the following queries on MySQL-based databases to perform a structure sync:{% else %}Stitch runs the following queries on {{ integration.display_name }} databases to perform a structure sync:{% endif %}
+
+    - `SHOW TABLES`
+    - `SHOW KEYS FROM [table]`
+    - `SELECT * FROM INFORMATION_SCHEMA.TABLES`
+
+# -------------------------- #
+#         PostgreSQL         #
+# -------------------------- #
+
+postgres:
+  structure-sync: |
+    {% if integration.db-type == "rds" %}Stitch runs queries the following tables in the `pg_catalog` schema to perform a structure sync on PostgreSQL-based databases:{% else %}To perform a structure sync, Stitch runs queries on the following tables in the `pg_catalog` schema:{% endif %}
+
+    - `pg_class`
+    - `pg_attribute`
+    - `pg_index`
+    - `pg_namespace`

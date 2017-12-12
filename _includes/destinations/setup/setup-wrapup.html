@@ -1,0 +1,40 @@
+{% include misc/data-files.html %} 
+
+{% if page.title contains "Heroku-Postgres" %}
+## Troubleshooting Connection Errors
+
+If you receive an error message, we recommend:
+
+- Verifying that the **Connect using SSL** box in the {{ app.page-names.dw-settings }} page is checked. Heroku requires SSL to be enabled for the connection to be successful.
+- Checking Heroku’s Status Page for possible service outages.
+
+If the errors persist, please reach out to support.
+
+---
+{% elsif destination.type == "panoply" %}
+## Troubleshooting
+
+If you receive an error message, please reach out to support for assistance.
+
+---
+
+{% else %}
+## Troubleshooting Connection Errors
+
+If you receive an error message, we recommend trying [these troubleshooting steps]({{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }} ) for common destination connection problems before reaching out to support.
+
+We've found that the majority of the time, these resources can resolve most issues.
+
+---
+{% endif %}
+
+## Learning About Stitch & {{ destination.display_name }}
+
+Now that your {{ destination.display_name }} data warehouse is up and running, we recommend learning about how Stitch will load your data into it.
+
+{% if destination.type == "postgres" %}
+- **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/postgresql/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
+{% else %}
+- **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/{{ destination.type }}/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
+{% endif %}
+- **[Destination Data Loading Guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }})**: This article covers many of the common scenarios Stitch will encounter when loading data into your {{ destination.display_name }} destination and the expected behavior for each scenario.

@@ -1,0 +1,42 @@
+{% include misc/more-info-icons.html %}
+
+<table align="left" width="100%">
+	<thead>
+		<tr>
+			<th valign="middle" width="20%">
+				Data Type
+			</th>
+			<th valign="middle" width="25%">
+				Supported Integrations
+			</th>
+			<th width="55%">
+				Notes
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for data-type in stitch.supported-data-types.data-types %}
+		<tr>
+			<td valign="middle" markdown="span">
+				{% if data-type.name == "TINYINT" %}
+					[`{{ data-type.name }}`]({{ link.troubleshooting.mysql-tinyint-bit | prepend: site.baseurl }})
+				{% else %}
+					`{{ data-type.name }}`
+				{% endif %}
+			</td>
+			<td valign="middle" markdown="span">
+				{% if data-type.supported-by == "all" %}
+					All Integrations
+				{% elsif data-type.supported-by == "postgresql" %}
+					[PostgreSQL Integrations]({{ site.baseurl }}/integrations/databases/postgresql)
+				{% endif %}
+			</td>
+			<td valign="middle" markdown="span">
+				{% if data-type.notes %}
+					{{ data-type.notes }}
+				{% endif %}
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>

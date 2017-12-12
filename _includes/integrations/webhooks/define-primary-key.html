@@ -1,0 +1,21 @@
+### Define the Primary Key {#define-webhook-primary-key}
+
+Next, you’ll define the Primary Key for the data that your {{ integration.display_name }} integration will send to your data warehouse. A Primary Key is a field that’s used to uniquely identify each message in the webhook data.
+
+Primary Keys must:
+
+- Uniquely identify each message in the webhook data
+- Have field names with 50 or less characters
+- Be top-level fields. This means that Primary Key fields can't be part of a nested object or array. 
+
+  If you need help determining if a field is part of a top-level record, we recommend looking for examples of the JSON record in your app's API documentation. We're always happy to help if you still aren't sure.
+
+#### Primary Keys & Replication Methods
+
+{% include integrations/webhooks/primary-keys-replication.html %}
+
+**Additionally, we don't recommend changing a Primary Key once the integration has been set up and data has replicated.** This could result in fields not being updated properly.
+
+#### Enter the Primary Key into Stitch
+
+In the **Primary Key** field, enter the name of the field you want to use as a Primary Key. Note that this field isn’t required, but if left blank Stitch will auto-generate a Primary Key instead.

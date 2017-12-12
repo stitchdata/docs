@@ -1,0 +1,23 @@
+**Note**: Anything inside square brackets - `[like this]` - is something you need to define when running the commands yourself.
+
+1. If you haven't already, connect to your {{ destination.display_name }} instance using your SQL client.2. After connecting, run this command to create the user:
+
+   ```sql
+   CREATE USER [stitch_username] WITH PASSWORD '[password]';
+   ```
+
+3. Next, you'll assign the `CREATE` permissions to the user. For `[database_name]`, enter the name of the database where all Stitch-replicated data should be loaded. {% if destination.type == "redshift" %}If you launched a cluster using this tutorial, it's the name of the database when you launched the cluster in Step 2.{% endif %}
+   
+   **Note**: This must be a pre-existing database.
+
+   ```sql
+   GRANT CREATE ON DATABASE[database_name] TO [stitch_username];
+   ```
+
+4. **If you restricted access to the system tables**, you'll also need to run the following commands to grant the Stitch user `SELECT` permissions:
+
+   ```sql
+   GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO [stitch_username]
+
+   GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO [stitch_username]
+   ```

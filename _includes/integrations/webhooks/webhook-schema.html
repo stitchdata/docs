@@ -1,0 +1,26 @@
+{% if integration.name == "sendgrid" or integration.name == "segment" %}
+The schema of the tables created by your {{ integration.display_name }} integration will contain two "types" of columns: 
+
+- Columns used by Stitch (prepended with `_sdc`), and
+- Columns sent by the provider's webhook API
+
+**Aside from the Stitch columns, the table's schemas will depend entirely on {% if integration.doc-link != null %}[{{ integration.display_name }}'s webhook API]({{ integration.doc-link }}){% else %}{{ integration.display_name }}'s webhook API{% endif %}**. With the exception of the `_sdc` fields, Stitch does not augment webhook data nor does it have any control over the fields sent by the webhook provider.
+
+{% else %}
+
+In v1 of the Stitch Incoming Webhooks integration, Stitch will create a single table - called `data` - in the webhook integration schema (this will be the name you enter in the **Integration Schema** field when you set up {{ integration.display_name }}) of your data warehouse.
+
+The schema of this table will contain two “types” of columns: 
+
+- Columns used by Stitch (prepended with `_sdc`), and
+- Columns sent by the provider's webhook API
+
+{% if page.name == "incoming_webhooks" %}
+**Aside from the Stitch columns, the schema of this table will depend entirely on that provider's webhook API**. With the exception of the `_sdc` fields (and a Primary Key if one isn’t provided), Stitch does not augment Incoming Webhooks data nor does it have any control over the fields sent by the webhook provider.
+
+For example: if the webhook API you integrate with only sends `id`, `event`, and `value` fields, these are the only fields that will be created in the `data` table.
+
+{% else %}
+**Aside from the Stitch columns, the schema of this table will depend entirely on {% if integration.doc-link != null %}[{{ integration.display_name }}'s webhook API]({{ integration.doc-link }}){% else %}{{ integration.display_name }}'s webhook API{% endif %}**. With the exception of the `_sdc` fields, Stitch does not augment Incoming Webhooks data nor does it have any control over the fields sent by the webhook provider.
+{% endif %}
+{% endif %}

@@ -1,0 +1,6 @@
+Defining a Primary Key is optional, but the **Incremental Replication Method** Stitch uses to update your webhook integration's data will depend on whether a Primary Key is provided or not.
+
+- **If a Primary Key is provided**, replication to webhooks data will take place via an upsert. This means that existing rows can be updated.
+- **If a Primary Key is NOT provided**:
+  - Replication will be <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a>.
+  - Stitch will auto-generate a field called `{{ system-column.primary-key }}` to be used as a Primary Key. This is because Stitch requires a Primary Key to replicate and de-dupe data.

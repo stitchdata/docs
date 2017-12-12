@@ -1,0 +1,130 @@
+{% include misc/data-files.html %}
+{% assign default = site.data.dataloading.scenarios %}
+{% assign data-loading = site.data.dataloading.[page.type].scenarios %}
+{% assign category = include.category %}
+
+<!-- <div class="btn-group">
+	<button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+		What Happens When:<span class="caret"></span>
+	</button>
+	<ol class="dropdown-menu">
+		{% for scenario in data-loading %}
+			{% if default[scenario.id].categories contains category or scenario.categories contains category %}
+				<li>
+					{% if scenario.heading %}
+						<a href="#{{ scenario.anchor }}">{{ scenario.heading }}</a>
+					{% else %}
+						<a href="#{{ default[scenario.id].anchor }}">{{ default[scenario.id].heading }}</a>
+					{% endif %}
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ol>
+</div> -->
+
+
+<div class="panel-group" id="accordion">
+{% for scenario in data-loading %}
+{% if default[scenario.id].categories contains category or scenario.categories contains category %}
+    <!-- Panel Start -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ scenario.id }}_{{ category }}">
+                	{% if scenario.summary == "default" %}
+					{{ default[scenario.id].default-copy | flatify | remove: "`" }} 
+
+				{% else %}
+					{{ scenario.summary | flatify | remove: "`" }}
+				{% endif %}
+
+                </a>
+            </h4>
+        </div>
+        <div id="{{ scenario.id }}_{{ category }}" class="panel-collapse collapse noCrossRef">
+        <div class="panel-body">
+	
+<!-- 	{% if scenario.heading %}
+		<h3 id="{{ scenario.anchor }}">{{ scenario.heading }}</h3>
+	{% else %}
+		<h3 id="{{ default[scenario.id].anchor }}">{{ default[scenario.id].heading }}</h3>
+	{% endif %}
+ -->
+	<table width="100%">
+		<tr>
+			<td width="5%; fixed">
+				<strong>IF</strong>
+			</td>
+			<td>
+			{% if scenario.summary == "default" %}
+				{{ default[scenario.id].default-copy | flatify | markdownify }}
+
+				{% else %}
+					{{ scenario.summary | flatify | markdownify }}
+				{% endif %}
+			</td>
+		</tr>
+
+		<tr>
+			<td width="5%; fixed">
+				<strong>THEN</strong>
+			</td>
+			<td>
+				{% if scenario.result == "default" %}
+					{{ default[scenario.id].default-result | flatify | markdownify }}
+
+				{% else %}
+					{{ scenario.result | flatify | markdownify }}
+				{% endif %}
+				{% if scenario.rejectable == true %}
+					<p>Rejected records are logged in the <code>_sdc_rejected</code> table of the integration's schema. <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}">Learn more</a>.</p>
+				{% endif %}
+			</td>
+		</tr>
+
+	{% if scenario.error != "none" or scenario.rejectable == true %}
+		<tr>
+			<td width="5%; fixed">
+				<strong>AND</strong>
+			</td>
+			<td>
+				{% if scenario.rejectable == true %}
+				{% endif %}
+
+				{% if scenario.error != "none" %}
+					<p>{{ destination.display_name }} will surface the following error:</p>
+
+					{{ scenario.error | flatify | markdownify }}
+				{% endif %}
+			</td>
+		</tr>
+		{% if scenario.troubleshooting != "none" %}
+			<tr>
+				<td width="5%; fixed">
+					<strong>FIX IT</strong>
+				</td>
+				<td>
+					{% if scenario.troubleshooting == "default" %}
+						{{ default[scenario.id].default-troubleshooting | flatify | markdownify }}
+
+					{% else %}
+						{{ scenario.troubleshooting | flatify | markdownify }}
+					{% endif %}
+					{% if scenario.rejectable == true %}
+					<p>Use the <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"><code>_sdc_rejected</code> table</a> to identify the root of the issue.</p>
+				{% endif %}
+				</td>
+			</tr>
+	{% endif %}
+	{% endif %}
+	
+	</table>
+			</div>
+        </div>
+    </div>
+	<!-- End category conditional -->
+	{% endif %}
+
+<!-- End forloop -->
+{% endfor %}
+</div>

@@ -1,0 +1,75 @@
+{% include misc/support-icons.html %}
+{% include misc/more-info-icons.html %}
+
+<table id="sampleTable" class="display" width="100%">
+	<thead>
+		<tr>
+			<th style="vertical-align: middle; align: center">
+				Integration
+			</th>
+			<th style="vertical-align: middle" align="center">
+				<center>Databases{{ question-icon | replace:"TOOLTIP"," This column is only applicable to database integrations, as tables are considered the top-most level in SaaS integrations." }}</center>
+			</th>
+			<th style="vertical-align: middle" align="center">
+				<center>Tables</center>
+			</th>
+			<th style="vertical-align: middle" align="center">
+				<center>Columns</center>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="vertical-align: middle">
+				<a href="{{ site.baseurl }}/integrations/databases/">Database Integrations</a>
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ supported | replace: "TOOLTIP","Whitelisting databases is supported for database integrations." }}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ supported | replace: "TOOLTIP","Whitelisting tables is supported for database integrations." }}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ supported | replace: "TOOLTIP","Whitelisting columns is supported for database integrations." }}
+			</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: middle">
+				<a href="{{ site.baseurl }}/integrations/databases/mongodb">MongoDB</a>{{ question-icon | replace:"TOOLTIP","Field whitelisting is unsupported for Mongo, but Stitch syncs all fields in a document by default." }}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ supported | replace: "TOOLTIP","Whitelisting databases is supported for Mongo integrations." }}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ supported | replace: "TOOLTIP","Whitelisting collections is supported for Mongo integrations." }}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ not-supported | | replace: "TOOLTIP","Whitelisting fields is not supported for Mongo integrations."}}
+			</td>
+		</tr>
+	{% assign saas-integrations = site.saas-integrations %}
+	{% for integration in saas-integrations %}
+		{% if integration.whitelist.tables == true %}
+		<tr>
+			<td valign="middle" markdown="span">
+				[{{ integration.display_name }} {% if integration.this-version %}(v{{ integration.this-version }}){% endif %}]({{ integration.url | prepend: site.baseurl }})
+
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ not-applicable | replace:"TOOLTIP","Whitelisting databases is not applicable to SaaS integrations." }}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{{ supported | replace:"TOOLTIP", "Whitelisting tables is supported for this SaaS integration."}}
+			</td>
+			<td style="vertical-align: middle" align="center">
+				{% if integration.whitelist.columns == true %}
+					{{ supported | replace:"TOOLTIP", "Whitelisting columns is supported for this SaaS integration." }}
+				{% elsif integration.whitelist.columns == false %}
+					{{ not-supported | replace:"TOOLTIP", "Whitelisting columns is not supported for this SaaS integration." }}
+				{% endif %}
+			</td>
+		</tr>
+		{% endif %}
+	{% endfor %}
+	</tbody>
+</table>

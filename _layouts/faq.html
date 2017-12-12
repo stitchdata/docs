@@ -1,0 +1,36 @@
+---
+layout: page
+---
+
+{{ content }}
+
+<hr> 
+
+{% for faq-topic in page.frequently-asked-questions %}
+	<h2 id="{{ faq-topic.anchor }}">{{ faq-topic.topic }}</h2>
+	
+	<div class="panel-group" id="accordion">
+	{% for question in faq-topic.items %}
+    		<div class="panel panel-default">
+        		
+        		<div class="panel-heading">
+            		<h4 class="panel-title">
+                		<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ question.anchor }}">{{ question.question }}</a>
+            		</h4>
+        		</div>
+        		
+        		<div id="collapse{{ question.anchor }}" class="panel-collapse collapse noCrossRef">
+            		<div class="panel-body">
+                		{{ question.answer | flatify | markdownify }}
+            		</div>
+        		</div>
+
+    		</div>
+
+	{% endfor %}
+	</div>
+
+    {% unless forloop.last %}
+        <hr>
+    {% endunless %}
+{% endfor %}

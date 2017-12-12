@@ -1,0 +1,92 @@
+
+# -------------------------- #
+#      General Tooltips      #
+# -------------------------- #
+
+analysis-integration: “Analysis integrations are third-party tools you can layer on top of your data warehouse to query, visualize, and otherwise explore your data.”
+
+api-quota: "An API quota refers to the total number of API requests that can be made in a given period of time."
+
+api-rate-limit: "An API's rate limit refers to how often requests can be made in a given period of time. "
+
+append-only-rep: "Append-Only Replication is a type of Incremental Replication where newly replicated data is appended to the end of a table. Existing rows are not updated - any updates will be added to the table as new rows."
+
+certified-integration: "Certified integrations will receive commercial support, which is a guarantee that Stitch will fix bugs and adapt to new versions of third-party APIs."
+
+community-integration: "Maintenance of Community integrations will be performed by the Singer community. This includes fixing bugs and adapting to new versions of third-party APIs."
+
+database-integration: “Database integrations are just that - databases. This includes MySQL, PostgreSQL, MSSQL, and others.”
+
+destination: “Destination is our word for ‘data warehouse.’ A data warehouse is a central repository for data accumulated from a variety of sources.”
+
+full-table-rep: "Full Table Replication means that ALL rows in a table - including new, updated, and existing - will be replicated during every replication attempt."
+
+historical-sync: "Historical syncs are how far back from the Stitch connection date, by default, Stitch will fetch historical data."
+
+incremental-rep: "Incremental Replication means that only new or updated data will be replicated during a replication attempt."
+
+primary-key: "Primary Keys are used to identify unique rows within a table and ensure that only the most recently updated version of that record appears in your data warehouse."
+
+replication-frequency: "Replication Frequency refers to how often - based on the time of the last completed attempt - Stitch will attempt to replicate data from a data source."
+
+replication-key: "Replication Keys are columns used to identify new and updated data for replication. These are typically integer, datetime, or timestamp columns."
+
+row-count: "A replicated row is any row that moves through Stitch, whether it's a new addition, updated record, or a copy of an updated record. This includes rows in nested subtables."
+
+saas-integration: “SaaS integrations are cloud-based third-party services like Salesforce, Zendesk, and Trello.”
+
+updated-at-rep: "Updated or Modified At is a type of Incremental Replication that uses datetime or timestamp columns to detect new and updated data."
+
+whitelisting-feature: "Whitelisting is a feature that allows you to select specific tables and columns for replication."
+
+
+
+# -------------------------- #
+#      Used in Layouts       #
+# -------------------------- #
+
+## For example: the tooltips in Integration Snapshots.
+
+case: "Indicates if the data warehouse is case sensitive or case insensitive."
+
+column-limit: "The maximum number of columns a table can have."
+
+column-name-limit: "The maximum number of allowed characters a column name can have."
+
+decimal-range: "The maximum number of places decimal data types can have. 'Not Applicable' means the destination doesn't have decimal support."
+
+destination-connection-methods: "The methods Stitch supports to connect your data warehouse. Stitch attempts SSL connections by default with no configuration required on your part."
+
+destination-incompatibilities: "Indicates if there are any possible incompatibilities between this integration and any of Stitch's destination offerings."
+
+destination-rep-methods: "The Replication Methods supported by the data warehouse."
+
+db-type: "The type of database. Analytic excels at analyzing huge volumes of data; Transactional excels at processing."
+
+db-views: "Indicates if Stitch supports replicating views from this database integration."
+
+fully-managed: "This indicates if the destination provider includes routine maintenance and upgrades in their plan. If No, you'll be responsible for performing maintenance tasks."
+
+integration-availability: "Indicates if a free or paid Stitch plan is required to use the integration."
+
+integration-incompatibilities: "Indicates if there are any possible incompatibilities between this destination and any of Stitch's integration offerings."
+
+nested-structure-support: "Indicates if the data warehouse natively supports nested structures."
+
+nested-structures: "If your data warehouse doesn't natively support nested structures, Stitch will de-nest them and create subtables. See Table Info for details." ## used in Schema section of SaaS integration docs
+
+reserved-words: "Words reserved by Stitch and/or the data warehouse for use in schema, table, and column names. Conflicting objects will not be replicated into the data warehouse."
+
+ssl: "Indicates if SSL connections are supported for connecting this database to Stitch."
+
+subtable-level: "This refers to the level of nesting within a nested record. Top level refers to the parent table, second is one level, third is two, and so on."
+
+supported-by: "Indicates if the integration is supported by Stitch or the Singer community."
+
+supported-versions: "The database (or destination) versions supported by Stitch. Versions less than this may not work."
+
+table-name-limit: "The maximum number of allowed characters a table name can have."
+
+varchar-limit: "The maximum VARCHAR width the data warehouse supports."
+
+whitelisting: "Indicates whether individual tables and/or columns can be selected for replication."

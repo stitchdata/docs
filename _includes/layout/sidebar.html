@@ -1,0 +1,111 @@
+{% include misc/data-files.html %}
+{% assign navigation = site.data.sidebars.stitchnav.all-docs %}
+
+<div class="menu-list">
+
+<ul id="mysidebar" class="nav">
+        <!-- Stitch status widget -->
+        <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+            <span class="color-dot"></span>
+            <span class="color-description"></span>
+        </a>
+
+        {% for doc in navigation %}
+            <!-- Top-level items -->
+            {% for category in doc.categories %}
+                {% if category.title == "Getting Started" %}
+                <li>
+                    <a href="{{ link.getting-started | prepend: site.baseurl }}">{{ category.title }}</a>
+                {% else %}
+                <li>
+                    <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                        {{ category.title }} 
+                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                    </a>
+                    
+                {% endif %}
+                
+                {% unless category.title == "Getting Started" %}
+                    <ul class="collapse" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                        {% for section in category.sections %}
+                            {% if section.subsections %}
+                                <li class="subfolders">
+
+                                    <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}" aria-expanded="false" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                        {{ section.title }} 
+                                        <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                    </a>
+
+                                    <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    <!-- Third-level items -->
+                                    {% for subsection in section.subsections %}
+                                        <li>
+                                            <a href="{{ subsection.url | flatify | prepend: site.baseurl }}">{{ subsection.title }}</a>
+                                         </li>
+                                    {% endfor %}
+
+                                    <!-- Currently only applies to SaaS Integrations. 
+                                        This may change in the future. -->
+
+                                        {% if category.title == "SaaS Integrations" %}
+
+                                            {% assign all-integrations = site.saas-integrations | where:"input",true | sort: display_name %}
+
+                                            {% case section.title %}
+                                                {% when "Certified Integrations" %}
+                                                    {% assign integrations = all-integrations | where:"certified",true | sort: display_name %}
+                                                {% when "Community Integrations" %}
+                                                    {% assign integrations = all-integrations | where:"certified",false | sort: display_name %}
+                                            {% endcase %}
+
+                                            {% for integration in integrations %}
+                                                <li>
+                                                    <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.display_name }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                    </ul>
+                                </li>
+
+                            {% else %}
+
+                                <li>
+                                    <a href="{{ section.url | flatify | prepend: site.baseurl }}">{{ section.title }}</a>
+                                </li>
+
+                                {% if category.title contains "Database" or category.title contains "Webhook" %}
+                                    {% case category.title %}
+                                        {% when "Database Integrations" %}
+                                            {% assign all-integrations = site.database-integrations | where:"input",true | sort: title %}
+                                        {% when "Webhook Integrations" %}
+                                            {% assign all-integrations = site.webhook-integrations | where:"input",true | sort: title %}
+                                    {% endcase %}
+
+                                    {% for integration in all-integrations %}
+                                        {% if category.title == "Database Integrations" %}
+                                            <li>
+                                                <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title }}</a>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.display_name }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                    <li>
+                                        <a href="{{ link.integrations.main | prepend: site.baseurl }}">All Integrations</a>
+                                    </li>
+
+                                {% endif %}
+
+                            {% endif %}
+                        {% endfor %} 
+                    </ul>
+                {% endunless %}
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>

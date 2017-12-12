@@ -1,0 +1,99 @@
+<tr>
+    <td align="right">
+        {% if attribute.type == "object" %}
+            <strong>{{ subattribute.name | prepend: "__" | prepend: attribute.name }}</strong>
+        {% else %}
+            {% if attribute.doc-link %}
+                <a href="{{ attribute.doc-link }}" 
+                   title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" 
+                   target="new">
+                <strong>{{ attribute.name | flatify }}</strong>
+                </a>
+            {% else %}
+                <strong>{{ attribute.name | flatify }}</strong>
+            {% endif %}
+        {% endif %}
+    </td>
+
+    <td width="70%; fixed">
+        
+        {{ attribute.description | flatify | markdownify }}
+
+
+        <table width="100%" class="table-hover">
+                </tr>
+                {% for attribute in table.attributes %}
+            <!-- Nested table primary keys -->
+                    {% if attribute.primary-key == true %}
+                        <tr>
+                            <td align="right">
+                                <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.source-key | append: attribute.name }}</strong><br>
+                                {{ attribute.type | upcase }}
+                            </td>
+                            <td width="70%; fixed">
+                                {{ attribute.description | flatify | markdownify }}
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            <!-- End nested table primary keys -->
+
+            <!-- _sdc_level_*_id -->
+                <tr>
+                    <td align="right">
+                        <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.level-id | replace:"#","0" }}</strong><br>
+                        INTEGER<br>
+                    </td>
+                    <td width="70%; fixed">
+                        <p>This column forms part of a composite key for the table. The value will auto-increment for each unique record, beginning with 0.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.level-id | replace:"#","1" }}</strong><br>
+                        INTEGER<br>
+                    </td>
+                    <td width="70%; fixed">
+                        <p>This column functions the same as the <code>{{ app.dw.level-id | replace:"#","0" }}</code> column.</p>
+                    </td>
+                </tr>
+            <!-- End _sdc_level_*_id -->
+
+            <!-- Subtable attributes -->
+                {% for subattribute in attribute.subarray-attributes %}
+                    {% if subattribute.type == "object" %}
+                        {% include integrations/templates/schemas/object-data-type.html type="array-object" %}
+
+                    {% elsif subattribute.type == "array" %}
+                        {% include integrations/templates/schemas/array-data-type.html %}
+
+                    {% else %}
+                    <tr>
+                        <td align="right">
+                            {% if subattribute.primary-key == true %}
+                                {{ ui-icon.subtable-primary-key | flatify }} 
+                            {% endif %}
+
+                            {% if subattribute.doc-link %}
+                                <a href="{{ subattribute.doc-link" 
+                                   title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" 
+                                   target="new">
+                                   <strong>{{ subattribute.name | flatify }}</strong>
+                               </a>
+                            {% else %}
+                                <strong>{{ subattribute.name | flatify }}</strong>
+                            {% endif %}
+
+                            <br>
+                            {{ subattribute.type | upcase }}
+                        </td>
+                        <td width="60%; fixed">
+                            {{ subattribute.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+            <!-- End subtable attributes -->
+    </td>
+</tr>

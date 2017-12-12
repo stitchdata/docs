@@ -1,0 +1,29 @@
+## This is the schema for the rejected records table,
+## which is where Stitch will 'load' records that have
+## been rejected by a destination.
+
+name: "_sdc_rejected"
+description: "This table acts as a log for a given integration's rejected records. Every integration schema created by Stitch will contain this table."
+
+rejected_at: &rejected_at "_sdc_rejected_at"
+
+attributes:
+  - name: *rejected_at
+    description: "The date the loading error occurred."
+    data: |
+      2016-11-29 10:50:55.816
+
+  - name: "table_name"
+    description: "The name of the table the record was destined for."
+    data: |
+      customers
+
+  - name: "reason"
+    description: "The reason why the record was rejected."
+    data: |
+      Field collision on id
+
+  - name: "record"
+    description: "As much of the raw Transit record data as Stitch can fit."
+    data: |
+      "{""id"":1,""ID"":""Paul""}"

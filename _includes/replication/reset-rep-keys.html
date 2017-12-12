@@ -1,0 +1,74 @@
+{% if page.title contains "Mongo" %}
+{% capture object %}collection{% endcapture %}
+{% capture Object %}Collection{% endcapture %}
+{% capture col %}field{% endcapture %}
+{% else %}
+{% capture object %}table{% endcapture %}
+{% capture Object %}Table{% endcapture %}
+{% capture col %}column{% endcapture %}
+{% endif %}
+
+{% if page.title contains "Replication Keys" %}
+## Resetting Replication Keys
+{% else %}
+## Backfilling Existing Rows
+{% endif %}
+
+{% if page.title contains "Replication Keys" %}
+{% if page.title contains "Mongo" %}
+{% else %}
+**Replication Keys can be reset for database and (most) SaaS integrations.**
+{% endif %}
+
+There may be times when you need to fully replicate a {{ object }} (or {{ object }}s) that usually update incrementally. If, for example, you add a new {{ col }} and want to backfill data for already-replicated rows, forcing a full re-sync of the {{ object }} will populate the {{ col }} for existing rows and replicate new records. You can do this by resetting Replication Keys.
+{% else %}
+If you need to backfill already-replicated rows with data from the newly syncing column, you can **reset the table's Replication Key.** This will force a full re-sync of the table, populate the column in existing rows, and replicate new records.
+{% endif %}
+
+{% capture reset-rep-key %}
+Before you reset the Replication Keys, note the following:<br><br>
+
+1. This will **overwrite** existing data, not clear it.<br>
+2. Additionally, this process will lead to increased row counts which will count towards your limit.<br>
+3. **This process is not reversible.**<br><br>
+
+If you have questions or concerns about resetting Replication Keys, we encourage you to reach out to support before proceeding.
+{% endcapture %}
+{% include important.html content=reset-rep-key %}
+
+{% unless page.title contains "Mongo" %}### Resetting Database Integration Replication Keys{% endunless%}
+
+{% if page.title contains "Mongo" %}Mongo Replication Keys can be reset at the **integration** level only.
+{% else %}
+Replication Keys in database integrations can be reset at the **integration** or the **{{ object }}** level.
+
+- At the **integration** level, the reset will overwrite the saved values for ALL {{ object }}s AND queue a full re-sync **for all {{ object }}s in the integration.**
+- At the **{{ object }}** level, the reset will overwrite the saved values AND queue a full re-sync **for that {{ object }} only**.
+{% endif %}
+
+To reset Replication Keys, do the following:
+
+1. Click into the integration from the {{ app.page-names.dashboard }} page.
+{% if page.title contains "Mongo"%}
+2. Click {{ app.buttons.update-int-settings }}.
+{% else %}
+2. Next:
+   - **To reset the entire integration**: Click the {{ app.buttons.update-int-settings }} link and **skip to step 3**.
+   - **To reset a {{ object }}**: Locate the {{ object }} you want and click into it. Click the **{{ Object }} Settings** link, located near the top right corner, and **proceed to step 3.**
+{% endif %}
+3. Scroll down to the **Reset Replication Keys** section.
+4. Click the **Reset Keys** button.
+5. When prompted, click **OK** to confirm.
+6. A **Success!** message will display at the top of the page.
+
+At this point, a full re-sync of the integration will be queued. Note that if there is a large volume of data to be replicated, it may take some time before you see the changes in your data warehouse.
+
+{% unless page.title contains "Mongo" %}
+### Resetting SaaS Integration Replication Keys
+
+Resetting the Replication Keys for a SaaS integration is done by changing the **Historical Sync** date in the {{ app.page-names.int-settings }} page. **When this date is changed, all saved values will be overwritten AND a full re-sync of the integration will be queued.**
+
+**This feature may not be available for some integrations.** Because this approach uses date-based replication, some integrations may be incompatible. For example: Pardot doesn't support date-based replication, meaning this feature will not be available for Pardot connections.
+
+Changing the Historical Sync date has its own set of considerations and gotchas. Please refer to the [Syncing Historical SaaS Data]({{ link.replication.saas-historical | prepend: site.baseurl }}) guide for more info.
+{% endunless %}

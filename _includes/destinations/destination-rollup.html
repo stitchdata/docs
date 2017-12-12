@@ -1,0 +1,193 @@
+{% include misc/more-info-icons.html %}
+{% assign destinations = site.destinations | where:"destination",true %}
+
+<!-- This is used in the Choosing a Destination Guide. -->
+
+<table class="display" width="100%">
+	<thead>
+		<tr>
+			<th valign="top"></th>
+			{% for destination in destinations %}
+				<th style="vertical-align: middle" align="center">
+					<span class="h5"><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></span>
+				</th>
+			{% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td valign="top">
+				<strong>Release Status</strong>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.status }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Pricing Model</strong>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					<a href="{{ destination.pricing }}">{{ destination.pricing_model }}</a>
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Free Option</strong>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.free_option }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Database Type</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.db-type }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.db-type }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Fully-Managed</strong> <a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.fully-managed }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{% if destination.fully-managed == false %}
+               			No
+            		{% elsif destination.fully-managed == true %}
+               			Yes
+               		{% else %}
+               			{{ destination.fully-managed }}{{ info-icon | replace:"TOOLTIP","Heroku instances include maintenance; Amazon RDS & self-hosted instances do not." }}
+            		{% endif %}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top" style="background-color: #eaeaea" colspan="99">
+				<strong>Stitch Supports</strong>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Supported Versions</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.supported-versions }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.supported-versions }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Connection Methods</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.destination-connection-methods }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.connection-methods }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong><a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Incompatible Sources</a></strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.destination-incompatibilities }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">		
+					{% if destination.incompatible-with == 0 %}
+						None
+					{% elsif destination.incompatible-with >= 1 %}
+               			<a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}#{{ destination.type }}">Yes</a>
+            		{% endif %}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td style="background-color: #eaeaea" valign="top" colspan="99">
+				<strong>Data Limits</strong>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Table Name Length</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.table-name-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.table-name-limit }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Column Name Length</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.column-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.column-name-limit }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Max # of Columns</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.column-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.column-limit }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Max VARCHAR Width</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.varchar-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.varchar-limit }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Nested Structures</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.nested-structure-support }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{% if destination.nested-structure-support == false %}
+               			<a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">None</a>
+            		{% else %}
+               			Native Support
+            		{% endif %}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Case</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.case }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top">
+					{{ destination.case | remove: "Case " }}
+				</td>
+			{% endfor %}
+		</tr>
+		<tr>
+			<td valign="top">
+				<strong>Reserved Words</strong><a href="" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.reserved-words }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+			</td>
+			{% for destination in destinations %}
+				<td valign="top" markdown="span">
+					[Full List]({{ destination.reserved-words }})
+				</td>
+			{% endfor %}
+		</tr>
+	</tbody>
+</table>

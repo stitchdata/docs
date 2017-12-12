@@ -1,0 +1,16 @@
+---
+layout: page
+---
+
+{% assign destination = page %}
+{% include misc/data-files.html %}
+
+{% if site.collection == destinations %}
+	{% if destination.status contains "Beta" %}
+		{% include notifications/destination-integration-beta-notification.html %}
+	{% endif %}
+{% endif %}
+
+{{ content }}
+
+<hr>

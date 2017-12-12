@@ -1,0 +1,172 @@
+<!-- ACCOUNT & BILLING -->
+{% if page.permalink contains "account-security" %}
+<ul>
+	<li>
+		<a href="{{ link.account.team-members | prepend: site.baseurl }}">Managing Team Members</a>
+	</li>
+	<li>
+		<a href="{{ link.billing.billing-faq | prepend: site.baseurl }}">Billing FAQ</a>
+	</li>
+	<li>
+		<a href="{{ link.billing.billing-guide | prepend: site.baseurl }}">Understanding & Reducing Your Usage</a>
+	</li>
+</ul>
+{% endif %}
+
+
+
+<!-- DESTINATIONS -->
+{% if page.permalink contains "destinations" %}
+<ul>
+	<li>
+		<a href="{{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}">Choosing a Destination</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination & Integration Compatibility</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">Loading Data into Your Destination</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.switch-destinations | prepend: site.baseurl }}">Switching Destinations</a>
+	</li>
+	{% if page.type == "bigquery" %}
+		<li>
+			<a href="{{  link.replication.append-only | prepend: site.baseurl }}">BigQuery & Append-Only Replication</a>
+		</li>
+		<li>
+			<a href="{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}">Stitch's Impact on BigQuery Costs</a>
+		</li>
+	{% endif %}
+	{% if page.type == "redshift" or page.type == "panoply" or page.type == "postgres" %}
+		<li>
+			<a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures & Row Count Impact</a>
+		</li>
+	{% endif %}
+</ul>
+{% endif %}
+
+
+
+<!-- INTEGRATIONS -->
+
+<!-- All integrations -->
+{% if page.permalink contains "integrations" %}
+	<ul>
+		<li>
+			<a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination & Integration Compatibility</a>
+		</li>
+		{% unless page.permalink contains "webhooks" %}
+			<li>
+				<a href="{{ link.replication.rep-frequency | prepend: site.baseurl }}">Replication Frequency</a>
+			</li>
+		{% endunless %}
+{% endif %}
+
+<!-- Webhook Integrations -->
+{% if page.permalink contains "webhooks" %}
+		<li>
+			<a href="{{ link.replication.rep-methods | prepend: site.baseurl | append:"#append-only-incremental-replication"}}">Append-Only Replication
+		</li>
+		<li>
+			<a href="{{ link.replication.append-only | prepend: site.baseurl }}">Querying Append-Only Tables</a>
+		</li>
+	</ul>
+{% endif %}
+
+
+<!-- Database Integrations -->
+{% if page.permalink contains "databases" %}
+	<li>
+		<a href="{{ link.replication.rep-methods | prepend: site.baseurl }}">Replication Methods</a>
+	</li>
+	
+	<!-- Only Mongo-specific docs should display on the MongoDB page -->
+	{% if page.name == "mongodb" %}
+		<li>
+			<a href="{{ link.replication.mongo-rep-keys | prepend: site.baseurl }}">Mongo Replication Keys</a>
+		</li>
+		<li>
+			<a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures & Row Count Impact</a>
+		</li>
+
+	<!-- If not MongoDB, display general doc -->
+	{% else %}
+		<li>
+			<a href="{{ link.replication.rep-keys | prepend: site.baseurl }}">Replication Keys</a>
+		</li>
+	{% endif %}
+	<!-- End Mongo-specific docs -->
+
+	<!-- Display if Stitch supports replicating views -->
+	{% if page.sync-views == true %}
+		<li>
+			<a href="{{ link.replication.db-views | prepend: site.baseurl }}">Replicating Database Views</a>
+		</li>
+	{% endif %}
+</ul>
+{% endif %}
+
+
+
+<!-- SaaS integrations -->
+{% if page.permalink contains "saas" %}
+	<li>
+		<a href="{{ link.replication.saas-historical | prepend: site.baseurl }}">Syncing Historical SaaS Data</a>
+	</li>
+	<li>
+		<a href="{{ link.replication.saas-historical | prepend: site.baseurl }}">Resetting Replication Keys</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures & Row Count Impact</a>
+	</li>
+</ul>
+{% endif %}
+
+
+
+<!-- REPLICATION -->
+{% if page.permalink contains "replication" %}
+<ul>
+	<li>
+		<a href="{{ link.replication.syncing | prepend: site.baseurl }}">Syncing Data</a>
+	</li>
+	<li>
+		<a href="{{ link.replication.syncing-new-columns | prepend: site.baseurl }}">Syncing New Columns</a>
+	</li>
+	{% if page.title == "Syncing Data" %}
+		<li>
+			<a href="{{ link.replication.db-views | prepend: site.baseurl }}">Replicating Database Views</a>
+		</li>
+	{% endif %}
+	<li>
+		<a href="{{ link.replication.rep-methods | prepend: site.baseurl }}">Replication Methods</a>
+	</li>
+	<li>
+		<a href="{{ link.replication.rep-keys | prepend: site.baseurl }}">Replication Keys</a>
+	</li>
+	<li>
+		<a href="{{ link.replication.reset-rep-keys | prepend: site.baseurl }}">Resetting Replication Keys</a>
+	</li>
+</ul>
+{% endif %}
+
+
+
+<!-- DATA STRUCTURE -->
+{% if page.permalink contains "data-structure" %}
+<ul>
+	<li>
+		<a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">Loading Data into Your Destination</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.storage.structure-changes | prepend: site.baseurl }}">Table Schema Changes</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Structures & Row Count Impact</a>
+	</li>
+	<li>
+		<a href="{{ link.destinations.storage.append-only | prepend: site.baseurl }}">Querying Append-Only Tables</a>
+	</li>
+</ul>
+{% endif %}

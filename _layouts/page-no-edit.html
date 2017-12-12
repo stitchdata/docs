@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="post-header">
+   <h1 class="post-title-main">{{ page.title }}</h1>
+</div>
+
+<div class="post-content">
+<!-- Controls display of page summary -->
+   {% if page.display-summary == "true" %}
+        <div class="summary">{{ page.summary }}</div>
+   {% endif %}
+
+<!-- Table of Contents -->
+    {% unless page.toc == false %}
+        {% include layout/toc.html %}
+    {% endunless %}
+
+  {{content}}
+
+    <div class="tags">
+        {% if page.tags %}
+            <b>Tags: </b>
+            {% assign projectTags = site.data.tags.allowed-tags %}
+            {% for tag in page.tags %}
+                {% if projectTags contains tag %}
+                    <a href="{{ "/tag_" | append: tag | prepend: site.baseurl }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{ page.tagName }}{{ tag }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+</div>
+
+{% include layout/footer.html %}

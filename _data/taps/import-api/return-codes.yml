@@ -1,0 +1,37 @@
+# -------------------------- #
+#        Return Codes        #
+# -------------------------- #
+
+codes:
+  - name: "200 - OK"
+    description: "Success. New data was added as a result of the request."
+
+  - name: "201 - Created"
+    description: "The request was accepted and will be processed later; new data will be added once the request is processed."
+
+  - name: "400 - Bad Request"
+    description: "The request includes malformed JSON/Transit, did not provide an array of records, or contains more than 20,000 records."
+
+  - name: "401 - Unauthorized"
+    description: "The request did not have a valid API access token. You should [generate a new token](#generate-api-token) and re-try your request."
+
+  - name: "403 - Forbidden"
+    description: "The request had a valid API access token, but is not permitted. You should check that the `client_id` field in your request contains the correct client ID."
+
+  - name: "405 - Method Not Allowed"
+    description: "The request has an HTTP method that is not supported by the endpoint. `POST` and `GET` are supported by the Import API. Check that you’re using the correct HTTP method."
+
+  - name: "413 Request Entity Too Large"
+    description: "The size of the request body was over 4MB."
+
+  - name: "415 Unsupported Media Type"
+    description: "The content header of the request did not specify JSON or Transit."
+
+  - name: "422 Unprocessable Entity"
+    description: "The request is missing a required parameter. Check that the array of records in the request contain all of the [required request body fields](#required-request-body-fields)."
+
+  - name: "503 Service Unavailable"
+    description: "The Import API is experiencing problems. Try again later."
+
+  - name: "504 Gateway Timeout"
+    description: "The Import API could not process the request in time. Try again later."

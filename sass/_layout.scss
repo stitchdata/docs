@@ -1,0 +1,257 @@
+/* Top nav */
+.stitch-docs-navbar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: $protocol-black;
+	width: 100%;
+	padding: 1em 4em;
+	height: 4.5em;
+	display: flex;
+	box-sizing: border-box;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	min-width: 1100px;
+	z-index: 5;
+
+	.nav-left {
+		display: flex;
+		flex: 1;
+	}
+
+	.nav-right {
+		display: flex;
+		justify-content: flex-end;
+		flex: 4;
+
+		li {
+			display: inline-block;
+			margin-left: 30px;
+			vertical-align: middle;
+			line-height: 1rem;
+
+			a {
+				color: $white;
+
+				&:hover {
+					color: $gray-3;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	#stitch_logomark {
+		display: inline-block;
+		float: left;
+		vertical-align: middle;
+	}
+
+	.navbar-brand {
+		color: $white;
+		padding: 0;
+		display: inline-block;
+		margin: 0.5em 0;
+		float: left;
+		vertical-align: middle;
+		margin-left: 10px;
+	}
+
+	#search-input {
+		margin: 0;
+		display: inline-block;
+		vertical-align: middle;
+		border: 2px solid #D0D0D0;
+	}
+}
+
+body {
+	padding-top: 4.5em;
+}
+
+
+/* Page layout -- columns */
+
+#main {
+	position: absolute;
+	width: 100%;
+	top: 4.5em;
+
+	.sidebar-column {
+		position: fixed;
+		width: 375px;
+		padding: 3rem 4rem 4rem 4rem;
+		background: $gray-1;
+		overflow-y: auto;
+		overflow-x: hidden;
+		height: calc(100vh - 4.5em);
+
+	  #mysidebar {
+			/* top level list items */
+			min-width: 300px;
+
+			li {
+				a {
+					color: $protocol-black;
+				}
+
+				ul {
+					list-style: none;
+					padding-left: 30px;
+
+					li {
+						a {
+							color: $protocol-black;
+							font-size: 0.85rem;
+							margin: 0.75em 0;
+							display: block;
+							max-width: 254px;
+
+							&:hover {
+								color: $gray-3;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.content-column {
+		position: absolute;
+		left: 375px;
+		padding: 2em 4em;
+
+		.article {
+			max-width: 52em;
+			margin-top: 6rem;
+		}
+
+		.breadbox {
+			position: fixed;
+			top: 68px;
+			background: #FFFFFF;
+			width: 52em;
+			max-width: 100%;
+			min-height: 6.35em;
+			z-index: 2;
+
+			.breadcrumb-container {
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				border-bottom: 2px solid $stitch-yellow;
+				padding-bottom: 0.5em;
+				margin-bottom: 0.5em;
+
+				.dropdown-menu {
+					li {
+						a,
+						&.active {
+							padding: .5em;
+						}
+
+						a:hover {
+							color: $white;
+						}
+					}
+				}
+
+				a {
+					color: $protocol-black;
+
+					&:hover {
+						color: $gray-3;
+						text-decoration: none;
+					}
+				}
+
+				.menu-left,
+				.menu-right {
+					display: inline-block;
+					vertical-align: bottom;
+				}
+
+				.menu-left {
+					font-size: 0.8rem;
+					letter-spacing: 0.3px;
+					width: calc(100% - 12em);
+					line-height: 1.4;
+
+				}
+
+				.menu-right {
+					padding-bottom: 0.25em;
+
+					.btn {
+						width: 10em;
+						min-width: fit-content;
+					}
+				}
+
+				.breadbox {
+					max-width: 52em;
+				}
+			}
+		}
+	}
+}
+
+.columns {
+	list-style-type: none;
+	list-style-position: inside;//this is important addition
+	columns: 2;
+	-webkit-columns: 2;
+	-moz-columns: 2;
+
+	@media screen and (max-width: 1100px) {
+		columns: 1;
+		-webkit-columns: 1;
+		-moz-columns: 1;
+	}
+
+	&.more {
+		li {
+			&:last-of-type {
+				a {
+					border: 1px solid #999999;
+					border-radius: 0;
+					margin-bottom: 1rem;
+					border: 3px solid $stitch-yellow;
+					color: $protocol-black;
+					display: inline-block;
+					padding: 5px 20px;
+					margin-bottom: 0;
+					font-size: 14px;
+					font-weight: bold;
+					line-height: 1.428571429;
+					text-align: center;
+					vertical-align: middle;
+					cursor: pointer;
+					white-space: nowrap;
+					margin-top: 0.5rem;
+					text-transform: uppercase;
+
+					&:after {
+						content: "  →";
+						margin-left: 5px;
+					}
+
+					&:hover {
+						background: $stitch-yellow;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+footer {
+	text-align: left;
+	color: $gray-3;
+	margin: 2em 0;
+	line-height: 1.6em;
+}

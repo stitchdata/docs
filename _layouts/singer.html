@@ -1,0 +1,140 @@
+---
+layout: page
+---
+{% assign integration = page %}
+{% include misc/data-files.html %}
+
+{% assign released-versions = site.data.taps.versions[integration.name].released-versions %}
+{% assign latest-version = site.data.taps.versions[integration.name].latest-version %}
+
+<!-- SUPPORT AND SINGER NOTICE
+    This won't display for Stitch Certified integrations where
+    the version has been officially deprecated (both removed from
+    the product AND support is discontinued) 
+
+    Instead, users will see the DEPRECATION NOTICE below, where
+    they'll be prompted to upgrade to the newest version of the integration -->
+   
+    {% if integration.this-version %}
+        {% for version in released-versions %}
+            {% if version.number == integration.this-version %}
+                {% unless version.deprecated == true and version.deprecation-date %}
+                    {% unless integration.certified == false %}
+                        {% include notifications/support-beta-singer-notice.html %}
+                    {% endunless %}
+                {% endunless %}
+            {% endif %}
+        {% endfor %}
+
+    {% else %}
+        {% include notifications/support-beta-singer-notice.html %}
+    {% endif %}
+
+<!-- DEPRECATION NOTICE 
+    This only displays for integrations where version.deprecated == true -->
+    {% include notifications/integration-deprecation-notice.html %}
+
+<!-- INTEGRATION-SPECIFIC NOTICES -->
+{% if integration.notice %}
+    {% capture notice %}
+    {{ integration.notice | flatify | markdownify }}
+    {% endcapture %}
+
+    {% include important.html content=notice %}
+{% endif %}
+
+
+<!-- INTEGRATION SNAPSHOT -->
+    {% include integrations/templates/saas-integration-snapshot.html %}
+
+
+<!-- CONNECTION INSTRUCTIONS -->
+    {% include integrations/templates/connection-instructions.html %}
+    <hr>
+
+
+
+
+<!-- REPLICATION DETAILS -->
+{% if integration.replication-sections %}
+    <h2 id="replication">{{ integration.display_name }} Replication</h2>
+
+    {% for section in integration.replication-sections %}
+        {% if section.title == "attribution window" %}
+            <h3 id="{{ integration.display_name }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
+
+            {% capture attribution-window %}
+            {% include integrations/saas/attribution-windows.html %}
+            {% endcapture %}
+
+            {{ attribution-window | markdownify }}
+
+        {% else %}
+
+            {% if section.title %}
+                <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
+            {% endif %}
+
+            {{ section.content | flatify | markdownify }}
+        {% endif %}
+    {% endfor %}
+
+    <hr>
+{% endif %}
+
+
+
+
+<!-- SCHEMA DETAILS START -->
+<h2 id="schema">{{ integration.display_name }} Table Schemas</h2>
+
+<!-- Displays an info box if there are multiple versions of an integration currenly available -->
+
+{% if integration.this-version %}
+{% assign integration = page %}
+{% capture version-notice %}
+<strong>Schemas and Versioning</strong><br>
+Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.<br><br>
+
+The schema and info displayed below is for <strong>version {{ integration.this-version }}</strong> of this integration.
+
+{% if integration.this-version == latest-version %}
+  This is the latest version of the {{ integration.display_name }} integraiton.
+{% endif %}
+{% endcapture %}
+
+{% include note.html content=version-notice %}
+
+<!-- If this isn't the latest version of the integration, re-assign the page variable. -->
+{% if integration.this-version != latest-version %}
+    {% if integration.schema-sections %}
+        {% assign integration = page %}
+    {% else %}
+        {% assign integration = site.saas-integrations | where:"name",integration.name | first %}
+    {% endif %}
+{% endif %}
+{% endif %}
+
+<!-- If there are any notes about the schema,
+display them. This is info like custom field support,
+non-standard handling of certain data types, etc. -->
+    {% if integration.schema-sections %}
+        {% for section in integration.schema-sections %}
+                {% if section.title %}
+                    <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
+                {% endif %}
+            {{ section.content | flatify | markdownify }}
+        {% endfor %}
+        <hr>
+    {% endif %}
+
+<!-- ACTUAL TABLE SCHEMA DISPLAY -->
+{% unless integration.old-schema-template %}
+    {% include integrations/templates/schemas/table-schemas.html %}
+{% endunless %}
+<!-- SCHEMA DETAILS END -->
+
+
+
+<!-- ALL OTHER CONTENT -->
+    {{ content }}

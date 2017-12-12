@@ -1,0 +1,38 @@
+{% unless page.keywords contains "data warehouse" %}
+{% include note.html content="If you aren't using an SSH tunnel, skip this step." %}
+{% endunless %}
+
+{% if page.singer == true %}
+{% include layout/inline_image.html max-width="400px" file="/ssh-public-key-singer.png" alt="The Stitch Public Key" type="right" %}
+{% else %}
+{% include layout/inline_image.html max-width="400px" file="/ssh-public-key.png" alt="The Stitch Public Key" type="right" %}
+{% endif %}
+The Public Key is used to authorize the Stitch Linux user. If the key isn't properly installed, Stitch will be unable to access your database. 
+
+To retrieve the key:
+
+{% if page.url contains "destinations" %}
+1. Click the {{ app.menu-paths.destination-settings }}.
+2. Click the **{{ destination.display_name }}** icon.
+{% else %}
+1. {{ app.menu-paths.add-integration | flatify }}
+{% endif %}
+
+{% if page.url contains "integrations" %}
+{% if integration.name == "rds" %}
+2. Click the icon (ex: MySQL) for the type of database you're connecting.
+{% elsif integration.name == "magento" %}
+2. Click the **MySQL** icon.
+{% else %}
+2. Click the **{{ integration.display_name }}** icon.
+{% endif %}
+{% endif %}
+
+{% if page.singer == true %}
+3. Click the **SSH Tunnel** checkbox.
+{% else %}
+3. When the credentials page displays, click the **Encryption Type** menu and select the **SSH Tunnel** option.
+{% endif %}
+4. The Public Key will display, along with the other SSH fields.
+
+Leave this page open for now - you'll need it to wrap things up at the end.

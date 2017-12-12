@@ -1,0 +1,14 @@
+On the **Node Configuration page**, you'll select the node type, define the cluster type, and decide how many nodes to use.
+
+{% capture whats-a-node %}
+A **node** is a single computer that participates in a cluster. A Redshift cluster can have one to many nodes; the more nodes, the more data it can store and the faster it can process queries. Amazon currently offers [four different types of nodes](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes), each of which has its own CPU, RAM, storage capacity, and storage drive type. In addition, each node also has its own pricing plan.<br><br>
+
+The type and number of node(s) you choose when creating your cluster is dependent on your needs and dataset. We do, however, recommend you set up a multi-node configuration to provide data redundancy. For some guidance on choosing the number of nodes, [click here](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes){:target="new"} to read the ‘Determining the Number of Nodes’ section of the Amazon Redshift guide.
+{% endcapture %}
+
+{% include layout/callout.html content=whats-a-node type="info" %}
+
+1. Select the **Node Type** you want to use.
+2. Select the **Cluster Type**.
+3. Enter the number of **Compute Nodes** you want to use.
+4. Click **Continue**.

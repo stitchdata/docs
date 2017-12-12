@@ -1,0 +1,45 @@
+### Required {{ destination.display_name }} Permissions for Stitch {#required-permissions}
+
+The Stitch database user requires the following to successfully load data into {{ destination.display_name }}:
+
+<table width="100%; fixed">
+	<tr>
+		<td markdown="span" width="40%; fixed">
+			**Action**
+		</td>
+		<td markdown="span">
+			**Reason**
+		</td>
+	</tr>
+	<tr>
+		<td markdown="span">
+			`CREATE` schemas, tables, and views
+		</td>
+		<td markdown="span">
+			Stitch requires these permissions to create the necessary database objects to load and store your data.
+		</td>
+	</tr>
+	<tr>
+		<td markdown="span">
+			`SELECT` from tables in the `pg_catalog` and `information_schema` schemas
+		</td>
+		<td markdown="span">
+			Stitch uses the data in the systems tables to verify the existence of integration schemas and tables, and gain information about their structure prior to loading data.<br><br>
+			**Note:** Stitch will only ever **read** data from the systems tables.
+		</td>
+	</tr>
+	<tr>
+		<td markdown="span">
+			Ownership of all integration schemas and tables
+		</td>
+		<td markdown="span">
+			Stitch occasionally needs to run `COMMENT` and `ALTER TABLE` commands to properly insert data.
+		</td>
+	</tr>
+</table>
+
+While you technically can manually create integration schemas in {{ destination.display_name }} and then grant Stitch access to those schemas, we don't recommend it. We understand that security is a high priority and permissions should be carefully granted, but this approach will likely lead to headaches for you.
+
+If you take this approach, you'll need to first create the schema in your data warehouse and then grant the Stitch user the appropriate permissions to access it **every time a new integration is added in Stitch**. If this isn't done, Stitch won't be able to load data into your data warehouse.
+
+Additionally, if there are any differences between the name of the schema you create in your data warehouse and the schema name you enter in Stitch when setting up an integration, Stitch won't be able to load data into your data warehouse.

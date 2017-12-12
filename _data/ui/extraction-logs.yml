@@ -1,0 +1,33 @@
+fields:
+  - name: "Timestamp"
+    example: "`2017-11-17 16:44:41,159Z`"
+    description: "The date and time the action occurred."
+
+  - name: "Location"
+    example: "`tap`"
+    description: |
+
+      Indicates the part of the integration the message comes from. **This is used only by Stitch support to debug issues.**
+
+      Possible values are:
+
+      - `main`
+      - `tap`
+      - `target`
+
+  - name: "Message type"
+    example: "`INFO`"
+    description: |
+      The message type. In general:
+
+      - `INFO` indicates things are working as expected
+      - `DEBUG` indicates info of interest when diagnosing issues
+      - `WARNING` indicates something unexpected happened, but extraction continued. This status isn't usually noteworthy unless a `CRITICAL` error is also returned.
+      - `ERROR` indicates the integration was unable to perform some function, but extraction continued. This status isn't usually noteworthy unless a `CRITICAL` error is also returned.
+      - `CRITICAL` indicates an error occurred that caused the extraction to terminate. See [Extraction Errors](#extraction-errors) for more info.
+
+  - name: "Message body"
+    example: |
+      `State update: adding bookmarks.ads.updated_time = "2017-11-06T13:29:23-05:00"`
+    description: |
+      A description of the action currently being taken.

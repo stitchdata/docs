@@ -1,0 +1,31 @@
+Stitch replicates data from your sources based on the integration's Replication Frequency and the Replication Method used by the tables in the integration. In Stitch, you have the ability to control **what** and **how often** data is replicated for the majority of integrations.
+
+{% if destination.type == "bigquery" %}
+The current release of Stitch's {{ destination.display_name }} destination uses **<a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only Incremental Replication</a>.**
+
+For SaaS and database tables that use Incremental Replication, Stitch will replicate data into {{ destination.display_name }} in an append-only fashion. This means that data that updates an existing row will NOT overwrite the row. Instead, a new row with the new data will be appended to the end of the table.
+
+This means that there can be many different rows in a {{ destination.display_name }} table with the same Primary Key, each representing what the data was at that moment in time.
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Click here for an in-depth example</a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse noCrossRef">
+            <div class="panel-body">
+                {% include replication/append-only-replication-example.html %}
+            </div>
+        </div>
+    </div>
+</div>
+<p></p>
+
+Querying an append-only table requires a different strategy than you would normally use. For more info, check out the [Querying Append-Only Tables guide]({{ link.replication.append-only | prepend: site.baseurl }}).
+{% endif %}
+
+The time from the sync start to data being loaded into your data warehouse can vary depending on a number of factors, especially for initial historical loads. 
+
+To learn more about Stitch's replication process and how loading time can be affected, check out the [Stitch Replication Process guide]({{ link.replication.overview | prepend: site.baseurl }}).

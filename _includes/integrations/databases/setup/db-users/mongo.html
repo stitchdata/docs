@@ -1,0 +1,36 @@
+{% include important.html content="This section is written for Mongo versions 3.0+ and may differ for other versions. You should verify your version and refer to the Mongo documentation for your version before continuing." %}
+
+To successfully connect and replicate your Mongo data, Stitch requires the ability to:
+
+- Run the `listDatabases` command. This permission is required so Stitch can detect the databases available for replication.
+- Run the `listIndexes` command. Because Stitch will only display indexed fields as Replication Key options, this permission is required to identify fields that can be used as Replication Keys.
+- `COUNT` and query on all the databases you want to replicate data from. These permissions are requird to replicate your data.
+- Run the `dbVersion` command. While this isn’t mandatory, it’s beneficial for Stitch to have access to the information this command yields to troubleshoot any connection or replication issues that may arise.
+
+You can assign a role to the Stitch user if you like, as long as the role has the necessary permissions to perform the actions listed above.
+
+{% capture atlas-databases %}
+**Atlas {{ integration.display_name }} Authentication**<br>
+Stitch's {{ integration.display_name }} integration is designed to use a user authentication method that requires Mongo database users to be validated against their authentication database. [Read more about Mongo authentication here](https://docs.mongodb.com/manual/core/security-users/#authenticate-a-user).<br><br>
+
+Currently, Stitch's {{ integration.display_name }} integration currently assumes the database entered in the Integration Settings page is the authentication database. Due to {{ integration.display_name }}'s authentication process and Stitch's current functionality, the database entered into Stitch in the next step must be the user's authentication database.<br><br>
+
+For Atlas-based instances, the Stitch user must be able to perform the actions listed above on the `admin` database and the other databases you want to query, if any. This is due to the design of Stitch's integration and Mongo's authentication requirements.
+{% endcapture %}
+
+{% include note.html content=atlas-databases %}
+
+When connecting to multiple databases, you can add the user by logging into Mongo as an admin user and running the following command. This example uses `createUser`, but older versions may use `addUser`. [Documentation for `addUser` can be found here](https://docs.mongodb.com/v2.4/reference/method/db.addUser/#db.addUser).
+
+Replace `[authentication_database]` with the name of database where the user is authenticated, or created:
+
+```java
+use [authentication_database]
+db.createUser( {  user: "[stitch_username]",
+                  pwd: "[secure password here]",
+                  roles: ["roles here", "if you want them"]
+               }
+             )
+```
+
+**Note**: For Atlas-based instances, the `authentication_database` will be `admin`.

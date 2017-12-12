@@ -1,0 +1,93 @@
+# -------------------------- #
+#    Supported Data Types    #
+# -------------------------- #
+
+## All the data types Stitch currently 
+## supports for replication.
+
+## If a column shows as 'Unsupported' in the UI,
+## it may be an unsupported data type.
+
+last-updated: "March 13, 2017"
+
+data-types:  
+  - name: "ARRAY"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "BIGINT"
+    supported-by: "all"
+
+  - name: "BIT"
+    supported-by: "all"
+
+  - name: "CHAR"
+    supported-by: "all"
+
+  - name: "DATE"
+    supported-by: "all"
+
+  - name: "DECIMAL"
+    supported-by: "all"
+
+  - name: "DOUBLE"
+    supported-by: "all"
+
+  - name: "FLOAT"
+    supported-by: "all"
+
+  - name: "HSTORE"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "INTEGER"
+    supported-by: "all"
+
+  - name: "JSON"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "JSONB"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "LONGVARCHAR"
+    supported-by: "all"
+
+  - name: "LONGNVARCHAR"
+    supported-by: "all"
+
+  - name: "NCHAR"
+    supported-by: "all"
+
+  - name: "NVARCHAR"
+    supported-by: "all"
+
+  - name: "NUMERIC"
+    supported-by: "all"
+
+  - name: "REAL"
+    supported-by: "all"
+
+  - name: "SMALLINT"
+    supported-by: "all"
+
+  - name: "TIME"
+    supported-by: "all"
+
+  - name: "TIMESTAMP"
+    supported-by: "all"
+
+  - name: "TINYINT"
+    supported-by: "all"
+    notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link in the **Data Type** column for more details."
+
+  - name: "UUID"
+    supported-by: "postgresql"
+    notes: "This data type will be stored as a STRING in your data warehouse."
+
+  - name: "VARBINARY"
+    supported-by: "all"
+
+  - name: "VARCHAR"
+    supported-by: "all"

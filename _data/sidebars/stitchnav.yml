@@ -1,0 +1,228 @@
+# This controls the sidebar navigation. The code in _includes/layout/sidebar.html loops through each section here and formats it appropriately.
+
+all-docs:
+- title: sidebar
+  categories:
+
+  - title: Getting Started
+    url: "{{ link.getting-started }}"
+
+  - title: Account & Security
+    sections:
+
+    - title: Your Stitch Account
+      url: /account-security/
+
+    - title: Account Settings
+      url: "{{ link.account-settings }}"
+
+    - title: Invite Your Team
+      url: "{{ link.account.team-members }}"
+
+    - title: Billing
+      url: "{{ link.billing.billing-faq }}"
+
+    - title: Understand Your Usage
+      url: "{{ link.billing.billing-guide }}"
+
+    - title: Security
+      url: "{{ link.account.security-faq }}"
+
+    - title: Cancel Your Account
+      url: "{{ link.account.cancel-account }}"
+
+  - title: Destinations
+    sections:
+
+    - title: Overview
+      url: "{{ link.destinations.main }}"
+
+    - title: Choosing a Destination
+      url: "{{ link.destinations.overviews.choose-destination }}"
+
+    - title: Amazon Redshift
+      url: "{{ link.destinations.overviews.redshift }}"
+
+    - title: Google BigQuery
+      url: "{{ link.destinations.overviews.bigquery }}"
+
+    - title: Panoply.io
+      url: "{{ link.destinations.overviews.panoply }}"
+
+    - title: PostgreSQL 
+      url: "{{ link.destinations.overviews.postgres }}"
+
+    - title: Snowflake  
+      url: "{{ link.destinations.overviews.snowflake }}"
+
+    - title: Change Destinations
+      url: "{{ link.destinations.switch-destinations }}"
+
+  - title: SaaS Integrations
+    type: "integration"
+    sections:
+      - title: Certified Integrations
+        subsections:
+          - title: "Overview"
+            url: "{{ link.integrations.saas }}#stitch-certified-integrations"
+
+      - title: Community Integrations
+        subsections:
+          - title: "Overview"
+            url: |
+              {{ link.integrations.saas | append: "#stitch-community-integrations" }}
+
+      - title: All SaaS Integrations
+        url: "{{ link.integrations.saas }}"
+
+      - title: All Integrations
+        url: "{{ link.integrations.main }}"
+
+  - title: Database Integrations
+    type: "integration"
+    sections:
+      - title: Overview
+        url: "{{ link.integrations.databases }}"
+
+  - title: Webhook Integrations
+    type: "integration"
+    sections:
+      - title: Overview
+        url: "{{ link.integrations.webhooks }}"
+
+  - title: Import API
+    sections:
+      - title: Overview
+        url: "{{ link.integrations.import-api }}"
+
+      - title: Authentication
+        url: "{{ link.integrations.import-api }}#auth"
+
+      - title: Return Codes
+        url: "{{ link.integrations.import-api }}#return-codes"
+
+      - title: Methods
+        subsections:
+          - title: Status
+            url: "{{ link.integrations.import-api }}#status-method"
+
+          - title: Validate
+            url: "{{ link.integrations.import-api }}#validate-method"
+
+          - title: Upsert
+            url: "{{ link.integrations.import-api }}#upsert-method"
+
+  - title: Extracting Data
+    sections:
+    - title: Replicate Data
+      subsections:
+        - title: Select Data to Replicate 
+          url: /replication/syncing-data
+
+        - title: Replicate New & Additional Columns
+          url: "{{ link.replication.syncing-new-columns }}"
+
+        - title: Database Views
+          url: "{{ link.replication.db-views }}"
+
+        - title: Historical SaaS Data
+          url: "{{ link.replication.saas-historical }}"
+
+    - title: Replication Keys
+      subsections:
+        - title: Database Replication Keys
+          url: "{{ link.replication.rep-keys }}"
+
+        - title: MongoDB Replication Keys
+          url: "{{ link.mongo-rep-keys }}"
+
+        - title: Reset Replication Keys
+          url: "{{ link.replication.reset-rep-keys }}"
+
+    - title: Replication Methods
+      subsections:
+        - title: Overview
+          url: "{{ link.replication.rep-methods }}"
+
+        - title: Incremental
+          url: "{{ link.replication.rep-methods }}#incremental-replication"
+
+        - title: "Append-Only"
+          url: "{{ link.replication.rep-methods }}#append-only-incremental-replication"
+
+        - title: Full Table
+          url: "{{ link.replication.rep-methods }}#full-table-replication"
+
+    - title: Replication Frequency
+      url: "{{ link.replication.rep-frequency }}"
+
+    - title: Supported Data Types
+      url: "{{ link.replication.supported-data-types }}"
+
+    - title: Deletions
+      url: "{{ link.replication.rep-methods }}#deleted-records--incremental-replication"
+
+    - title: Monitoring Progress
+      subsections:
+        - title: Progress Summary
+          url: "{{ link.replication.rep-progress }}"
+
+        - title: Extraction Logs
+          url: "{{ link.replication.extraction-logs }}"
+
+  - title: Loading Data
+    sections:
+
+    - title: Integration Schemas
+      url: "{{ link.destinations.storage.stitch-schema }}"
+
+    - title: Loading Data into Destinations
+      url: "{{ link.destinations.storage.loading-data }}"
+
+    - title: Nested Data & Row Counts
+      url: "{{ link.destinations.storage.nested-structures }}"
+
+    - title: Table Schema Changes
+      url: "{{ link.destinations.storage.structure-changes }}"
+
+    - title: Append-Only Tables
+      url: "{{ link.replication.append-only }}"
+
+    - title: Rejected Records
+      url: "{{ link.destinations.storage.rejected-records }}"
+
+  - title: Analysis Integrations
+    sections:
+
+    - title: Analytics
+      url: /analysis-integrations#analytics-integrations
+
+    - title: SQL Edtiors
+      url: /analysis-integrations#sql-editors
+
+    - title: Data Science
+      url: /analysis-integrations#data-science
+
+  - title: Troubleshooting
+    sections:
+
+    - title: Account & Billing
+      url: /troubleshooting/account
+
+    - title: Destinations
+      url: /troubleshooting/destinations
+
+    - title: Integrations
+      url: /troubleshooting/integrations
+
+    - title: Replication
+      url: /troubleshooting/replication
+
+    - title: Data Discrepancies
+      url: /troubleshooting/data-discrepancies
+
+    - title: Error Notifications
+      url: /troubleshooting/error-notifications
+
+    - title: All Troubleshooting
+      url: /troubleshooting/

@@ -1,0 +1,45 @@
+
+<!-- Loops over all the integration's tables,
+	 captures the number of those that are using
+	 Full Table Replication. -->
+{% if integration.singer == true %}
+{% assign schema = site.integration-schemas | where:"tap",integration.name %}
+{% else %}
+{% assign schema = integration.tables %}
+{% endif %}
+
+{% assign full-table = 0 %}
+{% for table in schema %}
+	{% if table.replication-method contains "Full Table" and table.name != "SAMPLE_TABLE" %}
+		{% capture full-count %}{{ full-table | plus: "1" }}{% endcapture %}
+	{% endif %}
+{% assign full-table = full-count %}
+{% endfor %}
+
+{% assign full-count-num = full-count | plus: 0 %}
+{% if full-count-num <= 0 %}
+<!-- If all tables are Incremental, display this. -->
+	{% capture historical-tables %}
+		This means that data **equal to or newer than this date** will be replicated to your data warehouse.
+	{% endcapture %}
+
+{% else %}
+
+<!-- Otherwise, display this. -->
+{% capture historical-tables %}
+This means that:
+
+- For tables using **Incremental Replication**, data **equal to or newer than this date** will be replicated to your data warehouse.
+- For tables using **Full Table Replication**, all data - including records that are older, equal to, or newer than this date - will be replicated to your data warehouse.
+{% endcapture %}
+{% endif %}
+
+{% unless page.layout == "singer" %}
+### Define the Historical Sync {#define-historical-sync}
+{% endunless %}
+
+The Sync Historical Data setting will define the starting date for your {{ integration.display_name }} integration. {{ historical-tables }}
+
+Change this setting if you want to sync data beyond {{ integration.display_name }}'s default setting of **{{ integration.historical }}**. For a detailed look at historical syncs, check out the [Syncing Historical SaaS Data]({{ link.replication.saas-historical | prepend: site.baseurl }}) guide.
+
+{{ include.more-info }}

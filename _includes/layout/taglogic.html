@@ -1,0 +1,28 @@
+<p>The following docs are tagged with <button type="button" style="cursor: default" class="btn btn-default navbar-btn">{{page.tagName | replace:"_"," " }}</button></p>
+
+{% assign all-sorted = site.documents | sort:"title" %}
+
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="35%">Title</th>
+      <th width="70%">Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% assign thisTag = page.tagName %}
+      {% for document in all-sorted %}
+        {% for tag in document.tags %}
+          {% if tag == thisTag %}
+        <tr>
+          <td valign="top">
+            <strong><a href="{{ document.url | prepend: site.baseurl }}">{{document.title}}</a></strong>
+          </td>
+          <td valign ="top" markdown="span">{{ document.summary | strip_html | strip_newlines | truncate: 160 }}
+          </td>
+        </tr>
+        {% endif %}
+     {% endfor %}
+   {% endfor %}
+   </tbody>
+</table>

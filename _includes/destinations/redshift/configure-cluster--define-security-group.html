@@ -1,0 +1,16 @@
+The last step to configuring your cluster is to define the Security Group associated with the cluster.
+
+In the **VPC Security Groups** section, select the Security Group you want to associate with the cluster.
+
+We're using the default Security Group that's included with all new AWS accounts, but you can choose any one you like. You'll edit the access rules for the Security Group in the next section, which will allow the group to access the cluster.
+
+Here's what the configuration looks like for our sample cluster:
+
+{% if page.ssh == true %}
+![Redshift Additional Configuration page.]({{ site.baseurl}}/images/destinations/redshift-ssh-additional-configuration.png)
+
+{% else %}
+![Redshift Additional Configuration page.]({{ site.baseurl}}/images/destinations/redshift-additional-configuration.png)
+{% endif %}
+
+When finished, click the **Continue** button.

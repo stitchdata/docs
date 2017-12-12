@@ -1,0 +1,14 @@
+<!-- Images that align to the right with a text wrap -->
+{% if include.type == "right" %}
+<img class="right" src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" align="right" style="padding-left: 15px; width: {{ include.max-width }};">
+{% endif %}
+
+{% if include.type == "inline" %}
+<img class="inline" src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" />
+{% endif %}
+
+
+<!-- "Normal" images used after breaks in paragraphs -->
+{% if include.type == "normal" %} 
+<img src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" style="width: {{ include.max-width }};">
+{% endif %}

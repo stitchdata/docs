@@ -1,0 +1,27 @@
+<!-- This file captures the code for Font Awesome icons that are used throughout the site to indicate support for different features, integration/destination combos, etc.
+
+To use, include this file and then use variables to print the icons.
+
+You can use a 'replace' filter to insert copy that will create a tooltip. 
+
+Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
+
+
+{% capture supported %}
+<i class="fa fa-circle fa-lg" data-toggle="tooltip" style="color: #66cc66" aria-hidden="true" data-original-title="TOOLTIP"></i>
+{% endcapture %}
+
+
+{% capture sometimes-supported %}
+<i class="fa fa-exclamation-circle fa-lg" aria-hidden="true" data-toggle="tooltip" style="color: #ffcc00" data-original-title="TOOLTIP"></i>
+{% endcapture %}
+
+
+{% capture not-supported %}
+<i class="fa fa-times-circle fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="TOOLTIP"></i>
+{% endcapture %}
+
+<!-- The color of this icon is Stitch grey (#999999) if used without a 'style' attribute -->
+{% capture not-applicable %}
+<i class="fa fa-circle-thin fa-lg" data-toggle="tooltip" aria-hidden="true" data-original-title="TOOLTIP"></i>
+{% endcapture %}

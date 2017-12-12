@@ -1,0 +1,33 @@
+{% include misc/data-files.html %}
+
+{% unless page.layout == "singer" or page.layout == "database" %}
+### Define the Replication Frequency {#define-rep-frequency}
+{% endunless %}
+
+The [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }})  controls how often Stitch will attempt to extract data from your {{ integration.display_name }} integration.
+
+**Note**: This setting only affects the frequency of data **extraction** from {{ integration.display_name }}, not the interval at which data is loaded into your data warehouse. For example: a one (1) minute Replication Frequency means Stitch will attempt to extract data every minute, but loading the extracted data may take longer than this.
+
+#### Use the Default Frequency
+
+To use the default Replication Frequency ({{ integration.frequency }}), leave the **Use integration default** box checked and click {% if integration.singer == true %}{{ app.buttons.check-and-save }}{% else %}{{ app.buttons.save-int-settings }}{% endif %}  to create the integration.
+
+#### Customize the Frequency
+
+To adjust the Replication Frequency:
+
+1. Uncheck the **Use integration default** checkbox. A slider with various frequencies will display.
+2. Click the desired frequency on the slider.
+3. Click {% if integration.singer == true %}{{ app.buttons.check-and-save }}{% else %}{{ app.buttons.save-int-settings }}{% endif %} to create the integration.
+
+To help prevent overages, consider setting the integration to replicate less frequently. See the [Understanding & Reducing Your Row Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) for tips on reducing your usage.
+
+<!-- Only display if integration enforces API limits -->
+{% if integration.enforces-api-limits == true %}
+{% capture api-limits %}
+**{{ integration.display_name }} API Limits & Replication Frequency**<br>
+{{ integration.display_name }}'s API enforces usage limits. As a result, a high Replication Frequency may exceed these limits and impact Stitch's ability to replicate data. See the [Replication](#replication) section below for more details.
+{% endcapture %}
+
+{% include important.html content=api-limits %}
+{% endif %}

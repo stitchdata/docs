@@ -1,0 +1,46 @@
+<!-- Navigation -->
+<nav class="stitch-docs-navbar">
+    <div class="nav-left">
+        <svg version="1.1" id="stitch_logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 556.9 556.9" style="enable-background:new 0 0 556.9 556.9;" xml:space="preserve" height="38" width="38">
+        <style type="text/css">
+        .st0{fill:#FFCC00;}
+        </style>
+        <path class="st0" d="M556.9,219.9V0H0v297.9h382.8v39H0v0v219.9h556.9V258.9H174.1v-39H556.9z M278.3,499.7
+        c-15.1,0-27.4-12.3-27.4-27.4c0-15.1,12.3-27.4,27.4-27.4c15.1,0,27.4,12.3,27.4,27.4C305.7,487.5,293.5,499.7,278.3,499.7z
+        M401.8,414.9h-247l11.8-39h224L401.8,414.9z M278.3,57.2c15.1,0,27.4,12.3,27.4,27.4c0,15.1-12.3,27.4-27.4,27.4
+        c-15.1,0-27.4-12.3-27.4-27.4C250.9,69.4,263.2,57.2,278.3,57.2z M166.7,180.9l-11.8-39h247l-11.1,39H166.7z"></path>
+        </svg>
+        <a class="navbar-brand" href="{{ site.baseurl }}/">
+            <span class="projectTitle"> {{site.topnav_title}}</span>
+        </a>
+    </div>
+    <div class="nav-right">
+        <ul class="stitch-nav">
+            <!-- entries without drop-downs appear here -->
+            {% for entry in site.data.topnav.topnav %}
+                {% for item in entry.items %}
+                    {% if item.external_url %}
+                        <li>
+                            <a href="{{item.external_url}}" target="_blank">{{item.title}}</a>
+                        </li>
+                    {% elsif page.url contains item.url %}
+                        <li class="active">
+                            <a href="{{ site.baseurl }}{{item.url}}">{{item.title}}</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ site.baseurl }}{{ item.url }}">{{item.title}}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            <li>
+                <!--start search-->
+                <div id="search-demo-container">
+                    <input type="text" id="search-input" placeholder="{{site.data.strings.search_placeholder_text}}">
+                    <ul id="results-container"></ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

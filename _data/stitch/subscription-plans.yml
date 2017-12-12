@@ -1,0 +1,72 @@
+#------------------------------------#
+#         CURRENT PLAN TIERS         #
+#------------------------------------#
+
+# Names & descriptions for Stitch's current pricing plans.
+
+trial-name: &trial-name "Free Trial"
+trial-description: &trial-description |
+  During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination.
+
+free-name: &free-name "Free"
+
+starter-name: &starter-name "Starter"
+
+basic-name: &basic-name "Basic"
+
+premier-name: &premier-name "Premier"
+
+enterprise-name: &enterprise-name "Enterprise"
+
+#------------------------------------#
+#            LIST OF PLANS           #
+#------------------------------------#
+
+# The below list enables the use of a forloop to pull the name and description of all the current
+# pricing plans. 
+
+# Should a plan name change, only the corresponding item in the CURRENT PLAN TIERS section
+# above need to be updated. Any changes made there will be automatically reflected in this list.
+
+# name: plan name
+# paid: true if the plan is a paid plan
+# integrations: the type of integrations included in the plan
+# rows: the number of rows included in the plan before overages
+
+all-plans:
+  - name: *trial-name
+    paid: false
+    description: *trial-description
+    integrations: "all"
+    rows: "unlimited"
+    logs: "7 days"
+
+  - name: *free-name
+    paid: false
+    integrations: "free"
+    rows: "5 million"
+    logs: "24 hours"
+
+  - name: *starter-name
+    paid: true
+    integrations: "all"
+    rows: "5 million"
+    logs: "7 days"
+
+  - name: *basic-name
+    paid: true
+    integrations: "all"
+    rows: "100 million"
+    logs: "7 days"
+
+  - name: *premier-name
+    paid: true
+    integrations: "all"
+    rows: "250 million"
+    logs: "7 days"
+
+  - name: *enterprise-name
+    paid: true
+    integrations: "all"
+    rows: "billions"
+    logs: "60 days"

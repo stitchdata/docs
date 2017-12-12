@@ -1,0 +1,200 @@
+# -------------------------- #
+#       Using this File      #
+# -------------------------- #
+## This file is meant to serve as the single-source for all frequently-referenced links.
+## The goal is to simplify managing internal links by using variables in place of repeating
+## URLs across the site.
+
+## The structure of this file closely follows the site's content structure.
+## Ex: To reference a billing page, the variable would look like this: [site.data.urls.billing.[id]]
+## with [id] being one of the keys listed below.
+
+## If [include misc/data-files.html] is added after any page's Frontmatter,
+## you can simplify the variable as it assigns [link] to [site.data.urls]
+## Ex: To reference a billing page, the variable would look like this: [link.billing.[id]]
+
+# -------------------------- #
+#       Getting Started      #
+# -------------------------- #
+getting-started: /getting-started
+
+
+# -------------------------- #
+#     Account & Billing      #
+# -------------------------- #
+account:
+  account-settings: /account-security/managing-account-settings
+  team-members: /account-security/managing-team-members
+  security-faq: /account-security/stitch-security
+  cancel-account: /account-security/cancelling-your-stitch-account
+
+billing:
+  billing-guide: /account-security/understanding-stitch-billing-replicated-rows
+  billing-faq: /account-security/billing-faq
+
+
+# -------------------------- #
+#        Destinations        #
+# -------------------------- #
+destinations:
+  main: /destinations
+  switch-destinations: /destinations/switching-destinations
+
+## Overviews
+## used as link.destinations.overviews.[id]
+  overviews:
+    choose-destination: /destinations/choosing-a-stitch-destination
+    compatibility: /destinations/destination-integration-compatibility
+
+    bigquery: /destinations/bigquery/
+    bigquery-pricing: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
+    redshift: /destinations/redshift/
+    postgres: /destinations/postgresql/
+    panoply: /destinations/panoply/
+    snowflake: /destinations/snowflake/
+
+## Setup Guides
+## used as link.destinations.setup.[id]
+  setup:
+    bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
+
+    panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
+    panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
+
+    postgres: "/destinations/postgresql/#setup"
+    postgres-rds: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-warehouse-to-stitch
+    heroku-postgres: /destinations/postgresql/connecting-a-heroku-postgres-data-warehouse-to-stitch
+    self-hosted-postgres: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-warehouse-to-stitch
+    cloudsql-postgres: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data-warehouse
+
+    redshift: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
+    redshift-ssh: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+
+    snowflake: /destinations/snowflake/connecting-a-snowflake-data-warehouse-to-stitch
+
+
+# -------------------------- #
+#        Data Storage        #
+# -------------------------- #
+## used as link.destinations.loading.[id]
+  loading:
+    bigquery: /data-structure/bigquery-data-loading-behavior
+    panoply: /data-structure/panoply-data-loading-behavior
+    postgres: /data-structure/postgresql-data-loading-behavior
+    redshift: /data-structure/redshift-data-loading-behavior
+    snowflake: /data-structure/snowflake-data-loading-behavior
+
+# -------------------------- #
+#        Data Storage        #
+# -------------------------- #
+## used as link.destinations.storage.[id]
+  storage:
+    stitch-schema: /data-structure/integration-schemas
+    loading-data: /data-structure/loading-stitch-data-into-destinations
+    structure-changes: /data-structure/table-structural-changes
+    column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
+    varchar-widening: "/data-structure/table-structural-changes#widening-varchar-columns"
+    nested-structures: /data-structure/nested-data-structures-row-count-impact
+    rejected-records: /data-structure/identifying-rejected-records
+    redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
+
+# -------------------------- #
+#         INTEGRATIONS       #
+# -------------------------- #
+## used as link.integrations.[id]
+integrations:
+  main: /integrations
+  databases: /integrations/databases
+  saas: /integrations/saas
+  import-api: /integrations/import-api
+  webhooks: /integrations/webhooks
+  stitch-incoming-webhooks: /integrations/webhooks/stitch-incoming-webhooks
+
+  ## Use a filter to replace INTEGRATION with the integration's name to
+  ## create the URL.
+  ## Ex: [link.integrations.saas-integration | prepend: site.baseurl | replace:"INTEGRATION","salesforce"]
+  saas-integration: /integrations/saas/INTEGRATION
+  database-integration: /integrations/databases/INTEGRATION
+
+
+# -------------------------- #
+#         Replication        #
+# -------------------------- #
+## used as link.replication.[id]
+replication:
+  main: /replication
+  overview: /replication/stitch-replication-process
+
+## Syncing Data
+  syncing: /replication/syncing-data
+  syncing-new-columns: /replication/syncing-new-additional-columns
+  db-views: /replication/replicating-database-views
+  supported-data-types: /replication/supported-data-types
+
+## Replication Frequency
+  rep-frequency: /replication/replication-frequency
+
+## Replication Methods
+  rep-methods: /replication/replication-methods
+  append-only: /data-structure/querying-append-only-tables
+
+## Replication Keys
+  rep-keys: /replication/replication-keys
+  mongo-rep-keys: /replication/mongo-replication-keys
+  reset-rep-keys: "/replication/replication-keys#resetting-replication-keys"
+
+## Historical Data & Progress
+  saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
+  rep-progress: /replication/monitoring-replication-progress
+  extraction-logs: /replication/integration-extraction-logs
+
+
+# -------------------------- #
+#         Import API         #
+# -------------------------- #
+## used as link.import-api.[id]
+
+import-api:
+  getting-started: /integrations/import-api
+  faq: /integrations/import-api/faq
+  auth: /integrations/import-api#auth
+  revoke: /integrations/import-api#revoke-api-access-token
+  methods: /integrations/import-api#methods
+  return: /integrations/import-api#return-codes
+
+
+# -------------------------- #
+#       Troubleshooting      #
+# -------------------------- #
+## used as link.troubleshooting.[id]
+troubleshooting:
+  main: /troubleshooting
+
+  known-issues: /troubleshooting/known-third-party-issues
+  billing-issues: /troubleshooting/account
+  third-party-downtime: /troubleshooting/third-party-integration-downtime
+
+## Data Discrepancies 
+  discrepancy-guide: /troubleshooting/data-discrepancy-troubleshooting-guide
+  missing-objects: /troubleshooting/replication/missing-tables-and-columns
+  column-nulls: /troubleshooting/missing-columns-and-null-values
+  unsupported-data-types: /troubleshooting/non-replicating-data-unsupported-data-types
+  mysql-tinyint-bit: /troubleshooting/mysql-tinyint1-stored-as-bit
+  salesforce-formula-fields: /troubleshooting/stale-salesforce-data-formula-fields
+  segment-missing-data: /troubleshooting/missing-segment-data-selective-integration-snippet
+
+## Replication
+  postgres-hot-standby: /troubleshooting/postgres-hot-standby-settings-replication
+  salesforce-too-many-columns: /troubleshooting/salesforce-replication-too-many-columns
+
+## Error Notifications
+  errors: /troubleshooting/error-notifications
+
+  reauth-integrations: /troubleshooting/integrations/reauthorizing-integrations
+  dw-loading-errors: /troubleshooting/destinations/data-loading-errors
+  view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
+
+## Connection Errors
+  saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors
+  db-connection-errors: /troubleshooting/integrations/database-connection-errors
+  dw-connection-errors: /troubleshooting/destinations/destination-connection-errors
