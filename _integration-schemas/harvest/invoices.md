@@ -121,7 +121,7 @@ attributes:
     description: "If a recurring invoice, this field will contain the ID of the recurring invoice."
 
   - name: "tax2"
-    type: "string"
+    type: "string, number"
     description: "The tax percentage applied to the subtotal, including line items and discounts."
 
   - name: "tax2_amount"
@@ -137,7 +137,7 @@ attributes:
     description: "If applicable, the ID of the estimate associated with the invoice."
 
   - name: "discount"
-    type: "string"
+    type: "string, number"
     description: "If applicable, the percentage to be subtracted from the subtotal."
 
   - name: "discount_amount"

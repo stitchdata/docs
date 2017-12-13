@@ -77,8 +77,14 @@ setup-steps:
       3. Click the **Save Connections** button.
 
       After your credentials are validated, you'll be directed back to Stitch (click the {{ app.buttons.finish-int-setup }} button to wrap things up) and the {{ app.page-names.int-details }} page will display.
-  - title: "whitelisting"
+  - title: "track data"
 
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - title: "attribution window"
 
 # -------------------------- #
 #        Table Schemas       #

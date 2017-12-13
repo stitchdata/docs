@@ -15,6 +15,7 @@ description: |
   - `impression_device`
 
 replication-method: "Incremental"
+attribution-window: true
 
 attributes: 
   - name: "ad_id"

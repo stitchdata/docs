@@ -9,6 +9,7 @@ description: |
   The `adcreative` table contains info about the creatives used in ads in your Facebook Ads account.
 
 replication-method: "Full Table"
+attribution-window: true
 api-method:
   name: adCreative - Reading
   doc-link: https://developers.facebook.com/docs/marketing-api/reference/ad-creative/#Reading

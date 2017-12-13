@@ -1,13 +1,13 @@
 ---
-tap: "google-adwords"
-version: "GA"
+tap: "google-analytics-adwords"
+version: "15-10-2015"
 
 name: "adwords123456789_v2"
 doc-link: 
 description: |
   The `adwords` table contains daily info about each of your active campaigns and the ads contained within those campaigns.
 
-  Note that Google AdWords data is paginated on a daily basis. This means that a single row in each of the tables pertains to a single day.
+  **Note**: Google AdWords data is paginated on a daily basis. This means that a single row in each of the tables pertains to a single day.
 
 replication-method: "Incremental"
 attribution-window: true
@@ -46,14 +46,14 @@ attributes:
     type: "dimension"
     primary-key: true
     description: |
-      This column contains the content description ([utm_content](https://support.google.com/analytics/answer/1033867?hl=en){:target="new"})
+      The content description ([utm_content](https://support.google.com/analytics/answer/1033867?hl=en){:target="new"})
 
 ## Primary Key
   - name: "date"
     type: "dimension"
     primary-key: true
     replication-key: true
-    description: "This column contains the timestamp for the date the campaign ran."
+    description: "The timestamp for the date the campaign ran."
 
 ## Primary Key
   - name: "keyword"

@@ -122,7 +122,7 @@ setup-steps:
                 **If you selected Custom TCP Rule**, enter the number of the SSH port in this field.
              - **Source**: This should default to **Custom**. In the field next to the Source drop-down menu, paste one of the following IP addresses:
 
-                {% for ip-address in stitch.ip-addresses %}
+                {% for ip-address in ip-addresses %}
                 - {{ ip-address.ip }}
                 {% endfor %}
 

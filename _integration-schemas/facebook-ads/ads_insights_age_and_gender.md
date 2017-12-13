@@ -11,6 +11,7 @@ description: |
   **Note:** This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `age` and `gender`.
 
 replication-method: "Incremental"
+attribution-window: true
 
 attributes: 
   - name: "ad_id"

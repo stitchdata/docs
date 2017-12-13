@@ -17,6 +17,7 @@ description: |
   - [`ads_insights_platform_and_device`](ads_insights_platform_and_device) - Data segmented by platform and device
 
 replication-method: "Incremental"
+attribution-window: true
 
 attributes: 
   - name: "ad_id"

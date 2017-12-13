@@ -25,9 +25,10 @@ port:
 pricing_model: "Usage" ## provider model
 free_option: "No"
 fully-managed: true
-pricing_notes: "Snowflake pricing is based on two factors: the volume of data stored in your Snowflake data warehouse and the number of compute hours used. Snowflake offers several plan options, some of which include on-demand pricing - meaning your bill could vary over time - or pre-purchased, price-secure capacity options."
-icon: /images/destinations/icons/snowflake.svg
+pricing_notes: |
+  Snowflake pricing is based on two factors: the volume or data stored in your Snowflake destination and the amount of compute usage (the time the server runs) in seconds. 
 
+  Snowflake offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about Snowflake plans and pricing here]({{ destination.pricing }}).
 
 # -------------------------- #
 #           Support          #
@@ -92,9 +93,7 @@ A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Serv
 
 Snowflake data warehouses can be different sizes - X-Small, Large, and 3X-Large, for example - which defines how many servers will comprise each cluster in a warehouse.
 
-While the size of a warehouse can impact the time required to execute queries, bigger doesn't always mean better. [Learn more about Snowflake warehouse sizes here](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html){:target="_blank"}.
-
-Warehouse size is also directly tied to the number of credits used, which will directly impact your Snowflake costs.
+While the size of a warehouse can impact the time required to execute queries, bigger doesn't always mean better. Warehouse size is directly tied to the number of credits used, which will directly impact your Snowflake costs. [Learn more about Snowflake warehouse sizes here](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html){:target="_blank"}.
 
 To help you select the warehouse size that fits your needs and budget, check out [Snowflake's Warehouse Considerations guide](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"} before getting started.
 
@@ -105,8 +104,6 @@ To reduce usage, you can elect to automate the management of your Snowflake ware
 Enabling these settings depends on your workload and availability needs. [Learn more about the Auto Suspend and Auto Resume features here](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html#automating-warehouse-management){:target="_blank"}.
 
 Additionally, note that Stitch will only ever impact your Snowflake usage when loading data.
-
-[**Learn more about Snowflake pricing**]({{ destination.pricing }})
 {% endcontentfor %}
 
 

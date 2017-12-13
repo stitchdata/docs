@@ -72,9 +72,7 @@ attributes:
   - name: "billingGeocodeAccuracy"
     type: "string"
     description: |
-      The compound form of the accuracy level of the geocode for the account's billing address. **Only available if using the REST API.**
-
-      **If using the Bulk API**, track the `billingLatitude` and `billingLongitude` fields to replicate the same data.
+      The compound form of the accuracy level of the geocode for the account's billing address.
 
   - name: "billingLatitude"
     type: "integer"
@@ -273,9 +271,7 @@ attributes:
   - name: "shippingGeocodeAccuracy"
     type: "string"
     description: |
-      The compound form of the accuracy level of the geocode for the account's shipping address. **Only available if using the REST API.**
-
-      **If using the Bulk API**, track the `shippingLatitude` and `shippingLongitude` fields to replicate the same data.
+      The compound form of the accuracy level of the geocode for the account's shipping address.
 
   - name: "shippingLatitude"
     type: "integer"

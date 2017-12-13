@@ -151,9 +151,7 @@ attributes:
   - name: "geocodeAccuracy"
     type: "string"
     description: |
-      The compound form of the accuracy level of the geocode for the lead's address. **Only available if using the REST API.**
-
-      **If using the Bulk API**, track the `latitude` and `longitude` fields to replicate the same data.
+      The compound form of the accuracy level of the geocode for the lead's address.
 
   - name: "industry"
     type: "string"

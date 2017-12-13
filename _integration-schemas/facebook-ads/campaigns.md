@@ -11,6 +11,7 @@ description: |
   Facebook defines campaigns as _"a grouping of ad sets organized by the same business objective."_ 
 
 replication-method: "Incremental"
+attribution-window: true
 api-method:
   name: adCampaign - Reading
   doc-link: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group

@@ -1,30 +1,35 @@
 ---
-title: Google Adwords (Google Analytics)
-permalink: /integrations/saas/google-adwords
+title: Google Analytics (AdWords)
+permalink: /integrations/saas/google-analytics-adwords-v15-10-2015
 redirect_from: 
   - /integrations/saas/google-adwords-old
   - /integrations/saas/google-adwords-new
 tags: [saas_integrations]
 keywords: google adwords, integration, schema, etl google adwords, google adwords etl, google adwords schema
-summary: "Connection instructions, replication info, and schema details for Stitch's Google AdWords integration."
-layout: singer
+summary: |
+  Connection instructions, replication info, and schema details for Stitch's Google AdWords (Analytics) integration.
 
+  This integration has been deprecated.
+layout: singer
+input: false ## Removes integration from displaying on category pages
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-name: "google-adwords"
-display_name: "Google Adwords"
+name: "google-analytics-adwords"
+display_name: "Google Analytics (AdWords)"
 author: "Stitch"
 author-url: https://www.stitchdata.com
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
+
+this-version: "15-10-2015"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 historical: "15 days"
@@ -34,8 +39,6 @@ icon: /images/integrations/icons/google-adwords-old.svg
 whitelist:
   tables: false
   columns: false
-
-this-version: "GA"
 
 # -------------------------- #
 #      Querying Details      #
@@ -76,6 +79,31 @@ setup-steps:
          **Remember: profiles need to have Read & Analyze permissions to be detected by Stitch.** If you don’t see the profile you want in this list, we recommend that you double-check the permission settings.
       4. When finished, click **Continue** to save the integration.
 
+replication-sections:
+  - title: "attribution window"
+
+
+schema-sections:
+  - title: 
+    content: |
+      After the first successful sync of your {{ integration.display_name }} data, you'll see two tables in your destination. These tables follow this naming convention:
+
+      `adwords[GA profile id]_integration version`
+
+      For example: `adwords123456789_v2`. In this case, the profile ID is `123456789` and the version of the AdWords integration is `2`.
+
+      In the section below, you'll find a list of the attributes in these tables, a brief description, and links to Google's more in-depth documentation.
+
+  - title: "Campaign Names and Primary Keys"
+    anchor: "campaign-names-primary-keys"
+    content: |
+      Stitch's {{ integration.display_name }} integration uses the campaign name (`campaign`) as part of the Primary Key for both the `adwords` and `campaign` tables. Because of this, **changing campaign names may lead to data discrepancies**.
+
+      To account for the name change and resolve any data discrepancies, take the following steps:
+
+      1. **Delete the affected AdWords data from your destination**. Feel free to delete the data back to the date of the earliest campaign which was renamed.
+      2. **Re-replicate your AdWords data by [following these instructions]({{ link.replication.saas-historical | prepend: site.baseurl | append: "#after-the-initial-setup" }})**, setting the start date back to the date of the earliest campaign which was renamed. This will reset the integration's Replication Keys and re-replicate all data back to the integration's defined Start Date.
+
 # -------------------------- #
 #        Table Schemas       #
 # -------------------------- #
@@ -86,50 +114,6 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% contentfor setup %}
-
-
-### Authorizing Stitch & Selecting a Google Analytics Profile {#auth-select-ga-profile}
-
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication-notes %}
-{% include integrations/saas/attribution-windows.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor schema-notes %}
-After the first successful sync of your Google AdWords data, you'll see two tables in your data warehouse. These tables follow this naming convention:
-
-`adwords[GA profile id]_integration version`
-
-Here's an example: `adwords123456789_v2`. In this case, the profile ID is `123456789` and the version of the AdWords integration is `2`.
-
-In the section below, you'll find a list of the attributes in these tables, a brief description, and links to Google's more in-depth documentation.
-
-### Campaign Names & Primary Keys
-
-Stitch's Google AdWords integration uses the campaign name (`campaign`) as part of the Primary Key for both the `adwords` and `campaign` tables. Because of this, **changing campaign names may lead to data discrepancies**.
-
-To account for the name change and resolve any data discrepancies, we recommend taking the following steps:
-
-1. **Delete the affected AdWords data from your destination**. Feel free to delete the data back to the date of the earliest campaign which was renamed.
-2. **Re-sync your AdWords data by [following these instructions]({{ link.replication.saas-historical | prepend: site.baseurl | append: "#after-the-initial-setup" }})**, setting the start date back to the date of the earliest campaign which was renamed. This will reset the integration's Replication Keys and queue a full re-sync.
-
----
-
-{% endcontentfor %}
-
 
 
 {% include integrations/saas/ga-not-set.html %}
