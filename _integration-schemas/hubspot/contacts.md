@@ -8,9 +8,15 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `contacts` table contains info about individual contacts in HubSpot.
 
+  ### Contact properties
+
+  If properties have been set for the contact, additional fields beginning with `properties__` will be included in the table. **Note**: Contacts will only have an entry for a property if that property has been set for the contact's record.
+
+  HubSpot always types the value of `properties` fields as `STRING` despite the property type. [Refer to HubSpot's documentation for more info](https://developers.hubspot.com/docs/methods/contacts/contacts-overview).
+
 notes: 
 
-replication-method: "Full Table"
+replication-method: "Incremental"
 api-method:
   name: getContacts
   doc-link: https://developers.hubspot.com/docs/methods/contacts/get_contacts
@@ -20,7 +26,15 @@ attributes:
   - name: "canonical-vid"
     type: "integer"
     primary-key: true
-    description: "The canonical ID of the contact. In {{ integration.display_name }}, contacts may have multiple vids, but the canonical-vid will be the primary ID for a contact."
+    description: |
+      The canonical ID of the contact. In {{ integration.display_name }}, contacts may have multiple vids, but the `canonical-vid` will be the primary ID for a contact. 
+      
+      **Note**: When a contact is merged into another contact, the parent contact is updated with the child contact's vid added to its `merged-vids` list.  The child contact is not updated, however, so to fully account for merged contacts, canonical-vids that appear in the `merged-vids` list should be filtered out.
+
+  - name: "properties__lastModifiedDate__value"
+    type: "string"
+    replication-key: true
+    description: "A Unix timestamp in milliseconds of when the contact was last updated."
 
   - name: "vid"
     type: "integer"
