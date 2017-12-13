@@ -1,13 +1,13 @@
 ---
-tap: "google-adwords"
-version: "GA"
+tap: "google-analytics-adwords"
+version: "15-10-2015"
 
 name: "campaigns123456789_v2"
 doc-link:  
 description: |
   The `campaigns` table contains daily info about your AdWords campaigns.
 
-  Note that Google AdWords data is paginated on a daily basis. This means that a single row in each of the tables pertains to a single day.
+  **Note**: Google AdWords data is paginated on a daily basis. This means that a single row in each of the tables pertains to a single day.
 
 replication-method: "Incremental"
 attribution-window: true
