@@ -14,6 +14,7 @@ description: |
   To reflect the latest state of the adgroup, use the latest `updated_time` timestamp.
   
 replication-method: "Incremental"
+attribution-window: true
 api-method:
   name: ad - Reading
   doc-link: https://developers.facebook.com/docs/marketing-api/reference/adgroup

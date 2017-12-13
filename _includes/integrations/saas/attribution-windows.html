@@ -54,18 +54,18 @@ in the integration and then uses the appropriate formatting.
 {% endcomment %}
 
 {% if total-attribution-count == total-table-count %}
-Every time Stitch runs a replication job for {{ integration.display_name }}, **the last {{ integration.attribution-window }}' worth of data will be replicated.**
+Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated.
 
-This is applicable to **all tables in the integration.**
+This is applicable to all tables in the integration.
 {% else %}
 
 {% if total-attribution-count == 1 %}
 {% for table in attribution-tables %}
-Every time Stitch runs a replication job for {{ integration.display_name }}, **the last {{ integration.attribution-window }}' worth of data will be replicated for the** `{{ table.name }}` **table**.
+Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for the `{{ table.name }}` **table**.
 {% endfor %}
 
 {% elsif total-attribution-count >= 2 %}
-Every time Stitch runs a replication job for {{ integration.display_name }}, **the last {{ integration.attribution-window }}' worth of data will be replicated** for these tables:
+Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for these tables:
 {% for table in attribution-tables %}
 - `{{ table.name }}`
 {% endfor %}
@@ -74,4 +74,4 @@ Every time Stitch runs a replication job for {{ integration.display_name }}, **t
 
 Stitch replicates data in this way to account for updates made to existing records within the default attribution window of {{ integration.attribution-window }}, thus ensuring you won't make decisions based on stale (or false) data. **As a result, you may see a higher number of replicated rows than what's being generated in {{ integration.display_name }}**.
 
-Setting the Replication Frequency to a higher frequency - like 30 minutes - can result in re-replicating recent data and contribute to high row counts. {% if integration.whitelist.tables == true or integration.whitelist.tables == "Yes" %}Syncing fewer tables or selecting{% else %}Selecting{% endif %} a lower frequency can help prevent overages.
+Setting the Replication Frequency to a higher frequency - like 30 minutes - can result in re-replicating recent data and contribute to high row counts. {% if integration.whitelist.tables == true %}Replicating fewer tables or selecting{% else %}Selecting{% endif %} a lower frequency can help prevent overages.
