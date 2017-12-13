@@ -183,9 +183,7 @@ attributes:
   - name: "mailingGeocodeAccuracy"
     type: "string"
     description: |
-      The compound form of the accuracy level of the geocode for the contact's mailing address. **Only available if using the REST API.**
-
-      **If using the Bulk API**, track the `mailingLatitude` and `mailingLongitude` fields to replicate the same data.
+      The compound form of the accuracy level of the geocode for the contact's mailing address.
 
   - name: "mailingLatitude"
     type: "integer"
@@ -272,9 +270,7 @@ attributes:
   - name: "otherGeocodeAccuracy"
     type: "string"
     description: |
-      The compound form of the accuracy level of the geocode for the contact's alternate address. **Only available if using the REST API.**
-
-      **If using the Bulk API**, track the `otherLatitude` and `otherLongitude` fields to replicate the same data.
+      The compound form of the accuracy level of the geocode for the contact's alternate address.
 
   - name: "otherLatitude"
     type: "integer"

@@ -4,6 +4,7 @@ permalink: /integrations/saas/salesforce/
 tags: [saas_integrations]
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Salesforce integration."
+sidebar: page-level
 layout: singer
 
 # -------------------------- #
@@ -64,7 +65,10 @@ setup-steps:
       {% endfor %}
 
       Complete this step before proceeding with the rest of the setup, or you may encounter connection issues.
-  - title: "add integration"
+
+  - id: "add integration"
+    title: "Add {{ integration.display_name }} as a Stitch Data Source"
+    anchor: "add-stitch-data-source"
     content: |
       4. If the instance you want to connect to Stitch is a **sandbox**, check the **Connect to a Sandbox Environment** box.
 
@@ -282,8 +286,15 @@ setup-steps:
       {% endcapture %}
 
       {% include note.html content=new-fields-replicating-tables %}
-  - title: "historical sync"
-  - title: "replication frequency"
+
+  - id: "historical sync"
+    title: "Define the Historical Sync"
+    anchor: "define-historical-sync"
+
+  - id: "replication frequency"
+    title: "Define the Replication Frequency"
+    anchor: "define-rep-frequency"
+
   - title: "Authorize Stitch to Access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
@@ -293,7 +304,9 @@ setup-steps:
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
 
-  - title: "track data"
+  - id: "track data"
+    title: "Select Data to Replicate"
+    anchor: "setting-data-to-replicate"
 
 # -------------------------- #
 #     Integration Tables     #
