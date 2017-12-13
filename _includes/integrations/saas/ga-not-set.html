@@ -6,15 +6,15 @@ SaaS integration docs. -->
 
 According to [Google's documentation](https://support.google.com/analytics/answer/2820717):
 
-> `(not set)` is a placeholder name that Analytics uses when it hasn't received any information for selected dimension.
+> `(not set)` is a placeholder name that Analytics uses when it hasn't received any information for a dimension.
 
 <!-- For Google AdWords integrations only -->
-{% if integration.name contains "google-adwords" %}
+{% if integration.name contains "adwords" %}
 In general, if `(not set)` appears in your Google AdWords reports, it means that the property being tracked in the Analytics account is receiving traffic from an AdWords account that isn't linked to the reporting view. Follow the tips in [the AdWords section of this Google article](https://support.google.com/analytics/answer/2820717) to troubleshoot and resolve the issue.
 
 
 <!-- For Google Analytics only -->
-{% elsif integration.name == "google-analytics" %}
+{% elsif integration.name contains "analytics" %}
 In {{ integration.display_name }}, the reasons for a `(not set)` value can vary depending on the report you're looking at. More info for the various report types can be found [here in Google's documentation](https://support.google.com/analytics/answer/2820717).
 
 {% endif %}

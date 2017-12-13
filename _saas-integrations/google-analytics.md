@@ -138,6 +138,8 @@ Before you get started, note the following:
 
 2. **Metric/Dimension combos can't be changed after the integration is saved.** The Primary Key Stitch creates for Google Analytics integration tables is a composite key composed of the Dimensions selected during setup. Adding or removing Dimensions will change the Primary Key, potentially leading to issues with identifying new data for replication or de-duping data.
 
+3. **Google limits the number of Metrics and Dimensions you can select.** You can select up to 10 Metrics and seven Dimensions per integration. Refer to [Google's documentation](https://developers.google.com/analytics/devguides/reporting/core/v3/reference#metrics) for more info on these limits.
+
 3. **Segments and Filters aren't currently supported.** If you're interested in us adding these features, please get in touch with us.
 
 #### Select Metrics & Dimensions

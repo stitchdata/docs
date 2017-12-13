@@ -74,8 +74,7 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - content: |
-      {% include integrations/saas/attribution-windows.html %}
+  - title: "attribution window"
 
 # -------------------------- #
 #        Table Schemas       #
@@ -84,5 +83,6 @@ replication-sections:
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/intercom
 ---
+
 {% assign integration = page %}
 {% include misc/data-files.html %}
