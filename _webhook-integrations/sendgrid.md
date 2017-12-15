@@ -107,6 +107,46 @@ tables:
 
 {% contentfor replication-notes %}
 {% include integrations/webhooks/webhook-replication.html %}
+
+### Dropped Email Events & Stitch Replication
+
+On occasion, SendGrid's API will send `dropped` event records with `email: null`. In conjunction with the `timestamp` and `event` fields, Stitch uses the `email` field to create a composite Primary Key for SendGrid integrations. 
+
+When Primary Key fields are `NULL`, Stitch will not persist them to a destination.
+
+The following record would not persist to a destination because `email` is `NULL`:
+
+```json
+{
+  "sg_event_id":"sendgrid_internal_event_id",
+  "sg_message_id":"sendgrid_internal_message_id",
+  "email":null,
+  "timestamp":1513375274,
+  "smtp-id":"<original-smtp-id@domain.com>",
+  "unique_arg_key":"unique_arg_value",
+  "category":["category1", "category2", "category3"],
+  "reason":"Bounced Address",
+  "event":"dropped"
+}
+```
+
+This record, however, would:
+
+```json
+{
+  "sg_event_id":"sendgrid_internal_event_id",
+  "sg_message_id":"sendgrid_internal_message_id",
+  "email":"stitch@stitchdata.com",
+  "timestamp":1513375288,
+  "smtp-id":"<original-smtp-id@domain.com>",
+  "unique_arg_key":"unique_arg_value",
+  "category":["category1", "category2"],
+  "reason":"Unsubscribed Address",
+  "event":"dropped"
+}
+```
+
+[Read more about SendGrid dropped events here](https://sendgrid.com/docs/Classroom/Deliver/Undeliverable_Email/my_emails_are_being_dropped.html).
 {% endcontentfor %}
 
 
