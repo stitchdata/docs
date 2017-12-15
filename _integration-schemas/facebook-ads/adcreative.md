@@ -1347,10 +1347,6 @@ attributes:
     type: "string"
     description: "The query string parameters which will replace or be appended to URLs clicked from page post ads, messages of the post, and canvas app install creatives."
 
-  - name: "use_page_actor_override"
-    type: "boolean"
-    description: "Indicates if the page actor is shown for mobile ads."
-
   - name: "video_id"
     type: "string"
     description: "The ID of the video in the creative."
