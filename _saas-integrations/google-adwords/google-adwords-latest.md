@@ -72,13 +72,15 @@ setup-steps:
     anchor: "auth-select-ga-profiles"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/select-adwords-profiles.png" alt="Selecting Google AdWords profiles." max-width="400px" %}
-      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google AdWords data. **Note that we will only ever read your data.**
+
+      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google AdWords data. **Note: We will only ever read your data.**
       2. Click **Authorize** to continue.
-      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile you want to connect to Stitch.
+      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile(s) you want to connect to Stitch.
       4. When selecting profiles, keep the following in mind:
 
-         - **You can select up to 400 profiles per Google AdWords integration**. If you need to sync data from more than 400 profiles, you should create additional {{ integration.display_name }} integrations in your Stitch account.
-         - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to sync any subprofiles.
+         - **You can select up to 400 profiles per Google AdWords integration**. If you need to replicate data from more than 400 profiles, you should create additional {{ integration.display_name }} integrations in your Stitch account.
+         - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
+         - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
 
        5. When finished selecting profiles, click **Continue**.
   - title: "track data"
