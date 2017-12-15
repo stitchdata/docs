@@ -55,8 +55,14 @@ attribution-window: "30 days"
 # -------------------------- #
 
 requirements-list:
-  - item: "**Access to the {{ integration.display_name }} data you want to replicate**. Before beginning, verify that the user creating the integration has access to the reports you want to replicate."
   - item: "**To pause any ad-blocking software**. Ad blockers can interfere with pop-ups, which are used in Google authorization and may prevent authorization from successfully completing."
+  - item: "**Access to the {{ integration.display_name }} data you want to replicate**. Before beginning, verify that the user creating the integration has access to the reports you want to replicate."
+  - item: |
+      **To connect your AdWords account to a My Client Center (MCC) account.** This will ensure your account has access to the AdWords API, thereby allowing Stitch to query for and extract data.
+
+      An MCC account is an AdWords account type that enables you to manage several AdWords accounts under a single login. Think of manager accounts as trees: they can branch out to individual accounts or even other manager accounts. [Read more about MCC accounts here](https://support.google.com/adwords/answer/6139186).
+
+      By default, regular advertiser accounts - that is, individual AdWords accounts - don't have access to the AdWords API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399) and then link it to your AdWords account [by following these steps](https://support.google.com/adwords/answer/7459601).
 
 setup-steps:
   - title: "add integration"
