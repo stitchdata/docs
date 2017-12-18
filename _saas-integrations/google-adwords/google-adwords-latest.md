@@ -55,8 +55,14 @@ attribution-window: "30 days"
 # -------------------------- #
 
 requirements-list:
-  - item: "**Access to the {{ integration.display_name }} data you want to replicate**. Before beginning, verify that the user creating the integration has access to the reports you want to replicate."
   - item: "**To pause any ad-blocking software**. Ad blockers can interfere with pop-ups, which are used in Google authorization and may prevent authorization from successfully completing."
+  - item: "**Access to the {{ integration.display_name }} data you want to replicate**. Before beginning, verify that the user creating the integration has access to the reports you want to replicate."
+  - item: |
+      **To connect your AdWords account to a My Client Center (MCC) account.** This will ensure your account has access to the AdWords API, thereby allowing Stitch to query for and extract data.
+
+      An MCC account is an AdWords account type that enables you to manage several AdWords accounts under a single login. Think of manager accounts as trees: they can branch out to individual accounts or even other manager accounts. [Read more about MCC accounts here](https://support.google.com/adwords/answer/6139186).
+
+      By default, regular advertiser accounts - that is, individual AdWords accounts - don't have access to the AdWords API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399) and then link it to your AdWords account [by following these steps](https://support.google.com/adwords/answer/7459601).
 
 setup-steps:
   - title: "add integration"
@@ -66,13 +72,17 @@ setup-steps:
     anchor: "auth-select-ga-profiles"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/select-adwords-profiles.png" alt="Selecting Google AdWords profiles." max-width="400px" %}
-      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google AdWords data. **Note that we will only ever read your data.**
+
+      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google AdWords data. **Note: We will only ever read your data.**
       2. Click **Authorize** to continue.
-      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile you want to connect to Stitch.
+      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile(s) you want to connect to Stitch.
+
+         If you don't see the profile(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
       4. When selecting profiles, keep the following in mind:
 
-         - **You can select up to 400 profiles per Google AdWords integration**. If you need to sync data from more than 400 profiles, you should create additional {{ integration.display_name }} integrations in your Stitch account.
-         - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to sync any subprofiles.
+         - **You can select up to 400 profiles per Google AdWords integration**. If you need to replicate data from more than 400 profiles, you should create additional {{ integration.display_name }} integrations in your Stitch account.
+         - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
+         - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
 
        5. When finished selecting profiles, click **Continue**.
   - title: "track data"
