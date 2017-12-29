@@ -17,7 +17,7 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-hubspot
 
-this-version: "1.0"
+this-version: "2.0"
 
 # -------------------------- #
 #       Stitch Details       #
