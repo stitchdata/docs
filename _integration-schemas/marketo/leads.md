@@ -1,6 +1,6 @@
 ---
 tap: "marketo"
-# version: ""
+version: "2.0"
 
 name: "leads"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET
@@ -8,7 +8,14 @@ singer-schema:
 description: |
   The `leads` table contains info about your {{ integration.display_name }} leads.
 
-notes: 
+  ### Marketo Corona and Replication Method for Leads
+
+  Stitch replicates leads from Marketo using the Bulk API. The Replication Method for this table will vary depending on your Marketo account setup:
+
+  - **If Corona is enabled**, this table will use Incremental Replication based on an `updatedAt` timestamp included in the API query. 
+  - **If Corona isn't enabled**, this table will use Full Table Replication.
+
+  [Read more about Corona](#corona-replication).
 
 replication-method: "Incremental"
 api-method:
@@ -20,6 +27,11 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the lead."
+
+  - name: "updatedAt"
+    type: "datetime"
+    replication-key: true
+    description: "`updatedAt` **is not a field that will display in your destination**. This is an API query parameter used to incrementally replicate this table for accounts that have Corona enabled."
 
   - name: "acquiredBy"
     type: "boolean"
