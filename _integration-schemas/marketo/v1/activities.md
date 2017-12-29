@@ -1,10 +1,10 @@
 ---
 tap: "marketo"
-# version: ""
+version: "1.0"
 
 name: "activities"
 doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getLeadActivitiesUsingGET"
-singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/activities.json
+singer-schema: https://github.com/singer-io/tap-marketo/blob/14ea7da75ea0edd855500678c14764f5dad5b283/tap_marketo/schemas/activities.json
 description: |
   The `activities` table contains info about lead activities.
 
