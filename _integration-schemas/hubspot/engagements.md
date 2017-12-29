@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "engagements"
 doc-link: https://developers.hubspot.com/docs/methods/engagements/engagements-overview

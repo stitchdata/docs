@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "campaigns"
 doc-link: http://developers.hubspot.com/docs/methods/email/get_campaign_data
