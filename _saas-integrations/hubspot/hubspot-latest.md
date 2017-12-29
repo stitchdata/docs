@@ -75,6 +75,8 @@ schema-sections:
     content: |
       Custom object properties, or fields, are supported by Stitch's {{ integration.display_name }} integration. Stitch will query the `properties` list for each object and, if custom fields are available through {{ integration.display_name }}'s API, replicate them to your destination.
 
+      The data types of these fields will be the same as the data type in HubSpot. For example: A custom field containing `date` data will be a `date` field in your destination.
+
       This is applicable to any object that supports custom fields in {{ integration.display_name }}.
 
   - title: "HubSpot Date/DateTime Values & UNIX Timestamps"
