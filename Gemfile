@@ -4,3 +4,4 @@ source "https://rubygems.org"
 gem 'jekyll'
 gem 'jekyll-redirect-from'  # https://github.com/jekyll/jekyll-redirect-from
 gem 'jekyll-contentblocks'
+gem 'jekyll-include-cache'
