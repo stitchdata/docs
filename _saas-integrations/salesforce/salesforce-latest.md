@@ -66,9 +66,7 @@ setup-steps:
 
       Complete this step before proceeding with the rest of the setup, or you may encounter connection issues.
 
-  - id: "add integration"
-    title: "Add {{ integration.display_name }} as a Stitch Data Source"
-    anchor: "add-stitch-data-source"
+  - title: "add integration"
     content: |
       4. If the instance you want to connect to Stitch is a **sandbox**, check the **Connect to a Sandbox Environment** box.
 
@@ -287,13 +285,9 @@ setup-steps:
 
       {% include note.html content=new-fields-replicating-tables %}
 
-  - id: "historical sync"
-    title: "Define the Historical Sync"
-    anchor: "define-historical-sync"
+  - title: "historical sync"
 
-  - id: "replication frequency"
-    title: "Define the Replication Frequency"
-    anchor: "define-rep-frequency"
+  - title: "replication frequency"
 
   - title: "Authorize Stitch to Access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
@@ -304,9 +298,7 @@ setup-steps:
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
 
-  - id: "track data"
-    title: "Select Data to Replicate"
-    anchor: "setting-data-to-replicate"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
