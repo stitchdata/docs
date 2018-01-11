@@ -1,7 +1,7 @@
 ---
 title: Security FAQ
 permalink: /account-security/stitch-security
-keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl
+keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
 tags: [getting_started, account, security]
 
 summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
@@ -14,12 +14,23 @@ frequently-asked-questions:
   - topic: "Compliance"
     anchor: "stitch-compliance"
     items:
-      - question: "Is Stitch PCI or HIPAA compliant?"
-        anchor: "pci-hipaa-compliant"
+      - question: "Is Stitch PCI compliant?"
+        anchor: "pci-compliant"
         answer: |
           All payment information submitted through Stitch's billing interface to pay for your subscription is handled in a PCI-compliant manner.
-          
-          If you'd like to know how Stitch can replicate data that is subject to compliance requirements like HIPAA or PCI, reach out to our [support team](mailto: {{ site.support }}) and tell us more about your needs.
+
+          To inquire about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
+
+      - question: "Is Stitch HIPAA compliant?"
+        anchor: "hipaa-compliant"
+        answer: |
+          {% include misc/data-files.html %}
+
+          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise contract.
+
+          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales }}).
+
+          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales }}) before replicating any sensitive data.
 
       - question: "Does Stitch comply with any EU privacy laws?"
         anchor: "eu-privacy-compliance"
@@ -27,7 +38,7 @@ frequently-asked-questions:
           Stitch is certified under the [US-EU and US-SWISS Privacy Shield Programs](https://www.privacyshield.gov/participant?id=a2zt0000000GnxUAAS&status=Active){:target="new"}, meaning any EU or Swiss data transfer will be handled in accordance with the principles laid out in the Privacy Shield Framework.
 
           For more information on Privacy Shield, check out the link above or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
-  
+
   - topic: "Encryption"
     anchor: "stitch-encryption"
     items:
