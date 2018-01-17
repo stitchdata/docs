@@ -8,6 +8,8 @@
 
     {% assign device = "device" %}
 
+    {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
+
   {% when "bing-ads" %}
     {% assign replication-key = "gregorianDate" %}
 
@@ -16,13 +18,15 @@
     {% assign account-id-data = "71086605" %}
 
     {% assign device = "deviceType" %}
+
+    {% assign core-object-replication = "With the exception of the `accounts` table, these tables are replicated using **Full Table Replication**." %}
   {% endcase %}
 
 
 {% if include.type == "table-types" %}
 There are two types of tables in Stitch's {{ integration.display_name }} integration: Core Object and Report.
 
-- **Core Object** tables contain foundational data that's useful for analysis. These are the [`accounts`](#accounts), [`ad_groups`](#ad_groups), [`ads`](#ads), and [`campaigns`](#campaigns) tables. These tables are replicated using **Full Table Replication**.
+- **Core Object** tables contain foundational data that's useful for analysis. These are the [`accounts`](#accounts), [`ad_groups`](#ad_groups), [`ads`](#ads), and [`campaigns`](#campaigns) tables. {{ core-object-replication }}
 
 - **Report** tables are the various {{ integration.display_name }} reports. The replication process for these tables is a bit unlike that of other tables:
   - **Extraction**: Data is extracted using a conversion window. A conversion window is a period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}. Stitch currently uses a conversion window of **{{ integration.attribution-window }}**.
