@@ -18,44 +18,60 @@ api-method:
 
 attributes:
   - name: "id"
-    type: ""
+    type: "integer"
     primary-key: true
     description: "The campaign ID."
 
   - name: "biddingScheme"
-    type: ""
+    type: "object"
     doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/biddingscheme
     description: "Details about the bid strategy type used to manage the campaign."
+    object-attributes:
+      - name: "type"
+        type: "string"
+        description: "The type of bidding scheme set for the campaign."
+        doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/biddingscheme
 
   - name: "budgetId"
-    type: ""
+    type: "integer"
     description: "The ID of the budget that the campaign shares with other campaigns in the account. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/campaign-management-service/budget) for more info on budgets."
 
   - name: "budgetType"
-    type: ""
+    type: "string"
     description: "The budget type that determines how the budget is spent."
 
   - name: "campaignType"
-    type: ""
+    type: "string"
     description: "The type of campaign."
 
   - name: "dailyBudget"
-    type: ""
+    type: "number"
     description: "The amount to spend daily on the campaign."
 
   - name: "description"
-    type: ""
+    type: "string"
     description: "The description of the campaign."
 
   - name: "forwardCompatibilityMap"
     type: "array"
-    description: "Details about the forward compatibility "
+    description: "Details about the forward compatibility settings for the campaign."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
     array-attributes:
+      - name: "keyValuePairOfStringString"
+        type: "array"
+        description: "Key and value pairs for the campaign's forward compatibility settings."
+        array-attributes:
+          - name: "key"
+            type: "string"
+            description: "The name of the setting."
+
+          - name: "value"
+            type: "string"
+            description: "The value of the setting."
 
   - name: "languages"
-    type: ""
-    description: 
+    type: "string"
+    description: "The languages of the ads and keywords in the campaign."
 
   - name: "name"
     type: "string"
@@ -66,8 +82,13 @@ attributes:
     description: "The percent amount by which to adjust the bid for intent ads above or below the base ad group or keyword bid."
 
   - name: "settings"
-    type: ""
-    description: "The settings for the campaign type."
+    type: "array"
+    description: "The settings for the campaign."
+    array-attributes:
+      - name: "type"
+        type: "string"
+        description: "The type of setting. For example: `ShoppingSetting`"
+        doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/setting
 
   - name: "status"
     type: "string"
@@ -82,6 +103,6 @@ attributes:
     description: "The tracking template to use as a default for all URLs in the campaign."
 
   - name: "urlCustomParameters"
-    type: ""
+    type: "string"
     description: "The custom collection of key and value parameters for URL tracking."
 ---

@@ -6,7 +6,14 @@ name: "ads"
 doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/ad
 singer-schema: 
 description: |
-  The `ads` table contains info about the ads in your Bing Ads account.
+  The `ads` table contains info about the following ad types:
+
+  - `AppInstall`
+  - `DynamicSearch`
+  - `ExpandedText`
+  - `Product`
+  - `Text`
+  - `Image`
 
   [This is a **Core Object** table](#replication).
 
@@ -17,10 +24,9 @@ api-method:
 
 attributes:
   - name: "id"
-    type: ""
+    type: "integer"
     primary-key: true
     description: "The ad ID."
-    doc-link:
 
   - name: "adFormatPreference"
     type: "string"
@@ -33,33 +39,68 @@ attributes:
       - `All` - Ad will be eligible for both search and native ad formats
 
   - name: "devicePreference"
-    type: ""
+    type: "integer"
     description: "Determines the device preference for showing the ad."
 
   - name: "editorialStatus"
-    type: ""
+    type: "string"
     description: "The editorial review status of the ad, which indicates whether the ad is pending review, approved, or disapproved."
 
   - name: "finalAppUrls"
-    type: ""
-    description: ""
+    type: "string"
+    description: "The last or final URL where a user who clicks on an in-app ad is taken."
+    array-attributes:
+      - name: "string"
+        type: "array"
+        description: "The app landing page URL."
+        array-attributes:
+          - name: "value"
+            type: "string"
+            description: "The app landing page URL."
 
   - name: "finalMobileUrls"
-    type: ""
-    description: "The mobile landing page URL. This is only supported for text ads."
+    type: "array"
+    description: "The last or final URL where a user who clicks on a mobile ad is taken."
+    array-attributes:
+      - name: "string"
+        type: "array"
+        description: "The mobile landing page URL. This is only supported for text ads."
+        array-attributes:
+          - name: "value"
+            type: "string"
+            description: "The mobile landing page URL. This is only supported for text ads."
 
   - name: "finalUrls"
-    type: ""
-    description: "The last or final URl where a user is taken, whether or not the click to final URL path included any redirects."
+    type: "string"
+    description: "The last or final URL where a user is taken, whether or not the click to final URL path included any redirects."
+    array-attributes:
+      - name: "string"
+        type: "array"
+        description: "The last or final URL where a user is taken, whether or not the click to final URL path included any redirects."
+        array-attributes:
+          - name: "value"
+            type: "string"
+            description: "The last or final URL where a user is taken, whether or not the click to final URL path included any redirects."
 
   - name: "forwardCompatibilityMap"
     type: "array"
-    description: "Details about the forward compatibility "
+    description: "Details about the forward compatibility settings for the ad."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
     array-attributes:
+      - name: "keyValuePairOfStringString"
+        type: "array"
+        description: "Key and value pairs for the ad's forward compatibility settings."
+        array-attributes:
+          - name: "key"
+            type: "string"
+            description: "The name of the setting."
+
+          - name: "value"
+            type: "string"
+            description: "The value of the setting."
 
   - name: "status"
-    type: ""
+    type: "string"
     description: "The status of the ad. Possible values are `Active` and `Paused`."
 
   - name: "trackingUrlTemplate"
@@ -67,11 +108,10 @@ attributes:
     description: "The tracking template to use as a default for all landing page URLs."
 
   - name: "type"
-    type: ""
+    type: "string"
     description: "The type of the ad."
 
   - name: "urlCustomParameters"
-    type: ""
+    type: "string"
     description: "The custom collection of key and value parameters for URL tracking."
-
 ---

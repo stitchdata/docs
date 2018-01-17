@@ -18,17 +18,16 @@ api-method:
 
 attributes:
   - name: "id"
-    type: ""
+    type: "integer"
     primary-key: true
     description: "The ad group ID."
-    doc-link:
 
   - name: "adDistribution"
-    type: ""
+    type: "string"
     description: "Determines whether the ads within the ad group will be displayed on the content distribution channel, search distribution channel, or both."
 
   - name: "adRotation"
-    type: ""
+    type: "string"
     description: |
       Determines how often ads in the ad group show in relation to each other. If there are multiple ads within an ad group, the ads will rotate because only one ad from your account can show at a time.
 
@@ -38,22 +37,33 @@ attributes:
       - `RotateAdsEvenly` - In this rotation, Bing ads will rotate between ads on an equal basis.
 
   - name: "biddingScheme"
-    type: ""
+    type: "string"
     description: "The bid strategy type for how bids are managed."
 
   - name: "contentMatchBid"
-    type: ""
+    type: "number"
     description: "The bid to use when the keywords that the service extracts from the content page and the ad group's keywords match by using an exact match comparison."
 
   - name: "endDate"
-    type: ""
+    type: "date-time"
     description: "The date that the ads in the ad group will expire."
 
   - name: "forwardCompatibilityMap"
     type: "array"
-    description: "Details about the forward compatibility "
+    description: "Details about the forward compatibility settings for the ad group."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
     array-attributes:
+      - name: "keyValuePairOfStringString"
+        type: "array"
+        description: "Key and value pairs for the ad group's forward compatibility settings."
+        array-attributes:
+          - name: "key"
+            type: "string"
+            description: "The name of the setting."
+
+          - name: "value"
+            type: "string"
+            description: "The value of the setting."
 
   - name: "language"
     type: "string"
@@ -68,7 +78,7 @@ attributes:
     description: "The percent amount by which to adjust the bid for intent ads above or below the base ad group or keyword bid."
 
   - name: "network"
-    type: ""
+    type: "string"
     description: |
       The search networks where the ads will display. Possible values are:
 
@@ -77,36 +87,41 @@ attributes:
       - `SyndicatedSearchOnly`
 
   - name: "pricingModel"
-    type: ""
+    type: "string"
     description: |
       The pricing model for the ad group. The only supported pricing model in Bing Ads is based on cost per click, or CPC.
 
-      This field has been deprecated by Bing Ads and will be removed in a future version.
+      **This field has been deprecated by Bing Ads.**
 
   - name: "remarketingTargetingSetting"
-    type: ""
+    type: "string"
     description: |
       The targeting setting that is applicable for all audiences, or custom audiences and remarketing lists associated with the ad group.
 
       Possible values are:
 
       - `TargetAndBid`- Ads are shown only to people included in the audience
-      - `BidOnly` - Ads can be shown to everyone, but the bid adjustment will apply to people included in the audience.
+      - `BidOnly` - Ads can be shown to everyone, but the bid adjustment will apply to people included in the audience
 
   - name: "searchBid"
-    type: ""
+    type: "number"
     description: "The default bid to use when the user's query and the ad group's keywords match by using either a broad, exact or phrase match comparison."
 
   - name: "settings"
-    type: ""
-    description: 
+    type: "array"
+    description: "Details about the settings applied to the ad group."
+    array-attributes:
+      - name: "type"
+        type: "string"
+        description: "The type of setting. For example: `ShoppingSetting`"
+        doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/setting
 
   - name: "startDate"
-    type: ""
+    type: "date-time"
     description: "The date that the ads in the ad group can begin serving."
 
   - name: "status"
-    type: ""
+    type: "string"
     description: |
       The status of the ad group. Possible values are:
 
@@ -119,6 +134,6 @@ attributes:
     description: "The tracking template to use as a default for all URLs in your ad group."
 
   - name: "urlCustomParameters"
-    type: ""
+    type: "array"
     description: "The custom collection of key and value parameters for URL tracking."
 ---
