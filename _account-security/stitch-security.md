@@ -47,16 +47,14 @@ frequently-asked-questions:
         answer: |
           All credentials used to access other systems (i.e., your database or a SaaS integration) are encrypted before we store them.
 
-      - question: "Is my data encrypted in transit?"
+      - question: "Is my data encrypted in transit? Is it encrypted at rest?"
         anchor: "is-data-encrypted-transit"
         answer: |
-          We offer several ways to get data into Stitch using encryption:
+          Your data is always encrypted in transit and at rest within the Stitch environment. We offer several ways to get data into Stitch using encryption:
 
-          - **For data pulled from an API or submitted directly to Stitch's Import API,** we'll use SSL-based encryption.
+          - **For data pulled from an HTTP API or submitted directly to Stitch's Import API,** we'll use SSL/TLS-based encryption.
           
-          - **For data replicated from a database**, we can use the encryption functionality built into the database. 
-
-          - **For databases that don't support encryption**, or if encryption isn't activated, we can transport the data through an SSH tunnel. After we receive your data, it won't leave our network without being encrypted.
+          - **For data replicated from a database**, we can use the encryption functionality built into the database, or an SSH tunnel. 
 
       - question: "Are SSL connections supported?"
         anchor: "ssl-connection-support"
@@ -78,10 +76,10 @@ frequently-asked-questions:
 
           You can also dive into the [PostgreSQL SSL docs](https://jdbc.postgresql.org/documentation/head/ssl.html){:target="new"} to learn more.
 
-      - question: "Are VPN connections supported?"
+      - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
         answer: |
-          Not currently. If you're interested in adding support for VPN connections, [contact our support team](mailto: {{ site.support }}) with your use case. We're always interested in exploring the possibility of the features our customers want, so don't hesitate.
+          If you're interested in custom connection methods like VPN or reverse SSH tunnel, [contact our support team](mailto: {{ site.support }}) with your use case.
 
   - topic: "Data Access"
     anchor: "stitch-access"
