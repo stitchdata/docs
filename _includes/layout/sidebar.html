@@ -1,5 +1,11 @@
 {% include misc/data-files.html %}
-{% assign navigation = site.data.sidebars.stitchnav.all-docs %}
+
+{% case page.sidebar %}
+    {% when 'embedding-api' %}
+        {% assign navigation = site.data.sidebars.embedding-api.all-docs %}
+    {% else %}
+        {% assign navigation = site.data.sidebars.stitchnav.all-docs %}
+{% endcase %}
 
 <div class="menu-list">
 
