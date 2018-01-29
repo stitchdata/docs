@@ -1,0 +1,31 @@
+fields:
+  - name: "Tables to Replicate"
+    example: "activities"
+    description: "The name of the table."
+
+  - name: "Max Replication Bookmark Value"
+    example: |
+      **id**: 738, or
+
+      **updated_at**: 2017-12-20T05:46:39.039Z
+    description: |
+      The highest [Replication Bookmark]({{ link.replication.rep-keys | prepend: site.baseurl }}) Key value Stitch has loaded to your destination for the table, displayed as `column_name: value`.
+
+      For database integrations, this is the column selected when the table's [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) is defined. Stitch automatically selects Replication Keys for SaaS integrations.
+
+      Keep in mind that:
+
+      - Replication Bookmark columns can be timestamps, integers, or date-time fields. 
+      - If the table is currently being loaded, some data may load out of order.
+
+  - name: "Time Extracted"
+    example: "January 1, 2018 at 4:34 am"
+    description: "The date and time Stitch extracted this data from the source."
+
+  - name: "Rows Loaded"
+    example: "320"
+    description: |
+      The total number of rows loaded for the table. This total will vary depending on the selected option of **24 hours** or **billing period**:
+
+      - **24 hours**: The total number of rows loaded for this table in the past 24 hours.
+      - **Billing period**: The total number of rows loaded for this table for the current billing period.
