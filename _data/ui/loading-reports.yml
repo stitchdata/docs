@@ -11,6 +11,8 @@ fields:
     description: |
       The highest [Replication Bookmark]({{ link.replication.rep-keys | prepend: site.baseurl }}) Key value Stitch has loaded to your destination for the table, displayed as `column_name: value`.
 
+      **Note**: This column will contain values only for tables using Incremental Replication.
+
       For database integrations, this is the column selected when the table's [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) is defined. Stitch automatically selects Replication Keys for SaaS integrations.
 
       Keep in mind that:

@@ -11,6 +11,8 @@ weight: 3
 ---
 {% include misc/data-files.html %}
 
+{% include note.html content="Loading reports are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, loading reports will be made available." %}
+
 The last phase of every Stitch replication job is called **Loading**. During Loading, Stitch loads [extracted data]({{ link.replication.extraction-logs | prepend: site.baseurl }}) into your destination according to the table's defined [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}):
 
 - **Incremental Replication**: Data is de-duped based on the table's Primary Key and upserted into the table. Updates to existing records are also upserted.
