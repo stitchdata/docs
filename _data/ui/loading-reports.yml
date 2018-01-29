@@ -1,13 +1,13 @@
 fields:
   - name: "Tables to Replicate"
-    example: "activities"
+    example: "`activities`"
     description: "The name of the table."
 
   - name: "Max Replication Bookmark Value"
     example: |
-      **id**: 738, or
+      **id**: `738`, or
 
-      **updated_at**: 2017-12-20T05:46:39.039Z
+      **updated_at**: `2017-12-20T05:46:39.039Z`
     description: |
       The highest [Replication Bookmark]({{ link.replication.rep-keys | prepend: site.baseurl }}) Key value Stitch has loaded to your destination for the table, displayed as `column_name: value`.
 
