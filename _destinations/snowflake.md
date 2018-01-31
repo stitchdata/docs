@@ -87,7 +87,7 @@ A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Serv
 
 
 {% contentfor pricing %}
-{{ destination.pricing_notes }}
+{{ destination.pricing_notes | flatify }}
 
 ### Snowflake Warehouse Sizes {#warehouse-sizes}
 
