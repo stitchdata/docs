@@ -1263,6 +1263,7 @@ When entering the user credentials in the next step, **be sure to use the userna
 
 {% include integrations/shared-setup/connection-setup.html %}
 4. Enter the username and password of the Stitch user. Note that Stitch needs the username and password - entering a token and secret will result in an unsuccessful connection.
+5. If the instance you want to connect to Stitch is a sandbox, check the **Connect to a Sandbox Environment** box.
 
 {% include integrations/saas/setup/historical-sync.html %}
 
