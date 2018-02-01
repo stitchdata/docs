@@ -1,0 +1,65 @@
+<h4 id="{{ endpoint.key }}">
+    {{ endpoint.title }}
+</h4>
+
+<table class="table-snapshot table-hover">
+    <tr>
+        <td width="50%; fixed">
+            <strong>Endpoint</strong>: {{ endpoint.short-url | flatify }}
+        </td>
+        <td width="50%; fixed">
+            <strong>Version</strong>: {{ object.version | prepend: "v" }}
+        </td>
+    </tr>
+</table>
+
+    <p>{{ endpoint.description | flatify | markdownify }}</p>
+
+    {% if endpoint.arguments %}
+        <h5 id="{{ endpoint.key | append: "--arguments" }}">
+            Arguments
+        </h5>
+
+            <table width="100%; fixed">
+                {% for argument in endpoint.arguments %}
+                    <tr>
+                        <td align="right">
+                            <strong>
+                                {{ argument.name }}
+                            </strong><br>
+                            
+                            {% case argument.required %}
+                                {% when 'true' %}
+                                    <code>REQUIRED</code>
+                                {% else %}
+                                    <code>OPTIONAL</code>
+                                {% endcase %}
+                        </td>
+                        <td width="70%; fixed">
+                            {{ argument.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+    {% endif %}
+
+
+    <h5 id="{{ endpoint.key | append: "--returns" }}">
+        Returns
+    </h5>
+        {{ endpoint.returns | flatfiy | markdownify }}
+
+    {% for example in endpoint.examples %}
+    <h5 id="{{ endpoint.key | append: "--" | append: example.type }}">
+        {{ example.type | capitalize }}
+    </h5>
+
+{%- capture example-code -%}
+```{{ example.language }}
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+
+    <hr>
+
+    {% endfor %}

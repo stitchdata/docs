@@ -1,0 +1,46 @@
+{% assign objects = site.api-files | where:"content-type","embed-object" %}
+
+{% for object in objects %}
+    <h3 id="{{ object.title }}">
+        {{ object.title | append: "s" }}
+    </h3>
+
+        <p>{{ object.description | flatify | markdownify }}</p>
+
+        <h4 id="{{ object.title | downcase | append: "--object" }}">
+            The {{ object.title }} Object
+        </h4>
+
+            <table width="100%; fixed">
+                {% for attribute in object.object-attributes %}
+                    <tr>
+                        <td align="right">
+                            <strong>
+                                {{ attribute.name }}
+                            </strong><br>
+                            <code>{{ attribute.type | upcase }}</code>
+                        </td>
+                        <td width="70%; fixed">
+                            {{ attribute.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+
+    {% assign all-endpoints = site.api-files | where:"content-type","embed-endpoint" %}
+    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
+    {% assign endpoints = object-endpoints | sort:"order" %}
+
+{% for endpoint in endpoints %}
+    {% case page.endpoint-tabs %}
+        {% when true %}
+            {% include api/endpoint-tabs.html %}
+        {% else %}
+            {% include api/endpoint.html %}
+    {% endcase %}
+{% endfor %}
+
+    <hr>
+
+{% endfor %}
