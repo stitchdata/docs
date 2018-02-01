@@ -18,13 +18,14 @@
 
         {% for doc in navigation %}
             <!-- Top-level items -->
+
             {% for category in doc.categories %}
-                {% if category.title == "Getting Started" %}
-                <li>
-                    <a href="{{ link.getting-started | prepend: site.baseurl }}">{{ category.title }}</a>
+                {% if category.title == "Getting Started" or category.drop-down == false %}
+                    <li>
+                        <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
                 {% else %}
-                <li>
-                    <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                    <li>
+                        <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
                         {{ category.title }} 
                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                     </a>
