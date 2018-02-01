@@ -1,39 +1,6 @@
 <!DOCTYPE html>
 <head>
     {% include_cached layout/head.html title=page.title %}
-
-    // <script>
-    //     $(document).ready(function() {
-    //         // Initialize navgoco with default options
-    //         $("#mysidebar").navgoco({
-    //             caretHtml: '',
-    //             accordion: true,
-    //             openClass: 'active', // open
-    //             save: false, // leave false or nav highlighting doesn't work right
-    //             cookie: {
-    //                 name: 'navgoco',
-    //                 expires: false,
-    //                 path: '/'
-    //             },
-    //             slide: {
-    //                 duration: 400,
-    //                 easing: 'swing'
-    //             }
-    //         });
-
-    //         $("#collapseAll").click(function(e) {
-    //             e.preventDefault();
-    //             $("#mysidebar").navgoco('toggle', false);
-    //         });
-
-    //         $("#expandAll").click(function(e) {
-    //             e.preventDefault();
-    //             $("#mysidebar").navgoco('toggle', true);
-    //         });
-
-    //     });
-
-    // </script>
     
     <script>
         $(function () {
@@ -67,7 +34,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Page Content -->
 <div id="main">
     <div class="sidebar-column">
-        {% include layout/sidebar.html %}
+        {% include layout/api-sidebar.html %}
     </div>
     <div class="content-column">
         
