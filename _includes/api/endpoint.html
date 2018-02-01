@@ -23,19 +23,19 @@
             <table width="100%; fixed">
                 {% for argument in endpoint.arguments %}
                     <tr>
-                        <td align="right">
+                        <td align="right" width="20%; fixed">
                             <strong>
                                 {{ argument.name }}
                             </strong><br>
                             
                             {% case argument.required %}
                                 {% when 'true' %}
-                                    <code>REQUIRED</code>
+                                    REQUIRED
                                 {% else %}
-                                    <code>OPTIONAL</code>
+                                    OPTIONAL
                                 {% endcase %}
                         </td>
-                        <td width="70%; fixed">
+                        <td>
                             {{ argument.description | flatify | markdownify }}
                         </td>
                     </tr>
@@ -49,17 +49,31 @@
     </h5>
         {{ endpoint.returns | flatfiy | markdownify }}
 
+<ul id="example{{ endpoint.key }}Tabs" class="nav nav-tabs">
     {% for example in endpoint.examples %}
-    <h5 id="{{ endpoint.key | append: "--" | append: example.type }}">
-        {{ example.type | capitalize }}
-    </h5>
+        {% if forloop.first == true %} 
+            <li class="active">
+        {% else %}
+            <li>
+        {% endif %}
+            <a href="#{{ endpoint.key | append: "-" | append: example.type }}" data-toggle="tab">
+            {{ example.type | capitalize }}</a>
+        </li>
+        {% endfor %}
+</ul>
+  <div class="tab-content">
+    {% for example in endpoint.examples %}
+        {% if forloop.first == true %}
+            <div role="tabpanel" class="tab-pane active" id="{{ endpoint.key | append: "-" | append: example.type }}">
+        {% else %}
+            <div role="tabpanel" class="tab-pane" id="{{ endpoint.key | append: "-" | append: example.type }}">
+        {% endif %}
 
 {%- capture example-code -%}
 ```{{ example.language }}
 {{ example.code | flatify | rstrip }}
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
-
-    <hr>
-
-    {% endfor %}
+</div>
+{% endfor %}
+</div>
