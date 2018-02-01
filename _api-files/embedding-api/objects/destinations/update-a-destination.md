@@ -1,30 +1,36 @@
 ---
 content-type: "embed-endpoint"
 endpoint: "destinations"
-key: "create-a-destination"
-order: 1
+key: "update-a-destination"
+version: "3"
+order: 2
 
 
-title: "Create a destination"
-method: "post"
+title: "Update a destination"
+method: "put"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ object.version }}{{ object.endpoint-url }}/{id}
 full-url: |
   {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Create a new destination. Only a single destination is supported per Stitch client account."
+description: "Updates a destination. Modifications to the `type` attribute are not supported."
 
 
 arguments:
-  - name: "type"
+  - name: "id"
     required: true
+    description: "A path parameter corresponding to the unique ID of the destination to be updated."
+
+  - name: "type"
+    required: false
     description: "The destination type, either `redshift` or `postgres`."
 
   - name: "connection"
-    required: true
+    required: false
     description: "A destination form properties object corresponding to the value of `type`."
 
 
 returns: "A destination object."
+
 
 examples:
   - type: "request"
@@ -34,33 +40,34 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
-                "type":"redshift",
+                "type":"postgres",
                 "connection": {
                   "host": "<HOST>",
-                  "port": 5439,
+                  "port": 5432,
                   "username": "<USERNAME>",
                   "database": "<DATABASE>",
                   "password": "<PASSWORD>",
                   "ssl": false
                   }
               }"
+
   - type: "response"
     language: "json"
     code: |
       {  
         "id":"<ID>",
-        "type":"redshift",
+        "type":"postgres",
         "created_at":"TIME",
         "updated_at":"TIME",
-        "connection": {  
+        "connection": {
             "host":"<HOST>",
-            "port":5439,
+            "port":5432,
             "username":"<USERNAME>",
             "database":"<DATABASE>",
             "password":"<PASSWORD>",
             "ssl":false
         },
-        "last_check":{  
+        "last_check":{
             "updated_at":"TIME",
             "status":"OK",
             "message":""

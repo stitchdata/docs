@@ -12,23 +12,23 @@ object-attributes:
     type: "integer"
     description: "A unique identifier for this destination."
 
-  - name: "type"
-    type: "string"
-    description: "The destination type. Possible values are `redshift` and `postgres`."
+  - name: "connection"
+    type: "destination-properties" # this = destination form properties?
+    description: "Parameters for connecting to the destination, excluding any sensitive credentials."
 
   - name: "created_at"
     type: "timestamp"
     description: "The time at which the destination object was created."
 
-  - name: "updated_at"
-    type: "timestamp"
-    description: "The time at which the destination object was last updated."
-
-  - name: "connection"
-    type: "destination-properties" # this = destination form properties?
-    description: "Parameters for connecting to the destination, excluding any sensitive credentials."
-
   - name: "last_check"
     type: "connection-check"
     description: "The status and results of the most recent check run for this destination connection."
+
+  - name: "type"
+    type: "string"
+    description: "The destination type. Possible values are `redshift` and `postgres`."
+
+  - name: "updated_at"
+    type: "timestamp"
+    description: "The time at which the destination object was last updated."
 ---

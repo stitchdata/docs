@@ -1,30 +1,31 @@
 ---
 content-type: "embed-endpoint"
 endpoint: "destinations"
-key: "update-a-destination"
-order: 2
+key: "create-a-destination"
+version: "3"
+order: 1
 
 
-title: "Update a destination"
-method: "put"
+title: "Create a destination"
+method: "post"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/[id]
+  /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
   {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Update a destination. Modifications to the `type` attribute are not supported."
+description: "Create a new destination. Only a single destination is supported per Stitch client account."
 
 
 arguments:
   - name: "type"
-    required: false
+    required: true
     description: "The destination type, either `redshift` or `postgres`."
 
   - name: "connection"
-    required: false
+    required: true
     description: "A destination form properties object corresponding to the value of `type`."
 
-returns: "A destination object."
 
+returns: "A destination object."
 
 examples:
   - type: "request"
@@ -34,34 +35,33 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
-                "type":"postgres",
+                "type":"redshift",
                 "connection": {
                   "host": "<HOST>",
-                  "port": 5432,
+                  "port": 5439,
                   "username": "<USERNAME>",
                   "database": "<DATABASE>",
                   "password": "<PASSWORD>",
                   "ssl": false
                   }
               }"
-
   - type: "response"
     language: "json"
     code: |
       {  
         "id":"<ID>",
-        "type":"postgres",
+        "type":"redshift",
         "created_at":"TIME",
         "updated_at":"TIME",
-        "connection": {
+        "connection": {  
             "host":"<HOST>",
-            "port":5432,
+            "port":5439,
             "username":"<USERNAME>",
             "database":"<DATABASE>",
             "password":"<PASSWORD>",
             "ssl":false
         },
-        "last_check":{
+        "last_check":{  
             "updated_at":"TIME",
             "status":"OK",
             "message":""

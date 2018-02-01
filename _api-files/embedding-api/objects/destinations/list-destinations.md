@@ -2,6 +2,7 @@
 content-type: "embed-endpoint"
 endpoint: "destinations"
 key: "list-destinations"
+version: "3"
 order: 3
 
 
