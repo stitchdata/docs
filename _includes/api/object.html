@@ -7,6 +7,7 @@
 
         <p>{{ object.description | flatify | markdownify }}</p>
 
+    {% if object.object-attributes %}
         <h4 id="{{ object.title | downcase | append: "--object" }}">
             The {{ object.title }} Object
         </h4>
@@ -14,32 +15,29 @@
             <table width="100%; fixed">
                 {% for attribute in object.object-attributes %}
                     <tr>
-                        <td align="right">
+                        <td align="right" width="20%; fixed">
                             <strong>
                                 {{ attribute.name }}
                             </strong><br>
-                            <code>{{ attribute.type | upcase }}</code>
+                            {{ attribute.type | upcase }}
                         </td>
-                        <td width="70%; fixed">
+                        <td>
                             {{ attribute.description | flatify | markdownify }}
                         </td>
                     </tr>
                 {% endfor %}
             </table>
+    {% endif %}
 
 
     {% assign all-endpoints = site.api-files | where:"content-type","embed-endpoint" %}
     {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-    {% assign endpoints = object-endpoints | sort:"order" %}
+    {% assign same-version = object-endpoints | where:"version",object.version %}
+    {% assign endpoints = same-version | sort:"order" %}
 
-{% for endpoint in endpoints %}
-    {% case page.endpoint-tabs %}
-        {% when true %}
-            {% include api/endpoint-tabs.html %}
-        {% else %}
+        {% for endpoint in endpoints %}
             {% include api/endpoint.html %}
-    {% endcase %}
-{% endfor %}
+        {% endfor %}
 
     <hr>
 
