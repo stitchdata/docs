@@ -1,7 +1,7 @@
 {% assign objects = site.api-files | where:"content-type","embed-object" %}
 
 {% for object in objects %}
-    <h3 id="{{ object.title }}">
+    <h3 id="{{ object.endpoint }}">
         {{ object.title | append: "s" }}
     </h3>
 

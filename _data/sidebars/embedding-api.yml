@@ -23,7 +23,7 @@ all-docs:
           - title: "Accounts"
             subsections:
               - title: "The account object"
-                url: "{{ page.permalink }}#account-object"
+                url: "{{ page.permalink }}#accounts"
 
               - title: "Create an account"
                 url: ""
@@ -31,16 +31,16 @@ all-docs:
           - title: "Destinations"
             subsections:
               - title: "The destination object"
-                url: ""
+                url: "{{ page.permalink }}#destinations"
 
               - title: "Create a destination"
-                url: ""
+                url: "{{ page.permalink }}#create-a-destination"
 
               - title: "Update a destination"
-                url: ""
+                url: "{{ page.permalink }}#update-a-destination"
 
-              - title: "List all destinations"
-                url: ""
+              - title: "List destinations"
+                url: "{{ page.permalink }}#list-destinations"
 
           - title: "Sessions"
             subsections:
