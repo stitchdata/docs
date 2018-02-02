@@ -29,8 +29,8 @@
                             </strong><br>
                             
                             {% case argument.required %}
-                                {% when 'true' %}
-                                    REQUIRED
+                                {% when true %}
+                                    <font color="#cc3399">REQUIRED</span>
                                 {% else %}
                                     OPTIONAL
                                 {% endcase %}
