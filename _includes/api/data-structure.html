@@ -1,0 +1,45 @@
+{% assign data-structures = site.api-files | where:"content-type","embed-structure" %}
+
+{% for structure in data-structures %}
+    <h3 id="{{ structure.key }}">
+        {% case structure.title %}
+            {% when "Properties" %}
+                {{ structure.title }}
+            {% else %}
+                {{ structure.title | append: "s" }}
+        {% endcase %}
+    </h3>
+
+        <p>{{ structure.description | flatify | markdownify }}</p>
+
+    {% if structure.object-attributes %}
+        <table width="100%; fixed">
+            {% for attribute in structure.object-attributes %}
+                <tr>
+                    <td align="right" width="20%; fixed">
+                        <strong>
+                            {{ attribute.name }}
+                        </strong><br>
+                        {{ attribute.type | upcase }}
+                    </td>
+                    <td>
+                        {{ attribute.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+<!-- 
+    {% assign all-endpoints = site.api-files | where:"content-type","embed-endpoint" %}
+    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
+    {% assign same-version = object-endpoints | where:"version",object.version %}
+    {% assign endpoints = same-version | sort:"order" %}
+
+        {% for endpoint in endpoints %}
+            {% include api/endpoint.html %}
+        {% endfor %} -->
+
+    <hr>
+
+{% endfor %}
