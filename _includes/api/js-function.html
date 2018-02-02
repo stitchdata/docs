@@ -1,0 +1,46 @@
+{% assign functions = site.api-files | where:"content-type","stitch-js-function" | sort:"order" %}
+
+{% for function in functions %}
+    <h3 id="{{ function.key }}">
+        {{ function.definition }}
+    </h3>
+
+    <p>{{ function.description | flatify | markdownify }}</p>
+
+    {% if function.options %}
+        <table width="100%; fixed">
+            {% for option in function.options %}
+                <tr>
+                    <td align="right" width="20%; fixed">
+                        <strong>
+                            {{ option.name }}
+                        </strong><br>
+                        {% case option.required %}
+                            {% when true %}
+                                <font color="#cc3399">REQUIRED</span>
+                            {% else %}
+                                OPTIONAL
+                            {% endcase %}
+                    </td>
+                    <td>
+                        {{ option.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <h4 id="{{ function.key | append: "-example-usage" }}">
+        Example Usage
+    </h4>
+
+    {% for example in function.examples %}
+{%- capture example-code -%}
+```javascript
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+    {% endfor %}
+<br><br>
+
+{% endfor %}
