@@ -34,7 +34,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Page Content -->
 <div id="main">
     <div class="sidebar-column">
-        {% include layout/api-sidebar.html %}
+    {% case page.layout %}
+        {% when 'api' %}
+            {% include layout/api-sidebar.html %}
+        {% else %}
+            {% include layout/sidebar.html %}
+    {% endcase %}
     </div>
     <div class="content-column">
         

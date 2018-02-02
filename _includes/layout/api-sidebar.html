@@ -1,0 +1,97 @@
+{% include misc/data-files.html %}
+
+{% assign navigation = site.data.sidebars.embedding-api.all-docs %}
+
+
+<div class="menu-list">
+
+<ul id="mysidebar" class="nav">
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+        {% for doc in navigation %}
+            <!-- Top-level items -->
+
+            {% for category in doc.categories %}
+                <li>
+                    {% if category.sections %}
+                        {% if category.expand-by-default == true %}
+                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" 
+                               aria-expanded="true" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    {{ category.title }} 
+                                <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
+                            </a>
+
+                        {% else %}
+                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" 
+                               aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    {{ category.title }} 
+                                <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
+                            </a>
+
+                        {% endif %}
+
+                    {% else %}
+                        <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
+                    {% endif %}
+            
+                {% if category.sections %}
+                    {% case category.expand-by-default %}
+                        {% when true %}
+                            <ul class="collapse in" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                        {% else %}
+                            <ul class="collapse in" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                    {% endcase %}
+                    {% for section in category.sections %}
+                        {% if section.subsections %}
+
+                            {% case section.expand-by-default %}
+                                {% when true %}
+                                    <li class="subfolders">
+                                        <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
+                                        aria-expanded="true" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                            {{ section.title }} 
+                                            <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
+                                        </a>
+
+                                    <ul class="collapse in" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+
+                                {% else %}
+
+                                    <li class="subfolders">
+                                        <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
+                                        aria-expanded="false" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                            {{ section.title }} 
+                                            <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
+                                        </a>
+
+                                    <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                            {% endcase %}
+
+                                {% for subsection in section.subsections %}
+                                    <li>
+                                        <a href="{{ subsection.url | flatify | prepend: site.baseurl }}">{{ subsection.title }}</a>
+                                    </li>
+                                {% endfor %}
+                                    </ul>
+                                    <!-- Sub-section level -->
+                                </li>
+                        {% else %}
+                            <li>
+                                <a href="{{ section.url | flatify | prepend: site.baseurl }}">{{ section.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                    <!-- Section level -->
+                </li>
+            {% endif %}
+                <!-- Category level -->
+            {% endfor %}
+        {% endfor %}
+    </ul> 
+    <!-- Top-level - by status page -->
+</div>

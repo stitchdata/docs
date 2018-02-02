@@ -2,5 +2,41 @@
 layout: page
 ---
 
-{% include api/object.html %}
+{% assign api-docs = site.api-files | where:"content-type","embed-doc" | sort:"order" %}
 
+{% for doc in api-docs %}
+    <h2 id="{{ doc.title }}">
+        {{ doc.title }}
+    </h2>
+
+    {% if doc.sections %}
+        {% for section in doc.sections %}
+            {% if section.title %}
+                <h3 id="{{ section.anchor }}">
+                    {{ section.title | flatify | markdownify }}
+                </h3>
+            {% endif %}
+
+            {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    {% if subsection.title %}
+                        <h4 id="{{ subsection.anchor }}">
+                            {{ subsection.title | flatify | markdownify }}
+                        </h4>
+                    {% endif %}
+
+                    {{ subsection.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if doc.include %}
+        {% include {{doc.include}} %}
+    {% endif %}
+
+    <hr>
+{% endfor %}
+       
