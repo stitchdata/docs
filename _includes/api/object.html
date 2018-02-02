@@ -39,6 +39,8 @@
             {% include api/endpoint.html %}
         {% endfor %}
 
+{% unless forloop.last == true %}
     <hr>
+{% endunless %}
 
 {% endfor %}
