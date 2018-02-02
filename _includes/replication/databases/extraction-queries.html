@@ -59,11 +59,13 @@ The first part of the replication process is called a **structure sync**. This p
 
 The second step in the Extraction phase is called a **data sync**. This is where Stitch "extracts" data and replicates it. {% if integration.db-type != "mongo" %}The method Stitch uses is the same for all databases, but differs depending on the Replication Method that each {{ object }} uses.{% endif %}
 
+{% unless integration.db-type == "mongo" %}
 #### Full Table Replication
 
 For tables using Full Table Replication, Stitch will run a single query and read out of the resulting cursor in batches:
 
 {{ extraction.data-sync-queries.full-table | markdownify }}
+{% endunless %}
 
 #### Incremental Replication
 
