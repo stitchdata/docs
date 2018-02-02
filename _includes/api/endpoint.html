@@ -38,6 +38,7 @@
                         <td>
                             {{ argument.description | flatify | markdownify }}
                         </td>
+                        
                     </tr>
                 {% endfor %}
             </table>
@@ -69,11 +70,32 @@
             <div role="tabpanel" class="tab-pane" id="{{ endpoint.key | append: "-" | append: example.type }}">
         {% endif %}
 
+        {% case example.type %}
+          {% when 'errors' %}
+            {% for error in example.errors %}
+                <strong>{{ error.type | append: " - " | append: error.name }}</strong><br>
+                {% if error.fix-it %}
+                    {{ error.fix-it | flatify | markdownify }}
+                {% endif %}
+
+{%- capture error-response -%}
+```{{ example.language }}
+{{ error.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ error-response | markdownify }}
+          {% endfor %}
+
+          {% else %}
+
 {%- capture example-code -%}
 ```{{ example.language }}
 {{ example.code | flatify | rstrip }}
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
+
+        {% endcase %}
+
+
 </div>
 {% endfor %}
 </div>
