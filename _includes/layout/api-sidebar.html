@@ -11,7 +11,6 @@
         <span class="color-dot"></span>
         <span class="color-description"></span>
     </a>
-
         {% for doc in navigation %}
             <!-- Top-level items -->
 
@@ -35,7 +34,11 @@
                         {% endif %}
 
                     {% else %}
-                        <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
+                        {% if category.url %}
+                            <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
+                        {% else %}
+                            <a href="#"><strong>{{ category.title | flatify }}</strong></a>
+                        {% endif %}
                     {% endif %}
             
                 {% if category.sections %}
