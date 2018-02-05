@@ -13,9 +13,12 @@ layout: page
         {% for section in doc.sections %}
             {% if section.title %}
 
-    <h3 id="{{ section.anchor }}">
-        {{ section.title | flatify }}
-    </h3>
+            <h3 id="{{ section.anchor }}">
+                {% if doc.title == "Quick Start" %}
+                    Step {{ forloop.index }}:
+                {% endif %}
+                {{ section.title | flatify }}
+            </h3>
             {% endif %}
 
             {{ section.content | flatify | markdownify }}
