@@ -44,7 +44,7 @@ examples:
                   "password": "<PASSWORD>",
                   "ssl": false
                   }
-              }"
+               }"
   - type: "response"
     language: "json"
     code: |

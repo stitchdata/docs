@@ -45,13 +45,13 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
-                "type":"platform.hubspot",
-                "display_name": "Hubspot",
-                "properties":{
-                  "start_date": "2018-01-01 00:00:00"
-                  "customFrequencyInMinutes": "360"
-                }
-               }"
+                   "type":"platform.hubspot",
+                   "display_name":"Hubspot",
+                   "properties":{
+                      "start_date":"2018-01-01 00:00:00",
+                      "customFrequencyInMinutes":"360"
+                   }
+                }"
   # - type: "response"
   #   language: ""
   #   code: |
