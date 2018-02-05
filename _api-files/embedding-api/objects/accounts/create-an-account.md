@@ -44,11 +44,14 @@ arguments:
     description: "The secret for your API client, obtained when you registered to use the {{ page.api-name }}."
 
 
-returns: "An `access_token` property containing an API access token for the Stitch client's account."
+returns: |
+  If successful, an `access_token` property containing an API access token for the Stitch client's account will be returned.
+
+  Otherwise, an error will be returned. For example: If a Stitch client account associated with the user already exists, the request will return `This email address is already associated with an active user.` See the **Errors** tab below for additional possibilities.
 
 examples:
   - type: "request"
-    language: ""
+    language: "curl"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -62,8 +65,30 @@ examples:
                 "company": "Stitch Product Team"
               }"
   - type: "response"
-    language: ""
+    language: "json"
     code: |
-      
-      
+      {
+        "access_token":"<ACCESS_TOKEN>"
+      }
+
+  - type: "errors"
+    language: "json"
+    errors:
+      - name: "Existing user"
+        type: &400 "400 Bad Request"
+        fix-it: "A Stitch account is already associated with the user's email address."
+        code: |
+          {
+            "code":"ExistingUser",
+            "message":"This email address is already associated with an active user."
+          }
+      - name: "Invalid form data"
+        type: *400
+        fix-it: "Indicates that the body of the request was malformed in some way. Verify that the body is being sent as valid JSON."
+        code: |
+          {
+            "code":"BadRequest",
+            "message":"Invalid form data.",
+            "errors":{}
+          }
 ---
