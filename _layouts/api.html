@@ -5,29 +5,44 @@ layout: page
 {% assign api-docs = site.api-files | where:"content-type","embed-doc" | sort:"order" %}
 
 {% for doc in api-docs %}
-    <h2 id="{{ doc.title }}">
+    <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
         {{ doc.title }}
     </h2>
 
     {% if doc.sections %}
         {% for section in doc.sections %}
             {% if section.title %}
-                <h3 id="{{ section.anchor }}">
-                    {{ section.title | flatify | markdownify }}
-                </h3>
+
+    <h3 id="{{ section.anchor }}">
+        {{ section.title | flatify }}
+    </h3>
             {% endif %}
 
             {{ section.content | flatify | markdownify }}
+
+{% if section.include %}
+{{ section.include | flatify }}
+{% endif %}
 
             {% if section.subsections %}
                 {% for subsection in section.subsections %}
                     {% if subsection.title %}
                         <h4 id="{{ subsection.anchor }}">
-                            {{ subsection.title | flatify | markdownify }}
+                            {{ subsection.title | flatify }}
                         </h4>
                     {% endif %}
 
                     {{ subsection.content | flatify | markdownify }}
+
+                    {% if subsection.steps %}
+                        {% for step in subsection.steps %}
+                            <h5 id="{{ step.anchor }}">
+                                Step {{ forloop.index }}: {{ step.title }}
+                            </h5>
+
+                            {{ step.content | flatify | markdownify }}
+                        {% endfor %}
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         {% endfor %}
