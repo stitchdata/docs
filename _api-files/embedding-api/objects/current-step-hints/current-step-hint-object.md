@@ -2,7 +2,7 @@
 content-type: "embed-structure"
 key: "current-step-hint-object"
 
-title: "Current Step Hint"
+title: "Current Step Hints"
 description: |
   The current step hint object provides the function to call and properties to pass to [Stitch.js](#stitch-js).
 

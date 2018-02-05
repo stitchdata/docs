@@ -2,7 +2,7 @@
 content-type: "embed-structure"
 key: "connection-step-object"
 
-title: "Connection Step"
+title: "Connection Steps"
 description: "The connection steps object contains the steps necessary to configure a data source or destination."
 
 object-attributes:

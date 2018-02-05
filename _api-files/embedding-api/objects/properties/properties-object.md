@@ -1,8 +1,8 @@
 ---
-content-type: "embed-object"
+content-type: "embed-structure"
 key: "properties-object"
 
-title: "Propertie"
+title: "Properties"
 description: "A properties object contains the properties necessary to complete a connection step. Returned within a source or destination object, these properties provide information about the configuration status of the connection."
 
 object-attributes:

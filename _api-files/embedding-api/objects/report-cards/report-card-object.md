@@ -2,7 +2,7 @@
 content-type: "embed-structure"
 key: "report-card-object"
 
-title: "Report Card"
+title: "Report Cards"
 description: "A report card object contains information about a connection's configuration."
 
 object-attributes:

@@ -2,12 +2,7 @@
 
 {% for structure in data-structures %}
     <h3 id="{{ structure.key }}">
-        {% case structure.title %}
-            {% when "Properties" %}
-                {{ structure.title }}
-            {% else %}
-                {{ structure.title | append: "s" }}
-        {% endcase %}
+        {{ structure.title }}
     </h3>
 
         <p>{{ structure.description | flatify | markdownify }}</p>
@@ -30,16 +25,8 @@
         </table>
     {% endif %}
 
-<!-- 
-    {% assign all-endpoints = site.api-files | where:"content-type","embed-endpoint" %}
-    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-    {% assign same-version = object-endpoints | where:"version",object.version %}
-    {% assign endpoints = same-version | sort:"order" %}
-
-        {% for endpoint in endpoints %}
-            {% include api/endpoint.html %}
-        {% endfor %} -->
-
+{% unless forloop.last == true %}
     <hr>
+{% endunless %}
 
 {% endfor %}
