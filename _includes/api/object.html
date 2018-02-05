@@ -1,14 +1,14 @@
 {% assign objects = site.api-files | where:"content-type","embed-object" %}
 
 {% for object in objects %}
-    <h3 id="{{ object.endpoint }}">
+    <h3 id="{{ object.endpoint | replace: " ", "-" }}">
         {{ object.title | append: "s" }}
     </h3>
 
         <p>{{ object.description | flatify | markdownify }}</p>
 
     {% if object.object-attributes %}
-        <h4 id="{{ object.title | downcase | append: "--object" }}">
+        <h4 id="{{ object.title | downcase | replace: " ", "-" | append: "--object" }}">
             The {{ object.title }} Object
         </h4>
 
@@ -41,6 +41,7 @@
 
 {% unless forloop.last == true %}
     <hr>
+    <br>
 {% endunless %}
 
 {% endfor %}
