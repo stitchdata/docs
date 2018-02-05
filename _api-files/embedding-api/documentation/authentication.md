@@ -1,7 +1,7 @@
 ---
 title: Authentication
 content-type: "embed-doc"
-order: 2
+order: 3
 
 sections:
   - content: |

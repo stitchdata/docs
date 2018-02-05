@@ -29,7 +29,6 @@ sections:
       All properties should be sent as strings.
     include: |
       {% include api/form-properties.html content="source" %}
-
 ---
 
 

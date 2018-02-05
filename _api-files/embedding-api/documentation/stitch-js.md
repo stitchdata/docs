@@ -1,7 +1,7 @@
 ---
 title: Stitch.js
 content-type: "embed-doc"
-order: 8
+order: 9
 
 include: api/js-function.html
 

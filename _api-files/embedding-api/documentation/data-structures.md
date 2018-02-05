@@ -1,7 +1,7 @@
 ---
 title: Data Structures
 content-type: "embed-doc"
-order: 6
+order: 7
 
 include: api/data-structure.html
 ---

@@ -1,7 +1,7 @@
 ---
 title: Core Objects
 content-type: "embed-doc"
-order: 5
+order: 6
 
 include: api/object.html
 ---
