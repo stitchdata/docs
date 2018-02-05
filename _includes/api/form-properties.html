@@ -1,0 +1,40 @@
+{% assign all-form-properties = site.api-files | where:"content-type","embed-form" %}
+
+{% case include.content %}
+    {% when 'destination' %}
+        {% assign form-properties = site.api-files | where:"form-type","destination" %}
+    {% else %}
+        {% assign form-properties = site.api-files | where:"form-type","source" %}
+{% endcase %}
+
+
+{% for form-property in form-properties %}
+<h4 id="{{ form-property.key }}">
+    {{ form-property.title }}
+</h4>
+
+    <p>{{ form-property.description | flatify | markdownify }}</p>
+
+{% if form-property.object-attributes %}
+    <table width="100%; fixed">
+        {% for attribute in form-property.object-attributes %}
+            <tr>
+                <td align="right" width="20%; fixed">
+                    <strong>
+                        {{ attribute.name }}
+                    </strong><br>
+                    {{ attribute.type | upcase }}
+                </td>
+                <td>
+                    {{ attribute.description | flatify | markdownify }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% unless forloop.last == true %}
+    <hr>
+{% endunless %}
+
+{% endfor %}
