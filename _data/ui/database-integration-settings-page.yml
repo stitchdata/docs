@@ -185,7 +185,7 @@ mssql:
 #           MongoDB          #
 # -------------------------- #
 
-default:
+mongo:
   - name: *integration-name
     copy: *integration-name-copy
   - name: *host

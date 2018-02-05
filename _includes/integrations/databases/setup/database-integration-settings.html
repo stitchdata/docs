@@ -1,21 +1,25 @@
 {% assign integration = page %}
 
-{% if integration.db-type == "rds" %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
+{% case integration.db-type %}
+  {% when 'rds' %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
 
-{% elsif integration.db-type == "mssql" %}
-  {% if integration.name == "azure" %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
+  {% when 'mssql' %}
+    {% if integration.name == "azure" %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
+    {% else %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
+    {% endif %}
+
+  {% when 'heroku' %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
+
+  {% when 'mongo' %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.mongo %}
+
   {% else %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
-  {% endif %}
-
-{% elsif integration.name == "heroku" %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
-
-{% else %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
-{% endif %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+  {% endcase %}
 
 {% assign default-field = site.data.ui.database-integration-settings-page.default-fields %}
 {% assign default-copy = site.data.ui.database-integration-settings-page.default-copy %}
@@ -31,7 +35,8 @@
 {% endif %}
 3. Fill in the fields as follows:
    {% for field in database-settings %}
-   {% if field.name == "Database" and integration.db-type == "mysql" and integration.name != "rds" and integration.name != "azure" %}
+
+   {% if field.name == "Database" and integration.db-type == "mysql" %}
    - **{{ field.name }}**: {{ field.optional-copy | flatify }}
    {% else %}
    - **{{ field.name }}**: {{ field.copy | flatify }}
