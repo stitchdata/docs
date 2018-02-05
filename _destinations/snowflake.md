@@ -29,6 +29,7 @@ pricing_notes: |
   Snowflake pricing is based on two factors: the volume or data stored in your Snowflake destination and the amount of compute usage (the time the server runs) in seconds. 
 
   Snowflake offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about Snowflake plans and pricing here]({{ destination.pricing }}).
+icon: /images/destinations/icons/snowflake.svg
 
 # -------------------------- #
 #           Support          #
