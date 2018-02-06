@@ -42,7 +42,10 @@ object-attributes:
 
   - name: "start_date"
     type: "string"
-    description: "The date from which Stitch should begin replicating data from HubSpot. Data from this date forward will be replicated."
+    description: |
+      The date from which Stitch should begin replicating data from HubSpot. Data from this date forward will be replicated.
+
+      Data in this field must adhere to the `YYYY-MM-DDTHH:MM:SSZ` format. For example: `2018-01-01T11:59:59Z`
 
 example: |
   {  
@@ -55,7 +58,7 @@ example: |
       "endpoint":"https://457-RFG-234.mktorest.com/rest",
       "identity":"https://457-RFG-234.mktorest.com/identity",
       "max_daily_calls":"8,000",
-      "start_date":"2018-01-10 00:00:00"
+      "start_date":"2018-01-10T00:00:00Z"
     }
   }
 ---

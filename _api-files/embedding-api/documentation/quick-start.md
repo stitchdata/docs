@@ -157,8 +157,8 @@ sections:
                            "type":"platform.hubspot",
                            "display_name":"Hubspot",
                            "properties":{  
-                              "start_date":"2018-01-01 00:00:00",
-                              "customFrequencyInMinutes":"360"
+                              "start_date":"2018-01-01T00:00:00Z",
+                              "frequency_in_minutes":"360"
                            }
                         }"
               ```
@@ -273,7 +273,7 @@ sections:
                    -H "Content-Type: application/json"
                    -d "{  
                          "properties":{  
-                            "start_date":"2018-01-01 00:00:00",
+                            "start_date":"2018-01-01T00:00:00Z",
                             "frequency_in_minutes":"360"
                          }
                       }"
