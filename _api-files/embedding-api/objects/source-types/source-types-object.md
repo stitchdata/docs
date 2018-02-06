@@ -3,7 +3,7 @@ content-type: "embed-object"
 endpoint: "source-types"
 
 title: "Source Type"
-description: "Source types are the source applications from which Stitch replicates data."
+description: "Source types define the information needed to configure a data source."
 endpoint-url: "/source-types"
 version: "4"
 
