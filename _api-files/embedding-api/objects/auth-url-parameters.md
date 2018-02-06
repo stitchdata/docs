@@ -14,6 +14,8 @@ parameters:
 
       **Note**: If provided in Step 1 as a URL parameter, then the value must match one of the redirect URIs provided with your application's registration.
 
+      If **not** provided in Step 1 as a URL parameter, Stitch will fallback to the first `redirect_uri` associated with your API client.
+
   - name: "email"
     required: false
     description: "The email address of the Stitch client owner. If provided, this value will be used to pre-populate the signup form."
