@@ -40,7 +40,7 @@ sections:
           - title: "Send the user to Stitch"
             anchor: "authentication--send-user-to-stitch"
             content: |
-              To initiate the authorization flow, the user will click a link to Stitch that includes your application's API client ID:
+              To initiate the authorization flow, the user will click a link to Stitch that includes your application's API client ID. This is the `partner_id` you obtained when you registered your application:
 
               ```shell
               https://app.stitchdata.com/oauth/authorization?client_id={CLIENT_ID}

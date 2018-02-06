@@ -5,7 +5,7 @@ parameters:
   - name: "client_id"
     required: true
     description: |
-      Your application's client ID. This is obtained when you register your application with [{{ page.contact-email }}](mailto: {{ page.contact-email }}).
+      Your application's client ID. This is the `partner_id` that is obtained when you register your application with [{{ page.contact-email }}](mailto: {{ page.contact-email }}).
 
   - name: "redirect_uri"
     required: false
