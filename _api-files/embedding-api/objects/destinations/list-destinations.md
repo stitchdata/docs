@@ -29,24 +29,26 @@ examples:
   - type: "response"
     language: "json"
     code: |
-      {  
-        "id":"<ID>",
-        "type":"redshift",
-        "created_at":"TIME",
-        "updated_at":"TIME",
-        "connection": {  
-            "host":"<HOST>",
-            "port":5439,
-            "username":"<USERNAME>",
-            "database":"<DATABASE>",
-            "password":"<PASSWORD>",
-            "ssl":false
-        },
-        "last_check":{  
-            "updated_at":"TIME",
-            "status":"OK",
-            "message":""
+      [
+        {  
+          "id":"<DESTINATION_ID>",
+          "type":"redshift",
+          "created_at":"2018-02-06T15:36:36Z",
+          "updated_at":"2018-02-06T15:36:36Z",
+          "connection": {  
+              "host":"<HOST>",
+              "port":5439,
+              "username":"<USERNAME>",
+              "database":"<DATABASE>",
+              "password":"<PASSWORD>",
+              "ssl":false
+          },
+          "last_check":{
+            "error": false,
+            "started_at":"2018-02-06T16:15:19Z",
+            "completed_at":"2018-02-06T16:16:21Z"
+          }
         }
-      }
+      ]
 ---
 

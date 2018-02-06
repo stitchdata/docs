@@ -49,10 +49,10 @@ examples:
     language: "json"
     code: |
       {  
-        "id":"<ID>",
+        "id":"<DESTINATION_ID>",
         "type":"redshift",
-        "created_at":"TIME",
-        "updated_at":"TIME",
+        "created_at":"2018-02-06T15:36:36Z",
+        "updated_at":"2018-02-06T15:36:36Z",
         "connection": {  
             "host":"<HOST>",
             "port":5439,
@@ -61,10 +61,33 @@ examples:
             "password":"<PASSWORD>",
             "ssl":false
         },
-        "last_check":{  
-            "updated_at":"TIME",
-            "status":"OK",
-            "message":""
+        "last_check":{
+            "error": false,
+            "started_at":"2018-02-06T16:15:19Z",
+            "completed_at":"2018-02-06T16:16:21Z"
         }
       }
+
+  - type: "errors"
+    language: "json"
+    errors:
+      - name: "Multiple destinations"
+        type: &400 "400 Bad Request"
+        fix-it: |
+          Occurs when a Stitch client account already has a destination connection.
+        code: |
+          "an account can have at most one destination"
+
+      - name: "Missing or prohibited arguments"
+        type: *400
+        fix-it: |
+          Occurs when:
+
+          - The `type` and/or `connection` arguments aren't included in the request
+          - Arguments other than `type` and `connection` are included in the request
+          - Properties in the `connection` argument are missing
+          - Properties in the `connection` argument are incorrectly typed. For example: `port` is sent as a `string` instead of an `integer`
+
+        code: |
+            "body must be a map with type = redshift, postgres, or snowflake. required-keys = type, connection"
 ---
