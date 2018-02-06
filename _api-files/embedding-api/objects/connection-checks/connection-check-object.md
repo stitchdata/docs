@@ -6,15 +6,15 @@ title: "Connection Checks"
 description: "A connection check object shows the results from a test of a connection's parameters. The nature of the test varies by connection type."
 
 object-attributes:
-  - name: "message"
-    type: "string"
-    description: "A message describing an error, if one occurred during the check."
+  - name: "error"
+    type: "boolean"
+    description: "Indicates if the last connection check resulted in an error."
 
-  - name: "status"
-    type: "string"
-    description: "A status description. Possible values are `PENDING`, `OK`, `FAILED`."
-
-  - name: "updated_at"
+  - name: "started_at"
     type: "timestamp"
-    description: "The time the check was last updated."
+    description: "The time the last check started."
+
+  - name: "completed_at"
+    type: "timestamp"
+    description: "The time the last check completed."
 ---
