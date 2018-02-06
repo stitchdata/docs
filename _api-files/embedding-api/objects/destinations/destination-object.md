@@ -26,7 +26,12 @@ object-attributes:
 
   - name: "type"
     type: "string"
-    description: "The destination type. Possible values are `redshift` and `postgres`."
+    description: |
+      The destination type. Must be one of: 
+
+      - `redshift`
+      - `postgres`
+      - `snowflake`
 
   - name: "updated_at"
     type: "timestamp"
