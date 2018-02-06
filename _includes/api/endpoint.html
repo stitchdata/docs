@@ -83,6 +83,10 @@
 {{ error.code | flatify | rstrip }}
 ```
 {%- endcapture -%}{{ error-response | markdownify }}
+
+{% unless forloop.last == true %}
+<hr>
+{% endunless %}
           {% endfor %}
 
           {% else %}
