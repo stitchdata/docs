@@ -48,7 +48,7 @@
     <h5 id="{{ endpoint.key | append: "--returns" }}">
         Returns
     </h5>
-        {{ endpoint.returns | flatfiy | markdownify }}
+        {{ endpoint.returns | flatify | markdownify }}
 
 <ul id="example{{ endpoint.key }}Tabs" class="nav nav-tabs">
     {% for example in endpoint.examples %}
