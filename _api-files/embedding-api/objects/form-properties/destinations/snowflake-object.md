@@ -15,6 +15,10 @@ object-attributes:
     type: "integer"
     description: "The port of the database server."
 
+  - name: "warehouse"
+    type: "string"
+    description: "The name of the warehouse that contains the `database`."
+
   - name: "database"
     type: "string"
     description: "The name of the logical database to connect to."
@@ -30,4 +34,18 @@ object-attributes:
   - name: "role"
     type: "string"
     description: "**Optional**: The role to use."
+
+examples:
+  - code: |
+      {
+         "connection":{
+            "host":"some-thing.snowflakecomputing.com",
+            "port":443,
+            "warehouse": "stitch_warehouse",
+            "database":"stitch",
+            "username":"stitch_user",
+            "password":"<PASSWORD>",
+            "role":"optional_role"
+         }
+      }
 ---

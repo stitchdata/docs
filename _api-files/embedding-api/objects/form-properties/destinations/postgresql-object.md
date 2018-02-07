@@ -30,4 +30,17 @@ object-attributes:
   - name: "ssl"
     type: "boolean"
     description: "If `true`, SSL will be used to connect to the database."
+
+examples:
+  - code: |
+      {
+         "connection":{
+            "host":"postgres.some-host.com",
+            "port":5432,
+            "database":"stitch",
+            "username":"stitch_user",
+            "password":"<PASSWORD>",
+            "ssl":true
+         }
+      }
 ---

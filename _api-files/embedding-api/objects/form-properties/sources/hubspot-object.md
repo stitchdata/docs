@@ -27,13 +27,13 @@ object-attributes:
 
       Data in this field must adhere to the `YYYY-MM-DDTHH:MM:SSZ` format. For example: `2018-01-01T11:59:59Z`
 
-example: |
-  {  
-   "id":"<ID>",
-   "type":"platform.hubspot",
-   "properties":{  
-      "frequency_in_minutes":"30",
-      "start_date":"2018-01-10T00:00:00Z"
-    }
-  }
+examples: 
+  - code: |
+      {  
+       "type":"platform.hubspot",
+       "properties":{  
+          "frequency_in_minutes":"30",
+          "start_date":"2018-01-10T00:00:00Z"
+        }
+      }
 ---

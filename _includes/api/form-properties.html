@@ -33,6 +33,18 @@
     </table>
 {% endif %}
 
+<h5 id="{{ data-structure.key | append: "-example-usage" }}">
+    Example Object
+</h5>
+
+    {% for example in form-property.examples %}
+{%- capture example-code -%}
+```json
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+    {% endfor %}
+
 {% unless forloop.last == true %}
     <hr>
 {% endunless %}

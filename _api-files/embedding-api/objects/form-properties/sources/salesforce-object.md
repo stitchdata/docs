@@ -47,18 +47,18 @@ object-attributes:
 
       Data in this field must adhere to the `YYYY-MM-DDTHH:MM:SSZ` format. For example: `2018-01-01T11:59:59Z`
 
-example: |
-  {  
-   "id":"<ID>",
-   "type":"platform.salesforce",
-   "properties":{
-      "api_type":"BULK",
-      "is_sandbox":"false",
-      "frequency_in_minutes":"1440",
-      "quota_percent_per_run":"25",
-      "quota_percent_total":"80",
-      "select_fields_by_default":"true",
-      "start_date":"2018-01-10T00:00:00Z"
-    }
-  }
+examples:
+  - code: |
+      {  
+       "type":"platform.salesforce",
+       "properties":{
+          "api_type":"BULK",
+          "is_sandbox":"false",
+          "frequency_in_minutes":"1440",
+          "quota_percent_per_run":"25",
+          "quota_percent_total":"80",
+          "select_fields_by_default":"true",
+          "start_date":"2018-01-10T00:00:00Z"
+        }
+      }
 ---

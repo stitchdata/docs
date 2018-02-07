@@ -25,4 +25,14 @@ object-attributes:
   - name: "type"
     type: "string"
     description: "The connection type."
+
+examples:
+  - code: |
+      {
+        "report_card":{
+            "type":"platform.salesforce",
+            "current_step":1,
+            "steps":[{ }]
+         }
+      }
 ---
