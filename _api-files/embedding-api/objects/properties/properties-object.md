@@ -3,7 +3,7 @@ content-type: "embed-structure"
 key: "properties-object"
 
 title: "Properties"
-description: "A properties object contains the properties necessary to complete a connection step. Returned within a source or destination object, these properties provide information about the configuration status of the connection."
+description: "A Properties object contains the properties necessary to complete a connection step. Returned within a source or destination object, these properties provide information about the configuration status of the connection."
 
 object-attributes:
   - name: "name"
@@ -25,4 +25,60 @@ object-attributes:
   - name: "system_provided"
     type: "boolean"
     description: "If `true`, the system provides this property."
+
+  - name: "json_schema"
+    type: "array"
+    description: |
+      An array containing:
+
+      - `type` - The expected data type of the property's value. For example: `string`
+      - `pattern` - The expected pattern of the property's value. For example: `^\\d+$`
+
+      Data will only be returned for this field is `system_provided: false`.
+
+examples:
+  - code: |
+      {
+        "report_card":{  
+            "type":"platform.hubspot",
+            "current_step":2,
+            "steps":[  
+               {  
+                  "type":"form",
+                  "properties":[  
+                     {  
+                        "name":"image_version",
+                        "is_required":true,
+                        "provided":true,
+                        "is_credential":false,
+                        "system_provided":true,
+                        "json_schema":null
+                     },
+                     {  
+                        "name":"frequency_in_minutes",
+                        "is_required":true,
+                        "provided":true,
+                        "is_credential":false,
+                        "system_provided":false,
+                        "json_schema":{  
+                           "type":"string",
+                           "pattern":"^\\d+$"
+                        }
+                     },
+                     {  
+                        "name":"start_date",
+                        "is_required":true,
+                        "provided":true,
+                        "is_credential":false,
+                        "system_provided":false,
+                        "json_schema":{  
+                           "type":"string",
+                           "pattern":"^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$"
+                        }
+                     }
+                  ]
+               }
+            ]
+         }
+      }
 ---

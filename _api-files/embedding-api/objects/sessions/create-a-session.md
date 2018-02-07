@@ -14,14 +14,7 @@ full-url: |
   {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
 description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
 
-
-# arguments:
-#   - name: ""
-#     required: 
-#     description: ""
-
-
-returns: "A session object."
+returns: "A [Session object]({{ page.anchors.core-objects.sessions.object }})."
 
 examples:
   - type: "request"

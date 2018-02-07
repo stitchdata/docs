@@ -18,14 +18,19 @@ description: "Create a new destination. Only a single destination is supported p
 arguments:
   - name: "type"
     required: true
-    description: "The destination type, either `redshift` or `postgres`."
+    description: |
+      The destination type. Must be one of: 
+
+      - `redshift`
+      - `postgres`
+      - `snowflake`
 
   - name: "connection"
     required: true
-    description: "A destination form properties object corresponding to the value of `type`."
+    description: "A [Destination Form Properties object]({{ page.anchors.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
-returns: "A destination object."
+returns: "A [Destination object]({{ page.anchors.core-objects.destinations.object }})."
 
 examples:
   - type: "request"

@@ -17,4 +17,14 @@ object-attributes:
   - name: "completed_at"
     type: "timestamp"
     description: "The time the last check completed."
+
+examples:
+  - code: |
+      {
+          "last_check":{
+            "error": false,
+            "started_at":"2018-02-06T16:15:19Z",
+            "completed_at":"2018-02-06T16:16:21Z"
+          }
+      }
 ---

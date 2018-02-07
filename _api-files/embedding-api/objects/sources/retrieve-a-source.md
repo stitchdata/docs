@@ -21,7 +21,7 @@ arguments:
     description: "A path parameter corresponding to the unique ID of the data source to be retrieved."
 
 
-returns: "A single data source if a valid identifier was provided."
+returns: "A single data [source object]({{ page.anchors.core-objects.sources.object }}) if a valid identifier was provided."
 
 
 examples:

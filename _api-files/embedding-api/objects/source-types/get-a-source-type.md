@@ -24,7 +24,7 @@ arguments:
     description: "A path parameter indicating the `type` of source to retrieve, such as `platform.marketo` or `platform.hubspot`."
 
 
-returns: "A report card object corresponding to `type`."
+returns: "A [Report Card object]({{ page.anchors.data-structures.report-cards }}) corresponding to `type`."
 
 examples:
   - type: "request"

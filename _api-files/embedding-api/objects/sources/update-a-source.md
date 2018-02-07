@@ -26,10 +26,10 @@ arguments:
 
   - name: "properties"
     required: false
-    description: "A source properties object corresponding to the value of `type`."
+    description: "A source [Properties object]({{ page.anchors.data-structures.properties }}) corresponding to the value of `type`."
 
 
-returns: "A source object."
+returns: "A [Source object]({{ page.anchors.core-objects.sources.object }})."
 
 examples:
   - type: "request"
@@ -257,15 +257,15 @@ examples:
       - name: "Bad properties"
         type: *400
         fix-it: |
-          Occurs when the `properties` arugment is included and contains invalid data. The response will include `bad_properties`, which is an array containing the names of the properties deemed to be incorrect for the source `type`.
+          Occurs when the `properties` argument is included and contains invalid data. The response will include `bad_properties`, which is an array containing the names of the properties deemed to be incorrect for the source `type`.
 
           Possible reasons for this include:
 
           - Incorrectly formatted data
           - Incorrectly typed data - all properties must be sent as strings
-          - A property is included but has a `NULL` value
+          - A property is included but doesn't have a value, or is an empty string
 
-          For example: `start_date` is `NULL` or sent in a format other than `YYYY-MM-DDTHH:MM:SSZ`. If the following request were sent:
+          For example: The value of `start_date` is an empty string or sent in a format other than `YYYY-MM-DDTHH:MM:SSZ`. If the following request were sent:
 
           ```curl
           curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}

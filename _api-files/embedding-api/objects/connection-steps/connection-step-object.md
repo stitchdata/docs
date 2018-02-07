@@ -3,7 +3,7 @@ content-type: "embed-structure"
 key: "connection-step-object"
 
 title: "Connection Steps"
-description: "The connection steps object contains the steps necessary to configure a data source or destination."
+description: "Contained in the Report Card object, the Connection Steps object contains the steps necessary to configure a data source or destination."
 
 object-attributes:
   - name: "type"
@@ -20,5 +20,38 @@ object-attributes:
 
   - name: "properties"
     type: "array"
-    description: "An array of properties objects."
+    url: "{{ page.anchors.data-structures.properties }}"
+    description: "An array of [Properties objects]({{ page.anchors.data-structures.properties }})."
+
+examples:
+  - code: |
+      {  
+         "report_card":{  
+            "type":"platform.hubspot",
+            "current_step":2,
+            "steps":[  
+               {  
+                  "type":"form",
+                  "properties":[]
+               },
+               {  
+                  "type":"oauth",
+                  "properties":[]
+               },
+               {  
+                  "type":"discover_schema",
+                  "properties":[]
+               },
+               {  
+                  "type":"field_selection",
+                  "properties":[]
+               },
+               {  
+                  "type":"fully_configured",
+                  "properties":[]
+               }
+            ]
+         }
+      }
+
 ---

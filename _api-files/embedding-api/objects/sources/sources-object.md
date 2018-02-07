@@ -38,11 +38,13 @@ object-attributes:
     description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be null."
 
   - name: "properties"
-    type: "source-form-properties"
+    type: "source form properties object"
+    url: "{{ page.anchors.form-properties.source-forms.section }}"
     description: "The properties required to configure this source."
 
   - name: "report_card"
-    type: "report-card"
+    type: "report card object"
+    url: "{{ page.anchors.data-structures.report-cards }}"
     description: "A description of the source's configuration state."
 
   - name: "stitch_client_id"

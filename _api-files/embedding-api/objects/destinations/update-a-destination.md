@@ -31,10 +31,10 @@ arguments:
 
   - name: "connection"
     required: true
-    description: "A destination form properties object corresponding to the value of `type`."
+    description: "A [Destination Form Properties object]({{ page.anchors.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
-returns: "A destination object."
+returns: "A [Destination object]({{ page.anchors.core-objects.destinations.object }})."
 
 
 examples:

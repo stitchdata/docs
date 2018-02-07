@@ -18,7 +18,7 @@ description: |
   **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for all supported source types.
 
 
-returns: "An array of report card objects, one for each supported source `type`."
+returns: "An array of [Report Card objects]({{ page.anchors.data-structures.report-cards }}), one for each supported source `type`."
 
 
 examples:

@@ -35,7 +35,7 @@
 
                     {% else %}
                         {% if category.url %}
-                            <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
+                            <a href="{{ category.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ category.title }}</a>
                         {% else %}
                             <a href="#"><strong>{{ category.title | flatify }}</strong></a>
                         {% endif %}
@@ -76,7 +76,7 @@
 
                                 {% for subsection in section.subsections %}
                                     <li>
-                                        <a href="{{ subsection.url | flatify | prepend: site.baseurl }}">{{ subsection.title }}</a>
+                                        <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ subsection.title }}</a>
                                     </li>
                                 {% endfor %}
                                     </ul>
@@ -84,7 +84,7 @@
                                 </li>
                         {% else %}
                             <li>
-                                <a href="{{ section.url | flatify | prepend: site.baseurl }}">{{ section.title }}</a>
+                                <a href="{{ section.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ section.title }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}

@@ -9,6 +9,7 @@ version: "4"
 
 object-attributes:
   - name: "report_card"
-    type: "report-card"
-    description: "The report card object corresponding to the source's `type`. For example: `platform.marketo` or `platform.hubspot`."
+    type: "report card object"
+    url: "{{ page.anchors.data-structures.report-cards }}"
+    description: "The Report Card object corresponding to the source's `type`. For example: `platform.marketo` or `platform.hubspot`."
 ---

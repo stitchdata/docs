@@ -19,7 +19,14 @@
                             <strong>
                                 {{ attribute.name }}
                             </strong><br>
+                        {% if attribute.url %}
+                            <a href="{{ attribute.url | flatify }}">
+                                {{ attribute.type | upcase }}
+                            </a>
+                        {% else %}
                             {{ attribute.type | upcase }}
+                        {% endif %}
+
                         </td>
                         <td>
                             {{ attribute.description | flatify | markdownify }}

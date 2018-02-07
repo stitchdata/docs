@@ -13,15 +13,20 @@ object-attributes:
     description: "A unique identifier for this destination."
 
   - name: "connection"
-    type: "destination-properties" # this = destination form properties?
-    description: "Parameters for connecting to the destination, excluding any sensitive credentials."
+    type: "destination form properties object"
+    url: "{{ page.anchors.form-properties.destination-forms.section }}"
+    description: |
+      Parameters for connecting to the destination, excluding any sensitive credentials.
+
+      The parameters must adhere to the `type` of destination.
 
   - name: "created_at"
     type: "timestamp"
     description: "The time at which the destination object was created."
 
   - name: "last_check"
-    type: "connection-check"
+    type: "connection check object"
+    url: "{{ page.anchors.data-structures.connection-checks }}"
     description: "The status and results of the most recent check run for this destination connection."
 
   - name: "type"

@@ -14,7 +14,7 @@ sections:
   - title: "Destination Form Properties"
     anchor: "destination-form-properties"
     content: |
-      Destination form properties should be sent in the `connection` argument when using the [Create a Destination endpoint](#create-a-destination). 
+      Destination form properties should be sent in the `connection` argument when using the [Create a Destination endpoint]({{ page.anchors.core-objects.destinations.create-a-destination }}). 
 
       All properties should be sent as strings.
     include: |
@@ -24,7 +24,7 @@ sections:
   - title: "Source Form Properties"
     anchor: "source-form-properties"
     content: |
-      Source form properties should be sent in the `properties` argument when using the [Create a Source endpoint](#create-a-source).
+      Source form properties should be sent in the `properties` argument when using the [Create a Source endpoint]({{ page.anchors.core-objects.sources.create-a-source }}).
 
       All properties should be sent as strings.
     include: |

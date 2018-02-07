@@ -17,7 +17,7 @@ description: |
 
   The configuration process is unique for each type of source. Use the source's `report_card` object's `current_step` attribute to identify the current `step` in configuring the source.
 
-  The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to [Stitch.js](#stitch-js) to complete the current step.
+  The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to [Stitch.js]({{ page.anchors.stitch-js.section }}) to complete the current step.
 
 
 arguments:
@@ -31,10 +31,10 @@ arguments:
 
   - name: "properties"
     required: false
-    description: "A source properties object corresponding to the value of `type`."
+    description: "A source [Properties object]({{ page.anchors.data-structures.properties }}) corresponding to the value of `type`."
 
 
-returns: "A source object with a `report_card` property, which contains the report card object for the source's configuration status."
+returns: "A [Source object]({{ page.anchors.core-objects.sources.object }}) with a `report_card` property, which contains the [Report Card object]({{ page.anchors.data-structures.report-cards }}) for the source's configuration status."
 
 
 examples:
@@ -206,15 +206,15 @@ examples:
       - name: "Bad properties"
         type: *400
         fix-it: |
-          Occurs when the `properties` arugment is included and contains invalid data. The response will include `bad_properties`, which is an array containing the names of the properties deemed to be incorrect for the source `type`.
+          Occurs when the `properties` argument is included and contains invalid data. The response will include `bad_properties`, which is an array containing the names of the properties deemed to be incorrect for the source `type`.
 
           Possible reasons for this include:
 
           - Incorrectly formatted data
           - Incorrectly typed data - all properties must be sent as strings
-          - A property is included but has a `NULL` value
+          - A property is included but doesn't have a value, or is an empty string
 
-          For example: `start_date` is `NULL` or sent in a format other than `YYYY-MM-DDTHH:MM:SSZ`. If the following request were sent:
+          For example: The value of `start_date` is an empty string or sent in a format other than `YYYY-MM-DDTHH:MM:SSZ`. If the following request were sent:
 
           ```curl
           curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
