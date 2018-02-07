@@ -18,15 +18,15 @@
                 <li>
                     {% if category.sections %}
                         {% if category.expand-by-default == true %}
-                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" 
-                               aria-expanded="true" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
+                               aria-expanded="true" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
                                     {{ category.title }} 
                                 <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
                             </a>
 
                         {% else %}
-                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" 
-                               aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
+                               aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
                                     {{ category.title }} 
                                 <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
                             </a>

@@ -41,6 +41,9 @@
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
     {% endfor %}
-<br><br>
+
+{% unless forloop.last == true %}
+    <hr>
+{% endunless %}
 
 {% endfor %}
