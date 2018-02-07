@@ -16,7 +16,7 @@ options:
 
   - name: "ephemeral_token"
     required: false
-    description: "The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create Session endpoint](#create-a-session)."
+    description: "The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create a Session endpoint](#create-a-session)."
   - name: "default_streams"
     required: false
     description: |
