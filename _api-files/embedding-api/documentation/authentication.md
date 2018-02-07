@@ -46,7 +46,7 @@ sections:
               https://app.stitchdata.com/oauth/authorization?client_id={CLIENT_ID}
               ```
 
-              While only your `client_id` is required, the URL may also include the following parameters:
+              While only your `client_id` (`partner_id`) is required, the URL may also include the following parameters:
 
               {% assign auth = site.api-files | where:"content-type","embed-url-parms" %}
 
