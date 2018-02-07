@@ -15,7 +15,13 @@
                         <strong>
                             {{ attribute.name }}
                         </strong><br>
-                        {{ attribute.type | upcase }}
+                        {% if attribute.url %}
+                            <a href="{{ attribute.url | flatify }}">
+                                {{ attribute.type | upcase }}
+                            </a>
+                        {% else %}
+                            {{ attribute.type | upcase }}
+                        {% endif %}
                     </td>
                     <td>
                         {{ attribute.description | flatify | markdownify }}
@@ -24,6 +30,55 @@
             {% endfor %}
         </table>
     {% endif %}
+
+    {% if structure.sub-structures %}
+        {% assign all-sub-structures = site.api-files | where:"content-type","embed-sub-structure" %}
+
+        {% for sub-structure in all-sub-structures %}
+            {% for sub in structure.sub-structures %}
+                {% if sub-structure.key == sub.key %}
+                    <h4 id="{{ sub-structure.key }}">
+                        The {{ sub-structure.title | append: "s" }} Object
+                    </h4>
+
+                    <table width="100%; fixed">
+                        {% for attribute in sub-structure.object-attributes %}
+                            <tr>
+                                <td align="right" width="20%; fixed">
+                                    <strong>
+                                        {{ attribute.name }}
+                                    </strong><br>
+                                    {% if attribute.url %}
+                                        <a href="{{ attribute.url | flatify }}">
+                                            {{ attribute.type | upcase }}
+                                        </a>
+                                    {% else %}
+                                        {{ attribute.type | upcase }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ attribute.description | flatify | markdownify }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        
+    {% endif %}
+
+    <h4 id="{{ data-structure.key | append: "-example-usage" }}">
+        Example Object
+    </h4>
+
+    {% for example in structure.examples %}
+{%- capture example-code -%}
+```json
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+    {% endfor %}
 
 {% unless forloop.last == true %}
     <hr>
