@@ -1,8 +1,16 @@
-<h4 id="{{ endpoint.key }}">
-    {{ endpoint.title }}
-</h4>
+<span class="api-heading">
+    <h4 id="{{ endpoint.key }}">
+        <span class="api-method {{ endpoint.method }}">
+            {{ endpoint.method | upcase }} 
+        </span>
 
-<table class="table-snapshot table-hover">
+        <span class="api-endpoint">
+            {{ endpoint.short-url | flatify }}
+        </span>
+    </h4>
+</span>
+
+<!-- <table class="table-snapshot table-hover">
     <tr>
         <td width="50%; fixed">
             <strong>Endpoint</strong>: {{ endpoint.short-url | flatify }}
@@ -11,7 +19,7 @@
             <strong>Version</strong>: {{ object.version | prepend: "v" }}
         </td>
     </tr>
-</table>
+</table> -->
 
     <p>{{ endpoint.description | flatify | markdownify }}</p>
 
@@ -98,7 +106,6 @@
 {%- endcapture -%}{{ example-code | markdownify }}
 
         {% endcase %}
-
 
 </div>
 {% endfor %}

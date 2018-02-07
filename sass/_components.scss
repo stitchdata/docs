@@ -538,3 +538,31 @@ blockquote {
 	 	font-weight: 400;
 	 }
 }
+
+/* API ENDPOINT HEADINGS */
+
+.api-method {
+	padding: 20px;
+	float: left;
+	margin-right: 20px;
+}
+
+.api-method.post {
+	background-color: #66CC66;
+}
+
+.api-method.put {
+	background-color: #41c0ff;
+}
+
+.api-method.get {
+	background-color: #ffcc00;
+}
+
+.api-endpoint {
+	border: solid;
+	border-color: #EAEAEA;
+	border-width: 1px;
+	display: inherit;
+	padding: 19px;
+}
