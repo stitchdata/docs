@@ -30,7 +30,7 @@ status: "Released"
 certified: false
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "24 hours"
 tier: "Free"
 auth: "oauth"
 status-url: https://status.bingads.com/
