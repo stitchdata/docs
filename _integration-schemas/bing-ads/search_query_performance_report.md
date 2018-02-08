@@ -3,10 +3,10 @@ tap: "bing-ads"
 # version: "1.0"
 
 name: "search_query_performance_report"
-doc-link: ## link to source's API docs
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
+doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/searchqueryperformancereportcolumn#values
+singer-schema: 
 description: |
-  The `search_query_performance_report` contains performance data for search terms that resulted in a significant number of clicks in the last 30 days. As this data may change over time, use the `keyword_performance_report` table to analyze the overall performance of keywords.
+  The `search_query_performance_report` table contains performance data for search terms that resulted in a significant number of clicks in the last 30 days. As this data may change over time, use the `keyword_performance_report` table to analyze the overall performance of keywords.
 
   **Note**: This data in this table is not applicable to Bing Shopping campaigns.
 
@@ -36,5 +36,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation](){:target="_blank"}.
+      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation]({{ table.doc-link }}).
 ---

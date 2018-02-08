@@ -6,7 +6,7 @@ name: "adgroup_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn#values
 singer-schema: 
 description: |
-  The `ad_group_performance_report` table contains performance data for ad groups, aggregated by day.
+  The `adgroup_performance_report` table contains performance data for ad groups, aggregated by day.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -35,5 +35,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn#values){:target="_blank"}.
+      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation]({{ table.doc-link }}).
 ---

@@ -6,7 +6,7 @@ name: "geographic_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn#values
 singer-schema: ## link to the JSON schema file in the integration's Singer repo
 description: |
-  The `geographic_performance_report` contains info about the physical locations of people searching for an ad or the locations people are searching for. This data can be used to validate or improve location targeting strategies.
+  The `geographic_performance_report` table contains info about the physical locations of people searching for an ad or the locations people are searching for. This data can be used to validate or improve location targeting strategies.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -34,5 +34,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn#values){:target="_blank"}.
+      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation]({{ table.doc-link }}).
 ---

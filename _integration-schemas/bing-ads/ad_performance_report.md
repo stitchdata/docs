@@ -34,5 +34,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values){:target="_blank"}.
+      Columns selected by you. For descriptions of available columns, refer to [Microsoft's documentation]({{ table.doc-link }}).
 ---
