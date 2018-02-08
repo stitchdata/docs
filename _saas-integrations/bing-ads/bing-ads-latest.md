@@ -64,22 +64,23 @@ setup-steps:
   - title: "add integration"
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorize Stitch & Select {{ integration.display_name }} Profiles"
+  - title: "Authorize Stitch & Select {{ integration.display_name }} Accounts"
     anchor: "auth-select-profiles"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/bing-ads-select-accounts.png" alt="Selecting Bing Ads accounts." max-width="400px" %}
 
-      1. Next, you’ll be prompted to log into your Bing account and to approve Stitch’s access to your Bing Ads data. **Note: We will only ever read your data.**
+      1. Next, you’ll be prompted to log into your Bing account and to approve Stitch’s access to your {{ integration.display_name }} data.
       2. Click **Authorize** to continue.
-      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} profile(s) you want to connect to Stitch.
+      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} account(s) you want to connect to Stitch.
 
-         If you don't see the profile(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
-      4. When selecting profiles, keep the following in mind:
+         If you don't see the account(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
+      4. When selecting accounts, keep the following in mind:
 
-         - **Selecting a subprofile will also select the parent**, or top-level profile. If you de-select the top-level profile, you will be unable to select any subprofiles.
-         - **If multiple profiles are selected, data for all the selected profiles will map to the same table in your destination.** For example: If two profiles are selected and the `accounts` table is tracked, account data for both profiles will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
+         - **Only one top-level manager account can be selected.** If you need to connect multiple top-level accounts, we recommend creating additional {{ integration.display_name }} integrations.
+         - **Selecting a subaccount will also select the parent**, or top-level account. If you de-select the parent account, you will be unable to select any subaccounts.
+         - **If multiple subaccounts are selected, data for all the selected subaccounts will map to the same table in your destination.** For example: If two subaccounts are selected and the `accounts` table is tracked, account data for both accounts will be replicated into the `accounts` table. This is applicable to every table selected in the next step.
 
-       5. When finished selecting profiles, click **Check and Save**.
+       5. When finished selecting accounts, click **Check and Save**.
   - title: "track data"
 
 # -------------------------- #
