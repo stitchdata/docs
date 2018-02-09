@@ -15,17 +15,106 @@ weight: 3
 
 The last phase of every Stitch replication job is called **Loading**. During Loading, Stitch loads [extracted data]({{ link.replication.extraction-logs | prepend: site.baseurl }}) into your destination according to the table's defined [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}):
 
-- **Incremental Replication**: Data is de-duped based on the table's Primary Key and upserted into the table. Updates to existing records are also upserted.
+- **Incremental Replication**: Data is de-duped based on the table's Primary Key and upserted into the table, including updates to existing records.
 - **Full Table Replication**: New data overwrites the table in its entirety.
-- **Append-Only Replication**: Data is appended to the end of the table.
+- **Append-Only Replication**: Whether the data is for a new or existing record, it's appended to the end of the table.
 
 The **Loading Reports** tab - accessed by clicking into the integration from the {{ app.page-names.dashboard }} - provides detail about the loading portion of the replication process for a given integration.
 
+This section contains a loading overview for **all** tables currently set to replicate and a drill-down report page specific to each table.
+
 ---
 
-## Report Retention
+## Loading Reports for All Tables {#all-loading-reports}
 
-Loading reports are grouped by day. The number of days' worth of logs available to you depends on your Stitch plan:
+When the **Loading Reports** tab is first clicked, the loading reports for all tables will display first.
+
+Every row on this page corresponds to a single table that is set to replicate. The data in each table's row is updated upon every successful load to your destination, thus reflecting the loading state for the tables overall:
+
+![Loading Reports for all tables in an integration]({{ site.baseurl }}/images/replication/loading-reports-for-all-tables.png)
+
+Clicking the name of the table in the **Tables to Replicate** column will open a page with a [loading report for that table](#loading-reports-by-table), enabling you to see loading behavior over time.
+
+### Loading Data for Subtables
+
+If a table contains subtables, a <i class="fa fa-plus-square" aria-hidden="true"></i><span class="sr-only">Plus icon</span> icon will display next to its **Rows Loaded** value. Click the icon to view the number of rows loaded for its subtables.
+
+Subtables are created by Stitch based on the structure of the data in the source and your destination. Read more about subtables in the [Nested Data and Row Counts guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+
+### Loading Data for Non-Replicating Tables
+
+{% include layout/inline_image.html type="right" file="replication/loading-reports-time-range.gif" alt="Rows Loaded time range selection" %}Loading data for tables not currently set to replicate may be available if the time of the last load is within the selected **Rows Loaded** range.
+
+For example: If the last load occurred less than 24 hours ago, the table's loading data will display when **24 hours** is selected.
+
+---
+
+## Loading Reports by Table {#loading-reports-by-table}
+
+The Loading Reports by Table page contains detailed loading stats for the selected table, broken down by day. The graph at the top of the page displays every time Stitch attempted to load data for the table into your destination for the selected date.
+
+To view loading reports for a specific day, use the date picker located above the graph. **Note**: The number of days' worth of logs varies by [plan type](#report-retention).
+
+![Loading Reports for a single table]({{ site.baseurl }}/images/replication/loading-reports-by-table.png)
+
+In addition to displaying the time a load began, the tooltips also include how long the loading job ran and if any [errors](#loading-errors) arose during the job.
+
+---
+
+## Replication Bookmarks in Loading Reports {#max-replication-bookmark-values}
+
+{% include note.html content="The features in this section may not appear in the loading reports for some integrations. As we add this functionality to our integrations, bookmark columns in loading reports will be made available." %}
+
+Integration loading reports can contain information about the recency of your data. The **Max Replication Bookmark Value** column contains the highest or most recent [Replication Bookmark Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) value Stitch has loaded into your destination for a given table or replication job, displayed as `column_name: value`.
+
+Using the values in this column, you can identify how up-to-date the data in your destination is on a table-by-table basis or check the progress of a historical replication job.
+
+Keep in mind that:
+
+- Replication Bookmark Key columns may not always be timestamps - some may be integers, like `id: 1234`
+- For **SaaS integrations**, Stitch will automatically select the Replication Bookmark Key column
+- For **Database integrations**, this is a column selected by you during [replication method setup]({{ link.replication.rep-methods | prepend: site.baseurl }})
+- If the table is currently being loaded (indicated by a {{ ui-icon.table-loading-in-progress | flatify }} icon), some data may load out of order
+
+### Replication Bookmark Values, by Page
+
+On the [**Loading Reports for All Tables**](#all-loading-reports) page, the value in this column will reflect the highest or most recent value for the table **overall**:
+
+![The highest Replication Bookmark Key value for a table, overall]({{ site.baseurl }}/images/replication/loading-reports-all-tables-max-bookmark.png)
+
+On the [**Loading Reports by Table**](#loading-reports-by-table) page, the value in this column will reflect the highest or most recent value for each **replication job** for the given table:
+
+![Progessing Replication Bookmark Key values]({{ site.baseurl }}/images/replication/loading-reports-by-table-max-bookmark.png)
+
+### Replication Bookmark Unavailable
+
+For some tables, a **Bookmark Unavailable** message may display in the **Max Replication Bookmark Value** column in place of a value:
+
+![Bookmark unavailable for integration table]({{ site.baseurl }}/images/replication/loading-reports-bookmark-unavailable.png)
+
+There are a few reasons this message may appear:
+
+- The table uses [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#full-table-replication" }}), a replication method which doesn't use a Replication Bookmark Key,
+- The column designated as the Replication Bookmark Key contains `NULL` values, or
+- The integration doesn't currently support this feature. As this functionality is added to eligible integrations, Replication Bookmark Key values in loading reports will become available.
+
+---
+
+## Loading Errors
+
+If an error occurs during the loading process, the {{ ui-icon.table-loading-error | flatify }} icon will display to the left of the affect table(s). To view the error for the table, hover over the table and then click the link in the tooltip.
+
+This will bring you to the Loading Report page for that table, where the error message will be expanded:
+
+{% include layout/inline_image.html type="normal" file="replication/table-loading-error-message.png" alt="Expanded error message on Loading Reports by Table page" %}
+
+If an error arises, check out our [troubleshooting guides]({{ link.troubleshooting.main | prepend: site.baseurl }}) for help.
+
+---
+
+## Loading Report Retention
+
+Loading reports on the **Loading Reports by Table** page are grouped by day. The number of days' worth of logs available to you depends on your Stitch plan:
 
 {% for plan in stitch.subscription-plans.all-plans %}
 - **{{ plan.name }}**: {{ plan.reports }}
@@ -46,70 +135,3 @@ For example: If you downgrade to Free from the Starter plan, you'll lose access 
 Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
 For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of reports.
-
----
-
-## Report Composition
-
-Every row in the Loading Reports tab corresponds to a single table that is set to replicate. The data in this row is updated upon every successful load to your destination.
-
-[Image here when UI is ready]
-
-### Loading Report Columns
-
-Loading reports are made up of four columns, which are explained in the table below.
-
-{% assign loading-reports = site.data.ui.loading-reports %}
-
-<table>
-    <tr>
-        <td width="20%; fixed" align="right">
-            <strong>Column Name</strong>
-        </td>
-        <td>
-            <strong>Example</strong>
-        </td>
-        <td width="55%; fixed">
-            <strong>Description</strong>
-        </td>
-    </tr>
-    {% for field in loading-reports.fields %}
-    <tr>
-        <td align="right">
-            <strong>{{ field.name | markdownify }}</strong>
-        </td>
-        <td>
-            {{ field.example | markdownify }}
-        </td>
-        <td>
-            {{ field.description | flatify | markdownify }}
-        </td>
-    </tr>
-    {% endfor %}
-</table>
-
-### Loading Data for Subtables
-
-To view the number of rows loaded for subtables, click the <i class="fa fa-plus-square" aria-hidden="true"></i><span class="sr-only">Plus icon</span> icon next to the total rows loaded:
-
-[GIF will go here when UI is ready]
-
-Subtables are created by Stitch based on the structure of the data in the source and your destination. Read more about subtables in the [Nested Data and Row Counts guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
-
-### View Non-Replicating Tables
-
-{% include layout/inline_image.html type="right" file="replication/loading-reports-time-range.png" alt="Rows Loaded time range selection" %}Loading data for tables that may be available if the time of the last load is within the selected **Rows Loaded** range.
-
-For example: If the last load occurred less than 24 hours ago, the table's loading data will display when **24 hours** is selected.
-
-Otherwise, the table's loading data will be available based on your plan's [report retention period](#report-retention). For example: If you're on the Starter plan and a load occurred less than 7 days ago, you can select the **Billing Period** option to view the last load for the table.
-
----
-
-## Loading Errors
-
-If an error occurs during the loading process, an [ICON] will display to the left of the affect table(s). To view the error for the table, click the icon.
-
-[IMAGE when UI is ready]
-
-If an error arises, check out our [troubleshooting guides]({{ link.troubleshooting.main | prepend: site.baseurl }}) for help.
