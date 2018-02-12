@@ -21,7 +21,7 @@ The last phase of every Stitch replication job is called **Loading**. During Loa
 
 The **Loading Reports** tab - accessed by clicking into the integration from the {{ app.page-names.dashboard }} - provides detail about the loading portion of the replication process for a given integration.
 
-This section contains a loading overview for **all** tables currently set to replicate and a drill-down report page specific to each table.
+This section contains a loading overview for all tables currently set to replicate and a drill-down report page specific to each table.
 
 ---
 
@@ -33,13 +33,15 @@ Every row on this page corresponds to a single table that is set to replicate. T
 
 ![Loading Reports for all tables in an integration]({{ site.baseurl }}/images/replication/loading-reports-for-all-tables.png)
 
-Clicking the name of the table in the **Tables to Replicate** column will open a page with a [loading report for that table](#loading-reports-by-table), enabling you to see loading behavior over time.
+Clicking the name of the table in the **Tables to Replicate** column will open a page with a [loading report for that table](#loading-reports-by-table), enabling you to see loading behavior for the table over time.
 
 ### Loading Data for Subtables
 
-If a table contains subtables, a <i class="fa fa-plus-square" aria-hidden="true"></i><span class="sr-only">Plus icon</span> icon will display next to its **Rows Loaded** value. Click the icon to view the number of rows loaded for its subtables.
+Depending on the structure of your data in the source and the destination you're using, subtables may be created from a parent table.
 
-Subtables are created by Stitch based on the structure of the data in the source and your destination. Read more about subtables in the [Nested Data and Row Counts guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+If a table contains subtables, a <i class="fa fa-plus-square" aria-hidden="true" ></i><span class="sr-only">Plus icon</span> icon will display next to its **Rows Loaded** value. Click the icon to view the number of rows loaded for its subtables.
+
+You can read more about subtables in the [Nested Data and Row Counts guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
 ### Loading Data for Non-Replicating Tables
 
@@ -69,12 +71,14 @@ Integration loading reports can contain information about the recency of your da
 
 Using the values in this column, you can identify how up-to-date the data in your destination is on a table-by-table basis or check the progress of a historical replication job.
 
+
+
 Keep in mind that:
 
-- Replication Bookmark Key columns may not always be timestamps - some may be integers, like `id: 1234`
-- For **SaaS integrations**, Stitch will automatically select the Replication Bookmark Key column
-- For **Database integrations**, this is a column selected by you during [replication method setup]({{ link.replication.rep-methods | prepend: site.baseurl }})
-- If the table is currently being loaded (indicated by a {{ ui-icon.table-loading-in-progress | flatify }} icon), some data may load out of order
+- **Replication Bookmark Key columns may not always be timestamps**. Some may be integers, like `id: 1234`.
+- For **SaaS integrations**, Stitch automatically selects the Replication Bookmark Key column. Refer to the [integration's schema documentation]({{ site.baseurl }}/integrations/saas) for the column(s) Stitch uses for each table.
+- For **Database integrations**, this is a column selected by you during [Replication Method setup]({{ link.replication.rep-methods | prepend: site.baseurl }})
+- **If the table is currently being loaded** (indicated by a {{ ui-icon.table-loading-in-progress | flatify }} icon), some data may load out of order. We suggest waiting until the load is complete to check the completeness of the data.
 
 ### Replication Bookmark Values, by Page
 
@@ -96,13 +100,13 @@ There are a few reasons this message may appear:
 
 - The table uses [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#full-table-replication" }}), a replication method which doesn't use a Replication Bookmark Key,
 - The column designated as the Replication Bookmark Key contains `NULL` values, or
-- The integration doesn't currently support this feature. As this functionality is added to eligible integrations, Replication Bookmark Key values in loading reports will become available.
+- The integration doesn't support this feature. As this functionality is added to eligible integrations, Replication Bookmark Key values in loading reports will become available.
 
 ---
 
 ## Loading Errors
 
-If an error occurs during the loading process, the {{ ui-icon.table-loading-error | flatify }} icon will display to the left of the affect table(s). To view the error for the table, hover over the table and then click the link in the tooltip.
+If an error occurs during the loading process, a {{ ui-icon.table-loading-error | flatify }} icon will display to the left of the affect table(s). To view the error for the table, hover over the error icon and then click the link in the tooltip.
 
 This will bring you to the Loading Report page for that table, where the error message will be expanded:
 
