@@ -35,6 +35,16 @@ Every row on this page corresponds to a single table that is set to replicate. T
 
 Clicking the name of the table in the **Tables to Replicate** column will open a page with a [loading report for that table](#loading-reports-by-table), enabling you to see loading behavior for the table over time.
 
+### Loading Data by Time Range
+
+Use the toggle next to **Rows Loaded** to view a table's loading data based on the time range you select:
+
+- **24 hours**: Loading data for the past 24 hours
+- **This Billing**: Loading data for the current billing period
+- **Prev Billing**: Loading data for the previous billing period
+
+**Note**: A billing period is 30 days. To view the day the current billing period will end, navigate to the Billing page ({{ app.menu-paths.billing }}) and locate the **Next billing date** field.
+
 ### Loading Data for Subtables
 
 Depending on the structure of your data in the source and the destination you're using, subtables may be created from a parent table.
@@ -47,7 +57,7 @@ You can read more about subtables in the [Nested Data and Row Counts guide]({{ l
 
 {% include layout/inline_image.html type="right" file="replication/loading-reports-time-range.gif" alt="Rows Loaded time range selection" %}Loading data for tables not currently set to replicate may be available if the time of the last load is within the selected **Rows Loaded** range.
 
-For example: If the last load occurred less than 24 hours ago, the table's loading data will display when **24 hours** is selected.
+For example: If the last load occurred less than 24 hours ago, the table's loading data will display when **24 hours** is selected. If it occurred more than 24 hours ago, select **This Billing** to see this table's loading stats for the current billing period.
 
 ---
 
@@ -70,8 +80,6 @@ In addition to displaying the time a load began, the tooltips also include how l
 Integration loading reports can contain information about the recency of your data. The **Max Replication Bookmark Value** column contains the highest or most recent [Replication Bookmark Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) value Stitch has loaded into your destination for a given table or replication job, displayed as `column_name: value`.
 
 Using the values in this column, you can identify how up-to-date the data in your destination is on a table-by-table basis or check the progress of a historical replication job.
-
-
 
 Keep in mind that:
 
