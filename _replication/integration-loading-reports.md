@@ -21,7 +21,7 @@ The last phase of every Stitch replication job is called **Loading**. During Loa
 
 The **Loading Reports** tab - accessed by clicking into the integration from the {{ app.page-names.dashboard }} - provides detail about the loading portion of the replication process for a given integration.
 
-This section contains a loading overview for all tables currently set to replicate and a drill-down report page specific to each table.
+This section contains a loading overview for [all tables currently set to replicate](#all-loading-reports) and a [drill-down report page specific to each table](#loading-reports-by-table).
 
 ---
 
@@ -35,7 +35,7 @@ Every row on this page corresponds to a single table that is set to replicate. T
 
 Clicking the name of the table in the **Tables to Replicate** column will open a page with a [loading report for that table](#loading-reports-by-table), enabling you to see loading behavior for the table over time.
 
-### Loading Data by Time Range
+### Loading Data by Time Range {#data-by-time-range}
 
 Use the toggle next to **Rows Loaded** to view a table's loading data based on the time range you select:
 
@@ -55,7 +55,7 @@ You can read more about subtables in the [Nested Data and Row Counts guide]({{ l
 
 ### Loading Data for Non-Replicating Tables
 
-{% include layout/inline_image.html type="right" file="replication/loading-reports-time-range.gif" alt="Rows Loaded time range selection" %}Loading data for tables not currently set to replicate may be available if the time of the last load is within the selected **Rows Loaded** range.
+{% include layout/inline_image.html type="right" file="replication/loading-reports-time-range.gif" alt="Rows Loaded time range selection" %}Loading data for tables not currently set to replicate may be available if the time of the last load is within the selected [time range](#data-by-time-range).
 
 For example: If the last load occurred less than 24 hours ago, the table's loading data will display when **24 hours** is selected. If it occurred more than 24 hours ago, select **This Billing** to see this table's loading stats for the current billing period.
 
