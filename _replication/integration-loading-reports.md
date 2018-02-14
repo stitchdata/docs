@@ -126,7 +126,7 @@ If an error arises, check out our [troubleshooting guides]({{ link.troubleshooti
 
 ## Loading Report Retention
 
-Loading reports on the **Loading Reports by Table** page are grouped by day. The number of days' worth of logs available to you depends on your Stitch plan:
+Loading reports on the **Loading Reports by Table** page are grouped by day. The number of days' worth of logs available to you on this page depends on your Stitch plan:
 
 {% for plan in stitch.subscription-plans.all-plans %}
 - **{{ plan.name }}**: {{ plan.reports }}
