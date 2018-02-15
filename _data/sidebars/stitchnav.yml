@@ -170,8 +170,13 @@ all-docs:
         - title: Extraction Logs
           url: "{{ link.replication.extraction-logs }}"
 
+        - title: Loading Reports
+          url: "{{ link.replication.loading-reports }}"
+
   - title: Loading Data
     sections:
+    - title: Loading Reports
+      url: "{{ link.replication.loading-reports }}"
 
     - title: Integration Schemas
       url: "{{ link.destinations.storage.stitch-schema }}"

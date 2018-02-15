@@ -40,33 +40,39 @@ all-plans:
     integrations: "all"
     rows: "unlimited"
     logs: "7 days"
+    reports: "7 days"
 
   - name: *free-name
     paid: false
     integrations: "free"
     rows: "5 million"
     logs: "24 hours"
+    reports: "24 hours"
 
   - name: *starter-name
     paid: true
     integrations: "all"
     rows: "5 million"
     logs: "7 days"
+    reports: "7 days"
 
   - name: *basic-name
     paid: true
     integrations: "all"
     rows: "100 million"
     logs: "7 days"
+    reports: "7 days"
 
   - name: *premier-name
     paid: true
     integrations: "all"
     rows: "250 million"
     logs: "7 days"
+    reports: "7 days"
 
   - name: *enterprise-name
     paid: true
     integrations: "all"
     rows: "billions"
     logs: "60 days"
+    reports: "60 days"
