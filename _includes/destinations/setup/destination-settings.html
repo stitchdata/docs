@@ -22,6 +22,12 @@ below.  -->
 {% endif %}
 
 <!-- Assigns a variable to the SSH fields -->
+{% if destination.type == "redshift" %}
+{% unless page.ssh %}
+{% include note.html content="Stitch will attempt to connect to Redshift destinations using SSL by default. This doesn't require any additional configuration." %}
+{% endunless %}
+{% endif %} 
+
 1. If you aren't logged into your Stitch account, log in now.
 2. Click the {{ app.menu-paths.destination-settings }}.
 3. Click the **{% if destination.display_name == "Heroku" %}PostgreSQL{% else %}{{ destination.display_name }}{% endif %}** icon.
@@ -65,4 +71,4 @@ Lastly, you'll fill in the SSH fields with the bastion details.
 <!-- The content below will display for every type of destination -->
 When finished, click {{ app.buttons.update-dw-settings | flatify }}.
 
-Stitch will perform a connection test to the {{ destination.display_name }} database; if successful, a *Success!* mesage will display at the top of the screen. **Note that this test may take a few minutes to complete**.
+Stitch will perform a connection test to the {{ destination.display_name }} database; if successful, a *Success!* mesage will display at the top of the screen. **Note**: This test may take a few minutes to complete.
