@@ -106,7 +106,7 @@ CREATE VIEW sales_orders_view AS
 	WITH NO SCHEMA BINDING;
 ```
 
-Note that you can't update, insert into, or delete from a view. This means that if you want to add or remove columns, you would need to re-create the view.
+**Note**: You can't update, insert into, or delete from a view. This means that if you want to add or remove columns, you need to re-create the view.
 
 If you chose this option to resolve an error after a column was split and renamed, remember to include all the subsequent split columns when you re-create the view. For example: if `sales_order` 'split' into `sales_order__int` and `sales_order__st`, you'd want to include both columns to ensure all values are captured in the view.
 
