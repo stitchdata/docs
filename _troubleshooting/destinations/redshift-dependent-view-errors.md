@@ -43,9 +43,9 @@ Typically, this error - along with missing views and incorrect data in views - a
 
 A table's structure can change for a few reasons:
 
-- A new column has been added to the source table.
-- A new column has been added to the table as a result of [column/data type splitting]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }}).
-- A new column has been added to the table as a result of [`VARCHAR` widening]({{ link.destinations.storage.varchar-widening | prepend: site.baseurl }}).
+- A new column has been added to the source table
+- A new column has been added to the table as a result of [column/data type splitting]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }})
+- A new column has been added to the table as a result of [`VARCHAR` widening]({{ link.destinations.storage.varchar-widening | prepend: site.baseurl }})
 
 When a table's structure is changed, dependent views must be ['dropped'](http://docs.aws.amazon.com/redshift/latest/dg/r_DROP_VIEW.html) so Stitch can re-create the underlying table.
 
