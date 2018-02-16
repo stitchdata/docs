@@ -97,7 +97,7 @@ setup-steps:
 {% capture setup-notice %}
 This tutorial describes how to spin up a Redshift cluster and connect it to Stitch via a **direct connection**.<br><br>
 
-Looking for help setting up an **SSH connection?** Refer to the [Connecting a Redshift Data Warehouse via SSH Tunnel]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }}) guide.
+By default, Stitch will attempt to connect to Redshift using SSL, but SSH connections are also supported. Refer to the [Connecting a Redshift Data Warehouse via SSH Tunnel]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }}) guide.
 {% endcapture %}
 
 {% include note.html content=setup-notice %}
