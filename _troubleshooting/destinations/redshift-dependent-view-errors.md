@@ -114,24 +114,6 @@ If you chose this option to resolve an error after a column was split and rename
 
 ### Option 2: Manually Locate & Temporarily Drop Dependent Views {#locate-drop-dependent-views}
 
-1. Using a SQL or command line tool, login to your Redshift database as an administrator. 
-2. The query below is run against tables in the `information_schema` and will find all first-order dependency for the schema noted in the error notification.
-
-   Run the query below, replacing what’s in the `[square brackets]` with the table name:
-
-   ```sql
-   SELECT DISTINCT c_p.oid AS tbloid
-     ,n_p.nspname AS schemaname
-     ,c_p.relname AS NAME
-     ,n_c.nspname AS refbyschemaname
-     ,c_c.relname AS refbyname
-     ,c_c.oid AS viewoid
-   FROM pg_class c_p
-   JOIN pg_depend d_p ON c_p.relfilenode = d_p.refobjid
-   JOIN pg_depend d_c ON d_p.objid = d_c.objid
-   JOIN pg_class c_c ON d_c.refobjid = c_c.relfilenode
-   LEFT JOIN pg_namespace n_p ON c_p.relnamespace = n_p.oid
-   LEFT JOIN pg_namespace n_c ON c_c.relnamespace = n_c.oid
 #### Step 1: Create a View of Tables and Dependencies
 
 {% include note.html content ="You need to have access to the `pg_catalog` schema and its tables and be able to run the `CREATE VIEW` command to complete this step." %}
