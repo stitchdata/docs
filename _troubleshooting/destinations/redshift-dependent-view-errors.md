@@ -147,6 +147,42 @@ SELECT DISTINCT source_class.oid AS source_table_id,
 
 The above command only selects [dependencies with a type](https://www.postgresql.org/docs/9.3/static/catalog-pg-depend.html) of `i`, or those that can only be dropped by running `DROP...CASCADE` on the dependent object itself. Additionally, only [dependent relations that are views](https://www.postgresql.org/docs/9.3/static/catalog-pg-class.html) (`relKind = 'v'`) are included in the results.
 
+#### Step 2: Query the View to Locate Dependencies
+
+Next, you'll query the `view_dependencies` view to locate the objects you need to drop. If the notification referenced the `closeio.closeio_leads` table, the query would look like this:
+
+```sql
+SELECT source_table_schema,
+       source_table_name,
+       dependent_view_schema,
+       dependent_view_name
+  FROM view_dependencies
+ WHERE source_table_schema = 'closeio'
+   AND source_table_name = 'closeio_leads'
+```
+
+And in the results, we see:
+
+| source_table_schema | source_table_name | dependent_view_schema | dependent_view_name   |
+|---------------------|-------------------|-----------------------|-----------------------|
+| closeio             | closeio_leads     | dbt                   | lead_addresses        |
+
+Which indicates that the `lead_addresses` view in the `dbt` schema is the dependent object that's causing issues.
+
+#### Step 3: Drop the Dependent View
+
+Now that you’ve found the dependent view, you can run a command to drop it. Remember to save the view's definition somewhere before continuing if you want to re-create it later.
+
+To ensure all dependent views are dropped, use the `CASCADE` option and replace the schema and view names as needed:
+
+```sql
+DROP VIEW dbt.lead_addresses CASCADE;
+```
+
+After Stitch has completed its replication cycle, you can re-create your views. If you opted not to initially [re-create your views as late binding views](#late-binding-views), this may be a good time to do so.
+
+**Note**: The amount of time required to perform table alterations depends on the size of the table in question. While dropping dependent views for an hour or two is typically sufficient to complete the process, some very large tables may require more time. 
+
 ---
 
 ## Contact Support
