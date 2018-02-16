@@ -31,7 +31,9 @@ solutions-pros-cons:
 ---
 {% include misc/data-files.html %}
 
-> We were unable to recreate the [view] in your data warehouse with fresh data from the underlying table.
+> ERROR: cannot drop table [schema_name].[table_name] column [column_name] because other objects depend on it
+>
+> Hint: Use DROP ... CASCADE to drop the dependent objects too.
 
 Typically, this error - along with missing views and incorrect data in views - are a result of how Stitch handles altered table structures and views with dependencies in Redshift.
 
