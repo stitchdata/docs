@@ -132,18 +132,38 @@ If you chose this option to resolve an error after a column was split and rename
    JOIN pg_class c_c ON d_c.refobjid = c_c.relfilenode
    LEFT JOIN pg_namespace n_p ON c_p.relnamespace = n_p.oid
    LEFT JOIN pg_namespace n_c ON c_c.relnamespace = n_c.oid
-   WHERE d_c.deptype = 'i'::"char"
-   AND c_c.relkind = 'v'::"char"
-   AND name = '[table_name]'
-   ```
-3. Now that you’ve found the dependent view, you can run a command to drop it. To ensure all dependent views are dropped, use the `CASCADE` option. Remember to use the correct schema and dependent view name when running this yourself:
+#### Step 1: Create a View of Tables and Dependencies
 
-   ```sql
-   DROP VIEW [error_schema].[dependent_view] CASCADE;
-   ```
-4. After Stitch has completed its replication cycle, you can re-create your views. If you opted not to initially [re-create your views as late binding views](#late-binding-views), this may be a good time to do so.
+{% include note.html content ="You need to have access to the `pg_catalog` schema and its tables and be able to run the `CREATE VIEW` command to complete this step." %}
 
-   **Note**: the amount of time required to perform table alterations depends on the size of the table in question. While dropping dependent views for an hour or two is typically sufficient to complete the process, some very large tables may require more time. 
+First, you'll create a view called `view_dependencies` that lists the tables and view dependencies in your data warehouse. You will only need to perform this step once.
+
+Using a SQL or command line tool, login to your Redshift database as an administrator and execute the following command. Our view will be created in the root of the database, but you can create it in a specific schema if you prefer:
+
+```sql
+CREATE VIEW view_dependencies AS
+SELECT DISTINCT source_class.oid AS source_table_id,
+                source_namespace.nspName AS source_table_schema,
+                source_class.relName AS source_table_name, 
+                dependent_class.oid AS dependent_view_id,
+                dependent_namespace.nspName AS dependent_view_schema,
+                dependent_class.relName AS dependent_view_name
+           FROM pg_class source_class 
+           JOIN pg_depend source_depend 
+             ON source_class.relFileNode = source_depend.refObjId
+           JOIN pg_depend dependent_depend 
+             ON source_depend.objId = dependent_depend.objId
+           JOIN pg_class dependent_class 
+             ON dependent_depend.refObjId = dependent_class.relFileNode
+      LEFT JOIN pg_namespace source_namespace 
+             ON source_class.relNameSpace = source_namespace.oid
+      LEFT JOIN pg_namespace dependent_namespace 
+             ON dependent_class.relNameSpace = dependent_namespace.oid
+          WHERE dependent_depend.depType = 'i'::"char"
+            AND dependent_class.relKind = 'v'::"char"
+```
+
+The above command only selects [dependencies with a type](https://www.postgresql.org/docs/9.3/static/catalog-pg-depend.html) of `i`, or those that can only be dropped by running `DROP...CASCADE` on the dependent object itself. Additionally, only [dependent relations that are views](https://www.postgresql.org/docs/9.3/static/catalog-pg-class.html) (`relKind = 'v'`) are included in the results.
 
 ---
 
