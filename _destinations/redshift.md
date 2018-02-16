@@ -106,11 +106,6 @@ Creating a {{ destination.display_name}} data warehouse for Stitch involves spin
    2. [Configure the firewall to grant access to Stitch]({{ link.destinations.setup.redshift | prepend: site.baseurl | append:"#configure-security-access-settings" }})
    3. [Create a database user for Stitch]({{ link.destinations.setup.redshift | prepend: site.baseurl | append:"#create-stitch-redshift-user" }})
    4. [Enter the connection info into Stitch]({{ link.destinations.setup.redshift | prepend: site.baseurl | append:"#step-6-connect-stitch" }})
-
-### SSL Connections {#redshift-ssl-connections}
-
-By default, Stitch will attempt to any Redshift destination using SSL. This doesn't require any configuration on your part.
-
 {% endcontentfor %}
 
 
