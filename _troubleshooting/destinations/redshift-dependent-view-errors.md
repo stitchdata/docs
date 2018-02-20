@@ -149,7 +149,7 @@ The above command only selects [dependencies with a type](https://www.postgresql
 
 #### Step 2: Query the View to Locate Dependencies
 
-Next, you'll query the `view_dependencies` view to locate the objects you need to drop. If the notification referenced the `closeio.closeio_leads` table, the query would look like this:
+Next, you'll query the `view_dependencies` view you created in Step 1 to locate the objects you need to drop. If the notification referenced the `closeio.closeio_leads` table, the query would look like this:
 
 ```sql
 SELECT source_table_schema,
@@ -161,7 +161,7 @@ SELECT source_table_schema,
    AND source_table_name = 'closeio_leads'
 ```
 
-And in the results, we see:
+And in the results:
 
 | source_table_schema | source_table_name | dependent_view_schema | dependent_view_name   |
 |---------------------|-------------------|-----------------------|-----------------------|
