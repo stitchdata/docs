@@ -31,7 +31,9 @@ solutions-pros-cons:
 ---
 {% include misc/data-files.html %}
 
-> We were unable to recreate the [view] in your data warehouse with fresh data from the underlying table.
+> ERROR: cannot drop table [schema_name].[table_name] column [column_name] because other objects depend on it
+>
+> Hint: Use DROP ... CASCADE to drop the dependent objects too.
 
 Typically, this error - along with missing views and incorrect data in views - are a result of how Stitch handles altered table structures and views with dependencies in Redshift.
 
@@ -41,11 +43,11 @@ Typically, this error - along with missing views and incorrect data in views - a
 
 A table's structure can change for a few reasons:
 
-- A new column has been added to the source table.
-- A new column has been added to the table as a result of [column/data type splitting]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }}).
-- A new column has been added to the table as a result of [`VARCHAR` widening]({{ link.destinations.storage.varchar-widening | prepend: site.baseurl }}).
+- A new column has been added to the source table
+- A new column has been added to the table as a result of [column/data type splitting]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }})
+- A new column has been added to the table as a result of [`VARCHAR` widening]({{ link.destinations.storage.varchar-widening | prepend: site.baseurl }})
 
-When a table's structure is changed, dependent views must be ['dropped'](http://docs.aws.amazon.com/redshift/latest/dg/r_DROP_VIEW.html) so Stitch can re-create the underlying table.
+When a table's structure changes, dependent views must be temporarily [dropped](http://docs.aws.amazon.com/redshift/latest/dg/r_DROP_VIEW.html) so Stitch can re-create the underlying table.
 
 Because we don’t want to affect your work without your say-so, Stitch will not automatically drop views with dependencies.
 
@@ -104,7 +106,7 @@ CREATE VIEW sales_orders_view AS
 	WITH NO SCHEMA BINDING;
 ```
 
-Note that you can't update, insert into, or delete from a view. This means that if you want to add or remove columns, you would need to re-create the view.
+**Note**: You can't update, insert into, or delete from a view. This means that if you want to add or remove columns, you need to re-create the view.
 
 If you chose this option to resolve an error after a column was split and renamed, remember to include all the subsequent split columns when you re-create the view. For example: if `sales_order` 'split' into `sales_order__int` and `sales_order__st`, you'd want to include both columns to ensure all values are captured in the view.
 
@@ -112,36 +114,74 @@ If you chose this option to resolve an error after a column was split and rename
 
 ### Option 2: Manually Locate & Temporarily Drop Dependent Views {#locate-drop-dependent-views}
 
-1. Using a SQL or command line tool, login to your Redshift database as an administrator. 
-2. The query below is run against tables in the `information_schema` and will find all first-order dependency for the schema noted in the error notification.
+#### Step 1: Create a View of Tables and Dependencies
 
-   Run the query below, replacing what’s in the `[square brackets]` with the table name:
+{% include note.html content ="You need to have access to the `pg_catalog` schema and its tables and be able to run the `CREATE VIEW` command to complete this step." %}
 
-   ```sql
-   SELECT DISTINCT c_p.oid AS tbloid
-     ,n_p.nspname AS schemaname
-     ,c_p.relname AS NAME
-     ,n_c.nspname AS refbyschemaname
-     ,c_c.relname AS refbyname
-     ,c_c.oid AS viewoid
-   FROM pg_class c_p
-   JOIN pg_depend d_p ON c_p.relfilenode = d_p.refobjid
-   JOIN pg_depend d_c ON d_p.objid = d_c.objid
-   JOIN pg_class c_c ON d_c.refobjid = c_c.relfilenode
-   LEFT JOIN pg_namespace n_p ON c_p.relnamespace = n_p.oid
-   LEFT JOIN pg_namespace n_c ON c_c.relnamespace = n_c.oid
-   WHERE d_c.deptype = 'i'::"char"
-   AND c_c.relkind = 'v'::"char"
-   AND name = '[table_name]'
-   ```
-3. Now that you’ve found the dependent view, you can run a command to drop it. To ensure all dependent views are dropped, use the `CASCADE` option. Remember to use the correct schema and dependent view name when running this yourself:
+First, you'll create a view called `view_dependencies` that lists the tables and view dependencies in your data warehouse. You will only need to perform this step once.
 
-   ```sql
-   DROP VIEW [error_schema].[dependent_view] CASCADE;
-   ```
-4. After Stitch has completed its replication cycle, you can re-create your views. If you opted not to initially [re-create your views as late binding views](#late-binding-views), this may be a good time to do so.
+Using a SQL or command line tool, login to your Redshift database as an administrator and execute the following command. Our view will be created in the root of the database, but you can create it in a specific schema if you prefer:
 
-   **Note**: the amount of time required to perform table alterations depends on the size of the table in question. While dropping dependent views for an hour or two is typically sufficient to complete the process, some very large tables may require more time. 
+```sql
+CREATE VIEW view_dependencies AS
+SELECT DISTINCT source_class.oid AS source_table_id,
+                source_namespace.nspName AS source_table_schema,
+                source_class.relName AS source_table_name, 
+                dependent_class.oid AS dependent_view_id,
+                dependent_namespace.nspName AS dependent_view_schema,
+                dependent_class.relName AS dependent_view_name
+           FROM pg_class source_class 
+           JOIN pg_depend source_depend 
+             ON source_class.relFileNode = source_depend.refObjId
+           JOIN pg_depend dependent_depend 
+             ON source_depend.objId = dependent_depend.objId
+           JOIN pg_class dependent_class 
+             ON dependent_depend.refObjId = dependent_class.relFileNode
+      LEFT JOIN pg_namespace source_namespace 
+             ON source_class.relNameSpace = source_namespace.oid
+      LEFT JOIN pg_namespace dependent_namespace 
+             ON dependent_class.relNameSpace = dependent_namespace.oid
+          WHERE dependent_depend.depType = 'i'::"char"
+            AND dependent_class.relKind = 'v'::"char"
+```
+
+The above command only selects [dependencies with a type](https://www.postgresql.org/docs/9.3/static/catalog-pg-depend.html) of `i`, or those that can only be dropped by running `DROP...CASCADE` on the dependent object itself. Additionally, only [dependent relations that are views](https://www.postgresql.org/docs/9.3/static/catalog-pg-class.html) (`relKind = 'v'`) are included in the results.
+
+#### Step 2: Query the View to Locate Dependencies
+
+Next, you'll query the `view_dependencies` view you created in Step 1 to locate the objects you need to drop. If the notification referenced the `closeio.closeio_leads` table, the query would look like this:
+
+```sql
+SELECT source_table_schema,
+       source_table_name,
+       dependent_view_schema,
+       dependent_view_name
+  FROM view_dependencies
+ WHERE source_table_schema = 'closeio'
+   AND source_table_name = 'closeio_leads'
+```
+
+And in the results:
+
+| source_table_schema | source_table_name | dependent_view_schema | dependent_view_name   |
+|---------------------|-------------------|-----------------------|-----------------------|
+| closeio             | closeio_leads     | dbt                   | lead_addresses        |
+
+Which indicates that the `lead_addresses` view in the `dbt` schema is the dependent object that's causing issues.
+
+#### Step 3: Drop the Dependent View
+
+Now that you’ve found the dependent view, you can run a command to drop it. Remember to save the view's definition somewhere before continuing if you want to re-create it later.
+
+To ensure all dependent views are dropped, use the `CASCADE` option and replace the schema and view names as needed:
+
+```sql
+DROP VIEW dbt.lead_addresses CASCADE;
+```
+
+After Stitch has completed its replication cycle, you can re-create your views. If you opted not to initially [re-create your views as late binding views](#late-binding-views), this may be a good time to do so.
+
+**Note**: The amount of time required to perform table alterations depends on the size of the table in question. While dropping dependent views for an hour or two is typically sufficient to complete the process, some very large tables may require more time. 
 
 ---
 
