@@ -61,6 +61,7 @@ key-elements:
     required: true
   - name: "timestamp_loaded"
     required: true
+    description: " - <strong>Note</strong>: This is a Unix timestamp."
   - name: "year_loaded"
     required: false
   - name: "day_loaded"

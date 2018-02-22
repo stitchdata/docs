@@ -87,7 +87,7 @@ setup-steps:
           This could create an object with an Object Key of:
 
           ```shell
-          salesforce-prod/accounts/1_2018-01-01[somethinghere]
+          salesforce-prod/accounts/1_1519235654474
           ```
 
           You can opt to use the default Key, which is pre-populated, or define your own using the elements in the next section.
@@ -111,7 +111,7 @@ setup-steps:
           <ul>
           {% for element in destination.key-elements %}
           {% if element.required == true %}
-          <li>[{{ element.name }}]</li>
+          <li>[{{ element.name }}]{{ element.description | strip_newlines }}</li>
           {% endif %}
           {% endfor %}
           </ul>
