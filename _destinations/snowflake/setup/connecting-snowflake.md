@@ -99,9 +99,9 @@ setup-steps:
 
              ```sql
              GRANT ALL ON WAREHOUSE [warehouse] TO ROLE [stitch_role];
-
-             // Grants all privileges except ownership
              ```
+
+             **Note**: This will grant all privileges **except** ownership.
 
           4. [Grant database privileges to the Stitch role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#database-privileges){:target="_blank"}, using the name of the database you created for Stitch:
 
@@ -109,7 +109,7 @@ setup-steps:
              GRANT ALL ON DATABASE [stitch_database] TO ROLE [stitch_role];
              ```
 
-             Note that the privileges granted in steps 3 and 4 of this section will only apply to the warehouse and database you specify in the above queries. The Stitch user will not be granted privileges to any other warehouse or database unless you elect to do so.
+             **Note**: The privileges granted in steps 3 and 4 of this section will only apply to the warehouse and database you specify in the above queries. The Stitch user will not be granted privileges to any other warehouse or database unless you elect to do so.
 
           5. Create the Stitch user and grant the Stitch role to the user:
 
