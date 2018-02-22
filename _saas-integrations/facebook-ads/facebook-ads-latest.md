@@ -62,6 +62,8 @@ requirements-list:
 
 setup-steps:
   - title: "add integration"
+    content: |
+      4. Check the **Include data from deleted campaigns, ads, and adsets** box to have Stitch replicate data for these deleted objects. **Note**: Data for deleted campaigns, ads, and adsets will be included only in [**Core Object**](#core-objects-and-insights-tables) tables.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "Authorize Stitch to Access Facebook Ads"
