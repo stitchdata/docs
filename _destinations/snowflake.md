@@ -99,9 +99,9 @@ To help you select the warehouse size that fits your needs and budget, check out
 
 ### Automated Warehouse Management {#automated-warehouse-management}
 
-To reduce usage, you can elect to automate the management of your Snowflake warehouse. This means that you can elect to suspend the warehouse when there's no activity after a specified period of time, and then automatically resume when there is. Note that these settings apply to the entire warehouse and not individual clusters.
+To reduce usage, you can elect to automate the management of your Snowflake warehouse. This means that you can elect to suspend the warehouse when there's no activity after a specified period of time, and then automatically resume when there is. **Note**: These settings apply to the entire warehouse and not individual clusters.
 
-Enabling these settings depends on your workload and availability needs. [Learn more about the Auto Suspend and Auto Resume features here](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html#automating-warehouse-management){:target="_blank"}.
+Enabling these settings depends on your workload and availability needs. [Learn more about the Auto Suspend and Auto Resume features here](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html#automating-warehouse-management){:target="_blank"}. If you use [our instructions]({{ link.destinations.setup.snowflake | prepend: site.baseurl }}) for creating and setting up a Snowflake warehouse, we strongly recommend enabling the Auto Suspend feature to prevent unanticipated credit usage.
 
 Additionally, note that Stitch will only ever impact your Snowflake usage when loading data.
 {% endcontentfor %}
