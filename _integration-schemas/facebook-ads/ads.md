@@ -8,10 +8,15 @@ singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_faceboo
 description: |
   The `ads` table contains info about the ads in your Facebook Ads account.
 
+  **This is a Core Object table**.
+
   #### updated_time & Querying
   Because this table uses `updated_time` as part of the Primary Key, query results might return various versions of the same adgroup.
 
   To reflect the latest state of the adgroup, use the latest `updated_time` timestamp.
+
+  #### Deleted Ads
+  If the **Include data from deleted campaigns, ads, and adsets** box in the integration's settings is checked, this table will include data for deleted ads.
   
 replication-method: "Incremental"
 attribution-window: true
