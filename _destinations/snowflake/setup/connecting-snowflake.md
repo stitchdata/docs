@@ -39,15 +39,32 @@ setup-steps:
 
       1. Log into your Snowflake account using a web browser or a SQL client.
       2. If you log in via a web browser, click the **Worksheet** icon at the top of the page.
-      3. Create the warehouse:
+      3. Create the warehouse by running this command, changing the`[square_brackets]` to the values you want:
 
          ```sql
          CREATE WAREHOUSE [stitch_warehouse]
-          WITH
-          WAREHOUSE_SIZE = '[size]' // xsmall, small, medium, large, xlarge, xxlarge, xxxlarge
+         WITH
+         AUTO_SUSPEND = [time_in_seconds]
+         AUTO_RESUME = TRUE|FALSE
+         WAREHOUSE_SIZE = [size];
          ```
 
-      Additional warehouse parameters are available, including settings for Auto Suspend and Auto Resume. [Check out Snowflake's documentation for detailed explanations.](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html)
+         The parameters in this command define the following:
+
+            - **AUTO_SUSPEND**: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+
+               {% capture auto-suspend-notice %}
+               Make sure the `auto_suspend` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.<br><br>
+
+               If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
+               {% endcapture %}
+               {% include important.html content=auto-suspend-notice %}
+            - **AUTO_RESUME**: If `TRUE`, the warehouse will be automatically resumed when accessed by a SQL statement. If `FALSE`, the warehouse will only start again when explicitly resumed through the Snowflake web interface or using `ALTER WAREHOUSE`.
+            - **WAREHOUSE_SIZE**: Specifies the size of the warehouse to create. Accepted values are `XSMALL`, `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `XXLARGE`, `XXXXLARGE`, and `XXXXLARGE`.
+
+               The default is `XSMALL`.
+
+         Additional warehouse parameters are available. [Check out Snowflake's documentation for detailed explanations.](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html)
 
   - title: "Create a Stitch Database & Database User"
     anchor: "create-database-and-user"
