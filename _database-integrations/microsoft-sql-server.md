@@ -4,6 +4,9 @@ keywords: microsoft sql server, sql server, mssql, database integration, etl mss
 tags: [database_integrations]
 permalink: /integrations/databases/microsoft-sql-server
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
+microsites:
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://mysql.topostgres.com/"
 
 # -------------------------- #
 #     Integration Details    #

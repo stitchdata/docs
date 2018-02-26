@@ -5,6 +5,12 @@ tags: [database_integrations]
 permalink: /integrations/databases/mysql
 summary: "Connect and replicate data from your MySQL database using Stitch's MySQL integration."
 
+microsites:
+  - title: "{{ page.display_name }} to Redshift"
+    url: "http://mysql.toredshift.com/"
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://mysql.topostgres.com/"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

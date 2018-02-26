@@ -4,6 +4,9 @@ keywords: amazon aurora, aurora, database integration, etl aurora, aurora etl
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-aurora
 summary: "Connect and replicate data from your Amazon Aurora database using Stitch's Aurora integration."
+microsites:
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://mysql.topostgres.com/"
 
 # -------------------------- #
 #         Tap Details        #
