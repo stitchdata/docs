@@ -5,6 +5,10 @@ tags: [database_integrations]
 permalink: /integrations/databases/postgresql
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
 
+microsites:
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://postgres.topostges.com/"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

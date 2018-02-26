@@ -9,6 +9,10 @@ format:
   table-desc: false
   list: expand
 
+microsites:
+  - title: "{{ page.display_name }} to BigQuery"
+    url: "http://googleanalytics.tobigquery.com/"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
