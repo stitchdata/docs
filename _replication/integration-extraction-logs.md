@@ -35,13 +35,13 @@ Extraction logs are grouped by day. The number of days' worth of logs available 
 
 Changing your plan can impact logs currently available to you.
 
-### Plan Downgrades
+#### Plan Downgrades
 
 If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
 
 For example: If you downgrade to Free from the Starter plan, you'll lose access to six days' worth of logs.
 
-### Plan Upgrades
+#### Plan Upgrades
 
 Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 

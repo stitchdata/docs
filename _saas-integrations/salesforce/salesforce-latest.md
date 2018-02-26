@@ -58,7 +58,9 @@ setup-steps:
     content: |
       Depending on how your Salesforce instance is set up, you may need to whitelist Stitch's IP addresses. In Salesforce, this is referred to as "setting trusted IPs".
 
-      [The instructions in this Salesforce article](https://help.salesforce.com/articleView?id=security_networkaccess.htm&type=0) will walk you through how to do this in Salesforce; below are all the Stitch IP addresses that must be added to the trusted list:
+      [The instructions in this Salesforce article](https://help.salesforce.com/articleView?id=security_networkaccess.htm&type=0) will walk you through how to do this in Salesforce. **Note**: Because these are exact IP addresses and not ranges, the same IP address must be entered in the **Start IP Address** and **End IP Address** fields in Salesforce.
+
+      Add the following IP addresses to the trusted list:
 
       {% for ip-address in ip-addresses %}
       - {{ ip-address.ip }}

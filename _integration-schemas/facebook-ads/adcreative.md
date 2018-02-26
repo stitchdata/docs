@@ -8,6 +8,8 @@ singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_faceboo
 description: |
   The `adcreative` table contains info about the creatives used in ads in your Facebook Ads account.
 
+  **This is a Core Object table**.
+
 replication-method: "Full Table"
 attribution-window: true
 api-method:
