@@ -32,13 +32,13 @@ The timeout settings on the destination's server define how long a connection ca
 
 To work through this section, you'll need some technical expertise and familiarity with Amazon Web Services. If need be, we suggest looping in a developer or a member of your engineering team to help out.
 
-### Check the Sever's Firewall Timeout Settings {#firewall-timeout-settings}
+### Check the Server's Firewall Timeout Settings {#firewall-timeout-settings}
 
 One potential source of timeout issues may be due to the destination server's firewall timeout settings. If the connection is from any other computer than an Amazon EC2 instance, these settings govern how long the connection may be inactive before it is terminated by the firewall.
 
 Stitch sends a TCP keepalive signal within 200 seconds of a connection going idle, and every 75 seconds thereafter. To avoid a timeout with Stitch, we recommend increasing the values of the `KeepAlive` settings for your destination's server. This will ensure that Stitch's connection isn't prematurely terminated. For more info on these settings, refer to [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-firewall-guidance.html).
 
-### Check the Sever's Command/Query Settings {#command-query-settings}
+### Check the Server's Command/Query Settings {#command-query-settings}
 
 In addition to the destination server's firewall timeout settings, the `statement_timeout` and WLM (Work Load Management) Timeout settings may be potential causes.
 
