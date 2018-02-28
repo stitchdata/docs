@@ -70,56 +70,52 @@ what-is-bq: https://cloud.google.com/bigquery/what-is-bigquery
 setup-project: https://support.google.com/cloud/answer/6251787
 cost-control: https://cloud.google.com/bigquery/cost-controls
 enable-billing: https://support.google.com/cloud/answer/6288653?hl=en
+
+
+# -------------------------- #
+#      Overview Content      #
+# -------------------------- #
+
+introduction: |
+  {{ destination.description }}
+
+  For more information, check out [Google's {{ destination.display_name }} overview]({{ destination.what-is-bq }}).
+
+sections:
+  - title: "pricing"
+    content: |
+      Unlike many other cloud-based data warehouse solutions, {{ destination.display_name }}'s pricing model is based on **usage** and not a fixed-rate. This means that your bill can vary over time. 
+
+      Before fully committing yourself to using {{ destination.display_name }} as your data warehouse, we recommend familiarizing yourself with the {{ destination.display_name }} pricing model and how using Stitch may impact your costs.
+
+      **[Learn more about Stitch & {{ destination.display_name }} pricing]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }})**
+
+  - title: "setup"
+    content: |
+      To set up {{ destination.display_name }}, Stitch requires:
+
+      1. **A user that:**
+         - Has access to a [Google Cloud Platform project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}
+         - Has access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"}
+         - Has Google Cloud Storage (GCS) privileges
+      2. **A United States (US)-based BigQuery instance.** Currently, Stitch can only create US-based GCS buckets, which are required for the replication process. US-based buckets are only compatible with US-based BigQuery instances.
+
+         This means that instances based in other regions - for example, the EU - will not currently work with Stitch's {{ destination.display_name }} destination. If you're interested in Stitch supporting this feature, [please let us know](mailto:{{ site.support }}).
+
+      **[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.bigquery | prepend: site.baseurl }})**
+
+  - title: "limitations"
+    include: |
+      {% include destinations/overview-limitations.html %}
+
+  - title: "replication"
+    include: |
+      {% include destinations/overview-replication-process.html %}
+
+  - title: "schema"
+    include: |
+      {% include destinations/overview-integration-schemas.html %}
+
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
-
-{% contentfor intro %}
-{{ destination.description }}
-
-For more information, check out [Google's {{ destination.display_name }} overview]({{ destination.what-is-bq }}).
-{% endcontentfor %}
-
-
-
-{% contentfor pricing %}
-Unlike many other cloud-based data warehouse solutions, {{ destination.display_name }}'s pricing model is based on **usage** and not a fixed-rate. This means that your bill can vary over time. 
-
-Before fully committing yourself to using {{ destination.display_name }} as your data warehouse, we recommend familiarizing yourself with the {{ destination.display_name }} pricing model and how using Stitch may impact your costs.
-
-**[Learn more about Stitch & {{ destination.display_name }} pricing]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }})**
-{% endcontentfor %}
-
-
-
-{% contentfor setup %}
-To set up {{ destination.display_name }}, Stitch requires:
-
-1. **A user that:**
-   - Has access to a [Google Cloud Platform project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}
-   - Has access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"}
-   - Has Google Cloud Storage (GCS) privileges
-2. **A United States (US)-based BigQuery instance.** Currently, Stitch can only create US-based GCS buckets, which are required for the replication process. US-based buckets are only compatible with US-based BigQuery instances.
-
-   This means that instances based in other regions - for example, the EU - will not currently work with Stitch's {{ destination.display_name }} destination. If you're interested in Stitch supporting this feature, [please let us know](mailto:{{ site.support }}).
-
-**[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.bigquery | prepend: site.baseurl }})**
-{% endcontentfor %}
-
-
-
-{% contentfor limitations %}
-{% include destinations/overview-limitations.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication %}
-{% include destinations/overview-replication-process.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor data-modeling %}
-{% include destinations/overview-integration-schemas.html %}
-{% endcontentfor %}

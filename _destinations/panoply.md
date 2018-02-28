@@ -67,51 +67,44 @@ contact: http://panoply.io/contact/
 pricing: https://panoply.io/pricing/
 documentation: http://panoply.io/documentation/
 status-url: "https://twitter.com/panoplyio?lang=en"
+
+
+# -------------------------- #
+#      Overview Content      #
+# -------------------------- #
+
+introduction: |
+  {{ destination.description | flatify | markdownify }}
+
+  If you're looking for a cost-effective, no-effort way to test out Stitch or get started consolidating your data, {{ destination.display_name }} is your best bet.
+
+sections:
+  - title: "pricing"
+    content: |
+      Pricing varies from plan to plan, but every {{ destination.display_name }} plan includes:
+
+      - Unlimited queries
+      - Unlimited user accounts
+      - Automatic maintenance, vacuuming, and backups
+
+      {{ destination.pricing_notes | flatify | markdownify }}
+
+  - title: "setup"
+    content: |
+      With just a few clicks, you can [connect a new]({{ link.destinations.setup.panoply-new | prepend: site.baseurl }}) or [an existing {{ destination.display_name }} data warehouse to Stitch]({{ link.destinations.setup.panoply-ex | prepend: site.baseurl }}).
+
+  - title: "limitations"
+    include: |
+      {% include destinations/overview-limitations.html %}
+
+  - title: "replication"
+    include: |
+      {% include destinations/overview-replication-process.html %}
+
+  - title: "schema"
+    include: |
+      {% include destinations/overview-integration-schemas.html %}
+
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
-
-
-{% contentfor intro %}
-{{ destination.description }}
-
-If you're looking for a cost-effective, no-effort way to test out Stitch or get started consolidating your data, {{ destination.display_name }} is your best bet.
-{% endcontentfor %}
-
-
-
-{% contentfor pricing %}
-In just a few minutes, you can create a {{ destination.display_name }} account and spin up your own Redshift data warehouse. 
-
-Pricing varies from plan to plan, but every {{ destination.display_name }} plan includes:
-
-- Unlimited queries
-- Unlimited user accounts
-- Automatic maintenance, vacuuming, and backups
-
-To learn more about each of {{ destination.display_name }}'s plans, [check out their pricing page]({{ destination.pricing }}).
-{% endcontentfor %}
-
-
-
-{% contentfor limitations %}
-{% include destinations/overview-limitations.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor setup %}
-With just a few clicks, you can [connect a new]({{ link.destinations.setup.panoply-new | prepend: site.baseurl }}) or [an existing {{ destination.display_name }} data warehouse to Stitch]({{ link.destinations.setup.panoply-ex | prepend: site.baseurl }}).
-{% endcontentfor %}
-
-
-
-{% contentfor data-modeling %}
-{% include destinations/overview-integration-schemas.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication %}
-{% include destinations/overview-replication-process.html %}
-{% endcontentfor %}

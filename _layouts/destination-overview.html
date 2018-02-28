@@ -10,7 +10,7 @@ layout: page
 {% endif %}
 
 <!-- introduction -->
-{% contentblock intro %}
+{{ destination.introduction | flatify | markdownify }}
 
 <p>In this guide, we'll walk you through:</p>
 	<ul>
@@ -22,33 +22,41 @@ layout: page
 
 <hr>
 
-<!-- destination pricing info -->
-<h2 id="pricing">Pricing</h2>
-	{% contentblock pricing %}
+{% for section in destination.sections %}
+	{% case section.title %}
+		{% when "pricing" %}
+			<h2 id="pricing">Pricing</h2>
+		{% when "limitations" %}
+			<h2 id="limitations">Limitations</h2>
+		{% when "setup" %}
+			<h2 id="setup">Setup</h2>
+		{% when "replication" %}
+			<h2 id="replication">Replication</h2>
+		{% when "schema" %}
+			<h2 id="schema">Schema</h2>
+		{% else %}
+			<h2 id="{{ section.anchor }}">{{ section.title | flatify }}</h2>
+	{% endcase %}
+
+	{% if section.content %}
+		{{ section.content | flatify | markdownify }}
+	{% endif %}
+
+{% if section.include %}
+{{ section.include | flatify | markdownify }}
+{% endif %}
+
+	{% if section.subsections %}
+		{% for subsection in section.subsections %}
+			<h3 id="{{ subsection.anchor }}">
+				{{ subsection.title | flatify }}
+			</h3>
+
+			{{ subsection.content | flatify | markdownify }}
+		{% endfor %}
+	{% endif %}
+
 	<hr>
+{% endfor %}
 
-<!-- destination limitations, ex: max # of allowed columns, 
-	incompatible sources, etc -->
-<h2 id="limitations">Limitations</h2>
-	{% contentblock limitations %}
-	<hr>
 
-<!-- destination setup copy -->
-<h2 id="setup">Setup</h2>
-	{% contentblock setup %}
-	<hr>
-
-<!-- stitch schema overview -->
-<h2 id="schema">Schema</h2>
-	{% contentblock data-modeling %}
-	<hr>
-
-<!-- destination replication details - notes anything 
-	specific to that destination, such as bigquery's 
-	append-only incremental replication -->
-<h2 id="replication">Replication</h2>
-	{% contentblock replication %}
-
-{{ content }}
-
-<hr>
