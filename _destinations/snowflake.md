@@ -78,7 +78,6 @@ pricing-guide: https://www.snowflake.net/pricing-page-registration-page/
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
-
 introduction: |
   {{ destination.description }}
 

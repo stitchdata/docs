@@ -62,6 +62,8 @@ requirements-list:
 
 setup-steps:
   - title: "add integration"
+    content: |
+      4. Check the **Include data from deleted campaigns, ads, and adsets** box to have Stitch replicate data for these deleted objects. **Note**: Data for deleted campaigns, ads, and adsets will be included only in [**Core Object**](#core-objects-and-insights-tables) tables.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "Authorize Stitch to Access Facebook Ads"
@@ -98,6 +100,13 @@ schema-sections:
       Facebook Ads' campaign structure contains three levels: **campaigns, ad sets, and ads**. There is also a fourth level for developers called **creatives**.
 
       To learn more about how Facebook Ads data is structured, we recommend checking out their [API guide](https://developers.facebook.com/docs/marketing-api/buying-api).
+  - title: "Core Objects and Insights"
+    anchor: "core-objects-and-insights-tables"
+    content: |
+      There are two types of tables in Stitch’s {{ integration.display_name }} integration: Core Object and Report.
+
+      - **Core Object** tables contain foundational data that's useful for analysis. These are the [`adcreative`](#adcreative), [`ads`](#ads), [`adsets`](#adsets), and [`campaigns`](#campaigns) tables.
+      - **Insights** tables contain performance data for every campaign/adset/ad combination, segmented by day and demographics specific to each table. For example: The [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) table is segmented by day, age, and gender.
 
 ---
 {% assign integration = page %}

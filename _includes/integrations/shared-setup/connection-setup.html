@@ -2,20 +2,21 @@
 ### Add {{ integration.display_name }} as a Stitch Data Source {#add-stitch-data-source}
 {% endunless %}
 
-1. {{ app.menu-paths.add-integration | flatify }}
+1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}.
+2. {{ app.menu-paths.add-integration | flatify }}
 
 {% if integration.setup-name %}
-2. Click the **{{ integration.setup-name }}** icon.
+3. Click the **{{ integration.setup-name }}** icon.
 {% else %}
-2. Click the **{{ integration.display_name }}** icon.
+3. Click the **{{ integration.display_name }}** icon.
 {% endif %}
 {% if integration.display_name == 'Google ECommerce' %}
-3. Click **Sign in with Google Analytics.**
+4. Click **Sign in with Google Analytics.**
 {% else %}
-3. Enter a name for the integration. This is the name that will display on the {{ app.integration-names.dashboard }} for the integration; it’ll also be used to create the schema in your destination.
+4. Enter a name for the integration. This is the name that will display on the {{ app.integration-names.dashboard }} for the integration; it’ll also be used to create the schema in your destination.
 
    For example, the name “Stitch {{ integration.display_name | remove: "." | remove: "(" | remove: ")" }}” would create a schema called `stitch_{{ integration.display_name | remove: "." | replace: " ", "_" | replace: "-", "_" | remove: "(" | remove: ")" | downcase }}` in the destination. **Note**: Schema names cannot be changed after you save the integration.
 {% endif %}
 {% if integration.type == "Webhook" and integration.branded == true %}
-4. Click {{ app.buttons.save-int-settings }}.
+5. Click {{ app.buttons.save-int-settings }}.
 {% endif %}
