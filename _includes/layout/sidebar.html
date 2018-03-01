@@ -18,7 +18,10 @@
                     <a href="{{ link.getting-started | prepend: site.baseurl }}">{{ category.title }}</a>
                 {% else %}
                 <li>
-                    <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
+                    <a data-toggle="collapse" 
+                    href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
+                    aria-expanded="false" 
+                    aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
                         {{ category.title }} 
                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                     </a>
@@ -31,7 +34,10 @@
                             {% if section.subsections %}
                                 <li class="subfolders">
 
-                                    <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" aria-expanded="false" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
+                                    <a data-toggle="collapse" 
+                                    href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
+                                    aria-expanded="false" 
+                                    aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
                                         {{ section.title }} 
                                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                                     </a>
