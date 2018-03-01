@@ -12,14 +12,6 @@ layout: page
 <!-- introduction -->
 {{ destination.introduction | flatify | markdownify }}
 
-<p>In this guide, we'll walk you through:</p>
-	<ul>
-		<li>{{ destination.display_name }}'s pricing model,</li>
-		<li>Some high-level limitations (including any incompatible data sources),</li>
-		<li>How to spin up a {{ destination.display_name }} data warehouse of your own, and</li> 
-		<li>How Stitch loads and organizes data in {{ destination.display_name }}.</li>
-	</ul>
-
 <hr>
 
 {% for section in destination.sections %}
