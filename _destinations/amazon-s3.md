@@ -73,6 +73,9 @@ key-elements:
   - name: "Arbitrary text"
     required: false
 
+default-key: "[integration_name]/[table_name]/[table_version]_[timestamp_loaded].[csv|jsonl]"
+example-key-1: "salesforce-prod/account/1_1519235654474.[csv|jsonl]"
+example-key-2: "salesforce-prod/opportunity/1_1519327555000.[csv|jsonl]"
 
 # -------------------------- #
 #    Required Permissions    #
@@ -139,42 +142,216 @@ documentation: https://aws.amazon.com/documentation/s3/
 pricing: https://aws.amazon.com/s3/pricing/
 price-calculator: http://aws.amazon.com/calculator/
 
+
+# -------------------------- #
+#      Overview Content      #
+# -------------------------- #
+
+introduction: "{{ destination.description | flatify }}"
+
+sections:
+  - title: "pricing"
+    content: |
+      {{ destination.pricing_notes | flatify }}
+
+      To learn more about pricing, refer to Amazon's S3 [pricing page]({{ destination.pricing }}). **Note**: Remember to select the correct region to view accurate pricing.
+
+  - title: "setup"
+    content: |
+      To use {{ destination.display_name }} as your Stitch destination, you'll need to:
+
+      - Create an S3 bucket,
+      - Allow Stitch to access the bucket,
+      - Define the format data will be stored in, and
+      - Define the bucket's Key, which determines how files are organized in the bucket
+
+      **[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl }})**
+
+  - title: "replication"
+    include: |
+      {% include destinations/overview-replication-process.html %}
+
+  - title: "schema"
+    content: |
+      The file structure of your integrations' data in your {{ destination.display_name }} bucket depends on two destination setup parameters:
+
+      1. The definition of the Object Key, and
+      2. The selected data storage format (CSV or JSON)
+
+    subsections:
+      - title: "Object Keys and File Structure"
+        anchor: "object-keys-file-structure"
+        content: |
+          {{ destination.display_name }} uses what is called an Object Key to uniquely identify objects in a bucket. During the Stitch setup process, you have the option of using our default Object Key or defining your own using a handful of Stitch-approved elements. Refer to the [{{ destination.display_name }} Setup instructions]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#define-s3-object-key" }}) for more info on the available elements.
+
+          The S3 Key setting determines the convention Stitch uses to create Object Keys when it writes to your bucket. It also defines the folder structure of Stitch-replicated data.
+
+          Below is the default Key and two examples of an Object Key that an integration named `salesforce-prod` might produce:
+
+          ```shell
+          /* Default Key */
+          {{ destination.default-key }}
+
+
+          /* Example Object Key */
+          {{ destination.example-key-1 }}
+          {{ destination.example-key-2 }}
+          ```
+
+          As previously mentioned, the S3 Key also determines the folder structure of replicated data. In the AWS console, the folder structure for the `salesforce-prod` integration would look like the following:
+
+          ```shell
+          .
+          └── salesforce-prod
+              └── account
+              |   └── 1_1519235654474.[csv|jsonl]
+              └── opportunity
+              |   └── 1_1519327555000.[csv|jsonl]
+              └── _sdc_rejected
+                  └── 1_[timestamp].jsonl
+                  └── 1_[timestamp].jsonl
+          ```
+
+      - title: "Data Storage Formats"
+        anchor: "data-storage-formats"
+        content: |
+          Stitch will store replicated data in the format you select during the initial setup of {{ destination.display_name }}. Currently Stitch supports storing data in CSV or JSON format for {{ destination.display_name }} destinations.
+
+          The tabs below contain an example of raw source data and how it would be stored in {{ destination.display_name }} for each data storage format type. In this example, we're using data from [HubSpot workflows]({{ site.baseurl }}/integrations/saas/hubspot/#workflows).
+
+          <ul id="profileTabs" class="nav nav-tabs">
+              <li class="active">
+                <a href="#original-data" data-toggle="tab">Raw Source Data</a>
+              </li>
+              <li>
+                <a href="#csv-quoted" data-toggle="tab">CSV, Quoted</a>
+              </li>
+              <li>
+                <a href="#csv-unquoted" data-toggle="tab">CSV, Unquoted</a>
+              </li>
+              <li>
+                <a href="#json" data-toggle="tab">JSON</a>
+              </li>
+          </ul>
+          <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="original-data">
+              {% highlight json %}
+              {  
+                 "id":2078178,
+                 "updatedAt":1501802708000,
+                 "name":"Onboarding",
+                 "type":"DRIP_DELAY",
+                 "enabled":false,
+                 "inserted-at":1501802708000,
+                 "personaTagIds":[  
+                    {  
+                       "value":"persona_1"
+                    }
+                 ],
+                 "contactlistids":{  
+                    "enrolled":5,
+                    "active":0,
+                    "steps":[  
+                       {  
+                          "value":0
+                       }
+                    ]
+                 }
+              }
+              {% endhighlight %}
+              </div>
+              
+              <div role="tabpanel" class="tab-pane" id="csv-quoted">
+                <p>The resulting CSV would contain the fields shown below, along with the system fields Stitch uses.</p>
+
+                <table width="100%">
+                <tr>
+                <th>
+                id
+                </th>
+                <th>
+                updatedAt
+                </th>
+                <th>
+                name
+                </th>
+                <th>
+                type
+                </th>
+                <th>
+                enabled
+                </th>
+                <th>
+                inserted-at
+                </th>
+                <th>
+                contactListIds__enrolled
+                </th>
+                <th>
+                contactListIds__active
+                </th>
+                </tr>
+                <tr>
+                <td>
+                2078178
+                </td>
+                <td>
+                1501802708000
+                </td>
+                <td>
+                Onboarding
+                </td>
+                <td>
+                DRIP_DELAY
+                </td>
+                <td>
+                false
+                </td>
+                <td>
+                1501802708000
+                </td>
+                <td>
+                5
+                </td>
+                <td>
+                0
+                </td>
+                </tr>
+                </table>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="csv-unquoted">
+                  [PLACEHOLDER]
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="json">
+              {% highlight json %}
+              {  
+                 "id":2078178,
+                 "updatedAt":1501802708000,
+                 "name":"Onboarding",
+                 "type":"DRIP_DELAY",
+                 "enabled":false,
+                 "inserted-at":1501802708000,
+                 "personaTagIds":[  
+                    {  
+                       "value":"persona_1"
+                    }
+                 ],
+                 "contactlistids":{  
+                    "enrolled":5,
+                    "active":0,
+                    "steps":[  
+                       {  
+                          "value":0
+                       }
+                    ]
+                 }
+              }
+              {% endhighlight %}
+              </div>
+          </div>
+
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
-
-{% contentfor intro %}
-{{ destination.description | flatify }}
-{% endcontentfor %}
-
-
-
-{% contentfor pricing %}
-{{ destination.pricing_notes | flatify }}
-
-To learn more about pricing, refer to Amazon's S3 [pricing page]({{ destination.pricing }}). **Note**: Remember to select the correct region to view accurate pricing.
-{% endcontentfor %}
-
-
-
-{% contentfor setup %}
-To use {{ destination.display_name }} as your Stitch destination, you'll need to:
-
-- Create an S3 bucket,
-- Allow Stitch to access the bucket,
-- Define the format data will be stored in, and
-- Define the bucket's Key, which determines how files are organized in the bucket
-
-**[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl }})**
-{% endcontentfor %}
-
-
-{% contentfor replication %}
-{% include destinations/overview-replication-process.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor data-modeling %}
-
-{% endcontentfor %}
