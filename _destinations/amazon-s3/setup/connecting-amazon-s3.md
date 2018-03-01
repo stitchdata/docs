@@ -96,13 +96,13 @@ setup-steps:
           The S3 Key setting determines the convention Stitch uses to create Object Keys when it writes to your bucket. For example: If the default Key is used:
 
           ```shell
-          [integration_name]/[table_name]/[table_version]_[timestamp_loaded]
+          {{ destination.default-key }}
           ```
 
           This could create an object with an Object Key of:
 
           ```shell
-          salesforce-prod/accounts/1_1519235654474
+          {{ destination.example-key-1 }}
           ```
 
           You can opt to use the default Key, which is pre-populated, or define your own using the elements in the next section.
