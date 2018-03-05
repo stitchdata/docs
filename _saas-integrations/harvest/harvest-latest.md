@@ -28,7 +28,7 @@ certified: false # Community-supported integration
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Free"
 status-url: http://harveststatus.com/
 icon: /images/integrations/icons/harvest.svg
 whitelist:
