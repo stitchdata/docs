@@ -7,7 +7,7 @@ permalink: /destinations/data-world
 layout: destination-overview
 tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
-summary: &summary "{{ destination.display_name | capitalize }} helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
+summary: &summary "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
 toc: true
 destination: true
 data-loading: false
