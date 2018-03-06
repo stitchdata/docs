@@ -37,4 +37,6 @@ Now that your {{ destination.display_name }} data warehouse is up and running, w
 {% else %}
 - **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/{{ destination.type }}/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
 {% endif %}
+{% unless destination.data-loading == false %}
 - **[Destination Data Loading Guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }})**: This article covers many of the common scenarios Stitch will encounter when loading data into your {{ destination.display_name }} destination and the expected behavior for each scenario.
+{% endunless %}
