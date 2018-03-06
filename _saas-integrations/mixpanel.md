@@ -63,7 +63,7 @@ tables:
     notes: 
     replication-method: "Full Table"
     primary-key: "distinct_id"
-    nested-structures: false
+    nested-structures: true
     attributes:
       - name: distinct_id
       - name: created
