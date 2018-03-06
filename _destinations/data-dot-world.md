@@ -10,6 +10,7 @@ keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to 
 summary: &summary "{{ destination.display_name | capitalize }} helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
 toc: true
 destination: true
+data-loading: false
 
 
 # -------------------------- #
