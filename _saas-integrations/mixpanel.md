@@ -84,7 +84,7 @@ tables:
     nested-structures: true
     attributes:
       - name: distinct_id
-      - name: event *
+      - name: event
       - name: mp_country_code
       - name: mp_lib
       - name: mp_reserved_browser
