@@ -187,7 +187,7 @@ sections:
         content: |
           During the **Preparation** phase, Stitch applies some light transformations to the extracted data to ensure compatibility with the destination.
 
-          The transformations Stitch performs depends on the selected data storage format (CSV or JSON). Aside from these transformations, the data loaded into {{ destination.display_name }} is in its raw form. Refer to the [Schema](#schema] section for more info and examples].
+          The transformations Stitch performs depends on the selected data storage format (CSV or JSON). Aside from these transformations, the data loaded into {{ destination.display_name }} is in its raw form. Refer to the [Schema](#schema) section for more info and examples].
 
           <table width="100%; fixed">
           <tr>
