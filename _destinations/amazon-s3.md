@@ -10,6 +10,7 @@ keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to 
 summary: &summary "{{ destination.display_name }} is an extremely simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
 toc: true
 destination: true
+data-loading: false
 
 # -------------------------- #
 #    Destination Details     #
@@ -169,11 +170,68 @@ sections:
 
   - title: "replication"
     include: |
-      {% include destinations/overview-replication-process.html %}
+      A Stitch replication job consists of three stages: Extraction, Preparation, and Loading.
+
+    subsections:
+      - title: "Data Extraction"
+        anchor: "extraction"
+        content: |
+          During the **Extraction** phase, Stitch will check for structural changes to your data, query for data according to the integration's replication settings, and extract the appropriate data.
+
+          Replication settings include the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
+
+          **Note**: Because Stitch's Incremental Replication Method is inclusive, a single row will be replicated for every Incremental table even if there's no new or updated data. Refer to the [Replication Methods documentation]({{ link.replication.rep-methods | prepend: site.baseurl }}) for an explanation and examples.
+
+      - title: "Data Preparation/Transformations for {{ destination.display_name }}"
+        anchor: "preparation"
+        content: |
+          During the **Preparation** phase, Stitch applies some light transformations to the extracted data to ensure compatibility with the destination.
+
+          The transformations Stitch performs depends on the selected data storage format (CSV or JSON). Aside from these transformations, the data loaded into {{ destination.display_name }} is in its raw form. Refer to the [Schema](#schema] section for more info and examples].
+
+          <table width="100%; fixed">
+          <tr>
+          <th width="50%; fixed">CSV</th>
+          <th>JSON</th>
+          </tr>
+          <tr>
+          <td>
+          <ul>
+          <li>
+          <a href="{{ link.destinations.storage.sdc-columns | prepend: site.baseurl }}">
+          Stitch (<code>_sdc</code>) system columns</a>
+          are inserted into every table</li>
+          <li>Nested data structures are <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">flattened into relational objects</a>. Refer to the <a href="#data-storage-formats">Data Storage Formats</a> section below for an example.</li>
+          </ul>
+          </td>
+          <td>
+          <ul>
+          <li>Stitch (<code>_sdc</code>) system columns are inserted into every table</li>
+          </ul></td>
+          </tr>
+          </table>
+
+      - title: "Loading Data into {{ destination.display_name }}"
+        anchor: "loading"
+        content: |
+          During **Loading**, Stitch loads the extracted data into the destination. For {{ destination.display_name }} destinations, data is loaded in an Append-Only fashion.
+
+          This means that:
+
+          - A new CSV or JSON file for every table replicated is created during each load
+          - Existing records - that is, records already in the bucket - are never updated
+          - Data will not be de-duped, meaning that multiple versions of the same record may exist in the data warehouse
+
+          Because of this loading strategy, querying may require a different strategy than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
+
+          #### Example
+
+          ![Example {{ destination.display_name }} data loading diagram]({{ site.baseurl }}/images/destinations/append-only-s3.png)
+
 
   - title: "schema"
     content: |
-      The file structure of your integrations' data in your {{ destination.display_name }} bucket depends on two destination setup parameters:
+      The file structure of your integrations' data in your {{ destination.display_name }} bucket depends on two destination parameters:
 
       1. The definition of the Object Key, and
       2. The selected data storage format (CSV or JSON)
@@ -193,9 +251,9 @@ sections:
           {{ destination.default-key }}
 
 
-          /* Example Object Key */
-          {{ destination.example-key-1 }}
-          {{ destination.example-key-2 }}
+          /* Example Object Keys */
+            - {{ destination.example-key-1 }}
+            - {{ destination.example-key-2 }}
           ```
 
           As previously mentioned, the S3 Key also determines the folder structure of replicated data. In the AWS console, the folder structure for the `salesforce-prod` integration would look like the following:
@@ -207,17 +265,21 @@ sections:
               |   └── 1_1519235654474.[csv|jsonl]
               └── opportunity
               |   └── 1_1519327555000.[csv|jsonl]
-              └── _sdc_rejected
+              └── {{ rejected-records.name }}
                   └── 1_[timestamp].jsonl
                   └── 1_[timestamp].jsonl
           ```
+
+          #### {{ rejected-records.name }}
+
+          For every integration you connect, an `{{ rejected-records.name }}` folder will be created in the integration's directory in {{ destination.display_name }}. `{{ rejected-records.name }}` acts as a [log for records rejected during the loading process]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). For every load where a rejection occurs, a `.jsonl` file containing data about the rejection will be placed in the `{{ rejected-records.name }}` folder.
 
       - title: "Data Storage Formats"
         anchor: "data-storage-formats"
         content: |
           Stitch will store replicated data in the format you select during the initial setup of {{ destination.display_name }}. Currently Stitch supports storing data in CSV or JSON format for {{ destination.display_name }} destinations.
 
-          The tabs below contain an example of raw source data and how it would be stored in {{ destination.display_name }} for each data storage format type. In this example, we're using data from [HubSpot workflows]({{ site.baseurl }}/integrations/saas/hubspot/#workflows).
+          The tabs below contain an example of raw source data and how it would be stored in {{ destination.display_name }} for each data storage format type.
 
           <ul id="profileTabs" class="nav nav-tabs">
               <li class="active">
@@ -235,89 +297,23 @@ sections:
           </ul>
           <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="original-data">
-              {% highlight json %}
-              {  
-                 "id":2078178,
-                 "updatedAt":1501802708000,
-                 "name":"Onboarding",
-                 "type":"DRIP_DELAY",
-                 "enabled":false,
-                 "inserted-at":1501802708000,
-                 "personaTagIds":[  
-                    {  
-                       "value":"persona_1"
-                    }
-                 ],
-                 "contactlistids":{  
-                    "enrolled":5,
-                    "active":0,
-                    "steps":[  
-                       {  
-                          "value":0
-                       }
-                    ]
-                 }
-              }
-              {% endhighlight %}
+                {{ stitch.sample-data.json-original | markdownify }}
               </div>
-              
-              <div role="tabpanel" class="tab-pane" id="csv-quoted">
-                <p>The resulting CSV would contain the fields shown below, along with the system fields Stitch uses.</p>
 
-                <table width="100%">
-                <tr>
-                <th>
-                id
-                </th>
-                <th>
-                updatedAt
-                </th>
-                <th>
-                name
-                </th>
-                <th>
-                type
-                </th>
-                <th>
-                enabled
-                </th>
-                <th>
-                inserted-at
-                </th>
-                <th>
-                contactListIds__enrolled
-                </th>
-                <th>
-                contactListIds__active
-                </th>
-                </tr>
-                <tr>
-                <td>
-                2078178
-                </td>
-                <td>
-                1501802708000
-                </td>
-                <td>
-                Onboarding
-                </td>
-                <td>
-                DRIP_DELAY
-                </td>
-                <td>
-                false
-                </td>
-                <td>
-                1501802708000
-                </td>
-                <td>
-                5
-                </td>
-                <td>
-                0
-                </td>
-                </tr>
-                </table>
+              <div role="tabpanel" class="tab-pane" id="csv-quoted">
+                <p><strong>Top-level Table</strong></p>
+                <p>In {{ destination.display_name }}, this data would create a file named <code>{{ stitch.sample-data.table-name | append: "/" | append: "1_[timestamp].csv" }}</code>, which would look like this:</p>
+                {% include destinations/overviews/data-storage-examples.html type="top-level-table" %}
+
+                <p>While objects (like <code>phone_numbers</code>) will be flattened into the table, arrays are handled differently.</P>
+
+                <p><strong>Subtables</strong></p>
+
+                <p>Arrays will be de-nested and flattened into subtables. In this example, the name of the file would be <code>{{ stitch.sample-data.table-name | append: "/" | append: stitch.sample-data.subtable-name | append: "/" | append: "1_[timestamp].csv" }}</code>:</p>
+
+                {% include destinations/overviews/data-storage-examples.html type="sub-table" %}
+
+                <p>For more info and examples on how Stitch flattens nested data structures, refer to the <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures guide</a>.</p>
               </div>
 
               <div role="tabpanel" class="tab-pane" id="csv-unquoted">
@@ -325,30 +321,9 @@ sections:
               </div>
 
               <div role="tabpanel" class="tab-pane" id="json">
-              {% highlight json %}
-              {  
-                 "id":2078178,
-                 "updatedAt":1501802708000,
-                 "name":"Onboarding",
-                 "type":"DRIP_DELAY",
-                 "enabled":false,
-                 "inserted-at":1501802708000,
-                 "personaTagIds":[  
-                    {  
-                       "value":"persona_1"
-                    }
-                 ],
-                 "contactlistids":{  
-                    "enrolled":5,
-                    "active":0,
-                    "steps":[  
-                       {  
-                          "value":0
-                       }
-                    ]
-                 }
-              }
-              {% endhighlight %}
+                <p>With the exception of the <code>{{ system-column.prefix }}</code> columns, Stitch will store replicated data intact as <code>.jsonl</code> files. In this example, the name of the file would be <code>{{ stitch.sample-data.table-name | append: "/" | append: "1_[timestamp].jsonl" }}</code>:</p>
+
+                {{ stitch.sample-data.json-stored | flatify | markdownify }}
               </div>
           </div>
 
