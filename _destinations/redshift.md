@@ -113,15 +113,15 @@ sections:
 
   - title: "limitations"
     include: |
-      {% include destinations/overview-limitations.html %}
+      {% include destinations/overviews/limitations.html %}
 
   - title: "replication"
     include: |
-      {% include destinations/overview-replication-process.html %}
+      {% include destinations/overviews/replication-process.html %}
 
   - title: "schema"
     include: |
-      {% include destinations/overview-integration-schemas.html %}
+      {% include destinations/overviews/integration-schemas.html %}
 
   - title: "Workload and Performance Management"
     anchor: "encodings-sort-dist-keys"
