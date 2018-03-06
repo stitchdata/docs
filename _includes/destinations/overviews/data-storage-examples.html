@@ -1,0 +1,123 @@
+{% include misc/more-info-icons.html %}
+
+{% case include.row-type %}
+  {% when 'column-names' %}
+
+    {% case attribute.type %}
+      {% when 'object' or 'array' %}
+        {% for subattribute in attribute.subattributes %}
+          <td>
+            {% case attribute.type %}
+              {% when 'object' %}
+                <strong>{{ subattribute.name | prepend: "__" | prepend: attribute.name }}</strong>
+              {% when 'array' %}
+                <strong>{{ subattribute.name }}</strong>
+            {% endcase %}
+          </td>
+        {% endfor %}
+
+      {% else %}
+        <td>
+
+        <!-- Capture the table's PK column -->
+          {% if attribute.primary-key == true %}
+            {% capture pk-name %}
+              {{ attribute.name }}
+            {% endcapture %}
+          {% endif %}
+
+          <strong>{{ attribute.name }}</strong>
+        </td>
+    {% endcase %}
+
+{% when 'column-values' %}
+  
+  {% case attribute.type %}
+    {% when 'object' %}
+      {% for subattribute in attribute.subattributes %}
+        <td>
+          {{ subattribute.value }}
+        </td>
+      {% endfor %}
+    {% else %}
+      <td>
+      <!-- Capture the table's PK value -->
+        {% if attribute.primary-key == true %}
+            {% capture pk-value %}
+              {{ attribute.value }}
+            {% endcapture %}
+          {% endif %}
+
+        {{ attribute.value }}
+      </td>
+  {% endcase %}
+{% endcase %}
+
+
+{% case include.type %}
+  {% when 'top-level-table' %}
+    <table width="100%; fixed">
+      <tr>
+        {% for attribute in stitch.sample-data.attributes %}
+          {% unless attribute.type == "array" %}
+            {% include destinations/overviews/data-storage-examples.html row-type="column-names" %}
+          {% endunless %}
+        {% endfor %}
+      </tr>
+      <tr>
+        {% for attribute in stitch.sample-data.attributes %}
+          {% unless attribute.type == "array" %}
+            {% include destinations/overviews/data-storage-examples.html row-type="column-values" %}
+          {% endunless %}
+        {% endfor %}
+      </tr>
+    </table>
+  
+  {% when 'sub-table' %}
+    <table width="100%; fixed">
+      <tr>
+        <td>
+          <strong>{{ system-column.source-key | append: pk-name }}</strong>
+
+            {{ info-icon | replace: "TOOLTIP","Applicable to subtables, this column contains Primary Key values for the top-level table and forms part of a composite key for the subtable. This allows you to connect subrecords to the top-level parent." }}
+        </td>
+        <td>
+          <strong>{{ system-column.level-id | replace: "#","0" }}</strong>
+
+          {{ info-icon | replace: "TOOLTIP","Applicable to subtables, this column forms part of a composite Primary Key for the subtable. Values in this column auto-increment for each unique record in the table." }}
+        </td>
+
+        {% for attribute in stitch.sample-data.attributes %}
+          {% unless attribute.type != "array" %}
+            {% include destinations/overviews/data-storage-examples.html row-type="column-names" %}
+          {% endunless %}
+        {% endfor %}
+
+      </tr>
+
+    {% for attribute in stitch.sample-data.attributes %}
+      {% unless attribute.type != "array" %}
+        {% for subattribute in attribute.subattributes %}
+            <tr>
+              <td>
+                {{ pk-value }}
+              </td>
+              <td>
+                {% if forloop.first %}
+                  0
+                {% else %}
+                  1
+                {% endif %}
+              </td>
+              <td>
+                persona_{% cycle 'number': '1', '2' %}
+              </td>
+              <td>
+                {% cycle 'type': 'Princess','Heroine' %}
+              </td>
+            </tr>
+        {% endfor %}
+      {% endunless %}
+    {% endfor %}
+    </table>
+{% endcase %}
