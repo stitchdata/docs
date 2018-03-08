@@ -76,17 +76,15 @@ setup-steps:
       - title: "Define Webhook Loading Notifications"
         anchor: "define-webhook-loading-notifications"
         content: |
-          {% include note.html content="This step is optional." %}
+          {% include note.html content="This step is optional, and can be enabled at any time." %}
 
           Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
 
-          Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define. To learn more about utilizing this feature, check out our [Webhook Notifications guide]().
+          Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
 
-          [PLACEHOLDER]
+          To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box and paste a webhook URL in the **Webhook URL** field.
 
-          To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box.
-
-          In the **Webhook URL** field, paste the URL Stitch should send the webhook to.
+          More info about webhook loading notifications, including a list of attributes and sample use cases, [can be found here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#webhook-loading-notifications" }}).
 
       - title: "Define S3 Object Key"
         anchor: "define-s3-object-key"

@@ -132,8 +132,6 @@ permissions:
 # -------------------------- #
 incompatible-with: 0
 
-
-
 # -------------------------- #
 #            Links           #
 # -------------------------- #
@@ -224,7 +222,9 @@ sections:
 
           Because of this loading strategy, querying may require a different strategy than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
 
-          #### Example
+          #### Example: Incremental Replication
+
+          Below is an example of how [incrementally replicated tables]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication"}}) will be loaded into {{ destination.display_name }}:
 
           ![Example {{ destination.display_name }} data loading diagram]({{ site.baseurl }}/images/destinations/append-only-s3.png)
 
@@ -327,6 +327,32 @@ sections:
               </div>
           </div>
 
+  - title: "Webhook Loading Notifications"
+    anchor: "webhook-loading-notifications"
+    content: |
+      Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
+
+      Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
+
+    subsections:
+      - title: "Sample Use Cases"
+        anchor: "webhook-notification-sample-use-cases"
+        content: |
+          Enabling loading notifications ensures that you and your team are alerted when fresh data is available in {{ destination.display_name }}. For example, you could:
+
+          - Set up a webhook Zap in Zapier that sends a Slack notification whenever data is loaded for a specific integration
+          - Use loading notifications to kick off an internal process, such as [DBT](https://www.getdbt.com/) or a script
+          - [PLACEHOLDER - one more ?]
+
+      - title: "Webhook Request Body"
+        anchor: "webhook-body"
+        content: |
+          {% include destinations/overviews/webhook-loading-notification.html type="request-body" %}
+
+      - title: "Webhook Request Body Fields"
+        anchor: "webhook-request-body-fields"
+        content: |
+          {% include destinations/overviews/webhook-loading-notification.html type="request-body-fields" %}
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
