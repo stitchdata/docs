@@ -64,14 +64,14 @@ setup-steps:
           - **JSON**: Data will be stored as JSON files (`.jsonl`)
           - **CSV**: Data will be stored as CSV files (`.csv`)
 
-          Refer to [SOME SECTION HERE]() for more information and examples.
+          For examples of how data in each format will be stored, [click here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
 
           #### CSV-specific Settings
 
           If CSV is selected, there are a few additional configuration options for the files Stitch will write to your bucket:
 
           - **Delimiter**: Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
-          - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: `{a: 123}` will be stored as `"a","123"`
+          - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
 
       - title: "Define Webhook Loading Notifications"
         anchor: "define-webhook-loading-notifications"
@@ -153,64 +153,82 @@ setup-steps:
     content: |
       {% include important.html content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
 
-      To wrap things up, you'll grant Stitch access by adding a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
+      Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
 
-      In the table below are the top-level permissions the Stitch bucket policy grants, the operations each permission allows, and a description of the operation.
+      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
 
-      <table width="100%" class="table-hover">
-      <tr>
-      <td width="18%; fixed">
-      <strong>Permission Name</strong>
-      </td>
-      <td width="25%; fixed">
-      <strong>Operation</strong>
-      </td>
-      <td>
-      <strong>Operation Description</strong>
-      </td>
-      </tr>
-      {% for permission in destination.permissions %}
-      {% for operation in permission.operations %}
-      {%- capture rowspan -%}
-      {{ forloop.length }}
-      {%- endcapture -%}
-      {% endfor %}
-      <tr>
-      <td rowspan="{{ rowspan }}">
-      <strong>{{ permission.name }}</strong>
-      </td>
-      {% for operation in permission.operations %}
-      {% case forloop.first %}
-      {% when true %}
-      <td>
-      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-      </td>
-      <td>
-      {{ operation.description | flatify | markdownify }}
-      </td>
-      </tr>
-      {% else %}
-      <tr>
-      <td>
-      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-      </td>
-      <td>
-      {{ operation.description | flatify | markdownify }}
-      </td>
-      </tr>
-      {% endcase %}
-      {% endfor %}
-      {% endfor %}
-      </table>
+      For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
+
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ destination.display_name }} Bucket Permissions</a>
+                </h4>
+            </div>
+            
+            <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
+                <div class="panel-body">
+                    <table width="100%" class="table-hover">
+                      <tr>
+                      <td width="18%; fixed">
+                      <strong>Permission Name</strong>
+                      </td>
+                      <td width="25%; fixed">
+                      <strong>Operation</strong>
+                      </td>
+                      <td>
+                      <strong>Operation Description</strong>
+                      </td>
+                      </tr>
+                      {% for permission in destination.permissions %}
+                      {% for operation in permission.operations %}
+                      {%- capture rowspan -%}
+                      {{ forloop.length }}
+                      {%- endcapture -%}
+                      {% endfor %}
+                      <tr>
+                      <td rowspan="{{ rowspan }}">
+                      <strong>{{ permission.name }}</strong>
+                      </td>
+                      {% for operation in permission.operations %}
+                      {% case forloop.first %}
+                      {% when true %}
+                      <td>
+                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
+                      </td>
+                      <td>
+                      {{ operation.description | flatify | markdownify }}
+                      </td>
+                      </tr>
+                      {% else %}
+                      <tr>
+                      <td>
+                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
+                      </td>
+                      <td>
+                      {{ operation.description | flatify | markdownify }}
+                      </td>
+                      </tr>
+                      {% endcase %}
+                      {% endfor %}
+                      {% endfor %}
+                      </table>
+                    </div>
+                </div>
+
+            </div>
+          </div>
 
     substeps:
-      - title: "Add a Bucket Policy"
+      - title: "Add the Stitch Bucket Policy"
         anchor: "add-bucket-policy"
         content: |
           To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
           {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="500px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
 
-          1. Sign into AWS, if you aren't currently logged in.
+          1. Sign into AWS in another tab, if you aren't currently logged in.
           2. Click **Services** near the top-left corner of the page.
           3. Under the **Storage** option, click **S3**.
           4. A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch.

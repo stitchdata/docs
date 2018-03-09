@@ -286,10 +286,7 @@ sections:
                 <a href="#original-data" data-toggle="tab">Raw Source Data</a>
               </li>
               <li>
-                <a href="#csv-quoted" data-toggle="tab">CSV, Quoted</a>
-              </li>
-              <li>
-                <a href="#csv-unquoted" data-toggle="tab">CSV, Unquoted</a>
+                <a href="#csv-quoted" data-toggle="tab">CSV</a>
               </li>
               <li>
                 <a href="#json" data-toggle="tab">JSON</a>
@@ -316,10 +313,6 @@ sections:
                 <p>For more info and examples on how Stitch flattens nested data structures, refer to the <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures guide</a>.</p>
               </div>
 
-              <div role="tabpanel" class="tab-pane" id="csv-unquoted">
-                  [PLACEHOLDER]
-              </div>
-
               <div role="tabpanel" class="tab-pane" id="json">
                 <p>With the exception of the <code>{{ system-column.prefix }}</code> columns, Stitch will store replicated data intact as <code>.jsonl</code> files. In this example, the name of the file would be <code>{{ stitch.sample-data.table-name | append: "/" | append: "1_[timestamp].jsonl" }}</code>:</p>
 
@@ -342,7 +335,6 @@ sections:
 
           - Set up a webhook Zap in Zapier that sends a Slack notification whenever data is loaded for a specific integration
           - Use loading notifications to kick off an internal process, such as [DBT](https://www.getdbt.com/) or a script
-          - [PLACEHOLDER - one more ?]
 
       - title: "Webhook Request Body"
         anchor: "webhook-body"
