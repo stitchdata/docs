@@ -31,23 +31,23 @@ icon: /images/destinations/icons/amazon-s3.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-replication-methods: "All"
+incremental-replication: "Append-Only"
 connection-methods: "n/a"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true
 case: "Case Insensitive"
-table-name-limit: "" ## max # of characters
-column-name-limit: "" ## max # of characters
-column-limit: "" ## max # of columns allowed in tables
-timestamp-range: ""
+table-name-limit: "n/a"
+column-name-limit: "n/a"
+column-limit: "n/a"
+timestamp-range: "n/a"
 timezones:
   supported: false
-  storage: ""
-varchar-limit: "" ## max width for varchars
-decimal-limit: ""
-decimal-range: ""
-reserved-words: ""
+  storage: "n/a"
+varchar-limit: "None"
+decimal-limit: "n/a"
+decimal-range: "n/a"
+reserved-words: "None"
 
 
 # -------------------------- #
