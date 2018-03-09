@@ -106,15 +106,15 @@ sections:
 
   - title: "limitations"
     include: |
-      {% include destinations/overviews/limitations.html %}
+      {% include destinations/overview-limitations.html %}
 
   - title: "replication"
     include: |
-      {% include destinations/overviews/replication-process.html %}
+      {% include destinations/overview-replication-process.html %}
 
   - title: "schema"
     include: |
-      {% include destinations/overviews/integration-schemas.html %}
+      {% include destinations/overview-integration-schemas.html %}
 
 ---
 {% assign destination = page %}
