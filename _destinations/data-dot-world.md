@@ -32,23 +32,23 @@ icon: /images/destinations/icons/data-world.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-replication-methods: ""
-connection-methods: "SSH, SSL"
+incremental-replication: "Append-Only"
+connection-methods: "n/a"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true
 case: "Case Insensitive"
-table-name-limit: "" ## max # of characters
-column-name-limit: "" ## max # of characters
-column-limit: "" ## max # of columns allowed in tables
-timestamp-range: ""
+table-name-limit: "n/a"
+column-name-limit: "n/a"
+column-limit: "n/a"
+timestamp-range: "n/a"
 timezones:
   supported: false
-  storage: ""
-varchar-limit: "" ## max width for varchars
-decimal-limit: ""
-decimal-range: ""
-reserved-words: ""
+  storage: "n/a"
+varchar-limit: "None"
+decimal-limit: "n/a"
+decimal-range: "n/a"
+reserved-words: "None"
 
 
 # -------------------------- #
@@ -116,7 +116,7 @@ sections:
         content: |
           During **Loading**, Stitch loads the extracted data into the destination. Instead of loading data directly into your {{ destination.display_name }} account, Stitch will load the raw JSON data into an Amazon S3 bucket shared between Stitch and {{ destination.display_name }}.
 
-          After Stitch successfully finishes loading into S3, a webhook notification is sent to {{ destination.display_name }} to trigger the retrieval process. {{ destination.display_name }} will extract the data destined for your account and load it into your {{ destination.display_name }} account. Refer to the [Schema](#schema) section below for more info on how your data will be structured in {{ destination.display_name }}.
+          After Stitch successfully finishes loading into S3, a webhook notification is sent to {{ destination.display_name }} to trigger the retrieval process. {{ destination.display_name | capitalize }} will extract the data destined for your account and load it into your {{ destination.display_name }} account. Refer to the [Schema](#schema) section below for more info on how your data will be structured in {{ destination.display_name }}.
 
       - title: "Replication Activity Report and Logs"
         anchor: "replication-activity-reports"
