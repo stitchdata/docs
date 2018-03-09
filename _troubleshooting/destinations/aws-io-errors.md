@@ -22,23 +22,23 @@ promote: "false"
 
 I/O errors arise from connection issues between Stitch and your data warehouse. When Stitch connects to your destination to perform a connection check or load data, an I/O error can arise if the connection to the destination is severed. This is typically caused by a timeout issue.
 
-For example: Stitch attempts to load a large amount of data into your destination. Due to the data volume, Stitch's query takes a long time to run and, as a result, the connection becomes idle.
+For example: Stitch attempts to load a large amount of data into your destination. Due to the data volume, Stitch's query takes a long time to run and, as a result, the server closes the idle connection.
 
-The timeout settings on the destination's server define how long a connection can remain idle before it's terminated. If Stitch is unable to complete its query before the timeout limits, the connection will be terminated and an I/O error may occur.
+The timeout settings on the Redshift cluster and on the network components between Stitch and the Redshift cluster determine how long a connection can remain idle before it's terminated. If Stitch is unable to complete its query before the timeout limits, the connection will be terminated and an I/O error may occur.
 
 ---
 
-## Recommendations
+## Potential Causes and Recommendations
 
 To work through this section, you'll need some technical expertise and familiarity with Amazon Web Services. If need be, we suggest looping in a developer or a member of your engineering team to help out.
 
-### Check the Server's Firewall Timeout Settings {#firewall-timeout-settings}
+### Server Firewall Timeout Settings {#firewall-timeout-settings}
 
 One potential source of timeout issues may be due to the destination server's firewall timeout settings. If the connection is from any other computer than an Amazon EC2 instance, these settings govern how long the connection may be inactive before it is terminated by the firewall.
 
-Stitch sends a TCP keepalive signal within 200 seconds of a connection going idle, and every 75 seconds thereafter. To avoid a timeout with Stitch, we recommend increasing the values of the `KeepAlive` settings for your destination's server. This will ensure that Stitch's connection isn't prematurely terminated. For more info on these settings, refer to [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-firewall-guidance.html).
+Stitch sends a [TCP keepalive signal](https://docs.aws.amazon.com/redshift/latest/mgmt/connecting-firewall-guidance.html) within 200 seconds of a connection going idle, and every 75 seconds thereafter. This is to ensure that Stitch's connection isn't prematurely terminated.
 
-### Check the Server's Command/Query Settings {#command-query-settings}
+### Server Command/Query Settings {#command-query-settings}
 
 In addition to the destination server's firewall timeout settings, the `statement_timeout` and WLM (Work Load Management) Timeout settings may be potential causes.
 
@@ -60,4 +60,7 @@ Refer to our [Encodings, SORT, and DIST Keys guide]({{ link.destinations.storage
 
 ## Next Steps
 
-If increasing the destination server's timeout settings or applying performance improvement features doesn't resolve the occurrence of I/O errors, we recommend reaching out to [Amazon Support](https://aws.amazon.com/contact-us/) or [Panoply Support](https://panoply.io) for assistance.
+If increasing the destination server's timeout settings or applying performance improvement features doesn't resolve the occurrence of I/O errors, we recommend reaching out to your provider's support team:
+
+- For **Redshift** destinations, contact [Amazon Support](https://aws.amazon.com/contact-us/)
+- For **Panoply** destinations, contact [Panoply Support](https://panoply.io)
