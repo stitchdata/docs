@@ -17,7 +17,7 @@ data-loading: false
 # -------------------------- #
 display_name: "Amazon S3"
 type: "amazon-s3"
-db-type: "Object"
+db-type: "s3"
 pricing_tier: "standard"
 status: "Closed Beta"
 description: *summary
@@ -31,23 +31,23 @@ icon: /images/destinations/icons/amazon-s3.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-replication: "Append-Only"
+replication-methods: "All"
 connection-methods: "n/a"
 supported-versions: "n/a"
 
-nested-structure-support: true
+nested-structures: true ## if true, natively supports nested structures
 case: "Case Insensitive"
-table-name-limit: "n/a"
-column-name-limit: "n/a"
-column-limit: "n/a"
-timestamp-range: "n/a"
+table-name-limit: "" ## max # of characters
+column-name-limit: "" ## max # of characters
+column-limit: "" ## max # of columns allowed in tables
+timestamp-range: ""
 timezones:
   supported: false
-  storage: "n/a"
-varchar-limit: "None"
-decimal-limit: "n/a"
-decimal-range: "n/a"
-reserved-words: "None"
+  storage: ""
+varchar-limit: "" ## max width for varchars
+decimal-limit: ""
+decimal-range: ""
+reserved-words: ""
 
 
 # -------------------------- #
