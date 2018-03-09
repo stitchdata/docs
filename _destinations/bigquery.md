@@ -31,11 +31,11 @@ icon: /images/destinations/icons/google-bigquery.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-replication-methods: "Append-Only, Full Table"
+incremental-replication: "Append-Only"
 connection-methods: "SSL"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true ## if true, natively supports nested structures
 case: "Case Insensitive"
 table-name-limit: "1,024" ## max # of characters
 column-name-limit: "128" ## max # of characters

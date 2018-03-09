@@ -38,11 +38,11 @@ icon: /images/destinations/icons/snowflake.svg
 ## DATA TYPES
 ## See [FILE] for info on data types supported by Snowflake.
 
-replication-methods: "All"
+incremental-replication: "Upserts, Append-Only"
 connection-methods: "SSL"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true ## if true, natively supports nested structures
 case: "Case Insensitive"
 table-name-limit: "255" ## max # of characters
 column-name-limit: "251" ## max # of characters

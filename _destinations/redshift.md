@@ -32,7 +32,7 @@ icon: /images/destinations/icons/amazon-redshift.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-replication-methods: "All"
+incremental-replication: "Upserts, Append-Only"
 connection-methods: "SSH, SSL"
 supported-versions: "n/a"
 
