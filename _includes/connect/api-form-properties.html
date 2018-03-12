@@ -1,10 +1,10 @@
-{% assign all-form-properties = site.api-files | where:"content-type","embed-form" %}
+{% assign all-form-properties = site.connect-files | where:"content-type","embed-form" %}
 
 {% case include.content %}
     {% when 'destination' %}
-        {% assign form-properties = site.api-files | where:"form-type","destination" %}
+        {% assign form-properties = site.connect-files | where:"form-type","destination" %}
     {% else %}
-        {% assign form-properties = site.api-files | where:"form-type","source" %}
+        {% assign form-properties = site.connect-files | where:"form-type","source" %}
 {% endcase %}
 
 

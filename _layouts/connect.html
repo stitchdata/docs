@@ -2,9 +2,16 @@
 layout: page
 ---
 
-{% assign api-docs = site.api-files | where:"content-type","embed-doc" | sort:"order" %}
+{% case page.sidebar %}
+    {% when 'api' %}
+        {% assign docs = site.connect-files | where:"content-type","embed-doc" | sort:"order" %}
 
-{% for doc in api-docs %}
+    {% when 'js' %}
+        {% assign docs = site.connect-files | where:"content-type","js-doc" | sort:"order" %}
+{% endcase %}
+
+
+{% for doc in docs %}
     <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
         {{ doc.title }}
     </h2>

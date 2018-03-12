@@ -19,14 +19,14 @@ sections:
 
         Either method will provide your application with an access token and a Stitch client ID. This information should be stored somewhere safe and passed into the header of every API request for the Stitch client's account. The token will never expire, but the user may revoke access at any time.
 
-        Keep in mind that Stitch client accounts are both owned and managed by the users themselves. For more information on authenticating with the API, refer to the [Authentication guide]({{ page.anchors.authentication }}).
+        Keep in mind that Stitch client accounts are both owned and managed by the users themselves. For more information on authenticating with the API, refer to the [Authentication guide]({{ page.anchors.authentication | flatify }}).
 
   - title: "Create a Destination"
     anchor: "quick-start--create-a-destination"
     content: |
       If you're providing a destination for the Stitch client's account, we recommend connecting the destination immediately after the account is created. This ensures that Stitch will have a place to load replicated data as soon as data sources are added.
 
-      The first step to [creating a destination]({{ page.anchors.core-objects.destinations.create-a-destination }}) is providing the attributes required for the destination's configuration, or form. These attributes are passed in the body of your request as the `connection` argument, along with the destination's `type`:
+      The first step to [creating a destination]({{ page.anchors.core-objects.destinations.create-a-destination | flatify }}) is providing the attributes required for the destination's configuration, or form. These attributes are passed in the body of your request as the `connection` argument, along with the destination's `type`:
 
       ```curl
       curl -X POST {{ page.api-base-url }}/v3/destinations
@@ -45,18 +45,18 @@ sections:
                }"
       ```
 
-      Refer to the [Destination Form Properties object]({{ page.anchors.form-properties.destination-forms.section }}) to retrieve the attributes required for the `connection` argument for each destination type. **Note**: Each destination has its own unique configuration and set of form attributes.
+      Refer to the [Destination Form Properties object]({{ page.anchors.form-properties.destination-forms.section | flatify }}) to retrieve the attributes required for the `connection` argument for each destination type. **Note**: Each destination has its own unique configuration and set of form attributes.
 
   - title: "Create a Source"
     anchor: "quick-start--create-a-source"
     content: |
-      Source creation is performed through a sequence of [connection steps]({{ page.anchors.data-structures.connection-steps }}). The required steps and the order of those steps are unique to the source type and are defined in its [Report Card]({{ page.anchors.data-structures.report-cards }}) object. All source creation, however, begins at the `form` step.
+      Source creation is performed through a sequence of [connection steps]({{ page.anchors.data-structures.connection-steps | flatify }}). The required steps and the order of those steps are unique to the source type and are defined in its [Report Card]({{ page.anchors.data-structures.report-cards | flatify }}) object. All source creation, however, begins at the `form` step.
 
-      We recommend using the [Source Type endpoint]({{ page.anchors.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process and expected properties within each connection step for all source types. For example: You could use this endpoint to dynamically generate a UI or initial setup forms for each source type.
+      We recommend using the [Source Type endpoint]({{ page.anchors.core-objects.source-types.section | flatify }}) to prep for source creation. This endpoint contains information about the configuration process and expected properties within each connection step for all source types. For example: You could use this endpoint to dynamically generate a UI or initial setup forms for each source type.
 
-      When [creating a source]({{ page.anchors.core-objects.sources.create-a-source }}), you can choose to include the [source's form properties]({{ page.anchors.form-properties.source-forms.section }}) in the `properties` argument. This information can be retrieved using the Source Type endpoint.
+      When [creating a source]({{ page.anchors.core-objects.sources.create-a-source | flatify }}), you can choose to include the [source's form properties]({{ page.anchors.form-properties.source-forms.section | flatify }}) in the `properties` argument. This information can be retrieved using the Source Type endpoint.
 
-      After a source's form is created, the `report_card` object within the source should be used to complete its configuration. The [Report Card]({{ page.anchors.data-structures.report-cards }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
+      After a source's form is created, the `report_card` object within the source should be used to complete its configuration. The [Report Card]({{ page.anchors.data-structures.report-cards | flatify }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
 
       In the sections below, we'll demonstrate two methods for creating a HubSpot source.
 
@@ -265,7 +265,7 @@ sections:
           - title: "Complete the Form Step"
             anchor: "quick-start--source-creation-method-2--step-3"
             content: |
-              Now that you've located the necessary information, complete the `form` step by using the [Update a Source]({{ page.anchors.core-objects.sources.update-a-source }}) endpoint and providing the source's `id` and the `properties` required to complete the step:
+              Now that you've located the necessary information, complete the `form` step by using the [Update a Source]({{ page.anchors.core-objects.sources.update-a-source | flatify }}) endpoint and providing the source's `id` and the `properties` required to complete the step:
 
               ```curl
               curl -X POST {{ page.api-base-url}}/v4/sources/12345        // source ID

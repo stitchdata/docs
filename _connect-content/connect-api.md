@@ -2,7 +2,7 @@
 title: Stitch Connect API
 permalink: /stitch-connect/api
 sidebar: api
-layout: api
+layout: connect
 toc: false
 summary: false
 

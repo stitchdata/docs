@@ -18,7 +18,7 @@ sections:
 
       All properties should be sent as strings.
     include: |
-      {% include api/form-properties.html content="destination" %}
+      {% include connect/api-form-properties.html content="destination" %}
       
 
   - title: "Source Form Properties"
@@ -28,7 +28,7 @@ sections:
 
       All properties should be sent as strings.
     include: |
-      {% include api/form-properties.html content="source" %}
+      {% include connect/api-form-properties.html content="source" %}
 ---
 
 

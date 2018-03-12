@@ -1,4 +1,4 @@
-{% assign data-structures = site.api-files | where:"content-type","embed-structure" %}
+{% assign data-structures = site.connect-files | where:"content-type","embed-structure" %}
 
 {% for structure in data-structures %}
     <h3 id="{{ structure.key }}">

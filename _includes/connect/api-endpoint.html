@@ -1,7 +1,7 @@
 <span class="api-heading">
     <h4 id="{{ endpoint.key }}">
         <span class="api-method {{ endpoint.method }}">
-            {{ endpoint.method | upcase }} 
+            {{ endpoint.method | flatify | upcase }} 
         </span>
 
         <span class="api-endpoint">

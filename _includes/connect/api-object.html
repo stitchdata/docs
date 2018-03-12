@@ -1,4 +1,4 @@
-{% assign objects = site.api-files | where:"content-type","embed-object" %}
+{% assign objects = site.connect-files | where:"content-type","embed-object" %}
 
 {% for object in objects %}
     <h3 id="{{ object.endpoint | replace: " ", "-" }}">
@@ -37,13 +37,13 @@
     {% endif %}
 
 
-    {% assign all-endpoints = site.api-files | where:"content-type","embed-endpoint" %}
+    {% assign all-endpoints = site.connect-files | where:"content-type","embed-endpoint" %}
     {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
     {% assign same-version = object-endpoints | where:"version",object.version %}
     {% assign endpoints = same-version | sort:"order" %}
 
         {% for endpoint in endpoints %}
-            {% include api/endpoint.html %}
+            {% include connect/api-endpoint.html %}
 
             {% unless forloop.last == true %}
                 <hr>

@@ -1,4 +1,4 @@
-{% assign functions = site.api-files | where:"content-type","stitch-js-function" | sort:"order" %}
+{% assign functions = site.connect-files | where:"content-type","stitch-js-function" | sort:"order" %}
 
 {% for function in functions %}
     <h3 id="{{ function.key }}">

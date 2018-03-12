@@ -2,7 +2,7 @@
 title: Stitch Connect
 permalink: /stitch-connect/
 sidebar: overview
-layout: api
+layout: connect
 toc: false
 summary: false
 

@@ -2,7 +2,7 @@
 title: "Stitch Connect: Stitch.js"
 permalink: /stitch-connect/js
 sidebar: js
-layout: api
+layout: connect
 toc: false
 summary: false
 
