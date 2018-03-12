@@ -29,117 +29,128 @@ all-docs:
           - title: "Accounts"
             expand-by-default: true
             subsections:
-              - title: "Create an account"
-                url: "{{ page.anchors.core-objects.accounts.create-an-account }}"
-
-          - title: "Destinations"
-            expand-by-default: true
-            subsections:
-              - title: "The destination object"
-                url: "{{ page.anchors.core-objects.destinations.object }}"
-
-              - title: "Create a destination"
-                url: "{{ page.anchors.core-objects.destinations.create-a-destination }}"
-
-              - title: "Update a destination"
-                url: "{{ page.anchors.core-objects.destinations.update-a-destination }}"
-
-              - title: "List destinations"
-                url: "{{ page.anchors.core-objects.destinations.list-destinations }}"
+              - title: "{{ api.core-objects.accounts.create.name }}"
+                method: "post"
+                url: "{{ api.core-objects.accounts.create.anchor }}"
 
           - title: "Sessions"
             expand-by-default: true
             subsections:
-              - title: "The session object"
-                url: "{{ page.anchors.core-objects.sessions.object }}"
+              - title: "The Session Object"
+                url: "{{ api.core-objects.sessions.object }}"
 
-              - title: "Create a session"
-                url: "{{ page.anchors.core-objects.sessions.create-a-session }}"
+              - title: "{{ api.core-objects.sessions.create.name }}"
+                method: "post"
+                url: "{{ api.core-objects.sessions.create.anchor }}"
+
+          - title: "Destinations"
+            expand-by-default: true
+            subsections:
+              - title: "The Destination Object"
+                url: "{{ api.core-objects.destinations.object }}"
+
+              - title: "{{ api.core-objects.destinations.create.name | flatify }}"
+                method: "post"
+                url: "{{ api.core-objects.destinations.create.anchor }}"
+
+              - title: "{{ api.core-objects.destinations.update.name | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.destinations.update.anchor }}"
+
+              - title: "{{ api.core-objects.destinations.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.destinations.list.anchor }}"
 
           - title: "Sources"
             expand-by-default: true
             subsections:
-              - title: "The source object"
-                url: "{{ page.anchors.core-objects.sources.object }}"
+              - title: "The Source Object"
+                url: "{{ api.core-objects.sources.object }}"
 
-              - title: "Create a source"
-                url: "{{ page.anchors.core-objects.sources.create-a-source }}"
+              - title: "{{ api.core-objects.sources.create.name | flatify }}"
+                method: "post"
+                url: "{{ api.core-objects.sources.create.anchor }}"
 
-              - title: "Update a source"
-                url: "{{ page.anchors.core-objects.sources.update-a-source }}"
+              - title: "{{ api.core-objects.sources.update.name | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.sources.update.anchor }}"
 
-              - title: "Retrieve a source"
-                url: "{{ page.anchors.core-objects.sources.retrieve-a-source }}"
+              - title: "{{ api.core-objects.sources.retrieve.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.sources.retrieve.anchor }}"
 
-              - title: "List sources"
-                url: "{{ page.anchors.core-objects.sources.list-sources }}"
+              - title: "{{ api.core-objects.sources.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.sources.list.anchor }}"
 
           - title: "Source Types"
             expand-by-default: true
             subsections:
-              - title: "The source type object"
-                url: "{{ page.anchors.core-objects.source-types.object }}"
+              - title: "The Source Type Object"
+                url: "{{ api.core-objects.source-types.object }}"
 
-              - title: "Get a source type"
-                url: "{{ page.anchors.core-objects.source-types.get-a-source-type }}"
+              - title: "{{ api.core-objects.source-types.get.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.source-types.get.anchor }}"
 
-              - title: "List source types"
-                url: "{{ page.anchors.core-objects.source-types.list-source-types }}"
+              - title: "{{ api.core-objects.source-types.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.source-types.list.anchor }}"
 
       - title: "Data Structures"
         sections: 
-          - title: "Connection Checks"
-            url: "{{ page.anchors.data-structures.connection-checks }}"
+          - title: "{{ api.data-structures.connection-checks.title }}"
+            url: "{{ api.data-structures.connection-checks.section }}"
 
-          - title: "Connection Steps"
-            url: "{{ page.anchors.data-structures.connection-steps }}"
+          - title: "{{ api.data-structures.connection-steps.title }}"
+            url: "{{ api.data-structures.connection-steps.section }}"
 
-          - title: "Current Step Hints"
-            url: "{{ page.anchors.data-structures.current-step-hints }}"
+          - title: "{{ api.data-structures.current-step-hints.title }}"
+            url: "{{ api.data-structures.current-step-hints.section }}"
 
-          - title: "Properties"
-            url: "{{ page.anchors.data-structures.properties }}"
+          - title: "{{ api.data-structures.properties.title }}"
+            url: "{{ api.data-structures.properties.section }}"
 
-          - title: "Report Cards"
-            url: "{{ page.anchors.data-structures.report-cards }}"
+          - title: "{{ api.data-structures.report-cards.title }}"
+            url: "{{ api.data-structures.report-cards.section }}"
 
       - title: "Form Properties"
         sections:
           - title: "Destination Forms"
             subsections:
-              - title: "PostgreSQL"
-                url: "{{ page.anchors.form-properties.destination-forms.postgresql }}"
+              - title: "Redshift"
+                url: "{{ api.form-properties.destination-forms.postgresql.section }}"
 
               - title: "Redshift"
-                url: "{{ page.anchors.form-properties.destination-forms.redshift }}"
+                url: "{{ api.form-properties.destination-forms.redshift.section }}"
 
               - title: "Snowflake"
-                url: "{{ page.anchors.form-properties.destination-forms.snowflake }}"
+                url: "{{ api.form-properties.destination-forms.snowflake.section }}"
 
           - title: "Source Forms"
             subsections:
               - title: "HubSpot"
-                url: "{{ page.anchors.form-properties.source-forms.hubspot }}"
+                url: "{{ api.form-properties.source-forms.hubspot.section }}"
 
               - title: "Marketo"
-                url: "{{ page.anchors.form-properties.source-forms.marketo }}"
+                url: "{{ api.form-properties.source-forms.marketo.section }}"
 
               - title: "Salesforce"
-                url: "{{ page.anchors.form-properties.source-forms.salesforce }}"
+                url: "{{ api.form-properties.source-forms.salesforce.section }}"
 
       - title: "Stitch.js"
         sections:
           - title: "addSource"
-            url: "{{ page.anchors.stitch-js.create-a-source }}"
+            url: "{{ js.create-a-source.section }}"
 
           - title: "authorizeSource"
-            url: "{{ page.anchors.stitch-js.authorize-a-source }}"
+            url: "{{ js.authorize-a-source.section }}"
 
           - title: "displayDiscovery"
-            url: "{{ page.anchors.stitch-js.source-discovery }}"
+            url: "{{ js.source-discovery.section }}"
 
           - title: "selectStreamsForSource"
-            url: "{{ page.anchors.stitch-js.select-streams }}"
+            url: "{{ js.select-streams.section }}"
 
           - title: "editSource"
-            url: "{{ page.anchors.stitch-js.edit-source }}"
+            url: "{{ js.edit-source.section }}"

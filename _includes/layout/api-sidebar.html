@@ -2,6 +2,9 @@
 
 {% assign navigation = site.data.sidebars.embedding-api.all-docs %}
 
+{% assign api = site.data.api.endpoints %}
+{% assign js = site.data.api.js-client %}
+
 
 <div class="menu-list">
 
@@ -21,14 +24,12 @@
                             <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
                                aria-expanded="true" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
                                     {{ category.title }} 
-                                <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
                             </a>
 
                         {% else %}
                             <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
                                aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
-                                    {{ category.title }} 
-                                <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
+                                    {{ category.title }}
                             </a>
 
                         {% endif %}
@@ -57,7 +58,6 @@
                                         <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
                                         aria-expanded="true" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
                                             {{ section.title }} 
-                                            <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
                                         </a>
 
                                     <ul class="collapse in" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
@@ -68,7 +68,6 @@
                                         <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
                                         aria-expanded="false" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
                                             {{ section.title }} 
-                                            <!-- <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i> -->
                                         </a>
 
                                     <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
@@ -76,7 +75,12 @@
 
                                 {% for subsection in section.subsections %}
                                     <li>
-                                        <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ subsection.title }}</a>
+                                        <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">
+                                            {% if subsection.method %}
+                                                <span class="api-method {{ subsection.method }} api-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
+                                            {% endif %}
+                                            {{ subsection.title | flatify }}
+                                        </a>
                                     </li>
                                 {% endfor %}
                                     </ul>
@@ -84,7 +88,7 @@
                                 </li>
                         {% else %}
                             <li>
-                                <a href="{{ section.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ section.title }}</a>
+                                <a href="{{ section.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ section.title | flatify }}</a>
                             </li>
                         {% endif %}
                     {% endfor %}
