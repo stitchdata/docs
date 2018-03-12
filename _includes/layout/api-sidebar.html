@@ -1,6 +1,13 @@
 {% include misc/data-files.html %}
 
-{% assign navigation = site.data.sidebars.embedding-api.all-docs %}
+{% case page.sidebar %}
+    {% when 'overview' %}
+        {% assign navigation = site.data.sidebars.connect.overview %}
+    {% when 'api' %}
+        {% assign navigation = site.data.sidebars.connect.api %}
+    {% when 'js' %}
+        {% assign navigation = site.data.sidebars.connect.js %}
+{% endcase %}
 
 {% assign api = site.data.api.endpoints %}
 {% assign js = site.data.api.js-client %}
@@ -35,11 +42,11 @@
                         {% endif %}
 
                     {% else %}
-                        {% if category.url %}
-                            <a href="{{ category.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ category.title }}</a>
-                        {% else %}
-                            <a href="#"><strong>{{ category.title | flatify }}</strong></a>
-                        {% endif %}
+                            {% if category.new-page == true %}
+                                <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title | flatify }}</a>
+                            {% else %}
+                                <a href="{{ category.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ category.title }}</a>
+                            {% endif %}
                     {% endif %}
             
                 {% if category.sections %}
