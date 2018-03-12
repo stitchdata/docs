@@ -35,8 +35,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="main">
     <div class="sidebar-column">
     {% case page.layout %}
-        {% when 'api' %}
-            {% include layout/api-sidebar.html %}
+        {% when 'connect' %}
+            {% include layout/connect-sidebar.html %}
         {% else %}
             {% include layout/sidebar.html %}
     {% endcase %}
