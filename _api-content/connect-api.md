@@ -1,7 +1,7 @@
 ---
-title: Embedding API
-permalink: /embedding-api
-sidebar: embedding-api
+title: Stitch Connect API
+permalink: /stitch-connect/api
+sidebar: api
 layout: api
 toc: false
 summary: false
@@ -9,7 +9,7 @@ summary: false
 api-base-url: "https://api.stitchdata.com"
 endpoint-tabs: true
 contact-email: "product@stitchdata.com"
-api-name: "Embedding API"
+api-name: "Connect API"
 api-type: "embed"
 
 anchors:
@@ -18,7 +18,6 @@ anchors:
   authentication: "#authentication"
   response-codes: "#response-codes"
   versioning: "#versioning"
-
 
 # -------------------------- #
 #        CORE OBJECTS        #
