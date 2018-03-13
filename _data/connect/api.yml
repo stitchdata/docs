@@ -22,6 +22,7 @@ core-objects:
     section: "#accounts"
     description: "An object representing a Stitch account."
     create:
+      name: "/v3/accounts"
       title: "Create an account"
       method: &post "post"
       anchor: "#create-an-account"
@@ -51,24 +52,28 @@ core-objects:
     section: "#destinations"
     object: "#destination--object"
     base: "/v3/destinations"
+    description: "Destinations are the data warehouses into which Stitch writes data."
 
     create:
       name: "{{ site.data.connect.api.core-objects.destinations.base }}" 
       title: "Create a destination"
       method: *post
       anchor: "#create-a-destination"
+      description: "Create a new destination. Only a single destination is supported per Stitch client account."
 
     update:
       name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
       title: "Update a destination"
       method: &put "put"
       anchor: "#update-a-destination"
+      description: "Updates a destination. Modifications to the `type` attribute are not supported."
 
     list:
       name: "{{ site.data.connect.api.core-objects.destinations.base }}"
       title: "List destinations"
       method: &get "get"
       anchor: "#list-destinations"
+      description: "List the destination currently in use. Only a single data warehouse is supported per Stitch client account."
 
 # -------------------------- #
 #          Sources           #

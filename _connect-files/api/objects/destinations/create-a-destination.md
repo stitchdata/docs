@@ -11,26 +11,22 @@ method: "post"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Create a new destination. Only a single destination is supported per Stitch client account."
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.destinations.create.description }}"
 
 
 arguments:
   - name: "type"
     required: true
-    description: |
-      The destination type. Must be one of: 
-
-      - `redshift`
-      - `postgres`
-      - `snowflake`
+    type: "string"
+    description: "{{ connect.common.attributes.destination-type }}"
 
   - name: "connection"
     required: true
-    description: "A [Destination Form Properties object]({{ page.anchors.form-properties.destination-forms.section }}) corresponding to the value of `type`."
+    type: "object"
+    description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
-
-returns: "A [Destination object]({{ page.anchors.core-objects.destinations.object }})."
+returns: "A [Destination object]({{ api.core-objects.destinations.object }})."
 
 examples:
   - type: "request"

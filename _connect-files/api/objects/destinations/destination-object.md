@@ -3,7 +3,7 @@ content-type: "api-object"
 endpoint: "destinations"
 
 title: "Destination"
-description: "Destinations are the data warehouses into which Stitch writes data."
+description: "{{ api.core-objects.destinations.description }}"
 endpoint-url: "/destinations"
 version: "3"
 
@@ -13,8 +13,9 @@ object-attributes:
     description: "A unique identifier for this destination."
 
   - name: "connection"
-    type: "destination form properties object"
-    url: "{{ page.anchors.form-properties.destination-forms.section }}"
+    type: "object"
+    sub-type: "destination form properties"
+    url: "{{ api.form-properties.destination-forms.section }}"
     description: |
       Parameters for connecting to the destination, excluding any sensitive credentials.
 
@@ -25,18 +26,14 @@ object-attributes:
     description: "The time at which the destination object was created."
 
   - name: "last_check"
-    type: "connection check object"
-    url: "{{ page.anchors.data-structures.connection-checks }}"
+    type: "object"
+    sub-type: "connection check"
+    url: "{{ api.data-structures.connection-checks.section }}"
     description: "The status and results of the most recent check run for this destination connection."
 
   - name: "type"
     type: "string"
-    description: |
-      The destination type. Must be one of: 
-
-      - `redshift`
-      - `postgres`
-      - `snowflake`
+    description: "{{ connect.common.attributes.destination-type }}"
 
   - name: "updated_at"
     type: "timestamp"

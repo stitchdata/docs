@@ -11,30 +11,28 @@ method: "put"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/{id}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Updates a destination. Modifications to the `type` attribute are not supported."
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.destinations.update.description }}"
 
 
 arguments:
   - name: "id"
     required: true
+    type: "string"
     description: "A path parameter corresponding to the unique ID of the destination to be updated."
 
   - name: "type"
     required: true
-    description: |
-      The destination type, which is one of: 
-
-      - `redshift`
-      - `postgres`
-      - `snowflake`
+    type: "string"
+    description: "{{ connect.common.attributes.destination-type }}"
 
   - name: "connection"
     required: true
-    description: "A [Destination Form Properties object]({{ page.anchors.form-properties.destination-forms.section }}) corresponding to the value of `type`."
+    type: "object"
+    description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
-returns: "A [Destination object]({{ page.anchors.core-objects.destinations.object }})."
+returns: "A [Destination object]({{ api.core-objects.destinations.object }})."
 
 
 examples:
