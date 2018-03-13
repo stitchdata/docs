@@ -9,14 +9,10 @@ order: 1
 title: "Create an account"
 method: "post"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ object.version }}{{ object.endpoint-url | flatify }}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: |
-  Create a new Stitch client account and receive an API access in return.
-
-  Before creating a Stitch account, you'll need to register as an API client by contacting [{{ page.contact-email }}](mailto:{{ page.contact-email }}).
-
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.accounts.create.description | flatify | markdownify }}"
 
 arguments:
   - name: "company"
@@ -37,11 +33,11 @@ arguments:
 
   - name: "partner_id"
     required: true
-    description: "The unique ID for your API client, obtained when you register to use the {{ page.api-name }}."
+    description: "The unique ID for your API client, obtained when you register to use the API."
 
   - name: "partner_secret"
     required: true
-    description: "The secret for your API client, obtained when you registered to use the {{ page.api-name }}."
+    description: "The secret for your API client, obtained when you registered to use the API."
 
 
 returns: |
@@ -57,7 +53,7 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
-                "email": "{{ page.contact-email }}",
+                "email": "stitch-api-test@stitchdata.com",
                 "last_name": "Product Team",
                 "partner_id": "<PARTNER_ID>",
                 "first_name": "Stitch",
