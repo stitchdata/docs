@@ -111,7 +111,7 @@ Check out the [Handling of Nested Data & Row Count Impact]({{ link.destinations.
 
 While all destinations support loading incrementally replicated data, how that data is stored in your destination will vary by destination.
 
-Unlike other destinations, **BigQuery** and **Amazon S3** store data in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This means that existing rows are never updated in the destination, but appended to the end of the table.
+Unlike other destinations, **BigQuery** and **Amazon S3** store data in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This means that existing rows are never updated in the destination, but appended to the end of the table. In the case of **Amazon S3**, [during each load a new file (CSV or JSON) will be created and added to the bucket]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#loading" }}). 
 
 This means that there can be many different rows in a table with the same Primary Key, each representing what the data was at that moment in time. These are not duplicate rows - they're "snapshots" of the record at different points.
 
