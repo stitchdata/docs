@@ -11,10 +11,10 @@ method: "post"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/ephemeral
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.session.create.description }}"
 
-returns: "A [Session object]({{ page.anchors.core-objects.sessions.object }})."
+returns: "A [Session object]({{ api.core-objects.sessions.object }})."
 
 examples:
   - type: "request"

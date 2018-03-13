@@ -38,11 +38,14 @@ core-objects:
     title: "Sessions"
     section: "#sessions"
     object: "#session--object"
+    description: "This object represents a browser session in the Stitch web application."
+
     create:
       name: "/v3/sessions/ephemeral"
       title: "Create a session"
       method: *post
       anchor: "#create-a-session"
+      description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
 
 # -------------------------- #
 #        Destinations        #
