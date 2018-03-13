@@ -66,11 +66,11 @@ While the majority of your data will look the same across our destinations, ther
 
 Some destinations don't natively support nested structures, meaning that before Stitch can load replicated data, these structures must be "de-nested". During this process, Stitch will flatten nested structures into relational tables and subtables. As a result of creating subtables, a higher number of rows will be used.
 
-If a destination does natively support nested structures, no de-nesting will occur and Stitch will store the records in-tact.
+If a destination does natively support nested structures, no de-nesting will occur and Stitch will store the records intact.
 
 Check out the [Handling of Nested Data & Row Count Impact]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for an in-depth look at what we mean by nested records, how Stitch handles nested data, and what those records will look like in your data warehouse.
 
-<table>
+<table width="100%">
     <tr>
         <td>
             <strong>
@@ -88,13 +88,14 @@ Check out the [Handling of Nested Data & Row Count Impact]({{ link.destinations.
             <ul>
                 {% for destination in destinations %}
                     {% if destination.nested-structure-support == true %}
-                        <li>{{ destination.display_name }}</li>
+                        <li>{{ destination.display_name }}{% if destination.type == "amazon-s3" %} (JSON){% endif %}</li>
                     {% endif %}
                 {% endfor %}
             </ul>
         </td>
         <td>
             <ul>
+                    <li>Amazon S3 (CSV)</li>
                 {% for destination in destinations %}
                     {% if destination.nested-structure-support == false %}
                         <li>{{ destination.display_name }}</li>
