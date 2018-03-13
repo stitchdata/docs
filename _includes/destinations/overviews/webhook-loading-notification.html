@@ -1,0 +1,65 @@
+{% assign request-body-fields = site.data.notifications.webhook-loading.body.request-body-fields %}
+
+
+{% case include.type %}
+{% when 'request-body' %}
+A webhook loading request body will look like the following:
+
+{{ site.data.notifications.webhook-loading.[destination.type].request-body }}
+
+{% else %}
+
+<table width="100%; fixed" class="table-hover">
+    <tr>
+        <td width="20%; fixed" align="right">
+            <strong>Attribute</strong>
+        </td>
+        <td>
+            <strong>Description</strong>
+        </td>
+    </tr>
+    {% for field in request-body-fields %}
+        <tr>
+            <td align="right">
+                <strong>{{ field.name }}</strong><br>
+                {{ field.type | upcase }}
+            </td>
+            <td>
+                {{ field.description | flatify | markdownify }}
+
+                {% if field.subattributes %}
+                    <table width="100%; fixed" class="table-hover">
+                        {% for subattribute in field.subattributes %}
+                            <tr>
+                                <td width="20%; fixed" align="right">
+                                    <strong>{{ subattribute.name }}</strong><br>
+                                    {{ subattribute.type | upcase }}
+                                </td>
+                                <td>
+                                    {{ subattribute.description | flatify | markdownify }}
+
+                                    {% if subattribute.subattributes %}
+                                        <table width="100%; fixed" class="table-hover">
+                                            {% for subsubattribute in subattribute.subattributes %}
+                                            <tr>
+                                                <td width="20%; fixed" align="right">
+                                                    <strong>{{ subsubattribute.name }}</strong><br>
+                                                    {{ subsubattribute.type | upcase }}
+                                                </td>
+                                                <td>
+                                                    {{ subsubattribute.description | flatify | markdownify }}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endcase %}

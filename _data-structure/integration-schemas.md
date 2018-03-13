@@ -24,11 +24,11 @@ If you want the schema name to be different than the display name, click the **C
 
 ![Using different names for schemas & display names.]({{ site.baseurl }}/images/integrations/change-schema-name.gif)
 
-Note that after you save an integration, its schema name can't be changed.
+**Note**: After you save an integration, its schema name can't be changed.
 
 ### Changing & Re-using Schema Names
 
-Changing an integration's schema name requires you to create a new integration and re-sync any replicated data.
+Changing an integration's schema name requires you to create a new integration and fully re-replicate all historical data.
 
 Schema names from deleted integrations can be re-used. However, if a naming collision occurs (two schema names canonicalize to the same name) the destination [may reject the data](#rejected-records-log) - deleting an integration in the Stitch app won't delete that integration's schema or data from your data warehouse.
 
@@ -36,30 +36,30 @@ Schema names from deleted integrations can be re-used. However, if a naming coll
 
 ## Integration Schema Composition
 
-Schemas created by Stitch contain that integration's tables and one additional table called `{{ rejected-table }}`, which serves as a log for [data loading issues](#rejected-records-log).
+Schemas created by Stitch contain that integration's tables and one additional table called `{{ rejected-records.name }}`, which serves as a log for [data loading issues](#rejected-records-log).
 
 ![The Stitch schema structure.]({{ site.baseurl }}/images/stitch-schema-structure.png)
 
-Aside from `{{ rejected-table }}`, the tables that Stitch creates in integration schemas depends on the **type** of integration.
+Aside from `{{ rejected-records.name }}`, the tables that Stitch creates in integration schemas depends on the **type** of integration.
 
 ### Database Integration Tables
 
-For database integrations, the schema in your destination will mirror your data source and contain only the [tables and columns you set to sync]({{ link.replication.syncing | prepend: site.baseurl }}).
+For database integrations, the schema in your destination will mirror your data source and contain only the [tables and columns you set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}).
 
-There is one exception to this, however: [MongoDB]({{ site.baseurl }}/integrations/databases/mongodb) integrations don't support whitelisting at the field level. All fields contained in a collection are automatically set to sync when a collection is selected for replication.
+There is one exception to this, however: [MongoDB]({{ site.baseurl }}/integrations/databases/mongodb) integrations don't support whitelisting at the field level. All fields contained in a collection are automatically set to replicate when a collection is selected for replication.
 
 ### SaaS Integration Tables
 
 For SaaS integrations, the schema depends on whether the integration supports <a href="#" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.whitelisting-feature }}">whitelisting</a>:
 
-- **If whitelisting is supported,** the schema will contain only the tables (and columns, for some integrations) you set to sync. A full list of whitelist-enabled integrations [can be found here]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}).
-- **If whitelisting isn't supported,** all available tables and columns in the integration will be synced to your data warehouse. You can find out more about the available tables and their Replication Methods in the **Schema** section of the [SaaS Integration docs]({{ site.baseurl }}/integrations/saas/).
+- **If whitelisting is supported,** the schema will contain only the tables (and columns, for some integrations) you set to replicate. A full list of whitelist-enabled integrations [can be found here]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}).
+- **If whitelisting isn't supported,** all available tables and columns in the integration will be replicated to your data warehouse. You can find out more about the available tables and their Replication Methods in the **Schema** section of the [SaaS Integration docs]({{ site.baseurl }}/integrations/saas/).
 
 ---
 
 ## Integration Table Schemas
 
-The integration tables in the schema contain the replicated data from tables set to sync. Note that if you unsync a table, doing so won't remove that table's data from your data warehouse.
+The integration tables in the schema contain the replicated data from tables set to replicate. **Note**: If you de-select a table from replication, doing so won't remove that table's data from your destination.
 
 ### Data Storage
 
@@ -76,7 +76,7 @@ To learn more about how handles these scenarios, check out the [Data Loading gui
 
 ### {{ system-column.prefix }} Columns
 
-In addition to the columns set to sync in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data.
+In addition to the columns set to replicate in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data.
 
 **Don't remove these columns**, as doing so will cause replication issues in Stitch.
 

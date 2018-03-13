@@ -41,19 +41,85 @@ all-docs:
       url: "{{ link.destinations.overviews.choose-destination }}"
 
     - title: Amazon Redshift
-      url: "{{ link.destinations.overviews.redshift }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.redshift }}"
+
+        - title: "Connect to Stitch"
+          url: "{{ link.destinations.setup.redshift }}"
+
+        - title: "Connect to Stitch via SSH"
+          url: "{{ link.destinations.setup.redshift-ssh }}"
+
+        - title: "Encodings, SORT, and DIST Keys"
+          url: "{{ link.destinations.storage.redshift-encodings }}"
+
+    - title: "Amazon S3"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.amazon-s3 }}"
+
+        - title: "Connect to Stitch"
+          url: "{{ link.destinations.setup.amazon-s3 }}"
+
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.amazon-s3 }}#replication"
+
+        - title: "Schema"
+          url: "{{ link.destinations.overviews.amazon-s3 }}#schema"
+
+        - title: "Loading Notifications"
+          url: "{{ link.destinations.overviews.amazon-s3}}#webhook-loading-notifications"
 
     - title: Google BigQuery
-      url: "{{ link.destinations.overviews.bigquery }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.bigquery }}"
 
-    - title: Panoply.io
-      url: "{{ link.destinations.overviews.panoply }}"
+        - title: "Stitch Impact on BigQuery Costs"
+          url: "{{ link.destinations.overviews.bigquery-pricing }}"
+
+        - title: "Connect to Stitch"
+          url: "{{ link.destinations.setup.bigquery }}"
+
+    - title: Panoply
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.panoply }}"
+
+        - title: "Connect an Existing Destination"
+          url: "{{ link.destinations.setup.panoply-ex }}"
+
+        - title: "Connect a New Destination"
+          url: "{{ link.destinations.setup.panoply-new }}"
 
     - title: PostgreSQL 
-      url: "{{ link.destinations.overviews.postgres }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.postgres }}"
+
+        - title: "Connect an Amazon RDS Destination"
+          url: "{{ link.destinations.setup.postgres-rds }}"
+
+        - title: "Connect a Google CloudSQL Destination"
+          url: "{{ link.destinations.setup.cloudsql-postgres }}"
+
+        - title: "Connect a Heroku Destination"
+          url: "{{ link.destinations.setup.heroku-postgres }}"
+
+        - title: "Connect a Self-Hosted Destination"
+          url: "{{ link.destinations.setup.self-hosted-postgres }}"
 
     - title: Snowflake  
-      url: "{{ link.destinations.overviews.snowflake }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.snowflake }}"
+
+        - title: "Connect to Stitch"
+          url: "{{ link.destinations.setup.snowflake }}"
+
+        - title: "Snowflake Pricing"
+          url: "{{ link.destinations.overviews.snowflake }}#pricing"
 
     - title: Change Destinations
       url: "{{ link.destinations.switch-destinations }}"
