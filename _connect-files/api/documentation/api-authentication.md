@@ -6,12 +6,12 @@ order: 3
 sections:
   - content: |
       {% assign api = site.data.connect.api %}
-      Authenticate your calls to the {{ page.api-name }} by providing an access token in your requests. Each access token is associated with a single Stitch client account. Additionally, each request's permissions are limited to that Stitch client account.
+      Authenticate your calls to the API by providing an access token in your requests. Each access token is associated with a single Stitch client account. Additionally, each request's permissions are limited to that Stitch client account.
 
       In the examples in this documentation, we use bearer auth:
 
       ```curl
-      curl -X GET {{ connect.api-base-url }}{{ api.core-objects.sources.base }}
+      curl -X GET {{ api.base-url }}{{ api.core-objects.sources.base }}
            -H "Authorization: Bearer <ACCESS_TOKEN>"
       ```
 
@@ -108,7 +108,7 @@ sections:
               Lastly, when your application receives the user's request to the callback URL, it should make a request to the Stitch OAuth URL to exchange the temporary authorization code for a permanent access token:
 
               ```curl
-              curl https://api.stitchdata.com/oauth/token 
+              curl {{ api.base-url }}/oauth/token 
                    -d client_secret={CLIENT_SECRET}
                    -d code={AUTHORIZATION_CODE}
                    -d grant_type=authorization_code
@@ -129,7 +129,7 @@ sections:
               Your application should store the `access_token` and `stitch_account_id` somewhere secure, and use them to make calls to the API:
 
               ```curl
-              curl {{ page.api-base-url }}{{ api.core-objects.sources.base }}
+              curl {{ api.base-url }}{{ api.core-objects.sources.base }}
                    -H 'Authorization: Bearer ACCESS_TOKEN'
               ```
 

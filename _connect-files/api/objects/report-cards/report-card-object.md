@@ -16,7 +16,7 @@ object-attributes:
     description: |
       If the current step requires the user to interact with the Stitch interface, this object will provide the function to call and properties to pass to [Stitch.js]({{ page.anchors.stitch-js.section }}).
 
-      Otherwise, this object will provide information about the next call to make to the {{ page.api-name }}.
+      Otherwise, this object will provide information about the next call to make to the API.
 
   - name: "steps"
     type: "array"

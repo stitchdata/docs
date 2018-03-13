@@ -5,16 +5,15 @@ order: 1
 
 sections:
   - content: |
-      The {{ page.api-name }} can be used to:
+      The API can be used to:
 
         - Create Stitch client accounts,
         - Access existing Stitch client accounts, and
         - Configure source and destination connections within those clients' accounts
 
-      The {{ page.api-name }} is organized around REST and uses resource-oriented URLs to promote usability. Each endpoint uses standard HTTP verbs like `GET` and `POST`, and we will return [standard HTTP response codes](#response-codes) to indicate request status or errors.
+      The API is organized around REST and uses resource-oriented URLs to promote usability. Each endpoint uses standard HTTP verbs like `GET` and `POST`, and we will return [standard HTTP response codes]({{ api.response-codes }}) to indicate request status or errors.
 
-      We built the {{ page.api-name }} to accept and return [JSON](http://json.org) in all responses, including errors.
-
+      We built the API to accept and return [JSON](http://json.org) in all responses, including errors.
 
   - title: "Obtain Partner Credentials"
     anchor: "obtain-partner-credentials"

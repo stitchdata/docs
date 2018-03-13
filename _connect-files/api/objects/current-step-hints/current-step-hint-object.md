@@ -6,13 +6,13 @@ title: "Current Step Hints"
 description: |
   Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to [Stitch.js]({{ page.anchors.stitch-js.section }}).
 
-  Otherwise, this object will provide information about the next call to make to the {{ page.api-name }}.
+  Otherwise, this object will provide information about the next call to make to the API.
 
 object-attributes:
   - name: "api"
     type: "api hint object"
     url: ""
-    description: "Describes the actions required to complete the current connection step using the {{ page.api-name }}, if applicable."
+    description: "Describes the actions required to complete the current connection step using the API, if applicable."
 
   - name: "js"
     type: "stitch js hint object"
