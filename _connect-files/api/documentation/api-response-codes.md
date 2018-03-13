@@ -1,5 +1,5 @@
 ---
 title: Response Codes
-content-type: "embed-doc"
+content-type: "api-doc"
 order: 4
 ---

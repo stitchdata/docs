@@ -1,5 +1,5 @@
 ---
-content-type: "embed-terms"
+content-type: "api-terms"
 
 all-terms:
   - name: "Stitch client account"

@@ -1,6 +1,6 @@
 ---
 title: Introduction
-content-type: "embed-doc"
+content-type: "api-doc"
 order: 1
 
 sections:

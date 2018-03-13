@@ -1,5 +1,5 @@
 ---
 title: Versioning
-content-type: "embed-doc"
+content-type: "api-doc"
 order: 5
 ---

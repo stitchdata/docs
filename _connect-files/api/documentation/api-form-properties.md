@@ -1,6 +1,6 @@
 ---
 title: Form Properties
-content-type: "embed-doc"
+content-type: "api-doc"
 order: 8
 
 sections:

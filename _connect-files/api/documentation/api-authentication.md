@@ -1,6 +1,6 @@
 ---
 title: Authentication
-content-type: "embed-doc"
+content-type: "api-doc"
 order: 3
 
 sections:

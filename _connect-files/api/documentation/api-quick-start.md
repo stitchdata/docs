@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-content-type: "embed-doc"
+content-type: "api-doc"
 order: 2
 
 sections:
