@@ -4,32 +4,32 @@ form-type: "destination"
 key: "destination-form-properties-redshift-object"
 
 title: "Redshift"
-description: "A Redshift destination writes data to an Amazon Redshift database and corresponds to the destination type = `redshift`."
+description: "{{ api.form-properties.destination-forms.redshift.description }}"
 
 object-attributes:
   - name: "host"
     type: "string"
-    description: "The IP address or hostname of the database server."
+    description: "{{ connect.common.attributes.host }}"
 
   - name: "port"
     type: "integer"
-    description: "The port of the database server."
+    description: "{{ connect.common.attributes.port }}"
 
   - name: "database"
     type: "string"
-    description: "The name of the logical database to connect to."
+    description: "{{ connect.common.attributes.database }}"
 
   - name: "username"
     type: "string"
-    description: "The username of the database user."
+    description: "{{ connect.common.attributes.username }}"
 
   - name: "password"
     type: "string"
-    description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
+    description: "{{ connect.common.attributes.password }}"
 
   - name: "ssl"
     type: "boolean"
-    description: "If `true`, SSL will be used to connect to the database."
+    description: "{{ connect.common.attributes.ssl }}"
 
 examples:
   - code: |

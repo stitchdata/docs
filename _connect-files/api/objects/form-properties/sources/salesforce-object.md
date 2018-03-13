@@ -4,7 +4,7 @@ form-type: "source"
 key: "source-form-properties-salesforce-object"
 
 title: "Salesforce"
-description: "A Salesforce connection reads data from the Salesforce API and corresponds to the source type of `platform.salesforce`."
+description: "{{ api.form-properties.source-forms.salesforce.description }}"
 
 object-attributes:
   - name: "api_type"
@@ -42,10 +42,7 @@ object-attributes:
 
   - name: "start_date"
     type: "string"
-    description: |
-      The date from which Stitch should begin replicating data from Salesforce. Data from this date forward will be replicated.
-
-      Data in this field must adhere to the `YYYY-MM-DDTHH:MM:SSZ` format. For example: `2018-01-01T11:59:59Z`
+    description: "{{ connect.common.attributes.start-date }}"
 
 examples:
   - code: |

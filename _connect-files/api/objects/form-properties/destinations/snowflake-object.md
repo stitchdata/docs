@@ -4,32 +4,32 @@ form-type: "destination"
 key: "destination-form-properties-snowflake-object"
 
 title: "Snowflake"
-description: "A Snowflake destination writes data to an Snowflake data warehouse and corresponds to the destination type = `snowflake`."
+description: "{{ api.form-properties.destination-forms.snowflake.description }}"
 
 object-attributes:
   - name: "host"
     type: "string"
-    description: "The IP address or hostname of the database server."
+    description: "{{ connect.common.attributes.host }}"
 
   - name: "port"
     type: "integer"
-    description: "The port of the database server."
-
-  - name: "warehouse"
-    type: "string"
-    description: "The name of the warehouse that contains the `database`."
+    description: "{{ connect.common.attributes.port }}"
 
   - name: "database"
     type: "string"
-    description: "The name of the logical database to connect to."
+    description: "{{ connect.common.attributes.database }}"
 
   - name: "username"
     type: "string"
-    description: "The username of the database user."
+    description: "{{ connect.common.attributes.username }}"
 
   - name: "password"
     type: "string"
-    description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
+    description: "{{ connect.common.attributes.password }}"
+
+  - name: "ssl"
+    type: "boolean"
+    description: "{{ connect.common.attributes.ssl }}"
 
   - name: "role"
     type: "string"

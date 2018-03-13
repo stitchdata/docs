@@ -187,12 +187,17 @@ form-properties:
     postgresql:
       title: "PostgreSQL"
       section: "#destination-form-properties-postgresql-object"
+      description: "A PostgreSQL destination connection writes data to a PostgreSQL database and corresponds to destination `type: postgres`."
+
     redshift:
       title: "Redshift"
       section: "#destination-form-properties-redshift-object"
+      description: "A Redshift destination connection writes data to a Redshift database and corresponds to destination `type: redshift`."
+
     snowflake:
       title: "Snowflake"
       section: "#destination-form-properties-snowflake-object"
+      description: "A Snowflake destination connection writes data to a Snowflake database and corresponds to destination `type: snowflake`."
 
 # -------------------------- #
 #        Source Forms        #
@@ -203,9 +208,14 @@ form-properties:
     hubspot:
       title: "HubSpot"
       section: "#source-form-properties-hubspot-object"
+      description: "A HubSpot connection reads data from the HubSpot API and corresponds to source `type: platform.hubspot`."
+
     marketo:
       title: "Marketo"
       section: "#source-form-properties-marketo-object"
+      description: "A Marketo connection reads data from the Marketo API and corresponds to source `type: platform.marketo`."
+
     salesforce:
       title: "Salesforce"
       section: "#source-form-properties-salesforce-object"
+      description: "A Salesforce connection reads data from the Salesforce API and corresponds to source `type: platform.salesforce`."

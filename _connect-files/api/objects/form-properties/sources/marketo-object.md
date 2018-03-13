@@ -4,7 +4,7 @@ form-type: "source"
 key: "source-form-properties-marketo-object"
 
 title: "Marketo"
-description: "A Marketo connection reads data from the Marketo API and corresponds to the source type of `platform.marketo`."
+description: "{{ api.form-properties.source-forms.marketo.description }}"
 
 object-attributes:
   - name: "client_id"
@@ -18,15 +18,7 @@ object-attributes:
   - name: "frequency_in_minutes"
     type: "string"
     description: |
-      Defines how often, in minutes, Stitch should attempt to replicate data from Marketo. Accepted values are:
-
-      - `1`
-      - `10`
-      - `30`
-      - `60`
-      - `360`
-      - `720`
-      - `1440`
+      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.title }}
 
   - name: "endpoint"
     type: "string"
@@ -42,10 +34,7 @@ object-attributes:
 
   - name: "start_date"
     type: "string"
-    description: |
-      The date from which Stitch should begin replicating data from HubSpot. Data from this date forward will be replicated.
-
-      Data in this field must adhere to the `YYYY-MM-DDTHH:MM:SSZ` format. For example: `2018-01-01T11:59:59Z`
+    description: "{{ connect.common.attributes.start-date }}"
 
 examples: 
   - code: |
