@@ -13,6 +13,10 @@ layout: page
         {% assign docs = site.connect-files | where:"content-type","js-doc" | sort:"order" %}
 {% endcase %}
 
+{% assign connect = site.data.connect.general %}
+{% assign api = site.data.connect.api %}
+{% assign js = site.data.connect.js-client %}
+
 
 {% for doc in docs %}
     <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">

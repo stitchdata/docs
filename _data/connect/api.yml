@@ -1,3 +1,5 @@
+name: "Connect API"
+
 # -------------------------- #
 #        CORE OBJECTS        #
 # -------------------------- #
@@ -39,19 +41,19 @@ core-objects:
     base: "/v3/destinations"
 
     create:
-      name: "{{ site.data.api.endpoints.core-objects.destinations.base }}" 
+      name: "{{ site.data.connect.api.core-objects.destinations.base }}" 
       title: "Create a destination"
       method: *post
       anchor: "#create-a-destination"
 
     update:
-      name: "{{ site.data.api.endpoints.core-objects.destinations.base | flatify }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
       title: "Update a destination"
       method: &put "put"
       anchor: "#update-a-destination"
 
     list:
-      name: "{{ site.data.api.endpoints.core-objects.destinations.base }}"
+      name: "{{ site.data.connect.api.core-objects.destinations.base }}"
       title: "List destinations"
       method: &get "get"
       anchor: "#list-destinations"
@@ -66,25 +68,25 @@ core-objects:
     base: "/v4/sources"
 
     create:
-      name: "{{ site.data.api.endpoints.core-objects.sources.base }}" 
+      name: "{{ site.data.connect.api.core-objects.sources.base }}" 
       title: "Create a source"
       method: *post
       anchor: "#create-a-source"
 
     update:
-      name: "{{ site.data.api.endpoints.core-objects.sources.base }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
       title: "Update a source"
       method: *put
       anchor: "#update-a-source"
 
     retrieve:
-      name: "{{ site.data.api.endpoints.core-objects.sources.base }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
       title: "Retrieve a source"
       method: *get
       anchor: "#retrieve-a-source"
 
     list:
-      name: "{{ site.data.api.endpoints.core-objects.sources.base }}"
+      name: "{{ site.data.connect.api.core-objects.sources.base }}"
       title: "List sources"
       method: *get
       anchor: "#list-sources"
@@ -99,13 +101,13 @@ core-objects:
     base: "/v4/source-types"
 
     get:
-      name: "{{ site.data.api.endpoints.core-objects.source-types.base }}/{type}"
+      name: "{{ site.data.connect.api.core-objects.source-types.base }}/{type}"
       title: "Get a source type"
       method: *get
       anchor: "#get-a-source-type"
 
     list:
-      name: "{{ site.data.api.endpoints.core-objects.source-types.base }}"
+      name: "{{ site.data.connect.api.core-objects.source-types.base }}"
       title: "List source types"
       method: *get
       anchor: "#list-source-types"
@@ -182,5 +184,3 @@ form-properties:
     salesforce:
       title: "Salesforce"
       section: "#source-form-properties-salesforce-object"
-
-
