@@ -3,8 +3,11 @@ layout: page
 ---
 
 {% case page.sidebar %}
+    {% when 'overview' %}
+        {% assign docs = site.connect-files | where:"content-type","overview" | sort:"order" %}
+
     {% when 'api' %}
-        {% assign docs = site.connect-files | where:"content-type","embed-doc" | sort:"order" %}
+        {% assign docs = site.connect-files | where:"content-type","api-doc" | sort:"order" %}
 
     {% when 'js' %}
         {% assign docs = site.connect-files | where:"content-type","js-doc" | sort:"order" %}
