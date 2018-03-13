@@ -261,15 +261,7 @@ setup-steps:
           5. After the file has been uploaded to the bucket, switch back to where you have Stitch open.
           6. Click **Check and Save** to save and test the connection to {{ destination.display_name }}.
 
-
-# {% capture console-hierarchy %}
-# Though the {{ destination.display_name }} data model is flat - meaning that there isn't a hierarchy - the {{ destination.display_name }} console supports the concept of folders.
-
-# The example Object Key above would create this folder structure: `salesforce > accounts` with the individual objects contained within the `accounts` folder. Refer to [Amazon's documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-key-guidelines-safe-characters) for more info.
-# {% endcapture %}
-
-
-# {% include note.html content=console-hierarchy %}
+          {% include important.html content="**The challenge file must remain in the bucket even after the initial setup is completed**. Removing this file will connection and loading interruptions." %}
 ---
 
 
