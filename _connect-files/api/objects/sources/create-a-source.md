@@ -1,5 +1,5 @@
 ---
-content-type: "embed-endpoint"
+content-type: "api-endpoint"
 endpoint: "sources"
 key: "create-a-source"
 version: "4"

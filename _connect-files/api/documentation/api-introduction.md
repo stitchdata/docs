@@ -18,13 +18,15 @@ sections:
 
   - title: "Obtain Partner Credentials"
     anchor: "obtain-partner-credentials"
-    content: "To use the API, you need to register your application and obtain partner credentials. Reach out to [{{ page.contact-email }}](mailto:{{ page.contact-email }}) to get started."
+    content: |
+      To use the API, you'll need partner credentials. These are necessary for authenticating successfully.
 
+      To request access, please complete and submit [this form]{{ connect.interest-form | strip }}.
 
   - title: "Terminology"
     anchor: "terminology"
     content: |
-      {% assign api-terms = site.api-files | where:"content-type","embed-terms" %}
+      {% assign api-terms = site.connect-files | where:"content-type","api-terms" %}
 
       <table width="100%; fixed">
       {% for item in api-terms %}

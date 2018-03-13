@@ -5,17 +5,17 @@ order: 3
 
 sections:
   - content: |
-      {% assign api = site.data.api.endpoints %}
+      {% assign api = site.data.connect.api %}
       Authenticate your calls to the {{ page.api-name }} by providing an access token in your requests. Each access token is associated with a single Stitch client account. Additionally, each request's permissions are limited to that Stitch client account.
 
       In the examples in this documentation, we use bearer auth:
 
       ```curl
-      curl -X GET {{ page.api-base-url }}{{ api.core-objects.sources.base }}
+      curl -X GET {{ connect.api-base-url }}{{ api.core-objects.sources.base }}
            -H "Authorization: Bearer <ACCESS_TOKEN>"
       ```
 
-      Before you can make requests, you must register as an API client by emailing [{{ page.contact-email }}](mailto:{{ page.contact-email }}).
+      Before you can make requests, you must complete [this form]{{ connect.interest-form | strip }}. Once approved, you'll receive the credentials required to authenticate your API calls.
 
       All requests must be made over HTTPS or they will fail. API requests that don't contain authentication will also fail.
 

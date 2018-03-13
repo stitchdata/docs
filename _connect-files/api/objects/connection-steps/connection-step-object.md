@@ -1,5 +1,5 @@
 ---
-content-type: "embed-structure"
+content-type: "api-structure"
 key: "connection-step-object"
 
 title: "Connection Steps"

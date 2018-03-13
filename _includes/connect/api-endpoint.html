@@ -10,17 +10,6 @@
     </h4>
 </span>
 
-<!-- <table class="table-snapshot table-hover">
-    <tr>
-        <td width="50%; fixed">
-            <strong>Endpoint</strong>: {{ endpoint.short-url | flatify }}
-        </td>
-        <td width="50%; fixed">
-            <strong>Version</strong>: {{ object.version | prepend: "v" }}
-        </td>
-    </tr>
-</table> -->
-
     <p>{{ endpoint.description | flatify | markdownify }}</p>
 
     {% if endpoint.arguments %}

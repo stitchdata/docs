@@ -1,5 +1,5 @@
 ---
-content-type: "embed-endpoint"
+content-type: "api-endpoint"
 endpoint: "destinations"
 key: "update-a-destination"
 version: "3"

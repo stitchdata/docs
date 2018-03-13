@@ -7,7 +7,7 @@ sections:
   - title: "Register as an API Client"
     anchor: "quick-start--register-api-client"
     content: |
-      Reach out to [{{ page.contact-email }}](mailto:{{ page.contact-email }}) to obtain a `partner_id` and `partner_key` for your application. These credentials are necessary to authenticate your API calls.
+      Request access by completing [this form]{{ connect.interest-form | strip }}. Once approved, you'll receive a `partner_id` and `partner_key` for authenticating your API calls.
 
   - title: "Obtain an Access Token"
     anchor: "quick-start--obtain-access-token"

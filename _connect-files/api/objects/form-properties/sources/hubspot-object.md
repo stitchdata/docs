@@ -1,5 +1,5 @@
 ---
-content-type: "embed-form"
+content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-hubspot-object"
 

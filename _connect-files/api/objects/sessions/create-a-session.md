@@ -1,5 +1,5 @@
 ---
-content-type: "embed-endpoint"
+content-type: "api-endpoint"
 endpoint: "sessions"
 key: "create-a-session"
 version: "3"

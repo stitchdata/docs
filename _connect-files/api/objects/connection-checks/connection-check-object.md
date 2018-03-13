@@ -1,5 +1,5 @@
 ---
-content-type: "embed-structure"
+content-type: "api-structure"
 key: "connection-check-object"
 
 title: "Connection Checks"

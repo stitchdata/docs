@@ -1,5 +1,5 @@
 ---
-content-type: "embed-sub-structure"
+content-type: "api-sub-structure"
 key: "current-step-api-hint-object"
 
 title: "API Hint"

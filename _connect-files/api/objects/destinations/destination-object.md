@@ -1,5 +1,5 @@
 ---
-content-type: "embed-object"
+content-type: "api-object"
 endpoint: "destinations"
 
 title: "Destination"

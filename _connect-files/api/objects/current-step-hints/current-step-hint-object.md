@@ -1,5 +1,5 @@
 ---
-content-type: "embed-structure"
+content-type: "api-structure"
 key: "current-step-hint-object"
 
 title: "Current Step Hints"

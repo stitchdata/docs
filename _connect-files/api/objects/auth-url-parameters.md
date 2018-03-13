@@ -1,5 +1,5 @@
 ---
-content-type: "embed-url-parms"
+content-type: "api-url-parms"
 
 parameters:
   - name: "client_id"
