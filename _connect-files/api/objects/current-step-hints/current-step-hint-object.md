@@ -3,21 +3,20 @@ content-type: "api-structure"
 key: "current-step-hint-object"
 
 title: "Current Step Hints"
-description: |
-  Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to [Stitch.js]({{ page.anchors.stitch-js.section }}).
-
-  Otherwise, this object will provide information about the next call to make to the API.
+description: "{{ api.data-structures.current-step-hints.description | flatify }}"
 
 object-attributes:
   - name: "api"
-    type: "api hint object"
-    url: ""
-    description: "Describes the actions required to complete the current connection step using the API, if applicable."
+    type: "object"
+    sub-type: "API Hint"
+    url: "{{ api.data-structures.current-step-hints.api-hints.section }}"
+    description: "{{ api.data-structures.current-step-hints.api-hints.description | flatify }}"
 
   - name: "js"
-    type: "stitch js hint object"
-    url: ""
-    description: "Describes the actions required to complete the current connection step using [Stitch.js]({{ page.anchors.stitch-js.section }}) if applicable."
+    type: "object"
+    sub-type: "Stitch.js Hint"
+    url: "{{ api.data-structures.current-step-hints.stitch-connect-js-hints.section }}"
+    description: "{{ api.data-structures.current-step-hints.stitch-connect-js-hints.description | flatify }}"
 
 sub-structures:
   - key: "current-step-api-hint-object"
@@ -29,7 +28,7 @@ examples:
          "current_step_hints":{
             "api":{
                "method":"POST",
-               "url":"/v4/sources"
+               "url":"{{ api.core-objects.sources.create.name | flatify }}"
             },
             "js":{
                "function":"authorizeSource",

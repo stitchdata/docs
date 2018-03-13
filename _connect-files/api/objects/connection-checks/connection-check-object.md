@@ -3,7 +3,7 @@ content-type: "api-structure"
 key: "connection-check-object"
 
 title: "Connection Checks"
-description: "A connection check object shows the results from a test of a connection's parameters. The nature of the test varies by connection type."
+description: "{{ api.data-structures.connection-checks.description | flatify }}"
 
 object-attributes:
   - name: "error"

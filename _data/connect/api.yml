@@ -6,6 +6,7 @@ authentication: "#authentication"
 quick-start: "#quick-start"
 response-codes: "#response-codes"
 versioning: "#versioning"
+terms: "#terminology"
 
 # -------------------------- #
 #        CORE OBJECTS        #
@@ -135,30 +136,40 @@ data-structures:
   connection-checks:
     title: "Connection Checks"
     section: "#connection-check-object"
+    description: "A connection check object shows the results from a test of a connection's parameters. The nature of the test varies by connection type."
 
   connection-steps:
     title: "Connection Steps"
     section: "#connection-step-object"
+    description: "Contained in the Report Card object, the Connection Steps object contains the steps necessary to configure a data source or destination."
 
   current-step-hints:
     title: "Current Step Hints"
     section: "#current-step-hint-object"
+    description: |
+      Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}).
+
+      Otherwise, this object will provide information about the next call to make to the API.
 
     api-hints:
       title: "API Hints"
       section: "#current-step-api-hint-object"
+      description: "This object describes the actions requires to complete the current connection step using the API, if applicable."
 
     stitch-connect-js-hints:
       title: "StitchConnect.js"
       section: "#current-step-stitch-js-hint-object"
+      description: "This object escribes the actions required to complete the current connection step using [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) if applicable."
 
   properties:
     title: "Properties"
     section: "#properties-object"
+    description: "A Properties object contains the properties necessary to complete a connection step. Returned within a source or destination object, these properties provide information about the configuration status of the connection."
 
   report-cards:
     title: "Report Cards"
     section: "#report-card-object"
+    description: "A Report Card object contains information about a connection's configuration."
 
 # -------------------------- #
 #       FORM PROPERTIES      #

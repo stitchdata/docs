@@ -3,7 +3,7 @@ content-type: "api-structure"
 key: "properties-object"
 
 title: "Properties"
-description: "A Properties object contains the properties necessary to complete a connection step. Returned within a source or destination object, these properties provide information about the configuration status of the connection."
+description: "{{ api.data-structures.properties.description | flatify }}"
 
 object-attributes:
   - name: "name"
@@ -34,7 +34,7 @@ object-attributes:
       - `type` - The expected data type of the property's value. For example: `string`
       - `pattern` - The expected pattern of the property's value. For example: `^\\d+$`
 
-      Data will only be returned for this field is `system_provided: false`.
+      Data will only be returned for this array if `system_provided: false`.
 
 examples:
   - code: |
