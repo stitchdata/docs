@@ -53,7 +53,9 @@ setup-steps:
     content: |
       In this step, you'll define the file and object key format Stitch will use to load data into {{ destination.display_name }}.
 
-      First, enter the name of the bucket in the **Bucket Name** field.
+      First, enter the name of the bucket in the **Bucket Name** field. Enter only the bucket name: No URLs, `https`, or S3 parts.
+
+      For example: `this-is-a-test-bucket-stitch-dev`
 
     substeps:
       - title: "Select Data Storage Format"
