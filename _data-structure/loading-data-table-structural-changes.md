@@ -23,8 +23,6 @@ In this guide, you'll find examples of how each destination handles each of thes
 
 ## Adding & Removing Columns
 
-{% include note.html content="This section applies to **all data warehouses.**" %}
-
 - **If a new column is added to the source table,** that column will be appended to the end of the table in the data warehouse.
 - **If a column is removed from the source table,** default `NULLs` will be placed into the column going forward. Stitch does not remove columns from the data warehouse.
 
@@ -55,7 +53,7 @@ Excluding the `_sdc` columns, Stitch determines this is the table's structure:
 | order_confirmed  | BOOLEAN      |
 {% endhighlight %}
 
-During the **first** sync, the following rows are replicated:
+During the **first** replication job, the following rows are replicated:
 
 {% highlight markdown %}
 | id [pk] | order_amount | order_confirmed |
@@ -64,7 +62,7 @@ During the **first** sync, the following rows are replicated:
 | 2       | 10           | true            |
 {% endhighlight %}
 
-During the **next** sync, the following rows are replicated:
+During the **next** replication job,, the following rows are replicated:
 
 {% highlight markdown %}
 | id [pk] | order_amount | order_confirmed |
@@ -73,7 +71,7 @@ During the **next** sync, the following rows are replicated:
 | 4       | 11           | yes             |
 {% endhighlight %}
 
-Stitch will detect that the data types in these newly replicated rows differ than the ones from the initial sync. In this case:
+Stitch will detect that the data types in these newly replicated rows differ than the ones from the initial replication job,. In this case:
 
 - `order_amount` was originally a `BIGINT`, but can sometimes be a decimal
 - `order_confirmed` was originally a `BOOLEAN`, but can sometimes be a string

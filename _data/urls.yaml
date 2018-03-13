@@ -47,6 +47,7 @@ destinations:
     choose-destination: /destinations/choosing-a-stitch-destination
     compatibility: /destinations/destination-integration-compatibility
 
+    amazon-s3: /destinations/amazon-s3/
     bigquery: /destinations/bigquery/
     bigquery-pricing: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
     data-world: /destinations/data-world/
@@ -58,6 +59,7 @@ destinations:
 ## Setup Guides
 ## used as link.destinations.setup.[id]
   setup:
+    amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch 
     bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
 
     data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
@@ -94,6 +96,7 @@ destinations:
 ## used as link.destinations.storage.[id]
   storage:
     stitch-schema: /data-structure/integration-schemas
+    sdc-columns: "/data-structure/integration-schemas#_sdc_columns"
     loading-data: /data-structure/loading-stitch-data-into-destinations
     structure-changes: /data-structure/table-structural-changes
     column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"

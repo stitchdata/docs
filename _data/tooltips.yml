@@ -11,6 +11,8 @@ api-rate-limit: "An API's rate limit refers to how often requests can be made in
 
 append-only-rep: "Append-Only Replication is a type of Incremental Replication where newly replicated data is appended to the end of a table. Existing rows are not updated - any updates will be added to the table as new rows."
 
+append-only: "Existing rows are never updated. When new or updated data is loaded, it will be appended to the end of the table as a new row."
+
 certified-integration: "Certified integrations will receive commercial support, which is a guarantee that Stitch will fix bugs and adapt to new versions of third-party APIs."
 
 community-integration: "Maintenance of Community integrations will be performed by the Singer community. This includes fixing bugs and adapting to new versions of third-party APIs."
@@ -36,6 +38,8 @@ row-count: "A replicated row is any row that moves through Stitch, whether it's 
 saas-integration: “SaaS integrations are cloud-based third-party services like Salesforce, Zendesk, and Trello.”
 
 updated-at-rep: "Updated or Modified At is a type of Incremental Replication that uses datetime or timestamp columns to detect new and updated data."
+
+upsert: "An action that updates an existing row in a data warehouse table with new or modified data."
 
 whitelisting-feature: "Whitelisting is a feature that allows you to select specific tables and columns for replication."
 

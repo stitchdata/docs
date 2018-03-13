@@ -10,6 +10,7 @@ keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to 
 summary: &summary "{{ destination.display_name | capitalize }} helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
 toc: true
 destination: true
+data-loading: false
 
 
 # -------------------------- #
@@ -24,7 +25,7 @@ description: *summary
 pricing_model: "Varies" ## provider model
 free_option: "Yes"
 fully-managed: false
-pricing_notes: "{{ destination.display_name | capitalize }} plans vary depending on the number of private projects/data sets, size limits per project/dataset, external integrations, and total number of team members that can belong to an account. All plans, however, include unlimited public projects/datasets, API access, joins, queries, activity alerts, and other standard features." 
+pricing_notes: "Data.world plans vary depending on the number of private projects/data sets, size limits per project/dataset, external integrations, and total number of team members that can belong to an account. All plans, however, include unlimited public projects/datasets, API access, joins, queries, activity alerts, and other standard features." 
 icon: /images/destinations/icons/data-world.svg
 
 
