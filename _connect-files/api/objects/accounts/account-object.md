@@ -4,6 +4,6 @@ endpoint: "accounts"
 
 title: "Account"
 description: "{{ api.core-objects.accounts.description }}"
-endpoint-url: "{{ api.core-objects.accounts.base }}"
+endpoint-url: "/accounts"
 version: "3"
 ---

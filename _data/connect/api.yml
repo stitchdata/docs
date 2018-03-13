@@ -21,10 +21,7 @@ core-objects:
     title: "Accounts"
     section: "#accounts"
     description: "An object representing a Stitch account."
-    current-version: "3"
-    base: "/accounts"
     create:
-      name: "{{ site.data.connect.api.core-objects.accounts.base }}"
       title: "Create an account"
       method: &post "post"
       anchor: "#create-an-account"
