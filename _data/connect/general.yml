@@ -1,2 +1,59 @@
 interest-form: |
   (https://docs.google.com/forms/d/e/1FAIpQLSc1-GcfQOa94JQfEL_CVdLkVZX62Byr6v0ik3YAWH3kIp6yFg/viewform){:target="new"}
+
+
+common:
+  attributes:
+  ## Misc.
+    ephemeral-token: "A token that is passed to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to create a session."
+  ## Databases & Destinations
+
+    host: "The IP address or hostname of the database server."
+
+    port: "The port of the database server."
+
+    database: "The name of the logical database to connect to."
+
+    username: "The username of the database user."
+
+    password: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
+
+    ssl: "If `true`, SSL will be used to connect to the database."
+
+    destination-type: |
+      The destination type. Must be one of: 
+
+      - `redshift`
+      - `postgres`
+      - `snowflake`
+
+  ## Integrations
+    display-name: "A descriptive name for the source. This will be used to dynamically generate the name corresponding to the schema name or dataset name that the data from this source will be loaded into."
+
+    name: |
+      The name of the source connection, dynamically generated from `display_name`. The `name` corresponds to the destination schema name that the data from this source will be loaded into.
+
+      Names must:
+        - Contain only lowercase alphanumerics and underscores
+        - Be unique within each Stitch client account
+
+    properties: "A source [Properties object]({{ api.data-structures.properties.section }}) corresponding to the value of `type`."
+
+    type-argument: "A path parameter indicating the `type` of source to retrieve, such as `platform.marketo` or `platform.hubspot`."
+
+  ## Source Properties
+    frequency: |
+      Defines how often, in minutes, Stitch should attempt to replicate data from [INTEGRATION]. Accepted values are:
+
+      - `1`
+      - `10`
+      - `30`
+      - `60`
+      - `360`
+      - `720`
+      - `1440`
+
+    start-date: |
+      The date from which Stitch should begin replicating data from HubSpot. Data from this date forward will be replicated.
+
+      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date. For example: `2018-01-01T11:59:59Z`
