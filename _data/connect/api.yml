@@ -86,30 +86,35 @@ core-objects:
     section: "#sources"
     object: "#source--object"
     base: "/v4/sources"
+    description: "Sources are the databases, APIs, and other data applications that Stitch replicates data from. Sources can be retrieved in a list or individually by ID."
 
     create:
       name: "{{ site.data.connect.api.core-objects.sources.base }}" 
       title: "Create a source"
       method: *post
       anchor: "#create-a-source"
+      description: "Creates a source object, which is the first step in setting up a new data source. After the source object is created, additional configuration steps must be completed."
 
     update:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
       title: "Update a source"
       method: *put
       anchor: "#update-a-source"
+      description: "Updates a source object."
 
     retrieve:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
       title: "Retrieve a source"
       method: *get
       anchor: "#retrieve-a-source"
+      description: "Retrieves a previously created data source by its unique identifier."
 
     list:
       name: "{{ site.data.connect.api.core-objects.sources.base }}"
       title: "List sources"
       method: *get
       anchor: "#list-sources"
+      description: "List the sources for an account. **Note**: The response will include active, paused, and deleted sources."
 
 # -------------------------- #
 #        Source Types        #

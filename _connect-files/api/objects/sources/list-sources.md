@@ -11,14 +11,11 @@ method: "get"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: |
-  List the sources for an account.
-
-  **Note**: The response will include active, paused, and deleted sources.
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.sources.list.description }}"
 
 
-returns: "An array of [sources]({{ page.anchors.core-objects.sources.object }}), including paused and deleted sources."
+returns: "An array of [sources]({{ api.core-objects.sources.object }}), including paused and deleted sources."
 
 
 examples:

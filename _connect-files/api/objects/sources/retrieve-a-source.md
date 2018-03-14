@@ -11,17 +11,18 @@ method: "get"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/{id}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Retrieves a previously created data source by its unique identifier."
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.sources.retrieve.description }}"
 
 
 arguments:
   - name: "id"
     required: true
+    type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the data source to be retrieved."
 
 
-returns: "A single data [source object]({{ page.anchors.core-objects.sources.object }}) if a valid identifier was provided."
+returns: "A single data [source object]({{ api.core-objects.sources.object }}) if a valid identifier was provided."
 
 
 examples:

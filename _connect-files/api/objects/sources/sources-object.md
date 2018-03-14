@@ -3,7 +3,7 @@ content-type: "api-object"
 endpoint: "sources"
 
 title: "Source"
-description: "Sources are the databases, APIs, and other data applications that Stitch replicates data from. Sources can be retrieved in a list or individually by ID."
+description: "{{ api.core-objects.sources.description }}"
 endpoint-url: "/sources"
 version: "4"
 
@@ -26,25 +26,22 @@ object-attributes:
 
   - name: "name"
     type: "string"
-    description: |
-      The name of the source connection, dynamically generated from `display_name`. The `name` corresponds to the schema name (for Postgres, Redshift, and Panoply destinations) or data set name (for BigQuery destinations) that the data from this source will be loaded into.
-
-      Names must:
-        - Contain only lowercase alphanumerics and underscores
-        - Be unique within each Stitch client account
+    description: "{{ connect.common.attributes.name }}"
 
   - name: "paused_at"
     type: "timestamp"
     description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be null."
 
   - name: "properties"
-    type: "source form properties object"
-    url: "{{ page.anchors.form-properties.source-forms.section }}"
-    description: "The properties required to configure this source."
+    type: "object"
+    sub-type: "properties"
+    url: "{{ api.data-structures.properties.section }}"
+    description: "{{ connect.common.attributes.properties | flatify }}"
 
   - name: "report_card"
-    type: "report card object"
-    url: "{{ page.anchors.data-structures.report-cards }}"
+    type: "object"
+    sub-type: "report card"
+    url: "{{ api.data-structures.report-cards.section }}"
     description: "A description of the source's configuration state."
 
   - name: "stitch_client_id"

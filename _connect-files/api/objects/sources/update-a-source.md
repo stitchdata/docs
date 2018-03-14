@@ -11,25 +11,28 @@ method: "put"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/{id}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: "Updates a source object."
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.sources.update.description }}"
 
 
 arguments:
   - name: "id"
     required: true
+    type: "string"
     description: "A path parameter corresponding to the unique ID of the source to be updated."
 
   - name: "display_name"
     required: false
-    description: "A descriptive name for the source. This will be used to dynamically generate the name corresponding to the schema name or dataset name that the data from this source will be loaded into."
+    type: "string"
+    description: "{{ connect.common.attributes.display-name }}"
 
   - name: "properties"
     required: false
-    description: "A source [Properties object]({{ page.anchors.data-structures.properties }}) corresponding to the value of `type`."
+    type: "object"
+    description: "{{ connect.common.attributes.properties | flatify }}"
 
 
-returns: "A [Source object]({{ page.anchors.core-objects.sources.object }})."
+returns: "A [Source object]({{ api.core-objects.sources.object }})."
 
 examples:
   - type: "request"

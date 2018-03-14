@@ -11,30 +11,33 @@ method: "post"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
 description: |
-  Creates a source object, which is the first step in setting up a new data source. After the source object is created, additional configuration steps must be completed.
+  {{ api.core-objects.sources.create.description }}
 
   The configuration process is unique for each type of source. Use the source's `report_card` object's `current_step` attribute to identify the current `step` in configuring the source.
 
-  The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to [Stitch.js]({{ page.anchors.stitch-js.section }}) to complete the current step.
+  The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to complete the current step.
 
 
 arguments:
   - name: "display_name"
     required: true
-    description: "A descriptive name for the source. This will be used to dynamically generate the name corresponding to the schema name or dataset name that the data from this source will be loaded into."
+    type: "string"
+    description: "{{ connect.common.attributes.display-name }}"
 
   - name: "type"
     required: true
+    type: "string"
     description: "The source type. For example: `platform.marketo` or `platform.hubspot`."
 
   - name: "properties"
     required: false
-    description: "A source [Properties object]({{ page.anchors.data-structures.properties }}) corresponding to the value of `type`."
+    type: "object"
+    description: "{{ connect.common.attributes.properties | flatify }}"
 
 
-returns: "A [Source object]({{ page.anchors.core-objects.sources.object }}) with a `report_card` property, which contains the [Report Card object]({{ page.anchors.data-structures.report-cards }}) for the source's configuration status."
+returns: "A [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property, which contains the [Report Card object]({{ api.data-structures.report-cards.section }}) for the source's configuration status."
 
 
 examples:
