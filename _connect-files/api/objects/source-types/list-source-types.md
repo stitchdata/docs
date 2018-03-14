@@ -11,14 +11,11 @@ method: "get"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: |
-  Retrieves information about data sources' configurations.
-
-  **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for all supported source types.
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.source-types.list.description }}"
 
 
-returns: "An array of [Report Card objects]({{ page.anchors.data-structures.report-cards }}), one for each supported source `type`."
+returns: "An array of [Report Card objects]({{ api.data-structures.report-cards.section }}), one for each supported source `type`."
 
 
 examples:
@@ -34,7 +31,7 @@ examples:
     code: |
       [  
          {  
-            "type":"platform.hubspot",                                // HubSpot source
+            "type":"platform.hubspot",                                /* HubSpot source */
             "current_step":1,
             "current_step_hints":{  
                "api":{  
@@ -145,7 +142,7 @@ examples:
             ]
          },
          {  
-            "type":"platform.marketo",                                // Marketo source
+            "type":"platform.marketo",                                /* Marketo source */
             "current_step":1,
             "current_step_hints":{  
                "api":{  
@@ -255,7 +252,7 @@ examples:
             ]
          },
          {  
-            "type":"platform.zuora",                                  // Zuora source
+            "type":"platform.zuora",                                  /* Zuora source */
             "current_step":1,
             "current_step_hints":{  
                "api":{  
@@ -362,7 +359,7 @@ examples:
             ]
          },
          {  
-            "type":"platform.salesforce",                             // Salesforce source
+            "type":"platform.salesforce",                             /* Salesforce source */
             "current_step":1,
             "current_step_hints":{  
                "api":{  
@@ -538,7 +535,7 @@ examples:
             ]
          },
          {  
-            "type":"platform.yotpo",                                  // Yotpo source
+            "type":"platform.yotpo",                                  /* Yotpo source */
             "current_step":1,
             "current_step_hints":{  
                "api":{  
@@ -623,7 +620,7 @@ examples:
             ]
          },
          {  
-            "type":"platform.sendgrid",                               // SendGrid source
+            "type":"platform.sendgrid",                               /* SendGrid source */
             "current_step":1,
             "current_step_hints":{  
                "api":{  

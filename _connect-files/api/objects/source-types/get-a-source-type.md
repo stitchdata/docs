@@ -11,20 +11,18 @@ method: "get"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/{type}
 full-url: |
-  {{ page.api-base-url }}{{ endpoint.short-url | flatify }}
-description: |
-  Retrieves information about a data source's configuration. 
-
-  **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified `type`.
+  {{ api.base-url }}{{ endpoint.short-url | flatify }}
+description: "{{ api.core-objects.source-types.get.description }}"
 
 
 arguments:
   - name: "type"
     required: true
-    description: "A path parameter indicating the `type` of source to retrieve, such as `platform.marketo` or `platform.hubspot`."
+    type: "string"
+    description: "{{ connect.common.attributes.type-argument }}"
 
 
-returns: "A [Report Card object]({{ page.anchors.data-structures.report-cards }}) corresponding to `type`."
+returns: "A [Report Card object]({{ api.data-structures.report-cards.section }}) corresponding to `type`."
 
 examples:
   - type: "request"

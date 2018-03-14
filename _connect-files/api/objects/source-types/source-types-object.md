@@ -3,13 +3,14 @@ content-type: "api-object"
 endpoint: "source-types"
 
 title: "Source Type"
-description: "Source types define the information needed to configure a data source."
+description: "{{ api.core-objects.source-types.description }}"
 endpoint-url: "/source-types"
 version: "4"
 
 object-attributes:
   - name: "report_card"
-    type: "report card object"
-    url: "{{ page.anchors.data-structures.report-cards }}"
+    type: "object"
+    sub-type: "report card"
+    url: "{{ api.data-structures.report-cards.section }}"
     description: "The Report Card object corresponding to the source's `type`. For example: `platform.marketo` or `platform.hubspot`."
 ---
