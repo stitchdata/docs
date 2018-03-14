@@ -24,6 +24,7 @@
                             <strong>
                                 {{ argument.name }}
                             </strong><br>
+                            {{ argument.type | upcase }}<br>
                             
                             {% case argument.required %}
                                 {% when true %}
