@@ -18,15 +18,7 @@ object-attributes:
   - name: "frequency_in_minutes"
     type: "string"
     description: |
-      Defines how often, in minutes, Stitch should attempt to replicate data from Marketo. Accepted values are:
-
-      - `1`
-      - `10`
-      - `30`
-      - `60`
-      - `360`
-      - `720`
-      - `1440`
+      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.title }}
 
   - name: "quota_percent_per_run"
     type: "string"

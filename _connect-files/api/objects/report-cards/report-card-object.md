@@ -25,7 +25,7 @@ object-attributes:
 
   - name: "type"
     type: "string"
-    description: "The connection type."
+    description: "The connection type. Ex: `platform.salesforce` or `platform.hubspot`"
 
 examples:
   - code: |
