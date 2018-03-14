@@ -1,9 +1,17 @@
 {% assign functions = site.connect-files | where:"content-type","stitch-js-function" | sort:"order" %}
 
 {% for function in functions %}
-    <h3 id="{{ function.key }}">
-        {{ function.definition }}
-    </h3>
+    <div class="api-js-heading">
+        <div class="method function">
+            FUNCTION
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ function.key }}">
+                {{ function.definition }}
+            </h4>
+        </div>
+    </div>
 
     <p>{{ function.description | flatify | markdownify }}</p>
 

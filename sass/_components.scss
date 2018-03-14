@@ -539,27 +539,41 @@ blockquote {
 	 }
 }
 
-/* API ENDPOINT METHODS */
+/* API/JS HEADINGS */
 
-.api-method {
-	padding: 20px;
-	float: left;
-	margin-right: 20px;
+.api-js-heading {
+	width: 100%;
+	margin: 40px 0px 20px 0px;
+
+	div.method {
+		padding: 15px 30px 15px 30px;
+		float: left;
+		margin-right: 20px;
+		font-weight: 600;
+	}
 }
 
-.api-method.post {
-	background-color: #66CC66;
+.post {
+	background-color: $green-junction;
 }
 
-.api-method.put {
-	background-color: #41c0ff;
+.put {
+	background-color: $bit-blue;
 }
 
-.api-method.get {
-	background-color: #ffcc00;
+.get {
+	background-color: $stitch-yellow;
 }
 
-.api-bullet {
+.function {
+	background-color: $blue-channel;
+}
+
+.delete {
+	background-color: $frequency-red;
+}
+
+.method-bullet {
 	padding: 3px 5px 3px 5px;
 	margin-top: -3px;
 	margin-right: 0px;
@@ -567,10 +581,14 @@ blockquote {
 	font-weight: 600;
 }
 
-.api-endpoint {
-	border: solid;
-	border-color: #EAEAEA;
-	border-width: 1px;
+.method-resource {
 	display: inherit;
-	padding: 19px;
+	border: 1px solid $gray-stream;
+	padding: 15px 0px 19px 0px;
+
+	h4 {
+		padding-top: 0px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
 }

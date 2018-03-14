@@ -1,14 +1,14 @@
-<span class="api-heading">
-    <h4 id="{{ endpoint.key }}">
-        <span class="api-method {{ endpoint.method }}">
-            {{ endpoint.method | flatify | upcase }} 
-        </span>
+<div class="api-js-heading">
+    <div class="method {{ endpoint.method }}">
+        {{ endpoint.method | flatify | upcase }} 
+    </div>
 
-        <span class="api-endpoint">
+    <div class="method-resource">
+        <h4 id="{{ endpoint.key }}">
             {{ endpoint.short-url | flatify }}
-        </span>
-    </h4>
-</span>
+        </h4>
+    </div>
+</div>
 
     <p>{{ endpoint.description | flatify | markdownify }}</p>
 
