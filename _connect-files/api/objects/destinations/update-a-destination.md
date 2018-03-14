@@ -18,7 +18,7 @@ description: "{{ api.core-objects.destinations.update.description }}"
 arguments:
   - name: "id"
     required: true
-    type: "string"
+    type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the destination to be updated."
 
   - name: "type"

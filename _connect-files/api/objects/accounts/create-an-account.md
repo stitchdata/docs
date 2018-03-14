@@ -17,26 +17,32 @@ description: "{{ api.core-objects.accounts.create.description | flatify | markdo
 arguments:
   - name: "company"
     required: true
+    type: "string"
     description: "A name for the Stitch client. This is typically the name of the company using the Stitch client account."
 
   - name: "email"
     required: true
+    type: "string"
     description: "The email address of the user signing up for a Stitch client account. Upon successful account creation, Stitch will send an email to this address with instructions for completing the setup."
 
   - name: "first_name"
     required: true
+    type: "string"
     description: "The first name of the user signing up for a Stitch client account."
 
   - name: "last_name"
     required: true
+    type: "string"
     description: "The last name of the user signing up for a Stitch client account."
 
   - name: "partner_id"
     required: true
+    type: "string"
     description: "The unique ID for your API client, obtained when you register to use the API."
 
   - name: "partner_secret"
     required: true
+    type: "string"
     description: "The secret for your API client, obtained when you registered to use the API."
 
 
