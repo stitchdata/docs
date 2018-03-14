@@ -4,8 +4,18 @@ interest-form: |
 
 common:
   attributes:
-  ## Misc.
+  ## Stitch.js
+    default-streams: |
+      Sets the default selections for the data structures (tables) to be replicated during the source integration setup. Should be an object of the form `{"table_name": true}`.
+
+      Only top-level tables can be provided - nesting is not currently supported.
+
+      **Note**: If a table name is provided that isn't provided by the source integration, it is ignored. Values other than `true` are also ignored.
+      
     ephemeral-token: "A token that is passed to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to create a session."
+
+    ephemeral-token-js: "The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create a Session endpoint]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sessions.create.anchor }})."
+
   ## Databases & Destinations
 
     host: "The IP address or hostname of the database server."
@@ -38,6 +48,8 @@ common:
         - Be unique within each Stitch client account
 
     properties: "A source [Properties object]({{ api.data-structures.properties.section }}) corresponding to the value of `type`."
+
+    type: "The source type. For example: `platform.hubspot` or `platform.marketo`."
 
     type-argument: "A path parameter indicating the `type` of source to retrieve, such as `platform.marketo` or `platform.hubspot`."
 

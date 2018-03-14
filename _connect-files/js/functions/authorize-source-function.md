@@ -1,12 +1,12 @@
 ---
 content-type: "stitch-js-function"
-key: "source-editing-function"
-order: 5
+key: "source-authorization-function"
+order: 2
 
 
-title: "Source Editing"
-definition: "editSource(options)"
-description: "{{ js.edit-source.description }}"
+title: "Source Authorization"
+definition: "authorizeSource(options)"
+description: "{{ js.authorize-a-source.description }}"
 
 
 options:
@@ -22,21 +22,16 @@ options:
     required: false
     description: "{{ connect.common.attributes.default-streams | flatify }}"
 
-
 examples:
-  - title: ""
-    description: "Editing the stream selection for a source."
+  - title: "Authorize source"
+    description: "Authorizing a source."
     code: |
-      Stitch.editSource({
+      Stitch.authorizeSource({
           "id": 123,
-          "default_streams": {
-              "campaigns": false,
-              "companies": true
-          },
           "ephemeral_token": "<EPHEMERAL_TOKEN>"
       }).then((result) => {
-          console.log(`Source updated, type=${result.type}, id=${result.id}`);
+          console.log(`Integration created, type=${result.type}, id=${result.id}`);
       }).catch((error) => {
-          console.log("Editing source failed.", error);
+          console.log("Integration not created.", error);
       });
 ---

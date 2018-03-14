@@ -35,6 +35,9 @@
     </h4>
 
     {% for example in function.examples %}
+
+    <p>{{ example.description | flatify | markdownify }}</p>
+    
 {%- capture example-code -%}
 ```javascript
 {{ example.code | flatify | rstrip }}

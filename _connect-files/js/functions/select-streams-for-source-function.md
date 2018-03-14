@@ -1,12 +1,12 @@
 ---
 content-type: "stitch-js-function"
-key: "source-editing-function"
-order: 5
+key: "source-stream-selection-function"
+order: 4
 
 
-title: "Source Editing"
-definition: "editSource(options)"
-description: "{{ js.edit-source.description }}"
+title: "Source Stream Selection"
+definition: "selectStreamsForSource(options)"
+description: "{{ js.select-streams.description }}"
 
 
 options:
@@ -20,23 +20,24 @@ options:
 
   - name: "default_streams"
     required: false
-    description: "{{ connect.common.attributes.default-streams | flatify }}"
+    description: |
+      "{{ connect.common.attributes.default-streams | flatify }}"
 
 
 examples:
   - title: ""
-    description: "Editing the stream selection for a source."
+    description: "Selecting streams for a source."
     code: |
-      Stitch.editSource({
+      Stitch.selectStreamsForSource({
           "id": 123,
           "default_streams": {
-              "campaigns": false,
+              "campaigns": true,
               "companies": true
           },
           "ephemeral_token": "<EPHEMERAL_TOKEN>"
       }).then((result) => {
-          console.log(`Source updated, type=${result.type}, id=${result.id}`);
+          console.log(`Integration created, type=${result.type}, id=${result.id}`);
       }).catch((error) => {
-          console.log("Editing source failed.", error);
+          console.log("Integration not created.", error);
       });
 ---
