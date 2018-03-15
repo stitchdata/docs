@@ -48,7 +48,7 @@ arguments:
 
 
 returns: |
-  If successful, an `access_token` property containing an API access token for the Stitch client's account will be returned.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an `access_token` property containing an API access token for the Stitch client's account will be returned.
 
   Otherwise, an error will be returned. For example: If a Stitch client account associated with the user already exists, the request will return `This email address is already associated with an active user.` See the **Errors** tab below for additional possibilities.
 
@@ -70,6 +70,9 @@ examples:
   - type: "response"
     language: "json"
     code: |
+      HTTP/1.1 200 OK
+      Content-Type: application/json;charset=ISO-8859-1
+
       {
         "access_token":"<ACCESS_TOKEN>"
       }

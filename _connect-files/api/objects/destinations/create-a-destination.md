@@ -27,11 +27,12 @@ arguments:
     type: "object"
     description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
-returns: "A [Destination object]({{ api.core-objects.destinations.object }})."
+returns: |
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Destination object]({{ api.core-objects.destinations.object }}).
 
 examples:
   - type: "request"
-    language: "curl"
+    language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -50,12 +51,15 @@ examples:
   - type: "response"
     language: "json"
     code: |
-      {  
+      HTTP/1.1 200 OK
+      Content-Type: application/json;charset=ISO-8859-1
+
+      {
         "id":"<DESTINATION_ID>",
         "type":"redshift",
         "created_at":"2018-02-06T15:36:36Z",
         "updated_at":"2018-02-06T15:36:36Z",
-        "connection": {  
+        "connection": {
             "host":"<HOST>",
             "port":5439,
             "username":"<USERNAME>",

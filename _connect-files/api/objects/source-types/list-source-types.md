@@ -16,12 +16,13 @@ short: "{{ api.core-objects.source-types.list.short }}"
 description: "{{ api.core-objects.source-types.list.description | flatify }}"
 
 
-returns: "An array of [Report Card objects]({{ api.data-structures.report-cards.section }}), one for each supported source `type`."
+returns: |
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Report Card objects]({{ api.data-structures.report-cards.section }}), one for each supported source `type`.
 
 
 examples:
   - type: "request"
-    language: "curl"
+    language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -30,6 +31,9 @@ examples:
   - type: "response"
     language: "json"
     code: |
+      HTTP/1.1 200 OK
+      Content-Type: application/json;charset=ISO-8859-1
+
       [  
          {  
             "type":"platform.hubspot",                                /* HubSpot source */

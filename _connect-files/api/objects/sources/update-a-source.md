@@ -33,11 +33,12 @@ arguments:
     description: "{{ connect.common.attributes.properties | flatify }}"
 
 
-returns: "A [Source object]({{ api.core-objects.sources.object }})."
+returns: |
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}).
 
 examples:
   - type: "request"
-    language: "curl"
+    language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -52,6 +53,9 @@ examples:
   - type: "response"
     language: "json"
     code: |
+      HTTP/1.1 200 OK
+      Content-Type: application/json;charset=ISO-8859-1
+
       {
          "properties":{
             "frequency_in_minutes":"60",

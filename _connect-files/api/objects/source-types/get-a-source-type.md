@@ -23,11 +23,12 @@ arguments:
     description: "{{ connect.common.attributes.type-argument }}"
 
 
-returns: "A [Report Card object]({{ api.data-structures.report-cards.section }}) corresponding to `type`."
+returns: |
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Report Card object]({{ api.data-structures.report-cards.section }}) corresponding to `type`.
 
 examples:
   - type: "request"
-    language: "curl"
+    language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -36,6 +37,9 @@ examples:
   - type: "response"
     language: "json"
     code: |
+      HTTP/1.1 200 OK
+      Content-Type: application/json;charset=ISO-8859-1
+      
       {  
          "type":"platform.hubspot",
          "current_step":1,

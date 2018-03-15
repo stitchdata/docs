@@ -16,12 +16,13 @@ short: "{{ api.core-objects.destinations.list.short }}"
 description: "{{ api.core-objects.destinations.list.description | flatify }}"
 
 
-returns: "An array (of length zero or one) of destinations."
+returns: |
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array (of length zero or one) of [Destination objects]({{ api.core-objects.destinations.object }}).
 
 
 examples:
   - type: "request"
-    language: "curl"
+    language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -29,6 +30,9 @@ examples:
   - type: "response"
     language: "json"
     code: |
+      HTTP/1.1 200 OK
+      Content-Type: application/json;charset=ISO-8859-1
+      
       [
         {  
           "id":"<DESTINATION_ID>",
