@@ -1,16 +1,31 @@
 {% assign objects = site.connect-files | where:"content-type","api-object" %}
 
+{% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
+    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
+        {% assign same-version = object-endpoints | where:"version",object.version %}
+            {% assign endpoints = same-version | sort:"order" %}
+
 {% for object in objects %}
     <h3 id="{{ object.endpoint | replace: " ", "-" }}">
         {{ object.title | append: "s" }}
     </h3>
 
-        <p>{{ object.description | flatify | markdownify }}</p>
+        {% include connect/api-endpoint-rollup.html type="endpoint" %}
 
     {% if object.object-attributes %}
-        <h4 id="{{ object.title | downcase | replace: " ", "-" | append: "--object" }}">
-            The {{ object.title }} Object
-        </h4>
+        <div class="api-js-heading">
+            <div class="method object">
+                OBJECT 
+            </div>
+
+            <div class="method-resource">
+                <h4 id="{{ object.title | downcase | replace: " ", "-" | append: "--object" }}">
+                    The {{ object.title }} Object
+                </h4>
+            </div>
+        </div>
+
+            <p>{{ object.description | flatify | markdownify }}</p>
 
             <table width="100%; fixed">
                 {% for attribute in object.object-attributes %}
@@ -31,20 +46,15 @@
                 {% endfor %}
             </table>
     {% endif %}
+        <hr>
 
+    {% for endpoint in endpoints %}
+        {% include connect/api-endpoint.html %}
 
-    {% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
-    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-    {% assign same-version = object-endpoints | where:"version",object.version %}
-    {% assign endpoints = same-version | sort:"order" %}
-
-        {% for endpoint in endpoints %}
-            {% include connect/api-endpoint.html %}
-
-            {% unless forloop.last == true %}
-                <hr>
-            {% endunless %}
-        {% endfor %}
+        {% unless forloop.last == true %}
+            <hr>
+        {% endunless %}
+    {% endfor %}
 
 {% unless forloop.last == true %}
     <hr>

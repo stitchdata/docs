@@ -1,14 +1,25 @@
 {% assign data-structures = site.connect-files | where:"content-type","api-structure" %}
 
+{% include connect/api-endpoint-rollup.html type="data-structure" %}
+
 {% for structure in data-structures %}
-    <h3 id="{{ structure.key }}">
-        {{ structure.title }}
-    </h3>
+
+    <div class="api-js-heading">
+        <div class="method object">
+            OBJECT
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ structure.key }}">
+                The {{ structure.title }} Object
+            </h4>
+        </div>
+    </div>
 
         <p>{{ structure.description | flatify | markdownify }}</p>
 
     {% if structure.object-attributes %}
-        <table width="100%; fixed">
+        <table class="attribute-list">
             {% for attribute in structure.object-attributes %}
                 <tr>
                     <td align="right" width="20%; fixed">
@@ -34,11 +45,20 @@
         {% for sub-structure in all-sub-structures %}
             {% for sub in structure.sub-structures %}
                 {% if sub-structure.key == sub.key %}
-                    <h4 id="{{ sub-structure.key }}">
-                        The {{ sub-structure.title | append: "s" }} Object
-                    </h4>
 
-                    <table width="100%; fixed">
+                    <div class="api-js-heading">
+                        <div class="method object">
+                            SUB-OBJECT
+                        </div>
+
+                        <div class="method-resource">
+                            <h4 id="{{ sub-structure.key }}">
+                                The {{ sub-structure.title }} Object
+                            </h4>
+                        </div>
+                    </div>
+
+                    <table class="attribute-list">
                         {% for attribute in sub-structure.object-attributes %}
                             <tr>
                                 <td align="right" width="20%; fixed">

@@ -9,9 +9,17 @@
 
 
 {% for form-property in form-properties %}
-<h4 id="{{ form-property.key }}">
-    {{ form-property.title }}
-</h4>
+    <div class="api-js-heading">
+        <div class="method object">
+            OBJECT 
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ form-property.key }}">
+                The {{ form-property.title }} Object
+            </h4>
+        </div>
+    </div>
 
     <p>{{ form-property.description | flatify | markdownify }}</p>
 
@@ -45,8 +53,14 @@
 {%- endcapture -%}{{ example-code | markdownify }}
     {% endfor %}
 
-{% unless forloop.last == true %}
-    <hr>
-{% endunless %}
+
+    {% case include.content %}
+        {% when 'destination' %}
+            <hr>
+        {% else %}
+            {% unless forloop.last == true %}
+                <hr>
+            {% endunless %}
+    {% endcase %}
 
 {% endfor %}
