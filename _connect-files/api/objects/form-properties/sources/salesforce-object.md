@@ -3,7 +3,7 @@ content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-salesforce-object"
 
-title: "Salesforce"
+title: "Salesforce Source Form Property"
 description: "{{ api.form-properties.source-forms.salesforce.description }}"
 
 object-attributes:

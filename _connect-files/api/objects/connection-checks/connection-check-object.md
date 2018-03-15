@@ -2,7 +2,7 @@
 content-type: "api-structure"
 key: "connection-check-object"
 
-title: "Connection Checks"
+title: "Connection Check"
 description: "{{ api.data-structures.connection-checks.description | flatify }}"
 
 object-attributes:

@@ -3,7 +3,7 @@ content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-hubspot-object"
 
-title: "HubSpot"
+title: "HubSpot Source Form Property"
 description: "{{ api.form-properties.source-forms.hubspot.description }}"
 
 object-attributes:

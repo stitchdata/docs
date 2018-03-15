@@ -3,7 +3,7 @@ content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-redshift-object"
 
-title: "Redshift"
+title: "Redshift Destination Form Property"
 description: "{{ api.form-properties.destination-forms.redshift.description }}"
 
 object-attributes:

@@ -3,7 +3,7 @@ content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-snowflake-object"
 
-title: "Snowflake"
+title: "Snowflake Destination Form Property"
 description: "{{ api.form-properties.destination-forms.snowflake.description }}"
 
 object-attributes:

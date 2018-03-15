@@ -2,7 +2,7 @@
 content-type: "api-structure"
 key: "connection-step-object"
 
-title: "Connection Steps"
+title: "Connection Step"
 description: "{{ api.data-structures.connection-steps.description | flatify }}"
 
 object-attributes:

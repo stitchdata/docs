@@ -2,7 +2,7 @@
 content-type: "api-structure"
 key: "report-card-object"
 
-title: "Report Cards"
+title: "Report Card"
 description: "{{ api.data-structures.report-cards.description }}"
 
 object-attributes:

@@ -3,7 +3,7 @@ content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-postgresql-object"
 
-title: "PostgreSQL"
+title: "PostgreSQL Destination Form Property"
 description: "{{ api.form-properties.destination-forms.postgresql.description }}"
 
 object-attributes:

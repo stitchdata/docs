@@ -2,7 +2,7 @@
 content-type: "api-structure"
 key: "current-step-hint-object"
 
-title: "Current Step Hints"
+title: "Current Step Hint"
 description: "{{ api.data-structures.current-step-hints.description | flatify }}"
 
 object-attributes:

@@ -3,7 +3,7 @@ content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-marketo-object"
 
-title: "Marketo"
+title: "Marketo Source Form Property"
 description: "{{ api.form-properties.source-forms.marketo.description }}"
 
 object-attributes:
