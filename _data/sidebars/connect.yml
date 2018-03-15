@@ -19,23 +19,23 @@ api:
         url: &connect "{{ link.connect.overview }}"
 
       - title: Introduction
-        url: "{{ page.anchors.introduction }}"
+        url: "{{ api.introduction }}"
         drop-down: false
 
       - title: Quick Start
-        url: "{{ page.anchors.quick-start }}"
+        url: "{{ api.quick-start }}"
         drop-down: false
 
       - title: "Authentication"
-        url: "{{ page.anchors.authentication }}"
+        url: "{{ api.authentication }}"
         drop-down: false
 
       - title: "Response Codes"
-        url: "{{ page.anchors.response-codes }}"
+        url: "{{ api.response-codes }}"
         drop-down: false
 
       - title: "Versioning"
-        url: "{{ page.anchors.versioning }}"
+        url: "{{ api.versioning }}"
         drop-down: false
 
       - title: "Core Objects"
@@ -44,6 +44,10 @@ api:
           - title: "Accounts"
             expand-by-default: true
             subsections:
+              - title: "The Account Object"
+                method: "object"
+                url: "{{ api.core-objects.accounts.object }}"
+
               - title: "{{ api.core-objects.accounts.create.name }}"
                 method: "post"
                 url: "{{ api.core-objects.accounts.create.anchor }}"
@@ -52,6 +56,7 @@ api:
             expand-by-default: true
             subsections:
               - title: "The Session Object"
+                method: "object"
                 url: "{{ api.core-objects.sessions.object }}"
 
               - title: "{{ api.core-objects.sessions.create.name }}"
@@ -62,6 +67,7 @@ api:
             expand-by-default: true
             subsections:
               - title: "The Destination Object"
+                method: "object"
                 url: "{{ api.core-objects.destinations.object }}"
 
               - title: "{{ api.core-objects.destinations.create.name | flatify }}"
@@ -76,10 +82,26 @@ api:
                 method: "get"
                 url: "{{ api.core-objects.destinations.list.anchor }}"
 
+          - title: "Source Types"
+            expand-by-default: true
+            subsections:
+              - title: "The Source Type Object"
+                method: "object"
+                url: "{{ api.core-objects.source-types.object }}"
+
+              - title: "{{ api.core-objects.source-types.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.source-types.list.anchor }}"
+
+              - title: "{{ api.core-objects.source-types.get.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.source-types.get.anchor }}"
+
           - title: "Sources"
             expand-by-default: true
             subsections:
               - title: "The Source Object"
+                method: "object"
                 url: "{{ api.core-objects.sources.object }}"
 
               - title: "{{ api.core-objects.sources.create.name | flatify }}"
@@ -90,43 +112,34 @@ api:
                 method: "put"
                 url: "{{ api.core-objects.sources.update.anchor }}"
 
-              - title: "{{ api.core-objects.sources.retrieve.name | flatify }}"
-                method: "get"
-                url: "{{ api.core-objects.sources.retrieve.anchor }}"
-
               - title: "{{ api.core-objects.sources.list.name | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.sources.list.anchor }}"
 
-          - title: "Source Types"
-            expand-by-default: true
-            subsections:
-              - title: "The Source Type Object"
-                url: "{{ api.core-objects.source-types.object }}"
-
-              - title: "{{ api.core-objects.source-types.get.name | flatify }}"
+              - title: "{{ api.core-objects.sources.retrieve.name | flatify }}"
                 method: "get"
-                url: "{{ api.core-objects.source-types.get.anchor }}"
-
-              - title: "{{ api.core-objects.source-types.list.name | flatify }}"
-                method: "get"
-                url: "{{ api.core-objects.source-types.list.anchor }}"
+                url: "{{ api.core-objects.sources.retrieve.anchor }}"
 
       - title: "Data Structures"
         sections: 
           - title: "{{ api.data-structures.connection-checks.title }}"
+            method: "object"
             url: "{{ api.data-structures.connection-checks.section }}"
 
           - title: "{{ api.data-structures.connection-steps.title }}"
+            method: "object"
             url: "{{ api.data-structures.connection-steps.section }}"
 
           - title: "{{ api.data-structures.current-step-hints.title }}"
+            method: "object"
             url: "{{ api.data-structures.current-step-hints.section }}"
 
           - title: "{{ api.data-structures.properties.title }}"
+            method: "object"
             url: "{{ api.data-structures.properties.section }}"
 
           - title: "{{ api.data-structures.report-cards.title }}"
+            method: "object"
             url: "{{ api.data-structures.report-cards.section }}"
 
       - title: "Form Properties"
@@ -134,23 +147,29 @@ api:
           - title: "Destination Forms"
             subsections:
               - title: "Redshift"
+                method: "object"
                 url: "{{ api.form-properties.destination-forms.postgresql.section }}"
 
               - title: "Redshift"
+                method: "object"
                 url: "{{ api.form-properties.destination-forms.redshift.section }}"
 
               - title: "Snowflake"
+                method: "object"
                 url: "{{ api.form-properties.destination-forms.snowflake.section }}"
 
           - title: "Source Forms"
             subsections:
               - title: "HubSpot"
+                method: "object"
                 url: "{{ api.form-properties.source-forms.hubspot.section }}"
 
               - title: "Marketo"
+                method: "object"
                 url: "{{ api.form-properties.source-forms.marketo.section }}"
 
               - title: "Salesforce"
+                method: "object"
                 url: "{{ api.form-properties.source-forms.salesforce.section }}"
 
       - title: "Stitch.js"
@@ -166,13 +185,13 @@ js:
         url: *connect
 
       - title: "Introduction"
-        url: ""
+        url: "{{ js.introduction }}"
 
       - title: "Versioning"
-        url: ""
+        url: "{{ js.versioning }}"
 
       - title: "Quick Start"
-        url: ""
+        url: "{{ js.quick-start }}"
 
       - title: "Functions"
         sections:
