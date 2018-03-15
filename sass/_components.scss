@@ -177,6 +177,33 @@ table {
 	}
 }
 
+/* Used in API & JavaScript documentation */
+
+table.method-rollup {
+	margin-top: 30px;
+	width: 100%;
+	font-size: 15px;
+	tr {
+		td {
+			vertical-align: middle;
+			p {
+				margin: 0;
+			}
+		}
+		td.object,
+		td.post,
+		td.put,
+		td.get,
+		td.delete,
+		td.function {
+			font-weight: 600;
+			width: 10%;
+		}
+	}
+}
+
+/* Used in Integration Schema documentation */
+
 table.table-snapshot {
 	tr {
 		td {
@@ -193,6 +220,34 @@ table.table-snapshot {
 					border-right: 0px;
 				}
 			}
+		}
+	}
+}
+
+/* Used in Integration Schema, API, JS, etc. docs - anywhere */
+/* that contains a list of attributes */
+
+table.attribute-list {
+	width: 100%;
+	martin-top: 30px;
+	font-size: 15px;
+	tr {
+		td {
+			code {
+					font-size: 15px;
+				}
+		}
+/*		td.description {
+						code {
+							color: $magenta-relay;
+			}
+		}*/
+		td.attribute-name {
+							text-align: right;
+							width: 30%;
+							p {
+								margin: 0;
+							}
 		}
 	}
 }
@@ -514,6 +569,15 @@ ul.tiles {
 		}
 	}
 
+	.lg-tile {
+		min-height: 200px;
+		width: 40%;
+		img {
+			max-height: 60px;
+			max-width: 180px;
+		}
+	}
+
 	li.category-version-toggle {
 		border: none;
 		display: list-item;
@@ -553,6 +617,10 @@ blockquote {
 	}
 }
 
+.object {
+	background-color: $light-blue;
+}
+
 .post {
 	background-color: $green-junction;
 }
@@ -585,10 +653,4 @@ blockquote {
 	display: inherit;
 	border: 1px solid $gray-stream;
 	padding: 15px 0px 19px 0px;
-
-	h4 {
-		padding-top: 0px;
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
 }

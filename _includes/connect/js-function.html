@@ -16,10 +16,10 @@
     <p>{{ function.description | flatify | markdownify }}</p>
 
     {% if function.options %}
-        <table width="100%; fixed">
+        <table class="attribute-list">
             {% for option in function.options %}
                 <tr>
-                    <td align="right" width="20%; fixed">
+                    <td class="attribute-name">
                         <strong>
                             {{ option.name }}
                         </strong><br>

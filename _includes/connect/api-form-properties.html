@@ -24,10 +24,10 @@
     <p>{{ form-property.description | flatify | markdownify }}</p>
 
 {% if form-property.object-attributes %}
-    <table width="100%; fixed">
+    <table class="attribute-list">
         {% for attribute in form-property.object-attributes %}
             <tr>
-                <td align="right" width="20%; fixed">
+                <td class="attribute-name">
                     <strong>
                         {{ attribute.name }}
                     </strong><br>

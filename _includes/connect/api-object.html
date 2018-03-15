@@ -27,10 +27,10 @@
 
             <p>{{ object.description | flatify | markdownify }}</p>
 
-            <table width="100%; fixed">
+            <table class="attribute-lsit">
                 {% for attribute in object.object-attributes %}
                     <tr>
-                        <td align="right" width="20%; fixed">
+                        <td class="attribute-name">
                             <strong>
                                 {{ attribute.name }}
                             </strong><br>

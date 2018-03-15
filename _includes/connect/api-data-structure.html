@@ -22,7 +22,7 @@
         <table class="attribute-list">
             {% for attribute in structure.object-attributes %}
                 <tr>
-                    <td align="right" width="20%; fixed">
+                    <td class="attribute-name">
                         <strong>
                             {{ attribute.name }}
                         </strong><br>
@@ -61,7 +61,7 @@
                     <table class="attribute-list">
                         {% for attribute in sub-structure.object-attributes %}
                             <tr>
-                                <td align="right" width="20%; fixed">
+                                 <td class="attribute-name">
                                     <strong>
                                         {{ attribute.name }}
                                     </strong><br>

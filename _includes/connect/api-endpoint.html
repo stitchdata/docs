@@ -17,10 +17,10 @@
             Arguments
         </h5>
 
-            <table width="100%; fixed">
+            <table class="attribute-list">
                 {% for argument in endpoint.arguments %}
                     <tr>
-                        <td align="right" width="20%; fixed">
+                        <td class="attribute-name">
                             <strong>
                                 {{ argument.name }}
                             </strong><br>
@@ -33,7 +33,7 @@
                                     OPTIONAL
                                 {% endcase %}
                         </td>
-                        <td>
+                        <td class="description">
                             {{ argument.description | flatify | markdownify }}
                         </td>
                         
