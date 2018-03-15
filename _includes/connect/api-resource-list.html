@@ -1,0 +1,20 @@
+{% assign items = site.data.connect.api-resource-details.list %}
+
+<h5 id="{{ endpoint.key | append: "--resource-list" }}">
+    Resource List
+</h5>
+
+<table class="attribute-list">
+    {% for item in items %}
+        <tr>
+            <td class="attribute-name">
+                <strong>
+                    {{ item.name }}
+                </strong>
+            </td>
+            <td class="description">
+                {{ item.description | flatify | markdownify }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>

@@ -12,10 +12,14 @@
 
     <p>{{ endpoint.description | flatify | markdownify }}</p>
 
+    {% include connect/api-resource-list.html %}
+
     {% if endpoint.arguments %}
         <h5 id="{{ endpoint.key | append: "--arguments" }}">
             Arguments
         </h5>
+
+        <p>This endpoint accepts the following parameters:</p>
 
             <table class="attribute-list">
                 {% for argument in endpoint.arguments %}
