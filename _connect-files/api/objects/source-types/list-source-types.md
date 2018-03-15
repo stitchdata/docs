@@ -12,7 +12,8 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-description: "{{ api.core-objects.source-types.list.description }}"
+short: "{{ api.core-objects.source-types.list.short }}"
+description: "{{ api.core-objects.source-types.list.description | flatify }}"
 
 
 returns: "An array of [Report Card objects]({{ api.data-structures.report-cards.section }}), one for each supported source `type`."

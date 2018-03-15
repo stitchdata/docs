@@ -12,12 +12,9 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-description: |
-  {{ api.core-objects.sources.create.description }}
 
-  The configuration process is unique for each type of source. Use the source's `report_card` object's `current_step` attribute to identify the current `step` in configuring the source.
-
-  The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to complete the current step.
+short: "{{ api.core-objects.sources.create.short }}"
+description: "{{ api.core-objects.sources.create.description | flatify }}"
 
 
 arguments:

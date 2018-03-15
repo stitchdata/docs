@@ -12,7 +12,8 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/ephemeral
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-description: "{{ api.core-objects.session.create.description }}"
+short: "{{ api.core-objects.sessions.create.description }}"
+description: "{{ api.core-objects.sessions.create.description }}"
 
 returns: "A [Session object]({{ api.core-objects.sessions.object }})."
 

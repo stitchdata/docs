@@ -12,6 +12,7 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
+short: "{{ api.core-objects.sources.list.description }}"
 description: "{{ api.core-objects.sources.list.description }}"
 
 

@@ -12,7 +12,8 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-description: "{{ api.core-objects.destinations.create.description }}"
+short: "{{ api.core-objects.destinations.create.short }}"
+description: "{{ api.core-objects.destinations.create.description | flatify }}"
 
 
 arguments:

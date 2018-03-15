@@ -12,6 +12,7 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
+short: "{{ api.core-objects.accounts.create.short }}"
 description: "{{ api.core-objects.accounts.create.description | flatify | markdownify }}"
 
 arguments:

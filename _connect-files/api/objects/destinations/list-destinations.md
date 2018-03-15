@@ -12,7 +12,8 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-description: "{{ api.core-objects.destinations.list.description }}"
+short: "{{ api.core-objects.destinations.list.short }}"
+description: "{{ api.core-objects.destinations.list.description | flatify }}"
 
 
 returns: "An array (of length zero or one) of destinations."
