@@ -91,28 +91,6 @@ all-docs:
       - title: Overview
         url: "{{ link.integrations.webhooks }}"
 
-  - title: Import API
-    sections:
-      - title: Overview
-        url: "{{ link.integrations.import-api }}"
-
-      - title: Authentication
-        url: "{{ link.integrations.import-api }}#auth"
-
-      - title: Return Codes
-        url: "{{ link.integrations.import-api }}#return-codes"
-
-      - title: Methods
-        subsections:
-          - title: Status
-            url: "{{ link.integrations.import-api }}#status-method"
-
-          - title: Validate
-            url: "{{ link.integrations.import-api }}#validate-method"
-
-          - title: Upsert
-            url: "{{ link.integrations.import-api }}#upsert-method"
-
   - title: Extracting Data
     sections:
     - title: Replicate Data
@@ -227,3 +205,11 @@ all-docs:
 
     - title: All Troubleshooting
       url: /troubleshooting/
+
+  - title: Stitch API Reference
+    sections:
+      - title: Connect API
+        url: "{{ link.connect.overview }}"
+
+      - title: Import API
+        url: "{{ link.import-api.getting-started }}"
