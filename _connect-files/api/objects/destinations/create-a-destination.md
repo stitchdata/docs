@@ -75,25 +75,4 @@ examples:
       }
 
   - type: "errors"
-    language: "json"
-    errors:
-      - name: "Multiple destinations"
-        type: &400 "400 Bad Request"
-        fix-it: |
-          Occurs when a Stitch client account already has a destination connection.
-        code: |
-          "an account can have at most one destination"
-
-      - name: "Missing or prohibited arguments"
-        type: *400
-        fix-it: |
-          Occurs when:
-
-          - The `type` and/or `connection` arguments aren't included in the request
-          - Arguments other than `type` and `connection` are included in the request
-          - Properties in the `connection` argument are missing
-          - Properties in the `connection` argument are incorrectly typed. For example: `port` is sent as a `string` instead of an `integer`
-
-        code: |
-            "body must be a map with type = redshift, postgres, or snowflake. required-keys = type, connection"
 ---

@@ -69,32 +69,16 @@
         {% endif %}
 
         {% case example.type %}
-          {% when 'errors' %}
-            {% for error in example.errors %}
-                <strong>{{ error.type | append: " - " | append: error.name }}</strong><br>
-                {% if error.fix-it %}
-                    {{ error.fix-it | flatify | markdownify }}
-                {% endif %}
+            {% when 'errors' %}
+                {% include connect/api-response-code-table.html type="endpoint" %}
 
-{%- capture error-response -%}
-```{{ example.language }}
-{{ error.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ error-response | markdownify }}
-
-{% unless forloop.last == true %}
-<hr>
-{% endunless %}
-          {% endfor %}
-
-          {% else %}
+            {% else %}
 
 {%- capture example-code -%}
 ```{{ example.language }}
 {{ example.code | flatify | rstrip }}
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
-
         {% endcase %}
 
 </div>

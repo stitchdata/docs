@@ -1,0 +1,85 @@
+{% assign response-codes = site.data.connect.response-codes.all-codes %}
+
+<table width="100%; fixed" style="font-size: 15px;">
+    <tr>
+        <td align="right">
+            <strong>
+                Code
+            </strong>
+        </td>
+
+{% case include.type %}
+    {% when 'endpoint' %}
+            <td width="30%; fixed">
+                <strong>
+                    Condition
+                </strong>
+            </td>
+            <td>
+                <strong>
+                    Response Body
+                </strong>
+            </td>
+        </tr>
+        {% for code in response-codes %}
+            <!-- Checks if the code has error specific to the Connect API -->
+            {% if code.connect-errors %}
+                {% for item in code.connect-errors %}
+
+                    <!-- Checks for errors specific to the current endpoint -->
+                    {% if item.endpoint == endpoint.endpoint %}
+                        {% for error in item.errors %}
+
+                            <!-- Only pull errors relevant to this endpoint -->
+                            {% if error.method contains endpoint.method %}
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            {{ code.code }}
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        {{ error.condition | markdownify }}
+                                    </td>
+                                    <td>
+                                        {{ error.response-body | markdownify }}
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </table>
+
+    {% else %}
+
+                <td width="20%; fixed">
+                    <strong>
+                        Text
+                    </strong>
+                </td>
+                <td>
+                    <strong>
+                        Description
+                    </strong>
+                </td>
+            </tr>
+            {% for code in response-codes %}
+                <tr>
+                    <td align="right">
+                        <strong>
+                            {{ code.code }}
+                        </strong>
+                    </td>
+                    <td>
+                        {{ code.text | flatify | markdownify }}
+                    </td>
+                    <td>
+                        {{ code.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endcase %}
