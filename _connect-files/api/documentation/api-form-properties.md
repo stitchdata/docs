@@ -18,8 +18,6 @@ sections:
     content: |
       Destination form properties should be sent in the `connection` argument when using the [Create a Destination endpoint]({{ api.core-objects.destinations.create.anchor }}). 
 
-      All properties should be sent as strings.
-
       {% include connect/api-endpoint-rollup.html type="form-property" subtype="destination" %}
     include: |
       {% include connect/api-form-properties.html content="destination" %}
