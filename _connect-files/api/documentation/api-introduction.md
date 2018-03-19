@@ -5,18 +5,14 @@ order: 1
 
 sections:
   - content: |
-      The API can be used to:
+      The Stitch Connect API enables you to seamlessly integration Stitch’s data pipeline functionality into your own platform. This API is a RESTful, resource-oriented API that allows you to programmatically provision Stitch accounts, create and modify data sources, and configure destination connections.
 
-        - Create Stitch client accounts,
-        - Access existing Stitch client accounts, and
-        - Configure source and destination connections within those clients' accounts
+      Each endpoint uses standard HTTP verbs like GET and POST, and will return [standard HTTP response codes]({{ api.response-codes }})) to indicate request status or errors.
 
-      The API is organized around REST and uses resource-oriented URLs to promote usability. Each endpoint uses standard HTTP verbs like `GET` and `POST`, and we will return [standard HTTP response codes]({{ api.response-codes }}) to indicate request status or errors.
+      We built the API to accept and return [JSON](http://json.org) in all responses, including [errors]({{ api.error-message-formats }}).
 
-      We built the API to accept and return [JSON](http://json.org) in all responses, including errors.
-
-  - title: "Obtain Partner Credentials"
-    anchor: "obtain-partner-credentials"
+  - title: "Accessing the API"
+    anchor: "access-the-api"
     content: |
       To use the API, you'll need partner credentials. These are necessary for authenticating successfully.
 
@@ -46,3 +42,4 @@ sections:
 
 
 ---
+
