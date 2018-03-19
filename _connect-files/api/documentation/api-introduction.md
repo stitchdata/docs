@@ -7,7 +7,7 @@ sections:
   - content: |
       The Stitch Connect API enables you to seamlessly integration Stitch’s data pipeline functionality into your own platform. This API is a RESTful, resource-oriented API that allows you to programmatically provision Stitch accounts, create and modify data sources, and configure destination connections.
 
-      Each endpoint uses standard HTTP verbs like GET and POST, and will return [standard HTTP response codes]({{ api.response-codes }})) to indicate request status or errors.
+      Each endpoint uses standard HTTP verbs like GET and POST, and will return [standard HTTP response codes]({{ api.response-codes }}) to indicate request status or errors.
 
       We built the API to accept and return [JSON](http://json.org) in all responses, including [errors]({{ api.error-message-formats }}).
 
