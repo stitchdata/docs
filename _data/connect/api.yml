@@ -208,7 +208,8 @@ data-structures:
   properties:
     title: "Properties"
     section: "#properties-object"
-    description: "A Properties object contains the properties necessary to complete a connection step. Returned within a source or destination object, these properties provide information about the configuration status of the connection."
+    description: |
+      A Properties object contains the properties necessary to complete a connection step. Returned within a [Source]({{ site.data.connect.api.core-objects.sources.object }}) or [Destination]({{ site.data.connect.api.core-objects.destinations.object }}) object, these properties provide information about the configuration status of the connection.
 
   report-cards:
     title: "Report Cards"
@@ -249,15 +250,45 @@ form-properties:
   source-forms:
     section: "#source-form-properties"
 
+    aurora:
+      title: "Amazon Aurora"
+      section: "#source-form-properties-aurora-object"
+      description: "An Amazon Aurora connection reads data from a Amazon Aurora database and corresponds to source `type: platform.aurora`."
+
+    cloudsql-mysql:
+      title: "Google CloudSQL MySQL"
+      section: "#source-form-properties-cloudsql-mysql-object"
+      description: "A Google CloudSQL MySQL connection reads data from a Google CloudSQL MySQL database and corresponds to source `type: platform.cloudsql`."
+
+    facebook-ads:
+      title: "Facebook Ads"
+      section: "#source-form-properties-facebook-ads-object"
+      description: "A Facebook Ads connection reads data from the Facebook Ads API and corresponds to source `type: platform.facebook`."
+
+    google-adwords:
+      title: "Google AdWords"
+      section: "#source-form-properties-google-adwords-object"
+      description: "A Google AdWords connection reads data from the Google AdWords API and corresponds to source `type: platform.adwords`."
+
     hubspot:
       title: "HubSpot"
       section: "#source-form-properties-hubspot-object"
       description: "A HubSpot connection reads data from the HubSpot API and corresponds to source `type: platform.hubspot`."
 
+    mariadb:
+      title: "mariadb"
+      section: "#source-form-properties-mariadb-object"
+      description: "A MariaDB connection reads data from a MariaDB database and corresponds to source `type: platform.mariadb`."
+
     marketo:
       title: "Marketo"
       section: "#source-form-properties-marketo-object"
       description: "A Marketo connection reads data from the Marketo API and corresponds to source `type: platform.marketo`."
+
+    mysql:
+      title: "MySQL"
+      section: "#source-form-properties-mysql-object"
+      description: "A MySQL connection reads data from a MySQL database and corresponds to source `type: platform.mysql`."
 
     salesforce:
       title: "Salesforce"
