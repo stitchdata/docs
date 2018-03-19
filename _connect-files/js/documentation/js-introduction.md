@@ -5,8 +5,18 @@ order: 1
 
 sections:
   - content: |
-      For many Stitch data sources and destinations, the user must directly grant access to Stitch. For example: Granting access via an OAuth handshake between Stitch and an API. Stitch.js makes it easy to embed secure workflows for source and destination creation and management into your web application.
+      Stitch.js is a JavaScript client for integrating Stitch's data source creation and configuration workflows seamlessly into your web application. Using a pop-up window, end-users can:
 
-      Stitch sources require a unique sequence of [connection steps]({{ api.section | flatify | prepend: site.baseurl | append: api.data-structures.connection-steps.section }}) specific to the source `type`. When a user is sent to a particular step using Stitch.js, the user will also be prompted to complete any successive steps to complete configuration of the source.
+        - Create a source of a particular type, such as Marketo or Salesforce
+        - Authorize an existing source
+        - Run a connection check for an existing source and discover its schema
+        - Select streams (tables) to replicate for an existing source
+        - Edit an existing source
+
+  - title: "Data Sources and Connection Steps"
+    anchor: "data-sources-connection-steps"
+    content: |
+      Stitch data sources require a unique sequence of [connection steps]({{ api.section | flatify | prepend: site.baseurl | append: api.data-structures.connection-steps.section }}) specific to the source `type` to be fully configured. 
+
+      When a user is sent to a particular step using Stitch.js, the user will also be prompted to complete any successive steps to complete configuration of the source. For example: When the `addSource` function is used, the user will be prompted to first add the data source. The user will next be directed to authorize the source and select the streams they want to replicate.
 ---
-
