@@ -6,15 +6,27 @@ common:
   attributes:
   ## Stitch.js
     default-streams: |
-      Sets the default selections for the data structures (tables) to be replicated during the source integration setup. Should be an object of the form `{"table_name": true}`.
+      Sets the default selections for the data structures (tables) to be replicated during the source integration setup. Should be an object of the form `{"table_name": true}`. For example:
 
-      Only top-level tables can be provided - nesting is not currently supported.
+      ```json
+      "default_streams":{
+         "campaigns":true,
+         "companies":true
+      }
+      ```
 
-      **Note**: If a table name is provided that isn't provided by the source integration, it is ignored. Values other than `true` are also ignored.
-      
+      Additionally, note that:
+
+      - Only top-levels may be provided
+      - If a table name is provided that the integration doesn't support, it will be ignored
+      - Values other than `true` will be ignored
+
     ephemeral-token: "A token that is passed to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to create a session."
 
-    ephemeral-token-js: "The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create a Session endpoint]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sessions.create.anchor }})."
+    ephemeral-token-js: |
+      The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create a Session endpoint]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sessions.create.anchor }}).
+
+      If the token is not provided, the user may be prompted to sign into their Stitch account.
 
   ## Databases & Destinations
 
@@ -29,6 +41,14 @@ common:
     password: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
 
     ssl: "If `true`, SSL will be used to connect to the database."
+
+    ssh: "If `true`, an SSH tunnel will be used to connect to the database."
+
+    ssh-host: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
+
+    ssh-user: "The username of the SSH user. This property is only required if `ssh: true`."
+
+    ssh-port: "The port of the SSH server. This property is only required if `ssh: true`."
 
     destination-type: |
       The destination type. Must be one of: 
@@ -66,6 +86,6 @@ common:
       - `1440`
 
     start-date: |
-      The date from which Stitch should begin replicating data from HubSpot. Data from this date forward will be replicated.
+      The date from which Stitch should begin replicating data from [INTEGRATION]. Data from this date forward will be replicated.
 
       This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date. For example: `2018-01-01T11:59:59Z`
