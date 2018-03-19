@@ -160,13 +160,37 @@ api:
 
           - title: "Source Forms"
             subsections:
+              - title: "Amazon Aurora"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.aurora.section }}"
+
+              - title: "Facebook Ads"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.facebook-ads.section }}"
+
+              - title: "Google AdWords"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.google-adwords.section }}"
+
+              - title: "Google CloudSQL MySQL"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.cloudsql-mysql.section }}"
+
               - title: "HubSpot"
                 method: "object"
                 url: "{{ api.form-properties.source-forms.hubspot.section }}"
 
+              - title: "MariaDB"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.mariadb.section }}"
+
               - title: "Marketo"
                 method: "object"
                 url: "{{ api.form-properties.source-forms.marketo.section }}"
+
+              - title: "MySQL"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.mysql.section }}"
 
               - title: "Salesforce"
                 method: "object"
@@ -190,8 +214,8 @@ js:
       - title: "Versioning"
         url: "{{ js.versioning }}"
 
-      - title: "Quick Start"
-        url: "{{ js.quick-start }}"
+      - title: "Installation"
+        url: "{{ js.installation }}"
 
       - title: "Functions"
         sections:
