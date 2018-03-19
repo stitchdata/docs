@@ -16,6 +16,15 @@
     <p>{{ function.description | flatify | markdownify }}</p>
 
     {% if function.options %}
+
+        <h5 id="{{ function.key | append: "--arguments" }}">
+            Arguments
+        </h5>
+
+        <p>
+            The <code>{{ function.definition | remove: "(options)" }}</code> function expects an <code>options</code> object as the only argument. This object must contain all parameters marked as <font color="#cc3399">REQUIRED</font>:
+        </p>
+
         <table class="attribute-list">
             {% for option in function.options %}
                 <tr>
@@ -23,9 +32,10 @@
                         <strong>
                             {{ option.name }}
                         </strong><br>
+                            {{ option.type | upcase }}<br>
                         {% case option.required %}
                             {% when true %}
-                                <font color="#cc3399">REQUIRED</span>
+                                <font color="#cc3399">REQUIRED</font>
                             {% else %}
                                 OPTIONAL
                             {% endcase %}
@@ -42,19 +52,6 @@
         Example Usage
     </h4>
 
-    {% for example in function.examples %}
-
-    <p>{{ example.description | flatify | markdownify }}</p>
-    
-{%- capture example-code -%}
-```javascript
-{{ example.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ example-code | markdownify }}
-    {% endfor %}
-
-{% unless forloop.last == true %}
-    <hr>
-{% endunless %}
+    {% include connect/request-response-example-tabs.html type="function" %}
 
 {% endfor %}

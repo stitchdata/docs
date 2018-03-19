@@ -52,39 +52,4 @@
     </h5>
         {{ endpoint.returns | flatify | markdownify }}
 
-<ul id="example{{ endpoint.key }}Tabs" class="nav nav-tabs">
-    {% for example in endpoint.examples %}
-        {% if forloop.first == true %} 
-            <li class="active">
-        {% else %}
-            <li>
-        {% endif %}
-            <a href="#{{ endpoint.key | append: "-" | append: example.type }}" data-toggle="tab">
-            {{ example.type | capitalize }}</a>
-        </li>
-        {% endfor %}
-</ul>
-  <div class="tab-content">
-    {% for example in endpoint.examples %}
-        {% if forloop.first == true %}
-            <div role="tabpanel" class="tab-pane active" id="{{ endpoint.key | append: "-" | append: example.type }}">
-        {% else %}
-            <div role="tabpanel" class="tab-pane" id="{{ endpoint.key | append: "-" | append: example.type }}">
-        {% endif %}
-
-        {% case example.type %}
-            {% when 'errors' %}
-                {% include connect/api-response-code-table.html type="endpoint" %}
-
-            {% else %}
-
-{%- capture example-code -%}
-```{{ example.language }}
-{{ example.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ example-code | markdownify }}
-        {% endcase %}
-
-</div>
-{% endfor %}
-</div>
+    {% include connect/request-response-example-tabs.html type="endpoint" %}
