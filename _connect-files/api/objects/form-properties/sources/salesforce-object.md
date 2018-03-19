@@ -18,7 +18,7 @@ object-attributes:
   - name: "frequency_in_minutes"
     type: "string"
     description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.title }}
+      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Salesforce" }}
 
   - name: "quota_percent_per_run"
     type: "string"
@@ -34,7 +34,8 @@ object-attributes:
 
   - name: "start_date"
     type: "string"
-    description: "{{ connect.common.attributes.start-date }}"
+    description: |
+      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","Salesforce" }}
 
 examples:
   - code: |

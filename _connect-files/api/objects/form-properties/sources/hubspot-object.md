@@ -10,11 +10,12 @@ object-attributes:
   - name: "frequency_in_minutes"
     type: "string"
     description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.title }}
+      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","HubSpot" }}
 
   - name: "start_date"
     type: "string"
-    description: "{{ connect.common.attributes.start-date }}"
+    description: |
+      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","HubSpot" }}
 
 examples: 
   - code: |
