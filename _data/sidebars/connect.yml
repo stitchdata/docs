@@ -146,7 +146,7 @@ api:
         sections:
           - title: "Destination Forms"
             subsections:
-              - title: "Redshift"
+              - title: "PostgreSQL"
                 method: "object"
                 url: "{{ api.form-properties.destination-forms.postgresql.section }}"
 
@@ -216,6 +216,9 @@ js:
 
       - title: "Installation"
         url: "{{ js.installation }}"
+
+      - title: "Error Codes"
+        url: "{{ js.error-codes }}"
 
       - title: "Functions"
         sections:
