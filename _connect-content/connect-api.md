@@ -5,4 +5,5 @@ sidebar: api
 layout: connect
 toc: false
 summary: false
+feedback: false
 ---

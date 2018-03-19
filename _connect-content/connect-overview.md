@@ -5,6 +5,7 @@ sidebar: overview
 layout: connect
 toc: false
 summary: false
+feedback: false
 
 contact-email: "product@stitchdata.com"
 

@@ -5,4 +5,5 @@ sidebar: js
 layout: connect
 toc: false
 summary: false
+feedback: false
 ---
