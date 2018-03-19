@@ -1,6 +1,7 @@
 ---
 content-type: "api-object"
 endpoint: "accounts"
+order: 1
 
 title: "Account"
 description: "{{ api.core-objects.accounts.description }}"

@@ -1,6 +1,7 @@
 ---
 content-type: "api-object"
 endpoint: "sessions"
+order: 2
 
 title: "Session"
 description: "{{ api.core-objects.sessions.description }}"

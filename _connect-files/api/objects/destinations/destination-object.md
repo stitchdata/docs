@@ -1,6 +1,7 @@
 ---
 content-type: "api-object"
 endpoint: "destinations"
+order: 3
 
 title: "Destination"
 description: "{{ api.core-objects.destinations.description }}"

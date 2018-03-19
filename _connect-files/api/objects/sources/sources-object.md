@@ -1,6 +1,7 @@
 ---
 content-type: "api-object"
 endpoint: "sources"
+order: 5
 
 title: "Source"
 description: "{{ api.core-objects.sources.description }}"
