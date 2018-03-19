@@ -18,7 +18,10 @@ options:
   - name: "discovery_job_name"
     required: true
     type: "string"
-    description: "The discovery job that should be displayed."
+    description: |
+      When a source is updated, Stitch will run a [connection check]({{ api.section | prepend: site.baseurl | append: api.data-structures.connection-checks.section | flatify }}) to test the source's connection parameters and discover its schema. This value is the name of the job that should be displayed.
+
+      To initiate a connection check, use the [Update a Source]({{ api.section | prepend: site.baseurl | append: api.core-objects.sources.update.anchor | flatify }}) endpoint. The `check_job_name` attribute in the response will contain a discovery job name.
 
   - name: "ephemeral_token"
     required: false
