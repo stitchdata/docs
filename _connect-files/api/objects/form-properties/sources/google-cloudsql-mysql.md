@@ -59,21 +59,4 @@ examples:
           "password":"<PASSWORD>"
         }
       }
-
-
-# {  
-#        "type":"platform.mysql",
-#        "properties":{  
-#           "host":"mysql.some-host.com",
-#           "port":3306,
-#           "database":"stitch",
-#           "username":"stitch_user",
-#           "password":"<PASSWORD>",
-#           "ssh":true,
-#           "ssh_host":"mysql-ssh.host.com",
-#           "ssh_port":22,
-#           "ssh_user":"stitch_ssh_user",
-#           "ssl":false
-#         }
-#       }
 ---
