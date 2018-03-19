@@ -7,9 +7,9 @@ sections:
   - content: |
       Stitch connects to a large, diverse universe of applications and data warehouses, each of which is configured differently.
 
-      The `properties` objects contain the properties necessary to create a source or destination object. These properties can also be found in the destination and source's report card `step: form`.
+      The `properties` objects contain the properties necessary to create a source or destination object.
 
-      All properties should be sent as strings.
+      For sources, these properties can also be found in the source's report card `step: form`.
 
       {% include connect/api-endpoint-rollup.html type="form-property" %}
 
