@@ -1,7 +1,7 @@
 ---
 title: Functions
 content-type: "js-doc"
-order: 4
+order: 5
 
 include: connect/js-function.html
 
