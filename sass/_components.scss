@@ -611,9 +611,10 @@ blockquote {
 .api-js-heading {
 	width: 100%;
 	margin: 40px 0px 20px 0px;
+	border: 1px solid $gray-stream;
 
 	div.method {
-		padding: 15px 30px 15px 30px;
+		padding: 20px 30px 13px 30px;
 		float: left;
 		margin-right: 20px;
 		font-weight: 600;
@@ -652,8 +653,16 @@ blockquote {
 	font-weight: 600;
 }
 
+.method-function {
+	padding: 1.5em;
+	line-height: 1em;
+}
+
 .method-resource {
-	display: inherit;
-	border: 1px solid $gray-stream;
-	padding: 15px 0px 19px 0px;
+	padding: 0px;
+
+	h4 {
+		margin-bottom: 1em;
+		line-height: 1em;
+	}
 }
