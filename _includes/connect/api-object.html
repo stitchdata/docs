@@ -1,4 +1,4 @@
-{% assign objects = site.connect-files | where:"content-type","api-object" %}
+{% assign objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
 
 {% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
     {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
