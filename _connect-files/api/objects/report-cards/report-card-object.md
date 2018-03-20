@@ -15,7 +15,7 @@ object-attributes:
     sub-type: "current step hints "
     url: "{{ api.data-structures.current-step-hints.section }}"
     description: |
-      If the current step requires the user to interact with the Stitch interface, this object will provide the function to call and properties to pass to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}).
+      If the current step requires the user to interact with the Stitch interface, this object will provide the function to call and properties to pass to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}).
 
       Otherwise, this object will provide information about the next call to make to the API.
 

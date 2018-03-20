@@ -14,7 +14,7 @@ object-attributes:
 
   - name: "js"
     type: "object"
-    sub-type: "Stitch.js Hint"
+    sub-type: "JavaScript Hint"
     url: "{{ api.data-structures.current-step-hints.stitch-connect-js-hints.section }}"
     description: "{{ api.data-structures.current-step-hints.stitch-connect-js-hints.description | flatify }}"
 

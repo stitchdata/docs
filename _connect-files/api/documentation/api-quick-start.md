@@ -401,16 +401,16 @@ sections:
           }
           ```
 
-          In this case, we need to use [Stitch.js]({{ js.section | prepend: site.baseurl | flatify }}) to initiate and complete the OAuth step required for `platform.hubspot`:
+          In this case, we need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify}}) to initiate and complete the OAuth step required for `platform.hubspot`:
 
-          - The `function` attribute contains the Stitch.js function required to complete the step, and
-          - The `options` object contains the source's ID, which we need to pass to Stitch.js to complete the OAuth flow
+          - The `function` attribute contains the JavaScript client function required to complete the step, and
+          - The `options` object contains the source's ID, which we need to pass to the JavaScript client to complete the OAuth flow
 
 
-  - title: "Use Stitch.js to Complete Source Configuration"
+  - title: "Use the {{ js.name }} to Complete Source Configuration"
     anchor: "quick-start--stitch-js-complete-configuration"
     content: |
-      To initiate the OAuth flow, use the [`authorizeSource`]({{ js.section | prepend: site.baseurl | append: js.authorize-a-source.section | flatify }}) function in the Stitch.js library. This function expects an `options` argument containing the source's `id`:
+      To initiate the OAuth flow, use the [`authorizeSource`]({{ js.section | prepend: site.baseurl | append: js.authorize-a-source.section | flatify }}) function in the {{ js.name }}. This function expects an `options` argument containing the source's `id`:
 
       ```javascript
       Stitch.authorizeSource({

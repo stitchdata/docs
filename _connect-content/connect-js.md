@@ -1,6 +1,6 @@
 ---
-title: "Stitch.js"
-permalink: /stitch-connect/stitch-js
+title: "Stitch Connect JavaScript Client"
+permalink: /stitch-connect/javascript-client 
 sidebar: js
 layout: connect
 toc: false

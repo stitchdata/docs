@@ -4,7 +4,7 @@ interest-form: |
 
 common:
   attributes:
-  ## Stitch.js
+  ## Stitch JavaScript Client
     default-streams: |
       Sets the default selections for the data structures (tables) to be replicated during the source integration setup. Should be an object of the form `{"table_name": true}`. For example:
 
@@ -21,7 +21,7 @@ common:
       - If a table name is provided that the integration doesn't support, it will be ignored
       - Values other than `true` will be ignored
 
-    ephemeral-token: "A token that is passed to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to create a session."
+    ephemeral-token: "A token that is passed to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to create a session."
 
     ephemeral-token-js: |
       The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create a Session endpoint]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sessions.create.anchor }}).
