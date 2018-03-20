@@ -24,7 +24,7 @@ common:
     ephemeral-token: "A token that is passed to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to create a session."
 
     ephemeral-token-js: |
-      The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the [Create a Session endpoint]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sessions.create.anchor }}).
+      The token used to automatically log the user into the Stitch client account. Retrieved by creating a session using the Connect API's [Create a Session endpoint]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sessions.create.anchor }}).
 
       If the token is not provided, the user may be prompted to sign into their Stitch account.
 

@@ -11,6 +11,7 @@ base-url: "https://api.stitchdata.com"
 section: "{{ site.data.urls.connect.api }}"
 
 introduction: "#introduction"
+access-api: "#access-the-api"
 authentication: "#authentication"
 quick-start: "#quick-start"
 
@@ -192,7 +193,7 @@ data-structures:
   connection-steps:
     title: "Connection Steps"
     section: "#connection-step-object"
-    description: "Contained in the Report Card object, the Connection Steps object contains the steps necessary to configure a data source or destination."
+    description: "Contained in the [Report Card object]({{ api.data-structures.report-cards.section }}), the Connection Steps object contains the steps necessary to configure a data source or destination."
 
   current-step-hints:
     title: "Current Step Hints"
@@ -261,6 +262,11 @@ form-properties:
       title: "Amazon Aurora"
       section: "#source-form-properties-aurora-object"
       description: "An Amazon Aurora connection reads data from a Amazon Aurora database and corresponds to source `type: platform.aurora`."
+
+    bing-ads:
+      title: "Bing Ads"
+      section: "#source-form-properties-bing-ads-object"
+      description: "A Bing Ads connection reads data from the Bing Ads API and corresponds to source `type: platform.bingads`."
 
     cloudsql-mysql:
       title: "Google CloudSQL MySQL"

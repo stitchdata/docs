@@ -16,7 +16,7 @@ sections:
   - title: "Destination Form Properties"
     anchor: "destination-form-properties"
     content: |
-      Destination form properties should be sent in the `connection` argument when using the [Create a Destination endpoint]({{ api.core-objects.destinations.create.anchor }}). 
+      Destination form properties should be sent in the `connection` argument when using the [Create]({{ api.core-objects.destinations.create.anchor }}) or [Update a Destination]({{ api.core-objects.destinations.update.anchor }}) endpoints.
 
       {% include connect/api-endpoint-rollup.html type="form-property" subtype="destination" %}
     include: |
@@ -26,7 +26,7 @@ sections:
   - title: "Source Form Properties"
     anchor: "source-form-properties"
     content: |
-      Source form properties should be sent in the `properties` argument when using the [Create a Source endpoint]({{ api.core-objects.sources.create.anchor }}).
+      Source form properties should be sent in the `properties` argument when using the [Create]({{ api.core-objects.sources.create.anchor }}) or [Update a Source]({{ api.core-objects.sources.update.anchor }}) endpoints.
 
       All properties should be sent as strings.
 
