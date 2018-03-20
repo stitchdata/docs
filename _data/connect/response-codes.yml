@@ -130,9 +130,9 @@ all-codes:
   - code: "500"
     text: "Internal Server Error"
     error: true
-    description: "The API is experiencing problems. Try again later."
+    description: &api-problems "The API is experiencing problems. Try again later."
 
   - code: "502"
     text: "Bad Gateway"
     error: true
-    description: "[PLACEHOLDER]"
+    description: *api-problems
