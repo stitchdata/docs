@@ -53,7 +53,7 @@ sections:
       Source creation is performed through a sequence of [connection steps]({{ api.data-structures.connection-steps.section }}). The required steps and the order of those steps are unique to the source type and are defined in its [Report Card]({{ api.data-structures.report-cards.section }}) object. All source creation, however, begins at the `form` step.
 
       {% capture tip-source-types %}
-      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) and expected properties within each connection step.<br><br>
+      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) (`form` step) and expected properties within each subsequent connection step.<br><br>
 
       With this endpoint, you could dynamically generate a UI or initial setup forms for each source type you want to include in your application.
       {% endcapture %}
@@ -161,12 +161,12 @@ sections:
                          "display_name":"HubSpot",
                          "properties":{  
                             "start_date":"2018-01-01T00:00:00Z",
-                            "frequency_in_minutes":"360"
+                            "frequency_in_minutes":"30"
                          }
                       }"
             ```
 
-          If successful, the API will return a `200 OK` status a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property:
+          If successful, the API will return a `200 OK` status and a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property:
 
           ```json
           {
@@ -424,6 +424,6 @@ sections:
 
       This function will send the user to Stitch, where they will be prompted to sign into their Stitch account and grant access to HubSpot.
 
-      After the user grants access, Stitch will automatically prompt the user to complete the remaining steps to configure the source, including selecting table and field selection.
+      After the user grants access, Stitch will automatically prompt the user to complete the remaining steps to configure the source, including selecting table and field for replication.
 
 ---
