@@ -37,15 +37,15 @@ sections:
     content: |
       {% assign api-terms = site.connect-files | where:"content-type","api-terms" %}
 
-      <table width="100%; fixed">
+      <table class="attribute-list">
       {% for item in api-terms %}
       {% for term in item.all-terms %}
       <tr>
-      <td width="20%; fixed" align="right">
+      <td class="attribute-name">
       <strong>{{ term.name }}</strong>
       </td>
 
-      <td>
+      <td class="description">
       {{ term.definition | flatify | markdownify }}
       </td>
 
