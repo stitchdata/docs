@@ -1,0 +1,61 @@
+list:
+  # - code: "connectionCreated"
+  #   error: false
+  #   text: ""
+  #   condition:
+
+  # - code: "connectionUpdated"
+  #   error: false
+  #   text: 
+  #   condition:
+
+  # - code: "errorAuthorizingConnection"
+  #   error: true
+  #   text: |
+  #     `"An error occurred while authorizing this integration. Please try again."`
+  #   condition:
+
+  # - code: "errorLoadingConnection"
+  #   error: true
+  #   text:
+  #   condition:
+
+  # - code: "errorLoadingIntegrationType"
+  #   error: true
+  #   text: |
+  #     `"We were unable to load this integration. Please try again later."`
+  #   condition: "Stitch is having trouble loading the integration. This error is usually transient and will resolve itself."
+
+  # - code: "integrationFlowCompleted"
+  #   error: 
+  #   text:
+  #   condition:
+
+  # - code: "integrationFormClose"
+  #   error: 
+  #   text:
+  #   condition:
+
+  - code: "AppClosedPrematurelyError"
+    error: true
+    text: |
+      `"App closed before reaching end of flow."`
+    condition: "The user closed the Stitch app before successfully completing the task."
+
+  - code: "SourceNotFoundError"
+    error: true
+    text: |
+      <code>"`Integration with id ${id} not found.`"</code>
+    condition: "The provided source ID is invalid."
+
+  - code: "UnknownSourceTypeError"
+    error: true
+    text: |
+      <code>"`Unknown source type: "${type}".`"</code>
+    condition: "The provided source `type` is invalid."
+
+  - code: "UpgradeEphemeralTokenError"
+    error: true
+    text: |
+      `"Error upgrading ephemeral token."`
+    condition: "There was an issue with updating the session's ephemeral token."

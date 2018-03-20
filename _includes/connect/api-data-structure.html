@@ -1,0 +1,104 @@
+{% assign data-structures = site.connect-files | where:"content-type","api-structure" %}
+
+{% include connect/api-endpoint-rollup.html type="data-structure" %}
+
+{% for structure in data-structures %}
+
+    <div class="api-js-heading">
+        <div class="method object">
+            OBJECT
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ structure.key }}">
+                The {{ structure.title }} Object
+            </h4>
+        </div>
+    </div>
+
+        <p>{{ structure.description | flatify | markdownify }}</p>
+
+    {% if structure.object-attributes %}
+        <table class="attribute-list">
+            {% for attribute in structure.object-attributes %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            {{ attribute.name }}
+                        </strong><br>
+                            {{ attribute.type | upcase }}
+                                {% if attribute.sub-type %}
+                                    (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
+                                {% endif %}
+                    </td>
+                    <td>
+                        {{ attribute.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if structure.sub-structures %}
+        {% assign all-sub-structures = site.connect-files | where:"content-type","api-sub-structure" %}
+
+        {% for sub-structure in all-sub-structures %}
+            {% for sub in structure.sub-structures %}
+                {% if sub-structure.key == sub.key %}
+
+                    <div class="api-js-heading">
+                        <div class="method object">
+                            SUB-OBJECT
+                        </div>
+
+                        <div class="method-resource">
+                            <h4 id="{{ sub-structure.key }}">
+                                The {{ sub-structure.title }} Object
+                            </h4>
+                        </div>
+                    </div>
+
+                    <table class="attribute-list">
+                        {% for attribute in sub-structure.object-attributes %}
+                            <tr>
+                                 <td class="attribute-name">
+                                    <strong>
+                                        {{ attribute.name }}
+                                    </strong><br>
+                                    {% if attribute.url %}
+                                        <a href="{{ attribute.url | flatify }}">
+                                            {{ attribute.type | upcase }}
+                                        </a>
+                                    {% else %}
+                                        {{ attribute.type | upcase }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ attribute.description | flatify | markdownify }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        
+    {% endif %}
+
+    <h4 id="{{ data-structure.key | append: "-example-usage" }}">
+        Example Object
+    </h4>
+
+    {% for example in structure.examples %}
+{%- capture example-code -%}
+```json
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+    {% endfor %}
+
+{% unless forloop.last == true %}
+    <hr>
+{% endunless %}
+
+{% endfor %}

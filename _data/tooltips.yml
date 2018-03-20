@@ -17,9 +17,11 @@ certified-integration: "Certified integrations will receive commercial support, 
 
 community-integration: "Maintenance of Community integrations will be performed by the Singer community. This includes fixing bugs and adapting to new versions of third-party APIs."
 
+connection-check: "A test performed by Stitch that checks the configuration of a source's connection parameters."
+
 database-integration: “Database integrations are just that - databases. This includes MySQL, PostgreSQL, MSSQL, and others.”
 
-destination: “Destination is our word for ‘data warehouse.’ A data warehouse is a central repository for data accumulated from a variety of sources.”
+destination: "Destination is the Stitch word for ‘data warehouse.’ A data warehouse is a central repository for data accumulated from a variety of sources."
 
 full-table-rep: "Full Table Replication means that ALL rows in a table - including new, updated, and existing - will be replicated during every replication attempt."
 
@@ -36,6 +38,14 @@ replication-key: "Replication Keys are columns used to identify new and updated 
 row-count: "A replicated row is any row that moves through Stitch, whether it's a new addition, updated record, or a copy of an updated record. This includes rows in nested subtables."
 
 saas-integration: “SaaS integrations are cloud-based third-party services like Salesforce, Zendesk, and Trello.”
+
+session: "A browser session in the Stitch web application."
+
+source: "A database, API, or other data application that Stitch replicates data from. Outside of Connect, known as an 'integration'."
+
+stitch-client-account: "An individual account for the Stitch web application."
+
+structure-sync: "The first step in the replication process, this process will detect the tables and columns available in the source, along with any changes to the structure of those tables and columns."
 
 updated-at-rep: "Updated or Modified At is a type of Incremental Replication that uses datetime or timestamp columns to detect new and updated data."
 

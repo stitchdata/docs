@@ -1,0 +1,84 @@
+{% assign items = site.data.connect.api-resource-details.list %}
+
+<!-- Checks to see if the endpoint has an argument list, then assigns a value -->
+{% if endpoint.arguments %}
+    {% assign arguments-are-present = true %}
+{% else %}
+    {% assign arguments-are-present = false %}
+{% endif %}
+
+
+<!-- Checks to see if the endpoint has an error list, then assigns a value-->
+
+{% assign count = 0 %}
+{% for example in endpoint.examples %}
+
+    <!-- If there's an error list, add 1 -->
+    {% if example.type == "errors" %}
+        {% capture counts %}
+             {{ count | plus: "1" }}
+        {% endcapture %}
+
+    <!-- Otherwise, leave the value at 0 -->
+    {% else %}
+        {% capture counts %}
+            {{ count | plus: "0" }}
+        {% endcapture %}
+    {% endif %}
+
+    {% assign example-total = counts %}
+{% endfor %}
+
+{% assign errors-are-present = example-total | plus: 0 %}
+    
+<h5 id="{{ endpoint.key | append: "--resource-list" }}">
+    Resource List
+</h5>
+
+<table class="attribute-list">
+    {% for item in items %}
+        {% case item.name %}
+            {% when 'Request Body' %}
+            <!-- Only run the code if the endpoint has an argument list -->
+                {% unless arguments-are-present == false %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>
+                                {{ item.name }}
+                            </strong>
+                        </td>
+                        <td class="description">
+                            {{ item.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endunless %}
+            {% when 'Errors' %}
+            <!-- Only run the code if the endpoint has an error list -->
+            <!-- Endpoints with an error list will have an errors-are-present value of 1 -->
+                {% unless errors-are-present == 0 %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>
+                                {{ item.name }}
+                            </strong>
+                        </td>
+                        <td class="description">
+                            {{ item.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endunless %}
+
+            {% else %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            {{ item.name }}
+                        </strong>
+                    </td>
+                    <td class="description">
+                        {{ item.description | flatify | markdownify }}
+                    </td>
+                </tr>
+        {% endcase %}
+    {% endfor %}
+</table>

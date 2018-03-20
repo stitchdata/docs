@@ -1,0 +1,84 @@
+{% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
+
+{% case include.content %}
+    {% when 'destination' %}
+        {% assign form-properties = site.connect-files | where:"form-type","destination" %}
+
+{% capture required-note %}
+**Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided in the `connection` argument for [Creating a Destination]({{ api.core-objects.destinations.create.anchor }}).
+{% endcapture %}
+
+    {% else %}
+        {% assign form-properties = site.connect-files | where:"form-type","source" %}
+
+{% capture required-note %}
+**Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided before the source can be considered <code>fully_configured</code>.
+{% endcapture %}
+{% endcase %}
+
+
+{% for form-property in form-properties %}
+    <div class="api-js-heading">
+        <div class="method object">
+            OBJECT 
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ form-property.key }}">
+                The {{ form-property.title }} Object
+            </h4>
+        </div>
+    </div>
+
+    <p>{{ form-property.description | flatify | markdownify }}</p>
+
+    {{ required-note | markdownify }}
+
+{% if form-property.object-attributes %}
+    <table class="attribute-list">
+        {% for attribute in form-property.object-attributes %}
+            <tr>
+                <td class="attribute-name">
+                    <strong>
+                        {{ attribute.name }}
+                    </strong><br>
+                    {{ attribute.type | upcase }}<br>
+
+                    {% case attribute.required %}
+                        {% when true %}
+                            <font color="#cc3399">REQUIRED</font>
+                        {% else %}
+                            OPTIONAL
+                    {% endcase %}
+                </td>
+                <td>
+                    {{ attribute.description | flatify | markdownify }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+<h5 id="{{ data-structure.key | append: "-example-usage" }}">
+    Example Object
+</h5>
+
+    {% for example in form-property.examples %}
+{%- capture example-code -%}
+```json
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+    {% endfor %}
+
+
+    {% case include.content %}
+        {% when 'destination' %}
+            <hr>
+        {% else %}
+            {% unless forloop.last == true %}
+                <hr>
+            {% endunless %}
+    {% endcase %}
+
+{% endfor %}

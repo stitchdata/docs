@@ -75,7 +75,6 @@ contact-support: mailto:support@snowflake.net
 pricing: https://www.snowflake.net/product/pricing/
 pricing-guide: https://www.snowflake.net/pricing-page-registration-page/
 
-
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
