@@ -5,7 +5,7 @@ order: 3
 
 sections:
   - content: |
-      1. Visit the [Stitch.js GitHub repo]({{ js.releases }}) and download the latest release.
+      1. Visit the [Stitch JS GitHub repo]({{ js.releases }}) and download the latest release.
 
       2. In your application, add this `<script>` tag just before the closing `<body>` tag of the page(s) you want it to run on:
 
