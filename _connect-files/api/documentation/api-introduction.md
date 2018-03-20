@@ -11,6 +11,20 @@ sections:
 
       We built the API to accept and return [JSON](http://json.org) in all responses, including [errors]({{ api.error-message-formats }}).
 
+  - title: "API Functionality"
+    anchor: "api-funcitonality"
+    content: |
+      Using the API, you can:
+
+      - Create and access Stitch client accounts
+      - Create and update destinations
+      - Create and update data sources
+
+      {% capture source-config %}
+      To fully configure a data source, you will also need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify }}). This will send the user to Stitch, where they will be prompted to authorize access to the data source and select streams (tables) for replication.
+      {% endcapture %}
+      {% include note.html content=source-config %}
+
   - title: "Accessing the API"
     anchor: "access-the-api"
     content: |
