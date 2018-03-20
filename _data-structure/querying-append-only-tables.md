@@ -10,7 +10,8 @@ destination: "BigQuery"
 ---
 {% include misc/data-files.html %}
 
-{% capture note %}**The info in this doc isn't specific to BigQuery** though it seems that way. The querying strategy outlined here can be used on any table that uses <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">append-only  Incremental Replication</a>.{% endcapture %}
+{% capture note %}
+The querying strategy outline here can be applied to any table that is loaded in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This is applicable to **BigQuery** and **Amazon S3 (CSV) destinations**. {% endcapture %}
 
 {% include note.html content=note %}
 

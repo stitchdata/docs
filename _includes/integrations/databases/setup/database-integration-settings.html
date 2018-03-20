@@ -24,16 +24,16 @@
 {% assign default-field = site.data.ui.database-integration-settings-page.default-fields %}
 {% assign default-copy = site.data.ui.database-integration-settings-page.default-copy %}
 
-
-1. {{ app.menu-paths.add-integration | flatify }}
+1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}, if you haven't already.
+2. {{ app.menu-paths.add-integration | flatify }}
 {% if integration.name == "rds" %}
-2. Click the icon (ex: MySQL) for the type of database you're connecting.
+3. Click the icon (ex: MySQL) for the type of database you're connecting.
 {% elsif integration.name == "magento" %}
-2. Click the **MySQL** icon. As Magento is based on MySQL, you can use Stitch's MySQL integration to connect your Magento database.
+3. Click the **MySQL** icon. As Magento is based on MySQL, you can use Stitch's MySQL integration to connect your Magento database.
 {% else %}
-2. Click the **{{ integration.display_name }}** icon.
+3. Click the **{{ integration.display_name }}** icon.
 {% endif %}
-3. Fill in the fields as follows:
+4. Fill in the fields as follows:
    {% for field in database-settings %}
 
    {% if field.name == "Database" and integration.db-type == "mysql" %}

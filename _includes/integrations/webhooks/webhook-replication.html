@@ -25,16 +25,16 @@ To do this, you can use the `{{ system-column.sequence }}` column and the table'
 
 If you wanted to create a snapshot of the latest version of this table, you could run a query like this:
 
-{% highlight sql %}
+```sql
 SELECT * FROM [stitch-redshift:stitch-{{ integration.name | remove: "." | replace: " ", "" }}.data] o
 INNER JOIN (
     SELECT
-        MAX({{ sequence }}) AS seq,
+        MAX({{ system-column.sequence }}) AS seq,
         {{ webhook-primary-key }}
     FROM [stitch-redshift:stitch-{{ integration.name | replace: " ", "" }}.data]
     GROUP BY {{ webhook-primary-key }}) oo
 ON o.{{ webhook-primary-key }} = oo.{{ webhook-primary-key }}
-AND o.{{ sequence }} = oo.seq
-{% endhighlight %}
+AND o.{{ system-column.sequence }} = oo.seq
+```
 
 This approach uses a subquery to get a single list of every row's Primary Key and maximum sequence number. It then joins the original table to both the Primary Key and maximum sequence, which makes all other column values available for querying.

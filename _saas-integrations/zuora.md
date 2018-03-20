@@ -1245,8 +1245,7 @@ Connecting your Zuora data to Stitch is a five-step process:
 
 ### Prerequisites
 
-1. **Verify that your Zuora account is a Production account.** At this time, Stitch can't connect to [Sandbox accounts](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/D_Zuora_Environments).
-2. **Verify that you have Administrator permissions in Zuora.** This is required to create a Zuora user for Stitch.
+- **Verify that you have Administrator permissions in Zuora.** This is required to create a Zuora user for Stitch.
 
 ### Creating a Stitch Zuora User {#create-stitch-zuora-user}
 
@@ -1264,6 +1263,7 @@ When entering the user credentials in the next step, **be sure to use the userna
 
 {% include integrations/shared-setup/connection-setup.html %}
 4. Enter the username and password of the Stitch user. Note that Stitch needs the username and password - entering a token and secret will result in an unsuccessful connection.
+5. If the instance you want to connect to Stitch is a sandbox, check the **Connect to a Sandbox Environment** box.
 
 {% include integrations/saas/setup/historical-sync.html %}
 

@@ -12,8 +12,8 @@ notes:
 
 replication-method: "Full Table"
 api-method:
-  name: getRecentlyModifiedDeals
-  doc-link: https://developers.hubspot.com/docs/methods/deals/get_deals_modified
+  name: getAllDeals
+  doc-link: https://developers.hubspot.com/docs/methods/deals/get-all-deals
 
 attributes:
 ## Primary Key

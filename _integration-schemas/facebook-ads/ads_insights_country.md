@@ -8,7 +8,9 @@ singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_faceboo
 description: |
   The `ads_insights_country` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics, segmented by country.
 
-  **Note:** This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `country`.
+  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `country`.
+
+  Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
 
 replication-method: "Incremental"
 attribution-window: true
