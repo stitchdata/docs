@@ -288,7 +288,7 @@ sections:
                    "js":{
                       "function":"authorizeSource",
                       "options":{
-                         "id":<SOURCE_ID>
+                         "id":45612
                       }
                    }
                 }
@@ -386,7 +386,7 @@ sections:
           }
           ```
 
-          Now that we know what step we need to complete next, we can use the `current_step_hints` object to identify how to complete the step:
+          Now that we know what step we need to complete next, we can use the [`current_step_hints`]({{ api.data-structures.current-step-hints.section }}) object to identify how to complete the step:
 
           ```json
           {
@@ -401,7 +401,7 @@ sections:
           }
           ```
 
-          In this case, we need to use [Stitch.js]() to initiate and complete the OAuth step required for `platform.hubspot`:
+          In this case, we need to use [Stitch.js]({{ js.section | prepend: site.baseurl | flatify }}) to initiate and complete the OAuth step required for `platform.hubspot`:
 
           - The `function` attribute contains the Stitch.js function required to complete the step, and
           - The `options` object contains the source's ID, which we need to pass to Stitch.js to complete the OAuth flow
