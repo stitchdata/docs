@@ -6,7 +6,9 @@ order: 3
 sections:
   - content: |
       {% assign api = site.data.connect.api %}
-      Authenticate your calls to the API by providing an access token in your requests. Each access token is associated with a single Stitch client account. Additionally, each request's permissions are limited to that Stitch client account.
+      Authenticate your calls to the API by providing an access token in your requests. Each access token is associated with a single Stitch client account. Access tokens do not expire, but they may be revoked by the user at any time.
+
+      Additionally, each request's permissions are limited to that Stitch client account.
 
       In the examples in this documentation, we use bearer auth:
 
@@ -28,9 +30,30 @@ sections:
       - title: "New Stitch Clients"
         anchor: "generate-access-token-new-stitch-client"
         content: |
-          As an API client, you can create a new Stitch client account with the Create Account API endpoint, which will return an access token for that Stitch client account.
+          As an API client, you can create a new Stitch client account with the [Create Account endpoint]({{ api.core-objects.accounts.create.section }}):
 
-          The created account is still owned and managed by the user it is created for, and that user will be able to login to the Stitch web interface and receive emails from Stitch.
+          ```curl
+          curl -X {{ api.core-objects.accounts.create.method | upcase }} {{ api.core-objects.accounts.create.name | prepend: api.base-url | flatify | strip_newlines }}
+               -H "Content-Type: application/json"
+               -d "{
+                    "email": "stitch-api-test@stitchdata.com",
+                    "last_name": "Product Team",
+                    "partner_id": "<PARTNER_ID>",
+                    "first_name": "Stitch",
+                    "partner_secret": "<PARTNER_SECRET>",
+                    "company": "Stitch Product Team"
+                  }"
+          ```
+
+          When successful, this endpoint return a status of `200 OK` and an access token:
+
+          ```json
+          {
+            "access_token":"<ACCESS_TOKEN>"
+          }
+          ```
+
+          The created account is owned and managed by the user it is created for, and that user will be able to login to the Stitch web interface and receive emails from Stitch.
 
       - title: "Existing Stitch Clients, Using OAuth2"
         anchor: "existing-stitch-clients-oauth2"
@@ -49,13 +72,13 @@ sections:
 
               While only your `client_id` (`partner_id`) is required, the URL may also include the following parameters:
 
-              {% assign auth = site.api-files | where:"content-type","embed-url-parms" %}
+              {% assign auth = site.connect-files | where:"content-type","api-url-parms" %}
 
-              <table width="100%; fixed">
+              <table class="attribute-list">
               {% for item in auth %}
               {% for parameter in item.parameters %}
               <tr>
-              <td width="20%; fixed" align="right">
+              <td class="attribute-name">
               <strong>{{ parameter.name }}</strong>
               <br>
 
@@ -68,7 +91,7 @@ sections:
 
               </td>
 
-              <td>
+              <td class="description">
               {{ parameter.description | flatify | markdownify }}
               </td>
 
@@ -109,8 +132,8 @@ sections:
 
               ```curl
               curl {{ api.base-url }}/oauth/token 
-                   -d client_secret={CLIENT_SECRET}
-                   -d code={AUTHORIZATION_CODE}
+                   -d client_secret=<CLIENT_SECRET>
+                   -d code=<AUTHORIZATION_CODE>
                    -d grant_type=authorization_code
               ```
 
@@ -121,17 +144,15 @@ sections:
               ```json
               {
                 "token_type": "bearer",
-                "access_token": ACCESS_TOKEN,
-                "stitch_account_id": STITCH_ACCOUNT_ID
+                "access_token": <ACCESS_TOKEN>,
+                "stitch_account_id": <STITCH_ACCOUNT_ID>
               }
               ```
 
               Your application should store the `access_token` and `stitch_account_id` somewhere secure, and use them to make calls to the API:
 
               ```curl
-              curl {{ api.base-url }}{{ api.core-objects.sources.base }}
-                   -H 'Authorization: Bearer ACCESS_TOKEN'
+              curl {{ api.core-objects.sources.list.method | upcase }} {{ api.core-objects.sources.list.name | prepend: api.base-url | flatify }}
+                   -H 'Authorization: Bearer <ACCESS_TOKEN>'
               ```
-
-              Access tokens do not expire, but they can be revoked by the user at any time.
 ---
