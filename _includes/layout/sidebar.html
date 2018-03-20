@@ -33,7 +33,6 @@
                         {% for section in category.sections %}
                             {% if section.subsections %}
                                 <li class="subfolders">
-
                                     <a data-toggle="collapse" 
                                     href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
                                     aria-expanded="false" 
