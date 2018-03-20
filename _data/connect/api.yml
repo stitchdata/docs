@@ -111,7 +111,7 @@ core-objects:
 
         The configuration process is unique for each type of source. Use the source's `report_card` object's `current_step` attribute to identify the current `step` in configuring the source.
 
-        The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) to complete the current step.
+        The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the current step.
 
     update:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
@@ -191,7 +191,7 @@ data-structures:
     title: "Current Step Hints"
     section: "#current-step-hint-object"
     description: |
-      Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}).
+      Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}).
 
       Otherwise, this object will provide information about the next call to make to the API.
 
@@ -201,9 +201,9 @@ data-structures:
       description: "This object describes the actions requires to complete the current connection step using the API, if applicable."
 
     stitch-connect-js-hints:
-      title: "StitchConnect.js"
+      title: "JavaScript Hints"
       section: "#current-step-stitch-js-hint-object"
-      description: "This object escribes the actions required to complete the current connection step using [Stitch.js]({{ js.section | flatify | prepend: site.baseurl }}) if applicable."
+      description: "This object describes the actions required to complete the current connection step using the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}), if applicable."
 
   properties:
     title: "Properties"
