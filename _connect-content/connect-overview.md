@@ -7,14 +7,14 @@ toc: false
 summary: false
 feedback: false
 
-contact-email: "product@stitchdata.com"
-
 toolkit:
-  - name: "API"
-    icon: "/images/integrations/icons/autopilot.svg"
-    description: "I'm an API! I do API things!"
+  - name: "{{ api.name }}"
+    icon: "{{ api.icon }}"
+    url: "{{ api.section | flatify }}"
+    description: "{{ api.description | flatify }}"
 
-  - name: "Stitch.js"
-    icon: "/images/integrations/icons/autopilot.svg"
-    description: "I'm a JavaScript client! I make people go insane!~"
+  - name: "{{ js.name }}"
+    icon: "{{ js.icon }}"
+    url: "{{ js.section | flatify }}"
+    description: "{{ js.description | flatify }}"
 ---
