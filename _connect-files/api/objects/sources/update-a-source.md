@@ -19,7 +19,7 @@ description: "{{ api.core-objects.sources.update.description }}"
 arguments:
   - name: "id"
     required: true
-    type: "string"
+    type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the source to be updated."
 
   - name: "display_name"
