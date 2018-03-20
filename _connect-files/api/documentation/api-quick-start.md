@@ -52,231 +52,378 @@ sections:
     content: |
       Source creation is performed through a sequence of [connection steps]({{ api.data-structures.connection-steps.section }}). The required steps and the order of those steps are unique to the source type and are defined in its [Report Card]({{ api.data-structures.report-cards.section }}) object. All source creation, however, begins at the `form` step.
 
-      We recommend using the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process and expected properties within each connection step for all source types. For example: You could use this endpoint to dynamically generate a UI or initial setup forms for each source type.
+      {% capture tip-source-types %}
+      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) and expected properties within each connection step.<br><br>
 
-      When [creating a source]({{ api.core-objects.sources.create.anchor }}), you can choose to include the [source's form properties]({{ api.form-properties.source-forms.section }}) in the `properties` argument. This information can be retrieved using the Source Type endpoint.
+      With this endpoint, you could dynamically generate a UI or initial setup forms for each source type you want to include in your application.
+      {% endcapture %}
 
-      After a source's form is created, the `report_card` object within the source should be used to complete its configuration. The [Report Card]({{ api.data-structures.report-cards.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
+      {% include tip.html content=tip-source-types %}
 
-      In the sections below, we'll demonstrate two methods for creating a HubSpot source.
+      In the example below, we'll use the Source Types endpoint to retrieve the source form properties for HubSpot, which has a `type` of `platform.hubspot`.
 
     subsections:
-      - title: "Method 1: Use the Source Types Endpoint to Provide Properties "
-        anchor: "quick-start--source-creation-method-1"
-        content: "In this example, we'll use the Source Types endpoint to retrieve the source form properties for HubSpot, which has a `type` of `platform.hubspot`."
+      - title: "Get the Source's Report Card"
+        anchor: "quick-start--get-hubspot-report-card"
+        content: |
+          Using the Source Types endpoint, retrieve the report card for `platform.hubspot`:
 
-        steps:
-          - title: "Retrieve HubSpot's Report Card"
-            anchor: "quick-start--source-creation-method-1--step-1"
-            content: |
-              Using the Source Types endpoint, retrieve the report card for `platform.hubspot`:
+          ```curl
+          curl -X GET {{ api.base-url}}{{ api.core-objects.source-types.base | flatify }}/platform.hubspot
+               -H 'Authorization: Bearer <ACCESS_TOKEN>'
+          ```
 
-              ```curl
-              curl -X GET {{ api.base-url}}{{ api.core-objects.source-types.base | flatify }}/platform.hubspot
-                   -H 'Authorization: Bearer <ACCESS_TOKEN>'
-              ```
+          The response, or the report card for `platform.hubspot`, will include HubSpot's [Source Form Properties]({{ api.core-objects.sources.create.anchor }}). These are the parameters that are required to complete a source's `form` step.
 
-          - title: "Locate Required Properties for the HubSpot Form"
-            anchor: "quick-start--source-creation-method-1--step-2"
-            content: |
-              Use the response from Step 1 to locate the required properties for the `form` step. **Note**: You do not have to provide system-provided properties to create a source.
+      - title: "Locate Required Form Properties in the Report Card"
+        anchor: "quick-start--locate-form-properties"
+        content: |
+          Use the response from the previous step to locate the required properties for the `form` step.
 
-              ```json
-              {  
-                 "type":"platform.hubspot",
-                 "current_step":1,
-                 "current_step_hints":{  
-                    "api":{  
-                       "method":"POST",
-                       "url":"{{ api.core-objects.sources.create.name | flatify }}"
-                    },
-                    "js":{  
-                       "function":"addSource",
-                       "options":{  
-                          "type":"platform.hubspot"
-                       }
-                    }
-                 },
-                 "steps":[  
-                    {  
-                       "type":"form",                                 /* form step */
-                       "properties":[
-                          {  
-                             "name":"image_version",                  /* system-provided property */
-                             "required_to_be_fully_configured":true,
-                             "provided":false,
-                             "is_credential":false,
-                             "system_provided":true
-                          },
-                          {  
-                             "name":"frequency_in_minutes",           /* required property */
-                             "required_to_be_fully_configured":true,
-                             "provided":false,
-                             "is_credential":false,
-                             "system_provided":false
-                          },
-                          {  
-                             "name":"start_date",                     /* required property */
-                             "required_to_be_fully_configured":true,
-                             "provided":false,
-                             "is_credential":false,
-                             "system_provided":false
-                          }
-                       ]
-                    },
-                    {  
-                       "type":"oauth",
-                       "properties":[...]
-                    },
-                    {  
-                       "type":"discover_schema",
-                       "properties":[ ]
-                    },
-                    {  
-                       "type":"field_selection",
-                       "properties":[ ]
-                    },
-                    {  
-                       "type":"fully_configured",
-                       "properties":[ ]
-                    }
-                 ]
-              }
-              ```
+          **Note**: You do not have to provide system-provided properties to create a source.
 
-          - title: "Create the HubSpot Source"
-            anchor: "quick-start--source-creation-method-1--step-3"
-            content: |
-              Now that you've retrieved the required `properties` for HubSpot, create the source by using the Create a Source endpoint:
+          ```json
+          {  
+             "type":"platform.hubspot",
+             "current_step":1,
+             "current_step_hints":{  
+                "api":{  
+                   "method":"POST",
+                   "url":"{{ api.core-objects.sources.create.name | flatify }}"
+                },
+                "js":{  
+                   "function":"addSource",
+                   "options":{  
+                      "type":"platform.hubspot"
+                   }
+                }
+             },
+             "steps":[  
+                {  
+                   "type":"form",                                 /* form step */
+                   "properties":[
+                      {  
+                         "name":"image_version",                  /* system-provided property */
+                         "required_to_be_fully_configured":true,
+                         "provided":false,
+                         "is_credential":false,
+                         "system_provided":true
+                      },
+                      {  
+                         "name":"frequency_in_minutes",           /* required property */
+                         "required_to_be_fully_configured":true,
+                         "provided":false,
+                         "is_credential":false,
+                         "system_provided":false
+                      },
+                      {  
+                         "name":"start_date",                     /* required property */
+                         "required_to_be_fully_configured":true,
+                         "provided":false,
+                         "is_credential":false,
+                         "system_provided":false
+                      }
+                   ]
+                },
+                {  
+                   "type":"oauth",
+                   "properties":[...]
+                },
+                {  
+                   "type":"discover_schema",
+                   "properties":[ ]
+                },
+                {  
+                   "type":"field_selection",
+                   "properties":[ ]
+                },
+                {  
+                   "type":"fully_configured",
+                   "properties":[ ]
+                }
+             ]
+          }
+          ```
 
-              ```curl
-              curl -X POST {{ api.base-url}}{{ api.core-objects.sources.create.name | flatify }}
-                   -H "Authorization: Bearer <ACCESS_TOKEN>" 
-                   -H "Content-Type: application/json"
-                   -d "{  
-                           "type":"platform.hubspot",
-                           "display_name":"Hubspot",
-                           "properties":{  
-                              "start_date":"2018-01-01T00:00:00Z",
-                              "frequency_in_minutes":"360"
-                           }
-                        }"
-              ```
+          For `platform.hubspot`, the `frequency_in_minutes` and `start_date` properties must be provided to complete the `form` step.
 
-      - title: "Method 2: Use the Source's Report Card to Provide Properties"
-        anchor: "quick-start--source-creation-method-2"
-        content: "In this example, we'll rely on the source's report card to determine which properties we need to provide to create a HubSpot source."
-        steps:
-          - title: "Create the HubSpot Source"
-            anchor: "quick-start--source-creation-method-2--step-1"
-            content: |
-              First, create the HubSpot source. Notice that we're not providing the `properties` argument this time:
+      - title: "Create the Source"
+        anchor: "quick-start--create-source"
+        content: |
+          Now that the required `properties` for HubSpot have been retrieved, we can create the HubSpot source:
 
-              ```curl
-              curl -X POST {{ api.base-url}}{{ api.core-objects.sources.create.name | flatify }}
-                   -H "Authorization: Bearer <ACCESS_TOKEN>" 
-                   -H "Content-Type: application/json"
-                   -d "{  
-                           "type":"platform.hubspot",
-                           "display_name":"Hubspot"
-                        }"
-              ```
-          - title: "Locate the Current Step and Current Step Hints"
-            anchor: "quick-start--source-creation-method-2--step-2"
-            content: |
-              Use the response to the request to locate the source's `id`, `current_step`, and `current_step_hints` attributes.
-
-              The data in `current_step` and `current_step_hints` can be used to determine which step is next in the source's configuration, and which properties need to be provided to successfully complete it. **Note**: You do not have to provide system-provided properties to create a source.
-
-              Because we didn't provide the `properties` argument, we're on step 1, which is the `form` step:
-
-              ```json
-              {  
-                 "properties":{  
-                    "image_version":"1.latest"
-                 },
-                 "updated_at":"2018-01-01T19:13:41Z",
-                 "check_job_name":null,
-                 "name":"display_name",
-                 "type":"platform.hubspot",
-                 "deleted_at":null,
-                 "system_paused_at":null,
-                 "stitch_client_id":"CLIENT_ID",
-                 "paused_at":null,
-                 "id":12345,                                          /* source ID /*
-                 "display_name":"DISPLAY_NAME",
-                 "created_at":"2018-01-01T19:13:41Z",
-                 "report_card":{  
-                    "type":"platform.hubspot",
-                    "current_step":1,                                 /* current step */
-                    "current_step_hints":{                            /* current step hints /*
-                       "api":{  
-                          "method":"PUT",
-                          "url":"{{ api.core-objects.sources.create.name | flatify }}/12345"
-                       }
-                    },
-                    "steps":[  
-                       {  
-                          "type":"form",                              /* step 1 = form step */
-                          "properties":[  
-                             {  
-                                "name":"image_version",               /* system-provided property */
-                                "required_to_be_fully_configured":true,
-                                "provided":true,
-                                "is_credential":false,
-                                "system_provided":true
-                             },
-                             {  
-                                "name":"frequency_in_minutes",        /* required property */
-                                "required_to_be_fully_configured":true,
-                                "provided":false,
-                                "is_credential":false,
-                                "system_provided":false
-                             },
-                             {  
-                                "name":"start_date",                  /* required property */
-                                "required_to_be_fully_configured":true,
-                                "provided":false,
-                                "is_credential":false,
-                                "system_provided":false
-                             }
-                          ]
-                       },
-                       {  
-                          "type":"oauth",
-                          "properties":[...]
-                       },
-                       {  
-                          "type":"discover_schema",
-                          "properties":[ ]
-                       },
-                       {  
-                          "type":"field_selection",
-                          "properties":[ ]
-                       },
-                       {  
-                          "type":"fully_configured",
-                          "properties":[ ]
-                       }
-                    ]
-                 }
-              }
-              ```
-          - title: "Complete the Form Step"
-            anchor: "quick-start--source-creation-method-2--step-3"
-            content: |
-              Now that you've located the necessary information, complete the `form` step by using the [Update a Source]({{ api.core-objects.sources.update.anchor }}) endpoint and providing the source's `id` and the `properties` required to complete the step:
-
-              ```curl
-              curl -X POST {{ api.base-url}}{{ api.core-objects.sources.create.name | flatify }}/12345       /* source ID */
-                   -H "Authorization: Bearer <ACCESS_TOKEN>" 
-                   -H "Content-Type: application/json"
-                   -d "{  
+          ```curl
+            curl -X POST {{ api.base-url}}{{ api.core-objects.sources.create.name | flatify }}
+                 -H "Authorization: Bearer <ACCESS_TOKEN>" 
+                 -H "Content-Type: application/json"
+                 -d "{  
+                         "type":"platform.hubspot",
+                         "display_name":"HubSpot",
                          "properties":{  
                             "start_date":"2018-01-01T00:00:00Z",
                             "frequency_in_minutes":"360"
                          }
                       }"
-              ```
+            ```
+
+          If successful, the API will return a `200 OK` status a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property:
+
+          ```json
+          {
+             "properties":{
+                "frequency_in_minutes":"30",
+                "image_version":"1.latest",
+                "start_date":"2018-01-01T00:00:00Z"
+             },
+             "updated_at":"2018-02-06T16:25:06Z",
+             "check_job_name":null,
+             "name":"hubspot",
+             "type":"platform.hubspot",
+             "deleted_at":null,
+             "system_paused_at":null,
+             "stitch_client_id":<ACCOUNT_ID>,
+             "paused_at":null,
+             "id":45612,                                          /* Source ID */
+             "display_name":"HubSpot",
+             "created_at":"2018-02-06T16:25:06Z",
+             "report_card":{
+                "type":"platform.hubspot",
+                "current_step":2,
+                "steps":[
+                   {
+                      "type":"form",
+                      "properties":[
+                         {
+                            "name":"image_version",
+                            "is_required":true,
+                            "provided":true,
+                            "is_credential":false,
+                            "system_provided":true,
+                            "json_schema":null
+                         },
+                         {
+                            "name":"frequency_in_minutes",
+                            "is_required":true,
+                            "provided":true,
+                            "is_credential":false,
+                            "system_provided":false,
+                            "json_schema":{
+                               "type":"string",
+                               "pattern":"^\\d+$"
+                            }
+                         },
+                         {
+                            "name":"start_date",
+                            "is_required":true,
+                            "provided":true,
+                            "is_credential":false,
+                            "system_provided":false,
+                            "json_schema":{
+                               "type":"string",
+                               "pattern":"^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$"
+                            }
+                         }
+                      ]
+                   },
+                   {
+                      "type":"oauth",
+                      "properties":[
+                         {
+                            "name":"client_id",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string"
+                            }
+                         },
+                         {
+                            "name":"client_secret",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string"
+                            }
+                         },
+                         {
+                            "name":"redirect_uri",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string",
+                               "format":"uri"
+                            }
+                         },
+                         {
+                            "name":"refresh_token",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string"
+                            }
+                         }
+                      ]
+                   },
+                   {
+                      "type":"discover_schema",
+                      "properties":[ ]
+                   },
+                   {
+                      "type":"field_selection",
+                      "properties":[ ]
+                   },
+                   {
+                      "type":"fully_configured",
+                      "properties":[ ]
+                   }
+                ],
+                "current_step_hints":{
+                   "js":{
+                      "function":"authorizeSource",
+                      "options":{
+                         "id":<SOURCE_ID>
+                      }
+                   }
+                }
+             }
+          }
+          ```
+
+          After a source's form is created, the `report_card` object within the source should be used to complete its configuration. 
+
+      - title: "Identify the Current Step"
+        anchor: "quick-start--identify-current-step"
+        content: | 
+          The [Report Card]({{ api.data-structures.report-cards.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
+
+          Looking at the report card for our HubSpot source, we can see that we're now on step `2` of configuration, which is the `oauth` step:
+
+          ```json
+          {
+             "current_step_hints":{
+                "js":{
+                   "function":"authorizeSource",
+                   "options":{
+                      "id":45612
+                   }
+                }
+             },
+             "report_card":{
+                "type":"platform.hubspot",
+                "current_step":2,                                           /* Current step */
+                "steps":[
+                   {
+                      "type":"form",
+                      "properties":[ ... ]
+                   },
+                   {
+                      "type":"oauth",
+                      "properties":[
+                         {
+                            "name":"client_id",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string"
+                            }
+                         },
+                         {
+                            "name":"client_secret",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string"
+                            }
+                         },
+                         {
+                            "name":"redirect_uri",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string",
+                               "format":"uri"
+                            }
+                         },
+                         {
+                            "name":"refresh_token",
+                            "is_required":true,
+                            "provided":false,
+                            "is_credential":true,
+                            "system_provided":true,
+                            "json_schema":{
+                               "type":"string"
+                            }
+                         }
+                      ]
+                   },
+                   {
+                      "type":"discover_schema",
+                      "properties":[ ]
+                   },
+                   {
+                      "type":"field_selection",
+                      "properties":[ ]
+                   },
+                   {
+                      "type":"fully_configured",
+                      "properties":[ ]
+                   }
+                ]
+             }
+          }
+          ```
+
+          Now that we know what step we need to complete next, we can use the `current_step_hints` object to identify how to complete the step:
+
+          ```json
+          {
+             "current_step_hints":{
+                "js":{
+                   "function":"authorizeSource",
+                   "options":{
+                      "id":45612
+                   }
+                }
+             }
+          }
+          ```
+
+          In this case, we need to use [Stitch.js]() to initiate and complete the OAuth step required for `platform.hubspot`:
+
+          - The `function` attribute contains the Stitch.js function required to complete the step, and
+          - The `options` object contains the source's ID, which we need to pass to Stitch.js to complete the OAuth flow
+
+
+  - title: "Use Stitch.js to Complete Source Configuration"
+    anchor: "quick-start--stitch-js-complete-configuration"
+    content: |
+      To initiate the OAuth flow, use the [`authorizeSource`]({{ js.section | prepend: site.baseurl | append: js.authorize-a-source.section | flatify }}) function in the Stitch.js library. This function expects an `options` argument containing the source's `id`:
+
+      ```javascript
+      Stitch.authorizeSource({
+          "id": 45612
+      }).then((result) => {
+          console.log(`Integration created, type=${result.type}, id=${result.id}`);
+      }).catch((error) => {
+          console.log("Integration not created.", error);
+      });
+      ```
+
+      This function will send the user to Stitch, where they will be prompted to sign into their Stitch account and grant access to HubSpot.
+
+      After the user grants access, Stitch will automatically prompt the user to complete the remaining steps to configure the source, including selecting table and field selection.
 
 ---

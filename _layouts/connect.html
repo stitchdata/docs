@@ -31,6 +31,9 @@ layout: page
                 {% if doc.title == "Quick Start" %}
                     Step {{ forloop.index }}:
                 {% endif %}
+                {% capture top-level-step %}
+                    {{ forloop.index }}
+                {% endcapture %}
                 {{ section.title | flatify }}
             </h3>
             {% endif %}
@@ -45,7 +48,10 @@ layout: page
                 {% for subsection in section.subsections %}
                     {% if subsection.title %}
                         <h4 id="{{ subsection.anchor }}">
-                            {{ subsection.title | flatify }}
+                            {% if doc.title == "Quick Start" %}
+                                Step {{ top-level-step | strip }}.{{ forloop.index }}: 
+                            {% endif %}
+                                {{ subsection.title | flatify }}
                         </h4>
                     {% endif %}
 
