@@ -3,7 +3,7 @@
 <ul class="tiles">
     {% for tool in page.toolkit %}
         <li class="lg-tile">
-            <a href="{{ tool.url | flatify }}">
+            <a href="{{ tool.url | prepend: site.baseurl | flatify }}">
                 <img src="{{ tool.icon | prepend: site.baseurl | flatify }}">
             </a>
                 <strong>{{ tool.name | flatify }}</strong><br>
