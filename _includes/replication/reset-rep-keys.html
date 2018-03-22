@@ -28,8 +28,8 @@ If you need to backfill already-replicated rows with data from the newly syncing
 {% capture reset-rep-key %}
 Before you reset the Replication Keys, note the following:<br><br>
 
-1. This will **overwrite** existing data, not clear it.<br>
-2. Additionally, this process will lead to increased row counts which will count towards your limit.<br>
+1. This will **delete and re-create** your destination tables with a **full re-replication of your source data**.<br>
+2. As a result, this process will lead to increased row counts which will count towards your limit.<br>
 3. **This process is not reversible.**<br><br>
 
 If you have questions or concerns about resetting Replication Keys, we encourage you to reach out to support before proceeding.
@@ -42,8 +42,8 @@ If you have questions or concerns about resetting Replication Keys, we encourage
 {% else %}
 Replication Keys in database integrations can be reset at the **integration** or the **{{ object }}** level.
 
-- At the **integration** level, the reset will overwrite the saved values for ALL {{ object }}s AND queue a full re-sync **for all {{ object }}s in the integration.**
-- At the **{{ object }}** level, the reset will overwrite the saved values AND queue a full re-sync **for that {{ object }} only**.
+- At the **integration** level, the reset will clear the replication key value for ALL {{ object }}s AND queue a full re-sync **for all {{ object }}s in the integration.**
+- At the **{{ object }}** level, the reset will clear the replication key value AND queue a full re-sync **for that {{ object }} only**.
 {% endif %}
 
 To reset Replication Keys, do the following:
