@@ -20,7 +20,7 @@ display_name: "data.world"
 type: "data-world"
 db-type: "s3"
 pricing_tier: "standard"
-status: "Closed Beta"
+status: "Released"
 description: *summary
 pricing_model: "Varies" ## provider model
 free_option: "Yes"
