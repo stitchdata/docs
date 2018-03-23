@@ -53,6 +53,18 @@ requirements-list:
 requirements-info:
 
 setup-steps:
+  - title: "Enable Web Services in Your NetSuite Account"
+    anchor: "enable-web-services"
+    content: |
+      {% include note.html content="If Web Services is already enabled for your account, skip this step." %}
+
+      1. In your NetSuite account, click **Setup > Company > Enable Features**.
+      2. Click the **SuiteCloud** subtab.
+      3. Locate the **SuiteTalk (Web Services)** section.
+      4. Check the **Web Services** box:
+         ![The SuiteTalk (Web Services) section in NetSuite's SuiteCloud subtab.]({{ site.baseurl }}/images/integrations/netsuite-suitecloud-webservices.png)
+      5. Scroll to the bottom of the page and click **Save**.
+
   - title: "Create a Stitch NetSuite Admin User"
     anchor: "create-netsuite-admin-user"
     content: |
