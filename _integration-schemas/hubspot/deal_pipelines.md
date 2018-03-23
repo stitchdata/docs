@@ -20,7 +20,7 @@ attributes:
   - name: "pipelineId"
     type: "string"
     primary-key: true
-    description: "The internal ID of the pipeline"
+    description: "The internal ID of the pipeline."
 
   - name: "stages"
     type: "array"
