@@ -1,9 +1,14 @@
 ---
+# -------------------------- #
+#      Page & Formatting     #
+# -------------------------- #
+
 title: NetSuite
 permalink: /integrations/saas/netsuite
 tags: [saas_integrations]
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 summary: "Connection instructions and schema details for Stitch's NetSuite integration."
+layout: singer
 format: ## controls formatting options in template
   schema-list: false
   table-desc: true
@@ -20,6 +25,8 @@ author: "Stitch"
 author-url: "https://www.stitchdata.com"
 status-url: "https://status.netsuite.com/"
 
+# this-version: "10-15-2015"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -34,6 +41,59 @@ icon: /images/integrations/icons/netsuite.svg
 whitelist:
   tables: true
   columns: false
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+requirements-list:
+  - item: "**Administrator permissions in NetSuite**. This is required to complete parts of the setup process."
+  - item: "**To enable Web Services for your NetSuite account.** This is necessary to access NetSuite's API."
+
+requirements-info:
+
+setup-steps:
+  - title: "Create a Stitch NetSuite Admin User"
+    anchor: "create-netsuite-admin-user"
+    content: |
+      To connect NetSuite to Stitch, we recommend that you create a Stitch-specific Admin user for us. We suggest this approach for a few reasons:
+
+      1. This will ensure that Stitch is easily distinguishable in any logs or audits.
+
+      2. NetSuite's API has some limitations that could make it difficult or impossible for Stitch to replicate data. For example: a single NetSuite user is only allowed to have **one** open API session at a time. If there's another connection elsewhere, Stitch will run into problems replicating data.
+
+      After you've created the Admin user, move onto the next step.
+
+  - title: "Retrieve the NetSuite User's Role ID"
+    anchor: "retrieve-netsuite-role-id"
+    content: |
+      All Roles in NetSuite have a `Name` - for example, Accountant - and `Role ID`, or Internal ID number. Stitch requires this ID to successfully create a NetSuite integration.
+
+      Role IDs can be found on the **Manage Roles** page in NetSuite. From your dashboard, click **Setup > Users/Roles > Manage Roles*.
+
+      Locate the Role of the user in the Roles list. The ID is located in a column called **Internal ID**:
+
+      ![The Internal ID column contains the user's Role ID.]({{ site.baseurl }}/images/integrations/netsuite-locate-role-id.png)
+
+      If you don't see the Internal ID column in the list, you may need to add it:
+
+      1. Click the **Edit View** button.
+      2. Click the drop-down menu and select **Internal ID**.
+      3. Click **Add**.
+      4. Click **Save**.
+
+      After you add the column to the Roles list, locate the ID for the user and move onto the next step.
+
+  - title: "add integration"
+    content: |
+      4. Enter the email address and password associated with the Stitch NetSuite user.
+      5. Enter the **Role ID** - the numerical ID, not the name of the Role - associated with the user entered above. See [Step 3](#retrieve-netsuite-role-id) if you need help locating the user's Role ID.
+
+         **Note:** If this field is left blank, Stitch will use NetSuite's default role ID for Admin roles (`3`). If you receive an error when trying to save the integration, enter a `3` in this field and try saving again.
+      6. Select the **Account Type** - Production or Sandbox.
+  - title: "historical sync"
+  - title: "replication frequency"
+
 
 # -------------------------- #
 #     Integration Tables     #
