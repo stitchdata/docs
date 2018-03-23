@@ -27,7 +27,7 @@ repo-url: https://github.com/singer-io/tap-bing-ads
 # -------------------------- #
 
 status: "Released"
-certified: false
+certified: true
 
 historical: "1 year"
 frequency: "24 hours"
