@@ -6,9 +6,7 @@ name: "deal_pipelines"
 doc-link: https://developers.hubspot.com/docs/methods/deal-pipelines/overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/deal_pipelines.json
 description: |
-  The `deal_pipelines` table contains info about the 'deal stage' and 'pipeline' properties.
-
-notes:
+  The `deal_pipelines` table contains info about the `deal stage` and `pipeline` properties.
 
 replication-method: "Full Table"
 api-method:
@@ -26,7 +24,7 @@ attributes:
     type: "array"
     description: "A list of stages for this specific pipeline."
     array-attributes:
-      - name: "stageID"
+      - name: "stageId"
         type: "string"
         description: "The internal ID of the stage."
 
@@ -37,15 +35,15 @@ attributes:
       - name: "probability"
         type: "number"
         description: "The probability that the deal will close."
-        
+
       - name: "active"
         type: "boolean"
         description: "Indicates if the stage is currently in use."
-        
+
       - name: "displayOrder"
         type: "integer"
         description: "The order in which the stage appears in HubSpot."
-        
+
       - name: "closedWon"
         type: "boolean"
         description: "Indicates if this stage marks a deal as closed won."        
