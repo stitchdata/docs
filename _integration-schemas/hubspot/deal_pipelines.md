@@ -47,15 +47,16 @@ attributes:
       - name: "closedWon"
         type: "boolean"
         description: "Indicates if this stage marks a deal as closed won."        
-        
-  - name: “label”
-    type: “string”
-    description: “The human-readable label for the pipeline”
 
-   - name: “active”
-    type: “boolean”
-    description: “Indicates if the pipeline is currently in use”
-    
-   - name: “displayOrder”
-    type: “integer”
-    description: “The order in which the pipeline appears in HubSpot”    ---
+  - name: "label"
+    type: "string"
+    description: "The human-readable label for the pipeline."
+
+  - name: "active"
+    type: "boolean"
+    description: "Indicates if the pipeline is currently in use."
+
+  - name: "displayOrder"
+    type: "integer"
+    description: "The order in which the pipeline appears in HubSpot."
+---
