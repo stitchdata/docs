@@ -58,4 +58,4 @@ attributes:
     
    - name: “displayOrder”
     type: “integer”
-    description: “The order in which the pipeline appears in HubSpot”    
+    description: “The order in which the pipeline appears in HubSpot”    ---
