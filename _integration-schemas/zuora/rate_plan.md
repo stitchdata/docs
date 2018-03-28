@@ -36,6 +36,11 @@ attributes:
     type: "string"
     description: "The type of amendment associated with the rate plan."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "createdById"
     type: "string"
     description: "The ID of the Zuora user who created the rate plan."

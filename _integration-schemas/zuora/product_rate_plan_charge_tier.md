@@ -32,6 +32,11 @@ attributes:
     type: "string"
     description: "The code for the currency used by the tier's price."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "endingUnit"
     type: "number"
     description: "The end number of a range of units for the tier."

@@ -34,6 +34,11 @@ attributes:
     type: "date-time"
     description: "The date the product rate plan was created."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "description"
     type: "string"
     description: "The description of the product rate plan."

@@ -63,6 +63,11 @@ attributes:
     type: "string"
     description: "The ID of the credit memo that is refunded."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "gatewayId"
     type: "string"
     description: "The ID of the gateway instance that processes the refund."

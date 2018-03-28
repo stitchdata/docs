@@ -73,6 +73,11 @@ attributes:
     type: "date-time"
     description: "The date the invoice item was created."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "invoiceId"
     type: "string"
     description: "The ID of the invoice associated with the invoice item."

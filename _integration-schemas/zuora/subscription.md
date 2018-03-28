@@ -84,6 +84,11 @@ attributes:
     type: "string"
     description: "The period type for the current subscription term."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "initialTerm"
     type: "integer"
     description: "The length of the period for the first subscription term."

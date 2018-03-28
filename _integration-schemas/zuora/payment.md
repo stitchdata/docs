@@ -79,6 +79,11 @@ attributes:
     type: "string"
     description: "The currency the payment was in."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "effectiveDate"
     type: "date-time"
     description: "The date when the payment takes effect."

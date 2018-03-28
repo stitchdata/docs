@@ -28,6 +28,11 @@ attributes:
     type: "date-time"
     description: "The date the rate plan charge tier was created."
 
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+
   - name: "price"
     type: "number"
     description: |
