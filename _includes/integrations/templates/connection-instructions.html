@@ -86,7 +86,7 @@ the content and assign a variable -->
 
 <!-- And then use the markdownify filter to correctly
 render the Markdown. This is a Jekyll thing, not a this-site thing. -->
-{{ connection-setup | append: step.content | markdownify }}
+{{ connection-setup | append: step.content | flatify | markdownify }}
 
 {{ substeps }}
 
