@@ -86,18 +86,20 @@ setup-steps:
     content: |
       Stitch's {{ integration.display_name }} integration gives you the ability to select the API that you want Stitch to use to extract data. If you aren't sure which API you should use, take a look at the brief comparison below.
 
+      This setting can be changed at any time, but will only affect extractions that take place after the change.
+
       Once you've decided, click the radio button next to the API you want to use.
 
-      **Note**: If using the AQuA API, you'll also need to enter a partner ID in the **Zuora Partner ID** field. If you don't already have this credential, reach out to [Zuora Global Support](http://support.zuora.com/) before proceeding.
+      {% include note.html content="If using the AQuA API, you'll also need to enter a partner ID in the **Zuora Partner ID** field. If you don't already have this credential, reach out to [Zuora Global Support](http://support.zuora.com/) before proceeding." %}
 
       <table width="100%; fixed">
       <tr>
       <th width="24%; fixed">
       </th>
-      <th width="38%; fixed">
+      <th width="32%; fixed">
       REST API
       </th>
-      <th width="38%; fixed">
+      <th width="44%; fixed">
       AQuA API
       </th>
       </tr>
