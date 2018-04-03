@@ -74,9 +74,11 @@ The Stitch {{ integration.display_name }} is a REST API that allows you to push 
 
 The {{ integration.display_name }} accepts JSON or [Transit][transit] and returns JSON for all of its [methods](#methods). Each method uses a standard HTTP verb (`GET/POST`) and standard HTTP response codes for [returning statuses](#return-codes).
 
-Before you get started, consider where the data that you want to push currently lives: **is it already in a [database]({{ site.baseurl }}/integrations/databases) or [SaaS integration]({{ site.baseurl }}/integrations/saas) we support?** A few of our SaaS integrations allow you to sync data at the tabular level; all database integrations (except for Mongo) can be synced to the columnar level. In addition, you can define Replication Methods for tables that come from a database integration.
+Before you get started, you may want to consider how you will prepare the data to send to the Import API. The [Singer](https://www.singer.io/) specification is a better way to write and collaborate on scripts that move data from databases, web APIs, files, and just about any data source to Stitch. If you develop a [Singer Tap](https://github.com/singer-io/getting-started#developing-a-tap) to pull data, you can then send it to the [Stitch Target](https://github.com/singer-io/target-stitch). 
 
-In short, unless you want complete control over data replication, it’s usually easier to use the native integration instead of using the {{ integration.display_name }}.
+If you decide to go this route, you do not need to worry about specific requests to the Import API as described in this doc. Rather, you can simply pass your [Stitch Import API token](https://www.stitchdata.com/docs/integrations/import-api#add-stitch-data-source) to the Stitch Target to get your data into an Import API connection.
+
+That being said, if neither the Stitch integrations nor Singer scripts are for you, this document goes into detail on the functionality of our Import API.
 
 ---
 
