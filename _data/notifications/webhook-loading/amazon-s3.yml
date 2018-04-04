@@ -1,0 +1,32 @@
+request-body: |
+  ```json
+  {
+    "integration_name": "salesforce-prod",
+    "switch_view": false,
+    "table_version": 1,
+    "sequence_field": "_sdc_sequence",
+    "s3_bucket": "com-stitch-prod-s3-bucket",
+    "tables": [
+      {
+        "account": [
+          {
+            "name": "salesforce-prod/account/1_1519235654474.[csv|jsonl]",
+            "pk": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "opportunity": [
+          {
+            "name": "salesforce-prod/opportunity/1_1519235654474.[csv|jsonl]",
+            "pk": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  ```

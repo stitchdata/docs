@@ -276,7 +276,7 @@ setup-steps:
 
       By default, when new fields are added to Salesforce objects, Stitch will automatically detect and begin replicating data from them.
 
-      If you prefer to track new fields manually, uncheck the **Replicate new fields automatically** checkbox.
+      If you prefer to track new fields manually, uncheck the **Replicate new fields automatically** checkbox. **Note**: This setting cannot be changed after the integration is saved.
 
       {% capture new-fields-replicating-tables %}
       **Data for New Fields in Already-Replicating Tables**<br>

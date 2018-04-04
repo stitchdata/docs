@@ -1,0 +1,54 @@
+# -------------------------- #
+#  CONNECT JAVASCRIPT CLIENT #
+# -------------------------- #
+
+name: "Connect JavaScript Client"
+description: "Send users to Stitch to complete data source configuration workflows."
+icon: "/images/connect/connect-js.svg"
+
+section: "{{ site.data.urls.connect.js }}"
+
+introduction: "#introduction"
+installation: "#installation"
+error-codes: "#error-codes"
+versioning: "#versioning"
+
+github-repo: "https://github.com/stitchdata/stitch-js"
+releases: "https://github.com/stitchdata/stitch-js/releases"
+
+current-version: "1.x.x"
+
+## addSource(options)
+create-a-source: 
+  name: "addSource(options)"
+  title: "Create a source"
+  section: "#source-creation-function"
+  description: "Initiates the creation of a source in the user's Stitch client account."
+
+## authorizeSource(options)
+authorize-a-source:
+  name: "authorizeSource(options)"
+  title: "Authorize source"
+  section: "#source-authorization-function"
+  description: "Sends the user to Stitch, which will redirect to the third-party to complete an OAuth handshake."
+
+## displayDiscoveryOutputForSource(options)
+source-discovery: 
+  name: "displayDiscoveryOutputForSource(options)"
+  title: "Display discovery output for source"
+  section: "#source-discovery-function"
+  description: "Checks the source's connection and discovers its schema."
+
+## selectStreamsForSource(options)
+select-streams:
+  name: "selectStreamsForSource(options)"
+  title: "Select streams for source"
+  section: "#source-stream-selection-function"
+  description: "Selects the tables and fields that should be replicated from the source."
+
+## editSource(options)
+edit-source: 
+  name: "editSource(options)"
+  title: "Edit a source"
+  section: "#source-editing-function"
+  description: "Edits the source form and settings."

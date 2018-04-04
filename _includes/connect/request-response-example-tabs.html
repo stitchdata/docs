@@ -1,0 +1,57 @@
+{% case include.type %}
+    {% when 'endpoint' %}
+        {% assign item = endpoint %}
+
+    {% when 'function' %}
+        {% assign item = function %}
+
+{% endcase %}
+
+<ul id="example{{ item.key }}Tabs" class="nav nav-tabs">
+    {% for example in item.examples %}
+        {% if forloop.first == true %} 
+            <li class="active">
+        {% else %}
+            <li>
+        {% endif %}
+            <a href="#{{ item.key | append: "-" | append: example.type }}" data-toggle="tab">
+            {{ example.type | capitalize }}</a>
+        </li>
+        {% endfor %}
+</ul>
+  <div class="tab-content">
+    {% for example in item.examples %}
+        {% if forloop.first == true %}
+            <div role="tabpanel" class="tab-pane active" id="{{ item.key | append: "-" | append: example.type }}">
+        {% else %}
+            <div role="tabpanel" class="tab-pane" id="{{ item.key | append: "-" | append: example.type }}">
+        {% endif %}
+
+        {% case example.type %}
+            {% when 'errors' %}
+                {% include connect/api-response-code-table.html type="endpoint" %}
+
+            {% else %}
+
+                {% if example.description %}
+                    {{ example.description | flatify | markdownify }}
+
+                    {% if example.image %}
+                        <center>
+                            <img src="{{ site.baseurl }}/images/{{ example.image }}" alt="{{ image.caption }}">
+                        </center>
+                    {% endif %}
+                {% endif %}
+
+{% if example.code %}
+{%- capture example-code -%}
+```{{ example.language }}
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+{% endif %}
+        {% endcase %}
+
+</div>
+{% endfor %}
+</div>

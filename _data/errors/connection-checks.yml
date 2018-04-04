@@ -116,12 +116,13 @@ errors:
 
 
 
-  - message: "An I/O error occured while sending to the backend."
+  - message: "An I/O error occurred while sending to the backend."
     id: "io-error"
     applies-to: "both"
     ip-addresses: false
     meaning: "Something went wrong during the communication with the database."
-    fix-it: "This is a transient error and should clear itself during the next re-sync."
+    fix-it: |
+      This is a transient error and should clear itself during the next replication job. If this error persists, refer to [these troubleshooting tips]({{ link.troubleshooting.aws-io-errors | prepend: site.baseurl }}) to diagnose and treat the issue.
 
 
 

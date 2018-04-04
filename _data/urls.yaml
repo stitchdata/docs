@@ -47,8 +47,10 @@ destinations:
     choose-destination: /destinations/choosing-a-stitch-destination
     compatibility: /destinations/destination-integration-compatibility
 
+    amazon-s3: /destinations/amazon-s3/
     bigquery: /destinations/bigquery/
     bigquery-pricing: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
+    data-world: /destinations/data-world/
     redshift: /destinations/redshift/
     postgres: /destinations/postgresql/
     panoply: /destinations/panoply/
@@ -57,7 +59,10 @@ destinations:
 ## Setup Guides
 ## used as link.destinations.setup.[id]
   setup:
+    amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch 
     bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
+
+    data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
 
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
     panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
@@ -91,6 +96,7 @@ destinations:
 ## used as link.destinations.storage.[id]
   storage:
     stitch-schema: /data-structure/integration-schemas
+    sdc-columns: "/data-structure/integration-schemas#_sdc_columns"
     loading-data: /data-structure/loading-stitch-data-into-destinations
     structure-changes: /data-structure/table-structural-changes
     column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
@@ -152,9 +158,14 @@ replication:
 
 
 # -------------------------- #
-#         Import API         #
+#             API            #
 # -------------------------- #
 ## used as link.import-api.[id]
+
+connect:
+  overview: /stitch-connect
+  api: /stitch-connect/api
+  js: /stitch-connect/javascript-client
 
 import-api:
   getting-started: /integrations/import-api
@@ -195,6 +206,7 @@ troubleshooting:
   reauth-integrations: /troubleshooting/integrations/reauthorizing-integrations
   dw-loading-errors: /troubleshooting/destinations/data-loading-errors
   view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
+  aws-io-errors: /troubleshooting/destinations/aws-io-errors
 
 ## Connection Errors
   saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors

@@ -11,7 +11,7 @@ weight: 4
 {% include misc/data-files.html %}
 
 {% capture callout %}<br>
-**BigQuery destinations:** This article is not applicable to BigQuery, as it natively supports nested structures. When Stitch encounters nested data from sources like MongoDB, that data is persisted into BigQuery with its structure **intact.** Because these rows are not denested, there is no additional impact on row counts when replicating these records.<br><br>
+**This article is only applicable to Panoply, PostgreSQL, Redshift, Snowflake, and S3 (CSV) destinations.** <br><br>
 **Postgres `ARRAY` & `JSON` datatypes:** The info in this article is **NOT** applicable to Postgres `ARRAY` and `JSON` data types. These data types will be stored as `strings` in your data warehouse, whether it's Postgres, Panoply, or Redshift.{% endcapture %}
 
 {% include important.html content=callout %}

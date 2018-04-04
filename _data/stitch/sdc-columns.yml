@@ -14,6 +14,11 @@ current-columns:
   prefix: "_sdc"
   rjm-prefix: "_rjm"
 
+# EXTRACTED_AT
+  extracted-at: &extracted-at "_sdc_extracted_at"
+  extracted-at-description: &extracted-at-description |
+    Timestamp indicating when Stitch extracted the record from the source.
+
 # RECEIVED_AT
   received-at: &received-at "_sdc_received_at"
   received-at-description: &received-at-description |

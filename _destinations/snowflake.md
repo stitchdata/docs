@@ -29,6 +29,7 @@ pricing_notes: |
   Snowflake pricing is based on two factors: the volume or data stored in your Snowflake destination and the amount of compute usage (the time the server runs) in seconds. 
 
   Snowflake offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about Snowflake plans and pricing here]({{ destination.pricing }}).
+icon: /images/destinations/icons/snowflake.svg
 
 # -------------------------- #
 #           Support          #
@@ -37,11 +38,11 @@ pricing_notes: |
 ## DATA TYPES
 ## See [FILE] for info on data types supported by Snowflake.
 
-replication-methods: "All"
+incremental-replication: "Upserts, Append-Only"
 connection-methods: "SSL"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true ## if true, natively supports nested structures
 case: "Case Insensitive"
 table-name-limit: "255" ## max # of characters
 column-name-limit: "251" ## max # of characters
@@ -74,60 +75,54 @@ contact-support: mailto:support@snowflake.net
 pricing: https://www.snowflake.net/product/pricing/
 pricing-guide: https://www.snowflake.net/pricing-page-registration-page/
 
+# -------------------------- #
+#      Overview Content      #
+# -------------------------- #
+introduction: |
+  {{ destination.description }}
+
+  A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Services](http://aws.amazon.com/) cloud infrastructure: AWS EC2 virtual compute instances are used for compute needs, while S3 is utilized for persistent data storage.
+
+sections:
+  - title: "pricing"
+    content: |
+      {{ destination.pricing_notes }}
+    subsections:
+      - title: "Snowflake Warehouse Sizes"
+        anchor: "warehouse-sizes"
+        content: |
+          Snowflake data warehouses can be different sizes - X-Small, Large, and 3X-Large, for example - which defines how many servers will comprise each cluster in a warehouse.
+
+          While the size of a warehouse can impact the time required to execute queries, bigger doesn't always mean better. Warehouse size is directly tied to the number of credits used, which will directly impact your Snowflake costs. [Learn more about Snowflake warehouse sizes here](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html){:target="_blank"}.
+
+          To help you select the warehouse size that fits your needs and budget, check out [Snowflake's Warehouse Considerations guide](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"} before getting started.
+
+      - title: "Automated Warehouse Management"
+        anchor: "automated-warehouse-management"
+        content: |
+          To reduce usage, you can elect to automate the management of your Snowflake warehouse. This means that you can elect to suspend the warehouse when there's no activity after a specified period of time, and then automatically resume when there is. Note that these settings apply to the entire warehouse and not individual clusters.
+
+          Enabling these settings depends on your workload and availability needs. [Learn more about the Auto Suspend and Auto Resume features here](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html#automating-warehouse-management){:target="_blank"}.
+
+          **Note**: Stitch will only ever impact your Snowflake usage when loading data.
+
+  - title: "setup"
+    content: |
+      Using the SQL Worksheet feature in Snowflake's web interface, you can spin up a Snowflake data warehouse for Stitch in just a few minutes.
+
+      **[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.snowflake | prepend: site.baseurl }})**
+
+  - title: "limitations"
+    include: |
+      {% include destinations/overviews/limitations.html %}
+
+  - title: "replication"
+    include: |
+      {% include destinations/overviews/replication-process.html %}
+
+  - title: "schema"
+    include: |
+      {% include destinations/overviews/integration-schemas.html %}
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
-
-{% contentfor intro %}
-{{ destination.description }}
-
-A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Services](http://aws.amazon.com/) cloud infrastructure: AWS EC2 virtual compute instances are used for compute needs, while S3 is utilized for persistent data storage.
-{% endcontentfor %}
-
-
-
-{% contentfor pricing %}
-{{ destination.pricing_notes }}
-
-### Snowflake Warehouse Sizes {#warehouse-sizes}
-
-Snowflake data warehouses can be different sizes - X-Small, Large, and 3X-Large, for example - which defines how many servers will comprise each cluster in a warehouse.
-
-While the size of a warehouse can impact the time required to execute queries, bigger doesn't always mean better. Warehouse size is directly tied to the number of credits used, which will directly impact your Snowflake costs. [Learn more about Snowflake warehouse sizes here](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html){:target="_blank"}.
-
-To help you select the warehouse size that fits your needs and budget, check out [Snowflake's Warehouse Considerations guide](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"} before getting started.
-
-### Automated Warehouse Management {#automated-warehouse-management}
-
-To reduce usage, you can elect to automate the management of your Snowflake warehouse. This means that you can elect to suspend the warehouse when there's no activity after a specified period of time, and then automatically resume when there is. **Note**: These settings apply to the entire warehouse and not individual clusters.
-
-Enabling these settings depends on your workload and availability needs. [Learn more about the Auto Suspend and Auto Resume features here](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html#automating-warehouse-management){:target="_blank"}. If you use [our instructions]({{ link.destinations.setup.snowflake | prepend: site.baseurl }}) for creating and setting up a Snowflake warehouse, we strongly recommend enabling the Auto Suspend feature to prevent unanticipated credit usage.
-
-Additionally, note that Stitch will only ever impact your Snowflake usage when loading data.
-{% endcontentfor %}
-
-
-
-{% contentfor setup %}
-Using the SQL Worksheet feature in Snowflake's web interface, you can spin up a Snowflake data warehouse for Stitch in just a few minutes.
-
-**[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.snowflake | prepend: site.baseurl }})**
-{% endcontentfor %}
-
-
-
-{% contentfor limitations %}
-{% include destinations/overview-limitations.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication %}
-{% include destinations/overview-replication-process.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor data-modeling %}
-{% include destinations/overview-integration-schemas.html %}
-{% endcontentfor %}

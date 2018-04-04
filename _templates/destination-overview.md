@@ -66,41 +66,31 @@ documentation:
 pricing: 
 price-calculator: 
 
+# -------------------------- #
+#      Overview Content      #
+# -------------------------- #
+
+introduction: |
+  {{ destination.description | flatify | markdownify }}
+
+sections:
+  - title: "pricing"
+    content: |
+
+  - title: "setup"
+    content: |
+
+  - title: "limitations"
+    include: |
+      {% include destinations/overview-limitations.html %}
+
+  - title: "replication"
+    include: |
+      {% include destinations/overview-replication-process.html %}
+
+  - title: "schema"
+    include: |
+      {% include destinations/overview-integration-schemas.html %}
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
-
-{% contentfor intro %}
-{{ destination.description }}
-
-{% endcontentfor %}
-
-
-
-{% contentfor pricing %}
-
-{% endcontentfor %}
-
-
-
-{% contentfor setup %}
-**[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.destination-type | prepend: site.baseurl }})**
-{% endcontentfor %}
-
-
-
-{% contentfor limitations %}
-{% include destinations/overview-limitations.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication %}
-{% include destinations/overview-replication-process.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor data-modeling %}
-{% include destinations/overview-integration-schemas.html %}
-{% endcontentfor %}
