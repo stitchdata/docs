@@ -180,6 +180,13 @@ replication-sections:
       - `RefundTransactionLog`
       - `RevenueScheduleItemInvoiceItemAdjustment`
 
+  - title: "Custom Field Replication"
+    anchor: "custom-field-replication"
+    content: |
+      Custom object properties, or attributes, are supported by Stitch's {{ integration.display_name }} integration. If custom fields are available through {{ integration.display_name }}'s API, Stitch will replicate them to your destination.
+
+      This is applicable to any object that supports custom fields in {{ integration.display_name }}.
+
 
 # -------------------------- #
 #     Integration Tables     #
