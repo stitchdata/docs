@@ -121,53 +121,69 @@
         {{ table.notes | flatify | markdownify }}
     {% endif %}
 
-<table width="100%" class="table-hover">
-    {% for attribute in table.attributes %}
-        {% if attribute.name != "n/a" %}
-            <!-- Formatting for OBJECT -->
-            {% if attribute.type == "object" %}
-                {% include integrations/templates/schemas/object-data-type.html %}
-            <!-- End formatting for OBJECT -->
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ table.name }}">{{ table.name }} Table Schema</a>
+            </h4>
+        </div>
+        
+        <div id="collapse{{ table.name }}" class="panel-collapse collapse noCrossRef">
+            <div class="panel-body">
+                <table width="100%" class="table-hover">
+                    {% for attribute in table.attributes %}
+                        {% if attribute.name != "n/a" %}
+                            <!-- Formatting for OBJECT -->
+                            {% if attribute.type == "object" %}
+                                {% include integrations/templates/schemas/object-data-type.html %}
+                            <!-- End formatting for OBJECT -->
 
-            <!-- Formatting for ARRAY -->
-            {% elsif attribute.type == "array" %}
-                {% include integrations/templates/schemas/array-data-type.html %}
-            <!-- End formatting for ARRAY -->
+                            <!-- Formatting for ARRAY -->
+                            {% elsif attribute.type == "array" %}
+                                {% include integrations/templates/schemas/array-data-type.html %}
+                            <!-- End formatting for ARRAY -->
 
-            {% elsif attribute.type == "subarray" %}
-                {% include integrations/templates/schemas/subarray-data-type.html %}
+                            {% elsif attribute.type == "subarray" %}
+                                {% include integrations/templates/schemas/subarray-data-type.html %}
 
-            <!-- All other data types -->
-            {% else %}
-                <tr>
-                    <td align="right">
-                        {% if attribute.primary-key == true %}
-                            {{ ui-icon.primary-key | flatify }}
+                            <!-- All other data types -->
+                            {% else %}
+                                <tr>
+                                    <td align="right">
+                                        {% if attribute.primary-key == true %}
+                                            {{ ui-icon.primary-key | flatify }}
+                                        {% endif %}
+
+                                        {% if attribute.replication-key == true %}
+                                                {{ ui-icon.replication-key | flatify }}
+                                        {% endif %}
+
+                                        {% if attribute.doc-link %}
+                                            <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
+                                        {% else %}
+                                            <strong>{{ attribute.name | flatify }}</strong>
+                                        {% endif %}
+
+                                        {% if attribute.type %}
+                                            <br>
+                                            {{ attribute.type | upcase }}
+                                        {% endif %}
+                                    </td>
+                                    <td width="70%; fixed" markdown="span">
+                                        {{ attribute.description | flatify | markdownify }}
+                                    </td>
+                                </tr>
+                            {% endif %}   <!-- Ends if loop for data types-->
                         {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
 
-                        {% if attribute.replication-key == true %}
-                                {{ ui-icon.replication-key | flatify }}
-                        {% endif %}
-
-                        {% if attribute.doc-link %}
-                            <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
-                        {% else %}
-                            <strong>{{ attribute.name | flatify }}</strong>
-                        {% endif %}
-
-                        {% if attribute.type %}
-                            <br>
-                            {{ attribute.type | upcase }}
-                        {% endif %}
-                    </td>
-                    <td width="70%; fixed" markdown="span">
-                        {{ attribute.description | flatify | markdownify }}
-                    </td>
-                </tr>
-            {% endif %}   <!-- Ends if loop for data types-->
-        {% endif %}
-    {% endfor %}
-</table>
+    </div>
+</div>
 
 <hr>
 {% endfor %}
