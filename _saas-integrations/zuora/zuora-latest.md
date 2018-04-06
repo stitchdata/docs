@@ -172,7 +172,7 @@ replication-sections:
 
       If using the AQuA API for data extraction, deleted data will be replicated for objects that support it. Supported objects will contain a boolean column named `deleted` that indicates a record's deletion status.
 
-      This column isn't automatically included for replication - [it must be set to replicate](#setting-data-to-replicate).
+      **Note**: This column won't be automatically included for replication - [it must be set to replicate](#setting-data-to-replicate).
 
       Deleted data is supported for all objects with the exception of the following:
 
@@ -187,16 +187,31 @@ replication-sections:
 
       This is applicable to any object that supports custom fields in {{ integration.display_name }}.
 
+  - title: "Unsupported Objects"
+    anchor: "unsupported-objects"
+    content: |
+      Stitch's {{ integration.display_name }} does not currently support replication for the following objects:
+
+      - `invoiceFile`
+      - `paymentMethodSnapshot`
+      - `unitOfMeasure`
 
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 schema-sections:
-  - content: |
-      To get a better understanding of how {{ integration.display_name }} objects relate to each other, check out [{{ integration.display_name }}'s Entity Relationship Diagram](http://knowledgecenter.zuora.com/BC_Developers/SOAP_API/E0_API_Object_Relationships). 
+  - title: "Zuora Object Relationships"
+    anchor: "zuora-entity-relationships"
+    content: |
+      To get a better understanding of how {{ integration.display_name }} objects relate to each other, check out [{{ integration.display_name }}'s Entity Relationship Diagram](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/D_Zuora_Business_Objects_Relationship). 
 
       Understanding the relationships between different data sets will allow you to perform more in-depth and complex analyses.
+
+      **Don't see a table listed here?** The list of tables shown below is not an exhaustive list of all the tables Stitch can replicate from {{ integration.display_name }}.
+
+      We're working on adding documentation for additional {{ integration.display_name }} tables. If there's a specific table you'd like to see here, let us know by [opening an issue in the Stitch Docs GitHub repo](https://github.com/stitchdata/docs).
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
