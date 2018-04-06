@@ -23,6 +23,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the contact."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "account"
     ##     attribute: "id"

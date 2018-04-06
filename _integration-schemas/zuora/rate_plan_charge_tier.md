@@ -20,6 +20,11 @@ attributes:
     replication-key: true
     description: "The date when the rate plan charge tier was last updated."
 
+  - name: "amendmentId"
+    type: "string"
+    description: "The ID of the amendment associated with the rate plan."
+    foreign-key: true
+
   - name: "createdById"
     type: "string"
     description: "The ID of the Zuora user who created the rate plan charge tier."
@@ -49,16 +54,34 @@ attributes:
       - `FlatFee`
       - `PerUnit`
 
+  - name: "productRatePlanChargeId"
+    type: "string"
+    description: "The ID of the product rate plan charge associated with the tier."
+    foreign-key: true
+
+  - name: "productRatePlanId"
+    type: "string"
+    description: "The ID of the product rate plan associated with the tier."
+    foreign-key: true
+
   - name: "ratePlanChargeId"
     type: "string"
     description: "The ID of the subscription or amendment rate plan charge associated with the tier."
-    ## foreign-keys:
-    ##   - table-name: "ratePlanCharge"
-    ##     attribute: "id"
+    foreign-key: true
+
+  - name: "ratePlanId"
+    type: "string"
+    description: "The ID of the rate plan associated with the tier."
+    foreign-key: true
 
   - name: "startingUnit"
     type: "number"
     description: "The starting number of a range of units for the tier."
+
+  - name: "subscriptionId"
+    type: "string"
+    description: "The ID of the subscription associated with the tier."
+    foreign-key: true
 
   - name: "tier"
     type: "integer"

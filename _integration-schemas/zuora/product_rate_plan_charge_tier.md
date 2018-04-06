@@ -57,6 +57,26 @@ attributes:
       - `FlatFee`
       - `PerUnit`
 
+  - name: "productRatePlanChargeId"
+    type: "string"
+    description: "The ID of the product rate plan charge associated with the tier."
+    foreign-key: true
+
+  - name: "productRatePlanId"
+    type: "string"
+    description: "The ID of the product rate plan associated with the tier."
+    foreign-key: true
+
+  - name: "ratePlanChargeId"
+    type: "string"
+    description: "The ID of the rate plan charge associated with the tier."
+    foreign-key: true
+
+  - name: "ratePlanId"
+    type: "string"
+    description: "The ID of the rate plan associated with the tier."
+    foreign-key: true
+
   - name: "startingUnit"
     type: "number"
     description: "The starting number of a range of units for the tier."

@@ -22,7 +22,7 @@ attributes:
 
   - name: "accountingCode"
     type: "string"
-    description: "The accounting code for the item's charged."
+    description: "The accounting code for the items charged."
 
   - name: "appliedToChargeNumber"
     type: "string"
@@ -40,30 +40,30 @@ attributes:
     type: "date-time"
     description: "The date when the invoice item was created."
 
-  - name: "chargeDescription"
-    type: "string"
-    description: "A description of the invoice item's charge."
+  # - name: "chargeDescription"
+  #   type: "string"
+  #   description: "A description of the invoice item's charge."
 
-  - name: "chargeId"
-    type: "string"
-    description: "The original ID of the rate plan charge that is associated with the invoice item upon creation."
+  # - name: "chargeId"
+  #   type: "string"
+  #   description: "The original ID of the rate plan charge that is associated with the invoice item upon creation."
 
   - name: "chargeName"
     type: "string"
     description: "The name of the invoice item's charge."
 
-  - name: "chargeNumber"
-    type: "string"
-    description: "The unique identifer of the invoice item's charge."
+  # - name: "chargeNumber"
+  #   type: "string"
+  #   description: "The unique identifer of the invoice item's charge."
 
-  - name: "chargeType"
-    type: "string"
-    description: |
-      The type of charge. Possible values are:
+  # - name: "chargeType"
+  #   type: "string"
+  #   description: |
+  #     The type of charge. Possible values are:
 
-      - `OneTime`
-      - `Recurring`
-      - `Usage`
+  #     - `OneTime`
+  #     - `Recurring`
+  #     - `Usage`
 
   - name: "createdById"
     type: "string"
@@ -81,6 +81,7 @@ attributes:
   - name: "invoiceId"
     type: "string"
     description: "The ID of the invoice associated with the invoice item."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "invoice"
     ##     attribute: "id"
@@ -102,17 +103,19 @@ attributes:
   - name: "productId"
     type: "string"
     description: "The ID of the product associated with the invoice item."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "product"
     ##     attribute: "id"
 
-  - name: "productName"
-    type: "string"
-    description: "The name of the product associated with the invoice item."
+  # - name: "productName"
+  #   type: "string"
+  #   description: "The name of the product associated with the invoice item."
 
   - name: "productRatePlanChargeId"
     type: "string"
     description: "The ID of the rate plan charge associated with the invoice item."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "product_rate_plan_charge"
     ##     attribute: "id"
@@ -124,6 +127,7 @@ attributes:
   - name: "ratePlanChargeId"
     type: "string"
     description: "The ID of the rage plan charge that's associated with the invoice item."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "rate_plan_charge"
     ##     attribute: "id"
@@ -155,16 +159,17 @@ attributes:
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription associated with the invoice item."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "subscription"
     ##     attribute: "id"
 
-  - name: "subscriptionNumber"
-    type: "string"
-    description: "The number or name of the subscription associated with the invoice item."
+  # - name: "subscriptionNumber"
+  #   type: "string"
+  #   description: "The number or name of the subscription associated with the invoice item."
 
   - name: "taxAmaount"
-    type: "decimal"
+    type: "double"
     description: "The amount of tax applied to the invoice item's charge."
 
   - name: "taxCode"
@@ -172,7 +177,7 @@ attributes:
     description: "The tax code for taxation rules."
 
   - name: "taxExemptAmount"
-    type: "decimal"
+    type: "double"
     description: "The amount of the invoice item's charge that is tax exempt."
 
   - name: "taxMode"
@@ -180,7 +185,7 @@ attributes:
     description: "The tax mode of the invoice item."
 
   - name: "unitPrice"
-    type: "decimal"
+    type: "double"
     description: "The per-unit price of the invoice item."
 
   - name: "uom"

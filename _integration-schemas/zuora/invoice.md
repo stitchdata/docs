@@ -7,10 +7,6 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoices
 description: |
   The `invoice` table contains info about invoices, which are bills to customers.
 
-  ### Custom Fields
-  
-  In addition to the attributes listed below, our Zuora integration will also replicate any custom fields.
-
 replication-method: "Incremental"
 
 attributes:
@@ -30,6 +26,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The account ID."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "account"
     ##     attribute: "id"
@@ -44,15 +41,15 @@ attributes:
     ##     attribute: "accountId"
 
   - name: "adjustmentAccount"
-    type: "decimal"
+    type: "double"
     description: "The amount of the invoice adjustments associated with the invoice."
 
   - name: "amount"
-    type: "decimal"
+    type: "double"
     description: "The sum of all charges and taxes associated with the invoice."
 
   - name: "amountWithoutTax"
-    type: "decimal"
+    type: "double"
     description: "The sum of all charges associated with the invoice, excluding taxes."
 
   - name: "autoPay"
@@ -60,16 +57,22 @@ attributes:
     description: "If `true`, invoices will be automatically picked up for processing in the corresponding payment run."
 
   - name: "balance"
-    type: "decimal"
+    type: "double"
     description: "The remaining balance of the invoice after all payments, adjustments, and refunds are applied."
 
   - name: "billRunId"
     type: "string"
     description: "The ID of the bill run associated with the invoice."
 
+  - name: "billToContactId"
+    type: "string"
+    description: "The ID of the person to bill for the invoice."
+    foreign-key: true
+
   - name: "billToContactSnapshotId"
     type: "string"
     description: "The ID of the Bill To contact snapshot."
+    ## foreign-key: true
 
   - name: "comments"
     type: "string"
@@ -84,8 +87,21 @@ attributes:
     description: "The date when the invoice was generated."
 
   - name: "creditBalanceAdjustmentAmount"
-    type: "decimal"
+    type: "double"
     description: "The currency amount of the adjustment applied to the customer's credit balance."
+
+  - name: "defaultPaymentMethodId"
+    type: "string"
+    description: "The ID of the default payment method for the account."
+    foreign-key: true
+    ## foreign-keys:
+    ##   - table-name: "account"
+    ##     attribute: "defaultPaymentMethodId"
+
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
 
   - name: "dueDate"
     type: "date-time"
@@ -115,8 +131,16 @@ attributes:
     type: "date-time"
     description: "The date when the invoice was last emailed."
 
+  - name: "parentAccountId"
+    type: "string"
+    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    foreign-key: true
+    ## foreign-keys:
+    ##   - table-name: "account"
+    ##     attribute: "parentAccountId"
+
   - name: "paymentAmount"
-    type: "decimal"
+    type: "double"
     description: "The amount of payments applied to the invoice."
 
   - name: "postedBy"
@@ -128,8 +152,24 @@ attributes:
     description: "The date when the invoice was posted."
 
   - name: "refundAmount"
-    type: "decimal"
+    type: "double"
     description: "The amount of a refund that was applied against an earlier payment on the invoice."
+
+  - name: "soldToContactId"
+    type: "string"
+    description: "The ID of the person who bought the subscription associated with the account."
+    foreign-key: true
+    ## foreign-keys:
+    ##   - table-name: "account"
+    ##     attribute: "soldToContactId"
+
+  - name: "soldToContactSnapshotId"
+    type: "string"
+    description: "The ID of the Sold To contact snapshot."
+    ## foreign-key: true
+    ## foreign-keys:
+    ##   - table-name: "account"
+    ##     attribute: "soldToContactSnapshotId"
 
   - name: "source"
     type: "string"
@@ -150,20 +190,16 @@ attributes:
       - `Posted`
       - `Canceled`
 
-  - name: "soldToContactSnapshotId"
-    type: "string"
-    description: "The ID of the Sold To contact snapshot."
-
   - name: "targetDate"
     type: "date-time"
     description: "The date used to determine which charged are to be billed."
 
   - name: "taxAmount"
-    type: "decimal"
+    type: "double"
     description: "The total amount of the taxes applied to the invoice."
 
   - name: "taxExemptAmount"
-    type: "decimal"
+    type: "double"
     description: "The total amount of the invoice that is tax exempt."
 
   - name: "transferredToAccounting"

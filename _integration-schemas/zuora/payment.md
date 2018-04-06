@@ -23,6 +23,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the payment."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "account"
     ##     attribute: "id"
@@ -126,6 +127,7 @@ attributes:
   - name: "paymentId"
     type: "string"
     description: "The ID of the payment that is paymented."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "payment"
     ##     attribute: "id"
@@ -133,6 +135,7 @@ attributes:
   - name: "paymentMethodId"
     type: "string"
     description: "The unique ID of the payment method that the customer used to make the payment."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "paymentMethod"
     ##     attribute: "id"
@@ -140,6 +143,7 @@ attributes:
   - name: "paymentMethodSnapshotId"
     type: "string"
     description: "The unqiue ID of the payment method snapshot, which is a copy of the particular payment method used in a transaction."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "paymentMethodSnapshot"
     ##     attribute: "id"

@@ -27,14 +27,16 @@ attributes:
   - name: "amendmentId"
     type: "string"
     description: "The ID of the amendment associated with the rate plan."
-
-  - name: "amendmentSubscriptionRatePlanId"
-    type: "string"
-    description: "The ID of the subscription rate plan modified by the amendment."
+    foreign-key: true
 
   - name: "amendmentType"
     type: "string"
     description: "The type of amendment associated with the rate plan."
+
+  - name: "billToContactId"
+    type: "string"
+    description: "The ID of the person to bill for the account associated with the rate plan."
+    foreign-key: true
 
   - name: "deleted"
     type: "boolean"
@@ -56,6 +58,7 @@ attributes:
   - name: "productRatePlanId"
     type: "string"
     description: "The ID of the associated product rate plan."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "productRatePlan"
     ##     attribute: "id"
@@ -63,6 +66,7 @@ attributes:
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription that the rate plan belongs to."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "subscription"
     ##     attribute: "id"

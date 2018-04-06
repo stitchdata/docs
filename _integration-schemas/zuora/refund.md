@@ -23,6 +23,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the refund."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "account"
     ##     attribute: "id"
@@ -43,9 +44,14 @@ attributes:
     type: "number"
     description: "The total amount of the refund."
 
+  - name: "billToContactId"
+    type: "string"
+    description: "The ID of the billing contact for the associated account."
+    foreign-key: true
+
   - name: "cancelledOn"
     type: "date-time"
-    description: "The date when the refund was cancelled."
+    description: "The date when the refund was canceled."
 
   - name: "comment"
     type: "string"
@@ -62,6 +68,12 @@ attributes:
   - name: "creditMemoId"
     type: "string"
     description: "The ID of the credit memo that is refunded."
+    foreign-key: true
+
+  - name: "defaultPaymentMethodId"
+    type: "string"
+    description: "The ID of the default payment method for the associated account."
+    foreign-key: true
 
   - name: "deleted"
     type: "boolean"
@@ -115,9 +127,15 @@ attributes:
     type: "string"
     description: "The unique identification number of the refund."
 
+  - name: "parentAccountId"
+    type: "string"
+    description: "The ID of the parent customer account for the associated account. This field is used when customer hierarchy is enabled in Zuora."
+    foreign-key: true
+
   - name: "paymentId"
     type: "string"
     description: "The ID of the payment that is refunded."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "payment"
     ##     attribute: "id"
@@ -125,6 +143,7 @@ attributes:
   - name: "paymentMethodId"
     type: "string"
     description: "The unique ID of the payment method that the customer used to make the refund."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "paymentMethod"
     ##     attribute: "id"
@@ -132,6 +151,7 @@ attributes:
   - name: "paymentMethodSnapshotId"
     type: "string"
     description: "The unqiue ID of the payment method snapshot, which is a copy of the particular payment method used in a transaction."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "paymentMethodSnapshot"
     ##     attribute: "id"
@@ -167,6 +187,11 @@ attributes:
   - name: "softDescriptorPhone"
     type: "string"
     description: "A payment gateway-specific field that maps Zuora to other gateways."
+
+  - name: "soldToContactId"
+    type: "string"
+    description: "The ID of the person who bought the subscription associated with the account."
+    foreign-key: true
 
   - name: "status"
     type: "string"

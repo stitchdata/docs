@@ -217,6 +217,7 @@ attributes:
   - name: "productRatePlanId"
     type: "string"
     description: "The ID of the product rate plan associated with this product rate plan charge."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "productRatePlan"
     ##     attribute: "Id"

@@ -71,15 +71,17 @@ attributes:
     type: "integer"
     description: "The billing cycle day (BCD) on which bill runs generate invoices for the account."
 
-  - name: "billToId"
+  - name: "billToContactId"
     type: "string"
     description: "The ID of the person to bill for the account."
+    foreign-key: true
 
   - name: "communicationProfileId"
     type: "string"
     description: "The ID of the communication profile associated with the account."
+    foreign-key: true
 
-  - name: "createdByID"
+  - name: "createdById"
     type: "string"
     description: "The ID of the Zuora user who created the account."
 
@@ -106,6 +108,12 @@ attributes:
   - name: "defaultPaymentMethodId"
     type: "string"
     description: "The ID of the default payment method for the account."
+    foreign-key: true
+
+  - name: "deleted"
+    type: "boolean"
+    description: |
+      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
 
   - name: "invoiceDeliveryPrefsEmail"
     type: "boolean"
@@ -131,7 +139,7 @@ attributes:
     type: "string"
     description: "Any comments about the account."
 
-  - name: "parentId"
+  - name: "parentAccountId"
     type: "string"
     description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
 
@@ -151,9 +159,10 @@ attributes:
     type: "string"
     description: "The name of the sales representative associated with the account, if applicable."
 
-  - name: "soldToId"
+  - name: "soldToContactId"
     type: "string"
     description: "The ID of the person who bought the subscription associated with the account."
+    foreign-key: true
 
   - name: "status"
     type: "string"

@@ -30,6 +30,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with this subscription."
+    foreign-key: true
     ## foreign-keys:
     ##  - table-name: "account"
     ##    attribute: "id"
@@ -72,6 +73,7 @@ attributes:
   - name: "creatorInvoiceOwnerId"
     type: "string"
     description: "The account ID that owns the invoices associated with the subscription or the amended subscription."
+    foreign-key: true
     ## foreign-keys:
     ##  - table-name: "account"
     ##    attribute: "id"
@@ -106,6 +108,7 @@ attributes:
   - name: "invoiceOwnerId"
     type: "string"
     description: "The account ID that owns the invoices associated with the subscription."
+    foreign-key: true
     ## foreign-keys:
     ##  - table-name: "account"
     ##    attribute: "id"

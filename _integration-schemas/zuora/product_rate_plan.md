@@ -34,6 +34,11 @@ attributes:
     type: "date-time"
     description: "The date the product rate plan was created."
 
+  - name: "defaultPaymentMethodId"
+    type: "string"
+    description: "The ID of the default payment method associated with the account."
+    foreign-key: true
+
   - name: "deleted"
     type: "boolean"
     description: |
@@ -58,6 +63,7 @@ attributes:
   - name: "productId"
     type: "string"
     description: "The ID of the product that contains the product rate plan."
+    foreign-key: true
     ## foreign-keys:
     ##   - table-name: "invoiceItem"
     ##     attribute: "productId"
