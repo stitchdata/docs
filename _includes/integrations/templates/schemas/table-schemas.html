@@ -5,7 +5,7 @@
 
 {% if integration.this-version %}
     <!-- Filter out everything that's not for this integration -->
-        {% assign integration-tables = site.integration-schemas | where:"tap",integration.name %}
+        {% assign integration-tables = site.integration-schemas | where:"tap",integration.name %}  
 
     <!-- Using the filtered data set above, filter out only the tables for this version of the integration -->
         {% assign schema = integration-tables | where:"version",integration.this-version %}
@@ -17,6 +17,15 @@
 
 
 {% for table in schema %}
+<!-- Some tables can have composite keys, or multiple columns that make up a PK. 
+     Jekyll tends to add a lot of ugly white space to lists of Liquid variables, so 
+     to get this to display nicely in the table snapshot, we have to:
+
+     1. Run a forloop that captures the names of all attributes marked as PKs and save it as clean-keys,
+     2. Append ":" to each attribute name (for visual separation),
+     3. Split the clean-keys array, reverse it, join it, and then remove the first ":" (this is because Liquid doesn't have a remove_last filter) and save it as reverse-pk-keys
+     4. Split the reverse-pk-keys array, reverse it, and join it again -->
+
 <!-- Captures & cleans field names for PKs -->
     {% capture clean-keys %}
         {% for attribute in table.attributes %}
@@ -36,6 +45,9 @@
 <!-- End PKs -->
 
 <!-- Captures Replication Key fields -->
+<!-- The process here is the same as the one for Primary Keys, but
+    1. Only runs if the table is marked as "Incremental"
+    2. Captures attributes marked as Replication Keys -->
     {% if table.replication-method contains "Incremental" %}
 
         {% capture clean-replication-keys %}
@@ -56,11 +68,13 @@
     {% endif %}
 <!-- End Replication Key -->
 
+<!-- Table Name -->
     <div class="table-heading">
         <div class="table-name pull-left">
             <h3 id="{{ table.name }}">{{ table.name }}</h3>
         </div>
 
+    <!-- Link to Singer Schema, if one is present -->
         <div class="table-github pull-right">
         {% if table.singer-schema %}
             <a href="{{ table.singer-schema }}" title="Opens in new window: {{ table.name }} schema on GitHub" target="new"><i class="fa fa-github fa-1" aria-hidden="true"></i> View Table Schema on GitHub</a>
@@ -68,59 +82,18 @@
         </div>
     </div>
 
-    <table class="table-snapshot table-hover">
-        <tr>
-            <td>
-                <strong>Replication Method:</strong> {{ table.replication-method }}
-            </td>
-            
-            {% if table.replication-method contains "Incremental" %}
-                <td>
-                    <strong>Replication Key {{ ui-icon.replication-key | flatify }}:</strong> <code>{{ replication-keys | strip }}</code>
-                </td>
-            </tr>
-            <tr>
-            {% if table.api-method.name or table.doc-link %}
-                <td width="50%; fixed">
-            {% else %}
-                <td colspan="2">
-            {% endif %}
-                    <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
-                </td>
-                {% if table.api-method.name %}
-                    <td>
-                        <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentnation" target="new">{{ table.api-method.name }}</a></code> 
-                    </td>
+<!-- The "snapshot" of the table - Replication Method, Keys, links to docs, etc. -->
+    {% include integrations/templates/schemas/table-snapshot.html %}
 
-                {% elsif table.doc-link %}
-                    <td>
-                        <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentnation" target="new">Official Docs</a>
-                    </td>
-                {% endif %}
-            {% elsif table.replication-method == "Full Table" %}
-                <td>
-                    {% if table.api-method.name %}
-                        <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentnation" target="new">{{ table.api-method.name }}</a></code>
-
-                    {% elsif table.doc-link %}
-                        <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentnation" target="new">Official Docs</a>
-                    {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
-                </td>
-            </tr>
-            {% endif %}
-    </table>
-
+<!-- Table description & any other notes -->
     {{ table.description | flatify | markdownify }}
 
     {% if table.notes %}
         {{ table.notes | flatify | markdownify }}
     {% endif %}
 
+
+<!-- Start the actual table schema -->
 <div class="panel-group" id="accordion">
     <div class="panel panel-default">
         
@@ -173,6 +146,11 @@
                                     </td>
                                     <td width="70%; fixed" markdown="span">
                                         {{ attribute.description | flatify | markdownify }}
+
+                                    <!-- If the attribute is marked as a foreign key, run this include: -->
+                                        {% if attribute.foreign-key == true %}
+                                            {% include integrations/templates/schemas/foreign-keys.html %}
+                                        {% endif %}
                                     </td>
                                 </tr>
                             {% endif %}   <!-- Ends if loop for data types-->
