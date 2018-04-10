@@ -33,8 +33,10 @@ frequently-asked-questions:
         answer: |
           {{ site.data.stitch.subscription-plans.trial-description }}
 
-          {% assign free-integrations = site.documents | where:"tier","Free" | sort:"title" %}
-          {% assign paid-integrations = site.documents | where:"tier","Premium" | sort:"title" %}
+          {% assign all-integrations = site.documents | where:"input", true %}
+
+          {% assign free-integrations = all-integrations | where:"tier","Free" | sort:"title" %}
+          {% assign paid-integrations = all-integrations | where:"tier","Premium" | sort:"title" %}
 
           {% capture paid-plans %}
 
@@ -92,6 +94,36 @@ frequently-asked-questions:
           {% cycle 'paid-after': '', '', '', '</tr>' %}
           {% endfor %}
           </table>
+
+      - question: "How many integrations can I add?"
+        anchor: "how-many-integrations-can-i-add"
+        answer: |
+          The total number of integrations refers to the number of distinct integration types each account may add, dependent upon the selected plan type.
+
+          <table width="100%">
+          <tr>
+          {% for plan in site.data.stitch.subscription-plans.all-plans %}
+          <td>
+          <strong>{{ plan.name | flatify }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          <tr>
+          {% for plan in site.data.stitch.subscription-plans.all-plans %}
+          <td>
+          {{ plan.total-integrations }}
+          </td>
+          {% endfor %}
+          </tr>
+          </table>
+          <br>
+
+
+          For example: Accounts using the Free plan may add up to five different types of integrations. If an account has five Google Analytics integrations connected, this will only count as one towards the integration type quota. Up to four additional types of integrations may still be added.
+
+          **Note**: The types of integrations available are also dependent on plan type. Users of the Free Plan will only have access to Free integrations, while Paid plan users will have access to Free and Paid integrations.
+
+          For more info, refer to [our pricing page]({{ site.pricing }}).
 
   - topic: "Row Counts"
     anchor: "row-usage"
