@@ -17,7 +17,7 @@ frequently-asked-questions:
       - question: "How does Stitch billing work?"
         anchor: "stitch-billing"
         answer: |
-          Plans are based on the volume of rows and events synced per month. Each plan has a monthly allotment of replicated rows.
+          Plans are based on the volume of rows and events replicated per month. Each plan has a monthly allotment of replicated rows.
 
           In addition, access to some integrations depends on the type of plan you select. To use Stitch's Paid integrations, you'll need to select a paid plan.
 
@@ -129,7 +129,7 @@ frequently-asked-questions:
         answer: |
           Yes. When your trial ends, Stitch will automatically pause your integrations. Replication will resume after you select a plan and enter a valid credit card.
 
-          Note that some integrations require a **paid** plan after the free trial ends. To continue replicating data from these sources - for example, Salesforce - you'll need to select the Starter plan or higher after your trial concludes.
+          **Note**: Some integrations require a **paid** plan after the free trial ends. To continue replicating data from these sources - for example, Salesforce - you'll need to select the Starter plan or higher after your trial concludes.
 
       - question: "How can I change my plan?"
         anchor: "change-plan"
