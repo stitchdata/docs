@@ -94,7 +94,7 @@ tables:
       - name: mp_reserved_initial_referrer
       - name: mp_reserved_initial_referring_domain
       - name: mp_reserved_lib_version
-      - name: mp_reserved_reserved_os
+      - name: mp_reserved_os
       - name: mp_reserved_region
       - name: mp_reserved_screen_height
       - name: mp_reserved_screen_width
