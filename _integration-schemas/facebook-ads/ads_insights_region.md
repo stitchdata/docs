@@ -2,22 +2,15 @@
 tap: "facebook-ads"
 version: 1.0
 
-name: "ads_insights"
+name: "ads_insights_region"
 doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
-singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights.json
+singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_region.json
 description: |
-  The `ads_insights` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics.
+  The `ads_insights_region` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics, segmented by region. This table enables you to view your data by the region (ex: state or province) where people live or were located when they saw your ads, depending on how the location targeting was set.
+
+  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `region`.
 
   **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
-
-  #### Segmented ads_insights Data
-
-  To analyze data that's been segmented by various characteristics, consider tracking some of the other `ads_insights` tables in this integration. The following tables contain the same fields as this one (`ads_insights`), but include additional dimensions to segment the data:
-
-  - [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) - Data segmented by age and gender
-  - [`ads_insights_country`](#ads_insights_country) - Data segmented by country
-  - [`ads_insights_platform_and_device`](ads_insights_platform_and_device) - Data segmented by platform and device
-  - [`ads_insights_region`](#ads_insights_region) - Data segmented by region
 
 replication-method: "Incremental"
 attribution-window: true
@@ -27,26 +20,34 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the ad."
+    foreign-key: true
 
   - name: "adset_id"
     type: "string"
     primary-key: true
     description: "The ID of the ad set. An ad set is a group of ads that share the same budget, schedule, delivery optimization, and targeting."
+    foreign-key: true
 
   - name: "campaign_id"
     type: "string"
     primary-key: true
     description: "The ID of the campaign. Campaigns contain ad sets and ads."
+    foreign-key: true
 
   - name: "date_start"
     type: "date-time"
     primary-key: true
     replication-key: true
-    description: "The start date."
+    description: "The start date of the ad."
+
+  - name: "region"
+    type: "string"
+    primary-key: true
+    description: "The region by which the data is segmented."
 
   - name: "date_stop"
     type: "date-time"
-    description: "The end date."
+    description: "The end date of the ad."
 
   - name: "ad_name"
     type: "integer"
