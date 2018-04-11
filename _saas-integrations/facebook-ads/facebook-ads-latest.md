@@ -104,11 +104,11 @@ replication-sections:
   - title: "Attribution windows and data extraction"
     anchor: "attribution-windows-data-extraction"
     content: |
-      When Stitch runs a replication job for {{ integration.display_name }}, it will use the value of the **Attribution Window** setting to query for and extract data. An attribution window is a period of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
+      {% include note.html content="The info in this section only applies to tables using Incremental Replication. Tables using Full Table Replication replicate fully during each replication job and don't use attribution windows." %}
 
-      For example: If set to **7 days**, Stitch will replicate the past seven days' worth of data every time a replication job runs.
+      When Stitch runs a replication job for {{ integration.display_name }}, it will use the value of the **Attribution Window** setting to query for and extract data for Incremental tables. An attribution window is a period of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
 
-      While Stitch replicates data in this way to account for updates to records made during the attribution window, it can have a [substantial impact on your overall row usage](#attribution-window-row-count-impact).
+      For example: If set to **7 days**, Stitch will replicate the past seven days' worth of data every time a replication job runs. While Stitch replicates data in this way to account for updates to records made during the attribution window, it can have a [substantial impact on your overall row usage](#attribution-window-row-count-impact).
 
       In the sections below are examples of how attribution windows impact how Stitch extracts data during historical and ongoing replication jobs.
 
