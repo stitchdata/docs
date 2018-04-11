@@ -89,4 +89,5 @@ attributes:
         type: "string"
         primary-key: true
         description: "The ID of an ad associated with the campaign."
+        foreign-key: true
 ---

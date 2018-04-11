@@ -43,10 +43,12 @@ attributes:
   - name: "campaign_id"
     type: "string"
     description: "The ID of the ad campaign that contains this ad."
+    foreign-key: true
 
   - name: "adset_id"
     type: "string"
     description: "The ID of the ad set that contains this ad."
+    foreign-key: true
 
   - name: "adLabels"
     type: "array"
@@ -125,8 +127,8 @@ attributes:
     object-attributes:
       - name: "creative_id"
         type: "integer"
-        primary-key: true
         description: "The ID of the creative used by the ad."
+        foreign-key: true
 
       # - name: "id"
       #   type: "integer"
