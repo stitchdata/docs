@@ -13,6 +13,13 @@ type: "bigquery"
 {% assign page-settings = site.data.ui.change-destinations-page %}
 {% include misc/data-files.html %}
 
+{% capture only-for-existing-destinations %}
+This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
+{% endcapture %}
+
+
+{% include important.html content=only-for-existing-destinations %}
+
 Need to change the location in which {{ destination.display_name }} stores your data? Using Stitch's Destination Change feature, you can delete the current destination and connect a new one with the desired data storage location.
 
 ---
