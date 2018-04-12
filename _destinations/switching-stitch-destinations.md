@@ -55,7 +55,7 @@ Here's what you need to know to ensure a smooth switch:
    - {{ field.field }}: {{ field.copy | flatify }}
    {% endfor %}
 4. Click **Continue**. A message will display asking you to confirm the removal of the current destination's settings.
-5. To complete the switch, Stitch must delete your current destination configuration. **Note that this will not delete data in the destination itself** - it only clears this destination's settings from Stitch.
+5. To complete the switch, Stitch must delete your current destination configuration. **Note**: This will not delete data in the destination itself - it only clears this destination's settings from Stitch.
 
    To continue with the switch, click **OK** to delete the current destination settings.
 6. On the next page, click the icon of the destination type you want to switch to.
