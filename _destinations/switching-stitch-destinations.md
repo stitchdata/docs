@@ -51,8 +51,8 @@ Here's what you need to know to ensure a smooth switch:
 1. From the {{ app.page-names.dashboard }}, click the {{ app.menu-paths.destination-settings }}.
 2. At the bottom of the page, click the {{ app.buttons.change-destination }} button.
 3. In the **Historical Data** section, select how you want data to be replicated to the new destination:
-   {% for field in page-settings.historical-data %}
-   - **{{ field.field }}**: {{ field.copy }}
+   {% for field in page-settings.default-historical-data %}
+   - {{ field.field }}: {{ field.copy | flatify }}
    {% endfor %}
 4. Click **Continue**. A message will display asking you to confirm the removal of the current destination's settings.
 5. To complete the switch, Stitch must delete your current destination configuration. **Note that this will not delete data in the destination itself** - it only clears this destination's settings from Stitch.
