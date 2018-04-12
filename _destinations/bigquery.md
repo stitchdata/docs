@@ -94,7 +94,7 @@ sections:
     content: |
       To set up {{ destination.display_name }}, Stitch requires:
 
-      1. **A user with access to an existing [Google Cloud Platform project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
+      1. **A user with full access to an existing [Google Cloud Platform project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
       2. **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions.
       2. **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
 
