@@ -79,11 +79,13 @@ setup-steps:
          - **Basic Profile Information** - Stitch uses your basic profile info to retrieve your user ID.
          - **Offline Access** - To continuously load data, Stitch requires offline access. This is so the authorization token generated during setup process can be used for more than an hour after the initial auth.
       6. To grant access, click the **Authorize** button.
-      7. After you sign into Google and grant Stitch access, you'll be prompted to select a Project.
-      8. Select the Project you created in step 2 from the drop-down menu.
-      9. Click **Finish Setup**.
-
-      If the connection is successful, a *Success!* message will display at the top of the screen.
+      7. After you sign into Google and grant Stitch access, you'll be redirected back to Stitch.
+         Fill in the fields that display: 
+            - **Google Cloud Project**: From the dropdown, select the project you created in [Step 2](#create-gcp-project-enable-billing).
+            - **Google Cloud Storage Location**: From the dropdown, select the location where data should be stored:
+                - **US**: Data will be stored in the United States
+                - **EU**: Data will be stored in Europe
+      8. Click **Finish Setup**.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","bigquery" | first %}
