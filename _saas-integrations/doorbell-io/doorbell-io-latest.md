@@ -24,7 +24,7 @@ author-url: https://www.stitchdata.com
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: true
 
 type: "import-api"
 branded: true
