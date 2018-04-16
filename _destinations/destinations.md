@@ -25,7 +25,7 @@ It's important to note that Stitch itself is **not** a data warehouse. Stitch is
 
 ---
 
-## Comparing Destinations
+## Comparing destinations
 
 If you're new to data warehousing or want to see how Stitch's destination offerings compare to each other, look no further.
 
@@ -35,7 +35,7 @@ In addition, our [Data Strategy Guide]({{ site.data-strategy }}) is a great plac
 
 ---
 
-## Current Destinations
+## Current destinations
 
 Stitch currently allows you to connect **one destination per account**. In addition, data will not begin replicating until you've successfully connected a destination and at least one integration.
 

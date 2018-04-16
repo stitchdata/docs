@@ -152,4 +152,4 @@ For example: If you downgrade to Free from the Starter plan, you'll lose access 
 
 Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
-For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of reports.{% include enterprise-cta.html %}
+For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of reports.{% include enterprise-cta.html %}{% include enterprise-cta.html %}

@@ -29,25 +29,38 @@ The **Extraction Logs** tab — accessed by clicking into the integration from t
 
 ---
 
-## Log Retention
+## Log retention
 
 Extraction logs are grouped by day. The number of days' worth of logs available to you depends on your Stitch plan:
 
-{% for plan in stitch.subscription-plans.all-plans %}
-- **{{ plan.name }}**: {{ plan.logs }}
-{% endfor %}
+<table width="100%; fixed">
+    <tr>
+        {% for plan in stitch.subscription-plans.all-plans %}
+        <td>
+            <strong>{{ plan.name }}</strong>
+        </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        {% for plan in stitch.subscription-plans.all-plans %}
+        <td>
+            {{ plan.logs }}
+        </td>
+        {% endfor %}
+    </tr>
+</table>
 
-### Logs and Plan Changes
+### Logs and plan changes
 
 Changing your plan can impact logs currently available to you.
 
-#### Plan Downgrades
+#### Plan downgrades
 
 If you downgrade to a plan that offers fewer days' logs, you'll **lose** access to the difference between your current plan and your new plan.
 
 For example: If you downgrade to Free from the Starter plan, you'll lose access to six days' worth of logs.
 
-#### Plan Upgrades
+#### Plan upgrades
 
 Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 
@@ -57,7 +70,7 @@ For example: If you upgrade to Basic from the Free plan, you'll gain access to a
 
 ---
 
-## Log Composition
+## Log composition
 
 The graph at the top of the Extraction Logs tab displays every time Stitch connected to the integration by day, based on the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}).
 
@@ -67,7 +80,7 @@ In addition to displaying the time an extraction began, the tooltips also includ
 
 To view the raw logs for a specific extraction, click the **View Logs** link in the tooltip or the bar in the graph.
 
-### Extraction Log Fields
+### Extraction Log fields
 
 Lines in raw extraction logs are made up of four fields. Before we get into the field details, take a look at this example line:
 
@@ -114,13 +127,13 @@ In the table below, we'll break down each of the fields and explain what they me
 
 ---
 
-## Extraction Log Examples
+## Extraction Log examples
 
 When reading the extraction logs for your integrations, pay particular attention to the content of the message body. The message body will contain information about what's currently happening in the extraction process and errors, should they arise.
 
 Below are some examples of extraction logs, what they indicate, and how to read them.
 
-### Replication Key Values
+### Replication Key values
 
 [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) are columns used to identify new and updated data in tables that use [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl  | append: "#incremental-replication" }}).
 
@@ -135,7 +148,7 @@ To see the Replication Keys for a given integration, check the **Schema** sectio
 
 {% include note.html content=replication-keys-in-tables %}
 
-#### Replication Key Values & Extraction
+#### Replication Key values and extraction
 
 The last saved maximum Replication Key value for a given table is used to detect new and updated data.
 
@@ -145,7 +158,7 @@ For example: In this log line, Stitch will extract data from the `ads` endpoint 
 2017-11-21 18:16:08,389Z    tap - INFO found current bookmark for ads:  2017-11-06T12:48:15-05:00
 ```
 
-#### Updated Replication Key Values
+#### Updated Replication Key values
 
 During the extraction process, Stitch will update the Replication Key values for the tables set to replicate.
 
@@ -161,7 +174,7 @@ Beginning after `bookmarks`, read the following as `table_name.replication_key_f
 
 ---
 
-## Extraction Errors
+## Extraction errors
 
 If an error occurs that terminates the extraction process, a line with a message type of `CRITICAL` will appear in the log. Generally, this will also display as the last line of the log.
 
