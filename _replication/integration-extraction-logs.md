@@ -8,6 +8,12 @@ summary: "Extraction logs provide detail about the extraction portion of the rep
 type: "monitoring"
 toc: true
 weight: 2
+
+enterprise-cta:
+  title: "Need more logs?"
+  url: "?utm_medium=docs&utm_campaign=extraction-log-retention"
+  copy: |
+    Enterprise plans come with 60 days of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 ---
 {% include misc/data-files.html %}
 
@@ -46,6 +52,8 @@ For example: If you downgrade to Free from the Starter plan, you'll lose access 
 Likewise, if you upgrade to a plan that offers more days' logs, you'll immediately **gain** access to the difference.
 
 For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of logs.
+
+{% include enterprise-cta.html %}
 
 ---
 

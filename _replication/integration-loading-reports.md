@@ -8,6 +8,12 @@ summary: "Loading reports provide detail about the loading protion of the replic
 type: "monitoring"
 toc: true
 weight: 3
+
+enterprise-cta:
+  title: "Need more reports?"
+  url: "?utm_medium=docs&utm_campaign=loading-report-retention"
+  copy: |
+    Enterprise plans come with 60 days of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 ---
 {% include misc/data-files.html %}
 
@@ -146,4 +152,4 @@ For example: If you downgrade to Free from the Starter plan, you'll lose access 
 
 Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
-For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of reports.
+For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of reports.{% include enterprise-cta.html %}
