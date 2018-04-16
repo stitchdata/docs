@@ -10,6 +10,10 @@ toc: true
 layout: faq
 weight: 5
 
+enterprise-cta:
+  hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
+  reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
+
 frequently-asked-questions:
   - topic: "Compliance"
     anchor: "stitch-compliance"
@@ -26,11 +30,11 @@ frequently-asked-questions:
         answer: |
           {% include misc/data-files.html %}
 
-          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise contract.
+          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan.
 
-          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales }}).
+          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-cta.url }}).
 
-          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales }}) before replicating any sensitive data.
+          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-cta.hipaa-url }}) before replicating any sensitive data.
 
       - question: "Does Stitch comply with any EU privacy laws?"
         anchor: "eu-privacy-compliance"
@@ -79,7 +83,7 @@ frequently-asked-questions:
       - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
         answer: |
-          If you're interested in custom connection methods like VPN or reverse SSH tunnel, [contact our support team](mailto: {{ site.support }}) with your use case.
+          While VPN connections aren't currently supported, reverse SSH tunnels may be implemented as part of an Enterprise plan. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.reverse-ssh-url }}).
 
   - topic: "Data Access"
     anchor: "stitch-access"
