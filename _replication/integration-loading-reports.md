@@ -8,6 +8,12 @@ summary: "Loading reports provide detail about the loading protion of the replic
 type: "monitoring"
 toc: true
 weight: 3
+
+enterprise-cta:
+  title: "Need more reports?"
+  url: "?utm_medium=docs&utm_campaign=loading-report-retention"
+  copy: |
+    Enterprise plans come with 60 days of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 ---
 {% include misc/data-files.html %}
 
@@ -25,7 +31,7 @@ This section contains a loading overview for [all tables currently set to replic
 
 ---
 
-## Loading Reports for All Tables {#all-loading-reports}
+## Loading Reports for all tables {#all-loading-reports}
 
 When the **Loading Reports** tab is first clicked, the loading reports for all tables will display first.
 
@@ -35,7 +41,7 @@ Every row on this page corresponds to a single table that is set to replicate. T
 
 Clicking the name of the table in the **Tables to Replicate** column will open a page with a [loading report for that table](#loading-reports-by-table), enabling you to see loading behavior for the table over time.
 
-### Loading Data by Time Range {#data-by-time-range}
+### Loading data by time range {#data-by-time-range}
 
 Use the toggle next to **Rows Loaded** to view a table's loading data based on the time range you select:
 
@@ -45,7 +51,7 @@ Use the toggle next to **Rows Loaded** to view a table's loading data based on t
 
 **Note**: A billing period is 30 days. To view the day the current billing period will end, navigate to the Billing page ({{ app.menu-paths.billing }}) and locate the **Next billing date** field.
 
-### Loading Data for Subtables
+### Loading data for subtables
 
 Depending on the structure of your data in the source and the destination you're using, subtables may be created from a parent table.
 
@@ -53,7 +59,7 @@ If a table contains subtables, a <i class="fa fa-plus-square" aria-hidden="true"
 
 You can read more about subtables in the [Nested Data and Row Counts guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
-### Loading Data for Non-Replicating Tables
+### Loading data for non-replicating tables
 
 {% include layout/inline_image.html type="right" file="replication/loading-reports-time-range.gif" alt="Rows Loaded time range selection" %}Loading data for tables not currently set to replicate may be available if the time of the last load is within the selected [time range](#data-by-time-range).
 
@@ -61,7 +67,7 @@ For example: If the last load occurred less than 24 hours ago, the table's loadi
 
 ---
 
-## Loading Reports by Table {#loading-reports-by-table}
+## Loading Reports by table {#loading-reports-by-table}
 
 The Loading Reports by Table page contains detailed loading stats for the selected table, broken down by day. The graph at the top of the page displays every time Stitch attempted to load data for the table into your destination for the selected date.
 
@@ -88,7 +94,7 @@ Keep in mind that:
 - For **Database integrations**, this is a column selected by you during [Replication Method setup]({{ link.replication.rep-methods | prepend: site.baseurl }})
 - **If the table is currently being loaded** (indicated by a {{ ui-icon.table-loading-in-progress | flatify }} icon), some data may load out of order. We suggest waiting until the load is complete to check the completeness of the data.
 
-### Replication Bookmark Values, by Page
+### Replication Bookmark values, by page
 
 On the [**Loading Reports for All Tables**](#all-loading-reports) page, the value in this column will reflect the highest or most recent value for the table **overall**:
 
@@ -98,7 +104,7 @@ On the [**Loading Reports by Table**](#loading-reports-by-table) page, the value
 
 ![Progessing Replication Bookmark Key values]({{ site.baseurl }}/images/replication/loading-reports-by-table-max-bookmark.png)
 
-### Replication Bookmark Unavailable
+### Replication Bookmark unavailable
 
 For some tables, a **Bookmark Unavailable** message may display in the **Max Replication Bookmark Value** column in place of a value:
 
@@ -112,7 +118,7 @@ There are a few reasons this message may appear:
 
 ---
 
-## Loading Errors
+## Loading errors
 
 If an error occurs during the loading process, a {{ ui-icon.table-loading-error | flatify }} icon will display to the left of the affect table(s). To view the error for the table, hover over the error icon and then click the link in the tooltip.
 
@@ -124,26 +130,41 @@ If an error arises, check out our [troubleshooting guides]({{ link.troubleshooti
 
 ---
 
-## Loading Report Retention
+## Loading Report retention
 
 Loading reports on the **Loading Reports by Table** page are grouped by day. The number of days' worth of logs available to you on this page depends on your Stitch plan:
 
-{% for plan in stitch.subscription-plans.all-plans %}
-- **{{ plan.name }}**: {{ plan.reports }}
-{% endfor %}
+<table width="100%; fixed">
+    <tr>
+        {% for plan in stitch.subscription-plans.all-plans %}
+        <td>
+            <strong>{{ plan.name }}</strong>
+        </td>
+        {% endfor %}
+    </tr>
+    <tr>
+        {% for plan in stitch.subscription-plans.all-plans %}
+        <td>
+            {{ plan.reports }}
+        </td>
+        {% endfor %}
+    </tr>
+</table>
 
-### Report and Plan Changes
+### Report and plan changes
 
 Changing your plan can impact reports currently available to you.
 
-#### Plan Downgrades
+#### Plan downgrades
 
 If you downgrade to a plan that offers fewer days' reports, you'll **lose** access to the difference between your current plan and your new plan.
 
 For example: If you downgrade to Free from the Starter plan, you'll lose access to six days' worth of reports.
 
-#### Plan Upgrades
+#### Plan upgrades
 
 Likewise, if you upgrade to a plan that offers more days' reports, you'll immediately **gain** access to the difference.
 
 For example: If you upgrade to Basic from the Free plan, you'll gain access to an additional six days' worth of reports.
+
+{% include enterprise-cta.html %}
