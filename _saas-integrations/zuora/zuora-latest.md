@@ -43,7 +43,7 @@ requirements-list:
   - item: "**Administrator permissions in {{ integration.display_name }}.** These permissions are required to create a {{ integration.display_name }} user for Stitch."
 
 setup-steps:
-  - title: "Create a Stitch {{ integration.display_name }} User"
+  - title: "Create a Stitch {{ integration.display_name }} user"
     anchor: "#create-stitch-zuora-user"
     content: |
 
@@ -60,7 +60,7 @@ setup-steps:
 
       {% include important.html content=zuora-user-requirements %}
 
-      #### Create the {{ integration.display_name }} User
+      #### Create the {{ integration.display_name }} user
 
       {% include layout/inline_image.html type="right" file="integrations/zuora-user-setup.png" alt="Zuora user permissions" max-width="400px" %}1. Sign into your {{ integration.display_name }} account, if you haven't already.
       2. Click your username in the top-right corner.
@@ -84,7 +84,7 @@ setup-steps:
       7. If the {{ integration.display_name }} instance you want to connect to Stitch is a **sandbox**, check the **Connect to a Sandbox Environment** box.
       8. If the {{ integration.display_name }} instance you want to connect to Stitch is **based in Europe**, check the **Connect to a European endpoint** box. If you aren't sure if this is applicable to you, [refer to Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Zuora_Data_Centers).
 
-  - title: "Select a Zuora Extraction API"
+  - title: "Select a Zuora extraction API"
     anchor: "rest-vs-aqua-api"
     content: |
       Stitch's {{ integration.display_name }} integration gives you the ability to select the API that you want Stitch to use to extract data. If you aren't sure which API you should use, take a look at the brief comparison below.
@@ -130,10 +130,16 @@ setup-steps:
           <br><br>
 
           <strong>Deleted data extraction is unsupported by the AQuA API for the following objects</strong>:
+
+          {% assign blacklisted-objects = site.data.taps.extraction.zuora.blacklisted-objects %}
           <ul>
-            <li>Payment Transaction Log</li>
-            <li>Refund Transaction Log</li>
-            <li>Revenue Schedule Item Invoice Item Adjustment</li>
+          {% for type in blacklisted-objects.list %}
+          {% if type.api contains "deleted" %}
+          {% for object in type.objects %}
+          <li><code>{{ object.name }}</code></li>
+          {% endfor %}
+          {% endif %}
+          {% endfor %}
           </ul>
 
           For more info on deleted data and the AQuA API, <a href="https://knowledgecenter.zuora.com/DC_Developers/T_Aggregate_Query_API/B_Submit_Query/a_Export_Deleted_Data">refer to Zuora's documentation</a>.
@@ -161,7 +167,7 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - title: "Replicate Deleted Data"
+  - title: "Replicate deleted data"
     anchor: "replicate-deleted-data"
     content: |
       {% capture aqua-api-note %}
@@ -176,32 +182,40 @@ replication-sections:
 
       Deleted data is supported for all objects with the exception of the following:
 
-      - `PaymentTransactionLog`
-      - `RefundTransactionLog`
-      - `RevenueScheduleItemInvoiceItemAdjustment`
+      {% for type in blacklisted-objects.list %}
+      {% if type.api contains "deleted" %}
+      {% for object in type.objects %}
+      - `{{ object.name }}`
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
 
-  - title: "Custom Field Replication"
+  - title: "Custom field replication"
     anchor: "custom-field-replication"
     content: |
       Custom object properties, or attributes, are supported by Stitch's {{ integration.display_name }} integration. If custom fields are available through {{ integration.display_name }}'s API, Stitch will replicate them to your destination.
 
-      This is applicable to any object that supports custom fields in {{ integration.display_name }}.
+      This is applicable to any object that supports custom fields in {{ integration.display_name }}. Refer to [Zuora's documentation](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/Manage_Custom_Fields/Objects_that_Support_Custom_Fields_in_Zuora) for info on which objects support custom fields.
 
-  - title: "Unsupported Objects"
+  - title: "Unsupported objects"
     anchor: "unsupported-objects"
     content: |
-      Stitch's {{ integration.display_name }} does not currently support replication for the following objects:
 
-      - `invoiceFile`
-      - `paymentMethodSnapshot`
-      - `unitOfMeasure`
+      {% for type in blacklisted-objects.list %}
+      {% if type.api contains "common" %}
+      {{ type.reason | flatify | markdownify }}
+      {% for object in type.objects %}
+      - `{{ object.name }}`
+      {% endfor %}
+      {% endif %}
+      {% endfor %}
 
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 schema-sections:
-  - title: "Zuora Object Relationships"
+  - title: "Zuora object relationships"
     anchor: "zuora-entity-relationships"
     content: |
       To get a better understanding of how {{ integration.display_name }} objects relate to each other, check out [{{ integration.display_name }}'s Entity Relationship Diagram](https://knowledgecenter.zuora.com/BB_Introducing_Z_Business/D_Zuora_Business_Objects_Relationship). 
