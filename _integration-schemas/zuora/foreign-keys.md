@@ -7,19 +7,18 @@ foreign-keys:
   - attribute: "accountId"
     table: "account"
     join-on: "id"
-    link: true
 
   - attribute: "accountingCodeId"
     table: "accountingCode"
     join-on: "id"
 
-  - attribute: "accountingPeriod"
+  - attribute: "accountingPeriodId"
     table: "accountingPeriod"
     join-on: "id"
 
   - attribute: "accountReceivableAccountingCodeId"
-    table: ""
-    join-on: ""
+    table: "accountingCode"
+    join-on: "Id"
 
   - attribute: "amendmentId"
     table: "amendment"
@@ -32,7 +31,14 @@ foreign-keys:
   - attribute: "billToContactId"
     table: "contact"
     join-on: "id"
-    link: true
+
+  - attribute: "billToContactSnapshotId"
+    table: "contactSnapshot"
+    join-on: "id"
+
+  - attribute: "cashOnAccountAccountingCodeId"
+    table: "accountingCode"
+    join-on: "id"
 
   - attribute: "contactId"
     table: "contact"
@@ -50,6 +56,10 @@ foreign-keys:
     table: "paymentMethod"
     join-on: "id"
 
+  - attribute: "discountRatePlanChargeId"
+    table: "ratePlanCharge"
+    join-on: "id"
+
   - attribute: "invoiceId"
     table: "invoice"
     join-on: "id"
@@ -58,9 +68,9 @@ foreign-keys:
     table: "account"
     join-on: "id"
 
-  - attribute: "invoiceTemplateId"
-    table: ""
-    join-on: ""
+  - attribute: "invoiceItemId"
+    table: "invoiceItem"
+    join-on: "id"
 
   - attribute: "journalEntryId"
     table: "journalEntry"
@@ -73,21 +83,22 @@ foreign-keys:
   - attribute: "parentAccountId"
     table: "account"
     join-on: "parentAccountId"
-    link: true
 
   - attribute: "paymentId"
     table: "payment"
     join-on: "id"
-    link: true
 
   - attribute: "paymentMethodId"
     table: "paymentMethod"
     join-on: "id"
 
+  - attribute: "paymentRunId"
+    table: "paymentRun"
+    join-on: "id"
+
   - attribute: "productId"
     table: "product"
     join-on: "id"
-    link: true
 
   - attribute: "productRatePlanChargeId"
     table: "productRatePlanCharge"
@@ -96,7 +107,6 @@ foreign-keys:
   - attribute: "productRatePlanId"
     table: "productRatePlan"
     join-on: "id"
-    link: true
 
   - attribute: "ratePlanChargeId"
     table: "ratePlanCharge"
@@ -105,20 +115,26 @@ foreign-keys:
   - attribute: "ratePlanId"
     table: "ratePlan"
     join-on: "id"
-    link: true
 
-  - attribute: "referenceId"
-    table: ""
-    join-on: ""
+  - attribute: "recognizedRevenueAccountingCodeId"
+    table: "accountingCode"
+    join-on: "id"
 
   - attribute: "refundId"
     table: "refund"
     join-on: "id"
 
+  - attribute: "salesTaxPayableAccountingCodeId"
+    table: "accountingCode"
+    join-on: "id"
+
   - attribute: "soldToContactId"
     table: "contact"
     join-on: "id"
-    link: true
+
+  - attribute: "soldToContactSnapshotId"
+    table: "contactSnapshot"
+    join-on: "id"
 
   - attribute: "sourceTransactionId"
     table: ""
@@ -127,5 +143,8 @@ foreign-keys:
   - attribute: "subscriptionId"
     table: "subscription"
     join-on: "id"
-    link: true
+
+  - attribute: "usageId"
+    table: "usage"
+    join-on: "id"
 ---
