@@ -9,11 +9,13 @@ description: "{{ api.form-properties.source-forms.google-adwords.description }}"
 object-attributes:
   - name: "frequency_in_minutes"
     type: "string"
+    required: true
     description: |
       {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Google AdWords" }}
 
   - name: "start_date"
     type: "string"
+    required: true
     description: |
       {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","Google AdWords" }}
 
