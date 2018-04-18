@@ -1,0 +1,27 @@
+tap: "zuora"
+
+list:
+  - api: "common-unsupported"
+    reason: "Stitch's {{ integration.display_name }} integration doesn't currently support replication for the following objects:"
+    objects:
+      - name: "discountApplyDetail"
+      - name: "invoiceFile"
+      - name: "paymentMethodSnapshot"
+      - name: "productDiscountApplyDetail"
+      - name: "unitOfMeasure"
+
+  - api: "no-deleted-support"
+    reason: "The AQuA API doesn't support deleted data extraction for the following objects:"
+    objects:
+      - name: "accountingPeriod"
+      - name: "contactSnapshot"
+      - name: "discountAppliedMetrics"
+      - name: "paymentGaterwayReconciliationEventLog"
+      - name: "paymentTransactionLog"
+      - name: "paymentMethodTransactionLog"
+      - name: "paymentReconciliationJob"
+      - name: "paymentReconciliationLog"
+      - name: "processedUsage"
+      - name: "refundTransactionLog"
+      - name: "updaterBatch"
+      - name: "updaterDetail"

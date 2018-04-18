@@ -9,31 +9,38 @@ description: "{{ api.form-properties.source-forms.marketo.description }}"
 object-attributes:
   - name: "client_id"
     type: "string"
+    required: true
     description: "The user's Marketo client ID."
 
   - name: "client_secret"
     type: "string"
+    required: true
     description: "The user's Marketo client secret."
 
   - name: "frequency_in_minutes"
     type: "string"
+    required: true
     description: |
       {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Marketo" }}
 
   - name: "endpoint"
     type: "string"
+    required: true
     description: "The user's Marketo REST endpoint URL. For example: `https://457-RFG-234.mktorest.com/rest`"
 
   - name: "identity"
     type: "string"
+    required: true
     description: "The user's Marketo REST identity URL. For example: `https://457-RFG-234.mktorest.com/identity`"
 
   - name: "max_daily_calls"
     type: "string"
+    required: false
     description: "The maximum number of daily API calls that Stitch may make to the Marketo API."
 
   - name: "start_date"
     type: "string"
+    required: true
     description: |
       {{ connect.common.attributes.start-date replace: "[INTEGRATION]","Marketo" }}
 
