@@ -40,6 +40,10 @@ foreign-keys:
     table: "bank_transactions"
     join-on: "BankTransactionID"
 
+  - attribute: "ItemID"
+    table: "items"
+    join-on: "ItemID"
+
   - attribute: "LinkedTransactionID"
     table: "linked_transactions"
     join-on: "LinkedTransactionID"
