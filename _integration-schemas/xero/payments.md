@@ -68,35 +68,41 @@ attributes:
       - `APOVERPAYMENTPAYMENT` - Accounts Payable Overpayment Payment (Refund)
 
   - name: "Account"
-    type: 
-    description: ""
+    type: "array"
+    description: "Details about the account the payment was made from."
+    ## This is basically the accounts table in its entirety.
 
   - name: "Invoice"
-    type: 
-    description: ""
+    type: "array"
+    description: "Details about the invoice the payment was made against."
+    array-attributes:
+    ## This is basically the invoice table in its entirety.
 
   - name: "CreditNote"
     type: "object"
-    description: ""
+    description: "Details about the credit note the payment was made against."
     object-attributes:
+      - name: "CreditNoteNumber"
+        type: "string"
+        description: ""
 
   - name: "Prepayments"
     type: "array"
-    description: ""
+    description: "Details about the prepayment the payment was made against."
     array-attributes:
       - name: "PrepaymentID"
         type: "string"
         foreign-key: true
-        description: ""
+        description: "The ID of the prepayment the payment was made against."
 
   - name: "Overpayment"
     type: "array"
-    description: ""
+    description: "Details about the overpayment the payment was made against."
     array-attributes:
       - name: "OverpaymentID"
         type: "string"
         foreign-key: true
-        description: ""
+        description: "The ID of the overpayment the payment was made against."
 
   - name: "BankAmount"
     type: "number"
