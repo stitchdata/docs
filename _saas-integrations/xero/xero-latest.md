@@ -28,7 +28,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Free"
+tier: "Premium"
 icon: /images/integrations/icons/xero.svg
 whitelist:
   tables: true
