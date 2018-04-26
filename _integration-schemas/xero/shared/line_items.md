@@ -28,7 +28,7 @@ attributes:
 
   - name: "ItemCode"
     type: "string"
-    description: ""
+    description: "The code associated with the line item."
 
   - name: "TaxType"
     type: "string"
@@ -47,6 +47,9 @@ attributes:
     description: "The discount rate of the line item, if applicable."
 
   - name: "Tracking"
-    type: "array"
-    description: "Details about the tracking categories applied to the line item, if applicable." #tracking categories
+    type: ""
+    description: |
+      Details about the tracking categories applied to the line item, if applicable.
+
+      {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
 ---

@@ -85,11 +85,78 @@ attributes:
 
   - name: "Addresses"
     type: "array"
-    description: ""
+    description: "Details about the contact's addresses."
+    array-attributes:
+      - name: "Region"
+        type: "string"
+        description: "The region associated with the address."
+
+      - name: "AddressType"
+        type: "string"
+        description: |
+          The address type. Possible values are:
+
+          - `POBOX`
+          - `STREET`
+          - `DELIVERY` - **Note**: This address type is not valid for `contacts`.
+
+      - name: "AddressLine1"
+        type: "string"
+        description: "The first line of the address."
+
+      - name: "AddressLine2"
+        type: "string"
+        description: "The second line of the address."
+
+      - name: "AddressLine3"
+        type: "string"
+        description: "The third line of the address."
+
+      - name: "AddressLine4" 
+        type: "string"
+        description: "The fourth line of the address."
+
+      - name: "AttentionTo" 
+        type: "string"
+        description: "The name of the addressee."
+
+      - name: "City" 
+        type: "string"
+        description: "The city associated with the address."
+
+      - name: "PostalCode" 
+        type: "string"
+        description: "The postal code associated with the address."
+
+      - name: "Country"
+        type: "string"
+        description: "The country associated with the address."
 
   - name: "Phones"
     type: "array"
-    description: ""
+    description: "Details about the contact's phone numbers."
+    array-attributes:
+      - name: "PhoneNumber"
+        type: "string"
+        description: "The phone number."
+
+      - name: "PhoneAreaCode"
+        type: "string"
+        description: "The area code associated with the phone number."
+
+      - name: "PhoneCountryCode"
+        type: "string"
+        description: "The country code associated with the phone number."
+
+      - name: "PhoneType"
+        type: "string"
+        description: |
+          The type of phone number. Possible values are:
+
+          - `DEFAULT`
+          - `DDI`
+          - `MOBILE`
+          - `FAX`
 
   - name: "IsSupplier"
     type: "boolean"
@@ -105,7 +172,7 @@ attributes:
 
   - name: "ContactPersons"
     type: "array"
-    description: ""
+    description: "Details about the contact persons associated with the contact."
     array-attributes:
       - name: "FirstName"
         type: "string"
@@ -134,10 +201,59 @@ attributes:
   - name: "SalesTrackingCategories"
     type: "array"
     description: "Details about the default sales tracking categories for the contact."
+    array-attributes: &tracking-categories
+      - name: "TrackingCategoryID"
+        type: "string"
+        description: "The tracking category ID."
+
+      - name: "Status"
+        type: "string"
+        description: "The status of the tracking category."
+
+      - name: "TrackingCategoryName"
+        type: "string"
+        description: "The name of the tracking category."
+
+      - name: "Name"
+        type: "string"
+        description: "The name of the tracking option."
+
+      - name: "Option"
+        type: "string"
+        description: "The value of the tracking option."
+
+      - name: "Options"
+        type: "array"
+        description: "Details about the tracking option."
+        array-attributes:
+          - name: "IsActive"
+            type: "boolean"
+            description: "If `true`, the tracking option is active."
+
+          - name: "IsDeleted"
+            type: "boolean"
+            description: "If `true`, the tracking option has been deleted."
+
+          - name: "TrackingOptionID"
+            type: "string"
+            description: "The ID of the tracking option."
+
+          - name: "IsArchived"
+            type: "boolean"
+            description: "If `true`, the tracking option has been archived."
+
+          - name: "Status"
+            type: "string"
+            description: "The status of the tracking option."
+
+          - name: "Name"
+            type: "string"
+            description: "The name of the tracking option."
 
   - name: "PurchasesTrackingCategories"
     type: "array"
     description: "Details about the default purchases tracking categories for the contact."
+    array-attributes: *tracking-categories
 
   - name: "TrackingCategoryName"
     type: "string"
@@ -149,21 +265,61 @@ attributes:
 
   - name: "PaymentTerms"
     type: "array"
-    description: ""
+    description: "Details about the contact's payment terms."
+    array-attributes:
+      - name: "Sales"
+        type: "object"
+        description: "Details about the payment terms used for sales transactions."
+        object-attributes:
+          - name: "Day"
+            type: "integer"
+            description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
+
+          - name: "Type"
+            type: "integer"
+            description: |
+              The payment term type used for sales transactions. Possible values are:
+
+              - `DAYSAFTERBILLDATE` - _n_ day(s) after the bill date
+              - `DAYSAFTERBILLMONTH`- _n_ day(s) after the bill month
+              - `OFCURRENTMONTH` - Of the current month
+              - `OFFOLLOWINGMONTH` - Of the following month
+
+      - name: "Bills"
+        type: "object"
+        description: "Details about the payment terms used for bills (invoices)."
+        object-attributes:
+          - name: "Day"
+            type: "integer"
+            description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."
+
+          - name: "Type"
+            type: "integer"
+            description: |
+              The payment term type used for bills (invoices). Possible values are:
+
+              - `DAYSAFTERBILLDATE` - _n_ day(s) after the bill date
+              - `DAYSAFTERBILLMONTH`- _n_ day(s) after the bill month
+              - `OFCURRENTMONTH` - Of the current month
+              - `OFFOLLOWINGMONTH` - Of the following month
 
   - name: "ContactGroups"
-    type: "array"
-    description: "Details about the contact groups the contact is included in."
-    array-attributes:
+    type: ""
+    description: |
+      Details about the contact groups the contact is included in.
+
+      {{ integration.subtable-note | flatify | replace: "table_name","contact_groups" }}
 
   - name: "Website"
     type: "string"
     description: "The website address of the contact."
 
   - name: "BrandingTheme"
-    type: "array"
-    description: ""
-    array-attributes:
+    type: ""
+    description: |
+      Details about the branding theme applied to documents sent to the contact.
+
+      {{ integration.subtable-note | flatify | replace: "table_name","branding_themes" }}
 
   - name: "BatchPayments"
     type: "object"
@@ -171,23 +327,23 @@ attributes:
     object-attributes:
       - name: "Details"
         type: "string"
-        description: ""
+        description: "Details about the batch payment."
 
       - name: "Reference"
         type: "string"
-        description: ""
+        description: "The reference number for the batch payment."
 
       - name: "Code"
         type: "string"
-        description: ""
+        description: "The code associated with the batch payment."
 
       - name: "BankAccountNumber"
         type: "string"
-        description: ""
+        description: "The bank account number associated with the batch payment."
 
       - name: "BankAccountName"
         type: "string"
-        description: ""
+        description: "The name of the bank account associated with the batch payment."
 
   - name: "Discount"
     type: "number"
@@ -197,6 +353,7 @@ attributes:
     type: "object"
     description: "Details about the raw AR (sales invoices) and AP (bills) outstanding and overdue amounts associated with the contact."
     object-attributes:
+
       - name: "AccountsReceivable"
         type: "object"
         description: "Details about the outstanding and/or overdue sales invoices associated with the contact, not converted to base currency."
@@ -225,7 +382,11 @@ attributes:
     type: "boolean"
     description: "If `true`, the contact has an attachment."
 
-  # - name: "HasValidationErrors"
-  #   type: "array"
-  #   description: ""
+  - name: "HasValidationErrors"
+    type: "array"
+    description: "Details about any validation errors associated with the contact."
+    array-attributes:
+      - name: "Message"
+        type: "string"
+        description: "The validation error message."
 ---

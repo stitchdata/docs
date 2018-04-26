@@ -40,8 +40,6 @@ whitelist:
 
 setup-steps:
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
   - title: "historical sync"
   - title: "replication frequency"
   - title: "Authorize Stitch to access {{ integration.display_name }}"
@@ -64,7 +62,7 @@ setup-steps:
 #   - title: ""
 #     anchor: ""
 #     content: |
-#       Xero has a daily limit of 5,000 calls in a rolling 24 hour window, and will return a 503 Service Unvailable error if exceeded. This is on a per organization basis.
+#       Xero has a daily limit of 5,000 calls in a rolling 24 hour window, and will return a 503 Service Unavailable error if exceeded. This is on a per organization basis.
 
 
 # -------------------------- #
@@ -73,6 +71,18 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/xero
+
+subtable-note: |
+  {% assign subtable-name = table.name | append: "__" | append: attribute.name %}
+  **Note**: This is an array that may be flattened into a subtable. This table would be named `{{ subtable-name }}`; records in this table may be joined to their parent by following [these instructions]({{ link.destinations.storage.nested-structures | prepend: site.baseurl | append: "#connecting-subtables-to-top-level-records" }}).
+
+  Refer to the [`table_name`](#table_name) table for a list of attributes this subtable may contain.
+
+subsubtable-note: |
+  {% assign subtable-name = table.name | append: "__" | append: attribute.name | append: "__" | append: subattribute.name %}
+  **Note**: This is an array that may be flattened into a subtable. This table would be named `{{ subtable-name }}`; records in this table may be joined to their parent by following [these instructions]({{ link.destinations.storage.nested-structures | prepend: site.baseurl | append: "#connecting-subtables-to-top-level-records" }}).
+
+  Refer to the [`table_name`](#table_name) table for a list of attributes this subtable may contain.
 
 ---
 {% assign integration = page %}

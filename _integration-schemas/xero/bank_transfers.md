@@ -25,12 +25,18 @@ attributes:
     description: "The date the bank transfer was created, in UTC."
 
   - name: "FromBankAccount"
-    type: 
-    description: "Details about the source account."
+    type: ""
+    description: |
+      Details about the source bank account.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","accounts" }}
 
   - name: "ToBankAccount"
-    type: 
-    description: "Details about the destination account."
+    type: ""
+    description: |
+      Details about the destination bank account.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","accounts" }}
 
   - name: "Amount"
     type: "number"
@@ -42,7 +48,7 @@ attributes:
 
   - name: "DateString"
     type: "date-time"
-    description: ""
+    description: "The date of the transfer."
 
   - name: "CurrencyRate"
     type: "number"
@@ -64,5 +70,5 @@ attributes:
 
   - name: "CreatedDateUTCString"
     type: "date-time"
-    description: ""
+    description: "The date the bank transfer was created."
 ---

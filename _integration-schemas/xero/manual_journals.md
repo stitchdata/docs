@@ -73,18 +73,20 @@ attributes:
         type: "string"
         description: "The account code associated with the journal line."
 
-      - name: "IsBlank"
-        type: "boolean"
-        description: ""
+      # - name: "IsBlank"
+      #   type: "boolean"
+      #   description: "If `true`, "
 
       - name: "TaxType"
         type: "string"
         description: "The tax type for the journal line. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#TaxTypes) for possible tax types."
 
       - name: "Tracking"
-        type: "array"
-        description: ""
-        array-attributes:
+        type: ""
+        description: |
+          Details about the tracking details associated with the journal line.
+
+          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
 
   - name: "Url"
     type: "string"

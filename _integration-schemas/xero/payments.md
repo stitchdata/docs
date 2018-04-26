@@ -43,7 +43,7 @@ attributes:
 
   - name: "IsReconciled"
     type: "boolean"
-    description: ""
+    description: "If `true`, the payment has been marked as manually reconciled. Refer to [Xero's documentation](https://help.xero.com/Q_BankRecNoImport) for more info."
 
   - name: "Status"
     type: "string"
@@ -68,15 +68,18 @@ attributes:
       - `APOVERPAYMENTPAYMENT` - Accounts Payable Overpayment Payment (Refund)
 
   - name: "Account"
-    type: "array"
-    description: "Details about the account the payment was made from."
-    ## This is basically the accounts table in its entirety.
+    type: ""
+    description: |
+      Details about the account the payment was made from.
+
+      {{ integration.sub-table | flatify | replace:"table_name","accounts" }}
 
   - name: "Invoice"
-    type: "array"
-    description: "Details about the invoice the payment was made against."
-    array-attributes:
-    ## This is basically the invoice table in its entirety.
+    type: ""
+    description: |
+      Details about the invoice the payment was made against.
+
+      {{ integration.sub-table | flatify | replace:"table_name","invoices" }}
 
   - name: "CreditNote"
     type: "object"
@@ -84,7 +87,7 @@ attributes:
     object-attributes:
       - name: "CreditNoteNumber"
         type: "string"
-        description: ""
+        description: "The number of the credit note the payment was made against."
 
   - name: "Prepayments"
     type: "array"
@@ -106,15 +109,15 @@ attributes:
 
   - name: "BankAmount"
     type: "number"
-    description: ""
+    description: "The bank amount of the payment."
 
   - name: "HasValidationErrors"
     type: "boolean"
-    description: ""
+    description: "If `true`, a validation error is associated with the payment."
 
-  - name: "HasAccount"
-    type: "boolean"
-    description: ""
+  # - name: "HasAccount"
+  #   type: "boolean"
+  #   description: ""
 
   - name: "BatchPaymentID"
     type: "string"

@@ -34,8 +34,11 @@ attributes:
       - `ACCREC` - A sales invoice, or an Accounts Receivable or customer invoice
 
   - name: "Contact"
-    type: 
-    description: ""
+    type: "" 
+    description: |
+      Details about the contact(s) associated with the invoice.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
 
   - name: "Date"
     type: "date-time"
@@ -68,8 +71,55 @@ attributes:
     doc-link: https://developer.xero.com/documentation/api/types#LineAmountTypes
 
   - name: "LineItems"
-    type: 
-    description: ""
+    type: "array"
+    description: "Details about the line items contained in the invoice."
+    array-attributes:
+      - name: "LineItemID"
+        type: "string"
+        description: "The ID of the line item."
+
+      - name: "Description"
+        type: "string"
+        description: "The description of the line item."
+
+      - name: "Quantity"
+        type: "number"
+        description: "The quantity of the line item."
+
+      - name: "UnitAmount"
+        type: "number"
+        description: "The amount of the line item."
+
+      - name: "AccountCode"
+        type: "string"
+        description: "The account code associated with the line item."
+
+      - name: "ItemCode"
+        type: "string"
+        description: "The code associated with the line item."
+
+      - name: "TaxType"
+        type: "string"
+        description: "The tax type associated with the line item."
+
+      - name: "LineAmount"
+        type: "number"
+        description: "The total of the line item, calculated as `UnitAmount x Quantity`."
+
+      - name: "TaxAmount"
+        type: "number"
+        description: "The total tax of the line item."
+
+      - name: "DiscountRate"
+        type: "number"
+        description: "The discount rate of the line item, if applicable."
+
+      - name: "Tracking"
+        type: ""
+        description: |
+          Details about the tracking categories applied to the line item, if applicable.
+
+          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
 
   - name: "SubTotal"
     type: "number"
@@ -127,7 +177,7 @@ attributes:
 
   - name: "ExpectedPaymentDateString"
     type: "date-time"
-    description: ""
+    description: "For sales invoices, the expected payment date."
 
   - name: "PlannedPaymentDate"
     type: "date-time"
@@ -135,31 +185,39 @@ attributes:
 
   - name: "PlannedPaymentDateString"
     type: "date-time"
-    description: ""
+    description: "For bills, the planned payment date."
 
   - name: "HasAttachments"
     type: "boolean"
     description: "If `true`, the invoice has an attachment."
 
   - name: "Payments"
-    type: "array"
-    description: ""
-    array-attributes:
+    type: ""
+    description: |
+      Details about the payments associated with the invoice.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","payments" }}
 
   - name: "CreditNotes"
-    type: "array"
-    description: ""
-    array-attributes:
+    type: ""
+    description: |
+      Details about the credit notes associated with the invoice.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","credit_notes" }}
 
   - name: "Prepayments"
-    type: "array"
-    description: ""
-    array-attributes:
+    type: ""
+    description: |
+      Details about the prepayments associated with the invoice.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","prepayments" }}
 
   - name: "Overpayments"
-    type: "array"
-    description: ""
-    array-attributes:
+    type: ""
+    description: |
+      Details about the overpayments associated with the invoice.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","overpayments" }}
 
   - name: "AmountDue"
     type: "number"
@@ -179,7 +237,7 @@ attributes:
 
   - name: "DueDateString"
     type: "date-time"
-    description: ""
+    description: "The date the invoice is due."
 
   # - name: "IsDiscounted"
   #   type: "boolean"
@@ -191,7 +249,5 @@ attributes:
 
   - name: "DateString"
     type: "date-time"
-    description: ""
-
-
+    description: "The date the invoice was issued."
 ---

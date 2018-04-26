@@ -106,11 +106,11 @@ attributes:
 
   - name: "DefaultSalesTax"
     type: "string"
-    description: "The default "
+    description: "The default tax used for line amounts on sales transactions."
 
   - name: "DefaultPurchaseTax"
     type: "string"
-    description: ""
+    description: "The default tax used for line amounts on purchase transactions."
 
   - name: "PeriodLockDate"
     type: "date-time"
@@ -155,13 +155,78 @@ attributes:
 
   - name: "Addresses"
     type: "array"
-    description: ""
+    description: "Details about the addresses associated with the organisation."
     array-attributes:
+      - name: "Region"
+        type: "string"
+        description: "The region associated with the address."
+
+      - name: "AddressType"
+        type: "string"
+        description: |
+          The address type. Possible values are:
+
+          - `POBOX`
+          - `STREET`
+          - `DELIVERY` - **Note**: This address type is not valid for `contacts`.
+
+      - name: "AddressLine1"
+        type: "string"
+        description: "The first line of the address."
+
+      - name: "AddressLine2"
+        type: "string"
+        description: "The second line of the address."
+
+      - name: "AddressLine3"
+        type: "string"
+        description: "The third line of the address."
+
+      - name: "AddressLine4" 
+        type: "string"
+        description: "The fourth line of the address."
+
+      - name: "AttentionTo" 
+        type: "string"
+        description: "The name of the addressee."
+
+      - name: "City" 
+        type: "string"
+        description: "The city associated with the address."
+
+      - name: "PostalCode" 
+        type: "string"
+        description: "The postal code associated with the address."
+
+      - name: "Country"
+        type: "string"
+        description: "The country associated with the address."
 
   - name: "Phones"
     type: "array"
-    description: ""
+    description: "Details about the phone numbers associated with the organisation."
     array-attributes:
+        - name: "PhoneNumber"
+          type: "string"
+          description: "The phone number."
+
+        - name: "PhoneAreaCode"
+          type: "string"
+          description: "The area code associated with the phone number."
+
+        - name: "PhoneCountryCode"
+          type: "string"
+          description: "The country code associated with the phone number."
+
+        - name: "PhoneType"
+          type: "string"
+          description: |
+            The type of phone number. Possible values are:
+
+            - `DEFAULT`
+            - `DDI`
+            - `MOBILE`
+            - `FAX`
 
   - name: "ExternalLinks"
     type: "array"
@@ -183,7 +248,42 @@ attributes:
         description: "The URL for the service."
 
   - name: "PaymentTerms"
-    type: 
-    description: ""
+    type: "array"
+    description: "Details about the default payment terms for the organisation."
+    array-attributes:
+      - name: "Sales"
+        type: "object"
+        description: "Details about the payment terms used for sales transactions."
+        object-attributes:
+          - name: "Day"
+            type: "integer"
+            description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
 
+          - name: "Type"
+            type: "integer"
+            description: |
+              The payment term type used for sales transactions. Possible values are:
+
+              - `DAYSAFTERBILLDATE` - _n_ day(s) after the bill date
+              - `DAYSAFTERBILLMONTH`- _n_ day(s) after the bill month
+              - `OFCURRENTMONTH` - Of the current month
+              - `OFFOLLOWINGMONTH` - Of the following month
+
+      - name: "Bills"
+        type: "object"
+        description: "Details about the payment terms used for bills (invoices)."
+        object-attributes:
+          - name: "Day"
+            type: "integer"
+            description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."
+
+          - name: "Type"
+            type: "integer"
+            description: |
+              The payment term type used for bills (invoices). Possible values are:
+
+              - `DAYSAFTERBILLDATE` - _n_ day(s) after the bill date
+              - `DAYSAFTERBILLMONTH`- _n_ day(s) after the bill month
+              - `OFCURRENTMONTH` - Of the current month
+              - `OFFOLLOWINGMONTH` - Of the following month
 ---

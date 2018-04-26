@@ -20,34 +20,25 @@ attributes:
     primary-key: true
     description: "The tracking category ID."
 
-  - name: "Name"
-    type: "string"
-    description: "The name of the tracking category."
-
   - name: "Status"
     type: "string"
-    description: |
-      The status of the tracking category. Possible values are:
-
-  - name: "Option"
-    type: "string"
-    description: ""
+    description: "The status of the tracking category."
 
   - name: "TrackingCategoryName"
     type: "string"
-    description: ""
+    description: "The name of the tracking category."
 
-  - name: "TrackingOptionID"
+  - name: "Name"
     type: "string"
-    description: ""
+    description: "The name of the tracking option."
 
-  - name: "TrackingOptionName"
+  - name: "Option"
     type: "string"
-    description: ""
+    description: "The value of the tracking option."
 
   - name: "Options"
     type: "array"
-    description: ""
+    description: "Details about the tracking option."
     array-attributes:
       - name: "IsActive"
         type: "boolean"
@@ -58,7 +49,7 @@ attributes:
         description: "If `true`, the tracking option has been deleted."
 
       - name: "TrackingOptionID"
-        type: "string" 
+        type: "string"
         description: "The ID of the tracking option."
 
       - name: "IsArchived"
@@ -72,8 +63,4 @@ attributes:
       - name: "Name"
         type: "string"
         description: "The name of the tracking option."
-
-      # - name: "HasValidationErrors"
-      #   type: "boolean"
-      #   description: ""
 ---

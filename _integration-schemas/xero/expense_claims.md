@@ -26,16 +26,25 @@ attributes:
     description: "The date when the expense claim was last updated, in UTC."
 
   - name: "User"
-    type: 
-    description: ""
+    type: ""
+    description: |
+      Details about the user(s) who submitted the expense claim.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","users" }}
 
   - name: "Receipts"
-    type: "array"
-    description: ""
+    type: ""
+    description: |
+      Details about the receipt(s) associated with the expense claim.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","receipts" }}
 
   - name: "Payments"
-    type: "array"
-    description: ""
+    type: ""
+    description: |
+      Details about the payment(s) associated with the expense claim.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","payments" }}
 
   - name: "Status"
     type: "string"

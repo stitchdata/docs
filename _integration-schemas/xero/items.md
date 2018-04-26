@@ -6,7 +6,7 @@ name: "items"
 doc-link: &api-doc https://developer.xero.com/documentation/api/items
 singer-schema:  https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/items.json
 description: |
-  The `items` table contains info about 
+  The `items` table contains info about the [products and services you buy and sell](https://help.xero.com/us/Inventory).
 
 replication-method: "Incremental"
 

@@ -28,9 +28,9 @@ attributes:
 
   - name: "Status"
     type: "string"
-    description: ""
+    description: "The status of the contact group. This will always be `ACTIVE`."
 
   - name: "HasValidationErrors"
     type: "boolean"
-    description: ""
+    description: "If `true`, there are validation errors associated with the contact group."
 ---

@@ -34,8 +34,11 @@ attributes:
       - `SPEND-PREPAYMENT`
 
   - name: "Contact"
-    type: 
-    description: ""
+    type: ""
+    description: |
+      Details about the contact(s) associated with the prepayment.
+
+      {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
 
   - name: "Date"
     type: "date-time"
@@ -61,8 +64,54 @@ attributes:
 
   - name: "LineItems"
     type: "array"
-    description: ""
+    description: "Details about the line items contained in the prepayment."
     array-attributes:
+      - name: "LineItemID"
+        type: "string"
+        description: "The ID of the line item."
+
+      - name: "Description"
+        type: "string"
+        description: "The description of the line item."
+
+      - name: "Quantity"
+        type: "number"
+        description: "The quantity of the line item."
+
+      - name: "UnitAmount"
+        type: "number"
+        description: "The amount of the line item."
+
+      - name: "AccountCode"
+        type: "string"
+        description: "The account code associated with the line item."
+
+      - name: "ItemCode"
+        type: "string"
+        description: "The code associated with the line item."
+
+      - name: "TaxType"
+        type: "string"
+        description: "The tax type associated with the line item."
+
+      - name: "LineAmount"
+        type: "number"
+        description: "The total of the line item, calculated as `UnitAmount x Quantity`."
+
+      - name: "TaxAmount"
+        type: "number"
+        description: "The total tax of the line item."
+
+      - name: "DiscountRate"
+        type: "number"
+        description: "The discount rate of the line item, if applicable."
+
+      - name: "Tracking"
+        type: ""
+        description: |
+          Details about the tracking categories applied to the line item, if applicable.
+
+          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
 
   - name: "SubTotal"
     type: "number"
@@ -95,8 +144,27 @@ attributes:
 
   - name: "Allocations"
     type: "array"
-    description: ""
+    description: "Details about the allocation of the prepayment."
     array-attributes:
+      - name: "Date"
+        type: "date-time"
+        description: |
+          The date the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} was applied.
+
+      - name: "Amount"
+        type: "number"
+        description: "The amount being applied to the invoice."
+
+      - name: "Invoice"
+        type: "object"
+        description: |
+          Details about the invoices the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} has been allocated against.
+        object-attributes:
+          - name: "InvoiceID"
+            type: "string"
+            description: |
+              The ID of the invoice the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} is being allocated against.
+            foreign-key: true
 
   - name: "HasAttachments"
     type: "boolean"
@@ -104,5 +172,5 @@ attributes:
 
   - name: "DateString"
     type: "date-time"
-    description: ""
+    description: "The date the prepayment was made."
 ---
