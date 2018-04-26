@@ -29,6 +29,10 @@
 			  	</td>
 			  	<td width="70%; fixed">
 			  		{{ sub-subattribute.description | flatify | markdownify }}
+
+			  		{% if sub-subattribute.foreign-key == true %}
+                        {% include integrations/templates/schemas/foreign-keys.html %}
+                    {% endif %}
 			  	</td>
 			</tr>
 	  	{% endif %}
@@ -90,6 +94,10 @@
 	  			</td>
 	  			<td width="70%; fixed">
 	  				{{ subattribute.description | flatify | markdownify }}
+
+	  				{% if subattribute.foreign-key == true %}
+                        {% include integrations/templates/schemas/foreign-keys.html %}
+                    {% endif %}
 	  			</td>
 	  		</tr>
 	  	{% endif %}

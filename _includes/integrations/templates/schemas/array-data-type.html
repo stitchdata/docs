@@ -101,6 +101,10 @@
                         </td>
                         <td width="60%; fixed">
                             {{ subattribute.description | flatify | markdownify }}
+
+                            {% if subattribute.foreign-key == true %}
+                                {% include integrations/templates/schemas/foreign-keys.html %}
+                            {% endif %}
                         </td>
                     </tr>
                     {% endif %}
