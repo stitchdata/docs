@@ -30,13 +30,13 @@ status: "Released"
 certified: true
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Premium"
 icon: /images/integrations/icons/jira.svg
 whitelist-ips: true
 whitelist:
   tables: true
-  columns: true
+  columns: false
 
 # -------------------------- #
 #      Setup Instructions    #
