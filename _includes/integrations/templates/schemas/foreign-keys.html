@@ -4,9 +4,25 @@
 
 {% for reference in references %}
     {% for key in reference.foreign-keys %}
-        {% if key.attribute == attribute.name %}
-            <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+
+    <!-- In some cases, schemas don't have explicit names for columns that are foreign keys. Ex: an "issueId" column in a table named "projects" probably refers to "issues.id". Some schemas will just use "id" in an object or array, however, and due to how the schema files are structured, means the name is ambiguous.
+
+    To get around this, those attributes will have an additional field below the "foreign-key" flag.  This field (boringly named "table") contains the name of the table that field can map to.
+
+    Ex: If a "projects" table contains "issues__id", it will still display as mapped to "issues.id" -->
+        {% if attribute.table %}
+            {% if key.table == attribute.table %}
+                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
                 <strong>Reference</strong>: <code>{{ key.table }}.{{ key.join-on }}</code>
+            {% endif %}
+
+        {% else %}
+
+            {% if key.attribute == attribute.name %}
+
+                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                    <strong>Reference</strong>: <code>{{ key.table }}.{{ key.join-on }}</code>
+            {% endif %}
         {% endif %}
     {% endfor %}
 {% endfor %}
