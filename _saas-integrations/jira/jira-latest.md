@@ -33,7 +33,7 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Premium"
 icon: /images/integrations/icons/jira.svg
-whitelist-ips: true ## if true, Stitch's IP addresses must be whitelisted to access this integration's data
+whitelist-ips: true
 whitelist:
   tables: true
   columns: true
@@ -68,63 +68,24 @@ setup-steps:
 
       When you complete the JIRA setup in Stitch, you'll be asked to enter your JIRA base URL. If Stitch determines that the protocol is not `HTTPs`, connection errors will arise.
 
-  - title: "Retrieve your Stitch public key"
-    anchor: "retrieve-stitch-public-key"
+  - title: "Create a Stitch JIRA user"
+    anchor: "create-jira-user"
     content: |
-      {{ site.data.tooltips.public-key | flatify }} In this case, when you add the public key to your JIRA instance, it allows Stitch to access and extract data from the account.
+      {% include note.html content="This step is optional. You may use your own credentials to create the integration in the next step if you don't want to create a Stitch JIRA user." %}
 
-      1. {{ app.menu-paths.add-integration | flatify }}
-      2. Click the **JIRA** icon.
-      3. Locate the **Public Key** field.
+      **Note**: Depending on the permissions structure your JIRA organization uses, [Administrator permissions may be required to create a user](https://confluence.atlassian.com/get-started-with-jira-software/set-up-your-software-team-937185135.html).
 
-      Leave this page open for now - you'll need this to set up the application access in JIRA in the next step.
+      Creating a dedicated user for Stitch ensures that Stitch will be obvious in any logs or audits. To create a user, [follow the instructions in JIRA's documentation](https://confluence.atlassian.com/get-started-with-jira-software/set-up-your-software-team-937185135.html).
 
-  - title: "Grant Stitch application access to {{ integration.display_name }}"
-    anchor: "grant-stitch-access-to-jira"
-    content: |
-      **Note that you need Administrator permissions to complete the steps in this section**. If you're not an Admin, loop in someone who can help you before continuing.
+      #### User access and replication
 
-      1. Sign into your JIRA account.
-      2. Click the **Settings (gear)** icon in the top-right corner.
-      3. In the drop-down menu, click **Applications**.
-      4. Click the **Application** link in the **Integrations** section of the menu on the left side of the page.
-      5. In the **Application** field, enter `stitchdata.com`.
-      6. Click **Create new link**.
-
-      A few ‘Configure Application URL’ messages might display after clicking the **Create new link** button. If you see these, don’t worry - everything is still on track.
-
-      Click **Continue** to keep going.
-    substeps:
-      - title: "Define the first set of Link Application settings"
-        anchor: "define-first-link-application-settings"
-        content: |
-          1. When the **Link Applications** window displays, enter `stitch` into the following fields:
-             - Application Name
-             - Service Provider Name
-          2. Set the **Application Type** field to **Generic Application**.
-          3. Enter `rjmetrics` into the following fields:
-             - Consumer Key
-             - Shared Secret
-          4. Enter `stitchdata.com` into the following fields:
-             - Request Token URL
-             - Token URL
-             - Authorize URL
-          5. Check the **Create incoming link** box.
-          6. Click the **Continue** button and a second Link Applications window will display.
-
-      - title: "Define the second set of Link Application settings"
-        anchor: "define-second-link-application-settings"
-        content: |
-          1. In the **Consumer Key** field, enter `rjmetrics`.
-          2. In the **Consumer Name** field, enter `stitch`.
-          3. In the **Public Key** field, paste the entire Public Key from the Stitch JIRA credentials page.
-          4. Click the **Continue** button.
-
-          If the link configuration was successful, you’ll see a **Success!** message on the Configure Application Links page.
-
+      Stitch will replicate only the issues, projects, worklogs, etc. that the Stitch user has access to. After the Stitch user is created, verify that the user has access to all the issues, projects, worklogs, etc. that you want to replicate. If the Stitch user doesn't have access to specific datasets or records, Stitch will be unable to replicate them from JIRA.
   - title: "add integration"
     content: |
-      4. In the **Base URL** field, enter the base URL for your JIRA site. **Remember**: If you're connecting a self-hosted instance, your server must use the `HTTPs` protocol or Stitch will be unable to successfully connect. 
+      4. In the **Base URL** field, enter the base URL for your JIRA site. **Remember**: If you're connecting a self-hosted instance, your server must use the `HTTPs` protocol or Stitch will be unable to successfully connect.
+      5. In the **Username** field, enter the email address of the JIRA user you want to use to authenticate the integration.
+         **Note**: Stitch will replicate only the issues, projects, worklogs, etc. that this user has access to. If this user doesn't have access to specific datasets or records, Stitch will be unable to replicate them from JIRA.
+      6. In the **Password** field, enter the user's password.
   - title: "historical sync"
   - title: "replication frequency"
 
