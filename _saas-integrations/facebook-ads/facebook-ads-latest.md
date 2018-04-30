@@ -71,7 +71,7 @@ setup-steps:
 
           While we generally recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to reduce discrepancies between Facebook's UI and data replicated by Stitch, we understand that clicks and views may have different attribution settings in Facebook.
 
-          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **27 days** as the setting in Stitch. Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution. This will ensure that records updated during the attribution period are correctly captured by Stitch.
+          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **7 days** as the setting in Stitch. Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution. This will ensure that records updated during the attribution period are correctly captured by Stitch.
 
           For more info, see the [Attribution windows and data extraction](#attribution-windows-data-extraction) section.
       - title: "Include deleted data"
