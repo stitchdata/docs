@@ -1,8 +1,6 @@
 ---
 tap-reference: "facebook-ads"
 
-version: "1.0"
-
 foreign-keys:
   - attribute: "adset_id"
     table: "adsets"
@@ -16,7 +14,7 @@ foreign-keys:
     table: "ads"
     join-on: "id"
 
-  - attribute: "creative__creative_id"
+  - attribute: "creative_id"
     table: "adcreative"
     join-on: "id"
 ---

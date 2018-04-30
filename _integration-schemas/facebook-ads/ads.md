@@ -130,11 +130,6 @@ attributes:
         description: "The ID of the creative used by the ad."
         foreign-key: true
 
-      # - name: "id"
-      #   type: "integer"
-      #   primary-key: true
-      #   description: ""
-
   - name: "created_time"
     type: "date-time"
     description: "The time the ad was created."
