@@ -69,11 +69,20 @@ setup-steps:
         content: |
           An attribution window is the amount of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
 
-          While we generally recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to reduce discrepancies between Facebook's UI and data replicated by Stitch, we understand that clicks and views may have different attribution settings in Facebook.
+          We recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to prevent discrepancies between Facebook's UI and data replicated by Stitch. For example: If the attribution window in Facebook Ads is **7 days**, you should define this setting as **7 days**.
 
-          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **7 days** as the setting in Stitch. Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution. This will ensure that records updated during the attribution period are correctly captured by Stitch.
+          Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution. This will ensure that records updated during the attribution period are correctly captured by Stitch.
 
           For more info, see the [Attribution windows and data extraction](#attribution-windows-data-extraction) section.
+
+          {% capture different-windows %}
+          **What if clicks and views have different windows in Facebook Ads?**<br>
+
+          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **7 days** as the setting in Stitch. This will ensure that the values for clicks and views are correctly updated.
+          {% endcapture %}
+
+          {% include note.html content=different-windows %}
+
       - title: "Include deleted data"
         anchor: "include-deleted-data"
         content: |
