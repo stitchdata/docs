@@ -9,22 +9,27 @@ description: "{{ api.form-properties.source-forms.cloudsql-mysql.description }}"
 object-attributes:
   - name: "host"
     type: "string"
+    required: true
     description: "{{ connect.common.attributes.host }}"
 
   - name: "port"
     type: "string"
+    required: true
     description: "{{ connect.common.attributes.port }}"
 
   - name: "database"
     type: "string"
+    required: true
     description: "{{ connect.common.attributes.database }}"
 
   - name: "username"
     type: "string"
+    required: true
     description: "{{ connect.common.attributes.username }}"
 
   - name: "password"
     type: "string"
+    required: true
     description: "{{ connect.common.attributes.password }}"
 
   # - name: "ssh"

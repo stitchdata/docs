@@ -137,11 +137,15 @@ non-standard handling of certain data types, etc. -->
     {% endif %}
 
 <!-- ACTUAL TABLE SCHEMA DISPLAY -->
-{% unless integration.old-schema-template %}
+{% if integration.old-schema-template %}
+    {% if integration.tables %}
+        {% include integrations/templates/expand-list.html %}
+    {% else %}
+    {% endif %}
+{% else %}
     {% include integrations/templates/schemas/table-schemas.html %}
-{% endunless %}
+{% endif %}
 <!-- SCHEMA DETAILS END -->
-
 
 
 <!-- ALL OTHER CONTENT -->

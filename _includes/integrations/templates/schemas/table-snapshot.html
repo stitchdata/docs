@@ -1,0 +1,46 @@
+<table class="table-snapshot table-hover">
+    <tr>
+        <td>
+            <strong>Replication Method:</strong> {{ table.replication-method }}
+        </td>
+        
+        {% if table.replication-method contains "Incremental" %}
+            <td>
+                <strong>Replication Key {{ ui-icon.replication-key | flatify }}:</strong> <code>{{ replication-keys | strip }}</code>
+            </td>
+        </tr>
+        <tr>
+        {% if table.api-method.name or table.doc-link %}
+            <td width="50%; fixed">
+        {% else %}
+            <td colspan="2">
+        {% endif %}
+                <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
+            </td>
+            {% if table.api-method.name %}
+                <td>
+                    <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentnation" target="new">{{ table.api-method.name }}</a></code> 
+                </td>
+
+            {% elsif table.doc-link %}
+                <td>
+                    <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentnation" target="new">Official Docs</a>
+                </td>
+            {% endif %}
+        {% elsif table.replication-method == "Full Table" %}
+            <td>
+                {% if table.api-method.name %}
+                    <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentnation" target="new">{{ table.api-method.name }}</a></code>
+
+                {% elsif table.doc-link %}
+                    <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentnation" target="new">Official Docs</a>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
+            </td>
+        </tr>
+        {% endif %}
+</table>
