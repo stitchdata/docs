@@ -71,9 +71,7 @@ setup-steps:
 
           While we generally recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to reduce discrepancies between Facebook's UI and data replicated by Stitch, we understand that clicks and views may have different attribution settings in Facebook.
 
-          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **27 days** as the setting in Stitch. Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution.
-
-          This will ensure that records updated during the attribution period are correctly captured by Stitch.
+          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **27 days** as the setting in Stitch. Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution. This will ensure that records updated during the attribution period are correctly captured by Stitch.
 
           For more info, see the [Attribution windows and data extraction](#attribution-windows-data-extraction) section.
       - title: "Include deleted data"
@@ -151,19 +149,19 @@ replication-sections:
 
       <p><strong>Example</strong><br>
 
-      The last maximum saved Replication Key value for the <code>ads</code> table is <code>2017-09-24 00:00:00</code>.</p>
+      The last maximum saved Replication Key value for the <code>ads</code> table is <code>2017-10-01 00:00:00</code>.</p>
 
-      <p>To account for an attribution window of <strong>7 days</strong>, we'd subtract this from the last maximum saved Replication Key value. This would equal <code>2017-09-01 00:00:00</code>. In this case, Stitch would query for and extract data that is newer than or equal to <code>2017-09-24 00:00:00</code> and older than or equal to <code>2017-10-01 00:00:00</code>.</p>
+      <p>To account for an attribution window of <strong>7 days</strong>, we'd subtract this from the last maximum saved Replication Key value. This would equal <code>2017-09-24 00:00:00</code>. In this case, Stitch would query for and extract data that is newer than or equal to <code>2017-09-24 00:00:00</code> and older than or equal to <code>2017-10-01 00:00:00</code>.</p>
 
       <p>If this were a SQL query, it might look like this:</p>
 
       {% highlight sql %}
         SELECT *
           FROM facebook_ads.ads
-         WHERE updated_time <= '2017-10-01 00:00:00'
-                                /* max Replication Key value from previous job */
-           AND updated_time >= '2017-09-24 00:00:00'
+         WHERE updated_time >= '2017-09-24 00:00:00'
                                 /* max Replication Key value - 7 day attribution window */
+           AND updated_time <= '2017-10-01 00:00:00'
+                                /* max Replication Key value from previous job */
       ORDER BY updated_time
       {% endhighlight %}
       </div>
