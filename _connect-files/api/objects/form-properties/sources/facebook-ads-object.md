@@ -25,6 +25,8 @@ object-attributes:
 
       To ensure your Facebook Ads and Stitch settings align, we recommend using the same attribution window in Stitch that you use in Facebook Ads. For example: If the attribution window is 28 days in Facebook, this value should be `28`.
 
+      If your click and view windows differ, you should select the **greater** of the two. For example: If clicks have a window of `7` days and views have a window of `1` day, you should enter `7` for this setting.
+
   - name: "frequency_in_minutes"
     type: "string"
     required: true
@@ -51,6 +53,7 @@ examples:
       {  
        "type":"platform.facebook",
        "properties":{  
+          "attribution_window:":"7",
           "frequency_in_minutes":"30",
           "include_deleted":"true",
           "start_date":"2018-01-10T00:00:00Z"
