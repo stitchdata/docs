@@ -69,9 +69,13 @@ setup-steps:
         content: |
           An attribution window is the amount of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
 
-          From the **Attribution Window** dropdown, select the number of days you want Stitch to use when extracting data: **1 day, 7 days,** or **28 days**. We recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to reduce discrepancies between Facebook's UI and data replicated by Stitch.
+          While we generally recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to reduce discrepancies between Facebook's UI and data replicated by Stitch, we understand that clicks and views may have different attribution settings in Facebook.
 
-          For example: If **7 days** is selected, Stitch will replicate the past seven days' worth of data during every replication job to account for result attribution. This will apply to all tables selected to replicate. See the [Attribution windows and data extraction](#attribution-windows-data-extraction) section for more info.
+          In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **27 days** as the setting in Stitch. Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution.
+
+          This will ensure that records updated during the attribution period are correctly captured by Stitch.
+
+          For more info, see the [Attribution windows and data extraction](#attribution-windows-data-extraction) section.
       - title: "Include deleted data"
         anchor: "include-deleted-data"
         content: |
