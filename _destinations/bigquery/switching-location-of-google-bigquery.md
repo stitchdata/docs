@@ -110,7 +110,7 @@ To ensure Stitch can load data into the new BigQuery instance, you'll need to de
 
 1. In another browser tab, [log into the Google console](https://console.cloud.google.com/).
 2. Use [Google's instructions](https://cloud.google.com/storage/docs/deleting-buckets) to locate the bucket in Google's UI.
-3. Locate the Stitch bucket, which is named `com-stitchdata-staging-[xxxxxx]`.
+3. Locate the Stitch bucket. **If you're unsure of which bucket belongs to Stitch**, reach out to Stitch support.
 4. Delete the bucket.
 
 ---
