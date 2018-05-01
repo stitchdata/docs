@@ -135,18 +135,27 @@ replication-sections:
       <div role="tabpanel" class="tab-pane active" id="historical-replications">
       <p>For historical and full resyncs of {{ integration.display_name }} data, Stitch will query for and extract data newer than or equal to the date defined in the <strong>Start Date</strong> field in the Integration Settings page.</p>
 
-      <p>The <a href="#define-historical-sync"><strong>Start Date</strong></a> defines the minimum date Stitch should query for when extracting historical data.</p>
+      <p>The <strong>Start Date</strong>, in conjunction with the <strong>Attribution Window</strong> setting, will define the minimum date Stitch should query for when extracting historical data. This is calculated as:</p>
+
+      <p><code>Start Date - Attribution Window = Minimum Extraction Date</code></p>
 
       <p><strong>Example</strong><br>
 
-      During the initial set up, the <strong>Start Date</strong> field is set to <code>07/03/2017</code>, or <code>2017-07-03 00:00:00</code>. In this example, Stitch will query for data that is newer than or equal to <code>2017-07-03 00:00:00</code>.</p>
+      During the initial set up, the <strong>Attribution Window</strong> and <strong>Start Date</strong> settings are defined as:</p>
+
+      <ul>
+        <li><strong>Attribution Window</strong>: 7 days</li>
+        <li><strong>Start Date</strong>: <code>07/03/2017</code>, or <code>2017-07-03 00:00:00</code></li>
+      </ul>
+
+      <p>In this example, Stitch will query for data that is newer than or equal to <code>2017-06-26 00:00:00</code>, or <code>2017-07-03 00:00:00 - 7 days</code>.</p>
 
       <p>If you were to write a SQL query using this date for the <code>ads</code> table, it might look like this:</p>
 
       {% highlight sql %}
         SELECT *
           FROM facebook_ads.ads
-         WHERE updated_time >= '2017-07-03 00:00:00'   /* Replication Key column */
+         WHERE updated_time >= '2017-06-26 00:00:00'   /* Replication Key column */
       ORDER BY updated_time
       {% endhighlight %}
       </div>
