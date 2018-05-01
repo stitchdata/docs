@@ -92,7 +92,7 @@ layout: page
 
 
 
-
+{% unless integration.no-schema == true %}
 <!-- SCHEMA DETAILS START -->
 <h2 id="schema">{{ integration.display_name }} Table Schemas</h2>
 
@@ -146,6 +146,7 @@ non-standard handling of certain data types, etc. -->
     {% include integrations/templates/schemas/table-schemas.html %}
 {% endif %}
 <!-- SCHEMA DETAILS END -->
+{% endunless %}
 
 
 <!-- ALL OTHER CONTENT -->
