@@ -10,7 +10,7 @@ description: |
 
   This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `country`.
 
-  Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
+  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
 
 replication-method: "Incremental"
 attribution-window: true
@@ -20,16 +20,19 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the ad."
+    foreign-key: true
 
   - name: "adset_id"
     type: "string"
     primary-key: true
     description: "The ID of the ad set. An ad set is a group of ads that share the same budget, schedule, delivery optimization, and targeting."
+    foreign-key: true
 
   - name: "campaign_id"
     type: "string"
     primary-key: true
     description: "The ID of the campaign. Campaigns contain ad sets and ads."
+    foreign-key: true
 
   - name: "date_start"
     type: "date-time"

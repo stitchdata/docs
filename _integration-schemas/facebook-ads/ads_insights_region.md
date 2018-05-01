@@ -2,14 +2,14 @@
 tap: "facebook-ads"
 version: 1.0
 
-name: "ads_insights_age_and_gender"
+name: "ads_insights_region"
 doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
-singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_age_and_gender.json
+singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_region.json
 description: |
-  The `ads_insights_age_and_gender` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics, segmented by age and gender.
+  The `ads_insights_region` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics, segmented by region. This table enables you to view your data by the region (ex: state or province) where people live or were located when they saw your ads, depending on how the location targeting was set.
 
-  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `age` and `gender`.
-  
+  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `region`.
+
   **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
 
 replication-method: "Incremental"
@@ -38,21 +38,16 @@ attributes:
     type: "date-time"
     primary-key: true
     replication-key: true
-    description: "The start date."
+    description: "The start date of the ad."
 
-  - name: "age"
-    type: "integer, string"
-    primary-key: true
-    description: "The age by which the data is segmented."
-
-  - name: "gender"
+  - name: "region"
     type: "string"
     primary-key: true
-    description: "The gender by which the data is segmented."
+    description: "The region by which the data is segmented."
 
   - name: "date_stop"
     type: "date-time"
-    description: "The end date."
+    description: "The end date of the ad."
 
   - name: "ad_name"
     type: "integer"

@@ -113,6 +113,7 @@ attributes:
   - name: "campaign_id"
     type: "string"
     description: "The ID of the campaign containing this ad set."
+    foreign-key: true
 
   - name: "created_time"
     type: "date-time"
