@@ -123,67 +123,7 @@ replication-sections:
 
       In the sections below are examples of how attribution windows impact how Stitch extracts data during historical and ongoing replication jobs.
 
-      <ul id="profileTabs" class="nav nav-tabs">
-          <li class="active">
-              <a href="#historical-replications" data-toggle="tab">Historical and full re-replications</a>
-          </li>
-          <li>
-              <a href="#ongoing-replications" data-toggle="tab">Ongoing replications</a>
-          </li>
-      </ul>
-      <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="historical-replications">
-      <p>For historical and full resyncs of {{ integration.display_name }} data, Stitch will query for and extract data newer than or equal to the date defined in the <strong>Start Date</strong> field in the Integration Settings page.</p>
-
-      <p>The <strong>Start Date</strong>, in conjunction with the <strong>Attribution Window</strong> setting, will define the minimum date Stitch should query for when extracting historical data. This is calculated as:</p>
-
-      <p><code>Start Date - Attribution Window = Minimum Extraction Date</code></p>
-
-      <p><strong>Example</strong><br>
-
-      During the initial set up, the <strong>Attribution Window</strong> and <strong>Start Date</strong> settings are defined as:</p>
-
-      <ul>
-        <li><strong>Attribution Window</strong>: 7 days</li>
-        <li><strong>Start Date</strong>: <code>07/03/2017</code>, or <code>2017-07-03 00:00:00</code></li>
-      </ul>
-
-      <p>In this example, Stitch will query for data that is newer than or equal to <code>2017-06-26 00:00:00</code>, or <code>2017-07-03 00:00:00 - 7 days</code>.</p>
-
-      <p>If you were to write a SQL query using this date for the <code>ads</code> table, it might look like this:</p>
-
-      {% highlight sql %}
-        SELECT *
-          FROM facebook_ads.ads
-         WHERE updated_time >= '2017-06-26 00:00:00'   /* Replication Key column */
-      ORDER BY updated_time
-      {% endhighlight %}
-      </div>
-
-      <div role="tabpanel" class="tab-pane" id="ongoing-replications">
-      <p>For ongoing replication jobs, Stitch will query for and extract data using the last saved maximum value in the table's Replication Key column and the <strong>Attribution Window</strong> setting.</p>
-
-      <p><strong>Note:</strong> This applies to every replication job that takes place after the historical replication job.</p>
-
-      <p><strong>Example</strong><br>
-
-      The last maximum saved Replication Key value for the <code>ads</code> table is <code>2017-10-01 00:00:00</code>.</p>
-
-      <p>To account for an attribution window of <strong>7 days</strong>, we'd subtract this from the last maximum saved Replication Key value. This would equal <code>2017-09-24 00:00:00</code>. In this case, Stitch would query for and extract data that is newer than or equal to <code>2017-09-24 00:00:00</code> and older than or equal to <code>2017-10-01 00:00:00</code>.</p>
-
-      <p>If this were a SQL query, it might look like this:</p>
-
-      {% highlight sql %}
-        SELECT *
-          FROM facebook_ads.ads
-         WHERE updated_time >= '2017-09-24 00:00:00'
-                                /* max Replication Key value - 7 day attribution window */
-           AND updated_time <= '2017-10-01 00:00:00'
-                                /* max Replication Key value from previous job */
-      ORDER BY updated_time
-      {% endhighlight %}
-      </div>
-      </div>
+      {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
 
     subsections:
       - title: "Attribution windows and row count impact"

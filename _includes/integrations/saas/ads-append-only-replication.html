@@ -1,6 +1,14 @@
 {% case integration.name %}
   {% when "google-adwords" %}
+    {% assign window = "Conversion Window" %}
+
+    {% assign table = "ad_performance_report" %}
+
     {% assign replication-key = "day" %}
+
+    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+
+    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
 
     {% assign account-id = system-column.customer-id %}
 
@@ -11,7 +19,15 @@
     {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
 
   {% when "bing-ads" %}
+    {% assign window = "Conversion Window" %}
+
+    {% assign table = "ad_performance_report" %}
+
     {% assign replication-key = "gregorianDate" %}
+
+    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+
+    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
 
     {% assign account-id = "accountId"%}
 
@@ -20,6 +36,18 @@
     {% assign device = "deviceType" %}
 
     {% assign core-object-replication = "With the exception of the `accounts` table, these tables are replicated using **Full Table Replication**." %}
+
+  {% when "facebook-ads" %}
+    {% assign window = "Attribution Window" %}
+
+    {% assign table = "ads" %}
+
+    {% assign replication-key = "updated_time" %}
+
+    {% assign replication-key-historical = "2017-06-05 00:00:00" %}
+
+    {% assign replication-key-ongoing = "2017-09-03 00:00:00" %}
+
   {% endcase %}
 
 
@@ -29,14 +57,14 @@ There are two types of tables in Stitch's {{ integration.display_name }} integra
 - **Core Object** tables contain foundational data that's useful for analysis. These are the [`accounts`](#accounts), [`ad_groups`](#ad_groups), [`ads`](#ads), and [`campaigns`](#campaigns) tables. {{ core-object-replication }}
 
 - **Report** tables are the various {{ integration.display_name }} reports. The replication process for these tables is a bit unlike that of other tables:
-  - **Extraction**: Data is extracted using a conversion window. A conversion window is a period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}. Stitch currently uses a conversion window of **{{ integration.attribution-window }}**.
+  - **Extraction**: Data is extracted using a {{ window }}. A {{ window }} is a period of time after a customer clicks an ad that a conversion (ex: a purchase) is recorded in {{ integration.display_name }}. Stitch currently uses a {{ window }} of **{{ integration.attribution-window }}**.
 
      This means that data from the past {{ integration.attribution-window }} will be replicated during every replication job.
   - **Loading**: Data is loaded into your data warehouse using Append-Only Replication.
 
 For **Report** tables, this means that:
 
-1. **Due to the conversion window, a high Replication Frequency may not be necessary.** Because Stitch will replicate data from the past {{ integration.attribution-window }} during every replication job, recent data will be re-replicated and count towards your row quota.
+1. **Due to the {{ window }}, a high Replication Frequency may not be necessary.** Because Stitch will replicate data from the past {{ integration.attribution-window }} during every replication job, recent data will be re-replicated and count towards your row quota.
 
    To help prevent overages or unnecessary re-replication, consider setting the integration to sync less frequently. For example: every 12 or 24 hours.
 
@@ -49,54 +77,14 @@ Each part of the replication process for **Report** tables is explained below.
 
 
 {% if include.type == "report-tables" %}
+{% unless integration.name == "facebook-ads" %}
 Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for all [**Report** tables](#schema) currently being tracked. 
 
-Stitch replicates data in this way to account for updates made during the conversion window.
+Stitch replicates data in this way to account for updates made during the {{ window }}.
+{% endunless %}
 
-#### Historical & Full Re-replications {#data-extraction-conversion-window--historical}
+{% include integrations/saas/attribution-window-examples.html %}
 
-For historical and full re-replications of **Report** tables, Stitch will query for and extract data newer than or equal to the date defined in the **Start Date** field in the Integration Settings page.
-
-The [**Start Date**](#define-historical-sync) defines the minimum date Stitch should query for when extracting historical data.
-
-##### Example {#historical-sync-example}
-
-During the initial set up, the **Start Date** field is set to `07/03/2017`, or `2017-07-03 00:00:00`. In this example, Stitch will query for data that is newer than or equal to `2017-07-03 00:00:00`.
-
-If you were to write a SQL query using this date for the `ad_performance_report` table, it might look like this:
-
-```sql
-SELECT *
-FROM ad_performance_report
-WHERE {{ replication-key }} >= '2017-07-03 00:00:00'       /* Replication Key column */
-ORDER BY {{ replication-key }}
-```
-
-#### Ongoing Jobs {#data-extraction-conversion-window--ongoing}
-
-For ongoing syncs of **Report** tables, Stitch will query for and extract data using the last saved maximum value in the table's Replication Key column and the conversion window of {{ integration.attribution-window }}.
-
-**Note:** This applies to every replication job that takes place after the historical job.
-
-##### Example {#ongoing-sync-example}
-
-The last maximum saved Replication Key value for the `ad_performance_report` table is `2017-10-01 00:00:00`.
-
-Subtracting the conversion window of {{ integration.attribution-window }} would equal `2017-09-01 00:00:00`.
-
-In this example, Stitch will query for and extract data that is newer than or equal to `2017-09-01 00:00:00` and older than or equal to 2017-10-01 00:00:00.
-
-If this were a SQL query, it might look like this:
-
-```sql
-SELECT *
-FROM ad_performance_report
-WHERE {{ replication-key }} <= '2017-10-01 00:00:00'       
-                        /* max Replication Key value from previous job */
-AND {{ replication-key }} >= '2017-09-01 00:00:00'
-                        /* max Replication Key value - 30 day conversion window */
-ORDER BY {{ replication-key }}
-```
 {% endif %}
 
 
