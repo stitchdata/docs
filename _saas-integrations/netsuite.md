@@ -687,7 +687,7 @@ tables:
 {% contentfor setup %}
 Connecting your NetSuite data to Stitch is a six-step process:
 
-1. 
+1. [Locate your NetSuite Account ID](#locate-netsuite-account-id)
 2. [Create a Stitch NetSuite Admin user](#create-netsuite-admin-user)
 3. [Retrieve the Stitch NetSuite user's Role ID](#retrieve-netsuite-role-id)
 4. [Add NetSuite as a Stitch data source](#add-stitch-data-source)
@@ -699,7 +699,7 @@ Connecting your NetSuite data to Stitch is a six-step process:
 
 **You must have Administrator permissions in NetSuite.** This is required to complete parts of the setup.
 
-### Locate your NetSuite account ID
+### Locate your NetSuite Account ID {#locate-netsuite-account-id}
 
 {% include layout/inline_image.html type="right" file="integrations/netsuite-account-id.png" alt="NetSuite account ID in Web Services Preferences" max-width="250px" %}
 1. Sign into your NetSuite account.
