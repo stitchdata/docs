@@ -8,7 +8,7 @@ foreign-keys:
     table: "accounts"
     join-on: "id"
 
-  - attribute: "ad"
+  - attribute: "adId"
     table: "ads"
     join-on: "id"
 
