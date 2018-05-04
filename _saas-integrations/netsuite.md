@@ -706,7 +706,7 @@ Connecting your NetSuite data to Stitch is a six-step process:
 2. Click the **Setup** option in the top navigation menu, then **Integration > Web Services Preferences**.
 3. In the **Primary Information**, locate the **Account ID** field as shown in the image on the right.
 
-Keep this information handy - you'll need it to complete the setup in Stitch.
+**Note**: If your Account ID contains a suffix - `1234567_SB2`, for example - it should be included when entering the ID into Stitch.
 
 ### Create a Stitch NetSuite Admin user {#create-netsuite-admin-user}
 
@@ -742,8 +742,8 @@ After you add the column to the Roles list, locate the ID for the user.
 4. Enter the email address and password associated with the Stitch NetSuite user.
 5. Enter the **Role ID** - the numerical ID, not the name of the role - associated with the user entered above.
 
-   **Note**: If this field is left blank, Stitch will use NetSuite's default role ID for Admin roles**, which is 3. If you receive an error when trying to save the integration, enter a 3 in this field and try saving again.
-6. In the **Account ID** field, enter your NetSuite account ID.
+   **Note**: If this field is left blank, Stitch will use NetSuite's default role ID for Admin roles, which is 3. If you receive an error when trying to save the integration, enter a 3 in this field and try saving again.
+6. In the **Account ID** field, enter your NetSuite account ID. If your Account ID contains a suffix - `1234567_SB2`, for example - it should also be entered into this field.
 6. Select the **Account Type** - Production or Sandbox.
 
 {% include integrations/saas/setup/historical-sync.html %}
