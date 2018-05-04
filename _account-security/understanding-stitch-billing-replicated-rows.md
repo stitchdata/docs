@@ -92,3 +92,5 @@ Note that this is only applicable to database integrations and the SaaS [integra
 ### Pause Integrations
 
 If all else fails, you can temporarily pause the integration to keep from going over your row limit.
+
+**Note**: Pausing an integration will only prevent the extraction of additional records. Loading will continue for records that have been extracted prior to the pause.

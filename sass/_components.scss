@@ -152,6 +152,9 @@ table.table-snapshot > tfoot > tr > td {
 table {
 	tr {
 		td {
+			pre {
+				margin: 0px 0px 15px 0px;
+			}
 			&:last-of-type {
 				border-right: 1px solid $gray-2;
 			}
@@ -177,6 +180,33 @@ table {
 	}
 }
 
+/* Used in API & JavaScript documentation */
+
+table.method-rollup {
+	margin-top: 30px;
+	width: 100%;
+	font-size: 15px;
+	tr {
+		td {
+			vertical-align: middle;
+			p {
+				margin: 0;
+			}
+		}
+		td.object,
+		td.post,
+		td.put,
+		td.get,
+		td.delete,
+		td.function {
+			font-weight: 600;
+			width: 10%;
+		}
+	}
+}
+
+/* Used in Integration Schema documentation */
+
 table.table-snapshot {
 	tr {
 		td {
@@ -193,6 +223,34 @@ table.table-snapshot {
 					border-right: 0px;
 				}
 			}
+		}
+	}
+}
+
+/* Used in Integration Schema, API, JS, etc. docs - anywhere */
+/* that contains a list of attributes */
+
+table.attribute-list {
+	width: 100%;
+	margin-top: 30px;
+	font-size: 15px;
+	tr {
+		td {
+			code {
+					font-size: 15px;
+				}
+		}
+/*		td.description {
+						code {
+							color: $magenta-relay;
+			}
+		}*/
+		td.attribute-name {
+							text-align: right;
+							width: 30%;
+							p {
+								margin: 0;
+							}
 		}
 	}
 }
@@ -308,7 +366,7 @@ i[data-toggle="tooltip"] {
 }
 
 a[data-toggle="tooltip"] {
-	color: $gray-3;
+	color: $blue-channel;
 	font-weight: bold;
 	cursor: default;
 	margin-left: 3px;
@@ -514,6 +572,15 @@ ul.tiles {
 		}
 	}
 
+	.lg-tile {
+		min-height: 200px;
+		width: 40%;
+		img {
+			max-height: 60px;
+			max-width: 180px;
+		}
+	}
+
 	li.category-version-toggle {
 		border: none;
 		display: list-item;
@@ -537,4 +604,65 @@ blockquote {
 	 	line-height: 1.5rem;
 	 	font-weight: 400;
 	 }
+}
+
+/* API/JS HEADINGS */
+
+.api-js-heading {
+	width: 100%;
+	margin: 40px 0px 20px 0px;
+	border: 1px solid $gray-stream;
+
+	div.method {
+		padding: 20px 30px 13px 30px;
+		float: left;
+		margin-right: 20px;
+		font-weight: 600;
+	}
+}
+
+.object {
+	background-color: $light-blue;
+}
+
+.post {
+	background-color: $green-junction;
+}
+
+.put {
+	background-color: $bit-blue;
+}
+
+.get {
+	background-color: $stitch-yellow;
+}
+
+.function {
+	background-color: $blue-channel;
+}
+
+.delete {
+	background-color: $frequency-red;
+}
+
+.method-bullet {
+	padding: 3px 5px 3px 5px;
+	margin-top: -3px;
+	margin-right: 0px;
+	float: none;
+	font-weight: 600;
+}
+
+.method-function {
+	padding: 1.5em;
+	line-height: 1em;
+}
+
+.method-resource {
+	padding: 0px;
+
+	h4 {
+		margin-bottom: 1em;
+		line-height: 1em;
+	}
 }

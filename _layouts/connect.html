@@ -1,0 +1,80 @@
+---
+layout: page
+---
+
+{% case page.sidebar %}
+    {% when 'overview' %}
+        {% assign docs = site.connect-files | where:"content-type","overview" | sort:"order" %}
+
+    {% when 'api' %}
+        {% assign docs = site.connect-files | where:"content-type","api-doc" | sort:"order" %}
+
+    {% when 'js' %}
+        {% assign docs = site.connect-files | where:"content-type","js-doc" | sort:"order" %}
+{% endcase %}
+
+{% assign connect = site.data.connect.general %}
+{% assign api = site.data.connect.api %}
+{% assign js = site.data.connect.js-client %}
+
+
+{% for doc in docs %}
+    <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
+        {{ doc.title }}
+    </h2>
+
+    {% if doc.sections %}
+        {% for section in doc.sections %}
+            {% if section.title %}
+
+            <h3 id="{{ section.anchor }}">
+                {% if doc.title == "Quick Start" %}
+                    Step {{ forloop.index }}:
+                {% endif %}
+                {% capture top-level-step %}
+                    {{ forloop.index }}
+                {% endcapture %}
+                {{ section.title | flatify }}
+            </h3>
+            {% endif %}
+
+            {{ section.content | flatify | markdownify }}
+
+{% if section.include %}
+{{ section.include | flatify }}
+{% endif %}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    {% if subsection.title %}
+                        <h4 id="{{ subsection.anchor }}">
+                            {% if doc.title == "Quick Start" %}
+                                Step {{ top-level-step | strip }}.{{ forloop.index }}: 
+                            {% endif %}
+                                {{ subsection.title | flatify }}
+                        </h4>
+                    {% endif %}
+
+                    {{ subsection.content | flatify | markdownify }}
+
+                    {% if subsection.steps %}
+                        {% for step in subsection.steps %}
+                            <h5 id="{{ step.anchor }}">
+                                Step {{ forloop.index }}: {{ step.title }}
+                            </h5>
+
+                            {{ step.content | flatify | markdownify }}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if doc.include %}
+        {% include {{doc.include}} %}
+    {% endif %}
+
+    <hr>
+{% endfor %}
+       

@@ -1,0 +1,100 @@
+table-name: "contacts"
+subtable-name: "personas"
+
+attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    value: "2078178"
+
+  - name: "name"
+    type: "string"
+    value: "Bubblegum"
+
+  - name: "phone_numbers"
+    type: "object"
+    subattributes:
+      - name: "mobile"
+        type: "string"
+        value: "0987654321"
+
+      - name: "work"
+        type: "string"
+        value: "7896541230"
+
+  - name: "personas"
+    type: "array"
+    subattributes:
+      - name: "id"
+        type: "string"
+        record-id-1: "persona_1"
+        record-id-2: "persona_2"
+
+      - name: "type"
+        type: "string"
+        record-type-1: "Princess"
+        record-type-2: "Heroine"
+
+  - name: "updated_at"
+    type: "date-time"
+    value: "2018-01-01T00:59:16Z"
+
+
+json-original: |
+  ```json
+  {
+     "contacts":[
+        {
+           "id":2078178,
+           "name":"Bubblegum",
+           "phone_numbers":[
+              {
+                 "mobile":"0987654321",
+                 "work":"7896541230"
+              }
+           ],
+           "personas":[
+              {
+                 "id":"persona_1",
+                 "type":"Princess"
+              },
+              {
+                 "id":"persona_2",
+                 "type":"Heroine"
+              }
+           ],
+           "updated_at":"2018-01-01T00:59:16Z"
+        }
+     ]
+  }
+  ```
+
+json-stored: |
+  ``` json
+  {
+     "id":2078178,
+     "name":"Bubblegum",
+     "phone_numbers":[
+        {
+           "mobile":"0987654321",
+           "work":"7896541230"
+        }
+     ],
+     "personas":[
+        {
+           "id":"persona_1",
+           "type":"Princess"
+        },
+        {
+           "id":"persona_2",
+           "type":"Heroine"
+        }
+     ],
+     "updated_at":"2018-01-01T00:59:16Z",
+     "{{ system-column.extracted-at }}":"2018-01-01T01:10:53Z",
+     "{{ system-column.received-at }}":"2018-01-01T01:10:53Z",
+     "{{ system-column.batched-at }}":"2018-01-01T01:11:04Z",
+     "{{ system-column.table-version }}":0,
+     "{{ system-column.sequence }}":1514769053000
+  }
+  ```

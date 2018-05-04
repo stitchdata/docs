@@ -76,7 +76,7 @@ later on in the template.
 
 
 {% if step.title == "add integration" %}
-<h3 id="add-stitch-data-source">Step {{ forloop.index }}: Add {{ integration.display_name }} as a Stitch Data Source</h3>
+<h3 id="add-stitch-data-source">Step {{ forloop.index }}: Add {{ integration.display_name }} as a Stitch data source</h3>
 <!-- Includes with Markdown formatting aren't rendered
 correctly when passed into HTML templates, so first we capture
 the content and assign a variable -->
@@ -86,7 +86,7 @@ the content and assign a variable -->
 
 <!-- And then use the markdownify filter to correctly
 render the Markdown. This is a Jekyll thing, not a this-site thing. -->
-{{ connection-setup | append: step.content | markdownify }}
+{{ connection-setup | append: step.content | flatify | markdownify }}
 
 {{ substeps }}
 
@@ -114,9 +114,9 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 {% elsif step.title == "track data" %}
 <h3 id="setting-data-to-replicate">Step {{ forloop.index }}: 
     {% if integration.whitelist.columns == true %}
-        Set Tables & Columns to Replicate
+        Set tables and columns to replicate
     {% else %}
-        Set Tables to Replicate
+        Set tables to replicate
     {% endif %}</h3>
 {% capture set-data-to-replicate %}
 {% if step.content %}
@@ -140,8 +140,10 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 {% endfor %}
 
 
+{% unless integration.type == "import-api" or integration.type == "Webhook" %}
 {% capture post-setup %}
 {% include integrations/shared-setup/initial-syncs.html %}
 {% endcapture %}
 
 {{ post-setup | markdownify }}
+{% endunless %}

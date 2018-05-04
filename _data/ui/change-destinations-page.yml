@@ -6,9 +6,27 @@
 #   Historical Data Fields   #
 # -------------------------- #
 
-historical-data:
-  - field: "Replicate new data only"
-    copy: "Stitch will pick up where it left off and only replicate **new** data to your new destination."
+default-fields:
+  new-data-only: &new-data-only "**Replicate new data only**"
+  historical-data: &historical-data "**Replicate historical data**"
 
-  - field: "Replicate historical data"
-    copy: "Stitch will clear all Replication Key values, queue a **full re-sync** of your integrations' data, and replicate all historical data to your new destination. For SaaS integrations, Stitch will replicate data beginning with the start date currently listed in the integration's settings."
+default-copy:
+  new-data-only: &new-data-only-copy |
+    Stitch will pick up where it left off and only replicate **new** data to your new destination.
+  historical-data-copy: &historical-data-copy |
+    Stitch will clear all Replication Key values, queue a **full re-replication** of your integrations' data, and replicate all historical data to your new destination. For SaaS integrations, Stitch will replicate data beginning with the **Start Date** currently listed in the integration's settings.
+
+default-historical-data:
+  - field: *new-data-only
+    copy: *new-data-only-copy
+
+  - field: *historical-data
+    copy: *historical-data-copy
+
+bigquery-historical-data:
+  - field: *new-data-only
+    copy: |
+      Select this option if you manually transferred your historical data or you don't need to re-replicate historical data. Stitch will pick up where it left off and only replicate **new** data to the new {{ destination.display_name }} destination.
+
+  - field: *historical-data
+    copy: *historical-data-copy

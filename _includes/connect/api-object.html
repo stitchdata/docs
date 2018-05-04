@@ -1,0 +1,64 @@
+{% assign objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
+
+{% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
+    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
+        {% assign same-version = object-endpoints | where:"version",object.version %}
+            {% assign endpoints = same-version | sort:"order" %}
+
+{% for object in objects %}
+    <h3 id="{{ object.endpoint | replace: " ", "-" }}">
+        {{ object.title | append: "s" }}
+    </h3>
+
+        {% include connect/api-endpoint-rollup.html type="endpoint" %}
+
+    {% if object.object-attributes %}
+        <div class="api-js-heading">
+            <div class="method object">
+                OBJECT 
+            </div>
+
+            <div class="method-resource">
+                <h4 id="{{ object.title | downcase | replace: " ", "-" | append: "--object" }}">
+                    The {{ object.title }} Object
+                </h4>
+            </div>
+        </div>
+
+            <p>{{ object.description | flatify | markdownify }}</p>
+
+            <table class="attribute-list">
+                {% for attribute in object.object-attributes %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>
+                                {{ attribute.name }}
+                            </strong><br>
+                                {{ attribute.type | upcase }}
+                                    {% if attribute.sub-type %}
+                                    (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
+                                {% endif %}
+                        </td>
+                        <td>
+                            {{ attribute.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+    {% endif %}
+        <hr>
+
+    {% for endpoint in endpoints %}
+        {% include connect/api-endpoint.html %}
+
+        {% unless forloop.last == true %}
+            <hr>
+        {% endunless %}
+    {% endfor %}
+
+{% unless forloop.last == true %}
+    <hr>
+    <br>
+{% endunless %}
+
+{% endfor %}

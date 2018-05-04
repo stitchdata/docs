@@ -1,0 +1,18 @@
+{% assign integration-references = site.integration-schemas | where:"tap-reference",integration.name %}
+
+{% if integration.this-version %}
+<!-- If the integration has multiple versions, locate the reference file for this version -->
+    {% assign references = integration-references | where:"version",integration.this-version %}
+{% else %}
+<!-- Otherwise, just re-assign the variable -->
+    {% assign references = integration-references %}
+{% endif %}
+
+{% for reference in references %}
+    {% for key in reference.foreign-keys %}
+        {% if key.attribute == attribute.name %}
+            <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                <strong>Reference</strong>: <code>{{ key.table }}.{{ key.join-on }}</code>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

@@ -11,28 +11,29 @@ The Public Key is used to authorize the Stitch Linux user. If the key isn't prop
 
 To retrieve the key:
 
+1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}.
 {% if page.url contains "destinations" %}
-1. Click the {{ app.menu-paths.destination-settings }}.
-2. Click the **{{ destination.display_name }}** icon.
+2. Click the {{ app.menu-paths.destination-settings }}.
+3. Click the **{{ destination.display_name }}** icon.
 {% else %}
-1. {{ app.menu-paths.add-integration | flatify }}
+2. {{ app.menu-paths.add-integration | flatify }}
 {% endif %}
 
 {% if page.url contains "integrations" %}
 {% if integration.name == "rds" %}
-2. Click the icon (ex: MySQL) for the type of database you're connecting.
+3. Click the icon (ex: MySQL) for the type of database you're connecting.
 {% elsif integration.name == "magento" %}
-2. Click the **MySQL** icon.
+3. Click the **MySQL** icon.
 {% else %}
-2. Click the **{{ integration.display_name }}** icon.
+4. Click the **{{ integration.display_name }}** icon.
 {% endif %}
 {% endif %}
 
 {% if page.singer == true %}
-3. Click the **SSH Tunnel** checkbox.
+5. Click the **SSH Tunnel** checkbox.
 {% else %}
-3. When the credentials page displays, click the **Encryption Type** menu and select the **SSH Tunnel** option.
+6. When the credentials page displays, click the **Encryption Type** menu and select the **SSH Tunnel** option.
 {% endif %}
-4. The Public Key will display, along with the other SSH fields.
+7. The Public Key will display, along with the other SSH fields.
 
 Leave this page open for now - you'll need it to wrap things up at the end.
