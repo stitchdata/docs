@@ -687,18 +687,28 @@ tables:
 {% contentfor setup %}
 Connecting your NetSuite data to Stitch is a six-step process:
 
-1. [Create a Stitch NetSuite Admin user](#create-netsuite-admin-user)
-2. [Retrieve the Stitch NetSuite user's Role ID](#retrieve-netsuite-role-id)
-3. [Add NetSuite as a Stitch data source](#add-stitch-data-source)
-4. [Define the Historical Sync](#define-historical-sync)
-5. [Define the Replication Frequency](#define-rep-frequency)
-6. [Select tables to sync](#syncing-data)
+1. 
+2. [Create a Stitch NetSuite Admin user](#create-netsuite-admin-user)
+3. [Retrieve the Stitch NetSuite user's Role ID](#retrieve-netsuite-role-id)
+4. [Add NetSuite as a Stitch data source](#add-stitch-data-source)
+5. [Define the Historical Sync](#define-historical-sync)
+6. [Define the Replication Frequency](#define-rep-frequency)
+7. [Set tables to replicate](#syncing-data)
 
 ### Prerequisites
 
 **You must have Administrator permissions in NetSuite.** This is required to complete parts of the setup.
 
-### Creating a Stitch NetSuite Admin User {#create-netsuite-admin-user}
+### Locate your NetSuite account ID
+
+{% include layout/inline_image.html type="right" file="integrations/netsuite-account-id.png" alt="NetSuite account ID in Web Services Preferences" max-width="250px" %}
+1. Sign into your NetSuite account.
+2. Click the **Setup** option in the top navigation menu, then **Integration > Web Services Preferences**.
+3. In the **Primary Information**, locate the **Account ID** field as shown in the image on the right.
+
+Keep this information handy - you'll need it to complete the setup in Stitch.
+
+### Create a Stitch NetSuite Admin user {#create-netsuite-admin-user}
 
 To connect NetSuite to Stitch, we recommend that you create a Stitch-specific Admin user for us. We suggest this approach for a few reasons:
 
@@ -707,13 +717,13 @@ To connect NetSuite to Stitch, we recommend that you create a Stitch-specific Ad
 
 After you've created the Admin user, move onto the next step.
 
-### Retrieving the Stitch NetSuite User's Role ID {#retrieve-netsuite-role-id}
+### Retrieve the Stitch NetSuite user's Role ID {#retrieve-netsuite-role-id}
 
-All Roles in NetSuite have a Name - for example, Accountant - and Role ID, or Internal ID number. Stitch requires this ID to successfully create a NetSuite integration.
+All Roles in NetSuite have a **Name** - for example, Accountant - and **Role ID**, or **Internal ID** number. Stitch requires the Role ID to successfully create a NetSuite integration.
 
-#### Locating the Role ID
+#### Locate the Role ID
 
-Role IDs can be found on the **Manage Roles** page in NetSuite. From your dashboard, click **Setup > Users/Roles > Manage Roles*.
+Role IDs can be found on the **Manage Roles** page in NetSuite. From your dashboard, click **Setup > Users/Roles > Manage Roles**.
 
 Locate the Role of the user in the Roles list. The ID is located in a column called **Internal ID**:
 
@@ -726,13 +736,14 @@ If you don't see the Internal ID column in the list, you may need to add it:
 3. Click **Add**.
 4. Click **Save**.
 
-After you add the column to the Roles list, locate the ID for the user and move onto the next step.
+After you add the column to the Roles list, locate the ID for the user.
 
 {% include integrations/shared-setup/connection-setup.html %}
 4. Enter the email address and password associated with the Stitch NetSuite user.
-5. Enter the **Role ID** - the numerical ID, not the name of the Role - associated with the user entered above.
+5. Enter the **Role ID** - the numerical ID, not the name of the role - associated with the user entered above.
 
-   **Note that if this field is left blank, Stitch will use NetSuite's default role ID for Admin roles**, which is 3. If you receive an error when trying to save the integration, enter a 3 in this field and try saving again.
+   **Note**: If this field is left blank, Stitch will use NetSuite's default role ID for Admin roles**, which is 3. If you receive an error when trying to save the integration, enter a 3 in this field and try saving again.
+6. In the **Account ID** field, enter your NetSuite account ID.
 6. Select the **Account Type** - Production or Sandbox.
 
 {% include integrations/saas/setup/historical-sync.html %}
