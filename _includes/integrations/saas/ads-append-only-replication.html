@@ -116,6 +116,8 @@ Every time Stitch replicates and loads data, a row for each unique combination o
 
 
 {% if include.type == "append-only-query" %}
+{% include note.html content="The query below is meant to act as a foundation for writing your own. Depending on the dimensions contained in a given table, you may need to alter this query for your own usage." %}
+
 If you want only the most recently replicated data for any {{ integration.display_name }} Report table, you can use the sample query below to account for the Append-Only Replication Stitch uses.
 
 This query uses two columns - which are automatically included for every Report table - to return the latest data:
