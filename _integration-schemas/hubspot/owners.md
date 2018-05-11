@@ -72,6 +72,7 @@ attributes:
       - name: "ownerId"
         type: "integer"
         description: "The ID of the owner."
+        foreign-key: true
 
       - name: "remoteId"
         type: "string"

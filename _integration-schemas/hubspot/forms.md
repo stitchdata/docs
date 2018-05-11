@@ -71,6 +71,7 @@ attributes:
   - name: "leadNurturingCampaignId"
     type: "string"
     description: "The ID of the lead nurturing campaign the form is associated with."
+    foreign-key: true
 
   - name: "formFieldGroups"
     type: "array"

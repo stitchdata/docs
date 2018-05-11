@@ -55,7 +55,7 @@ attributes:
 
   - name: "is-contact"
     type: "boolean"
-    description: "Indicates if the contact is a valid contact. "
+    description: "Indicates if the contact is a valid contact."
 
   - name: "profile-token"
     type: "string"
@@ -108,6 +108,7 @@ attributes:
       - name: "internal-list-id"
         type: "integer"
         description: "The internal list ID."
+        foreign-key: true
 
       - name: "is-member"
         type: "boolean"
@@ -140,6 +141,7 @@ attributes:
       - name: "form-id"
         type: "string"
         description: "The GUID of the form the submission belongs to."
+        foreign-key: true
 
       - name: "portal-id"
         type: "integer"

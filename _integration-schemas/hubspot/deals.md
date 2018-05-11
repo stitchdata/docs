@@ -51,6 +51,8 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the deal."
+            foreign-key: true
+            table: "companies"
 
       - name: "associatedDealIds"
         type: "array"
@@ -59,6 +61,8 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the deal. (How meta!)"
+            foreign-key: true
+            table: "deals"
 
   - name: "properties"
     type: "object"

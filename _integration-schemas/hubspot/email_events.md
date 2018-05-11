@@ -74,6 +74,8 @@ attributes:
   - name: "emailCampaignId"
     type: "integer"
     description: "The ID of the email campaign that the email message is a part of."
+    foreign-key: true
+    table: "campaigns"
 
   - name: "emailCampaignGroupId"
     type: "integer"
