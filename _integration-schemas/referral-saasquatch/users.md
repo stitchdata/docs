@@ -18,13 +18,14 @@ attributes:
     type: "string"
     primary-key: true
     description: "The user ID."
+   
+  - name: "accountId"
+    type: "string"
+    primary-key: true
+    description: "The ID of the account the user belongs to."
 
   - name: "n/a"
     replication-key: true
-
-  - name: "accountId"
-    type: "string"
-    description: "The ID of the account the user belongs to."
 
   - name: "email"
     type: "string"
