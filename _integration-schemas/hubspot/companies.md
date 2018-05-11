@@ -26,8 +26,4 @@ attributes:
     type: "integer"
     alias: "portal-id"
     description: "The ID of the portal the company is associated with."
-
-  - name: "isDeleted"
-    type: "boolean"
-    description: "Indicates if the company has been deleted in {{ integration.display_name }}."
 ---

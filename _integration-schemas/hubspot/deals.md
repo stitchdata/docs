@@ -28,10 +28,6 @@ attributes:
     primary-key: true
     description: "The ID of the portal the deal is associated with."
 
-  - name: "isDeleted"
-    type: "boolean"
-    description: "Indicates if the deal has been deleted in {{ integration.display_name }}."
-
   - name: "associations"
     type: "object"
     description: "IDs of the Vids, Companies, and Deals associated with the deal."
