@@ -42,7 +42,7 @@ whitelist:
 tables:
 ## Ad Groups
   - name: "adroll_ad_groups"
-    doc-link: https://app.adroll.com/api/v1/docs/service/adgroup#get
+    doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_adgroups
     description: "info about the adgroups contained within the campaigns of your AdRoll account."
     notes: 
     replication-method: "Full Table"
@@ -64,7 +64,7 @@ tables:
 
 ## Ad Reports
   - name: "adroll_ad_reports"
-    doc-link: https://app.adroll.com/api/v1/docs/service/report#ad
+    doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-report-ad
     description: "ad-level reporting data."
     notes: "Each row in this table contains totals for the ad, by date."
     replication-method: "Incremental"
@@ -113,7 +113,7 @@ tables:
 
 ## Ads
   - name: "adroll_ads"
-    doc-link: https://app.adroll.com/api/v1/docs/service/ad#get
+    doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_ads
     description: "about the ads, or creatives, associated with the advertisables in your account."
     notes: 
     replication-method: "Full Table"
@@ -149,7 +149,7 @@ tables:
 
 ## Advertisables
   - name: "adroll_advertisables"
-    doc-link: https://app.adroll.com/api/v1/docs/service/advertisable#get
+    doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get
     description: "about the advertisables (typically the parent object for a brand) in your AdRoll account."
     notes: 
     replication-method: "Full Table"
@@ -188,7 +188,7 @@ tables:
 
 ## Campaigns
   - name: "adroll_campaigns"
-    doc-link: https://app.adroll.com/api/v1/docs/service/advertisable#get
+    doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_campaigns
     description: "about the advertising campaigns in your account."
     notes: 
     replication-method: "Full Table"
@@ -225,7 +225,7 @@ tables:
 
 ## Segments
   - name: "adroll_segments"
-    doc-link: https://app.adroll.com/api/v1/docs/service/segment#get
+    doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_segments
     description: "about segments, or the lists of users that visit your site."
     notes: 
     replication-method: "Full Table"

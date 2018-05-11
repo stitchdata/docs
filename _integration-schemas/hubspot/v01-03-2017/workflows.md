@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "01-03-2017"
 
 name: "workflows"
 doc-link: https://developers.hubspot.com/docs/methods/workflows/workflows_overview

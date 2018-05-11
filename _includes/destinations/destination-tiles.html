@@ -9,7 +9,12 @@
 		<strong>{{ destination.display_name }}</strong><br>
 		<a href="{{ destination.url | prepend: site.baseurl }}">Overview</a> | 
 		<a href="{{ destination.url | prepend: site.baseurl | append: "#setup" }}">Setup</a><br>
-		<a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">Data Loading</a>
+    {% case destination.data-loading %}
+        {% when false %}
+            <br>
+        {% else %}
+    		<a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">Data Loading</a>
+    {% endcase %}
 	</li>
 {% endfor %}
 </ul>

@@ -1,37 +1,52 @@
 {% assign integration = page %}
 
-{% if integration.db-type == "rds" %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
-
-{% elsif integration.db-type == "mssql" %}
-  {% if integration.name == "azure" %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
-  {% else %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
-  {% endif %}
-
-{% elsif integration.name == "heroku" %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
-
+<!-- Some integrations don't have a branded UI. Ex: Magento is MySQL, but doesn't
+currently have its own UI. Capture the name that's in the UI and display it
+in the instructions. -->
+{% if integration.setup-name %}
+    {% assign integration-name = integration.setup-name %}
 {% else %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+    {% assign integration-name = integration.display_name %}
 {% endif %}
 
+<!-- Assign the correct page field names & descriptions based on
+database type -->
+{% case integration.db-type %}
+  {% when 'rds' %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
+
+  {% when 'mssql' %}
+    {% if integration.name == "azure" %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
+    {% else %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
+    {% endif %}
+
+  {% when 'heroku' %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
+
+  {% when 'mongo' %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.mongo %}
+
+  {% else %}
+    {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+  {% endcase %}
+
+<!-- Assign values to the default fields -->
 {% assign default-field = site.data.ui.database-integration-settings-page.default-fields %}
 {% assign default-copy = site.data.ui.database-integration-settings-page.default-copy %}
 
-
-1. {{ app.menu-paths.add-integration | flatify }}
+1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}, if you haven't already.
+2. {{ app.menu-paths.add-integration | flatify }}
 {% if integration.name == "rds" %}
-2. Click the icon (ex: MySQL) for the type of database you're connecting.
-{% elsif integration.name == "magento" %}
-2. Click the **MySQL** icon. As Magento is based on MySQL, you can use Stitch's MySQL integration to connect your Magento database.
+3. Click the icon (ex: MySQL) for the type of database you're connecting.
 {% else %}
-2. Click the **{{ integration.display_name }}** icon.
+3. Click the **{{ integration-name }}** icon.
 {% endif %}
-3. Fill in the fields as follows:
+4. Fill in the fields as follows:
    {% for field in database-settings %}
-   {% if field.name == "Database" and integration.db-type == "mysql" and integration.name != "rds" and integration.name != "azure" %}
+
+   {% if field.name == "Database" and integration.db-type == "mysql" %}
    - **{{ field.name }}**: {{ field.optional-copy | flatify }}
    {% else %}
    - **{{ field.name }}**: {{ field.copy | flatify }}

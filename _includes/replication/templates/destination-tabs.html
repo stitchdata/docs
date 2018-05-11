@@ -70,9 +70,11 @@ To accommodate the data, Stitch will widen the `rep_name` column, thus changing 
 <a href="#{{ include.content }}" data-toggle="tab">Destination</a>
 </li>
 {% for destination in destinations %}
+{% unless destination.type == "amazon-s3" or destination.type == "snowflake" or destination.type == "data-world" %}
 <li>
 <a href="#{{ destination.type }}-{{ include.content }}" data-toggle="tab">{{ destination.display_name }}</a>
 </li>
+{% endunless %}
 {% endfor %}
 </ul>
 <div class="tab-content">
@@ -83,6 +85,7 @@ Click a tab to see how each destination handles this scenario.
 
 
 {% for destination in destinations %}
+{% unless destination.type == "amazon-s3" or destination.type == "snowflake" or destination.type == "data-world" %}
 <div role="tabpanel" class="tab-pane" id="{{ destination.type }}-{{ include.content }}" markdown="1">
 
 <!-- BIGQUERY TABS -->
@@ -165,5 +168,6 @@ In the case of the `orders` table, its structure would be altered to:
 
 {% endif %}
 </div>
+{% endunless %}
 {% endfor %}
 </div>

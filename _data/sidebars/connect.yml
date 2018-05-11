@@ -1,0 +1,251 @@
+overview:
+  - title: sidebar
+    categories:
+      - title: "Stitch Connect"
+
+      - title: "API Reference"
+        new-page: true
+        url: &api "{{ link.connect.api }}"
+
+      - title: "JavaScript Reference"
+        new-page: true
+        url: &js "{{ link.connect.js }}"
+
+api:
+  - title: sidebar
+    categories:
+      - title: "Stitch Connect"
+        new-page: true
+        url: &connect "{{ link.connect.overview }}"
+
+      - title: Introduction
+        url: "{{ api.introduction }}"
+        drop-down: false
+
+      - title: Quick Start
+        url: "{{ api.quick-start }}"
+        drop-down: false
+
+      - title: "Authentication"
+        url: "{{ api.authentication }}"
+        drop-down: false
+
+      - title: "Response Codes"
+        url: "{{ api.response-codes }}"
+        drop-down: false
+
+      - title: "Versioning"
+        url: "{{ api.versioning }}"
+        drop-down: false
+
+      - title: "Core Objects"
+        expand-by-default: true
+        sections:
+          - title: "Accounts"
+            expand-by-default: true
+            subsections:
+              - title: "The Account Object"
+                method: "object"
+                url: "{{ api.core-objects.accounts.object }}"
+
+              - title: "{{ api.core-objects.accounts.create.name }}"
+                method: "post"
+                url: "{{ api.core-objects.accounts.create.anchor }}"
+
+          - title: "Sessions"
+            expand-by-default: true
+            subsections:
+              - title: "The Session Object"
+                method: "object"
+                url: "{{ api.core-objects.sessions.object }}"
+
+              - title: "{{ api.core-objects.sessions.create.name }}"
+                method: "post"
+                url: "{{ api.core-objects.sessions.create.anchor }}"
+
+          - title: "Destinations"
+            expand-by-default: true
+            subsections:
+              - title: "The Destination Object"
+                method: "object"
+                url: "{{ api.core-objects.destinations.object }}"
+
+              - title: "{{ api.core-objects.destinations.create.name | flatify }}"
+                method: "post"
+                url: "{{ api.core-objects.destinations.create.anchor }}"
+
+              - title: "{{ api.core-objects.destinations.update.name | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.destinations.update.anchor }}"
+
+              - title: "{{ api.core-objects.destinations.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.destinations.list.anchor }}"
+
+          - title: "Source Types"
+            expand-by-default: true
+            subsections:
+              - title: "The Source Type Object"
+                method: "object"
+                url: "{{ api.core-objects.source-types.object }}"
+
+              - title: "{{ api.core-objects.source-types.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.source-types.list.anchor }}"
+
+              - title: "{{ api.core-objects.source-types.get.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.source-types.get.anchor }}"
+
+          - title: "Sources"
+            expand-by-default: true
+            subsections:
+              - title: "The Source Object"
+                method: "object"
+                url: "{{ api.core-objects.sources.object }}"
+
+              - title: "{{ api.core-objects.sources.create.name | flatify }}"
+                method: "post"
+                url: "{{ api.core-objects.sources.create.anchor }}"
+
+              - title: "{{ api.core-objects.sources.update.name | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.sources.update.anchor }}"
+
+              - title: "{{ api.core-objects.sources.list.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.sources.list.anchor }}"
+
+              - title: "{{ api.core-objects.sources.retrieve.name | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.sources.retrieve.anchor }}"
+
+      - title: "Data Structures"
+        sections: 
+          - title: "{{ api.data-structures.connection-checks.title }}"
+            method: "object"
+            url: "{{ api.data-structures.connection-checks.section }}"
+
+          - title: "{{ api.data-structures.connection-steps.title }}"
+            method: "object"
+            url: "{{ api.data-structures.connection-steps.section }}"
+
+          - title: "{{ api.data-structures.current-step-hints.title }}"
+            method: "object"
+            url: "{{ api.data-structures.current-step-hints.section }}"
+
+          - title: "{{ api.data-structures.properties.title }}"
+            method: "object"
+            url: "{{ api.data-structures.properties.section }}"
+
+          - title: "{{ api.data-structures.report-cards.title }}"
+            method: "object"
+            url: "{{ api.data-structures.report-cards.section }}"
+
+      - title: "Form Properties"
+        sections:
+          - title: "Destination Forms"
+            subsections:
+              - title: "PostgreSQL"
+                method: "object"
+                url: "{{ api.form-properties.destination-forms.postgresql.section }}"
+
+              - title: "Redshift"
+                method: "object"
+                url: "{{ api.form-properties.destination-forms.redshift.section }}"
+
+              - title: "Snowflake"
+                method: "object"
+                url: "{{ api.form-properties.destination-forms.snowflake.section }}"
+
+          - title: "Source Forms"
+            subsections:
+              - title: "Amazon Aurora"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.aurora.section }}"
+
+              - title: "Facebook Ads"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.facebook-ads.section }}"
+
+              - title: "Google AdWords"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.google-adwords.section }}"
+
+              - title: "Google CloudSQL MySQL"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.cloudsql-mysql.section }}"
+
+              - title: "HubSpot"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.hubspot.section }}"
+
+              - title: "MariaDB"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.mariadb.section }}"
+
+              - title: "Marketo"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.marketo.section }}"
+
+              - title: "MySQL"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.mysql.section }}"
+
+              - title: "Salesforce"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.salesforce.section }}"
+
+              - title: "Zuora"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.zuora.section }}"
+
+      - title: "JavaScript Reference"
+        new-page: true
+        url: *js
+
+
+js:
+  - title: sidebar
+    categories:
+      - title: "Stitch Connect"
+        new-page: true
+        url: *connect
+
+      - title: "Introduction"
+        url: "{{ js.introduction }}"
+
+      - title: "Versioning"
+        url: "{{ js.versioning }}"
+
+      - title: "Installation"
+        url: "{{ js.installation }}"
+
+      - title: "Error Codes"
+        url: "{{ js.error-codes }}"
+
+      - title: "Functions"
+        sections:
+          - title: "addSource"
+            method: "function"
+            url: "{{ js.create-a-source.section }}"
+
+          - title: "authorizeSource"
+            method: "function"
+            url: "{{ js.authorize-a-source.section }}"
+
+          - title: "displayDiscovery"
+            method: "function"
+            url: "{{ js.source-discovery.section }}"
+
+          - title: "selectStreamsForSource"
+            method: "function"
+            url: "{{ js.select-streams.section }}"
+
+          - title: "editSource"
+            method: "function"
+            url: "{{ js.edit-source.section }}"
+
+      - title: "API Reference"
+        new-page: true
+        url: *api

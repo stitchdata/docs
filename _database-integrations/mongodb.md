@@ -107,7 +107,7 @@ setup-steps:
 
 incompatible:
   redshift: "sometimes"
-  reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Panoply's 1,600 column limit."
+  reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Redshift's 1,600 column limit."
 
   panoply: "sometimes"
   reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Panoply's 1,600 column limit."

@@ -8,13 +8,13 @@ If you receive an error message, we recommend:
 - Verifying that the **Connect using SSL** box in the {{ app.page-names.dw-settings }} page is checked. Heroku requires SSL to be enabled for the connection to be successful.
 - Checking Heroku’s Status Page for possible service outages.
 
-If the errors persist, please reach out to support.
+If the errors persist, reach out to support.
 
 ---
-{% elsif destination.type == "panoply" %}
+{% elsif destination.type == "panoply" or destination.type == "data-world" %}
 ## Troubleshooting
 
-If you receive an error message, please reach out to support for assistance.
+If you receive an error message, reach out to support for assistance.
 
 ---
 
@@ -37,4 +37,6 @@ Now that your {{ destination.display_name }} data warehouse is up and running, w
 {% else %}
 - **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/{{ destination.type }}/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
 {% endif %}
+{% unless destination.data-loading == false %}
 - **[Destination Data Loading Guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }})**: This article covers many of the common scenarios Stitch will encounter when loading data into your {{ destination.display_name }} destination and the expected behavior for each scenario.
+{% endunless %}

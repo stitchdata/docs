@@ -11,6 +11,7 @@ summary: "Connect and replicate data from your Magento database using Stitch's M
 
 name: "magento"
 display_name: "Magento"
+setup-name: "MySQL"
 singer: true
 author: "Stitch"
 author-url: https://www.stitchdata.com

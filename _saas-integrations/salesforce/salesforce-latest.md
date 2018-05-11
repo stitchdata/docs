@@ -58,7 +58,9 @@ setup-steps:
     content: |
       Depending on how your Salesforce instance is set up, you may need to whitelist Stitch's IP addresses. In Salesforce, this is referred to as "setting trusted IPs".
 
-      [The instructions in this Salesforce article](https://help.salesforce.com/articleView?id=security_networkaccess.htm&type=0) will walk you through how to do this in Salesforce; below are all the Stitch IP addresses that must be added to the trusted list:
+      [The instructions in this Salesforce article](https://help.salesforce.com/articleView?id=security_networkaccess.htm&type=0) will walk you through how to do this in Salesforce. **Note**: Because these are exact IP addresses and not ranges, the same IP address must be entered in the **Start IP Address** and **End IP Address** fields in Salesforce.
+
+      Add the following IP addresses to the trusted list:
 
       {% for ip-address in ip-addresses %}
       - {{ ip-address.ip }}
@@ -66,9 +68,7 @@ setup-steps:
 
       Complete this step before proceeding with the rest of the setup, or you may encounter connection issues.
 
-  - id: "add integration"
-    title: "Add {{ integration.display_name }} as a Stitch Data Source"
-    anchor: "add-stitch-data-source"
+  - title: "add integration"
     content: |
       4. If the instance you want to connect to Stitch is a **sandbox**, check the **Connect to a Sandbox Environment** box.
 
@@ -276,7 +276,7 @@ setup-steps:
 
       By default, when new fields are added to Salesforce objects, Stitch will automatically detect and begin replicating data from them.
 
-      If you prefer to track new fields manually, uncheck the **Replicate new fields automatically** checkbox.
+      If you prefer to track new fields manually, uncheck the **Replicate new fields automatically** checkbox. **Note**: This setting cannot be changed after the integration is saved.
 
       {% capture new-fields-replicating-tables %}
       **Data for New Fields in Already-Replicating Tables**<br>
@@ -287,13 +287,9 @@ setup-steps:
 
       {% include note.html content=new-fields-replicating-tables %}
 
-  - id: "historical sync"
-    title: "Define the Historical Sync"
-    anchor: "define-historical-sync"
+  - title: "historical sync"
 
-  - id: "replication frequency"
-    title: "Define the Replication Frequency"
-    anchor: "define-rep-frequency"
+  - title: "replication frequency"
 
   - title: "Authorize Stitch to Access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
@@ -304,9 +300,7 @@ setup-steps:
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
 
-  - id: "track data"
-    title: "Select Data to Replicate"
-    anchor: "setting-data-to-replicate"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #

@@ -7,12 +7,14 @@ doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
 singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/ads_insights_platform_and_device.json
 description: |
   The `ads_insights_country` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics, segmented by publisher platform, platform position, and device.
+  
+  This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of the following fields:
 
-  **Note:** This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of the following fields:
-
-  - `publisher_platform`
-  - `platform_position`
-  - `impression_device`
+     - `publisher_platform`
+     - `platform_position`
+     - `impression_device`
+  
+  Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
 
 replication-method: "Incremental"
 attribution-window: true
@@ -22,16 +24,19 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the ad."
+    foreign-key: true
 
   - name: "adset_id"
     type: "string"
     primary-key: true
     description: "The ID of the ad set. An ad set is a group of ads that share the same budget, schedule, delivery optimization, and targeting."
+    foreign-key: true
 
   - name: "campaign_id"
     type: "string"
     primary-key: true
     description: "The ID of the campaign. Campaigns contain ad sets and ads."
+    foreign-key: true
 
   - name: "date_start"
     type: "date-time"

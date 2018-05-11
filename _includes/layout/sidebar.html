@@ -1,5 +1,11 @@
 {% include misc/data-files.html %}
-{% assign navigation = site.data.sidebars.stitchnav.all-docs %}
+
+{% case page.sidebar %}
+    {% when 'embedding-api' %}
+        {% assign navigation = site.data.sidebars.embedding-api.all-docs %}
+    {% else %}
+        {% assign navigation = site.data.sidebars.stitchnav.all-docs %}
+{% endcase %}
 
 <div class="menu-list">
 
@@ -12,13 +18,17 @@
 
         {% for doc in navigation %}
             <!-- Top-level items -->
+
             {% for category in doc.categories %}
-                {% if category.title == "Getting Started" %}
-                <li>
-                    <a href="{{ link.getting-started | prepend: site.baseurl }}">{{ category.title }}</a>
+                {% if category.title == "Getting Started" or category.drop-down == false %}
+                    <li>
+                        <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
                 {% else %}
                 <li>
-                    <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" }}" aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                    <a data-toggle="collapse" 
+                    href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
+                    aria-expanded="false" 
+                    aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
                         {{ category.title }} 
                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                     </a>
@@ -30,8 +40,10 @@
                         {% for section in category.sections %}
                             {% if section.subsections %}
                                 <li class="subfolders">
-
-                                    <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}" aria-expanded="false" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    <a data-toggle="collapse" 
+                                    href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
+                                    aria-expanded="false" 
+                                    aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
                                         {{ section.title }} 
                                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                                     </a>

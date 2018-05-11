@@ -1,7 +1,7 @@
 ---
 title: Security FAQ
 permalink: /account-security/stitch-security
-keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl
+keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
 tags: [getting_started, account, security]
 
 summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
@@ -10,16 +10,31 @@ toc: true
 layout: faq
 weight: 5
 
+enterprise-cta:
+  hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
+  reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
+
 frequently-asked-questions:
   - topic: "Compliance"
     anchor: "stitch-compliance"
     items:
-      - question: "Is Stitch PCI or HIPAA compliant?"
-        anchor: "pci-hipaa-compliant"
+      - question: "Is Stitch PCI compliant?"
+        anchor: "pci-compliant"
         answer: |
           All payment information submitted through Stitch's billing interface to pay for your subscription is handled in a PCI-compliant manner.
-          
-          If you'd like to know how Stitch can replicate data that is subject to compliance requirements like HIPAA or PCI, reach out to our [support team](mailto: {{ site.support }}) and tell us more about your needs.
+
+          To inquire about replicating data subject to PCI requirements, reach out to our [support team](mailto: {{ site.support }}).
+
+      - question: "Is Stitch HIPAA compliant?"
+        anchor: "hipaa-compliant"
+        answer: |
+          {% include misc/data-files.html %}
+
+          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan.
+
+          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-cta.url }}).
+
+          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-cta.hipaa-url }}) before replicating any sensitive data.
 
       - question: "Does Stitch comply with any EU privacy laws?"
         anchor: "eu-privacy-compliance"
@@ -27,7 +42,7 @@ frequently-asked-questions:
           Stitch is certified under the [US-EU and US-SWISS Privacy Shield Programs](https://www.privacyshield.gov/participant?id=a2zt0000000GnxUAAS&status=Active){:target="new"}, meaning any EU or Swiss data transfer will be handled in accordance with the principles laid out in the Privacy Shield Framework.
 
           For more information on Privacy Shield, check out the link above or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
-  
+
   - topic: "Encryption"
     anchor: "stitch-encryption"
     items:
@@ -36,16 +51,14 @@ frequently-asked-questions:
         answer: |
           All credentials used to access other systems (i.e., your database or a SaaS integration) are encrypted before we store them.
 
-      - question: "Is my data encrypted in transit?"
+      - question: "Is my data encrypted in transit? Is it encrypted at rest?"
         anchor: "is-data-encrypted-transit"
         answer: |
-          We offer several ways to get data into Stitch using encryption:
+          Your data is always encrypted in transit and at rest within the Stitch environment. We offer several ways to get data into Stitch using encryption:
 
-          - **For data pulled from an API or submitted directly to Stitch's Import API,** we'll use SSL-based encryption.
+          - **For data pulled from an HTTP API or submitted directly to Stitch's Import API,** we'll use SSL/TLS-based encryption.
           
-          - **For data replicated from a database**, we can use the encryption functionality built into the database. 
-
-          - **For databases that don't support encryption**, or if encryption isn't activated, we can transport the data through an SSH tunnel. After we receive your data, it won't leave our network without being encrypted.
+          - **For data replicated from a database**, we can use the encryption functionality built into the database, or an SSH tunnel. 
 
       - question: "Are SSL connections supported?"
         anchor: "ssl-connection-support"
@@ -67,10 +80,10 @@ frequently-asked-questions:
 
           You can also dive into the [PostgreSQL SSL docs](https://jdbc.postgresql.org/documentation/head/ssl.html){:target="new"} to learn more.
 
-      - question: "Are VPN connections supported?"
+      - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
         answer: |
-          Not currently. If you're interested in adding support for VPN connections, [contact our support team](mailto: {{ site.support }}) with your use case. We're always interested in exploring the possibility of the features our customers want, so don't hesitate.
+          While VPN connections aren't currently supported, reverse SSH tunnels may be implemented as part of an Enterprise plan. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.reverse-ssh-url }}).
 
   - topic: "Data Access"
     anchor: "stitch-access"

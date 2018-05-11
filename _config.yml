@@ -63,6 +63,7 @@ kramdown:
 ## Plugins used by the site
 plugins:
   - jekyll-redirect-from
+  - jekyll-include-cache
 
 # -------------------------- #
 #        Collections         #
@@ -77,6 +78,10 @@ collections:
    output: true
   analysis-integrations:
    output: true
+  connect-content:
+   output: true
+  connect-files:
+   output: false
   data-structure:
    output: true
   database-integrations:
@@ -211,13 +216,18 @@ defaults:
 
 home: https://www.stitchdata.com
 pricing: https://www.stitchdata.com/pricing/
-integrations: https://www.stitchdata.com/integrations/
+integrations: https://www.stitchdata.com/integrations/sources/
+destinations: https://www.stitchdata.com/integrations/destinations/
+
 status: https://status.stitchdata.com/
 changelog: https://www.stitchdata.com/changelog
 blog: https://blog.stitchdata.com/
 resources: https://www.stitchdata.com/resources/
 data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeline
+
 support: help@stitchdata.com
+sales: https://www.stitchdata.com/contact/
+sign-in: https://app.stitchdata.com
 
 ## Singer links
 

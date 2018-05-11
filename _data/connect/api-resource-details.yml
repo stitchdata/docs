@@ -1,0 +1,26 @@
+# An overview of what needs to be included in a valid request header
+# and what the user should expect as a response from the API.
+
+list:
+  - name: "Authorization"
+    description: "Required. The request header must contain **Authorization** and your access token."
+
+  - name: "Request Header"
+    description: |
+      The request header must contain the following:
+
+      - **Authorization**: Must specify Bearer Auth, e.g. `Bearer: <ACCESS_TOKEN>`
+      - **Content-Type**: Must specify JSON, e.g. `application/json`
+
+      See the **Request** tab below for an example request.
+
+  - name: "Request Body"
+    description: |
+      The request body must be valid JSON and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
+
+  - name: "Response Format"
+    description: "Whether the request succeeds or fails, the API will return JSON."
+
+  - name: "Errors"
+    description: "See the **Errors** tab, below."
+
