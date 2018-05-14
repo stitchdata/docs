@@ -24,7 +24,7 @@ status: "Released"
 description: *summary
 pricing_model: "Varies" ## provider model
 free_option: "Yes"
-fully-managed: false
+fully-managed: true
 pricing_notes: "Data.world plans vary depending on the number of private projects/data sets, size limits per project/dataset, external integrations, and total number of team members that can belong to an account. All plans, however, include unlimited public projects/datasets, API access, joins, queries, activity alerts, and other standard features." 
 icon: /images/destinations/icons/data-world.svg
 
