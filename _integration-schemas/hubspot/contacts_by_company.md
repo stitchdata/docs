@@ -21,10 +21,12 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the contact."
+    foreign-key: true
 
 ## Primary Key
   - name: "company-id"
     type: "integer"
     primary-key: true
     description: "The ID of the company the contact is a part of."
+    foreign-key: true
 ---
