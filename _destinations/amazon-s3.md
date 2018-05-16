@@ -7,7 +7,7 @@ permalink: /destinations/amazon-s3/
 layout: destination-overview
 tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3
-summary: &summary "Amazon S3 is an extremely simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
+summary: &summary "Amazon S3 is a simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
 toc: true
 destination: true
 data-loading: false
@@ -26,7 +26,7 @@ display_name: "Amazon S3"
 type: "amazon-s3"
 db-type: "s3"
 pricing_tier: "standard"
-status: "Closed Beta"
+status: "Open Beta"
 description: *summary
 pricing_model: "Storage"
 free_option: "Yes (plan & trial)"
