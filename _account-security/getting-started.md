@@ -193,7 +193,7 @@ If you want to use Incremental Replication, you'll also need to select a [**Repl
 
 When Stitch replicates your data, it will store the last recorded maximum value of the Replication Key column and compare it against the data source - **not what’s in your data warehouse** - to identify new/updated data. Any row with a Replication Key value greater than or equal to the stored value is where Stitch will begin the next replication attempt.
 
-##### Defining Replication Methods & Keys
+##### Define Replication Methods and Keys
 
 The `created_at` value in this table is populated with the present time each time a new record is created in this table. Since records are never updated, Stitch only needs to know when new data is created. Because of this, we can use `created_at` as the Replication Key for the `{{ ex-table }}` table.
 
@@ -208,21 +208,23 @@ Here's how we set the `{{ ex-table }}` table to use Incremental Replication base
 
 ---
 
-## Monitoring Your Data
+## Monitor the replication process
 
 After you initially connect an integration, you might see a **Pending** status in the **Last Sync Status** field on the {{ app.page-names.dashboard }} page or on the {{ app.page-names.int-details }} page:
 
 ![Newly connected integration with Pending Sync status.]({{ site.baseurl }}/images/getting-started/new-pending-integration.png)
 
-A Pending status indicates that Stitch is in the process of scheduling a replication job for the integration. For newly created integrations, this can take up to 30 minutes.
+A **Pending** status indicates that Stitch is in the process of scheduling a replication job for the integration. For newly created integrations, this can take up to 30 minutes.
 
-### Initial/Historical Syncs
+### Initial/Historical data loads
 
-During the initial sync, Stitch will replicate the integration's historical data. Historical syncs tend to be larger in volume compared to subsequent syncs, and as a result may take longer to process and load into your data warehouse. It's normal to see a large spike in replicated rows during this time.
+During the initial replication job, Stitch will replicate the integration's historical data. Historical syncs tend to be larger in volume compared to subsequent replication jobs, and as a result may take longer to process and load into your data warehouse. It's normal to see a large spike in replicated rows during this time.
 
-### Ongoing Syncs
+After the Free Trial ends, any new integrations you create will replicate data free for seven days. [Refer to the Billing FAQ]({{ link.billing.billing-faq | prepend: site.baseurl | append: "#integrations" }}) for more info.
 
-After the integration's historical sync completes, you can expect the number of replicated rows for the integration to decrease and eventually level out. The time it takes for Stitch to extract, prep, and load data should also decrease.
+### Ongoing replication jobs
+
+After the integration's historical replication completes, you can expect the number of replicated rows for the integration to decrease and eventually level out. The time it takes for Stitch to extract, prep, and load data should also decrease.
 
 {% include replication/replication-stats-copy.html %}
 
@@ -234,15 +236,15 @@ Congratulations! You set up a destination, connected an integration, and configu
 
 While you wait for the initial sync to complete, we recommend:
 
-### Learning About Stitch Billing
+### Learning About Stitch billing
 
 Our pricing is built on the number of replicated rows Stitch loads into your data warehouse. But what does "replicated row" mean? How can you keep your row count down and prevent overages? [Check out the Understanding Your Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) to learn more about Stitch billing and how to reduce your usage.
 
-### Getting to Know Your Destination
+### Getting to know your destination
 
 Every destination handles data differently, which will impact how Stitch loads and stores the data it replicates from your integrations. [**Check out the Destination Data Loading guide**]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for the specifics on your destination.
 
-### Getting to Know Your SaaS Integrations
+### Getting to know your SaaS integrations
 
 Just like destinations, every SaaS integration structures its data differently. How Stitch replicates and loads SaaS data depends in part on how that data is created and structured. [**Our extensive SaaS integration docs**]({{ site.baseurl }}/integrations/saas/) cover what Stitch will replicate and how.
 
