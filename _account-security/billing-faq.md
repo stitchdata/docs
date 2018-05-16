@@ -144,10 +144,10 @@ frequently-asked-questions:
 
           For more info, refer to [our pricing page]({{ site.pricing }}).
 
-      - question: "Do new integrations have free historical data loads?"
+      - question: "What is a free historical data load?"
         anchor: "free-historical-data-load"
         answer: |
-          Yes. **The first seven days of replication for a new integration are free**. Rows replicated from the new integration during this time won't count towards your quota.
+          During the first seven days that follow the creation of a new integration, replication is free. This is a free historical data load, and means that rows replicated from the new integration during this time won't count towards your quota.
 
           After the seven days are over, Stitch will continue to replicate data from the integration. Be sure to **pause** or **delete** the integration if you are no longer interested in replicating its data.
 
