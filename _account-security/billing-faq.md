@@ -112,7 +112,7 @@ frequently-asked-questions:
       - question: "Can I use paid integrations if I'm on the Free plan?"
         anchor: "paid-integrations-free-plan"
         answer: |
-          To use any of Stitch's paid integrations, you'll need to [upgrade to a paid plan]({{ site.pricing }}).
+          No. To use any of Stitch's paid integrations, you'll need to [upgrade to a paid plan]({{ site.pricing }}).
 
       - question: "How many integrations can I add?"
         anchor: "how-many-integrations-can-i-add"
@@ -144,6 +144,9 @@ frequently-asked-questions:
 
           For more info, refer to [our pricing page]({{ site.pricing }}).
 
+  - topic: "Historical data loads"
+    anchor: "historical-data-loads"
+    items:
       - question: "What is a free historical data load?"
         anchor: "free-historical-data-load"
         answer: |
