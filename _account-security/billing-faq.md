@@ -174,6 +174,15 @@ frequently-asked-questions:
         answer: |
           {% include billing/view-usage.html %}
 
+      - question: "Why do I see 'free' rows in my usage?"
+        anchor: "free-row-usage"
+        answer: |
+          Free rows might display on your Stitch dashboard for a handful of reasons:
+
+          - A new integration's [free historical data load](#historical-data-loads)
+          - An exemption for beta testing an integration
+          - Re-replicating data due to a defect
+
       - question: "When will my row count will reset?"
         anchor: "when-will-row-count-reset"
         answer: |
