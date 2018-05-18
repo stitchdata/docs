@@ -1,5 +1,12 @@
-{% assign database-setup = site.data.taps.extraction.database-setup[integration.db-type] %}
+{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type] %}
 
+<!-- Different flavors of databases may not be on the same version as the DB
+that powers their backend, or their settings may be slightly different.
+
+Use the database's display name to pull the correct settings, versus just
+using the type. -->
+
+{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
  
  <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
@@ -35,7 +42,7 @@
             {% for privilege in database-setup.user-privileges %}
                 <tr>
                     <td align="right">
-                        <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
+                        <a href="{{ privilege.[database-name]-link }}">{{ privilege.name }}</a>
                     </td>
                     <td>
                         {{ privilege.reason | flatify | markdownify }}

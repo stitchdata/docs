@@ -1,4 +1,12 @@
-{% assign database-setup = site.data.taps.extraction.database-setup[integration.db-type] %}
+{% assign database-setup = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+
+<!-- Different flavors of databases may not be on the same version as the DB
+that powers their backend, or their settings may be slightly different.
+
+Use the database's display name to pull the correct settings, versus just
+using the type. -->
+
+{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
 
  <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
@@ -21,7 +29,7 @@ Ex: The copy for MySQL lives in _database-integrations/mysql.md > setup-steps, a
 
 {% highlight shell %}
 [{{ section-name | strip }}]
-{% for setting in database-setup.server-settings %}
+{% for setting in database-setup[database-name] %}
 {{ setting.name }}={{ setting.value }}
 {% endfor %}
 {% endhighlight %}
@@ -43,7 +51,7 @@ Ex: The copy for MySQL lives in _database-integrations/mysql.md > setup-steps, a
                     <strong>Description</strong>
                 </td>
             </tr>
-            {% for setting in database-setup.server-settings %}
+            {% for setting in database-setup[database-name] %}
                 <tr>
                     <td align="right">
                         <a href="{{ setting.doc-link }}">{{ setting.name }}</a>
