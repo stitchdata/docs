@@ -154,6 +154,8 @@ frequently-asked-questions:
 
           After the seven days are over, Stitch will continue to replicate data from the integration. Be sure to **pause** or **delete** the integration if you are no longer interested in replicating its data.
 
+          Free historical data loads are only allowed once per integration namespace. For example: If an integration named `stitch_hubspot` is created and receives a free historical data load, subsequent integrations with the same name (created by deleting and creating a new integration) will not receive free historical replication.
+
           **Note**: While free historical loads apply to all of Stitch's integrations, you need to be on a paid plan to use our Paid integrations.
 
       - question: "Do free historical data loads apply to integration or table resets?"
