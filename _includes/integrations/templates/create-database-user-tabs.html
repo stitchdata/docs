@@ -1,0 +1,47 @@
+{% assign database-setup = site.data.taps.extraction.database-setup[integration.db-type] %}
+
+ 
+ <ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#create-user-instrstructions" data-toggle="tab">Instructions</a>
+    </li>
+    <li>
+        <a href="#privileges-list" data-toggle="tab">Privileges list</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="create-user-instrstructions">
+        {% capture setup-instructions %}
+        {% include integrations/databases/setup/db-users/{{ integration.db-type }}.html %}
+        {% endcapture %}
+
+        {{ setup-instructions | flatify | markdownify }}
+
+        <p>See the <strong>Privileges list</strong> tab for an explanation of why these permissions are required by Stitch.</p>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="privileges-list">
+        <p>In the table below are the database user privileges Stitch requires to connect to and replicate data from a {{ integration.display_name }} database.</p>
+
+        <table width="100%; fixed">
+            <tr>
+                <td width="20%; fixed" align="right">
+                    <strong>Privilege name</strong>
+                </td>
+                <td>
+                    <strong>Reason for requirement</strong>
+                </td>
+            </tr>
+            {% for privilege in database-setup.user-privileges %}
+                <tr>
+                    <td align="right">
+                        <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
+                    </td>
+                    <td>
+                        {{ privilege.reason | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+{% assign database-setup = site.data.taps.extraction.database-setup[integration.db-type] %}
+
+ <ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#server-instructions" data-toggle="tab">Instructions</a>
+    </li>
+    <li>
+        <a href="#server-settings-details" data-toggle="tab">Server settings list</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="server-instructions">
+
+<!-- The settings are pulled from the database's setup file, in _data/taps/extraction/database-setup -->
+
+<!-- The purpose of the server settings may change from DB to DB. Ex: This might be for binlog, it could be for read-replicas. To ensure this template can be used anywhere, the copy for the instructions inside the tab are pulled directly from the integration's page.
+
+Ex: The copy for MySQL lives in _database-integrations/mysql.md > setup-steps, and is right before this include is referenced. -->
+
+{{ server-instructions | flatify | markdownify }}
+
+{% highlight shell %}
+[{{ section-name | strip }}]
+{% for setting in database-setup.server-settings %}
+{{ setting.name }}={{ setting.value }}
+{% endfor %}
+{% endhighlight %}
+
+    <p>See the <strong>Server settings list</strong> tab for more information about these settings.</p>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="server-settings-details">
+        <p>In the table below are the names, required values, and descriptions of the server settings you must define.</p>
+        <table width="100%; fixed">
+            <tr>
+                <td width="28%; fixed" align="right">
+                    <strong>Setting</strong>
+                </td>
+                <td width="10%; fixed">
+                    <strong>Value</strong>
+                </td>
+                <td>
+                    <strong>Description</strong>
+                </td>
+            </tr>
+            {% for setting in database-setup.server-settings %}
+                <tr>
+                    <td align="right">
+                        <a href="{{ setting.doc-link }}">{{ setting.name }}</a>
+                    </td>
+                    <td>
+                        <code>{{ setting.value }}</code>
+                    </td>
+                    <td>
+                        {{ setting.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
