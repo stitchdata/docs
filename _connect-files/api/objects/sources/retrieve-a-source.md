@@ -42,9 +42,10 @@ examples:
       
       {  
          "properties":{  
-            "frequency_in_minutes":"30",
+            "frequency_in_minutes":"360",
             "image_version":"1.latest",
-            "start_date":"2017-01-01T00:00:00Z"
+            "start_date":"2017-01-01T00:00:00Z",
+            "anchor_time":"2018-02-06T16:30:00Z"
          },
          "updated_at":"2018-02-06T18:04:59Z",
          "name":"hubspot",
@@ -81,6 +82,16 @@ examples:
                            "type":"string",
                            "pattern":"^\\d+$"
                         }
+                     },
+                     {
+                       "name": "anchor_time",
+                       "is_required": false,
+                       "provided": false,
+                       "is_credential": false,
+                       "system_provided": false,
+                       "json_schema": {
+                         "type": "string",
+                         "format": "date-time"
                      },
                      {  
                         "name":"start_date",
