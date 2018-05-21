@@ -1,39 +1,83 @@
 ---
-title: Replication Frequency
-permalink: /replication/replication-frequency
-keywords: replicate, replication, replication frequency, frequency, stitch replicates data, interval, change replication time
+title: Replication Scheduling
+permalink: /replication/replication-scheduling
+redirect_from: /replication/replication-frequency
+keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 tags: [replication]
 
-summary: "The Replication Frequency setting tells Stitch how often to replicate data from an integration. In this guide, we'll explain how replication jobs are scheduled and what you should consider when defining the Replication Frequency for your integrations."
+summary: "Create a replication schedule for your integration's using Stitch's Replication Frequency and Anchor Time features."
 type: "settings"
 toc: true
 weight: 1
 ---
 {% include misc/data-files.html %}
 
-The Replication Frequency setting, found in the {{ app.page-names.int-settings }} page, controls how often Stitch will attempt to replicate data from an integration.
+[INTRO OF SOME TYPE]
 
-The more frequently an integration is set to replicate, the higher the number of rows that will replicate through Stitch.
+- Note up here than this is for EXTRACTION, not LOADING.
+
+How you create a replication schedule depends on your needs:
+
+- **To kick off a replication job every minute or 30 minutes**, use the [Replication Frequency](#replication-frequency) setting.
+
+- **To kick off replication jobs at defined intervals of an hour or more**, use [Anchor Scheduling](#anchor-scheduling).
 
 ---
 
-## Sync Scheduling & Replication Frequency
+## Replication Frequency
 
-Stitch schedules syncs based on the **start time** of the previous sync.
+The Replication Frequency setting, found in the {{ app.page-names.int-settings }} page, defines how often Stitch will attempt to extract data from an integration.
 
-If the previous sync is still in progress when it would be time to start the next sync, Stitch will wait until the next recurrence of the Replication Frequency to begin.
+For example: If set to **30 minutes**, Stitch will attempt to connect to and extract data from the integration every 30 minutes.
 
-For example: A Facebook Ads integration has a Replication Frequency of 30 minutes. The Start and End Times for this integration's syncs might look like this:
+### Replication frequency intervals and scheduling {#frequency-intervals-scheduling}
 
-| Sync # | Start Time | End Time | Duration (minutes) |
-|--------+------------+----------+--------------------|
-| Sync 1 | 12:00:00   | 12:42:00 | 42                 |
-| Sync 2 | 13:00:00   | 13:29:00 | 29                 |
-| Sync 3 | 13:30:00   | 14:03:00 | 33                 |
-| Sync 4 | 14:30:00   | ...      | ...                |
+When you define an integration's Replication Frequency, Stitch will schedule replication jobs based on the **start time** of the previous job.
+
+If the previous job is still in progress when it would be time to start the next job, Stitch will wait until the next recurrence of the Replication Frequency to begin.
+
+For example: A Facebook Ads integration has a Replication Frequency of 30 minutes. The Start and End Times for this integration's replication jobs might look like this:
+
+| Job # | Start Time | End Time | Duration (minutes) |
+|-------+------------+----------+--------------------|
+| Job 1 | 12:00:00   | 12:42:00 | 42                 |
+| Job 2 | 13:00:00   | 13:29:00 | 29                 |
+| Job 3 | 13:30:00   | 14:03:00 | 33                 |
+| Job 4 | 14:30:00   | ...      | ...                |
 
 
-Notice Sync 2's Start Time. This is because Sync 1 took 42 minutes to complete, or longer than the defined 30 minute Replication Frequency. In this case, Sync 2 began at the next recurrence of the Replication Frequency, or `13:00:00`.
+Notice Job 2's Start Time. Because Job 1 took 42 minutes to complete, or longer than the 30 minute Replication Frequency, Job 2 began at the next recurrence of the defined frequency. In this case, that was `13:00:00` instead of `12:30:00`.
+
+---
+
+## Anchor scheduling
+
+Anchor scheduling uses an Anchor Time in conjunction with a Replication Frequency to create a replication schedule. Anchor scheduling allows you to establish more predictable replication and ensure that your downstream processes are using the most up-to-date data.
+
+To use anchor scheduling, you'll need to:
+
+- **Select a Replication Frequency** greater than an hour. One hour is the minimum frequency required to use anchor scheduling, as using an anchor time with a frequency less than an hour wouldn't affect an integration's replication schedule.
+- **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule.
+
+{% capture loading-tip %}
+As scheduling affects the time a replication job starts - **not the time to loaded data** - you should factor in time for loading the data when setting an Anchor Time. To get an idea of your integration's average loading times, use the [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}).
+{% endcapture %}
+
+{% include tip.html content=loading-tip %}
+
+### Create an anchored schedule
+
+For example: If the Replication Frequency is set to **6 hours** and the Anchor Time is **9:00 AM** (EST), or **UTC 13:00**, Stitch will kick off a replication job every 6 hours starting at 9:00 AM (EST). The schedule for this integration would look like this:
+
+| Job # | Start Time (EST) | Start Time (UTC) |
+|-------+------------------+------------------|
+| Job 1 | Mon 09:00:00     | Mon 13:00:00     |
+| Job 2 | Mon 15:00:00     | Mon 19:00:00     |
+| Job 3 | Mon 21:00:00     | Tues 01:00:00    |
+| Job 4 | Tues 03:00:00    | Tues 07:00:00    |
+| Job 5 | Tues 09:00:00    | Tues 13:00:00    |
+
+If the previous job is still in progress when it would be time to start the next job, Stitch will wait until the next recurrence of the Replication Frequency to begin. See [the previous section for an example](#frequency-intervals-scheduling).
 
 ---
 
@@ -58,28 +102,6 @@ Even though we'll send out notifications when you're nearing your row limit, we 
 
   For more info on how SaaS integration data is queried/replicated, refer to the [Replication section]({{ site.baseurl }}/integrations/saas) in the SaaS integration docs.
 - **The importance of completely fresh data.** If you don't need data to be constantly replicated or if tasks can still be completed with _slightly_ older data, consider setting integrations to replicate less frequently.
-
----
-
-## Define an Integration's Replication Frequency
-
-When you initially create and set up an integration, you'll be asked to define its Replication Frequency.
-
-You can either use the default (which is 30 minutes for most integrations) or define a custom setting. In some cases, you'll have to uncheck the **Use Integration Default** box:
-
-![Defining the Replication Frequency for Mixpanel.]({{ site.baseurl }}/images/replication/replication-frequency.gif)
-
-Then, Stitch will replicate data from all syncing tables in the integration based on their individual Replication Methods and the Frequency you select.
-
-### Update an Integration's Replication Frequency
-
-If at any time you want to change the Replication Frequency for an integration, here's what you need to do:
-
-1. Click into the integration from the {{ app.page-names.dashboard }} page.
-2. Click the {{ app.buttons.update-int-settings }} tab, next to **Tables to Replicate**.
-3. Scroll down to the **Replication Frequency** section.
-4. Change the Replication Frequency to your desired setting.
-5. Click {{ app.buttons.save-int-settings }}.
 
 ---
 
