@@ -215,8 +215,16 @@ all-docs:
         - title: Full Table
           url: "{{ link.replication.rep-methods }}#full-table-replication"
 
-    - title: Replication Frequency
-      url: "{{ link.replication.rep-frequency }}"
+    - title: Replication Scheduling
+      subsections:
+        - title: "Overview"
+          url: "{{ link.replication.rep-scheduling }}"
+
+        - title: "Replication Frequency"
+          url: "{{ link.replication.rep-frequency }}"
+
+        - title: "Anchor Scheduling"
+          url: "{{ link.replication.anchor-scheduling }}"
 
     - title: Supported Data Types
       url: "{{ link.replication.supported-data-types }}"
