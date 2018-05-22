@@ -54,7 +54,9 @@ Anchor scheduling uses an Anchor Time in conjunction with a Replication Frequenc
 To use anchor scheduling, you'll need to:
 
 - **Select a Replication Frequency** greater than an hour. One hour is the minimum frequency required to use anchor scheduling, as using an anchor time with a frequency less than an hour won't affect an integration's replication schedule.
-- **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Anchor time 
+- **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Anchor times are available in half hour increments.
+
+### Job scheduling and anchor times
 
 {% capture loading-tip %}
 As scheduling affects the time a replication job starts - **not the time to loaded data** - you should factor in time for loading the data when setting an Anchor Time. To get an idea of your integration's average loading times, use the [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}).
@@ -62,17 +64,45 @@ As scheduling affects the time a replication job starts - **not the time to load
 
 {% include tip.html content=loading-tip %}
 
-For example: If the Replication Frequency is set to **6 hours** and the Anchor Time is **9:00 AM** (EST), or **UTC 13:00**, Stitch will kick off a replication job every 6 hours starting at 9:00 AM (EST). The schedule for this integration would look like this:
+When you select an Anchor Time, Stitch will use it and your selected Replication Frequency to schedule the initial replication job. Based on the Anchor Time, an initial replication job will kick off at the next recurrence of your Replication Frequency. **This means that an initial job may not begin immediately.**
+
+See the examples below for more detail.
+
+#### Example 1: Anchor scheduling with a six hour frequency {#anchor-scheduling--example-one}
+
+In this example:
+
+- **Current date and time**: May 1 @ 8:00 AM (EST), or UTC 12:00
+- **Replication Frequency**: 6 hours
+- **Anchor Time**: 9:00 AM (EST), or UTC 13:00
+
+Based on these settings, Stitch will kick off a replication job **every 6 hours starting on May 1 at 9:00 AM (EST)**. The schedule for this integration would look like this:
 
 | Job # | Start Time (EST) | Start Time (UTC) |
 |-------+------------------+------------------|
-| Job 1 | Mon 09:00:00     | Mon 13:00:00     |
-| Job 2 | Mon 15:00:00     | Mon 19:00:00     |
-| Job 3 | Mon 21:00:00     | Tues 01:00:00    |
-| Job 4 | Tues 03:00:00    | Tues 07:00:00    |
-| Job 5 | Tues 09:00:00    | Tues 13:00:00    |
+| Job 1 | May 1 09:00:00   | May 1 13:00:00   |
+| Job 2 | May 1 15:00:00   | May 1 19:00:00   |
+| Job 3 | May 1 21:00:00   | May 2 01:00:00   |
+| Job 4 | May 2 03:00:00   | May 2 07:00:00   |
+| Job 5 | May 2 09:00:00   | May 2 13:00:00   |
 
-If the previous job is still in progress when it would be time to start the next job, Stitch will wait until the next recurrence of the Replication Frequency to begin. See [the previous section for an example](#frequency-intervals-scheduling).
+#### Example 2: Anchor scheduling with a 24 hour frequency {#anchor-scheduling--example-two}
+
+In this example:
+
+- **Current date and time**: May 1 @ 12:00 (EST), or UTC 16:00
+- **Replication Frequency**: 24 hours
+- **Anchor Time**: 9:00 AM (EST), or UTC 13:00
+
+Based on these settings, Stitch will kick off a replication job **every 24 hours starting the following day (May 2) at 9:00 AM (EST)**. The schedule for this integration would look like this:
+
+| Job # | Start Time (EST) | Start Time (UTC) |
+|-------+------------------+------------------|
+| Job 1 | May 2 09:00:00   | May 2 13:00:00   |
+| Job 2 | May 3 09:00:00   | May 3 13:00:00   |
+| Job 3 | May 4 09:00:00   | May 4 13:00:00   |
+| Job 4 | May 5 09:00:00   | May 5 13:00:00   |
+| Job 5 | May 6 09:00:00   | May 6 13:00:00   |
 
 ---
 
