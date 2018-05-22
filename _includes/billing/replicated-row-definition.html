@@ -2,7 +2,7 @@
 
 Stitch counts the following as a 'replicated row':
 
-- **A new row**, or a never-before-replicated row synced through Stitch,
+- **A new row**, or a never-before-replicated row replicated through Stitch,
 - **An updated row**, or an existing row that's been changed, 
 - **A sub-row** created from [de-nesting nested data structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}), and
-- **A copy of an existing row**. For example: rows in tables that are replicated fully during each sync or rows replicated as a result of [resetting Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}).
+- **A copy of an existing row**. For example: Rows in tables that are replicated fully during each replication job or rows replicated as a result of [resetting Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}).
