@@ -12,14 +12,14 @@ weight: 1
 ---
 {% include misc/data-files.html %}
 
-Defining the replication settings for an integration includes telling Stitch when you want a replication job to start. An integration's replication schedule affects the time that the replication process begins.
-
-**Note**: An integration's replication schedule affects the time Extraction begins, not the time to data loaded.
+An integration's replication schedule affects the time that the replication process begins. Replication schedules can be created using two settings: **Replication Frequency** and **Anchor Time**.
 
 How you create a replication schedule depends on your needs:
 
 - **To kick off replication jobs every minute or 30 minutes**, use the [Replication Frequency](#replication-frequency) setting.
-- **To kick off replication jobs at specific intervals of an hour or more**, use [Anchor Scheduling](#anchor-scheduling).
+- **To kick off replication jobs at specific intervals of an hour or more**, use [Anchor Scheduling](#anchor-scheduling). Anchor scheduling is a combination of Replication Frequency and Anchor Time.
+
+**Note**: An integration's replication schedule affects the time Extraction begins, not the time to data loaded.
 
 ---
 
@@ -54,7 +54,7 @@ Anchor scheduling uses an Anchor Time in conjunction with a Replication Frequenc
 To use anchor scheduling, you'll need to:
 
 - **Select a Replication Frequency** greater than an hour. One hour is the minimum frequency required to use anchor scheduling, as using an anchor time with a frequency less than an hour won't affect an integration's replication schedule.
-- **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Anchor times are available in half hour increments.
+- **Define an Anchor Time**. An Anchor Time is the time that the Replication Frequency is "anchored" to, which Stitch will use to create a replication schedule. Anchor times are available in half hour increments. **Selecting an Anchor Time is only required when using anchor scheduling.**
 
 ### Job scheduling and anchor times
 
