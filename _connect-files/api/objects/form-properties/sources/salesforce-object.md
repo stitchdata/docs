@@ -23,12 +23,6 @@ object-attributes:
     description: |
       {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Salesforce" }}
 
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time }}
-
   - name: "quota_percent_per_run"
     type: "string"
     required: false
@@ -58,7 +52,6 @@ examples:
           "api_type":"BULK",
           "is_sandbox":"false",
           "frequency_in_minutes":"1440",
-          "anchor_time":"",
           "quota_percent_per_run":"25",
           "quota_percent_total":"80",
           "select_fields_by_default":"true",

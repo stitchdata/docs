@@ -32,18 +32,6 @@ object-attributes:
     required: true
     description: "{{ connect.common.attributes.password }}"
 
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Google CloudSQL MySQL" }}
-
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time }}
-
   # - name: "ssh"
   #   type: "boolean"
   #   description: "{{ connect.common.attributes.ssh }}"
@@ -73,9 +61,7 @@ examples:
           "port":"3306",
           "database":"stitch",
           "username":"stitch_user",
-          "password":"<PASSWORD>",
-          "frequency_in_minutes":"60",
-          "anchor_time":""
+          "password":"<PASSWORD>"
         }
       }
 ---

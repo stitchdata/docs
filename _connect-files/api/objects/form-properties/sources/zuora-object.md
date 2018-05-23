@@ -22,12 +22,6 @@ object-attributes:
     description: |
       {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Zuora" }}
 
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time }}
-
   - name: "password"
     type: "string"
     required: true
@@ -63,7 +57,6 @@ examples:
        "properties":{
           "european":"false",
           "frequency_in_minutes":"1440",
-          "anchor_time":"",
           "sandbox":"false",
           "start_date":"2018-01-10T00:00:00Z",
           "username":"stitch_zuora_user",

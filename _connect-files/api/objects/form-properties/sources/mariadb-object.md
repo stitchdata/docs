@@ -57,19 +57,6 @@ object-attributes:
     required: false
     description: "{{ connect.common.attributes.ssl }}"
 
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","MariaDB" }}
-
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time }}
-
-
 examples:
   - code: |
       {  
@@ -84,9 +71,7 @@ examples:
           "ssh_host":"mariadb-ssh.host.com",
           "ssh_port":"22",
           "ssh_user":"stitch_ssh_user",
-          "ssl":"false",
-          "frequency_in_minutes":"60",
-          "anchor_time":""
+          "ssl":"false"
         }
       }
 ---

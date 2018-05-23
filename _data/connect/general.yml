@@ -85,11 +85,6 @@ common:
       - `720`
       - `1440`
 
-    anchor-time: |
-      The UTC time to which `frequency` is anchored, which Stitch uses to create a replication schedule.
-
-      For example: If set to UTC `"2018-05-01T06:00:00"` and `frequency:"360"`, the integration will run every **six** hours starting at 6:00 AM UTC.
-
     start-date: |
       The date from which Stitch should begin replicating data from [INTEGRATION]. Data from this date forward will be replicated.
 

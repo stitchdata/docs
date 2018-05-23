@@ -65,17 +65,6 @@ examples:
                            "pattern":"^\\d+$"
                         }
                      },
-                     {
-                        "name":"anchor_time",
-                        "is_required":false,
-                        "provided":false,
-                        "is_credential":false,
-                        "system_provided":false,
-                        "json_schema":{
-                          "type":"string",
-                          "format":"date-time"
-                        }
-                     },
                      {  
                         "name":"start_date",
                         "is_required":true,
