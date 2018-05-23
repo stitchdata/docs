@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-### {{ integration.display_name }}'s intial replication job {#initial-sync}
-=======
 ### Initial and historical replication jobs {#initial-sync}
->>>>>>> master
 
 After you finish setting up {{ integration.display_name }}, its **Sync Status** may show as **Pending** on either the {{ app.page-names.dashboard }} or in the {{ app.page-names.int-details }} page.
 
-<<<<<<< HEAD
 For a new integration, a **Pending** status indicates that Stitch is in the process of scheduling the initial replication job for the integration. **This may take some time to complete.**
 
 {% capture anchor-scheduling-note %}
@@ -14,12 +9,9 @@ If using Anchor Scheduling, an initial replication job may not kick off immediat
 {% endcapture %}
 
 {% include note.html content=anchor-scheduling-note %}
-=======
-A **Pending** status indicates that Stitch is in the process of scheduling the initial replication job for the integration. **This may take some time to complete.**
 
 #### Free historical data loads
 
 The first seven days of replication for a new integration are free. Rows replicated from the new integration during this time won't count towards your quota. Stitch offers this as a way of testing new integrations, measuring usage, and ensuring historical data volumes don't quickly consume your quota.
 
 {% include note.html content="**Replication will continue after the seven days are over**. If you're no longer interested in this source, be sure to **pause** or **delete** the integration to prevent unwanted usage." %}
->>>>>>> master
