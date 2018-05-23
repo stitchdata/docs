@@ -14,10 +14,10 @@ weight: 1
 
 An integration's replication schedule affects the time that the replication process begins. Replication schedules can be created using two settings: **Replication Frequency** and **Anchor Time**.
 
-How you create a replication schedule depends on your needs:
+Stitch offers two methods of creating a replication schedule:
 
-- **To kick off replication jobs every minute or 30 minutes**, use the [Replication Frequency](#replication-frequency) setting.
-- **To kick off replication jobs at specific intervals of an hour or more**, use [Anchor Scheduling](#anchor-scheduling). Anchor scheduling is a combination of Replication Frequency and Anchor Time.
+- [**Replication Frequency**](#replication-frequency): This method requires selecting the interval you want replication to run for the integration. Start times of replication jobs are based on the start time and duration of the previous job.
+- [**Anchor scheduling**](#anchor-scheduling): Based on the Replication Frequency, or interval, you select, this method "anchors" the start times of replication jobs to a time you select to create a predictable schedule. Anchor Scheduling is a combination of the Anchor Time and Replication Frequency settings, which must both be defined to use this method. 
 
 **Note**: An integration's replication schedule affects the time Extraction begins, not the time to data loaded.
 
