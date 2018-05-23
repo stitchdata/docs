@@ -1,5 +1,11 @@
-### {{ integration.display_name }}'s Intial Replication Job {#initial-sync}
+### {{ integration.display_name }}'s intial replication job {#initial-sync}
 
 After you finish setting up {{ integration.display_name }}, you might see its **Sync Status** show as Pending on either the {{ app.page-names.dashboard }} or in the {{ app.page-names.int-details }} page.
 
-For a new integration, a **Pending** status indicates that Stitch is in the process of scheduling the initial replication job for the integration. This may take some time to complete.
+For a new integration, a **Pending** status indicates that Stitch is in the process of scheduling the initial replication job for the integration. **This may take some time to complete.**
+
+{% capture anchor-scheduling-note %}
+If using Anchor Scheduling, an initial replication job may not kick off immediately. This depends on the selected Replication Frequency and Anchor Time. Refer to the [Anchor Scheduling]({{ link.replication.rep-scheduling | prepend: site.baseurl | append: "#job-scheduling-and-anchor-times" }}) documentation for more information.
+{% endcapture %}
+
+{% include note.html content=anchor-scheduling-note %}
