@@ -23,6 +23,12 @@ object-attributes:
     description: |
       {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Marketo" }}
 
+  - name: "anchor_time"
+    type: "string"
+    required: false
+    description: |
+      {{ connect.common.attributes.anchor-time }}
+
   - name: "endpoint"
     type: "string"
     required: true
@@ -52,6 +58,7 @@ examples:
           "client_id":"<CLIENT_ID>",
           "client_secret":"<CLIENT_SECRET>",
           "frequency_in_minutes":"1440",
+          "anchor_time":"",
           "endpoint":"https://457-RFG-234.mktorest.com/rest",
           "identity":"https://457-RFG-234.mktorest.com/identity",
           "max_daily_calls":"8,000",
