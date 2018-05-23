@@ -36,10 +36,9 @@ examples:
       [
          {
             "properties":{
-               "frequency_in_minutes":"360",
+               "frequency_in_minutes":"30",
                "image_version":"1.latest",
-               "start_date":"2017-01-01T00:00:00Z",
-               "anchor_time":"2018-02-06T16:30:00Z"
+               "start_date":"2017-01-01T00:00:00Z"
             },
             "updated_at":"2018-02-06T18:04:59Z",
             "name":"hubspot_api_test",
@@ -139,10 +138,9 @@ examples:
          },
          {  
             "properties":{
-               "frequency_in_minutes":"720",
+               "frequency_in_minutes":"30",
                "image_version":"1.latest",
-               "start_date":"2017-01-01T00:00:00Z",
-               "anchor_time":"2018-02-06T12:45:00Z"
+               "start_date":"2017-01-01T00:00:00Z"
             },
             "updated_at":"2018-02-06T18:10:44Z",
             "name":"salesforce_api_test",

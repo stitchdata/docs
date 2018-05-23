@@ -52,8 +52,7 @@ examples:
                    "display_name":"HubSpot",
                    "properties":{
                       "start_date":"2017-01-01T00:00:00Z",
-                      "frequency_in_minutes":"360",
-                      "anchor_time":"2018-02-06T16:30:00Z"
+                      "frequency_in_minutes":"30"
                    }
                 }"
   - type: "response"
@@ -64,10 +63,9 @@ examples:
 
       {
          "properties":{
-            "frequency_in_minutes":"360",
+            "frequency_in_minutes":"30",
             "image_version":"1.latest",
-            "start_date":"2017-01-01T00:00:00Z",
-            "anchor_time":"2018-02-06T16:30:00Z"
+            "start_date":"2017-01-01T00:00:00Z"
          },
          "updated_at":"2018-02-06T16:25:06Z",
          "check_job_name":null,
@@ -105,16 +103,6 @@ examples:
                            "type":"string",
                            "pattern":"^\\d+$"
                         }
-                     },
-                     {
-                       "name": "anchor_time",
-                       "is_required": false,
-                       "provided": false,
-                       "is_credential": false,
-                       "system_provided": false,
-                       "json_schema": {
-                         "type": "string",
-                         "format": "date-time"
                      },
                      {
                         "name":"start_date",
