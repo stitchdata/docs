@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "1.0"
 
 name: "deals"
 doc-link: https://developers.hubspot.com/docs/methods/deals/deals_overview
@@ -12,8 +12,8 @@ notes:
 
 replication-method: "Full Table"
 api-method:
-  name: getAllDeals
-  doc-link: https://developers.hubspot.com/docs/methods/deals/get-all-deals
+  name: getRecentlyModifiedDeals
+  doc-link: https://developers.hubspot.com/docs/methods/deals/get_deals_modified
 
 attributes:
 ## Primary Key
@@ -27,6 +27,10 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the portal the deal is associated with."
+
+  - name: "isDeleted"
+    type: "boolean"
+    description: "Indicates if the deal has been deleted in {{ integration.display_name }}."
 
   - name: "associations"
     type: "object"
@@ -47,8 +51,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the deal."
-            foreign-key: true
-            table: "companies"
 
       - name: "associatedDealIds"
         type: "array"
@@ -57,8 +59,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the deal. (How meta!)"
-            foreign-key: true
-            table: "deals"
 
   - name: "properties"
     type: "object"

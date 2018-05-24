@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "1.0"
 
 name: "engagements"
 doc-link: https://developers.hubspot.com/docs/methods/engagements/engagements-overview
@@ -43,7 +43,6 @@ attributes:
   - name: "ownerId"
     type: "integer"
     description: "The ID of the owner associated with the engagement."
-    foreign-key: true
 
   - name: "type"
     type: "string"
@@ -64,8 +63,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the contact associated with the campaign."
-            foreign-key: true
-            table: "contacts"
 
       - name: "companyIds"
         type: "array"
@@ -74,8 +71,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the campaign."
-            foreign-key: true
-            table: "companies"
 
       - name: "dealIds"
         type: "array"
@@ -84,8 +79,6 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the campaign."
-            foreign-key: true
-            table: "deals"
 
   - name: "attachments"
     type: "array"

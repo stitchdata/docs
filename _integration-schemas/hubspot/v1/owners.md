@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "1.0"
 
 name: "owners"
 doc-link: https://developers.hubspot.com/docs/methods/owners/owners_overview
@@ -72,7 +72,6 @@ attributes:
       - name: "ownerId"
         type: "integer"
         description: "The ID of the owner."
-        foreign-key: true
 
       - name: "remoteId"
         type: "string"
