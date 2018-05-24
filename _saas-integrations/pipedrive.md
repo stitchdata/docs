@@ -44,7 +44,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the activities (calls, tasks, lunches, etc.) in your Pipedrive account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -115,7 +115,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the deals in your Pipedrive account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -169,7 +169,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the email messages sent and received through your Pipedrive account. <strong>Your Pipedrive account must have the Mailbox feature enabled to replicate this data.</strong>"
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -208,7 +208,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the email threads in your Pipedrive account. Individual emails are organized into threads."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -243,7 +243,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the files in your Pipedrive account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -277,7 +277,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Filters
     description: "info about the filters that can be applied to Deals, Persons, Organizations, Products, and Activities in your Pipedrive account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -323,7 +323,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recent
     description: "info about notes associated with deals."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -349,7 +349,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the organizations - or the companies you’re doing deals with - in your Pipedrive account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -396,7 +396,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "info about the ‘persons’ in your Pipedrive account. These are the customers you’re doing deals with."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -467,7 +467,7 @@ tables:
       - `prices__usd__price`
       - `prices__usd__product_id`
 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -516,7 +516,7 @@ tables:
     doc-link: https://developers.pipedrive.com/v1#methods-Recents
     description: "information about the internal users of your Pipedrive account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:

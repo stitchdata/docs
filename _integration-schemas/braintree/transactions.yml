@@ -12,7 +12,7 @@ notes: |
   #### Transaction Data & Default Merchant Accounts
   Our Braintree integration will only replicate transactions for the **default merchant account** in your Braintree instance. You can verify the merchant account set as the default by going to **Settings > Processing > Merchant Accounts** when signed into Braintree.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "Transaction.search()"
   doc-link: "https://developers.braintreepayments.com/reference/request/transaction/search/java"

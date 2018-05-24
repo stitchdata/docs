@@ -9,7 +9,7 @@ singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshd
 description: |
   The `agents` table contains info about the agents in your Freshdesk account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllAgents"
   doc-link: https://developers.freshdesk.com/api/#list_all_agents

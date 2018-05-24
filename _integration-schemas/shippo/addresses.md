@@ -7,7 +7,7 @@ singer-schema:
 description: |
   info about address objects. These are used to create shipments, obtain rates, and print labels.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listAllAddresses
   doc-link: https://goshippo.com/docs/reference?version=2016-10-25

@@ -12,7 +12,7 @@ description: |
 
 notes:
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "getLists"
   doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET"

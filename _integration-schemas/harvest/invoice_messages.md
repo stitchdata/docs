@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `invoice_messages` table contains info about invoice messages, or emails sent to clients about invoices.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showInvoiceMessages
   doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-invoice-messages

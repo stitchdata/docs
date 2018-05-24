@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `project_users` table contains info about the users assigned to projects.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getUsersAssignedToProjects
   doc-link: http://help.getharvest.com/api-v1/users-api/users/user-assignments/#get-users-assigned-to-projects

@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Events
 description: |
   The `revenueEventItem` table contains information about revenue events. A revenue event is a change to a revenue schedule, such as creating the initial schedule, canceling an invoice, or recognizing an undistributed amount.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

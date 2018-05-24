@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Items
 description: |
   The `revenueScheduleItem` table contains information about revenue schedules. A [revenue schedule](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules) represents how revenue amounts from single charges are distributed over time and recognized in accounting periods.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

@@ -12,7 +12,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getACompany
   doc-link: https://developers.hubspot.com/docs/methods/companies/get_company

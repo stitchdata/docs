@@ -10,7 +10,7 @@ description: |
 
   **Note**: To replicate this table, you must have Zuora Finance enabled.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

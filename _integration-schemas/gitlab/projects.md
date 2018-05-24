@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/sc
 description: |
   The `projects` table contains info about specific projects.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllProjects"
   doc-link: https://gitlab.com/help/api/projects.md#list-all-projects

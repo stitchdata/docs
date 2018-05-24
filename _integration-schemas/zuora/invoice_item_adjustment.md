@@ -7,7 +7,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoice-Items
 description: |
   The `invoiceItemAdjustment` table contains info about adjustments applied to invoice line items.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

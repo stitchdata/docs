@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/v0.11.0/tap_hubspot
 description: |
   The `subscription_changes` table contains info about changes made subscriptions.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getSubscriptionsTimeline
   doc-link: https://developers.hubspot.com/docs/methods/email/get_subscriptions_timeline

@@ -11,7 +11,7 @@ description: |
   #### `branches` & Incremental Replication
 
   Data for this table will only be replicated when the associated project (in the `projects` table) is also updated. 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listRepositoryBranches"
   doc-link: https://gitlab.com/help/api/branches.html#list-repository-branches

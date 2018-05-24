@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `projects` table contains info about the projects in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showAllProjects
   doc-link: http://help.getharvest.com/api-v1/projects-api/projects/create-and-show-projects/#show-all-projects

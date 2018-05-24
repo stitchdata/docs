@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `contacts` table contains info about the client contacts in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllContacts
   doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-client-contacts-api/#get-all-contacts

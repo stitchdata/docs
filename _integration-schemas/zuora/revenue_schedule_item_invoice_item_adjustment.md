@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Items
 description: |
   The `revenueScheduleItemInvoiceItemAdjustment` table contains information about revenue schedule item - invoice items.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

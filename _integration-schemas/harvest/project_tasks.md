@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `project_tasks` table contains info about the tasks assigned to projects.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: allAssignedTasksToProject
   doc-link: http://help.getharvest.com/api-v1/tasks-api/tasks/task-assignments/#all-assigned-tasks-to-project

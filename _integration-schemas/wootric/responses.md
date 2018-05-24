@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/
 description: |
   The `responses` table contains info about end user responses to surveys.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllResponses
   doc-link: http://docs.wootric.com/api/#get-all-responses

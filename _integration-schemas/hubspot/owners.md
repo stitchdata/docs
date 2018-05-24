@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getOwners
   doc-link: https://developers.hubspot.com/docs/methods/owners/get_owners

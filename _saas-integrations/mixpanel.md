@@ -79,7 +79,7 @@ tables:
     notes: &replication |
       ### Replication
       Because of how Mixpanel's API is designed, this table can only be queried by day. This means that every time Stitch runs a replication job for a Mixpanel integration, **the past day's worth of data will be replicated for this table.**
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "event:time:distinct_id:_rjm_record_hash"
     nested-structures: false
     attributes:
@@ -106,7 +106,7 @@ tables:
     doc-link: https://mixpanel.com/help/reference/data-export-api#funnels
     description: "contains info about your Mixpanel funnels."
     notes: *replication
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "funnel_id:date"
     nested-structures: true
     attributes:

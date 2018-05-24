@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `workflows` table contains info about the workflows in your HubSpot portal.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getWorkflows
   doc-link: https://developers.hubspot.com/docs/methods/workflows/v3/get_workflows

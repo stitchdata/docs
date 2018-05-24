@@ -8,7 +8,7 @@ singer-schema:
 description: |
   The `contact` table contains info about your contacts, who are individuals associated with accounts in your Salesforce instance.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: 
   doc-link: 

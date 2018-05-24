@@ -55,7 +55,7 @@ tables:
     notes: |
       ### Event Types
       For event types, see [Zendesk's documentation](https://developer.zendesk.com/rest_api/docs/core/ticket_audits#audit-events).
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -92,7 +92,7 @@ tables:
     notes: |
       ### Group Deletes
       This table includes a field (`deleted`) to identify groups that have been deleted.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -108,7 +108,7 @@ tables:
     doc-link: https://developer.zendesk.com/rest_api/docs/core/macros
     description: "info about the macros in your Zendesk account. Macros are actions defined by you that modify the values of a ticket’s fields."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -127,7 +127,7 @@ tables:
     doc-link: https://developer.zendesk.com/rest_api/docs/core/organizations
     description: "company information about your end-users."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -163,7 +163,7 @@ tables:
     doc-link: https://developer.zendesk.com/rest_api/docs/core/tickets
     description: "info about the tickets in your Zendesk account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -205,7 +205,7 @@ tables:
     doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_fields
     description: "info about the basic text and custom ticket fields in your Zendesk account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -275,7 +275,7 @@ tables:
     doc-link: https://developer.zendesk.com/rest_api/docs/core/users
     description: "info about all the users - end-users, agents, and administrators -  in your Zendesk account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
