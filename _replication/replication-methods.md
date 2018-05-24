@@ -24,7 +24,7 @@ Stitch employs two methods to replicate data from your data sources: Incremental
 
 ### Incremental Replication
 
-Incremental Replication means that **Stitch will only replicate new or updated data on every replication attempt**. As this method will greatly reduce latency and data usage, we highly recommend using it where ever possible.
+Incremental Replication means that **Stitch will replicate new or updated data on every replication attempt**. As this method will greatly reduce latency and data usage, we highly recommend using it where ever possible.
 
 To identify new and updated data for replication, Stitch uses what is called a **Replication Key**. 
 
