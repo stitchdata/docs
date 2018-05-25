@@ -10,12 +10,14 @@ defaults:
     binlog-row-image: &binlog-row-image-name "binlog_row_image"
     expire-logs-days: &expire-logs-days-name "expire_logs_days"
     binlog-expire-logs-seconds: &binlog-expire-logs-seconds-name "binlog_expire_logs_seconds"
+    log-bin: &log-bin-name "log_bin"
 
   values:
     binlog-format: &binlog-format-value "ROW"
     binlog-row-image: &binlog-row-image-value "FULL"
     expire-logs-days: &expire-logs-days-value "7"
     binlog-expire-logs-seconds: &binlog-expire-logs-seconds-value "604800"
+    log-bin: &log-bin-value "mysql-binlog"
 
   descriptions:
     binlog-format: &binlog-format-description |
@@ -42,6 +44,39 @@ defaults:
 
       **Note**: This variable is available on MySQL versions 8.0.1+.
 
+    log-bin: &log-bin-description |
+      Acts as the "on" switch for binary logging. This is the name of the binary logging file on the database server. For example: `mysql-binlog`
+
+      **Note**: The name of this file doesn't have to be `mysql-binlog`. If your server already specifies a `log-bin` entry, there's no need to change it.
+
+
+# -------------------------- #
+#      CLOUDSQL SETTINGS     #
+# -------------------------- #
+
+google-cloudsql-mysql:
+  - name: *binlog-format-name
+    value: *binlog-format-value
+    description: *binlog-format-description
+    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#binlog_format"
+
+  # - name: *binlog-row-image-name
+  #   value: *binlog-row-image-value
+  #   description: *binlog-row-image-description
+  #   doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#binlog_row_image"
+
+  # - name: *expire-logs-days-name
+  #   value: *expire-logs-days-value
+  #   description: |
+  #     Specifies the amount of time, in days, before the automatic removal of binary log files. Stitch recommends a retention period of **7 days**, but a minimum of **3 days** will also work.
+  #   doc-link: https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#expire_logs_days
+
+  - name: *log-bin-name
+    value: *log-bin-value
+    description: *log-bin-description
+    doc-link: ""
+
+
 # -------------------------- #
 #      MARIADB SETTINGS      #
 # -------------------------- #
@@ -63,10 +98,9 @@ mariadb:
       Specifies the amount of time, in days, before the automatic removal of binary log files. Stitch recommends a retention period of **7 days**, but a minimum of **3 days** will also work.
     doc-link: https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#expire_logs_days
 
-  - name: "log_bin"
-    value: "ON"
-    description: |
-      Turns on the ability to use binlog on the server.
+  - name: *log-bin-name
+    value: *log-bin-value
+    description: *log-bin-description
     doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin"
 
 # -------------------------- #
@@ -94,8 +128,7 @@ mysql:
     description: *binlog-expire-logs-seconds-description
     doc-link: "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_binlog_expire_logs_seconds"
 
-  - name: "log_bin"
-    value: "ON"
-    description: |
-      Turns on the ability to use binlog on the server.
+  - name: *log-bin-name
+    value: *log-bin-value
+    description: *log-bin-description
     doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_log_bin"

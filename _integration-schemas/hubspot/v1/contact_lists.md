@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "1.0"
 
 name: "contact_lists"
 doc-link: https://developers.hubspot.com/docs/methods/lists/contact-lists-overview
@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Key-based Incremental"
+replication-method: "Incremental"
 api-method:
   name: getContactLists
   doc-link: https://developers.hubspot.com/docs/methods/lists/get_lists

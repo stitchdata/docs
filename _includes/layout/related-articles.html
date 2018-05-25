@@ -58,7 +58,7 @@
 		</li>
 		{% unless page.permalink contains "webhooks" %}
 			<li>
-				<a href="{{ link.replication.rep-frequency | prepend: site.baseurl }}">Replication Frequency</a>
+				<a href="{{ link.replication.rep-scheduling | prepend: site.baseurl }}">Replication Scheduling</a>
 			</li>
 		{% endunless %}
 {% endif %}

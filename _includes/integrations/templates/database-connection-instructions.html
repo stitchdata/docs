@@ -28,7 +28,7 @@
 {% for step in integration.setup-steps %}
 
     {% if step.title == "whitelist stitch ips" %}
-        <h3 id="whitelist-stitch-ips">Step {{ forloop.index }}: Whitelist Stitch's IP Addresses</h3>
+        <h3 id="whitelist-stitch-ips">Step {{ forloop.index }}: Whitelist Stitch's IP addresses</h3>
 
         {% capture whitelist-ips %}
         {% include shared/whitelist-stitch-ips.html %}
@@ -39,7 +39,7 @@
         <hr>
 
     {% elsif step.title == "retrieve public key" %}
-        <h3 id="retrieve-public-key">Step {{ forloop.index }}: Retrieve Your Public Key</h3>
+        <h3 id="retrieve-public-key">Step {{ forloop.index }}: Retrieve your Public Key</h3>
 
         {% capture public-key %}
         {% include shared/retrieve-public-key.html %}
@@ -50,7 +50,7 @@
         <hr>
 
     {% elsif step.title == "create linux user" %}
-        <h3 id="create-linux-user">Step {{ forloop.index }}: Create a Stitch Linux User</h3>
+        <h3 id="create-linux-user">Step {{ forloop.index }}: Create a Stitch Linux user</h3>
 
         {% capture create-linux-user %}
         {% include shared/create-linux-user.html %}
@@ -61,7 +61,7 @@
         <hr>
 
     {% elsif step.title == "create db user" %}
-        <h3 id="create-database-user">Step {{ forloop.index }}: Create a Stitch Database User</h3>
+        <h3 id="create-database-user">Step {{ forloop.index }}: Create a Stitch database user</h3>
 
         {% capture create-database-user %}
         {% include integrations/databases/setup/create-database-user.html %}
@@ -87,7 +87,7 @@
         <hr>
 
     {% elsif step.title == "replication frequency" %}
-        <h3 id="connect-stitch">Step {{ forloop.index }}: Define the Replication Frequency</h3>
+        <h3 id="connect-stitch">Step {{ forloop.index }}: Create a replication schedule</h3>
 
         {% capture replication-frequency %}
         {% include integrations/shared-setup/replication-frequency.html %}
@@ -98,7 +98,7 @@
         <hr>
 
     {% elsif step.title == "sync data" %}
-        <h3 id="sync-data">Step {{ forloop.index }}: Select Data to Replicate</h3>
+        <h3 id="sync-data">Step {{ forloop.index }}: Select data to replicate</h3>
 
         {% capture select-data %}
         {% include integrations/databases/setup/syncing.html %}

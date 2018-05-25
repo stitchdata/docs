@@ -25,7 +25,7 @@ later on in the template.
     <!-- If there are any requirements for setting up the
     integration, display them here. -->
     {% if integration.requirements-list or integration.tier == "Premium" %}
-        <h3 id="setup-requirements">{{ integration.display_name }} Setup Requirements</h3>
+        <h3 id="setup-requirements">{{ integration.display_name }} Setup requirements</h3>
             <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
             <ul>
                 {% if integration.tier == "Premium" %}
@@ -102,7 +102,7 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 
 
 {% elsif step.title == "replication frequency" %}
-<h3 id="define-rep-frequency">Step {{ forloop.index }}: Define Replication Frequency</h3>
+<h3 id="define-rep-frequency">Step {{ forloop.index }}: Create a replication schedule</h3>
 {% capture replication-frequency %}
 {% include integrations/shared-setup/replication-frequency.html %}
 {% endcapture %}
