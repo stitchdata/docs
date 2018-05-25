@@ -14,31 +14,30 @@
 
 {% endif %}
 
-## Extracting Data from {{ integration.display_name }} {#extract-data}
+## Extracting data from {{ integration.display_name }} {#extract-data}
 
 When you connect a database as an input, Stitch only needs read-only access to the databases, {{ object }}s, and {{ col }}s you want to replicate. There are two processes Stitch runs during the Extraction phase of the replication process: a **structure sync** and a **data sync**.
 
-### Structure Sync
+### Structure sync queries
 
 The first part of the replication process is called a **structure sync**. This process will detect any changes to the structure of your database. For example: a new {{ col }} is added to one of the {{ object }}s you’re syncing in Stitch.
 
 {% assign extraction = site.data.taps.extraction.database-queries %}
 
-
 {% if integration.db-type == "rds" %}
-<table class="table-hover">
+<table class="attribute-list table-hover">
     <tbody>
         <tr>
-            <td markdown="span" width="25%; fixed" align="right">
-                **Database Type**
+            <td markdown="span" width="25%; fixed" class="attribute-name">
+                **Database type**
             </td>
             <td markdown="span">
-                **Structure Sync Queries**
+                **Structure sync queries**
             </td>
         </tr>
         {% for database in extraction.all-types %}
         <tr>
-            <td markdown="span" align="right">
+            <td markdown="span" class="attribute-name">
                 **{{ database.name }}**
             </td>
             <td>
@@ -55,28 +54,27 @@ The first part of the replication process is called a **structure sync**. This p
 
 {% endif %}
 
-### Data Sync
+### Data sync queries
 
-The second step in the Extraction phase is called a **data sync**. This is where Stitch "extracts" data and replicates it. {% if integration.db-type != "mongo" %}The method Stitch uses is the same for all databases, but differs depending on the Replication Method that each {{ object }} uses.{% endif %}
+The second step in the Extraction phase is called a **data sync**. This is where Stitch extracts data and replicates it. {% if integration.db-type != "mongo" %}The method Stitch uses is the same for all databases, but differs depending on the Replication Method that each {{ object }} uses.{% endif %}
+
+#### Key-based Incremental Replication
+
+For tables using Key-based Incremental Replication, Stitch runs a single query and reads out of the associated cursor in batches:
+
+{{ extraction.data-sync-queries.incremental | markdownify }}
 
 {% unless integration.db-type == "mongo" %}
 #### Full Table Replication
 
-For tables using Full Table Replication, Stitch will run a single query and read out of the resulting cursor in batches:
+For tables using Full Table Replication, Stitch runs a single query and reads out of the resulting cursor in batches:
 
 {{ extraction.data-sync-queries.full-table | markdownify }}
 {% endunless %}
 
-#### Incremental Replication
-
-For tables using Incremental Replication, Stitch will run a single query and read out of the associated cursor in batches:
-
-{{ extraction.data-sync-queries.incremental | markdownify }}
-
-
 ### Recommendations
 
-While we make every effort to ensure the queries that Stitch runs don’t impart significant load on your databases, we still have some recommendations for guaranteeing database performance:
+While we make every effort to ensure the queries that Stitch executes don’t impart significant load on your databases, we still have some recommendations for guaranteeing database performance:
 
 - **Use a replica database instead of connecting directly**. We recommend using read replicas in lieu of directly connecting production databases with high availability and performance requirements.
 - **Apply indexes to [Replication Key]({{ rep-keys | prepend: site.baseurl }}) columns**. We restrict and order our replication queries by this {{ col }}, so applying an index to the {{ col }}s you’re using as Replication Keys can improve performance. {% if integration.db-type == "mongo" %}**Indexes are required to use Mongo fields as Replication Keys**.{% endif %}

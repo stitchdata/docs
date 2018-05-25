@@ -10,16 +10,16 @@
 data-sync-queries:
   incremental: |
     ```
-    SELECT {{ col }}_a, {{ col }}_b <,...>
-    FROM {{ object }}_a
-    WHERE replication_key_{{ col }} >=’last_bookmark_value’
+      SELECT {{ col }}_a, {{ col }}_b <,...>
+        FROM {{ object }}_a
+       WHERE replication_key_{{ col }} >= 'last_maximum_replication_key_value'
     ORDER BY replication_key_{{ col }}
     ```
   
   full-table: |
     ```
     SELECT {{ col }}_a, {{ col }}_b <,...>
-    FROM {{ object }}_a
+      FROM {{ object }}_a
     ```
 
 # -------------------------- #
@@ -50,7 +50,7 @@ mongo:
       - `db.getMongo().getDBNames()`
       - `db.getCollectionNames()`
 
-      For every collection in the database - even those that aren’t set to sync - Stitch also runs the following queries:
+      For every collection in the database - even those that aren’t set to replicate - Stitch also runs the following queries:
 
       - `db.collection.count()`
       - `db.collection.getIndexes()`
