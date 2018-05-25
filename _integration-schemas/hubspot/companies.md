@@ -8,15 +8,7 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `companies` table contains info about the companies your HubSpot contacts belong to.
 
-<<<<<<< HEAD
-  **Note:** when this table is synced, the [`hubspot_contacts_by_company`](#hubspot_contacts_by_company) table will also be automatically synced and created in your data warehouse.
-
-notes: 
-
-replication-method: "Key-based Incremental"
-=======
 replication-method: "Full Table"
->>>>>>> master
 api-method:
   name: getACompany
   doc-link: https://developers.hubspot.com/docs/methods/companies/get_company
