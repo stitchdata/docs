@@ -144,6 +144,10 @@ frequently-asked-questions:
 
           For more info, refer to [our pricing page]({{ site.pricing }}).
 
+# -------------------------- #
+#   HISTORICAL DATA LOADS    #
+# -------------------------- #
+
   - topic: "Historical data loads"
     anchor: "historical-data-loads"
     items:
@@ -161,16 +165,20 @@ frequently-asked-questions:
       - question: "Do free historical data loads apply to integration or table resets?"
         anchor: "free-historical-loads-resets"
         answer: |
-          No. Free historical data loads are only applicable to new integrations for the first seven days after they begin to replicate data. [Resetting replication]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) for an integration or a table will count towards your quota.
+          If the reset occurs during the free historical data load period, yes.
+
+          If the reset occurs after the free historical data load period has ended, no.
+
+          Free historical data loads are only applicable to new integrations for the first seven days after they begin to replicate data. [Resetting replication]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) for an integration or a table will count towards your quota.
 
       - question: "When do the seven days of historical data loading begin?"
         anchor: "free-historical-data-load-begin"
         answer: |
           The free historical data load period for new integrations begins after the integration first replicates data.
 
-          For example: You create an integration on January 1 but don't fully configure it until January 2. In this case, the free historical data load will begin on January 2 and end January 9.
+          For example: You create an integration on June 1 but don't fully configure it until June 2. In this case, the free historical data load will begin on June 2 and end June 9.
 
-          **Note**: This is applicable only to integrations created on or after May 21, 2018. 
+          **Note**: This is applicable only to integrations created on or after May 22, 2018. 
 
 
 # -------------------------- #
