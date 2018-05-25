@@ -26,25 +26,16 @@ using the type. -->
 Ex: The copy for MySQL lives in _database-integrations/mysql.md > setup-steps, and is right before this include is referenced. -->
 
 {{ server-instructions | flatify | markdownify }}
-
-{% highlight shell %}
-[{{ section-name | strip }}]
-{% for setting in database-setup[database-name] %}
-{{ setting.name }}={{ setting.value }}
-{% endfor %}
-{% endhighlight %}
-
-    <p>See the <strong>Server settings list</strong> tab for more information about these settings.</p>
     </div>
 
     <div role="tabpanel" class="tab-pane" id="server-settings-details">
         <p>In the table below are the names, required values, and descriptions of the server settings you must define.</p>
-        <table width="100%; fixed">
+        <table class="attribute-list">
             <tr>
-                <td width="28%; fixed" align="right">
+                <td width="28%; fixed" class="attribute-name">
                     <strong>Setting</strong>
                 </td>
-                <td width="10%; fixed">
+                <td width="20%; fixed">
                     <strong>Value</strong>
                 </td>
                 <td>

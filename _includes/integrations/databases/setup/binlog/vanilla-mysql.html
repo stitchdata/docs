@@ -1,0 +1,47 @@
+{% assign database-setup = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
+
+{% capture section-name %}
+mysqld
+{% endcapture %}
+
+{% capture server-settings %}
+{% for setting in database-setup[database-name] %}{{ setting.name }}={{ setting.value }}
+{% endfor %}{% endcapture %}
+
+{% capture config-file-lines %}
+   ```conf
+   [{{ section-name | strip }}]
+   {{ server-settings | lstrip | rstrip }}
+   ```
+{% endcapture %}
+
+Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | site.baseurl }}), or binlog replication.
+
+Log-based Incremental Replication is a method of replication that reads a database's binary log files. These files contain information about modifications made to data in a {{ integration.display_name }} instance. Log-based Incremental Replication captures all inserts, updates, and deletes made to records during each replication job, and is the most accurate and efficient method of replication.
+
+While Stitch recommends using binlog to replicate data, it isn't mandatory. Stitch offers additional [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) for {{ integration.display_name }} databases that don't require defining these settings.
+
+
+
+{% capture server-instructions %}
+1. Log into your {{ integration.display_name }} server.
+2. Verify that binlog is enabled by running the following statement. The value returned should be `1`:
+   
+   ```shell
+   mysql> select @@log_bin;
+   ```
+
+   If this statement returns a `0`, this means that binlog is disabled. You'll enable it in the next step.
+
+3. Locate the `my.cnf` file, usually located at `/etc/my.cnf`. Verify that `my.cnf` has the following lines in the `{{ section-name | strip }}` section:
+
+    {{ config-file-lines }}
+
+   A few things to note:
+      - `log_bin` doesn't have to be `mysql-binlog` - this value can be anything. Additionally, if `log_bin` already has an entry (which you checked in step one), you don't need to change it.
+      - Use either `expire_log_days` or `binlog_expire_logs_seconds`, not both. See the **Server settings list** tab for more information.
+4. When finished, restart your {{ integration.display_name }} server to ensure the changes take effect.
+{% endcapture %}
+
+{% include integrations/templates/configure-server-settings.html %}

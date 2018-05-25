@@ -68,25 +68,7 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
-      Next, you'll configure your server to use binlog replication.
-
-      Binlog replication is a method of replication that reads a database's binary log files. These files contain information about modifications made to data in a {{ integration.display_name }} instance. Binlog replication captures all inserts, updates, and deletes made to records, and is the most accurate and efficient method of replication.
-
-      While Stitch recommends using binlog to replicate data, it isn't mandatory. Stitch offers additional [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) for {{ integration.display_name }} databases that don't require defining these settings.
-
-      {% capture section-name %}
-      mysqld
-      {% endcapture %}
-
-      {% capture server-instructions %}
-      Log into your database server and locate the `my.cnf` file. This is usually located at `/etc/my.cnf`.
-
-      Ensure the `my.cnf` file has the following lines in the `{{ section-name | strip }}` section.
-
-      **Note**: Don't use `expire_log_days` AND `binlog_expire_logs_seconds` - use one or the other. See the **Server settings list** tab for more information.
-      {% endcapture %}
-
-      {% include integrations/templates/configure-server-settings.html %}
+      {% include integrations/databases/setup/binlog/vanilla-mysql.html %}
 
   - title: "Create a Stitch database user"
     anchor: "db-user"

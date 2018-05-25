@@ -30,9 +30,9 @@ using the type. -->
     <div role="tabpanel" class="tab-pane" id="privileges-list">
         <p>In the table below are the database user privileges Stitch requires to connect to and replicate data from a {{ integration.display_name }} database.</p>
 
-        <table width="100%; fixed">
+        <table class="attribute-list">
             <tr>
-                <td width="20%; fixed" align="right">
+                <td width="20%; fixed" class="attribute-name">
                     <strong>Privilege name</strong>
                 </td>
                 <td>
@@ -42,7 +42,7 @@ using the type. -->
             {% for privilege in database-setup.user-privileges %}
                 <tr>
                     <td align="right">
-                        <a href="{{ privilege.[database-name]-link }}">{{ privilege.name }}</a>
+                        <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
                     </td>
                     <td>
                         {{ privilege.reason | flatify | markdownify }}
