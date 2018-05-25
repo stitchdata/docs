@@ -1,4 +1,4 @@
-{% unless page.keywords contains "data warehouse" %}
+{% unless page.keywords contains "data warehouse" or include.no-notification == true %}
 {% include note.html content="If you aren't using an SSH tunnel, skip this step." %}
 {% endunless %}
 

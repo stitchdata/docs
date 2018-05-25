@@ -10,7 +10,7 @@ description: |
 
   **Note**: These are **internal** users. Info about external users, or clients, is in the `clients` table.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showAllUsers
   doc-link: http://help.getharvest.com/api-v1/users-api/users/managing-users/#show-all-users

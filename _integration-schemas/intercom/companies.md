@@ -11,7 +11,7 @@ description: |
 
   If applicable, Stitch will replicate custom fields related to `companies` in Intercom.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: scrollOverAllCompanies
   doc-link: https://developers.intercom.com/reference#iterating-over-all-companies

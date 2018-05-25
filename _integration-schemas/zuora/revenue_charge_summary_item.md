@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_CRSB
 description: |
   The `revenueChargeSummaryItem` table contains information about [charge revenue summaries](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules/M_Charge_Revenue_Summary), which are summaries of all revenue distributions associated with a subscription charge.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

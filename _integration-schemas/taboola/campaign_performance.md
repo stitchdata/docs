@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-taboola/blob/master/tap_taboola/
 description: |
   The `campaign_performance` table contains performance data for the campaigns in your Taboola account, broken down by day.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: 
   doc-link: 

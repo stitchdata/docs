@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/
 description: |
   The `users` table contains info about the users in your Referral SaaSquatch tenant.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

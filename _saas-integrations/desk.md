@@ -45,7 +45,7 @@ tables:
     doc-link: http://dev.desk.com/API/cases/#fields
     description: "about the support cases in your Desk account."
     notes: "In addition to the fields listed below, our Desk integration will also include any custom fields."
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -76,7 +76,7 @@ tables:
     doc-link: http://dev.desk.com/API/customers/#fields
     description: "about the end-users in your Desk account."
     notes: "In addition to the fields listed below, our Desk integration will also include any custom fields."
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -104,7 +104,7 @@ tables:
     description: "the individual replies in cases."
     notes: |
       Depending on the configuration of your Desk account, you may see more fields in this table than what's listed here. For example: Tweet fields. 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "case_id:reply_id"
     nested-structures: false
     attributes:

@@ -28,7 +28,7 @@ description: |
   #### NULL Dates
   On occasion, Taboola's API will push `NULL` for `start_date` and `999-12-31` for `end_date`. [The Singer tap](https://github.com/singer-io/tap-taboola#gotchas) behind this integration will convert `NULL` dates to `999-12-31` for consistency.
   
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listCampaignsAssociatedWithAnAccount
   doc-link: https://github.com/taboola/Backstage-API/blob/master/Backstage%20API%20-%20Campaigns.pdf

@@ -64,7 +64,7 @@ tables:
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-cashdrawershift
     description: "the details for all of a location’s cash drawer shifts."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -128,7 +128,7 @@ tables:
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-employee
     description: "summary info for all of a business’s employees."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -258,7 +258,7 @@ tables:
     notes: |
       <h4 id="purchased-items">Purchased Items & Orders</h4>
       <p><strong>This table does not contain purchased items data</strong>. To view order data alongside purchased items data, use the <code>payment_id</code> column in this table to join it to the <code>payments</code> table.</p>
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -309,7 +309,7 @@ tables:
     notes: |
       ### Payment Amounts & Itemizations
       Square doesn't always include itemizations in payments when the payment amount is zero. If you're missing itzemization data, check the corresponding payment amounts to see if they're greater than zero.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -342,7 +342,7 @@ tables:
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-refund
     description: "the details for all refunds initiated by a merchant or any of the merchant’s mobile staff."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "payment_id:created_at"
     nested-structures: false
     attributes:
@@ -359,7 +359,7 @@ tables:
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-employeerole
     description: "summary info for all of a business’s employee roles."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -376,7 +376,7 @@ tables:
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#get-settlements
     description: "summary information for all deposits and withdraws initiated by Square to a merchant’s bank account. <strong>This table does not contain entry data</strong>, which lists the individual transactions that contribute to the settlement total."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -393,7 +393,7 @@ tables:
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-timecard
     description: "summary info for all of a business’s employee timecards."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:

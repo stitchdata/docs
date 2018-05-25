@@ -100,7 +100,7 @@ tables:
   - name: "netsuite_calendar_event"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/calendareventsearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false 
 
@@ -108,7 +108,7 @@ tables:
   - name: "netsuite_campaign"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/campaign.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false 
 
@@ -132,7 +132,7 @@ tables:
   - name: "netsuite_contact"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/contact.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -180,7 +180,7 @@ tables:
   - name: "netsuite_customer"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/customersearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -220,7 +220,7 @@ tables:
   - name: "netsuite_deleted"
     doc-link: 
     notes: See <a href="#using-netsuite-deleted">Deleted Records</a> for info on using this table.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid:_type"
     abstract: true
 
@@ -236,7 +236,7 @@ tables:
   - name: "netsuite_employee"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/employeesearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -244,7 +244,7 @@ tables:
   - name: "netsuite_entity_group"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/entitygroup.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -268,7 +268,7 @@ tables:
   - name: "netsuite_folder"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/folder.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -308,7 +308,7 @@ tables:
   - name: "netsuite_item"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/item.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -324,7 +324,7 @@ tables:
   - name: "netsuite_item_demand_plan"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/itemdemandplan.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -340,7 +340,7 @@ tables:
   - name: "netsuite_item_supply_plan"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/itemsupplyplan.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -348,7 +348,7 @@ tables:
   - name: "netsuite_job"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/jobsearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -436,7 +436,7 @@ tables:
   - name: "netsuite_opportunity"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/opportunity.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -444,7 +444,7 @@ tables:
   - name: "netsuite_originating_lead"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/originatingleadsearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid:type"
     abstract: true
 
@@ -460,7 +460,7 @@ tables:
   - name: "netsuite_partner"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/partner.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -492,7 +492,7 @@ tables:
   - name: "netsuite_phone_call"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/phonecall.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -516,7 +516,7 @@ tables:
   - name: "netsuite_project_task"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/projecttask.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -572,7 +572,7 @@ tables:
   - name: "netsuite_solution"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/solution.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -588,7 +588,7 @@ tables:
   - name: "netsuite_support_case"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/supportcasesearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -596,7 +596,7 @@ tables:
   - name: "netsuite_task"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/task.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -612,7 +612,7 @@ tables:
   - name: "netsuite_time_bill"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/timebillsearchbasic.html?mode=package
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -620,7 +620,7 @@ tables:
   - name: "netsuite_time_entry"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/timeentry.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 
@@ -644,7 +644,7 @@ tables:
   - name: "netsuite_transaction"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/transaction.html
     notes: See <a href="#transaction-types">Supported Transaction Types</a> for a list of the transaction types Stitch will replicate.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid:_type"
     abstract: true
 
@@ -660,7 +660,7 @@ tables:
   - name: "netsuite_vendor"
     doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/vendor.html
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "internalid"
     abstract: false
 

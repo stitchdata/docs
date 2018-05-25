@@ -50,7 +50,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/accounts/#title1
     description: "info about the various accounts (ex: banking) connected to your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "accountid"
     nested-structures: false
     attributes:
@@ -74,7 +74,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/banktransactions/#title1
     description: information about any <a href="https://developer.xero.com/documentation/api/types/#BankTransactionTypes" target="new">bank transactions</a> - for example, overpayments, prepayments, spend, etc. - in your Xero account.
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "banktransactionid"
     nested-structures: true
     attributes:
@@ -103,7 +103,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/bank-transfers#title1
     description: "info about bank transfers."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "banktransferid"
     nested-structures: false
     attributes:
@@ -137,7 +137,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/contacts#title1
     description: "info about the contacts in a Xero organisation."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "contactid"
     nested-structures: true
     attributes:
@@ -194,7 +194,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/credit-notes#title1
     description: "info about the credit notes in your Xero organisation."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "creditnoteid"
     nested-structures: true
     attributes:
@@ -239,7 +239,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/employees#title1
     description: "info about the employees used in Xero payrun."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "employeeid"
     nested-structures: false
     attributes:
@@ -254,7 +254,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/expense-claims#title1
     description: "info about the expense claims for your Xero organisation."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "expenseclaimid"
     nested-structures: false
     attributes:
@@ -281,7 +281,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/invoices#title1
     description: "info about the sales invoices and purchase bills for your Xero organisation."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "invoiceid"
     nested-structures: true
     attributes:
@@ -323,7 +323,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/items/
     description: "info about the goods and services in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "itemid"
     nested-structures: false
     attributes:
@@ -352,7 +352,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/journals/
     description: "info about the journals in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "journalid"
     nested-structures: true
     attributes:
@@ -390,7 +390,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/manual-journals#title1
     description: "info about the manual journals in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "manualjournalid"
     nested-structures: true
     attributes:
@@ -448,7 +448,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/overpayments#title1
     description: "info about overpayments in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "overpaymentid"
     nested-structures: true
     attributes:
@@ -475,7 +475,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/payments#title1
     description: "info about the payments - invoice, credit note, prepayment, or overpayment - in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "paymentid"
     nested-structures: false
     attributes:
@@ -495,7 +495,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/prepayments#title1
     description: "info about the preypayments in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "prepaymentid"
     nested-structures: false
     attributes:
@@ -522,7 +522,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/purchase-orders#title1
     description: "info about the purchase orders in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "purchaseorderid"
     nested-structures: false
     attributes:
@@ -556,7 +556,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/receipts#title1
     description: "info about the expense claim receipts in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "receiptid"
     nested-structures: true
     attributes:
@@ -649,7 +649,7 @@ tables:
     doc-link: https://developer.xero.com/documentation/api/users/
     description: "info about the users in your Xero account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "userid"
     nested-structures: false
     attributes:

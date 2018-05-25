@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/v0.11.0/tap_hubspot
 description: |
   The `forms` table contains info about your HubSpot website forms.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllFormsFromAPortal
   doc-link: https://developers.hubspot.com/docs/methods/forms/v2/get_forms

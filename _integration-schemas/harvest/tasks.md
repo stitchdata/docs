@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `tasks` table contains info about the tasks in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showAllTasks
   doc-link: http://help.getharvest.com/api-v1/tasks-api/tasks/create-show-tasks/#show-all-tasks

@@ -19,7 +19,7 @@ description: |
   - [`ads_insights_platform_and_device`](ads_insights_platform_and_device) - Data segmented by platform and device
   - [`ads_insights_region`](#ads_insights_region) - Data segmented by region
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 
 attributes: 

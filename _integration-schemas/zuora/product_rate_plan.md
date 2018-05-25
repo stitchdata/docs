@@ -7,7 +7,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-P
 description: |
   The `productRatePlan` table contains info about product rate plans, or the part of a product that customers can subscribe to.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

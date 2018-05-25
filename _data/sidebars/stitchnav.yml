@@ -206,7 +206,10 @@ all-docs:
         - title: Overview
           url: "{{ link.replication.rep-methods }}"
 
-        - title: Incremental
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.rep-methods }}#log-based-incremental-replication"
+
+        - title: "Key-based Incremental"
           url: "{{ link.replication.rep-methods }}#incremental-replication"
 
         - title: "Append-Only"

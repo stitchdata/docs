@@ -53,7 +53,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/abandoned_checkouts
     description: "info about abandoned checkouts. Abandoned checkouts are defined as checkouts where the customer has entered their billing and shipping information, but not completed the ordering process."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -162,7 +162,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/customcollection
     description: "info about your custom collections."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -184,7 +184,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/customer
     description: "info about your shop's customers."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -214,7 +214,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/metafield
     description: "metadata for shop and order resources."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -235,7 +235,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/refund/
     description: "info about refunds applied to transactions."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -253,7 +253,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/order
     description: "information about your shop's completed orders."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -327,7 +327,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/product
     description: "info about the products for sale in your shop."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -355,7 +355,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/transaction
     description: "info about transactions, which are created for every order that results in money exchange. This includes authorizations, sales, captures, voids, and refunds."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:

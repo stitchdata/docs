@@ -16,7 +16,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getContacts
   doc-link: https://developers.hubspot.com/docs/methods/contacts/get_contacts

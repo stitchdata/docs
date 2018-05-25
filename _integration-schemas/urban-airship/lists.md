@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_ur
 description: |
   The `lists` table contains info about device lists.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: allLists
   doc-link: https://docs.urbanairship.com/api/ua/#all-lists

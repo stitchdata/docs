@@ -8,7 +8,7 @@ doc-link: https://knowledgecenter.zuora.com/CD_Reporting/D_Data_Sources_and_Expo
 description: |
   The `discountAppliedMetrics` table contains information about rate plan charges that use either a discount-fixed amount or discount-percentage charge model.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

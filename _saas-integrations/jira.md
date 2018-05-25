@@ -56,7 +56,7 @@ tables:
       - JIRA's API doesn't include a flag to indicate deletes.
       
       [The suggested workaround](https://answers.atlassian.com/questions/75537/how-do-i-find-if-an-issue-has-been-deleted) (although it may be a bit cumbersome) is to use the `fields__status__name` column - which indicates the current status of an issue - to track deletes. Before deleting the issue, you could change the status to something that would only indicate a delete and then use that status as a filter in your queries.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:

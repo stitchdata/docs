@@ -12,7 +12,7 @@ description: |
 
   Data for this table will only be replicated when the associated project (in the `projects` table) is also updated.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listRepositoryCommits"
   doc-link: https://gitlab.com/help/api/commits.md#list-repository-commits

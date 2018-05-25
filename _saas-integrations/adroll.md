@@ -67,7 +67,7 @@ tables:
     doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-report-ad
     description: "ad-level reporting data."
     notes: "Each row in this table contains totals for the ad, by date."
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "eid"
     nested-structures: false
     attributes:

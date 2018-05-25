@@ -15,7 +15,7 @@ description: |
   #### Deleted Campaigns
   If the **Include data from deleted campaigns, ads, and adsets** box in the integration's settings is checked, this table will include data for deleted campaigns.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 api-method:
   name: adCampaign - Reading

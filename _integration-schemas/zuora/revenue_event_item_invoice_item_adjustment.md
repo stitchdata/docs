@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Events
 description: |
   The `revenueEventItemInvoiceItemAdjustment` table contains information about revenue event items that are associated with invoice item adjustments.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

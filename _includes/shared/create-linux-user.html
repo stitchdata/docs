@@ -1,4 +1,4 @@
-{% unless page.title contains "Redshift" %}
+{% unless page.title contains "Redshift" or include.no-notification == true %}
 {% include note.html content="If you aren't using an SSH tunnel, skip this step." %}
 {% endunless %}
 

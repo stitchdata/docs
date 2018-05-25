@@ -50,20 +50,34 @@ whitelist:
 # -------------------------- #
 
 requirements-list:
-  - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: "**The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html) is required to create a database user for Stitch."
+  - item: "**The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option) is required to grant the necessary privileges to the Stitch database user."
+  - item: "**The `SUPER` privilege in {{ integration.display_name }}.** If using binlog replication, the [`SUPER` privilege](https://dev.mysql.com/doc/refman/5.6/en/privileges-provided.html#priv_super) is required to define the appropriate server settings."
+
 
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "retrieve public key"
+  - title: "Configure database server settings"
+    anchor: "server-settings"
+    content: |
+      {% include integrations/databases/setup/binlog/vanilla-mysql.html %}
 
-  - title: "create linux user"
+  - title: "Create a Stitch database user"
+    anchor: "db-user"
+    content: |
+      {% include note.html content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
-  - title: "create db user"
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+
+      {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "connect stitch"
 
@@ -73,3 +87,4 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
+

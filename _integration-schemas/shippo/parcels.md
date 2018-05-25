@@ -7,7 +7,7 @@ singer-schema:
 description: |
   The `parcels` table contains info about parcel objects. Parcels are used to create shipments, obtain rates, and print labels.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listAllParcels
   doc-link: https://goshippo.com/docs/reference?version=2016-10-25#parcels-list

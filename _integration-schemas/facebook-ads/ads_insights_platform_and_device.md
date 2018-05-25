@@ -16,7 +16,7 @@ description: |
   
   Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 
 attributes: 

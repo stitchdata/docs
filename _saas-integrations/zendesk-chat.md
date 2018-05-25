@@ -111,7 +111,7 @@ tables:
     notes: |
      ### Chat Types & Null Values
      Depending on the type of chat - support versus offline - some records may have `NULL` values. Offline chats will only have some of the attributes listed below populated.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:

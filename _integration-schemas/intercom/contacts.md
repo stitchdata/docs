@@ -13,7 +13,7 @@ description: |
 
   If applicable, Stitch will replicate custom fields related to `contacts` (leads) in Intercom.
  
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listLeads
   doc-link: https://developers.intercom.com/reference#list-leads
