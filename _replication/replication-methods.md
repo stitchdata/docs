@@ -19,7 +19,7 @@ Replication Methods are extremely important - we can't stress this enough. They'
 Stitch employs three methods to replicate data from your data sources:
 
 - [Log-based Incremental Replication](#log-based-incremental-replication),
-- [Key-based Incremental Replication](#key-based-incremental-replication), and 
+- [Key-based Incremental Replication](#incremental-replication), and 
 - [Full Table Replication](#full-table-replication)
 
 ---
@@ -28,15 +28,15 @@ Stitch employs three methods to replicate data from your data sources:
 
 {% include note.html content="Log-based Incremental Replication is currently supported only for MySQL-based database integrations." %}
 
-{{ site.data.tooltips.log-based-incremental-rep }}
+{{ site.data.tooltips.log-based-incremental-rep }} A binary log file is a record of events that occur within a database.
 
 There are two types of binary log replication: statement and row-based. Stitch uses a [row-based approach](https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html), which means that when rows are modified, the entire row is written to the binary log file. Stitch then reads the changes from the binary log and replicates the appropriate records.
 
-Using Log-based Incremental Replication requires a specific configuration of the source database and is only available for MySQL-based databases. For setup instructions, refer to the [database integration]({{ site.baseurl }}/integrations/databases) documentation for your database.
+Using Log-based Incremental Replication requires a specific database configuration and is only available for MySQL-based databases. For setup instructions, refer to the [database integration]({{ site.baseurl }}/integrations/databases) documentation for your database.
 
 ---
 
-## Key-based Incremental Replication {#key-based-incremental-replication}
+## Key-based Incremental Replication {#incremental-replication}
 
 {{ site.data.tooltips.key-based-incremental-rep }} As this method will greatly reduce latency and data usage, we highly recommend using it where ever possible.
 
