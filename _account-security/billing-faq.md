@@ -144,13 +144,17 @@ frequently-asked-questions:
 
           For more info, refer to [our pricing page]({{ site.pricing }}).
 
+# -------------------------- #
+#   HISTORICAL DATA LOADS    #
+# -------------------------- #
+
   - topic: "Historical data loads"
     anchor: "historical-data-loads"
     items:
       - question: "What is a free historical data load?"
         anchor: "free-historical-data-load"
         answer: |
-          During the first seven days that follow the creation of a new integration, replication is free. This is a free historical data load, and means that rows replicated from the new integration during this time won't count towards your quota.
+          During the first seven days after a new integration begins to replicate data, replication is free. This is a free historical data load, and means that rows replicated from the new integration during this time won't count towards your quota.
 
           After the seven days are over, Stitch will continue to replicate data from the integration. Be sure to **pause** or **delete** the integration if you are no longer interested in replicating its data.
 
@@ -161,7 +165,20 @@ frequently-asked-questions:
       - question: "Do free historical data loads apply to integration or table resets?"
         anchor: "free-historical-loads-resets"
         answer: |
-          No. Free historical data loads are only applicable to new integrations for the first seven days after they are created. [Resetting replication]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) for an integration or a table will count towards your quota.
+          If the reset occurs during the free historical data load period, yes.
+
+          If the reset occurs after the free historical data load period has ended, no.
+
+          Free historical data loads are only applicable to new integrations for the first seven days after they begin to replicate data. [Resetting replication]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) for an integration or a table will count towards your quota.
+
+      - question: "When do the seven days of historical data loading begin?"
+        anchor: "free-historical-data-load-begin"
+        answer: |
+          The free historical data load period for new integrations begins after the integration first replicates data.
+
+          For example: You create an integration on June 1 but don't fully configure it until June 2. In this case, the free historical data load will begin on June 2 and end June 9.
+
+          **Note**: This is applicable only to integrations created on or after May 22, 2018. 
 
 
 # -------------------------- #
