@@ -16,12 +16,14 @@ end
 
 schema = JSON.parse(File.read(schema_file))
 
+INDENTATION_LENGTH = 2
+
 def write_attribute(node, breadcrumb)
   types = node['type'].select { |t|  t != 'null' }
-  prepend_size = breadcrumb.length() * 4
+  prepend_size = breadcrumb.length() * INDENTATION_LENGTH
   $yaml_output += ["- name: \"#{breadcrumb.last}\"",
                     "  type: \"#{types.first}\"",
-                    "  description: \"#{node['description']}\"\n"].map do |l|
+                    "  description: \"#{node['description']}\"\n\n"].map do |l|
     l.prepend( " " * prepend_size)
   end.join("\n")
 end
@@ -37,13 +39,13 @@ def visit(nodes, breadcrumb)
       #visting a node
       if nodes['properties'][n]['properties']
         write_attribute({'type' => ['object'], 'description' => ""}, next_crumbs)
-        prepend_size = next_crumbs.length() * 4
+        prepend_size = next_crumbs.length() * INDENTATION_LENGTH
         $yaml_output += "  object-attributes: \n".prepend(" " * prepend_size)
 
         visit(nodes['properties'][n], next_crumbs)
       elsif nodes['properties'][n]['items'] && nodes['properties'][n]['items'].class() == Hash
         write_attribute({'type' => ['object'], 'description' => ""}, [n])
-        prepend_size = next_crumbs.length() * 4
+        prepend_size = next_crumbs.length() * INDENTATION_LENGTH
         $yaml_output += "  object-attributes: \n".prepend(" " * prepend_size)
 
         visit(nodes['properties'][n]['items'], next_crumbs)
