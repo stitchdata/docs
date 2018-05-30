@@ -1,22 +1,28 @@
 ---
 tap: "integration_name"
+# version: 
 
 name: "table_name"
-doc-link: ## link to source's API docs
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
+doc-link: 
+singer-schema: 
 description: |
   ## description of the table
 
-notes: 
+replication-method: "Key-based Incremental / Full Table"
 
-replication-method: "Incremental / Full Table"
+api-method:
+  name:
+  doc-link:
 
 attributes:
   - name: ""
     type: ""
-    primary-key: true ## remove if this column isn't part of the table's PK
+    primary-key: true
     description: ""
-    doc-link:
+
+  - name: ""
+    type: 
+    description: ""
 
   - name: ""
     type: "array"
