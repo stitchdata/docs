@@ -17,7 +17,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: List Memberships
+  name: List memberships
   doc-link: https://developer.zendesk.com/rest_api/docs/core/group_memberships#list-memberships
 
 attributes:

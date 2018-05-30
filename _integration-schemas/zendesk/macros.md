@@ -13,8 +13,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name:
-  doc-link:
+  name: List macros
+  doc-link: https://developer.zendesk.com/rest_api/docs/core/macros#list-macros
 
 attributes:
   - name: "id"

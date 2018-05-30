@@ -13,7 +13,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: List Groups
+  name: List groups
   doc-link: https://developer.zendesk.com/rest_api/docs/core/groups#list-groups
 
 attributes:
