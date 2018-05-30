@@ -34,6 +34,16 @@ Check out the [Singer organization on GitHub]({{ site.singer-github }}){:target=
 
 ---
 
+## Version deprecation dates {#deprecation-dates}
+
+Below is a list of integration versions currently scheduled for deprecation. These versions will continue to run after their deprecation date, however, they will no longer receive support.
+
+As we prepare to convert integrations, we'll add them to this list. We'll also announce updates on our [status page]({{ site.status }}){:target="_blank"}, which you can subscribe to.
+
+{% include notifications/integration-version-deprecation-list.html %}
+
+---
+
 ## Upgrade your integrations
 
 To upgrade to the latest version of an integration, you'll need to do the following:
@@ -48,16 +58,6 @@ To upgrade to the latest version of an integration, you'll need to do the follow
 2. **Delete the old versions of the integration from your account**.
 
 If you need a refresher on setting up an integration, refer to the [SaaS Integration docs]({{ site.baseurl }}/integrations/saas).
-
----
-
-## Version deprecation dates {#deprecation-dates}
-
-Below is a list of integration versions currently scheduled for deprecation. These versions will continue to run after their deprecation date, however, they will no longer receive support.
-
-As we prepare to convert integrations, we'll add them to this list. We'll also announce updates on our [status page]({{ site.status }}){:target="_blank"}, which you can subscribe to.
-
-{% include notifications/integration-version-deprecation-list.html %}
 
 ---
 
