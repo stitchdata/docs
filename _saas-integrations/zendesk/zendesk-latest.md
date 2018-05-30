@@ -23,7 +23,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "In Development"
 certified: true
 
 historical: "1 year"
@@ -41,7 +41,9 @@ whitelist:
 
 requirements-list:
   - item: |
-      **Administrator permissions in Zendesk**. Only users with the [Zendesk Administrator role can create an API token](https://support.zendesk.com/hc/en-us/articles/226022787-Generating-a-new-API-token-){:target="_blank"}, which is required to complete the setup.
+      **Administrator permissions in Zendesk**. Some data types in Zendesk may only be accessed with Admin permissions. For example: To replicate ticket metric or tag data, Zendesk's API requires a user with Admin permissions.
+
+      To ensure you can replicate all the data you need, we recommend a user with Admin permissions set up the integration.
 
 setup-steps:
   - title: "add integration"
