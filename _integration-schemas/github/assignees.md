@@ -2,16 +2,16 @@
 tap: "github"
 # version: ""
 
-name: "commits"
-doc-link:
-singer-schema:
+name: "assignees"
+doc-link: https://developer.github.com/v3/issues/assignees/
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/assignees.json
 description: |
-  The `commits` table contains info about repository commits in a project.
+  The `assignees` table contains info about the available assignees for issues in a repository.
 
-replication-method: "Incremental"
+replication-method: "Full Table"
 api-method:
-  name:
-  doc-link:
+  name: "listAssignees"
+  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
 
 attributes:
   - name: "login"

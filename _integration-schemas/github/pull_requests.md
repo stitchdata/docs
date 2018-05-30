@@ -3,14 +3,16 @@ tap: "github"
 # version: ""
 
 name: "pull_requests"
-doc-link:
-singer-schema:
+doc-link: https://developer.github.com/v3/pulls/
+singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/pull_requests.json
 description: |
+  The `pull_requests` table contains info about pull requests made against the repository.
 
-replication-method: "Incremental"
+
+replication-method: "Full Table"
 api-method:
-  name:
-  doc-link:
+  name: "listPullRequests"
+  doc-link: https://developer.github.com/v3/pulls/#list-pull-requests
 
 attributes:
   - name: "id"
