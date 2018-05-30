@@ -29,7 +29,7 @@ attributes:
     primary-key: true
     description: "The ticket metric ID."
 
-  - name: "updated-at"
+  - name: "updated_at"
     type: "date-time"
     replication-key: true
     description: "The last time the ticket metric was updated."
