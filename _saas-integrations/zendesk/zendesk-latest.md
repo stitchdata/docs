@@ -55,10 +55,11 @@ setup-steps:
   - title: "Authorize Stitch to access Zendesk"
     anchor: "grant-stitch-authorization"
     content: |
+      {% include note.html content="A Zendesk user with Admin permissions must complete this step." %}
+
       1. Next, you'll be prompted to sign into your Zendesk account.
-      2. After you log into Zendesk, [TODO: NEXT STEP NEEDED]
-      3. After the authorization process is successfully completed, you'll be directed back to Stitch.
-      4. Click {{ app.buttons.finish-int-setup }}.
+      2. After the authorization process is successfully completed, you'll be directed back to Stitch.
+      3. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
 
 # -------------------------- #
