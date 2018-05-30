@@ -109,8 +109,8 @@ attributes:
     description: "The IDs of the tags associated with the ticket."
     array-attributes:
       - name: "value"
-        type: "integer"
-        description: "The ID of the tag associated with the ticket."
+        type: "string"
+        description: "The tag associated with the ticket."
         foreign-key: true
         table: "tags"
 

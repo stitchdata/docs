@@ -42,7 +42,7 @@ attributes:
     array-attributes:
       - name: "value"
         type: "string"
-        description: "The ID of the tag associated with the organization."
+        description: "The tag associated with the organization."
         foreign-key: true
         table: "tags"
 

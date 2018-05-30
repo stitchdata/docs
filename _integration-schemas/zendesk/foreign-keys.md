@@ -46,7 +46,7 @@ foreign-keys:
 
   - attribute: ""
     table: "tags"
-    join-on: "id"
+    join-on: "name"
 
   - attribute: ""
     table: "ticket_fields"
