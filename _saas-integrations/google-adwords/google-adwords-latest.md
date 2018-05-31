@@ -108,17 +108,17 @@ replication-sections:
   - content: |
       {% include integrations/saas/ads-append-only-replication.html type="table-types" %}
 
-  - title: "Report Tables: Data extraction and conversion windows"
+  - title: "Report tables: Data extraction and conversion windows"
     anchor: "data-extraction-conversion-window"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
       
-  - title: "Report Tables: Data loading and Append-Only Replication"
+  - title: "Report tables: Data loading and Append-Only Replication"
     anchor: "data-loading-append-only"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
 
-  - title: "Report Tables: Query for the latest data"
+  - title: "Report tables: Query for the latest data"
     anchor: "query-for-the-latest-data"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
@@ -129,7 +129,14 @@ replication-sections:
 # -------------------------- #
 
 schema-sections:
-  - title: "Report Tables: Column Selection and Statistic Aggregation"
+  - title: "Report tables: Values for money fields"
+    anchor: "values-for-money-fields"
+    content: |
+      When conducting analyses on Report tables, you might notice that values in money fields - like a `cost` field, for example - look higher than usual. This is because [Google AdWords' API sends Stitch money data in micro currency units](https://developers.google.com/adwords/api/docs/guides/reporting#money_fields_in_reports). Micro amounts always refer to your account's local currency.
+
+      For example: The value of $2.25USD will be recorded as `2250000`. To represent this value as `2.25` in a report, divide by one million: `2250000 / 1000000 = 2.25`.
+
+  - title: "Report tables: Column selection and statistic aggregation"
     anchor: "column-selection-statistic-aggregation"
     content: |
       {% include integrations/saas/ads-columns-and-aggregation.html %}
