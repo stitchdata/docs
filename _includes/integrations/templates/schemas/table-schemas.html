@@ -50,21 +50,30 @@
     2. Captures attributes marked as Replication Keys -->
     {% if table.replication-method contains "Incremental" %}
 
-        {% capture clean-replication-keys %}
-            {% for attribute in table.attributes %}
-                {% if attribute.replication-key == true %}
-                    {{ attribute.name | flatify | append: " :" }}
-                {% endif %}
-            {% endfor %}
-        {% endcapture %}
+    <!-- Sometimes Stitch uses query parameters to incrementally replicate
+    data. Since this isn't actually a field, it won't be in the table.attributes
+    list - it gets its own Frontmatter variable (table.replication-key).
+     -->
+        {% if table.replication-key.name %}
+            {% assign replication-keys = table.replication-key.name %}
+        {% else %}
 
-        {% capture reverse-rk-keys %}
-            {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
-        {% endcapture %}
+            {% capture clean-replication-keys %}
+                {% for attribute in table.attributes %}
+                    {% if attribute.replication-key == true %}
+                        {{ attribute.name | flatify | append: " :" }}
+                    {% endif %}
+                {% endfor %}
+            {% endcapture %}
 
-        {% capture replication-keys %}
-            {{ reverse-rk-keys | split: "" | reverse | join: "" }}
-        {% endcapture %}
+            {% capture reverse-rk-keys %}
+                {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+            {% endcapture %}
+
+            {% capture replication-keys %}
+                {{ reverse-rk-keys | split: "" | reverse | join: "" }}
+            {% endcapture %}
+        {% endif %}
     {% endif %}
 <!-- End Replication Key -->
 
@@ -77,7 +86,7 @@
     <!-- Link to Singer Schema, if one is present -->
         <div class="table-github pull-right">
         {% if table.singer-schema %}
-            <a href="{{ table.singer-schema }}" title="Opens in new window: {{ table.name }} schema on GitHub" target="new"><i class="fa fa-github fa-1" aria-hidden="true"></i> View Table Schema on GitHub</a>
+            <a href="{{ table.singer-schema }}" title="Opens in new window: {{ table.name }} schema on GitHub" target="new"><i class="fa fa-github fa-1" aria-hidden="true"></i> View table schema on GitHub</a>
         {% endif %}
         </div>
     </div>
