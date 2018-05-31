@@ -10,6 +10,12 @@ layout: destination-setup-guide
 type: "amazon-s3"
 display_name: "Amazon S3"
 
+enterprise-cta:
+  title: "Need loading notifications?"
+  url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
+  copy: |
+    As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
@@ -78,7 +84,7 @@ setup-steps:
       - title: "Define Webhook Loading Notifications"
         anchor: "define-webhook-loading-notifications"
         content: |
-          {% include note.html content="This step is optional, and can be enabled at any time." %}
+          {% include enterprise-cta.html %}
 
           Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
 
