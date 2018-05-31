@@ -108,17 +108,17 @@ replication-sections:
   - content: |
       {% include integrations/saas/ads-append-only-replication.html type="table-types" %}
 
-  - title: "Report Tables: Data Extraction & Conversion Windows"
+  - title: "Report Tables: Data extraction and conversion windows"
     anchor: "data-extraction-conversion-window"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
       
-  - title: "Report Tables: Data Loading & Append-Only Replication"
+  - title: "Report Tables: Data loading and Append-Only Replication"
     anchor: "data-loading-append-only"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
 
-  - title: "Report Tables: Query for the Latest Data"
+  - title: "Report Tables: Query for the latest data"
     anchor: "query-for-the-latest-data"
     content: |
       {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
