@@ -9,6 +9,9 @@ description: |
   The `commits` table contains info about repository commits in a project.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "since"
+  tooltip: "This is query parameter used to extract new/updated data from GitHub. It will not be included in the table's fields."
 
 api-method:
   name: "listRepositoryCommits"
