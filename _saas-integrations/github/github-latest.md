@@ -30,7 +30,7 @@ status: "Released"
 certified: false
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 status-url: https://status.github.com/messages
 icon: /images/integrations/icons/github.svg
