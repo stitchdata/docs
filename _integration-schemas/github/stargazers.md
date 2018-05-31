@@ -6,26 +6,30 @@ name: "stargazers"
 doc-link: https://developer.github.com/v3/activity/starring/
 singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/stargazers.json
 description: |
-  The `stargazers` table contains info about a repository's stars.
+  The `stargazers` table contains info about users who have starred a repository.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
+
 api-method:
   name: "listStargazers"
   doc-link: https://developer.github.com/v3/activity/starring/#list-stargazers
 
-  - name: "user"
-    type: "object"
-    description: ""
-    object-attributes:
-    - name: "id"
-      type: "integer"
-      description: ""
+attributes:
+  - name: "user_id"
+    type: "integer"
+    primary-key: true
+    description: "The user ID."
 
   - name: "starred_at"
     type: "string"
-    description: ""
+    replication-key: true
+    description: "The time the user starred the repository."
 
-  - name: "user_id"
-    type: "integer"
-    description: ""
+  - name: "user"
+    type: "object"
+    description: "Details about the user who starred the repository."
+    object-attributes:
+      - name: "id"
+        type: "integer"
+        description: "The user ID."
 ---

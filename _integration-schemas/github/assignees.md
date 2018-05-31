@@ -9,24 +9,26 @@ description: |
   The `assignees` table contains info about the available assignees for issues in a repository.
 
 replication-method: "Full Table"
+
 api-method:
   name: "listAssignees"
   doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
 
 attributes:
-  - name: "login"
-    type: "string"
-    description: ""
-
   - name: "id"
     type: "integer"
-    description: ""
+    primary-key: true
+    description: "The assignee ID."
 
-  - name: "url"
+  - name: "login"
     type: "string"
-    description: ""
+    description: "The user's username."
 
   - name: "type"
     type: "string"
-    description: ""
+    description: "The user's type."
+
+  - name: "url"
+    type: "string"
+    description: "The profile URL associated with the user."
 ---

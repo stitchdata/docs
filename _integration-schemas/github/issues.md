@@ -8,8 +8,12 @@ singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/is
 description: |
   The `issues` table contains info about repository issues.
 
+  #### Issues and pull requests
 
-replication-method: "Incremental"
+  GitHub's API considers every pull request an issue, but not every issue may be a pull request. Therefore, this table may contain both issues and pull requests.
+
+replication-method: "Key-based Incremental"
+
 api-method:
   name: "listIssuesForRepository"
   doc-link: https://developer.github.com/v3/issues/#list-issues-for-a-repository
@@ -17,9 +21,11 @@ api-method:
 attributes:
   - name: "id"
     type: "integer"
-    description: ""
+    primary-key: true
+    description: "The issue ID."
 
   - name: "updated_at"
-    type: "string"
-    description: ""
+    type: "date-time"
+    replication-key: true
+    description: "The last time the issue was updated."
 ---
