@@ -17,8 +17,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Incremental user export"
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-user-export
+  name: "List users"
+  doc-link: https://developer.zendesk.com/rest_api/docs/core/users#list-users
 
 attributes:
   - name: "id"
