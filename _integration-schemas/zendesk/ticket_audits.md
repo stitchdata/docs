@@ -121,7 +121,7 @@ attributes:
 
           - name: "latitude"
             type: "number"
-            description: "The user's longitude."
+            description: "The user's latitude."
   # END METADATA > SYSTEM OBJECT
 
 # END METADATA OBJECT
