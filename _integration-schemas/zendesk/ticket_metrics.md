@@ -20,8 +20,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: Incremental ticket metric event export
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-ticket-metric-event-export
+  name: List ticket metrics
+  doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_metrics#list-ticket-metrics
 
 attributes:
   - name: "id"
