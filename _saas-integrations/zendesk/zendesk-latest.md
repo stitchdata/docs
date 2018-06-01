@@ -27,12 +27,12 @@ status: "In Development"
 certified: true
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "60 minutes"
 tier: "Premium"
 icon: /images/integrations/icons/zendesk.svg
 whitelist:
   tables: true
-  columns: false
+  columns: true
 
 
 # -------------------------- #
