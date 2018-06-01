@@ -17,8 +17,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: Incremental ticket export
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-ticket-export
+  name: List tickets
+  doc-link: https://developer.zendesk.com/rest_api/docs/core/tickets#list-tickets
 
 attributes:
   - name: "id"
