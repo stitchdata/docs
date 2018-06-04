@@ -6,7 +6,7 @@ name: "organizations"
 doc-link: https://developer.zendesk.com/rest_api/docs/core/organizations
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/organizations.json
 description: |
-  The `organizations` table contains company information about your end-users.
+  The `organizations` table contains information about the organizations your end-users belong to. 
 
   **Note**: Retrieving organization data requires Zendesk Admin permissions.
 
