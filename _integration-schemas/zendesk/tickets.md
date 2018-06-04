@@ -260,10 +260,6 @@ attributes:
     type: "integer"
     description: "The topic this ticket originated from, if any"
 
-  - name: "problem_id"
-    type: "integer"
-    description: "For tickets of type `incident`, the ID of the problem the incident is linked to"
-
   - name: "email_cc_ids"
     type: "array"
     description: "The IDs of the email CCs associated with the ticket."
