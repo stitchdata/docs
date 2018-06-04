@@ -256,10 +256,6 @@ attributes:
         type: "integer"
         description: "The ID of the sharing agreement used for the ticket."
 
-  - name: "forum_topic_id"
-    type: "integer"
-    description: "The topic this ticket originated from, if any"
-
   - name: "email_cc_ids"
     type: "array"
     description: "The IDs of the email CCs associated with the ticket."
