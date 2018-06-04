@@ -152,6 +152,30 @@ attributes:
         type: "integer"
         description: "The number of minutes the requester spent waiting inside of business hours."
 
+  - name: "reply_time_in_minutes"
+    type: "object"
+    description: "Number of minutes to the first reply inside and out of business hours."
+    object-attributes:
+      - name: "calendar"
+        type: "integer"
+        description: "The number of minutes to the first reply outside of business hours."
+
+      - name: "business"
+        type: "integer"
+        description: "The number of minutes to the first reply inside of business hours."
+
+  - name: "full_resolution_time_in_minutes"
+    type: "object"
+    description: "Number of minutes to the full resolution inside and out of business hours."
+    object-attributes:
+      - name: "calendar"
+        type: "integer"
+        description: "The number of minutes to the full resolution outside of business hours."
+
+      - name: "business"
+        type: "integer"
+        description: "The number of minutes to the full resolution inside of business hours."
+
   - name: "status_updated_at"
     type: "date-time"
     description: "The time the ticket's status was last updated."
