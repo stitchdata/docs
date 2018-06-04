@@ -103,6 +103,10 @@ attributes:
     type: "string"
     description: "The description of the ticket field shown to end users."
 
+  - name: "raw_description"
+    type: "string"
+    description: "The dynamic content placeholder, if present, or the `description` value, if not."
+
   - name: "agent_description"
     type: "string"
     description: "The description of the ticket field that only agents can see."
