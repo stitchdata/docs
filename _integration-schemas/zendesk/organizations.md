@@ -13,8 +13,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: List organizations 
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/organizations#list-organizations
+  name: Incremental organization export
+  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-organization-export
 
 attributes:
   - name: "id"
