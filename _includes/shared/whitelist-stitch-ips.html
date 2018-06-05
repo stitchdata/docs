@@ -1,6 +1,6 @@
 {% include misc/data-files.html %}
 
-{% if page.name == "rds" %}
+{% if page.name contains "rds" %}
 For Stitch to successfully connect with your RDS instance, you'll need to add our IP addresses to the appropriate database security group via the AWS management console. To do this, an inbound security rule must be created for each of our IP addresses.
 
 The IP addresses can be added to an existing group or you can create a new one. The important thing is that the group is authorized to access the instance you want to connect to Stitch.
