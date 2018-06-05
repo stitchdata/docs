@@ -36,6 +36,8 @@ tier: "Free"
 status-url: "http://status.mandrillapp.com/"
 icon: /images/integrations/icons/mandrill.svg
 
+setup-name: "Incoming Webhooks"
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
