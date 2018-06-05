@@ -11,6 +11,7 @@ defaults:
     expire-logs-days: &expire-logs-days-name "expire_logs_days"
     binlog-expire-logs-seconds: &binlog-expire-logs-seconds-name "binlog_expire_logs_seconds"
     log-bin: &log-bin-name "log_bin"
+    log-slave-updates: &log-slave-update-name "log_slave_updates"
 
   values:
     binlog-format: &binlog-format-value "ROW"
@@ -18,6 +19,7 @@ defaults:
     expire-logs-days: &expire-logs-days-value "7"
     binlog-expire-logs-seconds: &binlog-expire-logs-seconds-value "604800"
     log-bin: &log-bin-value "mysql-binlog"
+    log-slave-updates: &log-slave-update-value "1"
 
   descriptions:
     binlog-format: &binlog-format-description |
@@ -48,6 +50,11 @@ defaults:
       Acts as the "on" switch for binary logging. This is the name of the binary logging file on the database server. For example: `mysql-binlog`
 
       **Note**: The name of this file doesn't have to be `mysql-binlog`. If your server already specifies a `log-bin` entry, there's no need to change it.
+
+    log-slave-update: &log-slave-update-description |
+      Indicates whether updates received by a read replica from a master server should be logged to the replica's own binary log.
+
+      **Note**: This is applicable when using a read replica.
 
 
 # -------------------------- #
@@ -118,6 +125,11 @@ rds:
     value: *binlog-row-image-value
     description: *binlog-row-image-description
     doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
+
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: *log-slave-update-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_log_slave_updates"
 
 
 # -------------------------- #

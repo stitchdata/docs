@@ -61,16 +61,45 @@ setup-steps:
 
   - title: "Configure database server settings"
     anchor: "server-settings"
-    content: "[TODO]"
+    content: |
+      {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
-      - title: "Define the backup retention period"
-        anchor: "define-backup-retention-period"
-        content: |
-
       - title: "Configure the database parameter group"
         anchor: "configure-database-parameter-group"
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds.html %}
+
+      - title: "Define the backup retention period"
+        anchor: "define-backup-retention-period"
+        content: |
+          The backup retention period setting defines the number of days for which automated backups are retained. This ensures that data can still be replicated even if issues with Stitch arise.
+
+          1. Navigate back to the **Instances** page by using the menu on the left side of the page.
+          2. Select the instance you're connecting to Stitch.
+          3. Click **Instance actions > Modify**.
+          4. Scroll down to the **Backup** section.
+          5. Set **Backup retention period** to `1 day`:
+
+             ![A backup retention period setting of 1 day for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-backup-retention-period.png)
+
+      - title: "Apply parameter changes and reboot the database"
+        anchor: "apply-changes-reboot-database"
+        content: |
+          1. Scroll to the bottom of the page and click **Continue**.
+          2. The next page will display a summary of the modifications made to the database.
+
+             In the **Scheduling of Modifications** section, select the **Apply Immediately** option.
+          3. Click **Modify DB Instance** to apply the changes.
+          4. Navigate to the Database Details page and locate the **Parameter group**. Initially, the Parameter group should say `applying`.
+
+             When it changes to `pending-reboot`, you can reboot the database and apply the changes.
+          5. Scroll up to the top of the page and locate the **Instance actions** menu.
+          6. In this menu, click **Reboot**.
+          7. On the next page, click **Reboot** to confirm you want to reboot the instance.
+
+          Rebooting the instance will take a few minutes. When the status of the **parameter group** changes to `in-sync` and the **DB instance status** (located at the top of the Database Details page) changes to `available`, the reboot will be complete:
+
+          ![An "Available" DB instance status for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-db-instance-status.png)
 
   - title: "Create a Stitch database user"
     anchor: "db-user"
@@ -85,19 +114,14 @@ setup-steps:
     anchor: "locating-rds-database-details"
     content: |
 
-      The majority of this info can be found on the Database Details page in the AWS Console.
+      Next, you'll retrieve the connection details required to complete the setup in Stitch. This info can be found on the Instance Details page in AWS.
 
-      1. Navigate to the **RDS Dashboard.**
-      2. Select the RDS instance you want to connect to Stitch.
-      3. Click the **Instance Actions** menu and select **See Details**.
-      4. On this page, you'll need to locate these fields:
+      If you don't still have this page open, click **Instances** and then the instance you're connecting to Stitch.
 
-         - **Endpoint**
-         - **Port**
+      1. On the Instance Details page, scroll down to the **Connect** section.
+      2. Locate the **Endpoint** and **Port** fields, which are highlighted in the image below:
 
-      Below is a screen cap of this page with the required fields highlighted:
-
-      ![Amazon RDS Database Details page.]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
+         ![Amazon RDS Database Details page.]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
 
       Leave this page open for now - you'll need it to complete the setup in the next step.
 
