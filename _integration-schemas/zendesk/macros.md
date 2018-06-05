@@ -59,19 +59,27 @@ attributes:
     type: "object"
     description: "Details about who can access the macro."
     object-attributes:
-      - name: "ids"
+      - name: "id"
         type: "integer"
         description: |
-          The ID of the restriction type associated with the macro.
+          The ID of the group or user who can access the macro.
 
           If everyone in the account can access the macro, this field will be null.
 
       - name: "type"
         type: "string"
         description: |
-          The type of restriction associated with the macro. For example: `User`
+          The type of restriction associated with the macro. Possible values are `Group` or `User`.
 
           If everyone in the account can access the macro, this field will be null.
+
+      - name: "ids"
+        type: "array"
+        description: "The IDs of the groups or users who can access the macro."
+        array-attributes:
+          - name: "value"
+            type: "integer"
+            description: "The ID of the group or user who can access the macro."
 
   - name: "title"
     type: "string"
