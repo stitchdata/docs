@@ -37,22 +37,22 @@ requirements-info: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Create Cluster Login Credentials"
+  - title: "Create cluster login credentials"
     anchor: "create-cluster-login-credentials"
     content: |
       {% include destinations/redshift/create-cluster-login-credentials.html %}
 
-  - title: "Select Nodes & Cluster Types"
+  - title: "Select nodes and cluster types"
     anchor: "select-nodes--cluster-types"
     content: |
       {% include destinations/redshift/select-nodes-cluster-types.html %} 
 
-  - title: "Configure & Launch the {{ destination.display_name }} Cluster"
+  - title: "Configure and launch the {{ destination.display_name }} cluster"
     anchor: "configure-launch-cluster"
     content: |
       Next, you'll define the additional configuration settings for the Redshift cluster. For our purposes, we're going to leave most of the settings as-is and focus on the **Configure Networking Options** and **Security Groups** sections.
     substeps:
-      - title: "Configure Networking Options"
+      - title: "Configure networking options"
         anchor: "configure-cluster-networking-options"
         content: |
           {% include destinations/redshift/configure-cluster--networking-options.html %}
@@ -62,18 +62,20 @@ setup-steps:
         content: |
           {% include destinations/redshift/configure-cluster--define-security-group.html %}
 
-      - title: "Review & Launch the Redshift Cluster"
+      - title: "Review and launch the Redshift cluster"
         anchor: "review-launch-cluster"
         content: |
           {% include destinations/redshift/configure-cluster--review-launch.html %}
 
-  - title: "Create a Bastion in Your VPC"
+  - title: "Create a bastion in your VPC"
     anchor: "create-bastion-in-vpc"
     content: |
-      Next, you’ll launch an EC2 instance to serve as the SSH bastion. This instance must reside in the same VPC as the Redshift cluster.
+      Next, you’ll launch an EC2 instance to serve as the SSH bastion. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private Redshift cluster.
+
+      **Note**: This instance must reside in the same VPC as the Redshift cluster.
     substeps:
 
-      - title: "Configure the EC2 Instance"
+      - title: "Configure the EC2 instance"
         anchor: "configure-ec2-instance"
         content: |
           The first part of creating a bastion in your VPC is configuring the instance.
@@ -103,7 +105,7 @@ setup-steps:
           6. Click the **Next: Add Storage** button in the lower right corner of the page to continue.
           7. If you're only using the machine as a bastion (which is what we're doing in this tutorial), adding storage and tags are unnecessary. Skip over these pages until you reach the **Configure Security Group** page.
 
-      - title: "Configure the EC2 Instance's Security Group"
+      - title: "Configure the EC2 instance's Security Group"
         anchor: "ec2-instance-security-group"
         content: |
           The second part of creating a bastion in your VPC is configuring the security group. During this step, you'll add the IP addresses that are allowed to access the bastion to the security group.
@@ -111,7 +113,7 @@ setup-steps:
           You can create a **new** Security Group or update an existing one. For this tutorial, we'll create a new group.
 
           1. Select the **Create a new security group** option.
-          2. In the **Security group name** field, enter "Stitch Bastion".
+          2. In the **Security group name** field, enter `Stitch Bastion` or a unique name for the Security Group.
           3. In the table below the **Description** field, you'll add Stitch's IP addresses to the security group:
              - **Type**: If the default SSH port for your server is 22, set this to **SSH**.
 
@@ -134,7 +136,7 @@ setup-steps:
              ![Configuring the EC2 Instance Security Group]({{ site.baseurl }}/images/destinations/redshift-ssh-ec2-security-group.png)
           6. When finished, click the **Review and Launch** button in the lower right corner of the page.
 
-      - title: "Review & Launch the EC2 Instance"
+      - title: "Review and launch the EC2 instance"
         anchor: "review-launch-ec2-instance"
         content: |
           The last step is to review the settings for the EC2 instance and launch it.
@@ -152,7 +154,7 @@ setup-steps:
 
           Note that it may take a few minutes for the instance creation process to complete. The status in the VPC Dashboard page will change to 'available' when the instance is ready.
 
-  - title: "Enable the Bastion to Access the Redshift Cluster"
+  - title: "Enable the bastion to access the Redshift cluster"
     anchor: "enable-bastion-access"
     content: |
       After the EC2 instance has finished initializing, you can move onto configuring the access rules for Redshift cluster. In this section, you'll create a VPC Security Group that will forward traffic from the bastion (EC2 instance) to your private Redshift cluster.
@@ -182,7 +184,7 @@ setup-steps:
           2. Click the **Create Security Group** button.
           3. In the Create Security Group window:
              - **Name tag**: Enter a name tag if you want; otherwise, leave blank.
-             - **Group name**: Enter "Stitch Bastion".
+             - **Group name**: Enter `Stitch`, or a unique name for the Security Group.
              - **Description**: Enter a brief description of what the group is.
              - **VPC**: Verify that the **VPC where you launched the Redshift cluster and bastion** is selected in the drop-down.
           4. Click **Yes, Create**.
@@ -200,18 +202,18 @@ setup-steps:
              ![VPC inbound Security Group rule]({{ site.baseurl }}/images/destinations/redshift-ssh-vpc-security-group-rule.png)
           9. When finished, click **Save** to create the rule.
 
-  - title: "Create a Stitch Linux User"
+  - title: "Create a Stitch Linux user"
     anchor: "create-stitch-linux-user"
     content: |
       Next, you'll retrieve your Public Key and create a Linux user on your server for Stitch.
     substeps:
 
-      - title: "Retrieve Your Public Key"
+      - title: "Retrieve your Public Key"
         anchor: "retrieve-your-public-key"
         content: |
           {% include shared/retrieve-public-key.html %}
 
-      - title: "Create the Stitch Linux User"
+      - title: "Create the Stitch Linux user"
         anchor: "create-stitch-linux-user"
         content: |
           {% include shared/create-linux-user.html %}
@@ -222,7 +224,7 @@ setup-steps:
 
       {% include destinations/setup/redshift-postgres-permissions.html %}
 
-      ### Create the Database User {#create-the-user}
+      ### Create the database user {#create-the-user}
 
       {% include destinations/setup/redshift-postgres-database-users.html %}
 
@@ -231,7 +233,7 @@ setup-steps:
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-      - title: "Locate the {{ destination.display_name }} Connection Details"
+      - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |
           {% include shared/aws-connection-details.html %}
