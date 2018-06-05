@@ -70,7 +70,9 @@ setup-steps:
   - title: "Create a bastion in your VPC"
     anchor: "create-bastion-in-vpc"
     content: |
-      Next, you’ll launch an EC2 instance to serve as the SSH bastion. This instance must reside in the same VPC as the Redshift cluster.
+      Next, you’ll launch an EC2 instance to serve as the SSH bastion. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private Redshift cluster.
+
+      **Note**: This instance must reside in the same VPC as the Redshift cluster.
     substeps:
 
       - title: "Configure the EC2 instance"
