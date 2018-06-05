@@ -44,21 +44,22 @@ attributes:
     type: "object"
     description: "Metadata for the audit, custom, and system data."
     object-attributes:
-      - name: "custom"
-        type: 
-        description: "[TODO]"
+      # Commenting out these fields - they're not documented by Zendesk.
+      # - name: "custom"
+      #   type: 
+      #   description: ""
 
-      - name: "trusted"
-        type: "boolean"
-        description: "[TODO]"
+      # - name: "trusted"
+      #   type: "boolean"
+      #   description: ""
 
-      - name: "notifications_suppressed_for"
-        type: "array"
-        description: "[TODO]"
-        array-attributes:
-          - name: "value"
-            type: "integer"
-            description: "[TODO]"
+      # - name: "notifications_suppressed_for"
+      #   type: "array"
+      #   description: "[TODO]"
+      #   array-attributes:
+      #     - name: "value"
+      #       type: "integer"
+      #       description: "[TODO]"
 
       - name: "flags"
         type: "array"
@@ -82,9 +83,6 @@ attributes:
         type: "object"
         description: "For `Comment` and `VoiceComment` events, additional information about the comment flags."
         object-attributes:
-          - name: ""
-            type: 
-            description: "[TODO]"
 
   # START METADATA > SYSTEM OBJECT
       - name: "system"
@@ -99,21 +97,23 @@ attributes:
             type: "number"
             description: "The user's longitude."
 
-          - name: "message_id"
-            type: "string"
-            description: 
+          # Commenting out these fields - they're not documented by Zendesk.
 
-          - name: "raw_email_identifier"
-            type: "string"
-            description: 
+          # - name: "message_id"
+          #   type: "string"
+          #   description: 
+
+          # - name: "raw_email_identifier"
+          #   type: "string"
+          #   description: 
+
+          # - name: "json_email_identifier"
+          #   type: "string"
+          #   description: 
 
           - name: "ip_address"
             type: "string"
             description: "The user's IP address."
-
-          - name: "json_email_identifier"
-            type: "string"
-            description: 
 
           - name: "client"
             type: "string"
@@ -146,6 +146,7 @@ attributes:
           The event type. Refer to [Zendesk's documentation](https://developer.zendesk.com/rest_api/docs/core/ticket_audits#audit-events) for a full list of event types.
         doc-link: "https://developer.zendesk.com/rest_api/docs/core/ticket_audits#audit-events"
 
+      # Same here.
       # - name: "macro_id"
       #   type: "string"
       #   description: ""
@@ -154,6 +155,10 @@ attributes:
       # - name: "macro_title"
       #   type: "string"
       #   description: 
+
+      # - name: "macro_deleted"
+      #   type: "boolean"
+      #   description:
 
       - name: "body"
         type: "string"
@@ -168,10 +173,6 @@ attributes:
           - For `FacebookComment` events - The comment made by the author.
           - For `External` events - The trigger message for the target event.
           - For `LogMeInTranscript` events - The audit of the transcript.
-
-      # - name: "macro_deleted"
-      #   type: "boolean"
-      #   description:
 
       - name: "plain_body"
         type: "string"
@@ -281,6 +282,7 @@ attributes:
             type: "string"
             description: "The name of the image file."
 
+          # And here.
           # - name: "html_body"
           #   type: "string"
           #   description: 
