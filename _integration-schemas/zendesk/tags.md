@@ -13,8 +13,8 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-  name: 
-  doc-link: 
+  name: List tags
+  doc-link: https://developer.zendesk.com/rest_api/docs/core/tags#list-tags
 
 attributes:
   - name: "name"
@@ -25,5 +25,4 @@ attributes:
   - name: "count"
     type: "integer"
     description: "The total number of times the tag has been applied to objects in your Zendesk account."
-
 ---
