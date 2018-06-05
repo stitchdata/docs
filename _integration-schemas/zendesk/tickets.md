@@ -106,7 +106,7 @@ attributes:
 
   - name: "tags"
     type: "array"
-    description: "The IDs of the tags associated with the ticket."
+    description: "The tags associated with the ticket."
     array-attributes:
       - name: "value"
         type: "string"
