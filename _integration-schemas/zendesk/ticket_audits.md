@@ -350,7 +350,7 @@ attributes:
         object-attributes:
           - name: "channel"
             type: "string"
-            description: "The channel used to create the event."
+            description: "The channel used to create the event. For example: `web`, `mobile`"
 
           - name: "source"
             type: "object"
