@@ -8,6 +8,8 @@ singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/
 description: |
   The `ticket_fields` table contains info about the basic text and custom ticket fields in your Zendesk account.
 
+  **Note**: Retrieving ticket metric data requires Zendesk Agent or Admin permissions.
+
 replication-method: "Key-based Incremental"
 
 api-method:
