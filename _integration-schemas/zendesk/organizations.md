@@ -64,83 +64,19 @@ attributes:
     type: "object"
     description: "Details about this organization's custom fields."
     object-attributes:
-      - name: "id"
-        type: "integer"
-        description: "The ID of the custom organization field."
-
-      - name: "updated_at"
-        type: "date-time"
-        description: "The last time the field was updated."
-
-      - name: "active"
-        type: "boolean"
-        description: "If `true`, the field is available for use."
-
-      - name: "created_at"
-        type: "date-time"
-        description: "The time the field was created."
-
-      - name: "description"
-        type: "string"
-        description: "The description of the custom organization field's purpose."
-
-      - name: "key"
-        type: "string"
-        description: "The unique key that identifies the custom organization field."
-
-      - name: "position"
-        type: "integer"
-        description: "The ordering of the field relative to other fields."
-
-      - name: "raw_description"
-        type: "string"
-        description: "The dynamic content placeholder, if present, or the `description` value, if not."
-
-      - name: "raw_title"
-        type: "string"
-        description: "The dynamic content placeholder, if present, or the `title` value, if not."
-
-      - name: "regexp_for_validation"
-        type: "string"
-        description: "The validation pattern for a field value to be deemed valid."
-
-      - name: "system"
-        type: "boolean"
-        description: "If `true`, only the `active` and `position` values of this field can be changed."
-
-      - name: "tag"
-        type: "string"
-        description: "The tag associated with a field type of `checkbox`."
-
-      - name: "title"
-        type: "string"
-        description: "The title of the custom organization field."
-
-      - name: "type"
-        type: "string"
+      - name: "[zendesk_field_name]"
+        type: ""
         description: |
-          The type of the custom organization field. Possible values are:
+          For every not null custom field on an organization's record, a field named `{{ attribute.name | append: "__" | append: "[zendesk_field_name]" }}`, where `[zendesk_field_name]` is the name of the field in Zendesk, will be created.
 
-          - `checkbox`
-          - `date`
-          - `decimal`
-          - `dropdown`
-          - `integer`
-          - `regexp`
-          - `text`
-          - `textarea`
+          The data type of these fields will vary depending on the field's type in Zendesk. Generally:
 
-      - name: "url"
-        type: "string"
-        description: "The API URL associated with the custom organization field."
-
-      # - name: "custom_field_options"
-      #   type: "array"
-      #   description: "For `type: dropdown` fields, the options presented in the dropdown."
-      #   array-attributes:
-      #     - name: "value"
-      #       type: "string"
-      #       description: "The dropdown field option."
+          - Text-based fields will be `STRING`
+          - Dropdown fields will be `STRING`
+          - Numeric fields will be `INTEGER`
+          - Decimal fields will be `NUMBER`
+          - Checkbox fields will be `BOOLEAN`
+          - Date fields will be `STRING`, formatted as `DATE-TIME`
 
   - name: "shared_comments"
     type: "boolean"
