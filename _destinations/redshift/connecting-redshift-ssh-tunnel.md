@@ -111,7 +111,7 @@ setup-steps:
           You can create a **new** Security Group or update an existing one. For this tutorial, we'll create a new group.
 
           1. Select the **Create a new security group** option.
-          2. In the **Security group name** field, enter "Stitch Bastion".
+          2. In the **Security group name** field, enter `Stitch Bastion` or a unique name for the Security Group.
           3. In the table below the **Description** field, you'll add Stitch's IP addresses to the security group:
              - **Type**: If the default SSH port for your server is 22, set this to **SSH**.
 
@@ -182,7 +182,7 @@ setup-steps:
           2. Click the **Create Security Group** button.
           3. In the Create Security Group window:
              - **Name tag**: Enter a name tag if you want; otherwise, leave blank.
-             - **Group name**: Enter "Stitch Bastion".
+             - **Group name**: Enter `Stitch`, or a unique name for the Security Group.
              - **Description**: Enter a brief description of what the group is.
              - **VPC**: Verify that the **VPC where you launched the Redshift cluster and bastion** is selected in the drop-down.
           4. Click **Yes, Create**.
