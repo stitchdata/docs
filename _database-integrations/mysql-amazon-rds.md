@@ -35,6 +35,8 @@ whitelist:
   tables: true
   columns: true
 
+setup-name: "MySQL"
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
@@ -90,19 +92,19 @@ setup-steps:
 
              In the **Scheduling of Modifications** section, select the **Apply Immediately** option.
           3. Click **Modify DB Instance** to apply the changes.
-          4. Navigate to the Database Details page and locate the **Parameter group**. Initially, the Parameter group should say `applying`.
+          4. Navigate to the Instance Details page and locate the **Parameter group**. Initially, the Parameter group should say `applying`.
 
              When it changes to `pending-reboot`, you can reboot the database and apply the changes.
           5. Scroll up to the top of the page and locate the **Instance actions** menu.
           6. In this menu, click **Reboot**.
           7. On the next page, click **Reboot** to confirm you want to reboot the instance.
 
-          Rebooting the instance will take a few minutes. When the status of the **parameter group** changes to `in-sync` and the **DB instance status** (located at the top of the Database Details page) changes to `available`, the reboot will be complete:
+          Rebooting the instance will take a few minutes. When the status of the **parameter group** changes to `in-sync` and the **DB instance status** (located at the top of the Instance Details page) changes to `available`, the reboot will be complete:
 
           ![An "Available" DB instance status for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-db-instance-status.png)
 
   - title: "Create a Stitch database user"
-    anchor: "db-user"
+    anchor: "create-a-database-user"
     content: |
       {% include note.html content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
@@ -121,7 +123,7 @@ setup-steps:
       1. On the Instance Details page, scroll down to the **Connect** section.
       2. Locate the **Endpoint** and **Port** fields, which are highlighted in the image below:
 
-         ![Amazon RDS Database Details page.]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
+         ![Amazon RDS Instance Details page with the Endport and Port fields highlighted]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
 
       Leave this page open for now - you'll need it to complete the setup in the next step.
 
