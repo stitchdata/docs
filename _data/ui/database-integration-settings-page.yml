@@ -113,7 +113,7 @@ rds:
     copy: |
       Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field.<br><br>Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
   - name: *port
-    copy: "Enter the port used by the {{ integration.display_name }} instance."
+    copy: *port-copy
   - name: *username
     copy: *username-copy
   - name: *password
