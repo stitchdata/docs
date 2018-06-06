@@ -27,7 +27,7 @@ status: "Released"
 certified: true
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "12 hours"
 tier: "Premium"
 
 status-url: http://status.marketo.com/
