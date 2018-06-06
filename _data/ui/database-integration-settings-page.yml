@@ -120,9 +120,7 @@ rds:
     copy: *password-copy
   - name: *database
     copy: |
-      Enter the name of the {{ integration.display_name }} database that you created for Stitch. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.
-
-            Depending on the type of database you're connecting, this may be required to complete the setup.
+      Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. Depending on the type of database you're connecting, this may be required to complete the setup.
 
 # -------------------------- #
 #          Heroku            #
@@ -201,3 +199,22 @@ mongo:
       Enter the name of the {{ integration.display_name }} database where the Stitch user is to be authenticated. Stitch will 'find' all the databases you gave the Stitch user access to - this is needed only to complete the connection.
 
             **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo Database User section](#create-database-user) for more info on this requirement.
+
+
+# -------------------------- #
+#           MySQL            #
+# -------------------------- #
+
+mysql:
+  - name: *integration-name
+    copy: *integration-name-copy
+  - name: *host
+    copy: *host-copy
+  - name: *port
+    copy: *port-copy
+  - name: *username
+    copy: *username-copy
+  - name: *password
+    copy: *password-copy
+  - name: *database
+    copy: *optional-database-copy
