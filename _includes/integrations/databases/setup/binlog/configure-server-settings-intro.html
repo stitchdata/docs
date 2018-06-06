@@ -1,3 +1,5 @@
+{% include important.html content="This section requires you to reboot your database to ensure parameter changes take effect. To minimize disruptions, we recommend performing the reboot during non-peak usage hours." %}
+
 Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}), or binlog replication.
 
 Log-based Incremental Replication is a method of replication that reads a database's binary log files. These files contain information about modifications made to data in a {{ integration.display_name }} instance. Log-based Incremental Replication captures all inserts, updates, and deletes made to records during each replication job, and is the most accurate and efficient method of replication.
