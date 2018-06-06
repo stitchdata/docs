@@ -1,8 +1,8 @@
 
 To create a database user for Stitch, run the following command when logged into {{ integration.display_name }}:
 
-```shell
-{{ site.data.taps.extraction.database-setup.mysql.create-user-command }}
+```sql
+{{ site.data.taps.extraction.database-setup.user-privileges.mysql.create-user-command }}
 ```
 
 Replace `[password]` with a secure password. {% if integration.ssh == true %}If using SSH, this can be different than the SSH password.{% endif %}

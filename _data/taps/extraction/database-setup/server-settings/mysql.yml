@@ -23,6 +23,8 @@ defaults:
 
   descriptions:
     binlog-format: &binlog-format-description |
+      **Note**: This setting is available on {{ integration.display_name }} databases running version 5.6.2 or greater.
+
       Defines the binary logging format. A `ROW` value enables "event-based" capture, which describes what happens to records in the database. **This is necessary to use binlog.**
 
         Stitch supports the following event types:
@@ -32,6 +34,8 @@ defaults:
         - `DELETE`
 
     binlog-row-image: &binlog-row-image-description |
+      **Note**: This setting is available on {{ integration.display_name }} databases running version 5.6.2 or greater.
+      
       Defines how row images are written to the binary log. A `FULL` value ensures that all columns in a row are logged in the before and after images of a change, enabling Stitch to accurately capture all changes made to a record.
 
     expire-logs-days: &expire-logs-days-description |
