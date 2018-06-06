@@ -6,19 +6,27 @@ For Stitch to successfully connect with your RDS instance, you'll need to add ou
 The IP addresses can be added to an existing group or you can create a new one. The important thing is that the group is authorized to access the instance you want to connect to Stitch.
 
 1. Log into your AWS account.
-2. In the management page for the security group, click the **Inbound tab**.
-2. Click the **Edit** button. This will display the Edit Inbound Rules window.
-3. In the **Type** field, select **Custom TCP Rule**.
-4. In the **Port Range** field, enter the port your database uses.
-5. In the **CIDR, IP or Security Group** field, enter the IP address. Below are all the IP addresses that must be added to the security group:
+2. Navigate to the Security Group Management page, typically **Services > Compute > EC2**.
+3. Click the **Security Groups** option, under **Network & Security** in the menu on the left side of the page.
+4. Click **Create Security Group**.
+5. In the window that displays, fill in the fields as follows:
+   - **Security group name**: Enter a unique name for the security group. For example: `Stitch`
+   - **Description**: Enter a description for the security group.
+   - **VPC**: Verify that the selected VPC is the same VPC your database is in.
+6. In the **Inbound** tab, click **Add Rule**.
+7. Fill in the fields as follows:
+   - **Type**: Select `Custom TCP Rule`
+   - **Port Range**: Enter the port your database uses. (`{{ integration.port }}` by default)
+   - **CIDR, IP or Security Group**, enter one of the IP addresses listed below:
 
-    {% for ip-address in ip-addresses %}
-    - {{ ip-address.ip }}
-    {% endfor %}
+        {% for ip-address in ip-addresses %}
+        - {{ ip-address.ip }}
+        {% endfor %}
+8. Add another rule by clicking the **Add Rule** button.
+9. Repeat steps 6-8 until all the IP addresses above have been added:
 
-6. To add another rule, click the **Add Rule** button.
-7. Repeat steps 3-6 until all the Stitch IP addresses have been added.
-8. Click the **Save** button.
+   ![]({{ site.baseurl }}/images/integrations/aws-security-group-whitelisting.png)
+10. When finished, click **Create**.
 
 {% else %}
 
