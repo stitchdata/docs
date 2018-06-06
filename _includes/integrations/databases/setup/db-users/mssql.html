@@ -1,0 +1,12 @@
+
+{% unless integration.name contains "rds" %}
+Creating a user with `SELECT` privileges can either be done via a query or the {{ integration.display_name }} UI. In this section, we'll walk you through using the query method.
+{% endunless %}
+
+{% capture us-english %}
+This user's language setting must be set to `us_english`. Issues with replication may arise if a different setting is used.
+{% endcapture %}
+
+{% include important.html content=us-english %}
+
+{{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command }}
