@@ -25,7 +25,7 @@ frequency: "30 minutes"
 tier: "Free"
 port: 3306
 db-type: "mysql"
-icon: /images/integrations/icons/amazon-rds.svg
+icon: /images/integrations/icons/mysql-rds.svg
 
 versions: "n/a"
 ssh: true
@@ -115,17 +115,7 @@ setup-steps:
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
     content: |
-
-      Next, you'll retrieve the connection details required to complete the setup in Stitch. This info can be found on the Instance Details page in AWS.
-
-      If you don't still have this page open, click **Instances** and then the instance you're connecting to Stitch.
-
-      1. On the Instance Details page, scroll down to the **Connect** section.
-      2. Locate the **Endpoint** and **Port** fields, which are highlighted in the image below:
-
-         ![Amazon RDS Instance Details page with the Endport and Port fields highlighted]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
-
-      Leave this page open for now - you'll need it to complete the setup in the next step.
+      {% include shared/aws-connection-details.html %}
 
   - title: "connect stitch"
 
