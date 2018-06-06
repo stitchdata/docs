@@ -12,9 +12,6 @@ in the instructions. -->
 <!-- Assign the correct page field names & descriptions based on
 database type -->
 {% case integration.db-type %}
-  {% when 'rds' %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
-
   {% when 'mssql' %}
     {% if integration.name == "azure" %}
       {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
@@ -29,7 +26,11 @@ database type -->
     {% assign database-settings = site.data.ui.database-integration-settings-page.mongo %}
 
   {% else %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+    {% if integration.name contains "rds" %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
+    {% else %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+    {% endif %}
   {% endcase %}
 
 <!-- Assign values to the default fields -->
@@ -55,11 +56,11 @@ database type -->
 
 {% if integration.ssh == true %}
 
-{% if integration.singer == true %}
-{% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh-singer %}
-{% else %}
-{% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh %}
-{% endif %}
+  {% if integration.singer == true %}
+    {% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh-singer %}
+  {% else %}
+    {% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh %}
+  {% endif %}
 
 #### Enter SSH Connection Details {#ssh-connection-details}
 
