@@ -1,16 +1,18 @@
 ---
 tap: "marketo"
-version: "2.0"
+version: "1.0"
 
 name: "lists"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET
-singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/lists.json
+singer-schema: https://github.com/singer-io/tap-marketo/blob/14ea7da75ea0edd855500678c14764f5dad5b283/tap_marketo/schemas/lists.json
 description: |
   The `leads` table contains info about the static lists in your {{ integration.display_name }} account. 
 
   **Note**: Due to some of the limitations in Marketo’s API, only static lists will be replicated.
 
-replication-method: "Key-based Incremental"
+notes:
+
+replication-method: "Incremental"
 api-method:
   name: "getLists"
   doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET"
