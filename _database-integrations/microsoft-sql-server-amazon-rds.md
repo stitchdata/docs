@@ -1,5 +1,5 @@
 ---
-title: Amazon RDS Microsoft SQL Server
+title: Amazon Microsoft SQL Server RDS
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-microsoft-sql-server
