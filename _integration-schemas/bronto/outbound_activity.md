@@ -8,7 +8,18 @@ singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/sc
 description: |
   The activity object contains activity data about contacts, messages, and deliveries.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
+
+attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The outbound activity ID."
+
+  - name: "createdDate"
+    type: "date-time"
+    replication-key: true
+    description: "The date the activity was recorded."
 
 api-method:
   - name: "skipReason"

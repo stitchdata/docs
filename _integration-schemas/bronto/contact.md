@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/sc
 description: |
   A contact describes an individual email address and/or SMS number in Bronto, along with associated statistics and field data that you have provided.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "readContacts"
@@ -16,6 +16,16 @@ api-method:
 #  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
 
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The unique ID for the contact. The id can be used to reference a specific contact when using the contact functions."
+
+  - name: "modified"
+    type: "date-time"
+    replication-key: true
+    description: "The last time information about the contact was modified. This timestamp is immutable and cannot be changed."
+
   - name: "msgPref"
     type: "string"
     description: "The message preference for the contact. A contact can have a message preference of text or html."

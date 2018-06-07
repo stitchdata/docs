@@ -16,6 +16,11 @@ api-method:
 #  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
 
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The unique id assigned to the list."
+
   - name: "label"
     type: "string"
     description: "The external (customer facing) name of the list. "

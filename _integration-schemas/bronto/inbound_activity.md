@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/sc
 description: |
   The activity object contains activity data about contacts, messages, and deliveries.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: "readRecentInboundActivities"
@@ -16,6 +16,16 @@ api-method:
 #  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
 
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The activity ID."
+
+  - name: "createdDate"
+    type: "date-time"
+    replication-key: true
+    description: "The date the activity was recorded."
+
   - name: "skipReason"
     type: "string"
     description: "The detailed reason why the contact was skipped when attempting to send to them. The skipReason property is returned if the activityType is contactskip."
