@@ -69,39 +69,17 @@ setup-steps:
       - title: "Configure the database parameter group"
         anchor: "configure-database-parameter-group"
         content: |
-          {% include integrations/databases/setup/binlog/amazon-rds.html %}
+          {% include integrations/databases/setup/binlog/amazon-rds/mysql-rds.html %}
 
       - title: "Define the backup retention period"
         anchor: "define-backup-retention-period"
         content: |
-          The backup retention period setting defines the number of days for which automated backups are retained. This ensures that data can still be replicated even if issues with Stitch arise.
-
-          1. Navigate back to the **Instances** page by using the menu on the left side of the page.
-          2. Select the instance you're connecting to Stitch.
-          3. Click **Instance actions > Modify**.
-          4. Scroll down to the **Backup** section.
-          5. Set **Backup retention period** to `1 day`:
-
-             ![A backup retention period setting of 1 day for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-backup-retention-period.png)
+          {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="backup-retention-period" %}
 
       - title: "Apply parameter changes and reboot the database"
         anchor: "apply-changes-reboot-database"
         content: |
-          1. Scroll to the bottom of the page and click **Continue**.
-          2. The next page will display a summary of the modifications made to the database.
-
-             In the **Scheduling of Modifications** section, select the **Apply Immediately** option.
-          3. Click **Modify DB Instance** to apply the changes.
-          4. Navigate to the Instance Details page and locate the **Parameter group**. Initially, the Parameter group should say `applying`.
-
-             When it changes to `pending-reboot`, you can reboot the database and apply the changes.
-          5. Scroll up to the top of the page and locate the **Instance actions** menu.
-          6. In this menu, click **Reboot**.
-          7. On the next page, click **Reboot** to confirm you want to reboot the instance.
-
-          Rebooting the instance will take a few minutes. When the status of the **parameter group** changes to `in-sync` and the **DB instance status** (located at the top of the Instance Details page) changes to `available`, the reboot will be complete:
-
-          ![An "Available" DB instance status for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-db-instance-status.png)
+          {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="reboot-the-instance" %}
 
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
@@ -111,6 +89,11 @@ setup-steps:
       Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
       {% include integrations/templates/create-database-user-tabs.html %}
+
+  - title: "Define the binlong retention setting"
+    anchor: "define-binlog-retention-setting"
+    content: |
+      {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="binlog-retention-hours" %}
 
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
