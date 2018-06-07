@@ -38,7 +38,7 @@ icon: /images/integrations/icons/amazon-aurora.svg
 versions: "n/a"
 ssh: true
 ssl: false
-sync-views: false
+sync-views: true
 whitelist:
   tables: true
   columns: true
