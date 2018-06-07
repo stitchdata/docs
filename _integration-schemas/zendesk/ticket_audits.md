@@ -272,7 +272,7 @@ attributes:
 
           - name: "mapped_content_url"
             type: "string"
-            description: 
+            description: "The URL where the attachment image file may be downloaded."
 
           - name: "content_type"
             type: "string"
@@ -354,13 +354,13 @@ attributes:
 
           - name: "source"
             type: "object"
-            description: "Additional details about how the event was created."
-            object-attributes: &source-attributes
+            description: "Additional details about how the event was created. Only available for some channels."
+            object-attributes:
 
           # START TO OBJECT
               - name: "to"
                 type: "object"
-                description: ""
+                description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
                 object-attributes:
                   - name: "address"
                     type: "string"
@@ -374,7 +374,7 @@ attributes:
           # START FROM OBJECT
               - name: "from"
                 type: "object"
-                description: ""
+                description: "Details about the source that created the event."
                 object-attributes:
                   - name: "id"
                     type: "integer"
@@ -419,7 +419,7 @@ attributes:
           # END FROM
               - name: "rel"
                 type: "string"
-                description:
+                description: "The type of relation that created the event. For example: For an event submitted through a Zendesk widget, this field would have a value of `zendesk_widget`."
 
   # END VIA
 
@@ -429,10 +429,74 @@ attributes:
     object-attributes:
       - name: "channel"
         type: "string"
-        description: 
+        description: "The channel used to create the audit record. For example: `web`, `mobile`"
 
       - name: "source"
         type: "object"
-        description:
-        object-attributes: *source-attributes
+        description: "Additional details about how the audit record was created. Only available for some channels."
+        object-attributes:
+
+      # START TO OBJECT
+          - name: "to"
+            type: "object"
+            description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
+            object-attributes:
+              - name: "address"
+                type: "string"
+                description: ""
+
+              - name: "name"
+                type: "string"
+                description:
+      # END TO
+
+      # START FROM OBJECT
+          - name: "from"
+            type: "object"
+            description: "Details about the source that created the audit record."
+            object-attributes:
+              - name: "id"
+                type: "integer"
+                description: 
+
+              - name: "ticket_id"
+                type: "integer"
+                description:
+                foreign-key: true
+
+              - name: "revision_id"
+                type: "string"
+                description:
+
+              - name: "title"
+                type: "string"
+                description:
+
+              - name: "address"
+                type: "string"
+                description:
+
+              - name: "subject"
+                type: "string"
+                description:
+
+              - name: "deleted"
+                type: "boolean"
+                description:
+
+              - name: "name"
+                type: "string"
+                description:
+
+              - name: "original_recipients"
+                type: "array"
+                description:
+                array-attributes:
+                  - name: "value"
+                    type: "string"
+                    description:
+      # END FROM
+          - name: "rel"
+            type: "string"
+            description: "The type of relation that created the audit record. For example: For an event submitted through a Zendesk widget, this field would have a value of `zendesk_widget`."
 ---
