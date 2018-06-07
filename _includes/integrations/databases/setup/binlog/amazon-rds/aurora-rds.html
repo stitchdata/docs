@@ -1,0 +1,28 @@
+{% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+
+{% assign database-setup = database.aurora-rds %}
+
+{% capture server-instructions %}
+
+1. From the RDS Dashboard, click **Parameter Groups** on the left side of the page.
+2. Click **Create parameter group**.
+3. In the **Parameter group details** section, fill in the fields as follows:
+
+   - **Parameter group family**: Select `aurora-mysql5.7`
+   - **Type:** Select `DB Cluster Parameter Group`
+   - **Group name:** Enter a unique name for the parameter group.
+   - **Description**: Enter a description for the parameter group.
+4. Click **Create**.
+5. In the **Parameter groups** page, click the parameter group you just created.
+6. Click **Edit parameters**.
+7. Locate the parameters in the list below, and enter the required values into the **Values** column:
+   {% for setting in database-setup %}
+   - **{{ setting.name }}**: `{{ setting.value }}`
+   {% endfor %}
+
+
+   ![RDS MySQL parameter group page with binlog_format and binlog_row_image parameters highlighted]({{ site.baseurl }}/images/integrations/rds-mysql-parameter-group-editing.png)
+8. When finished, click the **Save changes** button.
+{% endcapture %}
+
+{% include integrations/templates/configure-server-settings.html %}
