@@ -27,7 +27,7 @@ repo-url: https://github.com/singer-io/tap-bronto
 # -------------------------- #
 
 status: "Released"
-certified: false # Stitch-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "1 hour"
@@ -44,7 +44,7 @@ whitelist:
 
 requirements-list:
   - item: |
-      **A valid and active API token with Read permissions**
+      **Admin permissions in Bronto.** This is required to create an API token.
 
 # From Bronto's docs (though this doesn't all seem super relevant):
 # http://dev.bronto.com/gettingstarted/soap-how-to-get-started/how-to-access-the-api/
@@ -63,7 +63,9 @@ setup-steps:
   - title: "Create a {{ integration.display_name }} API token"
     anchor: "create-access-token"
     content: |
-      1. Sign into your Bronto account as an Administrator.
+      {% include note.html content="You need Administrator permissions in Bronto to complete this step." %}
+      
+      1. Sign into your Bronto account.
       2. Navigate to **Home > Settings**.
       3. Click **Data Exchange** in the left side menu.
       4. Under **SOAP API Tokens**, click the **Add Access Token** button.
