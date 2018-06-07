@@ -3,22 +3,22 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SAAS-INTEGRATION ## Find/replace SAAS-INTEGRATION with the display name (ex: Intercom)
-permalink: /integrations/saas/saas-integration ## Find/replace saas-integration with the key name (ex: intercom)
+title: Listrak ## Find/replace Listrak with the display name (ex: Intercom)
+permalink: /integrations/saas/listrak ## Find/replace listrak with the key name (ex: intercom)
 tags: [saas_integrations]
-keywords: saas-integration, integration, schema, etl saas-integration, saas-integration etl, saas-integration schema
+keywords: listrak, integration, schema, etl listrak, listrak etl, listrak schema
 layout: singer
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "saas-integration"
-display_name: "SAAS-INTEGRATION"
+name: "listrak"
+display_name: "Listrak"
 singer: true 
 author: "Stitch"
 author-url: 
-repo-url: https://github.com/singer-io/tap-saas-integration
+repo-url: https://github.com/singer-io/tap-listrak
 
 
 # If there's more than 1 version available:
@@ -38,7 +38,7 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: 
-icon: /images/integrations/icons/saas-integration.svg
+icon: /images/integrations/icons/listrak.svg
 whitelist:
   tables: true
   columns: false
@@ -98,7 +98,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/saas-integration
+# Each table has a its own .md file in /_integration-schemas/listrak
 
 schema-sections:
   - title: ""
