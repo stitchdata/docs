@@ -120,7 +120,7 @@ rds:
     copy: *password-copy
   - name: *database
     copy: |
-      Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. Depending on the type of database you're connecting, this may be required to complete the setup.
+      Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.{% if integration.db-type == "postgres" %} This is required for {{ integration.display_name }} integrations.{% endif %}
 
 # -------------------------- #
 #          Heroku            #
