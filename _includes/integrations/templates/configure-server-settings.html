@@ -1,7 +1,12 @@
 {% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
 
     {% if integration.name contains "rds" %}
-        {% assign database-setup = database.rds %}
+        {% case integration.name %}
+            {% when 'mysql-rds' %}
+                {% assign database-setup = database.mysql-rds %}
+            {% when 'aurora-rds' %}
+                {% assign database-setup = database.aurora-rds %}
+        {% endcase %}
     {% else %}
         {% assign database-setup = database[database-name] %}
     {% endif %}
