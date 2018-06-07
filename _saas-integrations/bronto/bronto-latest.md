@@ -55,14 +55,25 @@ requirements-list:
 # Click "Add Access Token" and type in a name
 # Under Permissions & Settings, Select "Read", and ensure that "Token is active?" is checked
 
-# If you have Professional or Core edition account, go to Home->Settings->Data Exchange in the Bronto application
+# Go to Home->Settings->Data Exchange in the Bronto application
 
 requirements-info:
 
 setup-steps:
+  - title: "Create a {{ integration.display_name }} API token"
+    anchor: "create-access-token"
+    content: |
+      1. Sign into your Bronto account as an Administrator.
+      2. Navigate to **Home > Settings**.
+      3. Click **Data Exchange** in the left side menu.
+      4. Under **SOAP API Tokens**, click the **Add Access Token** button.
+      5. In the **API Token Name** field, enter `Stitch`. This will allow you to easily identify what application is using the token.
+      6. Click the checkbox next to **Read** to allow read access for this token.
+      7. Ensure that the checkbox next to **Token is active?** is checked, and click **Save**.
+      8. The access token will appear on the page under the name `Stitch` once the modal closes. Copy this to be used in setting up the connection from within the Stitch application.
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
+    content: |
+      4. In the **Bronto API Token** field, paste the access token you created in Step 1.
   - title: "historical sync"
   - title: "replication frequency"
 
@@ -71,12 +82,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/saas-integration
-
-schema-sections:
-  - title: ""
-    anchor: ""
-    content: |
+# Each table has a its own .md file in /_integration-schemas/bronto
 
 ---
 {% assign integration = page %}
