@@ -6,14 +6,13 @@ name: "contact"
 doc-link: http://dev.bronto.com/api/soap/objects/general/contactobject/
 singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/schemas.py#L291
 description: |
-  A contact describes an individual email address and/or SMS number in Bronto, along with associated statistics and field data that you have provided.
+  The `contacts` table contains information about your contacts. A contact describes an individual email address and/or SMS number in Bronto, along with associated statistics and field data that you have provided.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: "readContacts"
-# How do we handle SOAP API endpoints?
-#  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
+  doc-link: http://dev.bronto.com/api/soap/objects/general/contactobject/
 
 attributes:
   - name: "id"
@@ -67,13 +66,12 @@ attributes:
     description: "The total amount of revenue recorded for a contact."
 
   - name: "SMSKeywordIDs"
-    type: "object"
-    description: ""
-
-    object-attributes: 
-  - name: "SMSKeywordIDs"
-    type: "string"
-    description: ""
+    type: "array"
+    description: "The IDs of the SMS keywords the contact is subscribed to."
+    array-attributes: 
+      - name: "SMSKeywordIDs"
+        type: "string"
+        description: "The SMS keyword ID."
 
   - name: "lastOpenDate"
     type: "string"
@@ -90,10 +88,6 @@ attributes:
   - name: "lastOrderTotal"
     type: "number"
     description: "The total amount of revenue recorded for the most recent order."
-
-  - name: "modified"
-    type: "string"
-    description: "The last time information about the contact was modified. This timestamp is immutable and cannot be changed."
 
   - name: "deleted"
     type: "boolean"
@@ -130,10 +124,6 @@ attributes:
   - name: "firstOrderDate"
     type: "string"
     description: "The date of the first order recorded for a contact."
-
-  - name: "id"
-    type: "string"
-    description: "The unique id for the contact. The id can be used to reference a specific contact when using the contact functions."
 
   - name: "status"
     type: "string"
@@ -172,13 +162,14 @@ attributes:
     description: "The mobile number stored for the contact. A valid country code must be included when adding or updating a mobile number for a contact."
 
   - name: "listIds"
-    type: "object"
-    description: ""
-
-    object-attributes: 
-  - name: "listIds"
-    type: "string"
-    description: ""
+    type: "array"
+    description: "The IDs of the lists that the contact belongs to."
+    array-attributes: 
+      - name: "value"
+        type: "string"
+        description: "The ID of the list that the contact belongs to."
+        foreign-key: true
+        table: "list"
 
   - name: "geoIPCountry"
     type: "string"

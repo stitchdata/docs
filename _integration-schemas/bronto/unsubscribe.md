@@ -6,15 +6,13 @@ name: "unsubscribe"
 doc-link: http://dev.bronto.com/api/soap/objects/general/unsubscribeobject/
 singer-schema: https://github.com/singer-io/tap-bronto/blob/master/tap_bronto/endpoints/unsubscribe.py#L20
 description: |
-  The unsubscribe object contains data about unsubscribes. A contact can unsubscribed by you, or they can unsubscribe themselves via an Unsubscribe Webform or a Manage Preferences Webform.
+  The `unsubscribe` table contains info about unsubscribe events. Contacts may be unsubscribed by you, or they can unsubscribe themselves via an Unsubscribe or Manage Preferences Webform.
 
-replication-method: "Incremental"
 replication-method: "Key-based Incremental"
 
 api-method:
   name: "readUnsubscribes"
-# How do we handle SOAP API endpoints?
-#  doc-link: https://developer.github.com/v3/issues/assignees/#list-assignees
+  doc-link: http://dev.bronto.com/api/soap/objects/general/unsubscribeobject/
 
 attributes:
   - name: "contactId"
