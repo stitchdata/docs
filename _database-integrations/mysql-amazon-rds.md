@@ -1,9 +1,9 @@
 ---
-title: Amazon RDS MySQL
+title: Amazon MySQL RDS
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-mysql
-summary: "Connect and replicate data from your Amazon RDS MysQL database using Stitch's MySQL integration."
+summary: "Connect and replicate data from your Amazon RDS MySQL using Stitch's MySQL integration."
 
 # -------------------------- #
 #     Integration Details    #
