@@ -35,7 +35,7 @@ defaults:
 
     binlog-row-image: &binlog-row-image-description |
       **Note**: This setting is available on {{ integration.display_name }} databases running version 5.6.2 or greater.
-      
+
       Defines how row images are written to the binary log. A `FULL` value ensures that all columns in a row are logged in the before and after images of a change, enabling Stitch to accurately capture all changes made to a record.
 
     expire-logs-days: &expire-logs-days-description |
@@ -119,7 +119,7 @@ mariadb:
 #     MYSQL RDS SETTINGS     #
 # -------------------------- #
 
-rds:
+mysql-rds:
   - name: *binlog-format-name
     value: *binlog-format-value
     description: *binlog-format-description
@@ -135,6 +135,21 @@ rds:
     description: *log-slave-update-description
     doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_log_slave_updates"
 
+
+# -------------------------- #
+#     AURORA RDS SETTINGS    #
+# -------------------------- #
+
+aurora-rds:
+  - name: *binlog-format-name
+    value: *binlog-format-value
+    description: *binlog-format-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
+
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
 
 # -------------------------- #
 #       MYSQL SETTINGS       #
