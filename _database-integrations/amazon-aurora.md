@@ -79,6 +79,8 @@ setup-steps:
       - title: "Configure the database parameter group"
         anchor: "configure-database-parameter-group"
         content: |
+          In this step, you'll create a new database cluster parameter group.
+           
           {% include integrations/databases/setup/binlog/amazon-rds/aurora-rds.html %}
 
       - title: "Apply the parameter group to the database"
