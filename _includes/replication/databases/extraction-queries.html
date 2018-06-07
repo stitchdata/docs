@@ -24,35 +24,7 @@ The first part of the replication process is called a **structure sync**. This p
 
 {% assign extraction = site.data.taps.extraction.database-queries %}
 
-{% if integration.db-type == "rds" %}
-<table class="attribute-list table-hover">
-    <tbody>
-        <tr>
-            <td markdown="span" width="25%; fixed" class="attribute-name">
-                **Database type**
-            </td>
-            <td markdown="span">
-                **Structure sync queries**
-            </td>
-        </tr>
-        {% for database in extraction.all-types %}
-        <tr>
-            <td markdown="span" class="attribute-name">
-                **{{ database.name }}**
-            </td>
-            <td>
-                {{ extraction[database.type].structure-sync | markdownify }}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-{% else %}
-
 {{ extraction[integration.db-type].structure-sync | flatify | markdownify }}
-
-{% endif %}
 
 ### Data sync queries
 

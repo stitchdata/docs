@@ -89,9 +89,9 @@
                                 {% if category.title contains "Database" or category.title contains "Webhook" %}
                                     {% case category.title %}
                                         {% when "Database Integrations" %}
-                                            {% assign all-integrations = site.database-integrations | where:"input",true | sort: title %}
+                                            {% assign all-integrations = site.database-integrations | where:"input",true | sort:"title" %}
                                         {% when "Webhook Integrations" %}
-                                            {% assign all-integrations = site.webhook-integrations | where:"input",true | sort: title %}
+                                            {% assign all-integrations = site.webhook-integrations | where:"input",true | sort:"title" %}
                                     {% endcase %}
 
                                     {% for integration in all-integrations %}

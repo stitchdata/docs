@@ -1,26 +1,18 @@
 ---
-title: Amazon Aurora (MySQL) RDS
-keywords: amazon aurora, aurora, database integration, etl aurora, aurora etl
+title: Amazon MySQL RDS
+keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 tags: [database_integrations]
-permalink: /integrations/databases/amazon-aurora
-summary: "Connect and replicate data from your Amazon Aurora RDS database using Stitch's Aurora integration."
-microsites:
-  - title: "{{ page.display_name }} to Postgres"
-    url: "http://mysql.topostgres.com/"
+permalink: /integrations/databases/amazon-rds-mysql
+summary: "Connect and replicate data from your Amazon RDS MySQL using Stitch's MySQL integration."
 
 # -------------------------- #
-#         Tap Details        #
+#     Integration Details    #
 # -------------------------- #
 
-name: "aurora-rds"
-display_name: "Aurora RDS"
-singer: true
+name: "mysql-rds"
+display_name: "MySQL RDS"
 author: "Stitch"
-author: "Stitch"
-tap-name: "MySQL"
-repo-url: https://github.com/singer-io/tap-mysql
-
-# this-version:
+author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -33,23 +25,21 @@ frequency: "30 minutes"
 tier: "Free"
 port: 3306
 db-type: "mysql"
-icon: /images/integrations/icons/amazon-aurora.svg
+icon: /images/integrations/icons/mysql-rds.svg
 
 versions: "n/a"
 ssh: true
-ssl: false
+ssl: true
 sync-views: true
 whitelist:
   tables: true
   columns: true
 
-setup-name: "Amazon Aurora"
+setup-name: "MySQL"
 
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
-
-notice: "Stitch's {{ integration.display_name }} integration only supports MySQL-backed instances."
 
 requirements-list:
   - item: |
@@ -79,20 +69,7 @@ setup-steps:
       - title: "Configure the database parameter group"
         anchor: "configure-database-parameter-group"
         content: |
-          In this step, you'll create a new database cluster parameter group.
-           
-          {% include integrations/databases/setup/binlog/amazon-rds/aurora-rds.html %}
-
-      - title: "Apply the parameter group to the database"
-        anchor: "apply-parameter-group-to-database"
-        content: |
-          Next you'll apply the parameter group to the {{ integration.display_name }} database.
-
-          1. In AWS, click the **Instances** option in the menu on the left side of the page.
-          2. Select the instance you're connecting to Stitch.
-          3. Click **Instance actions > Modify**.
-          4. In the **Modify DB Instance** page, scroll down to the **Database options** section.
-          5. From the **DB parameter group** dropdown, select the parameter group you created in the previous step.
+          {% include integrations/databases/setup/binlog/amazon-rds/mysql-rds.html %}
 
       - title: "Define the backup retention period"
         anchor: "define-backup-retention-period"
