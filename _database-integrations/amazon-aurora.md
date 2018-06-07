@@ -1,5 +1,5 @@
 ---
-title: Amazon Aurora RDS
+title: Amazon Aurora (MySQL) RDS
 keywords: amazon aurora, aurora, database integration, etl aurora, aurora etl
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-aurora
@@ -17,6 +17,7 @@ display_name: "Aurora RDS"
 singer: true
 author: "Stitch"
 author: "Stitch"
+tap-name: "MySQL"
 repo-url: https://github.com/singer-io/tap-mysql
 
 # this-version:
@@ -47,6 +48,8 @@ setup-name: "Amazon Aurora"
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
+
+notice: "Stitch's {{ integration.display_name }} integration only supports MySQL-backed instances."
 
 requirements-list:
   - item: |
@@ -126,5 +129,3 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-**This is only for MySQL-backed Aurora databases.**

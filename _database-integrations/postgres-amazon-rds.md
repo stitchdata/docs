@@ -4,6 +4,9 @@ keywords: amazon, amazon rds, rds, relational database services, database integr
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-postgresql
 summary: "Connect and replicate data from your Amazon RDS PostgreSQL database using Stitch's MySQL integration."
+microsites:
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://postgres.topostges.com/"
 
 # -------------------------- #
 #     Integration Details    #
