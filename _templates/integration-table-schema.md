@@ -9,7 +9,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental / Full Table"
+replication-method: "Key-based Incremental / Full Table"
 
 attributes:
   - name: ""
