@@ -30,7 +30,7 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-status-url: 
+status-url: https://fullstory.statuspage.io/
 icon: /images/integrations/icons/fullstory.svg
 whitelist:
   tables: true
