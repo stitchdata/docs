@@ -33,7 +33,7 @@ tier: "Free"
 status-url: https://fullstory.statuspage.io/
 icon: /images/integrations/icons/fullstory.svg
 whitelist:
-  tables: true
+  tables: false
   columns: false
 
 # -------------------------- #
