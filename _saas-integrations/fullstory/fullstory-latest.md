@@ -45,7 +45,6 @@ requirements-list:
       **A FullStory account with the Data Export Pack add-on**. The [Data Export Pack](https://help.fullstory.com/technical-questions/data-export) is a paid add-on for FullStory accounts that enables you to export raw event data.
 
       This add-on is required to replicate data using FullStory's Data Export REST API.
-  - item: ""
 
 requirements-info:
 
