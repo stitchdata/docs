@@ -87,8 +87,6 @@ replication-sections:
       #### Impact on Stitch replication
 
       Because FullStory only makes event data available a full day after events have occurred, records for the current date will only ever be available the next day. Event data that is one day old is considered "up to date" for this integration.
-
-      #### Configure 
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
