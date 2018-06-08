@@ -1,3 +1,5 @@
+---
+tap: "listrak"
 # version: ""
 
 name: "message_unsubs"
@@ -15,26 +17,29 @@ api-method:
 attributes:
   - name: "MsgID"
     type: "integer"
-    description: ""
-
-  - name: "ContactID"
-    type: "string"
-    description: ""
+    primary-key: true
+    description: "The ID of the message that resulted in the unsubscribe."
+    foreign-key: true
 
   - name: "EmailAddress"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email address that requested the unsubscribe."
+
+  - name: "ContactID"
+    type: "string"
+    description: "The ID of the contact who unsubscribed."
+    foreign-key: true
 
   - name: "AdditionDate"
     type: "string"
-    description: ""
+    description: "The date the contact initially subscribed."
 
   - name: "RemovalDate"
     type: "string"
-    description: ""
+    description: "The date the contact unsubscribed."
 
   - name: "RemovalMethod"
     type: "string"
-    description: ""
-
-Wrote out.md to the current directory!
+    description: "The method the contact used to unsubscribe."
+---

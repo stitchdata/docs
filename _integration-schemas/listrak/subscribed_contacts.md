@@ -15,24 +15,26 @@ api-method:
   doc-link: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeSubscribedContacts
 
 attributes:
-  - name: "AdditionDate"
-    type: "string"
-    description: ""
-
-  - name: "EmailAddress"
-    type: "string"
-    description: ""
-
-  - name: "AdditionMethod"
-    type: "string"
-    description: ""
-
   - name: "ContactID"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The ID of the contact."
 
   - name: "ListID"
     type: "integer"
-    description: ""
+    primary-key: true
+    description: "The ID of the list the contact is subscribed to."
+    foreign-key: true
 
-Wrote out.md to the current directory!
+  - name: "AdditionDate"
+    type: "string"
+    description: "The date the contact was added to the list."
+
+  - name: "AdditionMethod"
+    type: "string"
+    description: "The method used to add the contact to the list."
+
+  - name: "EmailAddress"
+    type: "string"
+    description: "The email address associated with the contact."
+---

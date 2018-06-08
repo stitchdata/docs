@@ -2,41 +2,48 @@
 tap: "listrak"
 # version: ""
 
-name: "message bounces"
+name: "message_bounces"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_bounces.json
 description: |
   The `message_bounces` table contains info about contact bounces for a message.
+
+replication-method: "Full Table"
 
 api-method:
   name: "ReportRangeMessageContactBounces"
   doc-link: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactBounces
 
 attributes:
-- name: "MsgID"
+  - name: "MsgID"
     type: "integer"
-    description: ""
-
-  - name: "ContactID"
-    type: "string"
-    description: ""
+    primary-key: true
+    description: "The ID of the message that bounced."
+    foreign-key: true
 
   - name: "EmailAddress"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email address associated with the bounce."
+
+  - name: "ContactID"
+    type: "string"
+    description: "The ID of the contact that the bounced message was sent to."
+    foreign-key: true
 
   - name: "BounceReason"
     type: "string"
-    description: ""
+    description: "An explanation for the reason for the bounce."
 
   - name: "BounceDetail"
     type: "string"
-    description: ""
+    description: "Additional detail about the bounce."
 
   - name: "BounceDate"
     type: "string"
-    description: ""
+    description: "The date that the bounce occurred."
 
   - name: "BounceCount"
     type: "integer"
-    description: ""
+    description: "The number of bounces for the message."
+---

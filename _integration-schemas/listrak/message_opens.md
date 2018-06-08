@@ -15,20 +15,23 @@ api-method:
   doc-link: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportRangeMessageContactOpen
 
 attributes:
-- name: "MsgID"
+  - name: "MsgID"
     type: "integer"
-    description: ""
-
-  - name: "OpenDate"
-    type: "string"
-    description: ""
+    primary-key: true
+    description: "The ID of the message that was opened."
+    foreign-key: true
 
   - name: "EmailAddress"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email address of the contact that opened the email."
 
   - name: "ContactID"
     type: "string"
-    description: ""
+    description: "The ID of the contact that opened the email."
+    foreign-key: true
 
-Wrote out.md to the current directory!
+  - name: "OpenDate"
+    type: "string"
+    description: "The date the contact opened the email."
+---

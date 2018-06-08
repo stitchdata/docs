@@ -15,80 +15,81 @@ api-method:
   doc-link: https://webservices.listrak.com/v31/IntegrationService.asmx?op=ReportListMessageActivity
 
 attributes:
-- name: "ClickCount"
-    type: "integer"
-    description: ""
-
-  - name: "SendDate"
-    type: "string"
-    description: ""
-
-  - name: "OrderTotal"
-    type: "number"
-    description: ""
-
-  - name: "RemovePercent"
-    type: "number"
-    description: ""
-
-  - name: "RemoveCount"
-    type: "integer"
-    description: ""
-
-  - name: "ClickerPercent"
-    type: "number"
-    description: ""
-
-  - name: "DeliverCount"
-    type: "integer"
-    description: ""
-
-  - name: "ReadCount"
-    type: "integer"
-    description: ""
-
-  - name: "Subject"
-    type: "string"
-    description: ""
-
-  - name: "ConversionCount"
-    type: "integer"
-    description: ""
-
-  - name: "ListID"
-    type: "integer"
-    description: ""
-
-  - name: "NewClickerCount"
-    type: "integer"
-    description: ""
-
-  - name: "OpenCount"
-    type: "integer"
-    description: ""
-
-  - name: "OpenPercent"
-    type: "number"
-    description: ""
-
-  - name: "RepeatClickerCount"
-    type: "integer"
-    description: ""
-
   - name: "MsgID"
     type: "integer"
-    description: ""
-
-  - name: "ClickerCount"
-    type: "integer"
-    description: ""
-
-  - name: "ReadPercent"
-    type: "number"
-    description: ""
+    primary-key: true
+    description: "The message ID."
 
   - name: "AverageOrderValue"
     type: "number"
-    description: ""
+    description: "The average order value associated with the message."
 
-Wrote out.md to the current directory!
+  - name: "ClickCount"
+    type: "integer"
+    description: "The current number of clicks for the message."
+
+  - name: "ClickerCount"
+    type: "integer"
+    description: "The current number of contacts who clicked for the message."
+
+  - name: "ClickerPercent"
+    type: "number"
+    description: "The percent of contacts who clicked the message."
+
+  - name: "ConversionCount"
+    type: "integer"
+    description: "The current number of conversions for the message."
+
+  - name: "DeliverCount"
+    type: "integer"
+    description: "The current number of messages delivered."
+
+  - name: "ListID"
+    type: "integer"
+    description: "The ID of the list the message was sent to."
+    foreign-key: true
+
+  - name: "NewClickerCount"
+    type: "integer"
+    description: "The current number of new clickers for the message."
+
+  - name: "OpenCount"
+    type: "integer"
+    description: "The current number of opens for the message."
+
+  - name: "OpenPercent"
+    type: "number"
+    description: "The percentage of contacts who opened the message."
+
+  - name: "OrderTotal"
+    type: "number"
+    description: "The order total associated with the message."
+
+  - name: "ReadCount"
+    type: "integer"
+    description: "The current number of reads for the message."
+
+  - name: "ReadPercent"
+    type: "number"
+    description: "The percentage of contacts who read the message."
+
+  - name: "RemovePercent"
+    type: "number"
+    description: "The percentage of contacts who unsubscribed as a result of the message."
+
+  - name: "RemoveCount"
+    type: "integer"
+    description: "The current number of unsubscribes for the message."
+
+  - name: "RepeatClickerCount"
+    type: "integer"
+    description: "The current number of contacts who clicked multiple times for the message."
+
+  - name: "SendDate"
+    type: "string"
+    description: "The date the message was sent."
+
+  - name: "Subject"
+    type: "string"
+    description: "The subject of the message."
+---

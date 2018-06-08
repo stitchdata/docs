@@ -17,24 +17,29 @@ api-method:
 attributes:
   - name: "MsgID"
     type: "integer"
-    description: ""
-
-  - name: "ContactID"
-    type: "string"
-    description: ""
+    primary-key: true
+    description: "The message ID that contains the link that was clicked."
+    foreign-key: true
 
   - name: "EmailAddress"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email address of the contact who clicked the link."
+
+  - name: "ContactID"
+    type: "string"
+    description: "The ID of the contact who clicked the link."
+    foreign-key: true
 
   - name: "LinkUrl"
     type: "string"
-    description: ""
+    description: "The URL of the link."
 
   - name: "ClickDate"
     type: "string"
-    description: ""
+    description: "The date the contact clicked the link."
 
   - name: "LinkDescription"
     type: "string"
-    description: ""
+    description: "A description of the link."
+---

@@ -17,16 +17,21 @@ api-method:
 attributes:
   - name: "MsgID"
     type: "integer"
-    description: ""
-
-  - name: "ReadDate"
-    type: "string"
-    description: ""
+    primary-key: true
+    description: "The ID of the message that was read."
+    foreign-key: true
 
   - name: "EmailAddress"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email address of the contact who read the message."
 
   - name: "ContactID"
     type: "string"
-    description: ""
+    description: "The ID of the contact who read the message."
+    foreign-key: true
+
+  - name: "ReadDate"
+    type: "string"
+    description: "The date the contact read the message."
+---
