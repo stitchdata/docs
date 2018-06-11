@@ -46,17 +46,6 @@ requirements-list:
   - item: |
       **Admin permissions in Bronto.** This is required to create an API token.
 
-# From Bronto's docs (though this doesn't all seem super relevant):
-# http://dev.bronto.com/gettingstarted/soap-how-to-get-started/how-to-access-the-api/
-# Account must have the API feature enabled
-# Must have at least one API token created
-#    - Create API tokens from an administrator account, and specify access on them
-# What permissions? Access Type: Read is all we need
-# Click "Add Access Token" and type in a name
-# Under Permissions & Settings, Select "Read", and ensure that "Token is active?" is checked
-
-# Go to Home->Settings->Data Exchange in the Bronto application
-
 requirements-info:
 
 setup-steps:
