@@ -8,6 +8,7 @@ permalink: /integrations/saas/quick-base
 tags: [saas_integrations]
 keywords: quick-base, integration, schema, etl quick-base, quick-base etl, quick-base schema
 layout: singer
+old-schema-template: true
 
 # -------------------------- #
 #         Tap Details        #
@@ -34,7 +35,40 @@ status-url: https://service.quickbase.com/#!/
 icon: /images/integrations/icons/quick-base.svg
 whitelist:
   tables: true
-  columns: false
+  columns: true
+  set-replication-methods: true
+
+
+# -------------------------- #
+#  Quick Base Default Fields #
+# -------------------------- #
+
+## The fields included in every Quick Base table by default.
+
+default-table-fields:
+  - name: "rid"
+    type: "string"
+    description: "The unique record ID. **This is the Primary Key for the table.**"
+
+  - name: "record id#"
+    type: "string"
+    description: "The unique record ID."
+
+  - name: "date created"
+    type: "date-time"
+    description: "The date the record was created."
+
+  - name: "date modified"
+    type: "date-time"
+    description: "The date the record was last modified."
+
+  - name: "last modified by"
+    type: "string"
+    description: "The ID of the user who last modified the record."
+
+  - name: "record owner"
+    type: "string"
+    description: "The ID of the user who created the record."
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -111,10 +145,33 @@ setup-steps:
 # Each table has a its own .md file in /_integration-schemas/quick-base
 
 schema-sections:
-  - title: "Milliseconds"
-    anchor: ""
+  - content: |
+      Every table in a {{ integration.display_name }} app will display as a selectable table in the Stitch app. Tables are named according to this convention: `[app_name]__[table_name]`.
+
+      For example: If an app named `event_handling` contained `customers`, `events`, and `rsvps` tables, you could expect the following tables to be created in your destination:
+
+      - `event_handling__customers`
+      - `event_handling__events`
+      - `event_handling__rsvps`
+
+  - title: "Table attributes"
+    anchor: "table-attributes"
     content: |
-      https://github.com/singer-io/tap-quickbase/blob/master/tap_quickbase/__init__.py#L89
+      The schema of {{ integration.display_name }} tables will contain the fields the user linked with the [user token](#create-quick-base-user-token) has access to, along with a handful of other fields:
+
+      <table class="attribute-list">
+      {% for attribute in integration.default-table-fields %}
+      <tr>
+      <td class="attribute-name">
+      <strong>{{ attribute.name }}</strong><br>
+      {{ attribute.type | upcase }}
+      </td>
+      <td class="description">
+      {{ attribute.description | flatify | markdownify }}
+      </td>
+      </tr>
+      {% endfor %}
+      </table>
 
 ---
 {% assign integration = page %}
