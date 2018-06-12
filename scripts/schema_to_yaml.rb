@@ -14,12 +14,16 @@ if !File.exists?(schema_file)
   exit -1
 end
 
-schema = JSON.parse(File.read(schema_file))
+file_data = JSON.parse(File.read(schema_file))
 
 INDENTATION_LENGTH = 2
 
 def write_attribute(node, breadcrumb)
-  types = node['type'].select { |t|  t != 'null' }
+  if node['type'].is_a?(String)
+    types = [node['type']]
+  else
+    types = node['type'].select { |t|  t != 'null' }
+  end
   prepend_size = breadcrumb.length() * INDENTATION_LENGTH
   $yaml_output += ["- name: \"#{breadcrumb.last}\"",
                     "  type: \"#{types.first}\"",
@@ -64,14 +68,30 @@ def visit(nodes, breadcrumb)
   return nodes
 end
 
-$yaml_output = ""
-new_schema = visit(schema, [])
+if file_data.key?("streams")
+  # Indicates that discovery output was passed in
+  for stream in file_data["streams"];
+    $yaml_output = ""
+    new_schema = visit(stream['schema'], [])
 
+    puts($yaml_output)
 
-puts($yaml_output)
+    File.open(stream['stream'] + ".md", "w") do |f|
+      f.write($yaml_output)
+    end
 
-File.open("out.md", "w") do |f|
-  f.write($yaml_output)
+    puts("Wrote " + stream['stream'] + ".md to the current directory!")
+  end
+else
+  # Indicates that a single schema was passed in
+  $yaml_output = ""
+  new_schema = visit(file_data, [])
+
+  puts($yaml_output)
+
+  File.open("out.md", "w") do |f|
+    f.write($yaml_output)
+  end
+
+  puts("Wrote out.md to the current directory!")
 end
-
-puts("Wrote out.md to the current directory!")
