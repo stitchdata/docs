@@ -49,8 +49,6 @@ requirements-info:
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} URL and app ID"
     anchor: "retrieve-url-app-id"
-    content: |
-
     substeps:
       - title: "Retrieve your {{ integration.display_name }} URL"
         anchor: "retrieve-quick-base-url"
@@ -70,13 +68,21 @@ setup-steps:
 
           In {{ integration.display_name }}, click the desired app in the **My Apps** section.
 
-          When the app opens, the URL in your browser will now contain the app's ID. In this example, the app ID is `bngf9ix7e`.
+          When the app opens, the URL in your browser will now contain the app's ID. This is the alpha-numeric string after `db/`. In this example, the app ID is `bngf9ix7e`.
 
           ![]({{ site.baseurl }}/images/integrations/quick-base-app-id.png)
 
   - title: "Create a {{ integration.display_name }} user token"
     anchor: "create-quick-base-user-token"
     content: |
+
+      {% capture user-tokens %}
+      {{ integration.display_name }} user tokens are linked to the user who creates them. This means that Stitch will only be able to access the same data in {{ integration.display_name }} as the user who creates the token.<br><br>
+      Before proceeding, verify that you can access the tables and fields in {{ integration.display_name }} that you want to replicate.
+      {% endcapture %}
+
+      {% include note.html content=user-tokens %}
+
       1. In {{ integration.display_name }}, click the user menu (your name) in the top right corner.
       2. Click **My preferences**.
       3. In the **My User Information** section, click **Manage my user tokens for [company name] realm...**, located next to **Manage User Tokens**.
@@ -85,8 +91,6 @@ setup-steps:
          - **Name**: Enter a name for the token. For example: `Stitch`
          - **Description**: If desired, enter a description.
          - **Assign token to apps**: From the dropdown, select the app you want to replicate data from.
-
-            **Note**: While a single Stitch {{ integration.display_name }} integration can only support connecting one app at a time, you can assign the token you create here to additional apps. This will allow you to create additional Stitch {{ integration.display_name }} integrations without having to make a new token for each one.
       6. Click **Save**.
 
       The token will display in the **Token** field of the **My User Tokens** page. Keep this page open for now - you'll need it to complete the next step.
@@ -97,6 +101,7 @@ setup-steps:
       6. In the **Quick Base User Token** field, paste the user token you created in Step 2.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
