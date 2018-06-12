@@ -74,12 +74,6 @@ default-table-fields:
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} URL and app ID"
     anchor: "retrieve-url-app-id"
