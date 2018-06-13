@@ -76,6 +76,8 @@ setup-steps:
       4. In the **App ID** field, enter the ID of the app you want to replicate data from.
       5. In the **API Token** field, paste the API key from [Step 2](#retrieve-your-api-key).
   - title: "historical sync"
+    content: |
+      **Note**: {{ integration.display_name }} imposes limits on date ranges for replicating historical data. If the **Start Date** is more than 90 days from the current date, replication will be unsuccessful. Refer to the [Historical AppsFlyer data limitations](#historical-appsflyer-data-limitations) section for more info.
   - title: "replication frequency"
 
 # -------------------------- #
@@ -89,14 +91,9 @@ replication-sections:
   - title: "Historical {{ integration.display_name }} data limitations"
     anchor: "historical-appsflyer-data-limitations"
     content: |
-      [Due to limits imposed by {{ integration.display_name }} on date ranges while querying](https://support.appsflyer.com/hc/en-us/articles/209680773-Export-Data-Reports#the-reports), only a finite amount of historical data is able to be replicated by Stitch:
+      [Due to limits imposed by {{ integration.display_name }} on date ranges while querying](https://support.appsflyer.com/hc/en-us/articles/209680773-Export-Data-Reports#the-reports), only the past **90 days'** of historical data is available for any given app.
 
-      - For **installations** (`installations`), each query is limited to up to two months of data, backwards from the present day.
-      - For **in-app events** (`in_app_events`), each query is limited to up to one month of data, backwards from the present day.
-
-      This means that from the date the integration is created in Stitch, only the previous two months (60 days) of data for each report type will be able to be replicated.
-
-      If the integration's **Start Date** setting in Stitch is set to a date that exceeds this range, extraction errors will occur and be surfaced in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
+      If the integration's **Start Date** setting in Stitch is set to a date older than 90 days ago, extraction errors will occur and be surfaced in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
 
   - title: "{{ integration.display_name }} API call limits and Replication Frequency"
     anchor: "api-call-limits"
