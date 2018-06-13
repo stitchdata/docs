@@ -62,9 +62,11 @@ setup-steps:
 
       ![AppsFlyer app ID locations]({{ site.baseurl }}/images/integrations/appsflyer-app-ids.png)
 
-  - title: "Retrieve the app's API key"
-    anchor: "retrieve-app-api-key"
+  - title: "Retrieve the account's API key"
+    anchor: "retrieve-your-api-key"
     content: |
+      {% include note.html content="You must be the Account Owner in AppsFlyer to complete this step." %}
+
       1. In the list of apps, click the app you want to replicate data from. This will open the app's dashboard page.
       2. Under the **Integration** section, click **API Access.**
       3. Copy the key from the **Your API Key** field.
@@ -72,7 +74,7 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **App ID** field, enter the ID of the app you want to replicate data from.
-      5. In the **API Token** field, paste the app's API key.
+      5. In the **API Token** field, paste the API key from [Step 2](#retrieve-your-api-key).
   - title: "historical sync"
   - title: "replication frequency"
 
