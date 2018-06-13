@@ -16,15 +16,16 @@ attributes:
     primary-key: true
     description: "The unique ID for the event."
 
-  - name: "event_time"
-    type: "string"
-    primary-key: true
-    description: "The time the event occurred."
-
   - name: "event_name"
     type: "string"
     primary-key: true
     description: "The name of the event."
+
+  - name: "event_time"
+    type: "string"
+    primary-key: true
+    replication-key: true
+    description: "The time the event occurred."
 
   - name: "advertising_id"
     type: "string"
