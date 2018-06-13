@@ -26,7 +26,7 @@ repo-url: https://github.com/singer-io/tap-appsflyer
 status: "Released"
 certified: false
 
-historical: "1 year"
+historical: "60 days"
 frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
@@ -84,6 +84,30 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/appsflyer
+
+replication-sections:
+  - title: "Historical {{ integration.display_name }} data limitations"
+    anchor: "historical-appsflyer-data-limitations"
+    content: |
+      [Due to limits imposed by {{ integration.display_name }} on date ranges while querying](https://support.appsflyer.com/hc/en-us/articles/209680773-Export-Data-Reports#the-reports), only a finite amount of historical data is able to be replicated by Stitch:
+
+      - For **installations** (`installations`), each query is limited to up to two months of data, backwards from the present day.
+      - For **in-app events** (`in_app_events`), each query is limited to up to one month of data, backwards from the present day.
+
+      This means that from the date the integration is created in Stitch, only the previous two months (60 days) of data for each report type will be able to be replicated.
+
+      If the integration's **Start Date** setting in Stitch is set to a date that exceeds this range, extraction errors will occur and be surfaced in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
+
+  - title: "{{ integration.display_name }} API call limits and Replication Frequency"
+    anchor: "api-call-limits"
+    content: |
+      In addition to historical limitations, {{ integration.display_name }} also [imposes a limit on the number of raw data API calls](https://support.appsflyer.com/hc/en-us/articles/207034366-API-Policy#2-raw-data-reports-via-pull-api) that can be made per day. Currently, the maximum is **10 API calls per day, per app** and increases when upgrading to a higher {{ integration.display_name }} tier.
+
+      Each time Stitch requests data for an app - or a single {{ integration.display_name }} integration - two API calls will be used: One to replicate `in_app_events`, and one for `installations`.
+
+      If your Stitch {{ integration.display_name }} integration is set to replicate frequently (ex: every 30 minutes), you may quickly consume your {{ integration.display_name }} API quota. When this occurs, Stitch will pause replication and resume where it left off when more quota is available.
+
+      To avoid disruptions in replication, we recommend selecting a lower [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), such as 12 or 24 hours.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
