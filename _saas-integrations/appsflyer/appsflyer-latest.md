@@ -39,11 +39,12 @@ whitelist:
 #      Setup Instructions    #
 # -------------------------- #
 
-# requirements-list:
-#   - item: ""
-#   - item: ""
+requirements-list:
+  - item: "**To be the {{ integration.display_name }} Account Owner.** Only Account Owners have access to API credentials in {{ integration.display_name }}, which is required to set up the integration."
+  - item: |
+      **Access to raw data exports in {{ integration.display_name }}.** Stitch's {{ integration.display_name }} integration uses the [Raw Data Report API](https://support.appsflyer.com/hc/en-us/articles/208387843-Raw-Data-Reports-V5-) to replicate installation and in-app event data. Access to raw data is an {{ integration.display_name }} premium feature, which may only be available on their higher tiers.
 
-requirements-info:
+      To determine if you have access to raw data pulling, [follow these instructions](https://support.appsflyer.com/hc/en-us/articles/207034366-API-Policy#2-raw-data-reports-via-pull-api) in {{ integration.display_name }}'s documentation.
 
 setup-steps:
   - title: "Retrieve the app ID"
