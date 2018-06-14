@@ -65,27 +65,31 @@ defaults:
 #      CLOUDSQL SETTINGS     #
 # -------------------------- #
 
-google-cloudsql-mysql:
+cloudsql-mysql:
   - name: *binlog-format-name
     value: *binlog-format-value
     description: *binlog-format-description
-    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#binlog_format"
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
 
-  # - name: *binlog-row-image-name
-  #   value: *binlog-row-image-value
-  #   description: *binlog-row-image-description
-  #   doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#binlog_row_image"
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
 
-  # - name: *expire-logs-days-name
-  #   value: *expire-logs-days-value
-  #   description: |
-  #     Specifies the amount of time, in days, before the automatic removal of binary log files. Stitch recommends a retention period of **7 days**, but a minimum of **3 days** will also work.
-  #   doc-link: https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#expire_logs_days
+  - name: *expire-logs-days-name
+    value: *expire-logs-days-value
+    description: *expire-logs-days-description
+    doc-link: https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_expire_logs_days
+
+  - name: *binlog-expire-logs-seconds-name
+    value: *binlog-expire-logs-seconds-value
+    description: *binlog-expire-logs-seconds-description
+    doc-link: "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_binlog_expire_logs_seconds"
 
   - name: *log-bin-name
     value: *log-bin-value
     description: *log-bin-description
-    doc-link: ""
+    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin"
 
 
 # -------------------------- #
