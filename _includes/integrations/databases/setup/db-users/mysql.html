@@ -1,12 +1,11 @@
-{% include note.html content="You must have `GRANT` privileges to create a database user for Stitch." %}
 
 To create a database user for Stitch, run the following command when logged into {{ integration.display_name }}:
 
-```shell
-GRANT SELECT ON *.* TO '[stitch_username]'@'localhost' IDENTIFIED BY '[secure password here]';
+```sql
+{{ site.data.taps.extraction.database-setup.user-privileges.mysql.create-user-command }}
 ```
 
-Replace `[secure password here]` with a secure password{% if integration.ssh == true %}, which can be different than the SSH password.{% else %}.{% endif %}
+Replace `[password]` with a secure password. {% if integration.ssh == true %}If using SSH, this can be different than the SSH password.{% endif %}
 
 If you wish to restrict this user from accessing data in specific databases, tables, or columns, you can instead run `GRANT` queries that only allow access to the data you permit.
 

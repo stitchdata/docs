@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#operation/Object_G
 description: |
   The `amendment` table contains information about subscription amendments, which are changes to customer subscriptions. For example: Changing the terms of a contract, adding/removing a product, canceling a subscription, etc.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

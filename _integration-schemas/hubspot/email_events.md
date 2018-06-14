@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "email_events"
 doc-link: https://developers.hubspot.com/docs/methods/email/email_events_overview
@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getEventsForCampaignOrRecipient
   doc-link: https://developers.hubspot.com/docs/methods/email/get_events
@@ -74,6 +74,8 @@ attributes:
   - name: "emailCampaignId"
     type: "integer"
     description: "The ID of the email campaign that the email message is a part of."
+    foreign-key: true
+    table: "campaigns"
 
   - name: "emailCampaignGroupId"
     type: "integer"

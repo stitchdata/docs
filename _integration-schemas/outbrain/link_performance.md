@@ -12,7 +12,7 @@
 # description: |
 #   The `link_performance` table contains performance metrics for links in your Outbrain campaigns.
 
-# replication-method: "Incremental"
+# replication-method: "Key-based Incremental"
 # api-method:
 #   name: 
 #   doc-link: 

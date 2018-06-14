@@ -61,7 +61,7 @@ tables:
     doc-link: 
     description: "<strong>This is a sample table.</strong> The section below contains the real info for the <code>report</code> table that will be created in your data warehouse."
     notes:
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     attribution-window: true
     primary-key: "referralpath:country:start_date:end_date"
     nested-structures: false
@@ -80,7 +80,7 @@ tables:
     doc-link: 
     description: "<strong>This is the table that will be created in your data warehouse.</strong> The columns in this table will be the Metrics and Dimensions you selected during setup."
     notes:
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     attribution-window: true
     primary-key: "dimension_columns:start_date:end_date"
     nested-structures: false

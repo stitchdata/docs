@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "owners"
 doc-link: https://developers.hubspot.com/docs/methods/owners/owners_overview
@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getOwners
   doc-link: https://developers.hubspot.com/docs/methods/owners/get_owners
@@ -72,6 +72,7 @@ attributes:
       - name: "ownerId"
         type: "integer"
         description: "The ID of the owner."
+        foreign-key: true
 
       - name: "remoteId"
         type: "string"

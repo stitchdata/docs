@@ -45,7 +45,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#list
     description: "info about the lists in your Pardot account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -64,7 +64,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#list-membership
     description: "list membership info."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -80,7 +80,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/api-version-3/object-field-references/#opportunity
     description: "info about the opportunities in your Pardot account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -101,7 +101,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#prospect
     description: "info about your prosepcts and the attributes associated with them."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -156,7 +156,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#tag
     description: "info about the tags in your Pardot account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -170,7 +170,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#tag-object
     description: "info about the tag objects in your Pardot account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -185,7 +185,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#visitor
     description: "info about the visitors who visit your Pardot website."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -206,7 +206,7 @@ tables:
     doc-link: 
     description: "info about visits made to your Pardot website."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -230,7 +230,7 @@ tables:
     doc-link: http://developer.pardot.com/kb/object-field-references/#visitor-activity
     description: "info about the activities user engage - for example: open, custom URL click, video view, and so on - in during visits to your Pardot website."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:

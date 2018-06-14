@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#operation/Object_G
 description: |
   The `communicationProfile` table contains information about communication profiles, which are sets of policies that determine how to communicate with the contacts associated with a specific customer account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

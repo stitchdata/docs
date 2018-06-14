@@ -7,7 +7,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoices
 description: |
   The `invoice` table contains info about invoices, which are bills to customers.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

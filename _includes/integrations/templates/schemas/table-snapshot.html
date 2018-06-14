@@ -1,3 +1,7 @@
+{% if table.replication-key.name %}
+    {% assign tooltip = table.replication-key.tooltip %}
+{% endif %}
+
 <table class="table-snapshot table-hover">
     <tr>
         <td>
@@ -6,7 +10,7 @@
         
         {% if table.replication-method contains "Incremental" %}
             <td>
-                <strong>Replication Key {{ ui-icon.replication-key | flatify }}:</strong> <code>{{ replication-keys | strip }}</code>
+                <strong>Replication Key {{ ui-icon.replication-key | flatify }}:</strong> <code>{{ replication-keys | strip }}</code> {% if table.replication-key.name %}{{ info-icon | replace:"TOOLTIP",tooltip }}{% endif %}
             </td>
         </tr>
         <tr>

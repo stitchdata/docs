@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "subscription_changes"
 doc-link: https://developers.hubspot.com/docs/methods/timeline/timeline-overview
@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getSubscriptionsTimeline
   doc-link: https://developers.hubspot.com/docs/methods/email/get_subscriptions_timeline

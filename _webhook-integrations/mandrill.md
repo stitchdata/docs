@@ -22,11 +22,11 @@ author-url: "https://www.stitchdata.com"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Coming Soon"
+status: "Released"
 certified: true
 
 type: "Webhook"
-branded: true
+branded: false
 historical: "Webhook"
 frequency: "Continuous"
 primary-key:
@@ -35,6 +35,8 @@ primary-key:
 tier: "Free"
 status-url: "http://status.mandrillapp.com/"
 icon: /images/integrations/icons/mandrill.svg
+
+setup-name: "Incoming Webhooks"
 
 # -------------------------- #
 #     Integration Tables     #

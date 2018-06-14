@@ -8,7 +8,7 @@ doc-link: w
 description: |
   The `journalEntryItem` table contains information about journal entry items.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

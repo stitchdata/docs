@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Payment-Runs
 description: |
   The `paymentRun` table contains information about payment runs.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

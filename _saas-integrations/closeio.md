@@ -141,7 +141,7 @@ tables:
     doc-link: http://developer.close.io/#leads-list-or-search-for-leads
     description: "the leads in your Close.io account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -171,7 +171,7 @@ tables:
     doc-link: http://developer.close.io/#leads-list-or-search-for-leads
     description: "info about the opportunities associated with the leads in your Close.io account. <strong>This subtable will only be created if your data warehouse doesn't natively support nested data structures.</strong>"
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id : _sdc_level_0_id"
     nested-structures: false
     attributes:

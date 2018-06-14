@@ -84,7 +84,7 @@ If you need historical data in the new destination, you’ll need to either manu
 
 {% include important.html content=permissions %}
 
-1. On the next page, click the **{{ destination.display_name }}** icon.
+1. On the next page in Stitch, click the **{{ destination.display_name }}** icon.
 2. Click **Sign in with Google**.
 3. If you aren't already signed into your Google account, you'll be prompted for your credentials.
 4. After you sign in, you'll see a list of the permissions requested by Stitch:
@@ -102,8 +102,21 @@ If you need historical data in the new destination, you’ll need to either manu
 
 ---
 
-## Step 4: Unpause integrations {#unpause-integrations}
+## Step 4: Delete the existing Google Cloud Storage bucket {#delete-current-bucket}
 
-After you've successfully connected the new {{ destination.display_name }} destination, un-pause your integrations.
+To ensure Stitch can load data into the new BigQuery instance, you'll need to delete the Google Cloud Storage (GCS) bucket that's attached to the project.
 
-Your data will begin replicating according to the historical data option selected in Step 1.
+{% include important.html content="Before completing this step, verify that all data you want to retain has been transferred. Google permanently deletes objects within buckets, and they cannot be recovered after this process completes." %}
+
+1. In another browser tab, [log into the Google console](https://console.cloud.google.com/).
+2. Use [Google's instructions](https://cloud.google.com/storage/docs/deleting-buckets) to locate the bucket in Google's UI.
+3. Locate the Stitch bucket. **If you're unsure of which bucket belongs to Stitch**, reach out to Stitch support.
+4. Delete the bucket.
+
+---
+
+## Step 5: Unpause integrations {#unpause-integrations}
+
+After you've successfully connected the new {{ destination.display_name }} destination and deleted the original Stitch GCS bucket, un-pause your integrations in Stitch.
+
+Your data will begin replicating according to the historical data option selected in [Step 1](#select-historical-data-setting).

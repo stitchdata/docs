@@ -66,7 +66,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#balance_history
     description: "info about transactions have have contributed to your Stripe account balance, including charges, transfers, etc."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -94,7 +94,7 @@ tables:
       Due to the current structure of our Stripe integration and [how updates work in the Stripe API](#stripe-api-updates), records in this table will not be updated if a related dispute is updated.
 
       You can, however, find this info in the [`stripe_events`](#stripe_events) table.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -126,7 +126,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#coupon_object
     description: "info about percent or amount-off discounts that may be applied to a customer. <strong>Note that coupons only apply to invoices; they don't apply to one-off charges.</strong>"
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -147,7 +147,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#customer_object
     description: "info about your Stripe customers. This table allows you to track multiple charges associated with a single customer."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -175,7 +175,7 @@ tables:
       The `stripe_events` table is sort of a "grab bag" of all events across all endpoints, or tables. For every event that takes place on a parent object, a row will be added to the table.
 
       For example: If a customer account is updated, you'll see the latest state of the customer's account info in the `stripe_customers` table. You'll also see a row in **this** table for the actual **update** event itself.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -213,7 +213,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#invoiceitem_object
     description: "info about items contained in customer invoices."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -244,7 +244,7 @@ tables:
       Stitch's Stripe integration doesn't currently replicate [upcoming invoices](https://stripe.com/docs/subscriptions/invoices#previewing){:target="_blank"}, which Stripe defines as "the next upcoming invoice."
 
       This is due to the way Stripe generates and assigns IDs to invoices. Existing invoices have IDs while upcoming invoices do not. As Stitch uses the `id` column to identify new data for replication, if an invoice doesn't have an ID, Stitch will be unable to replicate it.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -278,7 +278,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#plan_object
     description: "pricing information for different products and feature levels on your site. For example, you may have a $10/month plan for basic features and a $20/month plan for premium features."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -307,7 +307,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#subscription_object
     description: "the details of subscription plans your customers belong to."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -333,7 +333,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#transfers
     description: "info about your transfers. A transfer is created any time Stripe sends you money or you initiiate a transfer to a connected account, including bank accounts and debit cards."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -366,7 +366,7 @@ tables:
     doc-link: https://stripe.com/docs/api/curl#balance_history
     description: "transfer and transaction IDs, which will allow you to join transfers with the transactions in the <code>stripe_balance_history</code> table."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "transfer_id:transaction_id"
     nested-structures: false
     attributes:

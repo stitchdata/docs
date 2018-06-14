@@ -19,7 +19,7 @@ When selecting a destination, it's important to first verify that all the data s
 
 ---
 
-## Degrees of Incompatibility
+## Degrees of incompatibility
 
 The compatibility of any integration/destination combination falls into one of three categories: **always** compatible, **sometimes** compatible, and **never** compatible.
 
@@ -31,7 +31,7 @@ The matrices below use the following icons to indicate the degree of incompatibi
 
 ---
 
-## Incompatible Integrations by Destination Type
+## Incompatible integrations by destination type
 
 Below you'll find a list of integrations that may have full or partial incompatibility with any of Stitch's destination offerings.
 

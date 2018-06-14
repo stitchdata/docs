@@ -45,7 +45,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/account-object
     description: "comprehensive customer account information."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "account_code"
     nested-structures: false
     attributes:
@@ -98,7 +98,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/list-add-ons-for-a-plan
     description: "info about plan add-ons, which are additional products in your plan that recur."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "add_on_code"
     nested-structures: true
     attributes:
@@ -139,7 +139,7 @@ tables:
 ##    doc-link: https://dev.recurly.com/docs/adjustment-object
 ##    description: "a history of your customer’s Recurly account, which is made up of credits and charges."
 ##    notes: 
-##    replication-method: "Incremental"
+##    replication-method: "Key-based Incremental"
 ##    primary-key: "id"
 ##    nested-structures: true
 ##    attributes:
@@ -171,7 +171,7 @@ tables:
     doc-link: 
     description: "info about your customers' billing details. <strong>Note that while there isn't sensitive info (e.g. credit card numbers) in this table, you should still work to keep this data private as there are columns containing bank information.</strong>"
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "account_href"
     nested-structures: false
     attributes:
@@ -200,7 +200,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/list-active-coupons
     description: "info on active coupons."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "coupon_code"
     nested-structures: true
     attributes:
@@ -233,7 +233,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/list-invoices
     description: "info about the invoices in your Recurly account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "invoice_number"
     nested-structures: true
     attributes:
@@ -313,7 +313,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/lookup-a-coupon-redemption-on-an-account
     description: "data on coupon redemptions at the account level."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "uuid"
     nested-structures: false
     attributes:
@@ -331,7 +331,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/list-subscriptions
     description: "a record of all your subscriptions."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "uuid"
     nested-structures: true
     attributes:
@@ -368,7 +368,7 @@ tables:
     doc-link: https://dev.recurly.com/docs/list-transactions
     description: "account transaction info."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "uuid"
     nested-structures: false
     attributes:

@@ -11,7 +11,7 @@ description: |
 
   If your Zuora subscription records contain custom attributes, Stitch will replicate them.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

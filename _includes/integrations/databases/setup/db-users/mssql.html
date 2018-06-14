@@ -1,6 +1,7 @@
-To bring your {{ integration.name }} data into Stitch, the system will run `SELECT` queries on your database. Initially this is done to get a snapshot of the database's structure. After the first replication job completes, you can set [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) for individual tables to potentially reduce your update times and the load on your server.
 
-Creating a user with `SELECT` privileges can either be done via a query or the {{ integration.name }} UI. In this section, we'll walk you through using the query method.
+{% unless integration.name contains "rds" %}
+Creating a user with `SELECT` privileges can either be done via a query or the {{ integration.display_name }} UI. In this section, we'll walk you through using the query method.
+{% endunless %}
 
 {% capture us-english %}
 This user's language setting must be set to `us_english`. Issues with replication may arise if a different setting is used.
@@ -8,40 +9,4 @@ This user's language setting must be set to `us_english`. Issues with replicatio
 
 {% include important.html content=us-english %}
 
-1. Log into your database.
-2. Create a SQL login for the Stitch database user:
-
-   ```sql
-   CREATE LOGIN [stitch_username] WITH PASSWORD=’[password]’
-   go
-   ```
-
-3. Grant the Stitch user access to the database:
-
-   ```sql
-   USE [database]
-   go
-   ```
-
-4. Create the Stitch database user and map them to the database:
-
-   ```sql
-   CREATE USER [stitch_username] FOR LOGIN 
-   go
-   ```
-
-5. Grant the Stitch user `SELECT` privileges.
-
-   To grant `SELECT` privileges to all tables in the database, run this command:
-
-   ```sql
-   GRANT SELECT to [stitch_username]
-   go
-   ```
-
-   If you wish to limit the Stitch user to specific tables, run this command instead:
-
-   ```sql
-   GRANT SELECT ON [schema_name].[table_name] TO [stitch_username]
-   go
-   ```
+{{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command }}

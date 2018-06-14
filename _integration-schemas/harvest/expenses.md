@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `expenses` table contains info about the expenses recorded in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showAnExpense
   doc-link: http://help.getharvest.com/api-v1/expenses-api/expenses/add-update-expenses/#show-an-expense

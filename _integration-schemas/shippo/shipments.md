@@ -7,7 +7,7 @@ singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/sc
 description: |
   The `shipments` table contains info about shipment objects. Shipment objects are made up of to and from addresses and the parcel to be shipped.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listAllShipments
   doc-link: https://goshippo.com/docs/reference?version=2016-10-25#shipments-list

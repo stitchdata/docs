@@ -8,7 +8,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Exports
 description: |
   The `export` table contains information about export jobs and files.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

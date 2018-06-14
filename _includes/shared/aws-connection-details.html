@@ -1,3 +1,5 @@
+{% if page.permalink contains "destinations" %}
+
 {% if destination.type == "redshift" %}
 {% capture database-name %}Database Name{% endcapture %}
 {% capture master-user %}Master Username{% endcapture %}
@@ -28,4 +30,22 @@ These fields are highlighted in the image below:
 {% else %}
 ![Redshift cluster details]({{ site.baseurl }}/images/destinations/redshift-db-details.png)
 {% endif %}
-{% endif %} 
+{% endif %}
+
+
+
+
+{% elsif page.permalink contains "integrations" %}
+
+Next, you'll retrieve the connection details required to complete the setup in Stitch. This info can be found on the Instance Details page in AWS.
+
+If you don't still have this page open, click **Instances** and then the instance you're connecting to Stitch.
+
+1. On the Instance Details page, scroll down to the **Connect** section.
+2. Locate the **Endpoint** and **Port** fields, which are highlighted in the image below:
+
+   ![Amazon RDS Instance Details page with the Endport and Port fields highlighted]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
+
+Leave this page open for now - you'll need it to complete the setup in the next step.
+
+{% endif %}

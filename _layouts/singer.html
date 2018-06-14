@@ -61,7 +61,7 @@ layout: page
 
     {% for section in integration.replication-sections %}
         {% if section.title == "attribution window" %}
-            <h3 id="{{ integration.display_name }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
+            <h3 id="{{ integration.display_name |  downcase }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
 
             {% capture attribution-window %}
             {% include integrations/saas/attribution-windows.html %}
@@ -76,6 +76,14 @@ layout: page
             {% endif %}
 
             {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
+
+                    {{ subsection.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
         {% endif %}
     {% endfor %}
 
@@ -84,7 +92,7 @@ layout: page
 
 
 
-
+{% unless integration.no-schema == true %}
 <!-- SCHEMA DETAILS START -->
 <h2 id="schema">{{ integration.display_name }} Table Schemas</h2>
 
@@ -138,6 +146,7 @@ non-standard handling of certain data types, etc. -->
     {% include integrations/templates/schemas/table-schemas.html %}
 {% endif %}
 <!-- SCHEMA DETAILS END -->
+{% endunless %}
 
 
 <!-- ALL OTHER CONTENT -->

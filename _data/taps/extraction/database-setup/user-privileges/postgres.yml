@@ -1,0 +1,34 @@
+# -------------------------- #
+#  Database User Privileges  #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from a PostgreSQL database.
+
+user-privileges:
+  - name: "CONNECT"
+    reason: "Required to connect successfully to the specified database."
+    doc-link: |
+      https://www.postgresql.org/docs/9.3/static/sql-grant.html
+
+  - name: "USAGE"
+    reason: "Required to access the objects contained in the specified schema."
+    doc-link: |
+      https://www.postgresql.org/docs/9.3/static/sql-grant.html
+
+  - name: "SELECT"
+    reason: "Required to select rows from tables in the specified schema."
+    doc-link: |
+      https://www.postgresql.org/docs/9.3/static/sql-grant.html
+
+  - name: "ALTER DEFAULT PRIVILEGES"
+    reason: "Required to ensure that objects created in the schema after connecting to Stitch will be accessible by the Stitch database user."
+    doc-link: |
+      https://www.postgresql.org/docs/9.3/static/sql-alterdefaultprivileges.html
+
+
+create-user-command: |
+  CREATE USER [stitch_username] WITH ENCRYPTED PASSWORD '[secure password]';
+  GRANT CONNECT ON DATABASE [database_name] TO [stitch_username];
+  GRANT USAGE ON SCHEMA [schema_name] TO [stitch_username];
+  GRANT SELECT ON ALL TABLES IN SCHEMA [schema_name] TO [stitch_username];
+  ALTER DEFAULT PRIVILEGES IN SCHEMA [schema_name] GRANT SELECT ON TABLES TO [stitch_username];

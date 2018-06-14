@@ -92,7 +92,7 @@ attributes:
     description: "Details about the crop specifications (aspect ratios) for images in different ad placements."
     doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
     schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-    array-attributes:
+    array-attributes: &crop-specifications
       - name: "100x100"
         type: "array"
         description: "The crop specification for 100x100."
@@ -211,7 +211,7 @@ attributes:
               - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
 
               **Note**: Depending on your data warehouse, a subtable for each deeplink type may be created. For example: For a type of `android`, a table named `adcreative__object_story_spec__link_data__app_link_spec__android` will be created.
-            object-attributes:
+            object-attributes: &native-deeplinks
               - name: "android"
                 type: "array"
                 description: "Details about native deeplinks used on Android."
@@ -301,7 +301,7 @@ attributes:
             type: "object"
             description: "Details about the call to action button."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-call-to-action-value/"
-            object-attributes:
+            object-attributes: &call-to-action
               - name: "app_destination"
                 type: "string"
                 description: "The app destination type."
@@ -368,46 +368,7 @@ attributes:
               - name: "call_to_action"
                 type: "object"
                 description: "Details about the call to associated with the link object."
-                object-attributes:
-                  - name: "app_destination"
-                    type: "string"
-                    description: "The app destination type."
-
-                  - name: "app_link"
-                    type: "string"
-                    description: "The deep link to the app."
-
-                  - name: "application"
-                    type: "string"
-                    description: "The application related to the action."
-
-                  - name: "event_id"
-                    type: "string"
-                    description: "The ID of the Facebook event which shows the event info."
-
-                  - name: "lead_gen_form_id"
-                    type: "string"
-                    description: "The ID of the [Lead Ad](https://developers.facebook.com/docs/marketing-api/guides/lead-ads/) form."
-
-                  - name: "link"
-                    type: "string"
-                    description: "The destination link when the CTA button is clicked."
-
-                  - name: "link_caption"
-                    type: "string"
-                    description: "The caption shown in the attachment."
-
-                  - name: "link_format"
-                    type: "string"
-                    description: "The link format of video attachments."
-
-                  - name: "page"
-                    type: "string"
-                    description: "Teh ID of the Facebook page which the CTA button links to."
-
-                  - name: "product_link"
-                    type: "string"
-                    description: "The Open Graph object URL for canvas virtual good ads."
+                object-attributes: *call-to-action
 
               # End object_story_spec__link_data__child_attachments__call_to_action
 
@@ -442,62 +403,7 @@ attributes:
                 description: "Details about the crop specifications (aspect ratios) for images in different ad placements for carousel ads."
                 doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
                 schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-                array-attributes:
-                  - name: "100x100"
-                    type: "array"
-                    description: "The crop specification for 100x100."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
-
-                  - name: "100x72"
-                    type: "array"
-                    description: "The crop specification for 100x72."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
-
-                  - name: "191x100"
-                    type: "array"
-                    description: "The crop specification for 191x100."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
-
-                  - name: "400x150"
-                    type: "array"
-                    description: "The crop specification for 400x150."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
-
-                  - name: "400x500"
-                    type: "array"
-                    description: "The crop specification for 400x500."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
-
-                  - name: "600x360"
-                    type: "array"
-                    description: "The crop specification for 600x360."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
-
-                  - name: "90x160"
-                    type: "array"
-                    description: "The crop specification for 90x160."
-                    array-attributes:
-                      - name: "value"
-                        type: "integer"
-                        description: "The value of the crop specification."
+                array-attributes: *crop-specifications
 
               # End object_story_spec__link_data__child_attachments__image_crops
 
@@ -518,62 +424,7 @@ attributes:
             description: "Details how images should be cropped."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
             schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-            array-attributes:
-              - name: "100x100"
-                type: "array"
-                description: "The crop specification for 100x100."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "100x72"
-                type: "array"
-                description: "The crop specification for 100x72."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "191x100"
-                type: "array"
-                description: "The crop specification for 191x100."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "400x150"
-                type: "array"
-                description: "The crop specification for 400x150."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "400x500"
-                type: "array"
-                description: "The crop specification for 400x500."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "600x360"
-                type: "array"
-                description: "The crop specification for 600x360."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "90x160"
-                type: "array"
-                description: "The crop specification for 90x160."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
+            array-attributes: *crop-specifications
 
           # End object_story_spec__link_data__image_crops
 
@@ -698,75 +549,7 @@ attributes:
               - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
 
               **Note**: Depending on your data warehouse, a subtable for each deeplink type may be created. For example: For a type of `android`, a table named `adcreative__object_story_spec__template_data__app_link_spec__android` will be created.
-            object-attributes:
-              - name: "android"
-                type: "array"
-                description: "Details about native deeplinks used on Android."
-                array-attributes:
-                  - name: "app_name"
-                    type: "string"
-                    description: "The name of the native app in the Android store."
-
-                  - name: "class"
-                    type: "string"
-                    description: "The full classified class name of the app for intent generation."
-
-                  - name: "package"
-                    type: "string"
-                    description: "The fully classified package name of the app for intent generation."
-
-                  - name: "url"
-                    type: "string"
-                    description: "The native Android URL that will be navigated to."
-
-              - name: "ios"
-                type: "array"
-                description: "Details about native deeplinks used on iOS."
-                array-attributes:
-                  - name: "app_name"
-                    type: "string"
-                    description: "The name of the native app in the iTunes store."
-
-                  - name: "app_store_id"
-                    type: "string"
-                    description: "The ID of the native app in the iTunes store."
-
-                  - name: "url"
-                    type: "string"
-                    description: "The native iOS URL that will be navigated to."
-
-              - name: "ipad"
-                type: "array"
-                description: "Details about native deeplinks used on iPads."
-                array-attributes:
-                  - name: "app_name"
-                    type: "string"
-                    description: "The name of the native app in the iTunes store."
-
-                  - name: "app_store_id"
-                    type: "string"
-                    description: "The ID of the native app in the iTunes store."
-
-                  - name: "url"
-                    type: "string"
-                    description: "The native iOS URL that will be navigated to."
-                    description: ""
-
-              - name: "iphone"
-                type: "array"
-                description: "Details about native deeplinks used on iPhones."
-                array-attributes:
-                  - name: "app_name"
-                    type: "string"
-                    description: "The name of the native app in the iTunes store."
-
-                  - name: "app_store_id"
-                    type: "string"
-                    description: "The ID of the native app in the iTunes store."
-
-                  - name: "url"
-                    type: "string"
-                    description: "The native iOS URL that will be navigated to."
+            object-attributes: *native-deeplinks
 
         # End object_story_spec__template_data__app_link_spec
 
@@ -792,46 +575,7 @@ attributes:
             type: "object"
             description: "Details about the call to associated with the link object."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-call-to-action-value/"
-            object-attributes:
-              - name: "app_destination"
-                type: "string"
-                description: "The app destination type."
-
-              - name: "app_link"
-                type: "string"
-                description: "The deep link to the app."
-
-              - name: "application"
-                type: "string"
-                description: "The application related to the action."
-
-              - name: "event_id"
-                type: "string"
-                description: "The ID of the Facebook event which shows the event info."
-
-              - name: "lead_gen_form_id"
-                type: "string"
-                description: "The ID of the [Lead Ad](https://developers.facebook.com/docs/marketing-api/guides/lead-ads/) form."
-
-              - name: "link"
-                type: "string"
-                description: "The destination link when the CTA button is clicked."
-
-              - name: "link_caption"
-                type: "string"
-                description: "The caption shown in the attachment."
-
-              - name: "link_format"
-                type: "string"
-                description: "The link format of video attachments."
-
-              - name: "page"
-                type: "string"
-                description: "The ID of the Facebook page which the CTA button links to."
-
-              - name: "product_link"
-                type: "string"
-                description: "The Open Graph object URL for canvas virtual good ads."
+            object-attributes: *call-to-action
 
         # End object_story_spec__template_data__call_to_action
 
@@ -859,46 +603,7 @@ attributes:
               - name: "call_to_action"
                 type: "object"
                 description: "Details about the call to associated with the link object."
-                object-attributes:
-                  - name: "app_destination"
-                    type: "string"
-                    description: "The app destination type."
-
-                  - name: "app_link"
-                    type: "string"
-                    description: "The deep link to the app."
-
-                  - name: "application"
-                    type: "string"
-                    description: "The application related to the action."
-
-                  - name: "event_id"
-                    type: "string"
-                    description: "The ID of the Facebook event which shows the event info."
-
-                  - name: "lead_gen_form_id"
-                    type: "string"
-                    description: "The ID of the [Lead Ad](https://developers.facebook.com/docs/marketing-api/guides/lead-ads/) form."
-
-                  - name: "link"
-                    type: "string"
-                    description: "The destination link when the CTA button is clicked."
-
-                  - name: "link_caption"
-                    type: "string"
-                    description: "The caption shown in the attachment."
-
-                  - name: "link_format"
-                    type: "string"
-                    description: "The link format of video attachments."
-
-                  - name: "page"
-                    type: "string"
-                    description: "Teh ID of the Facebook page which the CTA button links to."
-
-                  - name: "product_link"
-                    type: "string"
-                    description: "The Open Graph object URL for canvas virtual good ads."
+                object-attributes: *call-to-action
 
             # End object_story_spec__template_data__child_attachments__call_to_action
 
@@ -921,62 +626,7 @@ attributes:
             description: "Details about the crop specifications (aspect ratios) for images in different ad placements."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
             schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-            array-attributes:
-              - name: "100x100"
-                type: "array"
-                description: "The crop specification for 100x100."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "100x72"
-                type: "array"
-                description: "The crop specification for 100x72."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "191x100"
-                type: "array"
-                description: "The crop specification for 191x100."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "400x150"
-                type: "array"
-                description: "The crop specification for 400x150."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "400x500"
-                type: "array"
-                description: "The crop specification for 400x500."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "600x360"
-                type: "array"
-                description: "The crop specification for 600x360."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
-
-              - name: "90x160"
-                type: "array"
-                description: "The crop specification for 90x160."
-                array-attributes:
-                  - name: "value"
-                    type: "integer"
-                    description: "The value of the crop specification."
+            array-attributes: *crop-specifications
 
         # End object_story_spec__template_data__child_attachments__image_crops
 
@@ -1070,46 +720,7 @@ attributes:
           - name: "call_to_action"
             type: "object"
             description: "Details about the call to associated with the link object."
-            object-attributes:
-              - name: "app_destination"
-                type: "string"
-                description: "The app destination type."
-
-              - name: "app_link"
-                type: "string"
-                description: "The deep link to the app."
-
-              - name: "application"
-                type: "string"
-                description: "The application related to the action."
-
-              - name: "event_id"
-                type: "string"
-                description: "The ID of the Facebook event which shows the event info."
-
-              - name: "lead_gen_form_id"
-                type: "string"
-                description: "The ID of the [Lead Ad](https://developers.facebook.com/docs/marketing-api/guides/lead-ads/) form."
-
-              - name: "link"
-                type: "string"
-                description: "The destination link when the CTA button is clicked."
-
-              - name: "link_caption"
-                type: "string"
-                description: "The caption shown in the attachment."
-
-              - name: "link_format"
-                type: "string"
-                description: "The link format of video attachments."
-
-              - name: "page"
-                type: "string"
-                description: "The ID of the Facebook page which the CTA button links to."
-
-              - name: "product_link"
-                type: "string"
-                description: "The Open Graph object URL for canvas virtual good ads."
+            object-attributes: *call-to-action
 
           - name: "force_single_link"
             type: "boolean"

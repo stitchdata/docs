@@ -7,7 +7,7 @@
 
 After you've successfully connected your {{ integration.display_name }} integration, Stitch will continuously replicate your webhook data into your data warehouse.
 
-### Webhooks & Historical Data {#webhooks-historical-data}
+### Webhooks and historical data {#webhooks-historical-data}
 
 Because {{ integration.display_name }} data is sent to Stitch in real-time, this means that **only new records are replicated to your data warehouse.** Most webhook-based integrations don't retain historical data due to this as-it-happens approach. {% if integration.name == "segment" %}Segment, however, has a [historical replay feature](https://help.segment.com/hc/en-us/articles/206227946-Will-Segment-sync-my-historical-data-) available on some of their plans. **Please reach out to their support team if you have questions about replaying your historical data.**{% endif %}
 
@@ -17,11 +17,13 @@ In the event that our webhook service experiences downtime, you may notice some 
 
 This version of Stitch's {{ integration.display_name }} integration uses **Append-Only** Replication. {{ site.data.tooltips.append-only-rep }} Data stored this way can provide insights and historical details about how those rows have changed over time.
 
-### Query for the Latest Data
+### Query for the latest data
 
 If you simply want the latest version of the object - or objects, if you elected to track more than one during the setup - in the integration’s table (`data`), you’ll have to adjust your querying strategy to account for the append-only method of replication. This is a little different than querying records that are updated using `updated_at` Incremental Replication.
 
 To do this, you can use the `{{ system-column.sequence }}` column and the table's Primary Key. The `{{ system-column.sequence }}` is a Unix epoch (down to the millisecond) attached to the record during replication and can help determine the order of all the versions of a row.
+
+**Note:** If you didn't define a Primary Key while setting up the integration, the Primary Key for the table will be `{{ system-column.primary-key }}`.
 
 If you wanted to create a snapshot of the latest version of this table, you could run a query like this:
 

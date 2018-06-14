@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshd
 description: |
   The `satisfaction-ratings` table contains info about customer satisfaction survey responses, or satisfaction ratings."
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "viewAllSatisfactionRatings"
   doc-link: https://developers.freshdesk.com/api/#view_all_satisfaction_ratings

@@ -12,7 +12,7 @@ description: |
 
   If your warehouse doesn't natively support nested data structures, a subtable named `conversations__conversation_parts` will be created. More info on this table can be found below.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listConversations
   doc-link: https://developers.intercom.io/docs/list-conversations

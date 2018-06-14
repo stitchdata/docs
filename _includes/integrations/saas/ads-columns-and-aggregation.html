@@ -1,0 +1,72 @@
+{% case integration.name %}
+  {% when "google-adwords" %}
+    {% assign replication-key = "day" %}
+
+    {% assign account-id = system-column.customer-id %}
+
+    {% assign account-id-data = "1585293495" %}
+
+    {% assign device = "device" %}
+
+    {% assign computer = "DESKTOP" %}
+
+    {% assign mobile = "HIGH_END_MOBILE" %}
+
+    {% assign tablet = "TABLET" %}
+
+    {% assign unknown = "UNKNOWN" %}
+
+    {% assign network = "adNetworkType1" %}
+
+    {% assign network1 = "YOUTUBE_SEARCH" %}
+
+    {% assign network2 = "SEARCH" %}
+
+  {% when "bing-ads" %}
+    {% assign replication-key = "gregorianDate" %}
+
+    {% assign account-id = "accountId"%}
+
+    {% assign account-id-data = "71086605" %}
+
+    {% assign device = "deviceType" %}
+
+    {% assign computer = "Computer" %}
+
+    {% assign mobile = "Smartphone" %}
+
+    {% assign tablet = "Tablet" %}
+
+    {% assign unknown = "Unknown" %}
+
+    {% assign network = "network" %}
+
+    {% assign network1 = "AOL Search" %}
+
+    {% assign network2 = "Bing and Yahoo! search" %}
+  {% endcase %}
+
+
+The dimension columns selected for replication in Report tables can impact how performance statistics are aggregated. Additionally, this can also affect the number of rows replicated and loaded into your destination.
+
+For example: if `{{ replication-key }}`, `{{ account-id }}`, `campaignId`, `{{ device }}`, and `impressions` were selected, the `impressions` column would contain the total number of impressions for the device type for that date:
+
+| {{ replication-key }} | {{ account-id }} | campaignId | {{ device }} | impressions |
+|------------------------+-------------+-----------+------------+-----------|
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ computer }} | 4 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ mobile }} | 3 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ tablet }} | 3 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ unknown }} | 1 |
+
+If the `{{ network }}` column were also selected, a row for every unique combination of `{{ device }}` and `{{ network }}` would be created and `impressions` would be aggregated accordingly:
+
+| {{ replication-key }} | {{ account-id }} | campaignId | {{ device }} | {{ network }} | impressions |
+|------------------------+-------------+-----------+------------+------------+---------|
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ computer }} | {{ network1 }} | 3 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ mobile }} | {{ network1 }} | 1 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ tablet }} | {{ network1 }} | 0 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ unknown }} | {{ network1 }} | 0 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ computer }} | {{ network2 }} | 1 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ mobile }} | {{ network2 }} | 2 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ tablet }} | {{ network2 }} | 3 |
+| 2018-01-05 00:00:00 | {{ account-id-data }} | 240531207 | {{ unknown }} | {{ network2 }} | 1 |

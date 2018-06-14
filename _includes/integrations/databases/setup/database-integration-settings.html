@@ -1,55 +1,63 @@
 {% assign integration = page %}
 
-{% case integration.db-type %}
-  {% when 'rds' %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
+<!-- Some integrations don't have a branded UI. Ex: Magento is MySQL, but doesn't
+currently have its own UI. Capture the name that's in the UI and display it
+in the instructions. -->
+{% if integration.setup-name %}
+    {% assign integration-name = integration.setup-name %}
+{% else %}
+    {% assign integration-name = integration.display_name %}
+{% endif %}
 
-  {% when 'mssql' %}
-    {% if integration.name == "azure" %}
-      {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
+<!-- Assign the correct page field names & descriptions based on
+database type -->
+{% if integration.name contains "rds" %}
+  {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
+
+{% else %}
+  {% case integration.db-type %}
+    {% when 'mssql' %}
+      {% if integration.name == "azure" %}
+        {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
+      {% else %}
+        {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
+      {% endif %}
+
+    {% when 'heroku' %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
+
+    {% when 'mongo' %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.mongo %}
+
+    {% when 'mysql' %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.mysql %}
+
     {% else %}
-      {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
-    {% endif %}
-
-  {% when 'heroku' %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
-
-  {% when 'mongo' %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.mongo %}
-
-  {% else %}
-    {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
+      {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
   {% endcase %}
+{% endif %}
 
+<!-- Assign values to the default fields -->
 {% assign default-field = site.data.ui.database-integration-settings-page.default-fields %}
 {% assign default-copy = site.data.ui.database-integration-settings-page.default-copy %}
 
 1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}, if you haven't already.
 2. {{ app.menu-paths.add-integration | flatify }}
-{% if integration.name == "rds" %}
-3. Click the icon (ex: MySQL) for the type of database you're connecting.
-{% elsif integration.name == "magento" %}
-3. Click the **MySQL** icon. As Magento is based on MySQL, you can use Stitch's MySQL integration to connect your Magento database.
-{% else %}
-3. Click the **{{ integration.display_name }}** icon.
-{% endif %}
+3. Click the **{{ integration-name }}** icon.
 4. Fill in the fields as follows:
    {% for field in database-settings %}
 
-   {% if field.name == "Database" and integration.db-type == "mysql" %}
-   - **{{ field.name }}**: {{ field.optional-copy | flatify }}
-   {% else %}
    - **{{ field.name }}**: {{ field.copy | flatify }}
-   {% endif %}
+
    {% endfor %}
 
 {% if integration.ssh == true %}
 
-{% if integration.singer == true %}
-{% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh-singer %}
-{% else %}
-{% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh %}
-{% endif %}
+  {% if integration.singer == true %}
+    {% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh-singer %}
+  {% else %}
+    {% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh %}
+  {% endif %}
 
 #### Enter SSH Connection Details {#ssh-connection-details}
 
@@ -69,7 +77,7 @@ If you're using an SSH tunnel to connect your {{ integration.display_name }} dat
 
 {% if integration.ssl == true %}
 {% if integration.name == "heroku" %}
-**Remember:** Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data.
+**Note:** Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data.
 {% else %}
 In addition, click the **{{ default-field.ssl }}** checkbox if you're using an SSL connection. {{ default-copy.ssl }}
 {% endif %}

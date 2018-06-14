@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `invoices` table contains info about the invoices in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

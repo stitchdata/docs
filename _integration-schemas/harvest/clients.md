@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `clients` table contains info about the clients in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllClients
   doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-clients-api/#get-all-clients

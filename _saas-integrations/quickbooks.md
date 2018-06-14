@@ -47,7 +47,7 @@ tables:
     notes: |
       ### Deleted Accounts 
       To account for deleted accounts, look for `false` values in the `active` column. `False` indicates that an account has been archived/soft-deleted but its attributes and references are intact.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -74,7 +74,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Bill
     description: "info about AP transactions, or a request-for-payment from a third-party."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -103,7 +103,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/BillPayment
     description: "info about the final transaction in the payment of bills received from a vendor."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -131,7 +131,7 @@ tables:
     notes: |
       ### Budget & Budget Details
       If the above is true and you see a `quickbooks_budgets__budgetdetail` subtable in your data warehouse, you can tie the budget details to the top level table using a composite key. This composite key is made up of the budget ID and the row ID: `_sdc_source_key_id` (budget ID) : `_sdc_level_0_id` (row ID)
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -154,7 +154,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Class
     description: "info about the classes that are applied to the detail lines of transactions. Classes allow you to track segments that aren't tied to a client or project."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -175,7 +175,7 @@ tables:
     description: "info about transactions that are refunds or credits of both full and partial payments."
     notes: &custom |
       Also: in addition to the attributes listed below, our QuickBooks integration will replicate any custom fields.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -215,7 +215,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Customer
     description: "info about the people that consume the products or services offered by your business."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -251,7 +251,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Department
     description: "info about the departments - stores, sales regions, countries, and so on - in your company."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -271,7 +271,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Deposit
     description: "info about direct deposits and customer payments moved into the Asset Account after being held in the Undeposited Funds account."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -292,7 +292,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Employee
     description: "info about the people who work for your company."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -321,7 +321,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Estimate
     description: "info about proposals given to customers about pricing for a good or service."
     notes: *custom
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -360,7 +360,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Invoice
     description: "info about invoices, or sales forms that customers pay later."
     notes: *custom
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -405,7 +405,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Item
     description: "info about the goods and/or services your company sells."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -441,7 +441,7 @@ tables:
     notes: |
       ## Journal Entries & Line Item Details
       If the above is true and you see a `quickbooks_journalentries__line` subtable in your data warehouse, you can tie the line item details to the top level table using a composite key. This composite key is made up of the journal entry ID and the row ID: `_sdc_source_key_id` (journal entry ID) : `_sdc_level_0_id` (row ID).
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -461,7 +461,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/PaymentMethod
     description: "info about the methods used to pay for goods and services."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -480,7 +480,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Payment
     description: "info about the payments received for goods and services."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -505,7 +505,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/PurchaseOrder
     description: "info about purchase orders, or the requests for goods that are sent to vendors."
     notes: *custom
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -542,7 +542,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Purchase
     description: "info about your company's expenses, such as a purchase made from a vendor. There are three types of purchases: cash, check, and credit card."
     notes: *custom
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -565,7 +565,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/RefundReceipt
     description: "info about refunds given to customers."
     notes: *custom
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -611,7 +611,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/SalesReceipt
     description: "info about the sales receipts given to customers."
     notes: *custom
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -647,7 +647,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/TaxAgency
     description: "info about tax agencies, which are associated withy a tax rate. This object identifies the entity that collects those taxes."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -666,7 +666,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/TaxCode
     description: "info about tax codes."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -689,7 +689,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/TaxRate
     description: "info about tax rates, which are used to calculate tax liability."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -712,7 +712,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Term
     description: "info about the terms applied to sales."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -734,7 +734,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/TimeActivity
     description: "info about employee time records."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -764,7 +764,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Transfer
     description: "info about transfers, or transactions where funds are moved between two accounts from the company's chart of accounts."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:
@@ -786,7 +786,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/VendorCredit
     description: "info about AP transactions that are refunds or credits given to vendors."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -809,7 +809,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/Vendor
     description: "info about the vendors you purchase goods and/or services from."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: false
     attributes:

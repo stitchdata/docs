@@ -10,7 +10,7 @@ description: |
 
   Note: Harvest includes two non-removable categories by default for the hours and expenses you bill.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showAllCategories
   doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-all-categories

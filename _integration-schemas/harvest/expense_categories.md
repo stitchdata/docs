@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `expense_categories` table contains info about the expense categories in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showAllCategories
   doc-link: http://help.getharvest.com/api-v1/expenses-api/expenses/expense-categories/#show-all-categories

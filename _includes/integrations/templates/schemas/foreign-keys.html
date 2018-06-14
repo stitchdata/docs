@@ -1,6 +1,12 @@
 {% assign integration-references = site.integration-schemas | where:"tap-reference",integration.name %}
 
-{% assign references = integration-references | where:"version",integration.this-version %}
+{% if integration.this-version %}
+<!-- If the integration has multiple versions, locate the reference file for this version -->
+    {% assign references = integration-references | where:"version",integration.this-version %}
+{% else %}
+<!-- Otherwise, just re-assign the variable -->
+    {% assign references = integration-references %}
+{% endif %}
 
 {% for reference in references %}
     {% for key in reference.foreign-keys %}

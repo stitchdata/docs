@@ -18,7 +18,7 @@ description: |
   #### Deleted Ads
   If the **Include data from deleted campaigns, ads, and adsets** box in the integration's settings is checked, this table will include data for deleted ads.
   
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 api-method:
   name: ad - Reading
@@ -43,10 +43,12 @@ attributes:
   - name: "campaign_id"
     type: "string"
     description: "The ID of the ad campaign that contains this ad."
+    foreign-key: true
 
   - name: "adset_id"
     type: "string"
     description: "The ID of the ad set that contains this ad."
+    foreign-key: true
 
   - name: "adLabels"
     type: "array"
@@ -125,13 +127,8 @@ attributes:
     object-attributes:
       - name: "creative_id"
         type: "integer"
-        primary-key: true
         description: "The ID of the creative used by the ad."
-
-      # - name: "id"
-      #   type: "integer"
-      #   primary-key: true
-      #   description: ""
+        foreign-key: true
 
   - name: "created_time"
     type: "date-time"

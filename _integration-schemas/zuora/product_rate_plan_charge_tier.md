@@ -7,7 +7,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-P
 description: |
   The `productRatePlanChargeTier` table contains pricing info for product rate plan charges.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

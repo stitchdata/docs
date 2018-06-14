@@ -7,7 +7,7 @@ singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrai
 description: |
   The `campaign_performance` table contains performance metrics for your Outbrain campaigns.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: retrieveCampaignsWithPerformanceStatisticsForAMarketer
   doc-link: http://docs.amplifyv01.apiary.io/#reference/performance-reporting/campaigns/retrieve-campaigns-with-performance-statistics-for-a-marketer

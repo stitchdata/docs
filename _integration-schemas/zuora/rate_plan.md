@@ -11,7 +11,7 @@ description: |
 
   In addition to the attributes listed below, our Zuora integration will also replicate any custom fields.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

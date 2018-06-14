@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshd
 description: |
   The `conversations` table contains info about replies and public/private notes added to the tickets in your Freshdesk account."
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllConversationsOfATicket"
   doc-link: https://developers.freshdesk.com/api/#list_all_ticket_notes

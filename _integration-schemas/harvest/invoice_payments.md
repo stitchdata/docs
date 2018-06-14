@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `invoice_payments` table contains info about the payments applied to invoices in your Harvest account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: showPaymentsForAnInvoice
   doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments/#show-payments-for-an-invoice

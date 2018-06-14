@@ -1,0 +1,24 @@
+{% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+
+{% assign database-setup = database.mysql-rds %}
+
+{% capture server-instructions %}
+
+1. From the RDS Dashboard, click **Instances** on the left side of the page.
+2. Click {{ integration.display_name }} instance you want to connect to Stitch. This will open the database's details page.
+3. Scroll down to the **Details** section.
+4. In the **Configurations** column, locate the **Parameter group** field.
+5. Click the parameter group. This will open the settings page for the parameter group.
+6. Click the **Edit parameters** button.
+7. Locate the parameters in the list below, and enter the required values into the **Values** column:
+   {% for setting in database-setup %}
+   - **{{ setting.name }}**: `{{ setting.value }}`
+   {% endfor %}
+
+   **Note**: `log_slave_updates` is applicable only if you are connecting a read replica to Stitch. If you aren't connecting a read replica, you don't have to define this parameter.
+
+   ![RDS MySQL parameter group page with binlog_format and binlog_row_image parameters highlighted]({{ site.baseurl }}/images/integrations/rds-mysql-parameter-group-editing.png)
+8. When finished, click the **Save changes** button.
+{% endcapture %}
+
+{% include integrations/templates/configure-server-settings.html %}

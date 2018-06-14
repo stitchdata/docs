@@ -45,7 +45,7 @@ tables:
     doc-link: https://developers.trello.com/advanced-reference/board#get-1-boards-board-id-actions
     description: "info about the actions related to cards, including the lists that a card belongs to."
     notes: 
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -126,7 +126,7 @@ tables:
     description: "info about the latest state of all the cards that the connection (authorizing user) has access to."
     notes: &replication |
       This table is updated based on the `actions` table.
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:
@@ -166,7 +166,7 @@ tables:
     doc-link: https://developers.trello.com/advanced-reference/checklist#get-1-checklists-idchecklist
     description: "info about the latest state of all the checklists on cards that the connection (authorizing user) has access to."
     notes: *replication
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     primary-key: "id"
     nested-structures: true
     attributes:

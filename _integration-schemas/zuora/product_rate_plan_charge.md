@@ -7,7 +7,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-P
 description: |
   The `productRatePlanCharge` table contains info about product rate plan charges, which are a charge model or set of fees associated with a product rate plan.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

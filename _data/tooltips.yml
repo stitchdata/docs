@@ -5,11 +5,11 @@
 
 analysis-integration: “Analysis integrations are third-party tools you can layer on top of your data warehouse to query, visualize, and otherwise explore your data.”
 
+attribution-window: "An attribution or conversion window is the amount of time for attributing results to ads, and the lookback period after those actions occur during which ad results are counted."
+
 api-quota: "An API quota refers to the total number of API requests that can be made in a given period of time."
 
 api-rate-limit: "An API's rate limit refers to how often requests can be made in a given period of time. "
-
-append-only-rep: "Append-Only Replication is a type of Incremental Replication where newly replicated data is appended to the end of a table. Existing rows are not updated - any updates will be added to the table as new rows."
 
 append-only: "Existing rows are never updated. When new or updated data is loaded, it will be appended to the end of the table as a new row."
 
@@ -23,11 +23,7 @@ database-integration: “Database integrations are just that - databases. This i
 
 destination: "Destination is the Stitch word for ‘data warehouse.’ A data warehouse is a central repository for data accumulated from a variety of sources."
 
-full-table-rep: "Full Table Replication means that ALL rows in a table - including new, updated, and existing - will be replicated during every replication attempt."
-
 historical-sync: "Historical syncs are how far back from the Stitch connection date, by default, Stitch will fetch historical data."
-
-incremental-rep: "Incremental Replication means that only new or updated data will be replicated during a replication attempt."
 
 primary-key: "Primary Keys are used to identify unique rows within a table and ensure that only the most recently updated version of that record appears in your data warehouse."
 
@@ -53,7 +49,19 @@ upsert: "An action that updates an existing row in a data warehouse table with n
 
 whitelisting-feature: "Whitelisting is a feature that allows you to select specific tables and columns for replication."
 
+# -------------------------- #
+#     Replication Methods    #
+# -------------------------- #
 
+append-only-rep: "Append-Only Replication is a type of Incremental Replication where newly replicated data is appended to the end of a table. Existing rows are not updated - updates are added to the end of the table as new rows."
+
+full-table-rep: "Full Table Replication is a replication method in which all rows in a table - including new, updated, and existing - are replicated during every replication job."
+
+incremental-rep: "Incremental Replication is a replication method in which new or updated data is replicated during a replication job."
+
+key-based-incremental-rep: "Key-based Incremental Replication is a replication method in which Stitch identifies new and updated data using a column called a Replication Key."
+
+log-based-incremental-rep: "Log-based Incremental Replication is a replication method in which Stitch identifies modifications to records - including inserts, updates, and deletes - using a database's binary log files."
 
 # -------------------------- #
 #      Used in Layouts       #

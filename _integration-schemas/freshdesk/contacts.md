@@ -12,7 +12,7 @@ description: |
 
   If applicable, Stitch will replicate custom fields related to `contacts` in {{ integration.display_name }}.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllContacts"
   doc-link: https://developers.freshdesk.com/api/#list_all_contacts

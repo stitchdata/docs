@@ -7,7 +7,7 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Rate-Plan-Char
 description: |
   The `ratePlanChargeTier` table contains pricing info for rate plan charges.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

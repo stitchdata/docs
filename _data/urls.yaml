@@ -141,7 +141,9 @@ replication:
   supported-data-types: /replication/supported-data-types
 
 ## Replication Frequency
-  rep-frequency: /replication/replication-frequency
+  rep-scheduling: /replication/replication-scheduling
+  rep-frequency: "/replication/replication-scheduling#replication-frequency"
+  anchor-scheduling: "/replication/replication-scheduling#anchor-scheduling"
 
 ## Replication Methods
   rep-methods: /replication/replication-methods

@@ -7,7 +7,7 @@ permalink: /destinations/amazon-s3/
 layout: destination-overview
 tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3
-summary: &summary "Amazon S3 is an extremely simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
+summary: &summary "Amazon S3 is a simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
 toc: true
 destination: true
 data-loading: false
@@ -26,7 +26,7 @@ display_name: "Amazon S3"
 type: "amazon-s3"
 db-type: "s3"
 pricing_tier: "standard"
-status: "Closed Beta"
+status: "Open Beta"
 description: *summary
 pricing_model: "Storage"
 free_option: "Yes (plan & trial)"
@@ -183,7 +183,7 @@ sections:
         content: |
           During the **Extraction** phase, Stitch will check for structural changes to your data, query for data according to the integration's replication settings, and extract the appropriate data.
 
-          Replication settings include the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
+          Replication settings include the integration's [Replication Schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
 
           **Note**: Because Stitch's Incremental Replication Method is inclusive, a single row will be replicated for every Incremental table even if there's no new or updated data. Refer to the [Replication Methods documentation]({{ link.replication.rep-methods | prepend: site.baseurl }}) for an explanation and examples.
 

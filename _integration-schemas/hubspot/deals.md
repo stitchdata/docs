@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "deals"
 doc-link: https://developers.hubspot.com/docs/methods/deals/deals_overview
@@ -28,10 +28,6 @@ attributes:
     primary-key: true
     description: "The ID of the portal the deal is associated with."
 
-  - name: "isDeleted"
-    type: "boolean"
-    description: "Indicates if the deal has been deleted in {{ integration.display_name }}."
-
   - name: "associations"
     type: "object"
     description: "IDs of the Vids, Companies, and Deals associated with the deal."
@@ -51,6 +47,8 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the deal."
+            foreign-key: true
+            table: "companies"
 
       - name: "associatedDealIds"
         type: "array"
@@ -59,6 +57,8 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the deal. (How meta!)"
+            foreign-key: true
+            table: "deals"
 
   - name: "properties"
     type: "object"

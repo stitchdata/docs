@@ -8,7 +8,7 @@ description: |
   The `product` table contains info about your company's product offerings.
 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"

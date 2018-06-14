@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "forms"
 doc-link: https://developers.hubspot.com/docs/methods/forms/forms_overview
@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllFormsFromAPortal
   doc-link: https://developers.hubspot.com/docs/methods/forms/v2/get_forms
@@ -71,6 +71,7 @@ attributes:
   - name: "leadNurturingCampaignId"
     type: "string"
     description: "The ID of the lead nurturing campaign the form is associated with."
+    foreign-key: true
 
   - name: "formFieldGroups"
     type: "array"

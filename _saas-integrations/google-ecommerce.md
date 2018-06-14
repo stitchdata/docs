@@ -57,7 +57,7 @@ tables:
     doc-link: 
     description: "your Google ECommerce data."
     notes:
-    replication-method: "Incremental"
+    replication-method: "Key-based Incremental"
     attribution-window: true
     primary-key: "id"
     nested-structures: false
