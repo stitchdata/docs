@@ -11,10 +11,7 @@ description: |
 
   Stitch's {{ integration.display_name }} integration will replicate any custom fields associated with segment member records.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "members_count"
+replication-method: "Full Table"
 
 api-method:
   name: "List recipients on a segment"

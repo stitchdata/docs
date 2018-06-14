@@ -7,10 +7,7 @@ singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgri
 description: |
   The `group_members` table contains a list of `email` and `group_id` pairs, allowing you to identify recipients and the groups they are members of.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "count"
+replication-method: "Full Table"
 
 api-method:
   name: "List all suppressions"
