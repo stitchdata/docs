@@ -19,12 +19,13 @@ singer: false
 author: "Stitch"
 author-url: "https://www.stitchdata.com"
 status-url: "http://status.pipedrive.com/"
+repo-url: "https://github.com/singer-io/tap-pipedrive"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
+status: "Released"
 certified: false
 
 historical: "1 year"
