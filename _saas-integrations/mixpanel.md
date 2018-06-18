@@ -122,10 +122,10 @@ tables:
 {% include misc/data-files.html %}
 
 {% capture sync-limit %}
-{% include important.html content="**Historical Syncs & Mixpanel Limitations**<br>
-Mixpanel limits the queryable time range for some of its endpoints to either **60 or 90 days** [to prevent poor loading times for their customers](https://mixpanel.com/help/questions/articles/why-do-the-dates-switch-and-show-only-two-or-three-months-of-data-at-a-time-in-certain-reports). We've found if the Start Date is greater than this, some Historical Syncs may not complete successfully.<br><br>
+{% include important.html content="**Historical replication and  Mixpanel limitations**<br>
+Mixpanel limits the queryable time range for some of its endpoints to either **60 or 90 days** [to prevent poor loading times for their customers](https://mixpanel.com/help/questions/articles/why-do-the-dates-switch-and-show-only-two-or-three-months-of-data-at-a-time-in-certain-reports). We've found if the **Start Date** is greater than this, some historical replication may not complete successfully.<br><br>
 
-If you notice issues with the historical sync of a Mixpanel integration, check that the historical sync is set to start **no more than 60 days in the past**. Changing this setting can sometimes resolve the issue." %}
+If you notice issues with the historical replication of a Mixpanel integration, check that the **Start Date** is set to **no more than 60 days in the past**. Changing this setting can sometimes resolve the issue." %}
 {% endcapture %}
 
 {% contentfor setup %}
@@ -153,7 +153,7 @@ Leave this page open - you'll need it to complete the setup in Stitch.
 {% include integrations/shared-setup/connection-setup.html %}
 4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
 
-{% include integrations/saas/setup/historical-sync.html more-info=sync-limit %}
+{% include integrations/saas/setup/historical-sync.html step-content=sync-limit %}
 
 {% include integrations/shared-setup/replication-frequency.html %}
 
