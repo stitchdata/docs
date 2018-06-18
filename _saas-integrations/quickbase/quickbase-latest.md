@@ -60,7 +60,8 @@ default-table-fields:
 
   - name: "date modified"
     type: "date-time"
-    description: "The date the record was last modified."
+    description: |
+      The date the record was last modified. This is the column Stitch will use as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
 
   - name: "last modified by"
     type: "string"
