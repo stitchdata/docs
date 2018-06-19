@@ -93,7 +93,7 @@ replication-sections:
 
       For {{ integration.display_name }}, this means that every captured event is equal to a single row in the `events` table. Using this data, you can view a given user's event history and construct a timeline of their actions.
 
-      #### Example {#append-only-example}
+      #### Example: Create a user session timeline {#append-only-example}
 
       The table below contains what sample data might look like for a user who changes their address during a session:
 
