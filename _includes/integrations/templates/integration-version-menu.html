@@ -7,7 +7,7 @@
 {% assign latest-version = site.data.taps.versions.[integration.name].latest-version %}
 
 <!-- Last, pulls all docs that contain the integration's name in the `name:` Frontmatter variable. -->
-{% assign all-versioned-docs = site.saas-integrations | where:"name",integration.name %}
+{% assign all-versioned-docs = site.documents | where:"name",integration.name %}
 
 
 <!-- VERSION SELECTION MENU -->
