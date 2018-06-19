@@ -1,5 +1,6 @@
 ---
 tap: "fullstory"
+# version:
 
 name: "events"
 doc-link: https://help.fullstory.com/technical-questions/data-export#data-export-contents
@@ -7,28 +8,26 @@ singer-schema: https://github.com/singer-io/tap-fullstory/blob/master/tap_fullst
 description: |
   The `events` table contains raw data about the events that occurred on your site, which are recorded using the FullStory JavaScript library.
 
-replication-method: "Key-based Incremental"
+replication-method: "Append-Only Incremental"
 
 attributes:
-  - name: "PageId"
-    type: "integer"
+  - name: "{{ system-column.primary-key }}"
+    type: "string"
     primary-key: true
-    description: "The ID for a particular page within the context of a single session."
-
-  - name: "SessionId"
-    type: "integer"
-    primary-key: true
-    description: "A unique ID for a specific user session."
-
-  - name: "UserId"
-    type: "integer"
-    primary-key: true
-    description: "A unique ID for a user cookie given on a device/browser. This ID may be reset if the user clears their cookies, switches devices, changes browsers, etc."
+    description: "{{ system-column.primary-key-description }}"
 
   - name: "EventStart"
     type: "string"
     replication-key: true
     description: "The time when the event first occurred, in UTC."
+
+  - name: "PageId"
+    type: "integer"
+    description: "The ID for a particular page within the context of a single session."
+
+  - name: "SessionId"
+    type: "integer"
+    description: "A unique ID for a specific user session."
 
   - name: "IndvId"
     type: "integer"
@@ -36,6 +35,10 @@ attributes:
       A unique ID for the an individual user that combines all users (`UserId`) with the same user app key (`UserAppKey`).
 
       For example: If you've identified user `327` whenever they visit your site, event records for the user across devices, browsers, etc. will include this ID.
+
+  - name: "UserId"
+    type: "integer"
+    description: "A unique ID for a user cookie given on a device/browser. This ID may be reset if the user clears their cookies, switches devices, changes browsers, etc."
 
   - name: "EventTargetSelectorTok"
     type: "string"
@@ -58,11 +61,11 @@ attributes:
     description: |
       The type of event that was recorded. Possible values are:
 
-      - `abandon` - A form was abandoned.  Learn more about form abandonment.
-      - `change` - The text in a text entry field was changed.  The Event Target Text field will contain the new text value.
-      - `click` - An element on the page has been clicked.  The Event Target Text field will contain text of the clicked element, if applicable.
+      - `abandon` - A form was abandoned.
+      - `change` - The text in a text entry field was changed. `EventTargetText` will contain the new text value.
+      - `click` - An element on the page has been clicked. `EventTargetText` will contain text of the clicked element, if applicable.
       - `navigate` - A URL change, either to a completely new page or a new hash fragment.
-      - `thrash` - The user moved the mouse cursor erratically or in circles.  Learn more about thrashed cursors.
+      - `thrash` - The user moved the mouse cursor erratically or in circles.
 
   - name: "PageActiveDuration"
     type: "integer"
