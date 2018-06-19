@@ -1,9 +1,10 @@
 ---
-title: PostgreSQL
+title: PostgreSQL (v15-10-2015)
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
 tags: [database_integrations]
-permalink: /integrations/databases/postgresql
+permalink: /integrations/databases/postgresql/v15-10-2015
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
+input: false
 
 microsites:
   - title: "{{ page.display_name }} to Postgres"
@@ -17,6 +18,8 @@ name: "postgres"
 display_name: "PostgreSQL"
 author: "Stitch"
 author-url: "https://www.stitchdata.com"
+
+this-version: "15-10-2015"
 
 # -------------------------- #
 #       Stitch Details       #
