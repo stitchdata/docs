@@ -36,8 +36,6 @@ icon: /images/integrations/icons/quick-base.svg
 whitelist:
   tables: true
   columns: true
-  set-replication-methods: true
-
 
 # -------------------------- #
 #  Quick Base Default Fields #
@@ -130,7 +128,6 @@ setup-steps:
       6. In the **Quick Base User Token** field, paste the user token you created in Step 2.
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
