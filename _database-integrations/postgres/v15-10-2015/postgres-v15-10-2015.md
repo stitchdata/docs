@@ -38,9 +38,18 @@ versions: "9.3+"
 ssh: true
 ssl: true
 sync-views: true
+supports-binlog: false
 whitelist:
   tables: "Yes"
   columns: "Yes"
+
+# -------------------------- #
+#    Supported Data Types    #
+# -------------------------- #
+
+## Some data type support & handling is specific to an integration's version.
+
+## See _data/taps/data-types/postgres.yml
 
 # -------------------------- #
 #      Setup Requirements    #
