@@ -4,7 +4,7 @@
 
 ## The permissions Stitch needs to connect to and replicate data from a PostgreSQL database.
 
-user-privileges:
+defaults:
   - name: "CONNECT"
     reason: "Required to connect successfully to the specified database."
     doc-link: |
@@ -25,10 +25,17 @@ user-privileges:
     doc-link: |
       https://www.postgresql.org/docs/9.3/static/sql-alterdefaultprivileges.html
 
+postgresql-rds:
+  - name: "rds_replication"
+    reason: |
+      Required to allow the Stitch database user to use logical (Log-based) replication. **The `rds_superuser` role is required to grant this privilege.**
 
-create-user-command: |
+create-user-command-default: |
   CREATE USER [stitch_username] WITH ENCRYPTED PASSWORD '[secure password]';
   GRANT CONNECT ON DATABASE [database_name] TO [stitch_username];
   GRANT USAGE ON SCHEMA [schema_name] TO [stitch_username];
   GRANT SELECT ON ALL TABLES IN SCHEMA [schema_name] TO [stitch_username];
   ALTER DEFAULT PRIVILEGES IN SCHEMA [schema_name] GRANT SELECT ON TABLES TO [stitch_username];
+
+rds-grant-replication: |
+  GRANT rds_replication TO [stitch_username];

@@ -1,4 +1,24 @@
-{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type] %}
+
+<!-- Amazon RDS has their own special privilege for PostgreSQL replication, so we have to do a lot of switching to get all the privileges to display. -->
+{% case integration.db-type %}
+{% when 'postgres' %}
+{% if integration.name contains "rds" %}
+
+<!-- For Postgres RDS, first get the RDS-specific privilege list -->
+{% assign rds-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].postgresql-rds %}
+
+<!-- Then get the "default" privileges and concat the arrays -->
+{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].defaults | concat: rds-setup %}
+
+<!-- For anything else PostgreSQL-based, just use the default privileges list -->
+{% else %}
+{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].defaults %}
+{% endif %}
+
+<!-- For all other database integrations, use this -->
+{% else %}
+{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].user-privileges %}
+{% endcase %}
 
 <!-- Different flavors of databases may not be on the same version as the DB
 that powers their backend, or their settings may be slightly different.
@@ -39,7 +59,7 @@ using the type. -->
                     <strong>Reason for requirement</strong>
                 </td>
             </tr>
-            {% for privilege in database-setup.user-privileges %}
+            {% for privilege in database-setup %}
                 <tr>
                     <td align="right">
                         <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
