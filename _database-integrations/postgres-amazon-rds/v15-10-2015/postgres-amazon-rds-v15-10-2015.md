@@ -1,5 +1,5 @@
 ---
-title: Amazon PostgreSQL RDS
+title: Amazon PostgreSQL RDS (v15-10-2015)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-postgresql/v15-10-2015
