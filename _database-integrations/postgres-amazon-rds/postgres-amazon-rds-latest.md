@@ -36,10 +36,14 @@ versions: "9.3+; 9.4+ for binlog" ## but 9.4+ is required to use log-based repli
 ssh: true
 ssl: true
 sync-views: true
-supports-binlog: true
+binlog: true
 whitelist:
   tables: true
   columns: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 setup-name: "PostgreSQL"
 

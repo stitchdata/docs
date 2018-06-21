@@ -37,10 +37,14 @@ versions: "9.3+"
 ssh: true
 ssl: true
 sync-views: true
-supports-binlog: false
+binlog: false
 whitelist:
   tables: true
   columns: true
+
+anchor-scheduling: false
+extraction-logs: true
+loading-reports: true
 
 setup-name: "PostgreSQL"
 
