@@ -20,7 +20,7 @@ With Stitch, you can consolidate data from a variety of databases into [a single
 
 
 {% contentfor more-info %}
-## Connecting Databases to Stitch
+## Connecting databases to Stitch
 
 To connect a database integration to Stitch, you'll need to create a database user for us and grant the appropriate permissions. Note that we will only ever read your data.
 
@@ -28,7 +28,7 @@ The security and privacy of your data is of the utmost importance to us. To ensu
 
 For more info on our security policies and recommended best practices, check out the [Security FAQ]({{ link.account.security-faq | prepend: site.baseurl }}).
 
-### SSH & SSL Connection Support
+### SSH & SSL connection support
 
 The majority of our database integrations support connecting via an SSH Tunnel.
 
@@ -40,7 +40,7 @@ Stitch supports SSL connections for these database integrations:
 {% endif %}
 {% endfor %}
 
-### VPN Connection Support
+### VPN connection support
 
 At this time, Stitch does not support VPN connections for any of our database integrations.
 {% endcontentfor %}
