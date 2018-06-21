@@ -1,0 +1,53 @@
+<!-- This file -->
+
+<!-- Used to generate the "Unsupported" icons -->
+{% include misc/support-icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+    {% include integrations/templates/versioning/version-logic.html %}
+
+<h3 id="supported-features">{{ display_name }} supported features</h3>
+
+<table class="attribute-list">
+    <tr>
+        <td>
+        </td>
+        {% for version in released-versions %}
+            {% for doc in all-versioned-docs %}
+                {% if version.number == doc.this-version %}
+                    <td>
+                        <strong>{{ display_name }}<br>
+                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+    {% assign features = "ssh SSH|ssl SSL|sync-views View/replication|binlog Log-based/Replication|anchor-scheduling Anchor/scheduling|extraction-logs Extraction/logs|loading-reports Loading/reports" | split:"|" %}
+
+    {% for feature in features %}
+        <tr>
+            <td class="attribute-name">
+                <strong>{{ feature | split: " " | last | replace: "/"," "  }}</strong>
+            </td>
+        {% for version in released-versions %}
+            {% for doc in all-versioned-docs %}
+                {% if version.number == doc.this-version %}
+                    <td>
+                        {% assign feature-variable = feature | split: " " | first %}
+                        {% case doc.[feature-variable] %}
+                            {% when true %}
+                                Supported
+                            {% when false %}
+                                {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
+                        {% endcase %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>

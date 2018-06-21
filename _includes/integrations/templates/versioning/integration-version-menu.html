@@ -1,27 +1,7 @@
 {% assign integration = page %}
 
-<!-- Database integrations are "branded", meaning that any specific 
-    integration backed by a particular database type will all share the same
-    versioning info. The logic below makes it so that each specific integration
-    (ex: RDS) doesn't need its own version file - it just uses the DB backing it (integration.db-type). -->
-
-    {% if integration.db-type %}
-        <!-- Lists all released veresions -->
-        {% assign released-versions = site.data.taps.versions.[integration.db-type].released-versions %}
-
-        <!-- Pulls the latest version number for the integration -->
-        {% assign latest-version = site.data.taps.versions.[integration.db-type].latest-version %}
-
-    <!-- For all non-database integrations, use the integration's name -->
-    {% else %}
-        {% assign released-versions = site.data.taps.versions.[integration.name].released-versions %}
-
-        {% assign latest-version = site.data.taps.versions.[integration.name].latest-version %}
-    {% endif %}
-
-<!-- Last, pulls all docs that contain the integration's name in the `name:` Frontmatter variable. -->
-    {% assign all-versioned-docs = site.documents | where:"name",integration.name %}
-
+<!-- The logic for pulling version info is in this include -->
+    {% include integrations/templates/versioning/version-logic.html %}
 
 <!-- VERSION SELECTION MENU -->
 

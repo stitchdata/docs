@@ -65,7 +65,7 @@ layout: page
 						<strong>{{ integration.title | remove:"(latest)" }}</strong><br>
 
 						{% if integration.this-version %}
-							{% include integrations/templates/integration-version-menu.html menu-type="category-page" %}
+							{% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
 
 						{% else %}
 							<a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
@@ -110,7 +110,7 @@ layout: page
 						<strong>{{ integration.title | remove:"(latest)" }}</strong><br>
 
 						{% if integration.this-version %}
-							{% include integrations/templates/integration-version-menu.html menu-type="category-page" %}
+							{% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
 
 						{% else %}
 							<a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
