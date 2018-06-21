@@ -7,6 +7,14 @@
 ## NOTE: Individual versions of the integration may not support certain data types, or they may handle a data type in a way unique to that version.
 
 all-types:
+  - name: "common data types"
+    doc-link: "{{ link.replication.supported-data-types | prepend: site.baseurl }}"
+    versions:
+      - number: "1.0"
+        stored-as: "Supported"
+      - number: "15-10-2015"
+        stored-as: "Supported"
+
   - name: "array"
     versions: &all-strings
       - number: "1.0"
