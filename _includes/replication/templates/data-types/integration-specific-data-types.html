@@ -1,36 +1,19 @@
 <!-- This file is used to display data types that are supported for a specific integration. -->
 
 
-<!-- If this is being used on a dedicated integration page, use the variables that already exist in the page's Frontmatter. -->
-{% if page.url contains "integrations" %}
-    {% assign integration_name = integration.name %}
-    {% assign display_name = integration.display_name %}
-
-<!-- Otherwise, use the variables that are passed as include parameters. -->
-{% else %}
-    {% assign integration_name = include.integration_name %}
-    {% assign display_name = include.display_name %}
-{% endif %}
-
-
 <!-- Used to generate the "Unsupported" icons -->
-    {% include misc/support-icons.html %}
+{% include misc/support-icons.html %}
+{% include misc/data-files.html %}
 
-<!-- Lists all released veresions -->
-    {% assign released-versions = site.data.taps.versions.[integration_name].released-versions %}
-
-<!-- Pulls the latest version number for the integration -->
-    {% assign latest-version = site.data.taps.versions.[integration_name].latest-version %}
-
-<!-- Last, pulls all docs that contain the integration's name in the `name:` Frontmatter variable. -->
-    {% assign all-versioned-docs = site.documents | where:"name",integration_name %}
+<!-- The logic for pulling version info is in this include -->
+    {% include integrations/templates/versioning/version-logic.html %}
 
 <!-- Get the integration's supported data types -->
     {% assign integration-supported-data-types = site.data.taps.extraction.data-types.[integration_name].all-types %}
 
 <h3>{{ display_name }} supported data types</h3>
 
-<p>{{ display_name }} integrations support the data types in the table below, in addition to the common data types.</p>
+<p>{{ display_name }} integrations support the data types in the table below, in addition to the {% if page.url contains "integrations" %}<a href="{{ link.replication.supported-data-types | prepend: site.baseurl }}">common data types</a>{% else %}common data types{% endif %}.</p>
 
 <p>In the table are the data types and how they'll be stored in your destination, depending on the version of the integration being used. Unsupported data types are marked with a {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} icon.</p>
 
@@ -55,7 +38,7 @@
             <td class="attribute-name">
                 <strong>
                     {% if data-type.doc-link %}
-                        <a href="{{ data-type.doc-link }}">{{ data-type.name | upcase }}</a>
+                        <a href="{{ data-type.doc-link | flatify }}">{{ data-type.name | upcase }}</a>
                     {% else %}
                         {{ data-type.name | upcase }}
                     {% endif %}
