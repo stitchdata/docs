@@ -95,7 +95,7 @@ Stitch replicates data in this way to account for updates made during the {{ win
 {% if include.type == "data-loading" %}
 When Stitch loads the extracted data for Report tables into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
 
-Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](##column-selection-statistic-aggregation) for more info and examples.
+Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](#column-selection-statistic-aggregation) for more info and examples.
 
 ##### Example {#append-only-example}
 
