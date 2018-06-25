@@ -25,7 +25,7 @@ sections:
       {% include integrations/templates/versioning/integration-version-history.html %}
     subsections:
       - content: |
-          {% include integrations/templates/versioning/integration-supported-features.html %}
+          {% include integrations/templates/versioning/integration-supported-features.html feature-type="databases" %}
       - content: |
           {% include replication/templates/data-types/integration-specific-data-types.html %}
 

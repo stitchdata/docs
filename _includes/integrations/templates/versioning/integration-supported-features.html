@@ -2,10 +2,26 @@
 
 <!-- Used to generate the "Unsupported" icons -->
 {% include misc/support-icons.html %}
+{% include misc/more-info-icons.html %}
 {% include misc/data-files.html %}
 
 <!-- The logic for pulling version info is in this include -->
     {% include integrations/templates/versioning/version-logic.html %}
+
+<!-- List of common integration features -->
+    {% assign common-features = site.data.taps.features.all-features | where:"applies-to","all-integrations" %}
+
+<!-- If the include passes a feature type, use it to retrieve only the features for that integration type -->
+    {% if include.feature-type %}
+        {% assign integration-features = site.data.taps.features.all-features | where:"applies-to",include.feature-type %}
+
+<!-- Join the common and integration features together -->
+        {% assign features = common-features | concat:integration-features | sort:"display_name" %}
+
+<!-- Otherwise, just reassign the common features -->
+    {% else %}
+        {% assign features = common-features %}
+    {% endif %}
 
 <h3 id="supported-features">{{ display_name }} supported features</h3>
 
@@ -25,19 +41,31 @@
             {% endfor %}
         {% endfor %}
     </tr>
-    {% assign features = "ssh SSH|ssl SSL|sync-views View/replication|binlog Log-based/Replication|anchor-scheduling Anchor/scheduling|extraction-logs Extraction/logs|loading-reports Loading/reports" | split:"|" %}
 
     {% for feature in features %}
         <tr>
             <td class="attribute-name">
-                <strong>{{ feature | split: " " | last | replace: "/"," "  }}</strong>
+                <strong>
+                    {% if feature.doc-link %}
+                        <a href="{{ feature.doc-link | flatify }}">{{ feature.display_name }}</a>
+                    {% else %}
+                        {{ feature.display_name }}
+                    {% endif %}
+
+                    {% if feature.tooltip %}
+                        {% capture clean-tooltip %}
+                            {{ feature.tooltip | flatify }}
+                        {% endcapture %}
+
+                        {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
+                    {% endif %}
+                </strong>
             </td>
         {% for version in released-versions %}
             {% for doc in all-versioned-docs %}
                 {% if version.number == doc.this-version %}
                     <td>
-                        {% assign feature-variable = feature | split: " " | first %}
-                        {% case doc.[feature-variable] %}
+                        {% case doc.[feature.name] %}
                             {% when true %}
                                 Supported
                             {% when false %}

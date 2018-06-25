@@ -1,0 +1,72 @@
+# -------------------------- #
+#    INTEGRATION FEATURES    #
+# -------------------------- #
+
+## This file contains a list of the different features an integration might support.
+## Different integration types (ex: database vs. SaaS) can support different things.
+
+## The applies-to field will be "all-integrations" for features that apply to both database and SaaS integrations,
+## Otherwise, it'll contain the type of integration that's applicable. Ex: "databases" for database integrations.
+
+## Variable reference:
+
+## display_name: The name of the feature as it should display in the docs
+##
+##         name: The feature ID, or key. This should match whatever the 
+##               variable is in the integration docs. Ex: ssh is in the database integration docs
+##               to indicate if SSH tunnels are supported.
+
+##   applies-to: The integration type(s) the feature applies to. Can be:
+##                  - "databases" - Applies to database integrations only
+##                  - "saas" - Applies to SaaS integrations only
+##                  - "webhooks" - Applies to webhook integrations only
+##                  - "all-integrations" - Applies to SaaS AND database integrations 
+
+##     doc-link: If applicable, the URL or /_data/urls.yml [link.[thing].[thing]] 
+##               value of the documentation page for the feature. Note: If 
+##               using urls.yml, the "prepend: site.baseurl" filter must be included.
+
+
+all-features:
+  - display_name: "SSH"
+    name: "ssh"
+    applies-to: "databases"
+    tooltip: "{{ site.data.tooltips.ssh }}"
+
+  - display_name: "SSL"
+    name: "ssl"
+    applies-to: "databases"
+    tooltip: "{{ site.data.tooltips.ssl }}"
+
+  - display_name: "Log-based replication"
+    name: "binlog"
+    applies-to: "databases"
+    doc-link: "{{ link.replication.log-based | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.log-based-incremental-rep }}"
+
+  - display_name: "View replication"
+    name: "sync-views"
+    applies-to: "databases"
+    tooltip: "{{ site.data.tooltips.db-views }}"
+
+# -------------------------- #
+#       COMMON FEATURES      #
+# -------------------------- #
+
+  - display_name: "Anchor scheduling"
+    name: "anchor-scheduling"
+    applies-to: "all-integrations"
+    doc-link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.anchor-scheduling }}"
+
+  - display_name: "Extraction logs"
+    name: "extraction-logs"
+    applies-to: "all-integrations"
+    doc-link: "{{ link.replication.extraction-logs | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.extraction-logs }}"
+
+  - display_name: "Loading reports"
+    name: "loading-reports"
+    applies-to: "all-integrations"
+    doc-link: "{{ link.replication.loading-reports | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.loading-reports }}"
