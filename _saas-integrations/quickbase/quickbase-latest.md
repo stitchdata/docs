@@ -48,24 +48,24 @@ default-table-fields:
     type: "string"
     description: "The unique record ID. **This is the Primary Key for the table.**"
 
-  - name: "record id#"
+  - name: "record_id"
     type: "string"
     description: "The unique record ID."
 
-  - name: "date created"
+  - name: "date_created"
     type: "date-time"
     description: "The date the record was created."
 
-  - name: "date modified"
+  - name: "date_modified"
     type: "date-time"
     description: |
       The date the record was last modified. This is the column Stitch will use as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
 
-  - name: "last modified by"
+  - name: "last_modified_by"
     type: "string"
     description: "The ID of the user who last modified the record."
 
-  - name: "record owner"
+  - name: "record_owner"
     type: "string"
     description: "The ID of the user who created the record."
 
