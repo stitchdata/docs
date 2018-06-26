@@ -52,8 +52,7 @@ loading-reports: true
 # -------------------------- #
 
 notice: |
-  This article describes how to connect Heroku-Postgres <strong>as an input data source.</strong><br><br>
-
+  This article describes how to connect Heroku-Postgres **as an input data source.**
   Refer to the [Connecting a Heroku-Postgres Destination guide]({{ link.destinations.setup.heroku-postgres | prepend: site.baseurl }}) to connect Heroku as a destination.
 
 setup-steps:
