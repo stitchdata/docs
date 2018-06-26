@@ -43,7 +43,7 @@ whitelist:
   columns: true
 
 anchor-scheduling: false
-extraction-logs: true
+extraction-logs: false
 loading-reports: true
 
 setup-name: "PostgreSQL"
