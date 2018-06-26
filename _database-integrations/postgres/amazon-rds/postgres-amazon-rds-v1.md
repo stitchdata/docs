@@ -1,8 +1,8 @@
 ---
-title: Amazon PostgreSQL RDS
+title: Amazon PostgreSQL RDS (v1.0)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 tags: [database_integrations]
-permalink: /integrations/databases/amazon-rds-postgresql
+permalink: /integrations/databases/amazon-rds-postgresql/v1
 summary: "Connect and replicate data from your Amazon PostgreSQL RDS using Stitch's PostgreSQL integration."
 microsites:
   - title: "{{ page.display_name }} to Postgres"
@@ -14,8 +14,10 @@ microsites:
 
 name: "postgresql-rds"
 display_name: "PostgreSQL RDS"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
+
+singer: true
+tap-name: "Postgres"
+repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1.0"
 

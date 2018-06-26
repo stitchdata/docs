@@ -15,8 +15,6 @@ microsites:
 
 name: "postgresql-rds"
 display_name: "PostgreSQL RDS"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 this-version: "15-10-2015"
 

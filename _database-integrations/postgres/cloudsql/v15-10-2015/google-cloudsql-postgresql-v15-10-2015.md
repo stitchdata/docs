@@ -4,6 +4,7 @@ keywords: postgresql, postgres, google cloudsql postgres, google cloudsql postgr
 tags: [database_integrations]
 permalink: /integrations/databases/google-cloudsql-postgresql/v15-10-2015
 summary: "Connect and replicate data from your Google CloudSQL PostgreSQL database using Stitch's Google CloudSQL PostgreSQL integration."
+input: false
 
 # -------------------------- #
 #     Integration Details    #

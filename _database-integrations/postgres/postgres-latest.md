@@ -15,8 +15,10 @@ microsites:
 
 name: "postgres"
 display_name: "PostgreSQL"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
+singer: true
+
+tap-name: "Postgres"
+repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1.0"
 
