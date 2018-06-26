@@ -1,8 +1,8 @@
 ---
-title: Google CloudSQL PostgreSQL
+title: Google CloudSQL PostgreSQL (v1.0)
 keywords: postgresql, postgres, google cloudsql postgres, google cloudsql postgresql, database integration, etl postgres, etl cloudsql, cloudsql etl, postgres etl, postgresql etl, etl
 tags: [database_integrations]
-permalink: /integrations/databases/google-cloudsql-postgresql
+permalink: /integrations/databases/google-cloudsql-postgresql/v1
 summary: "Connect and replicate data from your Google CloudSQL PostgreSQL database using Stitch's Google CloudSQL PostgreSQL integration."
 
 # -------------------------- #
@@ -11,8 +11,12 @@ summary: "Connect and replicate data from your Google CloudSQL PostgreSQL databa
 
 name: "cloudsql-postgres"
 display_name: "Google CloudSQL PostgreSQL"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
+
+singer: true
+tap-name: "Postgres"
+repo-url: "https://github.com/singer-io/tap-postgres"
+
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -31,16 +35,24 @@ versions: "9.3+"
 ssh: false
 ssl: false
 sync-views: true
+binlog: false
 whitelist:
   tables: true
   columns: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
 requirements-list:
-  - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: "**Permissions in PostgreSQL that allow you to create users.** This is required to create a database user for Stitch."
+  - item: "**To be running PostgeSQL 9.3+ or greater**."
+  - item: |
+      **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `max_standby_streaming_delay` and `max_standby_archive_delay` settings - before connecting it to Stitch. We recommend setting these parameters to 8-12 hours for an initial replication job, and then decreasing them afterwards.
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -49,7 +61,19 @@ requirements-list:
 setup-steps:
   - title: "whitelist stitch ips"
 
-  - title: "create db user"
+  - title: "Locate database connection details"
+    anchor: "locate-database-connection-details"
+    content: |
+      In this step, you'll locate the {{ integration.display_name }}'s IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
+
+      {% include shared/google-cloud-platform/locate-database-details.html %}
+
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+
+      {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "connect stitch"
 

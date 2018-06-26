@@ -67,6 +67,13 @@ postgres:
 # -------------------------- #
 
 cloudsql-postgres:
+  - name: *max-standby-archive-name
+    value: *max-standby-archive-value
+    description: *max-standby-archive-description
+
+  - name: *max-standby-streaming-name
+    value: *max-standby-streaming-value
+    description: *max-standby-streaming-description
 
 
 # -------------------------- #
