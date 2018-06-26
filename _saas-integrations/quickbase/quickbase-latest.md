@@ -69,6 +69,27 @@ default-table-fields:
     type: "string"
     description: "The ID of the user who created the record."
 
+
+# -------------------------- #
+#    Column name examples    #
+# -------------------------- #
+
+example-field-names:
+  - quickbase: "Customer Name"
+    stitch: "customer_name"
+
+  - quickbase: "Is a VIP?"
+    stitch: "is_a_vip"
+
+  - quickbase: "EmAiLAdDrEsS"
+    stitch: "emailaddress"
+
+  - quickbase: "Street!Address"
+    stitch: "streetaddress"
+
+  - quickbase: "Phone #number"
+    stitch: "phone_number"
+
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
@@ -160,6 +181,39 @@ schema-sections:
       </td>
       <td class="description">
       {{ attribute.description | flatify | markdownify }}
+      </td>
+      </tr>
+      {% endfor %}
+      </table>
+
+      #### Attribute names {#table-attribute-names}
+
+      Some destinations restrict the use of special characters and spaces in column names. While {{ integration.display_name }} doesn't restrict the use of these characters in their app, attempting to load column names as-is from {{ integration.display_name }} may cause issues.
+
+      To prevent loading issues, Stitch's {{ integration.display_name }} will perform the following on column names:
+
+      - Replace spaces and hyphens (`-`) with underscores (`_`)
+      - Remove all other nonalphanumeric characters, such as `!` or `#`
+      - Lowercase capitalized characters
+
+      Below are a handful of examples of how {{ integration.display_name }} column names will appear in Stitch:
+
+      <table class="attribute-list">
+      <tr>
+      <td width="50%; fixed">
+      <strong>Column name in {{ integration.display_name }}</strong>
+      </td>
+      <td>
+      <strong>Column name in Stitch</strong>
+      </td>
+      </tr>
+      {% for attribute in integration.example-field-names %}
+      <tr>
+      <td>
+      {{ attribute.quickbase }}
+      </td>
+      <td>
+      {{ attribute.stitch }}
       </td>
       </tr>
       {% endfor %}
