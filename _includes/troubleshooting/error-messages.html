@@ -13,23 +13,25 @@
 	{% capture wrong-type %}Redshift{% endcapture %}
 {% endif %}
 
----
-
-## Common Errors
-
 <div class="panel-group" id="accordion">
     <!-- Panel Start -->
-    {% for error in connection-checks %}
+    {% for error in errors %}
+
+        {%- capture error-message -%}
+            {{ error.message | replace:"[destination/database]",feature | replace:"[Destination/Integration]",Feature }}
+        {%- endcapture -%}
     	<div class="panel panel-default">
         	<div class="panel-heading">
             	<h4 class="panel-title">
-                	<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ error.id }}">{{ error.message | replace:"[destination/database]",feature | replace:"[Destination/Integration]",Feature }}</a>
+                	<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ error.id }}">
+                        {{ error-message | strip }}
+                    </a>
             	</h4>
         	</div>
         <div id="collapse{{ error.id }}" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
                 {% if error.full-message %}
-                    <span class="h3">Full Message</span>
+                    <span class="h3">Full message</span>
 
                     <p>In general, the error surfaced in Stitch will be similar to:</p>
                     
@@ -69,22 +71,22 @@
     <!-- Panel End -->
 </div>
 
+{% if page.title contains "connection" %}
 ---
 
 ## Check Stitch’s Status
 
 If the troubleshooting steps detailed above don’t resolve the issue or if the errors persist, we recommend checking [Stitch’s Status Page]({{ site.status }}) for reported service issues.
+{% endif %}
 
 ---
 
-## Contact Support
-
-If there’s no reported service issue on our Status Page or you don't see the error you're receiving here, please get in touch with us.
+## Contact Stitch support
 
 To help us troubleshoot the problem quickly, we ask that you provide us with the following:
 
 1. The exact error you’re receiving. Providing us with the text or a screenshot is ideal.
 2. The type of {{ feature }}. Ex: {{ wrong-type }}.
 {% if page.permalink contains "database" %}3. The display name of the database integration. This is the name of the integration as it appears on your Stitch dashboard page.{% endif %}
-4. Verification that Stitch’s IP addresses are whitelisted.
+{% if page.title contains "connection" %}4. Verification that Stitch’s IP addresses are whitelisted.{% endif %}
 5. Verification that the Stitch database user has the correct permissions for the type of {{ feature }} you’re connecting.
