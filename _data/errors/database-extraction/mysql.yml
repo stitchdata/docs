@@ -1,12 +1,13 @@
+# -------------------------- #
+#   MySQL Extraction Errors  #
+# -------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a MySQL-backed database.
+
 errors:
-
-# -------------------------- #
-#         MySQL Errors       #
-# -------------------------- #
-
   - message: "MySQL binary logging is not enabled."
     id: "mysql-binlog-not-enabled"
-    applies-to: "mysql"
     meaning: |
       Binary logging is not enabled for the MySQL server.
     fix-it: |
@@ -20,10 +21,10 @@ errors:
 
       **Note**: [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group) and [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group) databases should have binary logging enabled by default. If you receive this error for either of these databases, verify that the rest of the required server settings are defined correctly.
 
+
   - message: |
-      Unable to replicate stream(<table name>) with binlog because binlog_format is not set to 'ROW': <MIXED or STATEMENT>.
+      Unable to replicate stream({table name}) with binlog because binlog_format is not set to 'ROW': {MIXED or STATEMENT}.
     id: "binlog-format-row"
-    applies-to: "mysql"
     meaning: |
       The `binlog_format` server parameter is not set to `ROW`, which Stitch requires for MySQL Log-based Replication.
     fix-it: |
@@ -41,10 +42,10 @@ errors:
 
       {{ mysql-server-settings-list }}
 
+
   - message: |
-      Unable to replicate stream({<table name>) with binlog because binlog_row_image is not set to 'FULL': <MINIMAL or NOBLOB>.
+      Unable to replicate stream({table name}) with binlog because binlog_row_image is not set to 'FULL': {MINIMAL or NOBLOB}.
     id: "binlog-row-image-full"
-    applies-to: "mysql"
     meaning: |
       The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication.
       
@@ -53,19 +54,40 @@ errors:
 
       {{ mysql-server-settings-list }}
 
-  - message: "Unable to replicate stream(<table name>) with binlog because log file <binary log file name> does not exist."
+
+  - message: "Unable to replicate stream({table name}) because log file {binary log file name} does not exist."
     id: "log-file-does-not-exist"
-    applies-to: "mysql"
     meaning: |
-      Stitch is attempting to resume replication from its saved position in the binary log file, but cannot detect the file. Because the file isn't available, Stitch is unable to locate its place and continue replicating data.
+      Stitch is unable to detect binary log files in the database. 
+
+      To detect binary logs, the Stitch database user will run the `SHOW BINARY LOGS` command. If the database user doesn't have the privilege required to execute this command, this error will surface in the extraction logs.
       
     fix-it: |
-      [TODO]
+      Verify that the Stitch database user has the [`REPLICATION CLIENT`](https://dev.mysql.com/doc/refman/5.5/en/privileges-provided.html#priv_replication-client){:target="new"} privilege.
+
+      You can list the privileges the Stitch user has by running [`SHOW GRANTS`](https://dev.mysql.com/doc/refman/5.6/en/show-grants.html). The result of this command will display the privileges the user has, in the form of `GRANT` statements that must be executed to duplicate the privileges.
+
+      For example: The Stitch user below has the `SELECT` and `REPLICATION SLAVE` privileges, but not `REPLICATION CLIENT`:
+
+      ```sql
+      mysql> SHOW GRANTS FOR '[stitch_username]'@'localhost';
+      +---------------------------------------------------------------------------+
+      | Grants for [stitch_username]@localhost                                    |
+      +---------------------------------------------------------------------------+
+      | GRANT SELECT, REPLICATION SLAVE ON *.* TO `[stitch_username]`@`localhost` |
+      +---------------------------------------------------------------------------+
+      ```
+
+      To grant the `REPLICATION CLIENT` privilege, you would execute the following command:
+
+      ```sql
+      GRANT REPLICATION CLIENT ON *.* TO [stitch_username];
+      ```
+
 
   - message: |
-      Unable to replicate stream(<table name>) with binlog because requested position (<log file position from state>) for log file <binary log file name> is greater than current position (<current log file position on server>).
+      Unable to replicate stream({table name}) with binlog because requested position ({log file position from state}) for log file {binary log file name} is greater than current position ({current log file position on server}).
     id: "binlog-current-position"
-    applies-to: "mysql"
     meaning: |
       When Stitch replicates data using Log-based Replication, it will "bookmark" its place by saving a position in the log file. When the next replication job begins, Stitch will use this value to identify the place in the log where it should begin reading data.
 
@@ -73,19 +95,41 @@ errors:
     fix-it: |
       [TODO]
 
+
   - message: |
-      Unable to replicate stream(<table name>) with binlog because binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication.
+      Unable to replicate stream({table name}) with binlog because binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication.
     id: "mysql-version-requirement"
-    applies-to: "mysql"
     meaning: |
       The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running. This means that binary logging, or binlog replication, is not a feature supported by the current database version.
-      
+
     fix-it: |
       The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.
 
-  - message: ""
-    id: ""
-    applies-to: "mysql"
+
+  - message: "Unable to replicate binlog stream because the following binary log(s) no longer exist: {binary log file name}"
+    id: "binary-logs-no-longer-exist"
     meaning: |
+      The binary log file Stitch is attempting to read from has been removed from the database server.
+
+      This occurs when the log retention period (controlled by the `binary_expire_logs_seconds` or `expire_log_days` parameters) passes and the log is purged from the server.
+
+    fix-it: |
+      If a backup of the binary log exists, restore it to the database server. Otherwise, you'll need to reset the table's or integration's Replication Keys.
+
+      To prevent future issues, consider increasing the values of these parameters. The log retention period should be a minimum of **3 days**, but we recommend **7 days**. This ensures that should replication issues arise, you won't miss any data during an outage.
+
+      The steps for changing the log retention period will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
+
+      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
+      - [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#define-binlog-retention-setting)
+      - [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#define-binlog-retention-setting)
+      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#define-database-parameters)
+      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
+
+  - message: "[Placeholder for column re-ordering error]"
+    id: "[TODO]"
+    meaning: |
+      [TODO]
       
-    fix-it: 
+    fix-it: |
+      [TODO]
