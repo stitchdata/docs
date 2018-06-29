@@ -1,0 +1,91 @@
+errors:
+
+# -------------------------- #
+#         MySQL Errors       #
+# -------------------------- #
+
+  - message: "MySQL binary logging is not enabled."
+    id: "mysql-binlog-not-enabled"
+    applies-to: "mysql"
+    meaning: |
+      Binary logging is not enabled for the MySQL server.
+    fix-it: |
+      Enable binary logging on your MySQL server. This is done by defining the `log-bin` parameter.
+
+      The steps for enabling binary logging will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
+
+      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
+      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#enable-binary-logging)
+      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
+
+      **Note**: [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group) and [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group) databases should have binary logging enabled by default. If you receive this error for either of these databases, verify that the rest of the required server settings are defined correctly.
+
+  - message: |
+      Unable to replicate stream(<table name>) with binlog because binlog_format is not set to 'ROW': <MIXED or STATEMENT>.
+    id: "binlog-format-row"
+    applies-to: "mysql"
+    meaning: |
+      The `binlog_format` server parameter is not set to `ROW`, which Stitch requires for MySQL Log-based Replication.
+    fix-it: |
+      Change the `binlog_format` paramter to `ROW`. This ensures that binary replication is "row-based", meaning that events affecting individual rows are captured.
+
+      {% capture mysql-server-settings-list %}
+      The steps for changing this parameter will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
+
+      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
+      - [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group)
+      - [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group)
+      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#define-database-parameters)
+      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
+      {% endcapture %}
+
+      {{ mysql-server-settings-list }}
+
+  - message: |
+      Unable to replicate stream({<table name>) with binlog because binlog_row_image is not set to 'FULL': <MINIMAL or NOBLOB>.
+    id: "binlog-row-image-full"
+    applies-to: "mysql"
+    meaning: |
+      The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication.
+      
+    fix-it: |
+      Changing the `binlog_row_image` parameter to `FULL`. This ensures that when a row is updated in the source database, the entire row is captured versus only the updated values.
+
+      {{ mysql-server-settings-list }}
+
+  - message: "Unable to replicate stream(<table name>) with binlog because log file <binary log file name> does not exist."
+    id: "log-file-does-not-exist"
+    applies-to: "mysql"
+    meaning: |
+      Stitch is attempting to resume replication from its saved position in the binary log file, but cannot detect the file. Because the file isn't available, Stitch is unable to locate its place and continue replicating data.
+      
+    fix-it: |
+      [TODO]
+
+  - message: |
+      Unable to replicate stream(<table name>) with binlog because requested position (<log file position from state>) for log file <binary log file name> is greater than current position (<current log file position on server>).
+    id: "binlog-current-position"
+    applies-to: "mysql"
+    meaning: |
+      When Stitch replicates data using Log-based Replication, it will "bookmark" its place by saving a position in the log file. When the next replication job begins, Stitch will use this value to identify the place in the log where it should begin reading data.
+
+      This error means that the log position Stitch has is "ahead" of the server. To summarize, the log position Stitch is attempting to use is greater than the log position that the MySQL database has available.
+    fix-it: |
+      [TODO]
+
+  - message: |
+      Unable to replicate stream(<table name>) with binlog because binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication.
+    id: "mysql-version-requirement"
+    applies-to: "mysql"
+    meaning: |
+      The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running. This means that binary logging, or binlog replication, is not a feature supported by the current database version.
+      
+    fix-it: |
+      The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.
+
+  - message: ""
+    id: ""
+    applies-to: "mysql"
+    meaning: |
+      
+    fix-it: 
