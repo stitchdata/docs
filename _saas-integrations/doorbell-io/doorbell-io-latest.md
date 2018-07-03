@@ -35,9 +35,16 @@ frequency: "Continuous"
 tier: "Free"
 status-url: "http://status.doorbell.io/"
 icon: /images/integrations/icons/doorbell-io.svg
+
+## Features in Stitch
+
 whitelist:
   tables: false
   columns: false
+anchor-scheduling: false
+cron-scheduling: false
+extraction-logs: false
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

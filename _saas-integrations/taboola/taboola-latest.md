@@ -31,9 +31,15 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/taboola.svg
+
+## Features in Stitch
 whitelist:
   tables: false
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

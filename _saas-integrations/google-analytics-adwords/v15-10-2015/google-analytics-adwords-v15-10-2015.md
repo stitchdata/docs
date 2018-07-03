@@ -36,9 +36,16 @@ historical: "15 days"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/google-adwords-old.svg
+
+## Features in Stitch
+
 whitelist:
   tables: false
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: false
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

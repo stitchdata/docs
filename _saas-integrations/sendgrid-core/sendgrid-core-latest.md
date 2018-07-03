@@ -32,9 +32,16 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.sendgrid.com/
 icon: /images/integrations/icons/sendgrid.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

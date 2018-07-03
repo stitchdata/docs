@@ -28,9 +28,16 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Premium"
 icon: /images/integrations/icons/intercom.svg
+
+## Features in Stitch
+
 whitelist:
   tables: false
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: false
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

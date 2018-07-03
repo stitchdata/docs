@@ -31,9 +31,17 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
 icon: /images/integrations/icons/appsflyer.svg
+
+
+## Features in Stitch
+
 whitelist:
   tables: false
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

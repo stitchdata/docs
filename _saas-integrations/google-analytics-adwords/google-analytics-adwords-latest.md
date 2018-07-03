@@ -30,9 +30,16 @@ historical: "30 days"
 frequency: "6 hours"
 tier: "Free"
 icon: /images/integrations/icons/google-analytics.svg
+
+## Features in Stitch
+
 whitelist:
   tables: false
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: false
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

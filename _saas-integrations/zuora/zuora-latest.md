@@ -31,9 +31,16 @@ frequency: "30 minutes"
 tier: "Premium"
 status-url: "http://trust.zuora.com/"
 icon: /images/integrations/icons/zuora.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

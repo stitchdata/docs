@@ -34,9 +34,16 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://status.github.com/messages
 icon: /images/integrations/icons/github.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

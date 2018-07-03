@@ -33,10 +33,17 @@ historical: "1 year"
 tier: "Premium"
 icon: /images/integrations/icons/salesforce.svg
 whitelist-ips: true
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: true
   set-replication-methods: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

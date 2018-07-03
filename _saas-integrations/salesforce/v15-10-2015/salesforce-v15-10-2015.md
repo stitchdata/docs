@@ -31,9 +31,15 @@ frequency: "30 minutes"
 historical: "1 year"
 tier: "Premium"
 icon: /images/integrations/icons/salesforce.svg
+
+## Features in Stitch
 whitelist:
   tables: true
   columns: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: false
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

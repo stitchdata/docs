@@ -33,9 +33,16 @@ tier: "Premium"
 
 status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

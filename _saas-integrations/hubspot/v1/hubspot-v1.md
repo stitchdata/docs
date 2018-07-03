@@ -32,9 +32,16 @@ frequency: "30 minutes"
 tier: "Premium"
 status-url: https://status.hubspot.com/
 icon: /images/integrations/icons/hubspot.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: false
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

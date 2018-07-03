@@ -35,10 +35,16 @@ tier: "Free"
 auth: "oauth"
 status-url: https://status.bingads.com/
 icon: /images/integrations/icons/bing-ads.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: true
-
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #        API Details         #

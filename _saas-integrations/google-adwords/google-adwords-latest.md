@@ -38,9 +38,16 @@ frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 icon: /images/integrations/icons/google-adwords-new.svg
+
+## Features in Stitch
+
 whitelist:
   tables: true
   columns: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

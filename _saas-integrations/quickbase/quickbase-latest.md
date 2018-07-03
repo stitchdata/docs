@@ -33,9 +33,15 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://service.quickbase.com/#!/
 icon: /images/integrations/icons/quick-base.svg
+
+## Features in Stitch
 whitelist:
   tables: true
   columns: true
+anchor-scheduling: true
+cron-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #  Quick Base Default Fields #
