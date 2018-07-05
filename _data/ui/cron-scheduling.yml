@@ -1,0 +1,218 @@
+## This file contains the required fields for a cron expression, 
+## the special characters supported by each field, and
+## some examples of cron strings and their interpretations.
+
+## See: https://www.stitchdata.com/docs/replication/replication-scheduling/advanced-cron-scheduling
+
+## Looking for cron validation errors? See: /_data/errors/cron-scheduling.yml
+
+# -------------------------- #
+#         Resources          #
+# -------------------------- #
+
+crontab: "https://crontab.guru/"
+
+# -------------------------- #
+#      Required Fields       #
+# -------------------------- #
+
+required-fields:
+  - name: "minute"
+    allowed-values: "0-59"
+    special-characters: |
+      , - * /
+
+  - name: "hour"
+    allowed-values: "0-23"
+    special-characters: |
+      , - * /
+
+  - name: "day of month"
+    allowed-values: "1-31"
+    special-characters: |
+      , - * ? / L W
+
+  - name: "month"
+    allowed-values: "1-12 or JAN-DEC"
+    special-characters: |
+      , - * /
+
+  - name: "day of week"
+    allowed-values: "1-7 or SUN-SAT"
+    special-characters: |
+      , - * ? / L #
+
+
+# -------------------------- #
+#     Special characters     #
+# -------------------------- #
+
+special-characters:
+  - character: "*"
+    name: "asterisk"
+    allowed-in: "all"
+    description: |
+      Selects all values within a field.
+    example: |
+      - `*` in the `minute` field means `"every minute"`
+      - `*` in the `month` field means `"every month"`
+      - `*` in the `day of week` field means `"every day of the week"`
+
+  - character: ","
+    name: "comma"
+    allowed-in: "all"
+    description: |
+      Specifies a list of two or more values.
+    example: |
+      - `JAN, FEB, MAY` in the `month` field means `"the months January, February, and May"`
+      - `MON, WED` in the `day of week` field means `"the days Monday and Friday"`
+
+  - character: "-"
+    name: "hyphen"
+    allowed-in: "all"
+    description: |
+      Specifies a range of values.
+    example: |
+      - `5-8` in the `hour` field means `"the hours 5, 6, 7, and 8"`
+      - `MON-WED` in the `day of week` field means `"the days Monday, Tuesday, and Wednesday"`
+
+  - character: "/"
+    name: "forward slash"
+    allowed-in: "all"
+    description: |
+      Specifies increments. Formatted as: `[field value]/[increment]`
+
+      The `[field value]` acts as the starting point on which the increment is based.
+    example: |
+      - `0/15` in the `minute` field means `"the minutes 0, 15, 30, and 45"`
+      - `3/6` in the `hour` field means `"every 6 hours beginning on the third hour"`
+      - `1/5` in the `day of month` field means `"every 5 days beginning on the first day of the month"`
+
+  - character: "?"
+    name: "question mark"
+    allowed-in: "day of month, day of week"
+    description: |
+      Specifies a non-specific value for the `day of month` or `day of week`.
+    example: |
+      - `5` in the `day of month` field and `?` in the `day of week` field would mean `"on the 5th day of every month, regardless of what day of the week the 5th falls on"`
+      - `?` in the `day of month` field and `6L` in the `day of week` field would mean `"on the last Friday of every month"`
+
+  - character: "L"
+    name: "L"
+    allowed-in: "day of month, day of week"
+    description: |
+      Depending on the field this is used in, `L` can have different meanings.
+
+      - `day of month` field - Used to indicate the last day of the month.
+      - `day of week` field - If used by itself, this means `7`, or `SAT`.
+
+         If used after another value in this field, means `"the last [xxx] day of the month"`.
+
+      To avoid confusing or unexpected results, don't specify lists or ranges of values with `L`.
+    example: |
+      - `6L` or `FRIL` in the `day of week` field means `"the last Friday of the month"`
+
+  - character: "W"
+    name: "W"
+    allowed-in: "day of month"
+    description: |
+      Specifies the weekday (Monday - Friday) closest to the given day.
+
+      **Note**: This character is only allowed when the `day of month` value is a single day, not a range or list of days.
+
+    example: |
+      1. `15W` means `"the nearest weekday to the 15th of the month"`. If the 15th were a Saturday, a replication job would begin on Friday the 14th.
+
+      2. `1W` means `"the nearest weekday to the 1st of the month"`. If the 1st is a Saturday, the replication job would begin on Monday the 3rd. Cron can't skip over a boundary of days.
+
+      3. When combined with `L` (`LW`), this would mean `"the last weekday of the month"`.
+
+  - character: "#"
+    name: "hash"
+    allowed-in: "day of week"
+    description: |
+      Used with a day of week value (`1-7`, `SUN-SAT`) and an integer (`1-5`) to specify the `nth` day of the month. Formatted as: `[day of week]#[integer]`
+
+      **Note**: If `[XXX]#5` is specified and there isn't a fifth given day of week in the month, then the replication job will not be triggered.
+    example: |
+      - `4#2` or `WED#2` means the second (`#2`) Wednesday (`4` or `WED`) of each month
+      - `2#1` or `MON#1` means the first (`#1`) Monday (`2` or `MON`) of each month
+      - `7#5` or `SAT#5` means the fifth (`#5`) Saturday (`7` or `SAT`) of each month. In the event that a month doesn't have five Saturdays, a replication job will not be triggered.
+
+
+# -------------------------- #
+#     Expression examples    #
+# -------------------------- #
+
+examples:
+  - translation: "Run every day at midnight"
+    expression: |
+      ```
+      0 0 * * *
+      ```
+
+  - translation: "Run at midnight every day from Monday through Friday"
+    expression: |
+      ```
+      0 0 * * 1-5
+      ```
+
+      **OR**
+
+      ```
+      0 0 * * MON-FRI
+      ```
+
+  - translation: "Run once a week at 11PM on Sunday"
+    expression: |
+      ```
+      0 23 * * SUN
+      ```
+
+      **OR**
+
+      ```
+      0 23 * * 1
+      ```
+
+  - translation: "Run every day at noon and midnight"
+    expression: |
+      ```
+      0 0/12 * * *
+      ```
+
+  - translation: "Run Tuesday-Thursday every week at 3AM"
+    expression: |
+      ```
+      0 3 * * 3-5
+      ```
+
+      **OR**
+
+      ```
+      0 3 * * TUES-THURS
+      ```
+
+  - translation: "Run every 6 hours starting at 3AM, every day"
+    expression: |
+      ```
+      0 3/6 * * *
+      ```
+
+  - translation: "Run at midnight every Monday, Wednesday, and Friday"
+    expression: |
+      ```
+      0 0 * * MON,WED,FRI
+      ```
+
+      **OR**
+
+      ```
+      0 0 * * 2,4,6
+      ```
+
+  - translation: "Run every 2 hours between the hours of 9AM and 5PM, every day"
+    expression: |
+      ```
+      0 9-17/2 * * *
+      ```
