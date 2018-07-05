@@ -102,7 +102,7 @@ If you receive this message or you can't find an object (database, table, column
 
 If you see a status of `Not Supported` for a table or column in a database integration, there a few potential root causes:
 
-- **Insufficent permissions.** Verify that the Stitch user has all the required permissions as outlined in the **Setup** instructions for the database. Docs for database integrations [can be found here]({{ site.baseurl }}/integrations/databases).
+- **Insufficient permissions.** Verify that the Stitch user has all the required permissions as outlined in the **Setup** instructions for the database. Docs for database integrations [can be found here]({{ site.baseurl }}/integrations/databases).
 
    After you grant the required permissions and a full replication cycle has completed, the table's **Sync Status** should change to `Supported` and be available for syncing.
 - **Unsupported column.** If a column is displayed as `Not Supported`, it may be that the column contains an [unsupported data type]({{ link.troubleshooting.unsupported-data-types | prepend: site.baseurl }}).
