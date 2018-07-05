@@ -88,4 +88,4 @@ common:
     start-date: |
       The date from which Stitch should begin replicating data from [INTEGRATION]. Data from this date forward will be replicated.
 
-      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date. For example: `2018-01-01T11:59:59Z`
+      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date, and the timestamp must be midnight. For example: `2018-01-01T00:00:00Z`
