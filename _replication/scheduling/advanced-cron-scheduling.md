@@ -207,7 +207,7 @@ Translation
 
    On average, extractions for this integration take between 2-5 minutes. However, the extraction that starts at 1:40PM takes longer than average, causing the job to continue running even after the 2:00PM mark:
 
-   ![]({{ site.baseurl }}/images/replication/cron-extraction-whitelist-example.png)
+   ![Grid showing a timeline of extraction starts during whitelisted extraction hours]({{ site.baseurl }}/images/replication/cron-extraction-whitelist-example.png)
 
 ---
 
@@ -215,9 +215,13 @@ Translation
 
 {% assign cron-errors = site.data.errors.cron-scheduling.errors %}
 
+If an illegal value or the expression syntax is incorrect, Stitch will display an error towards the top of the {{ app.page-names.int-settings }} page when you attempt to save the changes to the integration.
+
+Before you can move on, you'll need to resolve what's causing the error.
+
 <table class="attribute-list">
 <tr>
-<td>
+<td width="50%; fixed">
 <strong>
 Error
 </strong>
@@ -232,10 +236,18 @@ Solution
 {% for error in cron-errors %}
 <tr>
 <td>
-<em>{{ error.message | markdownify }}</em>
+<pre>
+{{ error.message }}
+</pre>
 </td>
 <td>
-{{ error.meaning }}
+<strong>Meaning</strong>
+{{ error.meaning | markdownify }}
+
+<hr>
+
+<strong>Solution</strong>
+{{ error.fix-it | markdownify }}
 </td>
 </tr>
 {% endfor %}
