@@ -4,7 +4,7 @@ permalink: /replication/replication-scheduling/advanced-cron-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 tags: [replication]
 
-summary: "[TODO]"
+summary: "The Advanced Scheduler feature allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin."
 type: "settings"
 toc: true
 weight: 2
@@ -21,32 +21,65 @@ enterprise-cta:
 
 {{ page.summary }}
 
-- We use Vixie and Quartz
+**Note**: All replication scheduling methods (Replication Frequency, Anchor Scheduling, and Advanced Scheduling) define when data extractions begin. They do not control how long a replication job runs or when data is loaded into a destination.
 
-### Uses for advanced scheduling
+In this guide, we'll cover:
 
-1. "Blackout" hours
-2. Time extraction with 
-3. Reduce Stitch usage
-4. Avoid re-replicating 
+- [The uses for Advanced Scheduling](#uses)
+- [The basics of cron scheduling](#basics)
+- [Examples of replication schedules using cron expressions](#examples)
+- [Limitations of cron scheduling in Stitch](#limitations)
+- [Troubleshooting validation errors](#troubleshooting)
+- [Additional cron resources](#resources)
 
 ---
 
-## Cron expression basics
+## Uses for Advanced Scheduling {#uses}
 
-A cron expression in Stitch is made up of five field, or subexpressions, that describe the details of the schedule, separated by spaces. When combined, the expression translates to the schedule Stitch will use to replicate data from the integration.
+Using Advanced Scheduling, you can:
 
-The fields are as follows:
+1. **Run reports on a schedule**. For example: You need reports for a 9:00AM meeting you have every day. You could create a replication schedule that runs a replication job every night at 12:00AM, which would ensure fresh data is available in the morning when you need it. Reports could be scheduled to run at 7:00AM, giving you time before your meeting to review the data and resolve replication issues, should any arise.
+
+2. **Whitelist hours for starting data extractions.** For example: You know that your production database is under heavy load from 12:00PM to 5:00PM. To avoid adding additional load, you can create a schedule that prevents extractions from starting during this time. **Note**: An extraction may run over into "blackout" hours as the Advanced Scheduler only controls the times jobs **start**. [See the Limitations section for more info](#limitations).
+
+3. **Reduce your row usage**. Only scheduling data extractions when you need them can not only reduce load on data sources and your destination, it can reduce your overall row usage in Stitch.
+
+4. **Reduce the re-replication of data.** Because replication scheduling applies to all selected tables in an integration, tables using Full Table Replication will replicate in full each time a replication job runs. Reducing the number of replication jobs overall will decrease the number of times the same record is replicated.
+
+---
+
+## Advanced Scheduling basics {#basics}
+
+Stitch's Advanced Scheduler feature uses cron scheduling to create replication schedules. In this section, we'll:
+
+- [Introduce you to cron and cron expressions](#intro-to-cron)
+- [Describe cron expression syntax](#con-expression-syntax)
+- [Explain how to format a cron expression](#cron-expression-field-values)
+
+### Introduction to cron {#intro-to-cron}
+
+So, what's cron? **Cron** is a time-based scheduler used in Unix-like operating systems such as Mac OS, Linux, etc. Tasks, or jobs, created through cron are called **cron jobs**.
+
+To create a cron job - in this case, an integration's replication schedule - a **cron expression** is used. Using a cron expression, you can create a replication schedules such as _"At 12:00AM every day"_ or _"At 7:00PM every Monday, Wednesday, and Friday"_.
+
+### Cron expression syntax {#cron-expression-syntax}
+
+A cron expression in Stitch is made up of five fields that describe the details of the schedule, separated by spaces. When combined, the expression translates to the schedule Stitch will use to replicate data from the integration.
+
+Fields in the expression must be in the following order, and an expression must have all five fields to be considered valid:
 
 ```conf
 [minute] [hour] [day of month] [month] [day of week]
 ```
 
-### Field formatting
+### Formatting cron expressions {#cron-expression-field-values}
 
 {% assign cron = site.data.ui.cron-scheduling %}
 
-The fields in a cron expression can contain any of the following values, along with the allowed special characters for that field.
+Now that we've covered the syntax of a cron expression, we'll move onto the values you can enter in these fields:
+
+- The **Required fields** tab contains the allowed values and special characters for each field
+- The **Special characters** tab contains examples and explanations for each special character, and where it may be used
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active"><a href="#required-fields" data-toggle="tab">Required fields</a></li>
@@ -54,6 +87,9 @@ The fields in a cron expression can contain any of the following values, along w
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="required-fields">
+        <p>The fields in a cron expression can contain any of the following values, along with the allowed special characters for that field.</p>
+
+        <p>See the <strong>Special characters</strong> tab for explanations and examples of how special characters are used.</p>
         <table class="attribute-list">
             <tr>
                 <td>
@@ -115,32 +151,19 @@ The fields in a cron expression can contain any of the following values, along w
     </div>
 </div>
 
-
 ---
 
-When creating a cron expression, keep in mind that:
+## Example replication schedules {#examples}
 
-1. The order of the values in the expression matters. The order will always be `[minute] [hour] [day of month] [month] [day of week]`.
-2. An expression must have all five values noted above to be considered valid.
-3. 
+{% capture resource-callout %}
+**Want to test an expression?** Use [{{ cron.resource-names.crontab }}]({{ cron.resource-urls.crontab }}){:target="new"} to test expressions and see the schedule that will be created.
+{% endcapture %}
 
----
+{% include tip.html content=resource-callout %}
 
-## Limitations of cron scheduling
+Based on scheduling feedback we've collected, we've put together a list of some of the most commonly requested replication schedules. The cron expressions in the table below can be copied and pasted directly into an integration's settings page in Stitch.
 
-1. **Intervals (frequencies) must be a minimum of one minute**. Sub-minute intervals are not supported. [TODO]
-2. **Advanced scheduling isn't available for all integrations**. Some database integrations don't currently support advanced scheduling. We are working on converting these integrations into Singer-powered taps, at which point advanced scheduling will be available.
-
-
-- Note: This only controls the time an extraction begins. The completion of the replication job, including the time required to load extracted data, is not controllable using advanced scheduling.
-
-- Blackout hours refer to jobs being scheduled, not actually running them
-
-- If a replication job is still running when the next job is scheduled to begin, the second job will be skipped.
-
----
-
-## Example replication schedules using cron {#example-replication-schedules}
+**Note**: When creating your own cron expressions, keep in mind that there are some [limitations](#limitations).
 
 <table class="attribute-list">
 <tr>
@@ -170,4 +193,58 @@ Translation
 
 ---
 
+## Limitations of cron scheduling {#limitations}
+
+[TODO - ADD NOTE HERE ABOUT GENERAL SCHEDULING LIMITATIONS]
+
+1. **Advanced scheduling isn't available for all integrations**. Some database integrations don't currently support advanced scheduling. We are working on converting these integrations into Singer-powered taps, at which point advanced scheduling will be available.
+
+2. **Intervals (frequencies) must be a minimum of one minute**. [TODO - I'm not sure how users would do this anyway, since we're not allowing them to set values for `seconds`)
+
+3. **Advanced Scheduling can only be used to whitelist extraction start times**. This means that a job could start during a whitelisted time period but continue running beyond that window, depending on the duration of the extraction.
+
+   For example: An integration has a schedule that tells it to run every 20 minutes between the hours of 12:00PM and 2:00PM, starting at 12:00PM.
+
+   On average, extractions for this integration take between 2-5 minutes. However, the extraction that starts at 1:40PM takes longer than average, causing the job to continue running even after the 2:00PM mark:
+
+   ![]({{ site.baseurl }}/images/replication/cron-extraction-whitelist-example.png)
+
+---
+
 ## Troubleshooting
+
+{% assign cron-errors = site.data.errors.cron-scheduling.errors %}
+
+<table class="attribute-list">
+<tr>
+<td>
+<strong>
+Error
+</strong>
+</td>
+
+<td>
+<strong>
+Solution
+</strong>
+</td>
+</tr>
+{% for error in cron-errors %}
+<tr>
+<td>
+<em>{{ error.message | markdownify }}</em>
+</td>
+<td>
+{{ error.meaning }}
+</td>
+</tr>
+{% endfor %}
+</table>
+
+---
+
+## Additional cron resources {#resources}
+
+{% for resource in cron.resource-list %}
+- [**{{ resource.name }}**]({{ resource.url }}) - {{ resource.description }}
+{% endfor %}
