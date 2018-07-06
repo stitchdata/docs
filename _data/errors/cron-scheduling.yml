@@ -1,0 +1,45 @@
+# -------------------------- #
+#   Cron Scheduling Errors   #
+# -------------------------- #
+
+## This file contains the error messages that can display
+## on an integration's settings page when attempting to use
+## advanced scheduling, or cron scheduling.
+
+## See: https://www.stitchdata.com/docs/replication/replication-scheduling/advanced-cron-scheduling
+
+errors:
+  - message: "This field is required"
+    meaning: "When advanced scheduling is selected, a cron expression must be provided."
+    fix-it: |
+      If you want to use Advanced Scheduling, enter a valid cron expression.
+
+      Otherwise, de-select the **Advanced** checkbox to define a Replication Frequency or Anchor Schedule.
+
+  - message: |
+      Invalid value: "{EXPRESSION}": Expected exactly 5 fields, found 6: {EXPRESSION}
+    meaning: |
+      The expression contains an unexpected number of fields. Cron expressions in Stitch may only have five fields: `[minutes] [hours] [day of month] [month] [day of week]`
+    fix-it: |
+      Edit the expression so that it contains only five fields.
+
+  - message: |
+      Invalid value: "{EXPRESSION}": Failed to parse int from {CHARACTER}: strconv.Atoi: parsing "{CHARACTER}": invalid syntax"
+    meaning: |
+      The expression contains an illegal character for a given field. For example: An alphabetical character - such as `H` or `Z` - in the `minutes` or `hours` fields will result in this error.
+    fix-it: |
+      Verify that each of the fields in the expression contains only its [allowed values and special characters](#cron-expression-field-values).
+
+  - message: |
+       Invalid value: "* {VALUE} * * *": End of range ({VALUE}) above maximum ({FIELD MAX VALUE}): {VALUE}
+    meaning: |
+      A field in the expression contains a numerical value that exceeds the maximum allowed for that field.
+
+      For example: The `minutes` field will only accept values from `0-59`, as an hour only contains 60 minutes.
+    fix-it: |
+      Verify that each of the fields in the expression contains a numerical value within its limits:
+
+      - `minutes` - `0-59`
+      - `hours` - `0-23`
+      - `day of month` - `1-31`
+      - `day of week` - `1-7`
