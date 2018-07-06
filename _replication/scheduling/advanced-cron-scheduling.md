@@ -90,6 +90,8 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
         <p>The fields in a cron expression can contain any of the following values, along with the allowed special characters for that field.</p>
 
         <p>See the <strong>Special characters</strong> tab for explanations and examples of how special characters are used.</p>
+
+        <p><strong>Note</strong>: Entering anything other than a field's allowed values or special characters will result in an error when you try to save the integration's settings. Refer to the <a href="#troubleshooting-cron-errors">Troubleshooting section</a> for help resolving these errors.</p>
         <table class="attribute-list">
             <tr>
                 <td>
@@ -119,6 +121,10 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
     </div>
 
     <div role="tabpanel" class="tab-pane" id="special-characters">
+
+        <p>Each field in a cron expression has its own list of allowed special characters. These characters allow you to specify wild cards, ranges, etc.</p>
+
+        <p><strong>Note</strong>: Entering anything other than a field's allowed values or special characters will result in an error when you try to save the integration's settings. Refer to the <a href="#troubleshooting-cron-errors">Troubleshooting section</a> for help resolving these errors.</p>
         <table class="attribute-list">
             <tr>
                 <td width="15%; fixed" align="right">
@@ -195,7 +201,7 @@ Translation
 
 ## Limitations of cron scheduling {#limitations}
 
-[TODO - ADD NOTE HERE ABOUT GENERAL SCHEDULING LIMITATIONS]
+While using cron expressions will give you the most control over your integrations' replication schedules, there are some limitations to keep in mind:
 
 1. **Advanced scheduling isn't available for all integrations**. Some database integrations don't currently support advanced scheduling. We are working on converting these integrations into Singer-powered taps, at which point advanced scheduling will be available.
 
@@ -211,11 +217,11 @@ Translation
 
 ---
 
-## Troubleshooting
+## Troubleshooting {#troubleshooting-cron-errors}
 
 {% assign cron-errors = site.data.errors.cron-scheduling.errors %}
 
-If an illegal value or the expression syntax is incorrect, Stitch will display an error towards the top of the {{ app.page-names.int-settings }} page when you attempt to save the changes to the integration.
+If there's an illegal value or the expression syntax is incorrect, Stitch will display an error towards the top of the {{ app.page-names.int-settings }} page when you attempt to save the changes to the integration.
 
 Before you can move on, you'll need to resolve what's causing the error.
 
