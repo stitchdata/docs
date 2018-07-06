@@ -10,7 +10,16 @@
 #         Resources          #
 # -------------------------- #
 
-crontab: "https://crontab.guru/"
+resource-names:
+  crontab: &crontab-name "crontab.guru"
+
+resource-urls:
+  crontab: &crontab-url "https://crontab.guru/"
+
+resource-list:
+  - name: *crontab-name
+    url: *crontab
+    description: "Simple, web-based editor for cron expressions."
 
 # -------------------------- #
 #      Required Fields       #
@@ -54,9 +63,9 @@ special-characters:
     description: |
       Selects all values within a field.
     example: |
-      - `*` in the `minute` field means `"every minute"`
-      - `*` in the `month` field means `"every month"`
-      - `*` in the `day of week` field means `"every day of the week"`
+      - `*` in the `minute` field means _"every minute"_
+      - `*` in the `month` field means _"every month"_
+      - `*` in the `day of week` field means "every day of the week"_
 
   - character: ","
     name: "comma"
@@ -64,8 +73,8 @@ special-characters:
     description: |
       Specifies a list of two or more values.
     example: |
-      - `JAN, FEB, MAY` in the `month` field means `"the months January, February, and May"`
-      - `MON, WED` in the `day of week` field means `"the days Monday and Friday"`
+      - `JAN, FEB, MAY` in the `month` field means _"the months January, February, and May"_
+      - `MON, FRI` in the `day of week` field means _"the days Monday and Friday"_
 
   - character: "-"
     name: "hyphen"
@@ -73,8 +82,8 @@ special-characters:
     description: |
       Specifies a range of values.
     example: |
-      - `5-8` in the `hour` field means `"the hours 5, 6, 7, and 8"`
-      - `MON-WED` in the `day of week` field means `"the days Monday, Tuesday, and Wednesday"`
+      - `5-8` in the `hour` field means _"the hours 5, 6, 7, and 8"_
+      - `MON-WED` in the `day of week` field means _"the days Monday, Tuesday, and Wednesday"_
 
   - character: "/"
     name: "forward slash"
@@ -84,9 +93,9 @@ special-characters:
 
       The `[field value]` acts as the starting point on which the increment is based.
     example: |
-      - `0/15` in the `minute` field means `"the minutes 0, 15, 30, and 45"`
-      - `3/6` in the `hour` field means `"every 6 hours beginning on the third hour"`
-      - `1/5` in the `day of month` field means `"every 5 days beginning on the first day of the month"`
+      - `0/15` in the `minute` field means _"the minutes 0, 15, 30, and 45"_
+      - `3/6` in the `hour` field means _"every 6 hours beginning on the third hour"_
+      - `1/5` in the `day of month` field means _"every 5 days beginning on the first day of the month"_
 
   - character: "?"
     name: "question mark"
@@ -94,8 +103,8 @@ special-characters:
     description: |
       Specifies a non-specific value for the `day of month` or `day of week`.
     example: |
-      - `5` in the `day of month` field and `?` in the `day of week` field would mean `"on the 5th day of every month, regardless of what day of the week the 5th falls on"`
-      - `?` in the `day of month` field and `6L` in the `day of week` field would mean `"on the last Friday of every month"`
+      - `5` in the `day of month` field and `?` in the `day of week` field would mean _"on the 5th day of every month, regardless of what day of the week the 5th falls on"_
+      - `?` in the `day of month` field and `6L` in the `day of week` field would mean _"on the last Friday of every month"_
 
   - character: "L"
     name: "L"
@@ -106,11 +115,11 @@ special-characters:
       - `day of month` field - Used to indicate the last day of the month.
       - `day of week` field - If used by itself, this means `7`, or `SAT`.
 
-         If used after another value in this field, means `"the last [xxx] day of the month"`.
+         If used after another value in this field, means _"the last [xxx] day of the month"_.
 
       To avoid confusing or unexpected results, don't specify lists or ranges of values with `L`.
     example: |
-      - `6L` or `FRIL` in the `day of week` field means `"the last Friday of the month"`
+      - `6L` or `FRIL` in the `day of week` field means _"the last Friday of the month"_
 
   - character: "W"
     name: "W"
@@ -121,11 +130,11 @@ special-characters:
       **Note**: This character is only allowed when the `day of month` value is a single day, not a range or list of days.
 
     example: |
-      1. `15W` means `"the nearest weekday to the 15th of the month"`. If the 15th were a Saturday, a replication job would begin on Friday the 14th.
+      1. `15W` means _"the nearest weekday to the 15th of the month"_. If the 15th were a Saturday, a replication job would begin on Friday the 14th.
 
-      2. `1W` means `"the nearest weekday to the 1st of the month"`. If the 1st is a Saturday, the replication job would begin on Monday the 3rd. Cron can't skip over a boundary of days.
+      2. `1W` means _"the nearest weekday to the 1st of the month"_. If the 1st is a Saturday, the replication job would begin on Monday the 3rd. Cron can't skip over a boundary of days.
 
-      3. When combined with `L` (`LW`), this would mean `"the last weekday of the month"`.
+      3. When combined with `L` (`LW`), this would mean _"the last weekday of the month"_.
 
   - character: "#"
     name: "hash"
@@ -181,7 +190,7 @@ examples:
       0 0/12 * * *
       ```
 
-  - translation: "Run Tuesday-Thursday every week at 3AM"
+  - translation: "Run Tuesday through Thursday every week at 3AM"
     expression: |
       ```
       0 3 * * 3-5
