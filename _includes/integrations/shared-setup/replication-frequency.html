@@ -1,5 +1,13 @@
 {% include misc/data-files.html %}
 
+{% case integration.singer %}
+    {% when 'true' %}
+        {% assign save-button = app.buttons.check-and-save %}
+    {% else %}
+        {% assign save-button = "**Update Settings**" %}
+{% endcase %}
+
+
 {% unless page.layout == "singer" or page.layout == "database" %}
 ### Create a replication schedule {#define-rep-frequency}
 {% endunless %}
@@ -10,27 +18,18 @@ Replication schedules affect the time Extraction begins, not the time to data lo
 
 {% include note.html content=extraction-note %}
 
-In the **Replication Frequency** section, you'll create the integration's [replication schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}). An integration's replication schedule determines how often Stitch runs a replication job, and the time that job begins.
+In the **Replication Frequency** section, you'll select the method you want to use to create the integration's [replication schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}). An integration's replication schedule determines how often Stitch runs a replication job, and the time that job begins.
 
-Stitch offers two methods of creating a replication schedule:
+Stitch offers these methods for creating a replication schedule:
 
-- **Replication Frequency**: This method requires selecting the interval you want replication to run for the integration. Start times of replication jobs are based on the start time and duration of the previous job. Refer to the [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}) documentation for more information and examples.
-- **Anchor scheduling**: Based on the Replication Frequency, or interval, you select, this method "anchors" the start times of this integration's replication jobs to a time you select to create a predictable schedule. [Anchor scheduling]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}) is a combination of the Anchor Time and Replication Frequency settings, which must both be defined to use this method. Additionally, note that:
+- **Replication Frequency** - Replication jobs begin at defined intervals. [See the Replication Frequency documentation]({{ link.replication.rep-frequency | prepend: site.baseurl }}).
+- **Anchor Scheduling** - Replication jobs begin at defined intervals and are "anchored" to a time you select. [See the Anchor Scheduling documentation]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}). {% if integration.anchor-scheduling == false %}To use Anchor Scheduling with this integration, contact Stitch Support.{% endif %}
+{% if integration.cron-scheduling == true %}
+- **Advanced Scheduling using cron expressions**. Replication jobs can be scheduled to start at certain hours, days of the month, days of the week, etc. This option provides the most control over creating replication schedules. [See the Advanced Scheduling documentation]({{ link.replication.cron-scheduling | prepend: site.baseurl }}).
 
-   - A **Replication Frequency of at least one hour** is required to use anchor scheduling.
-   - **An initial replication job may not begin immediately after saving the integration**, depending on the selected Replication Frequency and Anchor Time. Refer to the [Anchor Scheduling]({{ link.replication.rep-scheduling | prepend: site.baseurl | append: "#job-scheduling-and-anchor-times" }}) documentation for more information.
-   {% if integration.permalink contains "databases" %}
-   - **You'll need to contact support to request using an Anchor Time with this integration.**
-   {% endif %}
+   **Note**: This feature is only available on Enterprise plans.
+{% endif %}
 
 To help prevent overages, consider setting the integration to replicate less frequently. See the [Understanding and Reducing Your Row Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) for tips on reducing your usage.
 
-<!-- Only display if integration enforces API limits -->
-{% if integration.enforces-api-limits == true %}
-{% capture api-limits %}
-**{{ integration.display_name }} API Limits & Replication Frequency**<br>
-{{ integration.display_name }}'s API enforces usage limits. As a result, a high Replication Frequency may exceed these limits and impact Stitch's ability to replicate data. See the [Replication](#replication) section below for more details.
-{% endcapture %}
-
-{% include important.html content=api-limits %}
-{% endif %}
+After you've made your selection, click {{ save-button }}.
