@@ -41,19 +41,19 @@ Stitch offers three methods of creating a replication schedule, listed below.
 
 [Replication Frequency]({{ link.replication.rep-frequency | flatify | prepend: site.baseurl }}) allows you to select how frequently you want Stitch to run replication jobs for an integration, based on intervals of 30 minutes, one hour, three hours, six hours, 12 hours, and 24 hours.
 
-For this method, the start times of replication jobs are based on the start time and duration of the previous job. [Refer to [TODO] for examples]().
+For this method, the start times of replication jobs are based on the start time and duration of the previous job. [Refer to the Replication Frequency documentation for examples]({{ link.replication.rep-frequency | prepend: site.baseurl | append: "#job-scheduling" }}).
 
 ### Anchor Scheduling
 
 [Anchor Scheduling]({{ link.replication.anchor-scheduling | flatify | prepend: site.baseurl }}) is a combination of two settings: Replication Frequency and Anchor Time.
 
-The Anchor Time "anchors" the start times of replication jobs to a time you select, and in conjunction with the Replication Frequency, creates a predictable replication schedule. For example: Run a replication job every 3 hours, starting at 1:00 PM. [Refer to [TODO] for more examples]().
+The Anchor Time "anchors" the start times of replication jobs to a time you select, and in conjunction with the Replication Frequency, creates a predictable replication schedule. For example: Run a replication job every 3 hours, starting at 1:00 PM. [Refer to the Anchor Scheduling documentation for more examples]({{ link.replication.anchor-scheduling | prepend: site.baseurl | append: "#job-scheduling" }}).
 
 **Note**: This feature may not be available for all integrations.
 
 ### Advanced Scheduling using cron expressions
 
-The [Advanced Scheduler feature]({{ link.replication.cron-scheduling | flatify | prepend: site.baseurl }}) allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin.
+The [Advanced Scheduler feature]({{ link.replication.cron-scheduling | flatify | prepend: site.baseurl }}) allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin. [Refer to the Advanced Scheduling documentation for examples]({{ link.replication.cron-scheduling | prepend: site.baseurl | append: "#examples" }}).
 
 **Note**: This feature is only available on Enterprise plans.
 
