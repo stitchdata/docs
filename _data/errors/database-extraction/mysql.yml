@@ -157,3 +157,11 @@ errors:
         - **Ensure the Stitch user has access to all the columns in the table**. Although Stitch will be limited to the columns you specify while using `SELECT` during the initial replication job, values for restricted columns will still appear in binary log files.
 
            Because these values are in the binary log files but not in the initial `SELECT` replication, Stitch will interpret this as columns being reordered. Ensuring that the Stitch database user has access to all columns at the start can avoid this error.
+
+  - message: |
+      [...] it is a view.
+    id: "binlog-unsupported-views"
+    meaning: |
+      The source object is a database view. Binary logging doesn't track events that occur in database views, so Stitch is unable to use Log-based Replication for views.
+    fix-it: |
+      Update the view's Replication Method to either [Key-based Incremental]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}).
