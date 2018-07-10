@@ -22,8 +22,19 @@ errors:
       **Note**: [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group) and [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group) databases should have binary logging enabled by default. If you receive this error for either of these databases, verify that the rest of the required server settings are defined correctly.
 
 
+  - message: "(1236, 'Misconfigured master - server id was not set')"
+    id: "master-server-id-not-set"
+    meaning: |
+      The [likely cause of this error is setting server parameters](https://dba.stackexchange.com/questions/76089/error-1236-from-master-after-restored-replication){:target="new"} - in this case, related to enabling binlog replication - on the master server without rebooting the master.
+
+      Rebooting the master instance is required for server parameter changes to take effect.
+
+    fix-it: |
+      Reboot the master instance to ensure the server parameters for enabling binlog are applied.
+
+
   - message: |
-      Unable to replicate stream({table name}) with binlog because binlog_format is not set to 'ROW': {MIXED or STATEMENT}.
+      [...] binlog_format is not set to 'ROW': [MIXED or STATEMENT].
     id: "binlog-format-row"
     meaning: |
       The `binlog_format` server parameter is not set to `ROW`, which Stitch requires for MySQL Log-based Replication.
@@ -44,7 +55,7 @@ errors:
 
 
   - message: |
-      Unable to replicate stream({table name}) with binlog because binlog_row_image is not set to 'FULL': {MINIMAL or NOBLOB}.
+      [...] binlog_row_image is not set to 'FULL': [MINIMAL or NOBLOB].
     id: "binlog-row-image-full"
     meaning: |
       The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication.
@@ -55,49 +66,23 @@ errors:
       {{ mysql-server-settings-list }}
 
 
-  - message: "Unable to replicate stream({table name}) because log file {binary log file name} does not exist."
-    id: "log-file-does-not-exist"
-    meaning: |
-      Stitch is unable to detect binary log files in the database. 
-
-      To detect binary logs, the Stitch database user will run the `SHOW BINARY LOGS` command. If the database user doesn't have the privilege required to execute this command, this error will surface in the extraction logs.
-      
-    fix-it: |
-      Verify that the Stitch database user has the [`REPLICATION CLIENT`](https://dev.mysql.com/doc/refman/5.5/en/privileges-provided.html#priv_replication-client){:target="new"} privilege.
-
-      You can list the privileges the Stitch user has by running [`SHOW GRANTS`](https://dev.mysql.com/doc/refman/5.6/en/show-grants.html). The result of this command will display the privileges the user has, in the form of `GRANT` statements that must be executed to duplicate the privileges.
-
-      For example: The Stitch user below has the `SELECT` and `REPLICATION SLAVE` privileges, but not `REPLICATION CLIENT`:
-
-      ```sql
-      mysql> SHOW GRANTS FOR '[stitch_username]'@'localhost';
-      +---------------------------------------------------------------------------+
-      | Grants for [stitch_username]@localhost                                    |
-      +---------------------------------------------------------------------------+
-      | GRANT SELECT, REPLICATION SLAVE ON *.* TO `[stitch_username]`@`localhost` |
-      +---------------------------------------------------------------------------+
-      ```
-
-      To grant the `REPLICATION CLIENT` privilege, you would execute the following command:
-
-      ```sql
-      GRANT REPLICATION CLIENT ON *.* TO [stitch_username];
-      ```
-
-
   - message: |
-      Unable to replicate stream({table name}) with binlog because requested position ({log file position from state}) for log file {binary log file name} is greater than current position ({current log file position on server}).
+      [...] requested position ([log file position from state]) for log file [binary log file name] is greater than current position ([current log file position on server]).
     id: "binlog-current-position"
     meaning: |
       When Stitch replicates data using Log-based Replication, it will "bookmark" its place by saving a position in the log file. When the next replication job begins, Stitch will use this value to identify the place in the log where it should begin reading data.
 
       This error means that the log position Stitch has is "ahead" of the server. To summarize, the log position Stitch is attempting to use is greater than the log position that the MySQL database has available.
+
+      Typically this will be an issue only if the server uses a very small [`max_binlog_size`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_max_binlog_size){:target="new"} value.
     fix-it: |
-      [TODO]
+      Perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the Replication Keys for the integration and queue a full re-replication of the integration.
+
+      We also recommend checking the value of the `max_binlog_size` server parameter and increasing it if it's too small. By default, this is set to MySQL's maximum of 1 GB (1073741824 bytes).
 
 
   - message: |
-      Unable to replicate stream({table name}) with binlog because binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication.
+      [...] binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication.
     id: "mysql-version-requirement"
     meaning: |
       The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running. This means that binary logging, or binlog replication, is not a feature supported by the current database version.
@@ -106,30 +91,69 @@ errors:
       The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.
 
 
-  - message: "Unable to replicate binlog stream because the following binary log(s) no longer exist: {binary log file name}"
-    id: "binary-logs-no-longer-exist"
+  - message: |
+      Error persisting data for table "[table_name]": Record N did not conform to schema
+    id: "schema-mismatch"
     meaning: |
-      The binary log file Stitch is attempting to read from has been removed from the database server.
+      This error is caused by columns in a table being in a different order than the order in the initial replication job.
 
-      This occurs when the log retention period (controlled by the `binary_expire_logs_seconds` or `expire_log_days` parameters) passes and the log is purged from the server.
+      This can be caused by:
+
+      - Altering the table's schema by removing a column, adding a new column to the middle of the table, or changing the order of columns
+      - The Stitch database user not having access to all the columns in the table
+
+      ---
+
+      <span class="h4">Explanation</span>
+
+      When Stitch performs an initial replication job for a table using Log-based Replication, it'll use `SELECT` to replicate the table in full. After the historical replication is complete, Stitch will start reading events from the binary log to replicate only new and updated data.
+
+      MySQL binary logs, which Stitch uses to perform Log-based Replication, only contain column values. No information about the columns the values are destined for is included.
+
+      Log-based Replication relies on the order of columns remaining the same. Because binary logs don't contain column info, Stitch doesn't have a way to identify which values go in each column when the order changes.
+
+      ---
+
+      <span class="h4">Example</span>
+
+      **Initial replication job**
+
+      During the initial replication job, Stitch replicates the following table in full using `SELECT`.
+
+      On the left is the table as it looks in the source; on the right is how each record's values might appear in the binary log:
+
+      ```markdown
+      | id | name | magic | type  |                           | binary log values  |
+      |----+------+-------+-------|                           |--------------------|
+      | 1  | Finn | false | human |                           | 1,Finn,false,human |
+      | 2  | Jake | true  | dog   |                           | 2,Jake,true,dog    |
+      ```
+
+      **Second replication job**
+
+      Because the historical replication is complete, Stitch will now use the binary logs to replicate new and updated data. Before the next replication job, a new record is added and the `magic` column is deleted.
+
+      On the left is how the table now looks in the source; on the right is how each record's values might now appear in the binary log:
+
+      ```markdown
+      | id | name  | type  |                                  | binary log values  |
+      |----+-------+-------|                                  |--------------------|
+      | 1  | Finn  | human |                                  | 1,Finn,human       |
+      | 2  | Jake  | dog   |                                  | 2,Jake,dog         |
+      | 3  | Beamo | robot |                                  | 3,Beamo,robot      |
+      ```
+
+      **Remember**: Binary logs only contain column values - no info about which column the values belong in is provided. In this case, Stitch is expecting data for four columns (`id`, `name`, `magic`, `type`) and only data for three columns (`id`, `name`, `type`) is contained in the binary log.
+
+      Because the binary log doesn't contain info about where the values should be placed, Stitch will return the `Record 0 did not conform to schema` error.
 
     fix-it: |
-      If a backup of the binary log exists, restore it to the database server. Otherwise, you'll need to reset the table's or integration's Replication Keys.
+      To resolve the error, you'll need to perform a table-level reset. To do this, open the **{{ app.page-names.table-settings }}** page for the table and click the {{ app.buttons.reset-rep-keys }} button. This will clear the table's Replication Key value and queue a full re-replication of the table.
 
-      To prevent future issues, consider increasing the values of these parameters. The log retention period should be a minimum of **3 days**, but we recommend **7 days**. This ensures that should replication issues arise, you won't miss any data during an outage.
+      To prevent this error in the future:
 
-      The steps for changing the log retention period will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
+        - **When adding new columns**, append them to the end of the table
+        - **When removing columns**, perform the table-level reset in Stitch immediately after the modification
+        - **Ensure the Stitch user has access to all the columns in the table**. Although Stitch will be limited to the columns you specify while using `SELECT` during the initial replication job, values for restricted columns will still appear in binary log files.
 
-      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
-      - [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#define-binlog-retention-setting)
-      - [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#define-binlog-retention-setting)
-      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#define-database-parameters)
-      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
-
-  - message: "[Placeholder for column re-ordering error]"
-    id: "[TODO]"
-    meaning: |
-      [TODO]
-      
-    fix-it: |
-      [TODO]
+           Because these values are in the binary log files but not in the initial `SELECT` replication, Stitch will interpret this as columns being reordered. Ensuring that the Stitch database user has access to all columns at the start can avoid this error.
