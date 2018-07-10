@@ -38,10 +38,14 @@
 {% highlight shell %}
 {{ error.full-message }}
 {% endhighlight %}
+
+                <hr>
                 {% endif %}
 
             	<span class="h3">Meaning</span>
             	{{ error.meaning | flatify | markdownify | replace:"[destination/database]",feature | replace:"[Destination/Integration]",Feature | replace: "[types]",types | replace: "[wrong-type]",wrong-type }}
+
+                <hr>
 
             	<span class="h3">Troubleshooting</span>
             	{% if error.fix-it %}
