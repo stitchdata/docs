@@ -57,7 +57,6 @@ examples:
     language: "curl"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
                 "email": "stitch-api-test@stitchdata.com",
