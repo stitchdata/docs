@@ -27,29 +27,29 @@ resource-list:
 
 required-fields:
   - name: "minute"
-    allowed-values: "0-59"
+    allowed-values: "* or 0-59"
     special-characters: |
-      , - * /
+      , -
 
   - name: "hour"
-    allowed-values: "0-23"
+    allowed-values: "* or 0-23"
     special-characters: |
-      , - * /
+      , -
 
   - name: "day of month"
-    allowed-values: "1-31"
+    allowed-values: "* or 1-31"
     special-characters: |
-      , - * ? / L W
+      , -
 
   - name: "month"
-    allowed-values: "1-12 or JAN-DEC"
+    allowed-values: "* or 1-12"
     special-characters: |
-      , - * /
+      , -
 
   - name: "day of week"
-    allowed-values: "1-7 or SUN-SAT"
+    allowed-values: "* or 0-6 (0 = Sunday)"
     special-characters: |
-      , - * ? / L #
+      , -
 
 
 # -------------------------- #
@@ -65,7 +65,7 @@ special-characters:
     example: |
       - `*` in the `minute` field means _"every minute"_
       - `*` in the `month` field means _"every month"_
-      - `*` in the `day of week` field means "every day of the week"_
+      - `*` in the `day of week` field means _"every day of the week"_
 
   - character: ","
     name: "comma"
@@ -73,8 +73,8 @@ special-characters:
     description: |
       Specifies a list of two or more values.
     example: |
-      - `JAN, FEB, MAY` in the `month` field means _"the months January, February, and May"_
-      - `MON, FRI` in the `day of week` field means _"the days Monday and Friday"_
+      - `1,2,5` in the `month` field means _"the months January, February, and May"_
+      - `1,5` in the `day of week` field means _"the days Monday and Friday"_
 
   - character: "-"
     name: "hyphen"
@@ -83,70 +83,7 @@ special-characters:
       Specifies a range of values.
     example: |
       - `5-8` in the `hour` field means _"the hours 5, 6, 7, and 8"_
-      - `MON-WED` in the `day of week` field means _"the days Monday, Tuesday, and Wednesday"_
-
-  - character: "/"
-    name: "forward slash"
-    allowed-in: "all"
-    description: |
-      Specifies increments. Formatted as: `[field value]/[increment]`
-
-      The `[field value]` acts as the starting point on which the increment is based.
-    example: |
-      - `0/15` in the `minute` field means _"the minutes 0, 15, 30, and 45"_
-      - `3/6` in the `hour` field means _"every 6 hours beginning on the third hour"_
-      - `1/5` in the `day of month` field means _"every 5 days beginning on the first day of the month"_
-
-  - character: "?"
-    name: "question mark"
-    allowed-in: "day of month, day of week"
-    description: |
-      Specifies a non-specific value for the `day of month` or `day of week`.
-    example: |
-      - `5` in the `day of month` field and `?` in the `day of week` field would mean _"on the 5th day of every month, regardless of what day of the week the 5th falls on"_
-      - `?` in the `day of month` field and `6L` in the `day of week` field would mean _"on the last Friday of every month"_
-
-  - character: "L"
-    name: "L"
-    allowed-in: "day of month, day of week"
-    description: |
-      Depending on the field this is used in, `L` can have different meanings.
-
-      - `day of month` field - Used to indicate the last day of the month.
-      - `day of week` field - If used by itself, this means `7`, or `SAT`.
-
-         If used after another value in this field, means _"the last [xxx] day of the month"_.
-
-      To avoid confusing or unexpected results, don't specify lists or ranges of values with `L`.
-    example: |
-      - `6L` or `FRIL` in the `day of week` field means _"the last Friday of the month"_
-
-  - character: "W"
-    name: "W"
-    allowed-in: "day of month"
-    description: |
-      Specifies the weekday (Monday - Friday) closest to the given day.
-
-      **Note**: This character is only allowed when the `day of month` value is a single day, not a range or list of days.
-
-    example: |
-      1. `15W` means _"the nearest weekday to the 15th of the month"_. If the 15th were a Saturday, a replication job would begin on Friday the 14th.
-
-      2. `1W` means _"the nearest weekday to the 1st of the month"_. If the 1st is a Saturday, the replication job would begin on Monday the 3rd. Cron can't skip over a boundary of days.
-
-      3. When combined with `L` (`LW`), this would mean _"the last weekday of the month"_.
-
-  - character: "#"
-    name: "hash"
-    allowed-in: "day of week"
-    description: |
-      Used with a day of week value (`1-7`, `SUN-SAT`) and an integer (`1-5`) to specify the `nth` day of the month. Formatted as: `[day of week]#[integer]`
-
-      **Note**: If `[XXX]#5` is specified and there isn't a fifth given day of week in the month, then the replication job will not be triggered.
-    example: |
-      - `4#2` or `WED#2` means the second (`#2`) Wednesday (`4` or `WED`) of each month
-      - `2#1` or `MON#1` means the first (`#1`) Monday (`2` or `MON`) of each month
-      - `7#5` or `SAT#5` means the fifth (`#5`) Saturday (`7` or `SAT`) of each month. In the event that a month doesn't have five Saturdays, a replication job will not be triggered.
+      - `1-3` in the `day of week` field means _"the days Monday, Tuesday, and Wednesday"_
 
 
 # -------------------------- #
@@ -166,62 +103,92 @@ examples:
       0 0 * * 1-5
       ```
 
-      **OR**
-
-      ```
-      0 0 * * MON-FRI
-      ```
-
   - translation: "Run once a week at 11PM on Sunday"
     expression: |
       ```
-      0 23 * * SUN
-      ```
-
-      **OR**
-
-      ```
-      0 23 * * 1
+      0 23 * * 0
       ```
 
   - translation: "Run every day at noon and midnight"
     expression: |
       ```
-      0 0/12 * * *
+      0 0,12 * * *
       ```
 
   - translation: "Run Tuesday through Thursday every week at 3AM"
     expression: |
       ```
-      0 3 * * 3-5
-      ```
-
-      **OR**
-
-      ```
-      0 3 * * TUES-THURS
-      ```
-
-  - translation: "Run every 6 hours starting at 3AM, every day"
-    expression: |
-      ```
-      0 3/6 * * *
+      0 3 * * 2-4
       ```
 
   - translation: "Run at midnight every Monday, Wednesday, and Friday"
     expression: |
       ```
-      0 0 * * MON,WED,FRI
+      0 0 * * 1,3,5
       ```
 
-      **OR**
+# --------------------------- #
+#  Day specification examples #
+# --------------------------- #
 
-      ```
-      0 0 * * 2,4,6
-      ```
+day-specification-examples:
+  - explanation: |
+      **IF**: All fields are unrestricted (contain asterisks)
 
-  - translation: "Run every 2 hours between the hours of 9AM and 5PM, every day"
-    expression: |
-      ```
-      0 9-17/2 * * *
-      ```
+      **THEN**: Every day is selected
+    examples:
+      - translation: "Run every day"
+        expression: |
+          ```
+          [minute] [hour] * * *
+          ```
+  - explanation: |
+      **IF**: `day of month` or `month` are restricted and `day of week` is not
+
+      **THEN**: `day of month` or `month` specifies matching days
+    examples:
+      - translation: "Run every first day of every month"
+        expression: |
+          ```
+          [minute] [hour] 1 * *
+          ```
+
+      - translation: "Run every day of the first month (January)"
+        expression: |
+          ```
+          [minute] [hour] * 1 *
+          ```
+
+  - explanation: |
+      **IF**: Only `day of week` is restricted
+
+      **THEN**: `day of week` specifies matching days
+    examples:
+      - translation: "Run every first day of every week (Monday)"
+        expression: |
+          ```
+          [minute] [hour] * * 1
+          ```
+
+  - explanation: |
+      **IF**: `day of month` or `month` and `day of week` are restricted
+
+      **THEN**: Any day matching either `day of month`, `month` or the `day of week` are matched
+    examples:
+      - translation: "Run every first day in the first month (January) and the first day of every week (Monday)"
+        expression: |
+          ```
+          [minute] [hour] 1 1 1
+          ```
+
+      - translation: "Run every day in the first month (January) and the first day of every week (Monday)"
+        expression: |
+          ```
+          [minute] [hour] * 1 1
+          ```
+
+      - translation: "Run every first day of every month and the first day of every week (Monday)"
+        expression: |
+          ```
+          [minute] [hour] 1 * 1
+          ```

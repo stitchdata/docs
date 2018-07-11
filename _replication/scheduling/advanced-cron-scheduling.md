@@ -40,7 +40,7 @@ Using Advanced Scheduling, you can:
 
 1. **Run reports on a schedule**. For example: You need reports for a 9:00AM meeting you have every day. You could create a replication schedule that runs a replication job every night at 12:00AM, which would ensure fresh data is available in the morning when you need it. Reports could be scheduled to run at 7:00AM, giving you time before your meeting to review the data and resolve replication issues, should any arise.
 
-2. **Whitelist hours for starting data extractions.** For example: You know that your production database is under heavy load from 12:00PM to 5:00PM. To avoid adding additional load, you can create a schedule that prevents extractions from starting during this time. **Note**: An extraction may run over into "blackout" hours as the Advanced Scheduler only controls the times jobs **start**. [See the Limitations section for more info](#limitations).
+2. **Whitelist hours for starting data extractions.** For example: You know that your production database is under heavy load from 1:00PM to 5:00PM. To avoid adding additional load, you can create a schedule that prevents extractions from starting during this time. **Note**: An extraction may run over into "blackout" hours as the Advanced Scheduler only controls the times jobs **start**. [See the Limitations section for more info](#limitations).
 
 3. **Reduce your row usage**. Only scheduling data extractions when you need them can not only reduce load on data sources and your destination, it can reduce your overall row usage in Stitch.
 
@@ -55,16 +55,19 @@ Stitch's Advanced Scheduler feature uses cron scheduling to create replication s
 - [Introduce you to cron and cron expressions](#intro-to-cron)
 - [Describe cron expression syntax](#con-expression-syntax)
 - [Explain how to format a cron expression](#cron-expression-field-values)
+- [Explain how to specify TODO](#)
 
 ### Introduction to cron {#intro-to-cron}
 
 So, what's cron? **Cron** is a time-based scheduler used in Unix-like operating systems such as Mac OS, Linux, etc. Tasks, or jobs, created through cron are called **cron jobs**.
 
-To create a cron job - in this case, an integration's replication schedule - a **cron expression** is used. Using a cron expression, you can create a replication schedules such as _"At 12:00AM every day"_ or _"At 7:00PM every Monday, Wednesday, and Friday"_.
+To create a cron job - in this case, an integration's replication schedule - a **cron expression** is used. A cron expression describes the details of the schedule, and when combined, translates to the schedule Stitch will use to replicate data from the integration.
+
+Using a cron expression, you can create a replication schedules such as _"At 12:00AM every day"_ or _"At 7:00PM every Monday, Wednesday, and Friday"_.
 
 ### Cron expression syntax {#cron-expression-syntax}
 
-A cron expression in Stitch is made up of five fields that describe the details of the schedule, separated by spaces. When combined, the expression translates to the schedule Stitch will use to replicate data from the integration.
+A cron expression in Stitch is made up of five fields that describe the elements of the schedule, separated by spaces.
 
 Fields in the expression must be in the following order, and an expression must have all five fields to be considered valid:
 
@@ -87,9 +90,9 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="required-fields">
-        <p>The fields in a cron expression can contain any of the following values, along with the allowed special characters for that field.</p>
+        <p>The fields in a cron expression can either contain an asterisk (<code>*</code>), a list of integers separated by commas (ex: <code>1,2,3</code>), or an inclusive range, denoted by two numbers separated by a hyphen (ex: <code>1-5</code>). Fields may also contain both a range and a list. Refer to the <a href="#examples">Example replication schedules section</a> for examples.</p> 
 
-        <p>See the <strong>Special characters</strong> tab for explanations and examples of how special characters are used.</p>
+        <p>See the <strong>Special characters</strong> tab for explanations and examples of how asterisks, commas, and hyphens are used.</p>
 
         <p><strong>Note</strong>: Entering anything other than a field's allowed values or special characters will result in an error when you try to save the integration's settings. Refer to the <a href="#troubleshooting-cron-errors">Troubleshooting section</a> for help resolving these errors.</p>
         <table class="attribute-list">
@@ -122,7 +125,7 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
 
     <div role="tabpanel" class="tab-pane" id="special-characters">
 
-        <p>Each field in a cron expression has its own list of allowed special characters. These characters allow you to specify wild cards, ranges, etc.</p>
+        <p>Each field in a cron expression has its own list of allowed special characters. These characters allow you to select all values, a list of values, or a range of values. Fields may also contain both a range and a list. Refer to the <a href="#examples">Example replication schedules section</a> for examples.</p> 
 
         <p><strong>Note</strong>: Entering anything other than a field's allowed values or special characters will result in an error when you try to save the integration's settings. Refer to the <a href="#troubleshooting-cron-errors">Troubleshooting section</a> for help resolving these errors.</p>
         <table class="attribute-list">
@@ -156,6 +159,70 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
         </table>
     </div>
 </div>
+<br>
+
+### Specifying days in cron expressions {#specifying-days}
+
+Stitch's implementation of cron uses [POSIX](http://pubs.opengroup.org/onlinepubs/7908799/xcu/crontab.html){:target="new"}, which, unlike other cron libraries, uses a unique method to handle the specification of days. This section will focus on the behavior of the `day of month`, `month`, and `day of week` fields.
+
+{% include note.html content="**Field restriction**: In this section, _restricted_ means that a field contains anything other than an asterisk. An asterisk will select all values for a field." %}
+
+In POSIX, the specification of days is made using the `day of month` and `day of week` fields. How days are specified depends on which fields are restricted. In the table below are explanations of how each field combination will behave, example expressions, and the schedule the expression will translate to.
+
+<table class="attribute-list">
+    <tr>
+        <td width="35%; fixed">
+            <strong>
+                Explanation
+            </strong>
+        </td>
+        <td width="30%; fixed">
+            <strong>
+                Expression
+            </strong>
+        </td>
+        <td>
+            <strong>
+                Translation
+            </strong>
+        </td>
+    </tr>
+    {% for explanation in cron.day-specification-examples %}
+        {% for example in explanation.examples %}
+            {% capture total-examples %}
+                {{ forloop.length }}
+            {% endcapture %}
+        {% endfor %}
+
+        <tr>
+            <td rowspan="{{ total-examples | strip }}">
+                {{ explanation.explanation | markdownify }}
+            </td>
+
+            {% for example in explanation.examples %}
+                {% case forloop.first %}
+                    {% when true %}
+                            <td>
+                                {{ example.expression | markdownify | strip }}
+                            </td>
+                            <td>
+                                {{ example.translation | strip }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td>
+                                {{ example.expression | markdownify | strip }}
+                            </td>
+                            <td>
+                                {{ example.translation | strip }}
+                            </td>
+                        </tr>
+                {% endcase %}
+            {% endfor %}
+    {% endfor %}
+</table>
+
 
 ---
 
@@ -172,29 +239,28 @@ Based on scheduling feedback we've collected, we've put together a list of some 
 **Note**: When creating your own cron expressions, keep in mind that there are some [limitations](#limitations).
 
 <table class="attribute-list">
-<tr>
-<td>
-<strong>
-Expression
-</strong>
-</td>
-
-<td>
-<strong>
-Translation
-</strong>
-</td>
-</tr>
-{% for example in cron.examples %}
-<tr>
-<td>
-{{ example.expression | markdownify }}
-</td>
-<td>
-{{ example.translation }}
-</td>
-</tr>
-{% endfor %}
+    <tr>
+        <td>
+            <strong>
+                Expression
+            </strong>
+        </td>
+        <td>
+            <strong>
+                Translation
+            </strong>
+        </td>
+    </tr>
+    {% for example in cron.examples %}
+        <tr>
+            <td>
+                {{ example.expression | markdownify }}
+            </td>
+            <td>
+                {{ example.translation }}
+            </td>
+        </tr>
+    {% endfor %}
 </table>
 
 ---
@@ -205,11 +271,13 @@ While using cron expressions will give you the most control over your integratio
 
 1. **Advanced scheduling isn't available for all integrations**. Some database integrations don't currently support advanced scheduling. We are working on converting these integrations into Singer-powered taps, at which point advanced scheduling will be available.
 
-2. **Intervals (frequencies) must be a minimum of one minute**. [TODO - I'm not sure how users would do this anyway, since we're not allowing them to set values for `seconds`)
+2. **Days of the week in specific months can't be specified** due to the implementation of cron Stitch uses. POSIX (the name of the cron library) [has a unique method for specifying days](#specifying-days).
+
+   For example: The expression `* * * 1 1` translates to _"every day in the first month (January) and the first day of every week (Monday)"_, **not** _"every Monday in January"_.
 
 3. **Advanced Scheduling can only be used to whitelist extraction start times**. This means that a job could start during a whitelisted time period but continue running beyond that window, depending on the duration of the extraction.
 
-   For example: An integration has a schedule that tells it to run every 20 minutes between the hours of 12:00PM and 2:00PM, starting at 12:00PM.
+   For example: An integration has a schedule that tells it to run every 20 minutes between the hours of noon and 2:00PM, starting at noon.
 
    On average, extractions for this integration take between 2-5 minutes. However, the extraction that starts at 1:40PM takes longer than average, causing the job to continue running even after the 2:00PM mark:
 
@@ -226,37 +294,35 @@ If there's an illegal value or the expression syntax is incorrect, Stitch will d
 Before you can move on, you'll need to resolve what's causing the error.
 
 <table class="attribute-list">
-<tr>
-<td width="50%; fixed">
-<strong>
-Error
-</strong>
-</td>
+    <tr>
+        <td width="50%; fixed">
+            <strong>
+                Error
+            </strong>
+        </td>
 
-<td>
-<strong>
-Solution
-</strong>
-</td>
-</tr>
-{% for error in cron-errors %}
-<tr>
-<td>
+        <td>
+            <strong>
+                Solution
+            </strong>
+        </td>
+    </tr>
+    {% for error in cron-errors %}
+        <tr>
+            <td>
 <pre>
-{{ error.message }}
+{{ error.message | strip }}
 </pre>
-</td>
-<td>
-<strong>Meaning</strong>
-{{ error.meaning | markdownify }}
-
-<hr>
-
-<strong>Solution</strong>
-{{ error.fix-it | markdownify }}
-</td>
-</tr>
-{% endfor %}
+            </td>
+            <td>
+                <strong>Meaning</strong>
+                {{ error.meaning | markdownify }}
+                <hr>
+                <strong>Solution</strong>
+                {{ error.fix-it | markdownify }}
+            </td>
+        </tr>
+    {% endfor %}
 </table>
 
 ---
