@@ -4,10 +4,10 @@ permalink: /replication/replication-scheduling/anchor-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 tags: [replication]
 
-summary: "Create a replication schedule for your integration's using Stitch's Replication Frequency and Anchor Time features."
-type: "settings"
+summary: "Anchor Scheduling uses an integration's Replication Frequency and an Anchor Time you define, 'anchoring' a time interval to a time of day to create a predictable replication schedule."
+type: "scheduling"
 toc: true
-weight: 1
+weight: 3
 ---
 {% include misc/data-files.html %}
 

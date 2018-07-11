@@ -13,6 +13,8 @@ feedback: false
 
 {{ page.summary }}
 
+----
+
 {% assign overview = site.replication | where: "type","overview" %}
 
 {% for page in overview %}
@@ -22,33 +24,44 @@ feedback: false
 
 ---
 
-## Syncing Data
+## Replicating data
 
-{% assign syncing = site.replication | where: "type","syncing" | sort:"weight" %}
+{% assign replicating-data = site.replication | where: "type","syncing" | sort:"weight" %}
 
-{% for page in syncing %}
+{% for page in replicating-data %}
 ### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
 {{ page.summary }}
 {% endfor %}
 
 ---
 
-## Replication Settings
+## Replication Methods
 
-{% assign settings = site.replication | where: "type","settings" | sort:"weight" %}
+{% assign replication-methods = site.replication | where: "type","methods" | sort:"weight" %}
 
-{% for page in settings %}
+{% for page in replication-methods %}
 ### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
 {{ page.summary }}
 {% endfor %}
 
 ---
 
-## Replication Progress
+## Replication scheduling
 
-{% assign monitoring = site.replication | where: "type","monitoring" | sort:"weight" %}
+{% assign replication-scheduling = site.replication | where: "type","scheduling" | sort:"weight" %}
 
-{% for page in monitoring %}
+{% for page in replication-scheduling %}
+### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
+{{ page.summary }}
+{% endfor %}
+
+---
+
+## Replication monitoring
+
+{% assign replication-monitoring = site.replication | where: "type","monitoring" | sort:"weight" %}
+
+{% for page in replication-monitoring %}
 ### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
 {{ page.summary }}
 {% endfor %}

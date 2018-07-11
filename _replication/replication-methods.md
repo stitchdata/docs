@@ -6,9 +6,9 @@ tags: [replication]
 category: "settings"
 
 summary: "Replication Methods tell Stitch how to replicate data during a replication job. In this guide, we'll explain the methods Stitch uses, how they work for database and SaaS integrations, and how to define Replication Methods for your database integration tables."
-type: "settings"
+type: "methods"
 toc: true
-weight: 2
+weight: 1
 ---
 {% include misc/data-files.html %}
 

@@ -4,8 +4,8 @@ permalink: /replication/replication-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 tags: [replication]
 
-summary: "[TODO]"
-type: "settings"
+summary: "Replication scheduling controls the frequency and start time of the Extraction phase of the replication process, which is when Stitch extracts data from the data source. In this guide, we explain how scheduling works, the methods available for scheduling, and how schedules impact your row usage."
+type: "scheduling"
 toc: true
 weight: 1
 

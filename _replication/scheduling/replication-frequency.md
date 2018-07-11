@@ -5,10 +5,10 @@ redirect_from: /replication/replication-frequency
 keywords: replicate, replication, replication frequency, frequency, scheduling, schedule, interval, change replication time
 tags: [replication]
 
-summary: "Create a replication schedule for your integration's using Stitch's Replication Frequency and Anchor Time features."
-type: "settings"
+summary: "The simplest of Stitch's scheduling methods, Replication Frequency uses an interval you define to create a replication schedule."
+type: "scheduling"
 toc: true
-weight: 1
+weight: 2
 ---
 {% include misc/data-files.html %}
 
