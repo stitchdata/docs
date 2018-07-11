@@ -103,7 +103,7 @@ examples:
       0 0 * * 1-5
       ```
 
-  - translation: "Run once a week at 11PM on Sunday"
+  - translation: "Run once a week at 11:00PM on Sunday"
     expression: |
       ```
       0 23 * * 0
@@ -115,7 +115,7 @@ examples:
       0 0,12 * * *
       ```
 
-  - translation: "Run Tuesday through Thursday every week at 3AM"
+  - translation: "Run Tuesday through Thursday every week at 3:00AM"
     expression: |
       ```
       0 3 * * 2-4
@@ -126,6 +126,24 @@ examples:
       ```
       0 0 * * 1,3,5
       ```
+
+  - translation: "Run at minute 5, 6, 7, 8, 9, 10, and 30 every day in January"
+    expression: |
+      ```
+      5-10,30 * * 1 *
+      ```
+
+  - translation: "Run every first day of the month and every week on Wednesday"
+    expression: |
+      ```
+      * * 1 * 3
+      ```
+
+  - translation: "Run every 15th day of the month in June and every Thursday at 5:00PM"
+    expression: |
+       ```
+       * 17 15 6 4
+       ```
 
 # --------------------------- #
 #  Day specification examples #
