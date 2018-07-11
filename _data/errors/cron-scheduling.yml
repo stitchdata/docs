@@ -26,7 +26,7 @@ errors:
   - message: |
       Invalid value: "{EXPRESSION}": Failed to parse int from {CHARACTER}: strconv.Atoi: parsing "{CHARACTER}": invalid syntax"
     meaning: |
-      The expression contains an illegal character for a given field. For example: An alphabetical character - such as `H` or `Z` - in the `minutes` or `hours` fields will result in this error.
+      The expression contains an illegal character for a given field. For example: An alphabetical character - such as `H` or `Z` - any field will result in this error.
     fix-it: |
       Verify that each of the fields in the expression contains only its [allowed values and special characters](#cron-expression-field-values).
 
