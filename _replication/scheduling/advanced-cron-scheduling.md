@@ -55,7 +55,7 @@ Stitch's Advanced Scheduler feature uses cron scheduling to create replication s
 - [Introduce you to cron and cron expressions](#intro-to-cron)
 - [Describe cron expression syntax](#con-expression-syntax)
 - [Explain how to format a cron expression](#cron-expression-field-values)
-- [Explain how to specify TODO](#)
+- [Explain how specifying days works](#specifying-days)
 
 ### Introduction to cron {#intro-to-cron}
 
