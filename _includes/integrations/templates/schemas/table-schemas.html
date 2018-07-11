@@ -108,11 +108,11 @@
         
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ table.name }}">{{ table.name }} Table Schema</a>
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ table.name | replace: "[", "-" | replace: "]", "-" | replace: "/", "-" | replace: ".","-"}}">{{ table.name }} Table Schema</a>
             </h4>
         </div>
         
-        <div id="collapse{{ table.name }}" class="panel-collapse collapse noCrossRef">
+        <div id="collapse{{ table.name | replace: "[", "-" | replace: "]", "-" | replace: "/", "-" | replace: ".","-"}}" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
                 <table width="100%" class="table-hover">
                     {% for attribute in table.attributes %}
