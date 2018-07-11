@@ -8,6 +8,9 @@ summary: "[TODO]"
 type: "settings"
 toc: true
 weight: 1
+
+enterprise-cta-url: |
+  {{ site.sales | append: "?utm_medium=docs&utm_campaign=cron-scheduling" }}
 ---
 {% include misc/data-files.html %}
 
@@ -53,9 +56,13 @@ The Anchor Time "anchors" the start times of replication jobs to a time you sele
 
 ### Advanced Scheduling using cron expressions
 
-The [Advanced Scheduler feature]({{ link.replication.cron-scheduling | flatify | prepend: site.baseurl }}) allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin. [Refer to the Advanced Scheduling documentation for examples]({{ link.replication.cron-scheduling | prepend: site.baseurl | append: "#examples" }}).
+{% capture enterprise-cta %}
+**This is an Enterprise feature.** [Contact Stitch Sales for more info]({{ page.enterprise-cta-url | flatify }}).
+{% endcapture %}
 
-**Note**: This feature is only available on Enterprise plans.
+{% include note.html content=enterprise-cta %}
+
+The [Advanced Scheduler feature]({{ link.replication.cron-scheduling | flatify | prepend: site.baseurl }}) allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin. [Refer to the Advanced Scheduling documentation for examples]({{ link.replication.cron-scheduling | prepend: site.baseurl | append: "#examples" }}).
 
 ---
 
