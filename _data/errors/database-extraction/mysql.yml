@@ -92,7 +92,7 @@ errors:
 
 
   - message: |
-      Error persisting data for table "[table_name]": Record N did not conform to schema
+      Error persisting data for table "[table_name]": Record 0 did not conform to schema
     id: "schema-mismatch"
     meaning: |
       This error is caused by columns in a table being in a different order than the order in the initial replication job.
@@ -138,14 +138,16 @@ errors:
       ```markdown
       | id | name  | type  |                                  | binary log values  |
       |----+-------+-------|                                  |--------------------|
-      | 1  | Finn  | human |                                  | 1,Finn,human       |
-      | 2  | Jake  | dog   |                                  | 2,Jake,dog         |
+      | 1  | Finn  | human |                                  | 1,Finn,false,human |
+      | 2  | Jake  | dog   |                                  | 2,Jake,true,dog    |
       | 3  | Beamo | robot |                                  | 3,Beamo,robot      |
       ```
 
-      **Remember**: Binary logs only contain column values - no info about which column the values belong in is provided. In this case, Stitch is expecting data for four columns (`id`, `name`, `magic`, `type`) and only data for three columns (`id`, `name`, `type`) is contained in the binary log.
+      Notice in the binary log that initial records (`1`, `2`) still have values (`false`, `true`) for the `magic` column.
 
-      Because the binary log doesn't contain info about where the values should be placed, Stitch will return the `Record 0 did not conform to schema` error.
+      **Remember**: Binary logs only contain column values - no info about where the values belong is provided. In this case, Stitch is expecting a `string` for the `type` column, but instead receives the `boolean` value for the deleted `magic` column. Because the data types don't match to the schema Stitch expects, Stitch will return the `Record 0 did not conform to schema` error.
+
+      Stitch takes this approach instead of [performing a column split]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }}) to ensure that data isn't incorrectly loaded into a column.
 
     fix-it: |
       To resolve the error, you'll need to perform a table-level reset. To do this, open the **{{ app.page-names.table-settings }}** page for the table and click the {{ app.buttons.reset-rep-keys }} button. This will clear the table's Replication Key value and queue a full re-replication of the table.
