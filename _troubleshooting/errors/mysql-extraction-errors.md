@@ -1,6 +1,6 @@
 ---
 title: MySQL Extraction Errors
-keywords: troubleshooting, integration, database integration, trouble, issue, help, error, errors, connection issue, mysql, binlog error, extraction error
+keywords: troubleshooting, integration, database integration, mysql, binlog error, extraction error, mariadb, aurora, google cloudsql, rds
 tags: [database_integrations, troubleshooting_integrations, troubleshooting_errors]
 
 permalink: /troubleshooting/integrations/mysql-database-extraction-errors
