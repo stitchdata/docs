@@ -242,7 +242,7 @@ In POSIX, the specification of days is made using the `day of month` and `day of
 ## Example replication schedules {#examples}
 
 {% capture resource-callout %}
-**Want to test an expression?** Use [{{ cron.resource-names.crontab }}]({{ cron.resource-urls.crontab }}){:target="new"} to test expressions and see the schedule that will be created.
+**Want to test an expression?** Try [{{ cron.resource-names.crontab }}]({{ cron.resource-urls.crontab }}){:target="new"}.<br><br> {{ cron.resource-descriptions.crontab | flatify }}
 {% endcapture %}
 
 {% include tip.html content=resource-callout %}
@@ -343,5 +343,5 @@ Before you can move on, you'll need to resolve what's causing the error.
 ## Additional cron resources {#resources}
 
 {% for resource in cron.resource-list %}
-- [**{{ resource.name }}**]({{ resource.url }}) - {{ resource.description }}
+- [**{{ resource.name }}**]({{ resource.url }}) - {{ resource.description | flatify }}
 {% endfor %}
