@@ -38,7 +38,7 @@ In this guide, we'll cover:
 
 Using Advanced Scheduling, you can:
 
-1. **Run reports on a schedule**. For example: You need reports for a 9:00AM meeting you have every day. You could create a replication schedule that runs a replication job every night at 12:00AM, which would ensure fresh data is available in the morning when you need it. Reports could be scheduled to run at 7:00AM, giving you time before your meeting to review the data and resolve replication issues, should any arise.
+1. **Run reports on specified days**. For example: You need reports for a 9:00AM meeting you have every Wednesday. You could create a replication schedule that runs a replication job on Tuesday nights at midnight, which would ensure fresh data is available on Wednesday morning when you need it. Reports could be scheduled to run at 7:00AM, giving you time before your meeting to review the data and resolve replication issues, should any arise.
 
 2. **Whitelist hours for starting data extractions.** For example: You know that your production database is under heavy load from 1:00PM to 5:00PM. To avoid adding additional load, you can create a schedule that prevents extractions from starting during this time. **Note**: An extraction may run over into "blackout" hours as the Advanced Scheduler only controls the times jobs **start**. [See the Limitations section for more info](#limitations).
 
