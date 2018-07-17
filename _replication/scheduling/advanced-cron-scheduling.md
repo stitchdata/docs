@@ -10,7 +10,7 @@ toc: true
 weight: 4
 
 enterprise-cta:
-  title: "Need advanced scheduling?"
+  title: "This is an Enterprise feature"
   url: "?utm_medium=docs&utm_campaign=cron-scheduling"
   copy: |
     **Advanced replication scheduling is only available on an Enterprise plan**. Cron scheduling allows you to fine-tune an integration's replication schedule, ensuring you have the data you need when you need it. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
@@ -90,7 +90,7 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="required-fields">
-        <p>The fields in a cron expression can either contain an asterisk (<code>*</code>), a list of integers separated by commas (ex: <code>1,2,3</code>), or an inclusive range, denoted by two numbers separated by a hyphen (ex: <code>1-5</code>). Fields may also contain both a range and a list. Refer to the <a href="#examples">Example replication schedules section</a> for examples.</p> 
+        <span class="h4">Required fields</span>
 
         <p>See the <strong>Special characters</strong> tab for explanations and examples of how asterisks, commas, and hyphens are used.</p>
 
@@ -121,9 +121,22 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
             </tr>
         {% endfor %}
         </table>
+
+        <p>The fields in a cron expression can contain:</p>
+
+        <ul>
+            <li>An asterisk (<code>*</code>), or</li>
+            <li>A single integer (ex: <code>5</code>), or</li>
+            <li>A list of integers separated by commas (ex: <code>1,2,3</code>), or</li>
+            <li>An an inclusive range, denoted by two numbers separated by a hyphen (ex: <code>1-5</code>), or</li>
+            <li>A combination of lists and inclusive ranges (ex: <code>1,5,10-20</code>)</li>
+        </ul>
+
+        <p>Refer to the <a href="#examples">Example replication schedules section</a> for examples, or the <strong>Special characters</strong> tab for more info on lists and ranges.</p> 
     </div>
 
     <div role="tabpanel" class="tab-pane" id="special-characters">
+        <span class="h4">Special characters</span>
 
         <p>Each field in a cron expression has its own list of allowed special characters. These characters allow you to select all values, a list of values, or a range of values. Fields may also contain both a range and a list. Refer to the <a href="#examples">Example replication schedules section</a> for examples.</p> 
 
