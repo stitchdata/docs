@@ -163,7 +163,7 @@ Now that we've covered the syntax of a cron expression, we'll move onto the valu
 
 ### Specifying days in cron expressions {#specifying-days}
 
-Stitch's implementation of cron uses [POSIX](http://pubs.opengroup.org/onlinepubs/7908799/xcu/crontab.html){:target="new"}, which, unlike other cron libraries, uses a unique method to handle the specification of days. This section will focus on the behavior of the `day of month`, `month`, and `day of week` fields.
+Stitch's implementation of cron is [POSIX](http://pubs.opengroup.org/onlinepubs/7908799/xcu/crontab.html){:target="new"} compliant. The POSIX standard has subtle rules about how the `day of month`, `month`, and `day of week` fields affect the schedule on which the integration will run. This section will focus on the behavior of those fields.
 
 {% include note.html content="**Field restriction**: In this section, _restricted_ means that a field contains anything other than an asterisk. An asterisk will select all values for a field." %}
 
