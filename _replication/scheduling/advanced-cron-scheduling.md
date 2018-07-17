@@ -271,7 +271,7 @@ While using cron expressions will give you the most control over your integratio
 
 1. **Advanced scheduling isn't available for all integrations**. Some database integrations don't currently support advanced scheduling. We are working on converting these integrations into Singer-powered taps, at which point advanced scheduling will be available.
 
-2. **Days of the week in specific months can't be specified** due to the implementation of cron Stitch uses. POSIX (the name of the cron library) [has a unique method for specifying days](#specifying-days).
+2. **Days of the week in specific months can't be specified** due to the implementation of cron Stitch use, which is called POSIX. THe POSIX standard [has subtle rules for specifying days](#specifying-days).
 
    For example: The expression `* * * 1 1` translates to _"every day in the first month (January) and the first day of every week (Monday)"_, **not** _"every Monday in January"_.
 
