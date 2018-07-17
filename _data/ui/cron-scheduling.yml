@@ -91,7 +91,7 @@ special-characters:
 # -------------------------- #
 
 examples:
-  - translation: "Run every day at midnight"
+  - translation: "Run at midnight every day"
     expression: |
       ```
       0 0 * * *
@@ -109,7 +109,7 @@ examples:
       0 23 * * 0
       ```
 
-  - translation: "Run every day at noon and midnight"
+  - translation: "Run at noon and midnight every day"
     expression: |
       ```
       0 0,12 * * *
@@ -133,13 +133,13 @@ examples:
       5-10,30 * * 1 *
       ```
 
-  - translation: "Run every first day of the month and every week on Wednesday"
+  - translation: "Run every minute on every first day of the month and every Wednesday"
     expression: |
       ```
       * * 1 * 3
       ```
 
-  - translation: "Run every 15th day of the month in June and every Thursday at 5:00PM"
+  - translation: "Run at 5:00PM on every 15th day of the month in June and every Thursday"
     expression: |
        ```
        * 17 15 6 4
