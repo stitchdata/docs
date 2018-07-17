@@ -62,6 +62,8 @@ special-characters:
     allowed-in: "all"
     description: |
       Selects all values within a field.
+
+      **Note**: If used, an asterisk can be the only value in the field. For example: `*,30` would result in an error.
     example: |
       - `*` in the `minute` field means _"every minute"_
       - `*` in the `month` field means _"every month"_
