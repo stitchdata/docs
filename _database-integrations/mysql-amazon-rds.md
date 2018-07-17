@@ -37,6 +37,8 @@ whitelist:
 
 setup-name: "MySQL"
 
+binlog-replication: true
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

@@ -148,6 +148,9 @@ replication:
 ## Replication Methods
   rep-methods: /replication/replication-methods
   append-only: /data-structure/querying-append-only-tables
+  log-based-incremental: "/replication/replication-methods#log-based-incremental-replication"
+  key-based-incremental: "/replication/replication-methods#incremental-replication"
+  full-table: "/replication/replication-methods#full-table-replication"
 
 ## Replication Keys
   rep-keys: /replication/replication-keys
@@ -211,6 +214,7 @@ troubleshooting:
   dw-loading-errors: /troubleshooting/destinations/data-loading-errors
   view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
   aws-io-errors: /troubleshooting/destinations/aws-io-errors
+  mysql-extraction-errors: /troubleshooting/integrations/mysql-database-extraction-errors
 
 ## Connection Errors
   saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors

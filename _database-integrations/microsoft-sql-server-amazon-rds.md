@@ -37,6 +37,8 @@ whitelist:
 
 setup-name: "Microsoft SQL Server"
 
+binlog-replication: false
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

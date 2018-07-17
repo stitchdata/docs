@@ -45,6 +45,8 @@ whitelist:
 
 setup-name: "Amazon Aurora"
 
+binlog-replication: true
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

@@ -38,6 +38,8 @@ whitelist:
   tables: true
   columns: true
 
+binlog-replication: false
+
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
