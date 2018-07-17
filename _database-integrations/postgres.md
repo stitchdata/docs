@@ -39,6 +39,8 @@ whitelist:
   tables: "Yes"
   columns: "Yes"
 
+binlog-replication: false
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

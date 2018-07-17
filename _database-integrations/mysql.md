@@ -45,6 +45,8 @@ whitelist:
   tables: true
   columns: true
 
+binlog-replication: true
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

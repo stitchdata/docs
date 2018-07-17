@@ -40,6 +40,8 @@ whitelist:
 
 setup-name: "PostgreSQL"
 
+binlog-replication: false
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
