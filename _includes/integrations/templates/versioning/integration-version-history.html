@@ -10,42 +10,40 @@ release and deprecation dates -->
 
 <table class="attribute-list">
     <tr>
-        <td>
-        </td>
-        {% for version in released-versions %}
-            {% for doc in all-versioned-docs %}
-                {% if version.number == doc.this-version %}
-                    <td>
-                        <strong>{{ display_name }}<br>
-                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
-                        {% if version.number == latest-version %} (latest){% endif %}
-                    </td>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-    </tr>
-    <tr>
         <td class="attribute-name">
+            <strong>Version</strong>
+        </td>
+        <td>
             <strong>Release date</strong>
         </td>
-        {% for version in released-versions %}
-            <td>
-                {{ version.date-released }}
-            </td>
-        {% endfor %}
-    </tr>
-    <tr>
-        <td class="attribute-name">
+        <td>
             <strong>Deprecation date</strong>
         </td>
-        {% for version in released-versions %}
-            <td>
-                {% if version.deprecation-date %}
-                    {{ version.deprecation-date }}
-                {% else %}
-                    n/a
-                {% endif %}
-            </td>
-        {% endfor %}
     </tr>
+    {% for version in released-versions %}
+        {% for doc in all-versioned-docs %}
+            {% if version.number == doc.this-version %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
+                        </strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+
+                    <td class="attribute-description">
+                        {{ version.date-released }}
+                    </td>
+
+                    <td class="attribute-description">
+                        {% if version.deprecation-date %}
+                            {{ version.deprecation-date }}
+                        {% else %}
+                            n/a
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 </table>
