@@ -141,7 +141,7 @@ setup-steps:
         content: |
           If you want to add another table, click the **Configure another table?** link below the **Specify datetime fields** field. Otherwise, move onto the [Sync historical data](#define-historical-sync) section.
 
-           Stitch doesn't enforace a limit on the number of tables that you can configure for a single integration.
+           Stitch doesn't enforce a limit on the number of tables that you can configure for a single integration.
 
   - title: "historical sync"
     ## For this, we should note that setting this date will replicate all files in full that have been modified since the date set here
@@ -151,7 +151,37 @@ setup-steps:
   - title: "Grant bucket access to Stitch"
     anchor: "grant-bucket-access-to-stitch"
     content: |
-      [CONTENT]
+      Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
+
+      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
+
+      For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
+
+      [TODO- PERMISSIONS MIGHT BE HERE]
+
+    substeps:
+      - title: "Add the Stitch Bucket Policy"
+        anchor: "add-bucket-policy"
+        content: |
+          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
+          {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="500px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
+
+          1. Sign into AWS in another tab, if you aren't currently logged in.
+          2. Click **Services** near the top-left corner of the page.
+          3. Under the **Storage** option, click **S3**.
+          4. A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch.
+          5. Click the **Permissions** tab.
+          6. In the **Permissions** tab, click the **Bucket Policy** button.
+          7. In the Bucket policy editor, paste the bucket policy code from Stitch.
+          8. When finished, click **Save**.
+      
+      - title: "Check and save the connection"
+        anchor: "check-save-connection"
+        content: |
+          1. Switch back to the tab where Stitch is open.
+          2. Click the **Check and Save** button.
+
+          Stitch will check if bucket access has been correctly granted. If successful, [TODO]
 
   - title: "track data"
 
@@ -160,6 +190,11 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
+  - title: "Mapping files to a single table"
+    anchor: "mapping-files-to-table"
+    content: |
+      [CONTENT]
+
   - title: "[Use of file modified as Replication Key]"
     anchor: ""
     content: |
