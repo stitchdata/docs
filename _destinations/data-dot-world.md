@@ -38,7 +38,7 @@ supported-versions: "n/a"
 
 nested-structures: true ## if true, natively supports nested structures
 case: "Case Insensitive"
-table-name-limit: "" ## max # of characters
+table-name-limit: "n/a" ## max # of characters
 column-name-limit: "" ## max # of characters
 column-limit: "" ## max # of columns allowed in tables
 timestamp-range: ""
