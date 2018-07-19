@@ -59,11 +59,10 @@ setup-steps:
           {% include misc/more-info-icons.html %}
           In the **Instance Specifications** section, you can select the licensing model, version, and more.
 
-          {% capture required-configuration %}
-           Some fields in this section must be configured a certain way to use Stitch. Required fields will be highlighted  and have a {{ notice-icon | replace:"TOOLTIP", "This field must be configured in the specified way to use Stitch." }} icon next to their name.
+          {% capture required-configuration %}Some fields in this section must be configured a certain way to use Stitch. Required fields will be highlighted  and have a {{ notice-icon | replace:"TOOLTIP", "This field must be configured in the specified way to use Stitch." }} icon next to their name.
           {% endcapture %}
 
-          {% include important.html content=required-configuration %}
+          {% include important.html type="single-line" content=required-configuration %}
 
           {% include destinations/postgres/postgresql-rds-instance-specifications.html %}
 
@@ -89,7 +88,7 @@ setup-steps:
       - [Backup](#configure--advanced-settings--backup-settings)
       - [Maintenance](#configure--advanced-settings--maintenance-settings)
 
-      {% include important.html content=required-configuration %}
+      {% include important.html type="single-line" content=required-configuration %}
     substeps:
 
       - title: "Advanced Settings: Network & Security"

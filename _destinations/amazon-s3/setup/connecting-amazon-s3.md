@@ -159,7 +159,7 @@ setup-steps:
   - title: "Grant and Verify Bucket Access"
     anchor: "grant-verify-bucket-access"
     content: |
-      {% include important.html content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
+      {% include important.html type="single-line" content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
 
       Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
 
@@ -267,7 +267,7 @@ setup-steps:
           5. After the file has been uploaded to the bucket, switch back to where you have Stitch open.
           6. Click **Check and Save** to save and test the connection to {{ destination.display_name }}.
 
-          {% include important.html content="**The challenge file must remain in the bucket even after the initial setup is completed**. Removing this file will connection and loading interruptions." %}
+          {% include important.html type="single-line" content="The challenge file must remain in the bucket even after the initial setup is completed. Removing this file will connection and loading interruptions." %}
 ---
 
 

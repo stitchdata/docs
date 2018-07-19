@@ -11,7 +11,7 @@ type: "redshift"
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","redshift" | first %}
 
-{% include important.html content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Please proceed with caution or reach out to us if you have questions.**" %}
+{% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Please proceed with caution or reach out to Stitch support if you have questions.**" %}
 
 Want to improve your query performance? In this article, we’ll walk you through how to use encoding, Sort, and Distribution keys to streamline query processing.
 
@@ -85,7 +85,7 @@ SELECT description FROM pg_description WHERE objoid = 'old_orders'::regclass;
 
 This will be used in the next step to indicate which column(s) are the table's Primary Keys.
 
-{% include important.html content="Redshift doesn’t enforce the use of Primary Keys, but Stitch requires them to replicate data. In the following example, you'll see `COMMENT` being used to note the table's Primary Key. **Make sure you include the Primary Key comment in the next step, as missing Primary Keys will cause issues with data replication.**" %}
+{% include important.html first-line="**Primary Key comments**" content="Redshift doesn’t enforce the use of Primary Keys, but Stitch requires them to replicate data. In the following example, you'll see `COMMENT` being used to note the table's Primary Key. **Make sure you include the Primary Key comment in the next step, as missing Primary Keys will cause issues with data replication.**" %}
 
 Here's the transaction we'd use on the `rep_sales.orders` table:
 

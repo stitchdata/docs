@@ -14,7 +14,7 @@ If you're missing data, this is the place to start.
 
 In this article, we'll walk you through the common causes for data discrepancies and how to diagnose them. 
 
-{% include important.html content="Note that working through this guide is required before support can begin investigating a data discrepancy. We understand how frustrating and urgent missing or incorrect data can be, but to effectively troubleshoot a discrepancy, we need your help narrowing down the possible causes." %}
+{% include important.html type="single-line" content="Working through this guide is required before support can begin investigating a data discrepancy. We understand how frustrating and urgent missing or incorrect data can be, but to effectively troubleshoot a discrepancy, we need your help narrowing down the possible causes." %}
 
 ---
 

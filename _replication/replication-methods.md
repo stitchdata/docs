@@ -49,12 +49,12 @@ When Stitch replicates your data, it will store the last recorded maximum value 
 Any row with a Replication Key value greater than or equal to the stored value is where Stitch will begin the next replication job.
 
 {% capture replication-key %}
-**Incorrectly setting Replication Keys can cause data discrepancies and row count issues**, so we strongly recommend checking out the [Selecting Replication Keys guide]({{ link.replication.rep-keys | prepend: site.baseurl }}) before you define the Replication Methods and Keys for your tables.<br><br>
+Incorrectly setting Replication Keys can cause data discrepancies and row count issues, so we strongly recommend checking out the [Selecting Replication Keys guide]({{ link.replication.rep-keys | prepend: site.baseurl }}) before you define the Replication Methods and Keys for your tables.
 
 **If you're working with a MongoDB integration,** note that Replication Keys work a little differently. Refer to the [Selecting Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) for more info.
 {% endcapture %}
 
-{% include important.html content=replication-key %}
+{% include important.html first-line="**Replication Keys and data discrepancies**" content=replication-key %}
 
 ### Updated At Incremental Replication
 

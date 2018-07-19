@@ -10,11 +10,12 @@ weight: 4
 ---
 {% include misc/data-files.html %}
 
-{% capture callout %}<br>
-**This article is only applicable to Panoply, PostgreSQL, Redshift, Snowflake, and S3 (CSV) destinations.** <br><br>
-**Postgres `ARRAY` & `JSON` datatypes:** The info in this article is **NOT** applicable to Postgres `ARRAY` and `JSON` data types. These data types will be stored as `strings` in your data warehouse, whether it's Postgres, Panoply, or Redshift.{% endcapture %}
+{% capture callout %}
+his article is only applicable to Panoply, PostgreSQL, Redshift, Snowflake, and S3 (CSV) destinations.
 
-{% include important.html content=callout %}
+**Postgres `ARRAY` & `JSON` datatypes:** The info in this article is **not** applicable to Postgres `ARRAY` and `JSON` data types. These data types will be stored as `strings` in your data warehouse, whether it's Postgres, Panoply, or Redshift.{% endcapture %}
+
+{% include important.html first-line="**Not applicable to all destinations**" content=callout %}
 
 To understand how Stitch interprets the data it receives, you need to know a little bit about JSON.
 
@@ -29,7 +30,7 @@ In this article, we'll cover:
 
 ---
 
-## JSON Data Structures {#json-data-structures}
+## JSON data structures {#json-data-structures}
 When Stitch pulls data from an integration, it's pulling a series of JSON records. JSON records can contain structures called **objects** and **arrays**.
 
 ### Objects {#json-objects}
@@ -81,7 +82,7 @@ When Stitch receives a nested array - or an array that's inside a JSON record - 
 
 ---
 
-## Deconstruction of Nested Arrays {#deconstructing-nested-structures}
+## Deconstruction of nested arrays {#deconstructing-nested-structures}
 
 To give you a better understanding of how Stitch denests arrays, we'll walk you through an example using a Shopify order record. In this example, the order record is composed of three parts:
 
@@ -121,7 +122,7 @@ This record contains three levels of data due to the nested arrays. Stitch will 
 
 ---
 
-## Connecting Subtables to Top Level Records {#connecting-subtables-to-top-level-records}
+## Connecting subtables to top level records {#connecting-subtables-to-top-level-records}
 
 When subtables are created, Stitch will append a few columns to be used as composite keys that enable you to connect subrecords back to their parent. Let's take a look at the schemas for each of the Shopify tables to get a better idea of how this works.
 
@@ -133,7 +134,7 @@ This table contains the order record's Primary Key, `order_id`.
 |------|---------------------|-----|
 | 1234 | 2015-01-01 00:00:00 | 100 |
 
-### Second Level: Line Items {#second-level}
+### Second level: Line items {#second-level}
 
 In addition to the attributes in the nested record - in this case, product ID, price, and quantity for line items - Stitch will add these columns to second level tables:
 
@@ -159,7 +160,7 @@ If you wanted to return all line items for order number `1234`, youâ€™d run the 
      WHERE {{ system-column.source-key | append: "order_id" }} = 1234
 {% endhighlight %}
 
-### Third Level: Tax Lines {#third-level}
+### Third level: Tax Lines {#third-level}
 
 In addition to the attributes in the nested record - in this case, price, rate, and title for tax lines - Stitch will add these columns to third level tables:
 
@@ -189,7 +190,7 @@ If we wanted to return all line items and tax lines for order number `1234`, weâ
 
 ---
 
-## Impact on Total Row Count {#impact-on-total-row-count}
+## Impact on total row count {#impact-on-total-row-count}
 
 Because Stitch is built to denest nested arrays into separate tables, **you can expect to see more rows in Stitch and in your data warehouse than what's in the source itself**. 
 
@@ -221,7 +222,7 @@ In total, Stitch will count each of these rows (a total of 5) towards your row c
 
 ---
 
-## Reducing Your Row Count {#reduce-your-row-count}
+## Reducing your row count {#reduce-your-row-count}
 
 Understanding how Stitch handles nested data structures will in turn give you a deeper understanding of how your data is structured once it gets to your data warehouse. While this knowledge will help comprehending the data's structure, what about applying it to how many rows you're using? How can you plan ahead?
 

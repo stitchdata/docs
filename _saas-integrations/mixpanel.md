@@ -122,10 +122,14 @@ tables:
 {% include misc/data-files.html %}
 
 {% capture sync-limit %}
-{% include important.html content="**Historical replication and  Mixpanel limitations**<br>
-Mixpanel limits the queryable time range for some of its endpoints to either **60 or 90 days** [to prevent poor loading times for their customers](https://mixpanel.com/help/questions/articles/why-do-the-dates-switch-and-show-only-two-or-three-months-of-data-at-a-time-in-certain-reports). We've found if the **Start Date** is greater than this, some historical replication may not complete successfully.<br><br>
 
-If you notice issues with the historical replication of a Mixpanel integration, check that the **Start Date** is set to **no more than 60 days in the past**. Changing this setting can sometimes resolve the issue." %}
+{% capture sync-limit-copy %}
+Mixpanel limits the queryable time range for some of its endpoints to either **60 or 90 days** [to prevent poor loading times for their customers](https://mixpanel.com/help/questions/articles/why-do-the-dates-switch-and-show-only-two-or-three-months-of-data-at-a-time-in-certain-reports). We've found if the **Start Date** is greater than this, some historical replication may not complete successfully.
+
+If you notice issues with the historical replication of a Mixpanel integration, check that the **Start Date** is set to **no more than 60 days in the past**. Changing this setting can sometimes resolve the issue.
+{% endcapture %}
+
+{% include important.html first-line="**Historical replication and Mixpanel limitations**" content=sync-limit-copy %}
 {% endcapture %}
 
 {% contentfor setup %}

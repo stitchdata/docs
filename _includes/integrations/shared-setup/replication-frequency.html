@@ -27,9 +27,8 @@ To help prevent overages, consider setting the integration to replicate less fre
 <!-- Only display if integration enforces API limits -->
 {% if integration.enforces-api-limits == true %}
 {% capture api-limits %}
-**{{ integration.display_name }} API Limits & Replication Frequency**<br>
 {{ integration.display_name }}'s API enforces usage limits. As a result, a high Replication Frequency may exceed these limits and impact Stitch's ability to replicate data. See the [Replication](#replication) section below for more details.
 {% endcapture %}
 
-{% include important.html content=api-limits %}
+{% include important.html first-line="**API limits and Replication Frequency**" content=api-limits %}
 {% endif %}
