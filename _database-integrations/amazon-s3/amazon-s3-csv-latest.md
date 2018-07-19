@@ -15,9 +15,11 @@ layout: singer
 # -------------------------- #
 
 name: "amazon-s3-csv"
-display_name: "S3 CSV"
-singer: true
+display_name: "Amazon S3 CSV"
+setup-name: "S3 CSV"
 
+singer: true
+repo-url: "https://github.com/singer-io/tap-s3-csv"
 status-url: "https://status.aws.amazon.com/"
 
 # this-version: "1.0"
