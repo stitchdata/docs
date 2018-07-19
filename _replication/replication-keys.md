@@ -11,7 +11,7 @@ weight: 3
 ---
 {% include misc/data-files.html %}
 
-{% include note.html content="**While the majority of this guide applies to database integrations**, the info we cover is helpful for understanding Stitch replication as a whole, even if you're only using SaaS integrations." %}
+{% include note.html type="single-line" content="**While the majority of this guide applies to database integrations**, the info we cover is helpful for understanding Stitch replication as a whole, even if you're only using SaaS integrations." %}
 
 Replication Keys are columns that Stitch uses to identify new and updated data for replication. When you set a table to use [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}), you’ll also need to define a Replication Key for that table.
 

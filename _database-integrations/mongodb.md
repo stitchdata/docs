@@ -90,14 +90,12 @@ setup-steps:
     content: |
 
       {% capture mongo-conn %}
-      **Stitch & Mongo Connections**<br>
+      Stitch uses a standalone server connection to connect to your MongoDB instance. What this means is that if you want Stitch to run on secondary instances, you have to give Stitch a host IP for one of your secondary instances.
 
-      Stitch uses a standalone server connection to connect to your MongoDB instance. What this means is that if you want Stitch to run on secondary instances, you have to give Stitch a host IP for one of your secondary instances.<br><br>
-
-      **In the case of Mongos (Sharded Mongo)**, Stitch will always attempt to run data sync queries on your secondaries by default and you can provide the host IP for the master node.
+      **In the case of Mongos (sharded Mongo)**, Stitch will always attempt to run data sync queries on your secondaries by default and you can provide the host IP for the master node.
       {% endcapture %}
 
-      {% include note.html content=mongo-conn %}
+      {% include note.html first-line="**Stitch and MongoDB connections**" content=mongo-conn %}
 
   - title: "replication frequency"
 

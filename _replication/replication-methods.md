@@ -26,7 +26,7 @@ Stitch employs three methods to replicate data from your data sources:
 
 ## Log-based Incremental Replication {#log-based-incremental-replication}
 
-{% include note.html content="Log-based Incremental Replication is currently supported only for MySQL-based database integrations." %}
+{% include note.html type="single-line" content="Log-based Incremental Replication is currently supported only for MySQL-based database integrations." %}
 
 {{ site.data.tooltips.log-based-incremental-rep }} A binary log file is a record of events that occur within a database.
 

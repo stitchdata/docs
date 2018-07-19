@@ -24,7 +24,7 @@ We recommend using `pg_dump` for this process, which is similar to altering the 
 
 In this example, we’ll show you how to remove the unwanted columns using `pg_dump` from the command line. We marked everything you’ll need to define yourself in square brackets `[like this]`.
 
-{% include note.html content="If any new data is detected for the deleted column, Stitch will recreate the column in your data warehouse." %}
+{% include note.html type="single-line" content="If any new data is detected for the deleted column, Stitch will recreate the column in your data warehouse." %}
 
 First, you’ll grab a full definition of your target table and then create the new table structure, removing the unwanted column(s):
 

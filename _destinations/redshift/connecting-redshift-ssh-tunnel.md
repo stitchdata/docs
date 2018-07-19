@@ -242,12 +242,12 @@ setup-steps:
 {% assign destination = site.destinations | where:"type",page.type | first %}
 
 {% capture setup-notice %}
-This tutorial describes how to spin up a Redshift cluster and connect it to Stitch via an **SSH tunnel**.<br><br>
+This tutorial describes how to spin up a Redshift cluster and connect it to Stitch via an **SSH tunnel**.
 
 Looking for help setting up a **direct connection?** Refer to the [Connecting a Redshift Data Warehouse]({{ link.destinations.setup.redshift | prepend: site.baseurl }}) guide.
 {% endcapture %}
 
-{% include note.html content=setup-notice %}
+{% include note.html first-line="**This tutorial is for Redshift SSH tunnel setup**" content=setup-notice %}
 
 [In this tutorial]({{ link.destinations.setup.redshift | prepend: site.baseurl }}), we covered how to spin up a Redshift cluster with a public IP address to use with Stitch. If your Redshift cluster is in a private subnet, however, you can use an SSH tunnel to connect Stitch to your data warehouse.
 

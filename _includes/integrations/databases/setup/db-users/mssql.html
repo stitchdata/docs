@@ -10,3 +10,15 @@ This user's language setting must be set to `us_english`. Issues with replicatio
 {% include important.html content=us-english %}
 
 {{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command }}
+
+{% if integration.name == "azure" %}
+{% capture azure-db-access %}
+Depending on your setup and the access you grant to the Stitch database user, you may need to create several Azure integrations to allow Stitch to replicate all your data. This is due to an Azure limitation on how access is granted to `sys.database` views.
+
+If the Stitch user has access to the master database and this database is then used for authentication, you can replicate all databases that the user has access to from a single Azure integration setup.
+
+If the database you're replicating isn't the master database, you'll only be able to replicate schemas and tables within that database. This will require creating additional Azure integrations in Stitch.
+{% endcapture %}
+
+{% include note.html first-line="**Master database access and replicating data**" content=azure-db-access %}
+{% endif %}

@@ -35,7 +35,7 @@ setup-steps:
       Before you create a warehouse, we recommend familiarizing yourself with [Snowflake's pricing and automated warehouse management features](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"}.
       {% endcapture %}
 
-      {% include note.html content=pricing %}
+      {% include note.html type="single-line" content=pricing %}
 
       1. Log into your Snowflake account using a web browser or a SQL client.
       2. If you log in via a web browser, click the **Worksheet** icon at the top of the page.

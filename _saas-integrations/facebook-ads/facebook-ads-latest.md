@@ -76,12 +76,10 @@ setup-steps:
           For more info, see the [Attribution windows and data extraction](#attribution-windows-data-extraction) section.
 
           {% capture different-windows %}
-          **What if clicks and views have different windows in Facebook Ads?**<br>
-
           In this case, you should select the **greater** of the two. For example: If clicks have a window of 7 days and views have a window of 1 day, you should select **7 days** as the setting in Stitch. This will ensure that the values for clicks and views are correctly updated.
           {% endcapture %}
 
-          {% include note.html content=different-windows %}
+          {% include note.html first-line="**What if clicks and views have different windows in Facebook Ads?**" content=different-windows %}
 
       - title: "Include deleted data"
         anchor: "include-deleted-data"
@@ -115,7 +113,7 @@ replication-sections:
   - title: "Attribution windows and data extraction"
     anchor: "attribution-windows-data-extraction"
     content: |
-      {% include note.html content="The info in this section only applies to tables using Incremental Replication. Tables using Full Table Replication replicate fully during each replication job and don't use attribution windows." %}
+      {% include note.html type="single-line" content="The info in this section only applies to tables using Incremental Replication. Tables using Full Table Replication replicate fully during each replication job and don't use attribution windows." %}
 
       When Stitch runs a replication job for {{ integration.display_name }}, it will use the value of the **Attribution Window** setting to query for and extract data for Incremental tables. An attribution window is a period of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
 

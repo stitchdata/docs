@@ -45,14 +45,14 @@ setup-steps:
     anchor: "create-stitch-listrak-user"
     content: |
       {% capture user-limit %}
-      While we recommend doing creating a user for Stitch to ensure we're visible in any logs or audits, it may not be feasible as Listrak limits each account to five users.<br><br>
+      While we recommend doing creating a user for Stitch to ensure we're visible in any logs or audits, it may not be feasible as Listrak limits each account to five users.
 
-      **Should you choose not to create a user for us**, you should verify that the user who creates the integration in Stitch has:<br><br>
+      **Should you choose not to create a user for us**, you should verify that the user who creates the integration in Stitch has:
 
-      1. Access to the Listrak lists you want to replicate, and<br>
+      1. Access to the Listrak lists you want to replicate, and
       2. The permissions listed in **Step 8** of this section.
       {% endcapture %}
-      {% include note.html content=user-limit %}
+      {% include note.html first-line="**Listrak user limits**" content=user-limit %}
 
       1. Sign into your Listrak account.
       2. From the home page, click **Manage**.

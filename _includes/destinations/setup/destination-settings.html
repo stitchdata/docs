@@ -24,7 +24,7 @@ below.  -->
 <!-- Assigns a variable to the SSH fields -->
 {% if destination.type == "redshift" %}
 {% unless page.ssh %}
-{% include note.html content="Stitch will attempt to connect to Redshift destinations using SSL by default. This doesn't require any additional configuration." %}
+{% include note.html type="single-line" content="Stitch will attempt to connect to Redshift destinations using SSL by default. This doesn't require any additional configuration." %}
 {% endunless %}
 {% endif %} 
 

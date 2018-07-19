@@ -57,7 +57,7 @@ setup-steps:
       4. Next, select the **Storage** option and click **Storage Admin**.
       5. Click **Save.**
 
-      {% include note.html content="Even if the user has Owner permissions, you must still grant the BigQuery Admin and Storage Admin permissions to the user. Stitch will encounter loading errors otherwise." %}
+      {% include note.html type="single-line" content="Even if the user has Owner permissions, you must still grant the BigQuery Admin and Storage Admin permissions to the user. Stitch will encounter loading errors otherwise." %}
 
   - title: "Authenticate with Google"
     anchor: "authenticate-with-google"

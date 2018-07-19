@@ -36,7 +36,7 @@ setup-steps:
   - title: "Create an {{ destination.display_name }} Bucket"
     anchor: "create-a-bucket"
     content: |
-      {% include note.html content="Skip to [Step 2](#configure-stitch-settings) if there is an existing S3 bucket you want to connect to Stitch." %}
+      {% include note.html type="single-line" content="Skip to [Step 2](#configure-stitch-settings) if there is an existing S3 bucket you want to connect to Stitch." %}
 
       {% include layout/inline_image.html type="right" file="destinations/amazon-s3-create-bucket-1.png" max-width="400px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
 

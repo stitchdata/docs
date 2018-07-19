@@ -216,7 +216,7 @@ setup-steps:
 
           Next, you'll define the percentage of your standard API quota Stitch is allowed to use. If these limits are reached, Stitch will pause replication and resume when additional quota becomes available.
 
-          {% include note.html content="Even if you choose the Bulk API for extraction, Stitch still requires usage of Salesforce's REST API to detect changes and additions to objects and fields." %}
+          {% include note.html type="single-line" content="Even if you choose the Bulk API for extraction, Stitch still requires usage of Salesforce's REST API to detect changes and additions to objects and fields." %}
 
           Before defining these limits, we recommend reviewing your overall API usage in Salesforce to ensure Stitch or other apps won't be negatively impacted. This [Salesforce community topic](https://success.salesforce.com/answers?id=90630000000DOzAAAW) can help you locate your current API quota and usage.
 
@@ -279,13 +279,12 @@ setup-steps:
       If you prefer to track new fields manually, uncheck the **Replicate new fields automatically** checkbox. **Note**: This setting cannot be changed after the integration is saved.
 
       {% capture new-fields-replicating-tables %}
-      **Data for New Fields in Already-Replicating Tables**<br>
-      Data in new fields in already-replicating tables will only be available for records added or updated **after** the column is tracked, whether they're tracked manually or automatically. **This is only applicable to tables using Incremental Replication.**<br><br>
+      Data in new fields in already-replicating tables will only be available for records added or updated **after** the column is tracked, whether they're tracked manually or automatically. **This is only applicable to tables using Incremental Replication.**
 
       To backfill columns - or get data for a new field into existing rows - you'll need to queue a full re-sync of the table by resetting its Replication Key values on the {{ app.buttons.update-table-settings }} page.
       {% endcapture %}
 
-      {% include note.html content=new-fields-replicating-tables %}
+      {% include note.html first-line="Data for new fields in already-replicating tables" content=new-fields-replicating-tables %}
 
   - title: "historical sync"
 

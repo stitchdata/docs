@@ -25,7 +25,7 @@ certified: true
 
 frequency: "30 minutes"
 tier: "Free"
-port: 3306
+port: 1433
 db-type: "mssql"
 icon: /images/integrations/icons/microsoft-azure.svg
 

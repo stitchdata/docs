@@ -125,11 +125,12 @@ setup-steps:
     content: |
 
       {% capture user-tokens %}
-      {{ integration.display_name }} user tokens are linked to the user who creates them. This means that Stitch will only be able to access the same data in {{ integration.display_name }} as the user who creates the token.<br><br>
+      {{ integration.display_name }} user tokens are linked to the user who creates them. This means that Stitch will only be able to access the same data in {{ integration.display_name }} as the user who creates the token.
+
       Before proceeding, verify that you can access the tables and fields in {{ integration.display_name }} that you want to replicate.
       {% endcapture %}
 
-      {% include note.html content=user-tokens %}
+      {% include note.html first-line="**QuickBase user tokens**" content=user-tokens %}
 
       1. In {{ integration.display_name }}, click the user menu (your name) in the top right corner.
       2. Click **My preferences**.

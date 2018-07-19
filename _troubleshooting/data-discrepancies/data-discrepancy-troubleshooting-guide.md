@@ -170,7 +170,7 @@ We recommend checking the integration's [Replication Frequency]({{ link.replicat
 
 ## Replication Keys
 
-{% include note.html content="This section is only applicable to database integrations." %}
+{% include note.html type="first-line" content="This section is only applicable to database integrations." %}
 
 When a table in a database integration is initially set to use [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append:"#incremental-replication" }}), a Replication Key must be defined. For Stitch to accurately replicate data, Replication Keys must align with how data in the table is updated.
 

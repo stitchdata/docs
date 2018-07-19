@@ -96,13 +96,9 @@ Otherwise, you can use the instructions in the **Using a Custom Webhook URL** se
 
 6. Click **Save**.
 
-#### Via Zapier's FormKeep Integration {#zapier-formkeep-integration}
+#### Via Zapier's FormKeep integration {#zapier-formkeep-integration}
 
-{% capture zapier %}
-Note that you only need to complete the following if you're NOT using a custom webhook URL in the FormKeep app.
-{% endcapture %}
-
-{% include note.html content=zapier %}
+{% include note.html type="first-line" content="You only need to complete the following if you're not using a custom webhook URL in the FormKeep app." %}
 
 1. In Zapier, click **Make a Zap!**
 2. On the **Choose a Trigger App** page, click **FormKeep**.

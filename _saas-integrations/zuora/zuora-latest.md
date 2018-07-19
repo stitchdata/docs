@@ -93,7 +93,7 @@ setup-steps:
 
       Once you've decided, click the radio button next to the API you want to use.
 
-      {% include note.html content="If using the AQuA API, you'll also need to enter a partner ID in the **Zuora Partner ID** field. If you don't already have this credential, reach out to [Zuora Global Support](http://support.zuora.com/) before proceeding." %}
+      {% include note.html type="single-line" content="If using the AQuA API, you'll also need to enter a partner ID in the **Zuora Partner ID** field. If you don't already have this credential, reach out to [Zuora Global Support](http://support.zuora.com/) before proceeding." %}
 
       <table width="100%; fixed">
       <tr>

@@ -52,7 +52,7 @@ setup-steps:
   - title: "Create a {{ integration.display_name }} API token"
     anchor: "create-access-token"
     content: |
-      {% include note.html content="You need Administrator permissions in Bronto to complete this step." %}
+      {% include note.html type="single-line" content="You need Administrator permissions in Bronto to complete this step." %}
       
       1. Sign into your Bronto account.
       2. Navigate to **Home > Settings**.
