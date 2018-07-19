@@ -116,6 +116,35 @@ setup-steps:
 
           This search pattern would match `customers-2018-07-01.csv`, `customers-2018-07-02.csv`, `customers-2018-07-03.csv`, etc., and ensure files are replicated as they're created or updated.
 
+      - title: "Define the table's name"
+        anchor: "define-table-name"
+        content: |
+          When creating table names, keep in mind that each destination has its own rules for how tables can be named. As a result, some table names may have to be transformed to adhere to the destination's naming rules. Refer to the [Table name transformations](#table-name-transformations) section for more info and examples.
+
+          {% capture table-name-limit-notice %}
+          The value entered here should adhere to your destination's length limit for table names. If the table name exceeds the destination's limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+          Table name limits vary by destination type:
+
+          {% assign destinations = site.destinations | where:"destination",true | sort:display_name %}
+
+          {% for destination in destinations %}
+          {% case destination.table-name-limit %}
+          {% when 'n/a' %}
+          {% capture table-name-limit %}
+          Not applicable to this destination
+          {% endcapture %}
+          {% else %}
+          {% capture table-name-limit %}
+          Limited to **{{ destination.table-name-limit }} characters**
+          {% endcapture %}
+          {% endcase %}
+          - **{{ destination.display_name }}** - {{ table-name-limit }}
+          {% endfor %}
+          {% endcapture %}
+
+          {% include important.html content=table-name-limit-notice %}
+
       - title: "Define the table's Primary Key"
         anchor: "define-table-primary-key"
         content: |
@@ -282,6 +311,16 @@ replication-sections:
 schema-sections:
   - title: "Mapping files to a single table"
     anchor: "mapping-files-to-table"
+    content: |
+      [CONTENT]
+
+  - title: "Table name transformations"
+    anchor: "table-name-transformations"
+    content: |
+      [CONTENT]
+
+  - title: "Column name transformations"
+    anchor: "column-name-transformations"
     content: |
       [CONTENT]
 ---
