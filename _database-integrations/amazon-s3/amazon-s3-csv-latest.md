@@ -32,7 +32,7 @@ status: "Released"
 certified: true
 setup-name: "Amazon S3"
 
-frequency: "30 minutes"
+frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
 db-type: "s3"
@@ -111,7 +111,7 @@ setup-steps:
           To ensure data is correctly captured, you'd want to enter a search pattern that would match all files beginning with `customer`, regardless of the date in the file name. This would map all files in the `analytics` folder that begin with `customers` to a single table:
 
           ```
-          /analytics/customers.*\csv
+          /analytics/customers.*csv
           ```
 
           This search pattern would match `customers-2018-07-01.csv`, `customers-2018-07-02.csv`, `customers-2018-07-03.csv`, etc., and ensure files are replicated as they're created or updated.
@@ -169,7 +169,7 @@ setup-steps:
           created_at,updated_at
           ```
 
-          If undefined, Stitch will load all columns into the destination as strings.
+          If undefined, Stitch will load all columns into the destination as an integer, number of string. For more details see the [Column name transformations](#column-name-transformations) section.
 
       - title: "Configure additional tables"
         anchor: "configure-additional-tables"
