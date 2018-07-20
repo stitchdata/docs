@@ -10,10 +10,6 @@ layout: page
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
 {% if integration.notice %}
-    {% capture notice %}
-    {{ integration.notice | flatify | markdownify }}
-    {% endcapture %}
-
     {% include important.html content=notice %}
 {% endif %}
 

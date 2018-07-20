@@ -13,12 +13,10 @@ type: "bigquery"
 {% assign page-settings = site.data.ui.change-destinations-page %}
 {% include misc/data-files.html %}
 
-{% capture only-for-existing-destinations %}
-This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
+{% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
 {% endcapture %}
 
-
-{% include important.html content=only-for-existing-destinations %}
+{% include important.html type="single-line" content=only-for-existing-destinations %}
 
 Need to change the location in which {{ destination.display_name }} stores your data? Using Stitch's Destination Change feature, you can delete the current destination and connect a new one with the desired data storage location.
 
@@ -73,16 +71,14 @@ If you need historical data in the new destination, you’ll need to either manu
 ## Step 3: Connect the new {{ destination.display_name }} destination {#connect-new-bigquery-destination}
 
 {% capture permissions %}
-**Requirements for connecting {{ destination.display_name }}**<br><br>
+1. **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**.
 
-1. **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**.<br>
-
-2. **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.<br>
+2. **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.
 
 3. **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
 {% endcapture %}
 
-{% include important.html content=permissions %}
+{% include important.html first-line="**Requirements for connecting BigQuery:**" content=permissions %}
 
 1. On the next page in Stitch, click the **{{ destination.display_name }}** icon.
 2. Click **Sign in with Google**.
@@ -106,7 +102,7 @@ If you need historical data in the new destination, you’ll need to either manu
 
 To ensure Stitch can load data into the new BigQuery instance, you'll need to delete the Google Cloud Storage (GCS) bucket that's attached to the project.
 
-{% include important.html content="Before completing this step, verify that all data you want to retain has been transferred. Google permanently deletes objects within buckets, and they cannot be recovered after this process completes." %}
+{% include important.html type="single-line" content="Before completing this step, verify that all data you want to retain has been transferred. Google permanently deletes objects within buckets, and they cannot be recovered after this process completes." %}
 
 1. In another browser tab, [log into the Google console](https://console.cloud.google.com/).
 2. Use [Google's instructions](https://cloud.google.com/storage/docs/deleting-buckets) to locate the bucket in Google's UI.

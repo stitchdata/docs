@@ -1,14 +1,14 @@
 {% capture important %}
 {% case integration.db-type %}
 {% when 'mysql' %}
-To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater.<br><br>
+To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater.
 {% endcase %}
 
 Additionally, setting up binlog replication requires rebooting your database to ensure parameter changes take effect. To minimize disruptions, we recommend performing the reboot during non-peak usage hours.
 {% endcapture %}
 
 
-{% include important.html content=important %}
+{% include important.html first-line="**Requirements for configuring binlog replication**" content=important %}
 
 Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}), or binlog replication.
 

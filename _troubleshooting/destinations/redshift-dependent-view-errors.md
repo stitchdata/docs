@@ -116,7 +116,7 @@ If you chose this option to resolve an error after a column was split and rename
 
 #### Step 1: Create a View of Tables and Dependencies
 
-{% include note.html content ="You need to have access to the `pg_catalog` schema and its tables and be able to run the `CREATE VIEW` command to complete this step." %}
+{% include note.html type="first-line" content ="You need to have access to the `pg_catalog` schema and its tables and be able to run the `CREATE VIEW` command to complete this step." %}
 
 First, you'll create a view called `view_dependencies` that lists the tables and view dependencies in your data warehouse. You will only need to perform this step once.
 

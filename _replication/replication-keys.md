@@ -11,18 +11,17 @@ weight: 3
 ---
 {% include misc/data-files.html %}
 
-{% include note.html content="**While the majority of this guide applies to database integrations**, the info we cover is helpful for understanding Stitch replication as a whole, even if you're only using SaaS integrations." %}
+{% include note.html type="single-line" content="**While the majority of this guide applies to database integrations**, the info we cover is helpful for understanding Stitch replication as a whole, even if you're only using SaaS integrations." %}
 
 Replication Keys are columns that Stitch uses to identify new and updated data for replication. When you set a table to use [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}), you’ll also need to define a Replication Key for that table.
 
 As improperly setting Replication Keys can cause data discrepancies, latency, and high row counts, it’s important to understand how they work, what makes a good key, and the gotchas associated with them.
 
 {% capture mongo-rep-key %}
-**Mongo Integrations & Replication Keys**<br>
-Before you dive in, **are you working with a Mongo integration**? If so, please refer to the [Selecting Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}), as Replication Keys work a little differently for Mongo integrations.
+If so, refer to the [Selecting Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}), as Replication Keys work a little differently for Mongo integrations.
 {% endcapture %}
 
-{% include important.html content=mongo-rep-key %}
+{% include important.html first-line="**Is this a MongoDB integration?**" content=mongo-rep-key %}
 
 ---
 
@@ -34,7 +33,7 @@ Before you dive in, **are you working with a Mongo integration**? If so, please 
 
 ---
 
-## Recommendations & Gotchas
+## Recommendations and gotchas
 
 While a column only need be an `integer`, `datetime`, or `timestamp` to be a Replication Key, we have some recommendations (and things you should keep in mind) when selecting a column to be a Replication Key.
 
@@ -42,7 +41,7 @@ While a column only need be an `integer`, `datetime`, or `timestamp` to be a Rep
 
 {% include replication/rep-key-gotchas.html %}
 
-### Data Discrepancies & Row Count Impact
+### Data discrepancies and row count impact
 
 Replication Keys are one of the single most important aspects of data replication. Because they're so important, we felt these two points merited their own section:
 

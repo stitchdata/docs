@@ -92,13 +92,12 @@ setup-steps:
   - title: "track data"
     content: |
       {% capture column-compatibility %}
-      **Column Selection & Google Compatibility Rules**<br>
-      Because of Google's compatibility rules, some columns (metrics and segments) can't be tracked together. As you select columns to track, incompatible fields will automatically be greyed out.<br><br>
+      Because of Google's compatibility rules, some columns (metrics and segments) can't be tracked together. As you select columns to track, incompatible fields will automatically be greyed out.
 
       You can create additional {{ integration.display_name }} integrations if you need to track incompatible columns. The resulting table names will still be the same (ex: `account_performance_report`) but the data will reside in different schemas in your data warehouse.
       {% endcapture %}
 
-      {% include note.html content=column-compatibility %}
+      {% include note.html first-line="**Column selection and Google compatibility rules**" content=column-compatibility %}
 
 # -------------------------- #
 #      Replication Info      #

@@ -23,7 +23,7 @@ sections:
       {% capture source-config %}
       To fully configure a data source, you will also need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify }}). This will send the user to Stitch, where they will be prompted to authorize access to the data source and select streams (tables) for replication.
       {% endcapture %}
-      {% include note.html content=source-config %}
+      {% include note.html type="single-line" content=source-config %}
 
   - title: "Accessing the API"
     anchor: "access-the-api"

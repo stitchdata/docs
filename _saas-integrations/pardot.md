@@ -276,7 +276,7 @@ Leave this page open for now - you'll need it to complete the setup in Stitch.
 
 ### Whitelist Stitch's IP Addresses {#whitelist-stitch-ips}
 
-{% include note.html content="If your Pardot account doesn't have IP-based security enabled, skip this step." %}
+{% include note.html type="single-line" content="If your Pardot account doesn't have IP-based security enabled, skip this step." %}
 
 If your Pardot account allows access from certain IP addresses, you'll need to whitelist the Stitch's IP addresses for the connection to be successful.
 

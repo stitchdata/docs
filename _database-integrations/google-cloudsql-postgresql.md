@@ -64,9 +64,7 @@ setup-steps:
 
 
 {% capture cloudsql %}
-This article only applies to **Postgres-based** CloudSQL databases.<br><br>
-
-If you want to connect a **MySQL-based** CloudSQL instance, use [these instructions]({{ link.integrations.database-integration | prepend: site.baseurl | replace: "INTEGRATION","google-cloudsql-mysql" }}).
+**This article is applicable only to Postgres-based CloudSQL databases.** If you want to connect a **MySQL-based** CloudSQL instance, use [these instructions]({{ link.integrations.database-integration | prepend: site.baseurl | replace: "INTEGRATION","google-cloudsql-mysql" }}).
 {% endcapture %}
 
-{% include important.html content=cloudsql %}
+{% include important.html type="single-line" content=cloudsql %}
