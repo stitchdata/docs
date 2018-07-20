@@ -52,6 +52,17 @@ loading-reports: true
 
 binlog-replication: false
 
+# -------------------------- #
+#   Data types for loading   #
+# -------------------------- #
+
+loading-data-types:
+  - name: "datetime"
+    note: |
+      If a value can't be parsed as a date, Stitch will load the column as a nullable `string`. To ensure dates are typed properly, [specify them during setup](#specify-datetime-fields).
+  - name: "integer"
+  - name: "number"
+  - name: "string"
 
 # -------------------------- #
 #   Replication Comparison   #
@@ -209,7 +220,7 @@ setup-steps:
           created_at,updated_at
           ```
 
-          If undefined, Stitch will load these columns as strings. Refer to the [Determining data types section](#determining-data-types) for more info on how Stitch identifies data types.
+          If columns are not specified and values cannot be parsed as dates, Stitch will load them as nullable strings. Refer to the [Determining data types section](#determining-data-types) for more info on how Stitch identifies data types.
 
       - title: "Configure additional tables"
         anchor: "configure-additional-tables"
@@ -395,9 +406,22 @@ replication-sections:
   - title: "Determining data types"
     anchor: "determining-data-types"
     content: |
-      [CONTENT]
+      To determine a column's data type, Stitch will analyze the first 1,000 lines of (up to) the first **five** files included for a given table.
+
+      Stitch's {{ integration.display_name }} integration will load data from CSV files and type it as one of the following data types:
+
+      {% for item in integration.loading-data-types %}
+      - `{{ item.name | upcase }}`{% if item.note %} - {{ item.note }}{% endif%}
+      {% endfor %}
 
 schema-sections:
+  - content: |
+      In this section:
+
+      - [How multiple files are mapped to a table](#mapping-files-to-table)
+      - [Why table names may be transformed](#table-name-transformations)
+      - [Why column names may be transformed](#column-name-transformations)
+
   - title: "Mapping files to a single table"
     anchor: "mapping-files-to-table"
     content: |
