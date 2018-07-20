@@ -122,6 +122,8 @@ setup-steps:
           /analytics/customers.csv
           ```
 
+          {% include note.html type="single-line" content="Including a single file with many rows can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Using file modification timestamps as Replication Keys section](#file-updated-at-replication-key) for more info." %}
+
           In other cases, **there may be multiple files that contain data for an entity**. For example: Every day a new CSV file is generated with new/updated customer data, and it follows the naming convention of `customers-YYYY-MM-DD.csv`.
 
           To ensure data is correctly captured, you'd want to enter a search pattern that would match all files beginning with `customer`, regardless of the date in the file name. This would map all files in the `analytics` folder that begin with `customers` to a single table:
@@ -185,7 +187,7 @@ setup-steps:
           created_at,updated_at
           ```
 
-          If undefined, Stitch will load all columns into the destination as strings.
+          If undefined, Stitch will load these columns as strings. Refer to the [Determining data types section](#determining-data-types) for more info on how Stitch identifies data types.
 
       - title: "Configure additional tables"
         anchor: "configure-additional-tables"
@@ -198,9 +200,11 @@ setup-steps:
     ## For this, we should note that setting this date will replicate all files in full that have been modified since the date set here
 
     content: |
-      For example: Let's say we've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will replicate the contents of all files that match the search pattern that have been modified in the past year.
+      For example: Let's say we've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
 
-      Refer to the [Using file modification timestamps as Replication Keys](file-updated-at-replication-key) section for more info on initial and subsequent replication jobs for {{ integration.display_name }}.
+      During subsequent replication jobs, Stitch will only replicate the files that have been modified since the last job ran.
+
+      As files included in a replication job are replicated in full during each job, how data is added to updated files can impact your row count. Refer to the [Using file modification timestamps as Replication Keys](file-updated-at-replication-key) section for more info on initial and subsequent replication jobs for {{ integration.display_name }}.
 
   - title: "replication frequency"
 
@@ -321,6 +325,11 @@ replication-sections:
 
   - title: "Primary Keys and Append-Only Replication"
     anchor: "primary-keys-append-only"
+    content: |
+      [CONTENT]
+
+  - title: "Determining data types"
+    anchor: "determining-data-types"
     content: |
       [CONTENT]
 
