@@ -81,6 +81,52 @@ replication-comparison:
     other-integrations: "Only new or updated rows in a table."
     s3: "The entire contents of a modified file."
 
+
+# -------------------------- #
+#          Sample data       #
+# -------------------------- #
+
+## Sample data for Append-only explanation
+
+sample-data:
+  - name: "Finn"
+    type: "human"
+    magic: false
+    primary-key: "b6c0fd8c-7dec-4e34-be93-2b774fde32cc"
+    job: 1
+
+  - name: "Finn"
+    type: "human"
+    magic: false
+    primary-key: "0acd439b-cefe-436c-b8ba-285bd956057b"
+    job: 2
+
+  - name: "Jake"
+    type: "dog"
+    magic: true
+    primary-key: "4b5c413c-1adf-4720-8ccc-48579d6b4e58"
+    job: 1
+
+  - name: "Jake"
+    type: "dog"
+    magic: true
+    primary-key: "7e9fa5cf-1739-45a2-9a89-caa6f393efc9"
+    job: 2
+
+  - name: "Beamo"
+    type: "robot"
+    magic: true
+    primary-key: "634d6945-1762-4049-b997-cd9240d4592b"
+    job: 2
+
+  - name: "Bubblegum"
+    type: "princess"
+    magic: true
+    primary-key: "c5fb32b8-a16d-455d-96c9-b62fff22fe4b"
+    job: 2
+
+
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
@@ -401,7 +447,110 @@ replication-sections:
   - title: "Primary Keys and Append-Only Replication"
     anchor: "primary-keys-append-only"
     content: |
-      [CONTENT]
+      {% include note.html type="single-line" content="**For BigQuery and Amazon S3 (CSV) destinations**: Replication will function in an append-only manner regardless of whether a Primary Key is specified during setup. Refer to the [Querying Append-Only tables section](#querying-append-only-tables) for more info." %}
+
+      For destinations that support upserts (that is, updating existing rows), Stitch uses Primary Keys to de-dupe data during loading. {{ site.data.tooltips.primary-key }}
+
+      **If Primary Keys aren't specified during setup**, Stitch will load data using [Append-Only Replication]({{ link.replication.append-only | prepend: site.baseurl }}). This means that existing rows in the destination won't be updated, but instead appended to the end of the table.
+
+      Additionally, Stitch will append a column (`{{ system-column.primary-key }}`) to the table to function as a Primary Key. **Note**: Appending this column will not enable Stitch to de-dupe data, as a unique value will be inserted every time a row is loaded, regardless of whether it's ever been replicated before. This means that a record can have multiple `{{ system-column.primary-key }}` values, each of them unique.
+
+    subsections:
+      - title: "Example: Append-Only with {{ system-column.primary-key }}"
+        anchor: "append-only-example"
+        content: |
+          For example: The following rows are replicated during the initial replication job:
+
+          {% assign initial-job = integration.sample-data | where:"job","1" %}
+
+          <table class="attribute-list">
+            <tr>
+              <td width="45%; fixed">
+                <strong>{{ system-column.primary-key }}</strong>
+              </td>
+              <td>
+                <strong>name</strong>
+              </td>
+              <td>
+                <strong>type</strong>
+              </td>
+              <td>
+                <strong>magic</strong>
+              </td>
+            </tr>
+            {% for record in initial-job %}
+            <tr>
+              <td>
+                {{ record.primary-key }}
+              </td>
+              <td>
+                {{ record.name }}
+              </td>
+              <td>
+                {{ record.type }}
+              </td>
+              <td>
+                {{ record.magic }}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+
+          Before the next job, the CSV file containing these rows is modified. This means that Stitch will replicate the contents of the entire file, including the rows for `Finn` and `Jake` even if they haven't been updated.
+
+          In the destination, the table might now look like the table below. Notice that records for `Finn` and `Jake` have been appended to the end of the table with new `{{ system-column.primary-key }}` values:
+
+          {% assign second-job = integration.sample-data %}
+
+          <table class="attribute-list">
+            <tr>
+              <td width="45%; fixed">
+                <strong>{{ system-column.primary-key }}</strong>
+              </td>
+              <td>
+                <strong>name</strong>
+              </td>
+              <td>
+                <strong>type</strong>
+              </td>
+              <td>
+                <strong>magic</strong>
+              </td>
+            </tr>
+            {% for record in second-job %}
+            <tr>
+              <td>
+                {{ record.primary-key }}
+              </td>
+              <td>
+                {{ record.name }}
+              </td>
+              <td>
+                {{ record.type }}
+              </td>
+              <td>
+                {{ record.magic }}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+
+      - title: "Querying Append-Only tables"
+        anchor: "querying-append-only-tables"
+        content: |
+          Querying Append-Only tables requires a different strategy than you might normally use. For instructions and a sample query, check out the [Querying Append-Only tables guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
+
+          {% capture append-only-destinations %}
+          The answer depends on your destination:
+
+          - **BigQuery and Amazon S3 CSV** - These destinations are Append-Only regardless of whether Primary Keys are specified.
+
+             If you specified Primary Keys during setup, use the column(s) specified (ex: `id`). Otherwise, use `{{ system-column.primary-key }}`.
+          - **All other destinations** - Use `{{ system-column.primary-key }}` when querying Append-Only tables.
+          {% endcapture %}
+
+          {% include note.html first-line="**What column do I use as a Primary Key when querying?**" content=append-only-destinations %}
+          
 
   - title: "Determining data types"
     anchor: "determining-data-types"
