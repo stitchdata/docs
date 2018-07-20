@@ -580,14 +580,8 @@ replication-sections:
 schema-sections:
   - content: |
       In this section:
-
-      - [How multiple files are mapped to a table](#mapping-files-to-table)
+      
       - [Why column names may be transformed](#column-name-transformations)
-
-  - title: "Mapping files to a single table"
-    anchor: "mapping-files-to-table"
-    content: |
-      [CONTENT]
 
   - title: "Column name transformations"
     anchor: "column-name-transformations"
