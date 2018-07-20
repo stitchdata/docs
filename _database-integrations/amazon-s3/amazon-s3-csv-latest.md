@@ -89,9 +89,7 @@ requirements-list:
 setup-steps:
   - title: "add integration"
     content: |
-      4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts.
-
-         For example: `com-test-stitch-bucket`
+      4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
 
   - title: "Configure tables"
     anchor: "configure-tables"
