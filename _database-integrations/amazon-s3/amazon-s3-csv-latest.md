@@ -83,10 +83,8 @@ setup-steps:
       {% capture best-table-results %}
       For the best results:
 
-      - **The names of files should adhere to your destination's limits for table names.** File names will be used to create a name for the table in the destination.
+      - **Each file should have a header row with names that adhere to your destination's limits for column names.** If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
-         Table name limits will vary by destination type. For example: Redshift table names cannot exceed 127 characters.
-      - **Each file should have a header row with names that adhere to your destination's limits for column names.** This will vary by destination type. For example: Redshift column names cannot exceed 115 characters. 
       - **If including multiple files in a table, each file should have the same header row.** Including multiple files in a single table depends on the search pattern you define in the next step.
 
         **Note**: This is not the same as configuring multiple tables. See the [search pattern](#define-table-search-pattern-and-name) section below for examples.
