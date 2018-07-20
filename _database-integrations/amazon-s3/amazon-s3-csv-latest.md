@@ -186,16 +186,30 @@ setup-steps:
       {% include note.html first-line="**Tips for setting up CSV files**" content=best-table-results %}
 
     substeps:
-      - title: "Define the table's search pattern and name"
-        anchor: "define-table-search-pattern-and-name"
+
+## If a user is including a single file inside of a folder, do they need to escape backslashes and periods?
+## Is there anything that will *not* work in this field?
+## Does the first backslash for a directory need to be included? (Ex: /analytics/file.csv vs analytics/file.csv)
+      - title: "Define the table's search pattern"
+        anchor: "define-table-search-pattern"
         content: |
-          The **Search Pattern** field accepts the name of a single file (ex: `customers.csv`) or a regular expression, which can be used to include multiple files. What you enter into this field depends on how data for a particular entity is updated.
+          {%- capture pyregex -%}
+          **Want to test an expression?** Try using [PyRegex](http://www.pyregex.com/){:target="new"}.
+          {%- endcapture -%}
+
+          {% include note.html type="single-line" content=pyregex %}
+
+          The **Search Pattern** field accepts regular expressions, which can be used to include a single file or multiple CSV files. What you enter into this field depends on how data for a particular entity is updated.
 
           **If a single file is replaced in your S3 bucket at some interval**, it would make sense to enter location of the file. For example: Customer data is added to and updated in a single file named `customers.csv`, located in the `analytics` folder of the bucket:
 
           ```
-          /analytics/customers.csv
+          analytics/customers.csv           /* Single file, no escaped characters */
+
+          analytics\/customers\.csv         /* Same file with escaped special characters */
           ```
+
+          If you include special characters (`/` or `.`) in the file location and want the expression to match exactly, you'll need to escape them in the expression as we did in the example above.
 
           {%- capture incremental-rep-note -%}
           Large, frequently updated files can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Incremental Replication for {{ integration.display_name }} section](#incremental-replication-for-amazon-s3-csv) for more info.
@@ -205,10 +219,10 @@ setup-steps:
 
           In other cases, **there may be multiple files that contain data for an entity**. For example: Every day a new CSV file is generated with new/updated customer data, and it follows the naming convention of `customers-YYYY-MM-DD.csv`.
 
-          To ensure data is correctly captured, you'd want to enter a search pattern that would match all files beginning with `customer`, regardless of the date in the file name. This would map all files in the `analytics` folder that begin with `customers` to a single table:
+          To ensure data is correctly captured, you'd want to enter a search pattern that would match all files beginning with `customers`, regardless of the date in the file name. This would map all files in the `analytics` folder that begin with `customers` to a single table:
 
           ```
-          /analytics/customers.*\csv
+          analytics\/customers.*\.csv
           ```
 
           This search pattern would match `customers-2018-07-01.csv`, `customers-2018-07-02.csv`, `customers-2018-07-03.csv`, etc., and ensure files are replicated as they're created or updated.
@@ -216,9 +230,7 @@ setup-steps:
       - title: "Define the table's name"
         anchor: "define-table-name"
         content: |
-          When creating table names, keep in mind that each destination has its own rules for how tables can be named. As a result, some table names may have to be transformed to adhere to the destination's naming rules. If, for example, a table name contains special characters such as `!#*`, they may be removed or replaced with underscores.
-
-          Refer to the [Table name transformations](#table-name-transformations) section for more info and examples.
+          When creating table names, keep in mind that each destination has its own rules for how tables can be named. 
 
           {% capture table-name-limit-notice %}
           The table name you enter should adhere to your destination's length limit for table names. If the table name exceeds the destination's limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
@@ -276,8 +288,6 @@ setup-steps:
            Stitch doesn't enforce a limit on the number of tables that you can configure for a single integration.
 
   - title: "historical sync"
-    ## For this, we should note that setting this date will replicate all files in full that have been modified since the date set here
-
     content: |
       For example: Let's say we've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
 
@@ -551,7 +561,6 @@ replication-sections:
 
           {% include note.html first-line="**What column do I use as a Primary Key when querying?**" content=append-only-destinations %}
           
-
   - title: "Determining data types"
     anchor: "determining-data-types"
     content: |
@@ -562,6 +571,11 @@ replication-sections:
       {% for item in integration.loading-data-types %}
       - `{{ item.name | upcase }}`{% if item.note %} - {{ item.note }}{% endif%}
       {% endfor %}
+
+
+# -------------------------- #
+#         Schema Info        #
+# -------------------------- #
 
 schema-sections:
   - content: |
