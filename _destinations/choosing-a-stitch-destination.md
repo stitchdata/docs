@@ -115,7 +115,7 @@ Unlike other destinations, **BigQuery** and **Amazon S3** store data in an <a hr
 
 This means that there can be many different rows in a table with the same Primary Key, each representing what the data was at that moment in time. These are not duplicate rows - they're "snapshots" of the record at different points.
 
-For more info, check out [this detailed explanation on Append-Only Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#append-only-incremental-replication" }}) or [our recommendations for querying append-only tables]({{ link.replication.append-only | prepend: site.baseurl }}).
+For more info, check out [this detailed explanation on Append-Only Replication]({{ link.replication.append-only | prepend: site.baseurl }}) or [our recommendations for querying append-only tables]({{ link.replication.append-only | prepend: site.baseurl }}).
 
 ### Redshift vs. PostgreSQL
 

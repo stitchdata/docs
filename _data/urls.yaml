@@ -147,10 +147,12 @@ replication:
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
-  append-only: /data-structure/querying-append-only-tables
+  append-only: "/replication/replication-methods#append-only-incremental-replication"
   log-based-incremental: "/replication/replication-methods#log-based-incremental-replication"
   key-based-incremental: "/replication/replication-methods#incremental-replication"
   full-table: "/replication/replication-methods#full-table-replication"
+
+  append-only-querying: /data-structure/querying-append-only-tables
 
 ## Replication Keys
   rep-keys: /replication/replication-keys

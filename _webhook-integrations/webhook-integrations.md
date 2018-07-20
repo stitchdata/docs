@@ -33,7 +33,7 @@ If you want to replay historical webhook data and send it to Stitch, contact tha
 
 The majority of Stitch's webhook integrations replicate data in an Append-Only fashion. {{ site.data.tooltips.append-only-rep }}
 
-While data stored using this method can provide insights and historical details about how rows change over time, grabbing the latest data does require a different querying strategy than usual. [Refer to the Querying Append-Only Tables guide for more details.]({{ link.replication.append-only | prepend: site.baseurl }})
+While data stored using this method can provide insights and historical details about how rows change over time, grabbing the latest data does require a different querying strategy than usual. [Refer to the Querying Append-Only Tables guide for more details.]({{ link.replication.append-only-querying | prepend: site.baseurl }})
 
 See the Replication Methods guide for [an example and in-depth explanation of Append-Only replication]({{ link.replication.rep-methods | prepend: site.baseurl | append:"##-only-incremental-replication" }}).
 {% endcontentfor %}
