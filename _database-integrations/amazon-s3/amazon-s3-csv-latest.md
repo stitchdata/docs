@@ -32,7 +32,7 @@ status: "Released"
 certified: true
 setup-name: "Amazon S3"
 
-frequency: "30 minutes"
+frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
 db-type: "s3"
