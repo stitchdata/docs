@@ -52,6 +52,24 @@ loading-reports: true
 
 binlog-replication: false
 
+
+# -------------------------- #
+#   Replication Comparison   #
+# -------------------------- #
+
+replication-comparison:
+  - item: "What's used as a Replication Key?"
+    other-integrations: "A column or columns in a table."
+    s3: "The time a file is modified."
+
+  - item: "Are Replication Keys inclusive?"
+    other-integrations: "**Yes**. Rows with a Replication Key value **greater than or equal to** the last saved bookmark are replicated."
+    s3: "**No**. Only files with a modification timestamp value greater than the last saved bookmark are replicated."
+
+  - item: "What's replicated during a replication job?"
+    other-integrations: "Only new or updated rows in a table."
+    s3: "The entire contents of a modified file."
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
@@ -122,7 +140,11 @@ setup-steps:
           /analytics/customers.csv
           ```
 
-          {% include note.html type="single-line" content="Including a single file with many rows can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Using file modification timestamps as Replication Keys section](#file-updated-at-replication-key) for more info." %}
+          {%- capture incremental-rep-note -%}
+          Large, frequently updated files can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Incremental Replication for {{ integration.display_name }} section](#incremental-replication-for-amazon-s3-csv) for more info.
+          {%- endcapture -%}
+
+          {% include note.html type="single-line" content=incremental-rep-note %}
 
           In other cases, **there may be multiple files that contain data for an entity**. For example: Every day a new CSV file is generated with new/updated customer data, and it follows the naming convention of `customers-YYYY-MM-DD.csv`.
 
@@ -204,7 +226,7 @@ setup-steps:
 
       During subsequent replication jobs, Stitch will only replicate the files that have been modified since the last job ran.
 
-      As files included in a replication job are replicated in full during each job, how data is added to updated files can impact your row count. Refer to the [Using file modification timestamps as Replication Keys](file-updated-at-replication-key) section for more info on initial and subsequent replication jobs for {{ integration.display_name }}.
+      As files included in a replication job are replicated in full during each job, how data is added to updated files can impact your row count. Refer to the [Incremental Replication for {{ integration.display_name }}](incremental-replication-for-amazon-s3-csv) section for more info on initial and subsequent replication jobs for {{ integration.display_name }}.
 
   - title: "replication frequency"
 
@@ -318,10 +340,52 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - title: "Using file modification timestamps as Replication Keys"
-    anchor: "file-updated-at-replication-key"
+  - content: |
+      In this section:
+        - [How new and updated data is identified and replicated](#incremental-replication-for-amazon-s3-csv)
+        - [How Primary Keys affect loading data](#primary-keys-append-only)
+        - [How data types are determined](#determining-data-types)
+
+  - title: "Incremental Replication for {{ integration.display_name }}"
+    anchor: "incremental-replication-for-amazon-s3-csv"
     content: |
-      [CONTENT]
+      While data from {{ integration.display_name }} integrations is replicated using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), the behavior for this integration subtly different from other integrations.
+
+      The table below compares Key-based Incremental Replication and [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) behavior for {{ integration.display_name }} to that of other integrations.
+
+      <table class="attribute-list">
+      <tr>
+      <td>
+      </td>
+      <td>
+      <strong>{{ integration.display_name }}</strong>
+      </td>
+      <td>
+      <strong>Other integrations</strong>
+      </td>
+      </tr>
+      {% for comparison in integration.replication-comparison %}
+      <tr>
+      <td align="right" width="35%; fixed">
+      <strong>{{ comparison.item | flatify }}</strong>
+      </td>
+      <td>
+      {{ comparison.s3 | markdownify }}
+      </td>
+      <td>
+      {{ comparison.other-integrations | markdownify }}
+      </td>
+      </tr>
+      {% endfor %}
+      </table>
+
+    subsections:
+      - title: "Frequently updated files and impact on row usage"
+        anchor: "frequently-updated-files-row-usage-impact"
+        content: |
+          Because modified files are replicated in full during each replication job, large, frequently updated files can quickly use up a large number of rows.
+
+          To reduce row usage, you could create new files that only include updated records that match the table's [search pattern](#define-table-search-pattern). This will ensure that only updated records are replicated and counted towards your usage.
 
   - title: "Primary Keys and Append-Only Replication"
     anchor: "primary-keys-append-only"
