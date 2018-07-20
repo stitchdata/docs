@@ -61,6 +61,26 @@ requirements-list:
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: |
       **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add/modify bucket policies. During the setup process, Stitch will provide you with a bucket policy which will allow Stitch to access the bucket. This must be added to the bucket for Stitch to connect successfully.
+  - item: |
+      **Verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      Column name limits vary by destination:
+
+      {% assign destinations = site.destinations | where:"destination",true | sort:display_name %}
+
+      {% for destination in destinations %}
+      {% case destination.column-name-limit %}
+      {% when 'n/a' %}
+      {% capture column-name-limit %}
+      Not applicable to this destination
+      {% endcapture %}
+      {% else %}
+      {% capture column-name-limit %}
+      Limited to **{{ destination.column-name-limit }} characters**
+      {% endcapture %}
+      {% endcase %}
+      - **{{ destination.display_name }}** - {{ column-name-limit }}
+      {% endfor %}
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -117,14 +137,14 @@ setup-steps:
       - title: "Define the table's name"
         anchor: "define-table-name"
         content: |
-          When creating table names, keep in mind that each destination has its own rules for how tables can be named. As a result, some table names may have to be transformed to adhere to the destination's naming rules. Refer to the [Table name transformations](#table-name-transformations) section for more info and examples.
+          When creating table names, keep in mind that each destination has its own rules for how tables can be named. As a result, some table names may have to be transformed to adhere to the destination's naming rules. If, for example, a table name contains special characters such as `!#*`, they may be removed or replaced with underscores.
+
+          Refer to the [Table name transformations](#table-name-transformations) section for more info and examples.
 
           {% capture table-name-limit-notice %}
-          The value entered here should adhere to your destination's length limit for table names. If the table name exceeds the destination's limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+          The table name you enter should adhere to your destination's length limit for table names. If the table name exceeds the destination's limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
           Table name limits vary by destination type:
-
-          {% assign destinations = site.destinations | where:"destination",true | sort:display_name %}
 
           {% for destination in destinations %}
           {% case destination.table-name-limit %}
@@ -141,7 +161,7 @@ setup-steps:
           {% endfor %}
           {% endcapture %}
 
-          {% include important.html content=table-name-limit-notice %}
+          {% include important.html first-line="**Destination table name limits**" content=table-name-limit-notice %}
 
       - title: "Define the table's Primary Key"
         anchor: "define-table-primary-key"
