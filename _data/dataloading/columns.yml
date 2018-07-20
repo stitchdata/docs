@@ -1,0 +1,48 @@
+column-names:
+  - id: "mixed-case-column-name"
+    description: "Name contains mixed case and spaces."
+    value: "customer ID"
+
+    amazon-s3: "customer ID"
+    bigquery: "customer_id"
+    data-world: "customer ID"
+    panoply: "customer id"
+    postgres: "customer ID"
+    redshift: "customer id"
+    snowflake: "CUSTOMERID"
+
+  - id: "column-name-special-char"
+    description: "Name contains unsupported special characters. Note: Some destinations support the $ character."
+    value: "$customer! id"
+
+    amazon-s3: "$customer! id"
+    bigquery: "_customer_id"
+    data-world: "$customer! id"
+    panoply: "$customer id"
+    postgres: "customer id"
+    redshift: "$customer id"
+    snowflake: "CUSTOMERID"
+
+  - id: "column-name-starts-non-letter"
+    description: "Name begins with a non-letter character."
+    value: "123customerid"
+
+    amazon-s3: "123customerid"
+    bigquery: "_customerid"
+    data-world: "123customerid"
+    panoply: ""
+    postgres: "_customerid"
+    redshift: ""
+    snowflake: "CUSTOMERID"
+
+  - id: "column-name-starts-underscore"
+    description: "Name begins with an underscore."
+    value: "_customerid"
+
+    amazon-s3: ""
+    bigquery: "_customerid"
+    data-world: ""
+    panoply: ""
+    postgres: "_customerid"
+    redshift: ""
+    snowflake: "CUSTOMERID"

@@ -137,7 +137,7 @@ requirements-list:
   - item: |
       **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add/modify bucket policies. During the setup process, Stitch will provide you with a bucket policy which will allow Stitch to access the bucket. This must be added to the bucket for Stitch to connect successfully.
   - item: |
-      **Verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      **Verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Compliant columns will persist to the destination.
 
       Column name limits vary by destination:
 
@@ -568,7 +568,6 @@ schema-sections:
       In this section:
 
       - [How multiple files are mapped to a table](#mapping-files-to-table)
-      - [Why table names may be transformed](#table-name-transformations)
       - [Why column names may be transformed](#column-name-transformations)
 
   - title: "Mapping files to a single table"
@@ -576,15 +575,42 @@ schema-sections:
     content: |
       [CONTENT]
 
-  - title: "Table name transformations"
-    anchor: "table-name-transformations"
-    content: |
-      [CONTENT]
-
   - title: "Column name transformations"
     anchor: "column-name-transformations"
     content: |
-      [CONTENT]
+      When loading data, Stitch may perform some light transformation on column names to ensure the names follow the destination's rules for column names. This might include removing or replacing spaces or illegal characters such as `!#*`.
+
+      **Note**: Stitch will not truncate column names to make them adhere to a destination's length limit. If a column's name is too long, the destination will reject the column. Compliant columns will persist to the table.
+
+      In the table below are some examples of column names and how they'll be transformed to fit each destination. Hover over the {{ info-icon | replace:"TOOLTIP","" }} icon for info about the example.
+
+      {% assign examples = site.data.dataloading.columns.column-names %}
+
+      <table class="attribute-list">
+        <tr>
+          <td>
+          </td>
+          {% for example in examples %}
+          <td>
+            <strong>{{ example.value }}</strong><a data-toggle="tooltip" data-original-title="{{ example.description }}">{{ info-icon | replace:"TOOLTIP","" }}</a>
+          </td>
+          {% endfor %}
+        </tr>
+          {% for destination in destinations %}
+          <tr>
+          <td align="right" width="20%; fixed">
+            <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+          </td>
+          {% for example in examples %}
+          <td>
+            {{ example[destination.type] }}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
+{% include misc/more-info-icons.html %}
