@@ -91,7 +91,7 @@ heroku:
 #        POSTGRES RDS        #
 # -------------------------- #
 
-postgres-rds:
+postgresql-rds:
   - name: "{{ defaults.field-names.integration-name }}"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}

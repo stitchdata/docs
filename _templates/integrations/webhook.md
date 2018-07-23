@@ -1,5 +1,18 @@
 ---
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+# Need some help?
+
+# See this how-to for instructions on filling out the template:
+#     
+
+# See this reference guide for more info on the parameters in this template:
+# 
+
+
+# -------------------------- #
 #      Page & Formatting     #
 # -------------------------- #
 
@@ -8,34 +21,42 @@ permalink: /integrations/saas/webhook-integration
 tags: [saas_integrations]
 keywords: webhook-integration, integration, schema, etl webhook-integration, webhook-integration etl, webhook-integration schema
 
-format: ## controls formatting options in template
-  schema-list: true ## controls display of table list in Schema section
-  table-desc: true ## controls display of default copy in table descriptions
-  list: expand ## table is used for integrations with tons of tables, like NetSuite.
-
-
 # -------------------------- #
-#    Integration Details     #
+#         Tap Details        #
 # -------------------------- #
 
 name: "webhook-integration"
 display_name: "WEBHOOK-INTEGRATION"
-author: "Stitch"
-status: ""
-type: "Webhook"
-branded: true/false
-historical: "Webhook"
-frequency: "Continuous"
-primary-key:
-  defined: false     ## if we hard-code a PK, enter true & enter the name
-  field: ""
-tier: "Free"
-status-url: 
-icon: /images/integrations/icons/webhook-integration.svg
-
 
 # -------------------------- #
-#      Incompatiblities      #
+#       Stitch Details       #
+# -------------------------- #
+
+status: "Open Beta/Closed Beta/Released/Deprecated"
+certified: 
+
+type: "Webhook"
+branded: true/false
+
+historical: "Webhook"
+frequency: "Continuous"
+tier: "Free/Premium"
+status-url: ""
+icon: /images/integrations/icons/webhook-integration.svg
+
+whitelist:
+  tables: false
+  columns: false
+primary-key:
+  defined: false
+  field: ""
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+# -------------------------- #
+#     Incompatibilities      #
 # -------------------------- #
 
 ## uncomment section below if integration is compatible with all Stitch destinations
@@ -45,23 +66,6 @@ icon: /images/integrations/icons/webhook-integration.svg
   ## [redshift]: "always,sometimes,never"
   ## reason: "copy" 
 
-
-# -------------------------- #
-#    Integration Schema      #
-# -------------------------- #
-
-tables:
-## TABLE NAME
-  - name: "data" ## data for v1 generic webhook integrations
-    doc-link: 
-    description: ""
-    notes: 
-    replication-method: "Incremental"
-    primary-key: "id"
-    nested-structures: false
-    ## attribute-notes: if populated, this will replace the default "While we try to include everything here..." copy.
-    attributes:
-      - name: ID (<code>id</code>)
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
