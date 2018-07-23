@@ -1,0 +1,17 @@
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#version-overview" data-toggle="tab">Overview</a>
+    </li>
+    <li>
+        <a href="#integration-changelog" data-toggle="tab">Changelog</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="version-overview">
+        {% include integrations/templates/versioning/integration-version-history.html %}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="integration-changelog">
+        {% include integrations/templates/versioning/integration-changelog.html %}
+    </div>
+</div>
