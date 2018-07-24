@@ -34,14 +34,21 @@ port: 5432
 db-type: "postgres"
 icon: /images/integrations/icons/postgresql.svg
 
+## Stitch features
+
 versions: "9.3+"
 ssh: true
 ssl: true
-sync-views: true
-supports-binlog: false
-whitelist:
-  tables: "Yes"
-  columns: "Yes"
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: true
+
+table-selection: true
+column-selection: true
+
+binlog-replication: false
+view-replication: true
 
 # -------------------------- #
 #    Supported Data Types    #
