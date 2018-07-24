@@ -10,8 +10,6 @@ defaults:
     usage: &usage-name "USAGE"
     select: &select-name "SELECT"
     alter-default-privileges: &alter-default-privileges-name "ALTER DEFAULT PRIVILEGES"
-    replication: &replication-name "REPLICATION"
-    login: &login-name "LOGIN"
     rds-replication: &rds-replication-name "rds_replication"
 
   reasons:
@@ -19,8 +17,6 @@ defaults:
     usage: &usage-reason "Required to access the objects contained in the specified schema."
     select: &select-reason "Required to select rows from tables in the specified schema."
     alter-default-privileges: &alter-default-privileges-reason "Required to ensure that objects created in the schema after connecting to Stitch will be accessible by the Stitch database user."
-    replication: &replication-reason "**Required to use logical (Log-based) replication.** This allows the Stitch user to use logical replication."
-    login: &login-reason "**Required to use logical (Log-based) replication.** This is required to use the `REPLICATION` role. The `LOGIN` privilege allows the user with the `REPLICATION` role to log in to the database, or initiate sessions during connection."
     rds-replication: &rds-replication-reason "**Required to allow the Stitch database user to use logical (Log-based) replication**. The `rds_superuser` role is required to grant this privilege."
 
   doc-links:
@@ -48,14 +44,6 @@ postgres:
   - name: *alter-default-privileges-name
     reason: *alter-default-privileges-reason
     doc-link: *alter-default-privileges-doc
-
-  - name: *replication-name
-    reason: *replication-reason
-    doc-link: *replication-doc
-
-  - name: *login-name
-    reason: *login-reason
-    doc-link: *login-doc
 
 # -------------------------- #
 #  POSTGRESQL-RDS PRIVILEGES #
