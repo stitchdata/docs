@@ -4,6 +4,7 @@ keywords: microsoft sql server, sql server, mssql, database integration, etl mss
 tags: [database_integrations]
 permalink: /integrations/databases/microsoft-sql-server
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
+show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #
@@ -74,12 +75,12 @@ setup-steps:
 
 ## Troubleshooting {#troubleshooting}
 
-### Connection Issues & Collation
+### Connection issues and collation
 
 If you're experiencing connection issues and have verified that the database user has the correct permissions, check your server's collation setting.
 
 Connecting MSSQL to Stitch successfully requires that your server use **case-insensitive** collation.
 
-### Data Discrepancies & Database User Language Settings
+### Data discrepancies and database user language settings
 
 If you're missing data, check that the database user's language setting is set to `us_english`. Using a different setting can cause problems with replication, including issues with properly identifying new and updated data.

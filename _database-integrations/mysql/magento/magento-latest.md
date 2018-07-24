@@ -4,6 +4,7 @@ keywords: magento, database integration, etl magento, magento etl
 tags: [database_integrations]
 permalink: /integrations/databases/magento
 summary: "Connect and replicate data from your Magento database using Stitch's Magento integration."
+show-in-menus: true
 
 # -------------------------- #
 #         Tap Details        #

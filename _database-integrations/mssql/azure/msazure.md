@@ -4,6 +4,7 @@ keywords: microsoft azure, azure, database integration, etl azure, azure etl
 tags: [database_integrations]
 permalink: /integrations/databases/microsoft-azure
 summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Azure integration."
+show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #

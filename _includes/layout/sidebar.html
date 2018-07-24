@@ -17,7 +17,7 @@
         </a>
 
         {% for doc in navigation %}
-            <!-- Top-level items -->
+            <!-- TOP-LEVEL ITEMS -->
 
             {% for category in doc.categories %}
                 {% if category.title == "Getting Started" or category.drop-down == false %}
@@ -37,8 +37,14 @@
                 
                 {% unless category.title == "Getting Started" %}
                     <ul class="collapse" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+
+                    <!-- SECOND-LEVEL ITEMS -->
                         {% for section in category.sections %}
+
+                        <!-- SECOND-LEVEL ITEMS WITH SUBSECTIONS -->
                             {% if section.subsections %}
+
+                            <!-- THIRD-LEVEL ITEMS -->
                                 <li class="subfolders">
                                     <a data-toggle="collapse" 
                                     href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
@@ -82,6 +88,8 @@
 
                             {% else %}
 
+                            <!-- SECOND-LEVEL ITEMS WITHOUT SUBSECTIONS -->
+                            <!-- Ex: Database Integrations > Overview -->
                                 <li>
                                     <a href="{{ section.url | flatify | prepend: site.baseurl }}">{{ section.title }}</a>
                                 </li>
@@ -89,10 +97,12 @@
                                 {% if category.title contains "Database" or category.title contains "Webhook" %}
                                     {% case category.title %}
                                         {% when "Database Integrations" %}
-                                            {% assign all-integrations = site.database-integrations | where:"input",true | sort:"title" %}
+                                            {% assign all-integrations = site.database-integrations | where:"show-in-menus",true | sort:"title" %}
                                         {% when "Webhook Integrations" %}
                                             {% assign all-integrations = site.webhook-integrations | where:"input",true | sort:"title" %}
                                     {% endcase %}
+
+                                <!-- THIRD-LEVEL ITEMS -->
 
                                     {% for integration in all-integrations %}
                                         {% if category.title == "Database Integrations" %}

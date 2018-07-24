@@ -9,6 +9,7 @@ tags: [database_integrations]
 permalink: /integrations/databases/amazon-s3-csv
 summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
 layout: singer
+show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #

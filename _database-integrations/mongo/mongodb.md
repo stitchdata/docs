@@ -4,6 +4,7 @@ keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
 tags: [database_integrations]
 permalink: /integrations/databases/mongodb
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
+show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #

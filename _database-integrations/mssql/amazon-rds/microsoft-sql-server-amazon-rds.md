@@ -4,6 +4,7 @@ keywords: amazon, amazon rds, rds, relational database services, database integr
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-microsoft-sql-server
 summary: "Connect and replicate data from your Amazon Microsoft SQL Server RDS using Stitch's Microsoft SQL Server integration."
+show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #

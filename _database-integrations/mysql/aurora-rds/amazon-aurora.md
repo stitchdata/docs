@@ -7,6 +7,7 @@ summary: "Connect and replicate data from your Amazon Aurora RDS database using 
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
+show-in-menus: true
 
 # -------------------------- #
 #         Tap Details        #
