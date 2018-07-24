@@ -1,18 +1,22 @@
 ---
-title: Amazon RDS PostgreSQL
-keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
+title: PostgreSQL
+keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
 tags: [database_integrations]
-permalink: /integrations/databases/amazon-rds-postgresql
-summary: "Connect and replicate data from your Amazon RDS database using Stitch's RDS integration."
+permalink: /integrations/databases/postgresql
+summary: ""
 layout: general
 input: false
+
+microsites:
+  - title: "{{ page.display_name }} to Postgres"
+    url: "http://postgres.topostgres.com/"
 
 show-in-menus: true
 has-versions: true
 
 db-type: "postgres"
-name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+name: "postgres"
+display_name: "PostgreSQL"
 
 sections:
   - title: "Identify your version"
@@ -22,11 +26,12 @@ sections:
 
       {% include integrations/templates/versioning/integration-version-tiles.html %}
 
-  - title: "Version history"
+  - title: "{{ integration.display_name }} version history"
     anchor: "version-history"
     content: |
       {% include integrations/templates/versioning/integration-history-and-changelog.html %}
-  - title: "Version features"
+
+  - title: "{{ integration.display_name }} version features"
     anchor: "version-features"
     content: |
       In this section:

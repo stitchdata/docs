@@ -1,9 +1,9 @@
 ---
-title: Amazon RDS PostgreSQL
-keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
+title: Google CloudSQL PostgreSQL
+keywords: postgresql, postgres, google cloudsql postgres, google cloudsql postgresql, database integration, etl postgres, etl cloudsql, cloudsql etl, postgres etl, postgresql etl
 tags: [database_integrations]
-permalink: /integrations/databases/amazon-rds-postgresql
-summary: "Connect and replicate data from your Amazon RDS database using Stitch's RDS integration."
+permalink: /integrations/databases/google-cloudsql-postgresql
+summary: ""
 layout: general
 input: false
 
@@ -11,8 +11,8 @@ show-in-menus: true
 has-versions: true
 
 db-type: "postgres"
-name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+name: "cloudsql-postgres"
+display_name: "Google CloudSQL PostgreSQL"
 
 sections:
   - title: "Identify your version"
