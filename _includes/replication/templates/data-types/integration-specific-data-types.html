@@ -11,12 +11,20 @@
 <!-- Get the integration's supported data types -->
     {% assign integration-supported-data-types = site.data.taps.extraction.data-types.[integration_name].all-types %}
 
-<h3>{{ display_name }} supported data types</h3>
+<h3 id="supported-data-types">{{ display_name }} supported data types</h3>
 
 <p>{{ display_name }} integrations support the data types in the table below, in addition to the {% if page.url contains "integrations" %}<a href="{{ link.replication.supported-data-types | prepend: site.baseurl }}">common data types</a>{% else %}common data types{% endif %}.</p>
 
-<p>In the table are the data types and how they'll be stored in your destination, depending on the version of the integration being used. Unsupported data types are marked with a {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} icon.</p>
+<p>In the table are the data types and how they'll be stored in your destination, depending on the version of the integration being used:</p>
 
+<ul>
+    <li>
+        {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ data-type-version.stored-as }} marks supported data types. Following the icon is how Stitch will store the data type in the destination. For example: <code>ARRAY</code> data types will be stored as strings.
+    </li>
+    <li>
+        {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} {{ data-type-version.stored-as }} marks unsupported data types. In Stitch, columns with unsupported data types will have <strong>Unavailable</strong> in the <strong>Type</strong> column of the <strong>Tables to Replicate</strong> tab.
+    </li>
+</ul>
 <table class="attribute-list">
     <tr>
         <td>
@@ -49,10 +57,10 @@
                     {% if data-type-version.number == version.number %}
                         <td>
                             {% if data-type-version.stored-as == "Unsupported" %}
-                                {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}  
+                                {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} {{ data-type-version.stored-as }}
+                            {% else %}
+                                {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ data-type-version.stored-as }}
                             {% endif %}
-                            
-                            {{ data-type-version.stored-as }}
                         </td>
                     {% endif %}
                 {% endfor %}

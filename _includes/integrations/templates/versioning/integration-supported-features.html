@@ -16,7 +16,7 @@
         {% assign integration-features = site.data.taps.features.all-features | where:"applies-to",include.feature-type %}
 
 <!-- Join the common and integration features together -->
-        {% assign features = common-features | concat:integration-features | sort:"display_name" %}
+        {% assign features = common-features | concat:integration-features %}
 
 <!-- Otherwise, just reassign the common features -->
     {% else %}
@@ -67,7 +67,7 @@
                     <td>
                         {% case doc.[feature.name] %}
                             {% when true %}
-                                Supported
+                                {{ supported | replace:"TOOLTIP","This feature is supported for this version of the integration." }} Supported
                             {% when false %}
                                 {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
                         {% endcase %}
