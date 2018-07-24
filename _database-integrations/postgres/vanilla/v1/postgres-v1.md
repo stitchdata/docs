@@ -41,6 +41,8 @@ versions: "9.3+"
 ssh: true
 ssl: true
 
+# Stitch features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
@@ -63,7 +65,9 @@ view-replication: true
 #      Setup Requirements    #
 # -------------------------- #
 
-notice: |
+notice-first-line: "**PostgreSQL as an input data source**"
+notice-copy: |
+
   This article describes how to connect {{ integration.display_name }} **as an input data source.**
 
   If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a Self-Hosted {{ integration.display_name }} Destination guide]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}).

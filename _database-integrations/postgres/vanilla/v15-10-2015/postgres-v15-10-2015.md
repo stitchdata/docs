@@ -64,8 +64,12 @@ binlog-replication: false
 #      Setup Requirements    #
 # -------------------------- #
 
-notice: |
-  This article describes how to connect PostgreSQL **as an input data source.** If you want to connect a PostgreSQL instance **as a data warehouse,** refer to the [Connecting a Self-Hosted PostgreSQL Destination article]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}).
+notice-first-line: "**PostgreSQL as an input data source**"
+notice-copy: |
+
+  This article describes how to connect {{ integration.display_name }} **as an input data source.**
+
+  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a Self-Hosted {{ integration.display_name }} Destination guide]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}).
 
 requirements-list:
   - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."

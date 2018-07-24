@@ -54,8 +54,10 @@ binlog-replication: false
 #      Setup Requirements    #
 # -------------------------- #
 
-notice: |
-  This guide describes how to connect {{ integration.display_name }} **as an input data source.**
+notice-first-line: "**PostgreSQL RDS as an input data source**"
+notice-copy: |
+
+  This article describes how to connect {{ integration.display_name }} **as an input data source.**
 
   If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting an {{ integration.display_name }} Destination guide]({{ link.destinations.setup.postgres-rds | prepend: site.baseurl }}).
 

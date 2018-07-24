@@ -1,10 +1,10 @@
 {% capture important %}
 {% case integration.db-type %}
 {% when 'mysql' %}
-**To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater**.<br><br>
+**To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater**.
 
 {% when 'postgres' %}
-**To use logical replication, your {{ integration.display_name }} database must be running PostgreSQL version 9.4 or greater**.<br><br>
+**To use logical replication, your {{ integration.display_name }} database must be running PostgreSQL version 9.4 or greater**.
 {% endcase %}
 
 Additionally, setting up binlog replication requires rebooting your database to ensure parameter changes take effect. To minimize disruptions, we recommend performing the reboot during non-peak usage hours.

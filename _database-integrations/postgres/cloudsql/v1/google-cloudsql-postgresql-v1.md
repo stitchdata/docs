@@ -51,6 +51,13 @@ view-replication: true
 #      Setup Requirements    #
 # -------------------------- #
 
+notice-first-line: "**Google CloudSQL PostgreSQL as an input data source**"
+notice-copy: |
+
+  This article describes how to connect {{ integration.display_name }} **as an input data source.**
+
+  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a Self-Hosted {{ integration.display_name }} Destination guide]({{ link.destinations.setup.cloudsql-postgres | prepend: site.baseurl }}).
+
 requirements-list:
   - item: "**Permissions in PostgreSQL that allow you to create users.** This is required to create a database user for Stitch."
   - item: "**To be running PostgeSQL 9.3+ or greater**."
