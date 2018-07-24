@@ -28,25 +28,29 @@
 
 
 all-features:
-  - display_name: "SSH"
+  - display_name: "SSH connections"
     name: "ssh"
     applies-to: "databases"
+    category: "Connection"
     tooltip: "{{ site.data.tooltips.ssh }}"
 
-  - display_name: "SSL"
+  - display_name: "SSL connections"
     name: "ssl"
     applies-to: "databases"
+    category: "Connection"
     tooltip: "{{ site.data.tooltips.ssl }}"
 
   - display_name: "Log-based replication"
-    name: "binlog"
+    name: "binlog-replication"
     applies-to: "databases"
+    category: "Replication"
     doc-link: "{{ link.replication.log-based | prepend: site.baseurl }}"
     tooltip: "{{ site.data.tooltips.log-based-incremental-rep }}"
 
   - display_name: "View replication"
-    name: "sync-views"
+    name: "view-replication"
     applies-to: "databases"
+    category: "Replication"
     tooltip: "{{ site.data.tooltips.db-views }}"
 
 # -------------------------- #
@@ -56,17 +60,32 @@ all-features:
   - display_name: "Anchor scheduling"
     name: "anchor-scheduling"
     applies-to: "all-integrations"
+    category: "Replication"
     doc-link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
     tooltip: "{{ site.data.tooltips.anchor-scheduling }}"
 
   - display_name: "Extraction logs"
     name: "extraction-logs"
     applies-to: "all-integrations"
+    category: "Replication"
     doc-link: "{{ link.replication.extraction-logs | prepend: site.baseurl }}"
     tooltip: "{{ site.data.tooltips.extraction-logs }}"
 
   - display_name: "Loading reports"
     name: "loading-reports"
     applies-to: "all-integrations"
+    category: "Replication"
     doc-link: "{{ link.replication.loading-reports | prepend: site.baseurl }}"
     tooltip: "{{ site.data.tooltips.loading-reports }}"
+
+  - display_name: "Table selection"
+    name: "table-selection"
+    applies-to: "all-integrations"
+    category: "Replication"
+    tooltip: "{{ site.data.tooltips.table-selection }}"
+
+  - display_name: "Column selection"
+    name: "column-selection"
+    applies-to: "all-integrations"
+    category: "Replication"
+    tooltip: "{{ site.data.tooltips.column-selection }}"

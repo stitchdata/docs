@@ -34,18 +34,21 @@ port: 5432
 db-type: "postgres"
 icon: /images/integrations/icons/heroku.svg
 
+## Stitch features
+
 versions: "9.3+"
 ssh: false
 ssl: true
-sync-views: true
-binlog: false
-whitelist:
-  tables: true
-  columns: true
 
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+table-selection: true
+column-selection: true
+
+binlog-replication: false
+view-replication: true
 
 # -------------------------- #
 #     Setup Instructions     #

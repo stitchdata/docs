@@ -20,6 +20,7 @@ author-url: "https://www.stitchdata.com"
 
 status: "Released"
 certified: true
+setup-name: "MySQL"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -30,12 +31,16 @@ icon: /images/integrations/icons/mysql-rds.svg
 versions: "n/a"
 ssh: true
 ssl: true
-sync-views: true
-whitelist:
-  tables: true
-  columns: true
 
-setup-name: "MySQL"
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: true
+
+binlog-replication: true
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

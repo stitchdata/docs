@@ -27,6 +27,7 @@ this-version: "1.0"
 
 status: "Released"
 certified: true
+setup-name: "PostgreSQL"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -37,17 +38,18 @@ icon: /images/integrations/icons/postgres-rds.svg
 versions: "9.3+; 9.4+ for binlog" ## but 9.4+ is required to use log-based replication
 ssh: true
 ssl: true
-sync-views: true
-binlog: true
-whitelist:
-  tables: true
-  columns: true
+
+# Stitch features
 
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-setup-name: "PostgreSQL"
+table-selection: true
+column-selection: true
+
+binlog-replication: true
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

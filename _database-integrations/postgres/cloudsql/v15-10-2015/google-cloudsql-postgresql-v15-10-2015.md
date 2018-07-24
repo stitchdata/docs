@@ -31,15 +31,18 @@ icon: /images/integrations/icons/google-cloudsql-postgresql.svg
 versions: "9.3+"
 ssh: false
 ssl: false
-sync-views: true
-binlog: false
-whitelist:
-  tables: true
-  columns: true
+
+## Stitch features
 
 anchor-scheduling: false
 extraction-logs: false
 loading-reports: true
+
+table-selection: true
+column-selection: true
+
+binlog-replication: false
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

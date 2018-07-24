@@ -24,6 +24,7 @@ this-version: "15-10-2015"
 
 status: "Released"
 certified: true
+setup-name: "PostgreSQL"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -31,20 +32,21 @@ port: 5432
 db-type: "postgres"
 icon: /images/integrations/icons/postgres-rds.svg
 
+## Stitch features
+
 versions: "9.3+"
 ssh: true
 ssl: true
-sync-views: true
-binlog: false
-whitelist:
-  tables: true
-  columns: true
 
 anchor-scheduling: false
 extraction-logs: false
 loading-reports: true
 
-setup-name: "PostgreSQL"
+table-selection: true
+column-selection: true
+
+binlog-replication: false
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #
