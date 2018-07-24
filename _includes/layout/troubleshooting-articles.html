@@ -42,7 +42,7 @@
 <!-- Database integration pages only -->
 {% if page.permalink contains "databases" %}
 <!-- Captures the integration's name -->
-{% capture integration %}{{ page.name }}{% endcapture %}
+{% capture integration %}{{ page.db-type }}{% endcapture %}
 <ul>
 	<!-- Loops over troubleshooting collection -->
 	{% for page in site.troubleshooting %}

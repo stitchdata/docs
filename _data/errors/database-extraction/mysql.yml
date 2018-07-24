@@ -1,0 +1,169 @@
+# -------------------------- #
+#   MySQL Extraction Errors  #
+# -------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a MySQL-backed database.
+
+errors:
+  - message: "MySQL binary logging is not enabled."
+    id: "mysql-binlog-not-enabled"
+    meaning: |
+      Binary logging is not enabled for the MySQL server.
+    fix-it: |
+      Enable binary logging on your MySQL server. This is done by defining the `log-bin` parameter.
+
+      The steps for enabling binary logging will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
+
+      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
+      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#enable-binary-logging)
+      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
+
+      **Note**: [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group) and [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group) databases should have binary logging enabled by default. If you receive this error for either of these databases, verify that the rest of the required server settings are defined correctly.
+
+
+  - message: "(1236, 'Misconfigured master - server id was not set')"
+    id: "master-server-id-not-set"
+    meaning: |
+      The [likely cause of this error is setting server parameters](https://dba.stackexchange.com/questions/76089/error-1236-from-master-after-restored-replication){:target="new"} - in this case, related to enabling binlog replication - on the master server without rebooting the master.
+
+      Rebooting the master instance is required for server parameter changes to take effect.
+
+    fix-it: |
+      Reboot the master instance to ensure the server parameters for enabling binlog are applied.
+
+
+  - message: |
+      [...] binlog_format is not set to 'ROW': [MIXED or STATEMENT].
+    id: "binlog-format-row"
+    meaning: |
+      The `binlog_format` server parameter is not set to `ROW`, which Stitch requires for MySQL Log-based Replication.
+    fix-it: |
+      Change the `binlog_format` paramter to `ROW`. This ensures that binary replication is "row-based", meaning that events affecting individual rows are captured.
+
+      {% capture mysql-server-settings-list %}
+      The steps for changing this parameter will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
+
+      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
+      - [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group)
+      - [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group)
+      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#define-database-parameters)
+      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
+      {% endcapture %}
+
+      {{ mysql-server-settings-list }}
+
+
+  - message: |
+      [...] binlog_row_image is not set to 'FULL': [MINIMAL or NOBLOB].
+    id: "binlog-row-image-full"
+    meaning: |
+      The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication.
+      
+    fix-it: |
+      Changing the `binlog_row_image` parameter to `FULL`. This ensures that when a row is updated in the source database, the entire row is captured versus only the updated values.
+
+      {{ mysql-server-settings-list }}
+
+
+  - message: |
+      [...] requested position ([log file position from state]) for log file [binary log file name] is greater than current position ([current log file position on server]).
+    id: "binlog-current-position"
+    meaning: |
+      When Stitch replicates data using Log-based Replication, it will "bookmark" its place by saving a position in the log file. When the next replication job begins, Stitch will use this value to identify the place in the log where it should begin reading data.
+
+      This error means that the log position Stitch has is "ahead" of the server. To summarize, the log position Stitch is attempting to use is greater than the log position that the MySQL database has available.
+
+      Typically this will be an issue only if the server uses a very small [`max_binlog_size`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_max_binlog_size){:target="new"} value.
+    fix-it: |
+      Perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the Replication Keys for the integration and queue a full re-replication of the integration.
+
+      We also recommend checking the value of the `max_binlog_size` server parameter and increasing it if it's too small. By default, this is set to MySQL's maximum of 1 GB (1073741824 bytes).
+
+
+  - message: |
+      [...] binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication.
+    id: "mysql-version-requirement"
+    meaning: |
+      The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running. This means that binary logging, or binlog replication, is not a feature supported by the current database version.
+
+    fix-it: |
+      The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.
+
+
+  - message: |
+      Error persisting data for table "[table_name]": Record 0 did not conform to schema
+    id: "schema-mismatch"
+    meaning: |
+      This error is caused by columns in a table being in a different order than the order in the initial replication job.
+
+      This can be caused by:
+
+      - Altering the table's schema by removing a column, adding a new column to the middle of the table, or changing the order of columns
+      - The Stitch database user not having access to all the columns in the table
+
+      ---
+
+      <span class="h4">Explanation</span>
+
+      When Stitch performs an initial replication job for a table using Log-based Replication, it'll use `SELECT` to replicate the table in full. After the historical replication is complete, Stitch will start reading events from the binary log to replicate only new and updated data.
+
+      MySQL binary logs, which Stitch uses to perform Log-based Replication, only contain column values. No information about the columns the values are destined for is included.
+
+      Log-based Replication relies on the order of columns remaining the same. Because binary logs don't contain column info, Stitch doesn't have a way to identify which values go in each column when the order changes.
+
+      ---
+
+      <span class="h4">Example</span>
+
+      **Initial replication job**
+
+      During the initial replication job, Stitch replicates the following table in full using `SELECT`.
+
+      On the left is the table as it looks in the source; on the right is how each record's values might appear in the binary log:
+
+      ```markdown
+      | id | name | magic | type  |                           | binary log values  |
+      |----+------+-------+-------|                           |--------------------|
+      | 1  | Finn | false | human |                           | 1,Finn,false,human |
+      | 2  | Jake | true  | dog   |                           | 2,Jake,true,dog    |
+      ```
+
+      **Second replication job**
+
+      Because the historical replication is complete, Stitch will now use the binary logs to replicate new and updated data. Before the next replication job, a new record is added and the `magic` column is deleted.
+
+      On the left is how the table now looks in the source; on the right is how each record's values might now appear in the binary log:
+
+      ```markdown
+      | id | name  | type  |                                  | binary log values  |
+      |----+-------+-------|                                  |--------------------|
+      | 1  | Finn  | human |                                  | 1,Finn,false,human |
+      | 2  | Jake  | dog   |                                  | 2,Jake,true,dog    |
+      | 3  | Beamo | robot |                                  | 3,Beamo,robot      |
+      ```
+
+      Notice in the binary log that initial records (`1`, `2`) still have values (`false`, `true`) for the `magic` column.
+
+      **Remember**: Binary logs only contain column values - no info about where the values belong is provided. In this case, Stitch is expecting a `string` for the `type` column, but instead receives the `boolean` value for the deleted `magic` column. Because the data types don't match to the schema Stitch expects, Stitch will return the `Record 0 did not conform to schema` error.
+
+      Stitch takes this approach instead of [performing a column split]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }}) to ensure that data isn't incorrectly loaded into a column.
+
+    fix-it: |
+      To resolve the error, you'll need to perform a table-level reset. To do this, open the **{{ app.page-names.table-settings }}** page for the table and click the {{ app.buttons.reset-rep-keys }} button. This will clear the table's Replication Key value and queue a full re-replication of the table.
+
+      To prevent this error in the future:
+
+        - **When adding new columns**, append them to the end of the table
+        - **When removing columns**, perform the table-level reset in Stitch immediately after the modification
+        - **Ensure the Stitch user has access to all the columns in the table**. Although Stitch will be limited to the columns you specify while using `SELECT` during the initial replication job, values for restricted columns will still appear in binary log files.
+
+           Because these values are in the binary log files but not in the initial `SELECT` replication, Stitch will interpret this as columns being reordered. Ensuring that the Stitch database user has access to all columns at the start can avoid this error.
+
+  - message: |
+      [...] it is a view.
+    id: "binlog-unsupported-views"
+    meaning: |
+      The source object is a database view. Binary logging doesn't track events that occur in database views, so Stitch is unable to use Log-based Replication for views.
+    fix-it: |
+      Update the view's Replication Method to either [Key-based Incremental]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}).

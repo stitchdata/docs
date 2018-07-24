@@ -48,6 +48,8 @@ column-selection: true
 binlog-replication: false
 view-replication: true
 
+binlog-replication: false
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

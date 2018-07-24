@@ -31,10 +31,16 @@ versions: "n/a" ## If Stitch only supports certain versions, enter them here
 ssh: true	## true if Stitch supports SSH connections
 ssl: false	## true if Stitch supports SSL connections
 sync-views: false	## true if Stitch supports syncing database views
+whitelist:
+  tables: true
+  columns: false
 
-whitelist: ## indicates ability to select individual tables & columns for replication
-  tables: "Yes"		## can the user whitelist tables?
-  columns: "Yes"	## can the user whitelist columns?
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+binlog-replication: false
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

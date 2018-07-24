@@ -8,13 +8,12 @@ rollout-date: "July 25th"
 rollout-time: "6PM Eastern Time"
 ---
 
-{% capture rollout %}
-**On {{ page.rollout-date }} at {{ page.rollout-time }}**, we'll be modifying the scheduling mechanism for [a subset of our integrations](#affected-integrations) to establish scheduling consistency across the board. The nature of this change may result in more frequent replication for some integrations.<br><br>
+{% capture rollout %}**On {{ page.rollout-date }} at {{ page.rollout-time }}**, we'll be modifying the scheduling mechanism for [a subset of our integrations](#affected-integrations) to establish scheduling consistency across the board. The nature of this change may result in more frequent replication for some integrations.<br><br>
 
 To avoid inflating your row counts as a result, **we will proactively change the replication frequency for affected integrations using a 30 minute schedule to 60 minutes.**
 {% endcapture %}
 
-{% include important.html content=rollout %}
+{% include important.html type="single-line" content=rollout %}
 
 To be notified when this change is released, subscribe to our [changelog]({{ site.changelog }}){:target="_blank"} - and feel free to bump those frequencies afterward if they don't fit your needs.
 

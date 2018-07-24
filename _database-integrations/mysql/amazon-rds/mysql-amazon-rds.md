@@ -42,6 +42,8 @@ column-selection: true
 binlog-replication: true
 view-replication: true
 
+binlog-replication: true
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
@@ -89,7 +91,7 @@ setup-steps:
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
     content: |
-      {% include note.html content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
+      {% include note.html type="single-line" content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
       Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 

@@ -22,7 +22,14 @@ sections:
   - title: "Version history"
     anchor: "version-history"
     content: |
-      {% include integrations/templates/versioning/integration-version-history.html %}
+      {% include integrations/templates/versioning/integration-history-and-changelog.html %}
+  - title: "Version features"
+    anchor: "version-features"
+    content: |
+      In this section:
+
+      - [Supported features](#supported-features)
+      - [Supported data types](#supported-data-types)
     subsections:
       - content: |
           {% include integrations/templates/versioning/integration-supported-features.html feature-type="databases" %}

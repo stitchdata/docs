@@ -11,7 +11,7 @@ Additionally, setting up binlog replication requires rebooting your database to 
 {% endcapture %}
 
 
-{% include important.html content=important %}
+{% include important.html first-line="**Requirements for configuring binlog replication**" content=important %}
 
 Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}), or binlog replication.
 

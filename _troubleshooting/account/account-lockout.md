@@ -14,23 +14,23 @@ Having trouble logging into your Stitch account? To troubleshoot account lockout
 
 ---
 
-## Verifying Your Email Address {#verify-email-address}
+## Verify your email address {#verify-email-address}
+
 Double-check your email address to be certain the email address you are attempting to use to log in is associated with an existing Stitch account.
 
 ---
 
-## Reset Your Password
+## Reset your password
 
 You can use the **Forgot?** link on the login page to reset your password. 
 
 If you don't see an email from us after a short period of time - say 15 minutes - check your spam folder. Sometimes even well-intentioned emails can be mistaken for junk.
 
-{% include important.html content ="The password reset links in these emails are only good for one attempt. If you click the link more than once, the link will expire and you'll have to request another password reset.<br><br>
-Note that requesting multiple resets in a single day can result in account lockout." %}
+{% include important.html type="single-line" content ="The password reset links in these emails are only good for one attempt. If you click the link more than once, the link will expire and you'll have to request another password reset. Requesting multiple resets in a single day can result in account lockout." %}
 
 ---
 
-## Clear Your Cache & Pause Ad-Blockers {#clear-cache-ad-blockers}
+## Clear your cache and pause ad blockers {#clear-cache-ad-blockers}
 
 If you're still locked out, certain that your email address is correct, and you're using the correct link from the reset email, we recommend trying the following before you request another reset and attempt to login again:
 
@@ -41,9 +41,9 @@ If you're still locked out, certain that your email address is correct, and you'
 
 ---
 
-## Document Console Errors {#document-errors}
+## Document console errors {#document-errors}
 
-**Note that this step isn’t always required, but proactively completing it could reduce the time spent on researching the root cause.**
+**Note**: This step isn’t always required, but proactively completing it could reduce the time spent on researching the root cause.
 
 If you’re still unable to access your account, we recommend checking for errors and reaching out to our support team.
 

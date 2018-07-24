@@ -40,8 +40,7 @@ setup-steps:
 {{ destination.description }}
 
 {% capture account-management %}
-**Panoply Account Management**<br>
-Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply data warehouse, [reach out to Panoply]({{ destination.main-site }}).
+Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply data warehouse, [reach out to Panoply]({{ destination.main-site }}){:target="new"}.
 {% endcapture %}
 
-{% include note.html content=account-management %}
+{% include note.html first-line="**Panoply account management**" content=account-management %}
