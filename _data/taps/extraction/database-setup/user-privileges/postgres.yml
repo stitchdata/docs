@@ -5,30 +5,85 @@
 ## The permissions Stitch needs to connect to and replicate data from a PostgreSQL database.
 
 defaults:
-  - name: "CONNECT"
-    reason: "Required to connect successfully to the specified database."
-    doc-link: |
-      https://www.postgresql.org/docs/9.3/static/sql-grant.html
+  names:
+    connect: &connect-name "CONNECT"
+    usage: &usage-name "USAGE"
+    select: &select-name "SELECT"
+    alter-default-privileges: &alter-default-privileges-name "ALTER DEFAULT PRIVILEGES"
+    replication: &replication-name "REPLICATION"
+    login: &login-name "LOGIN"
+    rds-replication: &rds-replication-name "rds_replication"
 
-  - name: "USAGE"
-    reason: "Required to access the objects contained in the specified schema."
-    doc-link: |
-      https://www.postgresql.org/docs/9.3/static/sql-grant.html
+  reasons:
+    connect: &connect-reason "Required to connect successfully to the specified database."
+    usage: &usage-reason "Required to access the objects contained in the specified schema."
+    select: &select-reason "Required to select rows from tables in the specified schema."
+    alter-default-privileges: &alter-default-privileges-reason "Required to ensure that objects created in the schema after connecting to Stitch will be accessible by the Stitch database user."
+    replication: &replication-reason "**Required to use logical (Log-based) replication.** This allows the Stitch user to use logical replication."
+    login: &login-reason "**Required to use logical (Log-based) replication.** This is required to use the `REPLICATION` role. The `LOGIN` privilege allows the user with the `REPLICATION` role to log in to the database, or initiate sessions during connection."
+    rds-replication: &rds-replication-reason "**Required to allow the Stitch database user to use logical (Log-based) replication**. The `rds_superuser` role is required to grant this privilege."
 
-  - name: "SELECT"
-    reason: "Required to select rows from tables in the specified schema."
-    doc-link: |
-      https://www.postgresql.org/docs/9.3/static/sql-grant.html
+  doc-links:
+    privileges: &privileges-doc "https://www.postgresql.org/docs/9.4/static/sql-grant.html"
+    alter-default-privileges: &alter-default-privileges-doc "https://www.postgresql.org/docs/9.4/static/sql-alterdefaultprivileges.html"
+    replication: &replication-doc ""
 
-  - name: "ALTER DEFAULT PRIVILEGES"
-    reason: "Required to ensure that objects created in the schema after connecting to Stitch will be accessible by the Stitch database user."
-    doc-link: |
-      https://www.postgresql.org/docs/9.3/static/sql-alterdefaultprivileges.html
+# -------------------------- #
+#    POSTGRESQL PRIVILEGES   #
+# -------------------------- #
+
+postgres:
+  - name: *connect-name
+    reason: *connect-reason
+    doc-link: *privileges-doc
+
+  - name: *usage-name
+    reason: *usage-reason
+    doc-link: *privileges-doc
+
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *privileges-doc
+
+  - name: *alter-default-privileges-name
+    reason: *alter-default-privileges-reason
+    doc-link: *alter-default-privileges-doc
+
+  - name: *replication-name
+    reason: *replication-reason
+    doc-link: *replication-doc
+
+  - name: *login-name
+    reason: *login-reason
+    doc-link: *login-doc
+
+# -------------------------- #
+#  POSTGRESQL-RDS PRIVILEGES #
+# -------------------------- #
 
 postgresql-rds:
-  - name: "rds_replication"
-    reason: |
-      Required to allow the Stitch database user to use logical (Log-based) replication. **The `rds_superuser` role is required to grant this privilege.**
+  - name: *connect-name
+    reason: *connect-reason
+    doc-link: *privileges-doc
+
+  - name: *usage-name
+    reason: *usage-reason
+    doc-link: *privileges-doc
+
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *privileges-doc
+
+  - name: *alter-default-privileges-name
+    reason: *alter-default-privileges-reason
+    doc-link: *alter-default-privileges-doc
+
+  - name: *rds-replication-name
+    reason: *rds-replication-reason
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
 
 create-user-command-default: |
   CREATE USER [stitch_username] WITH ENCRYPTED PASSWORD '[secure password]';
@@ -39,3 +94,9 @@ create-user-command-default: |
 
 rds-grant-replication: |
   GRANT rds_replication TO [stitch_username];
+
+postgresql-create-replication-role: |
+  CREATE ROLE replication REPLICATION LOGIN;
+
+postgresql-grant-replication-role: |
+  GRANT replication TO [stitch_username];

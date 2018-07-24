@@ -1,32 +1,6 @@
 
-<!-- Amazon RDS has their own special privilege for PostgreSQL replication, so we have to do a lot of switching to get all the privileges to display. -->
-{% case integration.db-type %}
-{% when 'postgres' %}
-{% if integration.name contains "rds" %}
-
-<!-- For Postgres RDS, first get the RDS-specific privilege list -->
-{% assign rds-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].postgresql-rds %}
-
-<!-- Then get the "default" privileges and concat the arrays -->
-{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].defaults | concat: rds-setup %}
-
-<!-- For anything else PostgreSQL-based, just use the default privileges list -->
-{% else %}
-{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].defaults %}
-{% endif %}
-
-<!-- For all other database integrations, use this -->
-{% else %}
-{% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type].user-privileges %}
-{% endcase %}
-
-<!-- Different flavors of databases may not be on the same version as the DB
-that powers their backend, or their settings may be slightly different.
-
-Use the database's display name to pull the correct settings, versus just
-using the type. -->
-
-{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
+<!-- Get the list of privileges required for the database -->
+     {% assign database-setup = site.data.taps.extraction.database-setup.user-privileges[integration.db-type][integration.name] %}
  
  <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
