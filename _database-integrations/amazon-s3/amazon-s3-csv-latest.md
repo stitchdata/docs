@@ -37,7 +37,7 @@ frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
 db-type: "s3"
-icon: /images/integrations/icons/amazon-s3-csv.svg
+icon: /images/integrations/icons/amazon-s3.svg
 
 versions: "n/a"
 ssh: false

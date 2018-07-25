@@ -1,6 +1,7 @@
 ---
 layout: page
 ---
+{% include misc/data-files.html %}
 
 {% for section in page.sections %}
     {% if section.title %}
@@ -13,7 +14,7 @@ layout: page
     {% if section.subsections %}
         {% for subsection in section.subsections %}
             {% if subsection.title %}
-                <h3 id="{{ section.anchor }}">{{ subsection.title | flatify }}</h3>
+                <h3 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h3>
             {% endif %}
 
             {{ subsection.content | flatify | markdownify }}

@@ -13,7 +13,7 @@ format: ## controls formatting options in template
 #     Integration Details    #
 # -------------------------- #
 
-name: "google ecommerce"
+name: "google-ecommerce"
 display_name: "Google ECommerce"
 singer: false
 author: "Stitch"

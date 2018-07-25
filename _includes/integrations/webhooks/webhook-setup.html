@@ -1,4 +1,4 @@
-{% if integration.name == "incoming_webhooks" %}
+{% if integration.name == "incoming-webhooks" %}
 Connecting {{ integration.display_name }} to Stitch is a four-step process:
 {% else %}
 Connecting {{ integration.display_name }} to Stitch is a three-step process:
@@ -10,7 +10,7 @@ Connecting {{ integration.display_name }} to Stitch is a three-step process:
 <li><a href="#define-webhook-primary-key">Define the Primary Key</a></li>
 {% endif %}
 <li><a href="#generate-webhook-url">Generate a Webhook URL</a></li>
-<li><a href="#setup-webhooks-in-app">Set up webhooks in {% if integration.name == "incoming_webhooks" %}your provider's app{% else %}{{ integration.display_name }}{% endif %}</a></li>
+<li><a href="#setup-webhooks-in-app">Set up webhooks in {% if integration.name == "incoming-webhooks" %}your provider's app{% else %}{{ integration.display_name }}{% endif %}</a></li>
 </ol>
 
 {{ intro }}
@@ -25,10 +25,10 @@ Connecting {{ integration.display_name }} to Stitch is a three-step process:
 
 {% include integrations/webhooks/webhook-url.html %}
 
-### Set up webhooks in {% if integration.name == "incoming_webhooks" %}Your Provider's App{% else %}{{ integration.display_name }}{% endif %} {#setup-webhooks-in-app}
+### Set up webhooks in {% if integration.name == "incoming-webhooks" %}Your Provider's App{% else %}{{ integration.display_name }}{% endif %} {#setup-webhooks-in-app}
 
-The last step is to setup webhooks in your {% if integration.name == "incoming_webhooks" %}your provider's app{% else %}{{ integration.display_name }}{% endif %} account.
+The last step is to setup webhooks in your {% if integration.name == "incoming-webhooks" %}your provider's app{% else %}{{ integration.display_name }}{% endif %} account.
 
-{% if integration.name == "incoming_webhooks" %}
+{% if integration.name == "incoming-webhooks" %}
 For instructions on how to setup webhooks in your provider's app, refer to their documentation or reach out to their support team, if necessary.
 {% endif %}

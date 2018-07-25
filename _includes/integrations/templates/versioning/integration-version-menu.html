@@ -13,6 +13,11 @@
             SELECT VERSION <span class="caret"></span>
         </button>
         <ol class="dropdown-menu">
+            {% if integration.has-versions %}
+                <li class="category-version-toggle">
+                    <a href="{{ integration.url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
+                </li>
+            {% endif %}
             {% for version in released-versions %}
                 {% for doc in all-versioned-docs %}
                     {% if version.number == doc.this-version %}
