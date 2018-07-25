@@ -6,6 +6,9 @@ deprecation and major version releases. -->
 integration_name value so the correct changelog is pulled -->
     {% include integrations/templates/versioning/version-logic.html %}
 
+<!-- Get the tap name -->
+    {% assign tap-name = site.data.taps.versions[integration_name]tap-name %}
+
 <!-- Get the changelog for the integration -->
     {% assign integration-changelog = site.data.taps.versions[integration_name]changelog-entries %}
 
@@ -59,7 +62,7 @@ integration_name value so the correct changelog is pulled -->
                             <strong>New integration version ({{ entry.version }})</strong>
                         </p>
 
-                        <p>Version {{ entry.version }} of Singer's {{ integration.tap-name }} tap, which backs Stitch's {{ integration.display_name }} integration, has been released.</p>
+                        <p>Version {{ entry.version }} of Singer's {{ tap-name }} tap, which backs Stitch's {{ integration.display_name }} integration, has been released.</p>
 
                 <!-- For version deprecation entries -->
                     {% when 'version-deprecation' %}

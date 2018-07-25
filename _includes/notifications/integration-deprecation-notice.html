@@ -27,7 +27,7 @@
 
         <!-- If the version has a deprecation date, display it -->
         <!-- And keep everything flush left, otherwise Jekyll throws a fit -->
-            {% if version.deprecation-date %}
+            {% unless version.deprecation-date == "n/a" or version.deprecation-date == "To be determined" %}
 {% capture deprecation %}
 This version of the {{ integration.display_name }} integration will be deprecated on **{{ version.deprecation-date }}** and no longer be formally supported by the Stitch Support Team.
 
@@ -47,7 +47,7 @@ Upgrade to the latest version ({{ latest-version }}) to take advantage of the ne
 </a>
 {% endcapture %}
                 
-            {% endif %}
+            {% endunless %}
 
             {% include important.html first-line=first-line content=deprecation %}
         {% endif %}
