@@ -22,8 +22,6 @@ sections:
   - title: "Identify your version"
     anchor: "identify-your-version"
     content: |
-      [ TO DO! ]
-
       {% include integrations/templates/versioning/integration-version-tiles.html %}
 
   - title: "{{ integration.display_name }} version history"
