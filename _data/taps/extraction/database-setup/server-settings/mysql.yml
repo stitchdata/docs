@@ -11,6 +11,7 @@ defaults:
     expire-logs-days: &expire-logs-days-name "expire_logs_days"
     binlog-expire-logs-seconds: &binlog-expire-logs-seconds-name "binlog_expire_logs_seconds"
     log-bin: &log-bin-name "log_bin"
+    log-slave-updates: &log-slave-update-name "log_slave_updates"
 
   values:
     binlog-format: &binlog-format-value "ROW"
@@ -18,9 +19,12 @@ defaults:
     expire-logs-days: &expire-logs-days-value "7"
     binlog-expire-logs-seconds: &binlog-expire-logs-seconds-value "604800"
     log-bin: &log-bin-value "mysql-binlog"
+    log-slave-updates: &log-slave-update-value "1"
 
   descriptions:
     binlog-format: &binlog-format-description |
+      **Note**: This setting is available on {{ integration.display_name }} databases running version 5.6.2 or greater.
+
       Defines the binary logging format. A `ROW` value enables "event-based" capture, which describes what happens to records in the database. **This is necessary to use binlog.**
 
         Stitch supports the following event types:
@@ -30,6 +34,8 @@ defaults:
         - `DELETE`
 
     binlog-row-image: &binlog-row-image-description |
+      **Note**: This setting is available on {{ integration.display_name }} databases running version 5.6.2 or greater.
+
       Defines how row images are written to the binary log. A `FULL` value ensures that all columns in a row are logged in the before and after images of a change, enabling Stitch to accurately capture all changes made to a record.
 
     expire-logs-days: &expire-logs-days-description |
@@ -49,32 +55,41 @@ defaults:
 
       **Note**: The name of this file doesn't have to be `mysql-binlog`. If your server already specifies a `log-bin` entry, there's no need to change it.
 
+    log-slave-update: &log-slave-update-description |
+      Indicates whether updates received by a read replica from a master server should be logged to the replica's own binary log.
+
+      **Note**: This is applicable when using a read replica.
+
 
 # -------------------------- #
 #      CLOUDSQL SETTINGS     #
 # -------------------------- #
 
-google-cloudsql-mysql:
+cloudsql-mysql:
   - name: *binlog-format-name
     value: *binlog-format-value
     description: *binlog-format-description
-    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#binlog_format"
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
 
-  # - name: *binlog-row-image-name
-  #   value: *binlog-row-image-value
-  #   description: *binlog-row-image-description
-  #   doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#binlog_row_image"
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
 
-  # - name: *expire-logs-days-name
-  #   value: *expire-logs-days-value
-  #   description: |
-  #     Specifies the amount of time, in days, before the automatic removal of binary log files. Stitch recommends a retention period of **7 days**, but a minimum of **3 days** will also work.
-  #   doc-link: https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#expire_logs_days
+  - name: *expire-logs-days-name
+    value: *expire-logs-days-value
+    description: *expire-logs-days-description
+    doc-link: https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_expire_logs_days
+
+  - name: *binlog-expire-logs-seconds-name
+    value: *binlog-expire-logs-seconds-value
+    description: *binlog-expire-logs-seconds-description
+    doc-link: "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_binlog_expire_logs_seconds"
 
   - name: *log-bin-name
     value: *log-bin-value
     description: *log-bin-description
-    doc-link: ""
+    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin"
 
 
 # -------------------------- #
@@ -102,6 +117,43 @@ mariadb:
     value: *log-bin-value
     description: *log-bin-description
     doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin"
+
+
+# -------------------------- #
+#     MYSQL RDS SETTINGS     #
+# -------------------------- #
+
+mysql-rds:
+  - name: *binlog-format-name
+    value: *binlog-format-value
+    description: *binlog-format-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
+
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
+
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: *log-slave-update-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_log_slave_updates"
+
+
+# -------------------------- #
+#     AURORA RDS SETTINGS    #
+# -------------------------- #
+
+aurora-rds:
+  - name: *binlog-format-name
+    value: *binlog-format-value
+    description: *binlog-format-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
+
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
 
 # -------------------------- #
 #       MYSQL SETTINGS       #

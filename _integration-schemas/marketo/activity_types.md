@@ -1,6 +1,6 @@
 ---
 tap: "marketo"
-# version: ""
+version: "2.0"
 
 name: "activity_types"
 doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getAllActivityTypesUsingGET"
@@ -8,13 +8,13 @@ singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/
 description: |
   The `activity_types` table contains metadata about the activity types - form fill, web page visit, lead creation, and so on - available in {{ integration.display_name }}.
 
-notes: |
-  #### Filter Deleted Leads
-  When joined with the `activities` table, you can use specific activity types to filter out deleted leads, assess list membership, and more. Here are a few noteworthy activity types:
+# notes: |
+#   #### Filter Deleted Leads
+#   When joined with the `activities` table, you can use specific activity types to filter out deleted leads, assess list membership, and more. Here are a few noteworthy activity types:
 
-  - **Add to List and Remove from List** - These events can be used to discover lead list membership.
-  - **Delete Lead** - A `delete lead` event indicates leads that have been deleted. We recommend using this activity to filter out deleted leads.
-  - **Add a Lead to a Nurture Program, Change Nurture Track, and Change Nurture Cadence** - These events can help you determine what nurture programs a lead is in and lead activity against that program.
+#   - **Add to List and Remove from List** - These events can be used to discover lead list membership.
+#   - **Delete Lead** - A `delete lead` event indicates leads that have been deleted. We recommend using this activity to filter out deleted leads.
+#   - **Add a Lead to a Nurture Program, Change Nurture Track, and Change Nurture Cadence** - These events can help you determine what nurture programs a lead is in and lead activity against that program.
 
 replication-method: "Full Table"
 api-method:

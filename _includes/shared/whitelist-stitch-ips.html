@@ -1,24 +1,54 @@
 {% include misc/data-files.html %}
 
-{% if page.name == "rds" %}
+{% if page.name contains "rds" %}
 For Stitch to successfully connect with your RDS instance, you'll need to add our IP addresses to the appropriate database security group via the AWS management console. To do this, an inbound security rule must be created for each of our IP addresses.
 
 The IP addresses can be added to an existing group or you can create a new one. The important thing is that the group is authorized to access the instance you want to connect to Stitch.
 
 1. Log into your AWS account.
-2. In the management page for the security group, click the **Inbound tab**.
-2. Click the **Edit** button. This will display the Edit Inbound Rules window.
-3. In the **Type** field, select **Custom TCP Rule**.
-4. In the **Port Range** field, enter the port your database uses.
-5. In the **CIDR, IP or Security Group** field, enter the IP address. Below are all the IP addresses that must be added to the security group:
+2. Navigate to the Security Group Management page, typically **Services > Compute > EC2**.
+3. Click the **Security Groups** option, under **Network & Security** in the menu on the left side of the page.
+4. Click **Create Security Group**.
+5. In the window that displays, fill in the fields as follows:
+   - **Security group name**: Enter a unique name for the security group. For example: `Stitch`
+   - **Description**: Enter a description for the security group.
+   - **VPC**: Verify that the selected VPC is the same VPC your database is in.
+6. In the **Inbound** tab, click **Add Rule**.
+7. Fill in the fields as follows:
+   - **Type**: Select `Custom TCP Rule`
+   - **Port Range**: Enter the port your database uses. (`{{ integration.port }}` by default)
+   - **CIDR, IP or Security Group**, enter one of the IP addresses listed below:
 
-    {% for ip-address in ip-addresses %}
-    - {{ ip-address.ip }}
-    {% endfor %}
+        {% for ip-address in ip-addresses %}
+        - {{ ip-address.ip }}
+        {% endfor %}
+8. Add another rule by clicking the **Add Rule** button.
+9. Repeat steps 6-8 until all the IP addresses above have been added:
 
-6. To add another rule, click the **Add Rule** button.
-7. Repeat steps 3-6 until all the Stitch IP addresses have been added.
-8. Click the **Save** button.
+   ![]({{ site.baseurl }}/images/integrations/aws-security-group-whitelisting.png)
+10. When finished, click **Create**.
+
+{% elsif page.name contains "cloudsql" %}
+
+For Stitch to successfully connect with your CloudSQL instance, you'll need to add our IP addresses to the database's authorized IP addresses list.
+
+{% include layout/inline_image.html type="right" file="integrations/cloudsql-ip-whitelisting.png" alt="" max-width="500px" %}
+1. Sign into your Google Cloud Platform account.
+2. Navigate to the [Cloud SQL Instances page](https://console.cloud.google.com/sql/instances?_ga=2.87743768.-1255434742.1523541209){:target="new"}.
+3. Click the instance name to open its details page.
+4. Click the **Authorization** tab.
+5. For each of the following IP addresses, complete the following:
+
+   1. Click **Add network**.
+   2. In the **Name** field, enter a name for the IP address. For example: `Stitch-1` for the first IP address, `Stitch-2` for the second, and so on.
+   3. In the **Network** field, paste **one** of the following IP addresses:
+      {% for ip-address in ip-addresses %}
+      - {{ ip-address.ip }}
+      {% endfor %}
+   4. Click **Done**.
+   5. Repeat these steps until all of Stitch's IP addresses have been added.
+
+6. When finished, click **Save** to update the instance.
 
 {% else %}
 

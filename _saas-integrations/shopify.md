@@ -235,7 +235,7 @@ tables:
     doc-link: https://help.shopify.com/api/reference/refund/
     description: "info about refunds applied to transactions."
     notes: 
-    replication-method: "Key-based Incremental"
+    replication-method: "Full Table"
     primary-key: "id"
     nested-structures: true
     attributes:

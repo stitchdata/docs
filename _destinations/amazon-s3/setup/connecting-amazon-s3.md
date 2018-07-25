@@ -10,6 +10,12 @@ layout: destination-setup-guide
 type: "amazon-s3"
 display_name: "Amazon S3"
 
+enterprise-cta:
+  title: "Need loading notifications?"
+  url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
+  copy: |
+    As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
@@ -30,7 +36,7 @@ setup-steps:
   - title: "Create an {{ destination.display_name }} Bucket"
     anchor: "create-a-bucket"
     content: |
-      {% include note.html content="Skip to [Step 2](#configure-stitch-settings) if there is an existing S3 bucket you want to connect to Stitch." %}
+      {% include note.html type="single-line" content="Skip to [Step 2](#configure-stitch-settings) if there is an existing S3 bucket you want to connect to Stitch." %}
 
       {% include layout/inline_image.html type="right" file="destinations/amazon-s3-create-bucket-1.png" max-width="400px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
 
@@ -78,7 +84,7 @@ setup-steps:
       - title: "Define Webhook Loading Notifications"
         anchor: "define-webhook-loading-notifications"
         content: |
-          {% include note.html content="This step is optional, and can be enabled at any time." %}
+          {% include enterprise-cta.html %}
 
           Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
 
@@ -153,7 +159,7 @@ setup-steps:
   - title: "Grant and Verify Bucket Access"
     anchor: "grant-verify-bucket-access"
     content: |
-      {% include important.html content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
+      {% include important.html type="single-line" content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
 
       Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
 
@@ -261,7 +267,7 @@ setup-steps:
           5. After the file has been uploaded to the bucket, switch back to where you have Stitch open.
           6. Click **Check and Save** to save and test the connection to {{ destination.display_name }}.
 
-          {% include important.html content="**The challenge file must remain in the bucket even after the initial setup is completed**. Removing this file will connection and loading interruptions." %}
+          {% include important.html type="single-line" content="The challenge file must remain in the bucket even after the initial setup is completed. Removing this file will connection and loading interruptions." %}
 ---
 
 

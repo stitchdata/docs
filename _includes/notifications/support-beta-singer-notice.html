@@ -1,5 +1,10 @@
-{% if integration.setup-name %}
-    {% assign integration-name = integration.setup-name %}
+{% if integration.setup-name or integration.tap-name %}
+    {% if integration.tap-name %}
+        {% assign integration-name = integration.tap-name %}
+    {% else %}
+        {% assign integration-name = integration.setup-name %}
+    {% endif %}
+    
 {% else %}
     {% assign integration-name = integration.display_name %}
 {% endif %}

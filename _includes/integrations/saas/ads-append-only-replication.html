@@ -18,6 +18,8 @@
 
     {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
 
+    {% assign customerid = "customerid" %}
+
   {% when "bing-ads" %}
     {% assign window = "Conversion Window" %}
 
@@ -93,7 +95,7 @@ Stitch replicates data in this way to account for updates made during the {{ win
 {% if include.type == "data-loading" %}
 When Stitch loads the extracted data for Report tables into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
 
-Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](##column-selection-statistic-aggregation) for more info and examples.
+Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](#column-selection-statistic-aggregation) for more info and examples.
 
 ##### Example {#append-only-example}
 
@@ -116,7 +118,7 @@ Every time Stitch replicates and loads data, a row for each unique combination o
 
 
 {% if include.type == "append-only-query" %}
-{% include note.html content="The query below is meant to act as a foundation for writing your own. Depending on the dimensions contained in a given table, you may need to alter this query for your own usage." %}
+{% include note.html type="single-line" content="The query below is meant to act as a foundation for writing your own. Depending on the dimensions contained in a given table, you may need to alter this query for your own usage." %}
 
 If you want only the most recently replicated data for any {{ integration.display_name }} Report table, you can use the sample query below to account for the Append-Only Replication Stitch uses.
 
@@ -127,19 +129,19 @@ This query uses two columns - which are automatically included for every Report 
 
 ```sql
 SELECT *
-FROM (
-       SELECT *,
-              RANK() OVER (PARTITION BY {{ replication-key }}
-                           ORDER BY {{ system-column.report-date-time }} DESC)
-       FROM ad_performance_report
-       ORDER BY {{ replication-key }} ASC
-      ) AS latest
-WHERE latest.rank = 1
+  FROM (
+        SELECT *,
+        RANK() OVER (PARTITION BY {{ replication-key }}{{ customerid | prepend: ", " }}
+                     ORDER BY {{ system-column.report-date-time }} DESC)
+        FROM ad_performance_report
+        ORDER BY {{ replication-key }} ASC
+       ) AS latest
+ WHERE latest.rank = 1
 ```
 
 In this query:
 
-1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/) to create a 'window' of data for each `{{ replication-key }}`,
+1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/) to create a 'window' of data for each `{{ replication-key }}`{% if integration.name == "google-adwords" %} and `{{ customerid }}` combo{% endif %},
 2. The values of the `{{ system-column.report-date-time }}` column are ranked within each window partition, and
 4. Then, in the outer query, only the rows with `{{ system-column.report-date-time }}` values ranked as `1` - which is equal to the maximum timestamp - are returned. 
 

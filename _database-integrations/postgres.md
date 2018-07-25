@@ -39,9 +39,14 @@ whitelist:
   tables: "Yes"
   columns: "Yes"
 
+binlog-replication: false
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
+
+notice: |
+  This article describes how to connect PostgreSQL **as an input data source.** If you want to connect a PostgreSQL instance **as a data warehouse,** refer to the [Connecting a Self-Hosted PostgreSQL Destination article]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}).
 
 requirements-list:
   - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
@@ -81,8 +86,5 @@ setup-steps:
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-{% capture postgres-dw %}This article describes how to connect PostgreSQL <strong>as an input data source.</strong>
-<br><br>
-If you want to connect a PostgreSQL instance <strong>as a data warehouse,</strong> refer to the [Connecting a Self-Hosted PostgreSQL Destination article]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}).
+{% capture postgres-dw %}
 {% endcapture %}
-{% include important.html content=postgres-dw %}

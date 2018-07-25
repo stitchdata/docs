@@ -101,7 +101,6 @@ layout: page
 {% if integration.this-version %}
 {% assign integration = page %}
 {% capture version-notice %}
-<strong>Schemas and Versioning</strong><br>
 Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.<br><br>
 
 The schema and info displayed below is for <strong>version {{ integration.this-version }}</strong> of this integration.
@@ -111,7 +110,7 @@ The schema and info displayed below is for <strong>version {{ integration.this-v
 {% endif %}
 {% endcapture %}
 
-{% include note.html content=version-notice %}
+{% include note.html first-line="**Schemas and versioning**" content=version-notice %}
 
 <!-- If this isn't the latest version of the integration, re-assign the page variable. -->
 {% if integration.this-version != latest-version %}

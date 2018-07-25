@@ -1,5 +1,5 @@
 {% unless page.keywords contains "data warehouse" or include.no-notification == true %}
-{% include note.html content="If you aren't using an SSH tunnel, skip this step." %}
+{% include note.html type="single-line" content="If you aren't using an SSH tunnel, skip this step." %}
 {% endunless %}
 
 {% if page.singer == true %}
@@ -20,12 +20,10 @@ To retrieve the key:
 {% endif %}
 
 {% if page.url contains "integrations" %}
-{% if integration.name == "rds" %}
-3. Click the icon (ex: MySQL) for the type of database you're connecting.
-{% elsif integration.name == "magento" %}
-3. Click the **MySQL** icon.
+{% if integration.setup-name %}
+3. Click the **{{ integration.setup-name }}** icon.
 {% else %}
-4. Click the **{{ integration.display_name }}** icon.
+3. Click the **{{ integration.display_name }}** icon.
 {% endif %}
 {% endif %}
 

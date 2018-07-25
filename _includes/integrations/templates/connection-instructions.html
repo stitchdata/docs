@@ -94,7 +94,18 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 {% elsif step.title == "historical sync" %}
 <h3 id="define-historical-sync">Step {{ forloop.index }}: Define the Historical Sync</h3>
 {% capture historical-sync %}
+{% if step.content %}
+
+{% capture historical-step-content %}
+{{ step.content | flatify }}
+{% endcapture %}
+
+{% include integrations/saas/setup/historical-sync.html step-content=historical-step-content %}
+
+{% else %}
 {% include integrations/saas/setup/historical-sync.html %}
+{% endif %}
+
 {% endcapture %}
 
 {{ historical-sync | markdownify }}

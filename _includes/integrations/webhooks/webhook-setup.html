@@ -25,7 +25,7 @@ Connecting {{ integration.display_name }} to Stitch is a three-step process:
 
 {% include integrations/webhooks/webhook-url.html %}
 
-### Set Up Webhooks in {% if integration.name == "incoming_webhooks" %}Your Provider's App{% else %}{{ integration.display_name }}{% endif %} {#setup-webhooks-in-app}
+### Set up webhooks in {% if integration.name == "incoming_webhooks" %}Your Provider's App{% else %}{{ integration.display_name }}{% endif %} {#setup-webhooks-in-app}
 
 The last step is to setup webhooks in your {% if integration.name == "incoming_webhooks" %}your provider's app{% else %}{{ integration.display_name }}{% endif %} account.
 

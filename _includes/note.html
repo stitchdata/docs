@@ -1,1 +1,17 @@
-<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> {{include.content}}</div>
+{% capture info-icon %}
+<i class="fa fa-info-circle"></i>
+{% endcapture %}
+
+{% case include.type %}
+{% when 'single-line' %}
+<div markdown="span" class="alert alert-info" role="alert">
+    {{ info-icon | strip }}
+    {{ include.content }}
+</div>
+
+{% else %}
+<div class="alert alert-info" role="alert">
+    {% if include.first-line %} {{ include.first-line | prepend: info-icon | markdownify | strip }}{% endif %}
+    {{ include.content | markdownify }}
+</div>
+{% endcase %}

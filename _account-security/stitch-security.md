@@ -119,7 +119,7 @@ frequently-asked-questions:
       - question: "Does Stitch undergo any security audits?"
         anchor: "stitch-security-audits"
         answer: |
-          New features undergo a security review by our team before release. In additiona, security professionals conduct regular audits and penetration tests on our existing systems.
+          New features undergo a security review by our team before release. In addition, security professionals conduct regular audits and penetration tests on our existing systems.
 
       - question: "What are Stitch's recommendations for keeping my data secure?"
         anchor: "stitch-recommendations-data-secure"

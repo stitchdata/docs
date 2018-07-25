@@ -40,8 +40,12 @@
 								{{ sometimes-supported | replace:"TOOLTIP","This destination/integration combination is sometimes incompatible." }}
 							{% endif %}
 						</td>
-						<td style="vertical-align: middle" markdown="span" width="70%; fixed">
-							{{ integration.incompatible.reason }}
+						<td style="vertical-align: middle" width="70%; fixed">
+							{{ integration.incompatible.reason | flatify | markdownify }}
+
+							{% if integration.this-version %}
+								<p><strong>Note:</strong> This is applicable to all versions of this integration.</p>
+							{% endif %}
 						</td>
 					</tr>
 				{% endif %} <!-- Ends integration incompatibility detail loop-->

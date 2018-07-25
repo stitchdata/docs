@@ -1,4 +1,4 @@
-{% include important.html content="This section is written for Mongo versions 3.0+ and may differ for other versions. You should verify your version and refer to the Mongo documentation for your version before continuing." %}
+{% include important.html first-line="**Verify your Mongo version**" content="This section is written for Mongo versions 3.0+ and may differ for other versions. You should verify your version and refer to the Mongo documentation for your version before continuing." %}
 
 To successfully connect and replicate your Mongo data, Stitch requires the ability to:
 
@@ -10,15 +10,14 @@ To successfully connect and replicate your Mongo data, Stitch requires the abili
 You can assign a role to the Stitch user if you like, as long as the role has the necessary permissions to perform the actions listed above.
 
 {% capture atlas-databases %}
-**Atlas {{ integration.display_name }} Authentication**<br>
-Stitch's {{ integration.display_name }} integration is designed to use a user authentication method that requires Mongo database users to be validated against their authentication database. [Read more about Mongo authentication here](https://docs.mongodb.com/manual/core/security-users/#authenticate-a-user).<br><br>
+Stitch's {{ integration.display_name }} integration is designed to use a user authentication method that requires Mongo database users to be validated against their authentication database. [Read more about Mongo authentication here](https://docs.mongodb.com/manual/core/security-users/#authenticate-a-user).
 
-Currently, Stitch's {{ integration.display_name }} integration currently assumes the database entered in the Integration Settings page is the authentication database. Due to {{ integration.display_name }}'s authentication process and Stitch's current functionality, the database entered into Stitch in the next step must be the user's authentication database.<br><br>
+Currently, Stitch's {{ integration.display_name }} integration currently assumes the database entered in the Integration Settings page is the authentication database. Due to {{ integration.display_name }}'s authentication process and Stitch's current functionality, the database entered into Stitch in the next step must be the user's authentication database.
 
 For Atlas-based instances, the Stitch user must be able to perform the actions listed above on the `admin` database and the other databases you want to query, if any. This is due to the design of Stitch's integration and Mongo's authentication requirements.
 {% endcapture %}
 
-{% include note.html content=atlas-databases %}
+{% include note.html first-line="**Atlas MongoDB authentication**" content=atlas-databases %}
 
 When connecting to multiple databases, you can add the user by logging into Mongo as an admin user and running the following command. This example uses `createUser`, but older versions may use `addUser`. [Documentation for `addUser` can be found here](https://docs.mongodb.com/v2.4/reference/method/db.addUser/#db.addUser).
 

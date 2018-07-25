@@ -134,11 +134,13 @@ Even though Stitch will notify you when you're nearing your row limit, we recomm
 
 ## Define different frequencies for select tables {#different-frequencies-for-full--incrementally-replicating-tables}
 
-{% capture workaround %}**This workaround only applies to [integrations that support whitelisting at the table level]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}).**
+{% capture workaround %}
+This workaround only applies to [integrations that support whitelisting at the table level]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}).**
 
-<br><br>Additionally, while this will work for some SaaS integrations, some SaaS integration providers may not allow more than one API session to be open at a time. [NetSuite]({{ site.baseurl }}/integrations/saas/netsuite) is just such an example. We are unsure of the exact impact this may have on any API quotas imposed by the integration provider.
+Additionally, while this will work for some SaaS integrations, some SaaS integration providers may not allow more than one API session to be open at a time. [NetSuite]({{ site.baseurl }}/integrations/saas/netsuite) is just such an example. We are unsure of the exact impact this may have on any API quotas imposed by the integration provider.
 {% endcapture %}
-{% include note.html content=workaround %}
+
+{% include note.html first-line="**Only applicable to integrations with table selection**" content=workaround %}
 
 To help keep row counts low, you can create two integrations: one to replicate tables using Full Table Replication, the other to replicate Incremental tables. You can then set each integration's Replication Frequency appropriately.
 
