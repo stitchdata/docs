@@ -159,25 +159,13 @@ attributes:
 
           Facebook's documentation states that: _"10 means we (Facebook) estimate the ad is highly relevant and 1 means we (Facebook) estimate it’s not very relevant."_
 
-  - name: "social_clicks"
-    type: "integer"
-    description: "The number of clicks (all) when the ad was displayed with social information, which shows other Facebook friends who engaged with the Facebook Page or ad."
-
   - name: "inline_link_clicks"
-    type: "integer"
-    description: "The number of clicks on links to select destinations or experiences, on or off Facebook-owned properties. Inline link clicks use a fixed 1-day-click attribution window."
-
-  - name: "unique_social_clicks"
     type: "integer"
     description: "The number of clicks on links to select destinations or experiences, on or off Facebook-owned properties. Inline link clicks use a fixed 1-day-click attribution window."
 
   - name: "cpc"
     type: "number"
     description: "The average cost for each click (all)."
-
-  - name: "unique_social_clicks"
-    type: "integer"
-    description: "The number of people who performed a click (all) on the ad when it was displayed with social information, which shows other Facebook friends who engaged with the Page or ad."
 
   - name: "cost_per_unique_inline_link_click"
     type: "number"
