@@ -88,6 +88,7 @@ attributes:
 
           **Note**: As of July 2018, Facebook has deprecated the following `action` types:
 
+          - `app_custom_event`
           - `mention`
           - `tab_view`
 
