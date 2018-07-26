@@ -170,14 +170,6 @@ attributes:
 
           **Note:** Relevance scores are shown after ads receive more than 500 impressions. In addition, relevance scores are only applicable to ads and will not appear for ad sets and campaigns.
 
-      - name: "negative_feedback"
-        type: "string"
-        description: "A string that indicates the level of negative feedback received about the ad. Ex: `LOW`"
-
-      - name: "positive_feedback"
-        type: "string"
-        description: "A string that indicates the level of positive feedback received about the ad. Ex: `HIGH`"
-
       - name: "score"
         type: "number"
         description: |
