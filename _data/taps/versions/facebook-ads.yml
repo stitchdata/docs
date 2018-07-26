@@ -1,0 +1,104 @@
+# -------------------------- #
+#   FACEBOOK ADS VERSIONS    #
+# -------------------------- #
+
+latest-version: "1.0"
+
+released-versions:
+  - number: "1.0"
+    date-released: "September 11, 2017"
+    deprecated: false
+    deprecation-date: "n/a"
+
+
+# -------------------------- #
+#   FACEBOOK ADS CHANGELOG   #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+# - feature-support
+# - provider-deprecation
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/integrations/templates/versioning/integration-changelog.html
+
+changelog-entries:
+  - date: "July 26, 2018"
+    version: "1.0"
+    type: "provider-deprecation"
+    summary: "Deprecated ad insights fields"
+    content: |
+      [Facebook has deprecated the following fields](https://developers.facebook.com/docs/graph-api/changelog/breaking-changes#feb2018){:target="new"}, meaning they are no longer available for selection or retrieval via Facebook's API:
+
+      - `call_to_action_clicks`
+      - `cost_per_total_action`
+      - `social_reach`
+      - `social_impressions`
+      - `social_clicks`
+      - `unique_social_clicks`
+      - `today_spend`
+      - `total_actions`
+      - `total_unique_actions`
+
+      In addition, several types of metrics have been deprecated. **Note**: The fields are still available, but the types listed below are not.
+
+      - `actions` field: `mention`, `tab_view`
+      - `action_values` field: `app_custom_event`
+      - `cost_per_action_type` field: `mention`, `tab_view`
+      - `canvas_avg_view_percentage_per_component` field: `canvas_view`
+
+  - date: "April 10, 2018"
+    version: "1.0"
+    type: "provider-deprecation"
+    summary: "Deprecated field: `video_15_sec_watched_actions"
+    content: |
+      With the upgrade to the 2.11 version of Facebook's Marketing API, Facebook has deprecated the `video_15_sec_watched_actions` field. This field is no longer available for selection or retrieval via the API.
+
+  - date: "April 10, 2018"
+    version: "1.0"
+    type: "new-data"
+    summary: "New table availability: `ads_insights_region`"
+    content: |
+      A new table is now available for Facebook Ads integrations. The `ads_insights_region` table contains data by region (such as state or province) where people live or were located when viewing your ads, depending on how you set your location targeting.
+
+  - date: "April 10, 2018"
+    version: "1.0"
+    type: "feature-support"
+    summary: "Configurable attribution windows"
+    content: |
+      Attribution windows are now configurable in Stitch for Facebook Ads integrations. You can choose between 1, 7, or 28 days to ensure Stitch replicates historical data in alignment with the attribution window of your Facebook Ads account.
+
+  - date: "April 10, 2018"
+    version: "1.0"
+    type: "maintenance"
+    summary: "Upgrade to Facebook Marketing API 2.11"
+    content: |
+      The Facebook Ads integration has been updated to use the newest version of Facebook's Marketing API (2.11).
+
+  - date: "February 15, 2018"
+    version: "1.0"
+    type: "feature-support"
+    summary: "Loading Reports now available"
+    content: |
+      Loading Reports are now available for all Facebook Ads integrations.
+
+  - date: "November 16, 2017"
+    version: "1.0"
+    type: "feature-support"
+    summary: "Extraction Logs now available"
+    content: |
+      Extraction Logs are now available for all Facebook Ads integrations.
+
+  - date: "September 11, 2017"
+    version: "1.0"
+    type: "new-version"
+    content: |
+      Highlights include:
+
+      - Field selection support
