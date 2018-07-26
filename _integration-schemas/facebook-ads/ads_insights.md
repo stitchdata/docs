@@ -85,6 +85,7 @@ attributes:
 
           **Note**: As of July 2018, Facebook has deprecated the following `action` types:
 
+          - `app_custom_event`
           - `mention`
           - `tab_view`
 
@@ -191,14 +192,6 @@ attributes:
   - name: "unique_social_clicks"
     type: "integer"
     description: "The number of people who performed a click (all) on the ad when it was displayed with social information, which shows other Facebook friends who engaged with the Page or ad."
-
-  - name: "call_to_action_clicks"
-    type: "integer"
-    description: "The number of times people clicked the call-to-action button on the ad."
-
-  - name: "cost_per_total_action"
-    type: "number"
-    description: "The average cost for a relevant action."
 
   - name: "cost_per_unique_inline_link_click"
     type: "number"
