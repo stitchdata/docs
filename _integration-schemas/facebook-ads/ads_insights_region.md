@@ -256,8 +256,4 @@ attributes:
   - name: "ctr"
     type: "number"
     description: "The percentage of times people saw your ad and performed a click (all)."
-
-  - name: "total_unique_actions"
-    type: "integer"
-    description: "The number of people who took an action that was attributed to the ad."
 ---
