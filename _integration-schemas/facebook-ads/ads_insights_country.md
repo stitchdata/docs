@@ -215,7 +215,13 @@ attributes:
 
   - name: "cost_per_action_type"
     type: "array"
-    description: "Details about the average cost of a relevant action."
+    description: |
+      Details about the average cost of a relevant action.
+
+      **Note**: As of July 2018, Facebook has deprecated the following `cost_per_action` types:
+
+      - `mention`
+      - `tab_view`
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
     array-attributes:
       - name: "value"
