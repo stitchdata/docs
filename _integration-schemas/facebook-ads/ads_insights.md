@@ -267,10 +267,6 @@ attributes:
     type: "number"
     description: "The average percentage of the Facebook Canvas that people saw."
 
-  - name: "social_impressions"
-    type: "integer"
-    description: "The number of times the ad was viewed when displayed with social information, which shows Facebook friends who engaged with the Facebook Page or ad."
-
   - name: "objective"
     type: "string"
     description: "The objective selected for the campaign. This reflects the goal you want to achieve with your advertising."
