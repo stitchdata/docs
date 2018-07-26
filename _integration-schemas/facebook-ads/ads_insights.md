@@ -139,10 +139,6 @@ attributes:
         type: "string"
         description: *action-type-description
 
-  - name: "social_reach"
-    type: "integer"
-    description: "The number of people who saw the ad when displayed with social information, which shows other Facebook friends who engaged with the Facebook Page or ad."
-
   - name: "inline_post_engagement"
     type: "integer"
     description: "The total number of actions that people take involving the ad. Inline post engagements use a fixed 1-day-click attribution window."
@@ -227,10 +223,6 @@ attributes:
   - name: "unique_link_clicks_ctr"
     type: "number"
     description: "The percentage of people who saw the ad and performed a link click."
-
-  - name: "social_reach"
-    type: "number"
-    description: "The number of people who saw the ad when displayed with social information, which shows other Facebook friends who engaged with the Facebook Page or ad."
 
   - name: "spend"
     type: "number"
