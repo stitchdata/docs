@@ -106,10 +106,6 @@ attributes:
     type: "number"
     description: "The average number of times each person saw your ad."
 
-  - name: "total_actions"
-    type: "integer"
-    description: "The total number of actions people took that are attributed to the ad. Actions may include engagement, clicks, or conversions."
-
   - name: "account_id"
     type: "string"
     description: "The ID number of your ad account."
