@@ -86,6 +86,11 @@ attributes:
 
           Action types include Page likes, app installs, conversions, event responses, and more.
 
+          **Note**: As of July 2018, Facebook has deprecated the following `action` types:
+
+          - `mention`
+          - `tab_view`
+
       - name: "value"
         type: "number"
         description: &action-type-value-description |
