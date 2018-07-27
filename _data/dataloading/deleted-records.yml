@@ -1,0 +1,163 @@
+#------------------------------------#
+#      DELETED RECORD EXAMPLES       #
+#------------------------------------#
+
+
+#------------------------------------#
+#        LOG-BASED INCREMENTAL       #
+#------------------------------------#
+
+binlog-replication:
+
+#------------------------------------#
+#       LOG-BASED, HARD DELETES      #
+#------------------------------------#
+
+  - type: "hard"
+    examples:
+      - job: "initial"
+        tables:
+          - location: "source"
+            records:
+              - id: "1"
+                updated-at: "2018-07-27 12:00:19.213"
+                is-deleted: "false"
+
+              - id: "2"
+                updated-at: "2018-07-27 12:05:36.573"
+                is-deleted: "false"
+
+              - id: "3"
+                updated-at: "2018-07-27 12:04:19.213"
+                is-deleted: "false"
+
+          - location: "destination"
+  - type: "soft"
+    examples:
+
+#------------------------------------#
+#        KEY-BASED INCREMENTAL       #
+#------------------------------------#
+
+key-incremental-replication:
+
+#------------------------------------#
+#       KEY-BASED, SOFT DELETES      #
+#------------------------------------#
+
+  - type: "soft"
+    description: |
+      In this example, we'll demonstrate what happens when two records are soft-deleted in the source. This table uses the `is_deleted` column as a deletion flag, which will be `true` if the record is deleted.
+    columns:
+      - name: "id"
+      - name: "updated-at"
+      - name: "is-deleted"
+    examples:
+      - job: "initial"
+        source: "Stitch replicates the entire table, saving `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value."
+        destination: "Stitch loads the entire table in full."
+        tables:
+          - location: "source"
+            records: &key-soft-initial-source-table
+              - id: "1"
+                updated-at: "2018-07-27 12:00:00"
+                is-deleted: "false"
+
+              - id: "2"
+                updated-at: "2018-07-27 12:05:00"
+                is-deleted: "false"
+
+              - id: "3"
+                updated-at: "2018-07-27 12:07:00"
+                is-deleted: "false"
+
+          - location: "destination"
+            records: *key-soft-initial-source-table
+
+      - job: "second"
+        source: |
+          Records `1` and `3` are soft deleted (`is_deleted: true`). The Replication Key value (`updated_at`) is updated.
+
+          Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`.
+        destination: "The `is_deleted` and `updated_at` values are updated for records `1` and `3`."
+        tables:
+          - location: "source"
+            records: &key-soft-second-source-table
+              - id: "1"
+                updated-at: "2018-07-28 04:00:00"
+                is-deleted: "true"
+
+              - id: "2"
+                updated-at: "2018-07-27 12:05:00"
+                is-deleted: "false"
+
+              - id: "3"
+                updated-at: "2018-07-28 04:05:00"
+                is-deleted: "true"
+
+          - location: "destination"
+            records: *key-soft-second-source-table
+
+#------------------------------------#
+#       KEY-BASED, HARD DELETES      #
+#------------------------------------#
+
+  - type: "hard"
+    description: |
+      In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
+    columns:
+      - name: "id"
+      - name: "updated-at"
+    examples:
+      - job: "initial"
+        source: "Stitch replicates the entire table, saving `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value."
+        destination: "Stitch loads the entire table in full."
+        tables:
+          - location: "source"
+            records: &key-hard-initial-source-table
+              - id: "1"
+                updated-at: "2018-07-27 12:00:00"
+
+              - id: "2"
+                updated-at: "2018-07-27 12:05:00"
+
+              - id: "3"
+                updated-at: "2018-07-27 12:07:00"
+
+          - location: "destination"
+            records: *key-hard-initial-source-table
+
+      - job: "second"
+        source: |
+          Before the second job begins, record `2` is hard deleted and removed entirely from the source.
+
+          During the job, Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`.
+        destination: |
+          The `updated_at` values for records `1` and `3` are updated.
+
+          Record `2` remains in the destination table.
+        tables:
+          - location: "source"
+            records:
+              - id: "1"
+                updated-at: "2018-07-28 04:15:00"
+
+              - id: "3"
+                updated-at: "2018-07-28 04:07:00"
+
+          - location: "destination"
+            records:
+              - id: "1"
+                updated-at: "2018-07-28 04:15:00"
+
+              - id: "2"
+                updated-at: "2018-07-27 12:05:00"
+
+              - id: "3"
+                updated-at: "2018-07-28 04:07:00"
+
+#------------------------------------#
+#       FULL TABLE REPLICATION       #
+#------------------------------------#
+
+full-table-replication:
