@@ -1,0 +1,107 @@
+{% assign deleted-records = site.data.dataloading.deleted-records %}
+
+{% assign replication-methods = site.data.taps.extraction.replication-methods.all-methods %}
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#support" data-toggle="tab">Soemthing</a>
+    </li>
+    {% for replication-method in replication-methods %}
+        <li>
+            <a href="#{{ replication-method.name }}-tab" data-toggle="tab">{{ replication-method.display-name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="support">
+        <table class="attribute-list">
+            <tr>
+                <td class="table-hover attribute-name">
+                    <strong>Replication Method</strong>
+                </td>
+                <td>
+                    <strong>Hard deletes</strong>
+                </td>
+                <td>
+                    <strong>Soft deletes</strong>
+                </td>
+            </tr>
+                {% for replication-method in replication-methods %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>{{ replication-method.display-name }}</strong>
+                        </td>
+                        {% for item in replication-method.support-info %}
+                            <td>
+                            {% case item.supported %}
+                                {% when 'supported' %}
+                                    {{ supported | replace:"TOOLTIP","Supported" }} <strong>{{ item.supported | replace: "-"," " | capitalize }}</strong>
+                                {% when 'sometimes-supported' %}
+                                    {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }} <strong>{{ item.supported | replace: "-"," " | capitalize }}</strong>
+                                {% when 'not-supported' %}
+                                    {{ not-supported | replace:"TOOLTIP","Not supported" }} <strong>{{ item.supported | replace: "-"," " | capitalize }}</strong>
+                            {% endcase %}
+                            <br><br>
+
+                            {{ item.loading | flatify | prepend:"**In the destination:** " | markdownify }}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </table>
+    </div>
+
+    {% for replication-method in replication-methods %}
+        <div role="tabpanel" class="tab-pane" id="{{ replication-method.name }}-tab">
+            {% assign replication-method-examples = deleted-records[replication-method.name] %}
+
+            {% for delete in replication-method-examples %}
+                <span class="h3">{{ delete.type | capitalize | append: " deletes" }} with {{ replication-method.display-name }}</span>
+
+                    {{ delete.description | flatify | markdownify }}
+
+                    {% for example in delete.examples %}
+                        <span class="h4">{{ delete.type | capitalize | append: " delete" }}: {{ example.job | capitalize | append: " job" }}</span>
+
+                        <p>During the <strong>{{ example.job | append: " job" }}</strong>:</p>
+
+                        <ul>
+                            <li>{{ example.source | flatify | prepend: "**In the source:** " | markdownify }}</li>
+                            <li>{{ example.destination | flatify | prepend: "**In the destination:** " | markdownify }}</li>
+                        </ul>
+
+                        <table width="100%; fixed" class="table-hover attribute-list">
+                            <tr>
+                                {% for table in example.tables %}
+                                    <td width="50%; fixed" style="border: 1px solid #999999;">
+                                        <strong>{{ table.location | capitalize }}</strong>
+                                        <table class="table-hover attribute-list">
+                                            <tr>
+                                                {% for column in delete.columns %}
+                                                    <td>
+                                                        <strong>{{ column.name | replace: "-","_" }}</strong>
+                                                    </td>
+                                                {% endfor %}
+                                            </tr>
+                                            {% for record in table.records %}
+                                                <tr>
+                                                    {% for column in delete.columns %}
+                                                        <td>
+                                                            {{ record[column.name] }}
+                                                        </td>
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                {% endfor %}
+                            </tr>
+                        </table>
+                    {% endfor %}
+                {% unless forloop.last == true %}
+                    <hr>
+                {% endunless %}
+            {% endfor %} <!-- End delete loop-->
+        </div>
+    {% endfor %}
+</div>
