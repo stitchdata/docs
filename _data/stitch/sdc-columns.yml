@@ -89,7 +89,7 @@ current-columns:
 # PRIMARY_KEY
   primary-key: &primary-key "_sdc_primary_key"
   primary-key-description: &primary-key-description |
-    This column acts as a Primary Key if Stitch doesn't detect one. Stitch will use this column to de-dupe data.
+    **Applicable only if Stitch doesn't detect a Primary Key in the source table.** Stitch will use this column to de-dupe data.
 
 # REPLICATION_ID
   replication-id: &replication-id "_sdc_replication_id"
