@@ -14,6 +14,13 @@ current-columns:
   prefix: "_sdc"
   rjm-prefix: "_rjm"
 
+# DELETED_AT
+  deleted-at: &deleted-at "_sdc_deleted_at"
+  deleted-at-description: &deleted-at-description |
+    **Applicable only to database integrations that support Log-based Replication.** Timestamp indicating when Stitch detected a `DeletedRowsEvent` for the record while reading from the database's binary log. Otherwise, this field will be null.
+
+    Additionally, this column will not populate until after the initial historical replication job has been completed. Stitch can only detect delete row events while reading from binary logs, which are not used during initial replication jobs.
+
 # EXTRACTED_AT
   extracted-at: &extracted-at "_sdc_extracted_at"
   extracted-at-description: &extracted-at-description |
@@ -140,6 +147,12 @@ attributes:
     applicable-to: "databases"
     description: *replication-id-description
     # data: "87329b9c-c61f-4c45-847b-407ee8bab7bd"
+
+  - name: *deleted-at
+    type: "timestamp"
+    applicable-to: "databases"
+    description: *deleted-at-description
+    # data:
 
   - name: *customer-id
     type: "string"
