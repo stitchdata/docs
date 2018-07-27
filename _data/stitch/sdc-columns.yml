@@ -1,6 +1,30 @@
+#------------------------------------#
+#          COLUMN CATEGORIES         #
+#------------------------------------#
+
+categories:
+  - name: "all"
+    display-name: "All tables/integrations"
+    description: |
+      These columns are applicable to all tables and integration types. Unless noted, every column in this list will be present in every integration table created by Stitch.
+
+  - name: "subtables"
+    display-name: "Subtables"
+    description: |
+      These columns are applicable to integration subtables created by Stitch. Subtables are created when Stitch loads nested data into a destination that doesn't support nested data structures. Refer to the [Nested JSON Data Structures and Row Count Impact]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) guide for more info and examples.
+
+  - name: "databases"
+    display-name: "Database integrations"
+    description: |
+      These columns are applicable only to database integrations.
+
+  - name: "saas"
+    display-name: "SaaS integrations"
+    description: |
+      These columns are applicable only to SaaS integrations.
 
 #------------------------------------#
-#           CURRENT COLUMNS          #
+#       CURRENT SYSTEM COLUMNS       #
 #------------------------------------#
 
 # As part of the replication process, Stitch injects a few system
@@ -138,7 +162,7 @@ attributes:
 
   - name: *primary-key
     type: "string"
-    applicable-to: "webhooks"
+    applicable-to: "all"
     description: *primary-key-description
     # data: "5d8b9a05-33cc-4d5f-8163-4474814b46c6"
 
@@ -156,12 +180,12 @@ attributes:
 
   - name: *customer-id
     type: "string"
-    applicable-to: "google-adwords-tap"
+    applicable-to: "saas"
     description: *customer-id-description
     # data: ""
 
   - name: *report-date-time
     type: "date-time"
-    applicable-to: "google-adwords-tap"
+    applicable-to: "saas"
     description: *report-date-time-description
     # data: ""
