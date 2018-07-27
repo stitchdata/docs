@@ -9,6 +9,7 @@ toc: true
 weight: 1
 ---
 {% include misc/data-files.html %}
+{% assign sdc-columns = site.data.stitch.sdc-columns %}
 
 For each integration that you add to Stitch, a schema specific to that integration will be created in your data warehouse. The integration's schema is where all the data Stitch replicates from the data source will be stored.
 
@@ -76,9 +77,15 @@ To learn more about how handles these scenarios, check out the [Data Loading gui
 
 ### {{ system-column.prefix }} columns
 
-In addition to the columns set to replicate in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data.
+In addition to the columns set to replicate in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data.**Don't remove these columns**, as doing so will cause replication issues in Stitch.
 
-**Don't remove these columns**, as doing so will cause replication issues in Stitch.
+Some columns are applicable to all tables and integrations, while others may only be in certain tables:
+
+{% for category in sdc-columns.categories %}
+- **{{ category.display-name }}** - {{ category.description | flatify }}
+{% endfor %}
+
+Click the tabs below for more info on the columns in each category. 
 
 {% include stitch/stitch-system-table.html table="system" %}
 
