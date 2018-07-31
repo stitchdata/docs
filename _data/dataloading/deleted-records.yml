@@ -129,7 +129,7 @@ key-incremental-replication:
 
       - job: "second"
         source: |
-          Before the second job begins, record `2` is hard deleted and removed entirely from the source.
+          Before the second job begins, record `2` is hard deleted and removed entirely from the source. Records `1` and `3` are updated.
 
           During the job, Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`.
         destination: |
@@ -161,3 +161,101 @@ key-incremental-replication:
 #------------------------------------#
 
 full-table-replication:
+
+#------------------------------------#
+#       FULL TABLE, SOFT DELETES     #
+#------------------------------------#
+
+  - type: "soft"
+    description: |
+      In this example, we'll demonstrate what happens when two records are soft-deleted in the source. This table uses the `is_deleted` column as a deletion flag, which will be `true` if the record is deleted.
+    columns:
+      - name: "id"
+      - name: "is-deleted"
+    examples:
+      - job: "initial"
+        source: "Stitch replicates the entire table."
+        destination: "Stitch loads the entire table in full."
+        tables:
+          - location: "source"
+            records: &full-soft-initial-source-table
+              - id: "1"
+                is-deleted: "false"
+
+              - id: "2"
+                is-deleted: "false"
+
+              - id: "3"
+                is-deleted: "false"
+
+          - location: "destination"
+            records: *key-soft-initial-source-table
+
+      - job: "second"
+        source: |
+          Records `1` and `3` are soft deleted (`is_deleted: true`). Stitch replicates the entire table.
+        destination: |
+          Stitch overwrites the table in the destination, resulting in the `is_deleted` values for records `1` and `3` being updated.
+        tables:
+          - location: "source"
+            records: &full-soft-second-source-table
+              - id: "1"
+                is-deleted: "true"
+
+              - id: "2"
+                is-deleted: "false"
+
+              - id: "3"
+                is-deleted: "true"
+
+          - location: "destination"
+            records: *key-soft-second-source-table
+
+#------------------------------------#
+#       FULL TABLE, HARD DELETES     #
+#------------------------------------#
+
+  - type: "hard"
+    description: |
+      In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
+    columns:
+      - name: "id"
+      - name: "name"
+    examples:
+      - job: "initial"
+        source: "Stitch replicates the entire table."
+        destination: |
+          Stitch deletes and recreates the table in a single transaction, loading the replicated table in full.
+        tables:
+          - location: "source"
+            records: &full-hard-initial-source-table
+              - id: "1"
+                name: "Finn"
+
+              - id: "2"
+                name: "Jake"
+
+              - id: "3"
+                name: "Bubblegum"
+
+          - location: "destination"
+            records: *full-hard-initial-source-table
+
+      - job: "second"
+        source: |
+          Before the second job begins, record `2` is hard deleted and removed entirely from the source.
+
+          Stitch replicates the table in full.
+        destination: |
+          Stitch deletes and recreates the table in a single transaction, loading the replicated table in full.
+        tables:
+          - location: "source"
+            records: &full-hard-second-source-table
+              - id: "1"
+                name: "Finn"
+
+              - id: "3"
+                name: "Bubblegum"
+
+          - location: "destination"
+            records: *full-hard-second-source-table
