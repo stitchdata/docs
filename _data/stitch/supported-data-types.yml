@@ -1,93 +1,76 @@
-# -------------------------- #
-#    Supported Data Types    #
-# -------------------------- #
+# ------------------------------#
+#   COMMON SUPPORTED DATA TYPES #
+# ------------------------------#
 
-## All the data types Stitch currently 
-## supports for replication.
+## The data types supported by Stitch for ALL integrations.
 
 ## If a column shows as 'Unsupported' in the UI,
 ## it may be an unsupported data type.
 
-last-updated: "March 13, 2017"
+## NOTE: This list does NOT include data types that are supported by specific integrations.
+## Refer to the files in _data/taps/extraction/data-types for integration-specific data types.
+
+last-updated: "June 19, 2018"
 
 data-types:  
-  - name: "ARRAY"
-    supported-by: "postgresql"
-    notes: "This data type will be stored as a STRING in your data warehouse."
-
   - name: "BIGINT"
-    supported-by: "all"
+    type: "common"
 
   - name: "BIT"
-    supported-by: "all"
+    type: "common"
 
   - name: "CHAR"
-    supported-by: "all"
+    type: "common"
 
   - name: "DATE"
-    supported-by: "all"
+    type: "common"
 
   - name: "DECIMAL"
-    supported-by: "all"
+    type: "common"
 
   - name: "DOUBLE"
-    supported-by: "all"
+    type: "common"
 
   - name: "FLOAT"
-    supported-by: "all"
-
-  - name: "HSTORE"
-    supported-by: "postgresql"
-    notes: "This data type will be stored as a STRING in your data warehouse."
+    type: "common"
 
   - name: "INTEGER"
-    supported-by: "all"
-
-  - name: "JSON"
-    supported-by: "postgresql"
-    notes: "This data type will be stored as a STRING in your data warehouse."
-
-  - name: "JSONB"
-    supported-by: "postgresql"
-    notes: "This data type will be stored as a STRING in your data warehouse."
+    type: "common"
 
   - name: "LONGVARCHAR"
-    supported-by: "all"
+    type: "common"
 
   - name: "LONGNVARCHAR"
-    supported-by: "all"
+    type: "common"
 
   - name: "NCHAR"
-    supported-by: "all"
+    type: "common"
 
   - name: "NVARCHAR"
-    supported-by: "all"
+    type: "common"
 
   - name: "NUMERIC"
-    supported-by: "all"
+    type: "common"
 
   - name: "REAL"
-    supported-by: "all"
+    type: "common"
 
   - name: "SMALLINT"
-    supported-by: "all"
+    type: "common"
 
   - name: "TIME"
-    supported-by: "all"
+    type: "common"
 
   - name: "TIMESTAMP"
-    supported-by: "all"
+    type: "common"
 
   - name: "TINYINT"
-    supported-by: "all"
-    notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link in the **Data Type** column for more details."
-
-  - name: "UUID"
-    supported-by: "postgresql"
-    notes: "This data type will be stored as a STRING in your data warehouse."
+    type: "common"
+    doc-link: "{{ link.troubleshooting.mysql-tinyint-bit }}"
+    notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link for more details."
 
   - name: "VARBINARY"
-    supported-by: "all"
+    type: "common"
 
   - name: "VARCHAR"
-    supported-by: "all"
+    type: "common"

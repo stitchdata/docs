@@ -1,0 +1,87 @@
+# --------------------------------#
+#  POSTGRES SUPPORTED DATA TYPES  #
+# --------------------------------#
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to Postgres data sources.
+
+## NOTE: Individual versions of the integration may not support certain data types, or they may handle a data type in a way unique to that version.
+
+all-types:
+  - name: "common data types"
+    doc-link: "{{ link.replication.supported-data-types | prepend: site.baseurl }}"
+    versions:
+      - number: "1.0"
+        stored-as: "Supported"
+      - number: "15-10-2015"
+        stored-as: "Supported"
+
+  - name: "array"
+    versions: &all-strings
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "STRING"
+
+  - name: "cidr"
+    doc-link: "https://www.postgresql.org/docs/current/static/datatype-net-types.html#datatype-inet"
+    versions:
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "Unsupported"
+
+  - name: "citext"
+    versions:
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "Unsupported"
+
+  - name: "hstore"
+    doc-link: "https://www.postgresql.org/docs/current/static/hstore.html"
+    versions:
+      - number: "1.0"
+        stored-as: "Nested maps"
+      - number: "15-10-2015"
+        stored-as: "STRING"
+
+  - name: "inet"
+    doc-link: "https://www.postgresql.org/docs/current/static/datatype-net-types.html#datatype-inet"
+    versions:
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "Unsupported"
+
+  - name: "ip"
+    versions:
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "Unsupported"
+
+  - name: "json"
+    versions: *all-strings
+
+  - name: "jsonb"
+    versions: *all-strings
+
+  - name: "macaddr"
+    doc-link: "https://www.postgresql.org/docs/current/static/datatype-net-types.html#datatype-inet"
+    versions:
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "Unsupported"
+
+  - name: "money"
+    doc-link: "https://www.postgresql.org/docs/10/static/datatype-money.html"
+    versions:
+      - number: "1.0"
+        stored-as: "STRING"
+      - number: "15-10-2015"
+        stored-as: "Unsupported"
+
+  - name: "uuid"
+    https: "https://www.postgresql.org/docs/10/static/datatype-uuid.html"
+    versions: *all-strings

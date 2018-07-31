@@ -2,17 +2,18 @@
 
 {% when 'backup-retention-period' %}
 
-The backup retention period setting defines the number of days for which automated backups are retained. This ensures that data can still be replicated even if issues with Stitch arise.
+The backup retention period setting defines the number of days for which automated backups are retained. This ensures that data can still be replicated even if a job is interrupted, there's database or Stitch downtime, etc.
 
 {% case integration.name %}
-{% when 'mysql-rds' %}
+{% when 'aurora-rds' %}
+4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
+
+{% else %}
 1. Navigate back to the **Instances** page by using the menu on the left side of the page.
 2. Select the instance you're connecting to Stitch.
 3. Click **Instance actions > Modify**.
 4. Scroll down to the **Backup** section.
 
-{% when 'aurora-rds' %}
-4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
 {% endcase %}
 
 5. Set **Backup retention period** to anything greater than `1 day`:

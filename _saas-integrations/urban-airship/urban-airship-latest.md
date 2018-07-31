@@ -10,7 +10,7 @@ layout: singer
 #         Tap Details        #
 # -------------------------- #
 
-name: "urban_airship"
+name: "urban-airship"
 display_name: "Urban Airship"
 singer: true
 author: "Stitch"

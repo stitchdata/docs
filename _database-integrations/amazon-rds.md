@@ -24,7 +24,7 @@ Stitch supports connecting to the following Amazon Relational Database System (R
                 <strong>{{ database.display_name| remove:"(latest)" | prepend: "Amazon "}}</strong><br>
 
                 {% if database.this-version %}
-                    {% include integrations/templates/integration-version-menu.html menu-type="category-page" %}
+                    {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
                 {% else %}
                     <a href="{{ database.url | prepend: site.baseurl | append: "#setup" }}">Setup</a> 
                     | <a href="{{ database.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
