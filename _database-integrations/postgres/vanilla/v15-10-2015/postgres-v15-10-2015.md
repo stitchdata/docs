@@ -58,6 +58,8 @@ view-replication: true
 
 ## See _data/taps/data-types/postgres.yml
 
+binlog-replication: false
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

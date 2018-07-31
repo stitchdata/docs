@@ -37,7 +37,6 @@ sections:
     content: |
       If you don't see what you're looking for in the list below, check out the Singer project. A simple, composable, open-source ETL standard, Singer allows you to extract data from any source. Check out the [Roadmap]({{ site.singer-roadmap }}){:target} or [GitHub repo]({{ site.singer-github }}){:target="new"} to see what's currently being worked on.
 
-
       Additionally, Stitch's Import API or Incoming Webhooks integrations can be used to extract data from sources that don't currently have a native integration.
 
       {% include integrations/templates/integration-category-tiles.html type="where-is-integration" which-integrations="all" %}
