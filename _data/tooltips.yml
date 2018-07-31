@@ -17,6 +17,8 @@ append-only: "Existing rows are never updated. When new or updated data is loade
 
 certified-integration: "Certified integrations will receive commercial support, which is a guarantee that Stitch will fix bugs and adapt to new versions of third-party APIs."
 
+column-selection: "The ability to select individual columns for replication in the Stitch interface. If column selection is unavailable, all columns will be set to replicate by default."
+
 community-integration: "Maintenance of Community integrations will be performed by the Singer community. This includes fixing bugs and adapting to new versions of third-party APIs."
 
 connection-check: "A test performed by Stitch that checks the configuration of a source's connection parameters."
@@ -48,6 +50,8 @@ source: "A database, API, or other data application that Stitch replicates data 
 stitch-client-account: "An individual account for the Stitch web application."
 
 structure-sync: "The first step in the replication process, this process will detect the tables and columns available in the source, along with any changes to the structure of those tables and columns."
+
+table-selection: "The ability to select individual tables for replication in the Stitch interface. If table selection is unavailable, all tables and all the columns they contain will be set to replicate by default."
 
 updated-at-rep: "Updated or Modified At is a type of Incremental Replication that uses datetime or timestamp columns to detect new and updated data."
 
