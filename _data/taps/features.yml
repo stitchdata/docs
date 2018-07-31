@@ -44,7 +44,7 @@ all-features:
     name: "binlog-replication"
     applies-to: "databases"
     category: "Replication"
-    doc-link: "{{ link.replication.log-based | prepend: site.baseurl }}"
+    doc-link: "{{ link.replication.log-based-incremental | prepend: site.baseurl }}"
     tooltip: "{{ site.data.tooltips.log-based-incremental-rep }}"
 
   - display_name: "View replication"
