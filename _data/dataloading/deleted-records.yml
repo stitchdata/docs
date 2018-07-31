@@ -105,6 +105,14 @@ key-incremental-replication:
   - type: "hard"
     description: |
       In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
+
+      **Note**: To remove hard deletes from destination tables replicated in this way, you'll need to:
+
+         1. Temporarily drop the table in the destination
+         2. Reset the table's Replication Keys
+         3. Wait for Stitch to re-create the table during the next replication job
+
+         **These steps must be done in this order**, or you may cause issues with replication.
     columns:
       - name: "id"
       - name: "updated-at"
