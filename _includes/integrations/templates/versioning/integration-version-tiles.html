@@ -24,9 +24,11 @@
 
                         <a href="{{ doc.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
 
-                        {% if doc.permalink contains "databases" or 
-                              doc.permalink contains "webhooks" or
-                              doc.replication-notes == true %}
+                        {% if doc.permalink contains "databases" %}
+                            | <a href="{{ doc.url | prepend: site.baseurl | append: "#extract-data" }}">Replication</a>
+
+                        {% elsif doc.permalink contains "webhooks" or
+                                 doc.replication-notes == true %}
                             | <a href="{{ doc.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
                         {% endif %}
 
