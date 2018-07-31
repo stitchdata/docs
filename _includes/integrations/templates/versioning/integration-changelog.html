@@ -41,16 +41,24 @@ integration_name value so the correct changelog is pulled -->
                 {% endif %}
             {% endfor %}
         {% endif %}
-
         <tr>
-            <td class="attribute-name">
-                <p>
-                    <strong>{{ entry.date }}</strong>
-                </p>
+            <td align="right" width="25%; fixed">
+                <strong>Date</strong>
+            </td>
+            <td align="right" width="15%; fixed">
+                <strong>Version</strong>
+            </td>
+            <td class="attribute-description">
+                <strong>Release notes</strong>
+            </td>
+        </tr>
+        <tr>
+            <td align="right" width="25%; fixed">
+                <strong>{{ entry.date }}</strong>
+            </td>
+            <td align="right">
                 {% if entry.version %}
-                    <br><p>
-                        <strong>Version:</strong> {{ entry.version }}
-                    </p>
+                    {{ entry.version }}
                 {% endif %}
             </td>
             <td class="attribute-description">
