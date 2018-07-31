@@ -45,6 +45,8 @@ view-replication: true
 
 binlog-replication: true
 
+binlog-replication: true
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #

@@ -1,6 +1,6 @@
 ---
 tap: "integration_name"
-# version: ""
+# version: 
 
 name: "table_name"
 doc-link: 
@@ -22,7 +22,10 @@ attributes:
     type: ""
     primary-key: true
     description: ""
-    doc-link:
+
+  - name: ""
+    type: 
+    description: ""
 
   - name: ""
     type: "array"
