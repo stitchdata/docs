@@ -10,30 +10,137 @@
 binlog-replication:
 
 #------------------------------------#
+#       LOG-BASED, SOFT DELETES      #
+#------------------------------------#
+
+  - type: "soft"
+    description: |
+      In this example, we'll demonstrate what happens when two recrds are soft-deleted in a source table using {{ replication-method.display-name }}.
+    columns:
+      - name: "id"
+      - name: "name"
+      - name: "is-deleted"
+    examples:
+      - job: "initial"
+        source: |
+          Stitch uses `SELECT` replication to replicate the table in full.
+        destination: |
+          Stitch loads the table in full.
+        tables:
+          - location: "source"
+            records: &binlog-soft-initial-table
+              - id: "1"
+                name: "Finn"
+                is-deleted: "false"
+
+              - id: "2"
+                name: "Jake"
+                is-deleted: "false"
+
+              - id: "3"
+                name: "Bubblegum"
+                is-deleted: "false"
+
+          - location: "destination"
+            records: *binlog-soft-initial-table
+
+      - job: "second"
+        source: |
+          Records `1` and `3` are soft deleted (`is_deleted: true`).
+
+          After the initial replication job, Stitch will switch to using the database's binary log files for replication and its position in the binary log as a Replication Key, or bookmark. 
+
+          The binary log will contain an entry for updating the `is_deleted` values for records `1` and `3`, which Stitch will detect and replicate.
+        destination: |
+          The `is_deleted` and `updated_at` values are updated for records records `1` and `3`.
+        tables:
+          - location: "source"
+            records: &binlog-soft-initial-table
+              - id: "1"
+                name: "Finn"
+                is-deleted: "true"
+
+              - id: "2"
+                name: "Jake"
+                is-deleted: "false"
+
+              - id: "3"
+                name: "Bubblegum"
+                is-deleted: "true"
+
+          - location: "destination"
+            records: *binlog-soft-initial-table
+
+#------------------------------------#
 #       LOG-BASED, HARD DELETES      #
 #------------------------------------#
 
   - type: "hard"
+    description: |
+      In this example, we'll demonstrate what happens when a record is hard deleted - or removed entirely - from a source table using {{ replication-method.display-name }}. In this situation, Stitch will use a `TIMESTAMP` column named `{{ system-column.deleted-at }}` to indicate when records have been identified as deleted in the source.
+
+      **Note**: Identifying hard deleted records is dependent on how the record is deleted, as not all event types are recorded by databases in binary logs. For example: If a record is deleted using `TRUNCATE` in a MySQL database, Stitch will not detect the deletion.
+
+      Refer to the [MySQL]() and [PostgreSQL]() documentation for more details.
+    columns:
+      - name: "id"
+      - name: "name"
+      - name: "_sdc_deleted_at"
     examples:
       - job: "initial"
+        source: |
+          Stitch uses `SELECT` replication to replicate the table in full.
+        destination: |
+          Stitch loads the table in full.
+        tables:
+          - location: "source"
+            records: &binlog-hard-initial-table
+              - id: "1"
+                name: "Finn"
+
+              - id: "2"
+                name: "Jake"
+
+              - id: "3"
+                name: "Bubblegum"
+
+          - location: "destination"
+            records: *binlog-hard-initial-table
+      - job: "second"
+        source: |
+          Record `2` is hard deleted.
+
+          After the initial replication job, Stitch will switch to using the database's binary log files for replication and its position in the binary log as a Replication Key, or bookmark. 
+
+          If the record is deleted using a command that is recorded by the binary log, the log file will contain an entry for record `2`'s deletion. Stitch will detect and replicate the updated record.
+        destination: |
+          Record `2` will remain in the table, but have a timestamp in the `{{ system-column.deleted-at }}` column indicating when the deletion took place.
         tables:
           - location: "source"
             records:
               - id: "1"
-                updated-at: "2018-07-27 12:00:19.213"
-                is-deleted: "false"
+                name: "Finn"
 
               - id: "2"
-                updated-at: "2018-07-27 12:05:36.573"
-                is-deleted: "false"
+                name: "Jake"
 
               - id: "3"
-                updated-at: "2018-07-27 12:04:19.213"
-                is-deleted: "false"
+                name: "Bubblegum"
 
           - location: "destination"
-  - type: "soft"
-    examples:
+            records:
+              - id: "1"
+                name: "Finn"
+                _sdc_deleted_at: ""
+
+              - id: "2"
+                name: "Jake"
+                _sdc_deleted_at: "2018-07-28 04:05:00"
+
+              - id: "3"
+                name: "Bubblegum"
+                _sdc_deleted_at: ""
+
 
 #------------------------------------#
 #        KEY-BASED INCREMENTAL       #

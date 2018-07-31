@@ -78,17 +78,22 @@
                                         <table class="table-hover attribute-list">
                                             <tr>
                                                 {% for column in delete.columns %}
-                                                    <td>
-                                                        <strong>{{ column.name | replace: "-","_" }}</strong>
-                                                    </td>
+                                                <!-- Don't show the _sdc_deleted_at column in the source table -->
+                                                    {% unless table.location == "source" and column.name == "_sdc_deleted_at" %}
+                                                        <td>
+                                                            <strong>{{ column.name | replace: "-","_" }}</strong>
+                                                        </td>
+                                                    {% endunless %}
                                                 {% endfor %}
                                             </tr>
                                             {% for record in table.records %}
                                                 <tr>
                                                     {% for column in delete.columns %}
+                                                        {% unless table.location == "source" and column.name == "_sdc_deleted_at" %}
                                                         <td>
                                                             {{ record[column.name] }}
                                                         </td>
+                                                        {% endunless %}
                                                     {% endfor %}
                                                 </tr>
                                             {% endfor %}
