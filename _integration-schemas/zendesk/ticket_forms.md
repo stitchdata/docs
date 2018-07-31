@@ -88,8 +88,6 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The ID of the brand."
-        foreign-key: true
-        table: "brands"
   
 
     
