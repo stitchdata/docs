@@ -28,6 +28,8 @@ common:
 
       If the token is not provided, the user may be prompted to sign into their Stitch account.
 
+      The ephemeral token expires one hour after it's generated. When specified as an argument in a Connect JavaScript function, the ephemeral token is exchanged for a session token, creating a temporary Stitch session for the user. The session expires once terminated or 12 hours after its creation.
+
   ## Databases & Destinations
 
     host: "The IP address or hostname of the database server."

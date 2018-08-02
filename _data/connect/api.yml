@@ -61,7 +61,7 @@ core-objects:
       title: "Create a session"
       method: *post
       anchor: "#create-a-session"
-      description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
+      description: "Generate an ephemeral token to create a session in the Stitch web application. The ephemeral token expires after one hour. Use the ephemeral token to [create a session](https://www.stitchdata.com/docs/stitch-connect/javascript-client) with the Connect JavaScript client. The session will be for the user for whom the API access token was created. After the ephemeral token is used to create a session, the session created will expire once terminated or after 12 hours."
 
 # -------------------------- #
 #        Destinations        #
