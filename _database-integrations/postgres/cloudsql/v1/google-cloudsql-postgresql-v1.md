@@ -60,7 +60,7 @@ notice-copy: |
 
 requirements-list:
   - item: "**Permissions in PostgreSQL that allow you to create users.** This is required to create a database user for Stitch."
-  - item: "**To be running PostgeSQL 9.3+ or greater**."
+  - item: "**To be running PostgeSQL 9.3+ or greater**. PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations."
   - item: |
       **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `max_standby_streaming_delay` and `max_standby_archive_delay` settings - before connecting it to Stitch. We recommend setting these parameters to 8-12 hours for an initial replication job, and then decreasing them afterwards.
 

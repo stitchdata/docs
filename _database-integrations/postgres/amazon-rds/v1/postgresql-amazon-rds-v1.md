@@ -67,19 +67,21 @@ requirements-list:
       **Permissions in Amazon Web Services (AWS) that allow you to**:
 
         - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
-        - View database details, which is required for retrieving the database's connection details.
-  - item: |
-      **If you want to use Log-based Replication**, you need:
-
-      - **To be running PostgreSQL 9.4 or greater**. Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
-      
-      - **The `rds_superuser` role in your {{ integration.display_name }} database, if you want to use Log-based Replication.** [This role](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Roles){:target="new"} is required to grant the `rds_replication` privilege to Stitch's database user.
-  - item: "**To be running PostgeSQL 9.3+ or greater**, or 9.4 or greater if you want to use Log-based Replication."
+        - View database details, which is required for retrieving the database's connection details
   - item: "**Permissions in PostgreSQL that allow you to create users.** This is required to create a database user for Stitch."
   - item: |
-      **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `standby` settings - before connecting it to Stitch.
+      **If using Log-based Replication**, you'll need:
 
-      Info about these settings can be found in the [Configure the database parameter group](#configure-database-parameter-group) section.
+      - **A database running PostgreSQL 9.4.x - 9.9.x.** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
+         We are working on adding support for logical replication in PostgreSQL 10 to this integration.
+      - **The `rds_superuser` role in your {{ integration.display_name }} database, if you want to use Log-based Replication.** [This role](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Roles){:target="new"} is required to grant the `rds_replication` privilege to Stitch's database user.
+      - **To connect to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
+  - item: |
+      **If you're not using Log-based Replication**, you'll need:
+
+      - **A database running PostgreSQL 9.3.x or greater.** PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations.
+      - **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `max_standby_streaming_delay` and `max_standby_archive_delay` settings - before connecting it to Stitch. We recommend setting these parameters to 8-12 hours for an initial replication job, and then decreasing them afterwards.
+
 
 # -------------------------- #
 #     Setup Instructions     #

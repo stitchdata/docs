@@ -74,16 +74,18 @@ notice-copy: |
 
 requirements-list:
   - item: "**The `CREATEROLE` or `SUPERUSER` privilege.** Either permission is required to create a database user for Stitch."
-  - item: "**The `SUPERUSER` privilege.** If using logical replication, this is required to define the appropriate server settings."
   - item: |
-      **A PostgreSQL that's running version:**
-         - **9.4 or greater to use Log-based Replication**. Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication. 
-         - **9.3 or greater** if not using Log-based Replication.
+      **If using Log-based Replication**, you'll need:
 
+      - **A database running PostgreSQL 9.4.x - 9.9.x.** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
+         We are working on adding support for logical replication in PostgreSQL 10 to this integration.
+      - **The `SUPERUSER` privilege.** If using logical replication, this is required to define the appropriate server settings.
+      - **To connect to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
   - item: |
-      **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `standby` settings - before connecting it to Stitch.
+      **If you're not using Log-based Replication**, you'll need:
 
-      Info about these settings can be found in the [Configure database server settings](#server-settings) section.
+      - **A database running PostgreSQL 9.3.x or greater.** PostgreSQL 9.3.x is the minimum version Stitch supports for PostgreSQL integrations.
+      - **To verify if the database is a read replica, or follower**. While we always recommend connecting a replica over a production database, this also means you may need to verify some of its settings - specifically the `max_standby_streaming_delay` and `max_standby_archive_delay` settings - before connecting it to Stitch. We recommend setting these parameters to 8-12 hours for an initial replication job, and then decreasing them afterwards.
 
 # -------------------------- #
 #     Setup Instructions     #
