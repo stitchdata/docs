@@ -10,10 +10,23 @@ weight: 4
 ---
 {% include misc/data-files.html %}
 
-{% capture callout %}
-his article is only applicable to Panoply, PostgreSQL, Redshift, Snowflake, and S3 (CSV) destinations.
+{% assign destinations-without-nesting = site.destinations | where:"nested-structure-support",false %}
 
-**Postgres `ARRAY` & `JSON` datatypes:** The info in this article is **not** applicable to Postgres `ARRAY` and `JSON` data types. These data types will be stored as `strings` in your data warehouse, whether it's Postgres, Panoply, or Redshift.{% endcapture %}
+{%- capture destinations-with-no-nested-support -%}
+{%- for destination in destinations-without-nesting -%}
+{%- case forloop.last -%}
+{% when true %}
+{{ destination.display_name | append: ", and S3 (CSV)" }}
+{% else %}
+{{ destination.display_name | append: ", " }}
+{%- endcase -%}
+{%- endfor -%}
+{%- endcapture -%}
+
+{% capture callout %}
+This article is applicable only to {{ destinations-with-no-nested-support }} destinations, as they do not natively support nested data structures.
+
+**PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as `strings` in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
 
 {% include important.html first-line="**Not applicable to all destinations**" content=callout %}
 
