@@ -94,16 +94,16 @@ layout: page
 
 {% unless integration.no-schema == true %}
 <!-- SCHEMA DETAILS START -->
-<h2 id="schema">{{ integration.display_name }} Table Schemas</h2>
+<h2 id="schema">{{ integration.display_name }} table schemas</h2>
 
 <!-- Displays an info box if there are multiple versions of an integration currenly available -->
 
 {% if integration.this-version %}
 {% assign integration = page %}
 {% capture version-notice %}
-Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.<br><br>
+Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.
 
-The schema and info displayed below is for <strong>version {{ integration.this-version }}</strong> of this integration.
+The schema and info displayed below is for **version {{ integration.this-version }}** of this integration.
 
 {% if integration.this-version == latest-version %}
   This is the latest version of the {{ integration.display_name }} integraiton.
