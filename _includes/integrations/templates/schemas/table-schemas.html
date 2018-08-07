@@ -14,7 +14,13 @@
     {% assign schema = site.integration-schemas | where:"tap",integration.name %}
 {% endif %}
 
+{% capture schemas-and-destination-loading %}
+Depending on your destination, table and column names may not appear as they are outlined below.
 
+For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`), while case is maintained in PostgreSQL destinations (`CusTomERs` > `CusTomERs`). Refer to the [Loading Guide]({{ link.destinations.loading.overview | prepend: site.baseurl }}) for your destination for more info.
+{% endcapture %}
+
+{% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
 
 {% for table in schema %}
 <!-- Some tables can have composite keys, or multiple columns that make up a PK. 
