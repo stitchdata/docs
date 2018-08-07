@@ -12,8 +12,9 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url }}/ephemeral
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.sessions.create.description }}"
-description: "{{ api.core-objects.sessions.create.description }}"
+short: "{{ api.core-objects.sessions.create.short }}"
+description: |
+  {{ api.core-objects.sessions.create.description | flatify }}
 
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and a [Session object]({{ api.core-objects.sessions.object }}).
