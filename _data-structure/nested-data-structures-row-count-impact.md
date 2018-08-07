@@ -49,7 +49,7 @@ When Stitch pulls data from an integration, it's pulling a series of JSON record
 ### Objects {#json-objects}
 An object is an unordered set of name and value pairs; each set is called a property. Objects begin with a left curly bracket ( `{` ) and end with a right curly bracket ( `}` ).
 
-{% highlight json %}
+```json
 {  
    "product_id":"5008798",
    "name":"Awesome Dino Shirt",
@@ -61,7 +61,7 @@ An object is an unordered set of name and value pairs; each set is called a prop
       "ounces":"5"
    }                           // object ends
 }
-{% endhighlight %}
+```
 
 When Stitch receives an object, the properties in the object are "flattened" into the table and columns are created. Columns created from object properties follow this naming convention: `[object_name]__[property_name]`
 
@@ -77,8 +77,8 @@ If a table were created for the object in the example above, the schema would lo
 An array is an ordered collection of values. Values are separated by commas and can be a string (contained in double quotes), numbers, boolean, an object, or another array. Arrays begin with a left square bracket ( `[` ) and end with a right square bracket ( `]` ).
 
 Here's an example:
-{% highlight json %}
 
+```json
 {
    "order_id":"1234",
    "customer_id":"100",
@@ -89,7 +89,7 @@ Here's an example:
       }
    ]                        // array ends
 }
-{% endhighlight %}
+```
 
 When Stitch receives a nested array - or an array that's inside a JSON record - like the one above, it will "denest" it from the parent structure and create a subtable.
 
@@ -105,7 +105,7 @@ To give you a better understanding of how Stitch denests arrays, we'll walk you 
 
 Here's what the JSON for the Shopify order looks like:
 
-{% highlight json %}
+```json
 {
    "order_id":"1234",
    "created_at":"2015-01-01 00:00:00",
@@ -125,7 +125,7 @@ Here's what the JSON for the Shopify order looks like:
       }
    ]                                    // line item record ends
 }
-{% endhighlight %}
+```
 
 This record contains three levels of data due to the nested arrays. Stitch will denest the arrays from the top level record - in this case, the core order info - and create subtables. **From this one order record, three tables will be created:**
 
@@ -167,11 +167,11 @@ Here's what the `orders__line_items` table would look like if another line item 
 
 If you wanted to return all line items for order number `1234`, you’d run the following query:
 
-{% highlight sql %}
-     SELECT *
-     FROM orders__line_items li
-     WHERE {{ system-column.source-key | append: "order_id" }} = 1234
-{% endhighlight %}
+```sql
+SELECT *
+  FROM orders__line_items li
+ WHERE {{ system-column.source-key | append: "order_id" }} = 1234
+```
 
 ### Third level: Tax Lines {#third-level}
 
@@ -192,14 +192,14 @@ Here's what the `orders__line_items__tax_lines` table would look like if we adde
 
 If we wanted to return all line items and tax lines for order number `1234`, we’d run the following query:
 
-{% highlight sql %}
-     SELECT *
-     FROM orders__line_items li
-     INNER JOIN orders__line_items__tax_lines tl
-     ON tl._{{ system-column.level-id | replace: '#', '0' }} = li._{{ system-column.level-id | replace: '#', '0' }}
-     AND tl._{{ system-column.source-key | append: "order_id" }} = li._{{ system-column.source-key | append: "order_id" }}
+```sql
+    SELECT *
+      FROM orders__line_items li
+INNER JOIN orders__line_items__tax_lines tl
+        ON tl._{{ system-column.level-id | replace: '#', '0' }} = li._{{ system-column.level-id | replace: '#', '0' }}
+       AND tl._{{ system-column.source-key | append: "order_id" }} = li._{{ system-column.source-key | append: "order_id" }}
      WHERE {{ system-column.source-key | append: "order_id" }} = 1234
-{% endhighlight %}
+```
 
 ---
 
