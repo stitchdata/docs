@@ -6,7 +6,7 @@ name: "unsubscribers"
 doc-link: https://apidocs.yotpo.com/reference#introduction-to-unsubscribers
 singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/unsubscribers.json
 description: |
-  The `unsubscribers` endpoint contains data about customers who unsubscribed from one of Yotpo's emails
+  The `unsubscribers` table contains data about customers who unsubscribed from one of Yotpo's emails.
 
 replication-method: "Key-based Incremental"
 
@@ -15,21 +15,23 @@ api-method:
   doc-link: https://apidocs.yotpo.com/reference#retrieve-a-list-of-unsubscribers
 
 attributes:
-
   - name: "id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The unsubscriber ID."
 
   - name: "user_email"
     type: "string"
-    description: ""
+    description: "The email of the unsubscriber."
 
   - name: "email_type_id"
     type: "number"
-    description: ""
+    doc-link: "https://apidocs.yotpo.com/reference#section-email-types"
+    description: |
+      The type of email the user unsubscribed from. Refer to [Yotpo's documentation](https://apidocs.yotpo.com/reference#section-email-types){:target="new"} for a list of possible values.
 
   - name: "unsubscirbed_by_name"
     type: "string"
-    description: "This field is misspelled in the api response!"
+    description: |
+      **Note**: The misspelling in this field name originates in Yotpo's API. Stitch doesn't have the ability to rename it.
 ---
