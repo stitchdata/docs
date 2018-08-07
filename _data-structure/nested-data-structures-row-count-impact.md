@@ -24,11 +24,10 @@ weight: 4
 {%- endcapture -%}
 
 {% capture callout %}
-This article is applicable only to {{ destinations-with-no-nested-support }} destinations, as they do not natively support nested data structures.
+- **Destinations**: This article is applicable only to **{{ destinations-with-no-nested-support | strip }}** destinations, as they do not natively support nested data structures.
+- **PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as strings in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
 
-**PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as `strings` in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
-
-{% include important.html first-line="**Not applicable to all destinations**" content=callout %}
+{% include important.html first-line="**Not applicable to all destinations and data types**" content=callout %}
 
 To understand how Stitch interprets the data it receives, you need to know a little bit about JSON.
 
