@@ -27,6 +27,8 @@ sections:
   - title: "Version features"
     anchor: "version-features"
     content: |
+      {% include notifications/postgres-binlog-limitations.html %}
+
       In this section:
 
       - [Supported features](#supported-features)
