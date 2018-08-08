@@ -31,7 +31,7 @@ status: "Released"
 certified: false
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 status-url: "http://status.yotpo.com/"
 icon: /images/integrations/icons/yotpo.svg
@@ -40,8 +40,8 @@ anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: 
-column-selection: 
+table-selection: true
+column-selection: false
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -51,21 +51,34 @@ column-selection:
 # -------------------------- #
 
 requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
+  - item: |
+      **To be the Account Administrator in {{ integration.display_name }}.** [This is required](https://support.yotpo.com/en/article/finding-your-app-key-and-your-secret-key){:target="new"} to access your {{ integration.display_name }} API credentials.
 
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Retrieve your {{ integration.display_name }} API credentials"
+    anchor: "retrieve-yotpo-api-credentials"
     content: |
-      [Add content]
+      {% include note.html type="single-line" content="**Note**: You must be the Yotpo Account Administrator to complete this step." %}
+
+      1. Sign into your {{ integration.display_name }} account.
+      2. Click the user menu (person icon) in the top right corner.
+      3. Click **Account Settings**.
+      4. On the **Account Settings** page, click the **Store** tab.
+      5. Locate the **API Credentials** section:
+
+         ![The API Credentials section in Yotpo, highlighted]({{ site.baseurl }}/images/integrations/yotpo-api-credentials.png)
+
+      6. The **App Key** field contains your **API Key**, and the **Secret Key** is your **API Secret**.
+
+      Leave this page open for now - you'll need it to complete the next step.
+
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
+    content: |
+      4. In the **{{ integration.display_name }} API Key** field, paste the value from the **App Key** field in your {{ integration.display_name }} account.
+      5. In the **{{ integration.display_name }} API Secret** field, paste the value from the **Secret Key** field in your {{ integration.display_name }} account.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
