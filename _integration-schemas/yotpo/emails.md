@@ -8,7 +8,14 @@ singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/sche
 description: |
   The `emails` table contains data about every email sent from Yotpo.
 
+  #### Attribution window {#email-attribution-window}
+
+  When Stitch replicates data for this table, it will use an attribution window of {{ integration.attribution-window }} to fetch updated email statistics such as opens, clicks, etc. This means that every time a replication job runs, the last 30 days' worth of data will be replicated for this table.
+
+  Refer to the [Replication](#replication) section for more info and examples of how the attribution window is used to query for data.
+
 replication-method: "Key-based Incremental"
+attribution-window: true
 
 api-method:
   name: Email Analytics Raw data
