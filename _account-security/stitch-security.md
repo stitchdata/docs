@@ -18,6 +18,13 @@ frequently-asked-questions:
   - topic: "Compliance"
     anchor: "stitch-compliance"
     items:
+      - question: "Is Stitch SOC 2 compliant?"
+        anchor: "soc2-compliant"
+        answer: |
+          {% include misc/data-files.html %}
+
+          Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor. The audit report can be requested by contacting our sales team.
+
       - question: "Is Stitch PCI compliant?"
         anchor: "pci-compliant"
         answer: |
