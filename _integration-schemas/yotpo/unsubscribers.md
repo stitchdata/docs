@@ -10,6 +10,9 @@ description: |
 
 replication-method: "Key-based Incremental"
 
+replication-key:
+  name: "since"
+
 api-method:
   name: Retrieve a List of Unsubscribers
   doc-link: https://apidocs.yotpo.com/reference#retrieve-a-list-of-unsubscribers
