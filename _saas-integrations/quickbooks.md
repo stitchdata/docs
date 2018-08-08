@@ -29,7 +29,7 @@ certified: true
 
 historical: "1/1/2010"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/quickbooks.svg
 whitelist:
   tables: false

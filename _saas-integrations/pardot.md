@@ -29,7 +29,7 @@ certified: true
 
 historical: "28 days"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/pardot.svg
 whitelist:
   tables: false

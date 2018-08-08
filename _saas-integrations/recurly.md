@@ -29,7 +29,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/recurly.svg
 whitelist:
   tables: false

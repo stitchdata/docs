@@ -44,7 +44,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free/Premium"
+tier: "Free/Paid"
 status-url: ""
 icon: /images/integrations/icons/saas-integration.svg
 whitelist:

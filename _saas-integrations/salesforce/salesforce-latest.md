@@ -30,7 +30,7 @@ certified: true
 
 frequency: "1 hour"
 historical: "1 year"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/salesforce.svg
 whitelist-ips: true
 whitelist:

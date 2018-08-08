@@ -28,7 +28,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 status-url: "http://trust.zuora.com/"
 icon: /images/integrations/icons/zuora.svg
 whitelist:

@@ -50,7 +50,7 @@ frequently-asked-questions:
           {% assign all-integrations = site.documents | where:"input", true %}
 
           {% assign free-integrations = all-integrations | where:"tier","Free" | sort:"title" %}
-          {% assign paid-integrations = all-integrations | where:"tier","Premium" | sort:"title" %}
+          {% assign paid-integrations = all-integrations | where:"tier","Paid" | sort:"title" %}
 
           {% capture paid-plans %}
 

@@ -23,7 +23,7 @@ status: "Released"
 certified: true
 
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 port: 27017
 db-type: "mongo"
 icon: /images/integrations/icons/mongodb.svg
