@@ -43,8 +43,7 @@ loading-reports: true
 table-selection: true
 column-selection: false
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
+attribution-window: "30 days"
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -60,7 +59,7 @@ setup-steps:
     content: |
       {% include note.html type="single-line" content="**Note**: You must be the Yotpo Account Administrator to complete this step." %}
 
-      1. Sign into your {{ integration.display_name }} account.
+      1. Sign into your [{{ integration.display_name }} account](https://yap.yotpo.com/#/login){:target="new"}.
       2. Click the user menu (person icon) in the top right corner.
       3. Click **Account Settings**.
       4. On the **Account Settings** page, click the **Store** tab.
@@ -81,18 +80,34 @@ setup-steps:
   - title: "track data"
 
 # -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      {% assign window = "Attribution Window" %}
+      {% assign table = "reviews" %}
+      {% assign replication-key = "created_at" %}
+      {% assign start-date ="06/03/2017" %}
+      {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+      {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
+
+      {% include integrations/saas/attribution-windows.html %}
+
+      Refer to the documentation for each of these tables in the next section for more info.
+
+      ### Attribution window examples
+
+      In the tabs below are examples of attribution windows behave during historical (initial) and ongoing replication jobs.
+
+      {% include integrations/saas/attribution-window-examples.html %}
+
+# -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/yotpo
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
