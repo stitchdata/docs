@@ -26,7 +26,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/intercom.svg
 whitelist:
   tables: false

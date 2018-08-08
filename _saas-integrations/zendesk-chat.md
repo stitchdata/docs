@@ -200,7 +200,7 @@ Connecting your {{ integration.display_name }} (formerly known as Zopim) data to
 
 1. **Owner permissions in {{ integration.display_name }}**. The user who authorizes the integration must have [Owner permissions in {{ integration.display_name }}](https://chat.zendesk.com/hc/en-us/articles/212679597-Understanding-and-managing-roles-in-Zendesk-Chat){:target="_blank"}. Otherwise, Stitch will encounter authentication issues and be unable to replicate data.
 
-2. **An Advanced or Premium {{ integration.display_name }} account.** Zendesk only allows customers on their Advanced or Premium {{ integration.display_name }} plans to utilize the Rest API, which is what Stitch uses to connect to your {{ integration.display_name }} account and replicate data.
+2. **An Advanced or Premium {{ integration.display_name }} account.** Zendesk only allows customers on their Advanced or Paid {{ integration.display_name }} plans to utilize the Rest API, which is what Stitch uses to connect to your {{ integration.display_name }} account and replicate data.
 
    If your {{ integration.display_name }} account is on Lite or Basic, you will need to upgrade your {{ integration.display_name }} plan. [More info on {{ integration.display_name }} plans can be found on Zendesk's website](https://www.zendesk.com/chat/compare/#compare){:target="_blank"}.  
 

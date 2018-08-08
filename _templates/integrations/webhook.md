@@ -40,7 +40,7 @@ branded: true/false
 
 historical: "Webhook"
 frequency: "Continuous"
-tier: "Free/Premium"
+tier: "Free/Paid"
 status-url: ""
 icon: /images/integrations/icons/webhook-integration.svg
 

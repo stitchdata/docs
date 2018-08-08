@@ -29,7 +29,7 @@ certified: true # Stitch-supported integration
 
 historical: "30 days"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 status-url: https://status.hubspot.com/
 icon: /images/integrations/icons/hubspot.svg
 whitelist:

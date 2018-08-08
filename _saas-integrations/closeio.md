@@ -29,7 +29,7 @@ status: "Closed Beta"
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/closeio.svg
 whitelist:
   tables: false
