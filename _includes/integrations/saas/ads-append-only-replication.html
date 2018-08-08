@@ -1,58 +1,42 @@
 {% case integration.name %}
-  {% when "google-adwords" %}
-    {% assign window = "Conversion Window" %}
 
-    {% assign table = "ad_performance_report" %}
-
-    {% assign replication-key = "day" %}
-
-    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
-
-    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
-
-    {% assign account-id = system-column.customer-id %}
-
-    {% assign account-id-data = "1585293495" %}
-
-    {% assign device = "device" %}
-
-    {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
-
-    {% assign customerid = "customerid" %}
-
+<!-- For Bing Ads -->
   {% when "bing-ads" %}
     {% assign window = "Conversion Window" %}
-
     {% assign table = "ad_performance_report" %}
-
     {% assign replication-key = "gregorianDate" %}
-
     {% assign replication-key-historical = "2017-06-03 00:00:00" %}
-
     {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
-
     {% assign account-id = "accountId"%}
-
     {% assign account-id-data = "71086605" %}
-
     {% assign device = "deviceType" %}
-
     {% assign core-object-replication = "With the exception of the `accounts` table, these tables are replicated using **Full Table Replication**." %}
 
+<!-- For Facebook Ads -->
   {% when "facebook-ads" %}
     {% assign window = "Attribution Window" %}
-
     {% assign table = "ads" %}
-
     {% assign replication-key = "updated_time" %}
-
     {% assign replication-key-historical = "2017-06-05 00:00:00" %}
-
     {% assign replication-key-ongoing = "2017-09-03 00:00:00" %}
+
+<!-- For Google AdWords -->
+  {% when "google-adwords" %}
+    {% assign window = "Conversion Window" %}
+    {% assign table = "ad_performance_report" %}
+    {% assign replication-key = "day" %}
+    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
+    {% assign account-id = system-column.customer-id %}
+    {% assign account-id-data = "1585293495" %}
+    {% assign device = "device" %}
+    {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
+    {% assign customerid = "customerid" %}
 
   {% endcase %}
 
 
+<!-- For table types -->
 {% if include.type == "table-types" %}
 There are two types of tables in Stitch's {{ integration.display_name }} integration: Core Object and Report.
 
@@ -77,10 +61,10 @@ Each part of the replication process for **Report** tables is explained below.
 
 
 
-
+<!-- For Report Tables -->
 {% if include.type == "report-tables" %}
 {% unless integration.name == "facebook-ads" %}
-Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for all [**Report** tables](#schema) currently being tracked. 
+Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for any [**Report** tables](#schema) currently being tracked.
 
 Stitch replicates data in this way to account for updates made during the {{ window }}.
 {% endunless %}
@@ -91,7 +75,7 @@ Stitch replicates data in this way to account for updates made during the {{ win
 
 
 
-
+<!-- For data loading -->
 {% if include.type == "data-loading" %}
 When Stitch loads the extracted data for Report tables into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
 
@@ -117,6 +101,7 @@ Every time Stitch replicates and loads data, a row for each unique combination o
 
 
 
+<!-- For append-only query -->
 {% if include.type == "append-only-query" %}
 {% include note.html type="single-line" content="The query below is meant to act as a foundation for writing your own. Depending on the dimensions contained in a given table, you may need to alter this query for your own usage." %}
 
