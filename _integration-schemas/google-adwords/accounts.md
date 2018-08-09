@@ -3,7 +3,7 @@ tap: "google-adwords"
 version: "1.0"
 
 name: "accounts"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/ManagedCustomerService.ManagedCustomer
+doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/ManagedCustomerService.ManagedCustomer
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/accounts.json
 description: |
   The `accounts` table contains high-level info about the Google AdWords account(s) you’ve connected to Stitch.
