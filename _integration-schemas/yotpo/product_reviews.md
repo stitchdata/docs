@@ -54,6 +54,8 @@ attributes:
   - name: "source_review_id"
     type: "number"
     description: "If applicable, the source review ID."
+    foreign-key: true
+    table: "reviews"
 
   - name: "sentiment"
     type: "number"

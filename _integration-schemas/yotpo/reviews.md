@@ -61,6 +61,8 @@ attributes:
   - name: "email"
     type: "string"
     description: "The email address of the person who wrote the review."
+    foreign-key: true
+    table: "emails"
 
   - name: "sentiment"
     type: "number"

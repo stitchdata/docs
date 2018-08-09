@@ -18,7 +18,7 @@ replication-method: "Key-based Incremental"
 attribution-window: true
 
 api-method:
-  name: Email Analytics Raw data
+  name: Email analytics raw data
   doc-link: https://apidocs.yotpo.com/v1.0/reference#raw-data
 
 attributes:

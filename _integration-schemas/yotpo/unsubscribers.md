@@ -14,7 +14,7 @@ replication-key:
   name: "since"
 
 api-method:
-  name: Retrieve a List of Unsubscribers
+  name: Retrieve a list of unsubscribers
   doc-link: https://apidocs.yotpo.com/reference#retrieve-a-list-of-unsubscribers
 
 attributes:
@@ -25,7 +25,9 @@ attributes:
 
   - name: "user_email"
     type: "string"
-    description: "The email of the unsubscriber."
+    description: "The email address of the unsubscriber."
+    foreign-key: true
+    table: "emails"
 
   - name: "email_type_id"
     type: "number"
