@@ -64,17 +64,17 @@ setup-steps:
       - title: "Locate API credentials"
         anchor: "locate-api-credentials"
         content: |
-          The API client will display on the page after it's created. In the image below the **Client ID** and **Client Secret** are highlighted:
+          The API client will display on the page after it's created. In the image below the **API key** and **API Secret** are highlighted:
 
-          ![UserVoice UI with highlighted API client ID and client secret fields]({{ site.baseurl }}/images/integrations/uservoice-api-credentials.png)
+          ![UserVoice UI with highlighted API key and API secret fields]({{ site.baseurl }}/images/integrations/uservoice-api-credentials.png)
 
           Leave this page open for now - you'll need it to complete the next step in Stitch.
 
   - title: "add integration"
     content: |
       4. In the **{{ integration.display_name }} Subdomain** field, enter your {{ integration.display_name }} subdomain. For example: If the full subdomain were `stitch.{{ integration.name }}.com`, you'd enter `stitch` into this field.
-      5. In the **{{ integration.display_name }} Client ID** field, enter the API client name. This is what you entered in the **Name** field when [creating the API client in {{ integration.display_name }}](#create-stitch-api-client).
-      6. In the **{{ integration.display_name }} Client Secret** field, paste the API client secret.
+      5. In the **{{ integration.display_name }} API Key** field, paste your {{ integration.display_name }} API key.
+      6. In the **{{ integration.display_name }} API Secret** field, paste the API secret.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
