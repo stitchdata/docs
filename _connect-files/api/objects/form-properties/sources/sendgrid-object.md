@@ -22,7 +22,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      {{ connect.common.attributes.start-date replace: "[INTEGRATION]","SendGrid" }}
+      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","SendGrid" }}
 
 examples: 
   - code: |
