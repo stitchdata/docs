@@ -25,13 +25,17 @@ attributes:
     replication-key: true
     description: "The time the external user was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the external user was created in {{ integration.display_name }}."
+
   - name: "email"
     type: "string"
-    description: "The email address associated with the user."
+    description: "The email address associated with the external user."
 
   - name: "external_id"
     type: "string"
-    description: "The external ID associated with the user."
+    description: "The ID of the user in the external system."
 
   - name: "ip"
     type: "string"
@@ -43,11 +47,13 @@ attributes:
     object-attributes: 
       - name: "external_accounts"
         type: "integer"
-        description: "The external ID of the account associated with the user."
+        description: "The ID of the external account associated with the user."
+        foreign-key: true
+        table: "external_accounts"
 
       - name: "external_users"
         type: "integer"
-        description: "The external ID of the user associated with the user."
+        description: "The ID of the external user associated with the user."
 
   - name: "name"
     type: "string"

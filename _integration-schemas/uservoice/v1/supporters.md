@@ -20,17 +20,26 @@ attributes:
     primary-key: true
     description: "The supporter ID."
 
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: "The time the supported was last updated."
+
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the supporter was created."
+
   - name: "is_subscribed"
     type: "boolean"
     description: "If `true`, the supporter is subscribed to suggestion notifications."
 
   - name: "how"
     type: "string"
-    description: ""
+    description: "[TODO]"
 
   - name: "channel"
     type: "string"
-    description: ""
+    description: "[TODO]"
 
   - name: "requests_count"
     type: "integer"

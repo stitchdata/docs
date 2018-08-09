@@ -25,6 +25,10 @@ attributes:
     replication-key: true
     description: "The time the NPS rating was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the NPS rating was created."
+
   - name: "rating"
     type: "integer"
     description: "The NPS score, which is a number from 0 to 10."

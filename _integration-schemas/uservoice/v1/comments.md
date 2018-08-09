@@ -25,6 +25,10 @@ attributes:
     replication-key: true
     description: "The time the comment was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the comment was created."
+
   - name: "body"
     type: "string"
     description: "The plaintext body of the comment."

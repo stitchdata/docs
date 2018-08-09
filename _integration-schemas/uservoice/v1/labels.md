@@ -25,13 +25,17 @@ attributes:
     replication-key: true
     description: "The time the label was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the label was created."
+
   - name: "name"
     type: "string"
     description: "The name of the label."
 
   - name: "full_name"
     type: "string"
-    description: "Th full name of the label."
+    description: "The full name of the label."
 
   - name: "level"
     type: "integer"

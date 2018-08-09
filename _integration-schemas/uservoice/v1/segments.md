@@ -25,6 +25,10 @@ attributes:
     replication-key: true
     description: "The time the segment was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the segment was created."
+
   - name: "key"
     type: "string"
     description: "The segment key."

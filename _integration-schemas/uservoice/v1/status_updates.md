@@ -23,7 +23,11 @@ attributes:
   - name: "updated_at"
     type: "date-time"
     replication-key: true
-    description: "The time the segment was last updated."
+    description: "The time the status update was last updated."
+
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the status update was created."
 
   - name: "body"
     type: "string"

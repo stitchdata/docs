@@ -27,13 +27,21 @@ attributes:
     replication-key: true
     description: "The time the suggestion was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the suggestion was created."
+
   - name: "admin_url"
     type: "string"
     description: "The URL of the suggestion in the admin console for admins."
 
+  - name: "approved_at"
+    type: "date-time"
+    description: "The time the suggestion was approved."
+
   - name: "average_engagement"
     type: "number"
-    description: ""
+    description: "[TODO]"
 
   - name: "body"
     type: "string"
@@ -46,6 +54,10 @@ attributes:
   - name: "channel"
     type: "string"
     description: "The channel used to create the suggestion."
+
+  - name: "closed_at"
+    type: "date-time"
+    description: "The time the suggestion was closed."
 
   - name: "comments_count"
     type: "integer"
@@ -77,7 +89,11 @@ attributes:
 
   - name: "engagement_trend"
     type: "number"
-    description: ""
+    description: "[TODO]"
+
+  - name: "first_support_at"
+    type: "date-time"
+    description: "The time the suggestion first required support."
 
   - name: "inappropriate_flags_count"
     type: "integer"

@@ -25,6 +25,10 @@ attributes:
     replication-key: true
     description: "The time the forum was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the forum was created."
+
   - name: "name"
     type: "string"
     description: "The name of the forum."

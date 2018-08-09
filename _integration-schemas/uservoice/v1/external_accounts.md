@@ -25,29 +25,33 @@ attributes:
     replication-key: true
     description: "The time the external account was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the external account was created in {{ integration.display_name }}."
+
   - name: "external_id"
     type: "string"
-    description: "The external ID of the external account."
+    description: "The ID of the account in the external system."
 
   - name: "is_blocker"
     type: "boolean"
-    description: ""
+    description: "If `true`, feedback associated with the external account has been flagged as a blocker."
 
   - name: "ltv"
     type: "number"
-    description: "The LTV of the external account."
+    description: "The Lifetime Value (LTV) of the external account, represented in USD."
 
   - name: "ltv_cents"
     type: "integer"
-    description: "The LTV of the external account, in cents."
+    description: "The Lifetime Value (LTV) of the external account, represented in USD as cents."
 
   - name: "mrr"
     type: "number"
-    description: "The MRR of the external account."
+    description: "The Monthly Recurring Revenue (MRR) of the external account, represented in USD."
 
   - name: "mrr_cents"
     type: "integer"
-    description: "The MRR of the external account, in cents."
+    description: "The Monthly Recurring Revenue (MRR) of the external account, represented in USD as cents."
 
   - name: "name"
     type: "string"
@@ -55,7 +59,7 @@ attributes:
 
   - name: "nps"
     type: "number"
-    description: "The NPS of the external account."
+    description: "The NPS rating associated with the external account."
 
   - name: "plan"
     type: "string"

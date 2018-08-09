@@ -25,13 +25,17 @@ attributes:
     replication-key: true
     description: "The time the feature was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the feature was created."
+
   - name: "description"
     type: "string"
     description: "A description of the feature."
 
   - name: "is_blocker"
     type: "boolean"
-    description: ""
+    description: "If `true`, this feature has been flagged as a blocker for a user or account."
 
   - name: "links"
     type: "object"
@@ -46,10 +50,14 @@ attributes:
     - name: "feature_status"
       type: "integer"
       description: "The status of the feature."
+      foreign-key: true
+      table: "feature_statuses"
 
     - name: "product_area"
       type: "integer"
       description: "The product area of the feature."
+      foreign-key: true
+      table: "product_areas"
 
     - name: "updated_by"
       type: "integer"
@@ -67,13 +75,13 @@ attributes:
 
   - name: "supporter_mrr_cents"
     type: "integer"
-    description: "The total amount of supporter MRR for the feature, in cents."
+    description: "The total sum of supporter Monthly Recurring Revenue (MRR) for the feature, represented in USD as cents."
 
   - name: "supporting_accounts_count"
     type: "integer"
-    description: "The total number of supporting accounts associated with the feature."
+    description: "The total number of supporter accounts associated with the feature."
 
   - name: "supporting_users_count"
     type: "integer"
-    description: "The total number of supporting users associated with the feature."
+    description: "The total number of supporters associated with the feature."
 ---

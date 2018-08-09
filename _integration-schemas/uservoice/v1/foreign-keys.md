@@ -43,4 +43,18 @@ foreign-keys:
   - attribute: ""
     table: "external_users"
     join-on: "id"
+
+  - attribute: ""
+    table: "external_accounts"
+    join-on: "id"
+
+  - attribute: ""
+    table: "feature_statuses"
+    join-on: "id"
+
+  - attribute: ""
+    table: "product_areas"
+    join-on: "id"
 ---
+
+"If `true`, feedback associated with the external account has been flagged as a blocker."

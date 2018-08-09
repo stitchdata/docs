@@ -27,6 +27,10 @@ attributes:
     replication-key: true
     description: "The time the request was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the request was created."
+
   - name: "body"
     type: "string"
     description: "The text of the request. For example: `User considers the lack of this feature a blocker.`"

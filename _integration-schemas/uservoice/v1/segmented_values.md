@@ -25,6 +25,10 @@ attributes:
     replication-key: true
     description: "The time the segmented value was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the segmented value was created."
+
   - name: "name"
     type: "string"
     description: "The display name of the segmented value. For example: `Philadelphia`"
@@ -35,11 +39,11 @@ attributes:
 
   - name: "object_type"
     type: "string"
-    description: ""
+    description: "[TODO]"
 
   - name: "column_type"
     type: "string"
-    description: ""
+    description: "[TODO]"
 
   - name: "links"
     type: "object"

@@ -25,6 +25,10 @@ attributes:
     replication-key: true
     description: "The time the product area was last updated."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the product area was created."
+
   - name: "name"
     type: "string"
     description: "The name of the product area. For example: `Admin - features`"
