@@ -18,7 +18,7 @@ display_name: "UserVoice"
 singer: true 
 repo-url: https://github.com/singer-io/tap-uservoice
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,10 +30,10 @@ certified: false
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
-status-url: 
+status-url: https://status.uservoice.com/
 whitelist:
   tables: true
-  columns: false
+  columns: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -77,6 +77,7 @@ setup-steps:
       6. In the **{{ integration.display_name }} Client Secret** field, paste the API client secret.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
@@ -84,12 +85,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/uservoice
-
-schema-sections:
-  - title: ""
-    anchor: ""
-    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

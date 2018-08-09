@@ -56,5 +56,3 @@ foreign-keys:
     table: "product_areas"
     join-on: "id"
 ---
-
-"If `true`, feedback associated with the external account has been flagged as a blocker."
