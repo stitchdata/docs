@@ -6,7 +6,7 @@ name: "table_name"
 doc-link: 
 singer-schema: 
 description: |
-  ## description of the table
+  The `{{ table.name }}` table contains 
 
 replication-method: "Key-based Incremental / Full Table"
 
