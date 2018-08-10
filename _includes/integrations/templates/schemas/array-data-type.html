@@ -1,3 +1,16 @@
+<!-- Capture the nested data notice that appears everywhere, so we don't need to repeat it -->
+    {% capture nested-data-notice %}
+        <p>
+            <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">If your destination doesn't natively support nested data</a>, this data may be denested into a subtable named <code>[ATTRIBUTE-NAME]</code>. 
+
+            {% if table.singer-schema %}
+                Refer to the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for details on possible attributes.
+            {% endif %}
+        </p>
+    {% endcapture %}
+
+<!-- START THE ROWS -->
+
 <!-- This is a row in the top-level table - it'll contain the name of the array -->
     <tr>
         {% case attribute.type %}
@@ -11,13 +24,13 @@
             <td class="attribute-description">
                 {{ attribute.description | flatify | markdownify }}
 
-                <p>
-                    <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">If your destination doesn't natively support nested data</a>, this data may be denested into a subtable named <code>{{ subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}</code>. 
+            <!-- Capture the full name of the attribute -->
+                {%- capture attribute-name -%}
+                    {{ subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
+                {%- endcapture -%}
 
-                    {% if table.singer-schema %}
-                        Refer to the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for details on possible attributes.
-                    {% endif %}
-                </p>
+            <!-- Replace the [ATTRIBUTE-NAME] placeholder in the nested-data-notice with the captured attribute name -->
+                {{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
             </td>
 
     <!-- WHEN ATTRIBUTE != OBJECT -->
@@ -37,12 +50,14 @@
             </td>
 
         <!-- ATTRIBUTE DESCRIPTION -->
-            <td>
+            <td class="attribute-description">
                 {{ attribute.description | flatify | markdownify }}
 
-                <p>
-                    <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">If your destination doesnt natively support nested data</a>, this data may be denested into a subtable named <code>{{ attribute.name | prepend: "__" | prepend: table.name }}</code> and contain the following attributes:
-                </p>
+                {%- capture attribute-name -%}
+                    {{ attribute.name | prepend: "__" | prepend: table.name }}
+                {%- endcapture -%}
+                
+                {{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
 
             <!-- START TABLE OF SUBATTRIBUTES -->
                 <table class="table-hover attribute-list">
@@ -80,7 +95,7 @@
 
                     <!-- WHEN SUBATTRIBUTE = OBJECT -->
                         {% if subattribute.type == "object" %}
-                            {% include integrations/templates/schemas/object-data-type.html type="array-object" %}'
+                            {% include integrations/templates/schemas/object-data-type.html type="array-object" %}
 
                     <!-- WHEN SUBATTRIBUTE = ARRAY -->
                         {% elsif subattribute.type == "array" %}
@@ -99,13 +114,12 @@
                                 <td width="60%; fixed">
                                     {{ subattribute.description | flatify | markdownify }}
 
-                                    <p>
-                                        <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">If your destination doesn't natively support nested data</a>, this data may be denested into a subtable named <code>{{ subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}</code>. 
+                                    {%- capture attribute-name -%}
+                                        {{ subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
+                                    {%- endcapture -%}
 
-                                    {% if table.singer-schema %}
-                                        Refer to the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for details on possible attributes.
-                                    {% endif %}
-                                    </p>
+                                    {{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
+
                                 </td>
                             </tr>
 
