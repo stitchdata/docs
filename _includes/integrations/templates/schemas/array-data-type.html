@@ -130,6 +130,7 @@
                                     {% if subattribute.primary-key == true %}
                                         {{ ui-icon.subtable-primary-key | flatify }} 
                                     {% endif %}
+
                                     {% if subattribute.doc-link %}
                                         <a href="{{ subattribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" target="new">
                                            <strong>{{ subattribute.name | flatify }}</strong>
@@ -142,6 +143,10 @@
                                 </td>
                                 <td width="60%; fixed">
                                     {{ subattribute.description | flatify | markdownify }}
+
+                                    {% if subattribute.foreign-key == true %}
+                                        {% include integrations/templates/schemas/foreign-keys.html attribute-level="subattribute" %}
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endif %}
