@@ -1,10 +1,10 @@
 ---
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-mysql-object"
+key: "source-form-properties-postgresql-object"
 
-title: "MySQL Source Form Property"
-description: "{{ api.form-properties.source-forms.mysql.description }}"
+title: "PostgreSQL Source Form Property"
+description: "{{ api.form-properties.source-forms.postgresql.description }}"
 
 object-attributes:
   - name: "host"
@@ -17,7 +17,7 @@ object-attributes:
     required: true
     description: "{{ connect.common.attributes.port }}"
 
-  - name: "database"
+  - name: "dbname"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.database }}"
@@ -60,15 +60,15 @@ object-attributes:
 examples:
   - code: |
       {  
-       "type":"platform.mysql",
+       "type":"platform.postgresql",
        "properties":{  
-          "host":"mysql.some-host.com",
-          "port":"3306",
-          "database":"stitch",
+          "host":"postgresql.some-host.com",
+          "port":"5432",
+          "dbname":"stitch",
           "user":"stitch_user",
           "password":"<PASSWORD>",
           "ssh":"true",
-          "ssh_host":"mysql-ssh.host.com",
+          "ssh_host":"postgresql-ssh.host.com",
           "ssh_port":"22",
           "ssh_user":"stitch_ssh_user",
           "ssl":"false"

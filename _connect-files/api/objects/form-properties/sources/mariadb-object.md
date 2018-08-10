@@ -22,7 +22,7 @@ object-attributes:
     required: true
     description: "{{ connect.common.attributes.database }}"
 
-  - name: "username"
+  - name: "user"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.username }}"
@@ -65,7 +65,7 @@ examples:
           "host":"mariadb.some-host.com",
           "port":"3306",
           "database":"stitch",
-          "username":"stitch_user",
+          "user":"stitch_user",
           "password":"<PASSWORD>",
           "ssh":"true",
           "ssh_host":"mariadb-ssh.host.com",
