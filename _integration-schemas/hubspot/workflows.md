@@ -69,5 +69,4 @@ attributes:
           - name: "type"
             type: "string"
             description: "The type of step in the workflow." 
-
 ---

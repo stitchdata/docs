@@ -6,7 +6,7 @@ name: "paymentRun"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Payment-Runs
 #singer-schema: 
 description: |
-  The `paymentRun` table contains information about payment runs.
+  The `{{ table.name }}` table contains information about payment runs.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the payment run."
+    foreign-key-id: "payment-run-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -35,7 +36,7 @@ attributes:
   - name: "billingRunId"
     type: "string"
     description: "The ID of the billing run associated with the payment run."
-    foreign-key: true
+    foreign-key-id: "billing-run-id"
 
   - name: "completedOn"
     type: "date-time"

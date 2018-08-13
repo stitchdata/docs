@@ -14,6 +14,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the product rate plan charge."
+    foreign-key-id: "product-rate-plan-charge-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,6 +24,7 @@ attributes:
   - name: "accountingCode"
     type: "string"
     description: "The accounting code for the charge."
+    foreign-key-id: "accounting-code"
 
   - name: "applyDiscountTo"
     type: "string"
@@ -217,10 +219,7 @@ attributes:
   - name: "productRatePlanId"
     type: "string"
     description: "The ID of the product rate plan associated with this product rate plan charge."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "productRatePlan"
-    ##     attribute: "Id"
+    foreign-key-id: "product-rate-plan-id"
 
   - name: "recognizedRevenueAccount"
     type: "string"
@@ -318,5 +317,4 @@ attributes:
   - name: "weeklyBillCycleDay"
     type: "string"
     description: "The day of the week that is used as the bill cycle day (BCD) for the charge."
-
 ---

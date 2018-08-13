@@ -5,7 +5,7 @@ version: 1.0
 name: "productRatePlanChargeTier"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-Plan-Charge-Tiers
 description: |
-  The `productRatePlanChargeTier` table contains pricing info for product rate plan charges.
+  The `{{ table.name }}` table contains pricing info for product rate plan charges.
 
 replication-method: "Key-based Incremental"
 
@@ -14,6 +14,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The product rate plan charge tier ID."
+    foreign-key-id: "product-rate-plan-charge-tier-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -60,22 +61,22 @@ attributes:
   - name: "productRatePlanChargeId"
     type: "string"
     description: "The ID of the product rate plan charge associated with the tier."
-    foreign-key: true
+    foreign-key-id: "product-rate-plan-charge-id"
 
   - name: "productRatePlanId"
     type: "string"
     description: "The ID of the product rate plan associated with the tier."
-    foreign-key: true
+    foreign-key-id: "product-rate-plan-id"
 
   - name: "ratePlanChargeId"
     type: "string"
     description: "The ID of the rate plan charge associated with the tier."
-    foreign-key: true
+    foreign-key-id: "rate-plan-charge-id"
 
   - name: "ratePlanId"
     type: "string"
     description: "The ID of the rate plan associated with the tier."
-    foreign-key: true
+    foreign-key-id: "rate-plan-id"
 
   - name: "startingUnit"
     type: "number"

@@ -6,7 +6,7 @@ name: "amendment"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/Object_GETAmendment
 #singer-schema: 
 description: |
-  The `amendment` table contains information about subscription amendments, which are changes to customer subscriptions. For example: Changing the terms of a contract, adding/removing a product, canceling a subscription, etc.
+  The `{{ table.name }}` table contains information about subscription amendments, which are changes to customer subscriptions. For example: Changing the terms of a contract, adding/removing a product, canceling a subscription, etc.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The amendment ID."
+    foriegn-key-id: "amendment-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -126,7 +127,7 @@ attributes:
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription that the amendment changes."
-    foreign-key: true
+    foreign-key-id: "subscription-id"
 
   - name: "termStartDate"
     type: "string"
@@ -151,9 +152,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the amendment."
-
-  - name: ""
-    type: 
-    description: ""
-
 ---
