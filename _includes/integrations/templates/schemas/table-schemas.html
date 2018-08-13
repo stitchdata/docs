@@ -104,7 +104,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
                                             {{ attribute.description | flatify | markdownify }}
 
                                         <!-- FOREIGN-KEY == TRUE -->
-                                            {% if attribute.foreign-key == true %}
+                                            {% if attribute.foreign-key-id %}
                                                 {% include integrations/templates/schemas/foreign-keys.html %}
                                             {% endif %}
                                         </td>

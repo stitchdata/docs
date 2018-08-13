@@ -144,7 +144,7 @@
                                 <td width="60%; fixed">
                                     {{ subattribute.description | flatify | markdownify }}
 
-                                    {% if subattribute.foreign-key == true %}
+                                    {% if subattribute.foreign-key-id %}
                                         {% include integrations/templates/schemas/foreign-keys.html attribute-level="subattribute" %}
                                     {% endif %}
                                 </td>

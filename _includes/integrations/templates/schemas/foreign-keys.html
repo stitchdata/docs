@@ -1,5 +1,5 @@
 <!-- This file is used to output and display foreign key information
-    for table attributes where foreign-key == true -->
+    for table attributes where foreign-key == true  -->
 
 
 <!-- Get the foreign key file in the integration's schema folder -->
@@ -35,55 +35,62 @@
 {% case include.attribute-level %}
 <!-- For second-level attributes -->
     {% when 'subattribute' %}
-        {% assign attribute-key-name = subattribute.name %}
+        {% assign foreign-key-id = subattribute.foreign-key-id %}
         {% assign attribute-table = subattribute.table %}
 
         {% assign attribute-key = subattribute %}
 
 <!-- For third level attributes -->
     {% when 'sub-subattribute' %}
-        {% assign attribute-key-name = sub-subattribute.name %}
+        {% assign foreign-key-id = sub-subattribute.foreign-key-id %}
         {% assign attribute-table = sub-subattribute.table %}
 
         {% assign attribute-key = sub-subattribute %}
 
 <!-- For first level attributes -->
     {% else %}
-        {% assign attribute-key-name = attribute.name %}
+        {% assign foreign-key-id = attribute.foreign-key-id %}
         {% assign attribute-table = attribute.table %}
 
         {% assign attribute-key = attribute %}
 {% endcase %}
 
-<!-- If the attribute can be linked to multiple tables, run through the list -->
 
-    {% if attribute-key.foreign-keys %}
-        <p>
-            <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
-            <strong>Reference</strong>:</p>
-
-            <ul>
-                {% for foreign-key in attribute-key.foreign-keys %}
-                    <li>
-                        <a href="#{{ foreign-key.table }}">
-                            <code>{{ foreign-key.table }}.{{ foreign-key.join-on }}</code>
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-<!-- Otherwise, just check the foreign key file and output the one table -->
-    {% else %}
-
-        {% for reference in references %}
-            {% for key in reference.foreign-keys %}
-                {% if key.attribute == attribute-key-name or key.table == attribute-table %}
+{% for reference in references %}
+    {% for key in reference.foreign-keys %}
+        {% if key.id == attribute-key.foreign-key-id %}
+            {% if key.all-foreign-keys %}
+                <p>
                     <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
-                        <strong>Reference</strong>: 
-                        <a href="#{{ foreign-key.table }}">
-                            <code>{{ key.table }}.{{ key.join-on }}</code>
-                        </a>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+                    <strong>Reference</strong>:
+                </p>
 
-    {% endif %}
+                    <ul>
+                        {% for foreign-key in key.all-foreign-keys %}
+                            {% unless foreign-key.table == table.name %}
+                            <li>
+                                <a href="#{{ foreign-key.table }}">
+                                    {{ foreign-key.table }}.
+
+                                    {%- if foreign-key.join-on -%}
+                                        {{ foreign-key.join-on | strip }}
+                                    {%- else -%}
+                                        {{ key.attribute | strip }}
+                                    {%- endif -%}
+                                </a>
+                            </li>
+                            {% endunless %}
+                        {% endfor %}
+                    </ul>
+
+            {% else %}
+
+                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                    <strong>Reference</strong>: 
+                    <a href="#{{ key.table }}">
+                        {{ key.table }}.{{ key.join-on }}
+                    </a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
