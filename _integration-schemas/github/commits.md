@@ -22,6 +22,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The git commit hash."
+    # foreign-key-id: "sha"
 
   - name: "comments_url"
     type: "string"
@@ -98,7 +99,7 @@ attributes:
       - name: "sha"
         type: "string"
         description: "The git hash of the parent commit."
-        foreign-key: true
+        # foreign-key-id: "sha"
 
       - name: "html_url"
         type: "string"
