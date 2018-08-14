@@ -25,6 +25,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The user's ID."
+    foreign-key-id: "user-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -57,7 +58,7 @@ attributes:
   - name: "default_group_id"
     type: "integer"
     description: "The ID of the user's default group."
-    foreign-key: true
+    foreign-key-id: "group-id"
 
   - name: "details"
     type: "string"
@@ -98,7 +99,7 @@ attributes:
   - name: "organization_id"
     type: "integer"
     description: "The ID of the organization the user is associated with."
-    foreign-key: true
+    foreign-key-id: "organization-id"
 
   - name: "only_private_comments"
     type: "boolean"
@@ -249,8 +250,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The ID of the tag associated with the user."
-        foreign-key: true
-        table: "tags"
+        foreign-key-id: "tag-id"
 
   - name: "ticket_restriction"
     type: "string"
@@ -275,16 +275,15 @@ attributes:
     type: "string"
     description: "The API URL associated with the user."
 
-  - name: "user_fields"
-    type: "object"
-    description: "The values of custom fields in the user's record."
-    object-attributes:
-      - name: "[TODO]"
-        type: 
-        description: 
+  # - name: "user_fields"
+  #   type: "object"
+  #   description: "The values of custom fields in the user's record."
+  #   object-attributes:
+  #     - name: "[TODO]"
+  #       type: 
+  #       description: 
 
   - name: "verified"
     type: "boolean"
     description: "If `true`, the user's primary identity has been verified."
-
 ---

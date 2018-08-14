@@ -21,6 +21,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The name of the tag."
+    foreign-key-id: "tag-id"
 
   - name: "count"
     type: "integer"

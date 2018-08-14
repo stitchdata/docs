@@ -25,6 +25,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ticket ID."
+    foreign-key-id: "ticket-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -34,12 +35,12 @@ attributes:
   - name: "organization_id"
     type: "integer"
     description: "The ID of the organization associated with the requester (`requester_id`)."
-    foreign-key: true
+    foreign-key-id: "organization-id"
 
   - name: "requester_id"
     type: "integer"
     description: "The ID of the user who requested the ticket."
-    foreign-key: true
+    foreign-key-id: "user-id"
 
   - name: "is_public"
     type: "boolean"
@@ -56,8 +57,7 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The ID of the agent currently following the ticket."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
   - name: "submitter_id"
     type: "integer"
@@ -65,7 +65,7 @@ attributes:
       The ID of the ticket submitter. Unless the ticket was created as a follow-up ticket, this will always be the ID of the first comment author.
 
       In the case of a follow-up ticket, the value of this field will be the ID of the user who created the ticket.
-    foreign-key: true
+    foreign-key-id: "user-id"
 
   # - name: "generated_timestamp"
   #   type: "integer"
@@ -78,7 +78,7 @@ attributes:
   - name: "group_id"
     type: "integer"
     description: "The ID of the group the ticket is assigned to."
-    foreign-key: true
+    foreign-key-id: "group-id"
 
   - name: "type"
     type: "string"
@@ -101,8 +101,7 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The ID of the collaborator currently CC'ed on the ticket."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
   - name: "tags"
     type: "array"
@@ -111,8 +110,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the ticket."
-        foreign-key: true
-        table: "tags"
+        foreign-key-id: "tag-id"
 
   - name: "has_incidents"
     type: "boolean"
@@ -145,8 +143,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: "The ID of the custom ticket field."
-        foreign-key: true
-        table: "ticket_fields"
+        foreign-key-id: "ticket-field-id"
 
       - name: "value"
         type: "string"
@@ -185,7 +182,7 @@ attributes:
   - name: "assignee_id"
     type: "integer"
     description: "The ID of the agent currently assigned to the ticket."
-    foreign-key: true
+    foreign-key-id: "user-id"
 
   - name: "subject"
     type: "string"
@@ -205,7 +202,7 @@ attributes:
         object-attributes:
           - name: "from"
             type: "object"
-            description: "[TODO]"
+            description: ""
             object-attributes:
               - name: "name"
                 type: "string"
@@ -214,7 +211,7 @@ attributes:
               - name: "ticket_id"
                 type: "integer"
                 description: ""
-                foreign-key: true
+                foreign-key-id: "ticket-id"
 
               - name: "address"
                 type: "string"
@@ -226,7 +223,7 @@ attributes:
 
           - name: "to"
             type: "object"
-            description: "[TODO]"
+            description: ""
             object-attributes:
               - name: "address"
                 type: "string"
@@ -238,7 +235,7 @@ attributes:
 
           - name: "rel"
             type: "string"
-            description: "[TODO]"
+            description: ""
 
       - name: "channel"
         type: "string"
@@ -247,6 +244,7 @@ attributes:
   - name: "ticket_form_id"
     type: "integer"
     description: "**Zendesk Enterprise only**. The ID of the ticket form to render for the ticket."
+    foreign-key-id: "ticket-form-id"
 
   - name: "sharing_agreement_ids"
     type: "array"
