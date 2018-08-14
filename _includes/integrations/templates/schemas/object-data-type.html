@@ -24,9 +24,9 @@
 			  		{{ sub-subattribute.description | flatify | markdownify }}
 
 			  	<!-- Capture the full name of the attribute -->
-			  		{%- capture attribute-name %}
+			  		{%- capture attribute-name -%}
 			  			{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
-			  		{% endcapture %}
+			  		{%- endcapture -%}
 
 			  	<!-- Replace the [ATTRIBUTE-NAME] placeholder in the nested-data-notice with the captured attribute name -->
 			  		{{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
@@ -80,9 +80,9 @@
 
 				  		{% if sub-subattribute.type == "array" %}
 
-				  			{%- capture attribute-name %}
+				  			{%- capture attribute-name -%}
 				  				{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
-				  			{% endcapture %}
+				  			{%- endcapture -%}
 
 				  			{{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
 				  		{% endif %}
