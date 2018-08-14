@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The product ID."
+    foreign-key-id: "product-id"
 
   - name: "updated_at"
     type: "string"
@@ -57,47 +58,48 @@ attributes:
     type: "object"
     description: "Details about the product."
     object-attributes: 
-    - name: "key"
-      type: "string"
-      description: "The product spec key."
+      - name: "key"
+        type: "string"
+        description: "The product spec key."
 
-    - name: "value"
-      type: "string"
-      description: ""
+      - name: "value"
+        type: "string"
+        description: ""
 
   - name: "category"
     type: "object"
     description: "Details about the categories the product is in."
     object-attributes: 
-    - name: "id"
-      type: "number"
-      description: "The ID of the category the product is in."
+      - name: "id"
+        type: "number"
+        description: "The ID of the category the product is in."
+        # foreign-key-id: "category-id"
 
-    - name: "name"
-      type: "string"
-      description: "The name of the category the product is in."
+      - name: "name"
+        type: "string"
+        description: "The name of the category the product is in."
 
   - name: "images"
     type: "object"
     description: "Details about the images associated with the product."
     object-attributes: 
-    - name: "original"
-      type: "string"
-      description: "The original image associated with the product."
+      - name: "original"
+        type: "string"
+        description: "The original image associated with the product."
 
-    - name: "square"
-      type: "string"
-      description: "The thumbnail version of the original image associated with the product."
+      - name: "square"
+        type: "string"
+        description: "The thumbnail version of the original image associated with the product."
 
-    - name: "facebook"
-      type: "string"
-      description: "The Facebook image associated with the product."
+      - name: "facebook"
+        type: "string"
+        description: "The Facebook image associated with the product."
 
-    - name: "facebook_square"
-      type: "string"
-      description: "The thumbnail version of the image associated with the product."
+      - name: "facebook_square"
+        type: "string"
+        description: "The thumbnail version of the image associated with the product."
 
-    - name: "kind"
-      type: "string"
-      description: ""
+      - name: "kind"
+        type: "string"
+        description: ""
 ---

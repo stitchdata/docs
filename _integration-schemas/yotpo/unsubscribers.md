@@ -22,12 +22,12 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The unsubscriber ID."
+    # foreign-key-id: "unsubscriber-id"
 
   - name: "user_email"
     type: "string"
     description: "The email address of the unsubscriber."
-    foreign-key: true
-    table: "emails"
+    foreign-key-id: "email-address-id"
 
   - name: "email_type_id"
     type: "number"
