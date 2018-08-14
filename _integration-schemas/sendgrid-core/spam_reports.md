@@ -21,6 +21,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The email address of the recipient who marked the message as spam."
+    foreign-key-id: "email-id"
 
   - name: "created"
     type: "integer"

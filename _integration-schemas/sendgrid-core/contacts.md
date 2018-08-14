@@ -25,6 +25,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The contact ID."
+    # foreign-key-id: "contact-id"
 
   - name: "created_at"
     type: "integer"
@@ -37,6 +38,7 @@ attributes:
   - name: "email"
     type: "string"
     description: "The email address associated with the contact."
+    foreign-key-id: "email-id"
 
   - name: "last_emailed"
     type: "integer"
