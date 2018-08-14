@@ -3,18 +3,12 @@ require 'optparse'
 require 'json'
 require 'yaml'
 
-if ARGV.length != 1
-  puts "Usage: example.rb <Schema File>"
+if ARGV.length < 1
+  puts "Usage: schema_to_yaml.rb schema_file [schema_file2 ...]"
+  puts "       schema_to_yaml.rb catalog_file"
+  puts "       schema_to_yaml.rb /path/to/schemas"
   exit -1
 end
-
-schema_file = ARGV[0]
-if !File.exists?(schema_file)
-  puts "unable to find schema file #{schema_file}"
-  exit -1
-end
-
-file_data = JSON.parse(File.read(schema_file))
 
 INDENTATION_LENGTH = 2
 
@@ -68,6 +62,25 @@ def visit(nodes, breadcrumb)
   return nodes
 end
 
+def read_file(file_name)
+  if !File.exists?(file_name)
+    puts "unable to find schema file #{first_file}"
+    exit -1
+  end
+
+  return JSON.parse(File.read(file_name))
+end
+
+file_names = ARGV
+
+# If a directory is passed in, grab all json files from it, recursively
+if File.directory?(file_names[0])
+  file_names = Dir.glob(File.join(file_names[0] + "**/*.json"))
+end
+
+file_name = file_names[0]
+file_data = read_file(file_name)
+
 if file_data.key?("streams")
   # Indicates that discovery output was passed in
   for stream in file_data["streams"];
@@ -83,15 +96,19 @@ if file_data.key?("streams")
     puts("Wrote " + stream['stream'] + ".md to the current directory!")
   end
 else
-  # Indicates that a single schema was passed in
-  $yaml_output = ""
-  new_schema = visit(file_data, [])
+  # Indicates that a schema file was passed in
+  for file_name in file_names;
+    file_data = read_file(file_name)
+    $yaml_output = ""
+    new_schema = visit(file_data, [])
 
-  puts($yaml_output)
+    puts($yaml_output)
 
-  File.open("out.md", "w") do |f|
-    f.write($yaml_output)
+    out_name = File.basename(file_name, File.extname(file_name))
+    File.open(out_name + ".md", "w") do |f|
+      f.write($yaml_output)
+    end
+
+    puts("Wrote " + out_name +  ".md to the current directory!")
   end
-
-  puts("Wrote out.md to the current directory!")
 end
