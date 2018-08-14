@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The unique ID for the contact. The id can be used to reference a specific contact when using the contact functions."
+    # foreign-key-id: "contact-id"
 
   - name: "modified"
     type: "date-time"
@@ -69,9 +70,10 @@ attributes:
     type: "array"
     description: "The IDs of the SMS keywords the contact is subscribed to."
     array-attributes: 
-      - name: "SMSKeywordIDs"
+      - name: "SMSKeywordID"
         type: "string"
         description: "The SMS keyword ID."
+        foreign-key-id: "keyword-id"
 
   - name: "lastOpenDate"
     type: "string"
@@ -168,8 +170,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The ID of the list that the contact belongs to."
-        foreign-key: true
-        table: "list"
+        foreign-key-id: "list-id"
 
   - name: "geoIPCountry"
     type: "string"

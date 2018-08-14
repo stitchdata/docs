@@ -26,6 +26,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The email address of the recipient."
+    foreign-key-id: "email-address-id"
 
   - name: "email_sent_timestamp"
     type: "string"
@@ -36,6 +37,7 @@ attributes:
   - name: "order_id"
     type: "string"
     description: "If applicable, the ID of the order the email is associated with."
+    # foreign-key-id: "order-id"
 
   - name: "order_timestamp"
     type: "string"
@@ -44,7 +46,7 @@ attributes:
   - name: "product_id"
     type: "string"
     description: "If applicable, the ID of the product the email is associated with."
-    foreign-key: true
+    foreign-key-id: "product-id"
 
   - name: "sku"
     type: "string"

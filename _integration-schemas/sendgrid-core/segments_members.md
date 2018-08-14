@@ -22,6 +22,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the segment member."
+    # foreign-key-id: "segment-member-id"
 
   - name: "created_at"
     type: "integer"
@@ -34,11 +35,12 @@ attributes:
   - name: "email"
     type: "string"
     description: "The email address of the segment member."
+    foreign-key-id: "email-id"
 
   - name: "segment_id"
     type: "integer"
     description: "The ID of the segment the member belongs to."
-    foreign-key: true
+    foreign-key-id: "segment-id"
 
   - name: "last_emailed"
     type: "integer"

@@ -17,9 +17,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The segment ID."
-    # foreign-keys:
-    #   - table: "leads__segments"
-    #     attribute: "id"
+    foreign-key-id: "segment-id"
 
   - name: "updated_at"
     type: "date-time"

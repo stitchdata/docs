@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The organization ID."
+    foreign-key-id: "organization-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -50,7 +51,7 @@ attributes:
   - name: "group_id"
     type: "integer"
     description: "The group ID associated with the organization. New tickets from users in this organization are automatically put in this group."
-    foreign-key: true
+    foreign-key-id: "group-id"
 
   - name: "name"
     type: "string"
@@ -93,8 +94,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the organization."
-        foreign-key: true
-        table: "tags"
+        foreign-key-id: "tag-id"
 
   - name: "url"
     type: "string"

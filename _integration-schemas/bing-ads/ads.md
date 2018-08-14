@@ -27,6 +27,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ad ID."
+    foreign-key-id: "ad-id"
 
   - name: "adFormatPreference"
     type: "string"

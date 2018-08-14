@@ -23,6 +23,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ticket audit ID."
+    foreign-key-id: "ticket-audit-id"
 
   - name: "created_at"
     type: "date-time"
@@ -32,12 +33,12 @@ attributes:
   - name: "author_id"
     type: "integer"
     description: "The ID of the user who created the audit."
-    foreign-key: true
+    foreign-key-id: "user-id"
 
   - name: "ticket_id"
     type: "integer"
     description: "The ID of the ticket associated with the audit."
-    foreign-key: true
+    foreign-key-id: "ticket-id"
 
 # START METADATA OBJECT
   - name: "metadata"
@@ -138,7 +139,7 @@ attributes:
       - name: "audit_id"
         type: "integer"
         description: "The ticket audit ID."
-        foreign-key: true
+        foreign-key-id: "ticket-audit-id"
 
       - name: "type"
         type: "string"
@@ -150,7 +151,7 @@ attributes:
       # - name: "macro_id"
       #   type: "string"
       #   description: ""
-      #   foreign-key: true
+      #   foreign-key-id: "macro-id"
 
       # - name: "macro_title"
       #   type: "string"
@@ -383,7 +384,7 @@ attributes:
                   - name: "ticket_id"
                     type: "integer"
                     description:
-                    foreign-key: true
+                    foreign-key-id: "ticket-id"
 
                   - name: "revision_id"
                     type: "string"

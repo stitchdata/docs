@@ -17,11 +17,7 @@ attributes:
     primary-key: true
     type: "string"
     description: "The tag ID."
-    # foreign-keys:
-    #   - table: "leads__tags"
-    #     attribute: "id"
-    #   - table: "conversations__tags"
-    #     attribute: "id"
+    foreign-key-id: "tag-id"
 
   - name: "name"
     type: "string"

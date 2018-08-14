@@ -28,6 +28,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the review."
+    foreign-key-id: "review-id"
 
   - name: "created_at"
     type: "string"
@@ -61,8 +62,7 @@ attributes:
   - name: "email"
     type: "string"
     description: "The email address of the person who wrote the review."
-    foreign-key: true
-    table: "emails"
+    foreign-key-id: "email-address-id"
 
   - name: "sentiment"
     type: "number"

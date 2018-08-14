@@ -28,6 +28,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ticket metric ID."
+    # foreign-key-id: "ticket-metric"
 
   - name: "updated_at"
     type: "date-time"
@@ -49,7 +50,7 @@ attributes:
   - name: "ticket_id"
     type: "integer"
     description: "The ID of the associated ticket."
-    foreign-key: true
+    foreign-key-id: "ticket-id"
 
   # - name: "status"
   #   type: "object"

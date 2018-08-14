@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The group ID."
+    foreign-key-id: "group-id"
 
   - name: "updated_at"
     type: "date-time"
