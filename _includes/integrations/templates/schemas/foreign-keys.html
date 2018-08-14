@@ -70,7 +70,23 @@
                             {% unless foreign-key.table == table.name %}
                             <li>
                                 <a href="#{{ foreign-key.table }}">
-                                    {{ foreign-key.table }}.
+                                    {% if foreign-key.subattribute %}
+                                        {%- capture full-table-name -%}
+                                            {{ foreign-key.subattribute | prepend: "__" | prepend: foreign-key.table }}
+                                        {%- endcapture -%}
+
+                                    {% elsif foreign-key.subtable %}
+                                        {%- capture full-table-name -%}
+                                            {{ foreign-key.table | append: "__" | append: foreign-key.subtable }}
+                                        {%- endcapture -%}
+
+                                    {% else %}
+                                        {%- capture full-table-name -%}
+                                            {{ foreign-key.table }}
+                                        {%- endcapture -%}
+                                    {% endif %} 
+
+                                    {{ full-table-name | append: "." }}
 
                                     {%- if foreign-key.join-on -%}
                                         {{ foreign-key.join-on | strip }}
