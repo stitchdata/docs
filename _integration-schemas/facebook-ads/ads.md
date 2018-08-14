@@ -29,6 +29,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ad ID."
+    foreign-key-id: "ad-id"
 
   - name: "updated_time"
     type: "date-time"
@@ -39,16 +40,17 @@ attributes:
   - name: "account_id"
     type: "string"
     description: "The ID of the ad account that the ad belongs to."
+    foreign-key-id: "account-id"
 
   - name: "campaign_id"
     type: "string"
     description: "The ID of the ad campaign that contains this ad."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "adset_id"
     type: "string"
     description: "The ID of the ad set that contains this ad."
-    foreign-key: true
+    foreign-key-id: "adset_id"
 
   - name: "adLabels"
     type: "array"
@@ -58,6 +60,7 @@ attributes:
         type: "string"
         primary-key: true
         description: "The ad label ID."
+        foreign-key-id: "ad-label-id"
 
       - name: "created_time"
         type: "date-time"
@@ -128,7 +131,7 @@ attributes:
       - name: "creative_id"
         type: "integer"
         description: "The ID of the creative used by the ad."
-        foreign-key: true
+        foreign-key-id: "adcreative-id"
 
   - name: "created_time"
     type: "date-time"
