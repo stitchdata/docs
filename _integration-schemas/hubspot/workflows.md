@@ -14,13 +14,12 @@ api-method:
   doc-link: https://developers.hubspot.com/docs/methods/workflows/v3/get_workflows
 
 attributes:
-## Primary Key
   - name: "id"
     type: "integer"
     primary-key: true
     description: "The ID of the workflow."
+    # foreign-key-id: "workflow-id"
 
-## Replication Key
   - name: "updatedAt"
     type: "date-time"
     replication-key: true
