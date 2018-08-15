@@ -13,6 +13,7 @@ foreign-keys:
         join-on: "id"
       - table: "group_memberships"
       - table: "organizations"
+      - table: "satisfaction_ratings"
       - table: "tickets"
       - table: "users"
         join-on: "default_group_id"
@@ -85,6 +86,7 @@ foreign-keys:
         join-on: "id"
       - table: "ticket_audits"
         subtable: "events"
+      - table: "ticket_comments"
 
   - id: "ticket-field-id"
     attribute: "ticket_field_id"
@@ -114,6 +116,7 @@ foreign-keys:
     table: "tickets"
     join-on: "id"
     all-foreign-keys:
+      - table: "satisfaction_ratings"
       - table: "tickets"
         join-on: "id"
       - table: "ticket_audits"
@@ -132,7 +135,13 @@ foreign-keys:
     table: "users"
     join-on: "id"
     all-foreign-keys:
+      - table: "satisfaction_ratings"
+        join-on: "assignee_id"
+      - table: "satisfaction_ratings"
+        join-on: "requester_id"
       - table: "ticket_audits"
+        join-on: "author_id"
+      - table: "ticket_comments"
         join-on: "author_id"
       - table: "tickets"
         join-on: "requester_id"
