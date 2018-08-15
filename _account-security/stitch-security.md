@@ -13,11 +13,19 @@ weight: 5
 enterprise-cta:
   hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
   reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
+  soc2-url: "?utm_medium=docs&utm_campaign=soc2-compliance"
 
 frequently-asked-questions:
   - topic: "Compliance"
     anchor: "stitch-compliance"
     items:
+      - question: "Is Stitch SOC 2 compliant?"
+        anchor: "soc2-compliant"
+        answer: |
+          {% include misc/data-files.html %}
+
+          Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor. The audit report can be requested by contacting [Stitch Sales]({{ site.sales | append: page.enterprise-cta.soc2-url }}).
+
       - question: "Is Stitch PCI compliant?"
         anchor: "pci-compliant"
         answer: |
