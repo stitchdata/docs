@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-# version:
+version: "1.0"
 
 name: "invoices"
 doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/show-invoices#show-a-single-invoice

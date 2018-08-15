@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-# version:
+version: "1.0"
 
 name: "contacts"
 doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-client-contacts-api/

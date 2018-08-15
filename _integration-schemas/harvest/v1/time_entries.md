@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-# version:
+version: "1.0"
 
 name: "time_entries"
 doc-link: http://help.getharvest.com/api-v1/timesheets-api/timesheets/retrieving-time-entries#retrieving-a-single-entry

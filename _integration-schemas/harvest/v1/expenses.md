@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-# version:
+version: "1.0"
 
 name: "expenses"
 doc-link: http://help.getharvest.com/api-v1/expenses-api/expenses/add-update-expenses/

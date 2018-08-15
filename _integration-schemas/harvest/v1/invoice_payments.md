@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-# version:
+version: "1.0"
 
 name: "invoice_payments"
 doc-link: http://help.getharvest.com/api-v1/invoices-api/invoices/invoice-messages-payments#show-payments-for-an-invoice
