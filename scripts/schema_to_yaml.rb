@@ -7,12 +7,22 @@ if ARGV.length < 1
   puts "Usage: schema_to_yaml.rb schema_file [schema_file2 ...]"
   puts "       schema_to_yaml.rb catalog_file"
   puts "       schema_to_yaml.rb /path/to/schemas"
+  puts " * If a schema has $ref values, the ref will be resolved relative to the location of the file being processed."
   exit -1
 end
 
 INDENTATION_LENGTH = 2
 
+$file_root = "."
+
 def write_attribute(node, breadcrumb)
+  if node["$ref"]
+    ref_data = read_file(File.join($file_root, node["$ref"]))
+    puts node
+    puts ref_data
+    node = ref_data
+  end
+
   if node['type'].is_a?(String)
     types = [node['type']]
   else
@@ -64,7 +74,7 @@ end
 
 def read_file(file_name)
   if !File.exists?(file_name)
-    puts "unable to find schema file #{first_file}"
+    puts "unable to find schema file #{file_name}"
     exit -1
   end
 
@@ -75,13 +85,14 @@ file_names = ARGV
 
 # If a directory is passed in, grab all json files from it, recursively
 if File.directory?(file_names[0])
-  file_names = Dir.glob(File.join(file_names[0] + "**/*.json"))
+  file_names = Dir.glob(File.join(file_names[0], "**/*.json"))
 end
 
 file_name = file_names[0]
 file_data = read_file(file_name)
 
 if file_data.key?("streams")
+  $file_root = File.dirname(file_name)
   # Indicates that discovery output was passed in
   for stream in file_data["streams"];
     $yaml_output = ""
@@ -98,6 +109,7 @@ if file_data.key?("streams")
 else
   # Indicates that a schema file was passed in
   for file_name in file_names;
+    $file_root = File.dirname(file_name)
     file_data = read_file(file_name)
     $yaml_output = ""
     new_schema = visit(file_data, [])
