@@ -42,8 +42,8 @@ loading-reports: true
 table-selection: true
 column-selection: false
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
+# https://support.google.com/dcm/partner/answer/6110224?hl=en&ref_topic=4388017
+# Info about data freshness for metrics
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -55,7 +55,7 @@ requirements-list:
   - item: |
       **API access.** Most Campaign Manager accounts have this enabled by default. If you're not sure, contact your DoubleClick representative or the [Campaign Manager support team](mailto: dcm-support@google.com).
   - item: |
-      **Access to the reports you want to replicate.** Stitch will only have access to the reports that the user who authorizes the integration has access to.
+      **Access to the reports you want to replicate.** Stitch will only be able to replicate the reports that the user who authorizes the integration has access to.
 
 setup-steps:
   - title: "Verify report access"
@@ -67,7 +67,8 @@ setup-steps:
       2. Under **Reports**, click **My Reports**.
       3. A list of all the reports you have access to will display:
 
-         ![]({{ site.baseurl }}/images/integrations/doubleclick-campaign-manager-all-reports.png)
+         ![List of reports in {{ integration.display_name }}]({{ site.baseurl }}/images/integrations/doubleclick-campaign-manager-all-reports.png)
+      4. Verify that the reports you want to replicate are listed on this page.
 
   - title: "Locate your {{ integration.display_name }} profile ID"
     anchor: "locate-your-profile-id"
@@ -101,6 +102,39 @@ setup-steps:
       3. To grant access, click the **Allow** button.
       4. After you've granted access, you'll be redirected back to Stitch to finish setting up the integration.
   - title: "track data"
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      When Stitch replicates data from {{ integration.display_name }}, the process will look like this:
+
+      1. Stitch runs the selected report using the report's defined date range and included dimensions and metrics.
+      2. {{ integration.display_name }} creates a CSV file of the report results.
+      3. Stitch replicates the results from the CSV.
+
+      Each run of a report will have its own CSV file in {{ integration.display_name }}, which you can access by [signing into your {{ integration.display_name }} account](https://www.google.com/dfa/trafficking){:target="new"}.
+    subsections:
+      - title: "Report date ranges"
+        anchor: "report-date-ranges"
+        content: |
+          When Stitch replicates data for a given report, it will use the date range currently defined in {{ integration.display_name }} for that report.
+
+          For example: The image below shows the configuration for a report named `ad_performance_report`, where the date range is set to the last 30 days. When Stitch replicates data for this report, it will run the report using these settings:
+
+          ![Report date range field highlighted in {{ integration.display_name }}]({{ site.baseurl }}/images/integrations/doubleclick-campaign-manager-report-settings.png)
+
+  - title: "Data loading and Append-Only Replication"
+    anchor: "data-loading-append-only"
+    content: |
+      {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
+    subsections:
+      - title: "Query for the latest data"
+        anchor: "query-for-the-latest-data"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
 
 # -------------------------- #
 #     Integration Tables     #
