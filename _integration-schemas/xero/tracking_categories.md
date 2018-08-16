@@ -6,7 +6,7 @@ name: "tracking_categories"
 doc-link: &api-doc https://developer.xero.com/documentation/api/tracking-categories
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tracking_categories.json
 description: |
-  The `tracking_categories` table contains info about the tracking categories in your Xero account. Tracking categories are used to track the performance of different areas of a business.
+  The `{{ table.name }}` table contains info about the tracking categories in your Xero account. Tracking categories are used to track the performance of different areas of a business.
 
 replication-method: "Full Table"
 
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The tracking category ID."
+    foreign-key-id: "tracking-category-id"
 
   - name: "Status"
     type: "string"

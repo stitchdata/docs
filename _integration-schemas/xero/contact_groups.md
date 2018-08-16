@@ -6,7 +6,7 @@ name: "contact_groups"
 doc-link: &api-doc https://developer.xero.com/documentation/api/contactgroups
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contact_groups.json
 description: |
-  The `contact_groups` table contains info about your contact groups. A contact group is a group of contacts that have something in common.
+  The `{{ table.name }}` table contains info about your contact groups. A contact group is a group of contacts that have something in common.
 
   **Note**: Due to the limits of Xero's API, only active contact groups (`Status: ACTIVE`) may be retrieved.
 
@@ -21,6 +21,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The contact group ID."
+    foreign-key-id: "contact-group-id"
 
   - name: "Name"
     type: "string"

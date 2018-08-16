@@ -6,9 +6,9 @@ name: "bank_transfers"
 doc-link: &api-doc https://developer.xero.com/documentation/api/bank-transfers
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transfers.json
 description: |
-  The `bank_transfers` table contains info about bank transfers. 
+  The `{{ table.name }}` table contains info about bank transfers. 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getBankTransfers
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The bank transfer ID."
+    # foreign-key-id: "bank-transfer-id"
 
   - name: "CreatedDateUTC"
     type: "date-time"
@@ -57,12 +58,12 @@ attributes:
   - name: "FromBankTransactionID"
     type: "string"
     description: "The bank transaction ID for the source account."
-    foreign-key: true
+    foreign-key-id: "bank-transaction-id"
 
   - name: "ToBankTransactionID"
     type: "string"
     description: "The bank transaction ID for the destination account."
-    foreign-key: true
+    foreign-key-id: "bank-transaction-id"
 
   - name: "HasAttachments"
     type: "boolean"

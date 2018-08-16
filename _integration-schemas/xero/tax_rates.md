@@ -6,7 +6,7 @@ name: "tax_rates"
 doc-link: &api-doc https://developer.xero.com/documentation/api/tax-rates
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tax_rates.json
 description: |
-  The `tax_rates` table contains info about the tax rates set up in your Xero account.
+  The `{{ table.name }}` table contains info about the tax rates set up in your Xero account.
 
 replication-method: "Full Table"
 
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The name of the tax rate."
+    foreign-key-id: "tax-name"
 
   - name: "TaxType"
     type: "string"

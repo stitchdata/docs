@@ -6,9 +6,9 @@ name: "users"
 doc-link: &api-doc https://developer.xero.com/documentation/api/users
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/users.json
 description: |
-  The `users` table contains info about the users in an organisation.
+  The `{{ table.name }}` table contains info about the users in an organisation.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getUsers
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The user ID."
+    foreign-key-id: "user-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"

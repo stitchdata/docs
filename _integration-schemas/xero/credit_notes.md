@@ -6,9 +6,9 @@ name: "credit_notes"
 doc-link: &api-doc https://developer.xero.com/documentation/api/credit-notes
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/credit_notes.json
 description: |
-  The `credit_notes` table contains info about credit notes. A credit note is similar to an invoice, except it reduces the amount you owe a supplier or the amount a customer owes you.
+  The `{{ table.name }}` table contains info about credit notes. A credit note is similar to an invoice, except it reduces the amount you owe a supplier or the amount a customer owes you.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getCreditNotes
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The credit note ID."
+    foreign-key-id: "credit-note-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -39,6 +40,7 @@ attributes:
       Details about the contact associated with the credit note.
 
       {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
+    foreign-key-id: "contact-id"
 
   - name: "Date"
     type: "date-time"
@@ -123,6 +125,7 @@ attributes:
           Details about the tracking categories applied to the line item, if applicable.
 
           {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        foreign-key-id: "tracking-category-id"
 
   - name: "SubTotal"
     type: "number"
@@ -143,7 +146,7 @@ attributes:
   - name: "CurrencyCode"
     type: "string"
     description: "The currency code used for the credit note."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "FullyPaidOnDate"
     type: "date-time"
@@ -180,7 +183,7 @@ attributes:
   - name: "BrandingThemeID"
     type: "string"
     description: "The ID of the branding theme applied to the credit note."
-    foreign-key: true
+    foreign-key-id: "branding-theme-id"
 
   - name: "HasAttachments"
     type: "boolean"
@@ -189,8 +192,4 @@ attributes:
   - name: "DateString"
     type: "date-time"
     description: "The date the credit note was issued."
-
-  # - name: "ID"
-  #   type: 
-  #   description: ""
 ---

@@ -6,7 +6,7 @@ name: "employees"
 doc-link: &api-doc https://developer.xero.com/documentation/api/employees
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/employees.json
 description: |
-  The `employees` table contains info about employees.
+  The `{{ table.name }}` table contains info about employees.
 
   **Note**: According to [Xero's documentation](https://developer.xero.com/documentation/api/employees), the endpoint that produces this table is:
 
@@ -14,7 +14,7 @@ description: |
 
   As a result, this table may not contain all employee data. Refer to the `contacts` table if you believe you are missing records.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getEmployees
@@ -25,6 +25,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The employee ID."
+    # foreign-key-id: "employee-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"

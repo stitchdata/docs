@@ -6,9 +6,9 @@ name: "items"
 doc-link: &api-doc https://developer.xero.com/documentation/api/items
 singer-schema:  https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/items.json
 description: |
-  The `items` table contains info about the [products and services you buy and sell](https://help.xero.com/us/Inventory).
+  The `{{ table.name }}` table contains info about the [products and services you buy and sell](https://help.xero.com/us/Inventory).
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getItems
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The item ID."
+    # foreign-key-id: "item-id"
 
   - name: "UpdatedDateUTC"
     type: "string"

@@ -6,9 +6,9 @@ name: "accounts"
 doc-link: &api-doc https://developer.xero.com/documentation/api/accounts
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/accounts.json
 description: |
-  The `accounts` table contains info about the various accounts (ex: banking) connected to your Xero account.
+  The `{{ table.name }}` table contains info about the various accounts (ex: banking) connected to your Xero account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getAccounts
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The account ID."
+    foreign-key-id: "account-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -98,7 +99,7 @@ attributes:
   - name: "CurrencyCode"
     type: "string"
     description: "**For bank accounts only**. The currency code the account uses."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "ReportingCode"
     type: "string"

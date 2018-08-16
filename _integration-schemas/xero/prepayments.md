@@ -6,9 +6,9 @@ name: "prepayments"
 doc-link: &api-doc https://developer.xero.com/documentation/api/prepayments
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/prepayments.json
 description: |
-  The `prepayments` table contains info about prepayments, which are payments made in advance of an invoice being raised for a customer or a bill being received from a supplier.
+  The `{{ table.name }}` table contains info about prepayments, which are payments made in advance of an invoice being raised for a customer or a bill being received from a supplier.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getPrepayments
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The prepayment ID."
+    foreign-key-id: "prepayment-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -128,7 +129,7 @@ attributes:
   - name: "CurrencyCode"
     type: "string"
     description: "The currency used for the prepayment."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "CurrencyRate"
     type: "number"
@@ -164,7 +165,7 @@ attributes:
             type: "string"
             description: |
               The ID of the invoice the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} is being allocated against.
-            foreign-key: true
+            foreign-key-id: "invoice-id"
 
   - name: "HasAttachments"
     type: "boolean"

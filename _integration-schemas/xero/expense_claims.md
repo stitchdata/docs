@@ -6,9 +6,9 @@ name: "expense_claims"
 doc-link: &api-doc https://developer.xero.com/documentation/api/expense-claims
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/expense_claims.json
 description: |
-  The `expense_claims` table contains info about expense claims.
+  The `{{ table.name }}` table contains info about expense claims.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getExpenseClaims
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The expense claim ID."
+    # foreign-key-id: "expense-claim-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"

@@ -6,9 +6,9 @@ name: "receipts"
 doc-link: &api-doc https://developer.xero.com/documentation/api/receipts
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/receipts.json
 description: |
-  The `receipts` table contains info about invoice receipts, which are receipts sent to customers after an invoice has been received.
+  The `{{ table.name }}` table contains info about invoice receipts, which are receipts sent to customers after an invoice has been received.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getReceipts
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The receipt ID."
+    foreign-key-id: "receipt-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"

@@ -6,7 +6,7 @@ name: "branding_themes"
 doc-link: &api-doc https://developer.xero.com/documentation/api/branding-themes
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/branding_themes.json
 description: |
-  The `branding_themes` table contains info about your branding themes. A branding theme is customization you can apply to customer-facing documents such as invoices, statements, quotes, etc.
+  The `{{ table.name }}` table contains info about your branding themes. A branding theme is customization you can apply to customer-facing documents such as invoices, statements, quotes, etc.
 
 replication-method: "Full Table"
 
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The branding theme ID."
+    foreign-key-id: "branding-theme-id"
 
   - name: "Name"
     type: "string"

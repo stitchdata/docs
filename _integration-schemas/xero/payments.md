@@ -6,9 +6,9 @@ name: "payments"
 doc-link: &api-doc https://developer.xero.com/documentation/api/payments
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payments.json
 description: |
-  The `payments` table contains info about the payments recorded in your Xero account. 
+  The `{{ table.name }}` table contains info about the payments recorded in your Xero account. 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getPayments
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The payment ID."
+    foreign-key-id: "payment-id"
 
   - name: "UpdateDateUTC"
     type: "string"
@@ -95,8 +96,8 @@ attributes:
     array-attributes:
       - name: "PrepaymentID"
         type: "string"
-        foreign-key: true
         description: "The ID of the prepayment the payment was made against."
+        foreign-key-id: "prepayment-id"
 
   - name: "Overpayment"
     type: "array"

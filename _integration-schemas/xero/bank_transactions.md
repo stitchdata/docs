@@ -6,9 +6,9 @@ name: "bank_transactions"
 doc-link: &api-doc https://developer.xero.com/documentation/api/banktransactions
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transactions.json
 description: |
-  The `bank_transactions` table contains info about the bank transactions in your Xero account.
+  The `{{ table.name }}` table contains info about the bank transactions in your Xero account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getBankTransactions
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The bank transaction ID."
+    foreign-key-id: "bank-transaction-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -111,7 +112,7 @@ attributes:
   - name: "CurrencyCode"
     type: "string"
     description: "The currency that the bank transaction has been raised in."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "CurrencyRate"
     type: "number"
@@ -154,12 +155,12 @@ attributes:
   - name: "PrepaymentID"
     type: "string"
     description: "The prepayment ID associated with the transaction. Applicable to bank transactions with `Type: SPEND-PREPAYMENT` or `Type: RECEIVE-PREPAYMENT`."
-    foreign-key: true
+    foreign-key-id: "prepayment-id"
 
   - name: "OverpaymentID"
     type: "string"
     description: "The overpayment ID associated with the transaction. Applicable to bank transactions with `Type: SPEND-OVERPAYMENT` or `Type: RECEIVE-OVERPAYMENT`."
-    foreign-key: true
+    foreign-key-id: "overpayment-id"
 
   - name: "HasAttachments"
     type: "boolean"

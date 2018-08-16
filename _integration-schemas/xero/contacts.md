@@ -6,9 +6,9 @@ name: "contacts"
 doc-link: &api-doc https://developer.xero.com/documentation/api/contacts
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/contacts.json
 description: |
-  The `contacts` table contains info about the customers and suppliers you do business with.
+  The `{{ table.name }}` table contains info about the customers and suppliers you do business with.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getContacts
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The contact ID."
+    foreign-key-id: "contact-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -205,6 +206,7 @@ attributes:
       - name: "TrackingCategoryID"
         type: "string"
         description: "The tracking category ID."
+        foreign-key-id: "tracking-category-id"
 
       - name: "Status"
         type: "string"
@@ -309,6 +311,7 @@ attributes:
       Details about the contact groups the contact is included in.
 
       {{ integration.subtable-note | flatify | replace: "table_name","contact_groups" }}
+    foreign-key-id: "contact-group-id"
 
   - name: "Website"
     type: "string"
@@ -320,6 +323,7 @@ attributes:
       Details about the branding theme applied to documents sent to the contact.
 
       {{ integration.subtable-note | flatify | replace: "table_name","branding_themes" }}
+    foreign-key-id: "branding-theme-id"
 
   - name: "BatchPayments"
     type: "object"

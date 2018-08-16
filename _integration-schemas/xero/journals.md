@@ -6,9 +6,12 @@ name: "journals"
 doc-link: &api-doc https://developer.xero.com/documentation/api/journals
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/journals.json
 description: |
-  The `journals` table contains info about journal entries.
+  The `{{ table.name }}` table contains info about journal entries.
 
-replication-method: "Incremental"
+replication-key:
+  name: "If-Modified-Since"
+
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getJournals
@@ -19,11 +22,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The journal ID."
-
-  - name: "If-Modified-Since"
-    type: "date-time"
-    replication-key: true
-    description: "**Note**: This is not a field that will be replicated to your data warehouse. This is a filter Stitch uses in its API calls to retrieve only new and updated data."
+    # foreign-key-id: "journal-id"
 
   - name: "JournalDate"
     type: "date-time"
@@ -65,7 +64,7 @@ attributes:
       - name: "AccountID"
         type: "string"
         description: "The account ID associated with the journal line."
-        foreign-key: true
+        foreign-key-id: "account-id"
 
       - name: "AccountType"
         type: "string"
@@ -78,6 +77,7 @@ attributes:
       - name: "TaxName"
         type: "string"
         description: "The tax type of the account."
+        foreign-key-id: "tax-name"
 
       - name: "Description"
         type: "string"
@@ -105,5 +105,4 @@ attributes:
           Details about the tracking categories associated with the journal line.
 
           {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
-        
 ---

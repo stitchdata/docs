@@ -6,7 +6,7 @@ name: "currencies"
 doc-link: &api-doc https://developer.xero.com/documentation/api/currencies
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/currencies.json
 description: |
-  The `currencies` table contains info about the currencies available in your Xero account.
+  The `{{ table.name }}` table contains info about the currencies available in your Xero account.
 
 replication-method: "Full Table"
 
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The three letter alpha code for the currency. Refer to [XE.com](http://www.xe.com/iso4217.php) for a list of codes."
+    foreign-key-id: "currency-code"
 
   - name: "Description"
     type: "string"

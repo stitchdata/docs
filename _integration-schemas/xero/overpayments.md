@@ -6,9 +6,9 @@ name: "overpayments"
 doc-link: &api-doc https://developer.xero.com/documentation/api/overpayments
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/overpayments.json
 description: |
-  The `overpayments` table contains info about overpayments, which are transactions where a customer pays too much or you mistakenly overpay a supplier.
+  The `{{ table.name }}` table contains info about overpayments, which are transactions where a customer pays too much or you mistakenly overpay a supplier.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getOverpayments
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The overpayment ID."
+    foreign-key-id: "overpayment-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -132,7 +133,7 @@ attributes:
   - name: "CurrencyCode"
     type: "string"
     description: "The currency used for the overpayment."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "CurrencyRate"
     type: "number"
@@ -164,7 +165,7 @@ attributes:
             type: "string"
             description: |
               The ID of the invoice the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} is being allocated against.
-            foreign-key: true
+            foreign-key-id: "invoice-id"
 
   - name: "Payments"
     type: ""
@@ -180,10 +181,6 @@ attributes:
   - name: "HasAttachments"
     type: "boolean"
     description: "If `true`, the overpyament has an attachment."
-
-  # - name: "ID"
-  #   type: "string"
-  #   description: ""
 
   - name: "DateString"
     type: "date-time"

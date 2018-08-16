@@ -6,9 +6,9 @@ name: "purchase_orders"
 doc-link: &api-doc https://developer.xero.com/documentation/api/purchase-orders
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/purchase_orders.json
 description: |
-  The `purchase_orders` table contains info about your purchase orders. Purchase orders are requests sent to suppliers for specific goods and services.
+  The `{{ table.name }}` table contains info about your purchase orders. Purchase orders are requests sent to suppliers for specific goods and services.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getPurchaseOrders
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The purchase order ID."
+    foreign-key-id: "purchase-order-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -104,12 +105,12 @@ attributes:
   - name: "BrandingThemeID"
     type: "string"
     description: "The ID of the branding theme applied to the purchase order."
-    foreign-key: true
+    foreign-key-id: "branding-theme-id"
 
   - name: "CurrencyCode"
     type: "string"
     description: "The currency that the purchase order has been raised in."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "Status"
     type: "string"
@@ -193,5 +194,4 @@ attributes:
   - name: "ExpectedArrivalDateString"
     type: "date-time"
     description: "The expected arrival date of the purchase order."
-
 ---

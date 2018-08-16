@@ -6,7 +6,7 @@ name: "repeating_invoices"
 doc-link: &api-doc https://developer.xero.com/documentation/api/repeating-invoices
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/repeating_invoices.json
 description: |
-  The `repeating_invoices` table contains info about invoices set up to repeat in your Xero account. A repeating invoice is a recurring transaction, or a transaction that occurs on a regular basis.
+  The `{{ table.name }}` table contains info about invoices set up to repeat in your Xero account. A repeating invoice is a recurring transaction, or a transaction that occurs on a regular basis.
 
 replication-method: "Full Table"
 
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The repeating invoice ID."
+    # foreign-key-id: "repeating-invoice-id"
 
   - name: "Type"
     type: "string"
@@ -140,12 +141,12 @@ attributes:
   - name: "BrandingThemeID"
     type: "string"
     description: "The ID of the branding theme applied to the repeating invoice."
-    foreign-key: true
+    foreign-key-id: "branding-theme-id"
 
   - name: "CurrencyCode"
     type: "string"
     description: "The currency that the invoice has been raised in."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "Status"
     type: "string"

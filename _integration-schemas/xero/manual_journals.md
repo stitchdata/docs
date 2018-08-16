@@ -6,9 +6,9 @@ name: "manual_journals"
 doc-link: &api-doc https://developer.xero.com/documentation/api/manual-journals
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/manual_journals.json
 description: |
-  The `manual_journals` table contains info about manual journals, which are used by accountants or bookkeepers to work directly with a general ledger. For example: To record accrued expenses or completed work that wasn't invoiced.
+  The `{{ table.name }}` table contains info about manual journals, which are used by accountants or bookkeepers to work directly with a general ledger. For example: To record accrued expenses or completed work that wasn't invoiced.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getManualJournals
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The manual journal ID."
+    # foreign-key-id: "manual-journal-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"

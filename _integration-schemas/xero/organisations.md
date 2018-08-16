@@ -6,7 +6,7 @@ name: "organisations"
 doc-link: &api-doc https://developer.xero.com/documentation/api/organisation
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/organisations.json
 description: |
-  The `organisations` table contains info about the organisations in your Xero account.
+  The `{{ table.name }}` table contains info about the organisations in your Xero account.
 
 replication-method: "Full Table"
 
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The organisation ID."
+    foreign-key-id: "organisation-id"
 
   - name: "APIKey"
     type: "string"

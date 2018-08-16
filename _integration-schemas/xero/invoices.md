@@ -6,9 +6,9 @@ name: "invoices"
 doc-link: &api-doc https://developer.xero.com/documentation/api/invoices
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/invoices.json
 description: |
-  The `invoices` table contains info about sales invoices, which are requests for payment for goods and services.
+  The `{{ table.name }}` table contains info about sales invoices, which are requests for payment for goods and services.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 api-method:
   name: getInvoices
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The invoice ID."
+    foreign-key-id: "invoice-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -140,7 +141,7 @@ attributes:
   - name: "CurrencyCode"
     type: "string"
     description: "The currency that the invoice has been raised in."
-    foreign-key: true
+    foreign-key-id: "currency-code"
 
   - name: "CurrencyRate"
     type: "number"
@@ -161,7 +162,7 @@ attributes:
   - name: "BrandingThemeID"
     type: "string"
     description: "The ID of the branding theme applied to the invoice."
-    foreign-key: true
+    foreign-key-id: "branding-theme-id"
 
   - name: "Url"
     type: "string"
