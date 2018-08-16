@@ -1,18 +1,19 @@
 ---
-title: Removing Database Integration Columns from Redshift
-permalink: /destinations/redshift/remove-database-integration-columns-redshift
+title: Removing Columns from Redshift
+permalink: /destinations/redshift/remove-columns-redshift
+redirect_from: /destinations/redshift/remove-database-integration-columns-redshift
 tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, database integration, remove column, remove columns
 
-summary: "Want to tidy up your Amazon Redshift data warehouse by removing database integration columns you're no syncing? In this article, we'll walk you through using `pg_dump` to remove unwanted database integration columns."
+summary: "Want to tidy up your Amazon Redshift data warehouse by removing columns you're no replicating? In this article, we'll walk you through using `pg_dump` to remove unwanted columns."
 type: "redshift"
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","redshift" | first %}
 
-{% include important.html content="Columns can only be removed from tables created by **database integrations.** Columns created by SaaS integrations cannot be removed from a data warehouse at this time." %}
+{% include important.html type="single-line" content="Columns can only be removed from integration tables where column selection is supported. If Stitch detects data for a removed column, the column will be recreated in the destination." %}
 
-When you rename or no longer want to sync a column, what happens? For both Full Table and Incremental replication, the old column and all historical data will remain in the table even if there aren’t any new values being replicated.
+When you rename or no longer want to replicate a column, what happens? For both Full Table and Incremental replication, the old column and all historical data will remain in the table even if there aren’t any new values being replicated.
 
 For some Stitch users, retaining these columns is perfectly fine. If you like to keep things tidy, however, you can easily remove the unwanted columns by recreating your realized tables without those columns.
 
@@ -20,21 +21,21 @@ We recommend using `pg_dump` for this process, which is similar to altering the 
 
 ---
 
-## Step 1: Retrieve the Table Definition {#retrieve-table-definition}
+## Step 1: Retrieve the table definition {#retrieve-table-definition}
 
 In this example, we’ll show you how to remove the unwanted columns using `pg_dump` from the command line. We marked everything you’ll need to define yourself in square brackets `[like this]`.
 
-{% include note.html content="If any new data is detected for the deleted column, Stitch will recreate the column in your data warehouse." %}
+{% include note.html type="single-line" content="If any new data is detected for the deleted column, Stitch will recreate the column in your data warehouse." %}
 
 First, you’ll grab a full definition of your target table and then create the new table structure, removing the unwanted column(s):
 
-{% highlight shell %}
+```
 pg_dump --host [yourawshost.redshift.amazonaws.com] --port [your_port] --username [admin_username][database_name] -t '[schema_name.original_target_table_name]'
-{% endhighlight %}
+```
 
 The above command will return a response similar to the following:
 
-{% highlight shell %}
+```
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = off;
@@ -71,38 +72,39 @@ ALTER TABLE schema_name.original_target_table_name OWNER TO admin;
   schema_name; Owner: admin
 --
 ...
-{% endhighlight %}
+```
 
 ---
 
-## Step 2: Retrieve the Table's Primary Key Comment {#retrieve-primary-key-comment}
+## Step 2: Retrieve the table's Primary Key comment {#retrieve-primary-key-comment}
+
 Next, you need to retrieve the table's Primary Key comment. This will be used in the next step to indicate which column(s) are the table's Primary Keys.
 
 Run the following query:
 
-{% highlight sql %}
+```sql
 SELECT description
-FROM pg_description
-WHERE objoid = '[original_target_table_name]'::regclass;
-{% endhighlight %}
+  FROM pg_description
+ WHERE objoid = '[original_target_table_name]'::regclass;
+```
 
 This will retrieve the table's Primary Key comment:
 
-{% highlight sql %}
-// format for Primary Key with one column
+```
 {"primary_keys":["column_name"]}
+        /* format for Primary Key with one column */
 
-// format for Primary Key with multiple columns
 {"primary_keys":["column_name1", "column_name2"]}
-{% endhighlight %}
+        /* format for Primary Key with multiple columns */
+```
 
 This will be used in the next step to indicate which column(s) are the table's Primary Keys.
 
-{% include important.html content="Redshift doesn’t enforce the use of Primary Keys, but Stitch requires them to replicate data. In the following example, you'll see `COMMENT` being used to note the table's Primary Key. **Make sure you include the Primary Key comment in the next step, as missing Primary Keys will cause issues with data replication.**" %}
+{% include important.html first-line="**Primary Key comments**" content="Redshift doesn’t enforce the use of Primary Keys, but Stitch requires them to replicate data. In the following example, you'll see `COMMENT` being used to note the table's Primary Key. **Make sure you include the Primary Key comment in the next step, as missing Primary Keys will cause issues with data replication.**" %}
 
 ---
 
-## Step 3: Copy Historical Data into the New Table {#copy-historical-data-new-table}
+## Step 3: Copy historical data into the new table {#copy-historical-data-new-table}
 
 Next, you’ll `SELECT` all the historical data from the unwanted column into the new table. When you run this transaction yourself, you’ll need to change everything inside `[the square brackets]` as well as the following:
 
@@ -111,14 +113,14 @@ Next, you’ll `SELECT` all the historical data from the unwanted column into th
 
 Here’s the transaction for our example table. Note where the undesired column is marked - when running the transaction yourself, you'll remove this:
 
-{% highlight shell %}
+```sql
 SET search_path to [schema_name];
 BEGIN;
  ALTER TABLE [table_name] RENAME TO [old_table_name];
  CREATE TABLE [new_table_name] (
     id bigint,
     value character varying(128),
-    column_being_removed (18,0),                // This the undesired column - take it out
+    column_being_removed (18,0),                /* The undesired column - take it out */
     {{ system-column.sequence }} numeric(18,0),
     {{ system-column.received-at }} timestamp without time zone,
     {{ system-column.batched-at }} timestamp without time zone,
@@ -126,7 +128,7 @@ BEGIN;
     {{ system-column.replication-id }} character varying(128)
  );
  INSERT INTO [new_table_name]
-    (SELECT id,                                 // Repeat the desired schema here
+    (SELECT id,                                 /* Repeat the desired schema here */
             value,
             {{ system-column.sequence }},
             {{ system-column.received-at }},
@@ -135,20 +137,22 @@ BEGIN;
             {{ system-column.replication-id }}
      FROM [old_table_name]);
 
-COMMENT ON table [new_table_name]               // Sets Primary Key comment
-IS '{"primary_keys":["column_name"]}';          // This is the most important part!
+COMMENT ON table [new_table_name]               /* Sets Primary Key comment */
+IS '{"primary_keys":["column_name"]}';          /* This is the most important part! */
 
 ALTER TABLE [new_table_name] RENAME TO [table_name];
 
-ALTER TABLE [table_name] OWNER TO [stitch_redshift_user];     // Grants table ownership to Stitch
+ALTER TABLE [table_name] OWNER TO [stitch_redshift_user];
+                                    /* Grants table ownership to Stitch */
 
-DROP TABLE [old_table_name];              // Drops the "old" table with the undesired column
+DROP TABLE [old_table_name];
+                                    /* Drops the "old" table with the undesired column */
 END;
-{% endhighlight %}
+```
 
 ---
 
-## Step 4: Verify the Table Owner {#verify-table-owner}
+## Step 4: Verify the table owner {#verify-table-owner}
 
 When you perform this process yourself, **make sure that the Stitch Redshift user retains ownership of the table.**
 
@@ -156,17 +160,17 @@ If Stitch isn't the owner of the table, issues with data replication will arise.
 
 ---
 
-## Step 5: Verify the New Schema {#verify-new-table-schema}
+## Step 5: Verify the new schema {#verify-new-table-schema}
 
 Verify your changes by using this command to retrieve the table’s schema:
 
-{% highlight shell %}
+```sql
 \d+ [schema_name].[table_name]
-{% endhighlight %}
+```
 
 The response would look something like this for the example table in this tutorial:
 
-{% highlight shell %}
+```markdown
 | column              | data type                   |
 |---------------------+-----------------------------|
 | id                  | BIGINT                      |
@@ -176,4 +180,4 @@ The response would look something like this for the example table in this tutori
 | {{ system-column.batched-at }}     | TIMESTAMP WITHOUT TIMEZONE  |
 | {{ system-column.table-version }}  | BIGINT                      |
 | {{ system-column.replication-id }} | VARCHAR(128)                |
-{% endhighlight %}
+```

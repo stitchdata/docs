@@ -1,0 +1,30 @@
+# -------------------------- #
+#     S3 User Privileges     #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from an S3 database.
+## For S3, these are granted via an auto-generated bucket policy that displays in
+## the Stitch UI in the Integration Settings page.
+
+user-privileges:
+  - name: "s3:GetObject"
+    reason: "Required to to retreive metadata about objects."
+    operations:
+      - name: "GET Object"
+        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html"
+        description: "Allows for the retrieval of objects from Amazon S3."
+
+      - name: "HEAD Object"
+        link: "https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html"
+        description: "Allows for the retrieval of metadata from an object without returning the object itself."
+
+  - name: "s3:ListBucket"
+    reason: "Required to access a bucket."
+    operations:
+      - name: "GET Bucket (List Objects)"
+        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html"
+        description: "Allows for the return of some or all (up to 1,000) of the objects in a bucket."
+
+      - name: "HEAD Bucket"
+        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html"
+        description: "Used to determine if a bucket exists and access is allowed."

@@ -24,11 +24,11 @@ later on in the template.
 
     <!-- If there are any requirements for setting up the
     integration, display them here. -->
-    {% if integration.requirements-list or integration.tier == "Premium" %}
+    {% if integration.requirements-list or integration.tier == "Paid" %}
         <h3 id="setup-requirements">{{ integration.display_name }} Setup requirements</h3>
             <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
             <ul>
-                {% if integration.tier == "Premium" %}
+                {% if integration.tier == "Paid" %}
                 <li><strong>A paid Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a paid plan is selected after the trial ends.</li>
                 {% endif %}
             {% for requirement in integration.requirements-list %}
@@ -96,11 +96,11 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 {% capture historical-sync %}
 {% if step.content %}
 
-{% capture content %}
+{% capture historical-step-content %}
 {{ step.content | flatify }}
 {% endcapture %}
 
-{% include integrations/saas/setup/historical-sync.html step-content=content %}
+{% include integrations/saas/setup/historical-sync.html step-content=historical-step-content %}
 
 {% else %}
 {% include integrations/saas/setup/historical-sync.html %}

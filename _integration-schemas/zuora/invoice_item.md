@@ -5,7 +5,7 @@ version: 1.0
 name: "invoiceItem"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoice-Items
 description: |
-  The `invoiceItem` table contains info about the line items in invoices.
+  The `{{ table.name }}` table contains info about the line items in invoices.
 
 replication-method: "Key-based Incremental"
 
@@ -14,6 +14,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the invoice item."
+    foreign-key-id: "invoice-item-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,6 +24,7 @@ attributes:
   - name: "accountingCode"
     type: "string"
     description: "The accounting code for the items charged."
+    foreign-key-id: "accounting-code"
 
   - name: "appliedToChargeNumber"
     type: "string"
@@ -81,10 +83,7 @@ attributes:
   - name: "invoiceId"
     type: "string"
     description: "The ID of the invoice associated with the invoice item."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "invoice"
-    ##     attribute: "id"
+    foreign-key-id: "invoice-id"
 
   - name: "processingType"
     type: "decimal"
@@ -103,10 +102,7 @@ attributes:
   - name: "productId"
     type: "string"
     description: "The ID of the product associated with the invoice item."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "product"
-    ##     attribute: "id"
+    foreign-key-id: "product-id"
 
   # - name: "productName"
   #   type: "string"
@@ -115,10 +111,7 @@ attributes:
   - name: "productRatePlanChargeId"
     type: "string"
     description: "The ID of the rate plan charge associated with the invoice item."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "product_rate_plan_charge"
-    ##     attribute: "id"
+    foreign-key-id: "product-rate-plan-charge-id"
 
   - name: "quantity"
     type: "decimal"
@@ -127,10 +120,7 @@ attributes:
   - name: "ratePlanChargeId"
     type: "string"
     description: "The ID of the rage plan charge that's associated with the invoice item."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "rate_plan_charge"
-    ##     attribute: "id"
+    foreign-key-id: "rate-plan-charge-id"
 
   - name: "revRecCode"
     type: "string"
@@ -159,10 +149,7 @@ attributes:
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription associated with the invoice item."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "subscription"
-    ##     attribute: "id"
+    foreign-key-id: "subscription-id"
 
   # - name: "subscriptionNumber"
   #   type: "string"

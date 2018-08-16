@@ -35,7 +35,7 @@ setup-steps:
       Before you create a warehouse, we recommend familiarizing yourself with [Snowflake's pricing and automated warehouse management features](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"}.
       {% endcapture %}
 
-      {% include note.html content=pricing %}
+      {% include note.html type="single-line" content=pricing %}
 
       1. Log into your Snowflake account using a web browser or a SQL client.
       2. If you log in via a web browser, click the **Worksheet** icon at the top of the page.
@@ -54,11 +54,11 @@ setup-steps:
             - **AUTO_SUSPEND**: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 
                {% capture auto-suspend-notice %}
-               Make sure the `auto_suspend` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.<br><br>
+               Make sure the `auto_suspend` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
 
                If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
                {% endcapture %}
-               {% include important.html content=auto-suspend-notice %}
+               {% include important.html first-line="**Make sure Auto-Suspend is enabled:" content=auto-suspend-notice %}
             - **AUTO_RESUME**: If `TRUE`, the warehouse will be automatically resumed when accessed by a SQL statement. If `FALSE`, the warehouse will only start again when explicitly resumed through the Snowflake web interface or using `ALTER WAREHOUSE`.
             - **WAREHOUSE_SIZE**: Specifies the size of the warehouse to create. Accepted values are `XSMALL`, `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `XXLARGE`, `XXXXLARGE`, and `XXXXLARGE`.
 

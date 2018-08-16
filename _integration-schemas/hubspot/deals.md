@@ -6,9 +6,7 @@ name: "deals"
 doc-link: https://developers.hubspot.com/docs/methods/deals/deals_overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/deals.json
 description: |
-  The `deals` table contains info about the deals in a HubSpot portal.
-
-notes:
+  The `{{ table.name }}` table contains info about the deals in a HubSpot portal.
 
 replication-method: "Full Table"
 api-method:
@@ -16,17 +14,17 @@ api-method:
   doc-link: https://developers.hubspot.com/docs/methods/deals/get-all-deals
 
 attributes:
-## Primary Key
   - name: "dealId"
     type: "integer"
     primary-key: true
     description: "The ID of the deal."
+    foreign-key-id: "deal-id"
 
-## Primary Key
   - name: "portalId"
     type: "integer"
     primary-key: true
     description: "The ID of the portal the deal is associated with."
+    foreign-key-id: "portal-id"
 
   - name: "associations"
     type: "object"
@@ -47,8 +45,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the deal."
-            foreign-key: true
-            table: "companies"
+            foreign-key-id: "company-id"
 
       - name: "associatedDealIds"
         type: "array"
@@ -57,8 +54,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the deal. (How meta!)"
-            foreign-key: true
-            table: "deals"
+            foreign-key-id: "deal-id"
 
   - name: "properties"
     type: "object"

@@ -26,7 +26,7 @@ display_name: "Amazon S3"
 type: "amazon-s3"
 db-type: "s3"
 pricing_tier: "standard"
-status: "Open Beta"
+status: "Released"
 description: *summary
 pricing_model: "Storage"
 free_option: "Yes (plan & trial)"

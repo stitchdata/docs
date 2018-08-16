@@ -1,1 +1,18 @@
-<div markdown="span" class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> {{include.content}}</div>
+{% capture alert-icon %}
+<i class="fa fa-warning"></i>
+{% endcapture %}
+
+{% case include.type %}
+{% when 'single-line' %}
+<div markdown="span" class="alert alert-warning" role="alert">
+    {{ alert-icon | append: "**Important:** " | strip }}
+    {{ include.content }}
+</div>
+
+{% else %}
+
+<div class="alert alert-warning" role="alert">
+    {% if include.first-line %}{{ include.first-line | prepend: "**Important:** " | prepend: alert-icon | markdownify | strip }}{% endif %}
+    {{ include.content | markdownify }}
+</div>
+{% endcase %}

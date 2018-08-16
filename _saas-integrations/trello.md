@@ -220,14 +220,14 @@ Connecting your Trello data to Stitch is a four-step process:
 4. [Define the Replication Frequency](#define-rep-frequency)
 
 {% capture access %}
-**Stitch & Accessing Trello Data**<br>
 Stitch will only have access to the boards that the user who creates the integration has access to. If a board is private and the user isn't a member, Stitch will be unable to access it. Before beginning the setup process, verify that the user setting up the integration has access to all the boards you want to replicate.
-<br><br>
+
 You can use [Trello's Developer Sandbox](https://developers.trello.com/sandbox) - no coding knowledge needed - to check your access by simply entering your API Key (see below) and authenticating. Select the **Get Boards** option and click **Execute** to see a JSON list of the boards the user has access to.
 {% endcapture %}
-{% include important.html content=access %}
+{% include important.html first-line="**Accessing Trello data**" content=access %}
 
 ### Retrieving Your Developer API Keys from Trello {#retrieve-trello-api-keys}
+
 1. Sign into your Trello account.
 2. Go to the [Trello Developer API Keys page](https://trello.com/app-key/).
 3. Locate the **Key** and **Secret** fields. 

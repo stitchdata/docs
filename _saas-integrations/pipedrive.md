@@ -25,10 +25,11 @@ status-url: "http://status.pipedrive.com/"
 # -------------------------- #
 
 status: "Closed Beta"
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Free"
 icon: /images/integrations/icons/pipedrive.svg
 whitelist:
   tables: false

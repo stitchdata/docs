@@ -3,7 +3,7 @@ tap: "google-adwords"
 version: "1.0"
 
 name: "campaigns"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/CampaignService.Campaign
+doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/CampaignService.Campaign
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/campaigns.json
 description: |
   The `campaigns` table contains detailed info about your Google AdWords campaigns.
@@ -45,7 +45,7 @@ attributes:
   - name: "campaignTrialType"
     type: "string"
     description: "Indicates the campaign type."
-    doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/CampaignService.CampaignTrialType
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/CampaignService.CampaignTrialType
 
   - name: "customerId"
     type: "integer"

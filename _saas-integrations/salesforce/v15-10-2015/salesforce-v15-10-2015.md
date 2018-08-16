@@ -29,7 +29,7 @@ certified: true
 
 frequency: "30 minutes"
 historical: "1 year"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/salesforce.svg
 whitelist:
   tables: true

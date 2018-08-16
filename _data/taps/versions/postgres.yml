@@ -1,0 +1,50 @@
+# -------------------------- #
+#      POSTGRES VERSIONS     #
+# -------------------------- #
+
+latest-version: "1.0"
+
+tap-name: "PostgreSQL"
+
+released-versions:
+  - number: "1.0"
+    date-released: "July 31, 2018"
+    # date-last-connection:
+    deprecated: false
+    deprecation-date: "n/a"
+
+  - number: "15-10-2015"
+    date-released: "October 15, 2015"
+    date-last-connection: "July 30, 2018"
+    deprecated: true
+    deprecation-date: "To be determined"
+
+# -------------------------- #
+#     POSTGRES CHANGELOG     #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/integrations/templates/versioning/integration-changelog.html
+
+changelog-entries:
+  # - date: "July 28, 2018"
+  #   version: "15-10-2015"
+  #   type: "version-deprecation"
+
+  - date: "July 31, 2018"
+    version: "1.0"
+    type: "new-version"
+    content: |
+      Highlights include:
+
+      - Additional data type support
+      - Support for logical replication
+      - Support for Extraction Logs, Loading Reports, and Anchor Scheduling

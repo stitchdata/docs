@@ -61,7 +61,13 @@ core-objects:
       title: "Create a session"
       method: *post
       anchor: "#create-a-session"
-      description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
+      short: "Generates an ephemeral token to create a session in the Stitch web application. Ephemeral tokens expire after one hour."
+      description: |
+         {{ site.data.connect.api.core-objects.sessions.create.short }}
+
+         Ephemeral tokens are used to [create a session](https://www.stitchdata.com/docs/stitch-connect/javascript-client) with the Connect JavaScript client. The session will be for the user for whom the API access token was created.
+
+         After the ephemeral token is used to create a session, the created session will expire once terminated or after 12 hours.
 
 # -------------------------- #
 #        Destinations        #
@@ -283,6 +289,11 @@ form-properties:
       section: "#source-form-properties-facebook-ads-object"
       description: "A Facebook Ads connection reads data from the Facebook Ads API and corresponds to source `type: platform.facebook`."
 
+    fullstory:
+      title: "FullStory"
+      section: "#source-form-properties-fullstory-object"
+      description: "A FullStory connection reads data from the FullStory API and corresponds to source `type: platform.fullstory`."
+
     google-adwords:
       title: "Google AdWords"
       section: "#source-form-properties-google-adwords-object"
@@ -293,8 +304,13 @@ form-properties:
       section: "#source-form-properties-hubspot-object"
       description: "A HubSpot connection reads data from the HubSpot API and corresponds to source `type: platform.hubspot`."
 
+    listrak:
+      title: "Listrak"
+      section: "#source-form-properties-listrak-object"
+      description: "A Listrak connection reads data from the Listrak API and corresponds to source `type: platform.listrak`."
+
     mariadb:
-      title: "mariadb"
+      title: "MariaDB"
       section: "#source-form-properties-mariadb-object"
       description: "A MariaDB connection reads data from a MariaDB database and corresponds to source `type: platform.mariadb`."
 
@@ -308,10 +324,35 @@ form-properties:
       section: "#source-form-properties-mysql-object"
       description: "A MySQL connection reads data from a MySQL database and corresponds to source `type: platform.mysql`."
 
+    postgresql:
+      title: "PostgreSQL"
+      section: "#source-form-properties-postgresql-object"
+      description: "A PostgreSQL connection reads data from a PostgreSQL database and corresponds to source `type: platform.postgres`."
+
+    quickbase:
+      title: "Quick Base"
+      section: "#source-form-properties-quickbase-object"
+      description: "A Quick Base connection reads data from the Quick Base API and corresponds to source `type: platform.quickbase`."
+
     salesforce:
       title: "Salesforce"
       section: "#source-form-properties-salesforce-object"
       description: "A Salesforce connection reads data from the Salesforce API and corresponds to source `type: platform.salesforce`."
+
+    sendgrid:
+      title: "SendGrid"
+      section: "#source-form-properties-sendgrid-object"
+      description: "A SendGrid connection reads data from the SendGrid API and corresponds to source `type: platform.sendgrid`."
+
+    yotpo:
+      title: "Yotpo"
+      section: "#source-form-properties-yotpo-object"
+      description: "A Yotpo connection reads data from the Yotpo API and corresponds to source `type: platform.yotpo`."
+
+    zendesk:
+      title: "Zendesk"
+      section: "#source-form-properties-zendesk-object"
+      description: "A Zendesk connection reads data from the Zendesk API and corresponds to source `type: platform.zendesk`."
 
     zuora:
       title: "Zuora"

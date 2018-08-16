@@ -1,0 +1,49 @@
+<!-- This file is an overview table of an integration's version
+release and deprecation dates -->
+
+<!-- Used to generate the "Unsupported" icons -->
+{% include misc/support-icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+    {% include integrations/templates/versioning/version-logic.html %}
+
+<table class="attribute-list">
+    <tr>
+        <td class="attribute-name">
+            <strong>Version</strong>
+        </td>
+        <td>
+            <strong>Release date</strong>
+        </td>
+        <td>
+            <strong>Deprecation date</strong>
+        </td>
+    </tr>
+    {% for version in released-versions %}
+        {% for doc in all-versioned-docs %}
+            {% if version.number == doc.this-version %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
+                        </strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+
+                    <td class="attribute-description">
+                        {{ version.date-released }}
+                    </td>
+
+                    <td class="attribute-description">
+                        {% if version.deprecation-date %}
+                            {{ version.deprecation-date }}
+                        {% else %}
+                            n/a
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</table>

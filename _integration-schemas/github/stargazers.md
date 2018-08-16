@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The user ID."
+    # foreign-key-id: "stargazer-id"
 
   - name: "starred_at"
     type: "string"

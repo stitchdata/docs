@@ -22,7 +22,7 @@ object-attributes:
     required: true
     description: "{{ connect.common.attributes.database }}"
 
-  - name: "username"
+  - name: "user"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.username }}"

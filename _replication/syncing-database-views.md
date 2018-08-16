@@ -11,16 +11,16 @@ weight: 3
 ---
 {% include misc/data-files.html %}
 
-{% capture db-views%}**Supported Databases**<br>
-Database views can be replicated from **the following database integrations only**:<br><br>
+{% capture db-views%}
+Database views can be replicated from the following database integrations only:
 
 {% for integration in site.database-integrations %}
 {% if integration.sync-views == true %}
-- [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl }})<br>
+- [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl }})
 {% endif %}
 {% endfor %}
 {% endcapture %}
-{% include note.html content=db-views %}
+{% include note.html first-line="**Supported databases**" content=db-views %}
 
 While the steps for syncing a database view are [almost the same as those for syncing a table]({{ link.replication.syncing | prepend: site.baseurl }}), there are some slight differences.
 

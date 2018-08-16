@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The assignee ID."
+    # foreign-key-id: "assignee-id"
 
   - name: "login"
     type: "string"

@@ -28,7 +28,7 @@ certified: true
 
 historical: "1 year"
 frequency: "12 hours"
-tier: "Premium"
+tier: "Paid"
 
 status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg
@@ -52,7 +52,7 @@ setup-steps:
   - title: "Create an API-Only User Role in Marketo"
     anchor: "create-api-only-user-role"
     content: |
-      {% include note.html content="If you have an [API-Only User Role](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role) in your Marketo account, [skip to the next section](#create-stitch-marketo-api-user)." %}
+      {% include note.html type="single-line" content="If you have an [API-Only User Role](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role) in your Marketo account, [skip to the next section](#create-stitch-marketo-api-user)." %}
 
       1. Sign into your Marketo account.
       2. Click the **Admin** option.

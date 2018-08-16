@@ -6,7 +6,7 @@ name: "campaigns"
 doc-link: http://developers.hubspot.com/docs/methods/email/get_campaign_data
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/campaigns.json
 description: |
-  The `campaigns` table contains info about the campaigns in your HubSpot account.
+  The `{{ table.name }}` table contains info about the campaigns in your HubSpot account.
 
 replication-method: "Full Table"
 api-method:
@@ -14,11 +14,11 @@ api-method:
   doc-link: https://developers.hubspot.com/docs/methods/email/get_campaign_data
 
 attributes:
-## Primary Key
   - name: "id"
     type: "integer"
     primary-key: true
     description: "The ID of the campaign."
+    foreign-key-id: "campaign-id"
 
   - name: "appId"
     type: "integer"

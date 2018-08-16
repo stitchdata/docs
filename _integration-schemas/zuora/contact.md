@@ -5,7 +5,7 @@ version: 1.0
 name: "contact"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Contacts
 description: |
-  The `contact` table contains info about an account's point-of-contact.
+  The `{{ table.name }}` table contains info about an account's point-of-contact.
 
 replication-method: "Key-based Incremental"
 
@@ -14,6 +14,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The contact ID."
+    foreign-key-id: "contact-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,22 +24,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the contact."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "id"
-
-    ##   - table-name: "invoice"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "payment"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "refund"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "subscription"
-    ##     attribute: "accountId"
+    foreign-key-id: "account-id"
 
   - name: "address1"
     type: "string"
@@ -138,5 +124,4 @@ attributes:
   - name: "workPhone"
     type: "string"
     description: "The contact's work phone number."
-
 ---

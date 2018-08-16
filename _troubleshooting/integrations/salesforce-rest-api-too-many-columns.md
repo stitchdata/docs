@@ -24,7 +24,7 @@ This issue is applicable to:
 
 ## Extraction Log Error
 
-{% include note.html content="Extraction logs are unavailable for Salesforce integrations using version 15-10-2017." %}
+{% include note.html type="single-line" content="Extraction logs are unavailable for Salesforce integrations using version 15-10-2017." %}
 
 If the version of your Salesforce integration supports [extraction logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}), this is the error message that will display in Stitch:
 

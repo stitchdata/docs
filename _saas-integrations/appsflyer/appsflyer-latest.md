@@ -65,7 +65,7 @@ setup-steps:
   - title: "Retrieve the account's API key"
     anchor: "retrieve-your-api-key"
     content: |
-      {% include note.html content="You must be the Account Owner in AppsFlyer to complete this step." %}
+      {% include note.html type="single-line" content="You must be the Account Owner in AppsFlyer to complete this step." %}
 
       1. In the list of apps, click the app you want to replicate data from. This will open the app's dashboard page.
       2. Under the **Integration** section, click **API Access.**

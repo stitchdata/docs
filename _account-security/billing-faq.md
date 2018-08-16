@@ -50,7 +50,7 @@ frequently-asked-questions:
           {% assign all-integrations = site.documents | where:"input", true %}
 
           {% assign free-integrations = all-integrations | where:"tier","Free" | sort:"title" %}
-          {% assign paid-integrations = all-integrations | where:"tier","Premium" | sort:"title" %}
+          {% assign paid-integrations = all-integrations | where:"tier","Paid" | sort:"title" %}
 
           {% capture paid-plans %}
 
@@ -264,7 +264,7 @@ frequently-asked-questions:
       - question: "Where do I manage my payment details?"
         anchor: "manage-payment-details"
         answer: |
-          {% include note.html content="The user who initially enters the payment info is the user who will receive your account's monthly invoice in their email." %}
+          {% include note.html type="single-line" content="The user who initially enters the payment info is the user who will receive your account's monthly invoice in their email." %}
 
           You can enter and manage your credit card details in the {{ app.page-names.billing }} page, accessed by clicking {{ app.menu-paths.billing }}.
 

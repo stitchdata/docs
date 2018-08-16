@@ -1,7 +1,7 @@
 {% include misc/support-icons.html %}
 {% include misc/more-info-icons.html %}
 
-<table id="sampleTable" class="display" width="100%">
+<table class="attribute-list">
 	<thead>
 		<tr>
 			<th style="vertical-align: middle; align: center">
@@ -47,7 +47,7 @@
 				{{ not-supported | | replace: "TOOLTIP","Whitelisting fields is not supported for Mongo integrations."}}
 			</td>
 		</tr>
-	{% assign saas-integrations = site.saas-integrations %}
+	{% assign saas-integrations = site.saas-integrations | sort: display_name %}
 	{% for integration in saas-integrations %}
 		{% if integration.whitelist.tables == true %}
 		<tr>

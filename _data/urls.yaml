@@ -86,6 +86,7 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
+    overview: /data-structure/loading-stitch-data-into-destinations
     bigquery: /data-structure/bigquery-data-loading-behavior
     panoply: /data-structure/panoply-data-loading-behavior
     postgres: /data-structure/postgresql-data-loading-behavior
@@ -147,7 +148,12 @@ replication:
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
-  append-only: /data-structure/querying-append-only-tables
+  append-only: "/replication/replication-methods#append-only-incremental-replication"
+  log-based-incremental: "/replication/replication-methods#log-based-incremental-replication"
+  key-based-incremental: "/replication/replication-methods#incremental-replication"
+  full-table: "/replication/replication-methods#full-table-replication"
+
+  append-only-querying: /data-structure/querying-append-only-tables
 
 ## Replication Keys
   rep-keys: /replication/replication-keys
@@ -211,6 +217,7 @@ troubleshooting:
   dw-loading-errors: /troubleshooting/destinations/data-loading-errors
   view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
   aws-io-errors: /troubleshooting/destinations/aws-io-errors
+  mysql-extraction-errors: /troubleshooting/integrations/mysql-database-extraction-errors
 
 ## Connection Errors
   saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors

@@ -10,10 +10,9 @@ destination: "BigQuery"
 ---
 {% include misc/data-files.html %}
 
-{% capture note %}
-The querying strategy outline here can be applied to any table that is loaded in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This is applicable to **BigQuery** and **Amazon S3 (CSV) destinations**. {% endcapture %}
+{% capture note %}The querying strategy outline here can be applied to any table that is loaded in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This is applicable to **BigQuery** and **Amazon S3 (CSV) destinations**. {% endcapture %}
 
-{% include note.html content=note %}
+{% include note.html type="single-line" content=note %}
 
 {{ site.data.tooltips.append-only-rep }}
 

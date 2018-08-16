@@ -17,6 +17,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The admin or team ID."
+    foreign-key-id: "admin-id"
 
   - name: "type"
     type: "string"

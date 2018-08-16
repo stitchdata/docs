@@ -1,116 +1,158 @@
-<tr>
-    <td align="right">
-        {% if attribute.type == "object" %}
-            <strong>{{ subattribute.name | prepend: "__" | prepend: attribute.name }}</strong>
-        {% else %}
-            {% if attribute.doc-link %}
-                <a href="{{ attribute.doc-link }}" 
-                   title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" 
-                   target="new">
-                <strong>{{ attribute.name | flatify }}</strong>
-                </a>
-            {% else %}
-                <strong>{{ attribute.name | flatify }}</strong>
-            {% endif %}
-        {% endif %}
-    </td>
+<!-- Capture the nested data notice that appears everywhere, so we don't need to repeat it -->
+    {% capture nested-data-notice %}
+        <p>
+            <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">If your destination doesn't natively support nested data</a>, this data may be denested into a subtable named <code>[ATTRIBUTE-NAME]</code>. 
 
-    
-    <td width="70%; fixed">
-        {{ attribute.description | flatify | markdownify }}
-
-       <p>This data may be de-nested into a subtable if your data warehouse doesn't natively support nested data.</p>
-
-        {% if attribute.type == "object" %}
             {% if table.singer-schema %}
-                <p>Refer to the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for detail on possible attributes.</p>
+                Refer to the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for details on possible attributes.
             {% endif %}
+        </p>
+    {% endcapture %}
+
+<!-- START THE ROWS -->
+
+<!-- This is a row in the top-level table - it'll contain the name of the array -->
+    <tr>
+        {% case attribute.type %}
+
+    <!-- WHEN ATTRIBUTE = OBJECT -->
+        {% when 'object' %}
+            <td class="attribute-name">
+                <strong>{{ subattribute.name | prepend: "__" | prepend: attribute.name }}</strong>
+            </td>
+
+            <td class="attribute-description">
+                {{ attribute.description | flatify | markdownify }}
+
+            <!-- Capture the full name of the attribute -->
+                {%- capture attribute-name -%}
+                    {{ subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
+                {%- endcapture -%}
+
+            <!-- Replace the [ATTRIBUTE-NAME] placeholder in the nested-data-notice with the captured attribute name -->
+                {{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
+            </td>
+
+    <!-- WHEN ATTRIBUTE != OBJECT -->
         {% else %}
 
-           <p>This subtable would be named <code>{{ attribute.name | prepend: "__" | prepend: table.name }}</code> and may contain the following attributes:</p>
-            <table width="100%" class="table-hover">
-                </tr>
-                {% for attribute in table.attributes %}
-            <!-- Nested table primary keys -->
-                    {% if attribute.primary-key == true %}
-                        <tr>
-                            <td align="right">
-                                <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.source-key | append: attribute.name }}</strong><br>
-                                {{ attribute.type | upcase }}
-                            </td>
-                            <td width="70%; fixed">
-                                {{ attribute.description | flatify | markdownify }}
-                            </td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-            <!-- End nested table primary keys -->
+        <!-- ATTRIBUTE NAME -->
+            <td class="attribute-name">
+                {% if attribute.doc-link %}
+                    <a href="{{ attribute.doc-link }}" 
+                       title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" 
+                       target="new">
+                    <strong>{{ attribute.name | flatify }}</strong>
+                    </a>
+                {% else %}
+                    <strong>{{ attribute.name | flatify }}</strong>
+                {% endif %}
+            </td>
 
-            <!-- _sdc_level_*_id -->
-                <tr>
-                    <td align="right">
-                        <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.level-id | replace:"#","0" }}</strong><br>
-                        INTEGER<br>
-                    </td>
-                    <td width="70%; fixed">
-                        <p>This column forms part of a composite key for the table. The value will auto-increment for each unique record, beginning with 0.</p>
-                    </td>
-                </tr>
-            <!-- End _sdc_level_*_id -->
+        <!-- ATTRIBUTE DESCRIPTION -->
+            <td class="attribute-description">
+                {{ attribute.description | flatify | markdownify }}
 
-            <!-- Subtable attributes -->
-                {% for subattribute in attribute.array-attributes %}
-                    {% if subattribute.type == "object" %}
-                        {% include integrations/templates/schemas/object-data-type.html type="array-object" %}
+                {%- capture attribute-name -%}
+                    {{ attribute.name | prepend: "__" | prepend: table.name }}
+                {%- endcapture -%}
+                
+                {{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
 
-                    {% elsif subattribute.type == "array" %}
-                        <tr>
-                            <td align="right">
-                                {% if subattribute.doc-link %}
-                                    <a href="{{ subattribute.doc-link }}" 
-                                       title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" 
-                                       target="new">
-                                       <strong>{{ subattribute.name | flatify }}</strong>
-                                   </a>
-                                {% else %}
-                                    <strong>{{ subattribute.name | flatify }}</strong>
-                                {% endif %}
-                            </td>
-                            <td width="60%; fixed">
-                                {{ subattribute.description | flatify | markdownify }}
+            <!-- START TABLE OF SUBATTRIBUTES -->
+                <table class="table-hover attribute-list">
+                    {% for attribute in table.attributes %}
+                
+                <!-- NESTED TABLE PRIMARY KEYS -->
+                        {% if attribute.primary-key == true %}
+                            <tr>
+                                <td class="attribute-name">
+                                    <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.source-key | append: attribute.name }}</strong><br>
+                                    {{ attribute.type | upcase }}
+                                </td>
+                                <td class="attribute-description">
+                                    {{ attribute.description | flatify | markdownify }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                <!-- END TABLE PKS -->
 
-                                <p>This data may be de-nested into a subtable if your data warehouse doesn't natively support nested data.{% if table.singer-schema %} See the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for detail on possible attributes.{% endif %}</p>
-                            </td>
-                        </tr>
-
-                    {% else %}
+                <!-- _sdc_level_*_id -->
                     <tr>
-                        <td align="right">
-                            {% if subattribute.primary-key == true %}
-                                {{ ui-icon.subtable-primary-key | flatify }} 
-                            {% endif %}
-                            {% if subattribute.doc-link %}
-                                <a href="{{ subattribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" target="new">
-                                   <strong>{{ subattribute.name | flatify }}</strong>
-                               </a>
-                            {% else %}
-                                <strong>{{ subattribute.name | flatify }}</strong>
-                            {% endif %}
-                            <br>
-                            {{ subattribute.type | upcase }}
+                        <td class="attribute-name">
+                            <strong>{{ ui-icon.subtable-primary-key | flatify }} {{ app.dw.level-id | replace:"#","0" }}</strong><br>
+                            INTEGER<br>
                         </td>
-                        <td width="60%; fixed">
-                            {{ subattribute.description | flatify | markdownify }}
-
-                            {% if subattribute.foreign-key == true %}
-                                {% include integrations/templates/schemas/foreign-keys.html %}
-                            {% endif %}
+                        <td class="attribute-description">
+                            <p>This column forms part of a composite key for the table. The value will auto-increment for each unique record, beginning with 0.</p>
                         </td>
                     </tr>
-                    {% endif %}
-                {% endfor %}
-            </table>
-            <!-- End subtable attributes -->
-        {% endif %} <!-- object as top level -->
-    </td>
-</tr>
+                <!-- End _sdc_level_*_id -->
+
+                <!-- START LISTING SUBATTRIBUTES -->
+                    {% for subattribute in attribute.array-attributes %}
+
+                    <!-- WHEN SUBATTRIBUTE = OBJECT -->
+                        {% if subattribute.type == "object" %}
+                            {% include integrations/templates/schemas/object-data-type.html type="array-object" %}
+
+                    <!-- WHEN SUBATTRIBUTE = ARRAY -->
+                        {% elsif subattribute.type == "array" %}
+                            <tr>
+                                <td class="attribute-name">
+                                    {% if subattribute.doc-link %}
+                                        <a href="{{ subattribute.doc-link }}" 
+                                           title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" 
+                                           target="new">
+                                           <strong>{{ subattribute.name | flatify }}</strong>
+                                       </a>
+                                    {% else %}
+                                        <strong>{{ subattribute.name | flatify }}</strong>
+                                    {% endif %}
+                                </td>
+                                <td width="60%; fixed">
+                                    {{ subattribute.description | flatify | markdownify }}
+
+                                    {%- capture attribute-name -%}
+                                        {{ subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
+                                    {%- endcapture -%}
+
+                                    {{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
+
+                                </td>
+                            </tr>
+
+                    <!-- WHEN SUBATTRIBUTE != ARRAY OR OBJECT -->
+                        {% else %}
+                            <tr>
+                                <td class="attribute-name">
+                                    {% if subattribute.primary-key == true %}
+                                        {{ ui-icon.subtable-primary-key | flatify }} 
+                                    {% endif %}
+
+                                    {% if subattribute.doc-link %}
+                                        <a href="{{ subattribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} documentation" target="new">
+                                           <strong>{{ subattribute.name | flatify }}</strong>
+                                       </a>
+                                    {% else %}
+                                        <strong>{{ subattribute.name | flatify }}</strong>
+                                    {% endif %}
+                                    <br>
+                                    {{ subattribute.type | upcase }}
+                                </td>
+                                <td width="60%; fixed">
+                                    {{ subattribute.description | flatify | markdownify }}
+
+                                    {% if subattribute.foreign-key-id %}
+                                        {% include integrations/templates/schemas/foreign-keys.html attribute-level="subattribute" %}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            <!-- END SUBATTRIBUTE SUBTABLE -->
+            </td>
+        {% endcase %}
+    </tr>

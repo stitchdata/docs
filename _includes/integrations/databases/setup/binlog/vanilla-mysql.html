@@ -23,11 +23,13 @@ mysqld
    ```
 {% endcapture %}
 
-
+<!-- The introduction copy for this section -->
 {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
-
+<!-- Capture the text for the setup instructions, which will display in the
+first tab of _includes/integrations/templates/configure-server-settings.html -->
 {% capture server-instructions %}
+
 1. Log into your {{ integration.display_name }} server.
 2. Verify that binlog is enabled by running the following statement. The value returned should be `1`:
    
@@ -36,7 +38,6 @@ mysqld
    ```
 
    If this statement returns a `0`, this means that binlog is disabled. You'll enable it in the next step.
-
 3. Locate the `my.cnf` file, usually located at `/etc/my.cnf`. Verify that `my.cnf` has the following lines in the `{{ section-name | strip }}` section:
 
     {{ config-file-lines }}
@@ -45,6 +46,7 @@ mysqld
       - `log_bin` doesn't have to be `mysql-binlog` - this value can be anything. Additionally, if `log_bin` already has an entry (which you checked in step one), you don't need to change it.
       - Use either `expire_log_days` or `binlog_expire_logs_seconds`, not both. See the **Server settings list** tab for more information.
 4. When finished, restart your {{ integration.display_name }} server to ensure the changes take effect.
+
 {% endcapture %}
 
 {% include integrations/templates/configure-server-settings.html %}

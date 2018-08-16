@@ -28,7 +28,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 status-url: "http://trust.zuora.com/"
 icon: /images/integrations/icons/zuora.svg
 whitelist:
@@ -50,15 +50,14 @@ setup-steps:
       In this step, you'll create a {{ integration.display_name }} user for Stitch. Creating a Stitch-specific user will ensure that Stitch is distinguishable in any logs or audits.
 
       {% capture zuora-user-requirements %}
-      **Zuora User Requirements**<br>
-      To replicate your {{ integration.display_name }} data, Stitch requires a user that:<br><br>
+      To replicate your {{ integration.display_name }} data, Stitch requires a user that:
 
-      1. **Has Standard user permissions.** While Stitch will only ever read your data, these permissions are required to access certain objects in {{ integration.display_name }}.<br><br>
-      2. **Has two-factor authentication disabled.** If this is enabled, connection and replication issues will occur after setup. Refer to the **Disable or Reset Two-Factor Authentication** section [in this {{ integration.display_name }} documentation](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/Two-Factor_Authentication) for help disabling this setting.<br><br>
+      1. **Has Standard user permissions.** While Stitch will only ever read your data, these permissions are required to access certain objects in {{ integration.display_name }}.
+      2. **Has two-factor authentication disabled.** If this is enabled, connection and replication issues will occur after setup. Refer to the **Disable or Reset Two-Factor Authentication** section [in this {{ integration.display_name }} documentation](https://knowledgecenter.zuora.com/CF_Users_and_Administrators/Two-Factor_Authentication) for help disabling this setting.
       3. **Has credentials that don't expire.** This is applicable only if your company enforces Password Expiration rules. If Stitch's {{ integration.display_name }} credentials expire, connection issues may arise. [Refer to this {{ integration.display_name }} support article for a workaround](https://knowledgecenter.zuora.com/kb/How_do_I_prevent_my_API_user_login_from_expiring%3F).
       {% endcapture %}
 
-      {% include important.html content=zuora-user-requirements %}
+      {% include important.html first-line="**Zuora user requirements**" content=zuora-user-requirements %}
 
       #### Create the {{ integration.display_name }} user
 
@@ -93,7 +92,7 @@ setup-steps:
 
       Once you've decided, click the radio button next to the API you want to use.
 
-      {% include note.html content="If using the AQuA API, you'll also need to enter a partner ID in the **Zuora Partner ID** field. If you don't already have this credential, reach out to [Zuora Global Support](http://support.zuora.com/) before proceeding." %}
+      {% include note.html type="single-line" content="If using the AQuA API, you'll also need to enter a partner ID in the **Zuora Partner ID** field. If you don't already have this credential, reach out to [Zuora Global Support](http://support.zuora.com/) before proceeding." %}
 
       <table width="100%; fixed">
       <tr>
@@ -170,11 +169,10 @@ replication-sections:
   - title: "Replicate deleted data"
     anchor: "replicate-deleted-data"
     content: |
-      {% capture aqua-api-note %}
-       This is only applicable if using the [AQuA API for data extraction](#rest-vs-aqua-api). Zuora's REST API does not support extracting deleted data.
+      {% capture aqua-api-note %}**Note**: This section is only applicable if using the [AQuA API for data extraction](#rest-vs-aqua-api). Zuora's REST API does not support extracting deleted data.
       {% endcapture %}
 
-      {% include note.html content=aqua-api-note %}
+      {% include note.html type="single-line" content=aqua-api-note %}
 
       If using the AQuA API for data extraction, deleted data will be replicated for objects that support it. Supported objects will contain a boolean column named `deleted` that indicates a record's deletion status.
 

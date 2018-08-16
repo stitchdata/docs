@@ -1,8 +1,6 @@
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-
-
 {% if integration.this-version %}
     <!-- Filter out everything that's not for this integration -->
         {% assign integration-tables = site.integration-schemas | where:"tap",integration.name %}  
@@ -14,19 +12,16 @@
     {% assign schema = site.integration-schemas | where:"tap",integration.name %}
 {% endif %}
 
+<!-- NOTICE ABOUT DOC/DESTINATION OBJECT DIFFERENCES -->
+{% capture schemas-and-destination-loading %}
+Depending on your destination, table and column names may not appear as they are outlined below.
 
+For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`), while case is maintained in PostgreSQL destinations (`CusTomERs` > `CusTomERs`). Refer to the [Loading Guide]({{ link.destinations.loading.overview | prepend: site.baseurl }}) for your destination for more info.
+{% endcapture %}
+
+{% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
 
 {% for table in schema %}
-
-<!-- This include pulls the table's Primary Keys and formats them - see notes in include -->
-    {% include integrations/templates/schemas/table-keys.html key="primary-key" %}
-
-<!-- Run only if the table is Incremental -->
-    {% if table.replication-method == "Incremental" %}
-    <!-- Pulls the table's Replication Keys and formats them - see notes in include -->
-        {% include integrations/templates/schemas/table-keys.html key="replication-key" %}
-    {% endif %}
-
 <!-- Table Name -->
     <div class="table-heading">
         <div class="table-name pull-left">
@@ -58,61 +53,63 @@
         
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ table.name }}">{{ table.name }} Table Schema</a>
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ table.name | replace: "[", "-" | replace: "]", "-" | replace: "/", "-" | replace: ".","-"}}">{{ table.name }} Table Schema</a>
             </h4>
         </div>
         
-        <div id="collapse{{ table.name }}" class="panel-collapse collapse noCrossRef">
+        <div id="collapse{{ table.name | replace: "[", "-" | replace: "]", "-" | replace: "/", "-" | replace: ".","-"}}" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
-                <table width="100%" class="table-hover">
+                <table width="100%" class="table-hover attribute-list">
                     {% for attribute in table.attributes %}
                         {% if attribute.name != "n/a" %}
                             <!-- Formatting for OBJECT -->
-                            {% if attribute.type == "object" %}
-                                {% include integrations/templates/schemas/object-data-type.html %}
-                            <!-- End formatting for OBJECT -->
 
-                            <!-- Formatting for ARRAY -->
-                            {% elsif attribute.type == "array" %}
-                                {% include integrations/templates/schemas/array-data-type.html %}
-                            <!-- End formatting for ARRAY -->
+                            {% case attribute.type %}
+                            <!-- WHEN TYPE == OBJECT -->
+                                {% when 'object' %}
+                                    {% include integrations/templates/schemas/object-data-type.html %}
 
-                            {% elsif attribute.type == "subarray" %}
-                                {% include integrations/templates/schemas/subarray-data-type.html %}
+                            <!-- WHEN TYPE == ARRAY -->
+                                {% when 'array' %}
+                                    {% include integrations/templates/schemas/array-data-type.html %}
 
-                            <!-- All other data types -->
-                            {% else %}
-                                <tr>
-                                    <td align="right">
-                                        {% if attribute.primary-key == true %}
-                                            {{ ui-icon.primary-key | flatify }}
-                                        {% endif %}
+                            <!-- WHEN TYPE == SUBARRAY -->
+                                {% when 'subarray' %}
+                                    {% include integrations/templates/schemas/subarray-data-type.html %}
 
-                                        {% if attribute.replication-key == true %}
+                            <!-- WHEN TYPE != OBJECT OR ARRAY OR SUBARRAY -->
+                                {% else %}
+                                    <tr>
+                                        <td class="attribute-name">
+                                            {% if attribute.primary-key == true %}
+                                                {{ ui-icon.primary-key | flatify }}
+                                            {% endif %}
+
+                                            {% if attribute.replication-key == true %}
                                                 {{ ui-icon.replication-key | flatify }}
-                                        {% endif %}
+                                            {% endif %}
 
-                                        {% if attribute.doc-link %}
-                                            <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
-                                        {% else %}
-                                            <strong>{{ attribute.name | flatify }}</strong>
-                                        {% endif %}
+                                            {% if attribute.doc-link %}
+                                                <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
+                                            {% else %}
+                                                <strong>{{ attribute.name | flatify }}</strong>
+                                            {% endif %}
 
-                                        {% if attribute.type %}
-                                            <br>
-                                            {{ attribute.type | upcase }}
-                                        {% endif %}
-                                    </td>
-                                    <td width="70%; fixed" markdown="span">
-                                        {{ attribute.description | flatify | markdownify }}
+                                            {% if attribute.type %}
+                                                <br>
+                                                {{ attribute.type | upcase }}
+                                            {% endif %}
+                                        </td>
+                                        <td class="attribute-description">
+                                            {{ attribute.description | flatify | markdownify }}
 
-                                    <!-- If the attribute is marked as a foreign key, run this include: -->
-                                        {% if attribute.foreign-key == true %}
-                                            {% include integrations/templates/schemas/foreign-keys.html %}
-                                        {% endif %}
-                                    </td>
-                                </tr>
-                            {% endif %}   <!-- Ends if loop for data types-->
+                                        <!-- FOREIGN-KEY == TRUE -->
+                                            {% if attribute.foreign-key-id %}
+                                                {% include integrations/templates/schemas/foreign-keys.html %}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                            {% endcase %}   <!-- END DATA TYPE CASE STATEMENT -->
                         {% endif %}
                     {% endfor %}
                 </table>

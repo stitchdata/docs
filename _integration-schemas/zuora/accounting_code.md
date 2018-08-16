@@ -6,7 +6,7 @@ name: "accountingCode"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_AllAccountingCodes
 #singer-schema: 
 description: |
-  The `accountingCode` table contains information about the accounting codes in your Zuora instance. Accounting codes are used to categorize transactions for accounting purposes.
+  The `{{ table.name }}` table contains information about the accounting codes in your Zuora instance. Accounting codes are used to categorize transactions for accounting purposes.
 
   **Note**: To replicate this table, you must have Zuora Finance enabled.
 
@@ -19,12 +19,13 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "The accounting period ID."
+    description: "The accounting code ID."
+    foreign-key: "accounting-code-id"
 
   - name: "updatedDate"
     type: "date-time"
     replication-key: true
-    description: "The date when the accounting period was last updated."
+    description: "The date when the accounting code was last updated."
 
   - name: "category"
     type: "string"
@@ -39,20 +40,16 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the accounting period."
+    description: "The ID of the Zuora user who created the accounting code."
 
   - name: "createdDate"
     type: "date-time"
-    description: "The date when the accounting period was created."
+    description: "The date when the accounting code was created."
 
   - name: "deleted"
     type: "boolean"
     description: |
       **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
-
-  - name: "endDate"
-    type: "date-time"
-    description: "The end date of the accounting period."
 
   - name: "glAccountName"
     type: "string"
@@ -64,16 +61,16 @@ attributes:
 
   - name: "name"
     type: "string"
-    description: "The name of the accounting period."
+    description: "The name of the accounting code."
 
   - name: "notes"
     type: "string"
-    description: "Additional notes about the accounting period."
+    description: "Additional notes about the accounting code."
 
   - name: "status"
     type: "string"
     description: |
-      The status of the accounting period. Possible values are:
+      The status of the accounting code. Possible values are:
 
       - `Active`
       - `Inactive`
@@ -100,5 +97,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the accounting period."
+    description: "The ID of the Zuora user who last updated the accounting code."
 ---

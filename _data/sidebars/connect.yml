@@ -172,6 +172,10 @@ api:
                 method: "object"
                 url: "{{ api.form-properties.source-forms.facebook-ads.section }}"
 
+              - title: "FullStory"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.fullstory.section }}"
+
               - title: "Google AdWords"
                 method: "object"
                 url: "{{ api.form-properties.source-forms.google-adwords.section }}"
@@ -183,6 +187,10 @@ api:
               - title: "HubSpot"
                 method: "object"
                 url: "{{ api.form-properties.source-forms.hubspot.section }}"
+
+              - title: "Listrak"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.listrak.section }}"
 
               - title: "MariaDB"
                 method: "object"
@@ -196,9 +204,29 @@ api:
                 method: "object"
                 url: "{{ api.form-properties.source-forms.mysql.section }}"
 
+              - title: "PostgreSQL"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.postgresql.section }}"
+
+              - title: "Quick Base"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.quickbase.section }}"
+
               - title: "Salesforce"
                 method: "object"
                 url: "{{ api.form-properties.source-forms.salesforce.section }}"
+
+              - title: "SendGrid"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.sendgrid.section }}"
+
+              - title: "Yotpo"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.yotpo.section }}"
+
+              - title: "Zendesk"
+                method: "object"
+                url: "{{ api.form-properties.source-forms.zendesk.section }}"
 
               - title: "Zuora"
                 method: "object"

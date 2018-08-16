@@ -163,10 +163,12 @@ After you set a **table** to replicate, a new window will display. This is the {
 #### Replication Methods
 
 {% capture rep-methods-warning %}
-**Before you set Replication Methods and Keys for your own database integration tables,** we strongly recommend checking out the [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) articles. This guide will only give you a high-level view of both topics.<br><br>
-Replication Methods and Keys are the most important settings when it comes to ensuring Stitch replicates your data accurately. Incorrectly defining them can lead to data discrepancies, row overages, and increase the potential for latency.{% endcapture %}
+Before you set Replication Methods and Keys for your own database integration tables, we strongly recommend checking out the [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) articles. This guide will only give you a high-level view of both topics.
 
-{% include important.html content=rep-methods-warning %}
+Replication Methods and Keys are the most important settings when it comes to ensuring Stitch replicates your data accurately. Incorrectly defining them can lead to data discrepancies, row overages, and increase the potential for latency.
+{% endcapture %}
+
+{% include important.html first-line="**Avoid discrepancies: Learn about Replication Methods and Keys**" content=rep-methods-warning %}
 
 [**Replication Methods**]({{ link.replication.rep-methods | prepend: site.baseurl }}) tell Stitch how to replicate the data in selected tables: Fully or Incrementally.
 
