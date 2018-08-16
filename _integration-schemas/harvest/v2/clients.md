@@ -16,29 +16,29 @@ api-method:
 attributes:
   - name: "id"
     type: "integer"
-    description: ""
+    description: "Unique ID for the client."
 
   - name: "name"
     type: "string"
-    description: ""
+    description: "A textual description of the client."
 
   - name: "is_active"
     type: "boolean"
-    description: ""
+    description: "Whether the client is active or archived."
 
   - name: "address"
     type: "string"
-    description: ""
+    description: "The physical address for the client."
 
   - name: "currency"
     type: "string"
-    description: ""
+    description: "The currency code associated with this client."
 
   - name: "created_at"
     type: "string"
-    description: ""
+    description: "Date and time the client was created."
 
   - name: "updated_at"
     type: "string"
-    description: ""
+    description: "Date and time the client was last updated."
 
