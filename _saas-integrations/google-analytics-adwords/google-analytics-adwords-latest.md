@@ -50,6 +50,7 @@ attribution-window: "15 days"
 # -------------------------- #
 
 notice: |
+  
   This guide describes how to replicate Google AdWords data using Stitch's Google Analytics integration. Additionally, this approach replaces the [deprecated 15-10-2015 version of Stitch's {{ integration.display_name }} integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}-v15-10-2015).
 
   As this approach uses the Analytics API, there may be some differences in the data when compared between AdWords and Analytics. You can find out more about these differences in [Google's documentation](https://support.google.com/analytics/answer/1034383?hl=en).
