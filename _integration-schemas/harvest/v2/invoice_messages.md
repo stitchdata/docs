@@ -69,3 +69,7 @@ version: "2.0"
     type: "integer"
     description: ""
 
+  - name: "recipients"
+    type: "object"
+    description: ""
+
