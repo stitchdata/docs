@@ -1,6 +1,6 @@
 all-methods:
   - display-name: "Log-based Incremental"
-    name: "binlog-replication"
+    name: "log-based-incremental"
     available-for: "MySQL- and PostgreSQL-based integrations"
     support-info:
       - name: "hard-deletes"
@@ -9,7 +9,7 @@ all-methods:
         loading: |
           Record will have a timestamp value in the `{{ system-column.deleted-at }}` column.
 
-          **Note**: Certain record event types may not be captured. See the **{{ replication-method.display-name }}** tab for more info and examples.
+          **Note**: Certain record event types may not be captured. See the [{{ replication-method.display-name }}](#{{ replication-method.name }}) section for more info and examples.
 
       - name: "soft-deletes"
         supported: "supported"
@@ -17,7 +17,7 @@ all-methods:
         loading: "Record will have an updated deleted flag value, if a flag is available in the source."
 
   - display-name: "Key-based Incremental"
-    name: "key-incremental-replication"
+    name: "key-based-incremental"
     available-for: "All integrations"
     support-info:
       - name: "hard-deletes"
@@ -31,14 +31,14 @@ all-methods:
         loading: "Record will have an updated deleted flag value, if a flag is available in the source."
 
   - display-name: "Full Table"
-    name: "full-table-replication"
+    name: "full-table"
     available-for: "All integrations"
     support-info:
       - name: "hard-deletes"
         supported: "sometimes-supported"
         reason: ""
         loading: |
-          Record may remain or be removed. See the **{{ replication-method.display-name }}** tab for more info and examples.
+          Record may remain or be removed. See the [{{ replication-method.display-name }}](#{{ replication-method.name }}) section for more info and examples.
 
       - name: "soft-deletes"
         supported: "supported"

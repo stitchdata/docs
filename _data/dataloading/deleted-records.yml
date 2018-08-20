@@ -7,7 +7,7 @@
 #        LOG-BASED INCREMENTAL       #
 #------------------------------------#
 
-binlog-replication:
+log-based-incremental:
 
 #------------------------------------#
 #       LOG-BASED, SOFT DELETES      #
@@ -15,7 +15,7 @@ binlog-replication:
 
   - type: "soft"
     description: |
-      In this example, we'll demonstrate what happens when two recrds are soft-deleted in a source table using {{ replication-method.display-name }}.
+      In this example, we'll demonstrate what happens when two recrds are soft-deleted in a source table using {{ replication-method-display-name }}.
     columns:
       - name: "id"
       - name: "name"
@@ -77,7 +77,7 @@ binlog-replication:
 
   - type: "hard"
     description: |
-      In this example, we'll demonstrate what happens when a record is hard deleted - or removed entirely - from a source table using {{ replication-method.display-name }}. In this situation, Stitch will use a `TIMESTAMP` column named `{{ system-column.deleted-at }}` to indicate when records have been identified as deleted in the source.
+      In this example, we'll demonstrate what happens when a record is hard deleted - or removed entirely - from a source table using {{ replication-method-display-name }}. In this situation, Stitch will use a `TIMESTAMP` column named `{{ system-column.deleted-at }}` to indicate when records have been identified as deleted in the source.
 
       **Note**: Identifying hard deleted records is dependent on how the record is deleted, as not all event types are recorded by databases in binary logs. For example: If a record is deleted using `TRUNCATE` in a MySQL database, Stitch will not detect the deletion.
 
@@ -146,7 +146,7 @@ binlog-replication:
 #        KEY-BASED INCREMENTAL       #
 #------------------------------------#
 
-key-incremental-replication:
+key-based-incremental:
 
 #------------------------------------#
 #       KEY-BASED, SOFT DELETES      #
@@ -275,7 +275,7 @@ key-incremental-replication:
 #       FULL TABLE REPLICATION       #
 #------------------------------------#
 
-full-table-replication:
+full-table:
 
 #------------------------------------#
 #       FULL TABLE, SOFT DELETES     #
