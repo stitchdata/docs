@@ -129,21 +129,6 @@ We recommend using Incremental Replication if the table in question contains any
 
 ---
 
-## Deleted records
-
-Depending on the Replication Method being used and how records are deleted in the source, deletes may not be captured during the replication process.
-
-There are two methods that can be used to delete a source record:
-
-- **Soft deletes**, which will leave a record in the source and use a flag to indicate deletion, such as `is_deleted` or `deleted_on`. If the delete event updates the record's Replication Key value, Stitch will detect and replicate the changes.
-- **Hard deletes**, which completely remove records from the source. It's as if the record never existed. If using Key-based Incremental Replication, this will remove the record's Replication Key value, which Stitch uses to identify new and updated records. Without a Replication Key value to check, Stitch can't identify the change and update the record in the destination.
-
-In the tabs below, you'll find details and examples of how each deletion method works with each of Stitch's Replication Methods.
-
-{% include replication/deleted-record-examples.html %}
-
----
-
 ## Learn about SaaS integration Replication Methods
 
 As previously mentioned, Replication Methods can currently only be defined for tables in database integrations.
