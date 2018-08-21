@@ -77,8 +77,7 @@ requirements-list:
   - item: |
       **If using Log-based Replication**, you'll need:
 
-      - **A database running PostgreSQL 9.4.x - 9.9.x.** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
-         We are working on adding support for logical replication in PostgreSQL 10 to this integration.
+      - **A database running PostgreSQL 9.4 or greater** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
       - **The `SUPERUSER` privilege.** If using logical replication, this is required to define the appropriate server settings.
       - **To connect to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
   - item: |
