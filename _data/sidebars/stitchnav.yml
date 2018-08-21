@@ -232,8 +232,19 @@ all-docs:
     - title: Supported Data Types
       url: "{{ link.replication.supported-data-types }}"
 
-    - title: Deletions
-      url: "{{ link.replication.rep-methods }}#deleted-records--incremental-replication"
+    - title: Deleted record handling
+      subsections:
+        - title: "Deletion methods"
+          url: "{{ link.replication.deleted-record-handling }}"
+
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.deleted-record-handling }}#log-based-incremental"
+
+        - title: "Key-based Incremental"
+          url: "{{ link.replication.deleted-record-handling }}#key-based-incremental"
+
+        - title: "Full Table"
+          url: "{{ link.replication.deleted-record-handling }}#full-table"
 
     - title: Monitoring Progress
       subsections:
