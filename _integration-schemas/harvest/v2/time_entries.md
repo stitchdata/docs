@@ -1,107 +1,129 @@
 ---
 tap: "harvest"
 version: "2.0"
+
+name: "time_entries"
+doc-link: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/
+singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/time_entries.json
+description: |
+  The `{{ table.name }}` table contains info about the time entries in your Harvest account.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+  name: List all time entries
+  doc-link: https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries#list-all-time-entries
+
+attributes:
   - name: "id"
     type: "integer"
-    description: ""
+    primary-key: true
+    description: "The time entry ID."
+    foreign-key-id: "time-entry-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: "The time the time entry was last updated."
 
   - name: "spent_date"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date of the time entry."
 
   - name: "user_id"
     type: "integer"
-    description: ""
+    description: "The ID of the user associated with the time entry."
+    foreign-key-id: "user-id"
 
   - name: "user_assignment_id"
     type: "integer"
-    description: ""
+    description: "The ID of the user assignment associated with the time entry."
 
   - name: "client_id"
     type: "integer"
-    description: ""
+    description: "he ID of the client associated with the time entry."
+    foreign-key-id: "client-id"
 
   - name: "project_id"
     type: "integer"
-    description: ""
+    description: "The ID of the project associated with the time entry."
+    foreign-key-id: "project-id"
 
   - name: "task_id"
     type: "integer"
-    description: ""
+    description: "The ID of the task associated with the time entry."
+    foreign-key-id: "task-id"
 
   - name: "task_assignment_id"
     type: "integer"
-    description: ""
+    description: "The ID of the task assignment associated with the time entry."
 
   - name: "external_reference_id"
     type: "integer"
-    description: ""
+    description: "[TODO]"
 
   - name: "invoice_id"
     type: "integer"
-    description: ""
+    description: "The ID of the invoice associated with the time entry."
+    foreign-key-id: "invoice-id"
 
   - name: "hours"
     type: "number"
-    description: ""
+    description: "The number of hours tracked in the time entry."
 
   - name: "notes"
     type: "string"
-    description: ""
+    description: "Notes entered about the time entry."
 
   - name: "is_locked"
     type: "boolean"
-    description: ""
+    description: "If `true`, the time entry is locked."
 
   - name: "locked_reason"
     type: "string"
-    description: ""
+    description: "The reason why the time entry is locked."
 
   - name: "is_closed"
     type: "boolean"
-    description: ""
+    description: "If `true`, the time entry has been approved via Timesheet Approval."
 
   - name: "is_billed"
     type: "boolean"
-    description: ""
+    description: "If `true`, the time entry has been marked as invoiced."
 
   - name: "timer_started_at"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date and time the timer was started, if tracked by duration."
 
   - name: "started_time"
     type: "string"
-    description: ""
+    description: "The time the time entry was started, if tracking by start/end times."
 
   - name: "ended_time"
     type: "string"
-    description: ""
+    description: "The time the time entry was ended, if tracking by start/end times."
 
   - name: "is_running"
     type: "boolean"
-    description: ""
+    description: "If `true`, the time entry is currently running."
 
   - name: "billable"
     type: "boolean"
-    description: ""
+    description: "If `true`, the time entry is billable."
 
   - name: "budgeted"
     type: "number"
-    description: ""
+    description: "If `true`, the time entry counts towards the project budget."
 
   - name: "billable_rate"
     type: "number"
-    description: ""
+    description: "The billable rate for the time entry."
 
   - name: "cost_rate"
     type: "number"
-    description: ""
+    description: "The cost rate for the time entry."
 
   - name: "created_at"
     type: "string"
-    description: ""
-
-  - name: "updated_at"
-    type: "string"
-    description: ""
-
+    description: "The time the time entry was created."
+---

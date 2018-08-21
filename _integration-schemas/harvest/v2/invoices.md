@@ -1,127 +1,160 @@
 ---
 tap: "harvest"
 version: "2.0"
+
+name: "invoices"
+doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/
+singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/schemas/invoices.json
+description: |
+  The `{{ table.name }}` table contains info about the invoices in your Harvest account.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+  name: List all invoices
+  doc-link: https://help.getharvest.com/api-v2/invoices-api/invoices/invoices#list-all-invoices
+
+attributes:
   - name: "id"
     type: "integer"
-    description: ""
+    primary-key: true
+    description: "The invoice ID."
+    foreign-key-id: "invoice-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: "The last time the invoice was updated."
 
   - name: "client_id"
     type: "integer"
-    description: ""
+    description: "The ID of the client associated with the invoice."
+    foreign-key-id: "client-id"
 
   - name: "estimate_id"
     type: "integer"
-    description: ""
+    description: "If applicable, the ID of the estimate associated with the invoice."
+    foreign-key-id: "estimate-id"
 
   - name: "retainer_id"
     type: "integer"
-    description: ""
+    description: "If applicable, the ID of the retainer associated with the invoice."
 
   - name: "creator_id"
     type: "integer"
-    description: ""
+    description: "The ID of the user who created the invoice."
 
   - name: "client_key"
     type: "string"
-    description: ""
+    description: "A string used to build a URL to the public web invoice for the associated client."
 
   - name: "number"
     type: "string"
-    description: ""
+    description: "The invoice number. If no value is set, Harvest will automatically generate a value."
 
   - name: "purchase_order"
     type: "string"
-    description: ""
+    description: "If applicable, the purchase order associated with the invoice."
 
   - name: "amount"
     type: "number"
-    description: ""
+    description: "The total amount of the invoice."
 
   - name: "due_amount"
     type: "number"
-    description: ""
+    description: "The due amount of the invoice."
 
   - name: "tax"
-    type: "string"
-    description: ""
+    type: "string, number"
+    description: "The tax percentage applied to the subtotal, including line items and discounts."
 
   - name: "tax_amount"
     type: "number"
-    description: ""
+    description: "The first amount of tax included, calculated from `tax`. If `tax` is undefined, this value will be `null`."
 
   - name: "tax2"
-    type: "string"
-    description: ""
+    type: "string, number"
+    description: "The tax percentage applied to the subtotal, including line items and discounts."
 
   - name: "tax2_amount"
     type: "number"
-    description: ""
+    description: "The amount calculated from `tax2`."
 
   - name: "discount"
-    type: "string"
-    description: ""
+    type: "string, number"
+    description: "If applicable, the percentage to be subtracted from the subtotal."
 
   - name: "discount_amount"
     type: "number"
-    description: ""
+    description: "If applicable, the amount calculated from `discount`."
 
   - name: "subject"
     type: "string"
-    description: ""
+    description: "The subject of the invoice."
 
   - name: "notes"
     type: "string"
-    description: ""
+    description: "Any notes entered about the invoice."
 
   - name: "currency"
     type: "string"
-    description: ""
+    description: "The currency denomination of the invoice."
 
   - name: "state"
     type: "string"
-    description: ""
+    description: |
+      The state of the invoice. Possible values:
+
+      - `open`
+      - `draft` 
+      - `paid`
+      - `closed`
 
   - name: "period_start"
     type: "string"
-    description: ""
+    description: "The start date of the period associated with the invoice."
 
   - name: "period_end"
     type: "string"
-    description: ""
+    description: "The end date of the period associated with the invoice."
 
   - name: "issue_date"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date the invoice was issued."
 
   - name: "due_date"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date that payment of the invoice is due by."
 
   - name: "payment_term"
     type: "string"
-    description: ""
+    description: |
+      The timeframe in which the invoice should be paid. Possible values are:
+
+      - `upon receipt`
+      - `net 15`
+      - `net 30`
+      - `net 45`
+      - `net 60`
+      - `custom`
 
   - name: "sent_at"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date the invoice was sent."
 
   - name: "paid_at"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date and time the invoice was paid."
 
   - name: "paid_date"
     type: "string"
-    description: ""
+    description: "The date the invoice was paid."
 
   - name: "closed_at"
-    type: "string"
-    description: ""
+    type: "date-time"
+    description: "The date and time the invoice was closed."
 
   - name: "created_at"
-    type: "string"
-    description: ""
-
-  - name: "updated_at"
-    type: "string"
-    description: ""
-
+    type: "date-time"
+    description: "The time the invoice was created."
+---

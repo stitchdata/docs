@@ -9,6 +9,7 @@ description: |
   The `estimate_item_categories` table contains info about the estimate item categories in your Harvest account.
 
 replication-method: "Key-based Incremental"
+
 api-method:
   name: listAllEstimateItemCategories
   doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-item-categories/#list-all-estimate-item-categories
@@ -16,7 +17,13 @@ api-method:
 attributes:
   - name: "id"
     type: "integer"
-    description: "Unique ID for the estimate item category."
+    primary-key: true
+    description: "The estimate item category ID."
+    foreign-key-id: "estimate-item-category-id"
+
+  - name: "updated_at"
+    type: "string"
+    description: "Date and time the estimate item category was last updated."
 
   - name: "name"
     type: "string"
@@ -25,8 +32,4 @@ attributes:
   - name: "created_at"
     type: "string"
     description: "Date and time the estimate item category was created."
-
-  - name: "updated_at"
-    type: "string"
-    description: "Date and time the estimate item category was last updated."
-
+---
