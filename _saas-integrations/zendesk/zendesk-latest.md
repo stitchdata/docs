@@ -12,10 +12,11 @@ layout: singer
 
 name: "zendesk"
 display_name: "Zendesk"
-singer: false
+singer: true
 author: "Stitch"
 author-url: "https://www.stitchdata.com"
 status-url: "https://status.zendesk.com/"
+repo-url: "https://github.com/singer-io/tap-zendesk"
 
 this-version: "1.0"
 
