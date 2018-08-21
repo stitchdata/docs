@@ -81,7 +81,12 @@ log-based-incremental:
 
       **Note**: Identifying hard deleted records is dependent on how the record is deleted, as not all event types are recorded by databases in binary logs. For example: If a record is deleted using `TRUNCATE` in a MySQL database, Stitch will not detect the deletion.
 
-      Refer to the [MySQL]() and [PostgreSQL]() documentation for more details.
+      The following event types will be detected by {{ replication-method-display-name }} for MySQL- and PostgreSQL-backed database integrations:
+
+      - `INSERT`
+      - `UPDATE`
+      - `DELETE`
+
     columns:
       - name: "id"
       - name: "name"
@@ -333,6 +338,14 @@ full-table:
   - type: "hard"
     description: |
       In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
+
+      {% capture switch-view-notice %}
+      If using a BigQuery destination, this example is relevant only to integrations where you can define Replication Methods for tables.
+
+      For other integrations used with BigQuery destinations, see the **Hard deletes in BigQuery** tab for an example of how hard deletes are handled.
+      {% endcapture %}
+
+      {% include important.html first-line="**BigQuery destinations**" content=switch-view-notice %}
     columns:
       - name: "id"
       - name: "name"
@@ -340,7 +353,7 @@ full-table:
       - job: "initial"
         source: "Stitch replicates the entire table."
         destination: |
-          Stitch deletes and recreates the table in a single transaction, loading the replicated table in full.
+          Stitch loads the table in full.
         tables:
           - location: "source"
             records: &full-hard-initial-source-table
@@ -374,3 +387,67 @@ full-table:
 
           - location: "destination"
             records: *full-hard-second-source-table
+
+  - type: "bigquery"
+    description: |
+      In this example, we'll demonstrates what happens when a record is hard-deleted - or removed entirely - from the source.
+
+      How hard deletes are handled in BigQuery depends on the **integration**:
+
+      - **If you can define Replication Methods for an integration**, Stitch will delete and re-create tables in a single transaction. This is the scenario described in the **Hard deletes** tab for this section.
+      - **Otherwise**, Stitch will append the table in full to the destination table. **This is the scenario we'll outline here.**
+    columns:
+      - name: "id"
+      - name: "name"
+    examples:
+      - job: "initial"
+        source: "Stitch replicates the entire table."
+        destination: |
+          Stitch loads the table in full.
+        tables:
+          - location: "source"
+            records: &full-hard-initial-source-table
+              - id: "1"
+                name: "Finn"
+
+              - id: "2"
+                name: "Jake"
+
+              - id: "3"
+                name: "Bubblegum"
+
+          - location: "destination"
+            records: *full-hard-initial-source-table
+
+      - job: "second"
+        source: |
+          Before the second job begins, record `2` is hard deleted and removed entirely from the source.
+
+          Stitch replicates the table in full.
+        destination: |
+          Stitch appends the replicated data to the end of the table in the destination. In this case, records `1` and `3` would be appended.
+        tables:
+          - location: "source"
+            records:
+              - id: "1"
+                name: "Finn"
+
+              - id: "3"
+                name: "Bubblegum"
+
+          - location: "destination"
+            records:
+              - id: "1"
+                name: "Finn"
+
+              - id: "2"
+                name: "Jake"
+
+              - id: "3"
+                name: "Bubblegum"
+
+              - id: "1"
+                name: "Finn"
+
+              - id: "3"
+                name: "Bubblegum"

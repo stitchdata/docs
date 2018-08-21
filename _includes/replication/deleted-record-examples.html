@@ -10,8 +10,14 @@
     {% assign replication-method-display-name = include.display-name %}
 
 <!-- Create an array of deletion methods, so we can loop through them -->
-    {% assign deletion-methods = "soft|hard" | split: "|" %}
 
+{% case include.replication-method %}
+    {% when 'full-table' %}
+        {% assign deletion-methods = "soft|hard|bigquery" | split: "|" %}
+
+    {% else %}
+        {% assign deletion-methods = "soft|hard" | split: "|" %}
+{% endcase %}
 
 
 <!-- Start the content -->
@@ -22,11 +28,18 @@
 <ul id="profileTabs" class="nav nav-tabs">
     {% for deletion-method in deletion-methods %}
         {% case forloop.first %}
-            <li class="active">
-        {% else %}
-            <li>
+            {% when 'true' %}
+                <li class="active">
+            {% else %}
+                <li>
         {% endcase %}
-            <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">{{ deletion-method | capitalize }} deletes</a>
+
+        {% case deletion-method %}
+            {% when 'bigquery' %}
+                <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">Hard deletes in BigQuery</a>
+            {% else %}
+                <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">{{ deletion-method | capitalize }} deletes</a>
+        {% endcase %}
         </li>
     {% endfor %}
 </ul>
@@ -44,14 +57,27 @@
         {% for delete in deleted-record-examples %}
             {% if deletion-method == delete.type %}
                 <span class="h3">
-                    {{ delete.type | capitalize | append: " deletes" }} with {{ replication-method-display-name }}
+                    {% case deletion-method %}
+                        {% when 'bigquery' %}
+                            Hard deletes with {{ replication-method-display-name }} in BigQuery
+
+                        {% else %}
+                            {{ delete.type | capitalize | append: " deletes" }} with {{ replication-method-display-name }}
+                    {% endcase %}
                 </span>
 
                     {{ delete.description | flatify | markdownify }}
 
                         {% for example in delete.examples %}
                             <span class="h4">
-                                {{ delete.type | capitalize | append: " delete" }}: {{ example.job | capitalize | append: " job" }}
+
+                                {% case deletion-method %}
+                                    {% when 'bigquery' %}
+                                        Hard delete in BigQuery: {{ example.job | capitalize | append: " job" }} 
+
+                                    {% else %}
+                                        {{ delete.type | capitalize | append: " delete" }}: {{ example.job | capitalize | append: " job" }}
+                                {% endcase %}
                             </span>
 
                             <p>
