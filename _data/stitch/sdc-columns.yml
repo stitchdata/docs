@@ -41,9 +41,11 @@ current-columns:
 # DELETED_AT
   deleted-at: &deleted-at "_sdc_deleted_at"
   deleted-at-description: &deleted-at-description |
-    **Applicable only to database integrations that support Log-based Replication.** Timestamp indicating when Stitch detected a `DeletedRowsEvent` for the record while reading from the database's binary log. Otherwise, this field will be null.
+    **Applicable only to database integrations that support Log-based Replication.** Timestamp indicating when Stitch detected a `DELETE` event for the record while reading from the database's binary log. Otherwise, this field will be null.
 
     Additionally, this column will not populate until after the initial historical replication job has been completed. Stitch can only detect delete row events while reading from binary logs, which are not used during initial replication jobs.
+
+    **Note**: Only certain event types are supported for Log-based Replication. Refer to the [Deleted record handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for more info.
 
 # EXTRACTED_AT
   extracted-at: &extracted-at "_sdc_extracted_at"
@@ -106,7 +108,7 @@ current-columns:
 # REPORT DATE TIME
   report-date-time: &report-date-time "_sdc_report_datetime"
   report-date-time-description: &report-date-time-description |
-    **Applicable only to Google AdWords inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
+    **Applicable only to Google AdWords and DoubleClick Campaign Manager inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
 
 #------------------------------------#
 #           LIST OF COLUMNS          #
@@ -125,6 +127,18 @@ current-columns:
 # description: column description
 
 attributes:
+  - name: *deleted-at
+    type: "timestamp"
+    applicable-to: "all"
+    description: *deleted-at-description
+    # data: "2016-07-14 19:56:38.58"
+
+  - name: *extracted-at
+    type: "timestamp"
+    applicable-to: "all"
+    description: *extracted-at-description
+    # data: "2016-07-14 19:56:38.58"
+
   - name: *received-at
     type: "timestamp"
     applicable-to: "all"
