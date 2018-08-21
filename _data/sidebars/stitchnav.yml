@@ -235,16 +235,16 @@ all-docs:
     - title: Deleted record handling
       subsections:
         - title: "Deletion methods"
-          url: "{{ link.replication.deleted-record-handling }}"
+          url: "{{ link.replication.deleted-records }}"
 
         - title: "Log-based Incremental"
-          url: "{{ link.replication.deleted-record-handling }}#log-based-incremental"
+          url: "{{ link.replication.deleted-records }}#log-based-incremental"
 
         - title: "Key-based Incremental"
-          url: "{{ link.replication.deleted-record-handling }}#key-based-incremental"
+          url: "{{ link.replication.deleted-records }}#key-based-incremental"
 
         - title: "Full Table"
-          url: "{{ link.replication.deleted-record-handling }}#full-table"
+          url: "{{ link.replication.deleted-records }}#full-table"
 
     - title: Monitoring Progress
       subsections:
@@ -263,7 +263,21 @@ all-docs:
       url: "{{ link.replication.loading-reports }}"
 
     - title: Integration Schemas
-      url: "{{ link.destinations.storage.stitch-schema }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.storage.stitch-schema }}"
+
+        - title: "Schema Names"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
+
+        - title: "Schema Composition"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
+
+        - title: "Table Schemas"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
+
+        - title: "_sdc Columns"
+          url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
 
     - title: Loading Data into Destinations
       url: "{{ link.destinations.storage.loading-data }}"
@@ -276,6 +290,9 @@ all-docs:
 
     - title: Append-Only Tables
       url: "{{ link.replication.append-only }}"
+
+    - title: "_sdc Columns"
+      url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
 
     - title: Rejected Records
       url: "{{ link.destinations.storage.rejected-records }}"
