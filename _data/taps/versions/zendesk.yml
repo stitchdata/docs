@@ -16,3 +16,37 @@ released-versions:
     date-last-connection: "July 31, 2018"
     deprecated: true
     deprecation-date: "November 5, 2018"
+
+# -------------------------- #
+#     ZENDESK CHANGELOG     #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/integrations/templates/versioning/integration-changelog.html
+
+changelog-entries:
+  - date: "August 15, 2018"
+    version: "1.0"
+    type: "new-data"
+    content: |
+      Two additional tables have been added to v1.0 of Zendesk:
+
+      - `satisfaction_ratings` - This table contains info about ratings users have offered on ticket.
+      - `ticket_comments` - This table contains info about the conversation between agents, requesters, and collaborators on tickets.
+
+  - date: "August 1, 2018"
+    version: "1.0"
+    type: "new-version"
+    content: |
+      Highlights include:
+
+      - Table and column selection
+      - Support for Extraction Logs, Loading Reports, and Anchor Scheduling

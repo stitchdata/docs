@@ -14,6 +14,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The rate plan charge tier ID."
+    foreign-key-id: "rate-plan-charge-tier-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,7 +24,7 @@ attributes:
   - name: "amendmentId"
     type: "string"
     description: "The ID of the amendment associated with the rate plan."
-    foreign-key: true
+    foreign-key-id: "amendment-id"
 
   - name: "createdById"
     type: "string"
@@ -57,22 +58,22 @@ attributes:
   - name: "productRatePlanChargeId"
     type: "string"
     description: "The ID of the product rate plan charge associated with the tier."
-    foreign-key: true
+    foreign-key-id: "product-rate-plan-charge-id"
 
   - name: "productRatePlanId"
     type: "string"
     description: "The ID of the product rate plan associated with the tier."
-    foreign-key: true
+    foreign-key-id: "product-rate-plan-id"
 
   - name: "ratePlanChargeId"
     type: "string"
     description: "The ID of the subscription or amendment rate plan charge associated with the tier."
-    foreign-key: true
+    foreign-key-id: "rate-plan-charge-id"
 
   - name: "ratePlanId"
     type: "string"
     description: "The ID of the rate plan associated with the tier."
-    foreign-key: true
+    foreign-key-id: "rate-plan-id"
 
   - name: "startingUnit"
     type: "number"
@@ -81,7 +82,7 @@ attributes:
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription associated with the tier."
-    foreign-key: true
+    foreign-key-id: "subscription-id"
 
   - name: "tier"
     type: "integer"

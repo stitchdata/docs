@@ -6,7 +6,7 @@ name: "journalRun"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Journal-Runs
 #singer-schema: 
 description: |
-  The `journalRun` table contains information about journal runs.
+  The `{{ table.name }}` table contains information about journal runs.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The journal run ID."
+    foreign-key-id: "journal-run-id"
 
   - name: "updatedDate"
     type: "date-time"

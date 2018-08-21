@@ -25,6 +25,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The group membership ID."
+    # foreign-key-id: "group-membership-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -34,12 +35,12 @@ attributes:
   - name: "user_id"
     type: "integer"
     description: "The ID of the agent."
-    foreign-key: true
+    foreign-key-id: "user-id"
 
   - name: "group_id"
     type: "integer"
     description: "The ID of the group."
-    foreign-key: true
+    foreign-key-id: "group-id"
 
   - name: "default"
     type: "boolean"

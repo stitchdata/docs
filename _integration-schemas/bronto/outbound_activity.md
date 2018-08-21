@@ -15,6 +15,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The outbound activity ID."
+    foreign-key-id: "outbound-activity-id"
 
   - name: "createdDate"
     type: "date-time"
@@ -28,6 +29,7 @@ attributes:
   - name: "deliveryId"
     type: "string"
     description: "The ID assigned to the delivery associated with the activity."
+    foreign-key-id: "delivery-id"
 
   - name: "deliveryType"
     type: "string"
@@ -59,6 +61,7 @@ attributes:
   - name: "orderId"
     type: "string"
     description: "The ID assigned to the order. The `orderId` property is returned if the `activityType` is `conversion`."
+    foreign-key-id: "order-id"
 
   - name: "webformAction"
     type: "string"
@@ -71,7 +74,7 @@ attributes:
   - name: "listId"
     type: "string"
     description: "The ID assigned to the list that the delivery associated with the activity was sent to."
-    foreign-key: true
+    foreign-key-id: "list-id"
 
   - name: "socialNetwork"
     type: "string"
@@ -103,6 +106,7 @@ attributes:
   - name: "segmentId"
     type: "string"
     description: "The ID assigned to the segment that the delivery associated with the activity was sent to."
+    foreign-key-id: "segment-id"
 
   - name: "deliveryStart"
     type: "string"
@@ -111,6 +115,7 @@ attributes:
   - name: "contactId"
     type: "string"
     description: "The ID assigned to the contact associated with the activity."
+    foreign-key-id: "contact-id"
 
   - name: "listLabel"
     type: "string"
@@ -135,10 +140,12 @@ attributes:
   - name: "messageId"
     type: "string"
     description: "The ID assigned to the message associated with the activity."
+    foreign-key-id: "message-id"
 
   - name: "workflowId"
     type: "string"
     description: "The ID assigned to the workflow that sent the delivery associated with the activity."
+    foreign-key-id: "workflow-id"
 
   - name: "smsKeywordName"
     type: "string"
@@ -147,6 +154,7 @@ attributes:
   - name: "keywordId"
     type: "string"
     description: "The ID assigned to the SMS keyword that the SMS delivery associated with the activity was sent to."
+    foreign-key-id: "keyword-id"
 
   - name: "activityType"
     type: "string"

@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The campaign ID."
+    # foreign-key-id: "campaign-id"
 
   - name: "title"
     type: "string"
@@ -42,8 +43,7 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The list ID."
-        foreign-key: true
-        table: "lists_all"
+        foreign-key-id: "list-id"
 
   - name: "segment_ids"
     type: "array"
@@ -52,8 +52,7 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The segment ID."
-        foreign-key: true
-        table: "segments_all"
+        foreign-key-id: "segment-id"
 
   - name: "categories"
     type: "array"
@@ -66,7 +65,7 @@ attributes:
   - name: "suppression_group_id"
     type: "integer"
     description: "The ID of the suppression group that the marketing email belongs to, allowing recipients to opt-out of emails of this type."
-    foreign-key: true
+    foreign-key-id: "suppression-group-id"
 
   - name: "custom_unsubscribe_url"
     type: "string"

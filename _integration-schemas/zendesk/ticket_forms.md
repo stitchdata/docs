@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ticket form ID."
+    foreign-key-id: "ticket-form-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -78,8 +79,7 @@ attributes:
       - name: "value"
         type: "integer"
         description: "The ID of the ticket field."
-        foreign-key: true
-        table: "ticket_fields"
+        foreign-key-id: "ticket-field-id"
 
   - name: "restricted_brand_ids"
     type: "array"

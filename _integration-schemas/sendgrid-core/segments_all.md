@@ -20,6 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The segment ID."
+    foreign-key-id: "segment-id"
 
   - name: "name"
     type: "string"

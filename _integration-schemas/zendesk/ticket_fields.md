@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ticket field ID."
+    foreign-key-id: "ticket-field-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -141,5 +142,4 @@ attributes:
       # - name: "raw_name"
       #   type: "string"
       #   description:
-
 ---

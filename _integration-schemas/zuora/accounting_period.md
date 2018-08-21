@@ -6,7 +6,7 @@ name: "accountingPeriod"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounting-Periods
 #singer-schema: 
 description: |
-  The `accountingPeriod` table contains information about the [accounting periods](https://knowledgecenter.zuora.com/CC_Finance/E_Accounting_Periods) in your Zuora account.
+  The `{{ table.name }}` table contains information about the [accounting periods](https://knowledgecenter.zuora.com/CC_Finance/E_Accounting_Periods) in your Zuora account.
 
   **Note**: To replicate this table, you must have Zuora Finance enabled.
 
@@ -20,6 +20,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The accounting period ID."
+    foreign-key-id: "accounting-period-id"
 
   - name: "updatedDate"
     type: "date-time"

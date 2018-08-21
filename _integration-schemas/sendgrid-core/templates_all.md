@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The template ID."
+    # foreign-key-id: "template-id"
 
   - name: "name"
     type: "string"

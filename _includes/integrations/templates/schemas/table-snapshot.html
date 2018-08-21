@@ -1,50 +1,141 @@
-{% if table.replication-key.name %}
-    {% assign tooltip = table.replication-key.tooltip %}
-{% endif %}
+<!-- This file gets "overview" data for a given table: its Replication Key, Primary Key(s), API info, etc. -->
 
-<table class="table-snapshot table-hover">
-    <tr>
-        <td>
-            <strong>Replication Method:</strong> {{ table.replication-method }}
-        </td>
-        
-        {% if table.replication-method contains "Incremental" %}
-            <td>
-                <strong>Replication Key {{ ui-icon.replication-key | flatify }}:</strong> <code>{{ replication-keys | strip }}</code> {% if table.replication-key.name %}{{ info-icon | replace:"TOOLTIP",tooltip }}{% endif %}
-            </td>
-        </tr>
-        <tr>
-        {% if table.api-method.name or table.doc-link %}
-            <td width="50%; fixed">
-        {% else %}
-            <td colspan="2">
-        {% endif %}
-                <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
-            </td>
-            {% if table.api-method.name %}
-                <td>
-                    <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentnation" target="new">{{ table.api-method.name }}</a></code> 
-                </td>
+<!-- Some tables can have composite keys, or multiple columns that make up a PK. 
+     Jekyll tends to add a lot of ugly white space to lists of Liquid variables, so 
+     to get this to display nicely in the table snapshot, we have to:
 
-            {% elsif table.doc-link %}
-                <td>
-                    <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentnation" target="new">Official Docs</a>
-                </td>
+     1. Run a forloop that captures the names of all attributes marked as PKs and save it as clean-keys,
+     2. Append ":" to each attribute name (for visual separation),
+     3. Split the clean-keys array, reverse it, join it, and then remove the first ":" (this is because Liquid doesn't have a remove_last filter) and save it as reverse-pk-keys
+     4. Split the reverse-pk-keys array, reverse it, and join it again -->
+
+<!-- GET AND CLEAN PRIMARY KEY FIELDS -->
+    {% capture clean-keys %}
+        {% for attribute in table.attributes %}
+            {% if attribute.primary-key == true %}
+                {{ attribute.name | flatify | append: " :" }}
             {% endif %}
-        {% elsif table.replication-method == "Full Table" %}
+        {% endfor %}
+    {% endcapture %}
+
+    {% capture reverse-pk-keys %}
+        {{ clean-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+    {% endcapture %}
+
+    {% capture primary-keys %}
+        {{ reverse-pk-keys | split: "" | reverse | join: "" }}
+    {% endcapture %}
+<!-- End PKs -->
+
+
+<!-- GET REPLICATION KEY FIELDS -->
+<!-- The process here is the same as the one for Primary Keys, but
+    1. Only runs if the table is marked as "Incremental"
+    2. Captures attributes marked as Replication Keys -->
+
+    {% if table.replication-method contains "Incremental" %}
+
+    <!-- Sometimes Stitch uses query parameters to incrementally replicate
+    data. Since this isn't actually a field, it won't be in the table.attributes
+    list - it gets its own Frontmatter variable (table.replication-key).
+     -->
+        {% if table.replication-key.name %}
+            {% assign replication-keys = table.replication-key.name %}
+            {% assign tooltip = table.replication-key.tooltip %}
+
+        {% else %}
+
+            {% capture clean-replication-keys %}
+                {% for attribute in table.attributes %}
+                    {% if attribute.replication-key == true %}
+                        {{ attribute.name | flatify | append: " :" }}
+                    {% endif %}
+                {% endfor %}
+            {% endcapture %}
+
+            {% capture reverse-rk-keys %}
+                {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+            {% endcapture %}
+
+            {% capture replication-keys %}
+                {{ reverse-rk-keys | split: "" | reverse | join: "" }}
+            {% endcapture %}
+        {% endif %}
+    {% endif %}
+<!-- End Replication Key -->
+
+
+<!-- CAPTURE FORMATTING FOR SNAPSHOT ATTRIBUTES -->
+
+    <!-- PRIMARY KEYS -->
+        {% capture primary-key-formatting %}
+            <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
+        {% endcapture %}
+
+    <!-- REPLICATION KEYS -->
+        {% capture replication-key-formatting %}
+            <strong>Replication Key {{ ui-icon.replication-key | flatify }}:</strong> <code>{{ replication-keys | strip }}</code> {% if table.replication-key.name %}{{ info-icon | replace:"TOOLTIP",tooltip }}{% endif %}
+        {% endcapture %}
+
+    <!-- API ENDPOINTS -->
+        {% capture api-endpoint-formatting %}
+            <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a></code> 
+        {% endcapture %}
+
+    <!-- DOCUMENTATION LINKS -->
+        {% capture documentation-link-formatting %}
+            <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>
+        {% endcapture %}
+
+<!-- BEGIN TABLE FORMATTING -->
+    <table class="table-snapshot table-hover">
+        <tr>
+            <td>
+                <strong>Replication Method:</strong> {{ table.replication-method }}
+            </td>
+{% case table.replication-method %}
+
+<!-- FOR FULL TABLES -->
+    {% when 'Full Table' %}
             <td>
                 {% if table.api-method.name %}
-                    <strong>API Endpoint:</strong> <code><a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentnation" target="new">{{ table.api-method.name }}</a></code>
+                    {{ api-endpoint-formatting }}
 
                 {% elsif table.doc-link %}
-                    <strong>Documentation:</strong> <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentnation" target="new">Official Docs</a>
+                    {{ documentation-link-formatting }}
                 {% endif %}
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <strong>Primary Key {{ ui-icon.primary-key | flatify }}:</strong> <code>{{ primary-keys | strip }}</code>
+                {{ primary-key-formatting }}
             </td>
         </tr>
-        {% endif %}
-</table>
+
+<!-- FOR INCREMENTAL TABLES -->
+    {% else %}
+            <td>
+                {{ replication-key-formatting }}
+            </td>
+        </tr>
+        <tr>
+            {% if table.api-method.name or table.doc-link %}
+                <td width="50%; fixed">
+            {% else %}
+                <td colspan="2">
+            {% endif %}
+                    {{ primary-key-formatting }}
+                </td>
+            {% if table.api-method.name %}
+                <td>
+                    {{ api-endpoint-formatting }}
+                </td>
+
+            {% elsif table.doc-link %}
+                <td>
+                    {{ documentation-link-formatting }}
+                </td>
+            {% endif %}
+        </tr>
+{% endcase %}
+    </table>

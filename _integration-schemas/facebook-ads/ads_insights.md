@@ -27,19 +27,19 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the ad."
-    foreign-key: true
+    foreign-key-id: "ad-id"
 
   - name: "adset_id"
     type: "string"
     primary-key: true
     description: "The ID of the ad set. An ad set is a group of ads that share the same budget, schedule, delivery optimization, and targeting."
-    foreign-key: true
+    foreign-key-id: "adset-id"
 
   - name: "campaign_id"
     type: "string"
     primary-key: true
     description: "The ID of the campaign. Campaigns contain ad sets and ads."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "date_start"
     type: "date-time"
@@ -109,6 +109,7 @@ attributes:
   - name: "account_id"
     type: "string"
     description: "The ID number of your ad account."
+    foreign-key-id: "account-id"
 
   - name: "account_name"
     type: "string"

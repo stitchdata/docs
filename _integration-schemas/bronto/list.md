@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The unique id assigned to the list."
+    foreign-key-id: "list-id"
 
   - name: "label"
     type: "string"

@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The review ID."
+    foreign-key-id: "product-review-id"
 
   - name: "created_at"
     type: "string"
@@ -54,8 +55,7 @@ attributes:
   - name: "source_review_id"
     type: "number"
     description: "If applicable, the source review ID."
-    foreign-key: true
-    table: "reviews"
+    foreign-key-id: "source-review-id"
 
   - name: "sentiment"
     type: "number"
@@ -64,7 +64,7 @@ attributes:
   - name: "product_id"
     type: "number"
     description: "The ID of the product that was reviewed."
-    foreign-key: true
+    foreign-key-id: "product-id"
 
   - name: "user"
     type: "object"
@@ -73,6 +73,7 @@ attributes:
       - name: "user_id"
         type: "number"
         description: "The ID of the user who wrote the review."
+        # foreign-key-id: "user-id"
 
       - name: "display_name"
         type: "string"
@@ -113,6 +114,7 @@ attributes:
       - name: "id"
         type: "number"
         description: "The comment ID."
+        # foreign-key-id: "comment-id"
 
       - name: "content"
         type: "string"
