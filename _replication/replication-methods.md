@@ -37,6 +37,10 @@ There are two types of binary log replication: statement and row-based. Stitch u
 
 Using Log-based Incremental Replication requires a specific database configuration and is only available for MySQL- and PostgreSQL-backed databases. For setup instructions, refer to the [database integration]({{ site.baseurl }}/integrations/databases) documentation for your database.
 
+### Deleted record handling and Log-based Incremental {#log-based-incremental-deletes}
+
+Depending on the method used to delete a record, Stitch may be able to capture the deleted record. Refer to the [Deleted Record Handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for an explanation and examples.
+
 ---
 
 ## Key-based Incremental Replication {#incremental-replication}
@@ -117,6 +121,10 @@ This means that there can be many different rows in a table with the same Primar
 
 {% include replication/append-only-replication-example.html %}
 
+### Deleted record handling and Key-based Incremental {#key-based-incremental-deletes}
+
+Stitch is only able to capture **soft-deleted** records in tables using Key-based Incremental Replication. Refer to the [Deleted Record Handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for an explanation and examples.
+
 ---
 
 ## Full Table Replication {#full-table-replication}
@@ -126,6 +134,10 @@ Full Table Replication means that **Stitch will replicate the entire contents of
 We recommend using Incremental Replication if the table in question contains any timestamped or datetime columns.
 
 **Note** Stitch does not currently support Full Table Replication for Mongo integrations.
+
+### Deleted record handling and Full Table {#full-table-deletes}
+
+Depending on the method used to delete a record, Stitch may be able to capture the deleted record. Refer to the [Deleted Record Handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for an explanation and examples.
 
 ---
 
