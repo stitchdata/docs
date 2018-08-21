@@ -8,7 +8,13 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `{{ table.name }}` table contains pairs of time entry IDs and external reference IDs. This data can be used to tie time entries tracked in external services (such as Trello) to your other Harvest data.
 
+  **Note**: This table is updated based on new and updated `time_entries`. This means that when a time entry is updated, this table will also be updated.
+
 replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "updated_at"
+  ## This is replicated as part of the parent table, time_entries
 
 api-method:
   name: List all time entries

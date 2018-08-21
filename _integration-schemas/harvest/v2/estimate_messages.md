@@ -16,9 +16,10 @@ api-method:
 
 attributes:
   - name: "id"
-    type: "integer" 
+    type: "integer"
+    primary-key: true
     description: "The estimate message ID."
-    foreign-key-id: "estimate-message-id"
+    # foreign-key-id: "estimate-message-id"
 
   - name: "updated_at"
     type: "string"

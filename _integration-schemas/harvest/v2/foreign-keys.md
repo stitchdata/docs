@@ -62,7 +62,7 @@ foreign-keys:
       - table: "invoices"
 
   - id: "expense-category-id"
-    attribute: ""
+    attribute: "expense_category_id"
     table: "expense_categories"
     join-on: "id"
     all-foreign-keys:
@@ -85,6 +85,7 @@ foreign-keys:
     all-foreign-keys:
       - table: "external_references"
         join-on: "id"
+      - table: "time_entries"
       - table: "time_entry_external_reference"
 
   - id: "invoice-item-categories"
@@ -197,6 +198,10 @@ foreign-keys:
     table: "users"
     join-on: "id"
     all-foreign-keys:
+      - table: "estimates"
+        join-on: "creator_id"
+      - table: "invoices"
+        join-on: "creator_id"
       - table: "project_tasks"
       - table: "time_entries"
       - table: "users"

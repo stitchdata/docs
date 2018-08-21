@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the invoice item category."
-    foreign-key-id: "invoice-item-categories"
+    # foreign-key-id: "invoice-item-categories"
 
   - name: "updated_at"
     type: "date-time"

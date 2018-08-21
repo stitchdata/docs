@@ -18,52 +18,24 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the invoice message."
-    foreign-key-id: "invoice-message-id"
+    # foreign-key-id: "invoice-message-id"
 
   - name: "updated_at"
     type: "date-time"
     replication-key: true
     description: "The time the invoice message was last updated."
 
-  - name: "sent_by"
-    type: "string"
-    description: "The name of the user who created the invoice message."
-
-  - name: "sent_by_email"
-    type: "string"
-    description: "The email address of the user who created the invoice message."
-
-  - name: "sent_from"
-    type: "string"
-    description: "The name of the user who sent the invoice message."
-
-  - name: "sent_from_email"
-    type: "string"
-    description: "The email address the invoice message was sent from."
-
-  - name: "subject"
-    type: "string"
-    description: "The subject of the invoice message."
+  - name: "attach_pdf"
+    type: "boolean"
+    description: "If `true`, a PDF of the invoice was attached to the message."
 
   - name: "body"
     type: "string"
     description: "The body of the invoice message."
 
-  - name: "include_link_to_client_invoice"
-    type: "boolean"
-    description: "If `true`, a link to the client invoice was included in the message body."
-
-  - name: "attach_pdf"
-    type: "boolean"
-    description: "If `true`, a PDF of the invoice was attached to the message."
-
-  - name: "send_me_a_copy"
-    type: "boolean"
-    description: "If `true`, a copy will be emailed to the current user."
-
-  - name: "thank_you"
-    type: "boolean"
-    description: "Indicates if this is a `thank you` message."
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the invoice message was created."
 
   - name: "event_type"
     type: "string"
@@ -76,17 +48,9 @@ attributes:
       - `re-open`
       - `view`
 
-  - name: "reminder"
+  - name: "include_link_to_client_invoice"
     type: "boolean"
-    description: "If `true`, this is a reminder message."
-
-  - name: "send_reminder_on"
-    type: "date-time"
-    description: "The date that a reminder should be sent."
-
-  - name: "created_at"
-    type: "date-time"
-    description: "The time the invoice message was created."
+    description: "If `true`, a link to the client invoice was included in the message body."
 
   - name: "invoice_id"
     type: "integer"
@@ -104,4 +68,41 @@ attributes:
       - name: "email"
         type: "string"
         description: "The email address of the message recipient."
+
+  - name: "reminder"
+    type: "boolean"
+    description: "If `true`, this is a reminder message."
+
+  - name: "sent_by"
+    type: "string"
+    description: "The name of the user who created the invoice message."
+
+  - name: "sent_by_email"
+    type: "string"
+    description: "The email address of the user who created the invoice message."
+
+  - name: "sent_from"
+    type: "string"
+    description: "The name of the user who sent the invoice message."
+
+  - name: "sent_from_email"
+    type: "string"
+    description: "The email address the invoice message was sent from."
+
+  - name: "send_me_a_copy"
+    type: "boolean"
+    description: "If `true`, a copy will be emailed to the current user."
+
+  - name: "send_reminder_on"
+    type: "date-time"
+    description: "The date that a reminder should be sent."
+
+  - name: "subject"
+    type: "string"
+    description: "The subject of the invoice message."
+
+  - name: "thank_you"
+    type: "boolean"
+    description: "Indicates if this is a `thank you` message."
+
 ---

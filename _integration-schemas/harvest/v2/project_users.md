@@ -26,15 +26,17 @@ attributes:
     replication-key: true
     description: "The last time the project user was updated."
 
-  - name: "project_id"
-    type: "integer"
-    description: "The ID of the project the user is assigned to."
-    foreign-key-id: "project-id"
+  - name: "budget"
+    type: "number"
+    description: "If applicable, the budget of the project user."
 
-  - name: "user_id"
-    type: "integer"
-    description: "The user ID of the project user."
-    foreign-key-id: "user-id"
+  - name: "created_at"
+    type: "string"
+    description: "The time the project user was created."
+
+  - name: "hourly_rate"
+    type: "number"
+    description: "The hourly rate of the project user."
 
   - name: "is_active"
     type: "boolean"
@@ -44,15 +46,13 @@ attributes:
     type: "boolean"
     description: "If `true`, the project user is a project manager."
 
-  - name: "hourly_rate"
-    type: "number"
-    description: "The hourly rate of the project user."
+  - name: "project_id"
+    type: "integer"
+    description: "The ID of the project the user is assigned to."
+    foreign-key-id: "project-id"
 
-  - name: "budget"
-    type: "number"
-    description: "If applicable, the budget of the project user."
-
-  - name: "created_at"
-    type: "string"
-    description: "The time the project user was created."
+  - name: "user_id"
+    type: "integer"
+    description: "The user ID of the project user."
+    foreign-key-id: "user-id"
 ---

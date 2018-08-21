@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The expense ID."
-    foreign-key-id: "expense-id"
+    # foreign-key-id: "expense-id"
 
   - name: "updated_at"
     type: "date-time"

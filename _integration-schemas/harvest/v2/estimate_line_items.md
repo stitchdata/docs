@@ -8,18 +8,24 @@ singer-schema: https://github.com/singer-io/tap-harvest/blob/master/tap_harvest/
 description: |
   The `{{ table.name }}` table contains info about the line items contained in estimates.
 
+  **Note**: This table is updated based on new and updated `estimates`. This means that when an estimate is updated, this table will also be updated.
+
 replication-method: "Key-based Incremental"
 
+replication-key:
+  name: "updated_at"
+  ## This is replicated as part of the parent table, estimates
+
 api-method:
-  name: 
-  doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-client-contacts-api/#get-all-contacts
+  name: List all estimates
+  doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimates/#get-all-estimates
 
 attributes:
   - name: "id"
     type: "integer"
     primary-key: true
     description: "The estimate line item ID."
-    foreign-key-id: "estimate-line-item-id"
+    # foreign-key-id: "estimate-line-item-id"
 
   - name: "estimate_id"
     type: "integer"

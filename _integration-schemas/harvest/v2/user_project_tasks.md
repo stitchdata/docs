@@ -9,8 +9,14 @@ description: |
   The `{{ table.name }}` table contains pairs of user IDs and project task IDs.
 
    This data can be used to see lists of all the project tasks associated with a user, and join tables together to get a comprehensive look at the user's projects.
+  
+  **Note**: This table is updated based on new and updated `users`. This means that when a user is updated, this table will also be updated.
 
 replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "updated_at"
+  ## This is replicated as part of the parent table, users
 
 api-method:
   name: 

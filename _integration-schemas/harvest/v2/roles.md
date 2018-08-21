@@ -26,11 +26,11 @@ attributes:
     replication-key: true
     description: "The date and time the role was last updated."
 
-  - name: "name"
-    type: "string"
-    description: "The name of the role."
-
   - name: "created_at"
     type: "date-time"
     description: "The date and time the role was created."
+
+  - name: "name"
+    type: "string"
+    description: "The name of the role."
 ---

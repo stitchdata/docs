@@ -26,27 +26,27 @@ attributes:
     replication-key: true
     description: "The date and time the task was last updated."
 
-  - name: "name"
-    type: "string"
-    description: "The name of the task."
-
   - name: "billable_by_default"
     type: "boolean"
     description: "If `true`, default tasks should be marked as billable when creating a new project."
+
+  - name: "created_at"
+    type: "string"
+    description: "The date and time the task was created."
 
   - name: "default_hourly_rate"
     type: "number"
     description: "The hourly rate to use for the task when it is added to a project."
 
-  - name: "is_default"
-    type: "boolean"
-    description: "If `true`, the task should be automatically added to new projects."
-
   - name: "is_active"
     type: "boolean"
     description: "If `true`, the task is active."
 
-  - name: "created_at"
+  - name: "is_default"
+    type: "boolean"
+    description: "If `true`, the task should be automatically added to new projects."
+
+  - name: "name"
     type: "string"
-    description: "The date and time the task was created."
+    description: "The name of the task."
 ---

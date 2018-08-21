@@ -25,6 +25,26 @@ attributes:
     replication-key: true
     description: "The last time the project task was updated."
 
+  - name: "billable"
+    type: "boolean"
+    description: "If `true`, the project task is billable."
+
+  - name: "budget"
+    type: "number"
+    description: "The budget associated with the project task."
+
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the project task was created."
+
+  - name: "hourly_rate"
+    type: "number"
+    description: "The hourly rate of the project task."
+
+  - name: "is_active"
+    type: "boolean"
+    description: "If `true`, the project task is active."
+
   - name: "project_id"
     type: "integer"
     description: "The ID of the project the task is associated with."
@@ -34,24 +54,4 @@ attributes:
     type: "integer"
     description: "The task ID."
     foreign-key-id: "task-id"
-
-  - name: "is_active"
-    type: "boolean"
-    description: "If `true`, the project task is active."
-
-  - name: "billable"
-    type: "boolean"
-    description: "If `true`, the project task is billable."
-
-  - name: "hourly_rate"
-    type: "number"
-    description: "The hourly rate of the project task."
-
-  - name: "budget"
-    type: "number"
-    description: "The budget associated with the project task."
-
-  - name: "created_at"
-    type: "date-time"
-    description: "The time the project task was created."
 ---

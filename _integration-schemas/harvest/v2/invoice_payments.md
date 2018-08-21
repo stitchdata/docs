@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The invoice payment ID."
-    foreign-key-id: "invoice-payment-id"
+    # foreign-key-id: "invoice-payment-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -30,6 +30,19 @@ attributes:
     type: "number"
     description: "The amount of the invoice payment."
 
+  - name: "created_at"
+    type: "date-time"
+    description: "The time the invoice payment was created."
+
+  - name: "invoice_id"
+    type: "integer"
+    description: "The ID of the invoice associated with the payment."
+    foreign-key-id: "invoice-id"
+
+  - name: "notes"
+    type: "string"
+    description: "Any notes entered about the invoice payment."
+
   - name: "paid_at"
     type: "date-time"
     description: "The date and time the invoice payment was made."
@@ -37,25 +50,6 @@ attributes:
   - name: "paid_date"
     type: "string"
     description: "The date the payment was made."
-
-  - name: "recorded_by"
-    type: "string"
-    description: "The name of the user who recorded the invoice payment."
-
-  - name: "recorded_by_email"
-    type: "string"
-    description: "The email address of the user who recorded the payment."
-
-  - name: "notes"
-    type: "string"
-    description: "Any notes entered about the invoice payment."
-
-  - name: "transaction_id"
-    type: "string"
-    description: |
-      If paid via PayPal, this field will contain the PayPal transaction ID associated with the invoice payment.
-
-      Otherwise, this will contain the card authorization.
 
   - name: "payment_gateway_id"
     type: "integer"
@@ -65,12 +59,18 @@ attributes:
     type: "integer"
     description: "If paid via the payment gateway, this field will contain the name of the payment gateway used to make the invoice payment."
 
-  - name: "created_at"
-    type: "date-time"
-    description: "The time the invoice payment was created."
+  - name: "recorded_by"
+    type: "string"
+    description: "The name of the user who recorded the invoice payment."
 
-  - name: "invoice_id"
-    type: "integer"
-    description: "The ID of the invoice associated with the payment."
-    foreign-key-id: "invoice-id"
+  - name: "recorded_by_email"
+    type: "string"
+    description: "The email address of the user who recorded the payment."
+
+  - name: "transaction_id"
+    type: "string"
+    description: |
+      If paid via PayPal, this field will contain the PayPal transaction ID associated with the invoice payment.
+
+      Otherwise, this will contain the card authorization.
 ---

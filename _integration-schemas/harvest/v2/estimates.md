@@ -34,6 +34,7 @@ attributes:
   - name: "creator_id"
     type: "integer"
     description: "The ID of the user that created the estimate."
+    foreign-key-id: "user-id"
 
   - name: "client_key"
     type: "string"

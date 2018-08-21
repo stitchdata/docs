@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The contact ID."
-    foreign-key-id: "contact-id"
+    # foreign-key-id: "contact-id"
 
   - name: "updated_at"
     type: "date-time"

@@ -19,10 +19,11 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The estimate item category ID."
-    foreign-key-id: "estimate-item-category-id"
+    # foreign-key-id: "estimate-item-category-id"
 
   - name: "updated_at"
     type: "string"
+    replication-key: true
     description: "Date and time the estimate item category was last updated."
 
   - name: "name"

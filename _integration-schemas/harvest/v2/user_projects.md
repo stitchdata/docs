@@ -25,6 +25,19 @@ attributes:
     replication-key: true
     description: "The date and time when the project assignment was last updated."
 
+  - name: "budget"
+    type: "number"
+    description: "The budget used when the project's `budget_by` is `Person`."
+
+  - name: "client_id"
+    type: "integer"
+    description: "The ID of the associated client."
+    foreign-key-id: "client-id"
+
+  - name: "created_at"
+    type: "string"
+    description: "The date and time when the project assignment was created."
+
   - name: "is_active"
     type: "boolean"
     description: "If `true`, the project assignment is active."
@@ -37,23 +50,10 @@ attributes:
     type: "number"
     description: "The rate used when the project's `bill_by` is `People`."
 
-  - name: "budget"
-    type: "number"
-    description: "The budget used when the project's `budget_by` is `Person`."
-
-  - name: "created_at"
-    type: "string"
-    description: "The date and time when the project assignment was created."
-
   - name: "project_id"
     type: "integer"
     description: "The ID of the associated project."
     foreign-key-id: "project-id"
-
-  - name: "client_id"
-    type: "integer"
-    description: "The ID of the associated client."
-    foreign-key-id: "client-id"
 
   - name: "user_id"
     type: "integer"
