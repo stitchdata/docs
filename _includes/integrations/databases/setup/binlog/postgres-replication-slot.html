@@ -39,4 +39,6 @@ If you need to set up additional {{ integration.display_name }} integrations, yo
    FROM pg_logical_slot_peek_changes('<replication_slot_name>', null, null);
    ```
 
+   **If connecting multiple databases,** you should verify that the Stitch user can read from each of the replication slots you created.
+
 **Note**: `wal2json` is required to use Log-based replication in Stitch for PostgreSQL-backed databases. {% if integration.name contains "rds" %}{{ integration.display_name }} is included by default and enabled in [Step 4.1](#configure-database-parameter-group) by defining the `rds.logical_replication` parameter.{% endif %}
