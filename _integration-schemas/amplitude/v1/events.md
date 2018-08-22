@@ -11,6 +11,14 @@ description: |
 
 replication-method: "Key-based Incremental"
 
+json-functions: |
+  Depending on the destination you're using, you can use that destination's available JSON functions to parse the data in this column. Click the links below to view that destination's JSON function documentation:
+
+  - [BigQuery](https://cloud.google.com/bigquery/docs/reference/standard-sql/json_functions){:target="new"}
+  - [PostgreSQL](https://www.postgresql.org/docs/9.4/static/functions-json.html){:target="new"}
+  - [Redshift](https://docs.aws.amazon.com/redshift/latest/dg/json-functions.html){:target="new"}
+  - [Snowflake](https://docs.snowflake.net/manuals/sql-reference/functions/parse_json.html){:target}
+
 attributes:
   - name: "uuid"
     type: "string"
@@ -63,8 +71,11 @@ attributes:
     description: "The country where the event took place."
 
   - name: "data"
-    type: 
-    description: "[TODO]"
+    type: "string"
+    description: |
+      Dictionary where certain fields such as `first_event` and `merged_amplitude_id` are stored.
+
+      {{ table.json-functions }}
 
   - name: "device_brand"
     type: "string"
@@ -102,6 +113,13 @@ attributes:
     type: "number"
     description: "A counter that distinguishes events."
 
+  - name: "event_properties"
+    type: "string"
+    description: |
+      Details about the event.
+
+      {{ table.json-functions }}
+
   - name: "event_type"
     type: "string"
     description: "The assigned type of the event. For example: `Add Friend`"
@@ -111,8 +129,11 @@ attributes:
     description: "If `true`, there was an `identify` event between this SDK event and the last SDK event seen."
 
   - name: "groups"
-    type: 
-    description: "[TODO]"
+    type: "string"
+    description: |
+      Details about the groups associated with the event. [Refer to {{ integration.display_name }}'s documentation for more info](https://amplitude.zendesk.com/hc/en-us/articles/115001765532#account-level-reporting){:target="new"}.
+
+      {{ table.json-functions }}
 
   - name: "idfa"
     type: "string"
@@ -165,6 +186,13 @@ attributes:
   - name: "user_id"
     type: "string"
     description: "An ID for the user, specified by you."
+
+  - name: "user_properties"
+    type: "string"
+    description: |
+      Details about the user associated with the event.
+
+      {{ table.json-functions }}
 
   - name: "version_name"
     type: "string"
