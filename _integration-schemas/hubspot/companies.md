@@ -8,7 +8,11 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `{{ table.name }}` table contains info about the companies your HubSpot contacts belong to.
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "hs_lastmodifieddate"
+
 api-method:
   name: getACompany
   doc-link: https://developers.hubspot.com/docs/methods/companies/get_company
@@ -22,7 +26,26 @@ attributes:
 
   - name: "portalId"
     type: "integer"
-    alias: "portal-id"
     description: "The ID of the portal the company is associated with."
     foreign-key-id: "portal-id"
+
+  - name: "isDeleted"
+    type: "boolean"
+    description: "If `true`, the company has been deleted."
+
+  - name: "properties"
+    type: "object"
+    description: "Details about the company."
+    object-attributes:
+      - name: "description"
+        type: "string"
+        description: "The description of the company."
+
+      - name: "name"
+        type: "string"
+        description: "The name of the company."
+
+      - name: "createdate"
+        type: "date-time"
+        description: "The time the company was created."
 ---
