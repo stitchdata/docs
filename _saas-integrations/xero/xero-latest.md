@@ -32,7 +32,7 @@ tier: "Premium"
 icon: /images/integrations/icons/xero.svg
 whitelist:
   tables: true
-  columns: false
+  columns: true
 
 # -------------------------- #
 #      Setup Instructions    #
