@@ -82,6 +82,17 @@ setup-steps:
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/amplitude
 
+schema-sections:
+  - content: |
+      Stitch's {{ integration.display_name }} replicates two types of tables: Events and merged user IDs.
+
+      For each project in your {{ integration.display_name }} account, a set of these tables will be available for replication. Stitch will append a project's ID to each table name to make them easily identifiable. For example: If a project has an ID of `168342`, the events table for the project will be named `events_168432`.
+
+      You can identify which tables are for a specific project by comparing the ID in the table name to the projects in your {{ integration.display_name }} account. You can access this page in your {{ integration.display_name }} account by clicking the **User menu (top right corner) > Settings > Projects**.
+
+      ![Highlighted project ID field in the Amplitude UI]({{ site.baseurl }}/images/integrations/amplitude-project-id.png)
+
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
