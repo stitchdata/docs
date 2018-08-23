@@ -45,6 +45,10 @@
 			  	</td>
 			  	<td class="attribute-description">
 			  		{{ sub-subattribute.description | flatify | markdownify }}
+
+			  		{% if sub-subattribute.foreign-key == true %}
+                        {% include integrations/templates/schemas/foreign-keys.html %}
+                    {% endif %}
 			  	</td>
 			</tr>
 	  	{% endif %}

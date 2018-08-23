@@ -1,0 +1,55 @@
+{% case include.key %}
+
+    {% when 'primary-key' %}
+        <!-- Some tables can have composite keys, or multiple columns that make up a PK. 
+             Jekyll tends to add a lot of ugly white space to lists of Liquid variables, so 
+             to get this to display nicely in the table snapshot, we have to:
+
+             1. Run a forloop that captures the names of all attributes marked as PKs and save it as clean-keys,
+             2. Append ":" to each attribute name (for visual separation),
+             3. Split the clean-keys array, reverse it, join it, and then remove the first ":" (this is because Liquid doesn't have a remove_last filter) and save it as reverse-pk-keys
+             4. Split the reverse-pk-keys array, reverse it, and join it again -->
+
+        <!-- Captures & cleans field names for PKs -->
+            {% capture clean-keys %}
+                {% for attribute in table.attributes %}
+                    {% if attribute.primary-key == true %}
+                        {{ attribute.name | flatify | append: " :" }}
+                    {% endif %}
+                {% endfor %}
+            {% endcapture %}
+
+            {% capture reverse-pk-keys %}
+                {{ clean-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+            {% endcapture %}
+
+            {% capture primary-keys %}
+                {{ reverse-pk-keys | split: "" | reverse | join: "" }}
+            {% endcapture %}
+        <!-- End PKs -->
+
+
+    {% when 'replication-key' %}
+
+        <!-- Captures Replication Key fields -->
+        <!-- The process here is the same as the one for Primary Keys, but
+            1. Only runs if the table is marked as "Incremental"
+            2. Captures attributes marked as Replication Keys -->
+
+            {% capture clean-replication-keys %}
+                {% for attribute in table.attributes %}
+                    {% if attribute.replication-key == true %}
+                        {{ attribute.name | flatify | append: " :" }}
+                    {% endif %}
+                {% endfor %}
+            {% endcapture %}
+
+            {% capture reverse-rk-keys %}
+                {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+            {% endcapture %}
+
+            {% capture replication-keys %}
+                {{ reverse-rk-keys | split: "" | reverse | join: "" }}
+            {% endcapture %}
+        <!-- End Replication Key -->
+{% endcase %}
