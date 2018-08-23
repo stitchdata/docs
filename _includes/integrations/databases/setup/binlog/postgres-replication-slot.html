@@ -1,11 +1,9 @@
 Next, you'll create a dedicated logical replication slot for Stitch. In PostgreSQL, a logical replication slot represents a stream of database changes that can then be replayed to a client in the order they were made on the original server. Each slot streams a sequence of changes from a single database.
 
 {% capture replication-slot-warning %}
-Other processes outside of Stitch should not use this replication slot.
+**A logical replication slot should only be used by a single process OR Stitch integration**. If you need to connect multiple databases to Stitch, you'll need to create a replication slot for each database.
 
-If any other processes outside of this integration use this replication slot, you risk losing data. This is because [a logical slot emits a single change only once](https://www.postgresql.org/docs/10/static/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS){:target="new"} - if multiple processes share a logical slot, Stitch will only receive changes from where the last process stopped consuming them.
-
-If you need to set up additional {{ integration.display_name }} integrations, you should create a replication slot dedicated to each database you want to connect.
+You risk losing data if multiple processes or Stitch integrations share a replication slot. This is because [a logical slot emits a single change only once](https://www.postgresql.org/docs/10/static/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS){:target="new"} - if multiple processes or Stitch integrations share a logical slot, only the changes that occurred after the last process/integration consumed them will be received.
 {% endcapture %}
 
 {% include important.html first-line="**Replication slots and data loss**" content=replication-slot-warning %}
