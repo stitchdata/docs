@@ -8,7 +8,10 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `{{ table.name }}` table contains info about the deals in a HubSpot portal.
 
-replication-method: "Full Table"
+replication-key:
+  name: "hs_lastmodifieddate"
+
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllDeals
   doc-link: https://developers.hubspot.com/docs/methods/deals/get-all-deals

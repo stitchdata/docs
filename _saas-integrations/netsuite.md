@@ -685,15 +685,18 @@ tables:
 {% include misc/data-files.html %}
 
 {% contentfor setup %}
-Connecting your NetSuite data to Stitch is a six-step process:
+Connecting your NetSuite data to Stitch is an eight-step process:
 
 1. [Locate your NetSuite Account ID](#locate-netsuite-account-id)
-2. [Create a Stitch NetSuite Admin user](#create-netsuite-admin-user)
-3. [Retrieve the Stitch NetSuite user's Role ID](#retrieve-netsuite-role-id)
-4. [Add NetSuite as a Stitch data source](#add-stitch-data-source)
-5. [Define the Historical Sync](#define-historical-sync)
-6. [Define the Replication Frequency](#define-rep-frequency)
-7. [Set tables to replicate](#syncing-data)
+2. [Whitelist Stitch's IP addresses](#whitelist-stitch-ips) `*`
+3. [Create a Stitch NetSuite Admin user](#create-netsuite-admin-user)
+4. [Retrieve the Stitch NetSuite user's Role ID](#retrieve-netsuite-role-id)
+5. [Add NetSuite as a Stitch data source](#add-stitch-data-source)
+6. [Define the Historical Sync](#define-historical-sync)
+7. [Define the Replication Frequency](#define-rep-frequency)
+8. [Set tables to replicate](#syncing-data)
+
+`*` This step may not be required, depending on how your NetSuite account is configured.
 
 ### Prerequisites
 
@@ -707,6 +710,20 @@ Connecting your NetSuite data to Stitch is a six-step process:
 3. In the **Primary Information**, locate the **Account ID** field as shown in the image on the right.
 
 **Note**: If your Account ID contains a suffix - `1234567_SB2`, for example - it should be included when entering the ID into Stitch.
+
+### Whitelist Stitch's IP addresses {#whitelist-stitch-ips}
+
+{% include note.html type="single-line" content="This step is required only if IP whitelisting is enforced for your NetSuite account." %}
+
+{% include layout/inline_image.html type="right" file="integrations/netsuite-ip-addresses.png" alt="" max-width="450px" %}
+
+1. Click the **Setup** option in the top navigation menu, then **Company > Setup Tasks > Company Information**.
+2. In the **Allowed IP addresses** field, enter a comma separated list of the following IP addresses:
+
+   {% for ip-address in ip-addresses %}
+   - {{ ip-address.ip }}
+   {% endfor %}
+3. Click **Save**.
 
 ### Create a Stitch NetSuite Admin user {#create-netsuite-admin-user}
 
