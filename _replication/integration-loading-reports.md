@@ -112,7 +112,7 @@ For some tables, a **Bookmark Unavailable** message may display in the **Max Rep
 
 There are a few reasons this message may appear:
 
-- The table uses [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#full-table-replication" }}), a replication method which doesn't use a Replication Bookmark Key,
+- The table uses [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#full-table-replication" }}) or [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#log-based-incremental-replication" }}), replication methods which doesn't use a Replication Bookmark Key,
 - The column designated as the Replication Bookmark Key contains `NULL` values, or
 - The integration doesn't support this feature. As this functionality is added to eligible integrations, Replication Bookmark Key values in loading reports will become available.
 
