@@ -33,5 +33,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report){:target="_blank"}.
 ---
