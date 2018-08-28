@@ -56,7 +56,7 @@ attributes:
     description: "The time the time entry was ended, if tracking by start/end times."
 
   - name: "external_reference_id"
-    type: "integer"
+    type: "string"
     description: "The ID of the associated external reference, if any."
     foreign-key-id: "external-reference-id"
 

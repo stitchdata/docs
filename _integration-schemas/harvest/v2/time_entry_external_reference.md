@@ -27,7 +27,7 @@ attributes:
     foreign-key-id: "time-entry-id"
 
   - name: "external_reference_id"
-    type: "integer"
+    type: "string"
     description: "The external reference ID."
     foreign-key-id: "external-reference-id"
 ---

@@ -22,7 +22,7 @@ api-method:
 
 attributes:
   - name: "id"
-    type: "integer"
+    type: "string"
     primary-key: true
     description: "The ID of the external reference."
     foreign-key-id: "external-reference-id"
@@ -33,7 +33,7 @@ attributes:
     foreign-key-id: "task-id"
 
   - name: "group_id"
-    type: "integer"
+    type: "string"
     description: "The ID of the group associated with the reference."
 
   - name: "permalink"
