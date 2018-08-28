@@ -1,3 +1,4 @@
+{% include misc/data-files.html %}
 {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
 
 {% case include.content %}
@@ -40,7 +41,7 @@
             <tr>
                 <td class="attribute-name">
                     <strong>
-                        {{ attribute.name }}
+                        {{ attribute.name | flatify }}
                     </strong><br>
                     {{ attribute.type | upcase }}<br>
 

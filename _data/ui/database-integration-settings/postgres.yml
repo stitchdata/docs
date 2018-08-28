@@ -11,6 +11,18 @@
 ## NOTE: 'defaults' is a variable assigned to this file: 
 ## /_data/ui/database-integration-settings/default-fields.yml
 
+
+field-names:
+  schema-names-tables: &schema-names-tables-name "Include PostgreSQL schema names in destination tables"
+
+descriptions:
+  schema-names-tables: &schema-names-tables-description |
+    Checking this setting will include schema names from the source database in the destination table name - for example: `<source_schema_name>__<table_name>`.
+
+          Stitch loads all selected replicated tables to a single schema, preserving only the table name. If two tables canonicalize to the same name - even if they're in different source databases or schemas - name collision errors can arise. Checking this setting can prevent these issues. 
+
+          **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
+
 # -------------------------- #
 #      VANILLA POSTGRES      #
 # -------------------------- #
@@ -34,6 +46,9 @@ postgres:
 
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.database | flatify }}"
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
 
 
 # -------------------------- #
@@ -61,6 +76,9 @@ cloudsql-postgres:
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.database | flatify }}"
 
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
+
 
 # -------------------------- #
 #           HEROKU           #
@@ -85,6 +103,9 @@ heroku:
 
   - name: "{{ defaults.field-names.database }}"
     copy: "Paste the **Database** name from the {{ integration.display_name }} Database Settings page into this field."
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
 
 
 # -------------------------- #
@@ -111,3 +132,6 @@ postgresql-rds:
 
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.database | flatify }}"
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
