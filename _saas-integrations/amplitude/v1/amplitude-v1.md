@@ -28,7 +28,7 @@ repo-url: https://github.com/singer-io/tap-amplitude
 # -------------------------- #
 
 status: "Released"
-certified: true 
+certified: false 
 
 historical: "n/a"
 frequency: "30 minutes"
