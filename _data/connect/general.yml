@@ -44,6 +44,13 @@ common:
 
     ssl: "If `true`, SSL will be used to connect to the database."
 
+    include-schemas-name: "include_schemas_in_destination_stream_name"
+
+    include-schemas-description: |
+      If `true`, the name of the source schema will be included in the destination table name. For example: `<source_schema_name>__<table_name>`. This can help prevent table name collisions when two tables canonicalize to the same name.
+
+      For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
+
     ssh: "If `true`, an SSH tunnel will be used to connect to the database."
 
     ssh-host: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."

@@ -32,6 +32,11 @@ object-attributes:
     required: true
     description: "{{ connect.common.attributes.password }}"
 
+  - name: "{{ connect.common.attributes.include-schemas-name }}"
+    type: "string"
+    required: false
+    description: "{{ connect.common.attributes.include-schemas-description | flatify }}"
+
   - name: "ssh"
     type: "string"
     required: false
@@ -60,13 +65,14 @@ object-attributes:
 examples:
   - code: |
       {  
-       "type":"platform.postgresql",
+       "type":"platform.postgres",
        "properties":{  
           "host":"postgresql.some-host.com",
           "port":"5432",
           "dbname":"stitch",
           "user":"stitch_user",
           "password":"<PASSWORD>",
+          "{{ connect.common.attributes.include-schemas-name }}":"true",
           "ssh":"true",
           "ssh_host":"postgresql-ssh.host.com",
           "ssh_port":"22",
