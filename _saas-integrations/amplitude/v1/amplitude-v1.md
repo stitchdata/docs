@@ -32,7 +32,7 @@ certified: false
 
 historical: "n/a"
 frequency: "30 minutes"
-tier: "Free/Paid"
+tier: "Free"
 status-url: "https://status.amplitude.com/"
 icon: /images/integrations/icons/amplitude.svg
 whitelist:
