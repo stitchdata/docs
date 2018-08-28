@@ -6,7 +6,7 @@
 {% when 'single-line' %}
 <div markdown="span" class="alert alert-info" role="alert">
     {{ info-icon | strip }}
-    {{ include.content }}
+    {{ include.content | strip }}
 </div>
 
 {% else %}
