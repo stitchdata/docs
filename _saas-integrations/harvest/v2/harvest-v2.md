@@ -1,5 +1,5 @@
 ---
-title: Harvest
+title: Harvest (v2.0)
 permalink: /integrations/saas/harvest
 tags: [saas_integrations]
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
@@ -12,9 +12,7 @@ layout: singer
 
 name: "harvest"
 display_name: "Harvest"
-singer: true 
-author: "Facet Interactive"
-author-url: https://facetinteractive.com
+singer: true
 repo-url: https://github.com/singer-io/tap-harvest
 
 this-version: "2.0"
@@ -24,7 +22,7 @@ this-version: "2.0"
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
