@@ -44,9 +44,13 @@ frequently-asked-questions:
 
           **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-cta.hipaa-url }}) before replicating any sensitive data.
 
-      - question: "Does Stitch comply with any EU privacy laws?"
+      - question: "Does Stitch comply with GDPR and EU privacy laws?"
         anchor: "eu-privacy-compliance"
         answer: |
+          Stitch is in full compliance with the European Union's Global Data Protection Regulation (GDPR).
+          
+          The [Stitch Terms of Use](https://www.stitchdata.com/terms/){:target="new"} includes a Data Processing Addendum (DPA) that enacts standard contractual clauses set forth by the European Commission to establish a legal basis for cross-border data transfers from the EU. The [Stitch Privacy Policy](https://www.stitchdata.com/privacy){:target="new"} also includes specific GDPR requirements.
+          
           Stitch is certified under the [US-EU and US-SWISS Privacy Shield Programs](https://www.privacyshield.gov/participant?id=a2zt0000000GnxUAAS&status=Active){:target="new"}, meaning any EU or Swiss data transfer will be handled in accordance with the principles laid out in the Privacy Shield Framework.
 
           For more information on Privacy Shield, check out the link above or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
