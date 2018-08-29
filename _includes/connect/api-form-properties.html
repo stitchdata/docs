@@ -31,9 +31,20 @@
         </div>
     </div>
 
-    <p>{{ form-property.description | flatify | markdownify }}</p>
+<!-- Displays if an object has been deprecated -->
+    {% if form-property.deprecated %}
+{% capture deprecation-note %}
+**IMPORTANT**: As of {{ form-property.deprecated.as-of }}, this object has been deprecated. Use the {{ form-property.deprecated.use-instead | flatify | strip }} object instead to create new connections.
+{% endcapture %}
 
-    {{ required-note | markdownify }}
+{% include important.html type="single=line" content=deprecation-note %}
+
+<!-- Otherwise, just display the description -->
+        {% else %}
+            <p>{{ form-property.description | flatify | markdownify }}</p>
+
+            {{ required-note | markdownify }}
+    {% endif %}
 
 {% if form-property.object-attributes %}
     <table class="attribute-list">

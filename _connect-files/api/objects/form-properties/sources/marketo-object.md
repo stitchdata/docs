@@ -6,6 +6,10 @@ key: "source-form-properties-marketo-object"
 title: "Marketo Source Form Property"
 description: "{{ api.form-properties.source-forms.marketo.description }}"
 
+deprecated:
+  as-of: "June 26, 2018"
+  use-instead: "[Marketo Bulk]({{ api.form-properties.source-forms.marketo-bulk.section }})"
+
 object-attributes:
   - name: "client_id"
     type: "string"
