@@ -17,7 +17,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      {{ connect.common.attributes.start-date replace: | "[INTEGRATION]","Bronto" }}
+      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","Bronto" }}
 
   - name: "token"
     type: "string"
