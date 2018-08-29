@@ -4,16 +4,19 @@ require 'json'
 require 'yaml'
 
 if ARGV.length < 1
-  puts "Usage: schema_to_yaml.rb schema_file [schema_file2 ...]"
-  puts "       schema_to_yaml.rb catalog_file"
-  puts "       schema_to_yaml.rb /path/to/schemas"
+  puts "Usage: schema_to_yaml.rb [options...] schema_file [schema_file2 ...]"
+  puts "       schema_to_yaml.rb [options...] catalog_file"
+  puts "       schema_to_yaml.rb [options...] /path/to/schemas"
   puts " * If a schema has $ref values, the ref will be resolved relative to the location of the file being processed."
+  puts "\nOptions:"
+  puts "       -o file_path    Specifies an output path for the generated files (relative to the current directory, or absolute)"
   exit -1
 end
 
 INDENTATION_LENGTH = 2
 
 $file_root = "."
+$output_root = "."
 
 def write_attribute(node, breadcrumb)
   if node["$ref"]
@@ -81,7 +84,13 @@ def read_file(file_name)
   return JSON.parse(File.read(file_name))
 end
 
-file_names = ARGV
+arg_slice_start = 0
+if ARGV[0] == "-o"
+  $output_root = File.expand_path(ARGV[1])
+  arg_slice_start += 2
+end
+
+file_names = ARGV[arg_slice_start..-1]
 
 # If a directory is passed in, grab all json files from it, recursively
 if File.directory?(file_names[0])
@@ -100,11 +109,12 @@ if file_data.key?("streams")
 
     puts($yaml_output)
 
-    File.open(stream['stream'] + ".md", "w") do |f|
+    File.open(File.join($output_root, stream['stream'] + ".md"), "w") do |f|
       f.write($yaml_output)
     end
 
-    puts("Wrote " + stream['stream'] + ".md to the current directory!")
+    out_dir = if $output_root == "." then "the current directory!" else $output_root end
+    puts("Wrote " + out_name +  ".md to " + out_dir + "!")
   end
 else
   # Indicates that a schema file was passed in
@@ -117,10 +127,11 @@ else
     puts($yaml_output)
 
     out_name = File.basename(file_name, File.extname(file_name))
-    File.open(out_name + ".md", "w") do |f|
+    File.open(File.join($output_root, out_name + ".md"), "w") do |f|
       f.write($yaml_output)
     end
 
-    puts("Wrote " + out_name +  ".md to the current directory!")
+    out_dir = if $output_root == "." then "the current directory!" else $output_root end
+    puts("Wrote " + out_name +  ".md to " + out_dir + "!")
   end
 end
