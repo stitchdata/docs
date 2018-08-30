@@ -18,8 +18,8 @@ layout: page
     {% if integration.this-version %}
         {% for version in released-versions %}
             {% if version.number == integration.this-version %}
-                {% unless version.deprecated == true and version.deprecation-date %}
-                    {% unless integration.certified == false %}
+                {% unless version.deprecated == true and version.deprecation-date != "n/a" or version.deprecation-date != "TBD" %}
+                    {% unless integration.certified == true %}
                         {% include notifications/support-beta-singer-notice.html %}
                     {% endunless %}
                 {% endunless %}

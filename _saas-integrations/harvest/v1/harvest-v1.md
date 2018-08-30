@@ -1,10 +1,11 @@
 ---
-title: Harvest
-permalink: /integrations/saas/harvest
+title: Harvest (v1.0)
+permalink: /integrations/saas/harvest/v1
 tags: [saas_integrations]
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
 layout: singer
+input: false
 
 # -------------------------- #
 #         Tap Details        #
@@ -12,12 +13,10 @@ layout: singer
 
 name: "harvest"
 display_name: "Harvest"
-singer: true 
-author: "Facet Interactive"
-author-url: https://facetinteractive.com
+singer: true
 repo-url: https://github.com/singer-io/tap-harvest
 
-# this-version:
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -72,7 +71,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/harvest
+# Each table has a its own .md file in /_integration-schemas/harvest/<version>
 
 ---
 {% assign integration = page %}
