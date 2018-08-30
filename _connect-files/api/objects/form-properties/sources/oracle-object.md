@@ -4,9 +4,19 @@ form-type: "source"
 key: "source-form-properties-oracle-object"
 
 title: "Oracle Source Form Property"
+api-type: "oracle"
+display-name: "Oracle"
+
 description: "{{ api.form-properties.source-forms.oracle.description }}"
 
 object-attributes:
+  - name: "anchor_time"
+    type: "string"
+    required: false
+    description: |
+      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
+    value: "{{ sample-property-data.anchor-time }}"
+
   - name: "frequency_in_minutes"
     type: "string"
     required: true
@@ -18,7 +28,7 @@ object-attributes:
     type: "string"
     required: true
     description: "{{ connect.common.attributes.host }}"
-    value: "{{ sample-property-data.host"
+    value: "{{ sample-property-data.host }}"
 
   - name: "port"
     type: "string"
@@ -36,7 +46,7 @@ object-attributes:
     type: "string"
     required: true
     description: "{{ connect.common.attributes.username }}"
-    value: "{{ sample-property-data.username }}"
+    value: "{{ sample-property-data.user }}"
 
   - name: "password"
     type: "string"
@@ -91,22 +101,4 @@ object-attributes:
     required: false
     description: "{{ connect.common.attributes.ssl }}"
     value: "{{ sample-property-data.ssl }}"
-
-examples:
-  - code: |
-      {  
-       "type":"platform.oracle",
-       "properties":{  
-          "host":"oracle.some-host.com",
-          "port":"5432",
-          "dbname":"stitch",
-          "user":"stitch_user",
-          "password":"<PASSWORD>",
-          "ssh":"true",
-          "ssh_host":"oracle-ssh.host.com",
-          "ssh_port":"22",
-          "ssh_user":"stitch_ssh_user",
-          "ssl":"false"
-        }
-      }
 ---

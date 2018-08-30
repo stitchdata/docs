@@ -4,74 +4,78 @@ form-type: "source"
 key: "source-form-properties-aurora-object"
 
 title: "Amazon Aurora Source Form Property"
+api-type: "aurora"
+display-name: "Amazon Aurora"
+integration-type: "database"
+docs-name: "aurora-rds"
+
 description: "{{ api.form-properties.source-forms.aurora.description }}"
 
 object-attributes:
+  - name: "anchor_time"
+    type: "string"
+    required: false
+    description: |
+      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
+    value: "{{ sample-property-data.anchor-time }}"
+
   - name: "host"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.host }}"
+    value: "{{ sample-property-data.host }}"
 
   - name: "port"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.port }}"
+    value: "3306"
 
   - name: "database"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.database }}"
+    value: "{{ sample-property-data.database }}"
 
   - name: "user"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.username }}"
+    value: "{{ sample-property-data.user }}"
 
   - name: "password"
     type: "string"
     required: true
     description: "{{ connect.common.attributes.password }}"
+    value: "{{ sample-property-data.password }}"
 
   - name: "ssh"
     type: "string"
     required: false
     description: "{{ connect.common.attributes.ssh }}"
+    value: "{{ sample-property-data.ssh }}"
 
   - name: "ssh_host"
     type: "string"
     required: false
     description: "{{ connect.common.attributes.ssh-host }}"
+    value: "{{ sample-property-data.ssh-host }}"
 
   - name: "ssh_port"
     type: "string"
     required: false
-    description: "{{ connect.common.attributes.ssh-port }}" 
+    description: "{{ connect.common.attributes.ssh-port }}"
+    value: "{{ sample-property-data.ssh-port }}"
 
   - name: "ssh_user"
     type: "string"
     required: false
-    description: "{{ connect.common.attributes.ssh-user }}" 
+    description: "{{ connect.common.attributes.ssh-user }}"
+    value: "{{ sample-property-data.ssh-user }}"
 
   - name: "ssl"
     type: "string"
     required: false
     description: "{{ connect.common.attributes.ssl }}"
-
-examples:
-  - code: |
-      {  
-       "type":"platform.aurora",
-       "properties":{  
-          "host":"aurora.some-host.com",
-          "port":"3306",
-          "database":"stitch",
-          "user":"stitch_user",
-          "password":"<PASSWORD>",
-          "ssh":"true",
-          "ssh_host":"aurora-ssh.host.com",
-          "ssh_port":"22",
-          "ssh_user":"stitch_ssh_user",
-          "ssl":"false"
-        }
-      }
+    value: "{{ sample-property-data.ssl }}"
 ---
