@@ -25,11 +25,13 @@ api-method:
 attributes:
   - name: "user_id"
     type: "integer"
+    primary-key: true
     description: "The user ID."
     foreign-key-id: "user-id"
 
   - name: "project_task_id"
     type: "integer"
+    primary-key: true
     description: "The project task ID."
     foreign-key-id: "project-task-id"
 ---

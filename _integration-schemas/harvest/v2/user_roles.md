@@ -24,10 +24,12 @@ attributes:
   - name: "user_id"
     type: "integer"
     description: "The user ID."
+    primary-key: true
     foreign-key-id: "user-id"
 
   - name: "role_id"
     type: "integer"
     description: "The role ID."
+    primary-key: true
     foreign-key-id: "role-id"
 ---

@@ -23,11 +23,13 @@ api-method:
 attributes:
   - name: "time_entry_id"
     type: "integer"
+    primary-key: true
     description: "The time entry ID."
     foreign-key-id: "time-entry-id"
 
   - name: "external_reference_id"
     type: "string"
+    primary-key: true
     description: "The external reference ID."
     foreign-key-id: "external-reference-id"
 ---
