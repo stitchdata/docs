@@ -6,6 +6,8 @@ key: "source-form-properties-oracle-object"
 title: "Oracle Source Form Property"
 api-type: "oracle"
 display-name: "Oracle"
+integration-type: "database"
+docs-name: "oracle"
 
 description: "{{ api.form-properties.source-forms.oracle.description }}"
 
