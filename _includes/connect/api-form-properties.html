@@ -75,14 +75,12 @@
     Example Object
 </h5>
 
-    {% for example in form-property.examples %}
-{%- capture example-code -%}
-```json
-{{ example.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ example-code | markdownify }}
-    {% endfor %}
+<!-- Code for sample objects -->
+{% capture example-object %}
+{% include connect/api-form-properties-example-object.html %}
+{% endcapture %}
 
+{{ example-object | markdownify }}
 
     {% case include.content %}
         {% when 'destination' %}
