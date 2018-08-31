@@ -7,23 +7,12 @@ title: "Quick Base Source Form Property"
 api-type: "quickbase"
 display-name: "Quick Base"
 
-description: "{{ api.form-properties.source-forms.quickbase.description }}"
+source-type: "saas"
+docs-name: "quick-base"
+
+description: ""
 
 object-attributes:
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.frequency }}"
-
   - name: "qb_appid"
     type: "string"
     required: true
@@ -48,11 +37,4 @@ object-attributes:
     description: |
       The user's Quick Base user token. [Refer to Stitch's Quick Base documentation for creation instructions]({{ site.baseurl }}/integrations/saas/quick-base#create-quick-base-user-token).
     value: "<QUICK_BASE_USER_TOKEN>"
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.start-date }}"
 ---

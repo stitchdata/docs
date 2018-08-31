@@ -4,33 +4,15 @@ form-type: "source"
 key: "source-form-properties-bronto-object"
 
 title: "Bronto Source Form Property"
-display-name: "Bronto"
 api-type: "bronto"
+display-name: "Bronto"
 
-description: "{{ api.form-properties.source-forms.bronto.description }}"
+source-type: "saas"
+docs-name: "bronto"
+
+description: ""
 
 object-attributes:
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Bronto" }}
-    value: "{{ sample-property-data.frequency }}"
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","Bronto" }}
-    value: "{{ sample-property-data.start-date }}"
-
   - name: "token"
     type: "string"
     required: true

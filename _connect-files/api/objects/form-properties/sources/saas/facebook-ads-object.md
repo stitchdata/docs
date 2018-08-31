@@ -7,19 +7,15 @@ title: "Facebook Ads Source Form Property"
 api-type: "facebook"
 display-name: "Facebook Ads"
 
-description: "{{ api.form-properties.source-forms.facebook-ads.description }}"
+source-type: "saas"
+docs-name: "facebook-ads"
+
+description: ""
 
 object-attributes:
   # - name: "aggregate_level"
   #   type: "PLACEHOLDER"
   #   description: "[PLACEHOLDER]"
-
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
 
   - name: "attribution_window"
     type: "string"
@@ -38,13 +34,6 @@ object-attributes:
       If your click and view windows differ, you should select the **greater** of the two. For example: If clicks have a window of `7` days and views have a window of `1` day, you should enter `7` for this setting.
     value: "7"
 
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.frequency }}"
-
   - name: "include_deleted"
     type: "string"
     required: false
@@ -54,11 +43,4 @@ object-attributes:
   # - name: "insights_buffer_days"
   #   type: "string"
   #   description: "[PLACEHOLDER]"
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","Facebook Ads" }}
-    value: "{{ sample-property-data.start-date }}"
 ---

@@ -4,10 +4,13 @@ form-type: "source"
 key: "source-form-properties-amplitude-object"
 
 title: "Amplitude Source Form Property"
-description: "{{ api.form-properties.source-forms.amplitude.description }}"
 api-type: "amplitude"
-integration-type: "saas"
+display-name: "Amplitude"
+
+source-type: "saas"
 docs-name: "amplitude"
+
+description: ""
 
 object-attributes:
   - name: "account"
@@ -16,37 +19,11 @@ object-attributes:
     description: "The account ID for the Amplitude Snowflake warehouse."
     value: "<AMPLITUDE_SNOWFLAKE_ACCOUNT>"
 
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
-
-  - name: "database"
-    type: "string"
-    required: true
-    description: "The name of the Amplitude Snowflake database."
-    value: "{{ sample-property-data.database }}"
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Amplitude" }}
-    value: "{{ sample-property-data.frequency }}"
-
-  - name: "password"
-    type: "string"
-    required: true
-    description: "The password for the Amplitude Snowflake database user."
-    value: "{{ sample-property-data.password }}"
-
   - name: "username"
-    type: "string"
     required: true
-    description: "The username for the Amplitude Snowflake user."
-    value: "{{ sample-property-data.user }}"
+    type: "string"
+    description: "The username of the {{ integration }} database user."
+    value: "<username>"
 
   - name: "warehouse"
     type: "string"

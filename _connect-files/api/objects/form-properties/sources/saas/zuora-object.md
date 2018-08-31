@@ -7,16 +7,12 @@ title: "Zuora Source Form Property"
 api-type: "zuora"
 display-name: "Zuora"
 
-description: "{{ api.form-properties.source-forms.zuora.description }}"
+source-type: "saas"
+docs-name: "zuora"
+
+description: ""
 
 object-attributes:
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
-
   # - name: "api_type"
   #   type: "string"
   #   description: "The zuora API Stitch should use to extract data. Possible values are `REST` or `BULK`. [Read about the pros and cons of each API here]({{ site.baseurl }}/integrations/saas/zuora#bulk-vs-rest-api)."
@@ -26,13 +22,6 @@ object-attributes:
     required: false
     description: "If `true`, the Zuora account being connected is based in Europe."
     value: "false"
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.frequency }}"
 
   - name: "password"
     type: "string"
@@ -45,13 +34,6 @@ object-attributes:
     required: false
     description: "If `true`, the Zuora account being connected is a sandbox."
     value: "false"
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.start-date }}"
 
   - name: "username"
     type: "string"

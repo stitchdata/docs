@@ -7,16 +7,12 @@ title: "SendGrid Source Form Property"
 api-type: "sendgrid"
 display-name: "SendGrid"
 
-description: "{{ api.form-properties.source-forms.sendgrid.description }}"
+source-type: "saas"
+docs-name: "sendgrid-core"
+
+description: ""
 
 object-attributes:
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
-
   - name: "api_key"
     type: "string"
     required: true
@@ -29,11 +25,4 @@ object-attributes:
     description: |
       {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.display-name }}
     value: "{{ sample-property-data.frequency }}"
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]",form-property.display-name}}
-    value: "{{ sample-property-data.start-date }}"
 ---

@@ -7,20 +7,16 @@ title: "Marketo Source Form Property"
 api-type: "marketo"
 display-name: "Marketo"
 
-description: "{{ api.form-properties.source-forms.marketo.description }}"
+source-type: "saas"
+docs-name: "marketo"
+
+description: ""
 
 deprecated:
   as-of: "June 26, 2018"
   use-instead: "[Marketo Bulk]({{ api.form-properties.source-forms.marketo-bulk.section }})"
 
 object-attributes:
-  - name: "anchor_time"
-    type: "string"
-    required: false
-    description: |
-      {{ connect.common.attributes.anchor-time | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.anchor-time }}"
-
   - name: "client_id"
     type: "string"
     required: true
@@ -32,13 +28,6 @@ object-attributes:
     required: true
     description: "The user's Marketo client secret."
     value: "<MARKETO_CLIENT_SECRET>"
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.frequency }}"
 
   - name: "endpoint"
     type: "string"
@@ -57,11 +46,4 @@ object-attributes:
     required: false
     description: "The maximum number of daily API calls that Stitch may make to the Marketo API."
     value: "2000"
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.start-date }}"
 ---
