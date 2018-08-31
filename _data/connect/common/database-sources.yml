@@ -1,0 +1,128 @@
+fields:
+  - name: "host"
+    required: true
+    type: "string"
+    description: "The IP address or hostname of the database server."
+    value: "<host_address>"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "port"
+    required: true
+    type: "string"
+    description: "The port of the database server."
+    value: |
+      [PLACEHOLDER]
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "database"
+    required: true
+    type: "string"
+    description: "The name of the logical database to connect to."
+    value: "<database_name>"
+    mysql: true
+
+  - name: "dbname"
+    required: true
+    type: "string"
+    description: "The name of the logical database to connect to."
+    value: "<database_name>"
+    postgres: true
+
+  - name: "user"
+    required: true
+    type: "string"
+    description: "The username of the {{ integration }} database user."
+    value: "<username>"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "password"
+    required: true
+    type: "string"
+    description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
+    value: "<password>"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "ssl"
+    required: false
+    type: "string"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "false"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "ssh"
+    required: false
+    type: "string"
+    description: "If `true`, an SSH tunnel will be used to connect to the database."
+    value: "true"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "ssh_host"
+    required: false
+    type: "string"
+    description: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
+    value: "<ssh_host>"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "ssh_port"
+    required: false
+    type: "string"
+    description: "The port of the SSH server. This property is only required if `ssh: true`."
+    value: "22"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "ssh_user"
+    required: false
+    type: "string"
+    description: "The username of the SSH user. This property is only required if `ssh: true`."
+    value: "<ssh_username>"
+    mysql: true
+    postgres: true
+    oracle: true
+
+  - name: "use_log_based_replication"
+    required: false
+    type: "string"
+    description: ""
+    value: "false"
+    mysql: true
+
+  - name: "filter_dbs"
+    required: false
+    type: "string"
+    description: &internal-field "**This is an internal field and is for Stitch use only.**"
+    value: "null"
+    mysql: true
+    postgres: true
+
+  - name: "itersize"
+    required: false
+    type: "string"
+    description: *internal-field
+    value: "null"
+    postgres: true
+
+  - name: "include_schemas_in_destination_stream_name"
+    required: false
+    type: "string"
+    description: |
+      If `true`, the name of the source schema will be included in the destination table name. For example: `<source_schema_name>__<table_name>`. This can help prevent table name collisions when two tables canonicalize to the same name.
+
+      For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
+    value: "false"
+    postgres: true
