@@ -1,0 +1,72 @@
+<!-- This file contains the logic used to pull and display applicable fields
+	for database source form properties. -->
+
+<!-- Get the corresponding doc for this database source
+	It'll be used to see if the database supports certain features,
+	which will determine which fields display in its report card -->
+	{% assign all-destination-docs = site.destinations | where:"type",form-property.docs-name %}
+		{% assign this-destination = all-destination-docs | where:"destination",true %}
+
+<!-- Get attributes common to all database sources -->
+	{% assign common-destination-attributes = site.data.connect.common.destination-forms.fields %}
+
+<!-- If the form property has its own specific attributes, get them &
+    concat them to the other two arrays -->
+	{% if form-property.object-attributes %}
+	    {% assign form-object-attributes = form-property.object-attributes %}
+	    	{% assign all-form-attributes = common-destination-attributes | concat: form-object-attributes | sort: "name" %}
+
+	<!-- Otherwise, run this -->
+	{% else %}
+	    {% assign all-form-attributes = common-destination-attributes | sort: "name" %}
+	{% endif %}
+
+
+<!-- Get support info for SSL and SSH connections,
+	using the corresponding doc for the database source -->
+{% for destination in this-destination %}
+	{% assign ssl-support = destination.ssl %}
+	{% assign ssh-support = destination.ssh %}
+	{% assign port = destination.port %}
+{% endfor %}
+
+
+<table class="attribute-list">
+    {% for attribute in all-form-attributes %}
+        {% if attribute.name == "ssl" %}
+        	{% if ssl-support == true %}
+	            <tr>
+	                <td class="attribute-name">
+	                    <strong>
+	                        {{ attribute.name | flatify }}
+	                    </strong><br>
+	                    {{ attribute.type | upcase }}<br>
+	                       OPTIONAL
+	                </td>
+	                <td>
+	                    {{ attribute.description | flatify | markdownify }}
+	                </td>
+	            </tr>
+            {% endif %}
+    	{% else %}
+	        <tr>
+	            <td class="attribute-name">
+	                <strong>
+	                    {{ attribute.name | flatify }}
+	                </strong><br>
+	                {{ attribute.type | upcase }}<br>
+
+	                {% case attribute.required %}
+	                    {% when true %}
+	                        <font color="#cc3399">REQUIRED</font>
+	                    {% else %}
+	                        OPTIONAL
+	                {% endcase %}
+	            </td>
+	            <td>
+	                {{ attribute.description | flatify | markdownify }}
+	            </td>
+	        </tr>
+	    {% endif %}
+    {% endfor %}
+</table>
