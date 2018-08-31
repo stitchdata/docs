@@ -1,0 +1,40 @@
+<!-- This file contains the logic used to pull and display applicable fields
+    for SaaS source form properties. -->
+
+<!-- If the form property has its own specific attributes, get them &
+                        concat them to the common array -->
+{% if form-property.object-attributes %}
+    {% assign form-object-attributes = form-property.object-attributes %}
+
+    {% assign all-form-attributes = form-object-attributes | concat: all-source-attributes | sort: "name" %}
+
+<!-- Otherwise, just list the common source attributes -->
+{% else %}
+    {% assign all-form-attributes = site.data.connect.common.all-sources.fields %}
+{% endif %}
+
+
+<table class="attribute-list">
+	{% for attribute in all-form-attributes %}
+        {% unless attribute.exclude contains form-property.api-type %}
+        <tr>
+            <td class="attribute-name">
+                <strong>
+                    {{ attribute.name | flatify }}
+                </strong><br>
+                {{ attribute.type | upcase }}<br>
+
+                {% case attribute.required %}
+                    {% when true %}
+                        <font color="#cc3399">REQUIRED</font>
+                    {% else %}
+                        OPTIONAL
+                {% endcase %}
+            </td>
+            <td>
+                {{ attribute.description | flatify | markdownify }}
+            </td>
+        </tr>
+        {% endunless %}
+	{% endfor %}
+</table>

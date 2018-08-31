@@ -1,0 +1,89 @@
+<!-- This file contains the logic used to pull and display applicable fields
+	for database source form properties. -->
+
+<!-- Get the corresponding doc for this database source
+	It'll be used to see if the database supports certain features,
+	which will determine which fields display in its report card -->
+	{% assign all-database-docs = site.database-integrations | where:"name",form-property.docs-name %}
+		{% assign this-database = all-database-docs | where:"input",true %}
+
+
+<!-- Get attributes common to all database sources -->
+	{% assign common-database-attributes = site.data.connect.common.database-sources.fields | where:form-property.db-type,true %}
+
+<!-- If the form property has its own specific attributes, get them &
+    concat them to the other two arrays -->
+	{% if form-property.object-attributes %}
+	    {% assign form-object-attributes = form-property.object-attributes %}
+	    	{% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | concat: form-object-attributes | sort: "name" %}
+
+	<!-- Otherwise, run this -->
+	{% else %}
+	    {% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | sort: "name" %}
+	{% endif %}
+
+
+<!-- Get support info for SSL and SSH connections,
+	using the corresponding doc for the database source -->
+{% for database in this-database %}
+	{% assign ssl-support = database.ssl %}
+	{% assign ssh-support = database.ssh %}
+	{% assign port = database.port %}
+{% endfor %}
+
+
+<table class="attribute-list">
+    {% for attribute in all-form-attributes %}
+        {% if attribute.name contains "ssh" %}
+        	{% if ssh-support == true %}
+	            <tr>
+	                <td class="attribute-name">
+	                    <strong>
+	                        {{ attribute.name | flatify }}
+	                    </strong><br>
+	                    {{ attribute.type | upcase }}<br>
+	                       OPTIONAL
+	                </td>
+	                <td>
+	                    {{ attribute.description | flatify | markdownify }}
+	                </td>
+	            </tr>
+            {% endif %}
+        
+        {% elsif attribute.name == "ssl" %}
+        	{% if ssl-support == true %}
+        		<tr>
+	                <td class="attribute-name">
+	                    <strong>
+	                        {{ attribute.name | flatify }}
+	                    </strong><br>
+	                    {{ attribute.type | upcase }}<br>
+	                       OPTIONAL
+	                </td>
+	                <td>
+	                    {{ attribute.description | flatify | markdownify }}
+	                </td>
+	            </tr>
+	        {% endif %}
+    	{% else %}
+	        <tr>
+	            <td class="attribute-name">
+	                <strong>
+	                    {{ attribute.name | flatify }}
+	                </strong><br>
+	                {{ attribute.type | upcase }}<br>
+
+	                {% case attribute.required %}
+	                    {% when true %}
+	                        <font color="#cc3399">REQUIRED</font>
+	                    {% else %}
+	                        OPTIONAL
+	                {% endcase %}
+	            </td>
+	            <td>
+	                {{ attribute.description | flatify | markdownify }}
+	            </td>
+	        </tr>
+	    {% endif %}
+    {% endfor %}
+</table>

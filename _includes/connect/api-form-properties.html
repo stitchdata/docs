@@ -1,3 +1,6 @@
+<!-- This file contains the logic for displaying form property documentation. 
+    Ex: destination and source form properties. -->
+
 {% include misc/data-files.html %}
 {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
 
@@ -54,41 +57,11 @@
             {{ required-note | markdownify }}
     {% endif %}
 
-{% if form-property.object-attributes %}
-    <table class="attribute-list">
-        {% for attribute in form-property.object-attributes %}
-            <tr>
-                <td class="attribute-name">
-                    <strong>
-                        {{ attribute.name | flatify }}
-                    </strong><br>
-                    {{ attribute.type | upcase }}<br>
 
-                    {% case attribute.required %}
-                        {% when true %}
-                            <font color="#cc3399">REQUIRED</font>
-                        {% else %}
-                            OPTIONAL
-                    {% endcase %}
-                </td>
-                <td>
-                    {{ attribute.description | flatify | markdownify }}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-{% endif %}
+<!-- The logic and display code for showing a form property's applicable fields -->
+    {% include connect/api-form-property-fields.html %}
 
-<h5 id="{{ data-structure.key | append: "-example-usage" }}">
-    Example Object
-</h5>
 
-<!-- Code for sample objects -->
-{% capture example-object %}
-{% include connect/api-form-properties-example-object.html %}
-{% endcapture %}
-
-{{ example-object | markdownify }}
 
     {% case include.content %}
         {% when 'destination' %}

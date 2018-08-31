@@ -1,3 +1,9 @@
+# -------------------------- #
+#   COMMON DATABASE FIELDS   #
+# -------------------------- #
+
+# This file contains the fields that are common to database source connections.
+
 fields:
   - name: "host"
     required: true
@@ -12,8 +18,7 @@ fields:
     required: true
     type: "string"
     description: "The port of the database server."
-    value: |
-      [PLACEHOLDER]
+    value: "{{ port }}"
     mysql: true
     postgres: true
     oracle: true

@@ -1,0 +1,36 @@
+# -------------------------- #
+#    COMMON SOURCE FIELDS    #
+# -------------------------- #
+
+# This file contains the fields that are common to all source connections.
+
+fields:
+  - name: "anchor_time"
+    type: "string"
+    required: false
+    description: |
+      [PLACEHOLDER]
+    value: "2018-04-30T03:30:00Z"
+
+  - name: "frequency_in_minutes"
+    type: "string"
+    required: true
+    description: |
+      Defines how often, in minutes, Stitch should attempt to replicate data from {{ integration }}. Accepted values are:
+
+      - `30`
+      - `60`
+      - `360`
+      - `720`
+      - `1440`
+    value: "360"
+
+  - name: "start_date"
+    type: "string"
+    required: true
+    description: |
+      The date from which Stitch should begin replicating data from {{ integration }}. Data from this date forward will be replicated.
+
+      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date, and the timestamp must be midnight. For example: `2018-01-01T00:00:00Z`
+    value: "2018-01-10T00:00:00Z"
+    exclude: "doubleclick-campaign-manager"
