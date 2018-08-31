@@ -104,6 +104,12 @@ sql:
     url: http://www.aquafold.com/dbspecific/amazon_redshift_client.html
     price: "Proprietary"
     os: "Windows, OS X"
+    
+  - name: "SeekWell"
+    url: https://www.seekwell.io/
+    price: "Free & Proprietary"
+    webapp: true
+    os: "Windows, OS X"
 
 data-science:
   - name: "Amazon Machine Learning"
