@@ -13,25 +13,25 @@ all-databases:
     required: true
     type: "string"
     description: "The IP address or hostname of the database server."
-    value: "<host_address>"
+    value: "<HOST_ADDRESS>"
 
   - name: "port"
     required: true
     type: "string"
-    description: "The port of the database server."
+    description: "The port of the database server. The default is `{{ port }}`."
     value: "{{ port }}"
 
   - name: "user"
     required: true
     type: "string"
     description: "The username of the {{ integration }} database user."
-    value: "<username>"
+    value: "<USERNAME>"
 
   - name: "password"
     required: true
     type: "string"
     description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
-    value: "<password>"
+    value: "<PASSWORD>"
 
 
 # -------------------------- #
@@ -43,7 +43,7 @@ mysql:
     required: true
     type: "string"
     description: &database-description "The name of the logical database to connect to."
-    value: "<database_name>"
+    value: "<DATABASE_NAME>"
 
   - name: &filterdbs-name "filter_dbs"
     required: true
@@ -61,7 +61,7 @@ postgres:
     required: true
     type: "string"
     description: *database-description
-    value: "<database_name>"
+    value: "<DATABASE_NAME>"
 
   - name: *filterdbs-name
     required: true
@@ -96,7 +96,7 @@ binlog-replication:
   - name: "use_log_based_replication"
     required: true
     type: "string"
-    description: ""
+    description: "**This field is not currently in use, but will be part of a future release.**"
     value: "true"
     database: "mysql"
 
@@ -118,7 +118,7 @@ ssh:
     required: false
     type: "string"
     description: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
-    value: "<ssh_host>"
+    value: "<SSH_HOST>"
 
   - name: "ssh_port"
     required: false
@@ -130,4 +130,4 @@ ssh:
     required: false
     type: "string"
     description: "The username of the SSH user. This property is only required if `ssh: true`."
-    value: "<ssh_username>"
+    value: "<SSH_USERNAME>"
