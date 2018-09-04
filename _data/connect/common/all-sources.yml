@@ -9,7 +9,11 @@ fields:
     type: "string"
     required: false
     description: |
-      [PLACEHOLDER]
+      Defines the time that `frequency_in_minutes` is "anchored" to, which Stitch will use to create the integration's replication schedule. In Stitch, this is referred to as [Anchor Scheduling]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}).
+
+      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date. For example: `2018-04-30T03:30:00Z`
+
+      For example: If `anchor_time` is set to `2018-04-30T03:30:00Z` and `frequency_in_minutes` is set to `360`, Stitch will run a replication job for the integration every `360` minutes, starting at `03:30:00`. This means a job would run at `09:30:00`, `15:30:00`, `21:30:00`, etc.
     value: "2018-04-30T03:30:00Z"
 
   - name: "frequency_in_minutes"
@@ -31,6 +35,6 @@ fields:
     description: |
       The date from which Stitch should begin replicating data from {{ integration }}. Data from this date forward will be replicated.
 
-      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date, and the timestamp must be midnight. For example: `2018-01-01T00:00:00Z`
+      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date, and the timestamp must be midnight. For example: `2018-01-01T00:00:00Z`
     value: "2018-01-10T00:00:00Z"
     exclude: "doubleclick-campaign-manager"
