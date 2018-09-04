@@ -4,7 +4,7 @@
 
 # This file contains the fields that are common to destination connections.
 
-fields:
+all-destinations:
   - name: "host"
     required: true
     type: "string"
@@ -39,6 +39,7 @@ fields:
     value: |
       "<password>"
 
+ssl:
   - name: "ssl"
     required: false
     type: "string"
