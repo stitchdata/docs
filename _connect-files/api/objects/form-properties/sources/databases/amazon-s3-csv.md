@@ -21,10 +21,14 @@ object-attributes:
     description: "The name of the bucket Stitch should replicate data from."
     value: "com-test-stitch-bucket"
 
-  - name: "tables"
-    type: "string"
-    required: true
-    description: |
-      [PLACEHOLDER]
-    value: ""
+# Commenting this out for now.
+# The sources team is working on making this attribute
+# More user-friendly.
+
+  # - name: "tables"
+  #   type: "string"
+  #   required: true
+  #   description: |
+  #     [PLACEHOLDER]
+  #   value: ""
 ---
