@@ -1,0 +1,47 @@
+# -------------------------- #
+#  COMMON DESTINATION FIELDS #
+# -------------------------- #
+
+# This file contains the fields that are common to destination connections.
+
+all-destinations:
+  - name: "host"
+    required: true
+    type: "string"
+    description: "The IP address or hostname of the database server."
+    value: |
+      "<host_address>"
+
+  - name: "port"
+    required: true
+    type: "string"
+    description: "The port of the database server. The default is `{{ port }}`."
+    value: "{{ port }}"
+
+  - name: "database"
+    required: true
+    type: "string"
+    description: "The name of the logical database to connect to."
+    value: |
+      "<database_name>"
+
+  - name: "user"
+    required: true
+    type: "string"
+    description: "The username of the database user."
+    value: |
+      "<username>"
+
+  - name: "password"
+    required: true
+    type: "string"
+    description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
+    value: |
+      "<password>"
+
+ssl:
+  - name: "ssl"
+    required: false
+    type: "string"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "false"
