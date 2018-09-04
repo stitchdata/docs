@@ -43,13 +43,29 @@
 
 <!-- SaaS form property example -->
 {% when 'saas' %}
+
+<!-- This gets the last item in the list for the source,
+      which is then used in the next block to make sure there
+      isn't an ending comma in the JSON.
+
+      TL:DR; Filtering doesn't actually eliminate the total number
+      of items in an array, it only displays the selected things.
+      So if you're doing "forloop.last" and filtering, it probably won't
+      work correctly. That's why this approach was taken. -->
+  {% for attribute in all-form-attributes %}
+    {% unless attribute.exclude contains form-property.api-type %}
+    {% assign last_item = attribute.name %}
+    {% endunless %}
+  {% endfor %}
+
+
 {% highlight json %}
 {
  "type":"platform.{{ form-property.api-type }}",
  "properties":{
    {% for attribute in all-form-attributes %}
    {%- unless attribute.exclude contains form-property.api-type -%}
-   {% if forloop.last == true %}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
+   {% if attribute.name == last_item %}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
    {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
    {% endif %}
    {%- endunless -%}
