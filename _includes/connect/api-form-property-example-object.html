@@ -1,0 +1,62 @@
+<!-- This is the formatting for the object code examples in the Connect API docs -->
+
+<h5 id="{{ form-property.key | append: "-example-usage" }}">
+	Example Object
+</h5>
+
+{% case include.content %}
+
+<!-- Destination form property example -->
+{% when 'destination' %}
+{% highlight json %}
+{
+ "type":"platform.{{ form-property.api-type }}",
+ "properties":{
+   {% for attribute in all-form-attributes %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute.value | flatify | append: "  " }}
+   {%- else -%}"{{ attribute.name }}":{{ attribute.value | rstrip | flatify | append: "," }}
+   {% endif %}
+   {%- endfor -%}
+  }
+}
+{% endhighlight %}
+
+
+{% when 'source' %}
+{% case form-property.source-type %}
+
+<!-- Database form property example -->
+{% when 'database' %}
+{% highlight json %}
+{
+ "type":"platform.{{ form-property.api-type }}",
+ "properties":{
+   {% for attribute in all-form-attributes %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
+   {% endif %}
+   {%- endfor -%}
+  }
+}
+{% endhighlight %}
+
+
+<!-- SaaS form property example -->
+{% when 'saas' %}
+{% highlight json %}
+{
+ "type":"platform.{{ form-property.api-type }}",
+ "properties":{
+   {% for attribute in all-form-attributes %}
+   {%- unless attribute.exclude contains form-property.api-type -%}
+   {% if forloop.last == true %}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
+   {% endif %}
+   {%- endunless -%}
+   {%- endfor -%}
+  }
+}
+{% endhighlight %}
+
+{% endcase %}
+{% endcase %}
