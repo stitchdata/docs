@@ -18,18 +18,18 @@ object-attributes:
   - name: "default_replication_method"
     type: "string"
     required: false
-    description: "{{ connect.common.attributes.default-replication-method }}"
-    value: "{{ sample-property-data.default-replication-method }}"
+    description: "**This field is not currently in use, but will be part of a future release.**"
+    value: ""
 
   - name: "filter_schemas"
     type: "string"
     required: false
-    description: "[PLACEHOLDER]"
+    description: "**This is an internal field and is for Stitch use only.**"
     value: ""
 
   - name: "sid"
     type: "string"
     required: false
-    description: "[PLACEHOLDER]"
-    value: ""
+    description: "The site identifier associated with the Oracle instance."
+    value: "<ORACLE_SID>"
 ---
