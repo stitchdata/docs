@@ -100,6 +100,16 @@ binlog-replication:
     value: "true"
     database: "mysql"
 
+  - name: "server_id"
+    required: false
+    type: "string"
+    description: |
+      Defines the unique ID of the server that Stitch will connect to, if using Log-based (binlog) Replication.
+
+      Server IDs must be unique, as MySQL doesn't allow replication to simultaneously occur across multiple connections using the same server ID. For more info about this setting in Stitch, refer to the [MySQL documentation]({{ site.baseurl }}/integrations/databases/mysql#server-id){:target="new"}.
+    value: "<UNIQUE_SERVER_ID>"
+    database: "mysql"
+
 ssl:
   - name: "ssl"
     required: false
