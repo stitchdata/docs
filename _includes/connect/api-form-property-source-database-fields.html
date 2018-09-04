@@ -9,7 +9,11 @@
 
 
 <!-- Get attributes common to all database sources -->
+{% if form-property.uses-common-fields == true %}
 	{% assign common-database-attributes = connect-database-attributes.all-databases %}
+{% else %}
+	{% assign common-database-attributes = null | compact %}
+{% endif %}
 
 
 <!-- Check if there's a specific list for this database type -->

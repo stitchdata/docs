@@ -12,4 +12,5 @@ docs-name: "cloudsql-postgres"
 db-type: "postgres"
 
 description: ""
+uses-common-fields: true
 ---

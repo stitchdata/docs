@@ -12,4 +12,5 @@ docs-name: "heroku"
 db-type: "postgres"
 
 description: ""
+uses-common-fields: true
 ---

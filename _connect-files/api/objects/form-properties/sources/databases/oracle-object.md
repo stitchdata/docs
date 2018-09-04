@@ -13,6 +13,7 @@ db-type: "oracle"
 
 description: ""
 
+uses-common-fields: true
 object-attributes:
   - name: "default_replication_method"
     type: "string"
