@@ -94,7 +94,7 @@ postgres:
 
 binlog-replication:
   - name: "use_log_based_replication"
-    required: true
+    required: false
     type: "string"
     description: "**This field is not currently in use, but will be part of a future release.**"
     value: "true"
