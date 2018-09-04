@@ -1,0 +1,34 @@
+{% capture server-id-note %}
+This step is required if using Log-based Replication and any of the following are true:
+
+1. You're connecting a read replica to Stitch
+2. You're connecting multiple databases to Stitch, all of which are on the same {{ integration.display_name }} server. These can be read replicas, or databases on the master instance.
+3. You're adding a new {{ integration.display_name }} Stitch integration, and the database is on the same server as other previously-connected databases. 
+{% endcapture %}
+
+{% include note.html first-line="**Required for Log-based Replication**" content=server-id-note %}
+
+
+When Stitch connects to your database and uses Log-based Replication, a unique server ID will be required. This ID ensures that the integration - or integrations, if you're connecting multiple databases - will not encounter conflicts during the replication process.
+
+To avoid conflicts, you'll check which server IDs are currently in use and then define a new, unqiue ID in Stitch.
+
+1. Log into the MySQL server that acts as the replication master.
+2. Run the following statement:
+
+   ```sql
+   mysql> SHOW SLAVE HOSTS;
+   ```
+
+2. The `SHOW SLAVE HOSTS` statement will return information about servers that are or have been connected as replication slaves:
+
+   ```sql
+   +------------+-------------+------+-----------+------------+
+   | Server_id  | Host        | Port | Master_id | Slave_UUID |
+   +------------+-------------+------+-----------+------------+
+   | 192168010  | stitch_prod | 3306 | 192168011 | <UUID>     |
+   | 1921680101 | stitch_dev  | 3306 | 192168011 | <UUID>     |
+   +------------+-------------+------+-----------+------------+
+   ```
+
+In the next step, you'll define a unique server ID for your Stitch {{ integration.display_name }} integration to use.
