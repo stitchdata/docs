@@ -12,6 +12,9 @@
 {% assign api = site.data.connect.api %}
 {% assign js = site.data.connect.js-client %}
 
+{% assign all-form-properties = site.connect-files | where: "content-type","api-form" %}
+{% assign source-form-properties = all-form-properties | where: "form-type", "source" | sort: "display-name" %}
+
 
 <div class="menu-list">
 
@@ -56,6 +59,7 @@
                         {% else %}
                             <ul class="collapse in" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
                     {% endcase %}
+
                     {% for section in category.sections %}
                         {% if section.subsections %}
 
@@ -91,16 +95,29 @@
                                     <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
                             {% endcase %}
 
-                                {% for subsection in section.subsections %}
-                                    <li>
-                                        <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}" class="api">
-                                            {% if subsection.method %}
-                                                <span class="method {{ subsection.method }} method-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
-                                            {% endif %}
-                                            {{ subsection.title | flatify }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
+                            {% case section.title %}
+                                {% when 'Source Forms' %}
+                                    {% for source-form-property in source-form-properties %}
+                                        <li>
+                                            <a href="{{ source-form-property.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl }}" class="api">
+                                                <span class="method object method-bullet">OBJECT</span>
+                                                {{ source-form-property.title | remove: "Source Form Property" }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+
+                                {% else %}
+                                    {% for subsection in section.subsections %}
+                                        <li>
+                                            <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}" class="api">
+                                                {% if subsection.method %}
+                                                    <span class="method {{ subsection.method }} method-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
+                                                {% endif %}
+                                                {{ subsection.title | flatify }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                            {% endcase %}
                                     </ul>
                                     <!-- Sub-section level -->
                                 </li>
