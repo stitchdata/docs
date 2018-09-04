@@ -1,133 +1,133 @@
 # -------------------------- #
-#   COMMON DATABASE FIELDS   #
+#  DATABASE FORM PROPERTIES  #
 # -------------------------- #
 
 # This file contains the fields that are common to database source connections.
 
-fields:
+# -------------------------- #
+#   COMMON TO ALL DATABASES  #
+# -------------------------- #
+
+all-databases:
   - name: "host"
     required: true
     type: "string"
     description: "The IP address or hostname of the database server."
     value: "<host_address>"
-    mysql: true
-    postgres: true
-    oracle: true
 
   - name: "port"
     required: true
     type: "string"
     description: "The port of the database server."
     value: "{{ port }}"
-    mysql: true
-    postgres: true
-    oracle: true
-
-  - name: "database"
-    required: true
-    type: "string"
-    description: "The name of the logical database to connect to."
-    value: "<database_name>"
-    mysql: true
-
-  - name: "dbname"
-    required: true
-    type: "string"
-    description: "The name of the logical database to connect to."
-    value: "<database_name>"
-    postgres: true
 
   - name: "user"
     required: true
     type: "string"
     description: "The username of the {{ integration }} database user."
     value: "<username>"
-    mysql: true
-    postgres: true
-    oracle: true
 
   - name: "password"
     required: true
     type: "string"
     description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
     value: "<password>"
-    mysql: true
-    postgres: true
-    oracle: true
 
-  - name: "ssl"
-    required: false
+
+# -------------------------- #
+#      MYSQL DATABASES       #
+# -------------------------- #
+
+mysql:
+  - name: "database"
+    required: true
     type: "string"
-    description: "If `true`, SSL will be used to connect to the database."
-    value: "false"
-    mysql: true
-    postgres: true
-    oracle: true
+    description: &database-description "The name of the logical database to connect to."
+    value: "<database_name>"
 
-  - name: "ssh"
-    required: false
-    type: "string"
-    description: "If `true`, an SSH tunnel will be used to connect to the database."
-    value: "true"
-    mysql: true
-    postgres: true
-    oracle: true
-
-  - name: "ssh_host"
-    required: false
-    type: "string"
-    description: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
-    value: "<ssh_host>"
-    mysql: true
-    postgres: true
-    oracle: true
-
-  - name: "ssh_port"
-    required: false
-    type: "string"
-    description: "The port of the SSH server. This property is only required if `ssh: true`."
-    value: "22"
-    mysql: true
-    postgres: true
-    oracle: true
-
-  - name: "ssh_user"
-    required: false
-    type: "string"
-    description: "The username of the SSH user. This property is only required if `ssh: true`."
-    value: "<ssh_username>"
-    mysql: true
-    postgres: true
-    oracle: true
-
-  - name: "use_log_based_replication"
-    required: false
-    type: "string"
-    description: ""
-    value: "false"
-    mysql: true
-
-  - name: "filter_dbs"
-    required: false
+  - name: &filterdbs-name "filter_dbs"
+    required: true
     type: "string"
     description: &internal-field "**This is an internal field and is for Stitch use only.**"
-    value: "null"
-    mysql: true
-    postgres: true
+    value: ""
 
-  - name: "itersize"
-    required: false
+
+# -------------------------- #
+#    POSTGRESQL DATABASES    #
+# -------------------------- #
+
+postgres:
+  - name: "dbname"
+    required: true
+    type: "string"
+    description: *database-description
+    value: "<database_name>"
+
+  - name: *filterdbs-name
+    required: true
     type: "string"
     description: *internal-field
-    value: "null"
-    postgres: true
+    value: ""
 
   - name: "include_schemas_in_destination_stream_name"
-    required: false
+    required: true
     type: "string"
     description: |
       If `true`, the name of the source schema will be included in the destination table name. For example: `<source_schema_name>__<table_name>`. This can help prevent table name collisions when two tables canonicalize to the same name.
 
       For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
     value: "false"
-    postgres: true
+
+  - name: "itersize"
+    required: true
+    type: "string"
+    description: *internal-field
+    value: ""
+
+# -------------------------- #
+#       FEATURE FIELDS       #
+# -------------------------- #
+
+# These fields are specific to databases that support certain features.
+# The properties listed here will only display for a form property if
+# The corresponding doc for that database has a `true` flag for that feature.
+
+binlog-replication:
+  - name: "use_log_based_replication"
+    required: true
+    type: "string"
+    description: ""
+    value: "true"
+    database: "mysql"
+
+ssl:
+  - name: "ssl"
+    required: false
+    type: "string"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "false"
+
+ssh:
+  - name: "ssh"
+    required: false
+    type: "string"
+    description: "If `true`, an SSH tunnel will be used to connect to the database."
+    value: "true"
+
+  - name: "ssh_host"
+    required: false
+    type: "string"
+    description: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
+    value: "<ssh_host>"
+
+  - name: "ssh_port"
+    required: false
+    type: "string"
+    description: "The port of the SSH server. This property is only required if `ssh: true`."
+    value: "22"
+
+  - name: "ssh_user"
+    required: false
+    type: "string"
+    description: "The username of the SSH user. This property is only required if `ssh: true`."
+    value: "<ssh_username>"
