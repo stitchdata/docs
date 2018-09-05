@@ -18,28 +18,10 @@ api-method:
   doc-link: ""
 
 attributes:
-  - name: ""
-    type: ""
-    primary-key: true
-    description: ""
+  # The output from running the json_to_yaml.rb script should go here.
+  # It needs to be indented two spaces from the left, like this:
 
-  - name: ""
-    type: 
-    description: ""
-
-  - name: ""
-    type: "array"
-    description:
-    array-attributes:
-      - name: ""
-        type: ""
-        description: ""
-
-  - name: ""
-    type: "object"
-    description:
-    object-attributes:
-      - name: ""
-        type: ""
-        description: ""
+# - name: "id"
+#   type: "string"
+#   description: "I'm an ID!" 
 ---
