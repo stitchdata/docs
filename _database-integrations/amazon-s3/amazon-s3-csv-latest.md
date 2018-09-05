@@ -136,7 +136,7 @@ requirements-list:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: |
-      **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add/modify bucket policies. During the setup process, Stitch will provide you with a bucket policy which will allow Stitch to access the bucket. This must be added to the bucket for Stitch to connect successfully.
+      **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
   - item: |
       **Verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Compliant columns will persist to the destination.
 
@@ -171,7 +171,7 @@ setup-steps:
       3. Click **My Account**.
       4. In the **Account Settings** section of the page, locate the **Account Id** field:
 
-         ![]({{ site.baseurl }}/images/integrations/s3-csv-account-id.png)
+         ![An AWS account ID, highlighted in the AWS Account Settings page]({{ site.baseurl }}/images/integrations/s3-csv-account-id.png)
 
       Keep this handy - you'll need it to complete the next step.
   - title: "add integration"
@@ -313,6 +313,8 @@ setup-steps:
   - title: "Grant access to your bucket using AWS IAM"
     anchor: "grant-access-bucket-iam"
     content: |
+      {% include note.html type="single-line" content="**Note**: To complete this step, you must have permissions in AWS Identity Access Management (IAM) that allow you to create/modify IAM policies and roles." %}
+
       Next, Stitch will display a **Grant Access to Your Bucket** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
 
       **Note**: Saving the integration before you've completed the steps below will result in connection errors.
@@ -321,7 +323,7 @@ setup-steps:
       - title: "Create an IAM policy"
         anchor: "create-iam-policy"
         content: |
-          {% include note.html type="single-line" content="You must have permissions that allow you to manage S3 buckets in AWS to complete this step." %}
+          {% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `ListPolicies`, `GetPolicy`, and `CreatePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
 
           [An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to bucket resources. The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
 
@@ -409,6 +411,8 @@ setup-steps:
       - title: "Create an IAM role for Stitch"
         anchor: "create-stitch-iam-role"
         content: |
+          {% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `CreateRole` and `AttachRolePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
+
           In this step, you'll create an IAM role for Stitch and apply the IAM policy from the previous step. This will ensure that Stitch is visible in any logs and audits.
 
           To create the role, you'll need the **Account ID** and **External ID** values provided on the Stitch **Grant Access to Your Bucket** page.
@@ -419,7 +423,7 @@ setup-steps:
              1. In the **Select type of trusted entity** section, click the **Another AWS account** option.
              2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page:
 
-                ![]({{ site.baseurl }}/images/integrations/s3-csv-create-role-fields.png)
+                ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/s3-csv-create-role-fields.png)
              3. In the **Options** section, check the **Require external ID** box.
              4. In the **External ID** field that displays, paste the External ID from Stitch.
              5. Click **Next: Permissions**.
