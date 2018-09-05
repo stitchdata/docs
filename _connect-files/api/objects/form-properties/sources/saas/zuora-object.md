@@ -4,7 +4,13 @@ form-type: "source"
 key: "source-form-properties-zuora-object"
 
 title: "Zuora Source Form Property"
-description: "{{ api.form-properties.source-forms.zuora.description }}"
+api-type: "zuora"
+display-name: "Zuora"
+
+source-type: "saas"
+docs-name: "zuora"
+
+description: ""
 
 object-attributes:
   # - name: "api_type"
@@ -15,28 +21,19 @@ object-attributes:
     type: "string"
     required: false
     description: "If `true`, the Zuora account being connected is based in Europe."
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]","Zuora" }}
+    value: "false"
 
   - name: "password"
     type: "string"
     required: true
     description: "The password associated with the Zuora user authorizing the connection."
+    value: "{{ sample-property-data.password }}"
 
   - name: "sandbox"
     type: "string"
     required: false
     description: "If `true`, the Zuora account being connected is a sandbox."
-
-  - name: "start_date"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.start-date | replace: "[INTEGRATION]","Zuora" }}
+    value: "false"
 
   - name: "username"
     type: "string"
@@ -49,18 +46,5 @@ object-attributes:
       3. **Have credentials that don't expire**. This is only applicable if Password Expiration rules are enforced. Refer to [Zuora's documentation](https://knowledgecenter.zuora.com/kb/How_do_I_prevent_my_API_user_login_from_expiring%3F) for a workaround.
 
       For more info, refer to our [Zuora integration documentation]({{ site.baseurl }}/integrations/saas/zuora#create-the-zuora-user).
-
-examples:
-  - code: |
-      {  
-       "type":"platform.zuora",
-       "properties":{
-          "european":"false",
-          "frequency_in_minutes":"1440",
-          "sandbox":"false",
-          "start_date":"2018-01-10T00:00:00Z",
-          "username":"stitch_zuora_user",
-          "password":"<PASSWORD>"
-        }
-      }
+    value: "{{ sample-property-data.user }}"
 ---

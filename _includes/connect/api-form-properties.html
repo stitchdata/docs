@@ -1,16 +1,19 @@
+<!-- This file contains the logic for displaying form property documentation. 
+    Ex: destination and source form properties. -->
+
 {% include misc/data-files.html %}
 {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
 
 {% case include.content %}
     {% when 'destination' %}
-        {% assign form-properties = site.connect-files | where:"form-type","destination" %}
+        {% assign form-properties = site.connect-files | where:"form-type","destination" | sort:"title" %}
 
 {% capture required-note %}
 **Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided in the `connection` argument for [Creating a Destination]({{ api.core-objects.destinations.create.anchor }}).
 {% endcapture %}
 
     {% else %}
-        {% assign form-properties = site.connect-files | where:"form-type","source" %}
+        {% assign form-properties = site.connect-files | where:"form-type","source" | sort:"title" %}
 
 {% capture required-note %}
 **Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided before the source can be considered <code>fully_configured</code>.
@@ -31,46 +34,33 @@
         </div>
     </div>
 
-    <p>{{ form-property.description | flatify | markdownify }}</p>
+<!-- Displays if an object has been deprecated -->
+{% if form-property.deprecated %}
+{% capture deprecation-note %}
+**IMPORTANT**: As of {{ form-property.deprecated.as-of }}, this object has been deprecated. Use the {{ form-property.deprecated.use-instead | flatify | strip }} object instead to create new connections.
+{% endcapture %}
 
-    {{ required-note | markdownify }}
+{% include important.html type="single=line" content=deprecation-note %}
 
-{% if form-property.object-attributes %}
-    <table class="attribute-list">
-        {% for attribute in form-property.object-attributes %}
-            <tr>
-                <td class="attribute-name">
-                    <strong>
-                        {{ attribute.name | flatify }}
-                    </strong><br>
-                    {{ attribute.type | upcase }}<br>
+<!-- Otherwise, just display the description -->
+        {% else %}
 
-                    {% case attribute.required %}
-                        {% when true %}
-                            <font color="#cc3399">REQUIRED</font>
-                        {% else %}
-                            OPTIONAL
-                    {% endcase %}
-                </td>
-                <td>
-                    {{ attribute.description | flatify | markdownify }}
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-{% endif %}
+        <!-- property-description is a Frontmatter variable located in _connect-files/documentation/api-form-properties.html
 
-<h5 id="{{ data-structure.key | append: "-example-usage" }}">
-    Example Object
-</h5>
+        It's a block of Liquid code that checks a form property's type and then outputs
+        the correct description for it. -->
+            {{ doc.property-description | replace: "VARIABLE","form-property" | flatify | markdownify }}
 
-    {% for example in form-property.examples %}
-{%- capture example-code -%}
-```json
-{{ example.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ example-code | markdownify }}
-    {% endfor %}
+        <!-- The description found in the form property's file. Additional details about setup, etc. -->
+            {{ form-property.description | flatify | markdownify }}
+
+            {{ required-note | markdownify }}
+    {% endif %}
+
+
+<!-- The logic and display code for showing a form property's applicable fields -->
+    {% include connect/api-form-property-fields.html %}
+
 
 
     {% case include.content %}

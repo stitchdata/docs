@@ -116,6 +116,11 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
+  - title: "Retrieve server IDs"
+    anchor: "server-id"
+    content: |
+      {% include integrations/databases/setup/binlog/mysql-server-id.html %}
+
   - title: "Define the binlong retention setting"
     anchor: "define-binlog-retention-setting"
     content: |

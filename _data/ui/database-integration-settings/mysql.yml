@@ -36,6 +36,12 @@ mysql:
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
 
+  - name: &server-id-name "Server ID"
+    copy: &server-id-copy |
+      **Optional**: Enter the unique server ID of instance you're connecting to Stitch.
+
+            This can be any numeric value, as long as it's unique to the instance. For example: If in the [Retrieve Server IDs step](#server-id) there are servers with the IDs `192168010` and `1921680101`, you can enter any other numbers in this field.
+
 
 # -------------------------- #
 #         AURORA RDS         #
@@ -89,7 +95,6 @@ magento:
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
 
 
-
 # -------------------------- #
 #           MARIADB          #
 # -------------------------- #
@@ -113,6 +118,9 @@ mariadb:
 
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+  - name: *server-id-name
+    copy: *server-id-copy
 
 
 # -------------------------- #
@@ -140,6 +148,9 @@ mysql-rds:
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
 
+  - name: *server-id-name
+    copy: *server-id-copy
+
 # -------------------------- #
 #      CLOUDSQL MYSQL        #
 # -------------------------- #
@@ -164,3 +175,6 @@ cloudsql-mysql:
 
   - name: "{{ defaults.field-names.database }}"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+  - name: *server-id-name
+    copy: *server-id-copy
