@@ -47,13 +47,13 @@ frequency: "30 minutes"
 tier: "Free/Paid"
 status-url: ""
 icon: /images/integrations/icons/saas-integration.svg
-whitelist:
-  tables: true
-  columns: false
 
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+table-selection: true/false
+column-selection: true/false
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -107,4 +107,3 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
