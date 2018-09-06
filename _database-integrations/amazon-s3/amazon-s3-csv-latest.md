@@ -417,6 +417,8 @@ setup-steps:
 
           To create the role, you'll need the **Account ID** and **External ID** values provided on the Stitch **Grant Access to Your Bucket** page.
 
+          **Note**: If you're creating multiple {{ integration.display_name }} integrations, you need to only complete this process once. After you create the Stitch role, you can just [create an additional IAM policy and attach it to the role](#create-iam-policy).
+
           1. In AWS, navigate to the [IAM Roles](https://console.aws.amazon.com/iam/home#/roles){:target="new"} page.
           2. Click **Create Role**.
           3. On the **Create Role** page:
@@ -431,7 +433,7 @@ setup-steps:
              1. Search for the policy you created in [Step 6.1](#create-iam-policy).
              2. Once located, check the box next to it in the table.
              3. Click **Next: Review**.
-          5. In the **Role name** field, type `Stitch`. **Note**: The Role name must be `Stitch`.
+          5. In the **Role name** field, type `Stitch`.
           6. Click **Create role**.
 
       - title: "Check and save the connection in Stitch"
