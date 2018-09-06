@@ -14,11 +14,11 @@
 
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-[database-integration]-object"
+key: "source-form-properties-[integration]-object"
 
-title: "[Database-Integration] Source Form Property"
+title: "[INTEGRATION] Source Form Property"
 api-type: ""
-display-name: "[Database-Integration]"
+display-name: "[INTEGRATION]"
 
 source-type: "database"
 docs-name: ""

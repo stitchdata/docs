@@ -16,9 +16,9 @@ content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-[destination-name]-object"
 
-title: "[Destination-Name] Destination Form Property"
+title: "[DESTINATION-NAME] Destination Form Property"
 api-type: ""
-display-name: "[Destination-Name]"
+display-name: "[DESTINATION-NAME]"
 
 docs-name: ""
 db-type: ""

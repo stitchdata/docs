@@ -14,11 +14,11 @@
 
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-[saas-integration]-object"
+key: "source-form-properties-[integration]-object"
 
-title: "[SaaS-Integration] Source Form Property"
+title: "[INTEGRATION] Source Form Property"
 api-type: ""
-display-name: "[SaaS-Integration]"
+display-name: "[INTEGRATION]"
 
 source-type: "saas"
 docs-name: ""
