@@ -15,7 +15,7 @@ integration_name value so the correct changelog is pulled -->
 <table class="attribute-list">
     {% for entry in integration-changelog %}
 
-
+    <!-- Version deprecation entries -->
         {% if entry.type == 'version-deprecation' %}
             {% for version in released-versions %}
 
@@ -41,6 +41,8 @@ integration_name value so the correct changelog is pulled -->
                 {% endif %}
             {% endfor %}
         {% endif %}
+
+    <!-- End the deprecation stuff -->
         <tr>
             <td align="right" width="25%; fixed">
                 <strong>Date</strong>
