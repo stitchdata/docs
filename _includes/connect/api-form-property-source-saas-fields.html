@@ -13,33 +13,9 @@
     {% assign all-form-attributes = site.data.connect.common.all-sources.fields %}
 {% endif %}
 
+{% assign all-saas-docs = site.saas-integrations | where:"name",form-property.docs-name %}
+    {% assign this-saas = all-saas-docs | where:"input",true %}
 
-<!-- The table listing of the form property's attributes  -->
-    <table class="attribute-list">
-    	{% for attribute in all-form-attributes %}
-            {% unless attribute.exclude contains form-property.api-type %}
-            <tr>
-                <td class="attribute-name">
-                    <strong>
-                        {{ attribute.name | flatify }}
-                    </strong><br>
-                    {{ attribute.type | upcase }}<br>
-
-                    {% case attribute.required %}
-                        {% when true %}
-                            <font color="#cc3399">REQUIRED</font>
-                        {% else %}
-                            OPTIONAL
-                    {% endcase %}
-                </td>
-                <td>
-                    {{ attribute.description | flatify | markdownify }}
-                </td>
-            </tr>
-            {% endunless %}
-    	{% endfor %}
-    </table>
-
-<!-- The example JSON object of the form property -->
-
-{% include connect/api-form-property-example-object.html %}
+        {% for saas in this-saas %}
+            {% assign doc-link = saas.url | prepend: site.baseurl %}
+        {% endfor %}

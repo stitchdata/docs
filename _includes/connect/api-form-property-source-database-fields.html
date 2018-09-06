@@ -60,6 +60,7 @@
 				{% endif %}
 
 			{% assign port = database.port %}
+			{% assign doc-link = database.url | prepend: site.baseurl %}
 
 			{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields %}
 		{% endfor %}
@@ -77,32 +78,3 @@
 	{% else %}
 	    {% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | concat: feature-fields | concat: specific-attributes | sort: "name" %}
 	{% endif %}
-
-
-<!-- Finally, display everything we've done o_O -->
-	<table class="attribute-list">
-	    {% for attribute in all-form-attributes %}
-		    <tr>
-		        <td class="attribute-name">
-		            <strong>
-		                {{ attribute.name | flatify }}
-		            </strong><br>
-		            {{ attribute.type | upcase }}<br>
-
-		            {% case attribute.required %}
-		                {% when true %}
-		                    <font color="#cc3399">REQUIRED</font>
-		                {% else %}
-		                    OPTIONAL
-		            {% endcase %}
-		        </td>
-		        <td>
-		            {{ attribute.description | flatify | markdownify }}
-		        </td>
-		    </tr>
-		{% endfor %}
-	</table>
-
-
-<!-- The example JSON object of the form property -->
-	{% include connect/api-form-property-example-object.html %}
