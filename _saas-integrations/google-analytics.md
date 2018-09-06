@@ -107,7 +107,7 @@ Connecting your Google Analytics data to Stitch is a five-step process:
 ### Prerequisites
 Before you get started, you should verify that:
 
-1. **The user creating the integration has at least [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495?hl=en) and that there's data in the account.** If the profile you use to connect doesn’t have these permissions (or there’s no data in the account), you’ll receive an error message like this:
+1. **The user creating the integration has at least [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495?hl=en) and that there's recent data in the account.** If the profile you use to connect doesn’t have these permissions (or there’s no data in the account), you’ll receive an error message like this:
 
    > “Something went wrong. None of the Google Analytics profiles associated with the credentials you’ve supplied contain data that Stitch can access. Please make sure that the credentials you’ve supplied have appropriate access.”
 
