@@ -136,7 +136,7 @@ requirements-list:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: |
-      **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add/modify bucket policies. During the setup process, Stitch will provide you with a bucket policy which will allow Stitch to access the bucket. This must be added to the bucket for Stitch to connect successfully.
+      **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
   - item: |
       **Verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Compliant columns will persist to the destination.
 
@@ -163,9 +163,21 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
+  - title: "Retrieve your Amazon Web Services account ID"
+    anchor: "retrieve-aws-account-id"
+    content: |
+      1. Sign into your Amazon Web Services (AWS) account.
+      2. Click the **user menu**, located between the **bell** and **Global** menus in the top-right corner of the page.
+      3. Click **My Account**.
+      4. In the **Account Settings** section of the page, locate the **Account Id** field:
+
+         ![An AWS account ID, highlighted in the AWS Account Settings page]({{ site.baseurl }}/images/integrations/s3-csv-account-id.png)
+
+      Keep this handy - you'll need it to complete the next step.
   - title: "add integration"
     content: |
       4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
+      5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
 
   - title: "Configure tables"
     anchor: "configure-tables"
@@ -298,108 +310,138 @@ setup-steps:
 
   - title: "replication frequency"
 
-  - title: "Grant bucket access to Stitch"
-    anchor: "grant-bucket-access-to-stitch"
+  - title: "Grant access to your bucket using AWS IAM"
+    anchor: "grant-access-bucket-iam"
     content: |
-      {% include note.html type="single-line" content="You must have permissions that allow you to manage S3 buckets in AWS to complete this step." %}
-      Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
+      {% include note.html type="single-line" content="**Note**: To complete this step, you must have permissions in AWS Identity Access Management (IAM) that allow you to create/modify IAM policies and roles." %}
 
-      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
+      Next, Stitch will display a **Grant Access to Your Bucket** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
 
-      For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
+      **Note**: Saving the integration before you've completed the steps below will result in connection errors.
 
-      {% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges[integration.name].user-privileges %}
+    substeps:
+      - title: "Create an IAM policy"
+        anchor: "create-iam-policy"
+        content: |
+          {% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `ListPolicies`, `GetPolicy`, and `CreatePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
 
-      <div class="panel-group" id="accordion">
-          <div class="panel panel-default">
+          [An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to bucket resources. The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
 
-              <div class="panel-heading">
-                  <h4 class="panel-title">
-                      <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ integration.display_name }} Bucket Permissions</a>
-                  </h4>
-              </div>
+          For more info about the top-level permissions the Stitch IAM policy grants, click the link below.
 
-              <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
-                  <div class="panel-body">
-                      <table class="attribute-list table-hover">
-                          <tr>
-                              <td class="attribute-name">
-                                  <strong>Permission Name</strong>
-                              </td>
-                              <td class="attribute-description">
-                                  <strong>Operation</strong>
-                              </td>
-                              <td class="attribute-description">
-                                  <strong>Operation Description</strong>
-                              </td>
-                          </tr>
+          {% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges[integration.name].user-privileges %}
 
-                          {% for permission in integration-permissions %}
+          <div class="panel-group" id="accordion">
+              <div class="panel panel-default">
 
-                          <!-- Capture the # of objects in the array & use it as the table's rowspan -->
-                              {% for operation in permission.operations %}
-                                  {%- capture rowspan -%}
-                                      {{ forloop.length }}
-                                  {%- endcapture -%}
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ integration.display_name }} Bucket Permissions</a>
+                      </h4>
+                  </div>
+
+                  <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
+                      <div class="panel-body">
+                          <table class="attribute-list table-hover">
+                              <tr>
+                                  <td class="attribute-name">
+                                      <strong>Permission Name</strong>
+                                  </td>
+                                  <td class="attribute-description">
+                                      <strong>Operation</strong>
+                                  </td>
+                                  <td class="attribute-description">
+                                      <strong>Operation Description</strong>
+                                  </td>
+                              </tr>
+
+                              {% for permission in integration-permissions %}
+
+                              <!-- Capture the # of objects in the array & use it as the table's rowspan -->
+                                  {% for operation in permission.operations %}
+                                      {%- capture rowspan -%}
+                                          {{ forloop.length }}
+                                      {%- endcapture -%}
+                                  {% endfor %}
+
+                                      <tr>
+                                          <td class="attribute-name" rowspan="{{ rowspan }}">
+                                              <strong>{{ permission.name }}</strong>
+                                          </td>
+                                  {% for operation in permission.operations %}
+                                      {% case forloop.first %}
+                                          {% when true %}
+                                                  <td class="attribute-description">
+                                                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
+                                                  </td>
+                                                  <td class="attribute-description">
+                                                      {{ operation.description | flatify | markdownify }}
+                                                  </td>
+                                              </tr>
+                                          {% else %}
+                                              <tr>
+                                                  <td class="attribute-description">
+                                                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
+                                                  </td>
+                                                  <td class="attribute-description">
+                                                      {{ operation.description | flatify | markdownify }}
+                                                  </td>
+                                              </tr>
+                                      {% endcase %}
+                                  {% endfor %}
                               {% endfor %}
-
-                                  <tr>
-                                      <td class="attribute-name" rowspan="{{ rowspan }}">
-                                          <strong>{{ permission.name }}</strong>
-                                      </td>
-                              {% for operation in permission.operations %}
-                                  {% case forloop.first %}
-                                      {% when true %}
-                                              <td class="attribute-description">
-                                                  <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                                              </td>
-                                              <td class="attribute-description">
-                                                  {{ operation.description | flatify | markdownify }}
-                                              </td>
-                                          </tr>
-                                      {% else %}
-                                          <tr>
-                                              <td class="attribute-description">
-                                                  <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                                              </td>
-                                              <td class="attribute-description">
-                                                  {{ operation.description | flatify | markdownify }}
-                                              </td>
-                                          </tr>
-                                  {% endcase %}
-                              {% endfor %}
-                          {% endfor %}
-                      </table>
+                          </table>
+                      </div>
                   </div>
               </div>
           </div>
-      </div>
 
-    substeps:
-      - title: "Add the Stitch Bucket Policy"
-        anchor: "add-bucket-policy"
+          To create the IAM policy:
+
+          1. In AWS, [navigate to the IAM service](https://console.aws.amazon.com/iam/home#/home){:target="new"} by clicking the **Services** menu and typing **IAM**.
+          2. Click **IAM** once it displays in the results.
+          3. On the IAM home page, click **Policies** in the menu on the left side of the page.
+          4. Click **Create Policy**.
+          5. In the **Create Policy** page, click the **JSON** tab.
+          6. Select everything currently in the text field and delete it.
+          7. In the text field, paste the Stitch IAM policy.
+          8. Click **Review policy**.
+          9. On the **Review Policy** page, give the policy a name. For example: `stitch_s3`
+          10. Click **Create policy**.
+      - title: "Create an IAM role for Stitch"
+        anchor: "create-stitch-iam-role"
         content: |
-          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
-          {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="500px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
+          {% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `CreateRole` and `AttachRolePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
 
-          1. Sign into AWS in another tab, if you aren't currently logged in.
-          2. Click **Services** near the top-left corner of the page.
-          3. Under the **Storage** option, click **S3**.
-          4. A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch.
-          5. Click the **Permissions** tab.
-          6. In the **Permissions** tab, click the **Bucket Policy** button.
-          7. In the Bucket policy editor, paste the bucket policy code from Stitch.
-          8. When finished, click **Save**.
-      
-      - title: "Check and save the connection"
-        anchor: "check-save-connection"
+          In this step, you'll create an IAM role for Stitch and apply the IAM policy from the previous step. This will ensure that Stitch is visible in any logs and audits.
+
+          To create the role, you'll need the **Account ID** and **External ID** values provided on the Stitch **Grant Access to Your Bucket** page.
+
+          **Note**: If you're creating multiple {{ integration.display_name }} integrations, you need to only complete this process once. After you create the Stitch role, you can just [create an additional IAM policy and attach it to the role](#create-iam-policy).
+
+          1. In AWS, navigate to the [IAM Roles](https://console.aws.amazon.com/iam/home#/roles){:target="new"} page.
+          2. Click **Create Role**.
+          3. On the **Create Role** page:
+             1. In the **Select type of trusted entity** section, click the **Another AWS account** option.
+             2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page:
+
+                ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/s3-csv-create-role-fields.png)
+             3. In the **Options** section, check the **Require external ID** box.
+             4. In the **External ID** field that displays, paste the External ID from Stitch.
+             5. Click **Next: Permissions**.
+          4. On the **Attach permissions** page:
+             1. Search for the policy you created in [Step 6.1](#create-iam-policy).
+             2. Once located, check the box next to it in the table.
+             3. Click **Next: Review**.
+          5. In the **Role name** field, type `Stitch`.
+          6. Click **Create role**.
+
+      - title: "Check and save the connection in Stitch"
+        anchor: "check-save-stitch-connection"
         content: |
-          1. Switch back to the tab where Stitch is open.
-          2. Click the **Check and Save** button.
+          {% include note.html type="single-line" content="**Note**: Saving the integration before you've completed the IAM policy and role steps will result in connection errors." %}
 
-          Stitch will check if bucket access has been correctly granted. If successful, an **All Done!** message will display on the page.
-
-          Click **Continue**.
+          After you've created the IAM policy and role, you can save the integration in Stitch. When finished, click {{ app.buttons.check-and-save }}.
 
   - title: "track data"
 
