@@ -1,36 +1,48 @@
-    - name: choices
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - string
-    - name: created_by
-      type: string
-      description: <WRITE ME>
-    - name: date_created
-      type: string
-      description: <WRITE ME>
-    - name: date_updated
-      type: string
-      description: <WRITE ME>
-    - name: editable_with_roles
-      type: array
-      decription: <WRITE ME>
-      array-properties: []
-    - name: id
-      type: string
-      description: <WRITE ME>
-    - name: name
-      type: string
-      description: <WRITE ME>
-    - name: organization_id
-      type: string
-      description: <WRITE ME>
-    - name: type
-      type: string
-      description: <WRITE ME>
-    - name: updated_by
-      type:
-      - 'null'
-      - string
-      description: <WRITE ME>
-    
+---
+"replication-method": ""
+"doc-link": ""
+"name": "custom_fields"
+"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/custom_fields.json"
+"attributes":
+  - "name": "choices"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "created_by"
+    "type": "string"
+    "description": ""
+  - "name": "date_created"
+    "type": "string"
+    "description": ""
+  - "name": "date_updated"
+    "type": "string"
+    "description": ""
+  - "name": "editable_with_roles"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+        "type": "object, string"
+        "object-properties":
+          - "_sdc_additional_properties": "true"
+  - "name": "id"
+    "type": "string"
+    "description": ""
+  - "name": "name"
+    "type": "string"
+    "description": ""
+  - "name": "organization_id"
+    "type": "string"
+    "description": ""
+  - "name": "type"
+    "type": "string"
+    "description": ""
+  - "name": "updated_by"
+    "type": "string"
+    "description": ""
+"version": "1.x"
+"tap": "closeio"
+"api-method":
+    "name": ""
+    "doc-link": ""
+"description": ""
+---

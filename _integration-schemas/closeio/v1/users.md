@@ -1,29 +1,41 @@
-    - name: date_created
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_updated
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: email
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: first_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: image
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: last_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: last_used_timezone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: organizations
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    
+---
+"replication-method": ""
+"doc-link": ""
+"name": "users"
+"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/users.json"
+"attributes":
+  - "name": "date_created"
+    "type": "string"
+    "description": ""
+  - "name": "date_updated"
+    "type": "string"
+    "description": ""
+  - "name": "email"
+    "type": "string"
+    "description": ""
+  - "name": "first_name"
+    "type": "string"
+    "description": ""
+  - "name": "id"
+    "type": "string"
+    "description": ""
+  - "name": "image"
+    "type": "string"
+    "description": ""
+  - "name": "last_name"
+    "type": "string"
+    "description": ""
+  - "name": "last_used_timezone"
+    "type": "string"
+    "description": ""
+  - "name": "organizations"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+"version": "1.x"
+"tap": "closeio"
+"api-method":
+    "name": ""
+    "doc-link": ""
+"description": ""
+---

@@ -1,347 +1,361 @@
-    - name: _type
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: attachments
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: content_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: content_type
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: filename
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: size
-        type: ['null', integer]
-        description: <WRITE ME>
-      - name: url
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: bcc
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: body_html
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: body_html_quoted
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: expand
-        type: ['null', integer, boolean]
-        description: <WRITE ME>
-      - name: html
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: body_preview
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: body_text
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: body_text_quoted
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: expand
-        type: ['null', integer, boolean]
-        description: <WRITE ME>
-      - name: text
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: cc
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: contact_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: created_by
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: created_by_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_created
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_scheduled
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_sent
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_updated
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: dialer_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: direction
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: duration
-      type: ['null', integer]
-      description: <WRITE ME>
-    - name: email_account_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: envelope
-      type: object
-      description: <WRITE ME>
-      object-properties:
-      - name: bcc
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: name
-          type: ['null', string]
-          description: <WRITE ME>
-      - name: cc
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: name
-          type: ['null', string]
-          description: <WRITE ME>
-      - {name: date, type: null, description: <WRITE ME>}
-      - name: from
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: name
-          type: ['null', string]
-          description: <WRITE ME>
-      - name: in_reply_to
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: is_autoreply
-        type: ['null', integer, boolean]
-        description: <WRITE ME>
-      - name: message_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: reply_to
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: name
-          type: ['null', string]
-          description: <WRITE ME>
-      - name: sender
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: name
-          type: ['null', string]
-          description: <WRITE ME>
-      - name: subject
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: to
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: name
-          type: ['null', string]
-          description: <WRITE ME>
-    - name: id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: import_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: in_reply_to_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: lead_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: local_phone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: message_ids
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: need_smtp_credentials
-      type: ['null', integer, boolean]
-      description: <WRITE ME>
-    - name: new_status_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: new_status_label
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: new_status_type
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: note
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: old_status_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: old_status_label
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: old_status_type
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opens
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: ip_address
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: opened_at
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: opened_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: user_agent
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: opens_summary
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_confidence
-      type: ['null', integer]
-      description: <WRITE ME>
-    - name: opportunity_date_won
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_value
-      type: ['null', integer]
-      description: <WRITE ME>
-    - name: opportunity_value_currency
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_value_formatted
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_value_period
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: organization_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: phone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: recording_url
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: references
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: remote_phone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: send_attempts
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: date
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: error_class
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: error_message
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: sender
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: source
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: status
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: subject
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: task_assigned_to
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: task_assigned_to_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: task_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: task_text
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: template_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: template_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: thread_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: to
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: transferred_from
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: transferred_to
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: updated_by
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: updated_by_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: user_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: user_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: users
-      type: array
-      decription: <WRITE ME>
-      array-properties: []
-    - name: voicemail_duration
-      type: ['null', integer]
-      description: <WRITE ME>
-    - name: voicemail_url
-      type: ['null', string]
-      description: <WRITE ME>
-    
+---
+"replication-method": ""
+"doc-link": ""
+"name": "activities"
+"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/activities.json"
+"attributes":
+  - "name": "_type"
+    "type": "string"
+    "description": ""
+  - "name": "attachments"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "content_id"
+        "type": "string"
+        "description": ""
+      - "name": "content_type"
+        "type": "string"
+        "description": ""
+      - "name": "filename"
+        "type": "string"
+        "description": ""
+      - "name": "size"
+        "type": "integer"
+        "description": ""
+      - "name": "url"
+        "type": "string"
+        "description": ""
+  - "name": "bcc"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "body_html"
+    "type": "string"
+    "description": ""
+  - "name": "body_html_quoted"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "expand"
+        "type": "boolean, integer"
+        "description": ""
+      - "name": "html"
+        "type": "string"
+        "description": ""
+  - "name": "body_preview"
+    "type": "string"
+    "description": ""
+  - "name": "body_text"
+    "type": "string"
+    "description": ""
+  - "name": "body_text_quoted"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "expand"
+        "type": "boolean, integer"
+        "description": ""
+      - "name": "text"
+        "type": "string"
+        "description": ""
+  - "name": "cc"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "contact_id"
+    "type": "string"
+    "description": ""
+  - "name": "created_by"
+    "type": "string"
+    "description": ""
+  - "name": "created_by_name"
+    "type": "string"
+    "description": ""
+  - "name": "date_created"
+    "type": "string"
+    "description": ""
+  - "name": "date_scheduled"
+    "type": "string"
+    "description": ""
+  - "name": "date_sent"
+    "type": "string"
+    "description": ""
+  - "name": "date_updated"
+    "type": "string"
+    "description": ""
+  - "name": "dialer_id"
+    "type": "string"
+    "description": ""
+  - "name": "direction"
+    "type": "string"
+    "description": ""
+  - "name": "duration"
+    "type": "integer"
+    "description": ""
+  - "name": "email_account_id"
+    "type": "string"
+    "description": ""
+  - "name": "envelope"
+    "type": "object"
+    "description": ""
+    "object-properties":
+      - "name": "bcc"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "name"
+            "type": "string"
+            "description": ""
+      - "name": "cc"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "name"
+            "type": "string"
+            "description": ""
+      - "name": "date"
+        "type": ""
+        "description": ""
+      - "name": "from"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "name"
+            "type": "string"
+            "description": ""
+      - "name": "in_reply_to"
+        "type": "string"
+        "description": ""
+      - "name": "is_autoreply"
+        "type": "boolean, integer"
+        "description": ""
+      - "name": "message_id"
+        "type": "string"
+        "description": ""
+      - "name": "reply_to"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "name"
+            "type": "string"
+            "description": ""
+      - "name": "sender"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "name"
+            "type": "string"
+            "description": ""
+      - "name": "subject"
+        "type": "string"
+        "description": ""
+      - "name": "to"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "name"
+            "type": "string"
+            "description": ""
+  - "name": "id"
+    "type": "string"
+    "description": ""
+  - "name": "import_id"
+    "type": "string"
+    "description": ""
+  - "name": "in_reply_to_id"
+    "type": "string"
+    "description": ""
+  - "name": "lead_id"
+    "type": "string"
+    "description": ""
+  - "name": "local_phone"
+    "type": "string"
+    "description": ""
+  - "name": "message_ids"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "need_smtp_credentials"
+    "type": "boolean, integer"
+    "description": ""
+  - "name": "new_status_id"
+    "type": "string"
+    "description": ""
+  - "name": "new_status_label"
+    "type": "string"
+    "description": ""
+  - "name": "new_status_type"
+    "type": "string"
+    "description": ""
+  - "name": "note"
+    "type": "string"
+    "description": ""
+  - "name": "old_status_id"
+    "type": "string"
+    "description": ""
+  - "name": "old_status_label"
+    "type": "string"
+    "description": ""
+  - "name": "old_status_type"
+    "type": "string"
+    "description": ""
+  - "name": "opens"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "ip_address"
+        "type": "string"
+        "description": ""
+      - "name": "opened_at"
+        "type": "string"
+        "description": ""
+      - "name": "opened_by"
+        "type": "string"
+        "description": ""
+      - "name": "user_agent"
+        "type": "string"
+        "description": ""
+  - "name": "opens_summary"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_confidence"
+    "type": "integer"
+    "description": ""
+  - "name": "opportunity_date_won"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_id"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_value"
+    "type": "integer"
+    "description": ""
+  - "name": "opportunity_value_currency"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_value_formatted"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_value_period"
+    "type": "string"
+    "description": ""
+  - "name": "organization_id"
+    "type": "string"
+    "description": ""
+  - "name": "phone"
+    "type": "string"
+    "description": ""
+  - "name": "recording_url"
+    "type": "string"
+    "description": ""
+  - "name": "references"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "remote_phone"
+    "type": "string"
+    "description": ""
+  - "name": "send_attempts"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "date"
+        "type": "string"
+        "description": ""
+      - "name": "error_class"
+        "type": "string"
+        "description": ""
+      - "name": "error_message"
+        "type": "string"
+        "description": ""
+  - "name": "sender"
+    "type": "string"
+    "description": ""
+  - "name": "source"
+    "type": "string"
+    "description": ""
+  - "name": "status"
+    "type": "string"
+    "description": ""
+  - "name": "subject"
+    "type": "string"
+    "description": ""
+  - "name": "task_assigned_to"
+    "type": "string"
+    "description": ""
+  - "name": "task_assigned_to_name"
+    "type": "string"
+    "description": ""
+  - "name": "task_id"
+    "type": "string"
+    "description": ""
+  - "name": "task_text"
+    "type": "string"
+    "description": ""
+  - "name": "template_id"
+    "type": "string"
+    "description": ""
+  - "name": "template_name"
+    "type": "string"
+    "description": ""
+  - "name": "thread_id"
+    "type": "string"
+    "description": ""
+  - "name": "to"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "transferred_from"
+    "type": "string"
+    "description": ""
+  - "name": "transferred_to"
+    "type": "string"
+    "description": ""
+  - "name": "updated_by"
+    "type": "string"
+    "description": ""
+  - "name": "updated_by_name"
+    "type": "string"
+    "description": ""
+  - "name": "user_id"
+    "type": "string"
+    "description": ""
+  - "name": "user_name"
+    "type": "string"
+    "description": ""
+  - "name": "users"
+    "type": "array"
+    "description": ""
+    "array-attributes": ""
+  - "name": "voicemail_duration"
+    "type": "integer"
+    "description": ""
+  - "name": "voicemail_url"
+    "type": "string"
+    "description": ""
+"version": "1.x"
+"tap": "closeio"
+"api-method":
+    "name": ""
+    "doc-link": ""
+"description": ""
+---

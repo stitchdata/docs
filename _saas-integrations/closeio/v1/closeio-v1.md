@@ -18,7 +18,7 @@ name: "closeio"
 display_name: "Close.io"
 
 singer: true
-tap-name: ""
+tap-name: "Close.io"
 repo-url: https://github.com/singer-io/tap-closeio
 
 # this-version: ""
@@ -55,18 +55,16 @@ loading-reports: true
 requirements-list:
   - item: "**A Close.io API Key**"
 
-requirements-info: |
-    Generating a Close.io API Key {#generate-closeio-api-key}
-
-    1. Sign into your Close.io account.
-    2. Click the **user menu (your icon)** in the top right corner.
-    3. Click **Settings**.
-    4. In the Company menu (located under the You menu), click **Your API Keys**.
-    5. In the Your API Keys section, click the **Generate New API Key** button.
-    6. A new API Key will display. Keep this handy; you’ll need it in the next step.
-
 setup-steps:
   - title: "Generate a Close.io API Key"
+    anchor: "generate-closeio-api-key"
+    content: |
+      1. Sign into your Close.io account.
+      2. Click the **user menu (your icon)** in the top right corner.
+      3. Click **Settings**.
+      4. In the Company menu (located under the You menu), click **Your API Keys**.
+      5. In the Your API Keys section, click the **Generate New API Key** button.
+      6. A new API Key will display. Keep this handy; you’ll need it in the next step.
   - title: "add integration"
     content: |
         4. Paste your API Key into the API key field.

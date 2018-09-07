@@ -1,128 +1,140 @@
-    - name: _type
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: assigned_to
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: assigned_to_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: body_preview
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: contact_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: contact_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: created_by
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: created_by_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_created
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_updated
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: due_date
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: email_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: emails
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: id
-      type: [string]
-      description: <WRITE ME>
-    - name: is_complete
-      type: ['null', boolean]
-      description: <WRITE ME>
-    - name: is_dateless
-      type: ['null', boolean]
-      description: <WRITE ME>
-    - name: lead_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: lead_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: local_phone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: object_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: object_type
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_note
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_value
-      type: ['null', integer]
-      description: <WRITE ME>
-    - name: opportunity_value_currency
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_value_formatted
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunity_value_period
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: organization_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: phone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: phone_formatted
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: phone_number_description
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: recording_url
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: remote_phone
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: remote_phone_description
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: remote_phone_formatted
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: subject
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: text
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: updated_by
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: updated_by_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: view
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: voicemail_duration
-      type: ['null', integer]
-      description: <WRITE ME>
-    - name: voicemail_url
-      type: ['null', string]
-      description: <WRITE ME>
-    
+---
+"replication-method": ""
+"doc-link": ""
+"name": "tasks"
+"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/tasks.json"
+"attributes":
+  - "name": "_type"
+    "type": "string"
+    "description": ""
+  - "name": "assigned_to"
+    "type": "string"
+    "description": ""
+  - "name": "assigned_to_name"
+    "type": "string"
+    "description": ""
+  - "name": "body_preview"
+    "type": "string"
+    "description": ""
+  - "name": "contact_id"
+    "type": "string"
+    "description": ""
+  - "name": "contact_name"
+    "type": "string"
+    "description": ""
+  - "name": "created_by"
+    "type": "string"
+    "description": ""
+  - "name": "created_by_name"
+    "type": "string"
+    "description": ""
+  - "name": "date"
+    "type": "string"
+    "description": ""
+  - "name": "date_created"
+    "type": "string"
+    "description": ""
+  - "name": "date_updated"
+    "type": "string"
+    "description": ""
+  - "name": "due_date"
+    "type": "string"
+    "description": ""
+  - "name": "email_id"
+    "type": "string"
+    "description": ""
+  - "name": "emails"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "id"
+    "type": "string"
+    "description": ""
+  - "name": "is_complete"
+    "type": "boolean"
+    "description": ""
+  - "name": "is_dateless"
+    "type": "boolean"
+    "description": ""
+  - "name": "lead_id"
+    "type": "string"
+    "description": ""
+  - "name": "lead_name"
+    "type": "string"
+    "description": ""
+  - "name": "local_phone"
+    "type": "string"
+    "description": ""
+  - "name": "object_id"
+    "type": "string"
+    "description": ""
+  - "name": "object_type"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_note"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_value"
+    "type": "integer"
+    "description": ""
+  - "name": "opportunity_value_currency"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_value_formatted"
+    "type": "string"
+    "description": ""
+  - "name": "opportunity_value_period"
+    "type": "string"
+    "description": ""
+  - "name": "organization_id"
+    "type": "string"
+    "description": ""
+  - "name": "phone"
+    "type": "string"
+    "description": ""
+  - "name": "phone_formatted"
+    "type": "string"
+    "description": ""
+  - "name": "phone_number_description"
+    "type": "string"
+    "description": ""
+  - "name": "recording_url"
+    "type": "string"
+    "description": ""
+  - "name": "remote_phone"
+    "type": "string"
+    "description": ""
+  - "name": "remote_phone_description"
+    "type": "string"
+    "description": ""
+  - "name": "remote_phone_formatted"
+    "type": "string"
+    "description": ""
+  - "name": "subject"
+    "type": "string"
+    "description": ""
+  - "name": "text"
+    "type": "string"
+    "description": ""
+  - "name": "updated_by"
+    "type": "string"
+    "description": ""
+  - "name": "updated_by_name"
+    "type": "string"
+    "description": ""
+  - "name": "view"
+    "type": "string"
+    "description": ""
+  - "name": "voicemail_duration"
+    "type": "integer"
+    "description": ""
+  - "name": "voicemail_url"
+    "type": "string"
+    "description": ""
+"version": "1.x"
+"tap": "closeio"
+"api-method":
+    "name": ""
+    "doc-link": ""
+"description": ""
+---

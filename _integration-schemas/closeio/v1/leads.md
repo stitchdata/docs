@@ -1,288 +1,308 @@
-    - name: addresses
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: address_1
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: address_2
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: city
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: country
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: label
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: state
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: zipcode
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: contacts
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: created_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_created
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_updated
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: display_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: emails
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: email
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: type
-          type: ['null', string]
-          description: <WRITE ME>
-      - name: id
-        type: ['null', string]
-        description: <WRITE ME>
-      - {name: integration_links, type: null, description: <WRITE ME>}
-      - name: lead_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: organization_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: phones
-        type: array
-        decription: <WRITE ME>
-        array-properties:
-        - name: phone
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: phone_formatted
-          type: ['null', string]
-          description: <WRITE ME>
-        - name: type
-          type: ['null', string]
-          description: <WRITE ME>
-      - name: title
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: updated_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: urls
-        type: array
-        decription: <WRITE ME>
-        array-properties: [o, b, j, e, c, t]
-    - name: created_by
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: created_by_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - {name: custom_fields, type: array, description: <WRITE ME>}
-    - name: date_created
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_updated
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: description
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: display_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: html_url
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: id
-      type: ['null', string]
-      description: <WRITE ME>
-    - {name: integration_links, type: null, description: <WRITE ME>}
-    - name: name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: opportunities
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: confidence
-        type: ['null', integer]
-        description: <WRITE ME>
-      - name: contact_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: contact_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: created_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: created_by_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_created
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_lost
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_updated
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_won
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: id
-        type: ['null', string]
-        description: <WRITE ME>
-      - {name: integration_links, type: null, description: <WRITE ME>}
-      - name: lead_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: lead_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: note
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: organization_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: status_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: status_label
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: status_type
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: updated_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: updated_by_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: user_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: user_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: value
-        type: ['null', integer]
-        description: <WRITE ME>
-      - name: value_currency
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: value_formatted
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: value_period
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: organization_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: status_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: status_label
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: tasks
-      type: array
-      decription: <WRITE ME>
-      array-properties:
-      - name: _type
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: assigned_to
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: assigned_to_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: contact_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: contact_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: created_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: created_by_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_created
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: date_updated
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: due_date
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: is_complete
-        type: ['null', integer, boolean]
-        description: <WRITE ME>
-      - name: is_dateless
-        type: ['null', integer, boolean]
-        description: <WRITE ME>
-      - name: lead_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: lead_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: object_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: object_type
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: organization_id
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: text
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: updated_by
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: updated_by_name
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: view
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: updated_by
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: updated_by_name
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: url
-      type: ['null', string]
-      description: <WRITE ME>
-    
+---
+"replication-method": ""
+"doc-link": ""
+"name": "leads"
+"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/leads.json"
+"attributes":
+  - "name": "addresses"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "address_1"
+        "type": "string"
+        "description": ""
+      - "name": "address_2"
+        "type": "string"
+        "description": ""
+      - "name": "city"
+        "type": "string"
+        "description": ""
+      - "name": "country"
+        "type": "string"
+        "description": ""
+      - "name": "label"
+        "type": "string"
+        "description": ""
+      - "name": "state"
+        "type": "string"
+        "description": ""
+      - "name": "zipcode"
+        "type": "string"
+        "description": ""
+  - "name": "contacts"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "created_by"
+        "type": "string"
+        "description": ""
+      - "name": "date_created"
+        "type": "string"
+        "description": ""
+      - "name": "date_updated"
+        "type": "string"
+        "description": ""
+      - "name": "display_name"
+        "type": "string"
+        "description": ""
+      - "name": "emails"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "email"
+            "type": "string"
+            "description": ""
+          - "name": "type"
+            "type": "string"
+            "description": ""
+      - "name": "id"
+        "type": "string"
+        "description": ""
+      - "name": "integration_links"
+        "type": ""
+        "description": ""
+      - "name": "lead_id"
+        "type": "string"
+        "description": ""
+      - "name": "name"
+        "type": "string"
+        "description": ""
+      - "name": "organization_id"
+        "type": "string"
+        "description": ""
+      - "name": "phones"
+        "type": "array"
+        "description": ""
+        "array-attributes":
+          - "name": "phone"
+            "type": "string"
+            "description": ""
+          - "name": "phone_formatted"
+            "type": "string"
+            "description": ""
+          - "name": "type"
+            "type": "string"
+            "description": ""
+      - "name": "title"
+        "type": "string"
+        "description": ""
+      - "name": "updated_by"
+        "type": "string"
+        "description": ""
+      - "name": "urls"
+        "type": "array"
+        "description": ""
+        "array-attributes": "object"
+  - "name": "created_by"
+    "type": "string"
+    "description": ""
+  - "name": "created_by_name"
+    "type": "string"
+    "description": ""
+  - "name": "custom_fields"
+    "type": "array"
+    "description": ""
+  - "name": "date_created"
+    "type": "string"
+    "description": ""
+  - "name": "date_updated"
+    "type": "string"
+    "description": ""
+  - "name": "description"
+    "type": "string"
+    "description": ""
+  - "name": "display_name"
+    "type": "string"
+    "description": ""
+  - "name": "html_url"
+    "type": "string"
+    "description": ""
+  - "name": "id"
+    "type": "string"
+    "description": ""
+  - "name": "integration_links"
+    "type": ""
+    "description": ""
+  - "name": "name"
+    "type": "string"
+    "description": ""
+  - "name": "opportunities"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "confidence"
+        "type": "integer"
+        "description": ""
+      - "name": "contact_id"
+        "type": "string"
+        "description": ""
+      - "name": "contact_name"
+        "type": "string"
+        "description": ""
+      - "name": "created_by"
+        "type": "string"
+        "description": ""
+      - "name": "created_by_name"
+        "type": "string"
+        "description": ""
+      - "name": "date_created"
+        "type": "string"
+        "description": ""
+      - "name": "date_lost"
+        "type": "string"
+        "description": ""
+      - "name": "date_updated"
+        "type": "string"
+        "description": ""
+      - "name": "date_won"
+        "type": "string"
+        "description": ""
+      - "name": "id"
+        "type": "string"
+        "description": ""
+      - "name": "integration_links"
+        "type": ""
+        "description": ""
+      - "name": "lead_id"
+        "type": "string"
+        "description": ""
+      - "name": "lead_name"
+        "type": "string"
+        "description": ""
+      - "name": "note"
+        "type": "string"
+        "description": ""
+      - "name": "organization_id"
+        "type": "string"
+        "description": ""
+      - "name": "status_id"
+        "type": "string"
+        "description": ""
+      - "name": "status_label"
+        "type": "string"
+        "description": ""
+      - "name": "status_type"
+        "type": "string"
+        "description": ""
+      - "name": "updated_by"
+        "type": "string"
+        "description": ""
+      - "name": "updated_by_name"
+        "type": "string"
+        "description": ""
+      - "name": "user_id"
+        "type": "string"
+        "description": ""
+      - "name": "user_name"
+        "type": "string"
+        "description": ""
+      - "name": "value"
+        "type": "integer"
+        "description": ""
+      - "name": "value_currency"
+        "type": "string"
+        "description": ""
+      - "name": "value_formatted"
+        "type": "string"
+        "description": ""
+      - "name": "value_period"
+        "type": "string"
+        "description": ""
+  - "name": "organization_id"
+    "type": "string"
+    "description": ""
+  - "name": "status_id"
+    "type": "string"
+    "description": ""
+  - "name": "status_label"
+    "type": "string"
+    "description": ""
+  - "name": "tasks"
+    "type": "array"
+    "description": ""
+    "array-attributes":
+      - "name": "_type"
+        "type": "string"
+        "description": ""
+      - "name": "assigned_to"
+        "type": "string"
+        "description": ""
+      - "name": "assigned_to_name"
+        "type": "string"
+        "description": ""
+      - "name": "contact_id"
+        "type": "string"
+        "description": ""
+      - "name": "contact_name"
+        "type": "string"
+        "description": ""
+      - "name": "created_by"
+        "type": "string"
+        "description": ""
+      - "name": "created_by_name"
+        "type": "string"
+        "description": ""
+      - "name": "date"
+        "type": "string"
+        "description": ""
+      - "name": "date_created"
+        "type": "string"
+        "description": ""
+      - "name": "date_updated"
+        "type": "string"
+        "description": ""
+      - "name": "due_date"
+        "type": "string"
+        "description": ""
+      - "name": "id"
+        "type": "string"
+        "description": ""
+      - "name": "is_complete"
+        "type": "boolean, integer"
+        "description": ""
+      - "name": "is_dateless"
+        "type": "boolean, integer"
+        "description": ""
+      - "name": "lead_id"
+        "type": "string"
+        "description": ""
+      - "name": "lead_name"
+        "type": "string"
+        "description": ""
+      - "name": "object_id"
+        "type": "string"
+        "description": ""
+      - "name": "object_type"
+        "type": "string"
+        "description": ""
+      - "name": "organization_id"
+        "type": "string"
+        "description": ""
+      - "name": "text"
+        "type": "string"
+        "description": ""
+      - "name": "updated_by"
+        "type": "string"
+        "description": ""
+      - "name": "updated_by_name"
+        "type": "string"
+        "description": ""
+      - "name": "view"
+        "type": "string"
+        "description": ""
+  - "name": "updated_by"
+    "type": "string"
+    "description": ""
+  - "name": "updated_by_name"
+    "type": "string"
+    "description": ""
+  - "name": "url"
+    "type": "string"
+    "description": ""
+"version": "1.x"
+"tap": "closeio"
+"api-method":
+    "name": ""
+    "doc-link": ""
+"description": ""
+---

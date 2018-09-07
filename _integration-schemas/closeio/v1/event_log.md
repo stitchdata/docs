@@ -1,51 +1,63 @@
-    - name: action
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: changed_fields
-      type: array
-      decription: <WRITE ME>
-      array-properties: ['null', string]
-    - name: data
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_created
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: date_updated
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: lead_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: meta
-      type: object
-      description: <WRITE ME>
-      object-properties:
-      - name: request_method
-        type: ['null', string]
-        description: <WRITE ME>
-      - name: request_path
-        type: ['null', string]
-        description: <WRITE ME>
-    - name: object_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: object_type
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: organization_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: previous_data
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: request_id
-      type: ['null', string]
-      description: <WRITE ME>
-    - name: user_id
-      type: ['null', string]
-      description: <WRITE ME>
-    
+---
+"replication-method": ""
+"doc-link": ""
+"name": "event_log"
+"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/event_log.json"
+"attributes":
+  - "name": "action"
+    "type": "string"
+    "description": ""
+  - "name": "changed_fields"
+    "type": "array"
+    "description": ""
+    "array-attributes": "string"
+  - "name": "data"
+    "type": "string"
+    "description": ""
+  - "name": "date_created"
+    "type": "string"
+    "description": ""
+  - "name": "date_updated"
+    "type": "string"
+    "description": ""
+  - "name": "id"
+    "type": "string"
+    "description": ""
+  - "name": "lead_id"
+    "type": "string"
+    "description": ""
+  - "name": "meta"
+    "type": "object"
+    "description": ""
+    "object-properties":
+      - "name": "request_method"
+        "type": "string"
+        "description": ""
+      - "name": "request_path"
+        "type": "string"
+        "description": ""
+  - "name": "object_id"
+    "type": "string"
+    "description": ""
+  - "name": "object_type"
+    "type": "string"
+    "description": ""
+  - "name": "organization_id"
+    "type": "string"
+    "description": ""
+  - "name": "previous_data"
+    "type": "string"
+    "description": ""
+  - "name": "request_id"
+    "type": "string"
+    "description": ""
+  - "name": "user_id"
+    "type": "string"
+    "description": ""
+"version": "1.x"
+"tap": "closeio"
+"api-method":
+    "name": ""
+    "doc-link": ""
+"description": ""
+---
