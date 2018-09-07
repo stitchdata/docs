@@ -27,7 +27,7 @@ repo-url: https://github.com/singer-io/tap-closeio
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Alpha"
+status: "Open Beta"
 certified: true
 
 historical: "1 year"
