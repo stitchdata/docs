@@ -1,3 +1,14 @@
+---
+tap: "harvest-forecast"
+version: "1.0"
+
+name: "people"
+doc-link:
+singer-schema: https://github.com/singer-io/tap-harvest-forecast/blob/master/tap_harvest_forecast/schemas/people.json
+
+replication-method: "Key-based Incremental"
+
+attributes:
   - name: "id"
     type: "integer"
     description: ""
@@ -99,4 +110,4 @@
   - name: "personal_feed_token_id"
     type: "integer"
     description: ""
-
+---
