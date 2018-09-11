@@ -1,8 +1,14 @@
 ---
-"replication-method": ""
-"doc-link": ""
+"tap": "closeio"
+"version": "1.x"
 "name": "leads"
+"doc-link": ""
 "singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/leads.json"
+"description": ""
+"replication-method": ""
+"api-method":
+    "name": ""
+    "doc-link": ""
 "attributes":
   - "name": "addresses"
     "type": "array"
@@ -320,10 +326,4 @@
   - "name": "url"
     "type": "string"
     "description": ""
-"version": "1.x"
-"tap": "closeio"
-"api-method":
-    "name": ""
-    "doc-link": ""
-"description": ""
 ---

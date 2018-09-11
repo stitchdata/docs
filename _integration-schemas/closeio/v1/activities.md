@@ -1,8 +1,14 @@
 ---
-"replication-method": ""
-"doc-link": ""
+"tap": "closeio"
+"version": "1.x"
 "name": "activities"
+"doc-link": ""
 "singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/activities.json"
+"description": ""
+"replication-method": ""
+"api-method":
+    "name": ""
+    "doc-link": ""
 "attributes":
   - "name": "_type"
     "type": "string"
@@ -380,10 +386,4 @@
   - "name": "voicemail_url"
     "type": "string"
     "description": ""
-"version": "1.x"
-"tap": "closeio"
-"api-method":
-    "name": ""
-    "doc-link": ""
-"description": ""
 ---

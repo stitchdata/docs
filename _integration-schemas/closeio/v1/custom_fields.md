@@ -22,8 +22,7 @@
     "description": ""
     "array-attributes":
         "type": "object, string"
-        "object-properties":
-          - "_sdc_additional_properties": "true"
+        "object-properties": []
   - "name": "id"
     "type": "string"
     "description": ""
