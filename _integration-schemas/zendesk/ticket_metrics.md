@@ -6,16 +6,16 @@ name: "ticket_metrics"
 doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_metrics
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_metrics.json
 description: |
-  The `ticket_metrics` table contains info about the metrics associated with Zendesk tickets. **Note**: This table will not include records for archived tickets.
+  The `ticket_metrics` table contains info about the metrics associated with Zendesk tickets. **Note**: This table will not include records for deleted tickets.
 
   **Note**: Retrieving ticket metric data requires Zendesk Admin permissions.
 
-  #### Archived ticket metrics
-  As Zendesk's API doesn't currently support returning metrics for archived tickets, this table will not contain any metrics for archived tickets.
+  #### Deleted ticket metrics
+  As Zendesk's API doesn't currently support returning metrics for deleted tickets, this table will not contain any metrics for deleted tickets.
 
-  If you believe you're missing records, check in your Zendesk account to see if the missing records are for archived tickets.
+  If you believe you're missing records, check in your Zendesk account to see if the missing records are for deleted tickets.
   
-  For more info on how Zendesk handles archiving tickets, [refer to their documentation](https://support.zendesk.com/hc/en-us/articles/203657756).
+  For more info on how Zendesk handles deleting tickets, [refer to their documentation](https://support.zendesk.com/hc/en-us/articles/203690936).
 
 replication-method: "Key-based Incremental"
 
