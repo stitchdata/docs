@@ -46,7 +46,7 @@ anchor-scheduling: true
 
 requirements-list:
   - item: |
-      **A Harvest ID account with access to Harvest Forecast**. Your Harvest ID will be used to authorize the integration using OAuth.
+      **A Harvest account with access to Harvest Forecast**. Your Harvest ID will be used to authorize the integration using OAuth.
 
 setup-steps:
   - title: "add integration"
