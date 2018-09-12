@@ -1,8 +1,14 @@
 ---
-"replication-method": ""
-"doc-link": ""
+"tap": "closeio"
+"version": "1.x"
 "name": "custom_fields"
+"doc-link": ""
 "singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/custom_fields.json"
+"description": ""
+"replication-method": ""
+"api-method":
+    "name": ""
+    "doc-link": ""
 "attributes":
   - "name": "choices"
     "type": "array"
@@ -22,7 +28,8 @@
     "description": ""
     "array-attributes":
         "type": "object, string"
-        "object-properties": []
+        "object-properties": [
+            ]
   - "name": "id"
     "type": "string"
     "description": ""
@@ -38,10 +45,4 @@
   - "name": "updated_by"
     "type": "string"
     "description": ""
-"version": "1.x"
-"tap": "closeio"
-"api-method":
-    "name": ""
-    "doc-link": ""
-"description": ""
 ---
