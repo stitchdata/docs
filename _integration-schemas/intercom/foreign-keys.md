@@ -7,7 +7,6 @@ foreign-keys:
   - id: "admin-id"
     attribute: "id"
     table: "admins"
-    join-on: "id"
     all-foreign-keys:
       - table: "admins"
         join-on: "id"
@@ -20,7 +19,6 @@ foreign-keys:
   - id: "author-id"
     attribute: "id"
     table: "authors"
-    join-on: "id"
     all-foreign-keys:
       - table: "admins"
       - table: "contacts"
@@ -31,7 +29,6 @@ foreign-keys:
   - id: "company-id"
     attribute: "id"
     table: "companies"
-    join-on: "id"
     all-foreign-keys:
       - table: "companies"
         join-on: "id"
@@ -44,7 +41,6 @@ foreign-keys:
   - id: "company-segment-id"
     attribute: "id"
     table: "company_segments"
-    join-on: "id"
     all-foreign-keys:
       - table: "company_segments"
         join-on: "id"
@@ -55,7 +51,6 @@ foreign-keys:
   - id: "contact-id"
     attribute: "id"
     table: "contacts"
-    join-on: "id"
     all-foreign-keys:
       - table: "contacts"
         join-on: "id"
@@ -65,7 +60,6 @@ foreign-keys:
   - id: "conversation-id"
     attribute: "id"
     table: "conversations"
-    join-on: "id"
     all-foreign-keys:
       - table: "conversations"
         join-on: "id"
@@ -73,7 +67,6 @@ foreign-keys:
   - id: "segment-id"
     attribute: "id"
     table: "segments"
-    join-on: "id"
     all-foreign-keys:
       - table: "segments"
         join-on: "id"
@@ -83,7 +76,6 @@ foreign-keys:
   - id: "tag-id"
     attribute: "id"
     table: "tags"
-    join-on: "id"
     all-foreign-keys:
       - table: "tags"
         join-on: "id"
@@ -98,7 +90,6 @@ foreign-keys:
   - id: "user-id"
     attribute: "id"
     table: "users"
-    join-on: "id"
     all-foreign-keys:
       - table: "users"
         join-on: "id"

@@ -7,9 +7,9 @@ foreign-keys:
   - id: "campaign-id"
     attribute: "leadNurturingCampaignId"
     table: "campaigns"
-    join-on: "campaignId"
     all-foreign-keys:
       - table: "campaigns"
+        join-on: "id"
       - table: "email_events"
         join-on: "emailCampaignId"
       - table: "forms"
@@ -18,7 +18,6 @@ foreign-keys:
   - id: "contact-id"
     attribute: "canonical-vid"
     table: "contacts"
-    join-on: "canonical-vid"
     all-foreign-keys:
       - table: "contacts"
       - table: "contacts_by_company"
@@ -27,9 +26,9 @@ foreign-keys:
   - id: "company-id"
     attribute: "company-id"
     table: "companies"
-    join-on: "companyId"
     all-foreign-keys:
       - table: "companies"
+        join-on: "companyId"
       - table: "contacts_by_company"
       - table: "deals"
         subtable: "associations__associatedCompanyIds"
@@ -41,7 +40,6 @@ foreign-keys:
   - id: "contact-list-id"
     attribute: "listId"
     table: "contact_lists"
-    join-on: "listId"
     all-foreign-keys:
       - table: "contact_lists"
       - table: "contacts"
@@ -52,9 +50,8 @@ foreign-keys:
         join-on: "value"
 
   - id: "deal-id"
-    attribute: ""
+    attribute: "dealId"
     table: "deals"
-    join-on: "dealId"
     all-foreign-keys:
       - table: "deals"
       - table: "deals"
@@ -67,24 +64,24 @@ foreign-keys:
   - id: "deal-pipeline-id"
     attribute: "pipelineId"
     table: "deal_pipelines"
-    join-on: "pipelineId"
     all-foreign-keys:
       - table: "deal_pipelines"
 
   - id: "email-event-id"
     attribute: "emailEventId"
     table: "email_events"
-    join-on: "emailEventId"
+    all-foreign-keys:
+      - table: "email_events"
 
   - id: "engagement-id"
     attribute: "engagementId"
     table: "engagements"
-    join-on: "engagementId"
+    all-foreign-keys:
+      - table: "engagements"
 
   - id: "form-id"
     attribute: "form-id"
     table: "forms"
-    join-on: "guid"
     all-foreign-keys:
       - table: "forms"
       - table: "contacts"
@@ -94,7 +91,6 @@ foreign-keys:
   - id: "owner-id"
     attribute: "ownerId"
     table: "owners"
-    join-on: "ownerId"
     all-foreign-keys:
       - table: "engagements"
       - table: "owners"
@@ -104,7 +100,6 @@ foreign-keys:
   - id: "portal-id"
     attribute: "portalId"
     table: ""
-    join-on: "portalId"
     all-foreign-keys:
       - table: "companies"
       - table: "contact_lists"

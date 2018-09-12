@@ -7,7 +7,6 @@ foreign-keys:
   - id: "account-id"
     attribute: "accountId"
     table: "accounts"
-    join-on: "id"
     all-foreign-keys:
       - table: "accounts"
         join-on: "id"
@@ -23,7 +22,6 @@ foreign-keys:
   - id: "ad-id"
     attribute: "adId"
     table: "ads"
-    join-on: "id"
     all-foreign-keys:
       - table: "ads"
         join-on: "id"
@@ -31,7 +29,6 @@ foreign-keys:
   - id: "ad-group-id"
     attribute: "adGroupId"
     table: "ad_groups"
-    join-on: "id"
     all-foreign-keys:
       - table: "ad_groups"
         join-on: "id"
@@ -47,7 +44,6 @@ foreign-keys:
   - id: "campaign-id"
     attribute: "campaignId"
     table: "campaigns"
-    join-on: "id"
     all-foreign-keys:
       - table: "campaigns"
         join-on: "id"

@@ -7,7 +7,6 @@ foreign-keys:
   - id: "assignee-id"
     attribute: ""
     table: "assignees"
-    join-on: "id"
     all-foreign-keys:
       - table: "assignees"
         join-on: "id"
@@ -15,7 +14,6 @@ foreign-keys:
   - id: "collaborator-id"
     attribute: ""
     table: "collaborators"
-    join-on: "id"
     all-foreign-keys:
       - table: "collaborators"
         join-on: "id"
@@ -29,7 +27,6 @@ foreign-keys:
   - id: "commit-id"
     attribute: "commit_id"
     table: "commits"
-    join-on: "id"
     all-foreign-keys:
       - table: "commits"
         join-on: "id"
@@ -38,7 +35,6 @@ foreign-keys:
   - id: "issue-id"
     attribute: "issue_id"
     table: "issues"
-    join-on: "id"
     all-foreign-keys:
       - table: "issues"
         join-on: "id"
@@ -48,7 +44,6 @@ foreign-keys:
   - id: "pull-request-id"
     attribute: "pull_request_id"
     table: "pull_requests"
-    join-on: "id"
     all-foreign-keys:
       - table: "pull_requests"
         join-on: "id"
@@ -58,7 +53,6 @@ foreign-keys:
   - id: "review-id"
     attribute: "review_id"
     table: "reviews"
-    join-on: "id"
     all-foreign-keys:
       - table: "reviews"
         join-on: "id"
@@ -66,7 +60,6 @@ foreign-keys:
   - id: "sha"
     attribute: "sha"
     table: "commits"
-    join-on: "sha"
     all-foreign-keys:
       - table: "commits"
         join-on: "sha"

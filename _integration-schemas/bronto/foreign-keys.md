@@ -7,7 +7,6 @@ foreign-keys:
   - id: "contact-id"
     attribute: "contactId"
     table: "contact"
-    join-on: "id"
     all-foreign-keys:
       - table: "contact"
         join-on: "id"
@@ -17,7 +16,6 @@ foreign-keys:
   - id: "delivery-id"
     attribute: "deliveryId"
     table: ""
-    join-on: ""
     all-foreign-keys:
       - table: "inbound_activity"
       - table: "outbound_activity"
@@ -26,7 +24,6 @@ foreign-keys:
   - id: "list-id"
     attribute: "listId"
     table: "list"
-    join-on: "id"
     all-foreign-keys:
       - table: "list"
         join-on: "id"
@@ -38,7 +35,6 @@ foreign-keys:
   - id: "inbound-activity-id"
     attribute: ""
     table: "inbound_activity"
-    join-on: "id"
     all-foreign-keys:
       - table: "inbound_activity"
         join-on: "id"
@@ -46,7 +42,6 @@ foreign-keys:
   - id: "keyword-id"
     attribute: "keywordId"
     table: ""
-    join-on: ""
     all-foreign-keys:
       # - table: "contact__SMSKeywordIDs"
       #   join-on: "SMSKeywordID"
@@ -56,7 +51,6 @@ foreign-keys:
   - id: "message-id"
     attribute: "messageId"
     table: ""
-    join-on: ""
     all-foreign-keys:
       - table: "inbound_activity"
       - table: "outbound_activity"
@@ -64,7 +58,6 @@ foreign-keys:
   - id: "order-id"
     attribute: "orderId"
     table: ""
-    join-on: ""
     all-foreign-keys:
       - table: "inbound_activity"
       - table: "outbound_activity"
@@ -72,7 +65,6 @@ foreign-keys:
   - id: "outbound-activity-id"
     attribute: ""
     table: "outbound_activity"
-    join-on: "id"
     all-foreign-keys:
       - table: "outbound_activity"
         join-on: "id"
@@ -80,7 +72,6 @@ foreign-keys:
   - id: "segment-id"
     attribute: "segmentId"
     table: ""
-    join-on: ""
     all-foreign-keys:
       - table: "inbound_activity"
       - table: "outbound_activity"
@@ -88,7 +79,6 @@ foreign-keys:
   - id: "workflow-id"
     attribute: "workflowId"
     table: ""
-    join-on: ""
     all-foreign-keys:
       - table: "inbound_activity"
       - table: "outbound_activity"

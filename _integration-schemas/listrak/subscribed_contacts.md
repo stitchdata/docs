@@ -19,12 +19,13 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the contact."
+    foreign-key-id: "contact-id"
 
   - name: "ListID"
     type: "integer"
     primary-key: true
     description: "The ID of the list the contact is subscribed to."
-    foreign-key: true
+    foreign-key-id: "list-id"
 
   - name: "AdditionDate"
     type: "string"

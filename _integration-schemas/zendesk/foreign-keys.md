@@ -7,7 +7,6 @@ foreign-keys:
   - id: "group-id"
     attribute: "group_id"
     table: "groups"
-    join-on: "id"
     all-foreign-keys:
       - table: "groups"
         join-on: "id"
@@ -21,7 +20,6 @@ foreign-keys:
   - id: "group-membership-id"
     attribute: "group_membership_id"
     table: "groups"
-    join-on: "id"
     all-foreign-keys:
       - table: "group_memberships"
         join-on: "id"
@@ -30,7 +28,6 @@ foreign-keys:
   - id: "macro-id"
     attribute: "macro_id"
     table: "macros"
-    join-on: "id"
     all-foreign-keys:
       - table: "macros"
         join-on: "id"
@@ -40,7 +37,6 @@ foreign-keys:
   - id: "organization-id"
     attribute: "organization_id"
     table: "organizations"
-    join-on: "id"
     all-foreign-keys:
       - table: "organizations"
         join-on: "id"
@@ -50,7 +46,6 @@ foreign-keys:
   - id: "restriction-id"
     attribute: "restriction_id"
     table: ""
-    join-on: ""
     all-foreign-keys:
       - table: "macros"
         subattribute: "restriction"
@@ -63,7 +58,6 @@ foreign-keys:
   - id: "tag-id"
     attribute: "name"
     table: "tags"
-    join-on: "name"
     all-foreign-keys:
       - table: "tags"
         join-on: "name"
@@ -80,7 +74,6 @@ foreign-keys:
   - id: "ticket-audit-id"
     attribute: "audit_id"
     table: "ticket_audits"
-    join-on: "id"
     all-foreign-keys:
       - table: "ticket_audits"
         join-on: "id"
@@ -91,7 +84,6 @@ foreign-keys:
   - id: "ticket-field-id"
     attribute: "ticket_field_id"
     table: "ticket_fields"
-    join-on: "id"
     all-foreign-keys:
       - table: "ticket_fields"
         join-on: "id"
@@ -105,7 +97,6 @@ foreign-keys:
   - id: "ticket-form-id"
     attribute: "ticket_form_id"
     table: "ticket_forms"
-    join-on: "id"
     all-foreign-keys:
       - table: "ticket_forms"
         join-on: "id"
@@ -114,7 +105,6 @@ foreign-keys:
   - id: "ticket-id"
     attribute: "ticket_id"
     table: "tickets"
-    join-on: "id"
     all-foreign-keys:
       - table: "satisfaction_ratings"
       - table: "tickets"
@@ -125,7 +115,6 @@ foreign-keys:
   - id: "ticket-metric-id"
     attribute: "ticket_metric_id"
     table: "ticket_metrics"
-    join-on: "id"
     all-foreign-keys:
       - table: "ticket_metrics"
         join-on: "id"
@@ -133,7 +122,6 @@ foreign-keys:
   - id: "user-id"
     attribute: "user_id"
     table: "users"
-    join-on: "id"
     all-foreign-keys:
       - table: "satisfaction_ratings"
         join-on: "assignee_id"

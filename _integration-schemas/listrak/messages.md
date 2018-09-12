@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The message ID."
+    foreign-key-id: "message-id"
 
   - name: "AverageOrderValue"
     type: "number"
@@ -47,7 +48,7 @@ attributes:
   - name: "ListID"
     type: "integer"
     description: "The ID of the list the message was sent to."
-    foreign-key: true
+    foreign-key-id: "list-id"
 
   - name: "NewClickerCount"
     type: "integer"

@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the message that was sent."
-    foreign-key: true
+    foreign-key-id: "message-id"
 
   - name: "EmailAddress"
     type: "string"
