@@ -31,12 +31,16 @@ icon: /images/integrations/icons/mongodb.svg
 versions: "2.4 through 3.4"
 ssh: true
 ssl: true
-sync-views: false
-whitelist:
-  tables: true
-  columns: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: false
 
 binlog-replication: false
+view-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #

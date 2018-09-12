@@ -41,12 +41,16 @@ icon: /images/integrations/icons/mysql.svg
 versions: "n/a"
 ssh: true
 ssl: true
-sync-views: true
-whitelist:
-  tables: true
-  columns: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: true
 
 binlog-replication: true
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

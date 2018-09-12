@@ -42,16 +42,16 @@ icon: /images/integrations/icons/amazon-s3-csv.svg
 versions: "n/a"
 ssh: false
 ssl: false
-sync-views: false
-whitelist:
-  tables: true
-  columns: true
 
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
+table-selection: true
+column-selection: true
+
 binlog-replication: false
+view-replication: false
 
 # -------------------------- #
 #   Data types for loading   #

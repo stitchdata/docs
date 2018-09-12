@@ -29,6 +29,7 @@ repo-url: https://github.com/singer-io/tap-mysql
 
 status: "Released"
 certified: true
+setup-name: "Amazon Aurora"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -39,14 +40,16 @@ icon: /images/integrations/icons/amazon-aurora.svg
 versions: "n/a"
 ssh: true
 ssl: false
-sync-views: true
-whitelist:
-  tables: true
-  columns: true
 
-setup-name: "Amazon Aurora"
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: true
 
 binlog-replication: true
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #
