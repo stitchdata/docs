@@ -31,12 +31,16 @@ icon: /images/integrations/icons/mssql.svg
 versions: "n/a"
 ssh: false
 ssl: true
-sync-views: true
-whitelist:
-  tables: true
-  columns: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: true
 
 binlog-replication: false
+view-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #

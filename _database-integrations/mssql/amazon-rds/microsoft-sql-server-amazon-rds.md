@@ -21,6 +21,7 @@ author-url: "https://www.stitchdata.com"
 
 status: "Released"
 certified: true
+setup-name: "Microsoft SQL Server"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -31,14 +32,16 @@ icon: /images/integrations/icons/mssql-rds.svg
 versions: "n/a"
 ssh: false
 ssl: true
-sync-views: true
-whitelist:
-  tables: true
-  columns: true
 
-setup-name: "Microsoft SQL Server"
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: true
 
 binlog-replication: false
+view-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #

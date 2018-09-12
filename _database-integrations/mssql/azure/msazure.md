@@ -33,12 +33,16 @@ icon: /images/integrations/icons/microsoft-azure.svg
 versions: "n/a"
 ssh: true
 ssl: false
-sync-views: false
-whitelist:
-  tables: true
-  columns: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
+
+table-selection: true
+column-selection: true
 
 binlog-replication: false
+view-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #
