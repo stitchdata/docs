@@ -35,10 +35,8 @@ To replicate the view, the Stitch database user must have the appropriate level 
 
 For a refresher on the permissions Stitch needs, refer to the articles linked below:
 
-{% for integration in site.database-integrations %}
-{% if integration.sync-views == true %}
+{% for integration in databases-with-view-support %}
 - [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl | append: "#create-stitch-db-user" }})
-{% endif %}
 {% endfor %}
 
 --- 
