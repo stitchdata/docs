@@ -21,7 +21,7 @@ singer: true
 tap-name: "Close.io"
 repo-url: https://github.com/singer-io/tap-closeio
 
-# this-version: ""
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

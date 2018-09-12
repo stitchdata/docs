@@ -1,9 +1,10 @@
 ---
 title: Close.io
-permalink: /integrations/saas/closeio
+permalink: /integrations/saas/closeio/v0
 keywords: closeio, closeio data, closeio schema, etl closeio, closeio etl
 tags: [saas_integrations]
 summary: "Connection instructions, replication info, and schema details for Stitch's Close.io integration."
+input: false
 format:
   schema-list: true
   table-desc: true
@@ -16,20 +17,21 @@ format:
 name: "closeio"
 display_name: "Close.io"
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
+
 repo-url: https://github.com/singer-io/tap-closeio
-status-url: "http://status.close.io/"
+
+this-version: "0.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
+status: "Deprecated"
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
+status-url: "http://status.close.io/"
 icon: /images/integrations/icons/closeio.svg
 whitelist:
   tables: false
