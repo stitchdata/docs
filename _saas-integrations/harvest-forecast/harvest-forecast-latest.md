@@ -32,9 +32,13 @@ frequency: "60 minutes"
 tier: "Free"
 status-url: https://www.harveststatus.com/
 icon: /images/integrations/icons/harvest-forecast.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+extraction-logs: true
+loading-reports: true
+anchor-scheduling: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -47,7 +51,7 @@ requirements-list:
 setup-steps:
   - title: "add integration"
     content: |
-      4. Enter your Harvest Forecast account ID in the **Harvest Forecast Account ID** field. For example: if your Harvest Forecast account shows the URL as `forecastapp.com/123456/schedule/projects`, you'd enter `123456` in this field.
+      4. Enter your Harvest Forecast account ID in the **Harvest Forecast Account ID** field. For example: If your Harvest Forecast account shows the URL as `forecastapp.com/123456/schedule/projects`, you'd enter `123456` in this field.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "Authorize Stitch to Access Harvest Forecast"
