@@ -1,63 +1,131 @@
 ---
-"tap": "closeio"
-"version": "1.x"
-"name": "event_log"
-"doc-link": ""
-"singer-schema": "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/event_log.json"
-"description": ""
-"replication-method": ""
-"api-method":
-    "name": ""
-    "doc-link": ""
-"attributes":
-  - "name": "action"
-    "type": "string"
-    "description": ""
-  - "name": "changed_fields"
-    "type": "array"
-    "description": ""
-    "array-attributes": "string"
-  - "name": "data"
-    "type": "string"
-    "description": ""
-  - "name": "date_created"
-    "type": "string"
-    "description": ""
-  - "name": "date_updated"
-    "type": "string"
-    "description": ""
-  - "name": "id"
-    "type": "string"
-    "description": ""
-  - "name": "lead_id"
-    "type": "string"
-    "description": ""
-  - "name": "meta"
-    "type": "object"
-    "description": ""
-    "object-properties":
-      - "name": "request_method"
-        "type": "string"
-        "description": ""
-      - "name": "request_path"
-        "type": "string"
-        "description": ""
-  - "name": "object_id"
-    "type": "string"
-    "description": ""
-  - "name": "object_type"
-    "type": "string"
-    "description": ""
-  - "name": "organization_id"
-    "type": "string"
-    "description": ""
-  - "name": "previous_data"
-    "type": "string"
-    "description": ""
-  - "name": "request_id"
-    "type": "string"
-    "description": ""
-  - "name": "user_id"
-    "type": "string"
-    "description": ""
+tap: "closeio"
+version: "1.0"
+
+name: "event_log"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio/schemas/event_log.json"
+
+description: |
+  The `{{ table.name }}` table contains info about events generated in your {{ integration.display_name }} account. This could include creating a lead, sending an email, or deleting a note.
+
+replication-method: "Key-based Incremental"
+
+api-method:
+  name: "Retrieve a list of events"
+  doc-link: "https://developer.close.io/#event-log-retrieve-a-list-of-events"
+
+attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The event ID."
+    foreign-key-id: "event-id"
+
+  - name: "date_updated"
+    type: "string"
+    replication-key: true
+    description: "The time the event was last updated."
+
+  - name: "action"
+    type: "string"
+    description: |
+      The type of action that was performed on the `object_type`. Possible values vary depending on the `object_type`, but the most common types are:
+
+      - `created`
+      - `deleted`
+      - `updated` 
+
+      Refer to [Close.io's documentation](https://developer.close.io/#listofevents){:target="new"} for a full list of possible values.
+    doc-link: "https://developer.close.io/#listofevents" 
+
+  - name: "changed_fields"
+    type: "array"
+    description: "For events where `action: updated`, a list of fields that have changed."
+    array-attributes:
+      - name: "value"
+        type: "string"
+        description: "The name of the field that was changed."
+
+  - name: "data"
+    type: "string"
+    description: "The payload of the affected object, as if it were retrieved via Close.io's API. This is `null` for events where `action: deleted`, and is only returned for organization admins."
+
+  - name: "date_created"
+    type: "string"
+    description: "The date the event was created."
+
+  - name: "lead_id"
+    type: "string"
+    description: "The ID of the lead associated with the event, if applicable. In the case where `object_type: lead`, this will be equivalent to `object_id`."
+    foreign-key-id: "lead-id"
+
+  - name: "meta"
+    type: "object"
+    description: |
+      Additional information for certain activity types.
+    object-attributes:
+      - name: "request_method"
+        type: "string"
+        description: "For events associated with an HTTP request, the method of the request. For example: `POST`"
+
+      - name: "request_path"
+        type: "string"
+        description: "For events associated with an HTTP request, the path of the request. For example: `/api/v1/lead`"
+
+  - name: "object_id"
+    type: "string"
+    description: |
+      The ID of the affected object. In the case where `object_type: lead`, this will be equivalent to `lead_id`.
+
+  - name: "object_type"
+    type: "string"
+    description: |
+      The type of object associated with the event. Possible values include:
+
+      - `activity.email`
+      - `activity.email_thread`
+      - `activity.call`
+      - `activity.note`
+      - `activity.lead_status_change`
+      - `activity.opportunity_status_change`
+      - `activity.task_completed`
+      - `bulk_action.delete`
+      - `bulk_action.edit`
+      - `bulk_action.email`
+      - `bulk_action.sequence_subscription`
+      - `contact`
+      - `custom_fields.lead`
+      - `email_template`
+      - `export.lead`
+      - `export.opportunity`
+      - `import`
+      - `lead`
+      - `membership`
+      - `opportunity`
+      - `saved_search`
+      - `sequence`
+      - `sequence_subscription`
+      - `status.lead`
+      - `status.opportunity`
+
+    doc-link: "https://developer.close.io/#listofevents"
+
+  - name: "organization_id"
+    type: "string"
+    description: "The ID of the organization associated with the event."
+    foreign-key-id: "organization-id"
+
+  - name: "previous_data"
+    type: "string"
+    description: "**This field is only returned for {{ integration.display_name }} organization admins.** For events where `action: updated`, the fields that have been changed and their previous values."
+
+  - name: "request_id"
+    type: "string"
+    description: "The unique request identifier."
+
+  - name: "user_id"
+    type: "string"
+    description: "The ID of the user who generated the event. This will be `null` if the event wasn't directly generated by a user action."
+    foreign-key-id: "user-id"
 ---
