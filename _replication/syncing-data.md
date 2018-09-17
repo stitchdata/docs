@@ -38,7 +38,7 @@ Keep in mind that:
 
 Setting data to replicate is easy. All you need to do is click into the integration from the {{ app.page-names.dashboard }} page and find the object you want to replicate. Then, {{ app.menu-paths.sync | replace: "Click","click" }}
 
-**By default, all columns in a table will be set to replicate.** For integrations that support column selection, you can de-select columns by clicking on the **table name** and then selecting columns to de-select.
+**By default, all columns in a database table will be set to replicate automatically.** For SaaS integrations that support column selection, you can select columns by clicking on the **table name** and then tracking columns to replicate.
 
 Additionally, if you're replicating data from a database integration, you'll be prompted to select a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for tables that you set to sync.
 
