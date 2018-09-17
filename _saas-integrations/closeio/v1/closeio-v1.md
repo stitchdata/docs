@@ -8,7 +8,6 @@ permalink: /integrations/saas/closeio
 tags: [saas_integrations]
 keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema
 layout: singer
-# input: false
 
 # -------------------------- #
 #         Tap Details        #
@@ -17,7 +16,6 @@ layout: singer
 name: "closeio"
 display_name: "Close.io"
 singer: true
-tap-name: "Close.io"
 repo-url: https://github.com/singer-io/tap-closeio
 
 this-version: "1.0"
@@ -26,7 +24,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true
 
 historical: "1 year"
