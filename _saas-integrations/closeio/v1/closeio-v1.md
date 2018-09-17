@@ -77,7 +77,9 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - content: |
+  - title: "Replicating activity data"
+    anchor: "replicate-activity-data"
+    content: |
       {% assign window = "Attribution Window" %}
       {% assign table = "activities" %}
       {% assign replication-key = "date_created" %}
@@ -93,11 +95,22 @@ replication-sections:
 
       Refer to the documentation for each of these tables in the next section for more info.
 
-      ### Attribution window examples
+      #### Attribution window examples
 
       In the tabs below are examples of attribution windows behave during historical (initial) and ongoing replication jobs.
 
       {% include integrations/saas/attribution-window-examples.html %}
+
+  - title: "Historical event log data limitations"
+    anchor: "historical-event-log-data"
+    content: |
+      Due to how {{ integration.display_name }}'s API functions, [only 30 days of historical data is available for event logs](https://developer.close.io/#event-log){:target="new"}:
+
+      > Most actions in Close.io that change an object are logged in the event log. For example, creating a lead, sending an email, or deleting a note will create an event log entry. The event log API allows you to access these events, up to 30 days back in history.
+
+      This means that despite what the integration's **Start Date** is set to, Stitch will only be able to retrieve 30 days of historical data **from the connection date** for the `event_log` table.
+
+      Additionally, note that if you ever [reset the integration]({{ link.replication.saas-historical | prepend: site.baseurl }}), this will also apply to the date the integration is reset.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

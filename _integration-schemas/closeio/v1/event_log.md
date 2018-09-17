@@ -9,6 +9,12 @@ singer-schema: "https://github.com/singer-io/tap-closeio/blob/master/tap_closeio
 description: |
   The `{{ table.name }}` table contains info about events generated in your {{ integration.display_name }} account. This could include creating a lead, sending an email, or deleting a note.
 
+  #### Historical data limitations
+
+  Due to how {{ integration.display_name }}'s API functions, [only 30 days of historical data is available for this table](https://developer.close.io/#event-log){:target="new"} from the initial connection date.
+
+  Refer to the [Replication section](#historical-event-log-data) for more info.
+
 replication-method: "Key-based Incremental"
 
 api-method:
