@@ -63,6 +63,9 @@ requirements-list:
 
         - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
         - View database details, which is required for retrieving the database's connection details.
+
+  - item: |
+      **To connect the master instance if using binlog replication.** As per [Amazon's documentation](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.Limitations){:target="new"}, binlog replication can't be enabled on Aurora read replicas.
   - item: "**The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html) is required to create a database user for Stitch."
   - item: "**The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option) is required to grant the necessary privileges to the Stitch database user."
 

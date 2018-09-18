@@ -45,6 +45,7 @@ first tab of _includes/integrations/templates/configure-server-settings.html -->
    A few things to note:
       - `log_bin` doesn't have to be `mysql-binlog` - this value can be anything. Additionally, if `log_bin` already has an entry (which you checked in step one), you don't need to change it.
       - Use either `expire_log_days` or `binlog_expire_logs_seconds`, not both. See the **Server settings list** tab for more information.
+      - Setting `log_slave_updates` is only required if you are connecting a **read replica**. This isn't required for master instances.
 4. When finished, restart your {{ integration.display_name }} server to ensure the changes take effect.
 
 {% endcapture %}
