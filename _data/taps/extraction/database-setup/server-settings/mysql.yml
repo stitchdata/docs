@@ -184,3 +184,8 @@ mysql:
     value: *log-bin-value
     description: *log-bin-description
     doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_log_bin"
+
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: *log-slave-update-description
+    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_log_slave_updates"

@@ -99,4 +99,3 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
