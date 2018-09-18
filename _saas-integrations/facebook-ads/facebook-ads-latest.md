@@ -13,11 +13,9 @@ layout: singer
 name: "facebook-ads"
 display_name: "Facebook Ads"
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
-repo-url: 
+repo-url: https://github.com/singer-io/tap-facebook
 
-# this-version: 1.0
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

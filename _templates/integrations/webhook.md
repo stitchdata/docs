@@ -3,13 +3,10 @@
 #     USING THIS TEMPLATE    #
 # -------------------------- #
 
-# Need some help?
+## NEED HELP USING THIS TEMPLATE? SEE:
+## http://localhost:4000/reference/integration-templates/webhooks/
+## FOR INSTRUCTIONS & REFERENCE INFO
 
-# See this how-to for instructions on filling out the template:
-#     
-
-# See this reference guide for more info on the parameters in this template:
-# 
 
 
 # -------------------------- #

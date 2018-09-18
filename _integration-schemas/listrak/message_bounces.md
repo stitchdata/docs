@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the message that bounced."
-    foreign-key: true
+    foreign-key-id: "message-id"
 
   - name: "EmailAddress"
     type: "string"
@@ -29,7 +29,7 @@ attributes:
   - name: "ContactID"
     type: "string"
     description: "The ID of the contact that the bounced message was sent to."
-    foreign-key: true
+    foreign-key-id: "contact-id"
 
   - name: "BounceReason"
     type: "string"

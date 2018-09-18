@@ -1,5 +1,14 @@
 ---
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-overview/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
 #        Page Controls       #
 # -------------------------- #
 title: DESTINATION-NAME Destination

@@ -7,7 +7,6 @@ foreign-keys:
   - id: "account-id"
     attribute: "accountId"
     table: "account"
-    join-on: "id"
     all-foreign-keys:
       - table: "account"
         join-on: "id"
@@ -20,7 +19,6 @@ foreign-keys:
   - id: "accounting-code-id"
     attribute: "accountingCode"
     table: "accountingCode"
-    join-on: "id"
     all-foreign-keys:
       - table: "accountingCode"
         join-on: "id"
@@ -32,7 +30,6 @@ foreign-keys:
   - id: "accounting-period-id"
     attribute: "accountingPeriodId"
     table: "accountingPeriod"
-    join-on: "id"
     all-foreign-keys:
       - table: "accountingPeriod"
         join-on: "id"
@@ -49,7 +46,6 @@ foreign-keys:
   - id: "account-receivable-accounting-code-id"
     attribute: "accountReceivableAccountingCodeId"
     table: "accountingCode"
-    join-on: "id"
     all-foreign-keys:
       - table: "accountingCode"
         join-on: "id"
@@ -59,7 +55,6 @@ foreign-keys:
   - id: "amendment-id"
     attribute: "amendmentId"
     table: "amendment"
-    join-on: "id"
     all-foreign-keys:
       - table: "amendment"
         join-on: "id"
@@ -79,7 +74,6 @@ foreign-keys:
   - id: "billing-run-id"
     attribute: "billingRunId"
     table: "billingRun"
-    join-on: "id"
     all-foreign-keys:
       - table: "billingRun"
         join-on: "id"
@@ -88,7 +82,6 @@ foreign-keys:
   - id: "bill-to-contact-id"
     attribute: "billToContactId"
     table: "contact"
-    join-on: "id"
     all-foreign-keys:
       - table: "account"
       - table: "contact"
@@ -113,7 +106,6 @@ foreign-keys:
   - id: "bill-to-contact-snapshot-id"
     attribute: "billToContactSnapshotId"
     table: "contactSnapshot"
-    join-on: "id"
     all-foreign-keys:
       - table: "contactSnapshot"
         join-on: "contactId"
@@ -122,7 +114,6 @@ foreign-keys:
   - id: "cash-on-account-accounting-code-id"
     attribute: "cashOnAccountAccountingCodeId"
     table: "accountingCode"
-    join-on: "id"
     all-foreign-keys:
       - table: "accountingCode"
         join-on: "id"
@@ -131,7 +122,6 @@ foreign-keys:
   - id: "contact-id"
     attribute: "contactId"
     table: "contact"
-    join-on: "id"
     all-foreign-keys:
       - table: "account"
         join-on: "billToContactId"
@@ -201,7 +191,6 @@ foreign-keys:
   - id: "contact-snapshot-id"
     attribute: "contactSnapshotId"
     table: "contactSnapshot"
-    join-on: "id"
     all-foreign-keys:
       - table: "contactSnapshot"
         join-on: "contactId"
@@ -213,7 +202,6 @@ foreign-keys:
   - id: "communication-profile-id"
     attribute: "communicationProfileId"
     table: "communicationProfile"
-    join-on: "id"
     all-foreign-keys:
       - table: "communicationProfile"
         join-on: "id"
@@ -221,12 +209,12 @@ foreign-keys:
 
   - attribute: "creatorInvoiceOwnerId"
     table: "account"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "account"
 
   - id: "default-payment-method-id"
     attribute: "defaultPaymentMethodId"
     table: "paymentMethod"
-    join-on: "id"
     all-foreign-keys:
       - table: "paymentMethod"
         join-on: "id"
@@ -236,7 +224,6 @@ foreign-keys:
   - id: "deferred-revenue-accounting-code-id"
     attribute: "deferredRevenueAccountingCodeId"
     table: "accountingCode"
-    join-on: "id"
     all-foreign-keys:
       - table: "account"
         join-on: "id"
@@ -250,7 +237,6 @@ foreign-keys:
   - id: "discount-rate-plan-charge-id"
     attribute: "discountRatePlanChargeId"
     table: "ratePlanCharge"
-    join-on: "id"
     all-foreign-keys:
       - table: "ratePlanCharge"
         join-on: "id"
@@ -259,7 +245,6 @@ foreign-keys:
   - id: "invoice-id"
     attribute: "invoiceId"
     table: "invoice"
-    join-on: "id"
     all-foreign-keys:
       - table: "invoice"
         join-on: "id"
@@ -271,7 +256,6 @@ foreign-keys:
   - id: "invoice-item-adjustment"
     attribute: "invoiceItemAdjustmentId"
     table: "invoiceItemAdjustment"
-    join-on: "id"
     all-foreign-keys:
       - table: "invoiceItemAdjustment"
         join-on: "id"
@@ -281,7 +265,6 @@ foreign-keys:
   - id: "invoice-number"
     attribute: "invoiceNumber"
     table: "invoice"
-    join-on: "invoiceNumber"
     all-foreign-keys:
       - table: "invoice"
       - table: "creditBalanceAdjustment"
@@ -291,12 +274,12 @@ foreign-keys:
   - id: "invoice-owner-id"
     attribute: "invoiceOwnerId"
     table: "account"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "account"
 
   - id: "invoice-item-id"
     attribute: "invoiceItemId"
     table: "invoiceItem"
-    join-on: "id"
     all-foreign-keys:
       - table: "invoiceItem"
         join-on: "id"
@@ -309,7 +292,6 @@ foreign-keys:
   - id: "journal-entry-id"
     attribute: "journalEntryId"
     table: "journalEntry"
-    join-on: "id"
     all-foreign-keys:
       - table: "journalEntry"
         join-on: "id"
@@ -323,7 +305,6 @@ foreign-keys:
   - id: "journal-run-id"
     attribute: "journalRunId"
     table: "journalRun"
-    join-on: "id"
     all-foreign-keys:
       - table: "journalRun"
         join-on: "id"
@@ -337,7 +318,6 @@ foreign-keys:
   - id: "parent-account-id"
     attribute: "parentAccountId"
     table: "account"
-    join-on: "parentAccountId"
     all-foreign-keys:
       - table: "account"
       - table: "creditBalanceAdjustment"
@@ -357,7 +337,6 @@ foreign-keys:
   - id: "payment-id"
     attribute: "paymentId"
     table: "payment"
-    join-on: "id"
     all-foreign-keys:
       - table: "payment"
         join-on: "id"
@@ -368,7 +347,6 @@ foreign-keys:
   - id: "payment-method-id"
     attribute: "paymentMethodId"
     table: "paymentMethod"
-    join-on: "id"
     all-foreign-keys:
       - table: "paymentMethod"
         join-on: "id"
@@ -379,12 +357,12 @@ foreign-keys:
   - id: "payment-run-id"
     attribute: "paymentRunId"
     table: "paymentRun"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "paymentRun"
 
   - id: "payment-method-snapshot-id"
     attribute: "paymentMethodSnapshotId"
     table: "paymentMethodSnapshot"
-    join-on: "id"
     all-foreign-keys:
       - table: "paymentMethodSnapshot"
         join-on: "id"
@@ -395,7 +373,6 @@ foreign-keys:
   - id: "product-id"
     attribute: "productId"
     table: "product"
-    join-on: "id"
     all-foreign-keys: 
       - table: "product"
         join-on: "id"
@@ -415,7 +392,6 @@ foreign-keys:
   - id: "product-rate-plan-charge-id"
     attribute: "productRatePlanChargeId"
     table: "productRatePlanCharge"
-    join-on: "id"
     all-foreign-keys:
       - table: "productRatePlanCharge"
         join-on: "id"
@@ -435,7 +411,6 @@ foreign-keys:
   - id: "product-rate-plan-id"
     attribute: "productRatePlanId"
     table: "productRatePlan"
-    join-on: "id"
     all-foreign-keys:
       - table: "productRatePlan"
         join-on: "id"
@@ -456,7 +431,6 @@ foreign-keys:
   - id: "rate-plan-charge-id"
     attribute: "ratePlanChargeId"
     table: "ratePlanCharge"
-    join-on: "id"
     all-foreign-keys:
       - table: "ratePlanCharge"
         join-on: "id"
@@ -477,7 +451,6 @@ foreign-keys:
   - id: "rate-plan-id"
     attribute: "ratePlanId"
     table: "ratePlan"
-    join-on: "id"
     all-foreign-keys:
       - table: "ratePlan"
         join-on: "id"
@@ -498,7 +471,6 @@ foreign-keys:
   - id: "recognized-revenue-accounting-code-id"
     attribute: "recognizedRevenueAccountingCodeId"
     table: "accountingCode"
-    join-on: "id"
     all-foreign-keys:
       - table: "accountingCode"
         join-on: "id"
@@ -513,7 +485,6 @@ foreign-keys:
   - id: "refund-id"
     attribute: "refundId"
     table: "refund"
-    join-on: "id"
     all-foreign-keys:
       - table: "refund"
         join-on: "id"
@@ -524,10 +495,7 @@ foreign-keys:
   - id: "revenue-charge-summary-id"
     attribute: "revenueChargeSummaryId"
     table: "revenueChargeSummary"
-    join-on: "id"
     all-foreign-keys:
-      - table: ""
-        join-on: ""
       - table: "revenueChargeSummaryItem"
       - table: "revenueEventItem"
       - table: "RevenutEventItemInvoiceItem"
@@ -539,12 +507,13 @@ foreign-keys:
   - id: "revenue-event-type-id"
     attribute: "revenueEventTypeId"
     table: "revenueEventType"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "revenueEventType"
+        join-on: "id"
 
   - id: "revenue-schedule-invoice-item-id"
     attribute: "revenueScheduleInvoiceItemId"
     table: "revenueScheduleInvoiceItem"
-    join-on: "id"
     all-foreign-keys:
       - table: "revenueScheduleInvoiceItem"
         join-on: "id"
@@ -552,7 +521,6 @@ foreign-keys:
   - id: "sales-tax-payable-accounting-code-id"
     attribute: "salesTaxPayableAccountingCodeId"
     table: "accountingCode"
-    join-on: "id"
     all-foreign-keys:
       - table: "accountingCode"
         join-on: "id"
@@ -561,7 +529,6 @@ foreign-keys:
   - id: "sold-to-contact-id"
     attribute: "soldToContactId"
     table: "contact"
-    join-on: "id"
     all-foreign-keys:
       - table: "account"
       - table: "contact"
@@ -586,7 +553,6 @@ foreign-keys:
   - id: "sold-to-contact-snapshot-id"
     attribute: "soldToContactSnapshotId"
     table: "contactSnapshot"
-    join-on: "id"
     all-foreign-keys:
       - table: "contactSnapshot"
         join-on: "contactId"
@@ -617,7 +583,6 @@ foreign-keys:
   - id: "subscription-id"
     attribute: "subscriptionId"
     table: "subscription"
-    join-on: "id"
     all-foreign-keys:
       - table: "subscription"
         join-on: "id"

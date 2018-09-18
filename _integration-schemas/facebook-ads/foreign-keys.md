@@ -29,7 +29,6 @@ foreign-keys:
   - id: "adset-id"
     attribute: "adset_id"
     table: "adsets"
-    join-on: "id"
     all-foreign-keys:
       - table: "ads"
       - table: "ads_insights"
@@ -52,7 +51,6 @@ foreign-keys:
   - id: "ad-id"
     attribute: "ad_id"
     table: "ads"
-    join-on: "id"
     all-foreign-keys:
       - table: "ads"
         join-on: "id"
@@ -69,7 +67,6 @@ foreign-keys:
   - id: "campaign-id"
     attribute: "campaign_id"
     table: "campaigns"
-    join-on: "id"
     all-foreign-keys:
       - table: "campaigns"
         join-on: "id"
@@ -84,7 +81,6 @@ foreign-keys:
   - id: "ad-creative-id"
     attribute: "creative_id"
     table: "adcreative"
-    join-on: "id"
     all-foreign-keys:
       - table: "adcreative"
         join-on: "id"

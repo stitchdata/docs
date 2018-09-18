@@ -3,13 +3,10 @@
 #     USING THIS TEMPLATE    #
 # -------------------------- #
 
-# Need some help?
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
+## FOR INSTRUCTIONS & REFERENCE INFO
 
-# See this how-to for instructions on filling out the template:
-#     
-
-# See this reference guide for more info on the parameters in this template:
-#     
 
 # -------------------------- #
 #      Page & Formatting     #
@@ -47,13 +44,13 @@ frequency: "30 minutes"
 tier: "Free/Paid"
 status-url: ""
 icon: /images/integrations/icons/saas-integration.svg
-whitelist:
-  tables: true
-  columns: false
 
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+table-selection: true/false
+column-selection: true/false
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -107,4 +104,3 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-

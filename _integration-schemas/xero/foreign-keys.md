@@ -7,7 +7,6 @@ foreign-keys:
   - id: "account-id"
     attribute: "AccountID"
     table: "accounts"
-    join-on: "AccountID"
     all-foreign-keys:
       - table: "accounts"
       - table: "bank_transactions"
@@ -24,14 +23,12 @@ foreign-keys:
   - id: "bank-transfer-id"
     attribute: "BankTransferID"
     table: "bank_transfers"
-    join-on: "BankTransferID"
-    # all-foreign-keys:
-    #   - table: "bank_transfers"
+    all-foreign-keys:
+      - table: "bank_transfers"
 
   - id: "bank-transaction-id"
     attribute: "BankTransactionID"
     table: "bank_transactions"
-    join-on: "BankTransactionID"
     all-foreign-keys:
       - table: "bank_transactions"
       - table: "linked_transactions"
@@ -40,7 +37,6 @@ foreign-keys:
   - id: "branding-theme-id"
     attribute: "BrandingThemeID"
     table: "branding_themes"
-    join-on: "BrandingThemeID"
     all-foreign-keys:
       - table: "branding_themes"
       - table: "contacts"
@@ -53,7 +49,6 @@ foreign-keys:
   - id: "contact-group-id"
     attribute: "ContactGroupID"
     table: "contact_groups"
-    join-on: "ContactGroupID"
     all-foreign-keys:
       - table: "contact_groups"
       - table: "contacts"
@@ -62,7 +57,6 @@ foreign-keys:
   - id: "contact-id"
     attribute: "ContactID"
     table: "contacts"
-    join-on: "ContactID"
     all-foreign-keys:
       - table: "contacts"
       - table: "credit_notes"
@@ -82,7 +76,6 @@ foreign-keys:
   - id: "credit-note-id"
     attribute: "CreditNoteID"
     table: "credit_notes"
-    join-on: "CreditNoteID"
     all-foreign-keys:
       - table: "credit_notes"
       - table: "invoices"
@@ -91,7 +84,6 @@ foreign-keys:
   - id: "currency-code"
     attribute: "CurrencyCode"
     table: "currencies"
-    join-on: "Code"
     all-foreign-keys:
       - table: "accounts"
       - table: "bank_transactions"
@@ -105,21 +97,18 @@ foreign-keys:
   - id: "employee-id"
     attribute: "EmployeeID"
     table: "employees"
-    join-on: "EmployeeID"
-    # all-foreign-keys:
-    #   - table: "employees"
+    all-foreign-keys:
+      - table: "employees"
 
   - id: "expense-claim-id"
     attribute: "ExpenseClaimID"
     table: "expense_claims"
-    join-on: "ExpenseClaimID"
-    # all-foreign-keys:
-    #   - table: "expense_claims"
+    all-foreign-keys:
+      - table: "expense_claims"
 
   - id: "invoice-id"
     attribute: "IvoiceID"
     table: "invoices"
-    join-on: "InvoiceID"
     all-foreign-keys:
       - table: "invoices"
       - table: "linked_transactions"
@@ -138,42 +127,36 @@ foreign-keys:
   - id: "item-id"
     attribute: "ItemID"
     table: "items"
-    join-on: "ItemID"
-    # all-foreign-keys:
-    #   - table: "items"
+    all-foreign-keys:
+      - table: "items"
 
   - id: "journal-id"
     attribute: "JournalID"
     table: "journals"
-    join-on: "JournalID"
-    # all-foreign-keys:
-    #   - table: "journals"
+    all-foreign-keys:
+      - table: "journals"
 
   - id: "linked-transaction-id"
     attribute: "LinkedTransactionID"
     table: "linked_transactions"
-    join-on: "LinkedTransactionID"
-    # all-foreign-keys:
-    #   - table: ""
+    all-foreign-keys:
+      - table: "linked_transactions"
 
   - id: "manual-journal-id"
     attribute: "ManualJournalID"
     table: "manual_journals"
-    join-on: "ManualJournalID"
-    # all-foreign-keys:
-    #   - table: "manial_journals"
+    all-foreign-keys:
+      - table: "manial_journals"
 
   - id: "organisation-id"
     attribute: "OrganisationID"
     table: "organisations"
-    join-on: "OrganisationID"
-    # all-foreign-keys:
-    #   - table: "organisations"
+    all-foreign-keys:
+      - table: "organisations"
 
   - id: "overpayment-id"
     attribute: "OverpaymentID"
     table: "overpayments"
-    join-on: "OverpaymentID"
     all-foreign-keys:
       - table: "bank_transactions"
       - table: "invoices"
@@ -185,7 +168,6 @@ foreign-keys:
   - id: "payment-id"
     attribute: "PaymentID"
     table: "payments"
-    join-on: "PaymentID"
     all-foreign-keys:
       - table: "expense_claims"
         subtable: "Payments"
@@ -198,7 +180,6 @@ foreign-keys:
   - id: "prepayment-id"
     attribute: "PrepaymentID"
     table: "prepayments"
-    join-on: "PrepaymentID"
     all-foreign-keys:
       - table: "bank_transactions"
       - table: "invoices"
@@ -210,14 +191,12 @@ foreign-keys:
   - id: "purchase-order-id"
     attribute: "PurchaseOrderID"
     table: "purchase_orders"
-    join-on: "PurchaseOrderID"
-    # all-foreign-keys:
-    #   - table: "purchase_orders"
+    all-foreign-keys:
+      - table: "purchase_orders"
 
   - id: "receipt-id"
     attribute: "ReceiptID"
     table: "receipts"
-    join-on: "ReceiptID"
     all-foreign-keys:
       - table: "expense_claims"
         subtable: "Receipts"
@@ -226,14 +205,12 @@ foreign-keys:
   - id: "repeating-invoice-id"
     attribute: "RepeatingInvoiceID"
     table: "repeating_invoices"
-    join-on: "RepeatingInvoiceID"
-    # all-foreign-keys:
-    #   - table: ""
+    all-foreign-keys:
+      - table: "repeating_invoices"
 
   - id: "source-transaction-id"
     attribute: "SourceTransactionID"
     table: "linked_transactions"
-    join-on: "SourceTransactionID"
     all-foreign-keys:
       - table: "bank_transactions"
         join-on: "BankTransactionID"
@@ -243,7 +220,6 @@ foreign-keys:
   - id: "tax-name"
     attribute: "TaxName"
     table: "tax_rates"
-    join-on: "TaxName"
     all-foreign-keys:
       - table: "tax_rates"
       - table: "journals"
@@ -252,7 +228,6 @@ foreign-keys:
   - id: "tracking-category-id"
     attribute: "TrackingCategoryID"
     table: "tracking_categories"
-    join-on: "TrackingCategoryID"
     all-foreign-keys:
       - table: "contacts"
         subtable: "SalesTrackingCategories"
@@ -281,7 +256,6 @@ foreign-keys:
   - id: "user-id"
     attribute: "UserID"
     table: "users"
-    join-on: "UserID"
     all-foreign-keys:
       - table: "expense_claims"
         subtable: "User"
