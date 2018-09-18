@@ -150,11 +150,6 @@ aurora-rds:
     description: *binlog-format-description
     doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
 
-  - name: *binlog-row-image-name
-    value: *binlog-row-image-value
-    description: *binlog-row-image-description
-    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
-
 # -------------------------- #
 #       MYSQL SETTINGS       #
 # -------------------------- #
