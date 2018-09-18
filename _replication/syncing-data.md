@@ -65,7 +65,7 @@ Parent objects must be set to replicate for the objects under them to successful
 
 While the steps for replicating a database view are almost the same as those for replicating a table, there are some slight differences.
 
-For more info check out the [ing Database Views]({{ link.replication.db-views | prepend: site.baseurl }}) guide.
+For more info check out the [Syncing Database Views]({{ link.replication.db-views | prepend: site.baseurl }}) guide.
 
 ### Replicate new and additional columns on already-replicating Tables
 
