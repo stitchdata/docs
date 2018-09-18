@@ -4,7 +4,7 @@ permalink: /replication/syncing-data
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column
 tags: [replication]
 
-summary: "After you connect an integration and Stitch performs a structure sync, the next thing you'll do is select tables and columns to sync. In this guide, we'll walk you through how to sync/unsync objects for database and SaaS integrations."
+summary: "After you connect an integration and Stitch performs a structure sync, the next thing you'll do is select tables and columns to replicate. In this guide, we'll walk you through how to set objects for database and SaaS integrations to replicate."
 type: "syncing"
 toc: true
 weight: 1
@@ -30,17 +30,18 @@ Keep in mind that:
 - **Only these integrations support object selection.** If an integration doesn't support object selection, all available data - meaning all the tables and columns that Stitch can access - will be set to replicate.
 
   For detailed info on the data Stitch replicates from [SaaS integrations]({{ site.baseurl }}/integrations/saas), check out the **Schema** section of any integration's guide.
-- **Only the tables and columns you set to replicate in these integrations will be replicated.** If nothing is set to replicate in these integrations, the integration will have a status of `Not Configured`. Replication won't begin until some objects are synced.
+- **Only the tables and columns you set to replicate in these integrations will be replicated.** If nothing is set to replicate in these integrations, the integration will have a status of `Not Configured`. Replication won't begin until some objects are selected.
 
 ---
 
 ## Set tables and columns to replicate
 
-Setting data to replicate is easy. All you need to do is click into the integration from the {{ app.page-names.dashboard }} page and find the object you want to replicate. Then, {{ app.menu-paths.sync | replace: "Click","click" }}
+Setting data to replicate is easy. All you need to do is click into the integration from the {{ app.page-names.dashboard }} page and find the object you want to replicate. Then, {{ app.menu-paths.sync | replace: "Click","click" }} Keep in mind that:
 
-**By default, all columns in a table will be set to replicate.** For integrations that support column selection, you can de-select columns by clicking on the **table name** and then selecting columns to de-select.
+- **For database integration tables**, all columns will be set to replicate automatically.
 
-Additionally, if you're replicating data from a database integration, you'll be prompted to select a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for tables that you set to sync.
+   Additionally, you'll be prompted to select a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for tables that you set to replicate.
+- **For SaaS integration tables that support column selection**, you can select columns by clicking on the **table name** and then tracking columns to replicate.
 
 {% capture rep-methods %}
 Replication Methods are extremely important - we can't stress this enough. They'll not only directly impact your row count, but incorrectly defined methods can also cause data discrepancies.

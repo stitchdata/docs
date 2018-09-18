@@ -15,7 +15,7 @@ weight: 2
 The Historical Sync/Start Date feature may not be available for some integrations. Because this approach uses date-based replication, some integrations may be incompatible.
 {% endcapture %}
 
-{% include note.html first-line="**Feature availibility**" content=feature-availibility %}
+{% include note.html first-line="**Feature availibility**" content=feature-availability %}
 
 When you connect a SaaS integration, Stitch will begin the process of replicating not only that integration’s recent data, but the historical data as well. During the setup of the integration, you can choose the start date by using Stitch's default starting date or defining your own custom date. 
 
