@@ -1,4 +1,12 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
 title: Connecting a DESTINATION-NAME Data Warehouse to Stitch
 permalink: /destinations/destination-type/connecting-destination-type-to-stitch
 tags: [destination-type_destination]

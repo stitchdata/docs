@@ -1,4 +1,13 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas-table-schema/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
 tap: "integration_name"
 # version: 
 
