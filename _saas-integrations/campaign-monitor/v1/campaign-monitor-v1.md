@@ -6,7 +6,7 @@
 title: Campaign Monitor
 permalink: /integrations/saas/campaign-monitor
 tags: [saas_integrations]
-keywords: campaign-monitor, integration, schema, etl campaign-monitor, campaign-monitor etl, campaign-monitor schema
+keywords: campaign monitor, integration, schema, etl campaign monitor, campaign monitor etl, campaign monitor schema
 layout: singer
 # input: false
 
