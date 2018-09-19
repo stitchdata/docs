@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshd
 description: |
   The `roles` table contains info about the various roles that can be assigned to team members in your Freshdesk account.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllRoles"
   doc-link: https://developers.freshdesk.com/api/#list_all_roles

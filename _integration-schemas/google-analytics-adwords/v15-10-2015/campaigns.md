@@ -9,7 +9,7 @@ description: |
 
   **Note**: Google AdWords data is paginated on a daily basis. This means that a single row in each of the tables pertains to a single day.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 
 attributes:

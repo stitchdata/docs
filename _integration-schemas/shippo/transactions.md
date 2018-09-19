@@ -7,7 +7,7 @@ singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/sc
 description: |
   The `transactions` table contains info about transactions, which are the purchases of shipping labels from a shipping provider for a specific service.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listAllTransactions
   doc-link: https://goshippo.com/docs/reference?version=2016-10-25#transactions-list

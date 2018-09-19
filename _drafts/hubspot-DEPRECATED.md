@@ -9,7 +9,7 @@ author: "Stitch"
 status: "Open Beta"
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 status-url: "https://status.hubspot.com/"
 icon: /images/integrations/icons/hubspot.svg
 whitelist:

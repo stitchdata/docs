@@ -3,7 +3,7 @@ tap: "google-adwords"
 version: "1.0"
 
 name: "ad_groups"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201605/AdGroupService.AdGroup
+doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService.AdGroup
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ad_groups.json
 description: |
   The `ad_groups` table contains detailed info about your ad groups.
@@ -24,7 +24,7 @@ attributes:
   - name: "adGroupType"
     type: "string"
     description: "The type of the ad group."
-    doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/AdGroupService.AdGroupType
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService.AdGroupType
 
   - name: "baseAdGroupId"
     type: "integer"
@@ -58,7 +58,7 @@ attributes:
               - name: "ComparableValue.Type"
                 type: "string"
                 description: "Indicates that this instance is a subtype of ComparableValue."
-                doc-link: https://developers.google.com/adwords/api/docs/reference/v201702/AdGroupService.Money
+                doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService.Money
 
               - name: "microAmount"
                 type: "integer"
@@ -127,7 +127,7 @@ attributes:
           - name: "targetAll"
             type: "integer"
             description: "Indicates if criteria of this type can be used to modify bidding but not restrict targeting of ads."
-            doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/AdGroupService.TargetingSettingDetail
+            doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService.TargetingSettingDetail
 
           - name: "criterionTypeGroup"
             type: "string"

@@ -14,25 +14,21 @@ layout: page
 
     Instead, users will see the DEPRECATION NOTICE below, where
     they'll be prompted to upgrade to the newest version of the integration -->
-   
-    {% if integration.this-version %}
-        {% for version in released-versions %}
-            {% if version.number == integration.this-version %}
-                {% unless version.deprecated == true and version.deprecation-date %}
-                    {% unless integration.certified == false %}
-                        {% include notifications/support-beta-singer-notice.html %}
-                    {% endunless %}
-                {% endunless %}
-            {% endif %}
-        {% endfor %}
 
-    {% else %}
-        {% include notifications/support-beta-singer-notice.html %}
-    {% endif %}
+    {% for version in released-versions %}
+        {% if version.number == integration.this-version %}
+            {% case version.deprecated %}
+                {% when true %}
+                    {% include notifications/integration-deprecation-notice.html %}
+                {% when false %}
+                    {% include notifications/support-beta-singer-notice.html %}
+            {% endcase %}
+        {% endif %}
+    {% endfor %}
 
 <!-- DEPRECATION NOTICE 
     This only displays for integrations where version.deprecated == true -->
-    {% include notifications/integration-deprecation-notice.html %}
+    
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
 {% if integration.notice %}
@@ -61,7 +57,7 @@ layout: page
 
     {% for section in integration.replication-sections %}
         {% if section.title == "attribution window" %}
-            <h3 id="{{ integration.display_name }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
+            <h3 id="{{ integration.display_name |  downcase }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
 
             {% capture attribution-window %}
             {% include integrations/saas/attribution-windows.html %}
@@ -76,6 +72,14 @@ layout: page
             {% endif %}
 
             {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
+
+                    {{ subsection.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
         {% endif %}
     {% endfor %}
 
@@ -84,26 +88,25 @@ layout: page
 
 
 
-
+{% unless integration.no-schema == true %}
 <!-- SCHEMA DETAILS START -->
-<h2 id="schema">{{ integration.display_name }} Table Schemas</h2>
+<h2 id="schema">{{ integration.display_name }} table schemas</h2>
 
 <!-- Displays an info box if there are multiple versions of an integration currenly available -->
 
 {% if integration.this-version %}
 {% assign integration = page %}
 {% capture version-notice %}
-<strong>Schemas and Versioning</strong><br>
-Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.<br><br>
+Schemas and naming conventions can change from version to version, so we recommend verifying your integration's version before continuing.
 
-The schema and info displayed below is for <strong>version {{ integration.this-version }}</strong> of this integration.
+The schema and info displayed below is for **version {{ integration.this-version }}** of this integration.
 
 {% if integration.this-version == latest-version %}
   This is the latest version of the {{ integration.display_name }} integraiton.
 {% endif %}
 {% endcapture %}
 
-{% include note.html content=version-notice %}
+{% include note.html first-line="**Schemas and versioning**" content=version-notice %}
 
 <!-- If this isn't the latest version of the integration, re-assign the page variable. -->
 {% if integration.this-version != latest-version %}
@@ -124,16 +127,29 @@ non-standard handling of certain data types, etc. -->
                     <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
                 {% endif %}
             {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
+
+                    {{ subsection.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
         {% endfor %}
         <hr>
     {% endif %}
 
 <!-- ACTUAL TABLE SCHEMA DISPLAY -->
-{% unless integration.old-schema-template %}
+{% if integration.old-schema-template %}
+    {% if integration.tables %}
+        {% include integrations/templates/expand-list.html %}
+    {% else %}
+    {% endif %}
+{% else %}
     {% include integrations/templates/schemas/table-schemas.html %}
-{% endunless %}
+{% endif %}
 <!-- SCHEMA DETAILS END -->
-
+{% endunless %}
 
 <!-- If there are other misc sections, display them -->
     {% if integration.other-sections %}

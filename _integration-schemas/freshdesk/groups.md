@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshd
 description: |
   The `groups` table contains info about the groups your agents belong to.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllGroups"
   doc-link: https://developers.freshdesk.com/api/#list_all_groups

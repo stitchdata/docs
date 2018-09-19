@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/
 description: |
   The `end_users` table contains info about the end users associated with survey opportunities.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllEndUsers
   doc-link: http://docs.wootric.com/api/#get-all-end-users

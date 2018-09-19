@@ -1,0 +1,47 @@
+<!-- This file contains the logic used to pull and display applicable fields
+	for destination source form properties. -->
+
+
+<!-- Create a variable that links to _data/connect/common/destination-forms.yml
+		This will be used throughout the file, because it's a nightmare otherwise -->
+	{% assign connect-destination-attributes = site.data.connect.common.destination-forms %}
+
+
+<!-- Get attributes common to all destinations -->
+	{% assign common-destination-attributes = connect-destination-attributes.all-destinations %}
+
+
+<!-- Get the corresponding doc for this destination
+	It'll be used to see if the destination supports certain features,
+	which will determine which fields display in its report card -->
+	{% assign all-destination-docs = site.destinations | where:"type",form-property.docs-name %}
+		{% assign this-destination = all-destination-docs | where:"destination",true %}
+
+
+<!-- Get support info for SSL and SSH connections,
+	using the corresponding doc for the destination -->
+	{% for destination in this-destination %}
+		{% assign ssl-support = destination.ssl %}
+			{% if ssl-support == true %}
+					{% assign ssl-fields = connect-destination-attributes.ssl %}
+				{% else %}
+					{% assign ssl-fields = null | compact %}
+				{% endif %}
+
+		{% assign port = destination.port %}
+		{% assign doc-link = destination.url | prepend: site.baseurl %}
+
+		{% assign feature-fields = ssl-fields %}
+	{% endfor %}
+
+
+<!-- If the form property has its own specific attributes, get them &
+    concat them to the other two arrays -->
+	{% if form-property.object-attributes %}
+	    {% assign form-object-attributes = form-property.object-attributes %}
+	    	{% assign all-form-attributes = common-destination-attributes | concat: form-object-attributes | concat: feature-fields | sort: "name" %}
+
+	<!-- Otherwise, run this -->
+	{% else %}
+	    {% assign all-form-attributes = common-destination-attributes | concat: feature-fields | sort: "name" %}
+	{% endif %}

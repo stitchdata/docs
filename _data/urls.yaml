@@ -46,6 +46,8 @@ destinations:
   overviews:
     choose-destination: /destinations/choosing-a-stitch-destination
     compatibility: /destinations/destination-integration-compatibility
+    switch-destination: /destinations/switching-destinations
+    switch-bigquery-destination: /destinations/bigquery/changing-google-bigquery-destination-data-locations
 
     amazon-s3: /destinations/amazon-s3/
     bigquery: /destinations/bigquery/
@@ -84,6 +86,7 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
+    overview: /data-structure/loading-stitch-data-into-destinations
     bigquery: /data-structure/bigquery-data-loading-behavior
     panoply: /data-structure/panoply-data-loading-behavior
     postgres: /data-structure/postgresql-data-loading-behavior
@@ -139,11 +142,19 @@ replication:
   supported-data-types: /replication/supported-data-types
 
 ## Replication Frequency
-  rep-frequency: /replication/replication-frequency
+  rep-scheduling: /replication/replication-scheduling
+  rep-frequency: "/replication/replication-scheduling#replication-frequency"
+  anchor-scheduling: "/replication/replication-scheduling#anchor-scheduling"
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
-  append-only: /data-structure/querying-append-only-tables
+  append-only: "/replication/replication-methods#append-only-incremental-replication"
+  log-based-incremental: "/replication/replication-methods#log-based-incremental-replication"
+  key-based-incremental: "/replication/replication-methods#incremental-replication"
+  full-table: "/replication/replication-methods#full-table-replication"
+
+  append-only-querying: /data-structure/querying-append-only-tables
+  deleted-records: "/replication/deleted-record-handling"
 
 ## Replication Keys
   rep-keys: /replication/replication-keys
@@ -195,6 +206,7 @@ troubleshooting:
   mysql-tinyint-bit: /troubleshooting/mysql-tinyint1-stored-as-bit
   salesforce-formula-fields: /troubleshooting/stale-salesforce-data-formula-fields
   segment-missing-data: /troubleshooting/missing-segment-data-selective-integration-snippet
+  database-table-name-collisions: /troubleshooting/data-discrepancies/database-integration-table-name-collisions
 
 ## Replication
   postgres-hot-standby: /troubleshooting/postgres-hot-standby-settings-replication
@@ -207,6 +219,7 @@ troubleshooting:
   dw-loading-errors: /troubleshooting/destinations/data-loading-errors
   view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
   aws-io-errors: /troubleshooting/destinations/aws-io-errors
+  mysql-extraction-errors: /troubleshooting/integrations/mysql-database-extraction-errors
 
 ## Connection Errors
   saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors

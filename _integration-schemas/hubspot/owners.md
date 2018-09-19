@@ -1,28 +1,25 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "owners"
 doc-link: https://developers.hubspot.com/docs/methods/owners/owners_overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/owners.json
 description: |
-  The `owners` table contains info about the owners that exist in your HubSpot portal. Owners are created and updated in HubSpot when new users are added or when owners are synced from Salesforce to HubSpot.
+  The `{{ table.name }}` table contains info about the owners that exist in your HubSpot portal. Owners are created and updated in HubSpot when new users are added or when owners are synced from Salesforce to HubSpot.
 
-notes: 
-
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getOwners
   doc-link: https://developers.hubspot.com/docs/methods/owners/get_owners
 
 attributes:
-## Primary Key
   - name: "ownerId"
     type: "integer"
-    primary-key: true ## remove if this column isn't part of the table's PK
+    primary-key: true
     description: "The ID of the owner."
+    foreign-key-id: "owner-id"
 
-## Replication Key
   - name: "updatedAt"
     type: "date-time"
     replication-key: true
@@ -32,6 +29,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the portal the owner is associated with."
+    foreign-key-id: "portal-id"
 
   - name: "type"
     type: "string"
@@ -68,10 +66,12 @@ attributes:
       - name: "portalId"
         type: "integer"
         description: "The ID of the portal the owner is associated with."
+        foreign-key-id: "portal-id"
 
       - name: "ownerId"
         type: "integer"
         description: "The ID of the owner."
+        foreign-key-id: "owner-id"
 
       - name: "remoteId"
         type: "string"

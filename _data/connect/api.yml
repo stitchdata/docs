@@ -61,7 +61,13 @@ core-objects:
       title: "Create a session"
       method: *post
       anchor: "#create-a-session"
-      description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
+      short: "Generates an ephemeral token to create a session in the Stitch web application. Ephemeral tokens expire after one hour."
+      description: |
+         {{ site.data.connect.api.core-objects.sessions.create.short }}
+
+         Ephemeral tokens are used to [create a session](https://www.stitchdata.com/docs/stitch-connect/javascript-client) with the Connect JavaScript client. The session will be for the user for whom the API access token was created.
+
+         After the ephemeral token is used to create a session, the created session will expire once terminated or after 12 hours.
 
 # -------------------------- #
 #        Destinations        #
@@ -257,53 +263,3 @@ form-properties:
 # -------------------------- #
   source-forms:
     section: "#source-form-properties"
-
-    aurora:
-      title: "Amazon Aurora"
-      section: "#source-form-properties-aurora-object"
-      description: "An Amazon Aurora connection reads data from a Amazon Aurora database and corresponds to source `type: platform.aurora`."
-
-    bing-ads:
-      title: "Bing Ads"
-      section: "#source-form-properties-bing-ads-object"
-      description: "A Bing Ads connection reads data from the Bing Ads API and corresponds to source `type: platform.bingads`."
-
-    cloudsql-mysql:
-      title: "Google CloudSQL MySQL"
-      section: "#source-form-properties-cloudsql-mysql-object"
-      description: "A Google CloudSQL MySQL connection reads data from a Google CloudSQL MySQL database and corresponds to source `type: platform.cloudsql`."
-
-    facebook-ads:
-      title: "Facebook Ads"
-      section: "#source-form-properties-facebook-ads-object"
-      description: "A Facebook Ads connection reads data from the Facebook Ads API and corresponds to source `type: platform.facebook`."
-
-    google-adwords:
-      title: "Google AdWords"
-      section: "#source-form-properties-google-adwords-object"
-      description: "A Google AdWords connection reads data from the Google AdWords API and corresponds to source `type: platform.adwords`."
-
-    hubspot:
-      title: "HubSpot"
-      section: "#source-form-properties-hubspot-object"
-      description: "A HubSpot connection reads data from the HubSpot API and corresponds to source `type: platform.hubspot`."
-
-    mariadb:
-      title: "mariadb"
-      section: "#source-form-properties-mariadb-object"
-      description: "A MariaDB connection reads data from a MariaDB database and corresponds to source `type: platform.mariadb`."
-
-    marketo:
-      title: "Marketo"
-      section: "#source-form-properties-marketo-object"
-      description: "A Marketo connection reads data from the Marketo API and corresponds to source `type: platform.marketo`."
-
-    mysql:
-      title: "MySQL"
-      section: "#source-form-properties-mysql-object"
-      description: "A MySQL connection reads data from a MySQL database and corresponds to source `type: platform.mysql`."
-
-    salesforce:
-      title: "Salesforce"
-      section: "#source-form-properties-salesforce-object"
-      description: "A Salesforce connection reads data from the Salesforce API and corresponds to source `type: platform.salesforce`."

@@ -1,3 +1,7 @@
+<!-- This file is used to create the summary tables that list
+        all resources of a given type. For example: A list of all
+        endpoints, or all form properties, etc. -->
+
 {% case include.type %}
     {% when 'endpoint' %}
         {% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
@@ -17,13 +21,13 @@
             {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
 
             {% when 'destination' %}
-                {% assign form-properties = site.connect-files | where:"form-type","destination" %}
+                {% assign form-properties = site.connect-files | where:"form-type","destination" | sort: "title" %}
 
             {% when 'source' %}
-                {% assign form-properties = site.connect-files | where:"form-type","source" %}
+                {% assign form-properties = site.connect-files | where:"form-type","source" | sort: "title" %}
 
             {% else %}
-                {% assign form-properties = site.connect-files | where:"content-type","api-form" %}
+                {% assign form-properties = site.connect-files | where:"content-type","api-form" | sort: "title" %}
             {% endcase %}
 
             {% assign item = form-property %}
@@ -76,7 +80,17 @@
                         </strong>
                     </td>
                     <td>
-                        {{ item.description | flatify | markdownify }}
+                        {% if include.type == "form-property" %}
+
+                        <!-- property-description is a Frontmatter variable located in _connect-files/documentation/api-form-properties.html
+
+                        It's a block of Liquid code that checks a form property's type and then outputs
+                            the correct description for it. -->
+                            
+                            {{ doc.property-description | replace: "VARIABLE","item" | flatify | markdownify }}
+                        {% else %}
+                            {{ item.description | flatify | markdownify }}
+                        {% endif %}
                     </td>
             {% endcase %}
         </tr>

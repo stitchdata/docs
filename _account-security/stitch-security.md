@@ -10,10 +10,22 @@ toc: true
 layout: faq
 weight: 5
 
+enterprise-cta:
+  hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
+  reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
+  soc2-url: "?utm_medium=docs&utm_campaign=soc2-compliance"
+
 frequently-asked-questions:
   - topic: "Compliance"
     anchor: "stitch-compliance"
     items:
+      - question: "Is Stitch SOC 2 compliant?"
+        anchor: "soc2-compliant"
+        answer: |
+          {% include misc/data-files.html %}
+
+          Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor. The audit report can be requested by contacting [Stitch Sales]({{ site.sales | append: page.enterprise-cta.soc2-url }}).
+
       - question: "Is Stitch PCI compliant?"
         anchor: "pci-compliant"
         answer: |
@@ -26,15 +38,19 @@ frequently-asked-questions:
         answer: |
           {% include misc/data-files.html %}
 
-          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise contract.
+          Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan.
 
-          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales }}).
+          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-cta.url }}).
 
-          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales }}) before replicating any sensitive data.
+          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-cta.hipaa-url }}) before replicating any sensitive data.
 
-      - question: "Does Stitch comply with any EU privacy laws?"
+      - question: "Does Stitch comply with GDPR and EU privacy laws?"
         anchor: "eu-privacy-compliance"
         answer: |
+          Stitch is in full compliance with the European Union's Global Data Protection Regulation (GDPR).
+          
+          The [Stitch Terms of Use](https://www.stitchdata.com/terms/){:target="new"} includes a Data Processing Addendum (DPA) that enacts standard contractual clauses set forth by the European Commission to establish a legal basis for cross-border data transfers from the EU. The [Stitch Privacy Policy](https://www.stitchdata.com/privacy){:target="new"} also includes specific GDPR requirements.
+          
           Stitch is certified under the [US-EU and US-SWISS Privacy Shield Programs](https://www.privacyshield.gov/participant?id=a2zt0000000GnxUAAS&status=Active){:target="new"}, meaning any EU or Swiss data transfer will be handled in accordance with the principles laid out in the Privacy Shield Framework.
 
           For more information on Privacy Shield, check out the link above or [this FAQ on the program](https://www.privacyshield.gov/Program-Overview){:target="new"}.
@@ -79,7 +95,7 @@ frequently-asked-questions:
       - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
         answer: |
-          If you're interested in custom connection methods like VPN or reverse SSH tunnel, [contact our support team](mailto: {{ site.support }}) with your use case.
+          While VPN connections aren't currently supported, reverse SSH tunnels may be implemented as part of an Enterprise plan. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.reverse-ssh-url }}).
 
   - topic: "Data Access"
     anchor: "stitch-access"
@@ -115,7 +131,7 @@ frequently-asked-questions:
       - question: "Does Stitch undergo any security audits?"
         anchor: "stitch-security-audits"
         answer: |
-          New features undergo a security review by our team before release. In additiona, security professionals conduct regular audits and penetration tests on our existing systems.
+          New features undergo a security review by our team before release. In addition, security professionals conduct regular audits and penetration tests on our existing systems.
 
       - question: "What are Stitch's recommendations for keeping my data secure?"
         anchor: "stitch-recommendations-data-secure"

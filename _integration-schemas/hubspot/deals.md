@@ -1,36 +1,33 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "deals"
 doc-link: https://developers.hubspot.com/docs/methods/deals/deals_overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/deals.json
 description: |
-  The `deals` table contains info about the deals in a HubSpot portal.
+  The `{{ table.name }}` table contains info about the deals in a HubSpot portal.
 
-notes:
+replication-key:
+  name: "hs_lastmodifieddate"
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllDeals
   doc-link: https://developers.hubspot.com/docs/methods/deals/get-all-deals
 
 attributes:
-## Primary Key
   - name: "dealId"
     type: "integer"
     primary-key: true
     description: "The ID of the deal."
+    foreign-key-id: "deal-id"
 
-## Primary Key
   - name: "portalId"
     type: "integer"
     primary-key: true
     description: "The ID of the portal the deal is associated with."
-
-  - name: "isDeleted"
-    type: "boolean"
-    description: "Indicates if the deal has been deleted in {{ integration.display_name }}."
+    foreign-key-id: "portal-id"
 
   - name: "associations"
     type: "object"
@@ -51,6 +48,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the deal."
+            foreign-key-id: "company-id"
 
       - name: "associatedDealIds"
         type: "array"
@@ -59,6 +57,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the deal. (How meta!)"
+            foreign-key-id: "deal-id"
 
   - name: "properties"
     type: "object"

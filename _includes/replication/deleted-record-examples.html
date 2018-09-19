@@ -1,0 +1,134 @@
+
+
+<!-- This file creates tabs of examples for each deletion-method
+    and Replication Method combo. -->
+
+<!-- Get the examples for the method passed through the include -->
+    {% assign deleted-record-examples = site.data.dataloading.deleted-records[include.replication-method] %}
+
+<!-- Assign a variable to the display name, so it can be used elsewhere -->
+    {% assign replication-method-display-name = include.display-name %}
+
+<!-- Create an array of deletion methods, so we can loop through them -->
+
+{% case include.replication-method %}
+    {% when 'full-table' %}
+        {% assign deletion-methods = "soft|hard|bigquery" | split: "|" %}
+
+    {% else %}
+        {% assign deletion-methods = "soft|hard" | split: "|" %}
+{% endcase %}
+
+
+<!-- Start the content -->
+<p>
+    Click the tabs below to view examples for how each deletion method is handled using <a href="{{ link.replication[include.replication-method] | prepend: site.baseurl }}">{{ replication-method-display-name }} Replication</a>.
+</p>
+
+<ul id="profileTabs" class="nav nav-tabs">
+    {% for deletion-method in deletion-methods %}
+        {% case forloop.first %}
+            {% when 'true' %}
+                <li class="active">
+            {% else %}
+                <li>
+        {% endcase %}
+
+        {% case deletion-method %}
+            {% when 'bigquery' %}
+                <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">Hard deletes in BigQuery</a>
+            {% else %}
+                <a href="#{{ include.replication-method }}-{{ deletion-method }}-delete-tab" data-toggle="tab">{{ deletion-method | capitalize }} deletes</a>
+        {% endcase %}
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="tab-content">
+    {% for deletion-method in deletion-methods %}
+        {% case forloop.first %}
+            {% when true %}
+                <div role="tabpanel" class="tab-pane active" id="{{ include.replication-method }}-{{ deletion-method }}-delete-tab">
+            {% else %}
+                <div role="tabpanel" class="tab-pane" id="{{ include.replication-method }}-{{ deletion-method }}-delete-tab">
+        {% endcase %}
+
+
+        {% for delete in deleted-record-examples %}
+            {% if deletion-method == delete.type %}
+                <span class="h3">
+                    {% case deletion-method %}
+                        {% when 'bigquery' %}
+                            Hard deletes with {{ replication-method-display-name }} in BigQuery
+
+                        {% else %}
+                            {{ delete.type | capitalize | append: " deletes" }} with {{ replication-method-display-name }}
+                    {% endcase %}
+                </span>
+
+                    {{ delete.description | flatify | markdownify }}
+
+                        {% for example in delete.examples %}
+                            <span class="h4">
+
+                                {% case deletion-method %}
+                                    {% when 'bigquery' %}
+                                        Hard delete in BigQuery: {{ example.job | capitalize | append: " job" }} 
+
+                                    {% else %}
+                                        {{ delete.type | capitalize | append: " delete" }}: {{ example.job | capitalize | append: " job" }}
+                                {% endcase %}
+                            </span>
+
+                            <p>
+                                During the <strong>{{ example.job | append: " job" }}</strong>:
+                            </p>
+
+                            <ul>
+                                <li>
+                                    {{ example.source | flatify | prepend: "**In the source:** " | markdownify }}
+                                </li>
+                                <li>
+                                    {{ example.destination | flatify | prepend: "**In the destination:** " | markdownify }}
+                                </li>
+                            </ul>
+
+                            <table width="100%; fixed" class="table-hover attribute-list">
+                                <tr>
+                                    {% for table in example.tables %}
+                                        <td width="50%; fixed" style="border: 1px solid #999999;">
+                                            <strong>{{ table.location | capitalize }}</strong>
+                                            <table class="table-hover attribute-list">
+                                                <tr>
+                                                    {% for column in delete.columns %}
+                                                    <!-- Don't show the _sdc_deleted_at column in the source table -->
+                                                        {% unless table.location == "source" and column.name == "_sdc_deleted_at" %}
+                                                            <td>
+                                                                <strong>{{ column.name | replace: "-","_" }}</strong>
+                                                            </td>
+                                                        {% endunless %}
+                                                    {% endfor %}
+                                                </tr>
+                                                {% for record in table.records %}
+                                                    <tr>
+                                                        {% for column in delete.columns %}
+                                                            {% unless table.location == "source" and column.name == "_sdc_deleted_at" %}
+                                                            <td>
+                                                                {{ record[column.name] }}
+                                                            </td>
+                                                            {% endunless %}
+                                                        {% endfor %}
+                                                    </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </td>
+                                    {% endfor %} <!-- End table loop -->
+                                </tr>
+                            </table>
+                        {% endfor %} <!-- End example loop -->
+                    
+            {% endif %}
+        {% endfor %} <!-- End delete loop -->
+        </div>
+    {% endfor %}  <!-- End deletion-method loop -->
+</div>

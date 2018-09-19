@@ -7,10 +7,17 @@ permalink: /destinations/amazon-s3/
 layout: destination-overview
 tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3
-summary: &summary "Amazon S3 is an extremely simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
+summary: &summary "Amazon S3 is a simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
 toc: true
 destination: true
 data-loading: false
+
+
+enterprise-cta:
+  title: "Need loading notifications?"
+  url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
+  copy: |
+    As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 
 # -------------------------- #
 #    Destination Details     #
@@ -19,7 +26,7 @@ display_name: "Amazon S3"
 type: "amazon-s3"
 db-type: "s3"
 pricing_tier: "standard"
-status: "Closed Beta"
+status: "Released"
 description: *summary
 pricing_model: "Storage"
 free_option: "Yes (plan & trial)"
@@ -171,16 +178,16 @@ sections:
       A Stitch replication job consists of three stages: Extraction, Preparation, and Loading.
 
     subsections:
-      - title: "Data Extraction"
+      - title: "Data extraction"
         anchor: "extraction"
         content: |
           During the **Extraction** phase, Stitch will check for structural changes to your data, query for data according to the integration's replication settings, and extract the appropriate data.
 
-          Replication settings include the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
+          Replication settings include the integration's [Replication Schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
 
           **Note**: Because Stitch's Incremental Replication Method is inclusive, a single row will be replicated for every Incremental table even if there's no new or updated data. Refer to the [Replication Methods documentation]({{ link.replication.rep-methods | prepend: site.baseurl }}) for an explanation and examples.
 
-      - title: "Data Preparation/Transformations for {{ destination.display_name }}"
+      - title: "Data preparation/transformations for {{ destination.display_name }}"
         anchor: "preparation"
         content: |
           During the **Preparation** phase, Stitch applies some light transformations to the extracted data to ensure compatibility with the destination.
@@ -209,7 +216,7 @@ sections:
           </tr>
           </table>
 
-      - title: "Loading Data into {{ destination.display_name }}"
+      - title: "Loading data into {{ destination.display_name }}"
         anchor: "loading"
         content: |
           During **Loading**, Stitch loads the extracted data into the destination. For {{ destination.display_name }} destinations, data is loaded in an Append-Only fashion.
@@ -237,7 +244,7 @@ sections:
       2. The selected data storage format (CSV or JSON)
 
     subsections:
-      - title: "Object Keys and File Structure"
+      - title: "Object Keys and file structure"
         anchor: "object-keys-file-structure"
         content: |
           {{ destination.display_name }} uses what is called an Object Key to uniquely identify objects in a bucket. During the Stitch setup process, you have the option of using our default Object Key or defining your own using a handful of Stitch-approved elements. Refer to the [{{ destination.display_name }} Setup instructions]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#define-s3-object-key" }}) for more info on the available elements.
@@ -274,7 +281,7 @@ sections:
 
           For every integration you connect, an `{{ rejected-records.name }}` folder will be created in the integration's directory in {{ destination.display_name }}. `{{ rejected-records.name }}` acts as a [log for records rejected during the loading process]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). For every load where a rejection occurs, a `.jsonl` file containing data about the rejection will be placed in the `{{ rejected-records.name }}` folder.
 
-      - title: "Data Storage Formats"
+      - title: "Data storage formats"
         anchor: "data-storage-formats"
         content: |
           Stitch will store replicated data in the format you select during the initial setup of {{ destination.display_name }}. Currently Stitch supports storing data in CSV or JSON format for {{ destination.display_name }} destinations.
@@ -320,15 +327,16 @@ sections:
               </div>
           </div>
 
-  - title: "Webhook Loading Notifications"
+  - title: "Webhook loading notifications"
     anchor: "webhook-loading-notifications"
     content: |
+      {% include enterprise-cta.html %}
       Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
 
       Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
 
     subsections:
-      - title: "Sample Use Cases"
+      - title: "Sample use cases"
         anchor: "webhook-notification-sample-use-cases"
         content: |
           Enabling loading notifications ensures that you and your team are alerted when fresh data is available in {{ destination.display_name }}. For example, you could:
@@ -336,12 +344,12 @@ sections:
           - Set up a webhook Zap in Zapier that sends a Slack notification whenever data is loaded for a specific integration
           - Use loading notifications to kick off an internal process, such as [DBT](https://www.getdbt.com/) or a script
 
-      - title: "Webhook Request Body"
+      - title: "Webhook request body"
         anchor: "webhook-body"
         content: |
           {% include destinations/overviews/webhook-loading-notification.html type="request-body" %}
 
-      - title: "Webhook Request Body Fields"
+      - title: "Webhook request body fields"
         anchor: "webhook-request-body-fields"
         content: |
           {% include destinations/overviews/webhook-loading-notification.html type="request-body-fields" %}

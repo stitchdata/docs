@@ -15,39 +15,33 @@ type: "bigquery"
 
 requirements-list:
   - item: |
-      **To have full access to a GCP project.** Stitch requires this permission to create datasets and load data into BigQuery.
+      **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
   - item: |
-      **Admin permissions to a BigQuery instance that:**
-
-      - **Is based in the United States (US).** Currently, Stitch can only create US-based Google Cloud Storage (GCS) buckets, which are required for the replication process. US-based buckets are only compatible with US-based BigQuery instances.
-
-        This means that instances based in other regions - for example, the EU - will not currently work with Stitch's {{ destination.display_name }} destination. If you're interested in Stitch supporting this feature, [please let us know](mailto:{{ site.support }}).
-
-      - **Has billing info (a credit card) attached to it.** Note that even if you're using BigQuery's free trial option, billing must still be enabled or Stitch will encounter issues with loading data into your data warehouse. [Instructions for setting up and connecting a billing account to a BigQuery instance can be found here.]({{ destination.enable-billing }}){:target="_blank"}
+      **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.
   - item: |
-      **Storage Admin permissions for GCS**. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.
+      **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
 
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
 setup-steps:
-  - title: "Create a GCP Account"
+  - title: "Create a GCP account"
     anchor: "create-gcp-account"
     content: |
       This one's easy. Simply [sign up here]({{ destination.sign-up }}) and you'll receive a $300 credit.
 
-  - title: "Create a GCP Project & Enable Billing"
+  - title: "Create a GCP project and enable billing"
     anchor: "create-gcp-project-enable-billing"
     content: |
-      Next, create a new Project to house your BigQuery data warehouse by following [these instructions]({{ destination.setup-project }}).
+      Next, create a new GCP project to house your BigQuery data warehouse by following [these instructions]({{ destination.setup-project }}).
 
-      **Be sure to enable billing for the account, even if you're using the free trial option.** If billing isn't enabled, Stitch will encounter issues when loading data into your data warehouse.
+      **Be sure to enable billing for the account and attach a credit card, even if you're using the free trial option.** If billing isn't enabled, Stitch will encounter issues when loading data into your data warehouse.
 
-  - title: "Grant User Permissions"
+  - title: "Grant user permissions"
     anchor: "grant-user-permissions"
     content: |
-      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The Project Info box on the GCP Platform Dashboard page." max-width="250px" %}After the Project has been created, **open the Project in the GCP console**. You can do this by either:
+      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The project Info box on the GCP Platform Dashboard page." max-width="250px" %}After the project has been created, pen the project in the GCP console. You can do this by either:
 
       - Clicking **Manage Project Settings** in the **Project Info** box on the dashboard page, as seen to the right.
 
@@ -55,13 +49,15 @@ setup-steps:
 
       {% include layout/inline_image.html type="right" file="destinations/bigquery-user-permissions.gif" alt="Assigning BigQuery Admin & Storage Admin permissions to a GCP user." max-width="425px" %}
 
-      In the page that displays, click the **IAM** option in the menu on the left side of the page. This will display a page of all the members that have access to the Project.
+      In the page that displays, click the **IAM** option in the menu on the left side of the page. This will display a page of all the members that have access to the project.
 
       1. In the list, locate the user you want to use to connect BigQuery to Stitch.
       2. Click the **Role(s)** drop-down in the row for that user.
       3. Select the **BigQuery** option and click **BigQuery Admin**.
       4. Next, select the **Storage** option and click **Storage Admin**.
       5. Click **Save.**
+
+      {% include note.html type="single-line" content="Even if the user has Owner permissions, you must still grant the BigQuery Admin and Storage Admin permissions to the user. Stitch will encounter loading errors otherwise." %}
 
   - title: "Authenticate with Google"
     anchor: "authenticate-with-google"
@@ -77,13 +73,15 @@ setup-steps:
          - **Full Access to BigQuery** - Stitch requires full access to be able to create datasets and load data into BigQuery.
          - **Read-Only Access to Projects** - Stitch requires read-only access to projects to allow you to select a project to use during the BigQuery setup process.
          - **Basic Profile Information** - Stitch uses your basic profile info to retrieve your user ID.
-         - **Offline Access** - To continuously load data, Stitch requires offline access. This is so the authorization token generated during setup process can be used for more than an hour after the initial auth.
+         - **Offline Access** - To continuously load data, Stitch requires offline access. This allows the authorization token generated during setup process to be used for more than an hour after the initial authentication takes place.
       6. To grant access, click the **Authorize** button.
-      7. After you sign into Google and grant Stitch access, you'll be prompted to select a Project.
-      8. Select the Project you created in step 2 from the drop-down menu.
-      9. Click **Finish Setup**.
-
-      If the connection is successful, a *Success!* message will display at the top of the screen.
+      7. After you sign into Google and grant Stitch access, you'll be redirected back to Stitch.
+         Fill in the fields that display: 
+            - **Google Cloud Project**: From the dropdown, select the project you created in [Step 2](#create-gcp-project-enable-billing).
+            - **Google Cloud Storage Location**: From the dropdown, select the location where data should be stored:
+                - **US**: Data will be stored in the United States
+                - **EU**: Data will be stored in Europe
+      8. Click **Finish Setup**.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","bigquery" | first %}

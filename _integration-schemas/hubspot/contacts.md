@@ -1,12 +1,12 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "contacts"
 doc-link: https://developers.hubspot.com/docs/methods/contacts/contacts-overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/contacts.json
 description: |
-  The `contacts` table contains info about individual contacts in HubSpot.
+  The `{{ table.name }}` table contains info about individual contacts in HubSpot.
 
   ### Contact properties
 
@@ -14,15 +14,12 @@ description: |
 
   HubSpot always types the value of `properties` fields as `STRING` despite the property type. [Refer to HubSpot's documentation for more info](https://developers.hubspot.com/docs/methods/contacts/contacts-overview).
 
-notes: 
-
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getContacts
   doc-link: https://developers.hubspot.com/docs/methods/contacts/get_contacts
 
 attributes:
-## Primary Key
   - name: "canonical-vid"
     type: "integer"
     primary-key: true
@@ -30,11 +27,12 @@ attributes:
       The canonical ID of the contact. In {{ integration.display_name }}, contacts may have multiple vids, but the `canonical-vid` will be the primary ID for a contact. 
       
       **Note**: When a contact is merged into another contact, the parent contact is updated with the child contact's vid added to its `merged-vids` list.  The child contact is not updated, however, so to fully account for merged contacts, canonical-vids that appear in the `merged-vids` list should be filtered out.
+    foreign-key-id: "contact-id"
 
-  - name: "properties__lastModifiedDate__value"
+  - name: "versionTimestamp"
     type: "string"
     replication-key: true
-    description: "A Unix timestamp in milliseconds of when the contact was last updated."
+    description: "A Unix timestamp in milliseconds of when the contact or its properties was last updated."
 
   - name: "vid"
     type: "integer"
@@ -52,10 +50,11 @@ attributes:
     type: "integer"
     alias: "portalId"
     description: "The ID of the portal the contact is associated with."
+    foreign-key-id: "portal-id"
 
   - name: "is-contact"
     type: "boolean"
-    description: "Indicates if the contact is a valid contact. "
+    description: "Indicates if the contact is a valid contact."
 
   - name: "profile-token"
     type: "string"
@@ -108,6 +107,7 @@ attributes:
       - name: "internal-list-id"
         type: "integer"
         description: "The internal list ID."
+        foreign-key-id: "contact-list-id"
 
       - name: "is-member"
         type: "boolean"
@@ -140,10 +140,12 @@ attributes:
       - name: "form-id"
         type: "string"
         description: "The GUID of the form the submission belongs to."
+        foreign-key-id: "form-id"
 
       - name: "portal-id"
         type: "integer"
         description: "The ID of the portal the submission belongs to."
+        foreign-key-id: "portal-id"
 
       - name: "page-url"
         type: "string"

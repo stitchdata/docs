@@ -20,27 +20,27 @@
 
 
 
-The last step is to [select the {{ object }}s {% if integration.name != "mongodb" %}and {{ col }}s{% endif %} you want to replicate]({{ link.replication.syncing | prepend: site.baseurl }}). When you track a {{ object }}, you'll also need to define its {% if integration.name != "mongodb" %}[Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) and, if using Incremental Replication, its [Replication Key]({{ rep-key | prepend: site.baseurl }}).{% else %} [Replication Key]({{ rep-key | prepend: site.baseurl }}).{% endif %}
+The last step is to [select the {{ object }}s {% if integration.name != "mongodb" %}and {{ col }}s{% endif %} you want to replicate]({{ link.replication.syncing | prepend: site.baseurl }}). When you track a {{ object }}, you'll also need to define its {% if integration.name != "mongodb" %}[Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) and, if using Key-based Incremental Replication, its [Replication Key]({{ rep-key | prepend: site.baseurl }}).{% else %} [Replication Key]({{ rep-key | prepend: site.baseurl }}).{% endif %}
 
 {% if integration.db-type == "mysql" %}
 {% capture myisam-tables %}
-**MyISAM Tables & Stitch**<br>
-Because MyISAM tables implement table-level locking when queries are executed, any time Stitch queries a MyISAM table during a replication job, the entire table will be locked.<br><br>
+Because MyISAM tables implement table-level locking when queries are executed, any time Stitch queries a MyISAM table during a replication job, the entire table will be locked.
+
 For this reason, we recommend connecting only read replicas to Stitch to prevent locking tables in your production database. Additionally, consider converting tables to the InnoDB format (which only uses row-level locking) where possible.
 {% endcapture %}
 
-{% include note.html content=myisam-tables %}
+{% include note.html first-line="**Replicating MyISAM tables**" content=myisam-tables %}
 {% endif %}
 
 {% if integration.name == "mongodb" %}
 When selecting {{ object }}s to replicate, keep in mind that:
 
 - **Mongo data can only be tracked at the {{ object }} level.** When a {{ object }} is set to replicate, all {{ col }}s in the {{ object }} will also be tracked by default.
-- **Only Incremental Replication is supported for Mongo integrations at this time.** If a {{ object }} ever requires full replication - for example, to backfill existing rows with a new {{ col }}'s values - will require a full re-sync of the integration's data. Refer to the [Reset Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}) for more info.
+- **Only Key-based Incremental Replication is supported for Mongo integrations at this time.** If a {{ object }} ever requires full replication - for example, to backfill existing rows with a new {{ col }}'s values - will require a full re-replication of the integration's data. Refer to the [Reset Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}) for more info.
 - **Mongo Replication Keys require special consideration.** Refer to the [Mongo Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
 - **Nested records will be de-nested if your destination doesn't natively support nested structures.** Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info.
 
-#### Track Collections {#sync-collections}
+#### Track collections {#sync-collections}
 {% endif %}
 
 You can track {{ object }}s {% if integration.name != "mongodb" %}and {{ col }}s{% endif %} by:
@@ -50,7 +50,7 @@ You can track {{ object }}s {% if integration.name != "mongodb" %}and {{ col }}s
 3. {{ app.menu-paths.sync }}
 4. If there are child objects, they'll automatically display and you'll be prompted to select some.
 5. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.whitelist.columns == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
-6. In the {{ Object }} Settings page, define the {{ object }}'s {% unless integration.name == "mongodb" %}**Replication Method** and, if using Incremental Replication, its {% endunless %}**Replication Key**.
+6. In the {{ Object }} Settings page, define the {{ object }}'s {% unless integration.name == "mongodb" %}**Replication Method** and, if using Key-based Incremental Replication, its {% endunless %}**Replication Key**.
 
    {% if integration.name == "mongodb" %}
    {% capture mongo-rep-key-notice %}

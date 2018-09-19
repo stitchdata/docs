@@ -15,7 +15,7 @@ description: |
 
   For example: If `start_date` and `end_date` contain the value `2017-12-12 00:00:00`, the row contains data for December 12, 2017.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 
 attributes:

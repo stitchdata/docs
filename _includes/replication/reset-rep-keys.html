@@ -26,15 +26,15 @@ If you need to backfill already-replicated rows with data from the newly syncing
 {% endif %}
 
 {% capture reset-rep-key %}
-Before you reset the Replication Keys, note the following:<br><br>
+Note that this process:
 
-1. This will **delete and re-create** your destination tables with a **full re-replication of your source data**.<br>
-2. As a result, this process will lead to increased row counts which will count towards your limit.<br>
-3. **This process is not reversible.**<br><br>
+1. Will **delete and re-create** your destination tables with a **full re-replication of your source data**.
+2. Will lead to increased row counts which will count towards your limit.
+3. Cannot be interrupted or reversed once confirmed.
 
 If you have questions or concerns about resetting Replication Keys, we encourage you to reach out to support before proceeding.
 {% endcapture %}
-{% include important.html content=reset-rep-key %}
+{% include important.html first-line="**Before resetting Replication Keys:**" content=reset-rep-key %}
 
 {% unless page.title contains "Mongo" %}### Resetting Database Integration Replication Keys{% endunless%}
 

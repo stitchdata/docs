@@ -21,7 +21,7 @@ db-type: "Analytic"
 pricing_tier: "standard" ## for Stitch
 status: "Released"
 description: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
-port:
+port: 443
 pricing_model: "Usage" ## provider model
 free_option: "No"
 fully-managed: true
@@ -37,6 +37,9 @@ icon: /images/destinations/icons/snowflake.svg
 
 ## DATA TYPES
 ## See [FILE] for info on data types supported by Snowflake.
+
+ssl: true
+ssh: false
 
 incremental-replication: "Upserts, Append-Only"
 connection-methods: "SSL"

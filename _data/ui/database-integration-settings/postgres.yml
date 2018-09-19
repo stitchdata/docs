@@ -1,0 +1,137 @@
+# --------------------------------------------- #
+#  POSTGRES-BACKED INTEGRATION SETTINGS FIELDS  #
+# --------------------------------------------- #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each Postgres-backed database integration.
+
+## Depending on the provider of the database (ex: RDS), some field names
+## or values will vary. See the lists below for specifics.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+field-names:
+  schema-names-tables: &schema-names-tables-name "Include PostgreSQL schema names in destination tables"
+
+descriptions:
+  schema-names-tables: &schema-names-tables-description |
+    Checking this setting will include schema names from the source database in the destination table name - for example: `<source_schema_name>__<table_name>`.
+
+          Stitch loads all selected replicated tables to a single schema, preserving only the table name. If two tables canonicalize to the same name - even if they're in different source databases or schemas - name collision errors can arise. Checking this setting can prevent these issues. 
+
+          **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
+
+# -------------------------- #
+#      VANILLA POSTGRES      #
+# -------------------------- #
+
+postgres:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.database | flatify }}"
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
+
+
+# -------------------------- #
+#      CLOUDSQL POSTGRES     #
+# -------------------------- #
+
+cloudsql-postgres:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      Enter the host address (endpoint) of your {{ integration.display_name }} instance. This will be the value of the **Primary IPv4 address** that you retrieved in [step 2](#locate-database-connection-details).
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.database | flatify }}"
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
+
+
+# -------------------------- #
+#           HEROKU           #
+# -------------------------- #
+
+heroku:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: "Paste the **Host** address from the {{ integration.display_name }} Database Settings page into this field."
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "Paste the **User** name from the {{ integration.display_name }} Database Settings page into this field."
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "Paste the **Password** from the {{ integration.display_name }} Database Settings page into this field."
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "Paste the **Database** name from the {{ integration.display_name }} Database Settings page into this field."
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description
+
+
+# -------------------------- #
+#        POSTGRES RDS        #
+# -------------------------- #
+
+postgresql-rds:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.database | flatify }}"
+
+  - name: *schema-names-tables-name
+    copy: *schema-names-tables-description

@@ -1,31 +1,50 @@
 
-<!-- Loops over all the integration's tables,
-	 captures the number of those that are using
-	 Full Table Replication. -->
-{% if integration.singer == true %}
-{% assign schema = site.integration-schemas | where:"tap",integration.name %}
-{% else %}
-{% assign schema = integration.tables %}
-{% endif %}
 
+{% case integration.name %}
+    <!-- S3 is weird in the sense that CSV files, which are mapped to tables, don't have to have Replication Key
+    columns in the actual file itself. All tables will technically be Incremental, since the tap will use the
+    file's updated_at value to identify new or updated files.
+
+    Historical replication jobs will look at files that were last updated on or after the date selected in the 
+    Historical date setting. To accommodate for this odd behavior, S3 gets its own conditional logic. -->
+
+{% when 'amazon-s3-csv' %}
+{% capture historical-tables %}
+For {{ integration.display_name }} integrations, Stitch will replicate all files that match the [search pattern](#define-table-search-pattern-and-name) that have been updated since the **Start Date** selected here.
+{% endcapture %}
+
+{% else %}
+
+<!-- Loops over all the integration's tables -->
+    {% if integration.singer == true %}
+        {% assign schema = site.integration-schemas | where:"tap",integration.name %}
+    {% else %}
+        {% assign schema = integration.tables %}
+    {% endif %}
+
+<!-- Assigns the full-table count to 0, then loops over all tables and counts those using Full Table -->
 {% assign full-table = 0 %}
-{% for table in schema %}
-	{% if table.replication-method contains "Full Table" and table.name != "SAMPLE_TABLE" %}
-		{% capture full-count %}{{ full-table | plus: "1" }}{% endcapture %}
-	{% endif %}
-{% assign full-table = full-count %}
+    {% for table in schema %}
+       {% if table.replication-method contains "Full Table" and table.name != "SAMPLE_TABLE" %}
+	      {% capture full-count %}{{ full-table | plus: "1" }}{% endcapture %}
+       {% endif %}
+
+<!-- Reassign the count with the total from the loop -->
+   {% assign full-table = full-count %}
 {% endfor %}
 
-{% assign full-count-num = full-count | plus: 0 %}
+<!-- Make the full table count an integer -->
+    {% assign full-count-num = full-count | plus: 0 %}
+
 {% if full-count-num <= 0 %}
 <!-- If all tables are Incremental, display this. -->
-	{% capture historical-tables %}
-		This means that data **equal to or newer than this date** will be replicated to your data warehouse.
-	{% endcapture %}
-
+{% capture historical-tables %}
+This means that data **equal to or newer than this date** will be replicated to your data warehouse.
+{% endcapture %}
+    
 {% else %}
 
-<!-- Otherwise, display this. -->
+<!-- If there are any tables using Full Table, display this -->
 {% capture historical-tables %}
 This means that:
 
@@ -33,6 +52,7 @@ This means that:
 - For tables using **Full Table Replication**, all data - including records that are older, equal to, or newer than this date - will be replicated to your data warehouse.
 {% endcapture %}
 {% endif %}
+{% endcase %}
 
 {% unless page.layout == "singer" %}
 ### Define the Historical Sync {#define-historical-sync}
@@ -40,6 +60,6 @@ This means that:
 
 The Sync Historical Data setting will define the starting date for your {{ integration.display_name }} integration. {{ historical-tables }}
 
-Change this setting if you want to sync data beyond {{ integration.display_name }}'s default setting of **{{ integration.historical }}**. For a detailed look at historical syncs, check out the [Syncing Historical SaaS Data]({{ link.replication.saas-historical | prepend: site.baseurl }}) guide.
+Change this setting if you want to replicate data beyond {{ integration.display_name }}'s default setting of **{{ integration.historical }}**. {% unless integration.name == "amazon-s3-csv" %}For a detailed look at historical replication jobs, check out the [Syncing Historical SaaS Data]({{ link.replication.saas-historical | prepend: site.baseurl }}) guide.{% endunless %}
 
-{{ include.more-info }}
+{{ include.step-content }}

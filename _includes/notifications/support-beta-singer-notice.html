@@ -1,3 +1,14 @@
+{% if integration.setup-name or integration.tap-name %}
+    {% if integration.tap-name %}
+        {% assign integration-name = integration.tap-name %}
+    {% else %}
+        {% assign integration-name = integration.setup-name %}
+    {% endif %}
+    
+{% else %}
+    {% assign integration-name = integration.display_name %}
+{% endif %}
+
 <div class="alert alert-info" role="alert">
     <i class="fa fa-life-ring"></i>
 
@@ -7,7 +18,7 @@
             </strong><br>
 
             {% if integration.singer == true %}
-                This integration is powered by <a href="{{ site.singer }}">Singer's</a> {{ integration.display_name }} tap and certified by Stitch. {% if integration.repo-url %}<a href="{{ integration.repo-url }}">Check out and contribute to the repo on GitHub</a>.{% endif %}<br><br>
+                This integration is powered by <a href="{{ site.singer }}">Singer's</a> {{ integration-name }} tap and certified by Stitch. {% if integration.repo-url %}<a href="{{ integration.repo-url }}">Check out and contribute to the repo on GitHub</a>.{% endif %}<br><br>
 
             {% else %}
                 This integration is certified by Stitch. 
@@ -21,7 +32,7 @@
                 {{ integration.display_name }} is supported by the Singer community
             </strong><br>
 
-            This integration is powered by <a href="{{ site.singer }}">Singer's</a> {{ integration.display_name }} tap. For support, <a href="{{ integration.repo-url }}">visit the GitHub repo</a> or <a href="{{ site.singer-slack }}">join the Singer Slack</a>.
+            This integration is powered by <a href="{{ site.singer }}">Singer's</a> {{ integration-name }} tap. For support, <a href="{{ integration.repo-url }}">visit the GitHub repo</a> or <a href="{{ site.singer-slack }}">join the Singer Slack</a>.
 
         {% endif %}
 

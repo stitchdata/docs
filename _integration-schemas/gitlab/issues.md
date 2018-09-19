@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/sc
 description: |
   The `issues` table contains info about issues contained within projects.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listProjectIssues"
   doc-link: https://gitlab.com/help/api/issues.md#list-project-issues

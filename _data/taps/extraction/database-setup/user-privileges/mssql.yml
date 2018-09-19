@@ -1,0 +1,76 @@
+# -------------------------- #
+#   MSSQL User Privileges    #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from a MSSQL database.
+
+defaults:
+  names:
+    select: &select-name "SELECT"
+
+  reasons:
+    select: &select-reason "Required to select rows from tables in a database."
+
+  doc-links:
+    select: &select-doc "https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql?view=sql-server-2017"
+
+# -------------------------- #
+#      MSSQL PRIVILEGES      #
+# -------------------------- #
+
+mssql:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+# -------------------------- #
+#      AZURE PRIVILEGES      #
+# -------------------------- #
+
+azure:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+create-user-command: |
+  1. Log into your database.
+  2. Create a SQL login for the Stitch database user:
+
+     ```sql
+     CREATE LOGIN [stitch_username] WITH PASSWORD=’[password]’
+     go
+     ```
+
+  3. Grant the Stitch user access to the database:
+
+     ```sql
+     USE [database]
+     go
+     ```
+
+  4. Create the Stitch database user and map them to the database:
+
+     ```sql
+     CREATE USER [stitch_username] FOR LOGIN 
+     go
+     ```
+
+  5. Grant the Stitch user `SELECT` privileges.
+
+     To grant `SELECT` privileges to all tables in the database, run this command:
+
+     ```sql
+     GRANT SELECT to [stitch_username]
+     go
+     ```
+
+     If you wish to limit the Stitch user to specific tables, run this command instead:
+
+     ```sql
+     GRANT SELECT ON [schema_name].[table_name] TO [stitch_username]
+     go
+     ```

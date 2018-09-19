@@ -97,6 +97,9 @@ all-docs:
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.bigquery }}"
 
+        - title: "Change BigQuery Location"
+          url: "{{ link.destinations.overviews.switch-bigquery-destination }}"
+
     - title: Panoply
       subsections:
         - title: "Overview"
@@ -203,7 +206,10 @@ all-docs:
         - title: Overview
           url: "{{ link.replication.rep-methods }}"
 
-        - title: Incremental
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.rep-methods }}#log-based-incremental-replication"
+
+        - title: "Key-based Incremental"
           url: "{{ link.replication.rep-methods }}#incremental-replication"
 
         - title: "Append-Only"
@@ -212,14 +218,33 @@ all-docs:
         - title: Full Table
           url: "{{ link.replication.rep-methods }}#full-table-replication"
 
-    - title: Replication Frequency
-      url: "{{ link.replication.rep-frequency }}"
+    - title: Replication Scheduling
+      subsections:
+        - title: "Overview"
+          url: "{{ link.replication.rep-scheduling }}"
+
+        - title: "Replication Frequency"
+          url: "{{ link.replication.rep-frequency }}"
+
+        - title: "Anchor Scheduling"
+          url: "{{ link.replication.anchor-scheduling }}"
 
     - title: Supported Data Types
       url: "{{ link.replication.supported-data-types }}"
 
-    - title: Deletions
-      url: "{{ link.replication.rep-methods }}#deleted-records--incremental-replication"
+    - title: Deleted record handling
+      subsections:
+        - title: "Deletion methods"
+          url: "{{ link.replication.deleted-records }}"
+
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.deleted-records }}#log-based-incremental"
+
+        - title: "Key-based Incremental"
+          url: "{{ link.replication.deleted-records }}#key-based-incremental"
+
+        - title: "Full Table"
+          url: "{{ link.replication.deleted-records }}#full-table"
 
     - title: Monitoring Progress
       subsections:
@@ -238,7 +263,21 @@ all-docs:
       url: "{{ link.replication.loading-reports }}"
 
     - title: Integration Schemas
-      url: "{{ link.destinations.storage.stitch-schema }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.storage.stitch-schema }}"
+
+        - title: "Schema Names"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
+
+        - title: "Schema Composition"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
+
+        - title: "Table Schemas"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
+
+        - title: "_sdc Columns"
+          url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
 
     - title: Loading Data into Destinations
       url: "{{ link.destinations.storage.loading-data }}"
@@ -250,7 +289,10 @@ all-docs:
       url: "{{ link.destinations.storage.structure-changes }}"
 
     - title: Append-Only Tables
-      url: "{{ link.replication.append-only }}"
+      url: "{{ link.replication.append-only-querying }}"
+
+    - title: "_sdc Columns"
+      url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
 
     - title: Rejected Records
       url: "{{ link.destinations.storage.rejected-records }}"

@@ -10,7 +10,7 @@ description: |
 
 notes: 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: 
   doc-link: 

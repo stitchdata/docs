@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "workflows"
 doc-link: https://developers.hubspot.com/docs/methods/workflows/workflows_overview
@@ -8,19 +8,18 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `workflows` table contains info about the workflows in your HubSpot portal.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getWorkflows
   doc-link: https://developers.hubspot.com/docs/methods/workflows/v3/get_workflows
 
 attributes:
-## Primary Key
   - name: "id"
     type: "integer"
     primary-key: true
     description: "The ID of the workflow."
+    # foreign-key-id: "workflow-id"
 
-## Replication Key
   - name: "updatedAt"
     type: "date-time"
     replication-key: true
@@ -69,5 +68,4 @@ attributes:
           - name: "type"
             type: "string"
             description: "The type of step in the workflow." 
-
 ---

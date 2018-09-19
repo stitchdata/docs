@@ -1,34 +1,54 @@
+<!-- Capture the nested data notice that appears everywhere, so we don't need to repeat it -->
+    {% capture nested-data-notice %}
+        <p>
+            <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">If your destination doesn't natively support nested data</a>, this data may be denested into a subtable named <code>[ATTRIBUTE-NAME]</code>. 
+
+            {% if table.singer-schema %}
+                Refer to the <a href="{{ table.singer-schema }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table schema on GitHub" target="new">Singer schema</a> for details on possible attributes.
+            {% endif %}
+        </p>
+    {% endcapture %}
+
+
 {% if include.type == "array-object" %}
 	<!-- This is specific to objects that are nested within top-level arrays -->
 	{% for sub-subattribute in subattribute.object-attributes %}
 		
+	<!-- If the sub-subattribute is an array, do this: -->
 		{% if sub-subattribute.type == "array" %}
 			<tr>
-			 	<td align="right">
+			 	<td class="attribute-name">
 			 		<strong>{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name }}</strong>
 			  	</td>
-			  	<td width="70%; fixed">
+			  	<td class="attribute-description">
 			  		{{ sub-subattribute.description | flatify | markdownify }}
 
-			  		<p>This data may be de-nested into a subtable if your data warehouse doesn't natively support nested data.</p>
+			  	<!-- Capture the full name of the attribute -->
+			  		{%- capture attribute-name -%}
+			  			{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
+			  		{%- endcapture -%}
 
-					{% if table.singer-schema %}
-						<p>Refer to the <a href="{{ table.singer-schema }}" target="new">Singer schema</a> for info on what attributes this table may contain.</p>
-					{% endif %}
+			  	<!-- Replace the [ATTRIBUTE-NAME] placeholder in the nested-data-notice with the captured attribute name -->
+			  		{{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
 				</td>
 			</tr>
 
+	<!-- If the sub-subattribute is any other data type, do this: -->
 		{% else %}
 
 		<!-- For 1 level of nested object in an array. Ex: array > top-level-object__first-level-object -->
 			<tr>
-			 	<td align="right">
+			 	<td class="attribute-name">
 			 		<strong>{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name }}</strong>
 			  		<br>
 			  		{{ sub-subattribute.type | upcase }}
 			  	</td>
-			  	<td width="70%; fixed">
+			  	<td class="attribute-description">
 			  		{{ sub-subattribute.description | flatify | markdownify }}
+
+			  		{% if sub-subattribute.foreign-key == true %}
+                        {% include integrations/templates/schemas/foreign-keys.html %}
+                    {% endif %}
 			  	</td>
 			</tr>
 	  	{% endif %}
@@ -38,47 +58,46 @@
 
 	{% for subattribute in attribute.object-attributes %}
 
+	<!-- If the subattribute is an array, run this include: -->
 		{% if subattribute.type == "array" %}
 			{% include integrations/templates/schemas/array-data-type.html %}
 
-		<!-- For 2 levels of nested object. Ex: top-level__first-level__second-level -->
+	<!-- For 2 levels of nested object. Ex: top-level__first-level__second-level -->
 		{% elsif subattribute.type == "object" %}
 			{% for sub-subattribute in subattribute.object-attributes %}
-			<tr>
-			 	<td align="right">
-			 		{% if sub-subattribute.doc-link %}
-			 			<a href="{{ sub-subattribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} {{ sub-subattribute.name }} documentation" target="new"><strong>{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name }}</strong></a>
-			 		{% else %}
-			 			<strong>{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name }}</strong>
-			 		{% endif %}
-			  		<br>
-			  		{% if sub-subattribute.type == "object" or sub-subattribute.type == "array" %}
+				<tr>
+				 	<td class="attribute-name">
+				 		{% if sub-subattribute.doc-link %}
+				 			<a href="{{ sub-subattribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} {{ sub-subattribute.name }} documentation" target="new"><strong>{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name }}</strong></a>
+				 		{% else %}
+				 			<strong>{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name }}</strong>
+				 		{% endif %}
+				  		<br>
+				  		{% if sub-subattribute.type == "object" or sub-subattribute.type == "array" %}
 
-			  		{% else %}
-			  			{{ sub-subattribute.type | upcase }}
-			  		{% endif %}
-			  	</td>
-			  	<td width="70%; fixed">
-			  		{{ sub-subattribute.description | flatify | markdownify }}
+				  		{% else %}
+				  			{{ sub-subattribute.type | upcase }}
+				  		{% endif %}
+				  	</td>
+				  	<td class="attribute-description">
+				  		{{ sub-subattribute.description | flatify | markdownify }}
 
-			  		{% if sub-subattribute.type == "array" %}
-			  			<p>This data may be de-nested into a subtable if your data warehouse doesn't natively support nested data.</p>
+				  		{% if sub-subattribute.type == "array" %}
 
-			  			<p>Refer to the 
-			  				{% if sub-subattribute.schema-link %}
-			  					<a href="{{ sub-subattribute.schema-link }}" target="new">
-			  				{% else %}
-			  					<a href="{{ table.singer-schema }}" target="new">
-			  				{% endif %}
-			  			Singer schema</a> for info on what attributes this table may contain.</p>
-			  		{% endif %}
-			  	</td>
-			</tr>
+				  			{%- capture attribute-name -%}
+				  				{{ sub-subattribute.name | prepend: "__" | prepend: subattribute.name | prepend: "__" | prepend: attribute.name | prepend: "__" | prepend: table.name }}
+				  			{%- endcapture -%}
+
+				  			{{ nested-data-notice | replace:"[ATTRIBUTE-NAME]",attribute-name }}
+				  		{% endif %}
+				  	</td>
+				</tr>
 			{% endfor %}
 
+	<!-- If the subattribute isn't an object or an array, do this: -->
 	  	{% else %}
 	  		<tr>
-	  			<td align="right">
+	  			<td class="attribute-name">
 	  			<!-- For 1 level of nested object. Ex: top-level__first-level -->
 	  				{% if subattribute.doc-link %}
 	  					<a href="{{ subattribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} {{ subattribute.name }} documentation" target="new"><strong>{{ subattribute.name | prepend: "__" | prepend: attribute.name }}</strong></a>
@@ -88,8 +107,12 @@
 	  				<br>
 	  				{{ subattribute.type | upcase }}
 	  			</td>
-	  			<td width="70%; fixed">
+	  			<td class="attribute-description">
 	  				{{ subattribute.description | flatify | markdownify }}
+
+	  				{% if subattribute.foreign-key-id %}
+		  				{% include integrations/templates/schemas/foreign-keys.html attribute-level="subattribute" %}
+		  			{% endif %}
 	  			</td>
 	  		</tr>
 	  	{% endif %}

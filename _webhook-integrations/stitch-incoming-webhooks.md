@@ -10,10 +10,18 @@ summary: "Stitch’s Incoming Webhooks integration provides a simple and flexibl
 #     Integration Details    #
 # -------------------------- #
 
-name: "incoming_webhooks"
+name: "incoming-webhooks"
 display_name: "Incoming Webhooks"
 author: "Stitch"
+author-url: "https://www.stitchdata.com"
+
+# -------------------------- #
+#       Stitch Details       #
+# -------------------------- #
+
 status: "Released"
+certified: true
+
 type: "Webhook"
 branded: false
 historical: "Webhook"
@@ -36,7 +44,6 @@ tables:
     notes: 
     replication-method: "Append-Only (Incremental)"
     nested-structures: false
-    ## attribute-notes: if populated, this will replace the default "While we try to include everything here..." copy.
     attributes:
       - name: ID (<code>id</code>)
       - name: event

@@ -1,82 +1,118 @@
-{% if integration.name == "mongodb" %}
+{% case integration.db-type %}
+{% when 'mongo' %}
 
 {% capture object %}collection{% endcapture %}
 {% capture Object %}collection{% endcapture %}
 {% capture col %}field{% endcapture %}
-{% capture rep-keys %}{{ link.replication.mongo-rep-keys }}{% endcapture %}
+{% capture rep-keys-doc-link %}{{ link.replication.mongo-rep-keys | prepend: site.baseurl }}{% endcapture %}
 
 {% else %}
 
 {% capture object %}table{% endcapture %}
 {% capture Object %}Table{% endcapture %}
 {% capture col %}column{% endcapture %}
-{% capture rep-keys %}{{ link.replication.rep-keys }}{% endcapture %}
+{% capture rep-keys-doc-link %}{{ link.replication.rep-keys | prepend: site.baseurl }}{% endcapture %}
 
-{% endif %}
-
-## Extracting Data from {{ integration.display_name }} {#extract-data}
-
-When you connect a database as an input, Stitch only needs read-only access to the databases, {{ object }}s, and {{ col }}s you want to replicate. There are two processes Stitch runs during the Extraction phase of the replication process: a **structure sync** and a **data sync**.
-
-### Structure Sync
-
-The first part of the replication process is called a **structure sync**. This process will detect any changes to the structure of your database. For example: a new {{ col }} is added to one of the {{ object }}s you’re syncing in Stitch.
+{% endcase %}
 
 {% assign extraction = site.data.taps.extraction.database-queries %}
 
+## Extracting data from {{ integration.display_name }} {#extract-data}
 
-{% if integration.db-type == "rds" %}
-<table class="table-hover">
-    <tbody>
-        <tr>
-            <td markdown="span" width="25%; fixed" align="right">
-                **Database Type**
-            </td>
-            <td markdown="span">
-                **Structure Sync Queries**
-            </td>
-        </tr>
-        {% for database in extraction.all-types %}
-        <tr>
-            <td markdown="span" align="right">
-                **{{ database.name }}**
-            </td>
-            <td>
-                {{ extraction[database.type].structure-sync | markdownify }}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+When you connect a database as an input, Stitch only needs read-only access to the databases, {{ object }}s, and {{ col }}s you want to replicate. There are two processes Stitch runs during the Extraction phase of the replication process: a structure sync and a data sync.
 
-{% else %}
+### Structure syncs
+
+This is the first part of the Extraction process. During this phase, Stitch will detect any changes to the structure of your database. For example: A new {{ col }} is added to one of the {{ object }}s you set to replicate in Stitch. Structure syncs are how Stitch identifies the databases, tables, and columns to display in the Stitch app.
 
 {{ extraction[integration.db-type].structure-sync | flatify | markdownify }}
 
+### Data syncs
+
+This is the second part of the Extraction process. During this phase, Stitch extracts data from the source and replicates it. {% unless integration.db-type == "mongo" %}The method Stitch uses is the same for all databases, but differs depending on the Replication Method that each {{ object }} uses.{% endunless %}
+
+The tabs below contain info about the queries Stitch runs during the data syncs for each type of Replication Method supported for {{ integration.display_name }} integrations.
+
+{% if integration.db-type == "mongo" %}
+**Note**: {{ integration.display_name }} integrations only support Key-based Incremental replication.
 {% endif %}
 
-### Data Sync
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#key-based-incremental" data-toggle="tab">Key-based Incremental</a>
+    </li>
 
-The second step in the Extraction phase is called a **data sync**. This is where Stitch "extracts" data and replicates it. {% if integration.db-type != "mongo" %}The method Stitch uses is the same for all databases, but differs depending on the Replication Method that each {{ object }} uses.{% endif %}
+<!-- Only show this for databases where Log-based Incremental is supported -->
+    {% unless integration.binlog-replication == false %}
+        <li>
+            <a href="#log-based-incremental" data-toggle="tab">Log-based Incremental</a>
+        </li>
+    {% endunless %}
 
-{% unless integration.db-type == "mongo" %}
-#### Full Table Replication
+<!-- Don't show this for Mongo, as it doesn't support Full Table Replication -->
+    {% if integration.db-type != "mongo" %}
+        <li>
+            <a href="#full-table" data-toggle="tab">Full Table</a>
+        </li>
+    {% endif %}
+</ul>
 
-For tables using Full Table Replication, Stitch will run a single query and read out of the resulting cursor in batches:
+<!-- Start the tabs -->
+<div class="tab-content">
 
-{{ extraction.data-sync-queries.full-table | markdownify }}
-{% endunless %}
+<!-- Tab for Key-based Incremental -->
+    <div role="tabpanel" class="tab-pane active" id="key-based-incremental">
+        <h4 id="key-based-incremental--data-syncs">Data syncs for tables using Key-based Incremental</h4>
 
-#### Incremental Replication
+        <h5 id="key-based-incremental--historical-job">Initial (historical) replication jobs</h5>
 
-For tables using Incremental Replication, Stitch will run a single query and read out of the associated cursor in batches:
+            <p>During the initial replication job for a table using <strong>Key-based Incremental Replication</strong>, Stitch will replicate the table in full by running a <code>SELECT</code> query and read out of the resulting cursor in batches:</p>
 
-{{ extraction.data-sync-queries.incremental | markdownify }}
+            {{ extraction.data-sync-queries.incremental-historical | markdownify }}
 
+        <h5 id="key-based-incremental--ongoing-jobs">Ongoing replication jobs</h5>
+
+            <p>During subsequent jobs, Stitch will use the last saved maximum value of the <a href="{{ rep-keys-doc-link }}">Replication Key</a> column to identify new and updated data. </p>
+
+            <p>Stitch will run the following query and read out of the associated cursor in batches:</p>
+
+            {{ extraction.data-sync-queries.incremental | markdownify }}
+    </div>
+
+<!-- Only show this tab for databses where Log-based Incremental is supported -->
+    {% if integration.binlog-replication == true %}
+        <div role="tabpanel" class="tab-pane" id="log-based-incremental">
+
+            <h4 id="log-based-incremental--data-syncs">Data syncs for tables using Log-based Incremental</h4>
+            <h5 id="log-based-incremental--historical-job">Initial (historical) replication jobs</h5>
+                <p>During the initial replication job for a table using <strong>Log-based Incremental Replication</strong>, Stitch will use a <code>SELECT</code> query to retrieve all data for the table and then read out of the resulting cursor in batches:</p>
+
+                {{ extraction.data-sync-queries.full-table | markdownify }}
+
+            <h5 id="log-based-incremental--ongoing-jobs">Ongoing replication jobs</h5>
+                <p>During subsequent jobs, Stitch will use the database's binary logs to stream updates.</p>
+
+                <p>Stitch will 'bookmark' its position in the binary log at the end of each replication job, allowing it to resume at the correct position during the next extraction.</p>
+
+        </div>
+    {% endif %}
+
+<!-- Don't show this for Mongo, as it doesn't support Full Table Replication -->
+    {% if integration.db-type != "mongo" %}
+        <div role="tabpanel" class="tab-pane" id="full-table">
+        <h4 id="full-table--data-syncs">Data syncs for tables using Full Table</h4>
+            <p>For tables using <strong>Full Table Replication</strong>, Stitch runs a single query and reads out of the resulting cursor in batches:</p>
+
+            {{ extraction.data-sync-queries.full-table | markdownify }}
+
+            <p>This query will be run for each table using Full Table Replication during every replication job, whether it's the initial historical job or a subsequent job.</p>
+        </div>
+    {% endif %}
+</div>
 
 ### Recommendations
 
-While we make every effort to ensure the queries that Stitch runs don’t impart significant load on your databases, we still have some recommendations for guaranteeing database performance:
+While we make every effort to ensure the queries that Stitch executes don’t impart significant load on your databases, we still have some recommendations for guaranteeing database performance:
 
 - **Use a replica database instead of connecting directly**. We recommend using read replicas in lieu of directly connecting production databases with high availability and performance requirements.
-- **Apply indexes to [Replication Key]({{ rep-keys | prepend: site.baseurl }}) columns**. We restrict and order our replication queries by this {{ col }}, so applying an index to the {{ col }}s you’re using as Replication Keys can improve performance. {% if integration.db-type == "mongo" %}**Indexes are required to use Mongo fields as Replication Keys**.{% endif %}
+- **Apply indexes to [Replication Key]({{ rep-keys-doc-link }}) {{ col }}s**. We restrict and order our replication queries by this {{ col }}, so applying an index to the {{ col }}s you’re using as Replication Keys can improve performance. {% if integration.db-type == "mongo" %}**Indexes are required to use Mongo fields as Replication Keys**.{% endif %}

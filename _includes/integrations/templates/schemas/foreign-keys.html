@@ -1,0 +1,112 @@
+<!-- This file is used to output and display foreign key information
+    for table attributes where foreign-key == true  -->
+
+
+<!-- Get the foreign key file in the integration's schema folder -->
+    {% assign integration-references = site.integration-schemas | where:"tap-reference",integration.name %}
+
+<!-- If the integration is versioned, do this -->
+    {% if integration.this-version %}
+    
+    <!-- If the integration has multiple versions, locate the reference file for this version -->
+        {% assign references = integration-references | where:"version",integration.this-version %}
+    
+    {% else %}
+    
+    <!-- Otherwise, just re-assign the variable -->
+        {% assign references = integration-references %}
+    
+    {% endif %}
+
+<!-- Because the object names of attributes vary from level to level,
+    we need to capture each one and assign it to a common variable 
+    that'll be used in the forloop. This means we don't have to repeat
+    the loop a bunch of times.
+
+    The logic below will also capture the attribute's `table` name,
+    if there is one. `table` is used to indicate a foreign key when the
+    name of the foreign key isn't the same throughout the schema.
+
+    For example: In a subtable called `campaigns__contactIds`, a subattribute
+    might just be named `id` - not useful for identifying which type of ID it is.
+    So in this case, the `table` value would say "contacts", indicating that 
+    id = contacts.id.  -->
+
+{% case include.attribute-level %}
+<!-- For second-level attributes -->
+    {% when 'subattribute' %}
+        {% assign foreign-key-id = subattribute.foreign-key-id %}
+        {% assign attribute-table = subattribute.table %}
+
+        {% assign attribute-key = subattribute %}
+
+<!-- For third level attributes -->
+    {% when 'sub-subattribute' %}
+        {% assign foreign-key-id = sub-subattribute.foreign-key-id %}
+        {% assign attribute-table = sub-subattribute.table %}
+
+        {% assign attribute-key = sub-subattribute %}
+
+<!-- For first level attributes -->
+    {% else %}
+        {% assign foreign-key-id = attribute.foreign-key-id %}
+        {% assign attribute-table = attribute.table %}
+
+        {% assign attribute-key = attribute %}
+{% endcase %}
+
+
+{% for reference in references %}
+    {% for key in reference.foreign-keys %}
+        {% if key.id == attribute-key.foreign-key-id %}
+            {% if key.all-foreign-keys %}
+                <p>
+                    <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                    <strong>Reference</strong>:
+                </p>
+
+                    <ul>
+                        {% for foreign-key in key.all-foreign-keys %}
+                            {% unless foreign-key.table == table.name %}
+                            <li>
+                                <a href="#{{ foreign-key.table }}">
+                                    {% if foreign-key.subattribute %}
+                                        {%- capture full-table-name -%}
+                                            {{ foreign-key.subattribute | prepend: "__" | prepend: foreign-key.table }}
+                                        {%- endcapture -%}
+
+                                    {% elsif foreign-key.subtable %}
+                                        {%- capture full-table-name -%}
+                                            {{ foreign-key.table | append: "__" | append: foreign-key.subtable }}
+                                        {%- endcapture -%}
+
+                                    {% else %}
+                                        {%- capture full-table-name -%}
+                                            {{ foreign-key.table }}
+                                        {%- endcapture -%}
+                                    {% endif %} 
+
+                                    {{ full-table-name | append: "." }}
+
+                                    {%- if foreign-key.join-on -%}
+                                        {{ foreign-key.join-on | strip }}
+                                    {%- else -%}
+                                        {{ key.attribute | strip }}
+                                    {%- endif -%}
+                                </a>
+                            </li>
+                            {% endunless %}
+                        {% endfor %}
+                    </ul>
+
+            {% else %}
+
+                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                    <strong>Reference</strong>: 
+                    <a href="#{{ key.table }}">
+                        {{ key.table }}.{{ key.join-on }}
+                    </a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}

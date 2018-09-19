@@ -30,14 +30,20 @@ enterprise-name: &enterprise-name "Enterprise"
 
 # name: plan name
 # paid: true if the plan is a paid plan
+# total-integrations: the total number of distinct integration types users can add
 # integrations: the type of integrations included in the plan
+# users: the total number of users an account can have
 # rows: the number of rows included in the plan before overages
+# logs: the # of days of Extraction Logs the account will have access to
+# reports: the # of days of Loading Reports the account will have access to
 
 all-plans:
   - name: *trial-name
     paid: false
     description: *trial-description
+    total-integrations: "n/a"
     integrations: "all"
+    users: "n/a"
     rows: "unlimited"
     logs: "7 days"
     reports: "7 days"
@@ -45,6 +51,8 @@ all-plans:
   - name: *free-name
     paid: false
     integrations: "free"
+    total-integrations: "Up to 5"
+    users: "5"
     rows: "5 million"
     logs: "24 hours"
     reports: "24 hours"
@@ -52,6 +60,8 @@ all-plans:
   - name: *starter-name
     paid: true
     integrations: "all"
+    total-integrations: "Up to 5"
+    users: "5"
     rows: "5 million"
     logs: "7 days"
     reports: "7 days"
@@ -59,6 +69,8 @@ all-plans:
   - name: *basic-name
     paid: true
     integrations: "all"
+    total-integrations: "Up to 10"
+    users: "10"
     rows: "100 million"
     logs: "7 days"
     reports: "7 days"
@@ -66,6 +78,8 @@ all-plans:
   - name: *premier-name
     paid: true
     integrations: "all"
+    total-integrations: "Up to 10"
+    users: "10"
     rows: "250 million"
     logs: "7 days"
     reports: "7 days"
@@ -73,6 +87,8 @@ all-plans:
   - name: *enterprise-name
     paid: true
     integrations: "all"
+    total-integrations: "Unlimited"
+    users: "Unlimited"
     rows: "billions"
     logs: "60 days"
     reports: "60 days"

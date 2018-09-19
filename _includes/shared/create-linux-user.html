@@ -1,5 +1,5 @@
-{% unless page.title contains "Redshift" %}
-{% include note.html content="If you aren't using an SSH tunnel, skip this step." %}
+{% unless page.title contains "Redshift" or include.no-notification == true %}
+{% include note.html type="single-line" content="If you aren't using an SSH tunnel, skip this step." %}
 {% endunless %}
 
 **Note:** Anything inside square brackets - `[like this]` - is something you need to define when running the commands yourself.

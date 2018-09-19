@@ -7,7 +7,7 @@ name: "links"
 doc-link: 
 description: "info about links in your Outbrain campaigns."
 notes: 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 primary-key: "id"
 nested-structures: false
 attribute-notes: 

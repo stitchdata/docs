@@ -12,15 +12,14 @@ weight: 2
 {% include misc/data-files.html %}
 
 {% capture invoice %}
-**Invoice Recipients**<br>
-Only the user who initially adds the payment information to the account will receive a copy of the monthly invoice in their email.<br><br>
+Only the user who initially adds the payment information to the account will receive a copy of the monthly invoice in their email.
 
 Everyone can view the Past Payment details in the {{ app.page-names.billing }} page, however.
 {% endcapture %}
 
-{% include note.html content=invoice %}
+{% include note.html first-line="**Who receives invoices?**" content=invoice %}
 
-There isn’t a limit on how many users you can add to your account, so there’s room for everyone.
+## Invite a Team Member
 
 1. To add a new user, click the {{ app.menu-paths.account-settings }}.
 2. {{ app.menu-paths.add-user }}
@@ -29,7 +28,7 @@ There isn’t a limit on how many users you can add to your account, so there’
 
 Shortly after this process is completed, an email invite will be sent to the email address you entered.
 
-**Note that the invitation link in the invite email is only good for ONE attempt.** If for some reason the login should fail, try re-sending the invite.
+**Note**: The invitation link in the invite email is only good for one attempt. If the login should fail, try re-sending the invite.
 
 ---
 

@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshd
 description: |
   The `time_entries` table contains info about the time entries entered by agents working on tickets.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllTimeEntries"
   doc-link: https://developers.freshdesk.com/api/#time-entries

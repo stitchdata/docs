@@ -11,7 +11,7 @@ description: |
 
   If applicable, Stitch will replicate custom fields related to `companies` in Intercom.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: scrollOverAllCompanies
   doc-link: https://developers.intercom.com/reference#iterating-over-all-companies
@@ -23,6 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The Intercom-defined company ID."
+    foreign-key-id: "company-id"
 
   - name: "updated_at"
     type: "date-time"

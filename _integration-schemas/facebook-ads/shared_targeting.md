@@ -19,7 +19,7 @@ description: |
 
   Below are the targeting specs Stitch will create subtables for and the attributes each subtable can contain.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 
 attributes:
