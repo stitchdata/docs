@@ -24,7 +24,7 @@ repo-url: https://github.com/singer-io/tap-uservoice
 #       Stitch Details       #
 # -------------------------- #
 
-status: "In Development"
+status: "Released"
 certified: false
 
 historical: "1 year"
