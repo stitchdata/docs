@@ -6,7 +6,7 @@ name: "import"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/imports
 #singer-schema: 
 description: |
-  The `import` table contains information about content uploads.
+  The `{{ table.name }}` table contains information about content uploads.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -84,5 +84,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the import."
-
 ---

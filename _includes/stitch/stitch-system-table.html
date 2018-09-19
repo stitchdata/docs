@@ -1,14 +1,79 @@
-{% if include.table == "system" %}
-	{% assign table-attributes = site.data.stitch.sdc-columns.attributes %}
+<!-- This file includes logic for displaying _sdc columns and the schema of the rejected records table 
 
-{% elsif include.table == "rejected" %}
-	{% assign table-attributes = site.data.stitch.rejected-records.attributes %}
-{% endif %}
+- `system` = system columns, or _sdc columns
+- `rejected` = rejected records table columns -->
 
-<table width="100%">
+<!-- Get the right column list and formatting for each table type: system or rejected -->
+{% case include.table %}
+	{% when 'system' %}
+
+<!-- There are a few types of column categories - get the list -->
+		{% assign sdc-categories = site.data.stitch.sdc-columns.categories %}
+
+<!-- Get the system columns list -->
+		{% assign all-attributes = site.data.stitch.sdc-columns.attributes %}
+
+<!-- Display everything in tabs, one tab for each column category -->
+<ul id="profileTabs" class="nav nav-tabs">
+	{% for category in sdc-categories %}
+		{% if forloop.first == true %}
+		    <li class="active">
+		{% else %}
+			<li>
+		{% endif %}
+	    	<a href="#{{ category.name }}" data-toggle="tab">{{ category.display-name }}</a>
+	    </li>
+	{% endfor %}
+</ul>
+<div class="tab-content">
+	{% for category in sdc-categories %}
+		{% if forloop.first == true %}
+		    <div role="tabpanel" class="tab-pane active" id="{{ category.name }}">
+		{% else %}
+			<div role="tabpanel" class="tab-pane" id="{{ category.name }}">
+		{% endif %}
+	        {% assign table-attributes = all-attributes | where:"applicable-to",category.name | sort: "name" %}
+
+	        <span class="h4">{{ category.display-name }}</span>
+
+	        {{ category.description | flatify | markdownify }}
+
+			<table class="attribute-list">
+				{% for column in table-attributes %}
+					<tr>
+						<td class="attribute-name">
+							{% if column.name == "_sdc_source_key_" %}
+								<strong>{{ column.name | flatify | append:"[pk-name]" }}</strong>
+							{% else %}
+								<strong>{{ column.name | flatify | replace:"#","0" }}</strong>
+							{% endif %}
+							<br>
+							{{ column.type | upcase }}
+						</td>
+						<td>
+							{{ column.description | flatify | markdownify }}
+						</td>
+						{% if column.data %}
+							<td class="attribute-description">
+								{{ column.data }}
+							</td>
+						{% endif %}
+					</tr>
+				{% endfor %}
+			</table>
+    	</div>
+    {% endfor %}
+</div>
+
+<!-- Display for the rejected records table schema -->
+<!-- Just a table is necessary here - no tabs -->
+	{% when 'rejected' %}
+		{% assign table-attributes = site.data.stitch.rejected-records.attributes %}
+
+<table class="attribute-list">
 	{% for column in table-attributes %}
 		<tr>
-			<td width="30%; fixed" align="right">
+			<td class="attribute-name">
 				{% if column.name == "_sdc_source_key_" %}
 					<strong>{{ column.name | flatify | append:"[pk-name]" }}</strong>
 				{% else %}
@@ -21,10 +86,11 @@
 				{{ column.description | flatify | markdownify }}
 			</td>
 			{% if column.data %}
-				<td width="30%; fixed">
+				<td class="attribute-description">
 					<code>{{ column.data }}</code>
 				</td>
 			{% endif %}
 		</tr>
 	{% endfor %}
 </table>
+{% endcase %}

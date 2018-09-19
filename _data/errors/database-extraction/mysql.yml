@@ -21,6 +21,25 @@ errors:
 
       **Note**: [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group) and [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group) databases should have binary logging enabled by default. If you receive this error for either of these databases, verify that the rest of the required server settings are defined correctly.
 
+  - message: "(1236, 'A slave with the same server_uuid/server_id as this slave has connected to the master [...]'')"
+    id: "server-id-not-unique"
+    meaning: |
+      The server ID of the instance Stitch is connected to is not unique. When using Log-based Replication, the ID of the server Stitch connects to must be unique. This is because MySQL doesn't allow replication to occur using the same server ID simultaneously across multiple connections.
+
+    fix-it: |
+      If you're using Log-based Replication and any of the following are true, you'll need to define a unique server ID in the integration's **Settings** page in Stitch:
+
+      1. You connected one or more read replicas
+      2. You connected multiple databases that are all on the same server
+      3. You added a new MySQL-based Stitch integration, and the database is on the same server as other previously-connected databases
+
+      To do this, refer to the instructions for the database you're connecting:
+
+      - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-id)
+      - [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#server-id)
+      - [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#server-id)
+      - [Google CloudSQL MySQL]({{ site.baseurl }}/integrations/databases/google-cloudsql-mysql#server-id)
+      - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-id)
 
   - message: "(1236, 'Misconfigured master - server id was not set')"
     id: "master-server-id-not-set"

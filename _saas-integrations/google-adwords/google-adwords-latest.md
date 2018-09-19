@@ -28,7 +28,7 @@ repo-url: https://github.com/singer-io/tap-adwords
 #     Integration Details    #
 # -------------------------- #
 
-api-version: "v201702"
+api-version: "v201806"
 
 status: "Released"
 certified: true # Stitch-supported integration

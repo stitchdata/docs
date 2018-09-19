@@ -9,8 +9,12 @@ layout: page
 
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
-{% if integration.notice %}
-    {% include important.html content=notice %}
+{% if integration.notice-copy %}
+    {% capture notice-copy %}
+        {{ integration.notice-copy | flatify }}
+    {% endcapture %}
+
+    {% include important.html first-line=integration.notice-first-line content=notice-copy %}
 {% endif %}
 
 

@@ -3,10 +3,10 @@ tap: "zuora"
 version: 1.0
 
 name: "journalEntryItem"
-doc-link: w
+doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Summary-Journal-Entries
 #singer-schema: 
 description: |
-  The `journalEntryItem` table contains information about journal entry items.
+  The `{{ table.name }}` table contains information about journal entry items.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The journal entry item ID."
+    foreign-key-id: "journal-entry-item-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -26,7 +27,8 @@ attributes:
 
   - name: "accountingCodeId"
     type: "string"
-    description: "The name of the accounting code associated with the journal entry item."
+    description: "The accounting code associated with the journal entry item."
+    foreign-key-id: "accounting-code"
 
   - name: "accountingCodeType"
     type: "string"
@@ -68,12 +70,12 @@ attributes:
   - name: "journalEntryId"
     type: "string"
     description: "The ID of the journal entry associated with the journal entry item."
-    foreign-key: true
+    foreign-key-id: "journal-entry-id"
 
   - name: "journalRunId"
     type: "string"
     description: "The ID of the journal run associated with the journal entry item."
-    foreign-key: true
+    foreign-key-id: "journal-run-id"
 
   - name: "type"
     type: "string"
@@ -82,5 +84,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the journal entry item."
-
 ---

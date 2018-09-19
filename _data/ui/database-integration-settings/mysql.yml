@@ -1,0 +1,180 @@
+# ------------------------------------------ #
+#  MYSQL-BACKED INTEGRATION SETTINGS FIELDS  #
+# ------------------------------------------ #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each MySQL-backed database integration.
+
+## Depending on the provider of the database (ex: RDS), some field names
+## or values will vary. See the lists below for specifics.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+# -------------------------- #
+#       VANILLA MYSQL        #
+# -------------------------- #
+
+mysql:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+  - name: &server-id-name "Server ID"
+    copy: &server-id-copy |
+      **Optional**: Enter the unique server ID of instance you're connecting to Stitch.
+
+            This can be any numeric value within [MySQL's accepted server ID range](https://dev.mysql.com/doc/refman/8.0/en/replication-options.html){:target="new"}, as long as it's unique to the instance. For example: If in the [Retrieve Server IDs step](#server-id) there are servers with the IDs `192168010` and `1921680101`, you can enter any other numbers in this field.
+
+
+# -------------------------- #
+#         AURORA RDS         #
+# -------------------------- #
+
+aurora-rds:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: |
+      Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.
+
+
+# -------------------------- #
+#           MAGENTO          #
+# -------------------------- #
+
+magento:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+
+# -------------------------- #
+#           MARIADB          #
+# -------------------------- #
+
+mariadb:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+  - name: *server-id-name
+    copy: *server-id-copy
+
+
+# -------------------------- #
+#          MYSQL RDS         #
+# -------------------------- #
+
+mysql-rds:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+  - name: *server-id-name
+    copy: *server-id-copy
+
+# -------------------------- #
+#      CLOUDSQL MYSQL        #
+# -------------------------- #
+
+cloudsql-mysql:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      Enter the host address (endpoint) of your {{ integration.display_name }} instance. This will be the value of the **Primary IPv4 address** that you retrieved in [step 2](#locate-database-connection-details).
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+
+  - name: *server-id-name
+    copy: *server-id-copy

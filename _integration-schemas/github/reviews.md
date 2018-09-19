@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The review ID."
+    # foreign-key-id: "review-id"
 
   - name: "body"
     type: "string"
@@ -27,7 +28,7 @@ attributes:
   - name: "commit_id"
     type: "string"
     description: "The ID of the commit the review was performed on."
-    foreign-key: true
+    foreign-key-id: "commit-id"
 
   - name: "html_url"
     type: "string"
@@ -53,6 +54,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: "The user ID."
+        foreign-key-id: "collaborator-id"
 
       - name: "login"
         type: "string"

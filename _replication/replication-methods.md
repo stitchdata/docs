@@ -9,8 +9,11 @@ summary: "Replication Methods tell Stitch how to replicate data during a replica
 type: "settings"
 toc: true
 weight: 2
+
+
 ---
 {% include misc/data-files.html %}
+{% include misc/support-icons.html %}
 
 Replication Methods define **how** Stitch will replicate your data during a replication job. While SaaS integration tables have their Replication Methods defined by Stitch, **you can define how tables in database integrations are replicated.**
 
@@ -26,13 +29,17 @@ Stitch employs three methods to replicate data from your data sources:
 
 ## Log-based Incremental Replication {#log-based-incremental-replication}
 
-{% include note.html type="single-line" content="Log-based Incremental Replication is currently supported only for MySQL-based database integrations." %}
+{% include note.html type="single-line" content="Log-based Incremental Replication is currently supported only for MySQL- and PostgreSQL-backed database integrations." %}
 
 {{ site.data.tooltips.log-based-incremental-rep }} A binary log file is a record of events that occur within a database.
 
 There are two types of binary log replication: statement and row-based. Stitch uses a [row-based approach](https://dev.mysql.com/doc/refman/5.5/en/binary-log-setting.html), which means that when rows are modified, the entire row is written to the binary log file. Stitch then reads the changes from the binary log and replicates the appropriate records.
 
-Using Log-based Incremental Replication requires a specific database configuration and is only available for MySQL-based databases. For setup instructions, refer to the [database integration]({{ site.baseurl }}/integrations/databases) documentation for your database.
+Using Log-based Incremental Replication requires a specific database configuration and is only available for MySQL- and PostgreSQL-backed databases. For setup instructions, refer to the [database integration]({{ site.baseurl }}/integrations/databases) documentation for your database.
+
+### Deleted record handling and Log-based Incremental {#log-based-incremental-deletes}
+
+Depending on the method used to delete a record, Stitch may be able to capture the deleted record. Refer to the [Deleted Record Handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for an explanation and examples.
 
 ---
 
@@ -114,17 +121,9 @@ This means that there can be many different rows in a table with the same Primar
 
 {% include replication/append-only-replication-example.html %}
 
-### Deleted Records & Incremental Replication
+### Deleted record handling and Key-based Incremental {#key-based-incremental-deletes}
 
-Depending on how records are deleted (hard vs. soft), deletes may not be captured when your data is replicated.
-
-#### Hard Deletes
-
-Stitch is unable to capture hard deletes because it looks for values that are greater than or equal to the recorded value in the Replication Key column. If a record is hard deleted, there won't be a value to compare against and the delete won't be detected.
-
-#### Soft Deletes
-
-Soft deletes occur when a record remains in the table but uses a flag to indicate deletion. In some cases this is a boolean column. In others this may be a timestamp or datetime column called `deleted_at` which in turn updates the `updated_at` value, thus allowing Stitch to identify the change.
+Stitch is only able to capture **soft-deleted** records in tables using Key-based Incremental Replication. Refer to the [Deleted Record Handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for an explanation and examples.
 
 ---
 
@@ -134,11 +133,15 @@ Full Table Replication means that **Stitch will replicate the entire contents of
 
 We recommend using Incremental Replication if the table in question contains any timestamped or datetime columns.
 
-**Note that Stitch does not currently support Full Table Replication for Mongo integrations.**
+**Note** Stitch does not currently support Full Table Replication for Mongo integrations.
+
+### Deleted record handling and Full Table {#full-table-deletes}
+
+Depending on the method used to delete a record, Stitch may be able to capture the deleted record. Refer to the [Deleted Record Handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for an explanation and examples.
 
 ---
 
-## Learn about SaaS Integration Replication Methods
+## Learn about SaaS integration Replication Methods
 
 As previously mentioned, Replication Methods can currently only be defined for tables in database integrations.
 

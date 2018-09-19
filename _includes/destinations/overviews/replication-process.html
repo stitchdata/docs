@@ -16,7 +16,11 @@ This means that there can be many different rows in a {{ destination.display_nam
         </div>
         <div id="collapseOne" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
+                {% capture append-only-content %}
                 {% include replication/append-only-replication-example.html %}
+                {% endcapture %}
+
+                {{ append-only-content | flatify | markdownify }}
             </div>
         </div>
     </div>

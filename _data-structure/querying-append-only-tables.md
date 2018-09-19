@@ -22,7 +22,7 @@ Data stored this way can provide insights and historical details about how those
 
 ---
 
-## Grab the Latest Version of Every Row {#latest-version-every-row}
+## Grab the latest version of every row {#latest-version-every-row}
 
 In each Stitch-generated integration table, you'll see a few columns prepended with `{{ system-column.prefix }}`. The column we'll focus on here is the `{{ system-column.sequence }}` column. This column is a Unix epoch (down to the millisecond) attached to the record during replication and can help determine the order of all the versions of a row.
 
@@ -36,29 +36,30 @@ Let's take a look at an example. Assume we have an `orders` table that contains:
 
 If you wanted to create a snapshot of the latest version of this table, you could run a query like this:
 
-{% highlight sql %}
-SELECT DISTINCT o.*
-FROM [stitch-analytics-bigquery-123:ecommerce.orders] o
+```sql
+    SELECT DISTINCT o.*
+      FROM [stitch-analytics-bigquery-123:ecommerce.orders] o
 INNER JOIN (
-    SELECT
-        MAX({{ system-column.sequence }}) AS seq,
-        id
+     SELECT id,
+            MAX({{ system-column.sequence }}) AS seq,
+            MAX({{ system-column.batched-at }}) AS batch
     FROM [stitch-analytics-bigquery-123:ecommerce.orders]
-    GROUP BY id ) oo
+    GROUP BY id) oo
 ON o.id = oo.id
 AND o.{{ system-column.sequence }} = oo.seq
-{% endhighlight %}
+AND o.{{ system-column.batched-at }} = oo.batch
+```
 
-This approach uses a subquery to get a single list of every row's Primary Key and maximum sequence number. Since it's possible to have duplicate records in your warehouse, the query also selects only distinct records of the latest version of the row. It then joins the original table to both the Primary Key and maximum sequence, which makes all other column values available for querying.
+This approach uses a subquery to get a single list of every row's Primary Key, maximum sequence number, and maximum batched at timestamp. Since it's possible to have duplicate records in your warehouse, the query also selects only distinct records of the latest version of the row. It then joins the original table to the Primary Key, maximum sequence, and maximum batched at, which makes all other column values available for querying.
 
 ---
 
-## Create Views in Your Data Warehouse
+## Create views in your data warehouse
 
 To make this easier, you can turn queries like the one above into a view. We recommend this approach because a view will encapsulate all the logic and simplify the process of querying against the latest version of your data.
 
 For more info on creating views in the data warehouses Stitch supports, check out these docs:
 
-- [Creating views in Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_VIEW.html)
-- [Creating views in Google BigQuery](https://cloud.google.com/bigquery/querying-data#views)
-- [Creating views in PostgreSQL](https://www.postgresql.org/docs/9.4/static/sql-createview.html)
+- [Creating views in Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_VIEW.html){:target="new"}
+- [Creating views in Google BigQuery](https://cloud.google.com/bigquery/querying-data#views){:target="new"}
+- [Creating views in PostgreSQL](https://www.postgresql.org/docs/9.4/static/sql-createview.html){:target="new"}

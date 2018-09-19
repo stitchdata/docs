@@ -20,6 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The account ID."
+    foreign-key-id: "account-id"
 
   - name: "lastModifiedTime"
     type: "date-time"

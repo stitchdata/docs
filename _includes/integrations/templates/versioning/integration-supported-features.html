@@ -1,0 +1,81 @@
+<!-- This file -->
+
+<!-- Used to generate the "Unsupported" icons -->
+{% include misc/support-icons.html %}
+{% include misc/more-info-icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+    {% include integrations/templates/versioning/version-logic.html %}
+
+<!-- List of common integration features -->
+    {% assign common-features = site.data.taps.features.all-features | where:"applies-to","all-integrations" %}
+
+<!-- If the include passes a feature type, use it to retrieve only the features for that integration type -->
+    {% if include.feature-type %}
+        {% assign integration-features = site.data.taps.features.all-features | where:"applies-to",include.feature-type %}
+
+<!-- Join the common and integration features together -->
+        {% assign features = common-features | concat:integration-features %}
+
+<!-- Otherwise, just reassign the common features -->
+    {% else %}
+        {% assign features = common-features %}
+    {% endif %}
+
+<h3 id="supported-features">{{ display_name }} supported features</h3>
+
+<table class="attribute-list">
+    <tr>
+        <td>
+        </td>
+        {% for version in released-versions %}
+            {% for doc in all-versioned-docs %}
+                {% if version.number == doc.this-version %}
+                    <td>
+                        <strong>{{ display_name }}<br>
+                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+
+    {% for feature in features %}
+        <tr>
+            <td class="attribute-name">
+                <strong>
+                    {% if feature.doc-link %}
+                        <a href="{{ feature.doc-link | flatify }}">{{ feature.display_name }}</a>
+                    {% else %}
+                        {{ feature.display_name }}
+                    {% endif %}
+
+                    {% if feature.tooltip %}
+                        {% capture clean-tooltip %}
+                            {{ feature.tooltip | flatify }}
+                        {% endcapture %}
+
+                        {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
+                    {% endif %}
+                </strong>
+            </td>
+        {% for version in released-versions %}
+            {% for doc in all-versioned-docs %}
+                {% if version.number == doc.this-version %}
+                    <td>
+                        {% case doc.[feature.name] %}
+                            {% when true %}
+                                {{ supported | replace:"TOOLTIP","This feature is supported for this version of the integration." }} Supported
+                            {% when false %}
+                                {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
+                        {% endcase %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>

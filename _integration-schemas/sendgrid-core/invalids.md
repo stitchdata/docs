@@ -23,6 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The email address marked as invalid."
+    foreign-key-id: "email-id"
 
   - name: "created"
     type: "integer"

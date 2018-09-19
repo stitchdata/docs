@@ -9,57 +9,37 @@ in the instructions. -->
     {% assign integration-name = integration.display_name %}
 {% endif %}
 
-<!-- Assign the correct page field names & descriptions based on
-database type -->
-{% if integration.name contains "rds" %}
-  {% assign database-settings = site.data.ui.database-integration-settings-page.rds %}
-
-{% else %}
-  {% case integration.db-type %}
-    {% when 'mssql' %}
-      {% if integration.name == "azure" %}
-        {% assign database-settings = site.data.ui.database-integration-settings-page.azure %}
-      {% else %}
-        {% assign database-settings = site.data.ui.database-integration-settings-page.mssql %}
-      {% endif %}
-
-    {% when 'heroku' %}
-      {% assign database-settings = site.data.ui.database-integration-settings-page.heroku %}
-
-    {% when 'mongo' %}
-      {% assign database-settings = site.data.ui.database-integration-settings-page.mongo %}
-
-    {% when 'mysql' %}
-      {% assign database-settings = site.data.ui.database-integration-settings-page.mysql %}
-
-    {% else %}
-      {% assign database-settings = site.data.ui.database-integration-settings-page.default %}
-  {% endcase %}
-{% endif %}
 
 <!-- Assign values to the default fields -->
-{% assign default-field = site.data.ui.database-integration-settings-page.default-fields %}
-{% assign default-copy = site.data.ui.database-integration-settings-page.default-copy %}
+  {% assign defaults = site.data.ui.database-integration-settings.default-fields %}
+
+<!-- Assign the database-settings based on the database type and the integration -->
+  {% assign database-settings = site.data.ui.database-integration-settings.[integration.db-type].[integration.name] %}
+
+
+
+<!-- Generic instructions for all database integrations -->
 
 1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}, if you haven't already.
 2. {{ app.menu-paths.add-integration | flatify }}
 3. Click the **{{ integration-name }}** icon.
 4. Fill in the fields as follows:
    {% for field in database-settings %}
-
-   - **{{ field.name }}**: {{ field.copy | flatify }}
-
+   - **{{ field.name | flatify }}**: {{ field.copy | flatify }}
    {% endfor %}
+
+
+<!-- If the integration supports SSH (ssh: true), show this section -->
 
 {% if integration.ssh == true %}
 
   {% if integration.singer == true %}
-    {% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh-singer %}
+    {% assign ssh-fields = defaults.ssh-singer %}
   {% else %}
-    {% assign ssh-fields = site.data.ui.database-integration-settings-page.ssh %}
+    {% assign ssh-fields = defaults.ssh %}
   {% endif %}
 
-#### Enter SSH Connection Details {#ssh-connection-details}
+#### Enter SSH connection details {#ssh-connection-details}
 
 If you're using an SSH tunnel to connect your {{ integration.display_name }} database to Stitch, you'll also need to complete the following:
 
@@ -75,10 +55,13 @@ If you're using an SSH tunnel to connect your {{ integration.display_name }} dat
    {% endfor %}
 {% endif %}
 
+
+<!-- If the integration supports SSL (ssl: true), show this section -->
+
 {% if integration.ssl == true %}
 {% if integration.name == "heroku" %}
 **Note:** Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data.
 {% else %}
-In addition, click the **{{ default-field.ssl }}** checkbox if you're using an SSL connection. {{ default-copy.ssl }}
+In addition, click the **{{ defaults.field-names.ssl }}** checkbox if you're using an SSL connection. {{ defaults.field-copy.ssl }}
 {% endif %}
 {% endif %}

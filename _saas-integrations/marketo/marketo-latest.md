@@ -28,7 +28,7 @@ certified: true
 
 historical: "1 year"
 frequency: "12 hours"
-tier: "Premium"
+tier: "Paid"
 
 status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg

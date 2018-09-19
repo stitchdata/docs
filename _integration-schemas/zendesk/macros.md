@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The macro ID."
+    # foreign-key-id: "macro-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -65,6 +66,7 @@ attributes:
           The ID of the group or user who can access the macro.
 
           If everyone in the account can access the macro, this field will be null.
+        foreign-key-id: "restriction-id"
 
       - name: "type"
         type: "string"
@@ -80,6 +82,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the group or user who can access the macro."
+            foreign-key-id: "restriction-id"
 
   - name: "title"
     type: "string"

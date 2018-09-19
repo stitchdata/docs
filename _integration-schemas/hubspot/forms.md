@@ -6,9 +6,7 @@ name: "forms"
 doc-link: https://developers.hubspot.com/docs/methods/forms/forms_overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/forms.json
 description: |
-  The `forms` table contains info about your HubSpot website forms.
-
-notes: 
+  The `{{ table.name }}` table contains info about your HubSpot website forms.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -21,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The GUID of the form."
+    foreign-key-id: "form-id"
 
 ## Replication Key
   - name: "updatedAt"
@@ -35,6 +34,7 @@ attributes:
   - name: "portalId"
     type: "integer"
     description: "The ID of the portal the form belongs to."
+    foreign-key-id: "portal-id"
 
   - name: "name"
     type: "string"
@@ -71,7 +71,7 @@ attributes:
   - name: "leadNurturingCampaignId"
     type: "string"
     description: "The ID of the lead nurturing campaign the form is associated with."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "formFieldGroups"
     type: "array"

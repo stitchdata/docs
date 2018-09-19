@@ -26,6 +26,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The campaign ID."
+    foreign-key-id: "campaign-id"
 
   - name: "updated_time"
     type: "date-time"
@@ -43,6 +44,7 @@ attributes:
   - name: "account_id"
     type: "string"
     description: "The ID of the ad account that owns the campaign."
+    foreign-key-id: "account-id"
 
   - name: "effective_status"
     type: "string"
@@ -88,7 +90,6 @@ attributes:
       - name: "id"
         type: "string"
         primary-key: true
-        foreign-key: true
         description: "The ID of an ad associated with the campaign."
-        table: "ads"
+        foreign-key-id: "ad-id"
 ---

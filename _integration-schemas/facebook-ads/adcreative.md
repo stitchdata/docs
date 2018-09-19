@@ -21,6 +21,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the creative."
+    foreign-key-id: "ad-creative-id"
 
   - name: "body"
     type: "string"
@@ -33,6 +34,7 @@ attributes:
   - name: "account_id"
     type: "string"
     description: "The ID of the account associated with the creative."
+    foreign-key-id: "account-id"
 
   - name: "actor_id"
     type: "string"
@@ -46,6 +48,7 @@ attributes:
         type: "string"
         primary-key: true
         description: "The ad label ID."
+        foreign-key-id: "ad-label-id"
 
       - name: "created_time"
         type: "date-time"
@@ -243,6 +246,7 @@ attributes:
                   - name: "app_store_id"
                     type: "string"
                     description: "The ID of the native app in the iTunes store."
+                    foreign-key-id: "app-store-id"
 
                   - name: "url"
                     type: "string"
@@ -259,6 +263,7 @@ attributes:
                   - name: "app_store_id"
                     type: "string"
                     description: "The ID of the native app in the iTunes store."
+                    foreign-key-id: "app-store-id"
 
                   - name: "url"
                     type: "string"
@@ -276,6 +281,7 @@ attributes:
                   - name: "app_store_id"
                     type: "string"
                     description: "The ID of the native app in the iTunes store."
+                    foreign-key-id: "app-store-id"
 
                   - name: "url"
                     type: "string"
@@ -463,6 +469,7 @@ attributes:
           - name: "offer_id"
             type: "string"
             description: "The ID of a Facebook native offer."
+            foreign-key-id: "offer-id"
 
           - name: "page_welcome_message"
             type: "string"
@@ -488,6 +495,7 @@ attributes:
       - name: "page_id"
         type: "string"
         description: "The ID of a Facebook page."
+        foreign-key-id: "page-id"
 
     # End object_story_spec__link_data
 
@@ -657,6 +665,7 @@ attributes:
           - name: "offer_id"
             type: "string"
             description: "The ID of a Facebook native offer."
+            foreign-key-id: "offer-id"
 
           - name: "page_welcome_message"
             type: "string"
@@ -749,6 +758,7 @@ attributes:
           - name: "offer_id"
             type: "string"
             description: "The ID of a Facebook native offer."
+            foreign-key-id: "offer-id"
 
           - name: "page_welcome_message"
             type: "string"
@@ -802,6 +812,7 @@ attributes:
   - name: "product_set_id"
     type: "string"
     description: "The ID of the product set for the creative."
+    foreign-key-id: "product-set-id"
 
   - name: "status"
     type: "string"
@@ -863,6 +874,7 @@ attributes:
           - name: "app_store_id"
             type: "string"
             description: "The app ID for the App Store."
+            foreign-key-id: "app-store-id"
 
           - name: "url"
             type: "string"
@@ -883,6 +895,7 @@ attributes:
           - name: "app_store_id"
             type: "string"
             description: "The app ID for the App Store."
+            foreign-key-id: "app-store-id"
 
           - name: "url"
             type: "string"
@@ -903,6 +916,7 @@ attributes:
           - name: "app_store_id"
             type: "string"
             description: "The app ID for the App Store."
+            foreign-key-id: "app-store-id"
 
           - name: "url"
             type: "string"
@@ -935,6 +949,7 @@ attributes:
           - name: "app_id"
             type: "string"
             description: "The app ID as a GUID for the app store."
+            # foreign-key-id: "windows-app-id"
 
           - name: "app_name"
             type: "string"

@@ -28,7 +28,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 status-url: "http://trust.zuora.com/"
 icon: /images/integrations/icons/zuora.svg
 whitelist:
@@ -169,11 +169,10 @@ replication-sections:
   - title: "Replicate deleted data"
     anchor: "replicate-deleted-data"
     content: |
-      {% capture aqua-api-note %}
-       This is only applicable if using the [AQuA API for data extraction](#rest-vs-aqua-api). Zuora's REST API does not support extracting deleted data.
+      {% capture aqua-api-note %}**Note**: This section is only applicable if using the [AQuA API for data extraction](#rest-vs-aqua-api). Zuora's REST API does not support extracting deleted data.
       {% endcapture %}
 
-      {% include note.html content=aqua-api-note %}
+      {% include note.html type="single-line" content=aqua-api-note %}
 
       If using the AQuA API for data extraction, deleted data will be replicated for objects that support it. Supported objects will contain a boolean column named `deleted` that indicates a record's deletion status.
 

@@ -1,0 +1,44 @@
+{% case include.formatting %}
+
+<!-- Table for only common data types -->
+{% when 'common-table' %}
+	{% include replication/templates/data-types/common-data-types.html %}
+
+<!-- Table for only integration-specific data types -->
+{% when 'integration-specific-table' %}
+	{% if page.url contains "integrations" %}
+		{% include replication/templates/data-types/integration-specific-data-types.html %}
+	{% else %}
+		{% include replication/templates/data-types/integration-specific-data-types.html integration_name=include.integration_name display_name=include.display_name %}
+	{% endif %}
+
+{% when 'tabs' %}
+
+<!-- Tabs for both common and integration-specific data types -->
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+    	<a href="#common" data-toggle="tab">Common data types</a></li>
+    <li><a href="#integration-specific" data-toggle="tab">Integration-specific data types</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="common">
+        {% include replication/templates/data-types/common-data-types.html %}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="integration-specific">
+        {% if page.url contains "integrations" %}
+
+        <!-- The logic for integration version data is included in this file -->
+			{% include replication/templates/data-types/integration-specific-data-types.html %}
+		{% else %}
+
+        <!-- The 'type="include"' is mandatory here - variables won't get assigned correctly otherwise
+        and the table will break / be blank
+
+        See includes/integrations/templates/versioning/version-logic.html for more info -->
+			{% include replication/templates/data-types/integration-specific-data-types.html type="include" integration_name=include.integration_name display_name=include.display_name %}
+		{% endif %}
+    </div>
+</div>
+
+{% endcase %}

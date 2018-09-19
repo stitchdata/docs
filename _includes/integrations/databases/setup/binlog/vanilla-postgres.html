@@ -1,0 +1,34 @@
+{% assign database-setup = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+
+<!-- Different flavors of databases may not be on the same version as the DB
+that powers their backend, or their settings may be slightly different.
+
+Use the database's display name to pull the correct settings, versus just
+using the type. -->
+
+{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
+
+{% capture server-settings %}
+{% for setting in database-setup[database-name] %}{{ setting.name }}={{ setting.value }}
+{% endfor %}{% endcapture %}
+
+{% capture config-file-lines %}
+```conf
+{{ server-settings | lstrip | rstrip }}
+```
+{% endcapture %}
+
+<!-- Capture the text for the setup instructions, which will display in the
+first tab of _includes/integrations/templates/configure-server-settings.html -->
+{% capture server-instructions %}
+Locate the database configuration file (usually `postgresql.conf`) and define the parameters as follows:
+
+{{ config-file-lines }}
+
+A few things to note:
+
+- `max_standby_archive_delay` and `max_standby_streaming_delay` are only applicable if you're connecting a read replica to Stitch. If you aren't connecing a read replica, you don't have to define these parameters.
+- For `max_replication_slots` and `max_wal_senders`, we're defaulting to a value of `5`. This should be sufficient **unless you have a large number of read replicas**.
+{% endcapture %}
+
+{% include integrations/templates/configure-server-settings.html %}

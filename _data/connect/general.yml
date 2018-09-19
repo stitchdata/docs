@@ -28,27 +28,9 @@ common:
 
       If the token is not provided, the user may be prompted to sign into their Stitch account.
 
+      The ephemeral token expires one hour after generation. When specified as an argument in a Connect JavaScript function, the ephemeral token is exchanged for a session token, creating a temporary Stitch session for the user. The session expires once terminated or 12 hours after its creation.
+
   ## Databases & Destinations
-
-    host: "The IP address or hostname of the database server."
-
-    port: "The port of the database server."
-
-    database: "The name of the logical database to connect to."
-
-    username: "The username of the database user."
-
-    password: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
-
-    ssl: "If `true`, SSL will be used to connect to the database."
-
-    ssh: "If `true`, an SSH tunnel will be used to connect to the database."
-
-    ssh-host: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
-
-    ssh-user: "The username of the SSH user. This property is only required if `ssh: true`."
-
-    ssh-port: "The port of the SSH server. This property is only required if `ssh: true`."
 
     destination-type: |
       The destination type. Must be one of: 
@@ -72,18 +54,3 @@ common:
     type: "The source type. For example: `platform.hubspot` or `platform.marketo`."
 
     type-argument: "A path parameter indicating the `type` of source to retrieve, such as `platform.marketo` or `platform.hubspot`."
-
-  ## Source Properties
-    frequency: |
-      Defines how often, in minutes, Stitch should attempt to replicate data from [INTEGRATION]. Accepted values are:
-
-      - `30`
-      - `60`
-      - `360`
-      - `720`
-      - `1440`
-
-    start-date: |
-      The date from which Stitch should begin replicating data from [INTEGRATION]. Data from this date forward will be replicated.
-
-      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601) date, and the timestamp must be midnight. For example: `2018-01-01T00:00:00Z`

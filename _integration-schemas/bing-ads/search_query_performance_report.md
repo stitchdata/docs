@@ -22,7 +22,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."
-    foreign-key: true
+    foreign-key-id: "account-id"
 
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"
@@ -38,12 +38,12 @@ attributes:
   - name: "adGroupId"
     type: "integer"
     description: "The ID of the ad group."
-    foreign-key: true
+    foreign-key-id: "ad-group-id"
 
   - name: "campaignId"
     type: "integer"
     description: "The ID of the campaign."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "Custom Fields"
     description: |

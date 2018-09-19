@@ -10,7 +10,7 @@ summary: "Stitch’s Incoming Webhooks integration provides a simple and flexibl
 #     Integration Details    #
 # -------------------------- #
 
-name: "incoming_webhooks"
+name: "incoming-webhooks"
 display_name: "Incoming Webhooks"
 author: "Stitch"
 author-url: "https://www.stitchdata.com"

@@ -1,6 +1,30 @@
+#------------------------------------#
+#          COLUMN CATEGORIES         #
+#------------------------------------#
+
+categories:
+  - name: "all"
+    display-name: "All tables/integrations"
+    description: |
+      These columns are applicable to all tables and integration types. Unless noted, every column in this list will be present in every integration table created by Stitch.
+
+  - name: "subtables"
+    display-name: "Subtables"
+    description: |
+      These columns are applicable to integration subtables created by Stitch. Subtables are created when Stitch loads nested data into a destination that doesn't support nested data structures. Refer to the [Nested JSON Data Structures and Row Count Impact]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) guide for more info and examples.
+
+  - name: "databases"
+    display-name: "Database integrations"
+    description: |
+      These columns are applicable only to database integrations.
+
+  - name: "saas"
+    display-name: "SaaS integrations"
+    description: |
+      These columns are applicable only to SaaS integrations.
 
 #------------------------------------#
-#           CURRENT COLUMNS          #
+#       CURRENT SYSTEM COLUMNS       #
 #------------------------------------#
 
 # As part of the replication process, Stitch injects a few system
@@ -13,6 +37,15 @@
 current-columns:
   prefix: "_sdc"
   rjm-prefix: "_rjm"
+
+# DELETED_AT
+  deleted-at: &deleted-at "_sdc_deleted_at"
+  deleted-at-description: &deleted-at-description |
+    **Applicable only to database integrations that support Log-based Replication.** Timestamp indicating when Stitch detected a `DELETE` event for the record while reading from the database's binary log. Otherwise, this field will be null.
+
+    Additionally, this column will not populate until after the initial historical replication job has been completed. Stitch can only detect delete row events while reading from binary logs, which are not used during initial replication jobs.
+
+    **Note**: Only certain event types are supported for Log-based Replication. Refer to the [Deleted record handling]({{ link.replication.deleted-records | prepend: site.baseurl }}) guide for more info.
 
 # EXTRACTED_AT
   extracted-at: &extracted-at "_sdc_extracted_at"
@@ -58,7 +91,7 @@ current-columns:
 # PRIMARY_KEY
   primary-key: &primary-key "_sdc_primary_key"
   primary-key-description: &primary-key-description |
-    This column acts as a Primary Key if Stitch doesn't detect one. Stitch will use this column to de-dupe data.
+    **Applicable only if Stitch doesn't detect a Primary Key in the source table.** Stitch will use this column to de-dupe data.
 
 # REPLICATION_ID
   replication-id: &replication-id "_sdc_replication_id"
@@ -75,7 +108,7 @@ current-columns:
 # REPORT DATE TIME
   report-date-time: &report-date-time "_sdc_report_datetime"
   report-date-time-description: &report-date-time-description |
-    **Applicable only to Google AdWords inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
+    **Applicable only to Google AdWords and DoubleClick Campaign Manager inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
 
 #------------------------------------#
 #           LIST OF COLUMNS          #
@@ -94,6 +127,18 @@ current-columns:
 # description: column description
 
 attributes:
+  - name: *deleted-at
+    type: "timestamp"
+    applicable-to: "all"
+    description: *deleted-at-description
+    # data: "2016-07-14 19:56:38.58"
+
+  - name: *extracted-at
+    type: "timestamp"
+    applicable-to: "all"
+    description: *extracted-at-description
+    # data: "2016-07-14 19:56:38.58"
+
   - name: *received-at
     type: "timestamp"
     applicable-to: "all"
@@ -131,7 +176,7 @@ attributes:
 
   - name: *primary-key
     type: "string"
-    applicable-to: "webhooks"
+    applicable-to: "all"
     description: *primary-key-description
     # data: "5d8b9a05-33cc-4d5f-8163-4474814b46c6"
 
@@ -141,14 +186,20 @@ attributes:
     description: *replication-id-description
     # data: "87329b9c-c61f-4c45-847b-407ee8bab7bd"
 
+  - name: *deleted-at
+    type: "timestamp"
+    applicable-to: "databases"
+    description: *deleted-at-description
+    # data:
+
   - name: *customer-id
     type: "string"
-    applicable-to: "google-adwords-tap"
+    applicable-to: "saas"
     description: *customer-id-description
     # data: ""
 
   - name: *report-date-time
     type: "date-time"
-    applicable-to: "google-adwords-tap"
+    applicable-to: "saas"
     description: *report-date-time-description
     # data: ""

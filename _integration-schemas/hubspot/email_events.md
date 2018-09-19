@@ -22,6 +22,7 @@ attributes:
     primary-key: true
     replication-key: true
     description: "The ID of the event."
+    # foreign-key-id: "email-event-id"
 
   - name: "appId"
     type: "integer"
@@ -74,8 +75,7 @@ attributes:
   - name: "emailCampaignId"
     type: "integer"
     description: "The ID of the email campaign that the email message is a part of."
-    foreign-key: true
-    table: "campaigns"
+    foreign-key-id: "campaign-id"
 
   - name: "emailCampaignGroupId"
     type: "integer"
@@ -120,6 +120,7 @@ attributes:
   - name: "portalId"
     type: "integer"
     description: "The ID of the {{ integration.display_name }} portal that sent the email message."
+    foreign-key-id: "portal-id"
 
   - name: "recipient"
     type: "string"

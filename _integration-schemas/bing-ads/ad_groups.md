@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ad group ID."
+    foreign-key-id: "ad-group-id"
 
   - name: "adDistribution"
     type: "string"

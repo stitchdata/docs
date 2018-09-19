@@ -32,7 +32,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/jira.svg
 whitelist-ips: true ## if true, Stitch's IP addresses must be whitelisted to access this integration's data
 whitelist:

@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The campaign ID."
+    foreign-key-id: "campaign-id"
 
   - name: "biddingScheme"
     type: "object"
