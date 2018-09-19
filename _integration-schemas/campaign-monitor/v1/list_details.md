@@ -2,43 +2,41 @@
 tap: "campaign-monitor"
 # version: "1.0"
 
-name: "table_name"
-doc-link: 
-singer-schema: 
+name: "list_details"
+doc-link: https://www.campaignmonitor.com/api/lists/#list-details
+singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_details.json
 description: |
-  ## description of the table
+  The `{{ table.name }}` table contains summary info about lists in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental / Full Table"
-
-replication-key:
-  name: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "Get list details"
+  doc-link: "https://www.campaignmonitor.com/api/lists/#list-details"
 
 attributes:
   - name: "ListID"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The list ID."
 
   - name: "ConfirmedOptIn"
     type: "boolean"
-    description: ""
+    description: "If `true`, the list is a confirmed opt-in list."
 
   - name: "Title"
     type: "string"
-    description: ""
+    description: "The title of the list."
 
   - name: "UnsubscribePage"
     type: "string"
-    description: ""
+    description: "The URL of the list's unsubscribe page."
 
   - name: "UnsubscribeSetting"
     type: "string"
-    description: ""
+    description: "The list's unsubscribe setting."
 
   - name: "ConfirmationSuccessPage"
     type: "string"
-    description: ""
+    description: "The URL of the list's confirmation page."
 ---

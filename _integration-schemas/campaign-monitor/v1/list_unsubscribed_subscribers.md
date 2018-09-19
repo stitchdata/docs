@@ -2,60 +2,60 @@
 tap: "campaign-monitor"
 # version: "1.0"
 
-name: "table_name"
-doc-link: 
-singer-schema: 
+name: "list_unsubscribed_subscribers"
+doc-link: https://www.campaignmonitor.com/api/lists/#unsubscribed-subscribers
+singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/list_unsubscribed_subscribers.json
 description: |
-  ## description of the table
+  The `{{ table.name }}` table contains info about the unsubscribed subscribers for lists.
 
-replication-method: "Key-based Incremental / Full Table"
-
-replication-key:
-  name: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-  name: ""
-  doc-link: ""
+  name: "List unsubscribed subscribers"
+  doc-link: "https://www.campaignmonitor.com/api/lists/#unsubscribed-subscribers"
 
 attributes:
   - name: "ListID"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The list ID."
 
   - name: "EmailAddress"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The email address."
 
   - name: "Date"
     type: "string"
-    description: ""
+    primary-key: true
+    replication-key: true
+    description: "The date."
 
   - name: "Name"
     type: "string"
-    description: ""
+    description: "The name of the subscriber."
 
   - name: "State"
     type: "string"
-    description: ""
+    description: "The subscriber's state."
 
   - name: "CustomFields"
     type: "object"
-    description: ""
-
+    description: "Custom fields about the subscriber."
     object-attributes: 
-    - name: "Key"
-      type: "string"
-      description: ""
+      - name: "Key"
+        type: "string"
+        description: "The key name of the custom field."
 
-    - name: "Value"
-      type: "string"
-      description: ""
+      - name: "Value"
+        type: "string"
+        description: "The value of the custom field."
 
   - name: "ReadsEmailWith"
     type: "string"
-    description: ""
+    description: "The email client the subscriber uses to read email."
 
   - name: "ConsentToTrack"
     type: "string"
-    description: ""
+    description: "Indicates if the subscriber has consented to tracking."
 ---

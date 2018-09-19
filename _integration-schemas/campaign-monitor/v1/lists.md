@@ -2,27 +2,21 @@
 tap: "campaign-monitor"
 # version: "1.0"
 
-name: "table_name"
-doc-link: 
-singer-schema: 
+name: "lists"
+doc-link: https://www.campaignmonitor.com/api/lists/
+singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/lists.json
 description: |
-  ## description of the table
+  The `{{ table.name }}` table contains info about the lists in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental / Full Table"
-
-replication-key:
-  name: ""
-
-api-method:
-  name: ""
-  doc-link: ""
+replication-method: "Full Table"
 
 attributes:
   - name: "ListID"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The list ID."
 
   - name: "Name"
     type: "string"
-    description: ""
+    description: "The name of the list."
 ---

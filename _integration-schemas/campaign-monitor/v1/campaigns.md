@@ -2,59 +2,54 @@
 tap: "campaign-monitor"
 # version: "1.0"
 
-name: "table_name"
-doc-link: 
-singer-schema: 
+name: "campaigns"
+doc-link: https://www.campaignmonitor.com/api/campaigns/
+singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap_campaign_monitor/schemas/campaigns.json
 description: |
-  ## description of the table
+   The `{{ table.name }}` table contains info about the the campaigns in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental / Full Table"
-
-replication-key:
-  name: ""
-
-api-method:
-  name: ""
-  doc-link: ""
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "CampaignID"
     type: "string"
-    description: ""
+    primary-key: true
+    description: "The campaign ID."
+    foreign-key-id: "campaign-id"
 
   - name: "FromName"
     type: "string"
-    description: ""
+    description: "The campaign's from name."
 
   - name: "FromEmail"
     type: "string"
-    description: ""
+    description: "The email address campaign emails are sent from."
 
   - name: "ReplyTo"
     type: "string"
-    description: ""
+    description: "The email address that replies to the campaign will be sent to."
 
   - name: "WebVersionURL"
     type: "string"
-    description: ""
+    description: "The campaign's web version URL."
 
   - name: "WebVersionTextURL"
     type: "string"
-    description: ""
+    description: "The campaign's web version text URL."
 
   - name: "Subject"
     type: "string"
-    description: ""
+    description: "The subject of the campaign."
 
   - name: "Name"
     type: "string"
-    description: ""
+    description: "The name of the campaign."
 
   - name: "SentDate"
     type: "string"
-    description: ""
+    description: "The date the campaign was sent."
 
   - name: "TotalRecipients"
     type: "number"
-    description: ""
+    description: "The total number of subscribers who received the campaign."
 ---
