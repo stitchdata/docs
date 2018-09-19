@@ -18,11 +18,4 @@ object-attributes:
     required: true
     description: "The SendGrid API key. Refer to [SendGrid's documentation](https://sendgrid.com/docs/Classroom/Basics/API/api_key_permissions.html) for info about permissions and creating keys."
     value: "<API_KEY>"
-
-  - name: "frequency_in_minutes"
-    type: "string"
-    required: true
-    description: |
-      {{ connect.common.attributes.frequency | replace: "[INTEGRATION]",form-property.display-name }}
-    value: "{{ sample-property-data.frequency }}"
 ---

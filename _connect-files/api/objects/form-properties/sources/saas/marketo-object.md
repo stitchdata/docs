@@ -45,5 +45,4 @@ object-attributes:
     type: "string"
     required: false
     description: "The maximum number of daily API calls that Stitch may make to the Marketo API."
-    value: "2000"
 ---
