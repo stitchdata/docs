@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The segmented value ID."
+    # foreign-key-id: "segmented-value-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -39,11 +40,11 @@ attributes:
 
   - name: "object_type"
     type: "string"
-    description: "[TODO]"
+    description: "The object type."
 
   - name: "column_type"
     type: "string"
-    description: "[TODO]"
+    description: "The column type."
 
   - name: "links"
     type: "object"
@@ -52,18 +53,15 @@ attributes:
     - name: "updated_by"
       type: "integer"
       description: "The ID of the user who last updated the segmented value."
-      foreign-key: true
-      table: "users"
+      foreign-key-id: "user-id"
 
     - name: "created_by"
       type: "integer"
       description: "The ID of the user who created the segmented value."
-      foreign-key: true
-      table: "users"
+      foreign-key-id: "user-id"
 
     - name: "segment"
       type: "integer"
       description: "The ID of the segment associated with the segmented value."
-      foreign-key: true
-      table: "segments"
+      foreign-key-id: "segment-id"
 ---

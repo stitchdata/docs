@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The forum ID."
+    foreign-key-id: "forum-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -84,6 +85,5 @@ attributes:
     - name: "updated_by"
       type: "integer"
       description: "The ID of the user who last updated the forum settings."
-      foreign-key: true
-      table: "users"
+      foreign-key-id: "user-id"
 ---

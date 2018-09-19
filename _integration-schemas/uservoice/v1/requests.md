@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The request ID."
+    #foreign-key-id: "request-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -66,14 +67,12 @@ attributes:
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion associated with the request."
-        foreign-key: true
-        table: "suggestions"
+        foreign-key-id: "suggestion-id"
 
       - name: "user"
         type: "integer"
         description: "The ID of the end user associated with the request."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "ticket"
         type: "integer"
@@ -82,20 +81,17 @@ attributes:
       - name: "created_by"
         type: "integer"
         description: "The ID of the user who created the request."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "updated_by"
         type: "integer"
         description: "The ID of the user who last updated the request."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "supporter"
         type: "integer"
-        description: "The ID of the supported associated with the request."
-        foreign-key: true
-        table: "supporters"
+        description: "The ID of the supporter associated with the request."
+        foreign-key-id: "supporter-id"
 
       - name: "sfdc_opportunity"
         type: "integer"

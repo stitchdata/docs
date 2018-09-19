@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The NPS rating ID."
+    #foreign-key-id: "nps-rating-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -61,8 +62,7 @@ attributes:
       - name: "user"
         type: "integer"
         description: "The ID of the user who submitted the NPS rating."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "ticket"
         type: "integer"

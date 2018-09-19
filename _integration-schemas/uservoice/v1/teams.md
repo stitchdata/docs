@@ -22,6 +22,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The team ID."
+    foreign-key-id: "team-id"
 
   - name: "name"
     type: "string"

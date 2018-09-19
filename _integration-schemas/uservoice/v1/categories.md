@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The category ID."
+    foreign-key-id: "category-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -47,6 +48,5 @@ attributes:
       - name: "forum"
         type: "integer"
         description: "The ID of the forum associated with the category."
-        foreign-key: true
-        table: "forums"
+        foreign-key-id: "forum-id"
 ---

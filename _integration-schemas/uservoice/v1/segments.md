@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The segment ID."
+    # foreign-key-id: "segment-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -43,18 +44,18 @@ attributes:
     object-attributes:
       - name: "operator"
         type: "string"
-        description: ""
+        description: "The operator used in the filter. For example: `and`, `or`"
 
       - name: "column"
         type: "string"
-        description: ""
+        description: "The column the filter uses."
 
       - name: "operand"
         type: "string"
         description: ""
 
       - name: "unit"
-        type: 
+        type: ""
         description: ""
 
       - name: "expressions"
@@ -74,6 +75,6 @@ attributes:
             description: ""
 
           - name: "unit"
-            type: 
+            type: ""
             description: ""
 ---

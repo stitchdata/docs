@@ -2,7 +2,7 @@
 tap: "uservoice"
 # version: "1.0"
 
-name: ""
+name: "users"
 doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Users
 singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/.py
 description: |
@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The user ID."
+    foreign-key-id: "user-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -113,8 +114,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the team the user is a member of."
-            foreign-key: true
-            table: "teams"
+            foreign-key-id: "team-id"
 
       - name: "current_nps_rating"
         type: "integer"
@@ -131,6 +131,5 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the external user associated with the user."
-            foreign-key: true
-            table: "external_users"
+            foreign-key-id: "external-user-id"
 ---

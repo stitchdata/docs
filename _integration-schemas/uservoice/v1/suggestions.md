@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The suggestion ID."
+    foreign-key-id: "suggestion-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -41,7 +42,7 @@ attributes:
 
   - name: "average_engagement"
     type: "number"
-    description: "[TODO]"
+    description: "The average engagement rate."
 
   - name: "body"
     type: "string"
@@ -89,7 +90,7 @@ attributes:
 
   - name: "engagement_trend"
     type: "number"
-    description: "[TODO]"
+    description: ""
 
   - name: "first_support_at"
     type: "date-time"
@@ -170,20 +171,17 @@ attributes:
       - name: "category"
         type: "integer"
         description: "The category associated with the suggestion."
-        foreign-key: true
-        table: "categories"
+        foreign-key-id: "category-id"
 
       - name: "created_by"
         type: "integer"
         description: "The ID of the user who created the suggestion."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "forum"
         type: "integer"
         description: "The ID of the forum associated with the suggestion."
-        foreign-key: true
-        table: "forums"
+        foreign-key-id: "forum-id"
 
       - name: "labels"
         type: "array"
@@ -192,30 +190,26 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the label associated with the suggestion."
-            foreign-key: true
-            table: "labels"
+            foreign-key-id: "label-id"
 
       - name: "last_status_update"
         type: "integer"
         description: "The ID of the last status update event."
-        foreign-key: true
-        table: "status_updates"
+        foreign-key-id: "status-update-id"
 
       - name: "parent_suggestion"
         type: "integer"
         description: "If the suggestion is merged into another suggestion, this will be the ID of the suggestion it is merged into."
-        foreign-key: true
-        table: "suggestions"
+        foreign-key-id: "suggestion-id"
 
       - name: "parent_suggestions"
         type: "array"
-        description: "If the suggestion has bee [TODO]"
+        description: ""
 
       - name: "status"
         type: "integer"
         description: "The ID of the status associated with the suggestion."
-        foreign-key: true
-        table: "statuses"
+        foreign-key-id: "status-id"
 
       - name: "ticket"
         type: "integer"

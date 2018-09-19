@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The supporter ID."
+    foreign-key-id: "supporter-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -35,11 +36,11 @@ attributes:
 
   - name: "how"
     type: "string"
-    description: "[TODO]"
+    description: ""
 
   - name: "channel"
     type: "string"
-    description: "[TODO]"
+    description: ""
 
   - name: "requests_count"
     type: "integer"
@@ -56,24 +57,20 @@ attributes:
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion associated with the supporter."
-        foreign-key: true
-        table: "suggestions"
+        foreign-key-id: "suggestion-id"
 
       - name: "user"
         type: "integer"
         description: "The ID of the end user associated with the supporter."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "created_by"
         type: "integer"
         description: "The ID of the user who created the supporter."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "updated_by"
         type: "integer"
         description: "The ID of the user who last updated the supporter."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 ---

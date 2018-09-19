@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     foreign-key: true
     description: "The status update ID."
+    foreign-key-id: "status-update-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -60,24 +61,20 @@ attributes:
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion associated with the status change."
-        foreign-key: true
-        table: "suggestions"
+        foreign-key-id: "suggestion-id"
 
       - name: "user"
         type: "integer"
         description: "The ID of the user associated with the status change."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "new_status"
         type: "integer"
         description: "The ID of the new status."
-        foreign-key: true
-        table: "statuses"
+        foreign-key-id: "status-id"
 
       - name: "old_status"
         type: "integer"
         description: "The ID of the previous status."
-        foreign-key: true
-        table: "statuses"
+        foreign-key-id: "status-id"
 ---

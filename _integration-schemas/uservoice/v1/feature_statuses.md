@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The feature status ID."
+    foreign-key-id: "feature-status-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -62,12 +63,10 @@ attributes:
     - name: "created_by"
       type: "integer"
       description: "The ID of the user who created the feature."
-      foreign-key: true
-      table: "users"
+      foreign-key-id: "user-id"
 
     - name: "updated_by"
       type: "integer"
       description: "The ID of the user who last updated the feature."
-      foreign-key: true
-      table: "users"
+      foreign-key-id: "user-id"
 ---

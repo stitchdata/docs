@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the external account as it is in {{ integration.display_name }}."
+    foreign-key-id: "external-account-id"
 
   - name: "updated_at"
     type: "date-time"

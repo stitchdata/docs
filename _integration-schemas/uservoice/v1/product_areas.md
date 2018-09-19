@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The product area ID."
+    foreign-key-id: "product-area-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -40,12 +41,10 @@ attributes:
       - name: "updated_by"
         type: "integer"
         description: "The ID of the user who last updated the product area."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 
       - name: "created_by"
         type: "integer"
         description: "The ID of the user who created the product area."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 ---

@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The label ID."
+    foreign-key-id: "label-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -52,4 +53,5 @@ attributes:
       - name: "parent"
         type: "integer"
         description: "If the label is a nested label, this field will contain the ID of the parent (top-level) label."
+        foreign-key-id: "label-id"
 ---

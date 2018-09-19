@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The comment ID."
+   # foreign-key-id: "comment-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -60,12 +61,10 @@ attributes:
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion."
-        foreign-key: true
-        table: "suggestions"
+        foreign-key-id: "suggestion-id"
 
       - name: "created_by"
         type: "integer"
         description: "The ID of the user who created the comment."
-        foreign-key: true
-        table: "users"
+        foreign-key-id: "user-id"
 ---

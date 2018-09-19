@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The external user's ID in {{ integration.display_name }}."
+    foreign-key-id: "external-user-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -48,8 +49,7 @@ attributes:
       - name: "external_accounts"
         type: "integer"
         description: "The ID of the external account associated with the user."
-        foreign-key: true
-        table: "external_accounts"
+        foreign-key-id: "external-account-id"
 
       - name: "external_users"
         type: "integer"

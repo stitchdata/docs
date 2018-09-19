@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The status ID."
+    foreign-key-id: "status-id"
 
   - name: "updated_at"
     type: "date-time"
