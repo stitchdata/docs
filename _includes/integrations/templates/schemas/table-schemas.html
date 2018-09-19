@@ -18,41 +18,66 @@
 
 {% for table in schema %}
 <!-- Captures & cleans field names for PKs -->
-    {% capture clean-keys %}
-        {% for attribute in table.attributes %}
-            {% if attribute.primary-key == true %}
-                {{ attribute.name | flatify | append: " :" }}
-            {% endif %}
-        {% endfor %}
-    {% endcapture %}
 
-    {% capture reverse-pk-keys %}
-        {{ clean-keys | split: "" | reverse | join: "" | remove_first: ": " }}
-    {% endcapture %}
+    <!-- If the table has a dedicated PK field, run this code -->
+    <!-- This is for integrations that have been moved over to the Singer layout
+        but don't yet have fully completed table schema files  -->
+    {% if table.primary-key %}
+        {% capture primary-keys %}
+            {{ table.primary-key }}
+        {% endcapture %}
 
-    {% capture primary-keys %}
-        {{ reverse-pk-keys | split: "" | reverse | join: "" }}
-    {% endcapture %}
-<!-- End PKs -->
+    <!-- Otherwise, loop through the list of attributes and capture any
+    that have "primary-key: true" -->
+    {% else %}
 
-<!-- Captures Replication Key fields -->
-    {% if table.replication-method contains "Incremental" %}
-
-        {% capture clean-replication-keys %}
+        {% capture clean-keys %}
             {% for attribute in table.attributes %}
-                {% if attribute.replication-key == true %}
+                {% if attribute.primary-key == true %}
                     {{ attribute.name | flatify | append: " :" }}
                 {% endif %}
             {% endfor %}
         {% endcapture %}
 
-        {% capture reverse-rk-keys %}
-            {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+        {% capture reverse-pk-keys %}
+            {{ clean-keys | split: "" | reverse | join: "" | remove_first: ": " }}
         {% endcapture %}
 
-        {% capture replication-keys %}
-            {{ reverse-rk-keys | split: "" | reverse | join: "" }}
+        {% capture primary-keys %}
+            {{ reverse-pk-keys | split: "" | reverse | join: "" }}
         {% endcapture %}
+
+    {% endif %}
+<!-- End PKs -->
+
+<!-- Captures Replication Key fields -->
+    {% if table.replication-method contains "Incremental" %}
+
+        {% if table.replication-key %}
+            {% capture replication-keys %}
+                {{ table.replication-key }}
+            {% endcapture %}
+
+        {% else %}
+
+            {% capture clean-replication-keys %}
+                {% for attribute in table.attributes %}
+                    {% if attribute.replication-key == true %}
+                        {{ attribute.name | flatify | append: " :" }}
+                    {% endif %}
+                {% endfor %}
+            {% endcapture %}
+
+            {% capture reverse-rk-keys %}
+                {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+            {% endcapture %}
+
+            {% capture replication-keys %}
+                {{ reverse-rk-keys | split: "" | reverse | join: "" }}
+            {% endcapture %}
+
+            {% endif %}
+
     {% endif %}
 <!-- End Replication Key -->
 
@@ -121,53 +146,56 @@
         {{ table.notes | flatify | markdownify }}
     {% endif %}
 
-<table width="100%" class="table-hover">
-    {% for attribute in table.attributes %}
-        {% if attribute.name != "n/a" %}
-            <!-- Formatting for OBJECT -->
-            {% if attribute.type == "object" %}
-                {% include integrations/templates/schemas/object-data-type.html %}
-            <!-- End formatting for OBJECT -->
+<!-- Only run the block below if the table has an attributes list -->
+{% if table.attributes %}
+    <table width="100%" class="table-hover">
+        {% for attribute in table.attributes %}
+            {% if attribute.name != "n/a" %}
+                <!-- Formatting for OBJECT -->
+                {% if attribute.type == "object" %}
+                    {% include integrations/templates/schemas/object-data-type.html %}
+                <!-- End formatting for OBJECT -->
 
-            <!-- Formatting for ARRAY -->
-            {% elsif attribute.type == "array" %}
-                {% include integrations/templates/schemas/array-data-type.html %}
-            <!-- End formatting for ARRAY -->
+                <!-- Formatting for ARRAY -->
+                {% elsif attribute.type == "array" %}
+                    {% include integrations/templates/schemas/array-data-type.html %}
+                <!-- End formatting for ARRAY -->
 
-            {% elsif attribute.type == "subarray" %}
-                {% include integrations/templates/schemas/subarray-data-type.html %}
+                {% elsif attribute.type == "subarray" %}
+                    {% include integrations/templates/schemas/subarray-data-type.html %}
 
-            <!-- All other data types -->
-            {% else %}
-                <tr>
-                    <td align="right">
-                        {% if attribute.primary-key == true %}
-                            {{ ui-icon.primary-key | flatify }}
-                        {% endif %}
+                <!-- All other data types -->
+                {% else %}
+                    <tr>
+                        <td align="right">
+                            {% if attribute.primary-key == true %}
+                                {{ ui-icon.primary-key | flatify }}
+                            {% endif %}
 
-                        {% if attribute.replication-key == true %}
-                                {{ ui-icon.replication-key | flatify }}
-                        {% endif %}
+                            {% if attribute.replication-key == true %}
+                                    {{ ui-icon.replication-key | flatify }}
+                            {% endif %}
 
-                        {% if attribute.doc-link %}
-                            <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
-                        {% else %}
-                            <strong>{{ attribute.name | flatify }}</strong>
-                        {% endif %}
+                            {% if attribute.doc-link %}
+                                <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
+                            {% else %}
+                                <strong>{{ attribute.name | flatify }}</strong>
+                            {% endif %}
 
-                        {% if attribute.type %}
-                            <br>
-                            {{ attribute.type | upcase }}
-                        {% endif %}
-                    </td>
-                    <td width="70%; fixed" markdown="span">
-                        {{ attribute.description | flatify | markdownify }}
-                    </td>
-                </tr>
-            {% endif %}   <!-- Ends if loop for data types-->
-        {% endif %}
-    {% endfor %}
-</table>
+                            {% if attribute.type %}
+                                <br>
+                                {{ attribute.type | upcase }}
+                            {% endif %}
+                        </td>
+                        <td width="70%; fixed" markdown="span">
+                            {{ attribute.description | flatify | markdownify }}
+                        </td>
+                    </tr>
+                {% endif %}   <!-- Ends if loop for data types-->
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endif %}
 
 <hr>
 {% endfor %}

@@ -1,0 +1,87 @@
+<!-- <p>To replicate the <code>{{ table.name }}</code> table, the <a href="#create-netsuite-admin-user">Stitch NetSuite user</a> requires the following permissions in addition to the <a href="#create-netsuite-admin-user--required-permissions">basic required permissions</a>: -->
+
+{% if include.type == "table" %}
+    {% assign permission-details = site.data.taps.netsuite.netsuite-permissions[include.permission-type] %}
+
+    <table width="100%; fixed">
+        <tr>
+            {% case include.subtype %}
+                {% when 'tab-table' %}
+                    <td>
+                        <strong>Table Name</strong>
+                    </td>
+                {% when 'tab-transaction' %}
+                    <td>
+                        <strong>Transaction Type</strong>
+                    </td>
+            {% endcase %}
+            <td>
+                <strong>Permission Name</strong>
+            </td>
+            <td>
+                <strong>Level Required</strong>
+            </td>
+            <td>
+                <strong>Location in NetSuite</strong>
+            </td>
+            {% for permission in permission-details %}
+                {{ permission.notes }}
+                {% if permission.notes %}
+                    <td>
+                        <strong>Notes</strong>
+                    </td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+        {% for permission in list-of.permissions %}
+            <tr>
+                {% case include.subtype %}
+                    {% when 'tab-table' %}
+                        <td>
+                            {{ table.name }}
+                        </td>
+                    {% when 'tab-transaction' %}
+                        <td>
+                            {{ thing }}
+                        </td>
+                {% endcase %}
+                <td>
+                    {{ permission.name }}
+                </td>
+                <td>
+                    {{ permission.level }}
+                </td>
+                <td>
+                    {{ permission.location }}
+                </td>
+                {% if permission.notes %}
+                    <td>
+                        {{ permission.notes | flatify | markdownify }}
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% if include.type == "tab" %}
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active"><a href="#tab-one" data-toggle="tab">TAB ONE</a></li>
+    <li><a href="#tab-two" data-toggle="tab">TAB TWO</a></li>
+    <li><a href="#tab-three" data-toggle="tab">TAB THREE</a></li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="tab-one">
+        {% include integrations/saas/netsuite-permission-list.html type="table" permission-type="required" %}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab-two">
+        TAB TWO
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="tab-three">
+        TAB THREE
+    </div>
+</div>
+
+{% endif %}
