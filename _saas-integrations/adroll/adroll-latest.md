@@ -31,9 +31,13 @@ frequency: "30 minutes"
 historical: "1 year"
 tier: "Free"
 icon: /images/integrations/icons/adroll.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

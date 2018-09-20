@@ -32,9 +32,13 @@ frequency: "30 minutes"
 tier: "Paid"
 status-url: https://status.hubspot.com/
 icon: /images/integrations/icons/hubspot.svg
-whitelist:
-  tables: true
-  columns: false
+
+table-selection: true
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

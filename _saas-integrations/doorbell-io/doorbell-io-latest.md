@@ -35,9 +35,13 @@ frequency: "Continuous"
 tier: "Free"
 status-url: "http://status.doorbell.io/"
 icon: /images/integrations/icons/doorbell-io.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

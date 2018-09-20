@@ -30,9 +30,13 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Premium"
 icon: /images/integrations/icons/xero.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

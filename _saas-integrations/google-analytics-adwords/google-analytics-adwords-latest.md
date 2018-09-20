@@ -30,9 +30,13 @@ historical: "30 days"
 frequency: "6 hours"
 tier: "Free"
 icon: /images/integrations/icons/google-analytics.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Querying Details      #

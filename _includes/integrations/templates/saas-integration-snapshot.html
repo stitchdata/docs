@@ -115,19 +115,17 @@
                 <strong>Whitelisting {{ question-icon | replace:"TOOLTIP",whitelisting }}
             </td>
             <td valign="top">
-                {% if integration.whitelist.tables and integration.whitelist.columns %}
-                    {% if integration.whitelist.tables == "No" or integration.whitelist.tables == false %}
-                        Unsupported
+                {% case integration.table-selection %}
+                    {% when true %}
+                        {% case integration.column-selection %}
+                            {% when true %}
+                                Tables and columns
+                            {% else %}
+                                Tables only
+                        {% endcase %}
                     {% else %}
-                        {% if integration.whitelist.tables == "Yes" or integration.whitelist.tables == true and integration.whitelist.columns == true %}
-                            Tables and columns
-                        {% else %}
-                            Tables only
-                        {% endif %}
-                    {% endif %}
-                {% else %}
-                    Unsupported
-                {% endif %}
+                        Unsupported
+                {% endcase %}
             </td>
 
         <!-- Destination/Integration compatibility -->

@@ -32,9 +32,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: 
 icon: /images/integrations/icons/listrak.svg
-whitelist:
-  tables: true
-  columns: false
+
+table-selection: true
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
