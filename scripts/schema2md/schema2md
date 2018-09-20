@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-cd /opt/code/docs/scripts/schema2md/
-
-clojure -Sdeps "$(< deps.edn)" -m schema2md "$@"

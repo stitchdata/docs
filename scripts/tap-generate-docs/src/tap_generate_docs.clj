@@ -1,4 +1,4 @@
-(ns schema2md
+(ns tap-generate-docs
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io]
             [clojure.string :as string]
@@ -161,7 +161,7 @@
 
 (defn show-help
   [parsed-args]
-  (println (str "schema2md"
+  (println (str "tap-generate-docs"
                 (:summary parsed-args)
                 " json_schema_file.json ..."))
   (when (not *interactive*)
