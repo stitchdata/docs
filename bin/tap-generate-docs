@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd /opt/code/docs/scripts/tap-generate-docs/
+
+clojure -Sdeps "$(< deps.edn)" -m tap-generate-docs "$@"
