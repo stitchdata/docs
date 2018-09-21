@@ -41,15 +41,13 @@
 (defn convert-array-object-type
   [schema property property-json-schema-partial]
   {:pre [(not= "array" (property-json-schema-partial "type"))]}
-  ;; TODO just referenc property-json-schema-partial
-  (let [items property-json-schema-partial
-        item-type (property-json-schema-partial "type")]
+  (let [item-type (property-json-schema-partial "type")]
     (if (or (= "object" item-type)
             (= ["object"] item-type))
       ;; Consequent
-      (convert-object-properties schema (items "properties"))
+      (convert-object-properties schema (property-json-schema-partial "properties"))
       ;; Alternate
-      (let [object-properties (convert-object-properties schema (items "properties"))
+      (let [object-properties (convert-object-properties schema (property-json-schema-partial "properties"))
             other-properties (let [other-properties (if (string? item-type)
                                                       [item-type]
                                                       (filter (partial not= "object") item-type))]
@@ -58,7 +56,7 @@
                                                  {:property property}))
                                  other-properties))
             converted-other-properties [(convert-simple-type schema ["value"
-                                                                     (assoc items
+                                                                     (assoc property-json-schema-partial
                                                                             "type"
                                                                             other-properties)])]
             all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
@@ -68,8 +66,8 @@
 
 (defn convert-unary-type
   [schema [property-name property-json-schema-partial :as property]]
-  #_{:pre [(unary-type? property)]
-     :post [(converted-unary-type? %)]}
+  {:pre [(unary-type? property)]
+   :post [(converted-unary-type? %)]}
   (let [base-converted-property {"name" property-name
                                  "type" (if (and (= "string" (property-json-schema-partial "type"))
                                                  (contains? property-json-schema-partial "format"))
@@ -127,14 +125,20 @@
 
 (defn convert-simple-type
   "Simple Type = not a array or object"
-  [schema property]
-  (let [unary-type-properties (property->unary-type-properties property)
-        converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)
-        property (if (empty? converted-unary-type-properties)
-                   (throw (ex-info "Null unary type passed for property"
-                                   {:property property}))
-                   (reduce merge-unary-types converted-unary-type-properties))]
-    property))
+  [schema [property-name property-json-schema-partial :as property]]
+  (if (contains? property-json-schema-partial "$ref")
+    (let [json-schema-reference (parse-json-schema-referenc (property-json-schema-partial "$ref"))]
+      lookup schema...
+      {"name" "a_date"
+       "type" "date-time"
+       "description" ""})
+    (let [unary-type-properties (property->unary-type-properties property)
+          converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)
+          property (if (empty? converted-unary-type-properties)
+                     (throw (ex-info "Null unary type passed for property"
+                                     {:property property}))
+                     (reduce merge-unary-types converted-unary-type-properties))]
+      property)))
 
 ;; ;; TODO still need to port $ref
 
