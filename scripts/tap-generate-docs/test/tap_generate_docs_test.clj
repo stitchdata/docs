@@ -252,4 +252,18 @@
     (is (thrown? clojure.lang.ExceptionInfo
                  (convert-simple-type nil ["a_null" {"type" ["null"]}])))))
 
+(deftest convert-types-with-refs-tests
+  (is (= (convert-simple-type {"definitions" {"date" {"type" "string"
+                                                      "format" "date-time"}}}
+                              ["a_date" {"$ref" "#/definitions/date"}])
+         {"name" "a_date"
+          "type" "date-time"
+          "description" ""}))
+
+  (is (= (convert-simple-type {"definitions" {"integer" {"type" "integer"}}}
+                              ["an_integer" {"$ref" "#/definitions/integer"}])
+         {"name" "an_integer"
+          "type" "integer"
+          "description" ""})))
+
 ;;; FIXME PORTING $REFs
