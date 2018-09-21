@@ -16,8 +16,8 @@
   )
 
 (defn unary-type?
-  [[k v :as property]]
-  (string? (v "type")))
+  [[_ property-json-schema-partial :as property]]
+  (string? (property-json-schema-partial "type")))
 
 (defn converted-unary-type?
   [candidate-converted-unary-type]
@@ -31,18 +31,19 @@
 ;;; WARNING! Mutual Recursion Incoming!
 (declare convert-simple-type)
 
+(defn convert-object-properties
+  [properties]
+  (sort-by #(get % "name")
+           (map convert-simple-type properties)))
+
 (defn convert-array-object-type
   [[property-name property-json-schema-partial :as property]]
   (let [items (property-json-schema-partial "items")
         item-type (property-json-schema-partial "type")]
     (if (or (= "object" item-type)
             (= ["object"] item-type))
-      (sort-by #(get % "name")
-               (map convert-simple-type
-                    (items "properties")))
-      (let [object-properties (sort-by #(get % "name")
-                                       (map convert-simple-type
-                                            (items "properties")))
+      (convert-object-properties (items "properties"))
+      (let [object-properties (convert-object-properties (items "properties"))
             other-properties (let [other-properties (filter (partial not= "object") item-type)]
                                (if ((set other-properties) "array")
                                  (throw (ex-info "Currently cannot handle a type with object _and_ array present"
@@ -52,7 +53,7 @@
                                                               (assoc items
                                                                      "type"
                                                                      other-properties)])]
-            all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
+            all-properties (convert-object-properties (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
           all-properties)))))
@@ -66,15 +67,11 @@
                                                  (contains? property-json-schema-partial "format"))
                                           (property-json-schema-partial "format")
                                           (property-json-schema-partial "type"))
-                                 "description" ""}
-        ;; TODO maybe rename?
-        lift-object-properties (fn [items]
-                                 ;; TODO this sorting has to be able to move elsewhere
-                                 (sort-by #(get % "name")
-                                          (map convert-simple-type
-                                               (items "properties"))))]
+                                 "description" ""}]
     (cond (= "object" (property-json-schema-partial "type"))
-          (assoc base-converted-property "object-properties" (lift-object-properties property-json-schema-partial))
+          (assoc base-converted-property
+                 "object-properties"
+                 (convert-object-properties (property-json-schema-partial "properties")))
 
           (= "array" (property-json-schema-partial "type"))
           (assoc base-converted-property
@@ -105,18 +102,18 @@
       base-properties)))
 
 (defn property->unary-type-properties
-  [[k v :as property]]
+  [[property-name property-json-schema-partial :as property]]
   (filter #((partial not= "null") (get-in % [1 "type"]))
-          (let [type (v "type")]
+          (let [type (property-json-schema-partial "type")]
             (if (string? type)
               [property]
               (map (fn [type]
-                     [k (assoc v "type" type)])
-                   (v "type"))))))
+                     [property-name (assoc property-json-schema-partial "type" type)])
+                   (property-json-schema-partial "type"))))))
 
 (defn convert-simple-type
   "Simple Type = not a array or object"
-  [[k v :as property]]
+  [property]
   (let [unary-type-properties (property->unary-type-properties property)
         converted-unary-type-properties (map convert-unary-type unary-type-properties)
         property (if (empty? converted-unary-type-properties)
