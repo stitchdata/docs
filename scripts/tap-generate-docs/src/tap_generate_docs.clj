@@ -123,15 +123,27 @@
                      [property-name (assoc property-json-schema-partial "type" type)])
                    (property-json-schema-partial "type"))))))
 
+(defn parse-json-schema-reference
+  [json-schema-reference]
+  {:pre [(string? json-schema-reference)]
+   :post [(every? string? %)]}
+  ((insta/parser "<JSONSCHEMAREFERENCE> = <ROOT> PATHSEGMENT+
+                  ROOT = '#'
+                  <PATHSEGMENT> = <'/'> #'[A-Za-z0-9_]+'")
+   json-schema-reference))
+
 (defn convert-simple-type
   "Simple Type = not a array or object"
   [schema [property-name property-json-schema-partial :as property]]
-  (if (contains? property-json-schema-partial "$ref")
-    (let [json-schema-reference (parse-json-schema-referenc (property-json-schema-partial "$ref"))]
-      lookup schema...
-      {"name" "a_date"
-       "type" "date-time"
-       "description" ""})
+  (let [property (if (contains? property-json-schema-partial "$ref")
+                   (let [json-schema-reference (parse-json-schema-reference (property-json-schema-partial "$ref"))
+                         referenced-json-schema-partial (get-in schema json-schema-reference)]
+                     (when (not referenced-json-schema-partial)
+                       (throw (ex-info "$ref without matching definition"
+                                       {:property property
+                                        :schema schema})))
+                     [property-name referenced-json-schema-partial])
+                   property)]
     (let [unary-type-properties (property->unary-type-properties property)
           converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)
           property (if (empty? converted-unary-type-properties)
@@ -140,7 +152,6 @@
                      (reduce merge-unary-types converted-unary-type-properties))]
       property)))
 
-;; ;; TODO still need to port $ref
 
 ;; (defn convert-schema-file
 ;;   [input-json-schema-file]

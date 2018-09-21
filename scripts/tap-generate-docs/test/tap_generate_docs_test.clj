@@ -259,11 +259,11 @@
          {"name" "a_date"
           "type" "date-time"
           "description" ""}))
-
   (is (= (convert-simple-type {"definitions" {"integer" {"type" "integer"}}}
                               ["an_integer" {"$ref" "#/definitions/integer"}])
          {"name" "an_integer"
           "type" "integer"
-          "description" ""})))
-
-;;; FIXME PORTING $REFs
+          "description" ""}))
+  (is (thrown? clojure.lang.ExceptionInfo
+               (convert-simple-type {"definitions" {"integer" {"type" "integer"}}}
+                                    ["an_string" {"$ref" "#/definitions/string"}]))))
