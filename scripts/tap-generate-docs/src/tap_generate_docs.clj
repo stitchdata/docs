@@ -32,34 +32,34 @@
 (declare convert-simple-type)
 
 (defn convert-object-properties
-  [properties]
+  [schema properties]
   (sort-by #(get % "name")
-           (map convert-simple-type properties)))
+           (map (partial convert-simple-type schema) properties)))
 
 (defn convert-array-object-type
-  [[property-name property-json-schema-partial :as property]]
+  [schema [property-name property-json-schema-partial :as property]]
   (let [items (property-json-schema-partial "items")
         item-type (property-json-schema-partial "type")]
     (if (or (= "object" item-type)
             (= ["object"] item-type))
-      (convert-object-properties (items "properties"))
-      (let [object-properties (convert-object-properties (items "properties"))
+      (convert-object-properties schema (items "properties"))
+      (let [object-properties (convert-object-properties schema (items "properties"))
             other-properties (let [other-properties (filter (partial not= "object") item-type)]
                                (if ((set other-properties) "array")
                                  (throw (ex-info "Currently cannot handle a type with object _and_ array present"
                                                  {:property property}))
                                  other-properties))
-            converted-other-properties [(convert-simple-type ["value"
-                                                              (assoc items
-                                                                     "type"
-                                                                     other-properties)])]
-            all-properties (convert-object-properties (into object-properties converted-other-properties))]
+            converted-other-properties [(convert-simple-type schema ["value"
+                                                                     (assoc items
+                                                                            "type"
+                                                                            other-properties)])]
+            all-properties (convert-object-properties schema (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
           all-properties)))))
 
 (defn convert-unary-type
-  [[property-name property-json-schema-partial :as property]]
+  [schema [property-name property-json-schema-partial :as property]]
   {:pre [(unary-type? property)]
    :post [(converted-unary-type? %)]}
   (let [base-converted-property {"name" property-name
@@ -71,7 +71,7 @@
     (cond (= "object" (property-json-schema-partial "type"))
           (assoc base-converted-property
                  "object-properties"
-                 (convert-object-properties (property-json-schema-partial "properties")))
+                 (convert-object-properties schema (property-json-schema-partial "properties")))
 
           (= "array" (property-json-schema-partial "type"))
           (assoc base-converted-property
@@ -81,7 +81,7 @@
                    (if (or (= "object" item-type)
                            ((set item-type) "object"))
                      (convert-array-object-type items)
-                     [(convert-simple-type ["value" items])])))
+                     [(convert-simple-type schema ["value" items])])))
 
           :default
           base-converted-property)))
@@ -113,9 +113,9 @@
 
 (defn convert-simple-type
   "Simple Type = not a array or object"
-  [property]
+  [schema property]
   (let [unary-type-properties (property->unary-type-properties property)
-        converted-unary-type-properties (map convert-unary-type unary-type-properties)
+        converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)
         property (if (empty? converted-unary-type-properties)
                    (throw (ex-info "Null unary type passed for property"
                                    {:property property}))
