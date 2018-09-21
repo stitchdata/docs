@@ -90,6 +90,16 @@
                             "description" ""}]}
 
       ["an_array" {"type" "array"
+                   "items" {"type" "string"
+                            "format" "date-time"}}]
+      {"name" "an_array"
+       "type" "array"
+       "description" ""
+       "array-attributes" [{"name" "value"
+                            "type" "date-time"
+                            "description" ""}]}
+
+      ["an_array" {"type" "array"
                    "items" {"type" ["string" "integer"]}}]
       {"name" "an_array"
        "type" "array"
@@ -201,6 +211,7 @@
 
 (deftest convert-simple-type-tests
   (testing "Non-null types"
+    ;; TODO convert-simple-type -> convert-multiary?-type
     (are [x y] (= (convert-simple-type x) y)
       ["a_date" {"type" ["null" "string" "integer"]
                  "format" "date-time"}]
@@ -218,67 +229,8 @@
                  "format" "date-time"}]
       {"name" "a_date"
        "type" "date-time"
-       "description" ""}))
-  (testing "Null types"
-    (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-simple-type ["a_null" {"type" "null"}])))
-    (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-simple-type ["a_null" {"type" ["null"]}])))))
-
-(deftest convert-property-tests
-  (testing "Simple types"
-    (are [x y] (= (convert-property x) y)
-      ["a_date" {"type" ["null" "string" "integer"]
-                 "format" "date-time"}]
-      {"name" "a_date"
-       "type" "date-time, integer"
        "description" ""}
 
-      ["a_date" {"type" "string"
-                 "format" "date-time"}]
-      {"name" "a_date"
-       "type" "date-time"
-       "description" ""}
-
-      ["a_date" {"type" ["null" "string"]
-                 "format" "date-time"}]
-      {"name" "a_date"
-       "type" "date-time"
-       "description" ""}))
-  (testing "Null types"
-    (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-property ["a_null" {"type" "null"}])))
-    (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-property ["a_null" {"type" ["null"]}]))))
-  (testing "Objects"
-    (are [x y] (= y (convert-property x))
-      ["an_object" {"type" "object"
-                    "properties" {"z" {"type" "string"}
-                                  "a" {"type" "string"}}}]
-      {"name" "an_object"
-       "type" "object"
-       "description" ""
-       "object-properties" [{"name" "a"
-                             "type" "string"
-                             "description" ""}
-                            {"name" "z"
-                             "type" "string"
-                             "description" ""}]}
-
-      ["an_object" {"type" ["object" "string"]
-                    "properties" {"z" {"type" "string"}
-                                  "a" {"type" "string"}}}]
-      {"name" "an_object"
-       "type" "object, string"
-       "description" ""
-       "object-properties" [{"name" "a"
-                             "type" "string"
-                             "description" ""}
-                            {"name" "z"
-                             "type" "string"
-                             "description" ""}]}
-
-      ;; FIXME
       ["an_object" {"type" ["object" "string"]
                     "format" "date-time"
                     "properties" {"z" {"type" "string"}
@@ -292,5 +244,11 @@
                             {"name" "z"
                              "type" "string"
                              "description" ""}]}))
-  (testing "Arrays"
-    (is true)))
+
+  (testing "Null types"
+    (is (thrown? clojure.lang.ExceptionInfo
+                 (convert-simple-type ["a_null" {"type" "null"}])))
+    (is (thrown? clojure.lang.ExceptionInfo
+                 (convert-simple-type ["a_null" {"type" ["null"]}])))))
+
+;;; FIXME PORTING $REFs
