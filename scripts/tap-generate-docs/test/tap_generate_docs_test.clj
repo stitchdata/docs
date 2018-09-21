@@ -212,7 +212,7 @@
 (deftest convert-simple-type-tests
   (testing "Non-null types"
     ;; TODO convert-simple-type -> convert-multiary?-type
-    (are [x y] (= (convert-simple-type x) y)
+    (are [x y] (= (convert-simple-type nil x) y)
       ["a_date" {"type" ["null" "string" "integer"]
                  "format" "date-time"}]
       {"name" "a_date"
@@ -247,8 +247,8 @@
 
   (testing "Null types"
     (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-simple-type ["a_null" {"type" "null"}])))
+                 (convert-simple-type nil ["a_null" {"type" "null"}])))
     (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-simple-type ["a_null" {"type" ["null"]}])))))
+                 (convert-simple-type nil ["a_null" {"type" ["null"]}])))))
 
 ;;; FIXME PORTING $REFs
