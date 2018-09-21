@@ -33,7 +33,7 @@
 
 (deftest convert-unary-type-tests
   (testing "Simple types"
-    (are [x y] (= (convert-unary-type x) (assoc y "description" ""))
+    (are [x y] (= (convert-unary-type nil x) (assoc y "description" ""))
       ["a_string" {"type" "string"}]
       {"name" "a_string"
        "type" "string"}
@@ -48,7 +48,7 @@
        "type" "integer"}))
 
   (testing "Objects"
-    (are [x y] (= (convert-unary-type x) (assoc y "description" ""))
+    (are [x y] (= (convert-unary-type nil x) (assoc y "description" ""))
       ["an_object" {"type" "object"
                     "properties" {"z" {"type" "string"}
                                   "a" {"type" "string"}}}]
@@ -70,7 +70,7 @@
        "object-properties" []}))
 
   (testing "Arrays"
-    (are [x y] (= (assoc y "description" "") (convert-unary-type x))
+    (are [x y] (= (assoc y "description" "") (convert-unary-type nil x))
       ["an_array" {"type" "array"
                    "items" {"type" "string"}}]
       {"name" "an_array"
@@ -202,6 +202,7 @@
     (testing "Objects"
       (is (thrown? clojure.lang.ExceptionInfo
                    (convert-unary-type
+                    nil
                     ["an_array" {"type" "array"
                                  ;; What could possibly be the right result here?
                                  "items" {"type" ["object" "string" "array"]
