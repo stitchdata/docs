@@ -254,16 +254,16 @@
 
 (deftest convert-types-with-refs-tests
   (is (= (convert-multiary-type {"definitions" {"date" {"type" "string"
-                                                      "format" "date-time"}}}
-                              ["a_date" {"$ref" "#/definitions/date"}])
+                                                        "format" "date-time"}}}
+                                ["a_date" {"$ref" "#/definitions/date"}])
          {"name" "a_date"
           "type" "date-time"
           "description" ""}))
   (is (= (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
-                              ["an_integer" {"$ref" "#/definitions/integer"}])
+                                ["an_integer" {"$ref" "#/definitions/integer"}])
          {"name" "an_integer"
           "type" "integer"
           "description" ""}))
   (is (thrown? clojure.lang.ExceptionInfo
                (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
-                                    ["an_string" {"$ref" "#/definitions/string"}]))))
+                                      ["an_string" {"$ref" "#/definitions/string"}]))))
