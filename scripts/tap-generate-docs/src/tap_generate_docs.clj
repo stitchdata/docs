@@ -132,7 +132,6 @@
                   <PATHSEGMENT> = <'/'> #'[A-Za-z0-9_]+'")
    json-schema-reference))
 
-;;; TODO → convert-multiary-property
 (defn convert-multiary-type
   "Simple Type = not a array or object"
   [schema [property-name property-json-schema-partial :as property]]
@@ -171,7 +170,10 @@
         schema             (with-open [r (io/reader input-json-schema-file)]
                              (json/read r))
         ;; TODO Can probably be a `maybe-resolve-ref` function of some
-        ;; kind. See `convert-multiary-property`.
+        ;; kind. See `convert-multiary-property`. The main problem with
+        ;; that is actually the shape of the thing we return with a ref.
+        ;; Here's it the json-schema-partial. The other calling location
+        ;; returns a property.
         schema             (if (contains? schema "$ref")
                              (let [json-schema-reference          (parse-json-schema-reference (schema "$ref"))
                                    referenced-json-schema-partial (get-in schema json-schema-reference)]
@@ -206,7 +208,6 @@
 
                              (> x-pos y-pos)
                              1)))
-                   ;; TODO much of the following should be tap-fs lookups
                    "tap"                tap-name
                    "version"            tap-version
                    "name"               stream-name
