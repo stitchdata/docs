@@ -2,7 +2,8 @@
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io]
             [clojure.string :as string]
-            [clojure.tools.cli :as cli])
+            [clojure.tools.cli :as cli]
+            [instaparse.core :as insta])
   (:require [clojure.java.shell :refer [sh]])
   (:import (org.yaml.snakeyaml Yaml
                                DumperOptions
@@ -15,7 +16,6 @@
   (def ^:dynamic *interactive* true)
   )
 
-;;; TODO This may need to resolve refs so maybe take schema?
 (defn unary-type?
   [[_ property-json-schema-partial :as property]]
   (string? (property-json-schema-partial "type")))
@@ -30,13 +30,13 @@
          (= "" description))))
 
 ;;; WARNING! Mutual Recursion Incoming!
-(declare convert-simple-type)
+(declare convert-multiary-type)
 
 (defn convert-object-properties
   [schema properties]
   {:pre [(not (contains? properties "type"))]}
   (sort-by #(get % "name")
-           (map (partial convert-simple-type schema) properties)))
+           (map (partial convert-multiary-type schema) properties)))
 
 (defn convert-array-object-type
   [schema property property-json-schema-partial]
@@ -55,10 +55,10 @@
                                  (throw (ex-info "Currently cannot handle a type with object _and_ array present"
                                                  {:property property}))
                                  other-properties))
-            converted-other-properties [(convert-simple-type schema ["value"
-                                                                     (assoc property-json-schema-partial
-                                                                            "type"
-                                                                            other-properties)])]
+            converted-other-properties [(convert-multiary-type schema ["value"
+                                                                       (assoc property-json-schema-partial
+                                                                              "type"
+                                                                              other-properties)])]
             all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
@@ -87,7 +87,7 @@
                    (if (or (= "object" item-type)
                            ((set item-type) "object"))
                      (convert-array-object-type schema property items)
-                     [(convert-simple-type schema ["value" items])])))
+                     [(convert-multiary-type schema ["value" items])])))
 
           :default
           base-converted-property)))
@@ -133,7 +133,7 @@
    json-schema-reference))
 
 ;;; TODO → convert-multiary-property
-(defn convert-simple-type
+(defn convert-multiary-type
   "Simple Type = not a array or object"
   [schema [property-name property-json-schema-partial :as property]]
   (let [property (if (contains? property-json-schema-partial "$ref")
@@ -162,25 +162,25 @@
 (defn convert-schema-file
   [{:keys [tap-directory tap-name] :as tap-fs} input-json-schema-file]
   {:pre [(tap-fs? tap-fs)]}
-  (let [schema-path (.relativize (.toPath tap-directory)
-                                 (.toPath input-json-schema-file))
-        tap-version (string/replace (string/trim (:out (sh "python" "setup.py" "--version" :dir tap-directory)))
-                                    #"^([0-9]+)\..+"
-                                    "$1.x")
-        stream-name (string/replace (.getName input-json-schema-file) #".json$" "")
-        schema      (with-open [r (io/reader input-json-schema-file)]
-                      (json/read r))
+  (let [schema-path        (.relativize (.toPath tap-directory)
+                                        (.toPath input-json-schema-file))
+        tap-version        (string/replace (string/trim (:out (sh "python" "setup.py" "--version" :dir tap-directory)))
+                                           #"^([0-9]+)\..+"
+                                           "$1.x")
+        stream-name        (string/replace (.getName input-json-schema-file) #".json$" "")
+        schema             (with-open [r (io/reader input-json-schema-file)]
+                             (json/read r))
         ;; TODO Can probably be a `maybe-resolve-ref` function of some
-        ;; kind. See `convert-simple-type`.
-        schema      (if (contains? schema "$ref")
-                      (let [json-schema-reference          (parse-json-schema-reference (schema "$ref"))
-                            referenced-json-schema-partial (get-in schema json-schema-reference)]
-                        (when (not referenced-json-schema-partial)
-                          (throw (ex-info "$ref without matching definition"
-                                          {:property property
-                                           :schema   schema})))
-                        referenced-json-schema-partial)
-                      schema)
+        ;; kind. See `convert-multiary-property`.
+        schema             (if (contains? schema "$ref")
+                             (let [json-schema-reference          (parse-json-schema-reference (schema "$ref"))
+                                   referenced-json-schema-partial (get-in schema json-schema-reference)]
+                               (when (not referenced-json-schema-partial)
+                                 (throw (ex-info "$ref without matching definition"
+                                                 {:schema-file input-json-schema-file
+                                                  :schema      schema})))
+                               referenced-json-schema-partial)
+                             schema)
         initial-properties (get schema "properties")]
     ;; sorted-map-by _requires_ a comparator implementation, so don't try
     ;; to change this.
@@ -220,23 +220,8 @@
                                          "doc-link" ""}
                    "attributes"         (convert-object-properties schema initial-properties))))
 
-(comment
-  (let [tap-fs (tap-directory->tap-fs (io/file "/Users/tvisher/git/tap-shopify/"))]
-    (convert-schema-file tap-fs
-                         (first (tap-fs :tap-schemas))))
-  )
-
 (def cli-options
-  [["-h" "--help" "Show help"]
-   ["-t" "--tap-name TAP-NAME" "Short name assuming /opt/code/tap-<tap-name>/setup.py, etc."]
-   ["-d" "--tap-directory TAP-DIRECTORY" "Directory assuming <tap-directory>/setup.py, etc."
-    :parse-fn io/file]])
-
-(defn show-help
-  [parsed-args]
-  (println "tap-generate-docs" (:summary parsed-args) " <tap-name>")
-  (when (not *interactive*)
-    (System/exit 0)))
+  [["-h" "--help" "Show help"]])
 
 (defn tap-name?
   "Input to this is `shopify`, not `tap-shopify.
@@ -262,14 +247,11 @@
              (some #(string/ends-with? % ".json") (.list (io/file tap-schema-dir))))))
     false))
 
-(defn tap-name->schema-files
+(defn tap-name->tap-directory
   [tap-name]
-  {:pre [(tap-name? tap-name)]}
-  (let [schema-dir (io/file (format "/opt/code/tap-%s/tap_%s/schemas"
-                                    tap-name
-                                    tap-name))
-        schema-files (.list schema-dir)]
-    (map (partial io/file schema-dir) schema-files)))
+  {:pre [(tap-name? tap-name)]
+   :post [(.getName %)]}
+  (io/file "/opt/code" (format "tap-%s" tap-name)))
 
 (defn tap-fs->schema-files
   [{:keys [tap-schema-dir] :as partial-tap-fs}]
@@ -278,7 +260,8 @@
 
 (defn tap-directory->tap-fs
   [tap-directory]
-  {:post [(tap-fs? %)]}
+  {:pre [(.exists tap-directory)]
+   :post [(tap-fs? %)]}
   (let [tap-name             (.getName tap-directory)
         tap-code-package-dir (io/file tap-directory (string/replace tap-name "-" "_"))
         tap-schema-dir       (let [tap-schema-dir (io/file tap-code-package-dir "schemas")]
@@ -293,99 +276,88 @@
         tap-fs               (assoc partial-tap-fs :tap-schemas (tap-fs->schema-files partial-tap-fs))]
     tap-fs))
 
-(defn tap-name->tap-directory
-  [tap-name]
-  {:pre [(tap-name? tap-name)]
-   :post [(.getName %)]}
-  (io/file "/opt/code" (format "tap-%s" tap-name)))
-
 (defn tap-name->tap-fs
   [tap-name]
   {:pre [(tap-name? tap-name)]}
   (let [tap-directory (tap-name->tap-directory tap-name)]
     (tap-directory->tap-fs tap-directory)))
 
+(defn cli-arg->tap-fs
+  [cli-arg]
+  {:pre [(string? cli-arg)]
+   :post [(tap-fs? %)]}
+  (try (tap-name->tap-fs cli-arg)
+       (catch Error e
+         (let [tap-directory (io/file cli-arg)]
+           (try (tap-directory->tap-fs tap-directory))))))
+
+(defn show-help
+  [parsed-args]
+  (println "tap-generate-docs"
+           (:summary parsed-args)
+           " [<tap-name> | <tap-directory>]")
+  (when (not *interactive*)
+    (System/exit 0)))
+
+(defn tap-name->schema-files
+  [tap-name]
+  {:pre [(tap-name? tap-name)]}
+  (let [schema-dir (io/file (format "/opt/code/tap-%s/tap_%s/schemas"
+                                    tap-name
+                                    tap-name))
+        schema-files (.list schema-dir)]
+    (map (partial io/file schema-dir) schema-files)))
+
 (comment
   (convert-schema-file (io/file ".." "tap-shopify/schemas/orders.json"))
 
-  (-main "-d" "/Users/tvisher/git/tap-shopify")
+  (-main "/Users/tvisher/git/tap-shopify")
   )
 
 (defn -main [& args]
   (let [parsed-args (cli/parse-opts args cli-options)]
-    (when (or (get-in parsed-args [:options :help])
-              (not= 1 (count (filter #{:tap-name :tap-directory} (keys (parsed-args :options)))))
-              (try
-                (do
-                  (if (get-in parsed-args [:options :tap-name])
-                    (tap-name->tap-fs (get-in parsed-args [:options :tap-name]))
-                    (tap-directory->tap-fs (get-in parsed-args [:options :tap-directory])))
-                  false)
-                (catch clojure.lang.ExceptionInfo e true)))
-      (show-help parsed-args))
-    (let [tap-fs       (if (get-in parsed-args [:options :tap-name])
-                         (tap-name->tap-fs (get-in parsed-args [:options :tap-name]))
-                         (tap-directory->tap-fs (get-in parsed-args [:options :tap-directory])))
-          schema-files (:tap-schemas tap-fs)]
-      (doall
-       (for [file schema-files]
-         (let [converted-schema-file (convert-schema-file tap-fs file)
-               yaml-content          (.dump (Yaml. (doto (DumperOptions.)
-                                                     (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
-                                                     (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
-                                                     (.setExplicitStart true)
-                                                     (.setIndent 4)
-                                                     (.setIndicatorIndent 2)
-                                                     (.setPrettyFlow true)
-                                                     (.setSplitLines true)))
-                                            converted-schema-file)
-               ;; TODO Use make logic to avoid updating unedited schemas
-               target-file           (io/file (get-in parsed-args [:options
-                                                                   :output-directory])
-                                              (string/replace (.getName file)
-                                                              #".json$"
-                                                              ".md"))]
-           converted-schema-file
-           #_(println (format "Writing converted %s to %s"
+    (def parsed-args parsed-args)
+    (if (or (get-in parsed-args [:options :help])
+            (not= 1 (count (parsed-args :arguments)))
+            (not (try (cli-arg->tap-fs (first (parsed-args :arguments)))
+                      (catch Exception e)
+                      (catch Error e))))
+      (show-help parsed-args)
+      (let [tap-fs       (cli-arg->tap-fs (first (parsed-args :arguments)))
+            schema-files (:tap-schemas tap-fs)]
+        (doall
+         (for [file schema-files]
+           (let [converted-schema-file (convert-schema-file tap-fs file)
+                 yaml-content          (.dump (Yaml. (doto (DumperOptions.)
+                                                       (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
+                                                       (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
+                                                       (.setExplicitStart true)
+                                                       (.setIndent 4)
+                                                       (.setIndicatorIndent 2)
+                                                       (.setPrettyFlow true)
+                                                       (.setSplitLines true)))
+                                              converted-schema-file)
+                 ;; TODO Use make logic to avoid updating unedited schemas
+                 target-file           (io/file (get-in parsed-args [:options
+                                                                     :output-directory])
+                                                (string/replace (.getName file)
+                                                                #".json$"
+                                                                ".md"))]
+             (println (format "Writing converted %s to %s"
                               file
                               target-file))
-           #_(spit target-file
+             (spit target-file
                    (string/replace (str yaml-content "---\n")
                                    #"\"([^\"]+?)\":"
                                    "$1:")))))
-      #_(let [definitions (if definitions-file
-                            (with-open [r (io/reader definitions-file)]
-                              (json/read r))
-                            {})]
-          (doall
-           (for [file schema-files]
-             (let [converted-schema-file (convert-schema-file definitions file)
-                   yaml-content          (.dump (Yaml. (doto (DumperOptions.)
-                                                         (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
-                                                         (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
-                                                         (.setExplicitStart true)
-                                                         (.setIndent 4)
-                                                         (.setIndicatorIndent 2)
-                                                         (.setPrettyFlow true)
-                                                         (.setSplitLines true)))
-                                                converted-schema-file)
-                   ;; TODO Use make logic to avoid updating unedited schemas
-                   target-file           (io/file (get-in parsed-args [:options
-                                                                       :output-directory])
-                                                  (string/replace (.getName file)
-                                                                  #".json$"
-                                                                  ".md"))]
-               (println (format "Writing converted %s to %s"
-                                file
-                                target-file))
-               (spit target-file
-                     (string/replace (str yaml-content "---\n")
-                                     #"\"([^\"]+?)\":"
-                                     "$1:"))))))
-      (when-not *interactive*
-        (System/exit 0)))))
+        (when-not *interactive*
+          (System/exit 0))))))
 
 (comment
   (def ^:dynamic *interactive* true)
   (-main "-t" "shopify")
+
+  ;; Ensure you're fresh
+  (do (map remove-ns '(tap-generate-docs tap-generate-docs-test))
+      (map load-file ["src/tap_generate_docs.clj" "test/tap_generate_docs_test.clj"]))
   )
