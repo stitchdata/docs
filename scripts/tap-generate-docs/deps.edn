@@ -2,4 +2,7 @@
  {org.clojure/data.json {:mvn/version "0.2.6"}
   org.yaml/snakeyaml    {:mvn/version "1.23"}
   org.clojure/tools.cli {:mvn/version "0.3.7"}
-  instaparse            {:mvn/version "1.4.9"}}}
+  instaparse            {:mvn/version "1.4.9"}}
+
+ :aliases
+ {:test {:extra-paths ["test"]}}}
