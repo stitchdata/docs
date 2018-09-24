@@ -210,10 +210,10 @@
                                           "properties" {"a" {"type" "string"}
                                                         "value" {"type" "integer"}}}}]))))))
 
-(deftest convert-simple-type-tests
+(deftest convert-multiary-type-tests
   (testing "Non-null types"
-    ;; TODO convert-simple-type -> convert-multiary?-type
-    (are [x y] (= (convert-simple-type nil x) y)
+    ;; TODO convert-multiary-type -> convert-multiary?-type
+    (are [x y] (= (convert-multiary-type nil x) y)
       ["a_date" {"type" ["null" "string" "integer"]
                  "format" "date-time"}]
       {"name" "a_date"
@@ -248,22 +248,22 @@
 
   (testing "Null types"
     (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-simple-type nil ["a_null" {"type" "null"}])))
+                 (convert-multiary-type nil ["a_null" {"type" "null"}])))
     (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-simple-type nil ["a_null" {"type" ["null"]}])))))
+                 (convert-multiary-type nil ["a_null" {"type" ["null"]}])))))
 
 (deftest convert-types-with-refs-tests
-  (is (= (convert-simple-type {"definitions" {"date" {"type" "string"
+  (is (= (convert-multiary-type {"definitions" {"date" {"type" "string"
                                                       "format" "date-time"}}}
                               ["a_date" {"$ref" "#/definitions/date"}])
          {"name" "a_date"
           "type" "date-time"
           "description" ""}))
-  (is (= (convert-simple-type {"definitions" {"integer" {"type" "integer"}}}
+  (is (= (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
                               ["an_integer" {"$ref" "#/definitions/integer"}])
          {"name" "an_integer"
           "type" "integer"
           "description" ""}))
   (is (thrown? clojure.lang.ExceptionInfo
-               (convert-simple-type {"definitions" {"integer" {"type" "integer"}}}
+               (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
                                     ["an_string" {"$ref" "#/definitions/string"}]))))
