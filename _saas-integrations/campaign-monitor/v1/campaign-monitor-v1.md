@@ -59,15 +59,21 @@ setup-steps:
       2. Click the user menu (your avatar), located in the top right corner.
       3. Click **Account settings**.
       4. On the Account Settings page, click **API keys**.
-      5. Click the **Show API key** link to reveal your API key.
+      5. Locate your **Client ID**.
 
       Keep this page open - you'll need it to complete the next step.
   - title: "add integration"
     content: |
       4. In the **Campaign Monitor Client ID** field, paste your {{ integration.display_name }} client ID.
-      5. In the **Campaign Monitor API Key** field, paste your {{ integration.display_name }} API key.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
+      2. Follow the prompts to complete the authorization process.
+      3. After the authorization process is successfully completed, you'll be directed back to Stitch.
+      4. Click {{ app.buttons.finish-int-setup }}.
 
 # -------------------------- #
 #     Integration Tables     #
