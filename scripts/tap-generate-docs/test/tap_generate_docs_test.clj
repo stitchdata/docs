@@ -244,6 +244,15 @@
                              "description" ""}
                             {"name" "z"
                              "type" "string"
+                             "description" ""}]}
+
+      ["an_object_multi_child" {"type" ["null" "object"],
+                                "properties" {"amount" {"type" ["null" "number"]}}}]
+      {"name" "an_object_multi_child",
+       "type" "object",
+       "description" "",
+       "object-properties" [{"name" "amount",
+                             "type" "number",
                              "description" ""}]}))
 
   (testing "Null types"
