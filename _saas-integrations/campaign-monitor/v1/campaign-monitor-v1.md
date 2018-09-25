@@ -39,8 +39,8 @@ anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true
-column-selection: true
+table-selection: false
+column-selection: false
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
