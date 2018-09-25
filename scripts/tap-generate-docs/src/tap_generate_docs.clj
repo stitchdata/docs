@@ -51,14 +51,13 @@
             other-properties (let [other-properties (if (string? item-type)
                                                       [item-type]
                                                       (filter (partial not= "object") item-type))]
-                               (if ((set other-properties) "array")
-                                 (throw (ex-info "Currently cannot handle a type with object _and_ array present"
-                                                 {:property property}))
-                                 other-properties))
-            converted-other-properties [(convert-multiary-type schema ["value"
-                                                                       (assoc property-json-schema-partial
-                                                                              "type"
-                                                                              other-properties)])]
+                               other-properties)
+            converted-other-properties (if (= '("null") other-properties)
+                                         []
+                                         [(convert-multiary-type schema ["value"
+                                                                        (assoc property-json-schema-partial
+                                                                               "type"
+                                                                               other-properties)])])
             all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
@@ -84,6 +83,10 @@
                  "array-attributes"
                  (let [items (property-json-schema-partial "items")
                        item-type (items "type")]
+                   (when ((set item-type) "array")
+                     (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
+                                          "Discuss how docs output should work if encountered.")
+                                     {:property property})))
                    (if (or (= "object" item-type)
                            ((set item-type) "object"))
                      (convert-array-object-type schema property items)
