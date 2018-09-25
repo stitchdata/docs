@@ -19,9 +19,6 @@ attributes:
     primary-key: true
     description: "The campaign ID."
 
-  - name: "n/a"
-    replication-key: false
-
   - name: "name"
     type: "string"
     description: "The name of the campaign."
