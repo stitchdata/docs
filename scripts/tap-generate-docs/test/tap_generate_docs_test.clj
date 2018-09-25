@@ -246,14 +246,15 @@
                              "type" "string"
                              "description" ""}]}
 
-      ["an_object_multi_child" {"type" ["null" "object"],
-                                "properties" {"amount" {"type" ["null" "number"]}}}]
-      {"name" "an_object_multi_child",
-       "type" "object",
+      ["an_array" {"type" "array"
+                   "items" {"type" ["null" "object"],
+                            "properties" {"amount" {"type" ["null" "number"]}}}}]
+      {"name" "an_array",
+       "type" "array",
        "description" "",
-       "object-properties" [{"name" "amount",
-                             "type" "number",
-                             "description" ""}]}))
+       "array-attributes" [{"name" "amount",
+                            "type" "number",
+                            "description" ""}]}))
 
   (testing "Null types"
     (is (thrown? clojure.lang.ExceptionInfo
