@@ -36,7 +36,9 @@
   [schema properties]
   {:pre [(not (contains? properties "type"))]}
   (sort-by #(get % "name")
-           (map (partial convert-multiary-type schema) properties)))
+           (reduce (fn [acc p] (concat acc (convert-multiary-type schema p)))
+                   []
+                   properties)))
 
 (defn convert-array-object-type
   [schema property property-json-schema-partial]
@@ -48,16 +50,15 @@
       (convert-object-properties schema (property-json-schema-partial "properties"))
       ;; Alternate
       (let [object-properties (convert-object-properties schema (property-json-schema-partial "properties"))
-            other-properties (let [other-properties (if (string? item-type)
-                                                      [item-type]
-                                                      (filter (partial not= "object") item-type))]
-                               other-properties)
+            other-properties (if (string? item-type)
+                               '(item-type)
+                               (filter (partial not= "object") item-type))
             converted-other-properties (if (= '("null") other-properties)
                                          []
-                                         [(convert-multiary-type schema ["value"
+                                         (convert-multiary-type schema ["value"
                                                                         (assoc property-json-schema-partial
                                                                                "type"
-                                                                               other-properties)])])
+                                                                               other-properties)]))
             all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
@@ -90,7 +91,7 @@
                    (if (or (= "object" item-type)
                            ((set item-type) "object"))
                      (convert-array-object-type schema property items)
-                     [(convert-multiary-type schema ["value" items])])))
+                     (convert-multiary-type schema ["value" items]))))
 
           :default
           base-converted-property)))
@@ -148,12 +149,13 @@
                      [property-name referenced-json-schema-partial])
                    property)]
     (let [unary-type-properties (property->unary-type-properties property)
-          converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)
-          property (if (empty? converted-unary-type-properties)
-                     (throw (ex-info "Null unary type passed for property"
-                                     {:property property}))
-                     (reduce merge-unary-types converted-unary-type-properties))]
-      property)))
+          converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)]
+      (if (empty? converted-unary-type-properties)
+        (do
+          (println (str "Null unary type passed for property"
+                        {:property property}))
+          [])
+        [(reduce merge-unary-types converted-unary-type-properties)]))))
 
 (defn tap-fs?
   [candidate-tap-fs]
