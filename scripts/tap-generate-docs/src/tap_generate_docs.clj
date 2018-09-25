@@ -80,18 +80,22 @@
                  (convert-object-properties schema (property-json-schema-partial "properties")))
 
           (= "array" (property-json-schema-partial "type"))
-          (assoc base-converted-property
-                 "array-attributes"
-                 (let [items (property-json-schema-partial "items")
-                       item-type (items "type")]
-                   (when ((set item-type) "array")
-                     (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
-                                          "Discuss how docs output should work if encountered.")
-                                     {:property property})))
-                   (if (or (= "object" item-type)
-                           ((set item-type) "object"))
-                     (convert-array-object-type schema property items)
-                     (convert-multiary-type schema ["value" items]))))
+          (let [items (property-json-schema-partial "items")
+                item-type (items "type")
+                converted-property (do
+                                     (when ((set item-type) "array")
+                                       (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
+                                                            "Discuss how docs output should work if encountered.")
+                                                       {:property property})))
+                                     (if (or (= "object" item-type)
+                                             ((set item-type) "object"))
+                                       (convert-array-object-type schema property items)
+                                       (convert-multiary-type schema ["value" items])))]
+            (if (empty? converted-property)
+              base-converted-property
+              (assoc base-converted-property
+                    "array-attributes"
+                    converted-property)))
 
           :default
           base-converted-property)))
