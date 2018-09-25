@@ -13,13 +13,6 @@ docs-name: "campaign-monitor"
 description: ""
 
 object-attributes:
-  - name: "api_key"
-    type: "string"
-    required: true
-    description: |
-      The user's {{ form-property.display-name }} API key. This can be found in the {{ form-property.display-name }} app in **Account Settings > API keys**.
-    value: "<CAMPAIGN_MONITOR_API_KEY>"
-
   - name: "client_id"
     type: "string"
     required: true
