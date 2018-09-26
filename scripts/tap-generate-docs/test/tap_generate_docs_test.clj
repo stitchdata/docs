@@ -84,12 +84,6 @@
        "description" ""
        "object-properties" []}))
 
-  (comment
-    (convert-unary-type nil
-                        ["an_array" {"type" "array"
-                                     "items" {"type" "string"}}])
-    )
-
   (testing "Arrays"
     (are [x y] (= (assoc y "description" "") (convert-unary-type nil x))
       ["an_array" {"type" "array"
@@ -231,11 +225,6 @@
                                           "properties" {"a" {"type" "string"}
                                                         "value" {"type" "integer"}}}}]))))))
 
-(comment
-  (convert-multiary-type nil ["a_date" {"type" ["null" "string" "integer"]
-                                        "format" "date-time"}])
-  )
-
 (deftest convert-multiary-type-tests
   (testing "Non-null types"
     ;; TODO convert-multiary-type -> convert-multiary?-type
@@ -291,6 +280,7 @@
        "description" ""})))
 
 ;; These are not throwing anymore, since an empty properties schema is valid. They now log.
+;;; TODO Change this to a positive assertion
 #_(testing "Null types"
     (is (thrown? clojure.lang.ExceptionInfo
                  (convert-multiary-type nil ["a_null" {"type" "null"}])))

@@ -97,6 +97,7 @@
                                                ((set item-type) "object"))
                                          (convert-array-object-type schema property items)
                                          [(convert-multiary-type schema ["value" items])]))]
+              ;; TODO Log (or verify that it's already logged) dropped value
               (if (empty? converted-property)
                 base-converted-property
                 (assoc base-converted-property
