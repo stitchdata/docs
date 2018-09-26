@@ -238,7 +238,7 @@
                    "version"            tap-version
                    "name"               stream-name
                    "doc-link"           ""
-                   "singer-schema"      (format "https://github.com/singer-io/tap-%s/blob/master/%s"
+                   "singer-schema"      (format "https://github.com/singer-io/%s/blob/master/%s"
                                                 tap-name
                                                 schema-path)
                    "description"        ""
