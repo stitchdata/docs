@@ -12,6 +12,7 @@ db-type: "snowflake"
 
 description: ""
 
+uses-common-fields: true
 object-attributes:
   - name: "role"
     type: "string"
