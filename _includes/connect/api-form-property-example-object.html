@@ -10,8 +10,8 @@
 {% when 'destination' %}
 {% highlight json %}
 {
- "type":"platform.{{ form-property.api-type }}",
- "properties":{
+ "type":"{{ form-property.api-type }}",
+ "connection":{
    {% for attribute in all-form-attributes %}
    {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute.value | flatify | append: "  " }}
    {%- else -%}"{{ attribute.name }}":{{ attribute.value | rstrip | flatify | append: "," }}
