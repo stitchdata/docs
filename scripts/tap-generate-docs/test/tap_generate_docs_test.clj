@@ -33,19 +33,34 @@
 
 (deftest convert-unary-type-tests
   (testing "Simple types"
-    (are [x y] (= (convert-unary-type nil x) (assoc y "description" ""))
+    (are [x y] (= (convert-unary-type nil x) y)
+      ["property" {}]
+      {"name" "property"
+       "type" "anything"
+       "description" ""}
+
       ["a_string" {"type" "string"}]
       {"name" "a_string"
-       "type" "string"}
+       "type" "string"
+       "description" ""}
 
       ["a_date_time" {"type" "string"
                       "format" "date-time"}]
       {"name" "a_date_time"
-       "type" "date-time"}
+       "type" "date-time"
+       "description" ""}
 
       ["an_integer" {"type" "integer"}]
       {"name" "an_integer"
-       "type" "integer"}))
+       "type" "integer"
+       "description" ""}
+
+      ["fulfillment_status" {"type" "string"
+                             "enum" ["fulfilled" "partial" "not_eligible"]}]
+      {"name" "fulfillment_status"
+       "type" "string"
+       "description" "Valid values: fulfilled, not_eligible, partial."}
+      ))
 
   (testing "Objects"
     (are [x y] (= (convert-unary-type nil x) (assoc y "description" ""))
@@ -68,6 +83,12 @@
        "type" "object"
        "description" ""
        "object-properties" []}))
+
+  (comment
+    (convert-unary-type nil
+                        ["an_array" {"type" "array"
+                                     "items" {"type" "string"}}])
+    )
 
   (testing "Arrays"
     (are [x y] (= (assoc y "description" "") (convert-unary-type nil x))
@@ -210,64 +231,67 @@
                                           "properties" {"a" {"type" "string"}
                                                         "value" {"type" "integer"}}}}]))))))
 
+(comment
+  (convert-multiary-type nil ["a_date" {"type" ["null" "string" "integer"]
+                                        "format" "date-time"}])
+  )
+
 (deftest convert-multiary-type-tests
   (testing "Non-null types"
     ;; TODO convert-multiary-type -> convert-multiary?-type
     (are [x y] (= (convert-multiary-type nil x) y)
       ["a_date" {"type" ["null" "string" "integer"]
                  "format" "date-time"}]
-      [{"name" "a_date"
-         "type" "date-time, integer"
-         "description" ""}]
+      {"name" "a_date"
+       "type" "date-time, integer"
+       "description" ""}
 
       ["a_date" {"type" "string"
                  "format" "date-time"}]
-      [{"name" "a_date"
-         "type" "date-time"
-         "description" ""}]
+      {"name" "a_date"
+       "type" "date-time"
+       "description" ""}
 
       ["a_date" {"type" ["null" "string"]
                  "format" "date-time"}]
-      [{"name" "a_date"
-         "type" "date-time"
-         "description" ""}]
+      {"name" "a_date"
+       "type" "date-time"
+       "description" ""}
 
       ["an_object" {"type" ["object" "string"]
                     "format" "date-time"
                     "properties" {"z" {"type" "string"}
                                   "a" {"type" "string"}}}]
-      [{"name" "an_object"
-         "type" "date-time, object"
-         "description" ""
-         "object-properties" [{"name" "a"
-                               "type" "string"
-                               "description" ""}
-                              {"name" "z"
-                               "type" "string"
-                               "description" ""}]}]
+      {"name" "an_object"
+       "type" "date-time, object"
+       "description" ""
+       "object-properties" [{"name" "a"
+                             "type" "string"
+                             "description" ""}
+                            {"name" "z"
+                             "type" "string"
+                             "description" ""}]}
 
       ["an_array" {"type" "array"
                    "items" {"type" ["null" "object"],
                             "properties" {"amount" {"type" ["null" "number"]}}}}]
-      [{"name" "an_array",
-         "type" "array",
-         "description" "",
-         "array-attributes" [{"name" "amount",
-                              "type" "number",
-                              "description" ""}]}])
+      {"name" "an_array",
+       "type" "array",
+       "description" "",
+       "array-attributes" [{"name" "amount",
+                            "type" "number",
+                            "description" ""}]}
+
       ["an_array" {"type" "array"
                    "items" {"type" ["null" "object"],
                             "properties" {}}}]
-      [{"name" "an_array",
-         "type" "array",
-         "description" "",
-         "array-attributes" [{"name" "amount",
-                              "type" "number",
-                              "description" ""}]}])
-    )
+      ;; Note we know nothing about what it can be.
+      {"name" "an_array",
+       "type" "array",
+       "description" ""})))
 
-  ;; These are not throwing anymore, since an empty properties schema is valid. They now log.
-  #_(testing "Null types"
+;; These are not throwing anymore, since an empty properties schema is valid. They now log.
+#_(testing "Null types"
     (is (thrown? clojure.lang.ExceptionInfo
                  (convert-multiary-type nil ["a_null" {"type" "null"}])))
     (is (thrown? clojure.lang.ExceptionInfo
@@ -277,14 +301,14 @@
   (is (= (convert-multiary-type {"definitions" {"date" {"type" "string"
                                                         "format" "date-time"}}}
                                 ["a_date" {"$ref" "#/definitions/date"}])
-         [{"name" "a_date"
-            "type" "date-time"
-            "description" ""}]))
+         {"name" "a_date"
+          "type" "date-time"
+          "description" ""}))
   (is (= (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
                                 ["an_integer" {"$ref" "#/definitions/integer"}])
-         [{"name" "an_integer"
-            "type" "integer"
-            "description" ""}]))
+         {"name" "an_integer"
+          "type" "integer"
+          "description" ""}))
   (is (thrown? clojure.lang.ExceptionInfo
                (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
                                       ["an_string" {"$ref" "#/definitions/string"}]))))

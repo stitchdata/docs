@@ -18,16 +18,18 @@
 
 (defn unary-type?
   [[_ property-json-schema-partial :as property]]
-  (string? (property-json-schema-partial "type")))
+  (or (= {} property-json-schema-partial)
+      (string? (property-json-schema-partial "type"))))
 
 (defn converted-unary-type?
   [candidate-converted-unary-type]
-  (let [name (candidate-converted-unary-type "name")
-        type (candidate-converted-unary-type "type")
-        description (candidate-converted-unary-type "description")]
-    (and (string? name)
-         (string? type)
-         (= "" description))))
+  (or (= {} candidate-converted-unary-type)
+      (let [name (candidate-converted-unary-type "name")
+            type (candidate-converted-unary-type "type")
+            description (candidate-converted-unary-type "description")]
+        (and (string? name)
+             (string? type)
+             (string? description)))))
 
 ;;; WARNING! Mutual Recursion Incoming!
 (declare convert-multiary-type)
@@ -36,9 +38,7 @@
   [schema properties]
   {:pre [(not (contains? properties "type"))]}
   (sort-by #(get % "name")
-           (reduce (fn [acc p] (concat acc (convert-multiary-type schema p)))
-                   []
-                   properties)))
+           (map (partial convert-multiary-type schema) properties)))
 
 (defn convert-array-object-type
   [schema property property-json-schema-partial]
@@ -51,60 +51,70 @@
       ;; Alternate
       (let [object-properties (convert-object-properties schema (property-json-schema-partial "properties"))
             other-properties (if (string? item-type)
-                               '(item-type)
+                               [item-type]
                                (filter (partial not= "object") item-type))
-            converted-other-properties (if (= '("null") other-properties)
+            converted-other-properties (if (= ["null"] other-properties)
                                          []
-                                         (convert-multiary-type schema ["value"
-                                                                        (assoc property-json-schema-partial
-                                                                               "type"
-                                                                               other-properties)]))
+                                         [(convert-multiary-type schema ["value"
+                                                                         (assoc property-json-schema-partial
+                                                                                "type"
+                                                                                other-properties)])])
             all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
           all-properties)))))
 
 (defn convert-unary-type
+  "unary-type = a property that has a single type notated as a string (i.e.
+  not [\"type\"] but \"type\"."
   [schema [property-name property-json-schema-partial :as property]]
   {:pre [(unary-type? property)]
    :post [(converted-unary-type? %)]}
-  (let [base-converted-property {"name" property-name
-                                 "type" (if (and (= "string" (property-json-schema-partial "type"))
-                                                 (contains? property-json-schema-partial "format"))
-                                          (property-json-schema-partial "format")
-                                          (property-json-schema-partial "type"))
-                                 "description" ""}]
-    (cond (= "object" (property-json-schema-partial "type"))
-          (assoc base-converted-property
-                 "object-properties"
-                 (convert-object-properties schema (property-json-schema-partial "properties")))
+  (if (= {} property-json-schema-partial)
+    {"name" property-name
+     "type" "anything"
+     "description" ""}
+    (let [base-converted-property {"name" property-name
+                                   "type" (if (and (= "string" (property-json-schema-partial "type"))
+                                                   (contains? property-json-schema-partial "format"))
+                                            (property-json-schema-partial "format")
+                                            (property-json-schema-partial "type"))
+                                   "description" ""}]
+      (cond (= "object" (property-json-schema-partial "type"))
+            (assoc base-converted-property
+                   "object-properties"
+                   (convert-object-properties schema (property-json-schema-partial "properties")))
 
-          (= "array" (property-json-schema-partial "type"))
-          (let [items (property-json-schema-partial "items")
-                item-type (items "type")
-                converted-property (do
-                                     (when ((set item-type) "array")
-                                       (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
-                                                            "Discuss how docs output should work if encountered.")
-                                                       {:property property})))
-                                     (if (or (= "object" item-type)
-                                             ((set item-type) "object"))
-                                       (convert-array-object-type schema property items)
-                                       (convert-multiary-type schema ["value" items])))]
-            (if (empty? converted-property)
-              base-converted-property
+            (= "array" (property-json-schema-partial "type"))
+            (let [items (property-json-schema-partial "items")
+                  item-type (items "type")
+                  converted-property (do
+                                       (when ((set item-type) "array")
+                                         (throw (ex-info (str "Currently cannot handle a type with arrays of arrays. "
+                                                              "Discuss how docs output should work if encountered.")
+                                                         {:property property})))
+                                       (if (or (= "object" item-type)
+                                               ((set item-type) "object"))
+                                         (convert-array-object-type schema property items)
+                                         [(convert-multiary-type schema ["value" items])]))]
+              (if (empty? converted-property)
+                base-converted-property
+                (assoc base-converted-property
+                       "array-attributes"
+                       converted-property)))
+
+            (and (= "string" (property-json-schema-partial "type"))
+                 (contains? property-json-schema-partial "enum"))
+            (if (empty? (property-json-schema-partial "enum"))
+              (throw (ex-info "Enum passed without any valid values"
+                              {:property property}))
               (assoc base-converted-property
-                    "array-attributes"
-                    converted-property)))
+                     "description"
+                     (format "Valid values: %s."
+                             (string/join ", " (sort (property-json-schema-partial "enum"))))))
 
-          :default
-          base-converted-property)))
-
-(comment
-  (convert-unary-type nil ["an_array" {"type" "array"
-                                       "items" {"type" ["object" "string"]
-                                                "properties" {"a" {"type" "string"}}}}])
-  )
+            :default
+            base-converted-property))))
 
 (defn merge-unary-types
   [converted-prop-1 converted-prop-2]
@@ -123,13 +133,15 @@
 
 (defn property->unary-type-properties
   [[property-name property-json-schema-partial :as property]]
-  (filter #((partial not= "null") (get-in % [1 "type"]))
-          (let [type (property-json-schema-partial "type")]
-            (if (string? type)
-              [property]
-              (map (fn [type]
-                     [property-name (assoc property-json-schema-partial "type" type)])
-                   (property-json-schema-partial "type"))))))
+  (if (= {} property-json-schema-partial)
+    [[property-name {}]]
+    (filter #((partial not= "null") (get-in % [1 "type"]))
+            (let [type (property-json-schema-partial "type")]
+              (if (string? type)
+                [property]
+                (map (fn [type]
+                       [property-name (assoc property-json-schema-partial "type" type)])
+                     (property-json-schema-partial "type")))))))
 
 (defn parse-json-schema-reference
   [json-schema-reference]
@@ -141,7 +153,7 @@
    json-schema-reference))
 
 (defn convert-multiary-type
-  "Simple Type = not a array or object"
+  "multiary-type = a property that _may_ have more than one type."
   [schema [property-name property-json-schema-partial :as property]]
   (let [property (if (contains? property-json-schema-partial "$ref")
                    (let [json-schema-reference (parse-json-schema-reference (property-json-schema-partial "$ref"))
@@ -159,13 +171,18 @@
           (println (str "Null unary type passed for property"
                         {:property property}))
           [])
-        [(reduce merge-unary-types converted-unary-type-properties)]))))
+        (reduce merge-unary-types converted-unary-type-properties)))))
 
 (defn tap-fs?
   [candidate-tap-fs]
   (and (every? #(contains? candidate-tap-fs %)
                [:tap-name :tap-directory :tap-schema-dir :tap-schemas])
        (not (empty? (candidate-tap-fs :tap-schemas)))))
+
+(defn read-schema
+  [input-json-schema-file]
+  (with-open [r (io/reader input-json-schema-file)]
+    (json/read r)))
 
 (defn convert-schema-file
   [{:keys [tap-directory tap-name] :as tap-fs} input-json-schema-file]
@@ -176,10 +193,9 @@
                                            #"^([0-9]+)\..+"
                                            "$1.x")
         stream-name        (string/replace (.getName input-json-schema-file) #".json$" "")
-        schema             (with-open [r (io/reader input-json-schema-file)]
-                             (json/read r))
+        schema             (read-schema input-json-schema-file)
         ;; TODO Can probably be a `maybe-resolve-ref` function of some
-        ;; kind. See `convert-multiary-property`. The main problem with
+        ;; kind. See `convert-multiary-type`. The main problem with
         ;; that is actually the shape of the thing we return with a ref.
         ;; Here's it the json-schema-partial. The other calling location
         ;; returns a property.
@@ -318,15 +334,8 @@
         schema-files (.list schema-dir)]
     (map (partial io/file schema-dir) schema-files)))
 
-(comment
-  (convert-schema-file (io/file ".." "tap-shopify/schemas/orders.json"))
-
-  (-main "/Users/tvisher/git/tap-shopify")
-  )
-
 (defn -main [& args]
   (let [parsed-args (cli/parse-opts args cli-options)]
-    (def parsed-args parsed-args)
     (if (or (get-in parsed-args [:options :help])
             (not= 1 (count (parsed-args :arguments)))
             (not (try (cli-arg->tap-fs (first (parsed-args :arguments)))
@@ -348,6 +357,8 @@
                                                        (.setSplitLines true)))
                                               converted-schema-file)
                  ;; TODO Use make logic to avoid updating unedited schemas
+                 ;; TODO Output to the properly formed
+                 ;; /opt/code/docs/_integration-schemas/<tap-name>/v<N>/<schema-name>.md
                  target-file           (io/file (get-in parsed-args [:options
                                                                      :output-directory])
                                                 (string/replace (.getName file)
@@ -365,9 +376,11 @@
 
 (comment
   (def ^:dynamic *interactive* true)
-  (-main "-t" "shopify")
+  (-main "shopify")
 
   ;; Ensure you're fresh
-  (do (map remove-ns '(tap-generate-docs tap-generate-docs-test))
-      (map load-file ["src/tap_generate_docs.clj" "test/tap_generate_docs_test.clj"]))
+  (do (dorun (map remove-ns '(tap-generate-docs tap-generate-docs-test)))
+      (dorun (map load-file ["src/tap_generate_docs.clj" "test/tap_generate_docs_test.clj"]))
+      (in-ns 'tap-generate-docs)
+      (def ^:dynamic *interactive* true))
   )
