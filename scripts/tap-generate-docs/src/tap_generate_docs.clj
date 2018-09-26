@@ -234,7 +234,7 @@
 
                              (> x-pos y-pos)
                              1)))
-                   "tap"                tap-name
+                   "tap"                (string/replace tap-name "tap-" "")
                    "version"            tap-version
                    "name"               stream-name
                    "doc-link"           ""
