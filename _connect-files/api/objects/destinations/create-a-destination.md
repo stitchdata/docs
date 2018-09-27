@@ -40,12 +40,12 @@ examples:
            -d "{
                 "type":"redshift",
                 "connection": {
-                  "host": "<HOST>",
-                  "port": 5439,
-                  "username": "<USERNAME>",
-                  "database": "<DATABASE>",
-                  "password": "<PASSWORD>",
-                  "ssl": false
+                  "host":"<HOST>",
+                  "port":5439,
+                  "username":"<USERNAME>",
+                  "database":"<DATABASE>",
+                  "password":"<PASSWORD>",
+                  "ssl":false
                   }
                }"
   - type: "response"
