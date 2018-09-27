@@ -10,7 +10,13 @@ display-name: "Amazon S3"
 docs-name: "amazon-s3"
 db-type: "s3"
 
-description: ""
+description: |
+  To set up an {{ form-property.display-name }} destination, users will need to:
+
+  1. Create a bucket policy that grants Stitch permission to write to the bucket
+  2. Create a "challenge file" in the bucket that allows Stitch to test the connection
+
+  Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) for additional details.
 
 uses-common-fields: false
 object-attributes:
@@ -21,6 +27,18 @@ object-attributes:
     value: |
       "com-stitch-s3-bucket"
 
+  - name: "sentinel_key"
+    type: "string"
+    required: false
+    description: |
+      **Note**: This should not be submitted when creating a destination. This value will be returned as part of successfully creating an {{ form-property.display-name }} destination.
+
+      The sentinel key is the name the challenge file in the bucket must have. The challenge file is a blank file that Stitch uses to test the permissions for the bucket. This file must remain in the bucket even after the inital setup is complete.
+
+      Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) for additional details.
+    value: |
+      "stitch-challenge-file-af295ad1-7a4b-4881-89dc-c9be27de13a5"
+
   - name: "output_file_format"
     type: "string"
     required: true
@@ -28,16 +46,15 @@ object-attributes:
       Defines the type of file Stitch will write to the bucket. Possible values are:
 
       - `csv`, which will use CSV (`.csv`) files
-      - `json`, which will use JSON (`.jsonl`) files
+      - `jsonl`, which will use JSON (`.jsonl`) files
 
-      For examples of what data will look like in each format, refer to our [Amazon S3 documentation]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }})
-
+      For examples of what data will look like in each format, refer to our [Amazon S3 documentation]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
     value: |
       "csv"
 
   - name: "csv_delimiter"
     type: "string"
-    required: true
+    required: false
     description: |
       Defines the delimiter used if `output_file_format` is `csv`.  Possible values are:
 
@@ -49,7 +66,7 @@ object-attributes:
 
   - name: "csv_force_quote"
     type: "boolean"
-    required: true
+    required: false
     description: |
       If `true`, Stitch will place all elements of key-value pairs in quotes when `output_file_format` is `csv`.
 
@@ -71,5 +88,5 @@ object-attributes:
 
       For more info on construcing an S3 Object Key, refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#define-s3-object-key" }}).
     value: |
-      "[integration_name]/[table_name]/[table_version]_[timestamp_loaded].[output_file_format]"
+      "[integration_name]/[table_name]/[table_version]_[timestamp_loaded].<csv|json>"
 ---
