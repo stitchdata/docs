@@ -31,9 +31,13 @@ historical: "1 year"
 frequency: "60 minutes"
 tier: "Paid"
 icon: /images/integrations/icons/zendesk.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 
 # -------------------------- #

@@ -31,9 +31,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/pipedrive.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

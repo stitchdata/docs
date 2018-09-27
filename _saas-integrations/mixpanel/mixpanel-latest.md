@@ -30,9 +30,13 @@ historical: "7 days"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/mixpanel.svg
-whitelist:
-  tables: true
-  columns: false
+
+table-selection: true
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Querying Details      #

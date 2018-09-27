@@ -34,9 +34,13 @@ frequency: "1 hour"
 tier: "Free"
 status-url: 
 icon: /images/integrations/icons/bronto.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
