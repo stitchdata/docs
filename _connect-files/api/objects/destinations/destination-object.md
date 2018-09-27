@@ -34,7 +34,7 @@ object-attributes:
 
   - name: "type"
     type: "string"
-    description: "{{ connect.common.attributes.destination-type }}"
+    description: "{{ connect.common.attributes.destination-type | flatify }}"
 
   - name: "updated_at"
     type: "timestamp"
