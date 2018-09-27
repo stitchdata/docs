@@ -29,11 +29,15 @@ certified: true
 
 frequency: "30 minutes"
 historical: "1 year"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/salesforce.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Querying Details      #

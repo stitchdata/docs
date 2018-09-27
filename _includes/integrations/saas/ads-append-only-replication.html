@@ -1,58 +1,48 @@
 {% case integration.name %}
-  {% when "google-adwords" %}
-    {% assign window = "Conversion Window" %}
 
-    {% assign table = "ad_performance_report" %}
-
-    {% assign replication-key = "day" %}
-
-    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
-
-    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
-
-    {% assign account-id = system-column.customer-id %}
-
-    {% assign account-id-data = "1585293495" %}
-
-    {% assign device = "device" %}
-
-    {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
-
-    {% assign customerid = "customerid" %}
-
+<!-- For Bing Ads -->
   {% when "bing-ads" %}
     {% assign window = "Conversion Window" %}
-
     {% assign table = "ad_performance_report" %}
-
     {% assign replication-key = "gregorianDate" %}
-
     {% assign replication-key-historical = "2017-06-03 00:00:00" %}
-
     {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
-
     {% assign account-id = "accountId"%}
-
     {% assign account-id-data = "71086605" %}
-
     {% assign device = "deviceType" %}
-
     {% assign core-object-replication = "With the exception of the `accounts` table, these tables are replicated using **Full Table Replication**." %}
 
+<!-- For Facebook Ads -->
   {% when "facebook-ads" %}
     {% assign window = "Attribution Window" %}
-
     {% assign table = "ads" %}
-
     {% assign replication-key = "updated_time" %}
-
     {% assign replication-key-historical = "2017-06-05 00:00:00" %}
-
     {% assign replication-key-ongoing = "2017-09-03 00:00:00" %}
+
+<!-- For Google AdWords -->
+  {% when "google-adwords" %}
+    {% assign window = "Conversion Window" %}
+    {% assign table = "ad_performance_report" %}
+    {% assign replication-key = "day" %}
+    {% assign replication-key-historical = "2017-06-03 00:00:00" %}
+    {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
+    {% assign account-id = system-column.customer-id %}
+    {% assign account-id-data = "1585293495" %}
+    {% assign device = "device" %}
+    {% assign core-object-replication = "These tables are replicated using **Full Table Replication**." %}
+    {% assign customerid = "customerid" %}
+
+  {% when "doubleclick-campaign-manager" %}
+    {% assign table = "ad_performance_report" %}
+    {% assign device = "device" %}
+  <!-- Note: DCM doesn't really have a replication key, so don't let this be misleading. This is only done to use the correct variable in this template. -->
+    {% assign replication-key = "date" %}
 
   {% endcase %}
 
 
+<!-- For table types -->
 {% if include.type == "table-types" %}
 There are two types of tables in Stitch's {{ integration.display_name }} integration: Core Object and Report.
 
@@ -77,10 +67,10 @@ Each part of the replication process for **Report** tables is explained below.
 
 
 
-
+<!-- For Report Tables -->
 {% if include.type == "report-tables" %}
 {% unless integration.name == "facebook-ads" %}
-Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for all [**Report** tables](#schema) currently being tracked. 
+Every time Stitch runs a replication job for {{ integration.display_name }}, the last {{ integration.attribution-window }}' worth of data will be replicated for any [**Report** tables](#schema) currently being tracked.
 
 Stitch replicates data in this way to account for updates made during the {{ window }}.
 {% endunless %}
@@ -91,16 +81,19 @@ Stitch replicates data in this way to account for updates made during the {{ win
 
 
 
-
+<!-- For data loading -->
 {% if include.type == "data-loading" %}
-When Stitch loads the extracted data for Report tables into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
+When Stitch loads the extracted data {% unless integration.name == "doubleclick-campaign-manager" %}for Report tables {% endunless %}into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
 
-Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](##column-selection-statistic-aggregation) for more info and examples.
+Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](#column-selection-statistic-aggregation) for more info and examples.
 
 ##### Example {#append-only-example}
 
-Let's say these columns are tracking in the `ad_performance_report` table:
+Let's say these columns are tracking in the `{{ table }}` table:
 
+{% if integration.name == "doubleclick-campaign-manager" %}
+- `{{ replication-key }}` (dimension) - The date pertaining to the record.
+{% endif %}
 - `campaignId` (dimension) - This is the ID associated with a campaign. In this example, there are two campaigns: `929007494` and `929599581`
 - `{{ device }}` (dimension) - The device type. There are two values for this example: `Computer` and `Tablet`
 - `impressions` (metric) - The total number of impressions.
@@ -117,15 +110,30 @@ Every time Stitch replicates and loads data, a row for each unique combination o
 
 
 
+<!-- For append-only query -->
 {% if include.type == "append-only-query" %}
-{% include note.html content="The query below is meant to act as a foundation for writing your own. Depending on the dimensions contained in a given table, you may need to alter this query for your own usage." %}
+{% capture query-foundation %}
+The query below is meant to act as a foundation for writing your own. Depending on your SQL syntax and the dimensions contained in a given table, you may need to alter this query for your own usage.
 
-If you want only the most recently replicated data for any {{ integration.display_name }} Report table, you can use the sample query below to account for the Append-Only Replication Stitch uses.
+When querying your {{ integration.display_name }} data, you'll want to include the Dimensions you're analyzing in the partition. For example: If you're analyzing campaigns over time, you'd include columns like `campaignId` and `date`.
+{% endcapture %}
 
+{% include note.html first-line="**You may need to alter this query**" content=query-foundation %}
+
+If you want only the most recently replicated data for any {{ integration.display_name }} {% unless integration.name == "doubleclick-campaign-manager" %}Report {% endunless %}table, you can use the sample query below to account for the Append-Only Replication Stitch uses.
+
+{% case integration.name %}
+{% when 'doubleclick-campaign-manager' %}
+{% assign replication-key = "dimension_1, dimension_2, etc." %}
+
+This query will use the report's Dimensions and the `{{ system-column.report-date-time }}` column to return the latest data:
+
+{% else %}
 This query uses two columns - which are automatically included for every Report table - to return the latest data:
 
 - `{{ replication-key }}` - The day that the record pertains to.
 - `{{ system-column.report-date-time }}` - The starting time of the Stitch job that extracted the record.
+{% endcase %}
 
 ```sql
 SELECT *
@@ -133,7 +141,7 @@ SELECT *
         SELECT *,
         RANK() OVER (PARTITION BY {{ replication-key }}{{ customerid | prepend: ", " }}
                      ORDER BY {{ system-column.report-date-time }} DESC)
-        FROM ad_performance_report
+        FROM {{ table }}
         ORDER BY {{ replication-key }} ASC
        ) AS latest
  WHERE latest.rank = 1
@@ -141,9 +149,9 @@ SELECT *
 
 In this query:
 
-1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/) to create a 'window' of data for each `{{ replication-key }}`{% if integration.name == "google-adwords" %} and `{{ customerid }}` combo{% endif %},
+1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/) to create a 'window' of data for each {% case integration.name %}{% when 'google-adwords %}`{{ replication-key }}` and `{{ customerid }}` combination{% when 'doubleclick-campaign-manager' %} combination of Dimensions{% else %} `{{ replication-key }}`{% endcase %},
 2. The values of the `{{ system-column.report-date-time }}` column are ranked within each window partition, and
 4. Then, in the outer query, only the rows with `{{ system-column.report-date-time }}` values ranked as `1` - which is equal to the maximum timestamp - are returned. 
 
-**Note**: You may need to adjust the above query to account for differences in SQL syntax and usage depending on what type of data warehouse you're using.
+
 {% endif %}

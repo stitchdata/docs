@@ -30,6 +30,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the ad set."
+    foreign-key-id: "adset-id"
 
   - name: "updated_time"
     type: "date-time"
@@ -57,6 +58,7 @@ attributes:
       - name: "pixel_id"
         type: "string"
         description: "The ID of a Facebook conversion pixel. Used with offsite conversion campaigns."
+        # foreign-key-id: "pixel-id"
 
       - name: "pixel_rule"
         type: "string"
@@ -65,6 +67,7 @@ attributes:
       - name: "page_id"
         type: "string"
         description: "The ID of the Facebook page."
+        foreign-key-id: "page-id"
 
       - name: "object_store_url"
         type: "string"
@@ -77,14 +80,17 @@ attributes:
       - name: "product_set_id"
         type: "string"
         description: "The ID of a product set within an ad set-level product catalog."
+        foreign-key-id: "product-set-id"
 
       - name: "offer_id"
         type: "string"
         description: "The ID of an offer from a Facebook page."
+        foreign-key-id: "offer-id"
 
   - name: "account_id"
     type: "string"
     description: "The ad account ID."
+    foreign-key-id: "account-id"
 
   - name: "daily_budget"
     type: "number"
@@ -113,7 +119,7 @@ attributes:
   - name: "campaign_id"
     type: "string"
     description: "The ID of the campaign containing this ad set."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "created_time"
     type: "date-time"
@@ -168,6 +174,7 @@ attributes:
         type: "string"
         primary-key: true
         description: "The ad label ID."
+        foreign-key-id: "ad-label-id"
 
       - name: "name"
         type: "string"

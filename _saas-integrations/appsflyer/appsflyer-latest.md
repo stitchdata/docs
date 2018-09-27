@@ -31,9 +31,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
 icon: /images/integrations/icons/appsflyer.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -65,7 +69,7 @@ setup-steps:
   - title: "Retrieve the account's API key"
     anchor: "retrieve-your-api-key"
     content: |
-      {% include note.html content="You must be the Account Owner in AppsFlyer to complete this step." %}
+      {% include note.html type="single-line" content="You must be the Account Owner in AppsFlyer to complete this step." %}
 
       1. In the list of apps, click the app you want to replicate data from. This will open the app's dashboard page.
       2. Under the **Integration** section, click **API Access.**

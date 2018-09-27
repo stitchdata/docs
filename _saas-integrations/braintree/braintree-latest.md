@@ -30,9 +30,13 @@ tier: "Free"
 status-url: https://status.braintreepayments.com/
 icon: /images/integrations/icons/braintree.svg
 whitelist-ips: true ## if true, Stitch's IP addresses must be whitelisted to access this integration's data
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -46,12 +50,16 @@ requirements-info: |
   Additionally, Stitch's Braintree integration will only replicate transactions for the **default merchant account** in your Braintree instance. You can verify the merchant account set as the default by going to **Settings > Processing > Merchant Accounts** when signed into Braintree.
 
 setup-steps:
-  - title: "Whitelist Stitch's IP Addresses in Braintree"
+  - title: "Whitelist Stitch's IP addresses in Braintree"
     anchor: "whitelist-stitch-ips"
     content: |
-      {% include note.html content="**This step is only required if you [restrict IP access to your Braintree account](https://articles.braintreepayments.com/reference/security/control-panel-whitelisting)**.<br><br>
+      {% capture ip-restriction %}
+      This step is only required if you [restrict IP access to your Braintree account](https://articles.braintreepayments.com/reference/security/control-panel-whitelisting).
 
-      If you don't use this feature, [skip to the next section](#retrieve-api-credentials)." %}
+      If you don't use this feature, [skip to the next section](#retrieve-api-credentials).
+      {% endcapture %}
+
+      {% include note.html first-line="This step may not be required." content=ip-restriction %}
 
       1. Sign into your Braintree account.
       2. Click **Settings > Security**.
@@ -67,7 +75,7 @@ setup-steps:
       7. Repeat steps 4-6 **for each Stitch IP address in the list above**.
       8. After all of Stitch's IP addresses have been added, click **Enable Restrictions**.
 
-  - title: "Retrieve Your Braintree API Credentials"
+  - title: "Retrieve your Braintree API credentials"
     anchor: "retrieve-api-credentials"
     content: |
       1. If you haven't already, sign into your Braintree account.

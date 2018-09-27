@@ -17,7 +17,7 @@ enterprise-cta:
 ---
 {% include misc/data-files.html %}
 
-{% include note.html content="Loading reports are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, loading reports will be made available." %}
+{% include note.html first-line="**Loading report availability**" content="Loading reports are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, loading reports will be made available." %}
 
 The last phase of every Stitch replication job is called **Loading**. During Loading, Stitch loads [extracted data]({{ link.replication.extraction-logs | prepend: site.baseurl }}) into your destination according to the table's defined [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}):
 
@@ -79,9 +79,9 @@ In addition to displaying the time a load began, the tooltips also include how l
 
 ---
 
-## Replication Bookmarks in Loading Reports {#max-replication-bookmark-values}
+## Replication bookmarks in Loading Reports {#max-replication-bookmark-values}
 
-{% include note.html content="The features in this section may not appear in the loading reports for some integrations. As we add this functionality to our integrations, bookmark columns in loading reports will be made available." %}
+{% include note.html type="single-line" content="The features in this section may not appear in the loading reports for some integrations. As we add this functionality to our integrations, bookmark columns in loading reports will be made available." %}
 
 Integration loading reports can contain information about the recency of your data. The **Max Replication Bookmark Value** column contains the highest or most recent [Replication Bookmark Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) value Stitch has loaded into your destination for a given table or replication job, displayed as `column_name: value`.
 
@@ -112,7 +112,7 @@ For some tables, a **Bookmark Unavailable** message may display in the **Max Rep
 
 There are a few reasons this message may appear:
 
-- The table uses [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#full-table-replication" }}), a replication method which doesn't use a Replication Bookmark Key,
+- The table uses [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#full-table-replication" }}) or [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#log-based-incremental-replication" }}), replication methods which doesn't use a Replication Bookmark Key,
 - The column designated as the Replication Bookmark Key contains `NULL` values, or
 - The integration doesn't support this feature. As this functionality is added to eligible integrations, Replication Bookmark Key values in loading reports will become available.
 

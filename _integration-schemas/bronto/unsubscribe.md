@@ -19,11 +19,13 @@ attributes:
     type: "string"
     primary-key: true
     description: "The unique ID of the contact associated with the unsubscribe."
+    foreign-key-id: "contact-id"
 
   - name: "deliveryId"
     type: "string"
     primary-key: true
     description: "The unique ID of the delivery that resulted in the contact unsubscribing."
+    foreign-key-id: "delivery-id"
 
   - name: "created"
     type: "string"

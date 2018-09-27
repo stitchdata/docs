@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrai
 description: |
   The `campaigns` table contains info about your Outbrain campaigns.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 api-method:
   name: listAllCampaignsAssociatedWithAMarketer
   doc-link: http://docs.amplifyv01.apiary.io/#reference/campaigns/campaigns-collection-via-marketer/list-all-campaigns-associated-with-a-marketer
@@ -18,9 +18,6 @@ attributes:
     type: "string"
     primary-key: true
     description: "The campaign ID."
-
-  - name: "n/a"
-    replication-key: true
 
   - name: "name"
     type: "string"

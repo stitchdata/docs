@@ -69,15 +69,14 @@ tables:
 
 {% contentfor setup %}
 {% capture notice-content %}
-**Setup Prerequisites**<br>
-Before you dive into setting up your Mandrill integration, you need:<br><br>
+To set up Mandrill, you need:
 
-1. [Admin permissions](http://kb.mailchimp.com/accounts/multi-user/manage-user-levels-in-your-account) in your MailChimp account.<br>
+1. [Admin permissions](http://kb.mailchimp.com/accounts/multi-user/manage-user-levels-in-your-account) in your MailChimp account.
 2. To enable the [Mandrill add-on in MailChimp](http://kb.mailchimp.com/mandrill/add-or-remove-mandrill).
 {% endcapture %}
 
 {% capture prerequisites %}
-{% include important.html content=notice-content %}
+{% include important.html first-line="**Setup prerequisites**" content=notice-content %}
 {% endcapture %}
 
 {% include integrations/webhooks/webhook-setup.html %}

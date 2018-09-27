@@ -22,6 +22,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the list member."
+    # foreign-key-id: "list-member-id"
 
   - name: "created_at"
     type: "integer"
@@ -34,11 +35,12 @@ attributes:
   - name: "email"
     type: "string"
     description: "The email address of the list member."
+    foreign-key-id: "email-id"
 
   - name: "list_id"
     type: "integer"
     description: "The ID of the list the member belongs to."
-    foreign-key: true
+    foreign-key-id: "list-id"
 
   - name: "last_emailed"
     type: "integer"

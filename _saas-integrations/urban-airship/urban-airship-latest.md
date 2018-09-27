@@ -10,7 +10,7 @@ layout: singer
 #         Tap Details        #
 # -------------------------- #
 
-name: "urban_airship"
+name: "urban-airship"
 display_name: "Urban Airship"
 singer: true
 author: "Stitch"
@@ -29,9 +29,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/urban-airship.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

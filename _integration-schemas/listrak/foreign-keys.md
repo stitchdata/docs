@@ -4,15 +4,34 @@ tap-reference: "listrak"
 # version: "1.0"
 
 foreign-keys:
-  - attribute: "ContactID"
+  - id: "contact-id"
+    attribute: "ContactID"
     table: "subscribed_contacts"
-    join-on: "id"
+    all-foriegn-keys:
+      - table: "message_bounces"
+      - table: "message_clicks"
+      - table: "message_opens"
+      - table: "message_reads"
+      - table: "message_unsubs"
+      - table: "subscribed_contacts"
 
-  - attribute: "MsgID"
+  - id: "message-id"
+    attribute: "MsgID"
     table: "messages"
-    join-on: "MsgID"
+    all-foreign-keys:
+      - table: "message_bounces"
+      - table: "message_clicks"
+      - table: "message_opens"
+      - table: "message_reads"
+      - table: "message_sends"
+      - table: "message_unsubs"
+      - table: "messages"
 
-  - attribute: "ListID"
+  - id: "list-id"
+    attribute: "ListID"
     table: "lists"
-    join-on: "ListsID"
+    all-foreign-keys:
+      - table: "lists"
+      - table: "messages"
+      - table: "subscribed_contacts"
 ---

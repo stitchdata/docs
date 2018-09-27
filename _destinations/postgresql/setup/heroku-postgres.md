@@ -57,6 +57,13 @@ setup-steps:
 
       Leave this page open for now - you’ll need it to wrap things up.
 
+  - title: "Grant the {{ page.display_name }} user CREATE permissions"
+    anchor: "grant-create-permissions"
+    content: |
+      Stitch requires `CREATE` permissions to create integration schemas and tables in your destination and load data. [By default](https://devcenter.heroku.com/articles/heroku-postgresql-credentials#the-default-credential){:target="new"}, {{ page.display_name }} credentials don't include `CREATE` permissions, so you'll need to grant them to the database user before continuing.
+
+      {% include destinations/setup/new-redshift-postgres-database-user.html %}
+
   - title: "connect stitch"
     content: |
       Lastly, you'll enter Heroku's connection details into Stitch. When you do this, you'll use the **PostgreSQL** destination option, as noted below.

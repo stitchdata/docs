@@ -31,9 +31,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://updates.freshdesk.com/
 icon: /images/integrations/icons/freshdesk.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

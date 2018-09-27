@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The list ID."
+    foreign-key-id: "list-id"
 
   - name: "bounceHandling"
     type: "integer"

@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The message ID that contains the link that was clicked."
-    foreign-key: true
+    foreign-key-id: "message-id"
 
   - name: "EmailAddress"
     type: "string"
@@ -29,7 +29,7 @@ attributes:
   - name: "ContactID"
     type: "string"
     description: "The ID of the contact who clicked the link."
-    foreign-key: true
+    foreign-key-id: "contact-id"
 
   - name: "LinkUrl"
     type: "string"

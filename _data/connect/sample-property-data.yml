@@ -1,0 +1,27 @@
+# -------------------------- #
+#       ALL INTEGRATIONS     #
+# -------------------------- #
+
+anchor-time: "2018-04-30T03:30:00Z"
+
+frequency: "1440"
+
+start-date: "2018-01-10T00:00:00Z"
+
+
+# -------------------------- #
+#    DATABASE INTEGRATIONS   #
+# -------------------------- #
+
+host: "<HOST_ADDDRESS>"
+database: "<DATABASE>"
+user: "<USERNAME>"
+password: "<PASSWORD>"
+ssl: "false"
+include-schemas: "true"
+ssh: "true"
+ssh-host: "<SSH_HOST>"
+ssh-user: "<STITCH_SSH_USER>"
+ssh-port: "22"
+
+default-replication-method: "LOG_BASED"

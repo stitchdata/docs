@@ -21,6 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The collaborator's ID."
+    foreign-key-id: "collaborator-id"
 
   - name: "login"
     type: "string"

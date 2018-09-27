@@ -26,20 +26,28 @@
 {{ site.data.tooltips.supported-by }}
 {% endcapture %}
 
-<table width="100%">
+<h2 id="snapshot">
+    {{ integration.display_name }}
+        {% if integration.this-version %}
+            {{ integration.this-version | prepend: "v" }}
+        {% endif %}
+    snapshot
+</h2>
+
+<table class="attribute-list">
     <tbody>
         <tr>
             <!-- Integration Release Status -->
             <td valign="top" width="20%; fixed" align="right">
-                <strong>Release Status</strong>
+                <strong>Release status</strong>
             </td>
             <td valign="top">
                 {{ integration.status }}
             </td>
 
             <!-- Integration supported by -->
-            <td valign="top" width="20%; fixed" align="right">
-                <strong>Supported By</strong> {{ question-icon | replace:"TOOLTIP",supported-by }}
+            <td valign="top" width="25%; fixed" align="right">
+                <strong>Supported by</strong> {{ question-icon | replace:"TOOLTIP",supported-by }}
             </td>
             <td valign="top">
                 {% if integration.certified == true %}
@@ -52,7 +60,7 @@
 
         <tr>
             <!-- Stitch plan (free/paid) required to use integration -->
-            <td valign="top" width="20%; fixed" align="right">
+            <td valign="top" width="25%; fixed" align="right">
                 <strong>Availability</strong>{{ question-icon | replace:"TOOLTIP",availability }}
             </td>
             <td valign="top">
@@ -60,7 +68,7 @@
             </td>
 
             <!-- Versions of databases Stitch supports  -->
-            <td valign="top" width="20%; fixed" align="right">
+            <td valign="top" width="25%; fixed" align="right">
                 <strong>Supported Versions</strong>
             </td>
             <td valign="top">
@@ -71,7 +79,7 @@
         <tr>
             <!-- Stitch SSL connection support  -->
             <td valign="top" align="right">
-                <strong>SSL Connections</strong>{{ question-icon | replace:"TOOLTIP",ssl }}
+                <strong>SSL connections</strong>{{ question-icon | replace:"TOOLTIP",ssl }}
             </td>
             <td valign="top">
                 {% if integration.name == "RDS" %}
@@ -93,14 +101,14 @@
 
         <!-- Whitelisting support -->
         <tr>
-            <td valign="top" width="20%; fixed" align="right">
-                <strong>Whitelisting {{ question-icon | replace:"TOOLTIP",whitelisting }}
+            <td valign="top" width="25%; fixed" align="right">
+                <strong>Data selection {{ question-icon | replace:"TOOLTIP",whitelisting }}
             </td>
             <td valign="top">
-                {% if integration.whitelist.tables == "No" or integration.whitelist.tables == false %}
+                {% if integration.table-selection == false and integration.column-selection == false %}
                     Unsupported
                 {% else %}
-                    {% if integration.whitelist.tables == "Yes" or integration.whitelist.tables == true and integration.whitelist.columns == true %}
+                    {% if integration.table-selection == true and integration.column-selection == true %}
                         Tables and columns
                     {% else %}
                         Tables only
@@ -109,14 +117,14 @@
             </td>
 
             <!-- Stitch support for view replication -->
-            <td valign="top" width="20%; fixed" align="right">
+            <td valign="top" width="25%; fixed" align="right">
                 <strong>View Replication</strong>{{ question-icon | replace:"TOOLTIP",db-views }}
             </td>
             <td valign="top">
                 <!-- For RDS, depends on type of DB being connected. -->
                 {% if integration.name == "rds" %}
                     Depends on database type
-                {% elsif integration.sync-views == true %}
+                {% elsif integration.view-replication == true %}
                     <a href="{{ link.replication.db-views | prepend: site.baseurl }}">Supported</a>
                 {% else %}
                     Unsupported
@@ -126,8 +134,8 @@
 
         <!-- Destination/Integration compatibility -->
         <tr>
-            <td valign="top" width="30%; fixed" align="right">
-                <strong><a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination Incompatibilities</strong></a>{{ question-icon | replace:"TOOLTIP",incompatibilities }}
+            <td valign="top" width="25%; fixed" align="right">
+                <strong><a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination<br>incompatibilities</strong></a>{{ question-icon | replace:"TOOLTIP",incompatibilities }}
                 </td>
             <td valign="top" colspan="3">
                 {% assign destinations = site.destinations | where:"destination",true %}

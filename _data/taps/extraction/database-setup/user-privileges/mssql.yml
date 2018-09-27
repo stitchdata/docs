@@ -4,12 +4,37 @@
 
 ## The permissions Stitch needs to connect to and replicate data from a MSSQL database.
 
-user-privileges:
-  - name: "SELECT"
-    reason: "Required to select rows from tables in a database."
-    doc-link: |
-      https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql?view=sql-server-2017
+defaults:
+  names:
+    select: &select-name "SELECT"
 
+  reasons:
+    select: &select-reason "Required to select rows from tables in a database."
+
+  doc-links:
+    select: &select-doc "https://docs.microsoft.com/en-us/sql/t-sql/statements/grant-object-permissions-transact-sql?view=sql-server-2017"
+
+# -------------------------- #
+#      MSSQL PRIVILEGES      #
+# -------------------------- #
+
+mssql:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+# -------------------------- #
+#      AZURE PRIVILEGES      #
+# -------------------------- #
+
+azure:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
 
 create-user-command: |
   1. Log into your database.

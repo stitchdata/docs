@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The pull request ID."
+    foreign-key-id: "pull-request-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -63,8 +64,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: "The user ID."
-        foreign-key: true
-        table: "collaborators"
+        foreign-key-id: "collaborator-id"
 
       - name: "login"
         type: "string"

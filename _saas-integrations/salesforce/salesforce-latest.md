@@ -30,13 +30,17 @@ certified: true
 
 frequency: "1 hour"
 historical: "1 year"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/salesforce.svg
 whitelist-ips: true
-whitelist:
-  tables: true
-  columns: true
-  set-replication-methods: true
+
+table-selection: true
+column-selection: true
+set-replication-methods: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -53,7 +57,7 @@ requirements-list:
 
 
 setup-steps:
-  - title: "Set Trusted IPs in Salesforce"
+  - title: "Set trusted IPs in Salesforce"
     anchor: "whitelist-stitch-ips"
     content: |
       Depending on how your Salesforce instance is set up, you may need to whitelist Stitch's IP addresses. In Salesforce, this is referred to as "setting trusted IPs".
@@ -83,7 +87,7 @@ setup-steps:
       Stitch's {{ integration.display_name }} integration allows you to control both of these settings so you can replicate data as you see fit.
       
     substeps:
-      - title: "Select Extraction API"
+      - title: "Select extraction API"
         anchor: "bulk-vs-rest-api"
         content: |
 
@@ -210,13 +214,13 @@ setup-steps:
             </tr>
             </table>
 
-      - title: "Define Standard API Quota Usage Limits"
+      - title: "Define standard API quota usage limits"
         anchor: "configure-standard-api-quota-usage"
         content: |
 
           Next, you'll define the percentage of your standard API quota Stitch is allowed to use. If these limits are reached, Stitch will pause replication and resume when additional quota becomes available.
 
-          {% include note.html content="Even if you choose the Bulk API for extraction, Stitch still requires usage of Salesforce's REST API to detect changes and additions to objects and fields." %}
+          {% include note.html type="single-line" content="Even if you choose the Bulk API for extraction, Stitch still requires usage of Salesforce's REST API to detect changes and additions to objects and fields." %}
 
           Before defining these limits, we recommend reviewing your overall API usage in Salesforce to ensure Stitch or other apps won't be negatively impacted. This [Salesforce community topic](https://success.salesforce.com/answers?id=90630000000DOzAAAW) can help you locate your current API quota and usage.
 
@@ -270,7 +274,7 @@ setup-steps:
             Once you know what you want Stitch's maximum allowed standard API percentages to be, enter them as whole numbers (ex: `80` for 80%) into their respective fields.
 
 
-  - title: "Define New Field Selection"
+  - title: "Define new field selection"
     anchor: "new-field-selection"
     content: |
 
@@ -279,19 +283,18 @@ setup-steps:
       If you prefer to track new fields manually, uncheck the **Replicate new fields automatically** checkbox. **Note**: This setting cannot be changed after the integration is saved.
 
       {% capture new-fields-replicating-tables %}
-      **Data for New Fields in Already-Replicating Tables**<br>
-      Data in new fields in already-replicating tables will only be available for records added or updated **after** the column is tracked, whether they're tracked manually or automatically. **This is only applicable to tables using Incremental Replication.**<br><br>
+      Data in new fields in already-replicating tables will only be available for records added or updated **after** the column is tracked, whether they're tracked manually or automatically. **This is only applicable to tables using Incremental Replication.**
 
       To backfill columns - or get data for a new field into existing rows - you'll need to queue a full re-sync of the table by resetting its Replication Key values on the {{ app.buttons.update-table-settings }} page.
       {% endcapture %}
 
-      {% include note.html content=new-fields-replicating-tables %}
+      {% include note.html first-line="Data for new fields in already-replicating tables" content=new-fields-replicating-tables %}
 
   - title: "historical sync"
 
   - title: "replication frequency"
 
-  - title: "Authorize Stitch to Access {{ integration.display_name }}"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
       1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
@@ -314,7 +317,7 @@ schema-sections:
 
       See the [Salesforce Object Reference](https://resources.docs.salesforce.com/sfdc/pdf/object_reference.pdf) guide for info on objects not listed here, including the fields available in each object.
 
-  - title: "Custom Salesforce Object & Field Replication"
+  - title: "Custom Salesforce object and field replication"
     anchor: "custom-objects-fields-replication"
     content: |
       Stitch's {{ integration.display_name }} integration supports the replication of custom objects and fields.

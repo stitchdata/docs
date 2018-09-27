@@ -12,13 +12,12 @@ weight: 2
 {% include misc/data-files.html %}
 
 {% capture invoice %}
-**Invoice Recipients**<br>
-Only the user who initially adds the payment information to the account will receive a copy of the monthly invoice in their email.<br><br>
+Only the user who initially adds the payment information to the account will receive a copy of the monthly invoice in their email.
 
 Everyone can view the Past Payment details in the {{ app.page-names.billing }} page, however.
 {% endcapture %}
 
-{% include note.html content=invoice %}
+{% include note.html first-line="**Who receives invoices?**" content=invoice %}
 
 ## Invite a Team Member
 

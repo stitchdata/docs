@@ -19,6 +19,9 @@
         
         {{ attribute.description | flatify | markdownify }}
 
+        {% if attribute.foreign-key == true %}
+            {% include integrations/templates/schemas/foreign-keys.html %}
+        {% endif %}
 
         <table width="100%" class="table-hover">
                 </tr>
@@ -89,6 +92,10 @@
                         </td>
                         <td width="60%; fixed">
                             {{ subattribute.description | flatify | markdownify }}
+
+                            {% if subattribute.foreign-key == true %}
+                                {% include integrations/templates/schemas/foreign-keys.html %}
+                            {% endif %}
                         </td>
                     </tr>
                     {% endif %}

@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the suppression group."
+    foreign-key-id: "suppression-group-id"
 
   - name: "name"
     type: "string"

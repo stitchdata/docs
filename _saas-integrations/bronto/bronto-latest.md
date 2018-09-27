@@ -34,9 +34,13 @@ frequency: "1 hour"
 tier: "Free"
 status-url: 
 icon: /images/integrations/icons/bronto.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -52,7 +56,7 @@ setup-steps:
   - title: "Create a {{ integration.display_name }} API token"
     anchor: "create-access-token"
     content: |
-      {% include note.html content="You need Administrator permissions in Bronto to complete this step." %}
+      {% include note.html type="single-line" content="You need Administrator permissions in Bronto to complete this step." %}
       
       1. Sign into your Bronto account.
       2. Navigate to **Home > Settings**.

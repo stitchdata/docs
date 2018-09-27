@@ -5,7 +5,7 @@ version: 1.0
 name: "invoiceItemAdjustment"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoice-Items
 description: |
-  The `invoiceItemAdjustment` table contains info about adjustments applied to invoice line items.
+  The `{{ table.name }}` table contains info about adjustments applied to invoice line items.
 
 replication-method: "Key-based Incremental"
 
@@ -14,6 +14,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the adjustment."
+    foreign-key: "invoice-item-adjustment"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,21 +24,22 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "account-id"
 
   - name: "accountingCode"
     type: "string"
     description: "The accounting code for the invoice item."
+    foreign-key-id: "accounting-code-id"
 
   - name: "accountingPeriodId"
     type: "string"
     description: "The ID of the accounting period associated with the invoice."
-    foreign-key: true
+    foreign-key-id: "accounting-period-id"
 
   - name: "accountReceivableAccountingCodeId"
     type: "string"
     description: "The ID of the accounts receivable accounting code associated with the invoice."
-    foreign-key: true
+    foreign-key-id: "account-receivable-accounting-code-id"
 
   - name: "adjustmentDate"
     type: "date-time"
@@ -50,7 +52,7 @@ attributes:
   - name: "amendmentId"
     type: "string"
     description: "The ID of the amendment associated with the invoice item."
-    foreign-key: true
+    foreign-key-id: "amendment-id"
 
   - name: "amount"
     type: "double"
@@ -59,7 +61,7 @@ attributes:
   - name: "billToContactId"
     type: "string"
     description: "The ID of the person to bill for the account."
-    foreign-key: true
+    foreign-key-id: "bill-to-contact-id"
 
   - name: "cancelledById"
     type: "string"
@@ -97,7 +99,7 @@ attributes:
   - name: "invoiceId"
     type: "string"
     description: "The ID of the invoice associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "invoice-id"
 
   - name: "invoiceItemName"
     type: "string"
@@ -106,41 +108,42 @@ attributes:
   - name: "invoiceNumber"
     type: "string"
     description: "The unique ID for the invoice that contains the invoice item."
+    foreign-key-id: "invoice-number"
 
   - name: "journalEntryId"
     type: "string"
     description: "The journal entry ID associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "journal-entry-id"
 
   - name: "journalRunId"
     type: "string"
     description: "The ID of the journal run associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "journal-run-id"
 
   - name: "parentAccountId"
     type: "string"
     description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
-    foreign-key: true
+    foreign-key-id: "parent-account-id"
 
   - name: "productId"
     type: "string"
     description: "The ID of the product associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "product-id"
 
   - name: "productRatePlanChargeId"
     type: "string"
     description: "The ID of the rate plan charge associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "product-rate-plan-charge-id"
 
   - name: "ratePlanChargeId"
     type: "string"
     description: "The ID of the rage plan charge that's associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "rate-plan-charge-id"
 
   - name: "ratePlanId"
     type: "string"
     description: "The ID of the rate plan associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "rate-plan-id"
 
   - name: "reasonCode"
     type: "string"
@@ -149,7 +152,7 @@ attributes:
   - name: "recognizedRevenueAccountingCodeId"
     type: "date-time"
     description: "The ID of the accounting code used for recognized revenue."
-    foreign-key: true
+    foreign-key-id: "recognized-revenue-accounting-code-id"
 
   - name: "referenceId"
     type: "string"
@@ -158,7 +161,7 @@ attributes:
   - name: "salesTaxPayableAccountingCodeId"
     type: "string"
     description: "The ID of the accounting code used for sales tax payable."
-    foreign-key: true
+    foreign-key-id: "sales-tax-payable-accounting-code-id"
 
   - name: "serviceEndDate"
     type: "date-time"
@@ -171,7 +174,7 @@ attributes:
   - name: "soldToContactId"
     type: "string"
     description: "The ID of the person who bought the subscription associated with the account."
-    foreign-key: true
+    foreign-key-id: "sold-to-contact-id"
 
   - name: "sourceId"
     type: "string"
@@ -192,12 +195,12 @@ attributes:
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "subscription-id"
 
   - name: "taxationItemId"
     type: "string"
     description: "The ID of the associated taxation record."
-    foreign-key: true
+    # foreign-key-id: "taxation-item-id"
 
   - name: "transferredToAccounting"
     type: "string"

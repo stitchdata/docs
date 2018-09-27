@@ -1,10 +1,17 @@
 {% unless page.layout == "singer" %}
-### Select Tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}& Columns {% endif %}to Sync {#syncing-data}
+### Set tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns {% endif %}to replicate {#syncing-data}
 {% endunless %}
 
-To complete the setup, you'll need to select tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns {% endif %}you want to [sync to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
+To complete the setup, you'll need to select tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns {% endif %}you want to [replicate to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
 
-Check out the Schema section to [learn more about the available tables in {{ integration.display_name }}](#schema).
+{% case integration.name %}
+
+{% when 'amazon-s3-csv' %}
+Check out the [Schema section](#schema) to learn more about how {{ integration.display_name }} data will be structured once it's loaded into your destination.
+
+{% else %}
+Check out the Schema section to [learn more about the available tables in {{ integration.display_name }}](#schema) and how they replicate.
+{% endcase %}
 
 {% if integration.singer == true %}
 1. In the list of tables that displays - or in the **Tables to Replicate tab**, if you skipped this step during setup - locate a table you want to replicate.

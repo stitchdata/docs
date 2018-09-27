@@ -23,6 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The Intercom-defined company ID."
+    foreign-key-id: "company-id"
 
   - name: "updated_at"
     type: "date-time"

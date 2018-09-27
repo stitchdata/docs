@@ -1,0 +1,101 @@
+# ------------------------------------------ #
+#   DEFAULT DB INTEGRATION SETTINGS FIELDS   #
+# ------------------------------------------ #
+
+## This file contains the default field names and descriptions for
+## the fields in the Database Integrations Settings page for database integrations.
+
+## As the required fields vary from integration to integration, 
+## each integration type lists the fields required for its
+## specific setup and, if applicable, a integration that's specific
+## to that integration.
+
+## See the other files in this folder (_data/ui/database-integration-settings)
+## for the specifics of each database type.
+
+
+# -------------------------- #
+#     Default Field Names    #
+# -------------------------- #
+## Defines the default field names in the Database Integration Settings page.
+
+field-names:
+  integration-name: "Integration Name"
+  host: "Host (Endpoint)"
+  port: "Port"
+  username: "Username"
+  password: "Password"
+  database: "Database"
+
+  encryption: "Encryption Type"
+
+## These fields are used when the instructions are for connecting
+## a database using an SSH tunnel or SSL.
+
+  ssh-host: &ssh-host "SSH Host"
+  ssh-user: &ssh-user "SSH User"
+  ssh-port: &ssh-port "SSH Port"
+
+  ssl: "Connect using SSL"
+
+
+# -------------------------- #
+#        Default Copy        #
+# -------------------------- #
+
+## Default copy for fields. Used when the user doesn't require any 
+## additional or info specific to the integration to complete the setup.
+
+field-copy:
+  integration-name: |
+    Enter a name for the integration. This is the name that will display on the {{ app.page-names.dashboard }} for the integration; it’ll also be used to create the schema in your data warehouse.
+
+            For example, the name “Stitch {{ integration.display_name }}” would create a schema called `stitch_{{ integration.name | replace:"-","_" }}` in the data warehouse. **Note:** The schema name cannot be changed after the integration is saved.
+
+  host: |
+    Enter the host address (endpoint) used by the {{ integration.display_name }} instance.
+
+            In general, this will be `127.0.0.1` (localhost), but could also be some other network address (ex: `192.68.0.1`) or your server's public IP address. **Note:** This must be the actual address - entering `localhost` into this field will cause connection issues.
+  port: |
+    Enter the port used by the {{ integration.display_name }} instance. The default is `{{ integration.port }}`.
+  
+  username: "Enter the Stitch {{ integration.display_name }} database user's username."
+
+  password: |
+    Enter the password for the Stitch {{ destination.display_name }} database user.
+  
+  database: |
+    Enter the name of the {{ integration.display_name }} database you want to connect to Stitch. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. This is required for {{ integration.display_name }} integrations.
+
+  optional-database: |
+      **Optional:** Enter the name of the default database Stitch will connect to. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to test and complete the connection.
+
+  ssl: |
+    **Note:** The database must support and allow SSL connections for this setting to work correctly.
+
+  ssh-host: &ssh-host-copy "Enter the IP address or hostname of the server Stitch will SSH into."
+
+  ssh-user: &ssh-user-copy "Enter the Stitch Linux (SSH) user's username."
+
+  ssh-port: &ssh-port-copy "Enter the SSH port on your sever. (`22` by default)"
+
+
+# -------------------------- #
+#        SSH Fields          #
+# -------------------------- #
+
+ssh:
+  - name: Remote Address
+    copy: &ssh-host-copy "Enter the IP address or hostname of the server Stitch will SSH into."
+  - name: &ssh-port SSH Port
+    copy: &ssh-port-copy "Enter the SSH port on your server. (`22` by default)"
+  - name: &ssh-user SSH User
+    copy: &ssh-user-copy "Enter the Stitch Linux (SSH) user’s username."
+
+ssh-singer:
+  - name: *ssh-host
+    copy: *ssh-host-copy
+  - name: *ssh-port
+    copy: *ssh-port-copy
+  - name: *ssh-user
+    copy: *ssh-user-copy

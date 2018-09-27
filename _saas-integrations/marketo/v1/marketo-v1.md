@@ -29,13 +29,17 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Premium"
+tier: "Paid"
 
 status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg
-whitelist:
-  tables: true
-  columns: false
+
+table-selection: true
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -53,7 +57,7 @@ setup-steps:
   - title: "Create an API-Only User Role in Marketo"
     anchor: "create-api-only-user-role"
     content: |
-      {% include note.html content="If you have an [API-Only User Role](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role) in your Marketo account, [skip to the next section](#create-stitch-marketo-api-user)." %}
+      {% include note.html type="first-line" content="If you have an [API-Only User Role](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role) in your Marketo account, [skip to the next section](#create-stitch-marketo-api-user)." %}
 
       1. Sign into your Marketo account.
       2. Click the **Admin** option.
@@ -102,7 +106,7 @@ setup-steps:
   - title: "Whitelist Stitch's IP Addresses in Marketo"
     anchor: "whitelist-stitch-ips"
     content: |
-      {% include note.html content="**Completing this step is required only if you have IP Restriction enabled in Marketo.** You can check if this setting is enabled by clicking **Admin > Web Services** and looking in the **IP Restrictions** section. If this setting isn't enabled, skip ahead to the next step." %}
+      {% include note.html type="single-line" content="**Completing this step is required only if you have IP Restriction enabled in Marketo.** You can check if this setting is enabled by clicking **Admin > Web Services** and looking in the **IP Restrictions** section. If this setting isn't enabled, skip ahead to the next step." %}
 
       1. In the **Integration** menu, click **Web Services**.
       2. In the **IP Restrictions section**, click the **Edit** button.

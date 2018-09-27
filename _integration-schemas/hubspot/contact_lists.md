@@ -6,9 +6,7 @@ name: "contact_lists"
 doc-link: https://developers.hubspot.com/docs/methods/lists/contact-lists-overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/contact_lists.json
 description: |
-  The `contact_lists` table contains info about the contacts lists in your HubSpot account. Contact lists are used to segment contacts into groups, and there are two types: dynamic (smart lists) and static.
-
-notes: 
+  The `{{ table.name }}` table contains info about the contacts lists in your HubSpot account. Contact lists are used to segment contacts into groups, and there are two types: dynamic (smart lists) and static.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -16,13 +14,12 @@ api-method:
   doc-link: https://developers.hubspot.com/docs/methods/lists/get_lists
 
 attributes:
-## Primary Key
   - name: "listId"
     type: "integer"
     primary-key: true
     description: "The unique ID of the list."
+    foreign-key-id: "contact-list-id"
 
-## Replication Key
   - name: "updatedAt"
     type: "date-time"
     replication-key: true
@@ -108,6 +105,7 @@ attributes:
   - name: "portalId"
     type: "integer"
     description: "The ID of the portal the contact list belongs to."
+    foreign-key-id: "portal-id"
 
   - name: "createdAt"
     type: "date-time"

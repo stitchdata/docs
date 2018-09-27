@@ -1,17 +1,21 @@
-{% capture important %}
 {% case integration.db-type %}
 {% when 'mysql' %}
-To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater.<br><br>
-{% endcase %}
+{% capture important %}
+**To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater**.
 
 Additionally, setting up binlog replication requires rebooting your database to ensure parameter changes take effect. To minimize disruptions, we recommend performing the reboot during non-peak usage hours.
 {% endcapture %}
 
+{% include important.html first-line="**Requirements for configuring binlog replication**" content=important %}
 
-{% include important.html content=important %}
+{% when 'postgres' %}
+{% include notifications/postgres-binlog-limitations.html %}
+{% endcase %}
+
+
 
 Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}), or binlog replication.
 
 Log-based Incremental Replication is a method of replication that reads a database's binary log files. These files contain information about modifications made to data in a {{ integration.display_name }} instance. Log-based Incremental Replication captures all inserts, updates, and deletes made to records during each replication job, and is the most accurate and efficient method of replication.
 
-While Stitch recommends using binlog to replicate data, it isn't mandatory. Stitch offers additional [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) for {{ integration.display_name }} databases that don't require defining these settings.
+While Stitch recommends using Log-based Replication to replicate data, it isn't mandatory. Stitch offers additional [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) for {{ integration.display_name }} databases that don't require defining these settings.

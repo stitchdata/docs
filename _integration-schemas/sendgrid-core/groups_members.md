@@ -18,9 +18,10 @@ attributes:
     type: "string"
     primary-key: true
     description: "The email address of the recipient."
+    foreign-key-id: "email-id"
 
   - name: "group_id"
     type: "integer"
     description: "The ID of the group the recipient is a member of."
-    foreign-key: true
+    foreign-key-id: "suppression-group-id"
 ---

@@ -1,0 +1,39 @@
+# --------------------------------------------- #
+#    MONGO-BACKED INTEGRATION SETTINGS FIELDS   #
+# --------------------------------------------- #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each Mongo-backed database integration.
+
+## Depending on the provider of the database (ex: RDS), some field names
+## or values will vary. See the lists below for specifics.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+# -------------------------- #
+#        VANILLA MONGO       #
+# -------------------------- #
+
+mongodb:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: |
+      Enter the name of the {{ integration.display_name }} database where the Stitch user is to be authenticated. Stitch will 'find' all the databases you gave the Stitch user access to - this is needed only to complete the connection.
+
+            **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.

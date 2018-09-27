@@ -23,6 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The user ID."
+    foreign-key-id: "user-id"
 
   - name: "updated_at"
     replication-key: true
@@ -140,9 +141,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The Intercom-defined company ID."
-        # foreign-keys:
-        #   - table: "companies"
-        #     attribute: "id"
+        foreign-key-id: "company-id"
 
       - name: "company_id"
         type: "string"
@@ -187,9 +186,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The segment ID."
-        # foreign-keys:
-        #   - table: "segments"
-        #     attribute: "id"
+        foreign-key-id: "segment-id"
 
       - name: "type"
         type: "string"
@@ -202,9 +199,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The tag ID."
-        # foreign-keys:
-        #   - table: "tags"
-        #     attribute: "id"
+        foreign-key-id: "tag-id"
 
       - name: "name"
         type: "string"

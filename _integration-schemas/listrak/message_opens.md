@@ -19,7 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the message that was opened."
-    foreign-key: true
+    foreign-key-id: "message-id"
 
   - name: "EmailAddress"
     type: "string"
@@ -29,7 +29,7 @@ attributes:
   - name: "ContactID"
     type: "string"
     description: "The ID of the contact that opened the email."
-    foreign-key: true
+    foreign-key-id: "contact-id"
 
   - name: "OpenDate"
     type: "string"

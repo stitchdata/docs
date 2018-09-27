@@ -17,7 +17,7 @@ enterprise-cta:
 ---
 {% include misc/data-files.html %}
 
-{% include note.html content="Extraction logs are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, extraction logs will be made available." %}
+{% include note.html first-line="**Extraction log availability**" content="Extraction logs are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, extraction logs will be made available." %}
 
 The first phase of every Stitch replication job is called **Extraction**. During Extraction, Stitch completes the following: 
 
@@ -140,13 +140,12 @@ Below are some examples of extraction logs, what they indicate, and how to read 
 The extraction logs contain information about the current Replication Key value for a given table, as well as the updated value detected during the extraction process.
 
 {% capture replication-keys-in-tables %}
-**SaaS Integrations & Replication Keys**<br>
-Unlike database integrations, Stitch automatically selects the field to use for Incremental Replication. This can make it difficult to remember which field extraction is based on.<br><br>
+Unlike database integrations, Stitch automatically selects the field to use for Incremental Replication. This can make it difficult to remember which field extraction is based on.
 
 To see the Replication Keys for a given integration, check the **Schema** section of the [integration's documentation]({{ site.baseurl }}/integrations/saas). Look for fields with a {{ ui-icon.replication-key | flatify }} icon next to their names.
 {% endcapture %}
 
-{% include note.html content=replication-keys-in-tables %}
+{% include note.html first-line="**SaaS Integrations & Replication Keys**" content=replication-keys-in-tables %}
 
 #### Replication Key values and extraction
 
