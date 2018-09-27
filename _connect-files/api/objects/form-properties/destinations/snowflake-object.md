@@ -18,5 +18,13 @@ object-attributes:
     type: "string"
     required: false
     description: "The role to use."
-    value: "<OPTIONAL_ROLE>"
+    value: |
+      "<OPTIONAL_ROLE>"
+
+  - name: "warehouse"
+    type: "string"
+    required: true
+    description: "The name of the Snowflake warehouse Stitch will connect to."
+    value: |
+      "<WAREHOUSE>"
 ---
