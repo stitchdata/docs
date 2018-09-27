@@ -35,9 +35,13 @@ tier: "Free"
 auth: "oauth"
 status-url: https://status.bingads.com/
 icon: /images/integrations/icons/bing-ads.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 
 # -------------------------- #

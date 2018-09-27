@@ -30,9 +30,13 @@ tier: "Free"
 auth: "oauth"
 status-url: "https://developers.facebook.com/status/"
 icon: /images/integrations/icons/facebook-ads.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

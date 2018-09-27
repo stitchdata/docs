@@ -31,9 +31,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 icon: /images/integrations/icons/desk.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #     Integration Tables     #

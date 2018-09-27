@@ -31,9 +31,13 @@ frequency: "30 minutes"
 tier: "Paid"
 status-url: https://status.hubspot.com/
 icon: /images/integrations/icons/hubspot.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 incompatible:
   postgres: "sometimes"

@@ -33,10 +33,14 @@ historical: "1 year"
 tier: "Paid"
 icon: /images/integrations/icons/salesforce.svg
 whitelist-ips: true
-whitelist:
-  tables: true
-  columns: true
-  set-replication-methods: true
+
+table-selection: true
+column-selection: true
+set-replication-methods: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -53,7 +57,7 @@ requirements-list:
 
 
 setup-steps:
-  - title: "Set Trusted IPs in Salesforce"
+  - title: "Set trusted IPs in Salesforce"
     anchor: "whitelist-stitch-ips"
     content: |
       Depending on how your Salesforce instance is set up, you may need to whitelist Stitch's IP addresses. In Salesforce, this is referred to as "setting trusted IPs".
@@ -83,7 +87,7 @@ setup-steps:
       Stitch's {{ integration.display_name }} integration allows you to control both of these settings so you can replicate data as you see fit.
       
     substeps:
-      - title: "Select Extraction API"
+      - title: "Select extraction API"
         anchor: "bulk-vs-rest-api"
         content: |
 
@@ -210,7 +214,7 @@ setup-steps:
             </tr>
             </table>
 
-      - title: "Define Standard API Quota Usage Limits"
+      - title: "Define standard API quota usage limits"
         anchor: "configure-standard-api-quota-usage"
         content: |
 
@@ -270,7 +274,7 @@ setup-steps:
             Once you know what you want Stitch's maximum allowed standard API percentages to be, enter them as whole numbers (ex: `80` for 80%) into their respective fields.
 
 
-  - title: "Define New Field Selection"
+  - title: "Define new field selection"
     anchor: "new-field-selection"
     content: |
 
@@ -290,7 +294,7 @@ setup-steps:
 
   - title: "replication frequency"
 
-  - title: "Authorize Stitch to Access {{ integration.display_name }}"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
       1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
@@ -313,7 +317,7 @@ schema-sections:
 
       See the [Salesforce Object Reference](https://resources.docs.salesforce.com/sfdc/pdf/object_reference.pdf) guide for info on objects not listed here, including the fields available in each object.
 
-  - title: "Custom Salesforce Object & Field Replication"
+  - title: "Custom Salesforce object and field replication"
     anchor: "custom-objects-fields-replication"
     content: |
       Stitch's {{ integration.display_name }} integration supports the replication of custom objects and fields.

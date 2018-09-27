@@ -31,9 +31,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
 icon: /images/integrations/icons/appsflyer.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Setup Instructions    #
