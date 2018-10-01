@@ -10,11 +10,11 @@ layout: destination-setup-guide
 type: "amazon-s3"
 display_name: "Amazon S3"
 
-enterprise-cta:
-  title: "Need loading notifications?"
-  url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
-  copy: |
-    As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+# enterprise-cta:
+#   title: "Need loading notifications?"
+#   url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
+#   copy: |
+#     As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -33,7 +33,7 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Create an {{ destination.display_name }} Bucket"
+  - title: "Create an {{ destination.display_name }} bucket"
     anchor: "create-a-bucket"
     content: |
       {% include note.html type="single-line" content="Skip to [Step 2](#configure-stitch-settings) if there is an existing S3 bucket you want to connect to Stitch." %}
@@ -54,7 +54,7 @@ setup-steps:
       9. When ready, click **Create bucket**.
 
 
-  - title: "Configure Stitch Settings"
+  - title: "Configure Stitch settings"
     anchor: "configure-stitch-settings"
     content: |
       In this step, you'll define the file and object key format Stitch will use to load data into {{ destination.display_name }}.
@@ -64,7 +64,7 @@ setup-steps:
       For example: `this-is-a-test-bucket-stitch-dev`
 
     substeps:
-      - title: "Select Data Storage Format"
+      - title: "Select data storage format"
         anchor: "select-data-storage-format"
         content: |
           The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. Supported options are:
@@ -81,18 +81,19 @@ setup-steps:
           - **Delimiter**: Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
           - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
 
-      - title: "Define Webhook Loading Notifications"
-        anchor: "define-webhook-loading-notifications"
-        content: |
-          {% include enterprise-cta.html %}
+# Commenting out, since we aren't doing this right now.
+      # - title: "Define Webhook Loading Notifications"
+      #   anchor: "define-webhook-loading-notifications"
+      #   content: |
+      #     {% include enterprise-cta.html %}
 
-          Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
+      #     Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
 
-          Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
+      #     Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
 
-          To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box and paste a webhook URL in the **Webhook URL** field.
+      #     To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box and paste a webhook URL in the **Webhook URL** field.
 
-          More info about webhook loading notifications, including a list of attributes and sample use cases, [can be found here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#webhook-loading-notifications" }}).
+      #     More info about webhook loading notifications, including a list of attributes and sample use cases, [can be found here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#webhook-loading-notifications" }}).
 
       - title: "Define S3 Object Key"
         anchor: "define-s3-object-key"
@@ -156,14 +157,41 @@ setup-steps:
 
           After you've finished defining the Key, click **Continue**.
 
-  - title: "Grant and Verify Bucket Access"
+  - title: "Grant and verify bucket access"
     anchor: "grant-verify-bucket-access"
     content: |
       {% include important.html type="single-line" content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
 
       Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
 
-      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
+      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page. It allows Stitch to assume a role and access the bucket. An example might look like this:
+
+      ```json
+      {
+        "Version": "2012-10-17",
+        "Id": "",
+        "Statement": [
+          {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": [
+                "arn:aws:iam::218546966473:role/LoaderS3"
+              ]
+            },
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:ListBucket"
+            ],
+            "Resource": [
+              "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>",
+              "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>/*"
+            ]
+          }
+        ]
+      }
+      ```
 
       For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
 
@@ -225,7 +253,6 @@ setup-steps:
                       </table>
                     </div>
                 </div>
-
             </div>
           </div>
 
@@ -234,7 +261,6 @@ setup-steps:
         anchor: "add-bucket-policy"
         content: |
           To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
-          {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="500px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
 
           1. Sign into AWS in another tab, if you aren't currently logged in.
           2. Click **Services** near the top-left corner of the page.
@@ -247,7 +273,7 @@ setup-steps:
 
           Leave this page open for now - you'll come back to it in the next step.
 
-      - title: "Verify Bucket Access"
+      - title: "Verify bucket access"
         anchor: "verify-bucket-access"
         content: |
           Next, to ensure that Stitch can access the bucket, you'll create a blank file that Stitch will use to test the permissions settings.
@@ -269,5 +295,3 @@ setup-steps:
 
           {% include important.html type="single-line" content="The challenge file must remain in the bucket even after the initial setup is completed. Removing this file will connection and loading interruptions." %}
 ---
-
-

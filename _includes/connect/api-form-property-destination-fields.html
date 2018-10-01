@@ -8,7 +8,11 @@
 
 
 <!-- Get attributes common to all destinations -->
-	{% assign common-destination-attributes = connect-destination-attributes.all-destinations %}
+	{% if form-property.uses-common-fields == true %}
+		{% assign common-destination-attributes = connect-destination-attributes.all-destinations %}
+	{% else %}
+		{% assign common-destination-attributes = null | compact %}
+	{% endif %}
 
 
 <!-- Get the corresponding doc for this destination
