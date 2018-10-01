@@ -119,7 +119,7 @@ examples:
 
           {% capture last-check-object %}
             "last_check":{
-                "error": false,
+                "error":false,
                 "started_at":"2018-02-06T16:15:19Z",
                 "completed_at":"2018-02-06T16:16:21Z"
             }

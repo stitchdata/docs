@@ -16,7 +16,7 @@ description: |
   1. Create a bucket policy that grants Stitch permission to write to the bucket
   2. Create a "challenge file" in the bucket that allows Stitch to test the connection
 
-  Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) for additional details.
+  Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#grant-verify-bucket-access" }}) for additional details.
 
 uses-common-fields: false
 object-attributes:
