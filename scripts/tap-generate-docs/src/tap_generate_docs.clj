@@ -21,6 +21,13 @@
   (or (= {} property-json-schema-partial)
       (string? (property-json-schema-partial "type"))))
 
+(defn type-declaration?
+  "A valid type declaration is either a string or a list. Never a map,
+   which covers the rest of JSON schema."
+  [sub-schema]
+  (or (seq? sub-schema)
+      (string? sub-schema)))
+
 (defn converted-unary-type?
   [candidate-converted-unary-type]
   (or (= {} candidate-converted-unary-type)
@@ -36,7 +43,7 @@
 
 (defn convert-object-properties
   [schema properties]
-  {:pre [(not (contains? properties "type"))]}
+  {:pre [(not (type-declaration? (properties "type")))]}
   (sort-by #(get % "name")
            (map (partial convert-multiary-type schema) properties)))
 
@@ -171,7 +178,9 @@
         (do
           (println (str "Null unary type passed for property"
                         {:property property}))
-          [])
+          {"name" property-name
+           "type" ""
+           "description" ""})
         (reduce merge-unary-types converted-unary-type-properties)))))
 
 (defn tap-fs?

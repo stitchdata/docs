@@ -82,7 +82,16 @@
       {"name" "an_object"
        "type" "object"
        "description" ""
-       "object-properties" []}))
+       "object-properties" []}
+
+      ["an_object" {"type" "object"
+                    "properties" {"type" {"type" "string"}}}]
+      {"name" "an_object"
+       "type" "object"
+       "description" ""
+       "object-properties" [{"name" "type"
+                             "type" "string"
+                             "description" ""}]}))
 
   (testing "Arrays"
     (are [x y] (= (assoc y "description" "") (convert-unary-type nil x))
@@ -279,13 +288,11 @@
        "type" "array",
        "description" ""})))
 
-;; These are not throwing anymore, since an empty properties schema is valid. They now log.
-;;; TODO Change this to a positive assertion
-#_(testing "Null types"
-    (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-multiary-type nil ["a_null" {"type" "null"}])))
-    (is (thrown? clojure.lang.ExceptionInfo
-                 (convert-multiary-type nil ["a_null" {"type" ["null"]}]))))
+(testing "Null types"
+    (is (not (thrown? clojure.lang.ExceptionInfo
+                  (convert-multiary-type nil ["a_null" {"type" "null"}]))))
+    (is (not (thrown? clojure.lang.ExceptionInfo
+                  (convert-multiary-type nil ["a_null" {"type" ["null"]}])))))
 
 (deftest convert-types-with-refs-tests
   (is (= (convert-multiary-type {"definitions" {"date" {"type" "string"
