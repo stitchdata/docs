@@ -94,6 +94,8 @@ setup-steps:
       - title: "Retrieve your storage access key"
         anchor: "retrieve-storage-access-key"
         content: |
+          {% include note.html type="single-line" content="**Rotating keys**: If you rotate your storage access keys, you'll also need to update the Destination Settings in Stitch or you'll encounter connection issues." %}
+
           1. In the middle panel menu, click **Access keys** in the **Settings** section.
           2. On the page that displays, locate the section for the **Signing key** you selected in the previous section. For example: If you selected `key1` as the signing key, locate the section for **key 1**.
           3. Copy the value in the corresponding **Key** field to somewhere handy - you'll need it to complete the setup.
