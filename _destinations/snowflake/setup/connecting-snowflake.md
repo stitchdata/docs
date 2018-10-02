@@ -28,7 +28,7 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Create a Snowflake Data Warehouse"
+  - title: "Create a Snowflake data warehouse"
     anchor: "create-data-warehouse"
     content: |
       {% capture pricing %}
@@ -44,34 +44,34 @@ setup-steps:
          ```sql
          CREATE WAREHOUSE [stitch_warehouse]
          WITH
-         AUTO_SUSPEND = [time_in_seconds]
          AUTO_RESUME = TRUE|FALSE
-         WAREHOUSE_SIZE = [size];
+         WAREHOUSE_SIZE = [size]
+         AUTO_SUSPEND = [time_in_seconds];
          ```
 
          The parameters in this command define the following:
 
-            - **AUTO_SUSPEND**: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+          - **AUTO_RESUME**: If `TRUE`, the warehouse will be automatically resumed when accessed by a SQL statement. If `FALSE`, the warehouse will only start again when explicitly resumed through the Snowflake web interface or using `ALTER WAREHOUSE`.
+          - **WAREHOUSE_SIZE**: Specifies the size of the warehouse to create. Accepted values are `XSMALL`, `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `XXLARGE`, `XXXXLARGE`, and `XXXXLARGE`.
 
-               {% capture auto-suspend-notice %}
-               Make sure the `auto_suspend` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
+            The default is `XSMALL`.
+          - **AUTO_SUSPEND**: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
 
-               If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
-               {% endcapture %}
-               {% include important.html first-line="**Make sure Auto-Suspend is enabled:" content=auto-suspend-notice %}
-            - **AUTO_RESUME**: If `TRUE`, the warehouse will be automatically resumed when accessed by a SQL statement. If `FALSE`, the warehouse will only start again when explicitly resumed through the Snowflake web interface or using `ALTER WAREHOUSE`.
-            - **WAREHOUSE_SIZE**: Specifies the size of the warehouse to create. Accepted values are `XSMALL`, `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `XXLARGE`, `XXXXLARGE`, and `XXXXLARGE`.
+      {% capture auto-suspend-notice %}
+      Make sure the `AUTO_SUSPEND` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
 
-               The default is `XSMALL`.
+      If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
+      {% endcapture %}
+             {% include important.html first-line="**Make sure Auto-Suspend is enabled:**" content=auto-suspend-notice %}
 
          Additional warehouse parameters are available. [Check out Snowflake's documentation for detailed explanations.](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html)
 
-  - title: "Create a Stitch Database & Database User"
+  - title: "Create a Stitch database and database User"
     anchor: "create-database-and-user"
     content: |
       Next, you'll create a database and database user for Stitch.
     substeps:
-      - title: "Create the Database"
+      - title: "Create the database"
         anchor: "create-snowflake-database"
         content: |
           Create the database for Stitch, changing `[stitch_database]` to what you want the database to be called:
@@ -80,7 +80,7 @@ setup-steps:
           CREATE DATABASE [stitch_database];
           ```
 
-      - title: "Create the Database User"
+      - title: "Create the database user"
         anchor: "create-stitch-database-user"
         content: |
           1. Create a role for the Stitch user:
@@ -123,7 +123,7 @@ setup-steps:
              GRANT ROLE [stitch_role] TO USER [stitch_user];
              ```
 
-  - title: "Configure Network Access Settings"
+  - title: "Configure network access settings"
     anchor: "whitelist-stitch-ips"
     content: |
       {% capture ip-addresses %}
