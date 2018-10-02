@@ -10,7 +10,8 @@ title: Microsoft Azure Destination
 permalink: /destinations/microsoft-azure-sql-data-warehouse/
 layout: destination-overview
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
-summary: ""
+summary: &summary |
+  Microsoft Azure SQL Server Data Warehouse is a fully-managed, cloud-based, enterprise-level data warehouse. Both elastic and extensible, you can optimize performance and streamline costs by scaling your compute and storage needs independently, ensuring you only pay for what you need.
 toc: true
 destination: true
 
@@ -18,20 +19,20 @@ destination: true
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
-display_name: "Microsoft Azure"
+display_name: "Azure SQL Data Warehouse"
 type: "microsoft-azure"
-db-type: "azure"
+db-type: "mssql"
 pricing_tier: "standard" ## for Stitch
 status: "In development"
-description: |
-
+description: *summary
+port: 1433
 pricing_model: "Hourly" ## provider model
 free_option: "Free (plan & trial)"
 fully-managed: true
 pricing_notes: |
-  Microsoft Azure pricing is based on your compute and storage usage. Compute usage is charged using an hourly rate, meaning you'll only be billed for the hours your data warehouse is active. Compute usage is billed in one hour increments.
+  {{ destination.display_name }} pricing is based on your compute and storage usage. Compute usage is charged using an hourly rate, meaning you'll only be billed for the hours your data warehouse is active. Compute usage is billed in one hour increments.
 
-  Storage charges include the size of your primary database and seven days of incremental snapshots. Microsoft Azure rounds charges to the nearest terabyte (TB). For example: If the data warehouse is 1.5 TB and you have 100 GB of snapshots, your bill will be fore 2 TB of data.
+  Storage charges include the size of your primary database and seven days of incremental snapshots. Microsoft Azure rounds charges to the nearest terabyte (TB). For example: If the data warehouse is 1.5 TB and you have 100 GB of snapshots, your bill will be for 2 TB of data.
 
   Refer to [Microsoft's documentation](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/gen2/){:target="new"} for more info and examples.
 icon: /images/destinations/icons/microsoft-azure.svg
@@ -41,8 +42,8 @@ icon: /images/destinations/icons/microsoft-azure.svg
 #           Support          #
 # -------------------------- #
 
-ssl: 
-ssh: 
+ssl: true
+ssh: true
 
 incremental-replication: "Upserts, Append-Only"
 connection-methods: "SSH, SSL"
@@ -88,18 +89,48 @@ introduction: |
 sections:
   - title: "pricing"
     content: |
-      {{ destination.pricing_notes }}
+      {{ destination.pricing_notes | flatify }}
 
   - title: "setup"
     content: |
+      [TODO]
 
   - title: "limitations"
-    include: |
+    content: |
       {% include destinations/overviews/limitations.html %}
 
   - title: "replication"
-    include: |
-      {% include destinations/overviews/replication-process.html %}
+    content: |
+      After the data is extracted from your integrations, Stitch will perform the following steps to prepare and load that data into your {{ destination.display_name }} destination.
+    subsections:
+      - title: "Step 1: Load data into Azure Blob Storage"
+        anchor: "load-into-blob-storage"
+        content: |
+          The first step in the loading process for {{ destination.display_name }} destinations is to load the extracted data into [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction){:target="new"}.
+
+          Blob storage is intended for storing massive amounts of unstructured data. In the next step, Stitch will use PolyBase to retrieve the data from blob storage and prepare it for loading into {{ destination.display_name }}.
+
+      - title: "Step 2: Prep data using PolyBase"
+        anchor: "prep-data-polybase"
+        content: |
+          {% include note.html type="single-line" content="**Note**: PolyBase has its own set of limitations that may make it impossible to load certain data. Refer to the [Limitations](#limitations) section for more info." %}
+
+          [PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017){:target="new"} is a Microsoft offering that integrates Microsoft SQL products with Hadoop. PolyBase is needed to query data from Azure Blob Storage.
+
+          In this step, Stitch will perform the following:
+
+          1. **Create an external data source**. This creates an [external data source](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-2017){:target="new"} for the PolyBase queries Stitch will run.
+          2. **Create an external file format**. This creates [an object that defines the external (extracted) data](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-file-format-transact-sql?view=sql-server-2017){:target="new"} Stitch will load. This is used in the next step to create an external table.
+          3. **Create an external table**. Using the external file format, this will [create an external table](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-2017){:target="new"}. The external table is used to stage the data from Azure blob storage and load it into your {{ destination.display_name }} data warehouse.
+
+      - title: "Step 3: Insert data into the data warehouse"
+        anchor: "bulk-load-from-polybase"
+        content: |
+          Lastly, Stitch will insert the data from the external table in PolyBase into your {{ destination.display_name }} data warehouse. 
+
+      # ### Replication speed
+
+      # {% include destinations/overviews/replication-process.html %}
 
   - title: "schema"
     include: |
