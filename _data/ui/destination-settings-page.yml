@@ -78,11 +78,33 @@ panoply:
   - field: *port
     copy: *port-copy
   - field: *username
-    copy: Enter the username of the database user you want to use to connect Panoply to Stitch.
+    copy: "Enter the username of the database user you want to use to connect {{ destination.display_name }} to Stitch."
   - field: *password
-    copy: Enter the password of the database user you want to use to connect Panoply to Stitch.
+    copy: "Enter the password of the database user you want to use to connect {{ destination.display_name }} to Stitch."
   - field: *database
-    copy: Enter the name of the database in your Panoply data warehouse you want to connect to Stitch.
+    copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
+
+# -------------------------- #
+#      Microsoft Azure       #
+# -------------------------- #
+
+microsoft-azure:
+  - field: *host
+    copy: *host-copy
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
+  - field: "Shared Access Signature URL"
+    copy: |
+      Paste the **Blob service SAS URL** you generated in [Step TODO](#generate-shared-access-signature-url).
+  - field: "Access Key for Azure Storage"
+    copy: |
+      Paste the **Key** associated with the signing key you selected in [Step TODO](#generate-shared-access-signature-url).
 
 # -------------------------- #
 #          Postgres          #
@@ -176,12 +198,12 @@ redshift:
 
 snowflake:
   - field: *host
-    copy: "Enter the URL of your Snowflake account. For example: `stitch.snowflakecomputing.com`"
+    copy: "Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`"
   - field: *username
     copy: *username-copy
   - field: *password
     copy: *password-copy
   - field: *database
     copy: *database-copy
-  - field: Warehouse
-    copy: "Enter the name of the Snowflake warehouse that you created for Stitch."
+  - field: "Warehouse"
+    copy: "Enter the name of the {{ destination.display_name }} warehouse that you created for Stitch."
