@@ -7,7 +7,7 @@
 #        Page Controls       #
 # -------------------------- #
 title: Microsoft Azure Destination
-permalink: /destinations/microsoft-azure/
+permalink: /destinations/microsoft-azure-sql-data-warehouse/
 layout: destination-overview
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: ""
