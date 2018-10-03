@@ -28,7 +28,7 @@ port: 1433
 db-type: "mssql"
 icon: /images/integrations/icons/mssql.svg
 
-versions: "SQL Server 2000+"
+versions: "2000 through 2016"
 ssh: false
 ssl: true
 
