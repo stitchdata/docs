@@ -60,12 +60,31 @@ setup-steps:
   - title: "Authorize Stitch to access Zendesk"
     anchor: "grant-stitch-authorization"
     content: |
-      {% include note.html content="A Zendesk user with Admin permissions must complete this step." %}
+      {% include note.html type="single-line" content="**Note**: A Zendesk user with Admin permissions must complete this step." %}
 
       1. Next, you'll be prompted to sign into your Zendesk account.
       2. After the authorization process is successfully completed, you'll be directed back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
+
+# -------------------------- #
+#        Replication         #
+# -------------------------- #
+
+replication-sections:
+  - title: "Replicating ticket forms"
+    anchor: "replicate-ticket-forms"
+    content: |
+      - Only available for Professional and Enterprise plans
+
+      https://support.zendesk.com/hc/en-us/articles/203661616-Creating-ticket-forms-to-support-multiple-request-types-Professional-add-on-and-Enterprise-
+
+  - title: "Replicating user and organization custom fields"
+    anchor: "replicate-user-organization-custom-fields"
+    content: |
+      - Only able to replicate User and Organization custom fields for Team, Professional, and Enterprise plans
+
+      https://support.zendesk.com/hc/en-us/articles/203662066-Adding-custom-fields-to-users
 
 # -------------------------- #
 #     Integration Tables     #

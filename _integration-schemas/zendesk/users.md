@@ -14,6 +14,8 @@ description: |
 
   Stitch's {{ integration.display_name }} integration will replicate any custom fields associated with user records.
 
+  Replicating these custom fields requires that you be on a Team, Professional, or Enterprise Zendesk plan.
+
 replication-method: "Key-based Incremental"
 
 api-method:
