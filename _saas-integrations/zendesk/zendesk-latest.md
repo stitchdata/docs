@@ -50,7 +50,7 @@ requirements-list:
 
       To ensure you can replicate all the data you need, we recommend a user with Admin permissions set up the integration.
      
-  - To replicate the **ticket_forms** table, an Enterprise Zendesk plan or Professional Zendesk plan with the corresponding Add On.
+  - To replicate the **ticket_forms** table, an Enterprise Zendesk plan or Professional Zendesk plan with the corresponding add-on.
   
       [This feature](https://support.zendesk.com/hc/en-us/articles/203661636-Managing-your-ticket-forms-) is only availble to Zendesk customers on the listed plans.
 
