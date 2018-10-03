@@ -49,6 +49,10 @@ requirements-list:
       **Administrator permissions in Zendesk**. Some data types in Zendesk may only be accessed with Admin permissions. For example: To replicate ticket metric or tag data, Zendesk's API requires a user with Admin permissions.
 
       To ensure you can replicate all the data you need, we recommend a user with Admin permissions set up the integration.
+     
+  - To replicate the **ticket_forms** table, an Enterprise Zendesk plan or Professional Zendesk plan with the corresponding add-on.
+  
+      [This feature](https://support.zendesk.com/hc/en-us/articles/203661636-Managing-your-ticket-forms-) is only availble to Zendesk customers on the listed plans.
 
 setup-steps:
   - title: "add integration"
