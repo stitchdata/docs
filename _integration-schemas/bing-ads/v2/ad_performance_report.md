@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-# version: "2.0"
+version: "2.0"
 
 name: "ad_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values
@@ -9,6 +9,14 @@ description: |
   The `{{ table.name }}` table contains performance info about ads, including clicks and conversions. This data can be used to identify and improve under-performing ads.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
+
+  #### Columns renamed from Bing Ads v1 {#renamed-v1-columns}
+
+  In this version of Stitch's {{ integration.display_name }} integration, some columns have been re-named. This was done to ensure consistency between the fields in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+  - `FinalAppURL` is now `FinalAppUrl`
+  - `FinalURL` is now `FinalUrl`
+  - `FinalMobileURL` is now `FinalMobileUrl`
 
 replication-method: "Append-Only (Incremental)"
 attribution-window: true

@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-# version: "2.0"
+version: "2.0"
 
 name: "campaign_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn#values
@@ -13,6 +13,16 @@ description: |
   #### Column compatibility
 
   As per Microsoft's attribute selection rules, some columns may be incompatible. This means that you won't be able to select certain combinations of columns in Stitch. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"} for more info, and the specific column combinations for this table.
+
+  #### Columns renamed from Bing Ads v1 {#renamed-v1-columns}
+
+  In this version of Stitch's {{ integration.display_name }} integration, some columns have been re-named. This was done to ensure consistency between the fields in our integration and [the changes made by Microsoft to the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12#reporting-downloadedcolumns){:target="new}.
+
+  - `HistoricQualityScore` is now `HistoricalQualityScore`
+  - `HistoricExpectedCtr` is now `HistoricalExpectedCtr`
+  - `HistoricAdRelevance` is now `HistoricalAdRelevance`
+  - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
+  - `Status` is now `CampaignStatus`
 
 replication-method: "Append-Only (Incremental)"
 attribution-window: true

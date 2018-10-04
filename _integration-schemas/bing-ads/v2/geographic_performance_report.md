@@ -1,10 +1,10 @@
 ---
 tap: "bing-ads"
-# version: "2.0"
+version: "2.0"
 
 name: "geographic_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn#values
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
+singer-schema: 
 description: |
   The `{{ table.name }}` table contains info about the physical locations of people searching for an ad or the locations people are searching for. This data can be used to validate or improve location targeting strategies.
 
