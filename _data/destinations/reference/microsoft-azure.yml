@@ -1,0 +1,278 @@
+# -------------------------- #
+#       Azure Reference      #
+# -------------------------- #
+
+# This file contains the data used in this destination's overview/reference
+# guide. Includes supported connection types, data type limits, object
+# naming rules, etc.
+
+# -------------------------- #
+#       Stitch Details       #
+# -------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for the destination.
+
+stitch-details-info:
+  pricing-tier: &pricing-tier |
+    All Stitch plans
+  supported-versions: &supported-versions |
+    n/a
+
+# Connection methods
+
+  connection-methods:
+    ssl: &connection-methods-ssl |
+      true
+    ssh: &connection-methods-ssh |
+      true
+    vpn: &connection-methods-vpn |
+      false
+
+# Required permissions
+
+# This may need to live somewhere else ^
+
+stitch-details:
+  - id: "pricing-tier"
+    value: *pricing-tier
+  - id: "supported-versions"
+    value: *supported-versions
+  - id: "ssl-connections"
+    value: *connection-methods-ssl
+    description: |
+      [TODO] - Determine if we use SSL by default, like we do for Redshift
+
+  - id: "ssh-connections"
+    value: *connection-methods-ssh
+    description: |
+      [TODO] - Add link to instructions once we know how to set this up
+  - id: "vpn-connections"
+    value: *connection-methods-vpn
+
+# -------------------------- #
+#         Replication        #
+# -------------------------- #
+
+# Methods for incremental replication
+
+replication-info:
+  incremental-replication:
+    upserts: &incremental-rep-upserts |
+      true
+    append: &incremental-rep-append |
+      true
+
+  primary-keys:
+    supported: &primary-key-support |
+      false
+
+  multiple-data-types:
+    supported: &multiple-data-type-support |
+      false
+
+  nested-structures:
+    supported: &nested-structure-support |
+      false
+
+  incompatible-sources: &incompatible-sources |
+    TODO
+
+replication:
+  - id: "incremental-replication-upserts"
+    value: *incremental-rep-upserts
+    description: |
+      To update existing rows, Stitch will [TBD]
+
+  # - id: "incremental-replication-append"
+  #   value: *incremental-rep-append
+  #   description: |
+
+  - id: "primary-keys"
+    value: *primary-key-support
+    description: |
+      {{ destination.display_name }} destinations do not have native support for Primary Keys.
+
+      To ensure existing rows can be updated, Stitch will create an `sdc_primary_keys` table in every integration schema. This table contains the Primary Key data for every table in the given schema, which Stitch will use to de-dupe rows during loading. [TODO-READMORE]().
+
+  - id: "multiple-data-types"
+    value: *multiple-data-type-support
+    description: |
+      {{ destination.display_name }} destinations do not support multiple data types in a single column.
+
+      To accommodate this scenario, Stitch will [TODO].
+
+  - id: "nested-data-structures"
+    value: *nested-structure-support
+    description: |
+      {{ destination.display_name }} destinations do not have native support for nested data structures.
+
+      To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+
+  - id: "incompatible-sources"
+    value: *incompatible-sources
+    description: |
+      TODO
+
+# -------------------------- #
+#         Limitations        #
+# -------------------------- #
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+object-name-limit-info:
+  case-sensitivity: &case-sensitivity "Insensitive"
+  tables: &table-name-length "128 characters"
+  columns: &column-name-length "128 characters"
+
+object-name-limits:
+  - id: "case-sensitivity"
+    value: *case-sensitivity
+    description: |
+      [TODO] - Determine if there's a pre-defined setting for this, and if not, if Stitch requires a certain configuration.
+
+      As a source, we require MSSQL databases to have certain collation settings - is that applicable here?
+
+  - id: "table-name-length"
+    value: *table-name-length
+    description: |
+      Tables with names that exceed this limit will be rejected. Rejected tables are logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      
+  - id: "column-name-length"
+    value: *column-name-length
+    description: |
+      Columns with names that exceed this limit will be rejected. Rejected columns are logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+table-limit-info:
+  max-columns-per-table: &max-columns-per-table "1,024 columns"
+  max-table-size: &max-table-size "60 TB compressed on disk"
+  max-per-database: &max-per-database "10,000 tables"
+
+table-limits:
+  - id: "max-columns-per-table"
+    value: *max-columns-per-table
+  - id: "max-table-size"
+    value: *max-table-size
+  - id: "max-tables-per-database"
+    value: *max-per-database
+
+# -------------------------- #
+#      Data type limits      #
+# -------------------------- #
+
+data-limit-info:
+  max-record-size: &max-record-size "1 MB"
+
+  boolean:
+    values: &boolean "1, 0, NULL"
+
+  date-and-time:
+    timezone-support: &timezone-support |
+      false
+
+    date-range: &date-range "January 1, 1753 AD, through December 31, 9999 AD"
+    timestamp-range: &timestamp-range "00:00:00 through 23:59:59.997"
+
+  decimal:
+    precision: &decimal-precision "Must be between 1 and 38 (38 is the default)"
+    scale: &decimal-scale "Must be between 0 and the precision value"
+
+  strings:
+    max-width: &strings-max-width "4,000 bytes"
+
+data-limits:
+  - id: "max-record-size"
+    value: *max-record-size
+    description: |
+      This limit is imposed by [Polybase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#loads){:target="new"}, which is required to load data into {{ destination.display_name }} destinations.
+
+      [TODO] - figure out if we'll log a record rejection for this scenario.
+
+  - id: "boolean-values"
+    value: *boolean
+    description: |
+      [TODO] - Determine how sources that use `true/false` as boolean types will be loaded.
+
+  - id: "date-and-time-timezone-support"
+    value: *timezone-support
+    description: |
+      [TODO] - Still need to determine how data with timezone info will be loaded.
+
+  - id: "date-and-time-date-range"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "decimal-precision"
+    value: *decimal-precision
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-scale"
+    value: *decimal-scale
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "strings-max-width"
+    value: *strings-max-width
+    description: |
+      String values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+
+# -------------------------- #
+#     Object naming rules    #
+# -------------------------- #
+
+# Naming scenarios for columns
+
+column-naming-info:
+  with-mixed-case: &destination-colum-name |
+    {{ column-name | downcase | remove: "_!" | remove: "# " }}
+
+  with-spaces: *destination-colum-name
+  with-unsupported-characters: *destination-colum-name
+  with-underscore-start: *destination-colum-name
+  with-non-letter-start: *destination-colum-name
+
+column-naming:
+  - id: "mixed-case"
+    example: |
+      {{ column-name | remove: "_!" | remove: "# " }}
+    value: *destination-colum-name
+    description: 
+
+  - id: "with-spaces"
+    example: |
+      {{ column-name | downcase | remove: "_!" | remove: "#" }}
+    value: *destination-colum-name
+
+  - id: "with-unsupported-characters"
+    example: |
+      {{ column-name | downcase | remove: "_" }}
+    value: *destination-colum-name
+
+  - id: "with-underscore-start"
+    example: |
+      {{ column-name | downcase | remove: "!" | remove: "# " }}
+    value: *destination-colum-name
+
+  - id: "with-non-letter-start"
+    example: |
+      {{ column-name | downcase | replace: "_!","123" | remove: "# " }}
+    value: *destination-colum-name
