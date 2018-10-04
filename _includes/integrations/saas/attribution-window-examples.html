@@ -16,7 +16,7 @@ During the initial set up, the **{{ window }}** and **Start Date** settings are 
 - **Start Date**: `07/03/2017`, or `2017-07-03 00:00:00`
 
 {% else %}
-During the initial set up, the **Start Date** field is set to `{{ start-date }}`, or `{{ replication-key-historical }}`.
+During the initial set up, the **Start Date** field is set to `{{ start-date }}`, or `{{ start-date-value }}`.
 {% endif %}
 
 To account for the {{ window }}, Stitch would calculate the **Minimum Extraction Date** value as: `2017-07-03 00:00:00 - {{ integration.attribution-window }} = {{ replication-key-historical }}`
