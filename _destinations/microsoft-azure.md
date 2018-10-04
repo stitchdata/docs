@@ -11,7 +11,7 @@ permalink: /destinations/microsoft-azure-sql-data-warehouse/
 layout: destination
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: &summary |
-  Microsoft Azure SQL Server Data Warehouse is a fully-managed, cloud-based, enterprise-level data warehouse. Both elastic and extensible, you can optimize performance and streamline costs by scaling your compute and storage needs independently, ensuring you only pay for what you need.
+  Microsft Azure SQL Data Warehouse is a fast, fully-managed, petabyte-scale data warehouse. It's ideal for batch-based data warehouse workloads, and designed with a decoupled storage and compute model that allows it to scale quickly and be maintained in a cost-effective way.
 toc: true
 destination: true
 
@@ -27,7 +27,7 @@ pricing_tier: "standard" ## for Stitch
 status: "In development"
 description: *summary
 port: 1433
-pricing_model: "Hourly" ## provider model
+pricing_model: "Usage" ## provider model
 free_option: "Free (plan & trial)"
 fully-managed: true
 pricing_notes: |
@@ -61,7 +61,7 @@ timezones:
 varchar-limit: "4,000 characters" ## max width for varchars
 decimal-limit: "38 numbers, or places"
 decimal-range: "6 numbers after the decimal"
-reserved-words: ""
+reserved-words: "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql?view=sql-server-2017"
 
 # -------------------------- #
 #    Incompatible Sources    #
