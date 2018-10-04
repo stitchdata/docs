@@ -27,7 +27,7 @@ attributes:
     primary-key: true
     description: "The start time of the Stitch replication job that replicated this record."
 
-  - name: "gregorianDate"
+  - name: "TimePeriod"
     type: "date"
     primary-key: true
     replication-key: true
