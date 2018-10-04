@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Bing Ads
-permalink: /integrations/saas/bing-ads
+permalink: /integrations/saas/bing-ads/v1
 tags: [saas_integrations]
 keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema
 layout: singer
@@ -20,7 +20,7 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-bing-ads
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
