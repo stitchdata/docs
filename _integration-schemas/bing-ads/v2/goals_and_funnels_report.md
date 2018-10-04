@@ -6,17 +6,15 @@ name: "goals_and_funnels_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn
 singer-schema: 
 description: |
-  The `goals_and_funnels_report` table contains information about your audience's progression through your conversion funnel. Use this report to determine the point at which users leave the funnel, thereby allowing you to improve and increase conversion.
+  The `{{ table.name }}` table contains information about your audience's progression through your conversion funnel. Use this report to determine the point at which users leave the funnel, thereby allowing you to improve and increase conversion.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+attribution-window: true
 
 attributes:
-  - name: "accountId"
+  - name: "AccountId"
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."

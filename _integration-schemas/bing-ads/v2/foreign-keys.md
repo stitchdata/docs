@@ -5,7 +5,7 @@ tap-reference: "bing-ads"
 
 foreign-keys:
   - id: "account-id"
-    attribute: "accountId"
+    attribute: "AccountId"
     table: "accounts"
     all-foreign-keys:
       - table: "accounts"

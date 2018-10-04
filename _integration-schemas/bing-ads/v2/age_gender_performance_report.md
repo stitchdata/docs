@@ -6,17 +6,15 @@ name: "age_gender_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn#values
 singer-schema: ## link to the JSON schema file in the integration's Singer repo
 description: |
-  The `age_gender_performance_report` table contains info about the age and gender demographics of people interacting with your campaigns and ad groups.
+  The `{{ table.name }}` table contains info about the age and gender demographics of people interacting with your campaigns and ad groups.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+attribution-window: true
 
 attributes:
-  - name: "accountId"
+  - name: "AccountId"
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."

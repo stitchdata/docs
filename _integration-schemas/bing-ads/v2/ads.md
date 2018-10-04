@@ -6,7 +6,7 @@ name: "ads"
 doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/ad
 singer-schema: 
 description: |
-  The `ads` table contains info about the following ad types:
+  The `{{ table.name }}` table contains info about the following ad types:
 
   - `AppInstall`
   - `DynamicSearch`

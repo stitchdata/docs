@@ -6,17 +6,15 @@ name: "geographic_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/geographicperformancereportcolumn#values
 singer-schema: ## link to the JSON schema file in the integration's Singer repo
 description: |
-  The `geographic_performance_report` table contains info about the physical locations of people searching for an ad or the locations people are searching for. This data can be used to validate or improve location targeting strategies.
+  The `{{ table.name }}` table contains info about the physical locations of people searching for an ad or the locations people are searching for. This data can be used to validate or improve location targeting strategies.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+attribution-window: true
 
 attributes:
-  - name: "accountId"
+  - name: "AccountId"
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."

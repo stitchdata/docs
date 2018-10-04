@@ -6,7 +6,7 @@ name: "ad_groups"
 doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/adgroup
 singer-schema: 
 description: |
-  The `ad_groups` table contains info about the ad groups associated with the campaigns in your Bing Ads account.
+  The `{{ table.name }}` table contains info about the ad groups associated with the campaigns in your Bing Ads account.
 
   [This is a **Core Object** table](#replication).
 

@@ -6,17 +6,15 @@ name: "ad_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values
 singer-schema: 
 description: |
-  The `ad_performance_report` table contains performance info about ads, including clicks and conversions. This data can be used to identify and improve under-performing ads.
+  The `{{ table.name }}` table contains performance info about ads, including clicks and conversions. This data can be used to identify and improve under-performing ads.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+attribution-window: true
 
 attributes:
-  - name: "accountId"
+  - name: "AccountId"
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."

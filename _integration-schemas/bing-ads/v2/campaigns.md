@@ -6,7 +6,7 @@ name: "campaigns"
 doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/campaign
 singer-schema: 
 description: |
-  The `campaigns` table contains info about the campaigns in your Bing Ads account.
+  The `{{ table.name }}` table contains info about the campaigns in your Bing Ads account.
 
   [This is a **Core Object** table](#replication).
 

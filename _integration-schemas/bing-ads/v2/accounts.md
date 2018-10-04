@@ -6,14 +6,11 @@ name: "accounts"
 doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/account
 singer-schema: 
 description: |
-  The `accounts` table contains high-level information about each of the ad accounts you selected during setup. Each row in this table corresponds to a single account.
+  The `{{ table.name }}` table contains high-level information about each of the ad accounts you selected during setup. Each row in this table corresponds to a single account.
 
   [This is a **Core Object** table](#replication).
 
 replication-method: "Key-based Incremental"
-api-method:
-  name:
-  doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/account
 
 attributes:
   - name: "id"
