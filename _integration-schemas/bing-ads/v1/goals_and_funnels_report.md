@@ -1,12 +1,12 @@
 ---
 tap: "bing-ads"
-# version: "1.0"
+version: "1.0"
 
-name: "age_gender_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/agegenderdemographicreportcolumn#values
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
+name: "goals_and_funnels_report"
+doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn
+singer-schema: 
 description: |
-  The `age_gender_performance_report` table contains info about the age and gender demographics of people interacting with your campaigns and ad groups.
+  The `goals_and_funnels_report` table contains information about your audience's progression through your conversion funnel. Use this report to determine the point at which users leave the funnel, thereby allowing you to improve and increase conversion.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 

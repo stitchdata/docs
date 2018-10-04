@@ -1,12 +1,12 @@
 ---
 tap: "bing-ads"
-# version: "1.0"
+version: "1.0"
 
-name: "ad_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values
+name: "keyword_performance_report"
+doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn#values
 singer-schema: 
 description: |
-  The `ad_performance_report` table contains performance info about ads, including clicks and conversions. This data can be used to identify and improve under-performing ads.
+  The `keyword_performance_report` table contains performance data about keywords.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."
-    foreign-key-id: "accounts-id"
+    foreign-key-id: "account-id"
 
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"
@@ -35,17 +35,12 @@ attributes:
 
   - name: "adGroupId"
     type: "integer"
-    description: "The ID of the ad group the ad is a part of."
+    description: "The ID of the ad group."
     foreign-key-id: "ad-group-id"
-
-  - name: "adId"
-    type: "integer"
-    description: "The ad ID."
-    foreign-key-id: "ad-id"
 
   - name: "campaignId"
     type: "integer"
-    description: "The ID of the campaign the ad is a part of."
+    description: "The ID of the campaign."
     foreign-key-id: "campaign-id"
 
   - name: "Custom Fields"
