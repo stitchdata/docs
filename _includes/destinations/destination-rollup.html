@@ -26,33 +26,35 @@
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="general">
-        <table width="100%; fixed" class="table-hover">
+        <table class="attribute-list table-hover">
             <tr>
-                <td width="13%; fixed">
+                <td class="attribute-name">
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Release Status</strong>
                 </td>
-                <td align="center">
+               <td class="attribute-description">
                     <strong>Database Type</strong><a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.db-type }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Fully Managed?</strong><a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.fully-managed }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
             </tr>
             {% for destination in destinations %}
                 <tr>
-                    <td>
-                        <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                    <td class="attribute-name">
+                        <strong>
+                            <a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a>
+                        </strong>
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.status }}
                     </td>
                     
-                    <td align="center">
-                        {{ destination.db-type }}
+                    <td class="attribute-description">
+                        {{ destination.db-type | capitalize }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {% case destination.fully-managed %}
                             {% when false %}
                                 No
@@ -71,28 +73,28 @@
     <div role="tabpanel" class="tab-pane" id="pricing-tab">
         <p>For more details, see the <a href="#pricing">Pricing</a> section.</p>
 
-        <table width="100%; fixed" class="table-hover">
+        <table class="attribute-list table-hover">
             <tr>
-                <td width="13%; fixed">
+                <td class="attribute-name">
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Pricing Model</strong>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Free Option?</strong>
                 </td>
             </tr>
             {% for destination in destinations %}
                 <tr>
-                    <td>
+                    <td class="attribute-name">
                         <strong>
                             <a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a>
                         </strong>
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         <a href="{{ destination.pricing }}">{{ destination.pricing_model }}</a>
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.free_option }}
                     </td>
                 </tr>
@@ -101,32 +103,32 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="stitch-support">
-        <table width="100%; fixed" class="table-hover">
+        <table class="attribute-list table-hover">
             <tr>
-                <td width="13%; fixed">
+                <td class="attribute-name">
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Supported Versions</strong>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Connection Methods</strong>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Incompatible Sources</strong>
                 </td>
             </tr>
             {% for destination in destinations %}
                 <tr>
-                    <td>
+                    <td class="attribute-name">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.supported-versions }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.connection-methods }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {% case destination.incompatible-with %}
                             {% when 0 %}
                                 None
@@ -142,49 +144,49 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="object-limits">
-        <table width="100%; fixed" class="table-hover">
+        <table class="attribute-list table-hover">
             <tr>
-                <td width="13%; fixed">
+                <td class="attribute-name">
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Table Name<br>Length</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.table-name-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Column Name<br>Length</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.column-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Max Columns<br>Per Table</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.column-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Case<br>Type</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.case }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Reserved<br>Words</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.reserved-words }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
             </tr>
             {% for destination in destinations %}
                 <tr>
-                    <td>
+                    <td class="attribute-name">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.table-name-limit }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.column-name-limit }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.column-limit }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.case | remove: "Case " }}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {% case destination.reserved-words %}
                             {% when 'None' %}
                                 None
@@ -200,28 +202,28 @@
     <div role="tabpanel" class="tab-pane" id="data-storage-limits">
         <p>For more details, see the <a href="#data-structure">Data Structure</a> section.</p>
         
-        <table width="100%; fixed" class="table-hover">
+        <table class="attribute-list table-hover">
             <tr>
-                <td width="13%; fixed">
+                <td class="attribute-name">
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Incremental Storage</strong><a data-toggle="tooltip" data-original-title="The method(s) used to load data from incrementally replicated tables into the destination.">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
-                    <strong>Supports Nested Structures?</strong>
+                <td class="attribute-description">
+                    <strong>Nested Structures</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.nested-structure-support }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
-                <td align="center">
+                <td class="attribute-description">
                     <strong>Max VARCHAR Width</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.varchar-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
             </tr>
             {% for destination in destinations %}
                 <tr>
-                    <td>
+                    <td class="attribute-name">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {% case destination.incremental-replication %}
                             {% when 'Upserts, Append-Only' %}
                                 {% assign storage-types = destination.incremental-replication | split: ', ' %}
@@ -240,17 +242,17 @@
                         {% endcase %}
 
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {% case destination.nested-structure-support %}
                             {% when false %}
                                 <strong>
-                                    <a href="#nested-data-structures">No</a>
+                                    <a href="#nested-data-structures">Unsupported</a>
                                 </strong>
                             {% else %}
-                                Yes
+                                Supported
                         {% endcase %}
                     </td>
-                    <td align="center">
+                    <td class="attribute-description">
                         {{ destination.varchar-limit }}
                     </td>
                 </tr>
