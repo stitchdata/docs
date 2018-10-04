@@ -30,5 +30,4 @@ object-attributes:
     required: true
     description: "The user's Marketo REST endpoint URL. For example: `https://457-RFG-234.mktorest.com/rest`"
     value: "https://<some-id-here>.mktorest.com/rest"
-
 ---
