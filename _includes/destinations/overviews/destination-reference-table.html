@@ -1,0 +1,104 @@
+{% include misc/more-info-icons.html %}
+{% include misc/support-icons.html %}
+
+<!-- Note to self: Jekyll will apparently throw a fit if:
+     1. There's a reference in a YAML file (ex: *something)
+     2. The anchor for the reference isn't 'split', meaning it is all on one line:
+
+          - name: &thing "Thing"
+
+          vs
+
+          - name: &thing |
+              Thing 
+
+     3. When calling the variable, `flatify` is applied:
+
+          {{ site.data.file.name | flatify }}
+
+     This will make Jekyll throw a Liquid Exception: undefined method `split' for false:FalseClass error.
+
+     Splitting anchors onto new lines seems to get around this. IDK. -->
+
+{% assign reference-defaults = site.data.destinations.reference.defaults %}
+
+{% assign destination-info = site.data.destinations.reference[page.type] %}
+
+{% for reference-category in reference-defaults[include.list] %}
+{{ reference-category.description | flatify | markdownify  }}
+
+{% case include.list %}
+     {% when 'column-naming' %}
+     {% assign column-name = "_!CuStOmEr# ID" %}
+
+<table class="attribute-list">
+     <tr>
+          <td>
+          </td>
+          <td class="attribute-description">
+               <strong>Source column name</strong>
+          </td>
+          <td class="attribute-description">
+               <strong>Destination column name</strong>
+          </td>
+     </tr>
+     {% for default in reference-category.items %}
+          {% for info in destination-info[include.list] %}
+               {% if default.id == info.id %}
+                    <tr>
+                         <td align="right" width="40%; fixed">
+                              <strong>{{ default.name }}</strong>
+
+                              {% if default.description %}
+                                   <a href="" data-toggle="tooltip" data-original-title="{{ default.description | flatify }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                              {% endif %}
+                         </td>
+                         <td class="attribute-description">
+                              {{ info.example | flatify }}
+                         </td>
+                         <td class="attribute-description">
+                              {{ info.value | flatify }}
+                         </td>
+                    </tr>
+               {% endif %}
+          {% endfor %}
+     {% endfor %}
+</table>
+
+     {% else %}
+
+<table class="attribute-list">
+     {% for default in reference-category.items %}
+          {% for info in destination-info[include.list] %}
+               {% if default.id == info.id %}
+                    <tr>
+                         <td align="right" width="40%; fixed">
+                              <strong>{{ default.name }}</strong>
+
+                              {% if default.description %}
+                                   <a href="" data-toggle="tooltip" data-original-title="{{ default.description | flatify }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                              {% endif %}
+                         </td>
+                         <td class="attribute-description">
+                              <p>{% if info.value contains "true" %}
+                                   Supported {{ supported | replace: "TOOLTIP","Supported" }}
+                              {% elsif info.value contains "false" %}
+                                   Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}
+                              {% elsif info.value contains "n/a" %}
+                                   Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}
+                              {% else %}
+                                   {{ info.value | flatify }}
+                              {% endif %}</p>
+
+                              {% if info.description %}
+                                   {{ info.description | flatify | markdownify }}
+                              {% endif %}
+                         </td>
+                    </tr>
+               {% endif %}
+          {% endfor %}
+     {% endfor %}
+</table>
+{% endcase %}
+
+{% endfor %}
