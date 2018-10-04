@@ -12,7 +12,7 @@ description: |
 
   Stitch's {{ integration.display_name }} integration will replicate any custom fields associated with organization records.
 
-  **Note**: Replicating these custom fields requires that you be on a Team, Professional, or Enterprise Zendesk plan and have Admin permissions in Zendesk.
+  **Note**: Replicating organization custom fields requires that you be on a Team, Professional, or Enterprise Zendesk plan and have Admin permissions in Zendesk.
 
 replication-method: "Key-based Incremental"
 
