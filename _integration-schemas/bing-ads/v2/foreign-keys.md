@@ -9,7 +9,7 @@ foreign-keys:
     table: "accounts"
     all-foreign-keys:
       - table: "accounts"
-        join-on: "id"
+        join-on: "Id"
       - table: "ad_performance_report"
       - table: "adgroup_performance_report"
       - table: "age_gender_performance_report"
@@ -20,18 +20,19 @@ foreign-keys:
       - table: "search_query_performance_report"
 
   - id: "ad-id"
-    attribute: "adId"
+    attribute: "AdId"
     table: "ads"
     all-foreign-keys:
       - table: "ads"
-        join-on: "id"
+        join-on: "Id"
+      - table: "ad_performance_report"
 
   - id: "ad-group-id"
-    attribute: "adGroupId"
+    attribute: "AdGroupId"
     table: "ad_groups"
     all-foreign-keys:
       - table: "ad_groups"
-        join-on: "id"
+        join-on: "Id"
       - table: "ad_performance_report"
       - table: "adgroup_performance_report"
       - table: "age_gender_performance_report"
@@ -42,9 +43,17 @@ foreign-keys:
       - table: "search_query_performance_report"
 
   - id: "campaign-id"
-    attribute: "campaignId"
+    attribute: "CampaignId"
     table: "campaigns"
     all-foreign-keys:
       - table: "campaigns"
-        join-on: "id"
+        join-on: "Id"
+      - table: "ad_performance_report"
+      - table: "adgroup_performance_report"
+      - table: "age_gender_performance_report"
+      - table: "campaign_performance_report"
+      - table: "geographic_performance_report"
+      - table: "goals_and_funnels_report"
+      - table: "keyword_performanc_report"
+      - table: "search_query_performance_report"
 ---

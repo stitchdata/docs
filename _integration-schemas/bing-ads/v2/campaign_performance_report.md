@@ -45,10 +45,10 @@ attributes:
     replication-key: true
     description: "The day the record pertains to."
 
-  - name: "campaignId"
+  - name: "CampaignId"
     type: "integer"
     description: "The ID of the campaign."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "Custom Fields"
     description: |

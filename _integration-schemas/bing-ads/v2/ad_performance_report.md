@@ -39,17 +39,17 @@ attributes:
     replication-key: true
     description: "The day the record pertains to."
 
-  - name: "adGroupId"
+  - name: "AdGroupId"
     type: "integer"
     description: "The ID of the ad group the ad is a part of."
     foreign-key-id: "ad-group-id"
 
-  - name: "adId"
+  - name: "AdId"
     type: "integer"
     description: "The ad ID."
     foreign-key-id: "ad-id"
 
-  - name: "campaignId"
+  - name: "CampaignId"
     type: "integer"
     description: "The ID of the campaign the ad is a part of."
     foreign-key-id: "campaign-id"
