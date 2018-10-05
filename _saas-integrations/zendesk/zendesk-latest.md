@@ -50,9 +50,10 @@ requirements-list:
 
       To ensure you can replicate all the data you need, we recommend a user with Admin permissions set up the integration.
       
-  - **To be on a specific Zendesk plan, if replicating ticket forms.** In this case, you need to be on an Enterprise Zendesk plan or a Professional Zendesk plan with the ticket forms add-on to replicate the `ticket_forms` table.
-  
-     All other tables, with the exception of `ticket_forms`, will be available for replication even if you aren't on either of these plans.
+  - item: |
+      **To be on a specific Zendesk plan, if replicating ticket forms.** In this case, you need to be on an Enterprise Zendesk plan or a Professional Zendesk plan with the ticket forms add-on to replicate the `ticket_forms` table.
+
+      All other tables, with the exception of `ticket_forms`, will be available for replication even if you aren't on either of these plans.
 
 setup-steps:
   - title: "add integration"
