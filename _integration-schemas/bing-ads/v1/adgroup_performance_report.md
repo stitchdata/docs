@@ -1,16 +1,17 @@
 ---
 tap: "bing-ads"
-# version: "1.0"
+version: "1.0"
 
-name: "goals_and_funnels_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn
+name: "adgroup_performance_report"
+doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn#values
 singer-schema: 
 description: |
-  The `goals_and_funnels_report` table contains information about your audience's progression through your conversion funnel. Use this report to determine the point at which users leave the funnel, thereby allowing you to improve and increase conversion.
+  The `adgroup_performance_report` table contains performance data for ad groups, aggregated by day.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
+attribution-window: true
 api-method:
   name:
   doc-link: 
@@ -35,12 +36,12 @@ attributes:
 
   - name: "adGroupId"
     type: "integer"
-    description: "The ID of the ad group."
+    description: "The ID of the ad group.."
     foreign-key-id: "ad-group-id"
 
   - name: "campaignId"
     type: "integer"
-    description: "The ID of the campaign."
+    description: "The ID of the campaign the ad group is a part of."
     foreign-key-id: "campaign-id"
 
   - name: "Custom Fields"

@@ -1,22 +1,20 @@
 ---
 tap: "bing-ads"
-# version: "1.0"
+version: "2.0"
 
-name: "keyword_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn#values
+name: "goals_and_funnels_report"
+doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/goalsandfunnelsreportcolumn
 singer-schema: 
 description: |
-  The `keyword_performance_report` table contains performance data about keywords.
+  The `{{ table.name }}` table contains information about your audience's progression through your conversion funnel. Use this report to determine the point at which users leave the funnel, thereby allowing you to improve and increase conversion.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-api-method:
-  name:
-  doc-link: 
+attribution-window: true
 
 attributes:
-  - name: "accountId"
+  - name: "AccountId"
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."
@@ -27,18 +25,18 @@ attributes:
     primary-key: true
     description: "The start time of the Stitch replication job that replicated this record."
 
-  - name: "gregorianDate"
+  - name: "TimePeriod"
     type: "date"
     primary-key: true
     replication-key: true
     description: "The day the record pertains to."
 
-  - name: "adGroupId"
+  - name: "AdGroupId"
     type: "integer"
     description: "The ID of the ad group."
     foreign-key-id: "ad-group-id"
 
-  - name: "campaignId"
+  - name: "CampaignId"
     type: "integer"
     description: "The ID of the campaign."
     foreign-key-id: "campaign-id"

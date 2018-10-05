@@ -1,0 +1,59 @@
+# -------------------------- #
+#      BING ADS VERSIONS     #
+# -------------------------- #
+
+latest-version: "2.0"
+
+released-versions:
+  - number: "2.0"
+    date-released: "October 4, 2018"
+    # date-last-connection:
+    deprecated: false
+    deprecation-date: "n/a"
+
+  - number: "1.0"
+    date-released: ""
+    date-last-connection: "October 3, 2018"
+    deprecated: true
+    deprecation-date: ""
+
+# -------------------------- #
+#     BING ADS CHANGELOG     #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/integrations/templates/versioning/integration-changelog.html
+
+changelog-entries:
+  - date: "October 4, 2018"
+    version: "2.0"
+    type: "new-release"
+    content: |
+      Highlights include:
+
+      - Upgrading to [version 12](https://docs.microsoft.com/en-us/bingads/guides/?view=bingads-12){:target="new"} of the Bing Ads API
+      - **Enhanced column compatibility selection**: In the v12 API, Microsoft enforces compatibility rules for some columns in Report Tables. Links to the rules for each Report Table have been added to our table documentation.
+
+  - date: "October 4, 2018"
+    version: "1.0"
+    type: "version-deprecation"
+    content: |
+      This version will be sunset on or before October 31, 2018, in accordance with Microsoft's announcement to [deprecate version 11 of the Bing Ads API](https://docs.microsoft.com/en-us/bingads/guides/migration-guide?view=bingads-12){:target="new"}.
+
+  - date: "July 31, 2018"
+    version: "1.0"
+    type: "new-version"
+    content: |
+      Highlights include:
+
+      - Additional data type support
+      - Support for logical replication
+      - Support for Extraction Logs, Loading Reports, and Anchor Scheduling

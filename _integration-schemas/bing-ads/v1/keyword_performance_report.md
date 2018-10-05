@@ -1,17 +1,16 @@
 ---
 tap: "bing-ads"
-# version: "1.0"
+version: "1.0"
 
-name: "campaign_performance_report"
-doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn#values
+name: "keyword_performance_report"
+doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/keywordperformancereportcolumn#values
 singer-schema: 
 description: |
-  The `campaign_performance_report` table contains performance data for campaigns, aggregated by day..
+  The `keyword_performance_report` table contains performance data about keywords.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
 replication-method: "Append-Only (Incremental)"
-attribution-window: true
 api-method:
   name:
   doc-link: 
@@ -21,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The Bing Ads-assigned ID of the account."
-    foreign-key: true
+    foreign-key-id: "account-id"
 
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"
@@ -34,10 +33,15 @@ attributes:
     replication-key: true
     description: "The day the record pertains to."
 
+  - name: "adGroupId"
+    type: "integer"
+    description: "The ID of the ad group."
+    foreign-key-id: "ad-group-id"
+
   - name: "campaignId"
     type: "integer"
     description: "The ID of the campaign."
-    foreign-key: true
+    foreign-key-id: "campaign-id"
 
   - name: "Custom Fields"
     description: |
