@@ -18,7 +18,7 @@ released-versions:
     deprecation-date: ""
 
 # -------------------------- #
-#     POSTGRES CHANGELOG     #
+#     BING ADS CHANGELOG     #
 # -------------------------- #
 
 # Changelog entry types:
@@ -41,108 +41,6 @@ changelog-entries:
 
       - Upgrading to [version 12](https://docs.microsoft.com/en-us/bingads/guides/?view=bingads-12){:target="new"} of the Bing Ads API
       - **Enhanced column compatibility selection**: In the v12 API, Microsoft enforces compatibility rules for some columns in Report Tables. Links to the rules for each Report Table have been added to our table documentation.
-      - **Re-named columns**: In the v12 API, Microsoft has re-named some of the columns in Report Tables. We've re-named these fields to ensure consistency between our integration and the Bing Ads API.
-
-      <table class="attribute-list">
-        <tr>
-          <td class="attribute-name">
-            <strong>Table name</strong>
-          </td>
-          <td class="attribute-description">
-            <strong>Column names in v1</strong>
-          </td>
-          <td class="attribute-description">
-            <strong>Columns names in v2</strong>
-          </td>
-        </tr>
-        <tr>
-          <td class="attribute-name">
-            ad_performance_report
-          </td>
-          <td class="attribute-description">
-            <ul>
-              <li>FinalAppURL</li>
-              <li>FinalURL</li>
-              <li>FinalMobileURL</li>
-            </ul>
-          </td>
-          <td class="attribute-description">
-            <ul>
-              <li>FinalAppUrl</li>
-              <li>FinalUrl</li>
-              <li>FinalMobileUrl</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td class="attribute-name">adgroup_performance_report</td>
-          <td class="attribute-description">
-            <ul>
-              <li>HistoricQualityScore</li>
-              <li>HistoricExpectedCtr</li>
-              <li>HistoricAdRelevance</li>
-              <li>HistoricLandingPageExperience</li>
-              <li>Status</li>
-            </ul>
-          </td>
-          <td class="attribute-description">
-            <ul>
-              <li>HistoricalQualityScore</li>
-              <li>HistoricalExpectedCtr</li>
-              <li>HistoricalAdRelevance</li>
-              <li>HistoricalLandingPageExperience</li>
-              <li>CampaignStatus</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td class="attribute-name">campaign_performance_report</td>
-          <td class="attribute-description">
-            <ul>
-              <li>HistoricQualityScore</li>
-              <li>HistoricExpectedCtr</li>
-              <li>HistoricAdRelevance</li>
-              <li>HistoricLandingPageExperience</li>
-              <li>Status</li>
-            </ul>
-          </td>
-          <td class="attribute-description">
-            <ul>
-              <li>HistoricalQualityScore</li>
-              <li>HistoricalExpectedCtr</li>
-              <li>HistoricalAdRelevance</li>
-              <li>HistoricalLandingPageExperience</li>
-              <li>CampaignStatus</li>
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td class="attribute-name">keyword_performance_report</td>
-          <td class="attribute-description">
-            <ul>
-              <li>FinalAppURL</li>
-              <li>FinalURL</li>
-              <li>FinalMobileURL</li>
-              <li>HistoricQualityScore</li>
-              <li>HistoricExpectedCtr</li>
-              <li>HistoricAdRelevance</li>
-              <li>HistoricLandingPageExperience</li>
-              <li>SidebarBid</li>
-            </ul>
-          </td>
-          <td class="attribute-description">
-            <ul>
-              <li>FinalAppUrl</li>
-              <li>FinalUrl</li>
-              <li>FinalMobileUrl</li>
-              <li>HistoricalQualityScore</li>
-              <li>HistoricalExpectedCtr</li>
-              <li>HistoricalAdRelevance</li>
-              <li>HistoricalLandingPageExperience</li>
-              <li>FirstPageBid</li>
-            </ul>
-          </td>
-      </table>
 
   - date: "October 4, 2018"
     version: "1.0"
