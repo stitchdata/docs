@@ -117,13 +117,13 @@ data-limit-info:
 # Naming scenarios for columns
 
 column-naming-info:
-  with-mixed-case: &destination-colum-name |
+  with-mixed-case: &destination-column-name |
     {{ column-name | downcase | remove: "_!" | remove: "# " }}
 
-  with-spaces: *destination-colum-name
-  with-unsupported-characters: *destination-colum-name
-  with-underscore-start: *destination-colum-name
-  with-non-letter-start: *destination-colum-name
+  with-spaces: *destination-column-name
+  with-unsupported-characters: *destination-column-name
+  with-underscore-start: *destination-column-name
+  with-non-letter-start: *destination-column-name
 
 
 
@@ -300,29 +300,29 @@ attributes:
     categories: "column-naming"
     example: |
       {{ column-name | remove: "_!" | remove: "# " }}
-    value: *destination-colum-name
+    value: *destination-column-name
     description: 
 
   - id: "with-spaces"
     categories: "column-naming"
     example: |
       {{ column-name | downcase | remove: "_!" | remove: "#" }}
-    value: *destination-colum-name
+    value: *destination-column-name
 
   - id: "with-unsupported-characters"
     categories: "column-naming"
     example: |
       {{ column-name | downcase | remove: "_" }}
-    value: *destination-colum-name
+    value: *destination-column-name
 
   - id: "with-underscore-start"
     categories: "column-naming"
     example: |
       {{ column-name | downcase | remove: "!" | remove: "# " }}
-    value: *destination-colum-name
+    value: *destination-column-name
 
   - id: "with-non-letter-start"
     categories: "column-naming"
     example: |
       {{ column-name | downcase | replace: "_!","123" | remove: "# " }}
-    value: *destination-colum-name
+    value: *destination-column-name
