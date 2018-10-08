@@ -79,7 +79,8 @@ introduction: |
   If you're looking for a cost-effective, no-effort way to test out Stitch or get started consolidating your data, {{ destination.display_name }} is your best bet.
 
 sections:
-  - title: "pricing"
+  - title: "Pricing"
+    anchor: "pricing"
     content: |
       Pricing varies from plan to plan, but every {{ destination.display_name }} plan includes:
 
@@ -89,21 +90,54 @@ sections:
 
       {{ destination.pricing_notes | flatify | markdownify }}
 
-  - title: "setup"
+  - title: "Setup"
+    anchor: "stitch-details-setup-info"
     content: |
-      With just a few clicks, you can [connect a new]({{ link.destinations.setup.panoply-new | prepend: site.baseurl }}) or [an existing {{ destination.display_name }} data warehouse to Stitch]({{ link.destinations.setup.panoply-ex | prepend: site.baseurl }}).
+      {% include destinations/overviews/destination-reference-table.html list="stitch-details" %}
 
-  - title: "limitations"
-    include: |
-      {% include destinations/overviews/limitations.html %}
+  - title: "Replication"
+    anchor: "replication"
+    content: |
+      {% include destinations/overviews/destination-reference-table.html list="replication" %}
 
-  - title: "replication"
-    include: |
-      {% include destinations/overviews/replication-process.html %}
+  - title: "Limitations"
+    anchor: "limitations"
+    content: |
+      In this section:
 
-  - title: "schema"
-    include: |
-      {% include destinations/overviews/integration-schemas.html %}
+      {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
+
+      {% for item in list-items %}
+      {% for category in reference-defaults[item] %}
+      - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
+      {% endfor %}
+      {% endfor %}
+
+    subsections:
+      - title: "Object name limits"
+        anchor: "object-name-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="object-name-limits" %}
+
+      - title: "Table limits"
+        anchor: "table-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="table-limits" %}
+
+      - title: "Data limits"
+        anchor: "data-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="data-limits" %}
+
+      - title: "Column naming"
+        anchor: "column-naming"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="column-naming" %}
+
+  - title: "Compare destinations"
+    anchor: "compare-destinations"
+    content: |
+      **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
 
 ---
 {% assign destination = page %}
