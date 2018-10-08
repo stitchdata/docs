@@ -83,12 +83,9 @@ redshift-vs-postgres: http://docs.aws.amazon.com/redshift/latest/dg/c_redshift-a
 introduction: |
   {{ destination.description | flatify | markdownify }}
 
-  To learn more about transactional and analytic databases and how they compare, check out our [Data Strategy Guide](https://stitchdata.com/resources/guide/why-you-need-a-data-pipeline).
-
-  {{ destination.display_name}} is based on PostgreSQL 8.0.2 and while there are many similarities, Redshift differs in some key ways. **Before you spin up a cluster**, we recommend [checking out our destination comparison guide]({{ link.destinations.overviews.compatibility }}) to ensure you pick the best data warehouse for your needs.
-
 sections:
-  - title: "pricing"
+  - title: "Pricing"
+    anchor: "pricing"
     content: |
       Currently, {{ destination.display_name}} bases their pricing on an hourly rate that varies depending on the type and number of nodes in a cluster. Check out their [Pricing page](https://aws.amazon.com/redshift/pricing/) for an in-depth look at their current plan offerings.
 
@@ -98,39 +95,54 @@ sections:
 
       For some guidance on choosing the right number of nodes for your cluster, check out Amazon's [Determining the Number of Nodes guide](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes).
 
-  - title: "setup"
+  - title: "Setup info"
+    anchor: "stitch-details-setup-info"
     content: |
-      Creating a {{ destination.display_name}} data warehouse for Stitch involves spinning up a cluster in Amazon Web Services and creating a database in the cluster.
+      {% include destinations/overviews/destination-reference-table.html list="stitch-details" %}
 
-      - **[Create a new AWS account & Redshift cluster]({{ link.destinations.setup.redshift | prepend: site.baseurl }})**. If you're brand new to AWS, you can [sign up here](http://aws.amazon.com/) to create an AWS account and then use [this tutorial]() to connect your Redshift database.
-      - **[Connect a Redshift database via an SSH tunnel]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }})**. If you want to use an SSH tunnel to connect Redshift to Stitch, there are some additional steps you'll need to complete to set up the connection.
-      - **Connect an existing Redshift instance**. If you already have an AWS account and a {{ destination.display_name}} cluster, you won't need to complete the initial cluster provisioning steps. You will, however, still need to:
+  - title: "Replication"
+    anchor: "replication"
+    content: |
+      {% include destinations/overviews/destination-reference-table.html list="replication" %}
 
-         1. Create a database in the cluster for Stitch
-         2. [Configure the firewall to grant access to Stitch]({{ link.destinations.setup.redshift | prepend: site.baseurl | append:"#configure-security-access-settings" }})
-         3. [Create a database user for Stitch]({{ link.destinations.setup.redshift | prepend: site.baseurl | append:"#create-stitch-redshift-user" }})
-         4. [Enter the connection info into Stitch]({{ link.destinations.setup.redshift | prepend: site.baseurl | append:"#step-6-connect-stitch" }})
+  - title: "Limitations"
+    anchor: "limitations"
+    content: |
+      In this section:
+
+      {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
+
+      {% for item in list-items %}
+      {% for category in reference-defaults[item] %}
+      - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
+      {% endfor %}
+      {% endfor %}
+
     subsections:
-      - title: "SSL Connections"
-        anchor: "redshift-ssl-connections"
-        content: "By default, Stitch will attempt to any Redshift destination using SSL. This doesn't require any configuration on your part."
+      - title: "Object name limits"
+        anchor: "object-name-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="object-name-limits" %}
 
-  - title: "limitations"
-    include: |
-      {% include destinations/overviews/limitations.html %}
+      - title: "Table limits"
+        anchor: "table-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="table-limits" %}
 
-  - title: "replication"
-    include: |
-      {% include destinations/overviews/replication-process.html %}
+      - title: "Data limits"
+        anchor: "data-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="data-limits" %}
 
-  - title: "schema"
-    include: |
-      {% include destinations/overviews/integration-schemas.html %}
+      - title: "Column naming"
+        anchor: "column-naming"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="column-naming" %}
 
-  - title: "Workload and Performance Management"
-    anchor: "encodings-sort-dist-keys"
+  - title: "Compare destinations"
+    anchor: "compare-destinations"
     content: |
-      Want to improve your query performance? You can apply encodings, SORT, and DIST keys to Stitch-created tables in your Redshift data warehouse. Even when new data is replicated, your settings will remain intact. Refer to our [Encodings, SORT, and DIST Keys guide]({{ link.destinations.storage.redshift-encodings | prepend: site.baseurl }}) for application instructions.
+      **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
 
 ---
 {% assign destination = page %}
