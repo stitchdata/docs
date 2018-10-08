@@ -22,7 +22,8 @@
 
 {% assign reference-defaults = site.data.destinations.reference.defaults %}
 
-{% assign destination-info = site.data.destinations.reference[page.type] %}
+{% assign destination-info = site.data.destinations.reference[page.type].attributes | where_exp:"info","info.categories contains include.list" %}
+
 
 {% for reference-category in reference-defaults[include.list] %}
 {{ reference-category.description | flatify | markdownify  }}
@@ -43,7 +44,7 @@
           </td>
      </tr>
      {% for default in reference-category.items %}
-          {% for info in destination-info[include.list] %}
+          {% for info in destination-info %}
                {% if default.id == info.id %}
                     <tr>
                          <td align="right" width="40%; fixed">
@@ -69,7 +70,7 @@
 
 <table class="attribute-list">
      {% for default in reference-category.items %}
-          {% for info in destination-info[include.list] %}
+          {% for info in destination-info %}
                {% if default.id == info.id %}
                     <tr>
                          <td align="right" width="40%; fixed">

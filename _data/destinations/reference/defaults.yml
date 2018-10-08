@@ -32,6 +32,11 @@ stitch-details:
         description: |
           Indicates if VPN connections are supported for the destination.
 
+      - id: "workload-performance-management"
+        name: "Workload and performance management"
+        descriptions: |
+          Indicates if workload and performance management tools are supported by the destination.
+
 # -------------------------- #
 #     Replication details    #
 # -------------------------- #
@@ -149,12 +154,17 @@ data-limits:
       - id: "date-and-time-date-range"
         name: "Date ranges"
         description: |
-          The maximum range of date values allowed by the destination.
+          The allowed range of date values allowed by the destination.
 
       - id: "date-and-time-timestamp-range"
         name: "Timestamp ranges"
         description: |
-          The maximum range of timestamp values allowed by the destination.
+          The allowed range of timestamp values allowed by the destination.
+
+      - id: "integer-range"
+        name: "Integer range"
+        description: |
+          The allowed range for integer values allowed by the destination.
 
       - id: "decimal-precision"
         name: "Decimal precision"
