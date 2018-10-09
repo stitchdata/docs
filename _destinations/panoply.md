@@ -108,7 +108,7 @@ sections:
       {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
 
       {% for item in list-items %}
-      {% for category in reference-defaults[item] %}
+      {% for category in reference-categories[item] %}
       - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
       {% endfor %}
       {% endfor %}

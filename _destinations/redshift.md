@@ -113,7 +113,7 @@ sections:
       {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
 
       {% for item in list-items %}
-      {% for category in reference-defaults[item] %}
+      {% for category in reference-categories[item] %}
       - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
       {% endfor %}
       {% endfor %}
@@ -143,7 +143,6 @@ sections:
     anchor: "compare-destinations"
     content: |
       **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
-
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}

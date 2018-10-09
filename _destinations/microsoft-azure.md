@@ -91,7 +91,7 @@ sections:
   - content: |
       {{ destination.summary | flatify }}
 
-  - title: "Pricing structure"
+  - title: "Pricing"
     anchor: "pricing"
     content: |
       {{ destination.pricing_notes | flatify }}
@@ -138,7 +138,6 @@ sections:
             content: |
               Lastly, Stitch will insert the data from the external table in Polybase into your {{ destination.display_name }} data warehouse. 
 
-
   - title: "Limitations"
     anchor: "limitations"
     content: |
@@ -147,7 +146,7 @@ sections:
       {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
 
       {% for item in list-items %}
-      {% for category in reference-defaults[item] %}
+      {% for category in reference-categories[item] %}
       - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
       {% endfor %}
       {% endfor %}
