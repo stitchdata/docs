@@ -4,7 +4,7 @@
 # -------------------------- #
 title: PostgreSQL Destination
 permalink: /destinations/postgresql/
-layout: destination-overview
+layout: destination
 tags: [postgresql_destination]
 keywords: postgres, postgresql, postgres data warehouse, postgres etl, etl to postgres, postgresql data warehouse, etl to postgresql
 summary: "An open-source relational database, PostgreSQL is a powerful and well-known system that has received recognition from both its users and the industry at large. Unlike some other database systems, PostgreSQL is completely customizable and yours to do with as you please (assuming, of course, that your instance is self-hosted)."

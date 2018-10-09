@@ -4,7 +4,7 @@
 # -------------------------- #
 title: Google BigQuery Destination
 permalink: /destinations/bigquery/
-layout: destination-overview
+layout: destination
 tags: [bigquery_destination]
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."

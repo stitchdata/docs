@@ -4,7 +4,7 @@
 # -------------------------- #
 title: Snowflake Destination
 permalink: /destinations/snowflake/
-layout: destination-overview
+layout: destination
 tags: [snowflake_destination]
 keywords: snowflake, snowflake destination, snowflake data warehouse, snowflake etl, etl to snowflake
 summary: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
@@ -125,7 +125,7 @@ sections:
     content: |
       In this section:
 
-      {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
+      {% assign list-items = "object-name-limits|data-limits|column-naming" | split: "|" %}
 
       {% for item in list-items %}
       {% for category in reference-defaults[item] %}
