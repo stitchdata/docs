@@ -300,7 +300,7 @@ attributes:
     value: *strings-max-width
     important: true
     description: |
-      String values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      String values that exceed this limit will be truncated to the maximum size to allow the data to be loaded into {{ destination.display_name }}.
 
   - id: "mixed-case"
     categories: "column-naming"
