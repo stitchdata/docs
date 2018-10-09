@@ -183,7 +183,9 @@ attributes:
     description: |
       {{ destination.display_name }} destinations do not have native support for Primary Keys.
 
-      To ensure existing rows can be updated, Stitch will create an `sdc_primary_keys` table in every integration schema. This table contains the Primary Key data for every table in the given schema, which Stitch will use to de-dupe rows during loading. [TODO-READMORE]().
+      To ensure existing rows can be updated, Stitch will create an `sdc_primary_keys` table in every integration schema. This table contains the Primary Key data for every table in the given schema, which Stitch will use to de-dupe rows during loading.
+
+      Refer to our [Azure Primary Key handling documentation]({{ link.destinations.storage.azure-primary-keys | prepend: site.baseurl }}) for more info.
 
   - id: "multiple-data-types"
     categories: "replication"
