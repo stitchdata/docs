@@ -20,12 +20,14 @@
 
      Splitting anchors onto new lines seems to get around this. IDK. -->
 
-{% assign reference-defaults = site.data.destinations.reference.defaults %}
+
+
 
 {% assign destination-info = site.data.destinations.reference[page.type].attributes | where_exp:"info","info.categories contains include.list" %}
 
+{% assign reference-defaults = site.data.destinations.reference.defaults[include.list] %}
 
-{% for reference-category in reference-defaults[include.list] %}
+{% for reference-category in reference-defaults %}
 {{ reference-category.description | flatify | markdownify  }}
 
 {% case include.list %}
@@ -87,6 +89,8 @@
                                    Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}
                               {% elsif info.value contains "n/a" %}
                                    Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}
+                              {% elsif info.value contains "Depends" %}
+                                   Depends {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}
                               {% else %}
                                    {{ info.value | flatify }}
                               {% endif %}</p>
