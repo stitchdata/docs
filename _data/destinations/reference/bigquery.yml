@@ -175,7 +175,7 @@ attributes:
 
       When Stitch loads data into {{ destination.display_name }} destinations, it will load it in an append-only fashion. This means that new records and updates to existing records are appended to the end of tables as new rows. Existing records are never updated.
 
-      More info can be found in [TODO]().
+      More info and examples can be found in [our Replication Method documentation]({{ link.replication.append-only | prepend: site.baseurl }}) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
 
   - id: "primary-keys"
     categories: "replication"
