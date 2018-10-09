@@ -31,7 +31,7 @@ icon: /images/destinations/icons/google-bigquery.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-replication: "Append-Only"
+incremental-upsert-support: false
 connection-methods: "SSL"
 supported-versions: "n/a"
 

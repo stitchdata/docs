@@ -36,7 +36,7 @@ icon: /images/destinations/icons/postgresql.svg
 ssl: true
 ssh: true
 
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSH, SSL"
 supported-versions: "9.3+" ## if Stitch supports certain versions
 

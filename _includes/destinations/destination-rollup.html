@@ -207,7 +207,7 @@
                 <td class="attribute-name">
                 </td>
                 <td class="attribute-description">
-                    <strong>Incremental Storage</strong><a data-toggle="tooltip" data-original-title="The method(s) used to load data from incrementally replicated tables into the destination.">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                    <strong>Upsert support</strong><a data-toggle="tooltip" data-original-title="Indicates if the destination supports updating existing rows.">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
                 <td class="attribute-description">
                     <strong>Nested Structures</strong>
@@ -224,23 +224,12 @@
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
                     <td class="attribute-description">
-                        {% case destination.incremental-replication %}
-                            {% when 'Upserts, Append-Only' %}
-                                {% assign storage-types = destination.incremental-replication | split: ', ' %}
-
-                                {% for storage-type in storage-types %}
-                                    {% case storage-type %}
-                                        {% when 'Upserts' %}
-                                            <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.upsert }}">{{ storage-type | strip_newlines }}</a>,
-                                        {% else %}
-                                            <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only }}">{{ storage-type | strip_newlines }}</a>
-                                    {% endcase %}
-                                {% endfor %}
-                                
-                            {% else %}
-                                <a href="#incremental-and-append-only-replication">{{ destination.incremental-replication | strip_newlines }}</a>
+                        {% case destination.incremental-upsert-support %}
+                            {% when true %}
+                                <a data-toggle="tooltip" data-original-title="Existing rows can be updated with modified data.">Supported</a>
+                            {% when false %}
+                                <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only }}">Unsupported</a>
                         {% endcase %}
-
                     </td>
                     <td class="attribute-description">
                         {% case destination.nested-structure-support %}

@@ -39,7 +39,7 @@ icon: /images/destinations/icons/amazon-s3.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-replication: "Append-Only"
+incremental-upsert-support: false
 connection-methods: "n/a"
 supported-versions: "n/a"
 

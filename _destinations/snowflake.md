@@ -41,7 +41,7 @@ icon: /images/destinations/icons/snowflake.svg
 ssl: true
 ssh: false
 
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSL"
 supported-versions: "n/a"
 

@@ -36,7 +36,7 @@ replication-methods: ""
 connection-methods: "SSH, SSL"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true ## if true, natively supports nested structures
 case: "Case Insensitive"
 table-name-limit: "n/a" ## max # of characters
 column-name-limit: "n/a" ## max # of characters

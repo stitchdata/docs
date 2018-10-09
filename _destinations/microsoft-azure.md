@@ -46,11 +46,11 @@ icon: /images/destinations/icons/microsoft-azure.svg
 ssl: true
 ssh: true
 
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSH, SSL"
 supported-versions: "n/a"
 
-nested-structures: false
+nested-structure-support: false
 case: "Case Insensitive"
 table-name-limit: "128" ## max # of characters
 column-name-limit: "255" ## max # of characters

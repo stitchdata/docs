@@ -66,7 +66,7 @@ sections:
 
           Check out the [Handling of Nested Data & Row Count Impact]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for an in-depth look at what we mean by nested records, how Stitch handles nested data, and what those records will look like in your data warehouse.
 
-          <table width="100%">
+          <table class="attribute-list">
               <tr>
                   <td>
                       <strong>
@@ -102,7 +102,7 @@ sections:
               </tr>
           </table>
 
-      - title: "Incremental and Append-Only Replication"
+      - title: "Updates to existing records"
         anchor: "incremental-and-append-only-replication"
         content: |
           While all destinations support loading incrementally replicated data, how that data is stored in your destination will vary by destination.

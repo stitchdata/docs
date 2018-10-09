@@ -36,7 +36,7 @@ icon: /images/destinations/icons/amazon-redshift.svg
 ssl: true
 ssh: false
 
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSH, SSL"
 supported-versions: "n/a"
 

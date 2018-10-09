@@ -32,7 +32,7 @@ icon: /images/destinations/icons/panoply.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSL"
 supported-versions: "n/a"
 
