@@ -25,6 +25,7 @@
 
 {% assign destination-info = site.data.destinations.reference[page.type].attributes | where_exp:"info","info.categories contains include.list" %}
 
+{% assign reference-categories = site.data.destinations.reference.defaults %}
 {% assign reference-defaults = site.data.destinations.reference.defaults[include.list] %}
 
 {% for reference-category in reference-defaults %}
