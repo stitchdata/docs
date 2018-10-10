@@ -61,6 +61,19 @@ setup-steps:
          ![The SuiteTalk (Web Services) section in NetSuite's SuiteCloud subtab.]({{ site.baseurl }}/images/integrations/netsuite-suitecloud-webservices.png)
       5. Scroll to the bottom of the page and click **Save**.
 
+  - title: "Whitelist Stitch's IP addresses"
+    anchor: "whitelist-stitch-ips"
+    content: |
+      {% include note.html type="single-line" content="**Note**: This step is required only if IP whitelisting is enforced for your NetSuite account." %}
+
+      {% include layout/inline_image.html type="right" file="integrations/netsuite-ip-addresses.png" alt="" max-width="400px" %}
+      1. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
+      2. In the **Allowed IP addresses** field, enter a comma-separated list of the following IP addresses:
+
+         {% for ip-address in ip-addresses %}
+         - {{ ip-address.ip }}
+         {% endfor %}
+      3. Click **Save**.
 
   - title: "Create a Stitch {{ integration.display_name }} role"
     anchor: "create-stitch-netsuite-role"
@@ -150,14 +163,25 @@ setup-steps:
       4. In the **Access** tab:
 
          1. Create a password for the Stitch user. Enter it in the **Password** field, then again in the **Confirm Password** field.
-         2. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 2](#create-stitch-netsuite-role).
+         2. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 3](#create-stitch-netsuite-role).
          3. Click **Add** once you've located the role.
       5. When finished, click **Save**.
+
+  - title: "Locate your {{ integration.display_name }} Account ID"
+    anchor: "locate-netsuite-account-id"
+    content: |
+      {% include layout/inline_image.html type="right" file="integrations/netsuite-account-id.png" alt="" max-width="250px" %}
+      Click **Setup > Integration Web Services Preferences**.
+      
+      In the Primary Information section, locate the **Account ID** field as shown in the image on the right.
+      
+      **Note**: If your Account ID contains a suffix - `1234567_SB2`, for example - it should be included when entering the ID into Stitch.
 
   - title: "add integration"
     content: |
       4. Enter the email address and password associated with the Stitch {{ integration.display_name }} user.
-      5. Enter the **Role ID** you retrieved in [Step 2.3](#save-role-retrieve-id). **Note**: This must be the numerical ID, not the name of the role. See [Step 2.3](#save-role-retrieve-id) if you need help locating the user's Role ID.
+      5. Enter the **Role ID** you retrieved in [Step 3.3](#save-role-retrieve-id). **Note**: This must be the numerical ID, not the name of the role. See [Step 3.3](#save-role-retrieve-id) if you need help locating the user's Role ID.
+      6. In the **Account ID** field, enter the Account ID you retrieved in [Step 5](#locate-netsuite-account-id).
       6. Select the **Account Type** - Production or Sandbox.
   - title: "historical sync"
   - title: "replication frequency"
