@@ -56,6 +56,8 @@ requirements-info: |
 
 setup-steps:
   - title: "add integration"
+    content: |
+      4. [ADD CONTENT HERE]
   - title: "historical sync"
   - title: "replication frequency"
   - title: "Authorize Stitch to access HubSpot"
