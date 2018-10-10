@@ -45,64 +45,123 @@ whitelist:
 ## Info about permissions is kept in: _data/taps/extraction/netsuite/netsuite-permissions.yml
 
 requirements-list:
-  - item: "**Administrator permissions in NetSuite**. This is required to complete parts of the setup process."
-  - item: "**To enable Web Services for your NetSuite account.** This is necessary to access NetSuite's API."
+  - item: "**Administrator permissions in {{ integration.display_name }}**. This is required to complete the setup steps in {{ integration.display_name }}."
+  - item: "**To enable Web Services for your {{ integration.display_name }} account.** This is necessary to access {{ integration.display_name }}'s API."
 
 setup-steps:
-  - title: "Enable Web Services in Your NetSuite Account"
+  - title: "Enable Web Services in your {{ integration.display_name }} account"
     anchor: "enable-web-services"
     content: |
-      {% include note.html content="If Web Services is already enabled for your account, skip this step." %}
+      {% include note.html type="single-line" content="**Note:**This step is only required if Web Services isn't already enabled in your NetSuite account." %}
 
-      1. In your NetSuite account, click **Setup > Company > Enable Features**.
+      1. In your {{ integration.display_name }} account, click **Setup > Company > Enable Features**.
       2. Click the **SuiteCloud** subtab.
       3. Locate the **SuiteTalk (Web Services)** section.
       4. Check the **Web Services** box:
          ![The SuiteTalk (Web Services) section in NetSuite's SuiteCloud subtab.]({{ site.baseurl }}/images/integrations/netsuite-suitecloud-webservices.png)
       5. Scroll to the bottom of the page and click **Save**.
 
-  - title: "Create a Stitch NetSuite Admin User"
-    anchor: "create-netsuite-admin-user"
+
+  - title: "Create a Stitch {{ integration.display_name }} role"
+    anchor: "create-stitch-netsuite-role"
     content: |
-      To connect NetSuite to Stitch, we recommend that you create a Stitch-specific Admin user for us. We suggest this approach for a few reasons:
+      To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that:
 
-      1. This will ensure that Stitch is easily distinguishable in any logs or audits.
+      1. Stitch is easily distinguishable in any logs or audits.
 
-      2. NetSuite's API has some limitations that could make it difficult or impossible for Stitch to replicate data. For example: a single NetSuite user is only allowed to have **one** open API session at a time. If there's another connection elsewhere, Stitch will run into problems replicating data.
+      2. Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
 
-      After you've created the Admin user, move onto the next step.
+      3. Stitch can successfully authenticate to {{ integration.display_name }}. This will require creating a role that mirrors the standard {{ integration.display_name }} [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"}.
 
-## Info about permissions is kept in: _data/taps/extraction/netsuite/netsuite-permissions.yml
+         **Note**: Using the Full Access role requires two-factor authentication, which Stitch's integration doesn't currently support. For this reason, **do not assign the actual Full Access role to the Stitch user.**
 
-  - title: "Retrieve the NetSuite User's Role ID"
-    anchor: "retrieve-netsuite-role-id"
+    substeps:
+      - title: "Create the new role"
+        anchor: "create-the-new-role"
+        content: |
+          {% capture two-factor-auth-roles %}
+          {{ integration.display_name }} enforces two-factor authentication for Full Access and Administrator roles as of {{ integration.display_name }} 2018.1.
+
+          Stitch's {{ integration.display_name }} integration can't authenticate using this method. Connection errors will arise if either the Full Access or Administrator role is assigned to the Stitch user.
+          {% endcapture %}
+
+          {% include important.html first-line="**Do not assign the Full Access or Administrator role to Stitch**" content=two-factor-auth-roles %}
+
+          To ensure Stitch can access and replicate all NetSuite objects supported for replication, you'll need to create a role to assign to the Stitch user.
+
+          1. In your {{ integration.display_name }} account, click **Setup > Users/Roles > Manage Roles > New**.
+          2. On the Role page, enter a name for the role in the **Name** field. For example: `Stitch`
+
+      - title: "Grant permissions to the role"
+        anchor: "grant-permissions-to-role"
+        content: |
+          Next, you'll grant permissions to the role. Below are instructions for adding permissions to the role, the permissions required, and where to find them in {{ integration.display_name }}.
+
+          In {{ integration.display_name }}, the Create Role **Permissions** section contains several subsections. In this guide is a tab that corresponds to the permissions you need to add in each {{ integration.display_name }} subsection. For example: In the **Permissions > Transactions** subsection, you'll add the permissions outlined in the **Transactions** tab of this guide.
+
+          {% capture adding-permission-instructions %}
+          **Refer to the other tabs in this section of the guide for the permissions you need to add**. 
+
+          To add a permission to the role:
+
+          1. In the **Permissions** section, click a subsection. For example: **Transactions**
+          2. Using the **Permission** dropdown, search for the permission you want to add.
+
+             For example: If adding permissions in the **Transactions** subtab of {{ integration.display_name }}, you'll use the checklist in the **Transactions** tab of this guide.
+          3. Using the **Level** dropdown, set the permission level to the corresponding level outlined in this guide:
+
+             ![The Transactions subsection in the Permissions section of the NetSuite Create Role page]({{ site.baseurl }}/images/integrations/netsuite-role-permissions-tab.png)
+          4. Click **Add**.
+          5. Repeat these steps until all permissions in the tabs of this guide have been added.
+          {% endcapture %}
+
+          {% include integrations/saas/netsuite-permission-list.html %}
+
+      - title: "Save the role and retrieve its internal ID"
+        anchor: "save-role-retrieve-id"
+        content: |
+          After you've finished granting permissions to the role, click **Save** to create the it.
+
+          Next, you'll retrieve the role's internal ID. Stitch requires this ID to successfully create your {{ integration.display_name }} integration.
+
+          If you've just saved the role, you should automatically be redirected to the **Manage Roles** page. If not, you can access this page by clicking **Setup > Users/Roles > Manage Roles**.
+
+          Locate the role you just created. The ID is located in a column called **Internal ID**:
+
+          ![The Internal ID column contains the user's Role ID.]({{ site.baseurl }}/images/integrations/netsuite-locate-role-id.png)
+
+          If you don't see the Internal ID column in the list, you may need to add it:
+
+          1. Click the **Edit View** button.
+          2. Click the drop-down menu and select **Internal ID**.
+          3. Click **Add**.
+          4. Click **Save**.
+
+          After you add the column to the Roles list, locate the ID for the role. Keep this handy - you'll need it to complete the setup in Stitch.
+        
+  - title: "Create the Stitch {{ integration.display_name }} user"
+    anchor: "create-stitch-netsuite-user"
     content: |
-      All Roles in NetSuite have a `Name` - for example, Accountant - and `Role ID`, or Internal ID number. Stitch requires this ID to successfully create a NetSuite integration.
+      Next, you'll create a dedicated {{ integration.display_name }} user for Stitch and assign the Stitch role to it.
 
-      Role IDs can be found on the **Manage Roles** page in NetSuite. From your dashboard, click **Setup > Users/Roles > Manage Roles*.
+      1. In your NetSuite account, click **Lists > Employees > Employees > New**.
+      2. In the Employee page, fill in the **Name** and **Email** fields.
+      3. Next, click the **Access** tab.
+      4. In the **Access** tab:
 
-      Locate the Role of the user in the Roles list. The ID is located in a column called **Internal ID**:
-
-      ![The Internal ID column contains the user's Role ID.]({{ site.baseurl }}/images/integrations/netsuite-locate-role-id.png)
-
-      If you don't see the Internal ID column in the list, you may need to add it:
-
-      1. Click the **Edit View** button.
-      2. Click the drop-down menu and select **Internal ID**.
-      3. Click **Add**.
-      4. Click **Save**.
-
-      After you add the column to the Roles list, locate the ID for the user and move onto the next step.
+         1. Create a password for the Stitch user. Enter it in the **Password** field, then again in the **Confirm Password** field.
+         2. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 2](#create-stitch-netsuite-role).
+         3. Click **Add** once you've located the role.
+      5. When finished, click **Save**.
 
   - title: "add integration"
     content: |
-      4. Enter the email address and password associated with the Stitch NetSuite user.
-      5. Enter the **Role ID** - the numerical ID, not the name of the Role - associated with the user entered above. See [Step 3](#retrieve-netsuite-role-id) if you need help locating the user's Role ID.
-
-         **Note:** If this field is left blank, Stitch will use NetSuite's default role ID for Admin roles (`3`). If you receive an error when trying to save the integration, enter a `3` in this field and try saving again.
+      4. Enter the email address and password associated with the Stitch {{ integration.display_name }} user.
+      5. Enter the **Role ID** you retrieved in [Step 2.3](#save-role-retrieve-id). **Note**: This must be the numerical ID, not the name of the role. See [Step 2.3](#save-role-retrieve-id) if you need help locating the user's Role ID.
       6. Select the **Account Type** - Production or Sandbox.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
@@ -133,7 +192,7 @@ schema-sections:
           - **name** and **internalId**: The `internalId` of the record will display in **both** columns.
           - **customRecord**: This column will contain a `true` value.
 
-          For example: the first two records in this table are "normal" records, while the third is a custom record:
+          For example: The first two records in this table are "normal" records, while the third is a custom record:
 
           | type         | internalId | name             | customRecord | deletedDate                   |
           |--------------+------------+------------------+--------------+-------------------------------|
