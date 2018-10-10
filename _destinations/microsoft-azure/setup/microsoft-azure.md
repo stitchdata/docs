@@ -64,6 +64,7 @@ setup-steps:
   - title: "Generate storage credentials"
     anchor: "generate-storage-credentials"
     content: |
+      Next, you'll generate the storage credentials required to access Azure Storage.
 
     substeps:
       - title: "Generate a shared access signature URL"
@@ -104,10 +105,12 @@ setup-steps:
 
              ![Highlighted Key fields for the Storage Access Keys in Microsoft Azure]({{ site.baseurl }}/images/destinations/microsoft-azure-storage-keys.png)
 
-  - title: "connect stitch"
+  - title: "Create a {{ destination.display_name }} Stitch user"
+    anchor: "create-stitch-user"
+    content: |
+      [ADD CONTENT HERE]
 
+  - title: "connect stitch"
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","microsoft-azure" | first %}
-
-
