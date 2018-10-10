@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `email_events` table contains info about email events and how recipients interact with content.
 
-notes: 
+  **Note**: To replicate this table, the **NAME OF SETTING IN UI** checkbox in the Integration Settings page must be checked.
 
 replication-method: "Key-based Incremental"
 api-method:
