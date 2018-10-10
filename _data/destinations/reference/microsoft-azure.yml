@@ -62,7 +62,7 @@ replication-info:
       false
 
   incompatible-sources: &incompatible-sources |
-    TODO
+    None
 
 # -------------------------- #
 #         Limitations        #
@@ -154,14 +154,12 @@ attributes:
   - id: "ssl-connections"
     categories: "stitch-details"
     value: *connection-methods-ssl
-    description: |
-      [TODO] - Determine if we use SSL by default, like we do for Redshift
+    # description:
 
   - id: "ssh-connections"
     categories: "stitch-details"
     value: *connection-methods-ssh
-    description: |
-      [TODO] - Add link to instructions once we know how to set this up
+    # description:
 
   - id: "vpn-connections"
     categories: "stitch-details"
@@ -172,10 +170,6 @@ attributes:
     value: *incremental-rep-upserts
     description: |
       To update existing rows, Stitch will [TBD]
-
-  # - id: "incremental-replication-append"
-  #   value: *incremental-rep-append
-  #   description: |
 
   - id: "primary-keys"
     categories: "replication"
@@ -193,7 +187,10 @@ attributes:
     description: |
       {{ destination.display_name }} destinations do not support multiple data types in a single column.
 
-      To accommodate this scenario, Stitch will [TODO].
+      To accommodate this scenario, Stitch will create additional columns for each data type:
+
+      - The **original column**'s name will remain as-is. It will be typed according to the first data type Stitch detected for the column.
+      - **Subsequent columns** will have the data type appended to their name. Additionally, only data of this type will be stored in this column. For example: `customer_id__int` would contain data determined to be an integer.
 
   - id: "nested-data-structures"
     categories: "replication"
@@ -203,19 +200,17 @@ attributes:
 
       To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
-  - id: "incompatible-sources"
-    categories: "replication"
-    value: *incompatible-sources
-    description: |
-      TODO
+  # - id: "incompatible-sources"
+  #   categories: "replication"
+  #   value: *incompatible-sources
 
   - id: "case-sensitivity"
     categories: "object-name-limits"
     value: *case-sensitivity
     description: |
-      [TODO] - Determine if there's a pre-defined setting for this, and if not, if Stitch requires a certain configuration.
+      This means that {{ destination.display_name }} destinations treat upper- and lowercase characters as the same. For example: `CUSTOMERID` and `customerid` are equal in {{ destination.display_name }}.
 
-      As a source, we require MSSQL databases to have certain collation settings - is that applicable here?
+      When column names are loaded into Redshift, any uppercase characters will be forced into lowercase. This means that `Id` and `id` will canonicalize to the same name, which can lead to object collision errors. Refer to the [Column naming section of this guide](#column-naming) for examples.
 
   - id: "table-name-length"
     categories: "object-name-limits"
@@ -246,22 +241,24 @@ attributes:
     important: true
     value: *max-record-size
     description: |
-      This limit is imposed by [Polybase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#loads){:target="new"}, which is required to load data into {{ destination.display_name }} destinations.
-
-      [TODO] - figure out if we'll log a record rejection for this scenario.
+      This limit is imposed by [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#loads){:target="new"}, which is required to load data into {{ destination.display_name }} destinations.
 
   - id: "boolean-values"
     categories: "data-limits"
     important: true
     value: *boolean
     description: |
-      [TODO] - Determine how sources that use `true/false` as boolean types will be loaded.
+      {{ destination.display_name }} will store data typed as `BOOLEAN` using only the above values. These columns will be `BIT` columns in the destination.
+
+      For example: If a `BOOLEAN` source value is `true`, it will be stored as `1` in {{ destination.display_name }}.
 
   - id: "date-and-time-timezone-support"
     categories: "data-limits"
     value: *timezone-support
     description: |
-      [TODO] - Still need to determine how data with timezone info will be loaded.
+      {{ destination.display_name }} will store the value in UTC with the specified offset. These columns are type as `DATETIMEOFFSET`.
+
+      More info about timestamp data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017){:target="new"}.
 
   - id: "date-and-time-date-range"
     categories: "data-limits"
@@ -296,14 +293,13 @@ attributes:
     value: *strings-max-width
     important: true
     description: |
-      String values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      String values outside of this range will be truncated to the maximum allowed width.
 
   - id: "mixed-case"
     categories: "column-naming"
     example: |
       {{ column-name | remove: "_!" | remove: "# " }}
     value: *destination-column-name
-    description: 
 
   - id: "with-spaces"
     categories: "column-naming"
