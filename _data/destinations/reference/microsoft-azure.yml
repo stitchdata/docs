@@ -169,7 +169,7 @@ attributes:
     categories: "replication"
     value: *incremental-rep-upserts
     description: |
-      To update existing rows, Stitch will [TBD]
+      Using a table's Primary Keys, Stitch will perform an update operation on existing rows to overwrite the data.
 
   - id: "primary-keys"
     categories: "replication"
