@@ -133,6 +133,7 @@ setup-steps:
       5. In the **Identity Base URL** field, paste your **Marketo REST API Identity URL**.
       6. In the **Client ID** field, paste your **Marketo API Client ID**.
       7. In the **OAuth Client Secret** field, paste your **Marketo API Client Secret**.
+      8. In the **Max Daily API Calls** field, either keep the default 40,000 value or use a larger number based on your **Marketo API Quota**
   - title: "historical sync"
   - title: "replication frequency"
 
