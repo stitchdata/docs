@@ -386,27 +386,6 @@ sections:
           }
           ```
 
-          Now that we know what step we need to complete next, we can use the [`current_step_hints`]({{ api.data-structures.current-step-hints.section }}) object to identify how to complete the step:
-
-          ```json
-          {
-             "current_step_hints":{
-                "js":{
-                   "function":"authorizeSource",
-                   "options":{
-                      "id":45612
-                   }
-                }
-             }
-          }
-          ```
-
-          In this case, we need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify}}) to initiate and complete the OAuth step required for `platform.hubspot`:
-
-          - The `function` attribute contains the JavaScript client function required to complete the step, and
-          - The `options` object contains the source's ID, which we need to pass to the JavaScript client to complete the OAuth flow
-
-
   - title: "Use the {{ js.name }} to Complete Source Configuration"
     anchor: "quick-start--stitch-js-complete-configuration"
     content: |
