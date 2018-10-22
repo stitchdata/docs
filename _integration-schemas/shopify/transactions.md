@@ -41,7 +41,7 @@ attributes:
     type: "string"
     description: ""
   - name: "location_id"
-    type: ""
+    type: "integer"
     description: ""
   - name: "message"
     type: "string"
