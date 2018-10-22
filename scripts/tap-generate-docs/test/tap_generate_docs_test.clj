@@ -1,4 +1,5 @@
 (ns tap-generate-docs-test
+  (:require [clojure.java.io :as io])
   (:require [clojure.test :refer :all]
             [tap-generate-docs :refer :all]))
 
@@ -33,7 +34,7 @@
 
 (deftest convert-unary-type-tests
   (testing "Simple types"
-    (are [x y] (= (convert-unary-type nil x) y)
+    (are [x y] (= (convert-unary-type nil nil x) y)
       ["property" {}]
       {"name" "property"
        "type" "anything"
@@ -63,7 +64,7 @@
       ))
 
   (testing "Objects"
-    (are [x y] (= (convert-unary-type nil x) (assoc y "description" ""))
+    (are [x y] (= (convert-unary-type nil nil x) (assoc y "description" ""))
       ["an_object" {"type" "object"
                     "properties" {"z" {"type" "string"}
                                   "a" {"type" "string"}}}]
@@ -94,7 +95,7 @@
                              "description" ""}]}))
 
   (testing "Arrays"
-    (are [x y] (= (assoc y "description" "") (convert-unary-type nil x))
+    (are [x y] (= (assoc y "description" "") (convert-unary-type nil nil x))
       ["an_array" {"type" "array"
                    "items" {"type" "string"}}]
       {"name" "an_array"
@@ -227,6 +228,7 @@
       (is (thrown? clojure.lang.ExceptionInfo
                    (convert-unary-type
                     nil
+                    nil
                     ["an_array" {"type" "array"
                                  ;; What could possibly be the right result here?
                                  "items" {"type" ["object" "string" "array"]
@@ -237,7 +239,7 @@
 (deftest convert-multiary-type-tests
   (testing "Non-null types"
     ;; TODO convert-multiary-type -> convert-multiary?-type
-    (are [x y] (= (convert-multiary-type nil x) y)
+    (are [x y] (= (convert-multiary-type nil nil x) y)
       ["a_date" {"type" ["null" "string" "integer"]
                  "format" "date-time"}]
       {"name" "a_date"
@@ -288,24 +290,45 @@
        "type" "array",
        "description" ""})))
 
-(testing "Null types"
-    (is (not (thrown? clojure.lang.ExceptionInfo
-                  (convert-multiary-type nil ["a_null" {"type" "null"}]))))
-    (is (not (thrown? clojure.lang.ExceptionInfo
-                  (convert-multiary-type nil ["a_null" {"type" ["null"]}])))))
+(deftest convert-multiary-null-type-tests
+  (testing "Null types"
+    (is (= {"name" "a_null"
+            "type" ""
+            "description" ""}
+           (convert-multiary-type nil nil ["a_null" {"type" "null"}])))
+    (is (= {"name" "a_null", "type" "", "description" ""}
+           (convert-multiary-type nil nil ["a_null" {"type" ["null"]}])))))
 
 (deftest convert-types-with-refs-tests
-  (is (= (convert-multiary-type {"definitions" {"date" {"type" "string"
+  (is (= (convert-multiary-type nil
+                                {"definitions" {"date" {"type" "string"
                                                         "format" "date-time"}}}
                                 ["a_date" {"$ref" "#/definitions/date"}])
          {"name" "a_date"
           "type" "date-time"
           "description" ""}))
-  (is (= (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
+  (is (= (convert-multiary-type nil
+                                {"definitions" {"integer" {"type" "integer"}}}
                                 ["an_integer" {"$ref" "#/definitions/integer"}])
          {"name" "an_integer"
           "type" "integer"
           "description" ""}))
   (is (thrown? clojure.lang.ExceptionInfo
-               (convert-multiary-type {"definitions" {"integer" {"type" "integer"}}}
+               (convert-multiary-type nil
+                                      {"definitions" {"integer" {"type" "integer"}}}
                                       ["an_string" {"$ref" "#/definitions/string"}]))))
+
+(deftest parse-json-schema-reference-tests
+  (is (= {:file nil :json-pointer ["def"]} (parse-json-schema-reference "#/def")))
+  (is (= {:file nil :json-pointer ["def" "foo" "bar"]} (parse-json-schema-reference "#/def/foo/bar")))
+  (is (= {:file "definitions.json" :json-pointer ["def"]} (parse-json-schema-reference "definitions.json#/def"))))
+
+(deftest load-schema-file-tests
+  (is (= {} (load-schema-file
+             {:tap-schema-dir (io/file "test_schemas")}
+             "definitions.json"))))
+
+(deftest schema-file?-tests
+  (is (schema-file? (io/file "test_schemas/valid_schema_file.json")))
+  (is (not (schema-file? (io/file "test_schemas/invalid_schema_file.json"))))
+  (is (not (schema-file? (io/file "test_schemas/non_existent_schema_file.json")))))
