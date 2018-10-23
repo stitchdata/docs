@@ -143,10 +143,10 @@ replication-sections:
     anchor: "marketo-daily-api-call-limits"
     content: |
       By default, all Marketo accounts have a maximum number of 50,000 daily account calls. Stitch's Marketo integration is designed to use up to 40,000 of these calls per day to allow other applications API access to your Marketo account.
-
-This can be increased or decreased using the **Max Daily API Calls** field in the integration's **Settings** page.
-
-  When the **Max Daily API Calls** limit has been reached, Stitch will be unable to replicate any Marketo data until more API   quota is available. If you find that the 50,000 total call limit isn't enough, contact Marketo support to inquire about       raising your limit.
+       
+       This can be increased or decreased using the integration's **Max Daily API Calls** field.
+       
+       When the **Max Daily API Calls** limit has been reached, Stitch will be unable to replicate any Marketo data until more API quota is available. If you find that the 50,000 total call limit isn't enough, contact Marketo support to inquire about raising your limit.
 
   - title: "Activities and Leads Replication"
     anchor: "activities-leads-replication"
