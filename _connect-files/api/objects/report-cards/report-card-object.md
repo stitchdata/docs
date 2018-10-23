@@ -10,15 +10,6 @@ object-attributes:
     type: "integer"
     description: "The index (in the `steps` array) of the current step needed to configure the data source."
 
-  - name: "current_step_hints"
-    type: "object"
-    sub-type: "current step hints "
-    url: "{{ api.data-structures.current-step-hints.section }}"
-    description: |
-      If the current step requires the user to interact with the Stitch interface, this object will provide the function to call and properties to pass to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}).
-
-      Otherwise, this object will provide information about the next call to make to the API.
-
   - name: "steps"
     type: "array"
     description: "A sequential list of [Connection Step objects]({{ api.data-structures.connection-steps.section }}) required to complete configuration for the connection type."
