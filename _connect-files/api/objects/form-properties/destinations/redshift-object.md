@@ -11,4 +11,6 @@ docs-name: "redshift"
 db-type: "redshift"
 
 description: ""
+
+uses-common-fields: true
 ---

@@ -32,9 +32,13 @@ tier: "Paid"
 
 status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
