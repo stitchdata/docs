@@ -293,10 +293,10 @@
 (deftest convert-multiary-null-type-tests
   (testing "Null types"
     (is (= {"name" "a_null"
-            "type" ""
+            "type" "null"
             "description" ""}
            (convert-multiary-type nil nil ["a_null" {"type" "null"}])))
-    (is (= {"name" "a_null", "type" "", "description" ""}
+    (is (= {"name" "a_null", "type" "null", "description" ""}
            (convert-multiary-type nil nil ["a_null" {"type" ["null"]}])))))
 
 (deftest convert-types-with-refs-tests
