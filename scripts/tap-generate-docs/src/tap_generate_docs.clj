@@ -25,7 +25,7 @@
   "A valid type declaration is either a string or a list. Never a map,
    which covers the rest of JSON schema."
   [sub-schema]
-  (or (seq? sub-schema)
+  (or (sequential? sub-schema)
       (string? sub-schema)))
 
 (defn converted-unary-type?
@@ -215,7 +215,7 @@
           (println (str "Null unary type passed for property"
                         {:property property}))
           {"name" property-name
-           "type" ""
+           "type" "null"
            "description" ""})
         (reduce merge-unary-types converted-unary-type-properties)))))
 
