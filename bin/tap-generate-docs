@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [[ -d /opt/code/docs/scripts/tap-generate-docs/ ]]
+then
+    cd /opt/code/docs/scripts/tap-generate-docs/
+else
+    if ! [[ -f deps.edn ]]
+    then
+        echo 'Must be run from the `scripts/tap-generate-docs/` directory' 2>&1
+        exit 1
+    fi
+fi
+
+clojure -Sdeps "$(< deps.edn)" -m tap-generate-docs "$@"

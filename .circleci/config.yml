@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: clojure:tools-deps
+    steps:
+      - checkout
+      - run:
+          name: 'Run tap-generate-docs tests'
+          command: |
+            cd scripts/tap-generate-docs/
+            bin/test
