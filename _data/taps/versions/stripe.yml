@@ -1,0 +1,48 @@
+# -------------------------- #
+#       STRIPE VERSIONS      #
+# -------------------------- #
+
+latest-version: "1.0"
+
+released-versions:
+  - number: "1.0"
+    date-released: "October 25, 2018"
+    # date-last-connection:
+    deprecated: false
+    deprecation-date: "n/a"
+
+  - number: "0.0" # TODO: Original version date?
+    date-released: ""
+    date-last-connection: "October 3, 2018"
+    deprecated: true
+    deprecation-date: ""
+
+# -------------------------- #
+#      STRIPE CHANGELOG      #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/integrations/templates/versioning/integration-changelog.html
+
+changelog-entries:
+  - date: "October 4, 2018"
+    version: "1.0"
+    type: "new-release"
+    content: |
+      Highlights include:
+
+        # TODO: New features of tap-stripe vs original stripe
+
+  - date: "October 4, 2018"
+    version: "0.0" # TODO: Date of original release?
+    type: "version-deprecation"
+    content: |
+      # TODO: Deprecation schedule?
