@@ -1,5 +1,4 @@
 ---
-# TODO: Update this to match tap
 title: Stripe
 permalink: /integrations/saas/stripe
 tags: [saas_integrations]
@@ -20,6 +19,8 @@ singer: false
 author: "Stitch"
 author-url: "https://www.stitchdata.com"
 status-url: "https://status.stripe.com/"
+
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
