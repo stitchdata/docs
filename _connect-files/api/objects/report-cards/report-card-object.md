@@ -124,15 +124,7 @@ examples:
 
                   ]
                }
-            ],
-            "current_step_hints":{
-               "js":{
-                  "function":"authorizeSource",
-                  "options":{
-                     "id":<SOURCE_ID>
-                  }
-               }
-            }
+            ]
          }
       }
 ---
