@@ -123,9 +123,7 @@ core-objects:
       description: |
         {{ site.data.connect.api.core-objects.sources.create.short }} After the source object is created, additional configuration steps must be completed.
 
-        The configuration process is unique for each type of source. Use the source's `report_card` object's `current_step` attribute to identify the current `step` in configuring the source.
-
-        The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the current step.
+        The configuration process is unique for each type of source. The `report_card` object's `steps` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the appropriate step.
 
     update:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
@@ -200,24 +198,6 @@ data-structures:
     title: "Connection Steps"
     section: "#connection-step-object"
     description: "Contained in the [Report Card object]({{ api.data-structures.report-cards.section }}), the Connection Steps object contains the steps necessary to configure a data source or destination."
-
-  current-step-hints:
-    title: "Current Step Hints"
-    section: "#current-step-hint-object"
-    description: |
-      Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}).
-
-      Otherwise, this object will provide information about the next call to make to the API.
-
-    api-hints:
-      title: "API Hints"
-      section: "#current-step-api-hint-object"
-      description: "This object describes the actions requires to complete the current connection step using the API, if applicable."
-
-    stitch-connect-js-hints:
-      title: "JavaScript Hints"
-      section: "#current-step-stitch-js-hint-object"
-      description: "This object describes the actions required to complete the current connection step using the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}), if applicable."
 
   properties:
     title: "Properties"
