@@ -101,7 +101,7 @@ errors:
 
   - message: "Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections."
     id: "connection-refused"
-    applies-to: "both"
+    applies-to: "databases,destinations"
     ip-addresses: true
     meaning: "Stitch encountered an error when attempting to 'talk' to your [destination/database]."
     fix-it-list:
@@ -117,10 +117,9 @@ errors:
 
 
 
-
   - message: "We encountered an error while attempting to check the type or version for this [[destination/database]]. Please select the correct [destination/database] type and try again."
     id: "database-type"
-    applies-to: "both"
+    applies-to: "databases,destinations"
     ip-addresses: false
     meaning: |
       The [destination/database] type doesn’t match the [destination/database] you selected in Stitch. 
@@ -132,7 +131,7 @@ errors:
 
   - message: "An I/O error occurred while sending to the backend."
     id: "io-error"
-    applies-to: "both"
+    applies-to: "databases,destinations"
     ip-addresses: false
     meaning: "Something went wrong during the communication with the database."
     fix-it: |
@@ -142,7 +141,7 @@ errors:
 
   - message: "FATAL: Password authentication failed for user [user_name]"
     id: "password-auth"
-    applies-to: "both"
+    applies-to: "databases,destinations"
     ip-addresses: false
     meaning: "The credentials that Stitch has for your [destination/database] are incorrect."
     fix-it: "Verify that the correct password for the user Stitch is using to connect to the [destination/database] is entered in the [Destination/Integration] Settings page of Stitch."
@@ -151,7 +150,7 @@ errors:
 
   - message: "Connection timed out."
     id: "time-out"
-    applies-to: "both"
+    applies-to: "databases,destinations"
     ip-addresses: true
     meaning: "The connection timed out before Stitch could successfully establish a connection."
     fix-it: "This error may be transient and resolve on its own, but if it persists, try the following before contacting support:"
@@ -163,7 +162,7 @@ errors:
 
   - message: "We encountered an internal error while checking the connection."
     id: "internal-error"
-    applies-to: "both"
+    applies-to: "databases,destinations"
     ip-addresses: false
     meaning: "Stitch encountered an internal issue."
     fix-it: "This error is usually transient and will resolve on its own, but if it persists, please check our [Status Page]({{ site.status }}) for reported service outages."
