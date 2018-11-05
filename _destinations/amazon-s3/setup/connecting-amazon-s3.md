@@ -293,5 +293,11 @@ setup-steps:
           5. After the file has been uploaded to the bucket, switch back to where you have Stitch open.
           6. Click **Check and Save** to save and test the connection to {{ destination.display_name }}.
 
-          {% include important.html type="single-line" content="The challenge file must remain in the bucket even after the initial setup is completed. Removing this file will connection and loading interruptions." %}
+          {% capture challenge-file-notice %}
+          The challenge file must remain in the bucket even after the initial setup. If the file isn't created, or is removed at any point after the setup, you'll receive this error: `An error occurred (404) when calling the HeadObject operation: Not Found`
+
+          For troubleshooting, refer to the [Destination Connection Errors guide]({{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }}).
+          {% endcapture %}
+
+          {% include important.html first-line="The challenge file must remain in your S3 bucket" content=challenge-file-notice %}
 ---
