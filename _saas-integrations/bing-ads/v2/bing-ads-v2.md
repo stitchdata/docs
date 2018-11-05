@@ -67,8 +67,14 @@ requirements-info:
 setup-steps:
   - title: "add integration"
   - title: "historical sync"
+    content: |
+      {% capture retention-window-notice %}
+      {{ integration.display_name }} retains reporting data for specified periods of time, which can impact the amount of historical data Stitch can replicate. Refer to the [Report retention windows and historical data](#retention-window-historical-data) section below for more info.
+      {% endcapture %}
+
+      {% include note.html first-line="**Note: Retention windows and historical data**" content=retention-window-notice %}
   - title: "replication frequency"
-  - title: "Authorize Stitch & Select {{ integration.display_name }} Accounts"
+  - title: "Authorize Stitch and select {{ integration.display_name }} accounts"
     anchor: "auth-select-profiles"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/bing-ads-select-accounts.png" alt="Selecting Bing Ads accounts." max-width="400px" %}
@@ -92,23 +98,38 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - content: |
+  - title: "Report retention windows and historical data"
+    anchor: "retention-window-historical-data"
+    content: |
+      {{ integration.display_name }} retains reporting data for specified periods of time. Depending on the type of report, the retention period can vary. For the majority of reports, however, Bing Ads will retain data for **36 months** from the current date.
+
+      This retention window can impact the historical data Stitch can replicate from {{ integration.display_name }}. If you select a **Start Date** further in the past than the retention window allows, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) during the extraction phase:
+
+      ```
+      tap - Message = "The specified report time contains an invalid custom date range end. Please submit a report request with valid start and end dates for the custom date range."
+      ```
+
+      To resolve the error, select a **Start Date** within the retention window, which is typically **36 months**. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/report-data-retention-time-periods?view=bingads-12){:target="_blank"} for more info and to check the retention periods for your reports.
+
+  - title: "Table types and replication"
+    anchor: "table-types-and-replication"
+    content: |
       {% include integrations/saas/ads-append-only-replication.html type="table-types" %}
+    subsections:
+      - title: "Report Tables: Data extraction and Conversion Windows"
+        anchor: "data-extraction-conversion-window"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
 
-  - title: "Report Tables: Data Extraction & Conversion Windows"
-    anchor: "data-extraction-conversion-window"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
+      - title: "Report Tables: Data loading and Append-Only Replication"
+        anchor: "data-loading-append-only"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
 
-  - title: "Report Tables: Data Loading & Append-Only Replication"
-    anchor: "data-loading-append-only"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
-
-  - title: "Report Tables: Query for the Latest Data"
-    anchor: "query-for-the-latest-data"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
+      - title: "Report Tables: Query for the latest data"
+        anchor: "query-for-the-latest-data"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
 
 
 # -------------------------- #
@@ -116,7 +137,7 @@ replication-sections:
 # -------------------------- #
 
 schema-sections:
-  - title: "Report Tables: Column Selection and Statistic Aggregation"
+  - title: "Report Tables: Column selection and statistic aggregation"
     anchor: "column-selection-statistic-aggregation"
     content: |
       {% include integrations/saas/ads-columns-and-aggregation.html %}
