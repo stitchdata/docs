@@ -51,9 +51,12 @@ requirements-list:
       To ensure you can replicate all the data you need, we recommend a user with Admin permissions set up the integration.
       
   - item: |
-      **To be on a specific Zendesk plan, if replicating ticket forms.** In this case, you need to be on an Enterprise Zendesk plan or a Professional Zendesk plan with the ticket forms add-on to replicate the `ticket_forms` table.
+      **A specific Zendesk plan if replicating ticket forms or SLA policies:**
 
-      All other tables, with the exception of `ticket_forms`, will be available for replication even if you aren't on either of these plans.
+         - To replicate **SLA policies**, you must be on an Enterprise or Professional Zendesk plan.
+         - To replicate **ticket forms**, you must be on an Enterprise Zendesk plan, or a Professional Zendesk plan with the ticket forms add-on.
+
+      All other tables, with the exception of `sla_policies` and `ticket_forms` will be available for replication even if you aren't on either of these Zendesk plans.
 
 setup-steps:
   - title: "add integration"
@@ -77,19 +80,34 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - title: "Replicating ticket forms"
+  - title: "Replicating SLA policies and ticket forms"
     anchor: "replicate-ticket-forms"
     content: |
-      - Only available for Professional and Enterprise plans
+      To replicate SLA policies and ticket forms - or the `sla_policies` and `ticket_forms` tables - you need to be on an Enterprise or Professional Zendesk plan. [To replicate `ticket_forms` on a Professional plan](https://support.zendesk.com/hc/en-us/articles/203661616-Creating-ticket-forms-to-support-multiple-request-types-Professional-add-on-and-Enterprise-){:target="_blank"}, you'll also need to have the ticket forms add-on enabled in your Zendesk account.
 
-      https://support.zendesk.com/hc/en-us/articles/203661616-Creating-ticket-forms-to-support-multiple-request-types-Professional-add-on-and-Enterprise-
+      If you set either table to replicate and don't meet the requirements listed above, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+
+      ```
+      tap - INFO replicated 0 records from "ticket_forms" endpoint
+      tap - CRITICAL {"error": {"message": "You do not have access to this page. Please contact the account owner of this help desk for further help.", "title": "Forbidden"}}
+      ```
+
+      To resolve the error, de-select the appropriate table(s). Reach out to Zendesk if you have questions about your Zendesk plan.
+      
 
   - title: "Replicating user and organization custom fields"
     anchor: "replicate-user-organization-custom-fields"
     content: |
-      - Only able to replicate User and Organization custom fields for Team, Professional, and Enterprise plans
+      To replicate custom fields for Users and Organizations - or the `users` and `organizations` tables - [you need to be on an Enterprise, Professional, or Team Zendesk plan](https://support.zendesk.com/hc/en-us/articles/203662066-Adding-custom-fields-to-users){:target="_blank"}.
 
-      https://support.zendesk.com/hc/en-us/articles/203662066-Adding-custom-fields-to-users
+      If you set custom fields in the `users` or `organizations` tables to replicate and don't meet the requirements listed above, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+
+      ```
+      tap - WARNING The account credentials supplied do not have access to `organizations` custom fields.
+      tap - WARNING The account credentials supplied do not have access to `users` custom fields.
+      ```
+
+      To resolve the error, de-select the appropriate field(s). Reach out to Zendesk if you have questions about your Zendesk plan.
 
 # -------------------------- #
 #     Integration Tables     #

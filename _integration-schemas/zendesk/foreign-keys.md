@@ -55,6 +55,13 @@ foreign-keys:
       - table: "users"
         join-on: "id"
 
+  - id: "sla-policy-id"
+    attribute: "sla_policy_id"
+    table: ""
+    all-foreign-keys:
+      - table: "sla_policies"
+        join-on: "id"
+
   - id: "tag-id"
     attribute: "name"
     table: "tags"
