@@ -10,7 +10,7 @@ description: |
 
   **Note**: Replicating SLA policies requires that you be on an Enterprise or Professional Zendesk plan, and have Admin permissions in Zendesk.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: List SLA Policies
@@ -22,11 +22,6 @@ attributes:
     primary-key: true
     description: "The SLA policy ID."
     # foreign-key-id: "sla-policy-id"
-
-  - name: "updated_at"
-    type: "date-time"
-    replication-key: true
-    description: "The time the SLA policy was last updated."
 
   - name: "created_at"
     type: "date-time"
@@ -95,6 +90,10 @@ attributes:
   - name: "title"
     type: "string"
     description: "The title of the SLA policy."
+
+  - name: "updated_at"
+    type: "date-time"
+    description: "The time the SLA policy was last updated."
 
   - name: "url"
     type: "string"
