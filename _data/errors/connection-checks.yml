@@ -80,6 +80,20 @@ errors:
 #     Destination Errors     #
 # -------------------------- #
 
+  - message: "An error occurred (404) when calling the HeadObject operation: Not Found"
+    id: "missing-challenge-file"
+    applies-to: "destinations"
+    ip-addresses: false
+    meaning: |
+      **Applicable to Amazon S3 destinations only.** This error occurs when the Stitch [challenge file]({{ link.destinations.setup.amazon-s3 | append: "#verify-bucket-access" }}) isn't found in the specified S3 bucket.
+
+      The challenge file is used to test Stitch's connection to the bucket. Stitch will surface this error if it cannot find the challenge file, whether because the file was removed or never created.
+    fix-it: |
+      - **If you still have access to the challenge file name**, follow [these instructions]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) to create the file in your S3 bucket.
+      - **If you no longer have access to the challenge file name**, you'll need to create a new S3 destination [using these instructions]({{ link.destinations.overviews.switch-destination | prepend: site.baseurl }}).
+
+         **Note**: Creating a new destination doesn't mean you'll need to re-replicate all of your data. During the destination change process, you can choose to pick up replication where it left off or to queue a historical re-replication.
+
 
 # -------------------------- #
 #     Applicable to Both     #
