@@ -90,16 +90,12 @@ attributes:
 
       - name: "action_type"
         type: "string"
-        description: &action-type-description |
-          The kind of actions taken on the ad, Page, app, or event after your ad was served to someone, even if they didn't click on it.
-
-          Action types include Page likes, app installs, conversions, event responses, and more.
+        description: |
+          {{ integration.cost-per-action-type.description | flatify }}
 
           **Note**: As of July 2018, Facebook has deprecated the following `action` types:
 
-          - `app_custom_event`
-          - `mention`
-          - `tab_view`
+          {{ integration.cost-per-unique-action-type.deprecated-july-2018 | flatify }}
 
       - name: "value"
         type: "number"
@@ -146,7 +142,18 @@ attributes:
 
       - name: "action_type"
         type: "string"
-        description: *action-type-description
+        description: |
+          {{ integration.cost-per-action-type.description | flatify }}
+
+          **Note**: Facebook has deprecated some values for this field. They are as follows:
+
+          In July 2018:
+
+          {{ integration.cost-per-unique-action-type.deprecated-july-2018 | flatify }}
+
+          In October 2018:
+
+          {{ integration.cost-per-unique-action-type.deprecated-october-2018 | flatify }}
 
   - name: "inline_post_engagement"
     type: "integer"
@@ -203,10 +210,6 @@ attributes:
     description: |
       Details about the average cost of a relevant action.
 
-      **Note**: As of July 2018, Facebook has deprecated the following `cost_per_action` types:
-
-      - `mention`
-      - `tab_view`
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
     array-attributes:
       - name: "value"
@@ -215,7 +218,18 @@ attributes:
 
       - name: "action_type"
         type: "string"
-        description: *action-type-description
+        description: |
+          {{ integration.cost-per-action-type.description | flatify }}
+
+          **Note**: Facebook has deprecated some values for this field. They are as follows:
+
+          In July 2018:
+
+          {{ integration.cost-per-action-type.deprecated-july-2018 | flatify }}
+
+          In October 2018:
+
+          {{ integration.cost-per-action-type.deprecated-october-2018 | flatify }}
 
   - name: "unique_link_clicks_ctr"
     type: "number"
