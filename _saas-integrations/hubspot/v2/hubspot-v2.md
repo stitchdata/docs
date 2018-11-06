@@ -48,8 +48,9 @@ incompatible:
 # -------------------------- #
 
 requirements-list:
-  - item: "**For HubSpot CRM or Marketing products:** Administrator permissions in HubSpot"
-  - item: "**For the HubSpot Sales product:** Sales Administrator permissions in HubSpot"
+  - item: |
+      **For HubSpot CRM or Marketing products:** Administrator permissions in HubSpot. **Note**: To replicate [email events](#email_events), you'll need to have **Super Admin** permissions in HubSpot.
+  - item: "**For the HubSpot Sales product:** Sales Administrator permissions in HubSpot."
 
 requirements-info: |
   More information about HubSpot user roles and permissions can be found in [HubSpot's documentation](https://knowledge.hubspot.com/articles/kcs_article/settings/hubspot-user-roles-guide){:target="new"}.

@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getContactLists
+  name: "Get contact lists"
   doc-link: https://developers.hubspot.com/docs/methods/lists/get_lists
 
 attributes:
