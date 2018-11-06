@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getAllFormsFromAPortal
+  name: "Get all forms from a portal"
   doc-link: https://developers.hubspot.com/docs/methods/forms/v2/get_forms
 
 attributes:

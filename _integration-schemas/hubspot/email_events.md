@@ -20,7 +20,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getEventsForCampaignOrRecipient
+  name: "Get events for campaign or recipient"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_events
 
 attributes:

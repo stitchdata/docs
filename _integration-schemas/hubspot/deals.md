@@ -13,7 +13,7 @@ replication-key:
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getAllDeals
+  name: "Get all deals"
   doc-link: https://developers.hubspot.com/docs/methods/deals/get-all-deals
 
 attributes:
