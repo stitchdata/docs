@@ -67,8 +67,14 @@ requirements-info:
 setup-steps:
   - title: "add integration"
   - title: "historical sync"
+    content: |
+      {% capture retention-period-notice %}
+      {{ integration.display_name }} retains reporting data for specified periods of time, which can impact the amount of historical data Stitch can replicate. Refer to the [Report retention periods and historical data](#retention-period-historical-data) section below for more info.
+      {% endcapture %}
+
+      {% include note.html first-line="**Note: Retention windows and historical data**" content=retention-window-notice %}
   - title: "replication frequency"
-  - title: "Authorize Stitch & Select {{ integration.display_name }} Accounts"
+  - title: "Authorize Stitch and select {{ integration.display_name }} accounts"
     anchor: "auth-select-profiles"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/bing-ads-select-accounts.png" alt="Selecting Bing Ads accounts." max-width="400px" %}
@@ -92,23 +98,40 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - content: |
+  - title: "Report retention periods and historical data"
+    anchor: "retention-period-historical-data"
+    content: |
+      {{ integration.display_name }} retains reporting data for specified periods of time. Depending on the type of report, the retention period can vary. For the majority of reports, however, Bing Ads will retain data for **36 months** from the current date.
+
+      This retention period can impact the historical data Stitch can replicate from {{ integration.display_name }}. If you select a **Start Date** further in the past than the retention period allows, a message similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) during the extraction phase:
+
+      ```
+      tap - Message = "Bing reported that the requested report date range ended outside of their data retention period. Skipping to next range..."
+      ```
+
+      When this occurs, Stitch will move the **Start Date** up a month until extraction succeeds. For example: If `01/09/2015` is found to be outside of the retention period, Stitch will move the date range up to `01/10/2015`, then `01/11/2015`, and so on until extraction is successful. This will all occur in the same extraction job.
+
+      For more info on Bing Ads retention periods, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/report-data-retention-time-periods?view=bingads-12){:target="_blank"}.
+
+  - title: "Table types and replication"
+    anchor: "table-types-and-replication"
+    content: |
       {% include integrations/saas/ads-append-only-replication.html type="table-types" %}
+    subsections:
+      - title: "Report Tables: Data extraction and Conversion Windows"
+        anchor: "data-extraction-conversion-window"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
 
-  - title: "Report Tables: Data Extraction & Conversion Windows"
-    anchor: "data-extraction-conversion-window"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="report-tables" %}
+      - title: "Report Tables: Data loading and Append-Only Replication"
+        anchor: "data-loading-append-only"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
 
-  - title: "Report Tables: Data Loading & Append-Only Replication"
-    anchor: "data-loading-append-only"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="data-loading" %}
-
-  - title: "Report Tables: Query for the Latest Data"
-    anchor: "query-for-the-latest-data"
-    content: |
-      {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
+      - title: "Report Tables: Query for the latest data"
+        anchor: "query-for-the-latest-data"
+        content: |
+          {% include integrations/saas/ads-append-only-replication.html type="append-only-query" %}
 
 
 # -------------------------- #
@@ -116,7 +139,7 @@ replication-sections:
 # -------------------------- #
 
 schema-sections:
-  - title: "Report Tables: Column Selection and Statistic Aggregation"
+  - title: "Report Tables: Column selection and statistic aggregation"
     anchor: "column-selection-statistic-aggregation"
     content: |
       {% include integrations/saas/ads-columns-and-aggregation.html %}
