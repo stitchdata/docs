@@ -68,8 +68,8 @@ setup-steps:
   - title: "add integration"
   - title: "historical sync"
     content: |
-      {% capture retention-window-notice %}
-      {{ integration.display_name }} retains reporting data for specified periods of time, which can impact the amount of historical data Stitch can replicate. Refer to the [Report retention windows and historical data](#retention-window-historical-data) section below for more info.
+      {% capture retention-period-notice %}
+      {{ integration.display_name }} retains reporting data for specified periods of time, which can impact the amount of historical data Stitch can replicate. Refer to the [Report retention periods and historical data](#retention-period-historical-data) section below for more info.
       {% endcapture %}
 
       {% include note.html first-line="**Note: Retention windows and historical data**" content=retention-window-notice %}
@@ -98,18 +98,20 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - title: "Report retention windows and historical data"
-    anchor: "retention-window-historical-data"
+  - title: "Report retention periods and historical data"
+    anchor: "retention-period-historical-data"
     content: |
       {{ integration.display_name }} retains reporting data for specified periods of time. Depending on the type of report, the retention period can vary. For the majority of reports, however, Bing Ads will retain data for **36 months** from the current date.
 
-      This retention window can impact the historical data Stitch can replicate from {{ integration.display_name }}. If you select a **Start Date** further in the past than the retention window allows, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) during the extraction phase:
+      This retention period can impact the historical data Stitch can replicate from {{ integration.display_name }}. If you select a **Start Date** further in the past than the retention period allows, a message similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) during the extraction phase:
 
       ```
-      tap - Message = "The specified report time contains an invalid custom date range end. Please submit a report request with valid start and end dates for the custom date range."
+      tap - Message = "Bing reported that the requested report date range ended outside of their data retention period. Skipping to next range..."
       ```
 
-      To resolve the error, select a **Start Date** within the retention window, which is typically **36 months**. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/report-data-retention-time-periods?view=bingads-12){:target="_blank"} for more info and to check the retention periods for your reports.
+      When this occurs, Stitch will move the **Start Date** up a month until extraction succeeds. For example: If `01/09/2015` is found to be outside of the retention period, Stitch will move the date range up to `01/10/2015`, then `01/11/2015`, and so on until extraction is successful. This will all occur in the same extraction job.
+
+      For more info on Bing Ads retention periods, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/report-data-retention-time-periods?view=bingads-12){:target="_blank"}.
 
   - title: "Table types and replication"
     anchor: "table-types-and-replication"
