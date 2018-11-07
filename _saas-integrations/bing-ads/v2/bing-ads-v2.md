@@ -72,7 +72,7 @@ setup-steps:
       {{ integration.display_name }} retains reporting data for specified periods of time, which can impact the amount of historical data Stitch can replicate. Refer to the [Report retention periods and historical data](#retention-period-historical-data) section below for more info.
       {% endcapture %}
 
-      {% include note.html first-line="**Note: Retention windows and historical data**" content=retention-window-notice %}
+      {% include note.html first-line="**Note: Retention windows and historical data**" content=retention-period-notice %}
   - title: "replication frequency"
   - title: "Authorize Stitch and select {{ integration.display_name }} accounts"
     anchor: "auth-select-profiles"
