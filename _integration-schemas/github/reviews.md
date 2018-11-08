@@ -8,6 +8,8 @@ singer-schema: https://github.com/singer-io/tap-github/blob/master/tap_github/re
 description: |
   The `reviews` table contains info about pull request reviews. A pull request review is a group of comments on a pull request.
 
+    **Note**: In order to replicate this table, you must also set the [`pull_requests`](#pull_requests) table to replicate.
+
 replication-method: "Full Table"
 
 api-method:
