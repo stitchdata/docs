@@ -99,6 +99,8 @@ postgres:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: Connect with SSL, and optionally provide a certificate (such as a CA or server certificate) to verify the server's certificate.
 
 # -------------------------- #
 #       Heroku-Postgres      #
@@ -137,6 +139,8 @@ postgres-rds:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: Connect with SSL, and optionally provide a certificate (such as a CA or server certificate) to verify the server's certificate.
 
 # -------------------------- #
 #     CloudSQL Postgres       #
@@ -153,6 +157,8 @@ cloudsql-postgres:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: Connect with SSL, and optionally provide a certificate (such as a CA or server certificate) to verify the server's certificate.
 
 # -------------------------- #
 #          Redshift          #
