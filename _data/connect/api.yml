@@ -208,7 +208,17 @@ data-structures:
   report-cards:
     title: "Report Cards"
     section: "#report-card-object"
-    description: "A Report Card object contains information about a connection's configuration."
+    description: "A Report Card object contains information about a source or destination connection's configuration."
+
+    destination:
+      title: "Destination Report Card Object"
+      section: "#report-card-object--destination"
+      description: "A Destination Report Card object contains information about a destination's connection configuration."
+
+    source:
+      title: "Source Report Card Object"
+      section: "#report-card-object--source"
+      description: "A Source Report Card object contains information about a source's connection configuration."
 
 # -------------------------- #
 #       FORM PROPERTIES      #

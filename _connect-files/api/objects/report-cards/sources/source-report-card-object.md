@@ -2,8 +2,8 @@
 content-type: "api-structure"
 key: "report-card-object"
 
-title: "Report Card"
-description: "{{ api.data-structures.report-cards.description }}"
+title: "Source Report Card"
+description: "{{ api.data-structures.report-cards.source.description }}"
 
 object-attributes:
   - name: "current_step"
