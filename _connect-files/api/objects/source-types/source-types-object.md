@@ -11,7 +11,7 @@ version: "4"
 object-attributes:
   - name: "report_card"
     type: "object"
-    sub-type: "report card"
-    url: "{{ api.data-structures.report-cards.section }}"
-    description: "The Report Card object corresponding to the source's `type`. For example: `platform.marketo` or `platform.hubspot`."
+    sub-type: "source report card"
+    url: "{{ api.data-structures.report-cards.source.section }}"
+    description: "The Source Report Card object corresponding to the source's `type`. For example: `platform.marketo` or `platform.hubspot`."
 ---

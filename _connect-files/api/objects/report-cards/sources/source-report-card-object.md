@@ -1,6 +1,6 @@
 ---
 content-type: "api-structure"
-key: "report-card-object"
+key: "report-card-object--source"
 
 title: "Source Report Card"
 description: "{{ api.data-structures.report-cards.source.description }}"

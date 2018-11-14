@@ -24,7 +24,7 @@ arguments:
 
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Report Card object]({{ api.data-structures.report-cards.section }}) corresponding to `type`.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source Report Card object]({{ api.data-structures.report-cards.source.section }}) corresponding to `type`.
 
 examples:
   - type: "request"

@@ -17,7 +17,7 @@ description: "{{ api.core-objects.source-types.list.description | flatify }}"
 
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Report Card objects]({{ api.data-structures.report-cards.section }}), one for each supported source `type`.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Report Card objects]({{ api.data-structures.report-cards.source.section }}), one for each supported source `type`.
 
 
 examples:
