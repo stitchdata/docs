@@ -41,8 +41,8 @@ object-attributes:
 
   - name: "report_card"
     type: "object"
-    sub-type: "report card"
-    url: "{{ api.data-structures.report-cards.section }}"
+    sub-type: "source report card"
+    url: "{{ api.data-structures.report-cards.source.section }}"
     description: "A description of the source's configuration state."
 
   - name: "stitch_client_id"

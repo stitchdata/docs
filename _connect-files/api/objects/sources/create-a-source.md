@@ -37,7 +37,7 @@ arguments:
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property. 
 
-  The `report_card` property contains the [Report Card object]({{ api.data-structures.report-cards.section }}) for the source's configuration status.
+  The `report_card` property contains the [Source Report Card object]({{ api.data-structures.report-cards.source.section }}) for the source's configuration status.
 
 
 examples:
