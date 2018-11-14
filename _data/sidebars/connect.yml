@@ -134,9 +134,14 @@ api:
             method: "object"
             url: "{{ api.data-structures.properties.section }}"
 
-          - title: "{{ api.data-structures.report-cards.title }}"
+          - title: "{{ api.data-structures.report-cards.destination.title }}"
             method: "object"
-            url: "{{ api.data-structures.report-cards.section }}"
+            url: "{{ api.data-structures.report-cards.destination.section }}"
+
+          - title: "{{ api.data-structures.report-cards.source.title }}"
+            method: "object"
+            url: "{{ api.data-structures.report-cards.source.section }}"
+
 
       - title: "Form Properties"
         sections:
