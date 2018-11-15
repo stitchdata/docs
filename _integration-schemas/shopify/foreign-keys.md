@@ -66,6 +66,8 @@ foreign-keys:
       - table: "customers"
         join-on: "last_order_id"
 
+      - table: "order_refunds"
+
       - table: "orders"
         join-on: "id"
 
@@ -96,6 +98,10 @@ foreign-keys:
         subatable: "line_items"
 
       - table: "collects"
+
+      - table: "order_refunds"
+        subtable: "refund_line_items"
+        subattribute: "line_item"
 
       - table: "orders"
         subtable: "fulfillments__line_items"
