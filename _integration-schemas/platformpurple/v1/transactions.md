@@ -1,50 +1,40 @@
 ---
 tap: "platformpurple"
-# version: "1.0"
-
+version: "0.x"
 name: "transactions"
-doc-link: 
-singer-schema: https://github.com/singer-io/tap-platformpurple/blob/master/tap_platformpurple/schemas/transactions.json
-description: |
-  The `{{ table.name }}` contains info about
-
-replication-method: "Key-based Incremental / Full Table"
-
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-platformpurple/blob/master/tap_platformpurple/schemas/transactions.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "transactionID"
-    type: "integer"
-    primary-key: true
-    description: ""
-
-  - name: "dateTime"
-    type: "date-time"
-    description: ""
-
-  - name: "productID"
-    type: "number"
-    description: ""
-
-  - name: "productSoldFor"
-    type: "string"
-    description: ""
-
-  - name: "productName"
-    type: "string"
-    description: ""
-
   - name: "couponCodeUsed"
     type: "string"
     description: ""
-
-  - name: "userEmail"
-    type: "string"
+  - name: "dateTime"
+    type: "date-time"
     description: ""
-
   - name: "firstName"
     type: "string"
     description: ""
-
   - name: "lastName"
+    type: "string"
+    description: ""
+  - name: "productID"
+    type: "number"
+    description: ""
+  - name: "productName"
+    type: "string"
+    description: ""
+  - name: "productSoldFor"
+    type: "string"
+    description: ""
+  - name: "transactionID"
+    type: "integer"
+    description: ""
+  - name: "userEmail"
     type: "string"
     description: ""
 ---
