@@ -38,18 +38,6 @@ examples:
          {  
             "type":"platform.hubspot",                                /* HubSpot source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.hubspot"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -149,18 +137,6 @@ examples:
          {  
             "type":"platform.marketo",                                /* Marketo source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.marketo"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -259,18 +235,6 @@ examples:
          {  
             "type":"platform.zuora",                                  /* Zuora source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.zuora"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -366,18 +330,6 @@ examples:
          {  
             "type":"platform.salesforce",                             /* Salesforce source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.salesforce"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -542,18 +494,6 @@ examples:
          {  
             "type":"platform.yotpo",                                  /* Yotpo source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.yotpo"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -627,18 +567,6 @@ examples:
          {  
             "type":"platform.sendgrid",                               /* SendGrid source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.sendgrid"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -700,5 +628,4 @@ examples:
             ]
          }
       ]
-
 ---

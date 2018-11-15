@@ -48,6 +48,7 @@ request-body-example: |
      "id": 10,
      "status": "pending"
     }
+   }
   ]
 
 

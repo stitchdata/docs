@@ -155,15 +155,7 @@ examples:
                   "type":"fully_configured",
                   "properties":[  ]
                }
-            ],
-            "current_step_hints":{
-               "js":{
-                  "function":"authorizeSource",
-                  "options":{
-                     "id":<SOURCE_ID>
-                  }
-               }
-            }
+            ]
          }
       }
 ---

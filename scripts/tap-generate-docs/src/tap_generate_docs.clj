@@ -21,6 +21,13 @@
   (or (= {} property-json-schema-partial)
       (string? (property-json-schema-partial "type"))))
 
+(defn type-declaration?
+  "A valid type declaration is either a string or a list. Never a map,
+   which covers the rest of JSON schema."
+  [sub-schema]
+  (or (sequential? sub-schema)
+      (string? sub-schema)))
+
 (defn converted-unary-type?
   [candidate-converted-unary-type]
   (or (= {} candidate-converted-unary-type)
@@ -35,30 +42,32 @@
 (declare convert-multiary-type)
 
 (defn convert-object-properties
-  [schema properties]
-  {:pre [(not (contains? properties "type"))]}
+  [tap-fs schema properties]
+  {:pre [(not (type-declaration? (properties "type")))]}
   (sort-by #(get % "name")
-           (map (partial convert-multiary-type schema) properties)))
+           (map (partial convert-multiary-type tap-fs schema) properties)))
 
 (defn convert-array-object-type
-  [schema property property-json-schema-partial]
+  [tap-fs schema property property-json-schema-partial]
   {:pre [(not= "array" (property-json-schema-partial "type"))]}
   (let [item-type (property-json-schema-partial "type")]
     (if (or (= "object" item-type)
             (= ["object"] item-type))
       ;; Consequent
-      (convert-object-properties schema (property-json-schema-partial "properties"))
+      (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))
       ;; Alternate
-      (let [object-properties (convert-object-properties schema (property-json-schema-partial "properties"))
+      (let [object-properties (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))
             other-properties (if (string? item-type)
                                [item-type]
                                (filter (partial not= "object") item-type))
             converted-other-properties (if (= ["null"] other-properties)
                                          []
-                                         [(convert-multiary-type schema ["value"
-                                                                         (assoc property-json-schema-partial
-                                                                                "type"
-                                                                                other-properties)])])
+                                         [(convert-multiary-type tap-fs
+                                                                 schema
+                                                                 ["value"
+                                                                  (assoc property-json-schema-partial
+                                                                         "type"
+                                                                         other-properties)])])
             all-properties (sort-by #(% "name") (into object-properties converted-other-properties))]
         (if (< 1 (count (filter #(= "value" (get % "name")) all-properties)))
           object-properties
@@ -67,7 +76,7 @@
 (defn convert-unary-type
   "unary-type = a property that has a single type notated as a string (i.e.
   not [\"type\"] but \"type\"."
-  [schema [property-name property-json-schema-partial :as property]]
+  [tap-fs schema [property-name property-json-schema-partial :as property]]
   {:pre [(unary-type? property)]
    :post [(converted-unary-type? %)]}
   (if (= {} property-json-schema-partial)
@@ -81,10 +90,11 @@
                                             (property-json-schema-partial "type"))
                                    "description" ""}]
       (cond (= "object" (property-json-schema-partial "type"))
-            (assoc base-converted-property
-                   "object-properties"
-                   (convert-object-properties schema (property-json-schema-partial "properties")))
-
+            (if (nil? (property-json-schema-partial "properties"))
+              (throw (ex-info "Found object type without properties defined: " {:property-name property-name}))
+              (assoc base-converted-property
+                     "object-properties"
+                     (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))))
             (= "array" (property-json-schema-partial "type"))
             (let [items (property-json-schema-partial "items")
                   item-type (items "type")
@@ -95,8 +105,8 @@
                                                          {:property property})))
                                        (if (or (= "object" item-type)
                                                ((set item-type) "object"))
-                                         (convert-array-object-type schema property items)
-                                         [(convert-multiary-type schema ["value" items])]))]
+                                         (convert-array-object-type tap-fs schema property items)
+                                         [(convert-multiary-type tap-fs schema ["value" items])]))]
               ;; TODO Log (or verify that it's already logged) dropped value
               (if (empty? converted-property)
                 base-converted-property
@@ -145,20 +155,55 @@
                      (property-json-schema-partial "type")))))))
 
 (defn parse-json-schema-reference
+  "Parse a json-schema-reference according to
+  https://json-schema.org/understanding-json-schema/structuring.html#reuse
+
+  Assumes that external references are defined in <file_name>.json and
+  that <file_name>.json is loadable from the same place that the reference
+  is defined.
+
+  Also assumes json pointers use only names and slashes."
   [json-schema-reference]
   {:pre [(string? json-schema-reference)]
-   :post [(every? string? %)]}
-  ((insta/parser "<JSONSCHEMAREFERENCE> = <ROOT> PATHSEGMENT+
+   :post [(contains? % :file)
+          (every? string? (:json-pointer %))]}
+  (let [res ((insta/parser "<JSONSCHEMAREFERENCE> = FILE? <ROOT> JSONPOINTER+
+                  FILE = #'[-A-Za-z0-9_]+.json'
                   ROOT = '#'
-                  <PATHSEGMENT> = <'/'> #'[A-Za-z0-9_]+'")
-   json-schema-reference))
+                  JSONPOINTER = <'/'> #'[A-Za-z0-9_]+'")
+             json-schema-reference)
+        file (filter (comp (partial = :FILE) first) res)
+        json-pointer (filter (comp (partial = :JSONPOINTER) first) res)]
+    {:file (second (first file))
+     :json-pointer (map second json-pointer)}))
+
+(defn read-schema
+  [input-json-schema-file]
+  (with-open [r (io/reader input-json-schema-file)]
+    (json/read r)))
+
+(defn schema-file?
+  [input-json-schema-file]
+  (try
+    (let [json-schema (read-schema input-json-schema-file)]
+      (or (and (or (= "object" (json-schema "type"))
+                   (= ["null" "object"] (json-schema "type")))
+               (contains? json-schema "properties"))
+          (println (format "%s is not a valid schema file" input-json-schema-file))))
+    (catch Exception e
+      (println (format "%s is not valid schema file" input-json-schema-file)))))
+
+(defn load-schema-file
+  [{:keys [tap-schema-dir]} file]
+  (read-schema (io/file tap-schema-dir file)))
 
 (defn convert-multiary-type
   "multiary-type = a property that _may_ have more than one type."
-  [schema [property-name property-json-schema-partial :as property]]
+  [tap-fs schema [property-name property-json-schema-partial :as property]]
   (let [property (if (contains? property-json-schema-partial "$ref")
-                   (let [json-schema-reference (parse-json-schema-reference (property-json-schema-partial "$ref"))
-                         referenced-json-schema-partial (get-in schema json-schema-reference)]
+                   (let [{:keys [file json-pointer]} (parse-json-schema-reference (property-json-schema-partial "$ref"))
+                         schema (if file (load-schema-file tap-fs file) schema)
+                         referenced-json-schema-partial (get-in schema json-pointer)]
                      (when (not referenced-json-schema-partial)
                        (throw (ex-info "$ref without matching definition"
                                        {:property property
@@ -166,12 +211,14 @@
                      [property-name referenced-json-schema-partial])
                    property)]
     (let [unary-type-properties (property->unary-type-properties property)
-          converted-unary-type-properties (map (partial convert-unary-type schema) unary-type-properties)]
+          converted-unary-type-properties (map (partial convert-unary-type tap-fs schema) unary-type-properties)]
       (if (empty? converted-unary-type-properties)
         (do
           (println (str "Null unary type passed for property"
                         {:property property}))
-          [])
+          {"name" property-name
+           "type" "null"
+           "description" ""})
         (reduce merge-unary-types converted-unary-type-properties)))))
 
 (defn tap-fs?
@@ -179,11 +226,6 @@
   (and (every? #(contains? candidate-tap-fs %)
                [:tap-name :tap-directory :tap-schema-dir :tap-schemas])
        (not (empty? (candidate-tap-fs :tap-schemas)))))
-
-(defn read-schema
-  [input-json-schema-file]
-  (with-open [r (io/reader input-json-schema-file)]
-    (json/read r)))
 
 (defn convert-schema-file
   [{:keys [tap-directory tap-name] :as tap-fs} input-json-schema-file]
@@ -245,7 +287,7 @@
                    "replication-method" ""
                    "api-method"         {"name"     ""
                                          "doc-link" ""}
-                   "attributes"         (convert-object-properties schema initial-properties))))
+                   "attributes"         (convert-object-properties tap-fs schema initial-properties))))
 
 (def cli-options
   [["-h" "--help" "Show help"]])
@@ -283,7 +325,9 @@
 (defn tap-fs->schema-files
   [{:keys [tap-schema-dir] :as partial-tap-fs}]
   (let [schema-files (.list tap-schema-dir)]
-    (map (partial io/file tap-schema-dir) schema-files)))
+    (->> schema-files
+         (filter (partial re-matches #".*\.json"))
+         (map (partial io/file tap-schema-dir)))))
 
 (defn tap-directory->tap-fs
   [tap-directory]
@@ -346,32 +390,33 @@
       (let [tap-fs       (cli-arg->tap-fs (first (parsed-args :arguments)))
             schema-files (:tap-schemas tap-fs)]
         (doall
-         (for [file schema-files]
-           (let [converted-schema-file (convert-schema-file tap-fs file)
-                 yaml-content          (.dump (Yaml. (doto (DumperOptions.)
-                                                       (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
-                                                       (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
-                                                       (.setExplicitStart true)
-                                                       (.setIndent 4)
-                                                       (.setIndicatorIndent 2)
-                                                       (.setPrettyFlow true)
-                                                       (.setSplitLines true)))
-                                              converted-schema-file)
-                 ;; TODO Use make logic to avoid updating unedited schemas
-                 ;; TODO Output to the properly formed
-                 ;; /opt/code/docs/_integration-schemas/<tap-name>/v<N>/<schema-name>.md
-                 target-file           (io/file (get-in parsed-args [:options
-                                                                     :output-directory])
-                                                (string/replace (.getName file)
-                                                                #".json$"
-                                                                ".md"))]
-             (println (format "Writing converted %s to %s"
-                              file
-                              target-file))
-             (spit target-file
-                   (string/replace (str yaml-content "---\n")
-                                   #"\"([^\"]+?)\":"
-                                   "$1:")))))
+         (for [file schema-files :when (schema-file? file)]
+           (do (println (str "Processing file: " file))
+               (let [converted-schema-file (convert-schema-file tap-fs file)
+                  yaml-content          (.dump (Yaml. (doto (DumperOptions.)
+                                                        (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
+                                                        (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
+                                                        (.setExplicitStart true)
+                                                        (.setIndent 4)
+                                                        (.setIndicatorIndent 2)
+                                                        (.setPrettyFlow true)
+                                                        (.setSplitLines true)))
+                                               converted-schema-file)
+                  ;; TODO Use make logic to avoid updating unedited schemas
+                  ;; TODO Output to the properly formed
+                  ;; /opt/code/docs/_integration-schemas/<tap-name>/v<N>/<schema-name>.md
+                  target-file           (io/file (get-in parsed-args [:options
+                                                                      :output-directory])
+                                                 (string/replace (.getName file)
+                                                                 #".json$"
+                                                                 ".md"))]
+              (println (format "Writing converted %s to %s"
+                               file
+                               target-file))
+              (spit target-file
+                    (string/replace (str yaml-content "---\n")
+                                    #"\"([^\"]+?)\":"
+                                    "$1:"))))))
         (when-not *interactive*
           (System/exit 0))))))
 
