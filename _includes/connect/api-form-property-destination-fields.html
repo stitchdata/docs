@@ -32,10 +32,17 @@
 					{% assign ssl-fields = null | compact %}
 				{% endif %}
 
+		{% assign ssh-support = destination.ssh %}
+			{% if ssh-support == true %}
+				{% assign ssh-fields = connect-destination-attributes.ssh %}
+			{% else %}
+				{% assign ssh-fields = null | compact %}
+			{% endif %}
+
 		{% assign port = destination.port %}
 		{% assign doc-link = destination.url | prepend: site.baseurl %}
 
-		{% assign feature-fields = ssl-fields %}
+		{% assign feature-fields = ssl-fields | concat: ssh-fields %}
 	{% endfor %}
 
 
