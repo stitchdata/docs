@@ -30,7 +30,7 @@ port: 1433
 db-type: "mssql"
 icon: /images/integrations/icons/microsoft-azure.svg
 
-versions: "n/a"
+versions: "2000 through 2016"
 ssh: true
 ssl: false
 

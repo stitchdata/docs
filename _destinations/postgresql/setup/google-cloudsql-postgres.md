@@ -29,7 +29,7 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Create the CloudSQL Instance"
+  - title: "Create the CloudSQL instance"
     anchor: "create-cloudsql-instance"
     content: |
       1. In the Google Cloud Platform Console, navigate to the [CloudSQL Instances page](https://console.cloud.google.com/projectselector/sql/instances).
@@ -43,20 +43,14 @@ setup-steps:
 
       The instance may take a few minutes to finish initializing. After the process completes, click the instance to open it in the CloudSQL Instances page.
 
-      {% capture ssl%}
-      If you want to use SSL to connect Stitch to {{ destination.display_name }}, you'll need to configure the instance to use SSL before continuing. You can find instructions for doing this in [Google's documentation](https://cloud.google.com/sql/docs/postgres/configure-ssl-instance).
-      {% endcapture %}
-
-      {% include important.html first-line="**Using an SSL connection?**" content=ssl %}
-
-  - title: "Create a Database in the CloudSQL Instance"
+  - title: "Create a database in the CloudSQL instance"
     anchor: "create-database-in-cloudsql"
     content: |
       **This step is optional**. If you want to use the instance's default database (`postgres`), you can skip this step.
 
       {% include shared/google-cloud-platform/create-database.html %}
 
-  - title: "Configure Security & Access Settings"
+  - title: "Configure Security and Access settings"
     anchor: "configure-security-access-settings"
     content: |
       Next, you'll configure the access settings for the instance. Google access control has two levels: at the instance and at the database.
@@ -109,8 +103,6 @@ setup-steps:
              ![Google CloudSQL PostgreSQL IPv4 address field, which contains the hostname info.]({{ site.baseurl }}/images/destinations/gcp-instance-properties.png)
 
           4. Copy and paste the IPv4 address into a text file **or** leave this page open and open your Stitch account in another tab.
-
-
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}
