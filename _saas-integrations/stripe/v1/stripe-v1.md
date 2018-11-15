@@ -1,13 +1,19 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
 title: Stripe
 permalink: /integrations/saas/stripe
 tags: [saas_integrations]
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+layout: singer
+# input: false
 
 # -------------------------- #
 #     Integration Details    #
@@ -15,10 +21,10 @@ format: ## controls formatting options in template
 
 name: "stripe"
 display_name: "Stripe"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
-status-url: "https://status.stripe.com/"
+tap-name: "Stripe"
+repo-url: https://github.com/singer-io/tap-stripe
 
 this-version: "1.0"
 
@@ -32,25 +38,15 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
+status-url: "https://status.stripe.com/"
 icon: /images/integrations/icons/stripe.svg
 
-table-selection: false
-column-selection: false
+table-selection: true
+column-selection: true
 
-anchor-scheduling: false
-extraction-logs: false
-loading-reports: false
-
-# -------------------------- #
-#      Querying Details      #
-# -------------------------- #
-
-## Stripe's API uses an event-based approach to
-## update each of its objects. This results in a 
-## greater number of rows being created in Stripe
-## than what will actually persist to a data warehouse.
-
-replication-notes: true
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Incompatiblities      #
@@ -63,6 +59,29 @@ incompatible:
   reason: "Tables and columns created as a result of de-nesting nested data may have names that exceed PostgreSQL's limit of 63 characters for tables and 59 characters for columns. PostgreSQL data warehouses will reject these tables and columns, meaning Stitch will be unable to load them."
 
 # -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+requirements-list:
+  - item: |
+      **Admin permissions in {{ integration.display_name }}.** This is required to grant Stitch access to {{ integration.display_name }}.
+
+setup-steps:
+  - title: "add integration"
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
+      2. A screen explaining what you're authorizing will display. **Note**: Stitch will only ever read your {{ integration.display_name }} data, and cannot create charges or any other records in {{ integration.display_name }}.
+      3. Click **Sign in with {{ integration.display_name }} to connect**.
+      4. Sign into your {{ integration.display_name }} account.
+      5. After the authorization process is successfully completed, you'll be directed back to Stitch.
+      6. Click {{ app.buttons.finish-int-setup }}.
+  - title: "track data"
+
+# -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
@@ -72,46 +91,6 @@ incompatible:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-
-{% contentfor setup %}
-Connecting your Stripe data to Stitch is a four-step process:
-
-1. [Add Stripe as a Stitch data source](#add-stitch-data-source)
-3. [Define the Historical Sync](#define-historical-sync)
-4. [Define the Replication Frequency](#define-rep-frequency)
-5. [Authorize Stitch to access Stripe](#authorize-stitch)
-
-### Prerequisites
-
-**The user who sets up the integration must have Admin permissions in Stripe**. If you don't have these permissions, please loop in a Stripe admin before continuing.
-
-{% include integrations/shared-setup/connection-setup.html %}
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-### Authorize Stitch to Access Stripe {#authorize-stitch}
-
-Lastly, you'll be directed to Stripe's website to complete the setup. **Remember you must have Admin permissions in Stripe for the connection to be successful.**
-
-1. A screen asking for authorization to Stripe will display. **Note that Stitch will only ever read your data.**
-2. Click **Sign in with Stripe to connect**.
-3. Enter your Stripe credentials and click **Sign into your account**.
-4. After the authorization process successfully completes, you'll be redirected back to Stitch.
-5. Click {{ app.buttons.finish-int-setup }}.
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication-notes %}
-Stripe's API uses an event-based approach to create and update data points. **Because this approach can create large numbers of records and drive up your row usage**, it's important to understand how Stripe's API works and how Stitch queries it for data as a result.
-
-In this section, we'll be using the word "object" to refer to the entities (ex: customer) contained within an API.
 
 #### Updates in "Traditional" APIs {#traditional-api-updates}
 When we talk about "traditional" APIs, we mean the kind that only have a single type of object. In this case, when a record is updated, only that object is "notified."
@@ -147,4 +126,3 @@ Additionally, note that:
 Because a single event can result in creating or updating multiple rows, Stripe can potentially drive up your row usage. Additionally, Stripe deeply nests their data. **If you use a data warehouse that doesn't natively support nested structures,** Stitch will de-nest these records and create subtables, resulting in a greater number of replicated rows.
 
 To counter this, we recommend setting the Replication Frequency to something less frequent - like every 24 hours instead of every 30 minutes - to help keep your row count down and prevent overages.
-{% endcontentfor %}
