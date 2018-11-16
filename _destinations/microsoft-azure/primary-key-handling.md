@@ -10,6 +10,9 @@ type: "mirosoft-azure"
 ## The info about the sdc_primary_keys table is kept in _data/stitch/sdc-primary-keys.yml.
 ## This includes the table's description, its list of attributes and their descriptions, etc.
 
+
+# {% include important.html type="single-line" content="**Do not remove or alter this table.** This will cause replication issues and data discrepancies." %}
+
 sections:
   - content: |
       {% assign primary-keys-table = site.data.stitch.sdc-primary-keys %}
@@ -19,9 +22,14 @@ sections:
   - title: "Usage in replication"
     anchor: "usage-in-replication"
     content: |
-      Because Azure SQL Data Warehouse destinations don’t have native support for Primary Keys, Stitch uses the `{{ primary-keys-table.name }}` table to store Primary Key information and de-dupe data during loading.
+      Because Azure SQL Data Warehouse destinations don’t have native support for Primary Keys, Stitch uses the `{{ primary-keys-table.name }}` table to store Primary Key information and de-dupe data during loading incrementally-replicated tables.
+    subsections:
+      - title: "Replication Methods and de-duping data"
+        anchor: "replication-methods-de-duping"
+        content: |
+          De-duplicating data only applies to tables using an [Incremental Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}). This ensures that only the most recent version of a record is loaded into the table.
 
-      {% include important.html type="single-line" content="**Do not remove or alter this table.** This will cause replication issues and data discrepancies." %}
+          Tables using [Full Table Replication]() are not de-duped, but loaded in full during each replication job.
 
   - title: "Determining Primary Keys"
     anchor: "determining-primary-keys"
@@ -60,6 +68,7 @@ sections:
       </tr>
       {% endfor %}
       </table>
+
     subsections:
       - title: "Example table"
         anchor: "example-table"
@@ -90,6 +99,21 @@ sections:
           </tr>
           {% endfor %}
           </table>
+
+          When Stitch loads data for the `emails` table, it will reference these records in `{{ primary-keys-table.name }}` to de-duplicate the data. This will ensure that only the most recent version of a record exists in the `emails` table.
+
+  - title: "Effects of changing Primary Keys"
+    anchor: "issues-from-primary-key-changes"
+    content: |
+      Replication issues can arise if Primary Keys in the source change, or if data in the `{{ primary-keys-table.name }}` is incorrectly altered or removed.
+
+      The following error will surface if this happens:
+
+      ```
+      Primary Keys for table do not match Primary Keys of incoming data
+      ```
+
+      If you recieve this error, you should [reset the table(s)]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) mentioned in the error. This will queue a full re-replication of the table, which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}
