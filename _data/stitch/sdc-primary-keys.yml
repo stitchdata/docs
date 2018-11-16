@@ -28,7 +28,7 @@ attributes:
 example-records-description: |
   For every column a table uses as a Primary Key, the `{{ primary-keys-table.name }}` table will contain a row containing the table's name, the name of the column, and the column's position in the Primary Key array Stitch receives.
 
-  For example: If Stitch received the array `["email_id", "created_at", "customer_id"]` for an `emails` table, the `{{ primary-keys-table.name }}` table would contain the following records:
+  For example: If Stitch received the array `["email_id", "updated_at", "customer_id"]` for an `emails` table, the `{{ primary-keys-table.name }}` table would contain the following records:
 
 example-records:
   - table-name: "emails"
@@ -36,7 +36,7 @@ example-records:
     ordinal-position: "0"
 
   - table-name: "emails"
-    column-name: "created_at"
+    column-name: "updated_at"
     ordinal-position: "1"
   
   - table-name: "emails"
