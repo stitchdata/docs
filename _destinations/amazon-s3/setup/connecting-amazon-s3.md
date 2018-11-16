@@ -4,6 +4,9 @@ permalink: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-sti
 tags: [amazon-s3_destination]
 keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, postgres etl, amazon s3 etl
 summary: "Ready to spin up an Amazon S3 data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 

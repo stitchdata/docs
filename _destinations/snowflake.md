@@ -8,6 +8,9 @@ layout: destination
 tags: [snowflake_destination]
 keywords: snowflake, snowflake destination, snowflake data warehouse, snowflake etl, etl to snowflake
 summary: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 

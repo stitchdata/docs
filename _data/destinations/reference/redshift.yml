@@ -168,6 +168,11 @@ attributes:
     categories: "stitch-details"
     value: *connection-methods-vpn
 
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}
+
   - id: "workload-performance-management"
     categories: "stitch-details"
     value: *workload-performance-management

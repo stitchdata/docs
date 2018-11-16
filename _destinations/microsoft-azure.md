@@ -12,6 +12,9 @@ layout: destination
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: &summary |
   Microsft Azure SQL Data Warehouse is a fast, fully-managed, petabyte-scale data warehouse. It's ideal for batch-based data warehouse workloads, and designed with a decoupled storage and compute model that allows it to scale quickly and be maintained in a cost-effective way.
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 

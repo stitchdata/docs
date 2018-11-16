@@ -4,6 +4,9 @@ permalink: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-war
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, postgres rds, postgres-rds, relational database services
 summary: "Ready to spin up an Amazon PostgreSQL-RDS data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 display_name: "Postgres-RDS"

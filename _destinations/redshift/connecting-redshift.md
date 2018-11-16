@@ -5,6 +5,9 @@ tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
 
 summary: "Ready to spin up a Redshift data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 type: "redshift"

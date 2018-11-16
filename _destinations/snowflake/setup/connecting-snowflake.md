@@ -5,6 +5,9 @@ tags: [snowflake_destination]
 keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowflake etl, etl to snowflake, snowflake destination
 
 summary: "Connect a Snowflake destination to your Stitch account."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 display_name: "Snowflake"

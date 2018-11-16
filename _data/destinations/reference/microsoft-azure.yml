@@ -159,11 +159,17 @@ attributes:
   - id: "ssh-connections"
     categories: "stitch-details"
     value: *connection-methods-ssh
-    # description:
+    description: |
+      Refer to [these instructions]({{ link.destinations.setup.azure-ssh | prepend: site.baseurl }}) for connecting via SSH.
 
   - id: "vpn-connections"
     categories: "stitch-details"
     value: *connection-methods-vpn
+
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}
 
   - id: "incremental-replication-upserts"
     categories: "replication"

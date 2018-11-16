@@ -4,6 +4,9 @@ permalink: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-war
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl
 summary: "Ready to spin up a PostgreSQL data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 

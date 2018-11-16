@@ -34,8 +34,18 @@ stitch-details:
 
       - id: "workload-performance-management"
         name: "Workload and performance management"
-        descriptions: |
+        description: |
           Indicates if workload and performance management tools are supported by the destination.
+
+      - id: "all-setup-instructions"
+        name: "Setup documentation"
+        description-full: |
+          {% assign all-destination-setup-guides = site.destinations | where:"content-type","destination-setup" %}
+            {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"title" %}
+
+            {% for setup-guide in destination-setup-guides %}
+            - [{{ setup-guide.title }}]({{ setup-guide.url | prepend: site.baseurl }})
+            {% endfor %}
 
 # -------------------------- #
 #     Replication details    #

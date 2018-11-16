@@ -4,9 +4,11 @@ permalink: /destinations/redshift/remove-columns-redshift
 redirect_from: /destinations/redshift/remove-database-integration-columns-redshift
 tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, database integration, remove column, remove columns
-
 summary: "Want to tidy up your Amazon Redshift data warehouse by removing columns you're no replicating? In this article, we'll walk you through using `pg_dump` to remove unwanted columns."
 type: "redshift"
+
+content-type: "destination-general"
+
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","redshift" | first %}

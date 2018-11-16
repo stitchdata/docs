@@ -7,6 +7,8 @@ layout: destination
 summary: "Microsoft Azure SQL Data Warehouses don't have native support for Primary Keys. To ensure data can be de-duped during loading, Stitch will create a Primary Keys table for each integration schema."
 type: "mirosoft-azure"
 
+content-type: "destination-general"
+
 ## The info about the sdc_primary_keys table is kept in _data/stitch/sdc-primary-keys.yml.
 ## This includes the table's description, its list of attributes and their descriptions, etc.
 

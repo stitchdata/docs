@@ -8,6 +8,9 @@ layout: destination-overview
 tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
 summary: &summary "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 data-loading: false

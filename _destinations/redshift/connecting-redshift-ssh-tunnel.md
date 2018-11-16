@@ -5,6 +5,9 @@ tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user, redshift ssh, redshift ssh tunnel
 
 summary: "If your Redshift cluster is in a private subnet, you can use an SSH tunnel to connect Stitch to your data warehouse."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 

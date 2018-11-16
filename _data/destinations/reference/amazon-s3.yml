@@ -160,6 +160,11 @@ attributes:
     categories: "stitch-details"
     value: *connection-methods-vpn
 
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}
+
   - id: "incremental-replication-upserts"
     categories: "replication"
     value: *incremental-rep-upserts

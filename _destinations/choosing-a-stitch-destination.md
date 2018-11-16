@@ -5,6 +5,8 @@ tags: [destinations]
 keywords: destination, destinations, data warehouse, data warehouses, warehouse, stitch etl, etl, compare destinations, choose destination, select destination
 summary: "If you're new to data warehousing or want to see how Stitch's destination offerings compare to each other, look no further. This guide will help you choose the best Stitch destination for your data warehousing needs."
 
+content-type: "destination-general"
+
 toc: true
 type: "all"
 destination: false

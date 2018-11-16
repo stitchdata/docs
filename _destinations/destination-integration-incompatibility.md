@@ -5,6 +5,8 @@ keywords: destinations, integrations, incompatible, mixed data types, multiple d
 permalink: /destinations/destination-integration-compatibility
 summary: "Verify your integrations' compatibility with your data warehouse."
 
+content-type: "destination-general"
+
 toc: true
 layout: destination
 type: "all"

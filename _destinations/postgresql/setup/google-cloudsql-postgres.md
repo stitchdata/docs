@@ -7,6 +7,9 @@ permalink: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data
 redirect_from: /destinations/postgresq/connecting-a-google-cloudsql-postgresql-data-warehouse
 
 summary: "Ready to spin up a Google CloudSQL PostgreSQL data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 display_name: "CloudSQL PostgreSQL"

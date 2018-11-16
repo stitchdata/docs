@@ -12,6 +12,9 @@ permalink: /destinations/microsoft-azure/connecting-a-microsoft-azure-sql-data-w
 tags: [microsoft-azure_destination]
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
 summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 

@@ -8,6 +8,9 @@ layout: destination
 tags: [panoply_destination]
 keywords: panoply, panoply.io, panoply data warehouse, panoply etl, etl to panoply
 summary: "Panoply is a fully managed data warehouse service that will spin up a Redshift instance in just a few clicks. With Panoply, you can use your favorite analysis, SQL, and visualization tools just like you would if you were creating a Redshift data warehouse on your own."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 

@@ -5,6 +5,9 @@ tags: [bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
 
 summary: "Unlike traditional relational databases and other cloud solutions, Google BigQuery pricing isn't fixed-rate: it's based on usage. The goal of this article is to help you better understand how your data warehousing costs will be impacted by using Stitch's BigQuery destination so you can make an informed decision."
+
+content-type: "destination-general"
+
 toc: false
 type: "bigquery"
 ---
