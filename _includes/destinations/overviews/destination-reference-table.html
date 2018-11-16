@@ -85,15 +85,15 @@
                          </td>
                          <td class="attribute-description">
                               <p>{% if info.value contains "true" %}
-                                   Supported {{ supported | replace: "TOOLTIP","Supported" }}
+                                   <strong>Supported {{ supported | replace: "TOOLTIP","Supported" }}</strong>
                               {% elsif info.value contains "false" %}
-                                   Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}
+                                   <strong>Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}</strong>
                               {% elsif info.value contains "n/a" %}
-                                   Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}
+                                   <strong>Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}</strong>
                               {% elsif info.value contains "Depends" %}
-                                   Depends {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}
+                                   <strong>Depends {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}</strong>
                               {% else %}
-                                   {{ info.value | flatify }}
+                                   <strong>{{ info.value | flatify }}</strong>
                               {% endif %}</p>
 
                               {% if info.description %}
