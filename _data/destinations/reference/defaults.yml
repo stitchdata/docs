@@ -44,7 +44,7 @@ stitch-details:
             {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"title" %}
 
             {% for setup-guide in destination-setup-guides %}
-            - [{{ setup-guide.title }}]({{ setup-guide.url | prepend: site.baseurl }})
+            - [{{ setup-guide.title | remove: " to Stitch" }}]({{ setup-guide.url | prepend: site.baseurl }})
             {% endfor %}
 
 # -------------------------- #
