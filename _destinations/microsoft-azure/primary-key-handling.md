@@ -102,12 +102,12 @@ sections:
 
           When Stitch loads data for the `emails` table, it will reference these records in `{{ primary-keys-table.name }}` to de-duplicate the data. This will ensure that only the most recent version of a record exists in the `emails` table.
 
-  - title: "Effects of changing Primary Keys"
-    anchor: "issues-from-primary-key-changes"
+  - title: "Effects of Primary Key changes"
+    anchor: "effects-of-primary-key-changes"
     content: |
       Replication issues can arise if Primary Keys in the source change, or if data in the `{{ primary-keys-table.name }}` is incorrectly altered or removed.
 
-      The following error will surface if this happens:
+      Along with being unable to load data, Stitch will surface the following error if this occurs:
 
       ```
       Primary Keys for table do not match Primary Keys of incoming data
