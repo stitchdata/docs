@@ -322,10 +322,6 @@
   (is (= {:file nil :json-pointer ["def"]} (parse-json-schema-reference "#/def")))
   (is (= {:file nil :json-pointer ["def" "foo" "bar"]} (parse-json-schema-reference "#/def/foo/bar")))
   (is (= {:file "definitions.json" :json-pointer ["def"]} (parse-json-schema-reference "definitions.json#/def")))
-  ;; TODO I think this is right. The file would be loaded from the schema
-  ;; dir using io/file and the json-pointer in this case would be an empty
-  ;; path for get-in because it represents the whole document. This is, of
-  ;; course, untested.
   (is (= {:file "shared/discount.json" :json-pointer []}
          (parse-json-schema-reference "shared/discount.json#/"))))
 

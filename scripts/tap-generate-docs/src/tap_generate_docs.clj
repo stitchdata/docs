@@ -168,14 +168,14 @@
    :post [(contains? % :file)
           (every? string? (:json-pointer %))]}
   (let [res ((insta/parser "<JSONSCHEMAREFERENCE> = FILE? <ROOT> JSONPOINTER+
-                  FILE = #'[-A-Za-z0-9_]+.json'
+                  FILE = #'[-A-Za-z0-9_/]+.json'
                   ROOT = '#'
-                  JSONPOINTER = <'/'> #'[A-Za-z0-9_]+'")
+                  JSONPOINTER = <'/'> #'[A-Za-z0-9_]*'")
              json-schema-reference)
         file (filter (comp (partial = :FILE) first) res)
         json-pointer (filter (comp (partial = :JSONPOINTER) first) res)]
     {:file (second (first file))
-     :json-pointer (map second json-pointer)}))
+     :json-pointer (filter (complement empty?) (map second json-pointer))}))
 
 (defn read-schema
   [input-json-schema-file]
