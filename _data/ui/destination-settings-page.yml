@@ -57,7 +57,7 @@ default-copy:
   ssl-certificate: &ssl-certificate-copy |
     **Optional**: Provide the certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided here.
 
-    **Note**: Providing a certificate isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
+            **Note**: Providing a certificate isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
 
 # -------------------------- #
 #         SSH Fields         #
