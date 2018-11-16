@@ -156,6 +156,8 @@ attributes:
   - id: "supported-versions"
     categories: "stitch-details"
     value: *supported-versions
+    description: |
+      {{ destination.display_name }} destinations must be running version 9.3 or newer.
 
   - id: "ssl-connections"
     categories: "stitch-details"
