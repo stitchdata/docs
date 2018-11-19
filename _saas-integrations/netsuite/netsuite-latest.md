@@ -265,12 +265,28 @@ schema-sections:
     content: |
       The following table contains the transaction types Stitch's NetSuite integration currently supports.
 
-      {% assign transaction-table = integration.tables | where:"name","netsuite_transaction" %}
+      {% assign all-tables = site.integration-schemas | where:"tap",integration.name %}
+      {% assign transaction-table = all-tables | where:"name","netsuite_transaction" %}
 
-      {% for transaction-type in transaction-table.supported-types %}
-        {{ transaction-type.name }}
-        {{ transaction-table.name }}
+      <table class="attribute-list">
+      {% for table in transaction-table %}
+      {% for transaction-type in table.supported-types %}
+      {% cycle 'before': '<tr>', '', '', '' %}
+      <td>
+      {{ transaction-type.name }}
+      </td>
+      {% if forloop.last %}
+      <td>
+      </td>
+      <td>
+      </td>
+      </tr>
+      {% else %}
+      {% cycle 'after': '', '', '', '</tr>' %}
+      {% endif %}
       {% endfor %}
+      {% endfor %}
+      </table>
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
