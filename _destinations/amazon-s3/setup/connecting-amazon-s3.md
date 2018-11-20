@@ -36,7 +36,7 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Create an {{ destination.display_name }} Bucket"
+  - title: "Create an {{ destination.display_name }} bucket"
     anchor: "create-a-bucket"
     content: |
       {% include note.html type="single-line" content="Skip to [Step 2](#configure-stitch-settings) if there is an existing S3 bucket you want to connect to Stitch." %}
@@ -57,7 +57,7 @@ setup-steps:
       9. When ready, click **Create bucket**.
 
 
-  - title: "Configure Stitch Settings"
+  - title: "Configure Stitch settings"
     anchor: "configure-stitch-settings"
     content: |
       In this step, you'll define the file and object key format Stitch will use to load data into {{ destination.display_name }}.
@@ -84,18 +84,18 @@ setup-steps:
           - **Delimiter**: Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
           - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
 
-      - title: "Define Webhook Loading Notifications"
-        anchor: "define-webhook-loading-notifications"
-        content: |
-          {% include enterprise-cta.html %}
+      # - title: "Define webhook loading notifications"
+      #   anchor: "define-webhook-loading-notifications"
+      #   content: |
+      #     {% include enterprise-cta.html %}
 
-          Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
+      #     Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
 
-          Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
+      #     Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
 
-          To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box and paste a webhook URL in the **Webhook URL** field.
+      #     To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box and paste a webhook URL in the **Webhook URL** field.
 
-          More info about webhook loading notifications, including a list of attributes and sample use cases, [can be found here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#webhook-loading-notifications" }}).
+      #     More info about webhook loading notifications, including a list of attributes and sample use cases, [can be found here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#webhook-loading-notifications" }}).
 
       - title: "Define S3 Object Key"
         anchor: "define-s3-object-key"
@@ -159,7 +159,7 @@ setup-steps:
 
           After you've finished defining the Key, click **Continue**.
 
-  - title: "Grant and Verify Bucket Access"
+  - title: "Grant and verify bucket access"
     anchor: "grant-verify-bucket-access"
     content: |
       {% include important.html type="single-line" content="The bucket policy and challenge file name Stitch displays will only display once. Ensure you save them before moving on from this page." %}
@@ -170,85 +170,13 @@ setup-steps:
 
       For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
 
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ destination.display_name }} Bucket Permissions</a>
-                </h4>
-            </div>
-            
-            <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
-                <div class="panel-body">
-                    <table width="100%" class="table-hover">
-                      <tr>
-                      <td width="18%; fixed">
-                      <strong>Permission Name</strong>
-                      </td>
-                      <td width="25%; fixed">
-                      <strong>Operation</strong>
-                      </td>
-                      <td>
-                      <strong>Operation Description</strong>
-                      </td>
-                      </tr>
-                      {% for permission in destination.permissions %}
-                      {% for operation in permission.operations %}
-                      {%- capture rowspan -%}
-                      {{ forloop.length }}
-                      {%- endcapture -%}
-                      {% endfor %}
-                      <tr>
-                      <td rowspan="{{ rowspan }}">
-                      <strong>{{ permission.name }}</strong>
-                      </td>
-                      {% for operation in permission.operations %}
-                      {% case forloop.first %}
-                      {% when true %}
-                      <td>
-                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                      </td>
-                      <td>
-                      {{ operation.description | flatify | markdownify }}
-                      </td>
-                      </tr>
-                      {% else %}
-                      <tr>
-                      <td>
-                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                      </td>
-                      <td>
-                      {{ operation.description | flatify | markdownify }}
-                      </td>
-                      </tr>
-                      {% endcase %}
-                      {% endfor %}
-                      {% endfor %}
-                      </table>
-                    </div>
-                </div>
-
-            </div>
-          </div>
-
     substeps:
       - title: "Add the Stitch Bucket Policy"
         anchor: "add-bucket-policy"
         content: |
-          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
-          {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="500px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
+          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console. Follow the instructions in the tab below to add the bucket policy.
 
-          1. Sign into AWS in another tab, if you aren't currently logged in.
-          2. Click **Services** near the top-left corner of the page.
-          3. Under the **Storage** option, click **S3**.
-          4. A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch.
-          5. Click the **Permissions** tab.
-          6. In the **Permissions** tab, click the **Bucket Policy** button.
-          7. In the Bucket policy editor, paste the bucket policy code from Stitch.
-          8. When finished, click **Save**.
-
-          Leave this page open for now - you'll come back to it in the next step.
+          {% include destinations/templates/destination-user-setup.html %}
 
       - title: "Verify Bucket Access"
         anchor: "verify-bucket-access"
