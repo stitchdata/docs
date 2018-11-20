@@ -29,7 +29,7 @@ requirements-list:
   - item: |
       **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} data warehouse are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/create-data-warehouse-portal){:target="new"}.
   - item: |
-      **STORAGE ACCOUNT.** [ TODO- remains to be seen whether we want to use an existing one, or have them create a dedicated account for us]
+      **STORAGE ACCOUNT.** [TODO- remains to be seen whether we want to use an existing one, or have them create a dedicated account for us]
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -84,16 +84,15 @@ setup-steps:
              ![Start and end dates for Shared Access Signature generation in Microsoft Azure settings]({{ site.baseurl }}/images/destinations/microsoft-azure-sas-time-period.png)
 
              To reduce the likelihood of replication interruption, we recommend setting the expiration date well into the future.
-          6. **IP ADDRESSES** - [TODO] - Right now this field only accepts a single IP address or a range.
-          7. In the **Allowed protocols** section, select **HTTPS only**.
-          8. For the **Signing key**, select the name of the key you want to use. **Note**: Stitch doesn't require the use of a specific key.
-          9. When finished, click the **Generate SAS and connection string** button.
+          6. In the **Allowed protocols** section, select **HTTPS only**.
+          7. For the **Signing key**, select the name of the key you want to use. **Note**: Stitch doesn't require the use of a specific key.
+          8. When finished, click the **Generate SAS and connection string** button.
 
-          10. A handful of fields will appear below the button. Locate the **Blob service SAS URL** field:
+          9. A handful of fields will appear below the button. Locate the **Blob service SAS URL** field:
 
               ![The Blob Service SAS URL field, highlighted]({{ site.baseurl }}/images/destinations/microsoft-azure-blob-service-sas-url.png)
 
-          11. Copy the URL to somewhere handy - you'll need it to complete the setup.
+          10. Copy the URL to somewhere handy - you'll need it to complete the setup.
 
       - title: "Retrieve your storage access key"
         anchor: "retrieve-storage-access-key"
@@ -111,7 +110,9 @@ setup-steps:
   - title: "Create a {{ destination.display_name }} Stitch user"
     anchor: "create-stitch-user"
     content: |
-      [ADD CONTENT HERE]
+      In this step, you'll create a dedicated database user for Stitch. Creating a user for Stitch ensures that Stitch will be visible in any audits or logs, and that you can control the permissions granted to the user.
+
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "connect stitch"
 ---
