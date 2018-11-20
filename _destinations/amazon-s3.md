@@ -90,57 +90,9 @@ example-key-1: "salesforce-prod/account/1_1519235654474.[csv|jsonl]"
 example-key-2: "salesforce-prod/opportunity/1_1519327555000.[csv|jsonl]"
 
 # -------------------------- #
-#    Required Permissions    #
-# -------------------------- #
-permissions:
-  - name: "s3:PutObject"
-    operations:
-      - name: "PUT Object"
-        link: "https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html"
-        description: "Allows the addition of objects to a bucket."
-
-      - name: "POST Object"
-        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html"
-        description: "An alternate form of `PUT Ojbect`, this allows the addition of objects to a bucket using HTML forms."
-
-      - name: "Initiate Multipart Upload"
-        link: "https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html"
-        description: "Allows a multipart upload and return of an upload ID."
-
-      - name: "Upload Part"
-        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPart.html"
-        description: "Allows for the upload of a part in a multipart upload."
-
-      - name: "Complete Multipart Upload"
-        link: "https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html"
-        description: "Allows for the completion of a multipart upload by assembling previously uploaded parts."
-
-      - name: "PUT Object - Copy"
-        link: "https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html"
-        description: "Allows for the upload of a part by copying data from an existing object as the data source."
-  - name: "s3:GetObject"
-    operations:
-      - name: "GET Object"
-        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html"
-        description: "Allows for the retrieval of objects from {{ destination.display_name }}."
-
-      - name: "HEAD Object"
-        link: "https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html"
-        description: "Allows for the retrieval of metadata from an object without returning the object itself."
-  - name: "s3:ListBucket"
-    operations:
-      - name: "GET Bucket (List Objects)"
-        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/v2-RESTBucketGET.html"
-        description: "Allows for the return of some or all (up to 1,000) of the objects in a bucket."
-
-      - name: "HEAD Bucket"
-        link: "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html"
-        description: "Used to determine if a bucket exists and access is allowed."
-
-
-# -------------------------- #
 #    Incompatible Sources    #
 # -------------------------- #
+
 incompatible-with: 0
 
 # -------------------------- #
