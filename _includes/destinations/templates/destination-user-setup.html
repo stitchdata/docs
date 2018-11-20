@@ -1,0 +1,106 @@
+<!-- This file contains the display logic for database user
+	setup in destination setup documentation. 
+	
+	This file will pull info from files in _data/destinations/loading/user-privileges and display it in tabs:
+		1. A tab for the actual setup instructions for creating the user,
+		2. A tab that lists the privileges Stitch requires, along with
+			an explanation for its requirement. -->
+
+
+
+<!-- Get the common fields for destinations -->
+	{% assign common = site.data.destinations.loading.user-privileges.common %}
+
+
+<!-- Get the list of privileges required for the database, based on its type -->
+	{% assign destination-user-setup = site.data.destinations.loading.user-privileges[destination.type] %}
+
+	{% assign required-privileges = destination-user-setup.all-permissions %}
+
+
+<!-- Get the list of steps required for the database.
+	This uses a parameter passed to the include to find the right
+	database type.
+
+	For example: The steps for vanilla PostgreSQL are different 
+	than they are for Heroku, so we only want to display the 
+	Heroku steps for Heroku, and so on. 
+
+	This will only look for a database-type if the include specifies it. -->
+
+	{% if include.database-type %}
+		{% assign setup-steps = destination-user-setup[include.database-type] %}
+	{% else %}
+		{% assign setup-steps = destination-user-setup.all-steps %}
+	{% endif %}
+
+
+
+ 
+ <ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#create-user-instructions" data-toggle="tab">Instructions</a>
+    </li>
+    <li>
+        <a href="#privileges-list" data-toggle="tab">Privileges list</a>
+    </li>
+</ul>
+<div class="tab-content">
+
+<!-- The setup instructions tab -->
+    <div role="tabpanel" class="tab-pane active" id="create-user-instructions">
+
+<!-- This has to be flush left because 
+	Markdown will throw a fit otherwise -->
+{% capture setup-instructions %}
+<ol>
+{% for setup-step in setup-steps %}
+<li>
+{{ setup-step.copy | flatify | markdownify }}
+
+{% if setup-step.command %}
+{% highlight sql %}
+{{ setup-step.command | flatify }}
+{% endhighlight %}
+{% endif %}
+</li>
+{% endfor %}
+</ol>
+{% endcapture %}
+
+        {{ setup-instructions | flatify | markdownify }}
+
+        <p>See the <strong>Privileges list</strong> tab for an explanation of why these permissions are required by Stitch.</p>
+    </div>
+
+
+<!-- The privileges list tab -->
+    <div role="tabpanel" class="tab-pane" id="privileges-list">
+        <p>In the table below are the database user privileges Stitch requires to connect to and load data into {{ page.display_name }}.</p>
+
+        <table class="attribute-list">
+            <tr>
+                <td width="20%; fixed" class="attribute-name">
+                    <strong>Privilege name</strong>
+                </td>
+                <td>
+                    <strong>Reason for requirement</strong>
+                </td>
+            </tr>
+            {% for privilege in required-privileges %}
+                <tr>
+                    <td align="right">
+                    	{% if privilege.doc-link %}
+                    		<a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
+                    	{% else %}
+                    		{{ privilege.name }}
+                    	{% endif %}
+                    </td>
+                    <td>
+                        {{ privilege.reason | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
