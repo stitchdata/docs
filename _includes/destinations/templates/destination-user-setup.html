@@ -36,7 +36,7 @@
 
 
 
- 
+
  <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
         <a href="#create-user-instructions" data-toggle="tab">Instructions</a>
@@ -49,6 +49,8 @@
 
 <!-- The setup instructions tab -->
     <div role="tabpanel" class="tab-pane active" id="create-user-instructions">
+
+ 	{% include note.html type="single-line" content="**Why does Stitch require these permissions?** For an explanation of why Stitch requires each permission outlined here, see the **Privileges list** tab." %}
 
 <!-- This has to be flush left because 
 	Markdown will throw a fit otherwise -->
@@ -69,8 +71,6 @@
 {% endcapture %}
 
         {{ setup-instructions | flatify | markdownify }}
-
-        <p>See the <strong>Privileges list</strong> tab for an explanation of why these permissions are required by Stitch.</p>
     </div>
 
 
@@ -91,7 +91,7 @@
                 <tr>
                     <td align="right">
                     	{% if privilege.doc-link %}
-                    		<a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
+                    		<a href="{{ privilege.doc-link }}" target="_blank">{{ privilege.name }}</a>
                     	{% else %}
                     		{{ privilege.name }}
                     	{% endif %}
