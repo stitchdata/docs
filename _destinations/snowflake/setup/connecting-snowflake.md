@@ -69,7 +69,7 @@ setup-steps:
 
          Additional warehouse parameters are available. [Check out Snowflake's documentation for detailed explanations.](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html)
 
-  - title: "Create a Stitch database and database User"
+  - title: "Create a Stitch database and database user"
     anchor: "create-database-and-user"
     content: |
       Next, you'll create a database and database user for Stitch.
@@ -86,45 +86,7 @@ setup-steps:
       - title: "Create the database user"
         anchor: "create-stitch-database-user"
         content: |
-          1. Create a role for the Stitch user:
-
-             ```sql
-             CREATE ROLE [stitch_role] COMMENT = 'Role for Stitch access';
-             ```
-
-          2. **Optional**: If you've created a hierarchy that assigns all custom roles to the `SYSADMIN` role, grant the `stitch_role` [to the  `SYSADMIN` role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#role-hierarchy-and-privilege-inheritance){:target="_blank"}:
-
-             ```sql
-             GRANT ROLE [stitch_role] to role SYSADMIN;
-             ```
-
-          3. [Grant warehouse privileges to the Stitch role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#virtual-warehouse-privileges){:target="_blank"}, using the name of the warehouse you created for Stitch:
-
-             ```sql
-             GRANT ALL ON WAREHOUSE [warehouse] TO ROLE [stitch_role];
-             ```
-
-             **Note**: This will grant all privileges **except** ownership.
-
-          4. [Grant database privileges to the Stitch role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#database-privileges){:target="_blank"}, using the name of the database you created for Stitch:
-
-             ```sql
-             GRANT ALL ON DATABASE [stitch_database] TO ROLE [stitch_role];
-             ```
-
-             **Note**: The privileges granted in steps 3 and 4 of this section will only apply to the warehouse and database you specify in the above queries. The Stitch user will not be granted privileges to any other warehouse or database unless you elect to do so.
-
-          5. Create the Stitch user and grant the Stitch role to the user:
-
-             ```sql
-             CREATE USER [stitch_user]
-                PASSWORD='[password]'
-                COMMENT='User for Stitch database user'
-                DEFAULT_ROLE='[stitch_role]'
-                DEFAULT_WAREHOUSE='[warehouse]';
-
-             GRANT ROLE [stitch_role] TO USER [stitch_user];
-             ```
+          {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Configure network access settings"
     anchor: "whitelist-stitch-ips"
