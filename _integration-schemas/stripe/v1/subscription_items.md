@@ -1,80 +1,111 @@
 ---
 tap: "stripe"
-version: "0.x"
+version: "1.0"
+
 name: "subscription_items"
-doc-link: ""
+doc-link: "https://stripe.com/docs/api/subscription_items"
 singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/subscription_items.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about subscription items. In {{ integration.display_name }}, subscription items are used to create customer subscriptions with more than one plan.
+
 replication-method: ""
+
 api-method:
     name: ""
     doc-link: ""
+    
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The subscription item ID."
+    foreign-key-id: "subscription-item-id"
+
   - name: "application_fee_percent"
     type: "number"
     description: ""
+
   - name: "cancel_at_period_end"
     type: "boolean"
-    description: ""
+    description: "Indicates if the subscription item is canceled at period end."
+
   - name: "canceled_at"
     type: "date-time"
     description: ""
+
   - name: "created"
     type: "date-time"
-    description: ""
+    description: "The time at which the subscription item was created. Measured in seconds since the Unix epoch."
+
   - name: "current_period_end"
     type: "date-time"
-    description: ""
+    description: "The time the current usage period is set to end."
+
   - name: "current_period_start"
     type: "date-time"
-    description: ""
+    description: "The time the current usage period started."
+
   - name: "customer"
     type: "string"
     description: ""
+    foreign-key-id: "customer-id"
+
   - name: "discount"
     type: "object"
     description: ""
-    object-properties: &id001 [
-        ]
+    object-attributes:
+
   - name: "ended_at"
     type: "date-time"
     description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+
   - name: "livemode"
     type: "boolean"
-    description: ""
+    description: "Indicates if the object exists in live mode (`true`) or in test mode (`false`)."
+
   - name: "metadata"
     type: "object"
     description: ""
-    object-properties: *id001
+    object-attributes:
+
   - name: "object"
     type: "string"
-    description: ""
+    description: "The type of {{ integration.display_name }} object. This will be `subscription_item`."
+
   - name: "plan"
     type: "object"
-    description: ""
-    object-properties: *id001
+    description: "Details about the plan the customer is subscribed to."
+    object-attributes:
+      - name: "TBD"
+        type: "TBD"
+        description: ""
+
   - name: "quantity"
     type: "integer"
-    description: ""
+    description: "The quantity of the plan to which the subscription should be subscribed."
+
   - name: "start"
     type: "date-time"
     description: ""
+
   - name: "status"
     type: "string"
     description: ""
+
   - name: "subscription"
     type: "string"
-    description: ""
+    description: "The ID of the subscription the subscription item belongs to."
+    foreign-key-id: "subscription-id"
+
   - name: "tax_percent"
     type: "number"
     description: ""
+
   - name: "trial_end"
     type: "date-time"
-    description: ""
+    description: "The time the trial associated with the subscription item ends."
+
   - name: "trial_start"
     type: "date-time"
-    description: ""
+    description: "The time the trial associated with the subscription item started."
 ---
