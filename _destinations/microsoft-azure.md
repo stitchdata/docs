@@ -121,7 +121,7 @@ sections:
             content: |
               The first step in the loading process for {{ destination.display_name }} destinations is to load the extracted data into [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction){:target="new"}.
 
-              Blob storage is intended for storing massive amounts of unstructured data. In the next step, Stitch will use Polybase to retrieve the data from blob storage and prepare it for loading into {{ destination.display_name }}.
+              Blob storage is intended for storing massive amounts of unstructured data. In the next step, Stitch will use Polybase to retrieve the data from Blob Storage and prepare it for loading into {{ destination.display_name }}.
 
           - title: "Step 2: Prep data using Polybase"
             anchor: "prep-data-polybase"

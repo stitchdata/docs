@@ -61,12 +61,17 @@ ssh:
   - field: Remote Address
     copy: "Enter the IP address or hostname of the server Stitch will SSH into."
     redshift-copy: "Enter the bastion box’s IP address. This is the IPv4 CIDR you retrieved in [Step 5](#retrieve-vpc-ip)."
+    microsoft-azure-copy: "Enter the IP address of the virtual machine. This is the public IP address you retrieved in [Step 3.1](#retrieve-vm-public-ip-address)."
+
   - field: SSH Port
-    copy: "Enter the SSH port on your server. (**22** by default)"
+    copy: "Enter the SSH port on the server. (`22` by default)"
     redshift-copy: "Enter the bastion box’s port. If you’re using the default, this will be **22**."
+    microsoft-azure-copy: "Enter the port used by the virtual machine. This should be `22`."
+
   - field: SSH User
-    copy: "Enter the Stitch Linux (SSH) user’s username."
-    redshift-copy: "Enter the Stitch Linux (SSH) user’s username."
+    copy: &ssh-user-copy "Enter the Stitch Linux (SSH) user’s username."
+    redshift-copy: *ssh-user-copy
+    microsoft-azure-copy: *ssh-user-copy
 
 # -------------------------- #
 #           Panoply          #
@@ -90,7 +95,8 @@ panoply:
 
 microsoft-azure:
   - field: *host
-    copy: *host-copy
+    copy: |
+      Enter the host address (server name) used by the {{ destination.display_name }} instance. This is the **Server name** value you retrieved in [the previous step](#locate-connection-details).
   - field: *port
     copy: *port-copy
   - field: *username
@@ -101,10 +107,10 @@ microsoft-azure:
     copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
   - field: "Shared Access Signature URL"
     copy: |
-      Paste the **Blob service SAS URL** you generated in [Step TODO](#generate-shared-access-signature-url).
+      Paste the **Blob service SAS URL** [you generated](#generate-shared-access-signature-url).
   - field: "Access Key for Azure Storage"
     copy: |
-      Paste the **Key** associated with the signing key you selected in [Step TODO](#generate-shared-access-signature-url).
+      Paste the **Key** associated with the [signing key you selected](#generate-shared-access-signature-url).
 
 # -------------------------- #
 #          Postgres          #
