@@ -1,0 +1,63 @@
+# ------------------------------------------ #
+#   COMMON DESTINATION PRIVILEGES AND DOCS   #
+# -------------------------------------------#
+
+# This file contains reasons for Stitch required permissions
+# that are common to multiple destinations.
+
+# ----------------------------------- #
+#  FOR POSTGRESQL-BASED DESTINATIONS  #
+# ----------------------------------- #
+
+# Common to any PostgreSQL-based destination.
+
+postgresql:
+  create-database-reason: |
+    Required to create the necessary database objects to load and store your data.
+
+    `CREATE` permissions on the database are required to successfully load data. When Stitch loads data, it will run a `CREATE SCHEMA IF NOT EXISTS` command, which will create a schema if it doesn't already exist. To run this command, the Stitch user must have the `CREATE ON DATABASE` permission.
+
+    **Note**: The `CREATE ON SCHEMA` permission is not a sufficient alternative for `CREATE ON DATABASE`. [As outlined in {{ page.display_name }}'s documentation]({{ destination-user-setup.defaults.doc-links.create-database | flatify }}){:target="new"}, this permission only allows a user to create objects within a schema, but not the schema itself.
+
+  select-systems-tables-reason: |
+    Required to select rows from tables in the `{{ privilege.schema }}` schema. Prior to loading data, Stitch will use the data in this schema to verify the existence and structure of integration schemas and tables.
+
+    {% if page.display_name == "Heroku" %}For {{ page.display_name }} destinations, access to the `{{ privilege.schema }}` is granted by default to the main database user.{% endif %}
+
+    **Note**: Stitch will only ever read data from systems tables.
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+## The SQL commands for setting up a PostgreSQL user.
+
+  sql-commands:
+    create-user: |
+      CREATE USER <stitch_username> WITH PASSWORD '<password>';
+
+    create-database: |
+      GRANT CREATE ON DATABASE <database_name> TO <stitch_username>
+
+    select-systems-tables: |
+      GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO <stitch_username>
+
+      GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO <stitch_username>
+
+# -------------------------- #
+#   STEPS FOR CREATING USER  #
+# -------------------------- #
+
+## The copy that goes along with each step for creating the PostgreSQL user.
+
+  setup-steps:
+    create-user: |
+      After connecting, run this command to create the user:
+
+    create-database: |
+      Next, you'll assign the `CREATE` permissions to the user. For `<database_name>`, enter the name of the database where all Stitch-replicated data should be loaded.
+
+      **Note**: This must be a pre-existing database.
+
+    systems-tables: |
+      **If you restricted access to the system tables**, you'll also need to run the following commands to grant the Stitch user `SELECT` permissions.

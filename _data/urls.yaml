@@ -50,10 +50,11 @@ destinations:
     switch-bigquery-destination: /destinations/bigquery/changing-google-bigquery-destination-data-locations
 
     amazon-s3: /destinations/amazon-s3/
+    redshift: /destinations/redshift/
     bigquery: /destinations/bigquery/
     bigquery-pricing: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
     data-world: /destinations/data-world/
-    redshift: /destinations/redshift/
+    azure: /destinations/microsoft-azure-sql-data-warehouse/
     postgres: /destinations/postgresql/
     panoply: /destinations/panoply/
     snowflake: /destinations/snowflake/
@@ -61,10 +62,14 @@ destinations:
 ## Setup Guides
 ## used as link.destinations.setup.[id]
   setup:
-    amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch 
+    amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
+
     bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
 
     data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
+
+    azure: /destinations/microsoft-azure/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
+    azure-ssh: /destinations/redshift/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
 
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
     panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
@@ -107,6 +112,7 @@ destinations:
     nested-structures: /data-structure/nested-data-structures-row-count-impact
     rejected-records: /data-structure/identifying-rejected-records
     redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
+    azure-primary-keys: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
 
 # -------------------------- #
 #         INTEGRATIONS       #

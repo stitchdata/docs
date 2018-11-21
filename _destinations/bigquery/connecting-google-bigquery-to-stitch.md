@@ -4,6 +4,9 @@ permalink: /destinations/bigquery/connecting-google-bigquery-to-stitch
 tags: [bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 summary: "Connect a Google BigQuery destination to your Stitch account."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 display_name: "BigQuery"
@@ -41,23 +44,15 @@ setup-steps:
   - title: "Grant user permissions"
     anchor: "grant-user-permissions"
     content: |
-      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The project Info box on the GCP Platform Dashboard page." max-width="250px" %}After the project has been created, pen the project in the GCP console. You can do this by either:
+      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The project Info box on the GCP Platform Dashboard page." max-width="250px" %}After the project has been created, open the project in the GCP console. You can do this by either:
 
       - Clicking **Manage Project Settings** in the **Project Info** box on the dashboard page, as seen to the right.
 
       - Toggling between Projects by clicking the drop-down menu next to the Google Cloud Platform logo in the upper-left corner.
 
-      {% include layout/inline_image.html type="right" file="destinations/bigquery-user-permissions.gif" alt="Assigning BigQuery Admin & Storage Admin permissions to a GCP user." max-width="425px" %}
+      Then, follow the instructions in the tab below. **Note**: Even if the user has Owner permissions, the permissions outlined below must still be granted to the user. Stitch will encounter loading errors otherwise.
 
-      In the page that displays, click the **IAM** option in the menu on the left side of the page. This will display a page of all the members that have access to the project.
-
-      1. In the list, locate the user you want to use to connect BigQuery to Stitch.
-      2. Click the **Role(s)** drop-down in the row for that user.
-      3. Select the **BigQuery** option and click **BigQuery Admin**.
-      4. Next, select the **Storage** option and click **Storage Admin**.
-      5. Click **Save.**
-
-      {% include note.html type="single-line" content="Even if the user has Owner permissions, you must still grant the BigQuery Admin and Storage Admin permissions to the user. Stitch will encounter loading errors otherwise." %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Authenticate with Google"
     anchor: "authenticate-with-google"

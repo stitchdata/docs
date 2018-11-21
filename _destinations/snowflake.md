@@ -4,10 +4,13 @@
 # -------------------------- #
 title: Snowflake Destination
 permalink: /destinations/snowflake/
-layout: destination-overview
+layout: destination
 tags: [snowflake_destination]
 keywords: snowflake, snowflake destination, snowflake data warehouse, snowflake etl, etl to snowflake
 summary: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 
@@ -41,7 +44,7 @@ icon: /images/destinations/icons/snowflake.svg
 ssl: true
 ssh: false
 
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSL"
 supported-versions: "n/a"
 
@@ -87,11 +90,12 @@ introduction: |
   A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Services](http://aws.amazon.com/) cloud infrastructure: AWS EC2 virtual compute instances are used for compute needs, while S3 is utilized for persistent data storage.
 
 sections:
-  - title: "pricing"
+  - title: "Pricing"
+    anchor: "pricing"
     content: |
       {{ destination.pricing_notes }}
     subsections:
-      - title: "Snowflake Warehouse Sizes"
+      - title: "Snowflake warehouse sizes"
         anchor: "warehouse-sizes"
         content: |
           Snowflake data warehouses can be different sizes - X-Small, Large, and 3X-Large, for example - which defines how many servers will comprise each cluster in a warehouse.
@@ -100,7 +104,7 @@ sections:
 
           To help you select the warehouse size that fits your needs and budget, check out [Snowflake's Warehouse Considerations guide](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"} before getting started.
 
-      - title: "Automated Warehouse Management"
+      - title: "Automated warehouse management"
         anchor: "automated-warehouse-management"
         content: |
           To reduce usage, you can elect to automate the management of your Snowflake warehouse. This means that you can elect to suspend the warehouse when there's no activity after a specified period of time, and then automatically resume when there is. Note that these settings apply to the entire warehouse and not individual clusters.
@@ -109,23 +113,49 @@ sections:
 
           **Note**: Stitch will only ever impact your Snowflake usage when loading data.
 
-  - title: "setup"
+  - title: "Setup"
+    anchor: "stitch-details-setup-info"
     content: |
-      Using the SQL Worksheet feature in Snowflake's web interface, you can spin up a Snowflake data warehouse for Stitch in just a few minutes.
+      {% include destinations/overviews/destination-reference-table.html list="stitch-details" %}
 
-      **[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.snowflake | prepend: site.baseurl }})**
+  - title: "Replication"
+    anchor: "replication"
+    content: |
+      {% include destinations/overviews/destination-reference-table.html list="replication" %}
 
-  - title: "limitations"
-    include: |
-      {% include destinations/overviews/limitations.html %}
+  - title: "Limitations"
+    anchor: "limitations"
+    content: |
+      In this section:
 
-  - title: "replication"
-    include: |
-      {% include destinations/overviews/replication-process.html %}
+      {% assign list-items = "object-name-limits|data-limits|column-naming" | split: "|" %}
 
-  - title: "schema"
-    include: |
-      {% include destinations/overviews/integration-schemas.html %}
+      {% for item in list-items %}
+      {% for category in reference-categories[item] %}
+      - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
+      {% endfor %}
+      {% endfor %}
+
+    subsections:
+      - title: "Object name limits"
+        anchor: "object-name-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="object-name-limits" %}
+
+      - title: "Data limits"
+        anchor: "data-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="data-limits" %}
+
+      - title: "Column naming"
+        anchor: "column-naming"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="column-naming" %}
+
+  - title: "Compare destinations"
+    anchor: "compare-destinations"
+    content: |
+      **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
