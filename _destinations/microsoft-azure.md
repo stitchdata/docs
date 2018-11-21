@@ -17,6 +17,7 @@ content-type: "destination-overview"
 
 toc: true
 destination: true
+data-loading: false
 
 
 # -------------------------- #
