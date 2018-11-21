@@ -77,6 +77,14 @@ setup-steps:
           This is the value you'll enter in the **Host** field in Stitch in the next step.
 
           {% include destinations/microsoft-azure/azure-connection-details.html %}
+
+# {% capture setup-notice %}
+# This guide describes how to connect Azure SQL Data Warehouse to Stitch via a **direct connection**.
+
+# Refer to the [Connecting an Azure SQL Data Warehouse via SSH Tunnel]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }}) guide to connect using an SSH tunnel.
+# {% endcapture %}
+
+# {% include note.html first-line="**This tutorial is for Azure SQL Data Warehouse direct connections**" content=setup-notice %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","microsoft-azure" | first %}

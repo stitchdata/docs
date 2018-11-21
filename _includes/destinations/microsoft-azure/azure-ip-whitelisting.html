@@ -45,7 +45,7 @@ For the connection from Stitch to be successful, you'll need to configure the fi
    Stitch's IP addresses are:
 
    {% for ip-address in ip-addresses %}
-    - {{ ip-address.ip | remove: "/32" }}
+    - {{ ip-address.ip }}
     {% endfor %}
 8. Click the three dots to the right of the **End IP** field to add the rule.
 9. Repeat steps 7 and 8 until there is a rule for each IP address. The screen should look similar to the following when you're finished:
