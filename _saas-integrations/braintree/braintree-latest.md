@@ -30,9 +30,13 @@ tier: "Free"
 status-url: https://status.braintreepayments.com/
 icon: /images/integrations/icons/braintree.svg
 whitelist-ips: true ## if true, Stitch's IP addresses must be whitelisted to access this integration's data
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

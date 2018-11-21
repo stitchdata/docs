@@ -6,9 +6,13 @@ name: "organizations"
 doc-link: https://developer.zendesk.com/rest_api/docs/core/organizations
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/organizations.json
 description: |
-  The `organizations` table contains information about the organizations your end-users belong to. 
+  The `organizations` table contains information about the organizations your end-users belong to.
 
-  **Note**: Retrieving organization data requires Zendesk Admin permissions.
+  #### Custom organization fields
+
+  Stitch's {{ integration.display_name }} integration will replicate any custom fields associated with organization records.
+
+  **Note**: Replicating organization custom fields requires that you be on a Team, Professional, or Enterprise Zendesk plan and have Admin permissions in Zendesk.
 
 replication-method: "Key-based Incremental"
 

@@ -85,19 +85,7 @@ sections:
           ```json
           {  
              "type":"platform.hubspot",
-             "current_step":1,
-             "current_step_hints":{  
-                "api":{  
-                   "method":"POST",
-                   "url":"{{ api.core-objects.sources.create.name | flatify }}"
-                },
-                "js":{  
-                   "function":"addSource",
-                   "options":{  
-                      "type":"platform.hubspot"
-                   }
-                }
-             },
+             "current_step":1
              "steps":[  
                 {  
                    "type":"form",                                 /* form step */
@@ -183,7 +171,7 @@ sections:
              "system_paused_at":null,
              "stitch_client_id":<ACCOUNT_ID>,
              "paused_at":null,
-             "id":45612,                                          /* Source ID */
+             "id":45612,
              "display_name":"HubSpot",
              "created_at":"2018-02-06T16:25:06Z",
              "report_card":{
@@ -273,25 +261,23 @@ sections:
                    },
                    {
                       "type":"discover_schema",
-                      "properties":[ ]
+                      "properties":[
+
+                      ]
                    },
                    {
                       "type":"field_selection",
-                      "properties":[ ]
+                      "properties":[
+
+                      ]
                    },
                    {
                       "type":"fully_configured",
-                      "properties":[ ]
+                      "properties":[
+
+                      ]
                    }
-                ],
-                "current_step_hints":{
-                   "js":{
-                      "function":"authorizeSource",
-                      "options":{
-                         "id":45612
-                      }
-                   }
-                }
+                ]
              }
           }
           ```
@@ -300,21 +286,13 @@ sections:
 
       - title: "Identify the Current Step"
         anchor: "quick-start--identify-current-step"
-        content: | 
+        content: |
           The [Report Card]({{ api.data-structures.report-cards.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
 
           Looking at the report card for our HubSpot source, we can see that we're now on step `2` of configuration, which is the `oauth` step:
 
           ```json
           {
-             "current_step_hints":{
-                "js":{
-                   "function":"authorizeSource",
-                   "options":{
-                      "id":45612
-                   }
-                }
-             },
              "report_card":{
                 "type":"platform.hubspot",
                 "current_step":2,                                           /* Current step */
@@ -385,27 +363,6 @@ sections:
              }
           }
           ```
-
-          Now that we know what step we need to complete next, we can use the [`current_step_hints`]({{ api.data-structures.current-step-hints.section }}) object to identify how to complete the step:
-
-          ```json
-          {
-             "current_step_hints":{
-                "js":{
-                   "function":"authorizeSource",
-                   "options":{
-                      "id":45612
-                   }
-                }
-             }
-          }
-          ```
-
-          In this case, we need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify}}) to initiate and complete the OAuth step required for `platform.hubspot`:
-
-          - The `function` attribute contains the JavaScript client function required to complete the step, and
-          - The `options` object contains the source's ID, which we need to pass to the JavaScript client to complete the OAuth flow
-
 
   - title: "Use the {{ js.name }} to Complete Source Configuration"
     anchor: "quick-start--stitch-js-complete-configuration"

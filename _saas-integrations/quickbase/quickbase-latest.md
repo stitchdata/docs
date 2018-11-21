@@ -33,9 +33,13 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://service.quickbase.com/#!/
 icon: /images/integrations/icons/quick-base.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #  Quick Base Default Fields #

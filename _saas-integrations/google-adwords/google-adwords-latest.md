@@ -38,9 +38,13 @@ frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 icon: /images/integrations/icons/google-adwords-new.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

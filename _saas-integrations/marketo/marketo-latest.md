@@ -32,9 +32,13 @@ tier: "Paid"
 
 status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -129,6 +133,7 @@ setup-steps:
       5. In the **Identity Base URL** field, paste your **Marketo REST API Identity URL**.
       6. In the **Client ID** field, paste your **Marketo API Client ID**.
       7. In the **OAuth Client Secret** field, paste your **Marketo API Client Secret**.
+      8. In the **Max Daily API Calls** field, either keep the default 40,000 value or use a larger number based on your **Marketo API Quota**
   - title: "historical sync"
   - title: "replication frequency"
 
@@ -137,9 +142,11 @@ replication-sections:
   - title: "Stitch & Marketo Daily REST API Call Limits"
     anchor: "marketo-daily-api-call-limits"
     content: |
-      By default, all Marketo accounts have a maximum number of 10,000 daily account calls. Stitch's Marketo integration is designed to use up to 8,000 of these calls per day to allow other applications API access to your Marketo account.
-
-      When the 10,000 account call limit has been reached, Stitch will be unable to replicate any Marketo data until more API quota is available. If you find that the 10,000 call limit isn't enough, contact Marketo support to inquire about raising your limit.
+      By default, all Marketo accounts have a maximum number of 50,000 daily account calls. Stitch's Marketo integration is designed to use up to 40,000 of these calls per day to allow other applications API access to your Marketo account.
+       
+       This can be increased or decreased using the integration's **Max Daily API Calls** field.
+       
+       When the **Max Daily API Calls** limit has been reached, Stitch will be unable to replicate any Marketo data until more API quota is available. If you find that the 50,000 total call limit isn't enough, contact Marketo support to inquire about raising your limit.
 
   - title: "Activities and Leads Replication"
     anchor: "activities-leads-replication"

@@ -25,7 +25,7 @@ arguments:
   - name: "type"
     required: true
     type: "string"
-    description: "{{ connect.common.attributes.destination-type }}"
+    description: "{{ connect.common.attributes.destination-type | flatify }}"
 
   - name: "connection"
     required: true

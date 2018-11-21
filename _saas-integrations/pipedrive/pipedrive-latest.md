@@ -31,9 +31,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/pipedrive.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #
@@ -290,34 +294,6 @@ tables:
       - name: update_time
       - name: user_id
       - name: visible_to
-
-## Goals
-  - name: "goals"
-    doc-link: https://developers.pipedrive.com/v1#methods-Goals
-    description: "info about the goals, or sales targets, in your Pipedrive account."
-    notes: 
-    replication-method: "Full Table"
-    primary-key: "id"
-    nested-structures: false
-    attributes:
-      - name: Goal ID (<code>id</code>)
-      - name: active_flag
-      - name: active_goal_id
-      - name: add_time
-      - name: company_id
-      - name: created_by_user_id
-      - name: currency
-      - name: delivered
-      - name: delivered_sum
-      - name: expected
-      - name: expected_sum
-      - name: expected_type
-      - name: goal_type
-      - name: period
-      - name: period_end
-      - name: period_start
-      - name: user_id
-      - name: user_name
 
 ## Notes
   - name: "notes"

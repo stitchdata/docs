@@ -30,9 +30,13 @@ tier: "Free"
 auth: "oauth"
 status-url: "https://developers.facebook.com/status/"
 icon: /images/integrations/icons/facebook-ads.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #
@@ -142,6 +146,48 @@ schema-sections:
       - **Core Object** tables contain foundational data that's useful for analysis. These are the [`adcreative`](#adcreative), [`ads`](#ads), [`adsets`](#adsets), and [`campaigns`](#campaigns) tables. To learn more about how Facebook Ads data is structured, we recommend checking out their [API guide](https://developers.facebook.com/docs/marketing-api/buying-api).
       - **Insights** tables contain performance data for every campaign/adset/ad combination, segmented by day and demographics specific to each table. For example: The [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) table is segmented by day, age, and gender.
 
+# This is used in the schema sections to display values that have
+# been deprecated for specific fields.
+
+cost-per-action-type:
+  description: |
+    The kind of actions taken on the ad, Page, app, or event after your ad was served to someone, even if they didn't click on it.
+
+    Action types include Page likes, app installs, conversions, event responses, and more.
+
+  deprecated-common-october-2018: |
+    - `app_custom_event_fb_mobile_add_to_cart` 
+    - `app_custom_event_fb_mobile_add_to_wishlist`
+    - `app_custom_event_fb_mobile_initiated_checkout`
+    - `app_custom_event_fb_mobile_search`
+    - `app_custom_event_fb_mobile_complete_registration`
+    - `app_custom_event_fb_mobile_achievement_unlocked`
+    - `app_custom_event_fb_mobile_add_payment_info`
+    - `app_custom_event_fb_mobile_content_view`
+    - `app_custom_event_fb_mobile_level_achieved`
+    - `app_custom_event_fb_mobile_purchase`
+    - `app_custom_event_fb_mobile_rate`
+    - `app_custom_event_fb_mobile_spent_credits`
+    - `app_custom_event_fb_mobile_tutorial_completion`
+
+  deprecated-july-2018: |
+    - `mention`
+    - `tab_view`
+
+  deprecated-october-2018: |
+    {{ integration.cost-per-action-type.deprecated-common-october-2018 | flatify }}
+    - `app_install`
+    - `mobile_app_install`
+    - `onsite_conversion.add_to_cart`
+    - `onsite_conversion.view_content`
+
+cost-per-unique-action-type:
+  deprecated-july-2018: |
+    - `app_custom_event`
+    {{ integration.cost-per-action-type.deprecated-july-2018 | flatify }}
+
+  deprecated-october-2018: |
+    {{ integration.cost-per-action-type.deprecated-common-october-2018 | flatify }}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -46,12 +46,6 @@ setup-steps:
 
       The instance may take a few minutes to finish initializing. After the process completes, click the instance to open it in the CloudSQL Instances page.
 
-      {% capture ssl%}
-      If you want to use SSL to connect Stitch to {{ destination.display_name }}, you'll need to configure the instance to use SSL before continuing. You can find instructions for doing this in [Google's documentation](https://cloud.google.com/sql/docs/postgres/configure-ssl-instance).
-      {% endcapture %}
-
-      {% include important.html first-line="**Using an SSL connection?**" content=ssl %}
-
   - title: "Create a database in the CloudSQL instance"
     anchor: "create-database-in-cloudsql"
     content: |

@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getAllEngagements
+  name: "Get all engagements"
   doc-link: https://developers.hubspot.com/docs/methods/engagements/get-all-engagements
 
 attributes:

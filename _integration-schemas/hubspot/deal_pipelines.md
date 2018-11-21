@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Full Table"
 api-method:
-  name: getAllDealPipelines
+  name: "Get all deal pipelines"
   doc-link: https://developers.hubspot.com/docs/methods/deal-pipelines/get-all-deal-pipelines
 
 attributes:

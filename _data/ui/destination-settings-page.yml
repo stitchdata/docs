@@ -27,12 +27,14 @@
 ## Defines the default field names in the Destination Settings page.
 
 default-fields:
-  host: &host Host (Endpoint)
-  port: &port Port
-  username: &username Username
-  password: &password Password
-  database: &database Database
-  ssl: &ssl Connect using SSL
+  host: &host "Host (Endpoint)"
+  port: &port "Port"
+  username: &username "Username"
+  password: &password "Password"
+  database: &database "Database"
+  ssl: &ssl "Connect using SSL"
+  ssl-certificate: &ssl-certificate "SSL Certificate"
+
 
 # -------------------------- #
 #        Default Copy        #
@@ -50,6 +52,12 @@ default-copy:
     Enter the password associated with the Stitch {{ destination.display_name }} user.
   database: &database-copy |
     Enter the name of the {{ destination.display_name }} database that you created for Stitch.
+  ssl: &ssl-copy |
+    Check to connect to {{ destination.display_name }} using SSL. **Note**: This is not required to connect Stitch.
+  ssl-certificate: &ssl-certificate-copy |
+    **Optional**: Provide the certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided here.
+
+            **Note**: Providing a certificate isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
 
 # -------------------------- #
 #         SSH Fields         #
@@ -127,7 +135,11 @@ postgres:
     copy: *password-copy
   - field: *database
     copy: *database-copy
-
+  - field: *ssl
+    copy: *ssl-copy
+  - field: *ssl-certificate
+    copy: *ssl-certificate-copy
+    
 # -------------------------- #
 #       Heroku-Postgres      #
 # -------------------------- #
@@ -165,6 +177,10 @@ postgres-rds:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: *ssl-copy
+  - field: *ssl-certificate
+    copy: *ssl-certificate-copy
 
 # -------------------------- #
 #     CloudSQL Postgres       #
@@ -181,6 +197,10 @@ cloudsql-postgres:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: *ssl-copy
+  - field: *ssl-certificate
+    copy: *ssl-certificate-copy
 
 # -------------------------- #
 #          Redshift          #

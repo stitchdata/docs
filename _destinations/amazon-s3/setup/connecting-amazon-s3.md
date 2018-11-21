@@ -13,11 +13,11 @@ layout: destination-setup-guide
 type: "amazon-s3"
 display_name: "Amazon S3"
 
-enterprise-cta:
-  title: "Need loading notifications?"
-  url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
-  copy: |
-    As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+# enterprise-cta:
+#   title: "Need loading notifications?"
+#   url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
+#   copy: |
+#     As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -67,7 +67,7 @@ setup-steps:
       For example: `this-is-a-test-bucket-stitch-dev`
 
     substeps:
-      - title: "Select Data Storage Format"
+      - title: "Select data storage format"
         anchor: "select-data-storage-format"
         content: |
           The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. Supported options are:
@@ -84,7 +84,8 @@ setup-steps:
           - **Delimiter**: Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
           - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
 
-      # - title: "Define webhook loading notifications"
+# Commenting out, since we aren't doing this right now.
+      # - title: "Define Webhook Loading Notifications"
       #   anchor: "define-webhook-loading-notifications"
       #   content: |
       #     {% include enterprise-cta.html %}
@@ -166,19 +167,125 @@ setup-steps:
 
       Next, Stitch will display a **Grant & Verify Access** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via a bucket policy. [A bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) is JSON-based access policy language to manage permissions to bucket resources.
 
-      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
+      **Note**: The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page. It allows Stitch to assume a role and access the bucket. An example might look like this:
+
+      ```json
+      {
+        "Version": "2012-10-17",
+        "Id": "",
+        "Statement": [
+          {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": [
+                "arn:aws:iam::218546966473:role/LoaderS3"
+              ]
+            },
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:ListBucket"
+            ],
+            "Resource": [
+              "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>",
+              "arn:aws:s3:::<YOUR_S3_BUCKET_NAME>/*"
+            ]
+          }
+        ]
+      }
+      ```
 
       For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
 
+<<<<<<< HEAD
+=======
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ destination.display_name }} Bucket Permissions</a>
+                </h4>
+            </div>
+            
+            <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
+                <div class="panel-body">
+                    <table width="100%" class="table-hover">
+                      <tr>
+                      <td width="18%; fixed">
+                      <strong>Permission Name</strong>
+                      </td>
+                      <td width="25%; fixed">
+                      <strong>Operation</strong>
+                      </td>
+                      <td>
+                      <strong>Operation Description</strong>
+                      </td>
+                      </tr>
+                      {% for permission in destination.permissions %}
+                      {% for operation in permission.operations %}
+                      {%- capture rowspan -%}
+                      {{ forloop.length }}
+                      {%- endcapture -%}
+                      {% endfor %}
+                      <tr>
+                      <td rowspan="{{ rowspan }}">
+                      <strong>{{ permission.name }}</strong>
+                      </td>
+                      {% for operation in permission.operations %}
+                      {% case forloop.first %}
+                      {% when true %}
+                      <td>
+                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
+                      </td>
+                      <td>
+                      {{ operation.description | flatify | markdownify }}
+                      </td>
+                      </tr>
+                      {% else %}
+                      <tr>
+                      <td>
+                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
+                      </td>
+                      <td>
+                      {{ operation.description | flatify | markdownify }}
+                      </td>
+                      </tr>
+                      {% endcase %}
+                      {% endfor %}
+                      {% endfor %}
+                      </table>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+>>>>>>> master
     substeps:
       - title: "Add the Stitch Bucket Policy"
         anchor: "add-bucket-policy"
         content: |
+<<<<<<< HEAD
           To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console. Follow the instructions in the tab below to add the bucket policy.
 
           {% include destinations/templates/destination-user-setup.html %}
+=======
+          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
 
-      - title: "Verify Bucket Access"
+          1. Sign into AWS in another tab, if you aren't currently logged in.
+          2. Click **Services** near the top-left corner of the page.
+          3. Under the **Storage** option, click **S3**.
+          4. A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch.
+          5. Click the **Permissions** tab.
+          6. In the **Permissions** tab, click the **Bucket Policy** button.
+          7. In the Bucket policy editor, paste the bucket policy code from Stitch.
+          8. When finished, click **Save**.
+
+          Leave this page open for now - you'll come back to it in the next step.
+>>>>>>> master
+
+      - title: "Verify bucket access"
         anchor: "verify-bucket-access"
         content: |
           Next, to ensure that Stitch can access the bucket, you'll create a blank file that Stitch will use to test the permissions settings.
@@ -198,7 +305,11 @@ setup-steps:
           5. After the file has been uploaded to the bucket, switch back to where you have Stitch open.
           6. Click **Check and Save** to save and test the connection to {{ destination.display_name }}.
 
-          {% include important.html type="single-line" content="The challenge file must remain in the bucket even after the initial setup is completed. Removing this file will connection and loading interruptions." %}
+          {% capture challenge-file-notice %}
+          The challenge file must remain in the bucket even after the initial setup. If the file isn't created, or is removed at any point after the setup, you'll receive this error: `An error occurred (404) when calling the HeadObject operation: Not Found`
+
+          For troubleshooting, refer to the [Destination Connection Errors guide]({{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }}).
+          {% endcapture %}
+
+          {% include important.html first-line="The challenge file must remain in your S3 bucket" content=challenge-file-notice %}
 ---
-
-

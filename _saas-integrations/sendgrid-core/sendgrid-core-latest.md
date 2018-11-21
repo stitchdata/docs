@@ -32,9 +32,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.sendgrid.com/
 icon: /images/integrations/icons/sendgrid.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

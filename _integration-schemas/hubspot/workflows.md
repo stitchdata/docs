@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getWorkflows
+  name: "Get workflows"
   doc-link: https://developers.hubspot.com/docs/methods/workflows/v3/get_workflows
 
 attributes:
