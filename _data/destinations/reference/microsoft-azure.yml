@@ -74,7 +74,7 @@ replication-info:
 
 object-name-limit-info:
   case-sensitivity: &case-sensitivity "Insensitive"
-  tables: &table-name-length "128 characters"
+  tables: &table-name-length "112 characters"
   columns: &column-name-length "128 characters"
 
 # -------------------------- #
@@ -100,7 +100,7 @@ data-limit-info:
     timezone-support: &timezone-support |
       false
 
-    date-range: &date-range "January 1, 1753 AD, through December 31, 9999 AD"
+    date-range: &date-range "January 1, 0001 AD, through December 31, 9999 AD"
     timestamp-range: &timestamp-range "00:00:00 through 23:59:59.997"
 
   decimal:
@@ -185,7 +185,7 @@ attributes:
     description: |
       {{ destination.display_name }} destinations do not have native support for Primary Keys.
 
-      To ensure existing rows can be updated in incrementally-replicated tables, Stitch will create an `sdc_primary_keys` table in every integration schema. This table contains the Primary Key data for every table in the given schema, which Stitch will use to de-dupe rows during loading.
+      To ensure existing rows can be updated in incrementally-replicated tables, Stitch will create an `_sdc_primary_keys` table in every integration schema. This table contains the Primary Key data for every table in the given schema, which Stitch will use to de-dupe rows during loading.
 
       **Note**: De-duplicating doesn't apply to tables that are replicated in full.
 
@@ -200,7 +200,7 @@ attributes:
       To accommodate this scenario, Stitch will create additional columns for each data type:
 
       - The **original column**'s name will remain as-is. It will be typed according to the first data type Stitch detected for the column.
-      - **Subsequent columns** will have the data type appended to their name. Additionally, only data of this type will be stored in this column. For example: `customer_id__int` would contain data determined to be an integer.
+      - **Subsequent columns** will have the data type appended to their name. Additionally, only data of this type will be stored in this column. For example: `customer_id__bi` would contain data determined to be a big integer. Note: If multiple data types are loaded during creation of the column, all columns will be created with the data type appended to their name.
 
   - id: "nested-data-structures"
     categories: "replication"
@@ -220,19 +220,19 @@ attributes:
     description: |
       This means that {{ destination.display_name }} destinations treat upper- and lowercase characters as the same. For example: `CUSTOMERID` and `customerid` are equal in {{ destination.display_name }}.
 
-      When column names are loaded into Redshift, any uppercase characters will be forced into lowercase. This means that `Id` and `id` will canonicalize to the same name, which can lead to object collision errors. Refer to the [Column naming section of this guide](#column-naming) for examples.
+      When column names are loaded into {{ destination.display_name }}, any uppercase characters will be forced into lowercase. This means that `Id` and `id` will canonicalize to the same name, which can lead to object collision errors. Refer to the [Column naming section of this guide](#column-naming) for examples.
 
   - id: "table-name-length"
     categories: "object-name-limits"
     value: *table-name-length
     description: |
-      Tables with names that exceed this limit will be rejected. Rejected tables are logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      Tables with names that exceed this limit will be rejected. Rejected tables are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
       
   - id: "column-name-length"
     categories: "object-name-limits"
     value: *column-name-length
     description: |
-      Columns with names that exceed this limit will be rejected. Rejected columns are logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      Columns with names that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
   - id: "max-columns-per-table"
     categories: "table-limits"
@@ -274,7 +274,7 @@ attributes:
     categories: "data-limits"
     value: *date-range
     description: |
-      Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      Date values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
       More info about {{ destination.display_name }} date data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
 
@@ -282,7 +282,7 @@ attributes:
     categories: "data-limits"
     value: *timestamp-range
     description: |
-      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      Timestamp values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
       More info about {{ destination.display_name }} time data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
 
@@ -290,13 +290,13 @@ attributes:
     categories: "data-limits"
     value: *decimal-precision
     description: |
-      Decimal values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
   - id: "decimal-scale"
     categories: "data-limits"
     value: *decimal-scale
     description: |
-      Decimal values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
   - id: "strings-max-width"
     categories: "data-limits"

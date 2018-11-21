@@ -1,6 +1,6 @@
 ---
 title: Connecting a Microsoft Azure SQL Data Warehouse to Stitch via SSH tunnel
-permalink: /destinations/redshift/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
+permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
 tags: [microsoft-azure_destination]
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
 summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account via an SSH tunnel."
