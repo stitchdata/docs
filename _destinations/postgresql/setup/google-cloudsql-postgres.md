@@ -7,6 +7,9 @@ permalink: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data
 redirect_from: /destinations/postgresq/connecting-a-google-cloudsql-postgresql-data-warehouse
 
 summary: "Ready to spin up a Google CloudSQL PostgreSQL data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 display_name: "CloudSQL PostgreSQL"
@@ -50,7 +53,7 @@ setup-steps:
 
       {% include shared/google-cloud-platform/create-database.html %}
 
-  - title: "Configure Security and Access settings"
+  - title: "Configure security & access settings"
     anchor: "configure-security-access-settings"
     content: |
       Next, you'll configure the access settings for the instance. Google access control has two levels: at the instance and at the database.
@@ -76,24 +79,16 @@ setup-steps:
 
   - title: "create db user"
     content: |
-      Configuring the second part of the access control settings requires creating a database user for Stitch. There are two methods of creating a user in Google Cloud Platform: via the console (or UI) or using a psql client.
+      Configuring the second part of the access control settings requires creating a database user for Stitch. This guide will use the psql method to create the user, which requires the use of a SQL client.
 
-      Before you choose a method, note that:
-
-      - [Users created using the console](https://cloud.google.com/sql/docs/postgres/users) have the permissions associated with the `cloudsqlsuperuser` role. This will include the required permissions outlined below.
-      - **If you want to grant Stitch's user specific permissions**, you need to use the psql client method. [Google currently only allows the assignment of permissions via this method](https://cloud.google.com/sql/docs/postgres/users#other_postgresql_users).
-
-      {% include destinations/setup/redshift-postgres-permissions.html %}
-
-      ### Create the Stitch Database User
-
-      {% include shared/google-cloud-platform/create-user.html %}
+      {% assign clean-database-name = page.display_name | downcase | replace:" ","-" %}
+      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
   - title: "connect stitch"
     content: |
       The last step is to locate the instance's connection details and enter them into Stitch.
     substeps:
-      - title: "Locating the Connection Details in the Google Console"
+      - title: "Locating the connection details in the Google Console"
         anchor: "locate-connection-details-in-google"
         content: |
           1. In the **CloudSQL Instances page**, locate and click the instance you created in Step 1.

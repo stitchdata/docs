@@ -5,6 +5,8 @@ keywords: destinations, compatibility, switch destination, switch redshift, swit
 permalink: /destinations/switching-destinations
 summary: "In this guide, we'll show you how to change your Stitch destination."
 
+content-type: "destination-general"
+
 toc: true
 type: "all"
 destination: "false"

@@ -1,0 +1,68 @@
+# -------------------------------------------------------- #
+#  Azure SQL Data Warehouse (DESTINATION) User Privileges  #
+# -------------------------------------------------------- #
+
+## This file contains info about the privileges and setup steps
+## required to create a Stitch database user for an Azure SQL Data Warehouse destination.
+
+## This file includes info about the permissions required, the
+## commands to grant those permissions, and the descriptions that
+## go along with each step of the user creation process.
+
+defaults:
+  names:
+    control: &control-name "CONTROL"
+
+  reasons:
+    control: &control-reason |
+      Required to create the necessary database objects to load and store your data.
+      
+      The `CONTROL` permission grants ownership-like capabilities to the Stitch user. This ensures that Stitch has all the necessary permissions to load data into the specified database, including ownership abilities on all schemas in the database, and all objects within all schemas in the database.
+
+# From the Microsoft docs, linked below:
+# CONTROL:
+# Confers ownership-like capabilities on the grantee. The grantee effectively has all defined permissions on the securable. A principal that has been granted CONTROL can also grant permissions on the securable. Because the SQL Server security model is hierarchical, CONTROL at a particular scope implicitly includes CONTROL on all the securables under that scope. For example, CONTROL on a database implies all permissions on the database, all permissions on all assemblies in the database, all permissions on all schemas in the database, and all permissions on objects within all schemas within the database.
+
+  doc-links:
+    privileges: &privileges-doc "https://docs.microsoft.com/en-us/sql/relational-databases/security/permissions-database-engine?view=sql-server-2017#_conventions"
+
+
+# -------------------------- #
+#      AZURE PRIVILEGES      #
+# -------------------------- #
+
+all-permissions:
+  - name: *control-name
+    reason: *control-reason
+    doc-link: *privileges-doc
+
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+create-user-command: &create-user-sql |
+  CREATE LOGIN stitch WITH PASSWORD = '<STRONG_PASSWORD_HERE>';
+  CREATE USER stitch FOR LOGIN stitch;
+
+grant-control-to-user: &grant-control-sql |
+  CREATE USER stitch FOR LOGIN stitch;
+  GRANT CONTROL ON DATABASE::<DATABASE_NAME> to stitch;
+
+
+# -------------------------- #
+#   STEPS FOR CREATING USER  #
+# -------------------------- #
+
+## The individual steps for creating an Azure SQL Data Warehouse user for Stitch.
+
+all-steps:
+  - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
+  - copy: "Navigate to the `master` database."
+  - copy: |
+      In the `master` database, run the following commands to create a login and a user named `stitch`. Replace `<STRONG_PASSWORD_HERE>` with a strong password:
+    command: *create-user-sql
+  - copy: "Next, navigate to the database where you want Stitch to load data."
+  - copy: |
+      In this database, run the following commands to create a login and a database user named `stitch`. Replace `<DATABASE_NAME>` with the name of the database:
+    command: *grant-control-sql

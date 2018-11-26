@@ -1,0 +1,44 @@
+# This is the schema for the Primary Keys table
+# for Azure SQL Data Warehouse destinations.
+
+name: "sdc_primary_keys"
+description: |
+  Applicable only to Microsoft Azure SQL Data Warehouse destinations, the `{{ primary-keys-table.name }}` table contains a list of the tables in an integration schema and the columns those tables use as Primary Keys. Every integration schema created by Stitch will contain this table.
+
+attributes:
+  - name: &table-name "table_name"
+    description: "The name of the table in the integation schema."
+    data: |
+      emails
+
+  - name: &column-name "column_name"
+    description: |
+      The name of the column used as the table's Primary Key. If a table uses multiple columns as a composite Primary Key, there will be a row for each column the table uses.
+    data: |
+      email_id
+
+  - name: &ordinal-position "ordinal_position"
+    description: |
+      When Stitch receives data, Primary Keys are provided in an array. For example: `["email_id", "created_at", "customer_id"]`
+
+      The value of this column corresponds to the index of the column in the array Stitch receives.
+    data: |
+      0
+
+example-records-description: |
+  For every column a table uses as a Primary Key, the `{{ primary-keys-table.name }}` table will contain a row containing the table's name, the name of the column, and the column's position in the Primary Key array Stitch receives.
+
+  For example: If Stitch received the array `["email_id", "updated_at", "customer_id"]` for an `emails` table, the `{{ primary-keys-table.name }}` table would contain the following records:
+
+example-records:
+  - table-name: "emails"
+    column-name: "email_id"
+    ordinal-position: "0"
+
+  - table-name: "emails"
+    column-name: "updated_at"
+    ordinal-position: "1"
+  
+  - table-name: "emails"
+    column-name: "customer_id"
+    ordinal-position: "2"

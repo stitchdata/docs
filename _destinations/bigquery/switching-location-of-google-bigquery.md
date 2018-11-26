@@ -4,6 +4,9 @@ permalink: /destinations/bigquery/changing-google-bigquery-destination-data-loca
 tags: [bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 summary: "Change the location of your Google BigQuery destination."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination
 display_name: "BigQuery"
