@@ -2,7 +2,7 @@
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "create-a-destination"
-version: "3"
+version: "4"
 
 
 title: "Create a destination"
@@ -21,13 +21,15 @@ arguments:
     type: "string"
     description: "{{ connect.common.attributes.destination-type | flatify }}"
 
-  - name: "connection"
+  - name: "properties"
     required: true
     type: "object"
     description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 returns: |
-  If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}).
+  If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}) with a `report_card` property.
+
+  The `report_card` property contains the [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}) for the destination's configuration status.
 
 examples:
   - type: "request"
@@ -44,7 +46,7 @@ examples:
 
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"s3",
-                    "connection": {
+                    "properties": {
                       "s3_bucket":"com-stitch-test-bucket",
                       "output_file_format":"csv",
                       "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
@@ -57,7 +59,7 @@ examples:
         code: |
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"redshift",
-                    "connection": {
+                    "properties": {
                       "host":"<HOST>",
                       "port":5439,
                       "username":"<USERNAME>",
@@ -71,7 +73,7 @@ examples:
         code: |
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"postgres",
-                    "connection": {
+                    "properties": {
                       "host":"<HOST>",
                       "port":5432,
                       "username":"<USERNAME>",
@@ -85,7 +87,7 @@ examples:
         code: |
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"snowflake",
-                    "connection": {
+                    "properties": {
                       "host":"<HOST>",
                       "port":443,
                       "user":"<USERNAME>",

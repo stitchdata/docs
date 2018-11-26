@@ -2,7 +2,7 @@
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "list-destinations"
-version: "3"
+version: "4"
 
 
 title: "List destinations"
@@ -16,7 +16,7 @@ description: "{{ api.core-objects.destinations.list.description | flatify }}"
 
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array (of length zero or one) of [Destination objects]({{ api.core-objects.destinations.object }}).
+  If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}) with a `report_card` property.
 
 
 examples:
@@ -38,7 +38,7 @@ examples:
           "type":"redshift",
           "created_at":"2018-02-06T15:36:36Z",
           "updated_at":"2018-02-06T15:36:36Z",
-          "connection": {  
+          "properties": {  
               "host":"<HOST>",
               "port":5439,
               "username":"<USERNAME>",
