@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "sources"
 key: "create-a-source"
 version: "4"
-order: 1
 
 
 title: "Create a source"
 method: "post"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 

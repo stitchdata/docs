@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "source-types"
 key: "get-a-source-type"
 version: "4"
-order: 1
 
 
 title: "Get a source type"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/{type}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{type}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.get.short }}"

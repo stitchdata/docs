@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "accounts"
 key: "create-an-account"
 version: "3"
-order: 1
 
 
 title: "Create an account"
 method: "post"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url | flatify }}
+  /v{{ endpoint.version }}{{ object.endpoint-url | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.accounts.create.short }}"

@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "sessions"
 key: "create-a-session"
 version: "3"
-order: 1
 
 
 title: "Create a session"
 method: "post"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/ephemeral
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/ephemeral
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sessions.create.short }}"

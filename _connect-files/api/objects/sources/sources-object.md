@@ -1,12 +1,61 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-object"
 endpoint: "sources"
 order: 5
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Source"
 description: "{{ api.core-objects.sources.description }}"
 endpoint-url: "/sources"
-version: "4"
+
+
+# -------------------------- #
+#        VERSION INFO        #
+# -------------------------- #
+
+latest-version: "4"
+versions:
+  - number: "4"
+    deprecated: false
+
+
+# -------------------------- #
+#      AVAILABLE METHODS     #
+# -------------------------- #
+
+available-methods:
+  - id: "create-a-source"
+    title: "Create a source"
+    method: "post"
+    short: "{{ api.core-objects.sources.create.short | flatify }}"
+
+  - id: "update-a-source"
+    title: "Update a source"
+    method: "put"
+    short: "{{ api.core-objects.sources.update.description | flatify }}"
+
+  - id: "retrieve-a-source"
+    title: "Retrieve a source"
+    method: "get"
+    short: "{{ api.core-objects.sources.retrieve.description | flatify }}"
+
+  - id: "list-sources"
+    title: "List all sources"
+    method: "get"
+    short: "{{ api.core-objects.sources.list.description | flatify }}"
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "id"

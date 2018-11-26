@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "sources"
 key: "update-a-source"
 version: "4"
-order: 2
 
 
 title: "Update a source"
 method: "put"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sources.update.description }}"

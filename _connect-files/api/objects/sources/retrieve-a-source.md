@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "sources"
 key: "retrieve-a-source"
 version: "4"
-order: 4
 
 
 title: "Retrieve a source"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sources.retrieve.description }}"

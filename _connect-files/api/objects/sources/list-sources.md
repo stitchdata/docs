@@ -3,13 +3,12 @@ content-type: "api-endpoint"
 endpoint: "sources"
 key: "list-sources"
 version: "4"
-order: 3
 
 
 title: "List sources"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sources.list.description }}"
