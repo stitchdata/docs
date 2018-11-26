@@ -1,15 +1,14 @@
-{% assign objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
+<!-- This file starts a section for a given object. For example: Accounts, which 
+    then contains the Account Object, list of endpoints, etc. -->
 
-{% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
-    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-        {% assign same-version = object-endpoints | where:"version",object.version %}
-            {% assign endpoints = same-version | sort:"order" %}
+{% assign objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
 
 {% for object in objects %}
     <h3 id="{{ object.endpoint | replace: " ", "-" }}">
         {{ object.title | append: "s" }}
     </h3>
 
+    <!-- The display logic for displaying the list of resources for a given object type -->
         {% include connect/api-endpoint-rollup.html type="endpoint" %}
 
     {% if object.object-attributes %}
@@ -48,13 +47,34 @@
     {% endif %}
         <hr>
 
-    {% for endpoint in endpoints %}
-        {% include connect/api-endpoint.html %}
+<!-- This starts the section for endpoint display -->
 
-        {% unless forloop.last == true %}
-            <hr>
-        {% endunless %}
-    {% endfor %}
+<!-- This looks at the `versions` list in the object,
+        and looks to see how many versions there are.
+
+    If there are multiple versions and the docs still need 
+        to be available for it, we need to display the content
+        differently - by using tabs.
+
+        This is the `multiple-versions` logic in _includes/connect/api-endpoint.html-->
+    {% assign versions = object.versions %}
+
+        {% for object-version in versions %}
+            {% assign total-versions = versions.size %}
+        {% endfor %}
+
+        {% for object-method in object-methods %}
+            {% if total-versions == 1 %}
+                {% include connect/api-endpoint.html type="single-version" %}
+            {% else %}
+                {% include connect/api-endpoint.html type="multiple-versions" %}
+            {% endif %}
+
+            {% unless forloop.last == true %}
+                <hr>
+            {% endunless %}
+        {% endfor %}
+
 
 {% unless forloop.last == true %}
     <hr>

@@ -1,0 +1,7 @@
+<!-- Notice for outdated API endpoints. -->
+
+{% capture outdated-version-notice %}
+This isn't the most current version of the {{ endpoint.endpoint | capitalize }} endpoint and will be deprecated in the future. Use the **{{ object.latest-version | prepend: "v" }}** version instead.
+{% endcapture %}
+
+{% include note.html first-line="**Outdated endpoint version**" content=outdated-version-notice %}

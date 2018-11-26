@@ -4,13 +4,10 @@
 
 {% case include.type %}
     {% when 'endpoint' %}
-        {% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
-            {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-                {% assign same-version = object-endpoints | where:"version",object.version %}
-                    {% assign endpoints = same-version | sort:"order" %}
+        {% assign object-methods = object.available-methods %}
 
-                    {% assign item = endpoint %}
-                    {% assign items = endpoints %}
+        {% assign item = object-method %}
+        {% assign items = object-methods %}
 
     {% when 'data-structure' %}
         {% assign item = structure %}
@@ -28,7 +25,7 @@
 
             {% else %}
                 {% assign form-properties = site.connect-files | where:"content-type","api-form" | sort: "title" %}
-            {% endcase %}
+        {% endcase %}
 
             {% assign item = form-property %}
             {% assign items = form-properties %}
@@ -63,7 +60,7 @@
                     </td>
                     <td align="center">
                         <strong>
-                            <a href="#{{ item.key }}">{{ item.short-url | flatify }}</a>
+                            <a href="#{{ item.id }}">{{ item.title }}</a>
                         </strong>
                     </td>
                     <td>
