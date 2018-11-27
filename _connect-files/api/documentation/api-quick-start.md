@@ -26,7 +26,7 @@ sections:
     content: |
       If you're providing a destination for the Stitch client's account, we recommend connecting the destination immediately after the account is created. This ensures that Stitch will have a place to load replicated data as soon as data sources are added.
 
-      The first step to [creating a destination]({{ api.core-objects.destinations.create.anchor }}) is providing the attributes required for the destination's configuration, or form. These attributes are passed in the body of your request as the `connection` argument, along with the destination's `type`:
+      The first step to [creating a destination]({{ api.core-objects.destinations.create.anchor }}) is providing the attributes required for the destination's configuration, or form. These attributes are passed in the body of your request as the `properties` argument, along with the destination's `type`:
 
       ```curl
       curl -X POST {{ api.base-url }}{{ api.core-objects.destinations.create.name | flatify }}
@@ -34,7 +34,7 @@ sections:
            -H "Content-Type: application/json"
            -d "{
                 "type":"redshift",
-                "connection": {
+                "properties": {
                   "host": "<HOST>",
                   "port": 5439,
                   "username": "<USERNAME>",
@@ -45,7 +45,7 @@ sections:
                }"
       ```
 
-      Refer to the [Destination Form Properties object]({{ api.form-properties.destination-forms.section | flatify }}) to retrieve the attributes required for the `connection` argument for each destination type. **Note**: Each destination has its own unique configuration and set of form attributes.
+      Refer to the [Destination Form Properties object]({{ api.form-properties.destination-forms.section | flatify }}) to retrieve the attributes required for the `properties` argument for each destination type. **Note**: Each destination has its own unique configuration and set of form attributes.
 
   - title: "Create a Source"
     anchor: "quick-start--create-a-source"
