@@ -1,9 +1,17 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "sources"
 key: "create-a-source"
 version: "4"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Create a source"
 method: "post"
@@ -16,16 +24,24 @@ short: "{{ api.core-objects.sources.create.short }}"
 description: "{{ api.core-objects.sources.create.description | flatify }}"
 
 
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
+
 arguments:
   - name: "display_name"
     required: true
     type: "string"
     description: "{{ connect.common.attributes.display-name }}"
+    example-value: |
+      "HubSpot"
 
   - name: "type"
     required: true
     type: "string"
     description: "The source type. For example: `platform.marketo` or `platform.hubspot`."
+    example-value: |
+      "platform.hubspot"
 
   - name: "properties"
     required: false
@@ -33,11 +49,19 @@ arguments:
     description: "{{ connect.common.attributes.properties | flatify }}"
 
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property. 
 
   The `report_card` property contains the [Source Report Card object]({{ api.data-structures.report-cards.source.section }}) for the source's configuration status.
 
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"

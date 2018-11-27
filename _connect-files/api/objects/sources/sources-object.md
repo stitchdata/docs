@@ -5,7 +5,7 @@
 
 content-type: "api-object"
 endpoint: "sources"
-order: 5
+order: 6
 
 
 # -------------------------- #

@@ -4,15 +4,25 @@
 # -------------------------- #
 
 ## NEED HELP USING THIS TEMPLATE? SEE:
-## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/databases/
+## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 ## PLEASE REMOVE COMMENTS WHEN FINISHED
 
 
+
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-[destination-name]-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "[DESTINATION-NAME] Destination Form Property"
 api-type: ""
@@ -23,13 +33,13 @@ db-type: ""
 
 description: ""
 
-# NOTE: object-attributes is only required if the object has attributes
-# 		  that are specific to it. Ex: Snowflake has a `role` attribute in
-#				addition to the other shared destination attributes like `port` or `host`.
 
-#				The common fields are here: _data/connect/common/destination-forms.yml
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
-#				Please remove me ^
+# uses-common-fields: true/false
+## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
 # object-attributes:
 #   - name: ""

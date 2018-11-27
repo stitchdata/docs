@@ -1,9 +1,17 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "create-a-destination"
 version: "4"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Create a destination"
 method: "post"
@@ -14,6 +22,10 @@ full-url: |
 short: "{{ api.core-objects.destinations.create.short }}"
 description: "{{ api.core-objects.destinations.create.description | flatify }}"
 
+
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
 
 arguments:
   - name: "type"
@@ -26,10 +38,20 @@ arguments:
     type: "object"
     description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
+
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}) with a `report_card` property.
 
   The `report_card` property contains the [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}) for the destination's configuration status.
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"
@@ -115,17 +137,15 @@ examples:
             "type":"[DESTINATION-TYPE]",
             "created_at":"2018-02-06T15:36:36Z",
             "updated_at":"2018-02-06T15:36:36Z",
-            "connection": {
+            "check_job_name": null,
+            "name": "Default Warehouse",
+            "deleted_at": null,
+            "system_paused_at": null,
+            "paused_at": null,
+            "properties": {
           {% endcapture %}
 
-          {% capture last-check-object %}
-            "last_check":{
-                "error":false,
-                "started_at":"2018-02-06T16:15:19Z",
-                "completed_at":"2018-02-06T16:16:21Z"
-            }
-          }
-          {% endcapture %}
+
 
           {{ response-header | flatify | replace: "[DESTINATION-TYPE]","s3" | lstrip | rstrip }}
                 "s3_bucket":"com-stitch-test-bucket",
@@ -134,8 +154,7 @@ examples:
                 "csv_delimiter":",",
                 "csv_force_quote":true,
                 "sentinel_key":"stitch-challenge-file-af295ad1-7a4b-4881-89dc-c9be27de13a5"
-            },
-          {{ last-check-object | rstrip }}
+            }
 
       - title: "Amazon Redshift destination response"    
         code: |
@@ -146,8 +165,7 @@ examples:
                 "database":"<DATABASE>",
                 "password":"<PASSWORD>",
                 "ssl":false
-            },
-          {{ last-check-object | rstrip }}
+            }
 
       - title: "PostgreSQL destination response"    
         code: |
@@ -159,7 +177,9 @@ examples:
                 "password":"<PASSWORD>",
                 "ssl":false
             },
-          {{ last-check-object | rstrip }}
+            "report_card": {
+                {{ site.data.connect.code-examples.destination-report-cards.postgres }}
+            }
 
       - title: "Snowflake destination response"    
         code: |
@@ -172,8 +192,7 @@ examples:
                 "password":"<PASSWORD>",
                 "role":"<OPTIONAL_ROLE>",
                 "ssl":false
-            },
-          {{ last-check-object | rstrip }}
+            }
 
   - type: "errors"
 ---

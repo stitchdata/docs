@@ -5,7 +5,7 @@
 
 content-type: "api-object"
 endpoint: "destinations"
-order: 3
+order: 4
 
 
 # -------------------------- #
@@ -60,6 +60,8 @@ object-attributes:
     type: "integer"
     first-appeared-in: "3"
     description: "A unique identifier for this destination."
+    example-value: |
+      110397
 
   - name: "connection"
     type: "object"
@@ -74,11 +76,15 @@ object-attributes:
     type: "timestamp"
     first-appeared-in: "3"
     description: "The time at which the destination object was created."
+    example-value: |
+      "2018-11-14T20:09:30Z"
 
   - name: "deleted_at"
     type: "timestamp"
     first-appeared-in: "4"
     description: "The time at which the destination object was deleted."
+    example-value: |
+      null
 
   - name: "last_check"
     type: "object"
@@ -95,11 +101,15 @@ object-attributes:
     type: "string"
     first-appeared-in: "4"
     description: "The name for the destination."
+    example-value: |
+      "Default Warehouse"
 
   - name: "paused_at"
     type: "timestamp"
     first-appeared-in: "4"
     description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be null."
+    example-value: |
+      null
 
   - name: "properties"
     type: "object"
@@ -123,17 +133,25 @@ object-attributes:
     type: "integer"
     first-appeared-in: "4"
     description: "The ID of the Stitch client account."
+    example-value: |
+      7723
 
   - name: "system_paused_at"
     type: "timestamp"
     first-appeared-in: "4"
     description: "If the connection was paused by the system, the time the pause began. Otherwise, or if the connection is active, this will be null."
+    example-value: |
+      null
 
   - name: "type"
     type: "string"
     description: "{{ connect.common.attributes.destination-type | flatify }}"
+    example-value: |
+      "postgres"
 
   - name: "updated_at"
     type: "timestamp"
     description: "The time at which the destination object was last updated."
+    example-value: |
+      "2018-11-27T15:25:20Z"
 ---

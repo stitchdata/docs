@@ -1,9 +1,17 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "sessions"
 key: "create-a-session"
 version: "3"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Create a session"
 method: "post"
@@ -15,8 +23,18 @@ short: "{{ api.core-objects.sessions.create.short }}"
 description: |
   {{ api.core-objects.sessions.create.description | flatify }}
 
+
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and a [Session object]({{ api.core-objects.sessions.object }}).
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"

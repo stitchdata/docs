@@ -1,9 +1,17 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "source-types"
 key: "list-source-types"
 version: "4"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "List source types"
 method: "get"
@@ -15,9 +23,17 @@ short: "{{ api.core-objects.source-types.list.short }}"
 description: "{{ api.core-objects.source-types.list.description | flatify }}"
 
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Report Card objects]({{ api.data-structures.report-cards.source.section }}), one for each supported source `type`.
 
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"

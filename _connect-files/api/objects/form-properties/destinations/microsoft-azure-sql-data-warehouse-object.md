@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-azure-sql-data-warehouse-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Microsoft Azure SQL Data Warehouse Destination Form Property"
 api-type: "azuresql_dw"
@@ -12,7 +21,13 @@ db-type: "mssql"
 
 description: ""
 
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
 uses-common-fields: true
+## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
 object-attributes:
   - name: "azure_storage_account_token"

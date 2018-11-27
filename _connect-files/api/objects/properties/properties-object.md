@@ -1,40 +1,82 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-structure"
 key: "properties-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Properties"
 description: "{{ api.data-structures.properties.description | flatify }}"
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "name"
     type: "string"
     description: "The name of the property."
+    value: |
+      "frequency_in_minutes"
 
   - name: "required_to_be_fully_configured"
     type: "boolean"
     description: "If `true`, the property is required for complete configuration."
+    value: |
+      true
 
   - name: "provided"
     type: "boolean"
     description: "If `true`, the property has been provided."
+    value: |
+      true
 
   - name: "is_credential"
     type: "boolean"
     description: "If `true`, the property is a credential or otherwise sensitive data."
+    value: |
+      false
 
   - name: "system_provided"
     type: "boolean"
     description: "If `true`, the system provides this property."
+    value: |
+      false
 
   - name: "json_schema"
     type: "array"
     description: |
+      **Note**: Data will only be returned for this array if `system_provided: false`.
+      
       An array containing:
 
-      - `type` - The expected data type of the property's value. For example: `string`
-      - `pattern` - The expected pattern of the property's value. For example: `^\\d+$`
+      - `type` - A `string` indicating the expected data type of the property's value. For example: `boolean`
+      - `pattern` - A `string` indicating the expected pattern of the property's value. For example: `^\\d+$`
+      - `anyOf` - A series of arrays containing key-value pairs for the `type` and `format` combinations Stitch will accept as the property's value. For example:
 
-      Data will only be returned for this array if `system_provided: false`.
+          ```json
+          "anyOf": [
+              {
+                  "type": "string",
+                  "format": "ipv4"
+              },
+              {
+                  "type": "string",
+                  "format": "ipv6"
+              },
+              {
+                  "type": "string",
+                  "format": "hostname"
+              }
+          ]
+          ```
 
 examples:
   - code: |

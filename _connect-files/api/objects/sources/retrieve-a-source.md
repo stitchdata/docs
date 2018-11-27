@@ -1,9 +1,17 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "sources"
 key: "retrieve-a-source"
 version: "4"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Retrieve a source"
 method: "get"
@@ -15,22 +23,36 @@ short: "{{ api.core-objects.sources.retrieve.description }}"
 description: "{{ api.core-objects.sources.retrieve.description }}"
 
 
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
+
 arguments:
   - name: "id"
     required: true
     type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the data source to be retrieved."
+    example-value: |
+      86741
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
 
 returns: |
   If successful and a valid identifier was provided, the API will return a status of <code class="api success">200 OK</code> and a single [Source Object]({{ api.core-objects.sources.object }}).
 
 
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
+
 examples:
   - type: "request"
     language: "json"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
+      {% assign right-bracket = "}" %}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
   - type: "response"

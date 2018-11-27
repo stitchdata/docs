@@ -20,11 +20,15 @@ arguments:
     required: true
     type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the source to be updated."
+    example-value: |
+      86741
 
   - name: "display_name"
     required: false
     type: "string"
     description: "{{ connect.common.attributes.display-name }}"
+    example-value: |
+      "Salesforce"
 
   - name: "properties"
     required: false
@@ -39,7 +43,8 @@ examples:
   - type: "request"
     language: "json"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
+      {% assign right-bracket = "}" %}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{

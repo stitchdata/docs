@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-uservoice-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "UserVoice Source Form Property"
 api-type: "uservoice"
@@ -11,6 +20,11 @@ source-type: "saas"
 docs-name: "uservoice"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "api_key"

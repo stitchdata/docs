@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-bronto-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Bronto Source Form Property"
 api-type: "bronto"
@@ -11,6 +20,11 @@ source-type: "saas"
 docs-name: "bronto"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "token"

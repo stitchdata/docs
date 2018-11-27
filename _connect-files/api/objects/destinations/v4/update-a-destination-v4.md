@@ -1,9 +1,17 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "update-a-destination"
 version: "4"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Update a destination"
 method: "put"
@@ -14,6 +22,10 @@ full-url: |
 short: "{{ api.core-objects.destinations.update.short }}"
 description: "{{ api.core-objects.destinations.update.description | flatify }}"
 
+
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
 
 arguments:
   - name: "id"
@@ -32,9 +44,17 @@ arguments:
     description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}) with a `report_card` property.
 
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"

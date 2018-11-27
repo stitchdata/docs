@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-sendgrid-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "SendGrid Source Form Property"
 api-type: "sendgrid"
@@ -11,6 +20,11 @@ source-type: "saas"
 docs-name: "sendgrid-core"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "api_key"

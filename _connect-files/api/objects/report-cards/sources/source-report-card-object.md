@@ -1,9 +1,18 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-structure"
 key: "report-card-object--source"
 
 title: "Source Report Card"
 description: "{{ api.data-structures.report-cards.source.description }}"
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "current_step"
@@ -17,6 +26,11 @@ object-attributes:
   - name: "type"
     type: "string"
     description: "The connection type. Ex: `platform.salesforce` or `platform.hubspot`"
+
+
+# -------------------------- #
+#          EXAMPLES          #
+# -------------------------- #
 
 examples:
   - code: |
