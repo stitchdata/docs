@@ -1,5 +1,5 @@
 # -------------------------- #
-#       Azure Reference      #
+#     Redshift Reference     #
 # -------------------------- #
 
 # This file contains the data used in this destination's overview/reference
@@ -126,7 +126,7 @@ column-naming-info:
   with-underscore-start: *destination-column-name
   with-non-letter-start: *destination-column-name
 
-
+reserved-words: "http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html"
 
 # -------------------------- #
 #       LIST OF VALUES       #

@@ -47,31 +47,16 @@ icon: /images/destinations/icons/microsoft-azure.svg
 #           Support          #
 # -------------------------- #
 
-ssl: true
-ssh: true
+## See _data/destinations/reference/bigquery.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
-incremental-upsert-support: true
-connection-methods: "SSH, SSL"
-supported-versions: "n/a"
-
-nested-structure-support: false
-case: "Case Insensitive"
-table-name-limit: "128" ## max # of characters
-column-name-limit: "255" ## max # of characters
-column-limit: "1,024" ## max # of columns allowed in tables
-timestamp-range: "January 1, 1753 00:00:00 AD, through December 31, 9999 23:59:59.997 AD"
-timezones:
-  supported: false
-varchar-limit: "4,000 characters" ## max width for varchars
-decimal-limit: "38 numbers, or places"
-decimal-range: "6 numbers after the decimal"
-reserved-words: "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql?view=sql-server-2017"
 
 # -------------------------- #
 #    Incompatible Sources    #
 # -------------------------- #
-incompatible-with: 0
 
+incompatible-with: 0
 
 
 # -------------------------- #

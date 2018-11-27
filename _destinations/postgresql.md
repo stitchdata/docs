@@ -36,37 +36,15 @@ icon: /images/destinations/icons/postgresql.svg
 #           Support          #
 # -------------------------- #
 
-ssl: true
-ssh: true
-
-incremental-upsert-support: true
-connection-methods: "SSH, SSL"
-supported-versions: "9.3+" ## if Stitch supports certain versions
-
-
-nested-structure-support: false ## if true, natively supports nested structures
-case: "Case Sensitive"
-table-name-limit: "63" ## max # of characters
-column-name-limit: "59" ## max # of characters
-column-limit: "250-1,600" ## max # of columns allowed in tables
-timestamp-range: "4713 BC to 294276 AD"
-timezones:
-  supported: false ## if false, no support for timezones
-  storage: "Converted to UTC & <br>`TIMESTAMP WITHOUT TIME ZONE`" ## what happens to data with timezone info
-timestamp-data: "Converted to UTC & <br>`TIMESTAMP WITHOUT TIME ZONE`"
-varchar-limit: "None" ## max width for varchars
-decimal-limit: "> 131,072 digits before the decimal or > 16,383 digits after"
-decimal-range: "Stored without precision"
-reserved-words: "https://www.postgresql.org/docs/9.6/static/sql-keywords-appendix.html"
-
+## See _data/destinations/reference/postgres.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
 # -------------------------- #
 #    Incompatible Sources    #
 # -------------------------- #
+
 incompatible-with: 2
-## Facebook Ads
-## Always Incompatible
-## Subtables created from de-nesting exceed the 59 character limit for table names. 
 
 # -------------------------- #
 #            Links           #

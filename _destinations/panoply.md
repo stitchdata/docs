@@ -35,22 +35,11 @@ icon: /images/destinations/icons/panoply.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-upsert-support: true
-connection-methods: "SSL"
-supported-versions: "n/a"
 
-nested-structure-support: false
-case: "Case Insensitive"
-table-name-limit: "127" ## # of characters
-column-name-limit: "115" ## # of characters
-column-limit: "1,600"
-timestamp-range: "4713 BC to 294276 AD"
-timestamp-data: "Converted to UTC & <br>`TIMESTAMP WITHOUT TIME ZONE`"
-varchar-limit: "65K"
-integer-limit: "-9223372036854775808 to 9223372036854775807" # http://docs.aws.amazon.com/redshift/latest/dg/r_Numeric_types201.html#r_Numeric_types201-integer-types
-decimal-limit: "38 numbers, or places"
-decimal-range: "6 numbers after the decimal"
-reserved-words: "http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html"
+
+## See _data/destinations/reference/amazon-s3.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
 
 # -------------------------- #

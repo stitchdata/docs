@@ -28,7 +28,7 @@ port: 5439
 pricing_model: "Hourly" ## provider model
 free_option: "Yes (plan & trial)"
 fully-managed: false
-pricing_notes: "Currently, Redshift bases their pricing on an hourly rate that varies depending on the type and number of nodes in a cluster. The type and number of nodes you choose when creating a cluster is dependent on your needs and data set, but you can scale up or down over time should your requirements change. "
+pricing_notes: "Currently, Redshift bases their pricing on an hourly rate that varies depending on the type and number of nodes in a cluster. The type and number of nodes you choose when creating a cluster is dependent on your needs and data set, but you can scale up or down over time should your requirements change."
 icon: /images/destinations/icons/amazon-redshift.svg
 
 
@@ -36,27 +36,9 @@ icon: /images/destinations/icons/amazon-redshift.svg
 #           Support          #
 # -------------------------- #
 
-ssl: true
-ssh: false
-
-incremental-upsert-support: true
-connection-methods: "SSH, SSL"
-supported-versions: "n/a"
-
-nested-structure-support: false
-case: "Case Insensitive"
-table-name-limit: "127" ## # of characters
-column-name-limit: "115" ## # of characters
-column-limit: "1,600"
-timezones:
-  supported: false
-  storage: "Converted to UTC & <br>`TIMESTAMP WITHOUT TIME ZONE`"
-timestamp-range: "4713 BC to 294276 AD"
-varchar-limit: "65K"
-integer-limit: "-9223372036854775808 to 9223372036854775807" # http://docs.aws.amazon.com/redshift/latest/dg/r_Numeric_types201.html#r_Numeric_types201-integer-types
-decimal-limit: "38 numbers, or places"
-decimal-range: "6 numbers after the decimal"
-reserved-words: "http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html"
+## See _data/destinations/reference/redshift.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
 
 # -------------------------- #
@@ -76,7 +58,6 @@ pricing: https://aws.amazon.com/redshift/pricing/
 status-url: https://status.aws.amazon.com/
 documentation: https://aws.amazon.com/documentation/redshift/
 redshift-vs-postgres: http://docs.aws.amazon.com/redshift/latest/dg/c_redshift-and-postgres-sql.html
-
 
 
 # -------------------------- #
