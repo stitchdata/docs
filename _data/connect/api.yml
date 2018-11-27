@@ -104,6 +104,45 @@ core-objects:
       short: "Lists the destination currently in use for a Stitch account."
       description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single data warehouse is supported per Stitch client account."
 
+
+
+# -------------------------- #
+#      Destination Types     #
+# -------------------------- #
+  destination-types:
+    title: "Destination Types"
+    section: "#destination-types"
+    object: "#destination-type--object"
+    base: "/v4/destination-types"
+    description: "The Destination Type object contains the information needed to configure a destination."
+
+    get:
+      name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{type}"
+      title: "Get a destination type"
+      method: *get
+      anchor: "#get-a-destination-type"
+      short: "Retrieves general information about the configuration required for a destination type."
+      description: |
+        {{ site.data.connect.api.core-objects.destination-types.get.short }}
+
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of a destination in a single account. Instead, it will return general configuration information for the specified destination `type`.
+
+        To retrieve specific information about the destination for an account, use the [List Destinations]({{ site.data.connect.api.core-objects.destinations.list.anchor }}) endpoint.
+
+    list:
+      name: "{{ site.data.connect.api.core-objects.destination-types.base }}"
+      title: "List destination types"
+      method: *get
+      anchor: "#list-destination-types"
+      short: "Retrieves general information about the configuration required for all supported destination types."
+      description: |
+        {{ site.data.connect.api.core-objects.destination-types.list.short }}
+
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of a destination in a single account. Instead, it will return general configuration information for all supported destination types.
+
+        To retrieve specific information about the destination for an account, use the [List Destinations]({{ site.data.connect.api.core-objects.destinations.list.anchor }}) endpoint.
+
+
 # -------------------------- #
 #          Sources           #
 # -------------------------- #
@@ -165,7 +204,7 @@ core-objects:
       description: |
         {{ site.data.connect.api.core-objects.source-types.get.short }}
 
-        **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified `type`.
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `type`.
 
         To retrieve information about a specific data source, use the [Get a Source]({{ site.data.connect.api.core-objects.sources.retrieve.anchor }}) endpoint.
 
@@ -174,7 +213,7 @@ core-objects:
       title: "List source types"
       method: *get
       anchor: "#list-source-types"
-      short: "Retrieves general information about the configuration required for all support data source types."
+      short: "Retrieves general information about the configuration required for all supported data source types."
       description: |
         {{ site.data.connect.api.core-objects.source-types.list.short }}
 
@@ -197,7 +236,12 @@ data-structures:
   connection-steps:
     title: "Connection Steps"
     section: "#connection-step-object"
-    description: "Contained in the [Report Card object]({{ api.data-structures.report-cards.section }}), the Connection Steps object contains the steps necessary to configure a data source or destination."
+    description: "Contained in a [Source]({{ api.data-structures.report-cards.source.section }}) or [Destination]({{ api.data-structures.report-cards.destination.section }}) Report Card object, the Connection Steps object contains the steps necessary to configure a data source or destination."
+
+  details:
+    title: "Details"
+    section: "details-object"
+    description: "Contained in a [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}), the Details object contains information about a destination `type`'s availability within Stitch."
 
   properties:
     title: "Properties"

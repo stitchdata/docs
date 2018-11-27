@@ -63,6 +63,21 @@ api:
                 method: "post"
                 url: "{{ api.core-objects.sessions.create.anchor }}"
 
+          - title: "Destination Types"
+            expand-by-default: true
+            subsections:
+              - title: "The Destination Type Object"
+                method: "object"
+                url: "{{ api.core-objects.destination-types.object }}"
+
+              - title: "{{ api.core-objects.destination-types.list.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.destination-types.list.anchor }}"
+
+              - title: "{{ api.core-objects.destination-types.get.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.destination-types.get.anchor }}"
+
           - title: "Destinations"
             expand-by-default: true
             subsections:
