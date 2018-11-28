@@ -24,7 +24,7 @@
                         <li class="category-version-toggle">
                             <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
                             {% if version.number == latest-version %} (latest){% endif %}
-                            {% if version.released == false %} (closed beta){% endif %}
+                            {% if version.released == false %} (beta){% endif %}
                             {% if version.deprecated == true %} (deprecated){% endif %}</a>
                         </li>
                     {% endif %}
@@ -48,7 +48,7 @@
                     <li class="active">
                         version {{ version.number }}
                         {% if version.number == latest-version %} (latest){% endif %}
-                        {% if version.released == false %} (closed beta){% endif %}
+                        {% if version.released == false %} (beta){% endif %}
                         {% if version.deprecated == true %} (deprecated){% endif %}
                         <i class="fa fa-check fa-1" aria-hidden="true"></i>
                     </li>
@@ -58,7 +58,7 @@
                             <li>
                                 <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
                                 {% if version.number == latest-version %} (latest){% endif %}
-                                {% if version.released == false %} (closed beta){% endif %}
+                                {% if version.released == false %} (beta){% endif %}
                                 {% if version.deprecated == true %} (deprecated){% endif %}</a>
                             </li>
                         {% endif %}
