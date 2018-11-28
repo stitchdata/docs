@@ -10,9 +10,11 @@ description: |
 
   #### Metafield replication and resource types {#metafield-replication-and-resources}
 
-  To replicate the metafields for a given resource type, this table and the table for the resource must be set to replicate.
+  **By default, this table will include only shop-level metafield data**. To replicate the metafields for a given resource type, this table and the table for the resource must be set to replicate.
 
   For example: To replicate metafield data for Orders, the `orders` table must also be set to replicate.
+
+  Metafield data is available for [`customers`](#customers), [`products`](#products), and [`orders`](#orders).
 
 replication-method: "Key-based Incremental"
 
