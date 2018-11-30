@@ -8,11 +8,11 @@ singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/s
 description: |
   The `{{ table.name }}` table contains info about subscription items. In {{ integration.display_name }}, subscription items are used to create customer subscriptions with more than one plan.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List subscription items"
+    doc-link: "https://stripe.com/docs/api/subscription_items/list"
     
 attributes:
   - name: "id"
@@ -20,6 +20,11 @@ attributes:
     primary-key: true
     description: "The subscription item ID."
     foreign-key-id: "subscription-item-id"
+
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "The time at which the subscription item was created. Measured in seconds since the Unix epoch."
 
   - name: "application_fee_percent"
     type: "number"
@@ -32,10 +37,6 @@ attributes:
   - name: "canceled_at"
     type: "date-time"
     description: ""
-
-  - name: "created"
-    type: "date-time"
-    description: "The time at which the subscription item was created. Measured in seconds since the Unix epoch."
 
   - name: "current_period_end"
     type: "date-time"

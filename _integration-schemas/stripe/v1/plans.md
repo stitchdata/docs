@@ -8,11 +8,11 @@ singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/s
 description: |
   The `{{ table.name }}` table contains info about the plans in your {{ integration.display_name }} account. A plan defines the base price, currency, and billing cycle for subscriptions.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all plans"
+    doc-link: "https://stripe.com/docs/api/plans/list"
     
 attributes:
   - name: "id"
@@ -20,6 +20,11 @@ attributes:
     primary-key: true
     description: "The plan ID."
     foreign-key-id: "plan-id"
+
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "Time at which the plan was created. Measured in seconds since the Unix epoch."
 
   - name: "active"
     type: "boolean"
@@ -46,10 +51,6 @@ attributes:
 
       - `per_unit` - Indicates that the fixed `amount` will be charged per unit (`quantity`) for plans with `usage_type: licensed`, or per unit of total usage for plans with `usage_type: metered`.
       - `tiered` - Indicates that unit pricing will be computed using a tiering strategy as defined using `tiers` and `tiers_mode`.
-
-  - name: "created"
-    type: "date-time"
-    description: "Time at which the plan was created. Measured in seconds since the Unix epoch."
 
   - name: "currency"
     type: "string"

@@ -11,8 +11,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all invoice items"
+    doc-link: "https://stripe.com/docs/api/invoiceitems/list"
 
 attributes:
   - name: "id"
@@ -20,6 +20,11 @@ attributes:
     primary-key: true
     description: "The invoice item ID."
     foreign-key-id: "invoice-item-id"
+
+  - name: "date"
+    type: "date-time"
+    replication-key: true
+    description: "The date the invoice item was added to the invoice."
 
   - name: "amount"
     type: "integer"
@@ -34,10 +39,6 @@ attributes:
     type: "string"
     description: "The ID of the customer who will be billed for the invoice item."
     foreign-key-id: "customer-id"
-
-  - name: "date"
-    type: "date-time"
-    description: ""
 
   - name: "description"
     type: "string"

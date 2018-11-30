@@ -11,8 +11,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all coupons"
+    doc-link: "https://stripe.com/docs/api/coupons/list"
 
 attributes:
   - name: "id"
@@ -21,13 +21,14 @@ attributes:
     description: "The coupon ID."
     foreign-key-id: "coupon-id"
 
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "Time at which the object was created. Measured in seconds since the Unix epoch."
+
   - name: "amount_off"
     type: "integer"
     description: "The amount (in the `currency` specified) that will be taken off the subtotal of any invoices for this customer."
-
-  - name: "created"
-    type: "date-time"
-    description: "Time at which the object was created. Measured in seconds since the Unix epoch."
 
   - name: "currency"
     type: "string"

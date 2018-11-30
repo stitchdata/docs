@@ -8,11 +8,11 @@ singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/s
 description: |
   The `{{ table.name }}` table contains info about subscriptions, which allow you to charge a customer on a recurring basis. A subscription ties a customer to a particular [plan](#plans).
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List subscriptions"
+    doc-link: "https://stripe.com/docs/api/subscriptions/list"
     
 attributes:
   - name: "id"
@@ -20,6 +20,11 @@ attributes:
     primary-key: true
     description: "The subscription ID."
     foreign-key-id: "subscription-id"
+
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "The time the subscription was created. Measured in second since the Unix epoch."
 
   - name: "application_fee_percent"
     type: "number"
@@ -45,10 +50,6 @@ attributes:
   - name: "canceled_at"
     type: "date-time"
     description: "The date the subscription was canceled."
-
-  - name: "created"
-    type: "date-time"
-    description: "The time the subscription was created. Measured in second since the Unix epoch."
 
   - name: "current_period_end"
     type: "date-time"

@@ -6,13 +6,13 @@ name: "transfers"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/transfers.json"
 description: |
-  The `{{ table.name }}` table contains info about
+  The `{{ table.name }}` table contains info about transfers sent to connected accounts.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all transfers"
+    doc-link: "https://stripe.com/docs/api/transfers/list"
 
 attributes:
   - name: "id"
@@ -20,6 +20,11 @@ attributes:
     primary-key: true
     description: "The transfer ID."
     foreign-key-id: "transfer-id"
+
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "The time the transfer was created. Measured in seconds since the Unix epoch."
 
   - name: "amount"
     type: "integer"
@@ -41,10 +46,6 @@ attributes:
     type: "string"
     description: "The ID of the balance transaction that describes the impact of the transfer on your account balance."
     foreign-key-id: "balance-transaction-id"
-
-  - name: "created"
-    type: "date-time"
-    description: "The time the transfer was created. Measured in seconds since the Unix epoch."
 
   - name: "currency"
     type: "string"

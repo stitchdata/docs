@@ -13,8 +13,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all charges"
+    doc-link: "https://stripe.com/docs/api/charges/list"
     
 attributes:
   - name: "id"
@@ -22,6 +22,11 @@ attributes:
     primary-key: true
     description: "The charge ID."
     foreign-key-id: "charge-id"
+
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "Time at which the object was created. Measured in seconds since the Unix epoch."
 
   - name: "amount"
     type: "integer"
@@ -186,10 +191,6 @@ attributes:
 
           - `apple_pay`
           - `android_pay`
-
-  - name: "created"
-    type: "date-time"
-    description: "Time at which the object was created. Measured in seconds since the Unix epoch."
 
   - name: "currency"
     type: "string"

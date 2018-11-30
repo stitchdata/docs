@@ -11,8 +11,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all invoices"
+    doc-link: "https://stripe.com/docs/api/invoices/list"
 
 attributes:
   - name: "id"
@@ -101,7 +101,6 @@ attributes:
     description: ""
     object-attributes:
         
-
   - name: "due_date"
     type: "date-time"
     description: "The date on which payment for the invoice is due."

@@ -11,8 +11,8 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "List all payouts"
+    doc-link: "https://stripe.com/docs/api/payouts/list"
     
 attributes:
   - name: "id"
@@ -21,6 +21,11 @@ attributes:
     description: "The payout ID."
     foreign-key-id: "payout-id"
   
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "The time at which the payout was created. Measured in seconds since the Unix epoch."
+
   - name: "amount"
     type: "integer"
     description: "The amount (in cents) to be transferred to your bank account or debit card."
@@ -107,10 +112,6 @@ attributes:
           - `verified` - Indicates that bank account verification has succeeded.
           - `verification_failed` - Indicates that verfication failed.
           - `errored` - Indicates that a transfer sent to the bank account failed. Transfers will not be sent to the account until its details are updated.
-
-  - name: "created"
-    type: "date-time"
-    description: "The time at which the payout was created. Measured in seconds since the Unix epoch."
 
   - name: "currency"
     type: "string"
