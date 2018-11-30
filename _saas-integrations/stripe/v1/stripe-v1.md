@@ -81,6 +81,34 @@ setup-steps:
       6. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
 
+
+# -------------------------- #
+#     Replication Details     #
+# -------------------------- #
+
+replication-sections:
+  - title: "Replicate object histories"
+    anchor: "replicate-object-histories"
+    content: |
+      In the {{ integration.display_name }} API, there are two concepts:
+
+      - **Objects**, which are items like charges, invoices, customers, etc.
+      - **Events**, which are changes to objects. For example: An invoice being created, or its status going from `draft` to `open`.
+
+      Whenever an object is created or updated in {{ integration.display_name }}, a corresponding event is created. Because {{ integration.display_name }} creates and updates object records in this way, there are two types of tables in Stitch's {{ integration.display_name }} integration:
+
+      - A table for **events**, which contains all events that have occurred for {{ integration.display_name }}'s [supported event types](https://stripe.com/docs/api/events/types){:target="new"}. This table acts as a history for an object record, showing how it has been changed over time.
+      - Tables for **objects**, which contains the latest version of records. These are tables like [`customers`](#customers), [`charges`](#charges), [`invoices`](#invoices), etc.
+
+      **Note**: Updates based on events is only applicable to the type of object the event is for. For example: If a dispute object is updated, only the corresponding record in the `disputes` table will be updated. The related `charge` in the `charges` table will **not** be updated. To retrieve related data for different objects, you'll need to use the `events` table. Refer to [{{ integration.display_name }}'s documentation](https://stripe.com/docs/api/events/types){:target="new"} for info about event types and the objects they describe.
+
+      #### Example event and object data replication over time {#event-object-data-over-time}
+
+      In the image below is an example of how records for the `events` and `invoices` tables will look as an invoice changes over time. **Click the image to enlarge.**
+
+      [![Example showing how event and invoice records are replicated as an invoice changes over time]({{ site.baseurl }}/images/integrations/stripe-events.svg)]({{ site.baseurl }}/images/integrations/stripe-events.svg){:target="new"}
+
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
@@ -92,37 +120,6 @@ setup-steps:
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-#### Updates in "Traditional" APIs {#traditional-api-updates}
-When we talk about "traditional" APIs, we mean the kind that only have a single type of object. In this case, when a record is updated, only that object is "notified."
-
-If, for example, a customer email address is updated, only the `customers` object would be affected.
-
-By this we mean that only the row in the `customers` table for that particular account would change. The `email` field would show the new email address and the `updated_at` field would show the time the change - or event - happened.
-
-To summarize: one change = one row.
-
-#### Updates in Stripe's API {#stripe-api-updates}
-Stripe works a little differently than the traditional API we outlined above: it's designed to use a change - or an event - to one object to update another.
-
-Instead of having just one object like `customers` that is directly updated, Stripe's API has two: a "parent" object (`customers`) and an "update" object (`update_customers`).
-
-Let's use the updated customer email example again. If a customer email address is updated, several things will happen in Stripe's API as a result of its event-based update method:
-
-1. A row will be created in the `stripe_events` table to record the event details,
-2. A row will be created in the `stripe_update_customers` table,
-3. The row in the `stripe_customers` table for that customer's account will be updated based on the corresponding data in `stripe_update_customers`
-
-In this case, one change doesn't equate to a single row. That single change resulted in the creation of **three** rows.
-
-Additionally, note that:
-
-- **Stitch doesn't persist the update objects to your data warehouse as tables**, but still queries them to be able to update the parent object tables accordingly.
 - **Updates to events that update other events aren't currently supported**. For example: if a `dispute` is updated, the related `charge` in the `stripe_charges` table will **not** be updated. 
 
    You can, however, find this info in the [`stripe_events`](#stripe_events) table.
-
-
-#### Impact on Row Counts {#row-count-impact}
-Because a single event can result in creating or updating multiple rows, Stripe can potentially drive up your row usage. Additionally, Stripe deeply nests their data. **If you use a data warehouse that doesn't natively support nested structures,** Stitch will de-nest these records and create subtables, resulting in a greater number of replicated rows.
-
-To counter this, we recommend setting the Replication Frequency to something less frequent - like every 24 hours instead of every 30 minutes - to help keep your row count down and prevent overages.
