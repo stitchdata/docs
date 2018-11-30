@@ -119,7 +119,3 @@ replication-sections:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-- **Updates to events that update other events aren't currently supported**. For example: if a `dispute` is updated, the related `charge` in the `stripe_charges` table will **not** be updated. 
-
-   You can, however, find this info in the [`stripe_events`](#stripe_events) table.
