@@ -200,7 +200,7 @@ attributes:
       To accommodate this scenario, Stitch will create additional columns for each data type:
 
       - The **original column**'s name will remain as-is. It will be typed according to the first data type Stitch detected for the column.
-      - **Subsequent columns** will have the data type appended to their name. Additionally, only data of this type will be stored in this column. For example: `customer_id__bi` would contain data determined to be a big integer. Note: If multiple data types are loaded during creation of the column, all columns will be created with the data type appended to their name.
+      - **Subsequent columns** will have the data type appended to their name. Additionally, only data of this type will be stored in this column. For example: `customer_id__bi` would contain data determined to be a big integer. **Note**: If multiple data types are loaded during creation of the column, all columns will be created with the data type appended to their name.
 
   - id: "nested-data-structures"
     categories: "replication"
