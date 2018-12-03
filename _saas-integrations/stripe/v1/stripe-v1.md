@@ -64,7 +64,7 @@ incompatible:
 
 requirements-list:
   - item: |
-      **Admin permissions in {{ integration.display_name }}.** This is required to grant Stitch access to {{ integration.display_name }}.
+      **Administrator permissions in {{ integration.display_name }}.** This is required to grant Stitch access to {{ integration.display_name }}.
 
 setup-steps:
   - title: "add integration"
