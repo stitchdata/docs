@@ -87,9 +87,7 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - title: "Replicate object histories"
-    anchor: "replicate-object-histories"
-    content: |
+  - content: |
       In the {{ integration.display_name }} API, there are two concepts:
 
       - **Objects**, which are items like charges, invoices, customers, etc.
@@ -101,12 +99,13 @@ replication-sections:
       - Tables for **objects**, which contains the latest version of records. These are tables like [`customers`](#customers), [`charges`](#charges), [`invoices`](#invoices), etc.
 
       **Note**: Updates based on events is only applicable to the type of object the event is for. For example: If a dispute object is updated, only the corresponding record in the `disputes` table will be updated. The related `charge` in the `charges` table will **not** be updated. To retrieve related data for different objects, you'll need to use the `events` table. Refer to [{{ integration.display_name }}'s documentation](https://stripe.com/docs/api/events/types){:target="new"} for info about event types and the objects they describe.
+    subsections:
+      - title: "Example event and object data replication over time"
+        anchor: "event-object-data-over-time"
+        content: |
+          In the image below is an example of how records for the `events` and `invoices` tables will look as an invoice changes over time. **Click the image to enlarge.**
 
-      #### Example event and object data replication over time {#event-object-data-over-time}
-
-      In the image below is an example of how records for the `events` and `invoices` tables will look as an invoice changes over time. **Click the image to enlarge.**
-
-      [![Example showing how event and invoice records are replicated as an invoice changes over time]({{ site.baseurl }}/images/integrations/stripe-events.svg)]({{ site.baseurl }}/images/integrations/stripe-events.svg){:target="new"}
+          [![Example showing how event and invoice records are replicated as an invoice changes over time]({{ site.baseurl }}/images/integrations/stripe-events.svg)]({{ site.baseurl }}/images/integrations/stripe-events.svg){:target="new"}
 
 
 # -------------------------- #
@@ -115,7 +114,6 @@ replication-sections:
 
 ## See this integration's folder in /_integration-schemas for details
 ## on the tables it contains.
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
