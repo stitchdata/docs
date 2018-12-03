@@ -3,16 +3,24 @@ tap: "stripe"
 version: "1.0"
 
 name: "invoice_line_items"
-doc-link: ""
+doc-link: "https://stripe.com/docs/api/invoices/line_item"
 singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/invoice_line_items.json"
 description: |
   The `{{ table.name }}` table contains info about the line items contained in invoices.
 
-replication-method: ""
+  **Note**: In order to replicate invoice line item data, the [`invoices`](#invoices) table must also be set to replicate.
+
+  #### Invoice line item replication
+
+  To replicate invoice line items, Stitch will use the Replication Key of the corresponding invoice in the [`invoices`](#invoices) table to detect new and updated records. This means that any time an invoice is updated, its associated line items will also be replicated.
+
+  For example: An invoice with five line items is updated when its status changes from `draft` to `open`. The record in `invoices` will be replicated, as will the records for its five line items. In this example, a total of six records will be replicated.
+
+replication-method: "Key-based Incremental"
 
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Retrieve an invoice's line items"
+    doc-link: "https://stripe.com/docs/api/invoices/invoice_lines"
     
 attributes:
   - name: "id"
@@ -20,6 +28,11 @@ attributes:
     primary-key: true
     description: "The invoice line item ID."
     foreign-key-id: "invoice-line-item-id"
+
+  - name: "created"
+    type: "date-time"
+    replication-key: true
+    description: "Time at which the **parent invoice** was created. Measured in seconds since the Unix epoch. Refer to table notes for additional details."
 
   - name: "amount"
     type: "integer"
@@ -44,9 +57,9 @@ attributes:
     foreign-key-id: "invoice-id"
 
   - name: "invoice_item"
-    type: "object"
+    type: "string"
     description: "The invoice item(s) associated with this invoice line item."
-    object-attributes:
+    foreign-key-id: "invoice-item-id"
 
   - name: "livemode"
     type: "boolean"
@@ -56,7 +69,7 @@ attributes:
     type: "object"
     description: "Additional information attached to the invoice line item."
     object-attributes:
-      - name: "TODO"
+      - name: ""
         type: 
         description: ""
 
@@ -140,7 +153,7 @@ attributes:
         type: "object"
         description: "Additional information attached to the plan."
         object-attributes:
-          - name: "TODO"
+          - name: ""
             type: 
             description: ""
 
@@ -155,6 +168,7 @@ attributes:
       - name: "product"
         type: "string"
         description: "The product whose pricing this plan determines."
+        # foreign-key-id: "product-id"
 
       - name: "tiers"
         type: "array"
@@ -199,6 +213,7 @@ attributes:
   - name: "subscription"
     type: "string"
     description: "The ID of the subscription associated with the invoice line item."
+    foreign-key-id: "subscription-id"
 
   - name: "subscription_item"
     type: "string"

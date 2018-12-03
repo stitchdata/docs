@@ -61,6 +61,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The card ID."
+        foreign-key-id: "card-id"
 
       - name: "address_city"
         type: "string"
@@ -127,6 +128,7 @@ attributes:
       - name: "customer"
         type: "string"
         description: "The ID of the customer that the card belongs to."
+        foreign-key-id: "customer-id"
 
       - name: "cvc_check"
         type: "string"
@@ -172,7 +174,7 @@ attributes:
         type: "object"
         description: "Additional information attached to the card."
         object-attributes:
-          - name: "TODO"
+          - name: ""
             type: 
             description: ""
 
@@ -254,7 +256,7 @@ attributes:
     type: "object"
     description: "Additional information attached to the charge."
     object-attributes:
-      - name: "TODO"
+      - name: ""
         type: 
         description: ""
 
@@ -335,6 +337,7 @@ attributes:
   - name: "payment_intent"
     type: "string"
     description: "The ID of the payment intent associated with the charge."
+    # foreign-key-id: "payment-intent-id"
 
   - name: "receipt_email"
     type: "string"
@@ -353,8 +356,9 @@ attributes:
     description: "A list of refunds that have been applied to the charge."
     array-attributes:
       - name: "value"
-        type: "anything"
-        description: ""
+        type: "string"
+        primary-key: true
+        description: "The ID of the refund."
 
   - name: "review"
     type: "string"
@@ -416,6 +420,7 @@ attributes:
   - name: "source_transfer"
     type: "string"
     description: "The transfer ID that created the charge. Only present if the charge came from another {{ integration.display_name }} account."
+    foreign-key-id: "transfer-id"
 
   - name: "statement_description"
     type: "string"

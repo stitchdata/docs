@@ -80,6 +80,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The bank account ID in {{ integration.display_name }}."
+        # foreign-key-id: "bank-account-id"
 
       - name: "last4"
         type: "string"
@@ -150,10 +151,10 @@ attributes:
 
   - name: "metadata"
     type: "object"
-    description: "TODO"
+    description: ""
     object-attributes:
-      - name: "TODO"
-        value: "TODO"
+      - name: ""
+        value: ""
         description: ""
 
   - name: "method"
@@ -174,7 +175,7 @@ attributes:
 
   - name: "source_transaction"
     type: "string"
-    description: ""
+    description: "The ID of the charge or payment used to fund the payout."
 
   - name: "source_type"
     type: "string"
@@ -214,5 +215,5 @@ attributes:
 
   - name: "updated"
     type: "date-time"
-    description: ""
+    description: "The time the payout was last updated."
 ---

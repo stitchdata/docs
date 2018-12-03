@@ -75,10 +75,10 @@ attributes:
 
   - name: "metadata"
     type: "object"
-    description: "TODO"
+    description: ""
     object-attributes:
-      - name: "TODO"
-        type: "TODO"
+      - name: ""
+        type: ""
         description: ""
 
   - name: "name"
@@ -103,7 +103,7 @@ attributes:
 
   - name: "statement_descriptor"
     type: "string"
-    description: ""
+    description: "Extra information about a plan. This will appear on your customer’s credit card statement."
 
   - name: "tiers"
     type: "array"
@@ -131,7 +131,7 @@ attributes:
 
   - name: "updated"
     type: "date-time"
-    description: ""
+    description: "The time the plan was last updated."
 
   - name: "usage_type"
     type: "string"

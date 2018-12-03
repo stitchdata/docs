@@ -61,7 +61,7 @@ attributes:
     type: "object"
     description: "Additional information attached to the invoice item."
     object-attributes:
-      - name: "TODO"
+      - name: ""
         type: 
         description: ""
 
@@ -146,7 +146,7 @@ attributes:
         type: "object"
         description: "Additional information attached to the plan."
         object-attributes:
-          - name: "TODO"
+          - name: ""
             type: 
             description: ""
 

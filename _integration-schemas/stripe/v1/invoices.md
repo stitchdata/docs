@@ -8,6 +8,10 @@ singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/s
 description: |
   The `{{ table.name }}` table contains info about invoices. Invoices are statements of amounts owed by customers, which can be one-off charges or generated periodically from a subscription.
 
+  #### Invoice line items
+
+  Full records for the line items associated with an invoice can be found in the [`invoice_line_items`](#invoice_line_items) table. To replicate these records, you must set this table and the `invoice_line_items` table to replicate.
+
 replication-method: "Key-based Incremental"
 
 api-method:
@@ -20,6 +24,11 @@ attributes:
     primary-key: true
     description: "The invoice ID."
     foreign-key-id: "invoice-id"
+
+  - name: "date"
+    type: "date-time"
+    replication-key: true
+    description: "The time at which the invoice was created. Measured in seconds since the Unix epoch."
 
   - name: "amount_due"
     type: "integer"
@@ -88,18 +97,114 @@ attributes:
     description: "The ID of the customer associated with the invoice."
     foreign-key-id: "customer-id"
 
-  - name: "date"
-    type: "date-time"
-    description: ""
-
   - name: "description"
     type: "string"
     description: "A description of the invoice."
 
   - name: "discount"
     type: "object"
-    description: ""
+    description: "Describes the current discount active on the invoice."
     object-attributes:
+      - name: "coupon"
+        type: "object"
+        description: "Details about the coupon applied to the invoice."
+        object-attributes:
+          - name: "id"
+            type: "string"
+            description: "The coupon ID."
+            foreign-key-id: "coupon-id"
+
+          - name: "amount_off"
+            type: "integer"
+            description: "The amount (in the `currency` specified) that will be taken off the subtotal of any invoices for this customer."
+
+          - name: "created"
+            type: "date-time"
+            description: ""
+
+          - name: "currency"
+            type: "string"
+            description: |
+              The three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html){:target="new"} of the amount to take off (`amount_off`).
+
+          - name: "duration"
+            type: "string"
+            description: |
+              Indicates how long a customer who applies this coupon will get the discount. Possible values are:
+
+              - `forever`
+              - `once`
+              - `repeating`
+
+          - name: "duration_in_months"
+            type: "integer"
+            description: "Indicates the number of months the coupon applies if `duration: repeating`."
+
+          - name: "livemode"
+            type: "boolean"
+            description: "Indicates if the coupon exists in live mode (`true`) or in test mode (`false`)."
+
+          - name: "max_redemptions"
+            type: "integer"
+            description: "The maximum number of times this coupon can be redeemed in total across all customers before it is no longer valid."
+
+          - name: "metadata"
+            type: "object"
+            description: ""
+            object-attributes:
+              - name: ""
+                type: ""
+                description: ""
+
+          - name: "name"
+            type: "string"
+            description: "The name of the coupon as it is displayed to customers."
+
+          - name: "object"
+            type: "string"
+            description: "The type of {{ integration.display_name }} object. This will be `coupon`."
+
+          - name: "percent_off"
+            type: "integer"
+            description: "The percent that will be taken off the subtotal of any invoices for this customer for the duration of the coupon."
+
+          - name: "percent_off_precise"
+            type: "number"
+            description: ""
+
+          - name: "redeem_by"
+            type: "date-time"
+            description: "The date afer which the coupon can no longer be redeemed."
+
+          - name: "times_redeemed"
+            type: "integer"
+            description: "The number of times this coupon has been applied to a customer."
+
+          - name: "valid"
+            type: "boolean"
+            description: "Taking into account all of the other coupon properties, indicates whether this coupon can still be applied to a customer."
+
+      - name: "customer"
+        type: "string"
+        description: "The ID of the customer the discount applies to."
+        foreign-key-id: "customer-id"
+
+      - name: "end"
+        type: "date-time"
+        description: "If the coupon has a `duration` of `repeating`, the date that this discount will end. If the coupon has a `duration` of `once` or `forever`, this attribute will be null."
+
+      - name: "object"
+        type: "string"
+        description: "The type of {{ integration.display_name }} object. This will be `discount`."
+
+      - name: "start"
+        type: "date-time"
+        description: "Date that the coupon was applied."
+
+      - name: "subscription"
+        type: "string"
+        description: "The subscription that this coupon is applied to, if it is applied to a particular subscription."
+        foreign-key-id: "subscription-id"
         
   - name: "due_date"
     type: "date-time"
@@ -123,7 +228,7 @@ attributes:
 
   - name: "lines"
     type: "array"
-    description: "Details about the individual line items that make up the invoice."
+    description: "The IDs of the line items that make up the invoice. Full details for these records are in the [`invoice_line_items`](#invoice_line_items) table."
     array-attributes:
       - name: "value"
         type: "string"
@@ -139,7 +244,7 @@ attributes:
     type: "object"
     description: "Additional information attached to the invoice."
     object-attributes:
-      - name: "TODO"
+      - name: ""
         type: 
         description: ""
 

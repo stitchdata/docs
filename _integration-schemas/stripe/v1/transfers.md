@@ -86,9 +86,9 @@ attributes:
     type: "string"
     description: ""
 
-  - name: "reversals"
-    type: "array"
-    description: ""
+  # - name: "reversals"
+  #   type: "array"
+  #   description: ""
 
   - name: "reversed"
     type: "boolean"
@@ -121,5 +121,5 @@ attributes:
 
   - name: "updated"
     type: "date-time"
-    description: ""
+    description: "The time the transfer was last updated."
 ---

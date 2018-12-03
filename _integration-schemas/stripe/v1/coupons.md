@@ -61,7 +61,7 @@ attributes:
     type: "object"
     description: ""
     object-attributes:
-      - name: "TODO"
+      - name: ""
         type: ""
         description: ""
  
