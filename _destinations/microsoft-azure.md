@@ -28,7 +28,7 @@ type: "microsoft-azure"
 db-type: "mssql"
 pricing_tier: "standard" ## for Stitch
 
-status: "Closed Beta"
+status: "Open Beta"
 description: *summary
 port: 1433
 pricing_model: "Usage" ## provider model
