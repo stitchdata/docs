@@ -118,13 +118,16 @@ all-docs:
         - title: "Stitch Impact on BigQuery Costs"
           url: "{{ link.destinations.overviews.bigquery-pricing }}"
 
-    - title: "Microsoft Azure"
+    - title: "Microsoft Azure SQL Data Warehouse"
       subsections:
         - title: "Overview"
           url: "{{ link.destinations.overviews.azure }}"
 
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.azure }}"
+
+        - title: "Connect to Stitch via SSH"
+          url: "{{ link.destinations.setup.azure-ssh }}"
 
         - title: "Replication"
           url: "{{ link.destinations.overviews.azure }}#replication"
