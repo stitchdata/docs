@@ -11,6 +11,22 @@ type: "settings"
 toc: true
 weight: 2
 
+example-table:
+  - id: "1"
+    name: "Finn"
+    age: "15"
+    type: "human"
+
+  - id: "2"
+    name: "Jake"
+    age: "9"
+    type: "dog"
+
+  - id: "3"
+    name: "Bubblegum"
+    age: "19"
+    type: "princess"
+
 sections:
   - content: |
       {% include note.html type="single-line" content="**Note**: Log-based Replication is available only for MySQL and PostgreSQL-backed databases that support binary log replication." %}
@@ -34,34 +50,31 @@ sections:
       To ensure only new and updated data is selected for replication, Stitch will use a binary log's Log Sequence Number (LSN) to 'bookmark' its place in a log file. This value is used to resume replicating data where a previous replication job ended.
 
     subsections:
-      - title: "Initial replication jobs"
-        anchor: "initial-replication-jobs"
+      - title: "Historical replication jobs"
+        anchor: "historical-replication-jobs"
         content: |
-          During the initial replication job for a table using {{ page.title }}, Stitch will use a `SELECT`-based approach to replicate the table in full. If this were a SQL query, it would look like this:
+          During the historical replication job for a table using {{ page.title }}, two things will happen:
 
-          ```sql
-          SELECT *
-            FROM schema.table
-          ```
+          1. Stitch will retrieve and store the maximum LSN from the binary logs.
+          2. Stitch will use a `SELECT`-based approach to replicate the table in full. If this were a SQL query, it would look like this:
+
+             ```sql
+             SELECT column_you_selected_1,
+                    column_you_selected_2,
+                    [...]
+               FROM schema.table
+             ```
 
       - title: "Ongoing replication jobs"
         anchor: "ongoing-replication-jobs"
         content: |
           After the historical replication of a table is complete, Stitch will read updates for the table from the database's binary logs. During ongoing replication jobs using {{ page.title }}, a few things will happen:
 
-          1. Stitch reads log messages in the binary file and persists data for tables set to replicate.
+          1. Using the maximum LSN from the previous job - in this case, the historical replication job - Stitch will begin reading log messages in the binary file. Data for tables set to replicate is extracted. 
           2. At the end of the replication job, Stitch bookmarks its place in the log file by storing its current LSN.
           3. During the **next** replication job, Stitch will resume reading data with a **greater** LSN than the LSN from the previous job.
           4. At the end of the replication job, Stitch bookmarks its place in the log file again.
           5. Repeat.
-
-          While {{ page.title }} isn't a SQL-based approach, the following SQL query demonstrates how ongoing replication jobs using {{ page.title }} would look as SQL:
-
-          ```sql
-          SELECT *
-            FROM schema.table
-           WHERE log_sequence_number > last_saved_log_sequence_number
-          ```
 
   - title: "When {{ page.title }} should be used"
     anchor: "when-log-based-incremental-replication"
@@ -173,11 +186,26 @@ sections:
 
           For example, consider this table:
 
-          | id | name      | type     |
-          |----+-----------+----------|
-          | 1  | Finn      | human    |
-          | 2  | Jake      | dog      |
-          | 3  | Bubblegum | princess |
+          {% assign example-1-fields = "id|name|type" | split:"|" %}
+
+          <table class="attribute-list">
+          <tr>
+          {% for field in example-1-fields %}
+          <td>
+          <strong>{{ field }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          {% for example-record in page.example-table %}
+          <tr>
+          {% for field in example-1-fields %}
+          <td>
+          {{ example-record[field] }}
+          </td>
+          {% endfor %}
+          </tr>
+          {% endfor %}
+          </table>
 
           The values for these fields might look like this in a binary log:
 
@@ -193,11 +221,26 @@ sections:
 
           Let's look at an example. Here's the same table from before, now with a new `age` column:
 
-          | id | name      | age | type     |
-          |----+-----------+-----+----------|
-          | 1  | Finn      | 15  | human    |
-          | 2  | Jake      | 9   | dog      |
-          | 3  | Bubblegum | 19  | princess |
+          {% assign example-2-fields = "id|name|age|type" | split:"|" %}
+
+          <table class="attribute-list">
+          <tr>
+          {% for field in example-2-fields %}
+          <td>
+          <strong>{{ field }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          {% for example-record in page.example-table %}
+          <tr>
+          {% for field in example-2-fields %}
+          <td>
+          {{ example-record[field] }}
+          </td>
+          {% endfor %}
+          </tr>
+          {% endfor %}
+          </table>
 
           And the values in the binary log:
 
