@@ -260,16 +260,13 @@ all-docs:
           url: "{{ link.replication.rep-methods }}"
 
         - title: "Log-based Incremental"
-          url: "{{ link.replication.rep-methods }}#log-based-incremental-replication"
+          url: "{{ link.replication.log-based-incremental }}"
 
         - title: "Key-based Incremental"
-          url: "{{ link.replication.rep-methods }}#incremental-replication"
-
-        - title: "Append-Only"
-          url: "{{ link.replication.rep-methods }}#append-only-incremental-replication"
+          url: "{{ link.replication.key-based-incremental }}"
 
         - title: Full Table
-          url: "{{ link.replication.rep-methods }}#full-table-replication"
+          url: "{{ link.replication.full-table }}"
 
     - title: Replication Scheduling
       subsections:
