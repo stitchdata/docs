@@ -16,8 +16,9 @@ sections:
       {{ page.title }} is a method of replication that replicates new or updated data from a data source. In this guide, we'll cover:
 
       1. [How it works (with examples)](#how-key-based-incremental-replication-works),
-      2. [When it should be used](#when-key-based-incremental-replication), and
-      3. [Limitations of this Replication Method](#limitations)
+      2. [When it should be used](#when-key-based-incremental-replication),
+      3. [Limitations of this Replication Method](#limitations), and
+      4. [How to enable it for your integration](#enabling-key-based-replication)
 
   - title: "How {{ page.title }} works"
     anchor: "how-key-based-incremental-replication-works"
@@ -41,7 +42,10 @@ sections:
       Let's use a SQL query as an example:
 
       ```sql
-      SELECT *
+      SELECT replication_key_column,
+             column_you_selected_1,
+             column_you_selected_2,
+             [...]
         FROM schema.table
        WHERE replication_key_column >= 'last_saved_maximum_value'
       ```
@@ -85,6 +89,12 @@ sections:
     content: |
       Before you select {{ page.title }} as the Replication Method for a table, you should be aware of the limitations this method can have. Being aware of these limitations can help prevent data discrepancies and ensure your data is replicated in the most efficient manner possible.
 
+      The limitations of {{ page.title }} are:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" }}](#{{ subsection.anchor }})
+      {% endfor %}
+
     subsections:
       - title: "Limitation 1: Works best with a modification timestamp column"
         anchor: "limitation-1--modification-timestamp-column"
@@ -127,4 +137,18 @@ sections:
           To avoid the above scenario, add a single record with a greater Replication Key value at the end of a bulk update. This will ensure that the maximum Replication Key value Stitch saves will only be equal to one record instead of many.
 
           For example: If one of the 100 updated records in the `customers` table had had an `updated_at` value of `2018-11-01 00:00:01`, Stitch would have saved this as the maximum Replication Key value. Then, during Job 2, only one record - instead of 100 - would have been re-replicated.
+
+  - title: "Enable {{ page.title }}"
+    anchor: "enabling-key-based-replication"
+    content: |
+      {{ page.title }} is available for use with any Stitch integration. Depending on the type of integration, enabling this Replication Method will vary:
+
+      - **Database integrations**: To use {{ page.title }}, a table must contain a column suitable for use as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). **Note**: For MongoDB integrations, there are additional considerations for Replication Keys. Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for more info.
+
+      - **SaaS integrations**: With the exception of Salesforce, no configuration is required on your part. Replication Methods are pre-defined for every table set to replicate. Stitch will use {{ page.title }} whenever possible to ensure your data is replicated accurately and efficiently.
+
+      - **Webhook integrations**: No configuration is required on your part. As webhook data is sent to Stitch in real-time, only new records are ever replicated from a webhook source. This can be thought of as using {{ page.title }} with a Replication Key of `created_at`.
+
 ---
+{% include misc/data-files.html %}
+{% include misc/support-icons.html %}
