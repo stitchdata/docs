@@ -86,6 +86,8 @@ sections:
       3. Modifications to records are made only using [supported event types](#limitation-2--database-event-types).
       4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation-4--structural-changes) below for more info.
 
+      If {{ page.title }} isn't appropriate, [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) may be a suitable alternative.
+
   - title: "Limitations of {{ page.title }}"
     anchor: "limitations"
     content: |
