@@ -89,6 +89,9 @@
                                     {{ example.source | flatify | prepend: "**In the source:** " | markdownify }}
                                 </li>
                                 <li>
+                                    {{ example.extraction | flatify | prepend: "**During the job**: " | markdownify }}
+                                </li>
+                                <li>
                                     {{ example.destination | flatify | prepend: "**In the destination:** " | markdownify }}
                                 </li>
                             </ul>
