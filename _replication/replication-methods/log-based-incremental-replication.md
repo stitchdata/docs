@@ -250,36 +250,8 @@ sections:
 
           Where Stitch previously detected three columns, the log messages now contain data for four columns. Because the log messages don't contain field information and are read in order, Stitch would be unable to determine what column the `15`, `9`, and `19` values are for.
 
-      - title: "Limitation 5: Frequent updates can increase row usage"
-        anchor: "limitation-5--row-usage"
-        content: |
-          While {{ page.title }} is the most accurate way to replicate your data, it has the potential to consume a large amount of your row quota. To factors can contribute to this:
-
-          1. Each modification to a record may a single log message for the modification, and
-          2. Stitch reads log messages in order during extraction
-
-          This means that each log message Stitch extracts counts as a replicated row, even if all the messages are for the same record.
-
-          Let's look at an example. In a `users` table, there are four columns: `id`, `name`, `age`, and `status`.
-
-          In the table below is how record `id: 1` in the `users` table has been modified over time:
-
-          | Update #  | Update description  | Data               |
-          |-----------+---------------------+--------------------|
-          | Update 1  | Record created      | 1,Finn,15,inactive |
-          | Update 2  | `age` is updated    | 1,Finn,16,inactive |
-          | Update 3  | `status` is updated | 1,Finn,16,active   |
-
-          The binary log containing these modifications might look like this:
-
-          ```
-          1,Finn,15,inactive,1,Finn,16,inactive,1,Finn,16,active
-          ```
-
-          Because each modification writes a log message to the binary log file and the binary log is read in sequence, Stitch will read and replicate three rows for record `id: 1`.
-
-      - title: "Limitation 6: Cannot be used with views"
-        anchor: "limitation-6--views-are-unsupported"
+      - title: "Limitation 5: Cannot be used with views"
+        anchor: "limitation-5--views-are-unsupported"
         content: |
           {{ page.title }} can't be used with database views, as modifications to views are not written to binary log files.
 
