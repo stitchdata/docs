@@ -1,4 +1,64 @@
-name: "Key-based Incremental Replication"
+# --------------------------- #
+#  KEY-BASED INCREMENTAL REP  #
+# --------------------------- #
+
+# Details about Key-based Incremental Replication,
+# including its availability in integrations, what it supports,
+# and examples of how it will replicate data.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "key-based-incremental"
+display-name: "Key-based Incremental"
+documentation: "{{ link.replication.key-based-incremental | prepend: site.baseurl }}"
+
+description: "{{ site.data.tooltips.key-based-incremental-rep }}"
+availability: "All integrations"
+
+
+# -------------------------- #
+#    REPLICATION DETAILS     #
+# -------------------------- #
+
+view-support: |
+  Supported
+
+structural-changes: |
+  Detected and automatically handled by Stitch
+
+configuration-requirements: |
+  A `timestamp`, `date-time`, or `integer` column suitable as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+
+  **Note**: Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for considerations specific to MongoDB.
+
+other: ""
+
+
+# -------------------------- #
+#     DELETION HANDLING      #
+# -------------------------- #
+
+# Indicates the level of support the Replication Method has
+# for soft and hard deletes.
+
+soft-deletes:
+  support: "supported"
+  icon: |
+    {{ supported | replace:"TOOLTIP","Supported"}}
+  destination: "Record will have an updated deleted flag value, if a flag is available in the source."
+
+hard-deletes:
+  support: "not-supported"
+  icon: |
+    {{ not-supported | replace:"TOOLTIP","Not supported" }}
+  destination: "Record will have an updated deleted flag value, if a flag is available in the source."
+
+
+# -------------------------- #
+#    REPLICATION EXAMPLES    #
+# -------------------------- #
 
 replication-job-examples:
   - id: "timestamp-date-time-rep-key"
