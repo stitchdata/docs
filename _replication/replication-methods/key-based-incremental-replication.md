@@ -11,6 +11,19 @@ type: "settings"
 toc: true
 weight: 2
 
+
+# --------------------------- #
+#  REPLICATION METHOD DETAILS #
+# --------------------------- #
+
+## For info about this Replication Method, see:
+## _data/taps/extraction/replication-methods/key-based-incremental.yml
+
+
+# --------------------------- #
+#       CONTENT SECTIONS      #
+# --------------------------- #
+
 sections:
   - content: |
       {{ page.title }} is a method of replication that replicates new or updated data from a data source. In this guide, we'll cover:

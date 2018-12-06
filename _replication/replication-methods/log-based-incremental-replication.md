@@ -11,6 +11,16 @@ type: "settings"
 toc: true
 weight: 2
 
+
+# --------------------------- #
+#  REPLICATION METHOD DETAILS #
+# --------------------------- #
+
+## For info about this Replication Method, see:
+## _data/taps/extraction/replication-methods/log-based-replication.yml
+
+
+
 example-table:
   - id: "1"
     name: "Finn"
@@ -26,6 +36,11 @@ example-table:
     name: "Bubblegum"
     age: "19"
     type: "princess"
+
+
+# --------------------------- #
+#       CONTENT SECTIONS      #
+# --------------------------- #
 
 sections:
   - content: |
