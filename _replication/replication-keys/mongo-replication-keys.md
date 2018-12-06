@@ -5,9 +5,9 @@ keywords: replicate, replication, replication key, keys, stitch replicates data,
 tags: [replication]
 summary: "Replication Keys for Mongo integrations have their own set of quirks and gotchas, owing to how Mongo itself is designed. In this guide, we'll explain what to watch out for and how to choose the best field for the job."
 
-type: "settings"
+content-type: "replication-keys"
 toc: true
-weight: 4
+weight: 2
 ---
 {% include misc/data-files.html %}
 

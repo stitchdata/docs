@@ -5,7 +5,7 @@ keywords: replication, load, loading, report
 tags: [replication]
 summary: "Loading reports provide detail about the loading protion of the replication process for a given integration."
 
-type: "monitoring"
+content-type: "replication-progress"
 toc: true
 weight: 3
 

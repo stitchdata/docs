@@ -4,10 +4,11 @@ permalink: /replication/syncing-new-additional-columns
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column, add new columns, sync new column, add additional columns
 tags: [replication]
 
-summary: "What happens when you add a brand-new column in a data source or you want to sync additional columns on an already-syncing table? How will your row count be impacted? In this guide, we cover how Stitch handles new columns, what you can expect for existing rows, and how to backfill data."
-type: "syncing"
+content-type: "select-data"
 toc: true
-weight: 4
+weight: 3
+
+summary: "What happens when you add a brand-new column in a data source or you want to sync additional columns on an already-syncing table? How will your row count be impacted? In this guide, we cover how Stitch handles new columns, what you can expect for existing rows, and how to backfill data."
 ---
 {% include misc/data-files.html %}
 

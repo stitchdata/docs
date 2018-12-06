@@ -4,13 +4,18 @@ permalink: /replication/replication-methods/
 keywords: replicate, replication, replication method, stitch replicates data
 tags: [replication]
 layout: general
-category: "settings"
 
-# TODO: Fix this summary
-summary: "Replication Methods tell Stitch how to replicate data during a replication job."
-type: "settings"
+content-type: "replication-methods"
 toc: true
-weight: 2
+weight: 1
+
+summary: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job. Additionally, Replication Methods can also impact how data is loaded into your destination and your overall row usage. This guide contains an overview of each method, how it compares to Stitch's other methods, and links to detailed documentation about the method."
+
+category-summary: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job."
+
+# --------------------------- #
+#       CONTENT SECTIONS      #
+# --------------------------- #
 
 sections:
   - content: |
@@ -24,7 +29,7 @@ sections:
       For any table you set to replicate, Stitch will use one of three methods to replicate your data:
 
       {% for subsection in section.subsections %}
-      - [{{ subsection.title }}]({{ subsection.anchor }})
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
       - title: "Log-based Incremental Replication"

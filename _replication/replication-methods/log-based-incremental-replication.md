@@ -4,12 +4,12 @@ permalink: /replication/replication-methods/log-based-incremental
 keywords: replicate, replication, replication method, stitch replicates data
 tags: [replication]
 layout: general
-category: "settings"
 
-summary: ""
-type: "settings"
+content-type: "replication-methods"
 toc: true
-weight: 2
+weight: 4
+
+summary: "Available for select database integrations, Log-based Incremental Replication is a replication method in which Stitch identifies modifications to records - including inserts, updates, and deletes - using a database’s binary log files. This guide contains an overview of how Log-based Incremental Replication works, when it should be used, its limitations, and how to enable it for a supporting database integration."
 
 
 # --------------------------- #

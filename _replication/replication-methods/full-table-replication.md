@@ -4,13 +4,12 @@ permalink: /replication/replication-methods/full-table
 keywords: replicate, replication, replication method, stitch replicates data
 tags: [replication]
 layout: general
-category: "settings"
 
-summary: ""
-type: "settings"
+content-type: "replication-methods"
 toc: true
 weight: 2
 
+summary: "Full Table Replication is a replication method in which all rows in a table - including new, updated, and existing - are replicated during every replication job. his guide contains an overview of how Full Table Replication works, when it should be used, its limitations, and how to enable it for an integration."
 
 
 # --------------------------- #
@@ -19,7 +18,6 @@ weight: 2
 
 ## For info about this Replication Method, see:
 ## _data/taps/extraction/replication-methods/full-table-replication.yml
-
 
 
 row-usage-example:

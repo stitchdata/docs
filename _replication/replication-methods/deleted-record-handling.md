@@ -4,12 +4,17 @@ permalink: /replication/deleted-record-handling
 keywords: deletes, delete, hard delete, soft delete, deletion
 tags: [replication]
 layout: general
-category: "syncing"
 
-summary: "Stitch's awareness of deleted records depends on how records are deleted in the source and the Replication Method being used. In this guide, we explain the different deletion methods and how each one works with each of Stitch's supported Replication Methods."
-type: "settings"
+content-type: "replication-methods"
 toc: true
 weight: 5
+
+summary: "Stitch's detection of deleted records depends on how records are deleted in the source and the Replication Method being used. In this guide, we explain the different deletion methods and how each one works with each of Stitch's supported Replication Methods."
+
+
+# --------------------------- #
+#       CONTENT SECTIONS      #
+# --------------------------- #
 
 sections:
   - content: |

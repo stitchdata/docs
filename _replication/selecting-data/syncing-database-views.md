@@ -4,10 +4,11 @@ permalink: /replication/replicating-database-views
 keywords: replicate, replication, replicate views, view, database view, replicate database view
 tags: [replication]
 
-summary: "Replicating a database view is almost the same as replicating a database table. In this guide, we'll cover the database integrations that support views and the additional steps required to replicate a database view."
-type: "syncing"
+content-type: "select-data"
 toc: true
 weight: 3
+
+summary: "Replicating a database view is almost the same as replicating a database table. In this guide, we'll cover the database integrations that support views and the additional steps required to replicate a database view."
 ---
 {% include misc/data-files.html %}
 
