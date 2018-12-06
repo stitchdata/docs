@@ -9,8 +9,6 @@ toc: true
 weight: 1
 
 summary: "After you connect an integration and Stitch performs a structure sync, the next thing you'll do is select tables and columns to replicate. In this guide, we'll walk you through how to set objects for database and SaaS integrations to replicate."
-
-category-summary: "Select the tables and columns you want Stitch to replicate from your integration."
 ---
 {% include misc/data-files.html %}
 

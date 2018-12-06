@@ -11,8 +11,6 @@ weight: 1
 
 summary: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job. Additionally, Replication Methods can also impact how data is loaded into your destination and your overall row usage. This guide contains an overview of each method, how it compares to Stitch's other methods, and links to detailed documentation about the method."
 
-category-summary: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job."
-
 # --------------------------- #
 #       CONTENT SECTIONS      #
 # --------------------------- #

@@ -4,6 +4,8 @@ permalink: /replication/
 keywords: 
 tags: [replication]
 
+content-type: "category-page"
+
 summary: "Documentation and guides for configuring and managing data replication for your Stitch integrations."
 feedback: false
 toc: false
@@ -19,32 +21,30 @@ toc: false
 sections:
   - id: "select-data"
     name: "Select data"
+    description: "Select the tables and columns you want Stitch to replicate from your integration."
 
   - id: "replication-scheduling"
     name: "Replication Scheduling"
+    description: "Set the replication schedule for an integration, which defines when and how often Stitch should run repliction jobs."
 
   - id: "replication-methods"
     name: "Replication Methods"
+    description: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job."
 
   - id: "replication-keys"
     name: "Replication Keys"
+    description: "Replication Keys are source table columns that Stitch uses to identify new and updated data when using an incremental Replication Method."
 
   - id: "replication-progress"
     name: "Replication progress"
+    description: "Monitor the status of an integration's replication job, including extraction and loading progress."
 ---
 {% include misc/data-files.html %}
 
 {{ page.summary }}
 
 {% for section in page.sections %}
-{% assign all-section-docs = site.replication | where:"content-type",section.id %}
-
-{% for doc in all-section-docs %}
-{% if doc.weight == 1 %}
-- [**{{ section.name }}**](#{{ section.id }}) - {{ doc.category-summary }}
-{% endif %}
-{% endfor %}
-
+- [**{{ section.name }}**](#{{ section.id }}) - {{ section.description }}
 {% endfor %}
 
 ---
@@ -54,8 +54,10 @@ sections:
 
 ## {{ section.name }} {#{{ section.id }}}
 
+{{ section.description }}
+
 {% for doc in all-section-docs %}
-### [{{ doc.title }}]({{ doc.url | prepend: site.baseurl }})
+#### [{{ doc.title }}]({{ doc.url | prepend: site.baseurl }})
 
 {{ doc.summary }}
 {% endfor %}

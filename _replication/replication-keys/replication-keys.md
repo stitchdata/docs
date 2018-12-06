@@ -9,8 +9,6 @@ toc: true
 weight: 1
 
 summary: "Replication Keys are columns that Stitch uses to identify new and updated data for replication. These columns are one of the most important components of Stitch, as they enable Stitch to correctly capture new and updated data. In this guide, we'll walk you through what a Replication Key is, what its requirements are, and how to choose the best column for the job."
-
-category-summary: "Replication Keys are source table columns that Stitch uses to identify new and updated data when using an incremental Replication Method."
 ---
 {% include misc/data-files.html %}
 

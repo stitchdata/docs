@@ -10,8 +10,6 @@ weight: 1
 
 summary: "It can be difficult to be patient when all you want is your data. In the Integration Details page for every integration, you can check out that integration's Replication Stats. This section will give you a better idea of where your data is in the replication process."
 
-category-summary: "Monitor the status of an integration's replication job, including extraction and loading progress."
-
 ---
 {% include misc/data-files.html %}
 
