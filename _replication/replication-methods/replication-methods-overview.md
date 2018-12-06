@@ -14,22 +14,18 @@ weight: 2
 
 sections:
   - content: |
-      Replication Methods define how Stitch will replicate your data during a replication job. 
+      {{ page.title }} define the approach Stitch takes when extracting data from a source during a replication job. Additionally, {{ page.title }} can also impact how data is loaded into your destination and your overall row usage.
 
-      Replication Methods are extremely important - we can't stress this enough. They'll not only directly impact your row count, but incorrectly defined methods can also cause data discrepancies.
-
-      Replication Methods define **how** Stitch will replicate your data during a replication job. While SaaS integration tables have their Replication Methods defined by Stitch, **you can define how tables in database integrations are replicated.**
-
-      Replication Methods are extremely important - we can't stress this enough. They'll not only directly impact your row count, but incorrectly defined methods can also cause data discrepancies.
+      {% include important.html type="single-line" content="**Replication Methods are one of the most important settings in Stitch.** Incorrectly defining a table's Replication Method can cause data discrepancies and latency. Before configuring the replication settings for an integration, Stitch recommends reading through the Replication Methods guides so you understand how Stitch will replicate your data." %}
 
   - title: "Replication Method types"
     anchor: "replication-method-types"
     content: |
       For any table you set to replicate, Stitch will use one of three methods to replicate your data:
 
-      - [Log-based Incremental Replication](#log-based-incremental-replication)
-      - [Key-based Incremental Replication](#key-based-incremental-replication)
-      - [Full Table Replication](#full-table-replication)
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}]({{ subsection.anchor }})
+      {% endfor %}
     subsections:
       - title: "Log-based Incremental Replication"
         anchor: "log-based-incremental-replication"
@@ -52,7 +48,7 @@ sections:
         content: |
           {{ site.data.tooltips.full-table-rep }}
 
-          If a table doesn't have a column suitable for Key-based Incremental, or if Log-based Incremental is unavailable, this method will be used to replicate data. [Learn more about Full Table Replication here]({{ link.replication.full-table | prepend: site.baseurl }}).
+          If a table doesn't have a column suitable for Key-based Incremental or if Log-based Incremental is unavailable, this method will be used to replicate data. [Learn more about Full Table Replication here]({{ link.replication.full-table | prepend: site.baseurl }}).
 
   - title: "Compare Replication Methods"
     anchor: "compare-replication-methods"
