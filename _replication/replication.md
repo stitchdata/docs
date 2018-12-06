@@ -3,52 +3,42 @@ title: Stitch Replication
 permalink: /replication/
 keywords: 
 tags: [replication]
+
 summary: "Documentation and guides for configuring and managing data replication for your Stitch integrations."
-toc: true
 feedback: false
+toc: false
 ---
 {% include misc/data-files.html %}
-
-{% assign replication-settings = site.replication | where:"category","settings" %}
+{% assign categories = "Select data|Replication Scheduling|Replication Methods|Replication Keys|Replication progress" | split:"|" %}
 
 {{ page.summary }}
 
-{% assign overview = site.replication | where: "type","overview" %}
+{% for category in categories %}
+{% assign category-downcase = category | downcase | replace:" ","-" %}
 
-{% for page in overview %}
-## [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+{% assign all-category-docs = site.replication | where:"content-type",category-downcase %}
+{% assign main-category-page = all-category-docs | where:"weight",1 %}
+
+{% for page in main-category-page %}
+- [**{{ category }}**](#{{ category-downcase }}) - {{ page.category-summary }}
+{% endfor %}
+
 {% endfor %}
 
 ---
 
-## Syncing Data
+{% for category in categories %}
+{% assign category-downcase = category | downcase | replace:" ","-" %}
 
-{% assign syncing = site.replication | where: "type","syncing" | sort:"weight" %}
+{% assign category-docs = site.replication | where:"content-type",category-downcase | sort:"weight" %}
 
-{% for page in syncing %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+## {{ category }} {#{{ category-downcase }}}
+
+{% for doc in category-docs %}
+### [{{ doc.title }}]({{ doc.url | prepend: site.baseurl }})
+
+{{ doc.summary }}
+
 {% endfor %}
-
 ---
-
-## Replication Settings
-
-{% assign settings = site.replication | where: "type","settings" | sort:"weight" %}
-
-{% for page in settings %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endfor %}
-
----
-
-## Replication Progress
-
-{% assign monitoring = site.replication | where: "type","monitoring" | sort:"weight" %}
-
-{% for page in monitoring %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
 {% endfor %}
