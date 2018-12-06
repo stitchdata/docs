@@ -53,7 +53,50 @@ sections:
   - title: "Compare Replication Methods"
     anchor: "compare-replication-methods"
     content: |
-      [TODO]
+      The table below contains a high-level look at each of Stitch's Replication Methods and how they compare to each other.
+
+      **Note**: This is not intended as a substitute for the full documentation for each Replication Method. Stitch recommends reading the documentation linked below before selecting a Replication Method, as defining replication incorrectly can lead to data discrepancies, latency, and increased row usage.
+
+      {% assign data-about = site.data.taps.extraction.replication-methods %}
+      {% assign replication-methods = "full-table|key-based-incremental|log-based-incremental" | split: "|" %}
+      {% assign attributes = "documentation|availability|soft-deletes|hard-deletes|view-support|structural-changes|configuration-requirements" | split:"|" %}
+
+      <table class="attribute-list">
+      <tr>
+      <td>
+      </td>
+      {% for replication-method in replication-methods %}
+      <td>
+      <strong>
+      {{ data-about[replication-method]display-name }}
+      </strong>
+      </td>
+      {% endfor %}
+      </tr>
+      {% for attribute in attributes %}
+      <tr>
+      <td width="17%; fixed" align="right">
+      <strong>{{ attribute | replace:"-","<br>" | capitalize }}</strong>
+      </td>
+      {% for replication-method in replication-methods %}
+      <td width="28%; fixed">
+      {% case attribute %}
+      {% when 'documentation' %}
+      <a href="{{ data-about[replication-method]documentation | flatify }}">Documentation</a>
+      {% else %}
+      {% if attribute contains "deletes" %}
+      <a href="{{ link.replication.deleted-records | prepend: site.baseurl | append: "#" | append: replication-method }}">
+      {{ data-about[replication-method][attribute]support | replace:"-"," " | capitalize }}
+      </a>
+      {% else %}
+      {{ data-about[replication-method][attribute] | flatify | markdownify }}
+      {% endif %}
+      {% endcase %}
+      </td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+      </table>
 
   - title: "Define a table's Replication Method"
     anchor: "define-replication-method-table"
@@ -68,8 +111,6 @@ sections:
 
          To learn more about the Replication Methods used by a particular SaaS integration, refer to the **Schema** section in the [integration's documentation]({{ site.baseurl }}/integrations/saas).
 
-      - **Webhook integrations**: Because webhook data is sent to Stitch in real-time, only new records are ever replicated from a webhook source. [TODO- Does this need to say Key-based Incremental Rep?]
-
-
+      - **Webhook integrations**: Because webhook data is sent to Stitch in real-time, only new records are ever replicated from a webhook source. This can be thought of as using Key-based Incremental Replication with a Replication Key of `created_at`.
 ---
 {% include misc/data-files.html %}
