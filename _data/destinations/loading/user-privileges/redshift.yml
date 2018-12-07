@@ -24,6 +24,8 @@ defaults:
 
     object-ownership: &object-ownership-reason |
       Stitch occasionally needs to run `COMMENT` and `ALTER TABLE` commands to properly insert data.
+      
+      If the database user you use to connect to {{ destination.display_name }} creates the schemas and tables, you will not need to grant explicit ownership permissions. If another user creates the schemas and tables prior to Stitch loading data into them, you will need to alter ownership to the Stitch database user. Failure to do so will result in replication issues.
 
       **Note**: Stitch uses table comments to store Primary Key information. Altering or removing table comments will lead to replication issues.
 
