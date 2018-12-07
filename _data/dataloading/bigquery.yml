@@ -188,7 +188,7 @@ scenarios:
 ## Column contains decimal data
   - id: decimal-storage
     summary: default
-    result: "{{ destination.display_name }} does not offer fixed precision. The only supported decimal datatype is `DOUBLE`."
+    result: "Decimal values will be loaded to {{ destination.display_name }} as the datatype [`NUMERIC`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type)."
 
     rejectable: false
     error: none
@@ -197,7 +197,7 @@ scenarios:
 ## Column contains decimal data out of range
   - id: decimals-out-of-range
     summary: default
-    result: "{{ destination.display_name }} will accept the data but at a loss of precision. All non-integer values are stored as `DOUBLE`."
+    result: "{{ destination.display_name }} will accept the maximum supported range for the [`NUMERIC` data type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type).  Decimals that exceed this range will be logged in the rejected records table."
 
     rejectable: false
     error: none
