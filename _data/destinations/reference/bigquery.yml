@@ -38,6 +38,9 @@ stitch-details-info:
     vpn: &connection-methods-vpn |
       false
 
+  workload-performance-management: &workload-performance-management |
+    true
+
 # -------------------------- #
 #         Replication        #
 # -------------------------- #
@@ -170,6 +173,14 @@ attributes:
     categories: "stitch-details"
     description: |
       {{ default.description-full | flatify | markdownify }}
+
+  - id: "workload-performance-management"
+    categories: "stitch-details"
+    value: *workload-performance-management
+    description: |
+      To improve your query performance, you can partitioning and/or clustering to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
+
+      Refer to the [Table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for application instructions.
 
   - id: "incremental-replication-upserts"
     categories: "replication"
