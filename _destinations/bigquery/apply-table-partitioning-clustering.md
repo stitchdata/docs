@@ -15,7 +15,6 @@ sections:
       {% include important.html type="single-line" content="The process we outline in this tutorial - which includes dropping tables - can lead to data corruption and other issues if done incorrectly. **Please proceed with caution or reach out to Stitch support if you have questions.**" %}
 
       Want to improve your BigQuery performance and query costs? In this article, we’ll walk you through how to use table partitioning and clustering to streamline query processing in your BigQuery data warehouse.
-      
 
   - title: "Overview"
     anchor: "overview"
@@ -40,7 +39,7 @@ sections:
       - title: "Step 1: Pause Stitch Loading"
         anchor: "step-1-pause-stitch-loading"
         content: |
-	  From Stitch, pause all source integrations that contain tables you plan to modify. We also need to ensure that Stitch doesn't load any data while we are modifying tables by monitoring the [Integration Details page](https://www.stitchdata.com/docs/getting-started#monitoring-replication-progress) for each paused integration until no Extractoins are in progress and 0 Rows are preparing.
+          From Stitch, pause all source integrations that contain tables you plan to modify. We also need to ensure that Stitch doesn't load any data while we are modifying tables by monitoring the [Integration Details page](https://www.stitchdata.com/docs/getting-started#monitoring-replication-progress) for each paused integration until no Extractoins are in progress and 0 Rows are preparing.
 
       - title: "Step 2: Create a temporary table with partitioning and clustering"
         anchor: "step-2-create-temp-table"
@@ -48,27 +47,27 @@ sections:
           In this step, you’ll create a temporary copy of the table with partioning and clustering added on the `created_at` column. Note that this is just an example - your choice of partitioning and clustering column will likely be different based on your data and the queries you hope to optimize, and you can even use different columns for partitioning and clustering. Run the following from the BigQuery Web UI Query Editor:
 
           ```sql
-	  CREATE TABLE rep_sales.orders_tmp PARTITION BY DATE(created_at) CLUSTER BY created_at AS SELECT * from rep_sales.orders
+          CREATE TABLE rep_sales.orders_tmp PARTITION BY DATE(created_at) CLUSTER BY created_at AS SELECT * from rep_sales.orders
           ```
-	  
+
       - title: "Step 3: Drop the original table and rename the copy"
         anchor: "step-3-drop-original-and-rename"
         content: |
-	  Since BigQuery doesn't support renaming tables, we'll have to drop our original table and then copy the temporary table back into its place.
+          Since BigQuery doesn't support renaming tables, we'll have to drop our original table and then copy the temporary table back into its place.
 
-	  To drop the original table, run the following from the BigQuery Web UI:
+          To drop the original table, run the following from the BigQuery Web UI:
 
           ```sql
-	  DROP TABLE rep_sales.orders
-	  ```
+          DROP TABLE rep_sales.orders
+          ```
 
-	  Then, follow [the BigQuery documentation for copying a table via the Web UI](https://cloud.google.com/bigquery/docs/managing-tables#copying_a_single_source_table) using the original dataset and table name - in our example `rep_sales` and `orders` - as the destination.
+          Then, follow [the BigQuery documentation for copying a table via the Web UI](https://cloud.google.com/bigquery/docs/managing-tables#copying_a_single_source_table) using the original dataset and table name - in our example `rep_sales` and `orders` - as the destination.
 
-	  Finally, drop the temporary table with this commany in the BigQuery Web UI:
+          Finally, drop the temporary table with this commany in the BigQuery Web UI:
 
-	  ```sql
-	  DROP TABLE rep_sales.orders_tmp
-	  ```
+          ```sql
+          DROP TABLE rep_sales.orders_tmp
+          ```
 
       - title: "Step 4: Unpause Stitch"
         anchor: "step-4-unpause-stitch"
