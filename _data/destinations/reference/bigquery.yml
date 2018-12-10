@@ -178,7 +178,7 @@ attributes:
     categories: "stitch-details"
     value: *workload-performance-management
     description: |
-      To improve your query performance, you can partitioning and/or clustering to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
+      To improve your query performance, you can apply partitioning and/or clustering to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
 
       Refer to the [Table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for application instructions.
 
