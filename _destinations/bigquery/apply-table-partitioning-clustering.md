@@ -27,7 +27,6 @@ sections:
       Consider the following before diving in:
 
       1. **Optimizing for every single query isn’t possible.** Tables can only be partitioned by one field, which must be a timestamp or date column, and clustered by a single set of columns. The ideal choice of partitioning and clustering column(s) depends on the nature of your data and queries.
-      2. **Tables using Full Table Replication aren’t good candidates for this process** Due to the nature of Full Table Replication, partitioning in these tables may be overwritten during the replication attempts that follow application.
 
   - title: "Add partitioning and clustering to an existing table"
     anchor: "add-partitioning-and-clustering"
