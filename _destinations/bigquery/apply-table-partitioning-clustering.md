@@ -78,7 +78,7 @@ sections:
   - title: "Step 4: Drop the original table and rename the copy"
     anchor: "step-4-drop-original-and-rename"
     content: |
-      As BigQuery doesn't support renaming tables, you'll have to drop the original table and then copy the temporary table in into its place.
+      As BigQuery doesn't support renaming tables, you'll have to drop the original table and then copy the temporary table into its place.
 
       1. To drop the original table, run the following from the BigQuery Web UI:
 
