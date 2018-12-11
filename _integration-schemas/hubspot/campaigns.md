@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Full Table"
 api-method:
-  name: getCampaignForParticularCampaign
+  name: "Get campaign for particular campaign"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_campaign_data
 
 attributes:

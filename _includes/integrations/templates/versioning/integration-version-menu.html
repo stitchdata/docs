@@ -49,7 +49,7 @@
                     <li class="active">
                         version {{ version.number }}
                         {% if version.number == latest-version %} (latest){% endif %}
-                        {% if version.released == false %} (closed beta){% endif %}
+                        {% if version.released == false %} (beta){% endif %}
                         {% if version.deprecated == true %} (deprecated){% endif %}
                         {% if doc.status == "Open Beta" %} (beta){% endif %}
                         <i class="fa fa-check fa-1" aria-hidden="true"></i>

@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: getSubscriptionsTimeline
+  name: "Get subscriptions timeline"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_subscriptions_timeline
 
 attributes:

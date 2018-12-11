@@ -5,7 +5,7 @@ keywords: deletes, delete, hard delete, soft delete, deletion
 tags: [replication]
 category: "syncing"
 
-summary: "[TODO]"
+summary: "Stitch's awareness of deleted records depends on how records are deleted in the source and the Replication Method being used. In this guide, we explain the different deletion methods and how each one works with each of Stitch's supported Replication Methods."
 type: "settings"
 toc: true
 weight: 5

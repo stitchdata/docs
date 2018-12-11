@@ -5,6 +5,9 @@ tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user, redshift ssh, redshift ssh tunnel
 
 summary: "If your Redshift cluster is in a private subnet, you can use an SSH tunnel to connect Stitch to your data warehouse."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 
@@ -73,8 +76,8 @@ setup-steps:
       Next, you’ll launch an EC2 instance to serve as the SSH bastion. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private Redshift cluster.
 
       **Note**: This instance must reside in the same VPC as the Redshift cluster.
+    
     substeps:
-
       - title: "Configure the EC2 instance"
         anchor: "configure-ec2-instance"
         content: |
@@ -158,8 +161,8 @@ setup-steps:
     anchor: "enable-bastion-access"
     content: |
       After the EC2 instance has finished initializing, you can move onto configuring the access rules for Redshift cluster. In this section, you'll create a VPC Security Group that will forward traffic from the bastion (EC2 instance) to your private Redshift cluster.
+    
     substeps:
-
       - title: "Retrieve the VPC's IPv4 CIDR"
         anchor: "retrieve-vpc-ip"
         content: |
@@ -206,8 +209,8 @@ setup-steps:
     anchor: "create-stitch-linux-user"
     content: |
       Next, you'll retrieve your Public Key and create a Linux user on your server for Stitch.
+    
     substeps:
-
       - title: "Retrieve your Public Key"
         anchor: "retrieve-your-public-key"
         content: |
@@ -220,13 +223,7 @@ setup-steps:
 
   - title: "create db user"
     content: |
-      {% include destinations/setup/postgresql-create-user-intro.html %}
-
-      {% include destinations/setup/redshift-postgres-permissions.html %}
-
-      ### Create the database user {#create-the-user}
-
-      {% include destinations/setup/redshift-postgres-database-users.html %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "connect stitch"
     content: |

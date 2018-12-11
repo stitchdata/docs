@@ -325,7 +325,9 @@
 (defn tap-fs->schema-files
   [{:keys [tap-schema-dir] :as partial-tap-fs}]
   (let [schema-files (.list tap-schema-dir)]
-    (map (partial io/file tap-schema-dir) schema-files)))
+    (->> schema-files
+         (filter (partial re-matches #".*\.json"))
+         (map (partial io/file tap-schema-dir)))))
 
 (defn tap-directory->tap-fs
   [tap-directory]
