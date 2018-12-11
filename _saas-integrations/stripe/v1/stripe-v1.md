@@ -7,13 +7,13 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Stripe
-permalink: /integrations/saas/stripe
+title: Stripe (v1)
+permalink: /integrations/saas/stripe/v1
 tags: [saas_integrations]
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
 layout: singer
-# input: false
+input: false
 
 # -------------------------- #
 #     Integration Details    #
@@ -32,7 +32,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Open Beta"
 certified: true
 
 historical: "1 year"
