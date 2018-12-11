@@ -8,7 +8,7 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 title: Connecting a Microsoft Azure SQL Data Warehouse to Stitch
-permalink: /destinations/microsoft-azure/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
+permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
 tags: [microsoft-azure_destination]
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
 summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account."
@@ -81,7 +81,7 @@ setup-steps:
 # {% capture setup-notice %}
 # This guide describes how to connect Azure SQL Data Warehouse to Stitch via a **direct connection**.
 
-# Refer to the [Connecting an Azure SQL Data Warehouse via SSH Tunnel]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }}) guide to connect using an SSH tunnel.
+# Refer to the [Connecting an Azure SQL Data Warehouse via SSH Tunnel]({{ link.destinations.setup.azure-ssh | prepend: site.baseurl }}) guide to connect using an SSH tunnel.
 # {% endcapture %}
 
 # {% include note.html first-line="**This tutorial is for Azure SQL Data Warehouse direct connections**" content=setup-notice %}

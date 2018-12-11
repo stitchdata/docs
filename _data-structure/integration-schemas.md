@@ -84,7 +84,7 @@ sections:
       - title: "{{ system-column.prefix }} columns"
         anchor: "sdc-columns"
         content: |
-          In addition to the columns set to replicate in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data.**Don't remove these columns**, as doing so will cause replication issues in Stitch.
+          In addition to the columns set to replicate in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data. **Don't remove these columns**, as doing so will cause replication issues in Stitch.
 
           Some columns are applicable to all tables and integrations, while others may only be in certain tables:
 
