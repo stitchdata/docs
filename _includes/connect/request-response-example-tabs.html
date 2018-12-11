@@ -46,9 +46,25 @@
 {% if example.code %}
 {%- capture example-code -%}
 ```{{ example.language }}
-{{ example.code | flatify | rstrip }}
+{{ example.code | flatify | lstrip | rstrip }}
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
+{% endif %}
+
+{% if example.subexamples %}
+{% for subexample in example.subexamples %}
+<p><strong>{{ subexample.title | append: ":" }}</strong></p>
+
+{% if subexample.description %}
+{{ subexample.description | flatify | markdownify }}
+{% endif %}
+
+{%- capture subexample-code -%}
+```{{ example.language }}
+{{ subexample.code | flatify | lstrip | rstrip }}
+```
+{%- endcapture -%}{{ subexample-code | markdownify }}
+{% endfor %}
 {% endif %}
         {% endcase %}
 

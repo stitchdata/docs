@@ -31,9 +31,13 @@ frequency: "30 minutes"
 tier: "Paid"
 status-url: "http://trust.zuora.com/"
 icon: /images/integrations/icons/zuora.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

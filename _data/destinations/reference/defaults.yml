@@ -1,0 +1,232 @@
+# -------------------------- #
+#        Stitch details      #
+# -------------------------- #
+
+stitch-details:
+  - name: "Stitch details"
+    description: |
+      High-level details about Stitch's implementation of {{ destination.display_name }}, such as supported connection methods, availability on Stitch plans, etc.
+    items:
+      - id: "pricing-tier"
+        name: "Pricing tier"
+        description: |
+          The type of Stitch plan required to use the destination.
+      
+      - id: "supported-versions"
+        name: "Supported versions"
+        description: |
+          The database versions supported for use with Stitch.
+
+      - id: "ssh-connections"
+        name: "SSH connections"
+        description: |
+          Indicates if SSH connections are supported for the destination.
+
+      - id: "ssl-connections"
+        name: "SSL connections"
+        description: |
+          Indicates if SSL connections are supported for the destination.
+
+      - id: "vpn-connections"
+        name: "VPN connections"
+        description: |
+          Indicates if VPN connections are supported for the destination.
+
+      - id: "workload-performance-management"
+        name: "Workload and performance management"
+        description: |
+          Indicates if workload and performance management tools are supported by the destination.
+
+      - id: "all-setup-instructions"
+        name: "Setup documentation"
+        description-full: |
+          {% assign all-destination-setup-guides = site.destinations | where:"content-type","destination-setup" %}
+            {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"title" %}
+
+            {% for setup-guide in destination-setup-guides %}
+            - [{{ setup-guide.title | remove: " to Stitch" }}]({{ setup-guide.url | prepend: site.baseurl }})
+            {% endfor %}
+
+# -------------------------- #
+#     Replication details    #
+# -------------------------- #
+
+replication:
+  - name: "Replication"
+    description: |
+      Details about Stitch and replication for {{ destination.display_name }} destinations.
+    items:
+      - id: "incremental-replication-upserts"
+        name: "Incremental Replication - Upserts"
+        description: |
+          Indicates if upserts are supported for Incremental Replication. Upserts are used to update existing rows.
+
+      - id: "incremental-replication-append"
+        name: "Incremental Replication - Append"
+        description: |
+          Indicates if Append-Only is supported for Incremental Replication. Append-Only will not update existing rows; new records and updates to existing records are appended to the end of tables as new rows.
+
+      - id: "primary-keys"
+        name: "Primary Keys"
+        description: |
+          Indicates how Primary Keys are handled in the destination.
+
+      - id: "multiple-data-types"
+        name: "Multipe data types"
+        description: |
+          Indicates if multiple data types can be supported in a single column in the destination.
+
+      - id: "nested-data-structures"
+        name: "Nested data structure support"
+        description: |
+          {{ site.data.tooltips.nested-structure-support }}
+
+      - id: "incompatible-sources"
+        name: "Incompatible sources"
+        description: |
+          {{ site.data.tooltips.integration-incompatibilities }}
+
+# -------------------------- #
+#         Limitations        #
+# -------------------------- #
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+object-name-limits:
+  - name: "Object name limits"
+    description: |
+      Details about object naming rules imposed by {{ destination.display_name }} destinations.
+    items:
+      - id: "case-sensitivity"
+        name: "Case sensitivity"
+        description: |
+          Indicates TODO
+
+      - id: "table-name-length"
+        name: "Table name length"
+        description: "{{ site.data.tooltips.table-name-limit }}"
+
+      - id: "column-name-length"
+        name: "Column name length"
+        description: "{{ site.data.tooltips.column-name-limit }}"
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+table-limits:
+  - name: "Table limits"
+    description: |
+      Details about table rules imposed by {{ destination.display_name }} destinations.
+    items:
+      - id: "max-columns-per-table"
+        name: "Max # of columns per table"
+        description: |
+          The maximum number of columns per table that the destination can have.
+
+      - id: "max-table-size"
+        name: "Max table size"
+        description: |
+          The maximum size a single table in the destination can be.
+
+      - id: "max-tables-per-database"
+        name: "Max # of tables per database"
+        description: |
+          The maximum number of tables allowed per database in the destination.
+
+# -------------------------- #
+#      Data type limits      #
+# -------------------------- #
+
+data-limits:
+  - name: "Data limits"
+    description: |
+      Details about data limitations imposed by {{ destination.display_name }} destinations.
+    items:
+      - id: "max-record-size"
+        name: "Max record size"
+        description: |
+          The maximum size a single record can be to be loaded successfully into the destination.
+
+      - id: "boolean-values"
+        name: "Boolean values"
+        description: |
+          The values for BOOLEAN data types supported by the destination.
+
+      - id: "date-and-time-timezone-support"
+        name: "Timezone support"
+        description: |
+          Indicates if the destination has support for timezones.
+
+      - id: "date-and-time-date-range"
+        name: "Date ranges"
+        description: |
+          The allowed range of date values allowed by the destination.
+
+      - id: "date-and-time-timestamp-range"
+        name: "Timestamp ranges"
+        description: |
+          The allowed range of timestamp values allowed by the destination.
+
+      - id: "integer-range"
+        name: "Integer range"
+        description: |
+          The allowed range for integer values allowed by the destination.
+
+      - id: "decimal-precision"
+        name: "Decimal precision"
+        description: |
+          The maximum number of decimal digits that can be stored both to the right and left of the decimal point.
+
+      - id: "decimal-scale"
+        name: "Decimal scale"
+        description: |
+          The maximum number of decimal points that can be stored to the right of the decimal point.
+
+      - id: "decimal-range"
+        name: "Decimal range"
+        description: |
+          The allowed maximum number of digits that can be stored to the left and right of the decimal point.
+
+      - id: "strings-max-width"
+        name: "VARCHAR max width"
+        description: |
+          The maximum storage size allowed by the destination for string data types.
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-naming:
+  - name: "Column naming"
+    description: |
+      Details about transformations performed by Stitch to ensure source column names adhere to the object naming rules imposed by {{ destination.display_name }} destinations.
+      
+    items:
+      - id: "mixed-case"
+        name: "Mixed case"
+        description: |
+          Scenario where a source column name contains mixed case characters.
+
+      - id: "with-spaces"
+        name: "Contains spaces"
+        description: |
+          Scenario where a source column name contains spaces.
+
+      - id: "with-unsupported-characters"
+        name: "Contains unsupported characters"
+        description: |
+          Scenario where a source column name contains unsupported special characters.
+
+      - id: "with-underscore-start"
+        name: "Name begins with an underscore"
+        description: |
+          Scenario where a source column name begins with an underscore.
+
+      - id: "with-non-letter-start"
+        name: "Name begins with a non-letter"
+        description: |
+          Scenario where a source column name begins with a non-letter character.

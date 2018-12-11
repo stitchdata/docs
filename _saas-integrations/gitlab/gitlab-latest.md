@@ -31,9 +31,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.gitlab.com/
 icon: /images/integrations/icons/gitlab.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

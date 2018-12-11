@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/
 description: |
   The `ticket_forms` table contains info about the ticket forms in your Zendesk account.
 
-  **Note**: Retrieving ticket form data requires Zendesk Agent or Admin permissions.
+  **Note**: Replicating ticket forms requires that you be on an Enterprise Zendesk plan or a Professional plan with the corresponding add-on, and have Admin permissions in Zendesk.
 
 replication-method: "Key-based Incremental"
 

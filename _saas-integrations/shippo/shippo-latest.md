@@ -32,9 +32,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.goshippo.com/
 icon: /images/integrations/icons/shippo.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Setup Instructions    #

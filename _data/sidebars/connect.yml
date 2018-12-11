@@ -130,10 +130,6 @@ api:
             method: "object"
             url: "{{ api.data-structures.connection-steps.section }}"
 
-          - title: "{{ api.data-structures.current-step-hints.title }}"
-            method: "object"
-            url: "{{ api.data-structures.current-step-hints.section }}"
-
           - title: "{{ api.data-structures.properties.title }}"
             method: "object"
             url: "{{ api.data-structures.properties.section }}"
@@ -146,17 +142,7 @@ api:
         sections:
           - title: "Destination Forms"
             subsections:
-              - title: "PostgreSQL"
-                method: "object"
-                url: "{{ api.form-properties.destination-forms.postgresql.section }}"
-
-              - title: "Redshift"
-                method: "object"
-                url: "{{ api.form-properties.destination-forms.redshift.section }}"
-
-              - title: "Snowflake"
-                method: "object"
-                url: "{{ api.form-properties.destination-forms.snowflake.section }}"
+              - 
 
           - title: "Source Forms"
             subsections:

@@ -24,6 +24,13 @@ foreign-keys:
         subattribute: "user"
         join-on: "id"
 
+  - id: "comment-id"
+    attribute: "comment_id"
+    table: "comments"
+    all-foreign-keys:
+      - table: "comments"
+        join-on: "id"
+
   - id: "commit-id"
     attribute: "commit_id"
     table: "commits"
@@ -31,6 +38,9 @@ foreign-keys:
       - table: "commits"
         join-on: "id"
       - table: "reviews"
+      - table: "review_comments"
+      - table: "review_comments"
+        join-on: "original_commit_id"
 
   - id: "issue-id"
     attribute: "issue_id"
@@ -50,12 +60,21 @@ foreign-keys:
       - table: "issues"
         join-on: "id"
 
+  - id: "review-comment-id"
+    attribute: "review_comment_id"
+    table: "review_comments"
+    all-foreign-keys:
+      - table: "review_comments"
+        join-on: "id"
+
   - id: "review-id"
     attribute: "review_id"
     table: "reviews"
     all-foreign-keys:
       - table: "reviews"
         join-on: "id"
+      - table: "review_comments"
+        join-on: "pull_request_review_id"
 
   - id: "sha"
     attribute: "sha"

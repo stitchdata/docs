@@ -27,3 +27,4 @@ For example: `Opportunity.Custom_Field_Account_Name__c` is an opportunity field 
 
 - If you're using it as a join, you could recreate the join using SQL.
 - If the field isn't a join, depending on what you need, you could still recreate it using SQL or change the field to be a native field that's updated through a workflow or apex trigger.
+- Configure the table to use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}). **Note**: This will increase the integration's consumption of Salesforce API quota, as well as your Stitch row usage.

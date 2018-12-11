@@ -1,0 +1,300 @@
+# -------------------------- #
+#    Amazon S3 Reference     #
+# -------------------------- #
+
+# This file contains the data used in this destination's overview/reference
+# guide. Includes supported connection types, data type limits, object
+# naming rules, etc.
+
+
+# -------------------------- #
+#         DEFAULTS           #
+# -------------------------- #
+
+# The sections below contain key:value pairs for each category.
+# This is done so that individual values can be called instead of having
+# to loop through the entire list of items to get a single thing.
+
+# -------------------------- #
+#       Stitch Details       #
+# -------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for the destination.
+
+stitch-details-info:
+  pricing-tier: &pricing-tier |
+    All Stitch plans
+  supported-versions: &supported-versions |
+    n/a
+
+# Connection methods
+
+  connection-methods:
+    ssl: &connection-methods-ssl |
+      n/a
+    ssh: &connection-methods-ssh |
+      n/a
+    vpn: &connection-methods-vpn |
+      n/a
+
+  # workload-performance-management: &workload-performance-management |
+  #   true
+
+# -------------------------- #
+#         Replication        #
+# -------------------------- #
+
+replication-info:
+  incremental-replication:
+    upserts: &incremental-rep-upserts |
+      false
+
+  primary-keys:
+    supported: &primary-key-support |
+      false
+
+  multiple-data-types:
+    supported: &multiple-data-type-support |
+      
+
+  nested-structures:
+    supported: &nested-structure-support |
+      Depends
+
+  incompatible-sources: &incompatible-sources |
+    None
+
+# -------------------------- #
+#         Limitations        #
+# -------------------------- #
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+object-name-limit-info:
+  case-sensitivity: &case-sensitivity "n/a"
+  tables: &table-name-length "1,024 bytes"
+  columns: &column-name-length "n/a"
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+table-limit-info:
+  max-columns-per-table: &max-columns-per-table "n/a"
+  max-per-database: &max-per-database "None"
+
+# -------------------------- #
+#      Data type limits      #
+# -------------------------- #
+
+data-limit-info:
+  max-record-size: &max-record-size "4 MB"
+
+  date-and-time:
+    timezone-support: &timezone-support |
+      false
+
+    date-range: &date-range "n/a"
+    timestamp-range: &timestamp-range "n/a"
+
+  integer-range: &integer-range "n/a"
+
+  decimal:
+    precision: &decimal-precision "n/a"
+    scale: &decimal-scale "n/a"
+
+  strings:
+    max-width: &strings-max-width "n/a"
+
+# -------------------------- #
+#     Object naming rules    #
+# -------------------------- #
+
+# Naming scenarios for columns
+
+column-naming-info:
+  with-mixed-case: 
+  with-spaces: 
+  with-unsupported-characters: 
+  with-underscore-start: 
+  with-non-letter-start: 
+
+
+
+# -------------------------- #
+#       LIST OF VALUES       #
+# -------------------------- #
+
+# This is all the values from the sections up there ^ in list form.
+# This allows forloops to be used to display the data all at once instead of 
+# Calling each thing individually.
+
+# Note that anything preceeded by an asterisk is a reference. This means that
+# to change its value, you need to find the corresponding anchor (preceeded by an
+# ampersand) in the section up there ^.
+
+# For example: To change the value of *pricing-tier, you'd look for &pricing-tier
+# and then change whatever you need to change.
+
+attributes:
+  - id: "pricing-tier"
+    categories: "stitch-details"
+    value: *pricing-tier
+
+  - id: "supported-versions"
+    categories: "stitch-details"
+    value: *supported-versions
+
+  - id: "ssl-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssl
+
+  - id: "ssh-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssh
+
+  - id: "vpn-connections"
+    categories: "stitch-details"
+    value: *connection-methods-vpn
+
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}
+
+  - id: "incremental-replication-upserts"
+    categories: "replication"
+    value: *incremental-rep-upserts
+    description: |
+      Stitch's {{ destination.display_name }} destination doesn't currently support upserts, or updates to existing rows.
+
+      When Stitch loads data into {{ destination.display_name }} destinations, it will load it in an append-only fashion. This means that new records and updates to existing records are appended to the end of tables as new rows. Existing records are never updated. 
+
+      More info and examples can be found in the [Loading section](#loading) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
+
+  - id: "primary-keys"
+    categories: "replication"
+    value: *primary-key-support
+    description: |
+      {{ destination.display_name }} destinations do not have native support for Primary Keys.
+  
+  # Need to confirm this. It should be supported, but I'm not totally sure about it.
+
+  # - id: "multiple-data-types"
+  #   categories: "replication"
+  #   value: *multiple-data-type-support
+  #   description: |
+  #     {{ destination.display_name }} destinations 
+
+  - id: "nested-data-structures"
+    categories: "replication"
+    value: *nested-structure-support
+    important: true
+    description: |
+      Depending on the data storage format you select, nested data structures may be kept intact or flattened into relational objects:
+
+      - **CSV**: To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Schema](#schema) section below or the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+      - **JSON**: Nested data will be kept intact.
+
+      Refer to the [Schema](#schema) section for more info and examples of how data will be stored in each format.
+
+  - id: "incompatible-sources"
+    categories: "replication"
+    value: *incompatible-sources
+
+  - id: "case-sensitivity"
+    categories: "object-name-limits"
+    value: *case-sensitivity
+
+  - id: "table-name-length"
+    categories: "object-name-limits"
+    value: *table-name-length
+      
+  - id: "column-name-length"
+    categories: "object-name-limits"
+    value: *column-name-length
+
+  - id: "max-columns-per-table"
+    categories: "table-limits"
+    value: *max-columns-per-table
+
+  - id: "max-tables-per-database"
+    categories: "table-limits"
+    value: *max-per-database
+
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      The maximum record size Stitch can accept and load into {{ destination.display_name }} destinations.
+      
+      Records that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  # - id: "date-and-time-timezone-support"
+  #   categories: "data-limits"
+  #   value: *timezone-support
+
+  # - id: "date-and-time-date-range"
+  #   categories: "data-limits"
+  #   value: *date-range
+  #   description: |
+
+  # - id: "date-and-time-timestamp-range"
+  #   categories: "data-limits"
+  #   value: *timestamp-range
+  #   description: |
+
+  # - id: "integer-range"
+  #   categories: "data-limits"
+  #   value: *integer-range
+  #   description: |
+
+  # - id: "decimal-precision"
+  #   categories: "data-limits"
+  #   value: *decimal-precision
+  #   description: |
+
+  # - id: "decimal-scale"
+  #   categories: "data-limits"
+  #   value: *decimal-scale
+  #   description: |
+
+  # - id: "strings-max-width"
+  #   categories: "data-limits"
+  #   value: *strings-max-width
+  #   important: true
+  #   description: |
+
+  # - id: "mixed-case"
+  #   categories: "column-naming"
+  #   example: |
+  #     {{ column-name | remove: "_!" | remove: "# " }}
+  #   value:
+
+  # - id: "with-spaces"
+  #   categories: "column-naming"
+  #   example: |
+  #     {{ column-name | downcase | remove: "_!" | remove: "#" }}
+  #   value: |
+
+  # - id: "with-unsupported-characters"
+  #   categories: "column-naming"
+  #   example: |
+  #     {{ column-name | downcase | remove: "_" | remove: " " }}
+  #   value: 
+
+  # - id: "with-underscore-start"
+  #   categories: "column-naming"
+  #   example: |
+  #     {{ column-name | downcase | remove: "!" | remove: "# " }}
+  #   value: 
+
+  # - id: "with-non-letter-start"
+  #   categories: "column-naming"
+  #   example: |
+  #     {{ column-name | downcase | replace: "_!","123" | remove: "# " }}
+  #   value:

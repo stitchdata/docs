@@ -34,9 +34,13 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://status.github.com/messages
 icon: /images/integrations/icons/github.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

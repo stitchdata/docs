@@ -4,6 +4,9 @@ permalink: /destinations/
 tags: [getting_started]
 keywords: destination, destinations, data warehouse, data warehouses, warehouse, stitch etl, etl
 summary: "After your data is replicated, you'll need a place to store it. Stitch supports some of the most popular databases currently available for use as data warehouses. We call them destinations, but the purpose is the same: a central repository for all your data."
+
+content-type: "destination-general"
+
 layout: page
 toc: false
 feedback: false

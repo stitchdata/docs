@@ -28,9 +28,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 icon: /images/integrations/icons/intercom.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Querying Details      #

@@ -14,7 +14,7 @@ replication-key:
   name: "hs_lastmodifieddate"
 
 api-method:
-  name: getACompany
+  name: "Get a company"
   doc-link: https://developers.hubspot.com/docs/methods/companies/get_company
 
 attributes:

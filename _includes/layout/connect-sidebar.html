@@ -13,8 +13,6 @@
 {% assign js = site.data.connect.js-client %}
 
 {% assign all-form-properties = site.connect-files | where: "content-type","api-form" %}
-{% assign source-form-properties = all-form-properties | where: "form-type", "source" | sort: "display-name" %}
-
 
 <div class="menu-list">
 
@@ -96,12 +94,19 @@
                             {% endcase %}
 
                             {% case section.title %}
-                                {% when 'Source Forms' %}
-                                    {% for source-form-property in source-form-properties %}
+                                {% when 'Source Forms' or 'Destination Forms' %}
+                                    {% if section.title == "Source Forms" %}
+                                        {% assign form-properties = all-form-properties | where: "form-type", "source" | sort: "display-name" %}
+
+                                    {% elsif section.title == "Destination Forms" %}
+                                        {% assign form-properties = all-form-properties | where: "form-type", "destination" | sort: "display-name" %}
+                                    {% endif %}
+                                    
+                                    {% for form-property in form-properties %}
                                         <li>
-                                            <a href="{{ source-form-property.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl }}" class="api">
+                                            <a href="{{ form-property.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl }}" class="api">
                                                 <span class="method object method-bullet">OBJECT</span>
-                                                {{ source-form-property.title | remove: "Source Form Property" }}
+                                                {{ form-property.title | remove: "Source Form Property" | remove: "Destination Form Property" }}
                                             </a>
                                         </li>
                                     {% endfor %}

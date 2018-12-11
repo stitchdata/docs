@@ -127,6 +127,14 @@ non-standard handling of certain data types, etc. -->
                     <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
                 {% endif %}
             {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
+
+                    {{ subsection.content | flatify | markdownify }}
+                {% endfor %}
+            {% endif %}
         {% endfor %}
         <hr>
     {% endif %}
@@ -142,6 +150,33 @@ non-standard handling of certain data types, etc. -->
 {% endif %}
 <!-- SCHEMA DETAILS END -->
 {% endunless %}
+
+<!-- If there are other misc sections, display them -->
+    {% if integration.other-sections %}
+        {% for section in integration.other-sections %}
+                {% if section.title %}
+                    <h2 id="{{ section.anchor }}">{{ section.title | flatify }}</h2>
+                {% endif %}
+            {{ section.content | flatify | markdownify }}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    <h3 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h3>
+
+                    {{ subsection.content | flatify | markdownify }}
+
+                    <!-- If this is the last subsection, add a horizontal rule
+                    to separate the next section -->
+
+                    {% if forloop.last == true %}
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+        <hr>
+    {% endif %}
+
 
 
 <!-- ALL OTHER CONTENT -->

@@ -4,10 +4,12 @@
   {% when "bing-ads" %}
     {% assign window = "Conversion Window" %}
     {% assign table = "ad_performance_report" %}
-    {% assign replication-key = "gregorianDate" %}
+    {% assign replication-key = "TimePeriod" %}
+    {% assign start-date = "July 3, 2017" %}
+    {% assign start-date-value = "2017-07-03 00:00:00" %}
     {% assign replication-key-historical = "2017-06-03 00:00:00" %}
     {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
-    {% assign account-id = "accountId"%}
+    {% assign account-id = "AccountId"%}
     {% assign account-id-data = "71086605" %}
     {% assign device = "deviceType" %}
     {% assign core-object-replication = "With the exception of the `accounts` table, these tables are replicated using **Full Table Replication**." %}
@@ -25,6 +27,8 @@
     {% assign window = "Conversion Window" %}
     {% assign table = "ad_performance_report" %}
     {% assign replication-key = "day" %}
+    {% assign start-date = "July 3, 2017" %}
+    {% assign start-date-value = "2017-07-03 00:00:00" %}
     {% assign replication-key-historical = "2017-06-03 00:00:00" %}
     {% assign replication-key-ongoing = "2017-09-01 00:00:00" %}
     {% assign account-id = system-column.customer-id %}
