@@ -46,27 +46,30 @@ anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false
+table-selection: true
+column-selection: true
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 requirements-list:
-  - item: ""
+  - item: |
+      **The following credentials from {{ integration.display_name }}**:
+
+      - **Your environment name**, and
+      - **Your API key**
+
+      Reach out to {{ integration.display_name }} to obtain this info. After you receive it from {{ integration.display_name }}, you can proceed with the setup of the integration in Stitch.
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
   - title: "add integration"
     content: |
       4. In the **API Key** field, paste your {{ integration.display_nane }} API key.
-      5. In the **Environment** field, 
+      5. In the **Environment** field, paste the name of your {{ integration.display_name }} environment.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
