@@ -178,7 +178,7 @@ sections:
           Structure changes can include adding new fields, removing fields, changing a data type, etc. Resetting the table is required due to how messages in binary logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
-          CRITICAL Error persisting data for table "[table_name]": Record 0 did not conform to schema
+          {{ site.data.errors.database-extraction.mysql.raw-error.schema-violation | lstrip | rstrip }}
           ```
 
           For this reason, Stitch recommends using {{ page.title }} with tables with structures that don't change frequently.
@@ -272,7 +272,7 @@ sections:
           Log retention settings specify the amount of time before a binary log file is automatically removed from the database server. When a binary log file is removed from the server before Stitch can read from it, replication will be unable to proceed. When this occurs, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
-          CRITICAL Error Unable to replicate binlog stream because the following binary log(s) no longer exist: [binary_log_name]
+          {{ site.data.errors.database-extraction.mysql.raw-error.log-retention-purge }}
           ```
 
           To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.

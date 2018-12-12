@@ -11,7 +11,7 @@ raw-error:
   master-server-id-not-set: &master-server-id-not-set "(1236, 'Misconfigured master - server id was not set')"
   binlog-format-row: &binlog-format-row "[...] binlog_format is not set to 'ROW': [MIXED or STATEMENT]."
   binlog-row-image-full: &binlog-row-image-full "[...] binlog_row_image is not set to 'FULL': [MINIMAL or NOBLOB]."
-  schema-mismatch: &schema-mismatch |
+  schema-violation: &schema-violation |
     Error persisting data for table "[table_name]": Record 0 did not conform to schema
   binlog-unsupported-views: &binlog-unsupported-views "[...] it is a view."
   log-retention-purge: &log-retention-purge "Unable to replicate binlog stream because the following binary log(s) no longer exist: [binary_log_file_name]"
@@ -106,8 +106,8 @@ all:
 
 
 ## Schema violation
-  - message: *schema-mismatch
-    id: "schema-mismatch"
+  - message: *schema-violation
+    id: "schema-violation"
     meaning: |
       The data replicated for a table does not match the expected schema. This occurs when the structure of a table changes in the source and Stitch is unable to verify its schema..
 
