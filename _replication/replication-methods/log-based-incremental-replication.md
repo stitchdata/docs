@@ -19,8 +19,6 @@ summary: "Available for select database integrations, Log-based Incremental Repl
 ## For info about this Replication Method, see:
 ## _data/taps/extraction/replication-methods/log-based-replication.yml
 
-
-
 example-table:
   - id: "1"
     name: "Finn"
@@ -111,7 +109,7 @@ sections:
       The limitations of {{ page.title }} are:
 
       {% for subsection in section.subsections %}
-      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" }}](#{{ subsection.anchor }})
+      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" }}](#{{ subsection.anchor }})
       {% endfor %}
 
     subsections:
@@ -172,25 +170,15 @@ sections:
 
           For example: If a data in a table is modified using `ALTER`, the changes won't be written to the binary log or identified by Stitch.
 
-      - title: "Limitation 3: Logs can age out and stop replication"
-        anchor: "limitation-3--log-retention"
-        content: |
-          Binary log files, by default, are not stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
-
-          Log retention settings specify the amount of time before a binary log file is automatically removed from the database server.
-
-          [TODO-Need more explanation here]
-
-      - title: "Limitation 4: Structural changes require manual intervention"
-        anchor: "limitation-4--structural-changes"
+      - title: "Limitation 3: Structural changes require manual intervention"
+        anchor: "limitation-3--structural-changes"
         content: |
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
           Structure changes can include adding new fields, removing fields, changing a data type, etc. Resetting the table is required due to how messages in binary logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
-          2018-10-16 21:20:55,902Z target - CRITICAL Error persisting data for table
-          "[table_name]": Record 0 did not conform to schema
+          CRITICAL Error persisting data for table "[table_name]": Record 0 did not conform to schema
           ```
 
           For this reason, Stitch recommends using {{ page.title }} with tables with structures that don't change frequently.
@@ -267,12 +255,70 @@ sections:
 
           Where Stitch previously detected three columns, the log messages now contain data for four columns. Because the log messages don't contain field information and are read in order, Stitch would be unable to determine what column the `15`, `9`, and `19` values are for.
 
-      - title: "Limitation 5: Cannot be used with views"
-        anchor: "limitation-5--views-are-unsupported"
+      - title: "Limitation 4: Cannot be used with views"
+        anchor: "limitation-4--views-are-unsupported"
         content: |
           {{ page.title }} can't be used with database views, as modifications to views are not written to binary log files.
 
           Stitch recommends using [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}) instead, where possible.
+
+      - title: "Limitation 5: Logs can age out and stop replication (MySQL)"
+        anchor: "limitation-5--log-retention-mysql"
+        content: |
+          {% include note.html type="single-line" content="This section is applicable only to **MySQL**-based database integrations." %}
+
+          Binary log files, by default, are not stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
+
+          Log retention settings specify the amount of time before a binary log file is automatically removed from the database server. When a binary log file is removed from the server before Stitch can read from it, replication will be unable to proceed. When this occurs, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+
+          ```
+          CRITICAL Error Unable to replicate binlog stream because the following binary log(s) no longer exist: [binary_log_name]
+          ```
+
+          To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.
+
+          This error can be caused by a few things:
+
+          1. **The binary log file is purged before historical replication completes**. This is because the max LSN is saved at the start of historical replication jobs, so Stitch knows where to begin reading from the binary logs after historical data is replicated.
+          2. **The log retention settings (`expire_logs_days` or `binlog_expire_logs_seconds`) are set to too short of a time period**. Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
+          3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes).
+
+      - title: "Limitation 6: Will increase source disk space usage (PostgreSQL)"
+        anchor: "limitation-6--disk-space-usage-postgresql"
+        content: |
+          {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
+
+          PostgreSQL {{ page.title }} uses PostgreSQL's logical replication feature. Logical replication uses a replication slot, which represents a stream of changes made to a given database.
+
+          According to [PostgreSQL's documentation](https://www.postgresql.org/docs/11/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS){:target="new"}, replication slots will prevent removal of required resources even if no connection is using them:
+
+          > Replication slots persist across crashes and know nothing about the state of their consumer(s). They will prevent removal of required resources even when there is no connection using them. This consumes storage because neither required WAL nor required rows from the system catalogs can be removed by VACUUM as long as they are required by a replication slot.
+
+          This means that binary log files (Write Ahead Log (WAL), for PostgreSQL) aren't removed from the replication slot until they're consumed by a connection. In this case, until Stitch reads them during a replication job.
+
+          While Stitch will flush the replication slot after every replication job, an increase in disk space usage is to be expected when using {{ page.title }} due to how PostgreSQL replication slots function. The amount of disk space usage depends on the number of updates made to the database, how quickly Stitch proceeds with replication, and whether any errors that prevent replication arise.
+
+      - title: "Limitation 7: Multiple connections to a replication slot can cause data loss (PostgreSQL)"
+        anchor: "limitation-7--replication-slot-data-loss-postgresql"
+        content: |
+          {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
+
+          As previously mentioned, {{ page.title }} for PostgreSQL requires a replication slot which Stitch can read binary log files from. When changes are made to a database, they are written to the binary log file in the replication slot.
+
+          Each change to the database is written to the database's replication slot exactly once.
+          
+          As binary log files are removed from the replication slot once they're consumed, this means that once the change is read, the record of it is purged.
+
+          If multiple connections - whether it's multiple integrations in Stitch, or connections elsewhere - are using the same replication slot, data loss can occur as each connection will only receive some of the updates made to the database.
+
+          According to [PostgreSQL's documentation](https://www.postgresql.org/docs/11/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS){:target="new"}:
+
+          > A logical slot will emit each change just once in normal operation... Multiple independent slots may exist for a single database. Each slot has its own state, allowing different consumers to receive changes from different points in the database change stream. For most applications, a separate slot will be required for each consumer.
+          > A logical replication slot knows nothing about the state of the receiver(s). **It's even possible to have multiple different receivers using the same slot at different times; they'll just get the changes following on from when the last receiver stopped consuming them. Only one receiver may consume changes from a slot at any given time.**
+
+          This means that if one connection reads the changes from the replication slot, Stitch will only be able to extract the changes from when the other connection stopped consuming them.
+
+          To avoid data loss caused by this scenario, Stitch recommends creating a dedicated replication slot for PostgreSQL database you want to connect.
 
   - title: "Enable {{ page.title }}"
     anchor: "enabling-log-based-replication"
