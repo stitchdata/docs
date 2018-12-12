@@ -121,7 +121,12 @@ sections:
 
           The table below lists the variations of MySQL and PostgreSQL databases that Stitch supports and whether those variations support {{ page.title }}.
 
-          **Note**: The table below only indicates whether a **master** database instance supports {{ page.title }}. Refer to the documentation for the database for info about read replica support.
+          Additionally, note that:
+
+          1. The table below only indicates whether a **master** database instance supports {{ page.title }}.
+          2. Your database may need to be running a specific database version to have the configuration options required to use {{ page.title }} in Stitch.
+
+          **Refer to the documentation for the database for configuration requirements.**
 
           {% assign binlog-databases = "mysql|postgres" | split:"|" %}
           {% assign all-databases = site.database-integrations | where:"input",true %}
