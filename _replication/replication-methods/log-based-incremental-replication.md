@@ -168,7 +168,7 @@ sections:
 
           This means that if data is modified using an event type not listed here, it won't be written to the database's binary log or subsequently detected by {{ page.title }}.
 
-          For example: If a data in a table is modified using `ALTER`, the changes won't be written to the binary log or identified by Stitch.
+          For example: If data in a table is modified using `ALTER`, the changes won't be written to the binary log or identified by Stitch.
 
       - title: "Limitation 3: Structural changes require manual intervention"
         anchor: "limitation-3--structural-changes"
