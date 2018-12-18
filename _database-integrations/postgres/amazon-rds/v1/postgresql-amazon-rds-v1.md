@@ -114,17 +114,17 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="reboot-the-instance" %}
 
-  - title: "Create a replication slot"
-    anchor: "create-replication-slot"
-    content: |
-      {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
-
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
     content: |
       Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
       {% include integrations/templates/create-database-user-tabs.html %}
+
+  - title: "Create a replication slot"
+    anchor: "create-replication-slot"
+    content: |
+      {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
 
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
