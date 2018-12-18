@@ -22,7 +22,7 @@ defaults:
   doc-links:
     privileges: &privileges-doc "https://www.postgresql.org/docs/9.4/static/sql-grant.html"
     alter-default-privileges: &alter-default-privileges-doc "https://www.postgresql.org/docs/9.4/static/sql-alterdefaultprivileges.html"
-    replication: &replication-doc ""
+    replication: &replication-doc "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.FeatureSupport.LogicalReplication"
 
 # -------------------------- #
 #    POSTGRESQL PRIVILEGES   #
@@ -68,6 +68,7 @@ postgresql-rds:
 
   - name: *rds-replication-name
     reason: *rds-replication-reason
+    doc-link: *replication-doc
 
 # -------------------------- #
 #         SQL COMMANDS       #
