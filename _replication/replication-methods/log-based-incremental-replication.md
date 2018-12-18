@@ -109,7 +109,7 @@ sections:
       The limitations of {{ page.title }} are:
 
       {% for subsection in section.subsections %}
-      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" }}](#{{ subsection.anchor }})
+      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
       {% endfor %}
 
     subsections:
@@ -301,10 +301,23 @@ sections:
 
           This means that binary log files (Write Ahead Log (WAL), for PostgreSQL) aren't removed from the replication slot until they're consumed by a connection. In this case, until Stitch reads them during a replication job.
 
-          While Stitch will flush the replication slot after every replication job, an increase in disk space usage is to be expected when using {{ page.title }} due to how PostgreSQL replication slots function. The amount of disk space usage depends on the number of updates made to the database, how quickly Stitch proceeds with replication, and whether any errors that prevent replication arise.
+          While Stitch will issue a `flush_lsn` command after messages have been an increase in disk space usage is to be expected when using {{ page.title }} due to how PostgreSQL replication slots function. The amount of disk space usage depends on the number of updates made to the database, how quickly Stitch proceeds with replication, and whether any errors that prevent replication arise.
 
-      - title: "Limitation 7: Multiple connections to a replication slot can cause data loss (PostgreSQL)"
-        anchor: "limitation-7--replication-slot-data-loss-postgresql"
+          The greatest increase in disk space usage typically occurs during the switch from `SELECT`-based replication to consuming the database's binary logs. You will see a spike in disk space usage during this time, which typically levels off over time.
+
+      - title: "Limitation 7: Can only be used with a master instance (PostgreSQL)"
+        anchor: "limitation-7--only-supports-master-instances-postgresql"
+        content: |
+          {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
+          
+          For PostgreSQL-based databases, Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
+
+          If you're concerned about the increase in [disk space usage](limitation-6--disk-space-usage-postgresql) and the impact this may have, consider connecting a read replica and using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) instead.
+
+          Otherwise, we recommend monitoring the instance's disk space usage during the first few replication jobs to minimize any negative impact on your database's performance.
+
+      - title: "Limitation 8: Multiple connections to a replication slot can cause data loss (PostgreSQL)"
+        anchor: "limitation-8--replication-slot-data-loss-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
 
