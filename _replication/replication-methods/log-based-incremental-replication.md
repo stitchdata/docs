@@ -305,6 +305,8 @@ sections:
 
           The greatest increase in disk space usage typically occurs during the switch from `SELECT`-based replication to consuming the database's binary logs. You will see a spike in disk space usage during this time, which typically levels off over time.
 
+          **Note**: If you decide to permanently disable Log-based Incremental Replication for your PostgreSQL database, remove the replication slot to prevent further unnecessary disk space consumption.
+
       - title: "Limitation 7: Can only be used with a master instance (PostgreSQL)"
         anchor: "limitation-7--only-supports-master-instances-postgresql"
         content: |
