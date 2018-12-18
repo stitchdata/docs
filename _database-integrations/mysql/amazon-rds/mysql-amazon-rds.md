@@ -78,9 +78,21 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/mysql-rds.html %}
 
+## I believe this is only applicable to MySQL and not Aurora,
+## as I can't find evidence of it being necessary in Aurora's
+## documentation.
       - title: "Define the backup retention period"
         anchor: "define-backup-retention-period"
         content: |
+          {% capture mysql-rds-backup-requirement %}
+          **Enabling automatic backups is required to use Log-based Incremental Replication.** In Amazon RDS, enabling automatic backups also enables binary logging, which is what Stitch uses to perform Log-based Incremental Replication.
+
+          Skipping this step or disabling automatic backups will cause replication issues in Stitch.
+
+          Refer to the **Transaction Size** section of [Amazon's Importing Data into a MySQL DB Instance](https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.Other.html){:target="new"} documentation for more info.
+          {% endcapture %}
+          {% include note.html type="single-line" content=mysql-rds-backup-requirement %}
+
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="backup-retention-period" %}
 
       - title: "Apply parameter changes and reboot the database"
