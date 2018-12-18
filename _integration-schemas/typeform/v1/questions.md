@@ -1,0 +1,25 @@
+---
+tap: "typeform"
+version: "1.x"
+name: "questions"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-typeform/blob/master/tap_typeform/schemas/questions.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "form_id"
+    type: "string"
+    description: ""
+  - name: "question_id"
+    type: "string"
+    description: ""
+  - name: "ref"
+    type: "string"
+    description: ""
+  - name: "title"
+    type: "string"
+    description: ""
+---
