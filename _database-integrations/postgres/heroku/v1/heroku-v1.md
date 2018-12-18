@@ -48,6 +48,7 @@ table-selection: true
 column-selection: true
 
 binlog-replication: false
+read-replica-binlog: false
 view-replication: true
 
 # -------------------------- #
