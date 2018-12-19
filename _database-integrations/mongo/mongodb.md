@@ -32,9 +32,9 @@ versions: "2.4 through 3.4"
 ssh: true
 ssl: true
 
-anchor-scheduling: true
-extraction-logs: true
-loading-reports: true
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 table-selection: true
 column-selection: false

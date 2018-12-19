@@ -39,7 +39,7 @@ icon: /images/integrations/icons/doorbell-io.svg
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
+anchor-scheduling: false
 extraction-logs: true
 loading-reports: true
 

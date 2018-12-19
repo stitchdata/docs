@@ -35,7 +35,7 @@ icon: /images/integrations/icons/quickbooks.svg
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
+anchor-scheduling: true
 extraction-logs: false
 loading-reports: false
 

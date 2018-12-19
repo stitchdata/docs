@@ -34,9 +34,9 @@ versions: "2000 through 2016"
 ssh: true
 ssl: false
 
-anchor-scheduling: true
-extraction-logs: true
-loading-reports: true
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 table-selection: true
 column-selection: true
