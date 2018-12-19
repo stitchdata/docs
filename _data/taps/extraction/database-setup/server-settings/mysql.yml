@@ -96,22 +96,14 @@ cloudsql-mysql:
     description: |
       Acts as the "on" switch for binary logging. When the **Enable binary logging** option is checked in the Google CloudSQL UI, this defines the `log_bin` parameter.
 
+## Commenting out - we don't currently support this
+  # - name: *log-slave-update-name
+  #   value: *log-slave-update-value
+  #   description: |
+  #     Indicates whether updates received by a read replica from a master server should be logged in the replica's own binary log.
 
-## LOG_SLAVE_UPDATES:
-
-## It looks like in the GCS docs, if a read replica is created off of the
-## master instance, and binary logging + backups are enabled for the master,
-## that there shouldn't be any other required configuration:
-
-## 
-
-  - name: *log-slave-update-name
-    value: *log-slave-update-value
-    description: |
-      Indicates whether updates received by a read replica from a master server should be logged in the replica's own binary log.
-
-      **By default**, when a read replica is created off of the master instance and binary logging and automatic backups are enabled for the master, this setting will be automatically defined.
-    doc-link: "https://cloud.google.com/sql/docs/mysql/replication/create-replica#create-2nd-gen"
+  #     **By default**, when a read replica is created off of the master instance and binary logging and automatic backups are enabled for the master, this setting will be automatically defined.
+  #   doc-link: "https://cloud.google.com/sql/docs/mysql/replication/create-replica#create-2nd-gen"
 
 
 
