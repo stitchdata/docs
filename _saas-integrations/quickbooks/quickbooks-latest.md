@@ -846,7 +846,9 @@ tables:
 
 
 {% contentfor setup %}
-Connecting your [QuickBooks data](https://quickbooks.intuit.com/cloud-accounting-software/){:target="new"} to Stitch is a four-step process:
+Connecting your [QuickBooks data](https://quickbooks.intuit.com/cloud-accounting-software/){:target="new"}* to Stitch is a four-step process:
+
+*Note: Stitch only integrates with online Quickbooks. We do not support Quickbooks for desktop.
 
 1. [Add QuickBooks as a Stitch data source](#add-stitch-data-source)
 2. [Define the Historical Sync](#define-historical-sync)
