@@ -138,6 +138,27 @@ setup-steps:
     content: |
       {% include shared/aws-connection-details.html %}
 
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
+
   - title: "connect stitch"
 
   - title: "replication frequency"

@@ -75,7 +75,7 @@ setup-steps:
   - title: "Locate database connection details"
     anchor: "locate-database-connection-details"
     content: |
-      In this step, you'll locate the {{ integration.display_name }}'s IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
+      In this step, you'll locate the {{ integration.display_name }} database's IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
 
       {% include shared/google-cloud-platform/locate-database-details.html %}
 
@@ -86,9 +86,21 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

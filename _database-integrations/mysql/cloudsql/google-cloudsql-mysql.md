@@ -44,7 +44,7 @@ table-selection: true
 column-selection: true
 
 binlog-replication: true
-read-replica-binlog: true
+read-replica-binlog: false
 view-replication: false
 
 # -------------------------- #
@@ -68,6 +68,13 @@ setup-steps:
   - title: "whitelist stitch ips"
 
 # https://cloud.google.com/sql/docs/mysql/configure-ip
+
+  - title: "Locate database connection details"
+    anchor: "locate-database-connection-details"
+    content: |
+      In this step, you'll locate the {{ integration.display_name }} database's IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
+
+      {% include shared/google-cloud-platform/locate-database-details.html %}
 
   - title: "Enable automated backups and binary logging"
     anchor: "enable-auto-backups-binary-logging"
@@ -103,9 +110,26 @@ setup-steps:
     content: |
       {% include integrations/databases/setup/binlog/mysql-server-id.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---
