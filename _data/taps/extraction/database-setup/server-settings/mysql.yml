@@ -65,31 +65,55 @@ defaults:
 #      CLOUDSQL SETTINGS     #
 # -------------------------- #
 
+
 cloudsql-mysql:
   - name: *binlog-format-name
     value: *binlog-format-value
-    description: *binlog-format-description
-    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
+    description: |
+      {{ database.defaults.descriptions.binlog-format | flatify }}
+
+      **By default**, {{ integration.display_name }} databases use `ROW` for this setting when binary logging is enabled.
+    doc-link: "https://cloud.google.com/sql/docs/mysql/replication/tips#bin-log-impact"
 
   - name: *binlog-row-image-name
     value: *binlog-row-image-value
-    description: *binlog-row-image-description
-    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_row_image"
+    description: |
+      {{ database.defaults.descriptions.binlog-row-image | flatify }}
+
+      **By default**, {{ integration.display_name }} databases use `FULL` for this setting when binary logging is enabled. 
+    doc-link: "https://cloud.google.com/sql/docs/mysql/flags?hl=en_GB&_ga=2.66402088.-705966469.1464113851#list-flags"
 
   - name: *expire-logs-days-name
     value: *expire-logs-days-value
-    description: *expire-logs-days-description
-    doc-link: https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_expire_logs_days
+    description: |
+      Specifies the amount of time, in days, before the automatic removal of binary log files.
 
-  - name: *binlog-expire-logs-seconds-name
-    value: *binlog-expire-logs-seconds-value
-    description: *binlog-expire-logs-seconds-description
-    doc-link: "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_binlog_expire_logs_seconds"
+      When automatic backups are enabled, Google Cloud SQL will perform a backup once a day during the window you specify. Google Cloud SQL will retain the last seven (7) backups. Backups are charged the [backup storage rate](https://cloud.google.com/sql/docs/mysql/pricing#2nd-gen-storage-networking-prices){:target="new"}.
+    doc-link: "https://cloud.google.com/sql/docs/mysql/replication/tips#bin-log-impact"
 
   - name: *log-bin-name
     value: *log-bin-value
-    description: *log-bin-description
-    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin"
+    description: |
+      Acts as the "on" switch for binary logging. When the **Enable binary logging** option is checked in the Google CloudSQL UI, this defines the `log_bin` parameter.
+
+
+## LOG_SLAVE_UPDATES:
+
+## It looks like in the GCS docs, if a read replica is created off of the
+## master instance, and binary logging + backups are enabled for the master,
+## that there shouldn't be any other required configuration:
+
+## 
+
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: |
+      Indicates whether updates received by a read replica from a master server should be logged in the replica's own binary log.
+
+      **By default**, when a read replica is created off of the master instance and binary logging and automatic backups are enabled for the master, this setting will be automatically defined.
+    doc-link: "https://cloud.google.com/sql/docs/mysql/replication/create-replica#create-2nd-gen"
+
+
 
 
 # -------------------------- #

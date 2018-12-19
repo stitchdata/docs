@@ -69,25 +69,25 @@ setup-steps:
 
 # https://cloud.google.com/sql/docs/mysql/configure-ip
 
-  - title: "Configure database server settings"
-    anchor: "server-settings"
+  - title: "Enable automated backups and binary logging"
+    anchor: "enable-auto-backups-binary-logging"
     content: |
+      {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
-    substeps:
-      - title: "Enable binary logging"
-        anchor: "enable-binary-logging"
-        content: |
-          Next, you need to verify that binary logging is enabled for your {{ integration.display_name }} instance.
+      {% capture server-instructions %}
+      {% include layout/inline_image.html type="right" file="integrations/cloudsql-enable-binary-logging.png" alt="" max-width="500px" %}
+      1. On the **Instance details** page in Google Cloud Platform, click the **Edit** option at the top of the page.
+      2. In the **Configuration options** section, open **Enable auto backups**.
+      3. If unchecked, check the **Automate backups** option and select a window for automated backups.
 
-          {% include layout/inline_image.html type="right" file="integrations/cloudsql-enable-binary-logging.png" alt="" max-width="500px" %}
-          1. On the **Instance details** page in Google Cloud Platform, click the **Edit** option at the top of the page.
-          2. In the **Configuration options** section, open **Enable auto backups**.
-          3. If unchecked, check the **Enable binary logging** option.
-          4. Click **Save**.
-      - title: "Define database parameters"
-        anchor: "define-database-parameters"
-        content: |
-          {% include integrations/databases/setup/binlog/vanilla-mysql.html %}
+         **Note**: This is required to use Log-based Incremental Replication.
+      3. If unchecked, check the **Enable binary logging** option.
+      4. Click **Save**.
+
+      When binary logging is enabled, Google Cloud SQL will define the required server settings using their pre-defined defaults. Refer to the <a href="#server-settings-details" data-toggle="tab">Server settings list</a> tab for explanations of these parameters and their default values. **No other configuration is required on your part.**
+      {% endcapture %}
+
+      {% include integrations/templates/configure-server-settings.html %}
 
   - title: "Create a Stitch database user"
     anchor: "db-user"
