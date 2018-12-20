@@ -21,7 +21,7 @@ sections:
   - title: "Degrees of incompatibility"
     anchor: "degrees-of-incompatibility"
     content: |
-      {% include misc/support-icons.html %}
+      {% include misc/icons.html %}
       The compatibility of any integration/destination combination falls into one of three categories: **always** compatible, **sometimes** compatible, and **never** compatible.
 
       The matrices below use the following icons to indicate the degree of incompatibility for an integration/destination combo:

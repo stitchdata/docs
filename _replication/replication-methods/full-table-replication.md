@@ -146,4 +146,4 @@ sections:
           {{ page.title }} is supported for all other database and SaaS integrations.
 ---
 {% include misc/data-files.html %}
-{% include misc/support-icons.html %}
+{% include misc/icons.html %}

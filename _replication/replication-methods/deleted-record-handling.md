@@ -35,7 +35,7 @@ sections:
           {% assign data-about = site.data.taps.extraction.replication-methods %}
           {% assign replication-methods = "full-table|key-based-incremental|log-based-incremental" | split: "|" %}
           {% assign attributes = "display-name|soft-deletes|hard-deletes" | split:"|" %}
-          {% include misc/support-icons.html %}
+          {% include misc/icons.html %}
 
           In the table below are each of Stitch's Replication Methods and the level at which each deletion method is supported.
 

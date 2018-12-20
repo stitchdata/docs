@@ -116,7 +116,7 @@ sections:
       - title: "Limitation 1: Only available for certain MySQL and PostgreSQL databases"
         anchor: "limitation-1--availability"
         content: |
-          {% include misc/support-icons.html %}
+          {% include misc/icons.html %}
           {{ page.title }} is available only for certain MySQL and PostgreSQL-backed databases. While the original implementations of MySQL and PostgreSQL databases support {{ page.title }} some cloud versions may not.
 
           The table below lists the variations of MySQL and PostgreSQL databases that Stitch supports and whether those variations support {{ page.title }}.

@@ -164,4 +164,4 @@ sections:
 
 ---
 {% include misc/data-files.html %}
-{% include misc/support-icons.html %}
+{% include misc/icons.html %}

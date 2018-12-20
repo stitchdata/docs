@@ -81,4 +81,4 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-{% include misc/more-info-icons.html %}
+{% include misc/icons.html %}
