@@ -98,6 +98,7 @@ sections:
       2. Data is contained in a table, [not a view](#limitation-6--views-are-unsupported).
       3. Modifications to records are made only using [supported event types](#limitation-2--database-event-types).
       4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation-4--structural-changes) below for more info.
+      5. You're aware that, for PostgreSQL, only [master instances](#limitation-7--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation-6--disk-space-usage-postgresql).
 
       If {{ page.title }} isn't appropriate, [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) may be a suitable alternative.
 
@@ -119,46 +120,82 @@ sections:
           {% include misc/icons.html %}
           {{ page.title }} is available only for certain MySQL and PostgreSQL-backed databases. While the original implementations of MySQL and PostgreSQL databases support {{ page.title }} some cloud versions may not.
 
-          The table below lists the variations of MySQL and PostgreSQL databases that Stitch supports and whether those variations support {{ page.title }}.
+          In the table below are the MySQL and PostgreSQL databases Stitch supports and whether {{ page.title }} can be used in Stitch.
 
-          Additionally, note that:
+          - {{ supported | replace:"TOOLTIP","Supported" }} indicates that if the database/instance type meets the **Minimum version** requirement, {{ page.title }} can be used in Stitch.
 
-          1. The table below only indicates whether a **master** database instance supports {{ page.title }}.
-          2. Your database may need to be running a specific database version to have the configuration options required to use {{ page.title }} in Stitch.
+          - {{ not-supported | replace:"TOOLTIP","Not supported" }} indicates that the database/instance type cannot be used in Stitch, even if the **Minimum version** requirement is met. This may be due to:
 
-          **Refer to the documentation for the database for configuration requirements.**
+              - The provider not having support for binary logging (MySQL) or logical replication (PostgreSQL), which is what Stitch uses to perform {{ page.title }}.
+              - The provider not allowing server settings to be configured in the manner Stitch requires. Refer to the documentation for the database for configuration requirements.
+              - The provider not allowing binary logging on read replicas.
+
+              **Note**: If public-facing information about the lack of support is available, a link to it will display next to the {{ not-supported | replace:"TOOLTIP","Not supported" }} icon.
 
           {% assign binlog-databases = "mysql|postgres" | split:"|" %}
+          {% assign binlog-support = "master-instance|read-replica|minimum-binlog-version" | split:"|" %}
           {% assign all-databases = site.database-integrations | where:"input",true %}
 
-          <table class="attribute-list">
           {% for binlog-database in binlog-databases %}
           {% assign databases = all-databases | where:"db-type",binlog-database | sort: "title" %}
+
+          #### Support for {{ binlog-database | replace:"mysql","MySQL" | replace:"postgres","PostgreSQL" }} databases
+
+          <table class="attribute-list">
           <tr>
-          <td>
-          <strong>{{ binlog-database | replace:"mysql","MySQL" | replace:"postgres","PostgreSQL" | append: "-backed databases" }}</strong>
+          <td width="35%; fixed" align="right">
           </td>
-          <td>
-          {% if forloop.first == true %}<strong>{{ page.title }} Support</strong>{% endif %}
+          {% for support-type in binlog-support %}
+          <td class="attribute-description">
+          <strong>{{ support-type | remove:"-binlog" | replace:"-"," " | capitalize }}</strong>
+          {% if support-type == "minimum-binlog-version" %}
+          {{ info-icon | replace:"TOOLTIP","The minimum database version required to use Log-based Incremental Replication." }}
+          {% endif %}
           </td>
+          {% endfor %}
           </tr>
           {% for database in databases %}
           <tr>
-          <td>
+          <td width="35%; fixed" align="right">
           <a href="{{ database.url | prepend: site.baseurl }}">{{ database.title }}</a>
           </td>
-          <td>
-          {% case database.binlog-replication %}
+          {% for support-type in binlog-support %}
+          <td class="attribute-description">
+          {% case support-type %}
+          {% when 'minimum-binlog-version' %}
+
+          {% case database.replication-support.minimum-binlog-version %}
+          {% when 'n/a' %}
+          {{ not-applicable | replace:"TOOLTIP","Not applicable" }}
+          {% else %}
+          {{ database.replication-support[support-type] }}
+          {% endcase %}
+
+          {% else %}
+
+          {% case database.replication-support[support-type]supported %}
           {% when true %}
-          Supported {{ supported | replace:"TOOLTIP","Log-based Incremental Replication is supported for this database." }}
+          {{ supported | replace:"TOOLTIP","Log-based Incremental Replication is supported." }}
+
           {% when false %}
-          Unsupported {{ not-supported | | replace:"TOOLTIP","Log-based Incremental Replication is not supported for this database."}}
+          {% if database.replication-support[support-type]reason %}
+          {{ not-supported | replace:"TOOLTIP",database.replication-support[support-type]reason }}
+          {% else %}
+          {{ not-supported | replace:"TOOLTIP","Log-based Incremental Replication is not supported." }}
+          {% endif %}
+
+          {% if database.replication-support[support-type]doc-link %}
+           (<a href="{{ database.replication-support[support-type]doc-link | flatify }}">link</a>)
+          {% endif %}
+          {% endcase %}
+
           {% endcase %}
           </td>
+          {% endfor %}
           </tr>
           {% endfor %}
-          {% endfor %}
           </table>
+          {% endfor %}
 
       - title: "Limitation 2: Only works with specific database event types"
         anchor: "limitation-2--database-event-types"
@@ -180,19 +217,19 @@ sections:
         content: |
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
-          Structure changes can include adding new fields, removing fields, changing a data type, etc. Resetting the table is required due to how messages in binary logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+          Structural changes can include adding new columns, removing columns, changing a data type, etc. Resetting the table is required due to how messages in binary logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
           {{ site.data.errors.database-extraction.mysql.raw-error.schema-violation | lstrip | rstrip }}
           ```
 
-          For this reason, Stitch recommends using {{ page.title }} with tables with structures that don't change frequently.
+          For this reason, Stitch recommends using {{ page.title }} with tables that have structures that don't change frequently.
 
           ##### Schema violation errors, explained {#schema-violation-errors}
 
-          Messages in binary logs are ordinal and don't contain field information. This means that field values in log messages are in the same order as the fields in the source table, but the messages don't contain data about which values belong to each field.
+          Messages in binary logs are ordinal and don't contain field information. This means that column values in log messages are in the same order as the columns in the source table, but the messages don't contain data about which values belong to each column.
 
-          Because of this and [how extraction is performed using {{ page.title }}](#how-log-based-incremental-replication-works), changes in structure will cause extraction errors.
+          Because of this and [how extraction is performed using {{ page.title }}](#how-log-based-incremental-replication-works), changes in a table's structure will cause extraction errors.
 
           For example, consider this table:
 
@@ -225,9 +262,9 @@ sections:
 
           Stitch's MySQL and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
 
-          As {{ page.title }} is a seamless process, an extraction error for any one table in a replication job will disrupt replication from any other tables using {{ page.title }}.
+          If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper columns based on the ordinal set when compared to the expected schema that was previously detected.
 
-          If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper fields based on the ordinal set when compared to the expected schema that was previously detected.
+          As {{ page.title }} is a seamless process, an extraction error for any one table in a replication job will disrupt replication from any other tables using {{ page.title }}.
 
           Let's look at an example. Here's the same table from before, now with a new `age` column:
 
@@ -270,7 +307,7 @@ sections:
       - title: "Limitation 5: Logs can age out and stop replication (MySQL)"
         anchor: "limitation-5--log-retention-mysql"
         content: |
-          {% include note.html type="single-line" content="This section is applicable only to **MySQL**-based database integrations." %}
+          {% include note.html type="single-line" content="This section is applicable only to **MySQL**-backed database integrations." %}
 
           Binary log files, by default, are not stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
 
@@ -286,12 +323,12 @@ sections:
 
           1. **The binary log file is purged before historical replication completes**. This is because the max LSN is saved at the start of historical replication jobs, so Stitch knows where to begin reading from the binary logs after historical data is replicated.
           2. **The log retention settings (`expire_logs_days` or `binlog_expire_logs_seconds`) are set to too short of a time period**. Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
-          3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes).
+          3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
       - title: "Limitation 6: Will increase source disk space usage (PostgreSQL)"
         anchor: "limitation-6--disk-space-usage-postgresql"
         content: |
-          {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
+          {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-backed database integrations." %}
 
           PostgreSQL {{ page.title }} uses PostgreSQL's logical replication feature. Logical replication uses a replication slot, which represents a stream of changes made to a given database.
 
@@ -299,11 +336,11 @@ sections:
 
           > Replication slots persist across crashes and know nothing about the state of their consumer(s). They will prevent removal of required resources even when there is no connection using them. This consumes storage because neither required WAL nor required rows from the system catalogs can be removed by VACUUM as long as they are required by a replication slot.
 
-          This means that binary log files (Write Ahead Log (WAL), for PostgreSQL) aren't removed from the replication slot until they're consumed by a connection. In this case, until Stitch reads them during a replication job.
+          This means that binary log files (Write Ahead Log (WAL), for PostgreSQL) aren't removed from the replication slot until they're consumed. In this case, until Stitch reads them during a replication job.
 
-          While Stitch will issue a `flush_lsn` command after messages have been an increase in disk space usage is to be expected when using {{ page.title }} due to how PostgreSQL replication slots function. The amount of disk space usage depends on the number of updates made to the database, how quickly Stitch proceeds with replication, and whether any errors that prevent replication arise.
+          While Stitch will issue a `flush_lsn` command after messages have been read, an increase in disk space usage is to be expected when using {{ page.title }} due to how PostgreSQL replication slots function. The amount of disk space usage depends on the number of updates made to the database, how quickly Stitch proceeds with replication, and whether any errors that prevent replication arise.
 
-          The greatest increase in disk space usage typically occurs during the switch from `SELECT`-based replication to consuming the database's binary logs. You will see a spike in disk space usage during this time, which typically levels off over time.
+          The greatest increase in disk space usage typically occurs during the switch from historical replication (`SELECT`-based replication) to consuming the database's binary logs. Disk space usage may spike, but it typically levels off over time.
 
           **Note**: If you decide to permanently disable Log-based Incremental Replication for your PostgreSQL database, remove the replication slot to prevent further unnecessary disk space consumption.
 
@@ -312,13 +349,13 @@ sections:
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
           
-          For PostgreSQL-based databases, Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
+          For PostgreSQL-backed databases, Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
 
           If you're concerned about the increase in [disk space usage](limitation-6--disk-space-usage-postgresql) and the impact this may have, consider connecting a read replica and using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) instead.
 
           Otherwise, we recommend monitoring the instance's disk space usage during the first few replication jobs to minimize any negative impact on your database's performance.
 
-      - title: "Limitation 8: Multiple connections to a replication slot can cause data loss (PostgreSQL)"
+      - title: "Limitation 8: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
         anchor: "limitation-8--replication-slot-data-loss-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
@@ -348,11 +385,11 @@ sections:
       For setup instructions, refer to the documentation for your database:
 
       {% assign all-databases = site.database-integrations | where:"input",true %}
-      {% assign only-binlog-databases = all-databases | where:"binlog-replication",true | sort: "title" %}
+      {% assign only-binlog-databases = all-databases | where:"replication-support.master-instance.supported",true | sort: "title" %}
 
       {% for database in only-binlog-databases %}
       - [{{ database.title }}]({{ database.url | prepend: site.baseurl }})
       {% endfor %}
 ---
 {% include misc/data-files.html %}
-{% include misc/support-icons.html %}
+{% include misc/icons.html %}
