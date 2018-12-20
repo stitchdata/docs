@@ -44,9 +44,18 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-binlog-replication: false
-read-replica-binlog: false
-view-replication: true
+replication-support:
+  minimum-binlog-version: "n/a"
+  master-instance:
+    supported: false
+    reason: &not-supported "Google CloudSQL doesn't currently support logical replication."
+    doc-link: &not-supported-link "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"
+  read-replica:
+    supported: false
+    reason: *not-supported
+    doc-link: *not-supported-link
+
+  view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

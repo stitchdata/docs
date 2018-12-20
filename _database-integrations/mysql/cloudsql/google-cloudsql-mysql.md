@@ -43,9 +43,15 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-binlog-replication: true
-read-replica-binlog: false
-view-replication: false
+replication-support:
+  minimum-binlog-version: "5.6.2"
+  master-instance:
+    supported: true
+  read-replica:
+    supported: false
+    reason: "Google CloudSQL MySQL doesn't support binary logging on read replicas."
+
+  view-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #

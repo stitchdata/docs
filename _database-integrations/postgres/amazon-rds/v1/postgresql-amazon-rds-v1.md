@@ -48,9 +48,17 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-binlog-replication: true
-read-replica-binlog: false
-view-replication: true
+replication-support:
+  minimum-binlog-version: "9.4"
+  master-instance:
+    supported: true
+  read-replica:
+    supported: false
+    reason: "PostgreSQL only supports logical replication on master instances."
+    doc-link: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-7--only-supports-master-instances-postgresql" }}
+
+  view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

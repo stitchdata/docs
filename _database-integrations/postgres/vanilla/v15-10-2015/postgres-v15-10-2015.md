@@ -47,8 +47,14 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-binlog-replication: false
-view-replication: true
+replication-support:
+  minimum-binlog-version: "n/a"
+  master-instance:
+    supported: false
+  read-replica:
+    supported: false
+    
+  view-replication: true
 
 # -------------------------- #
 #    Supported Data Types    #

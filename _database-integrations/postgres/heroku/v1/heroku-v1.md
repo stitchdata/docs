@@ -47,9 +47,17 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-binlog-replication: false
-read-replica-binlog: false
-view-replication: true
+
+replication-support:
+  minimum-binlog-version: "n/a"
+  master-instance:
+    supported: false
+    reason: &not-supported "Heroku doesn't currently support logical replication."
+  read-replica:
+    supported: false
+    reason: *not-supported
+
+  view-replication: true
 
 # -------------------------- #
 #     Setup Instructions     #

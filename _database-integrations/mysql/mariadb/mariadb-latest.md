@@ -43,9 +43,14 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-binlog-replication: true
-read-replica-binlog: true
-view-replication: false
+replication-support:
+  minimum-binlog-version: "5.6.2"
+  master-instance:
+    supported: true
+  read-replica:
+    supported: true
+
+  view-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #
