@@ -36,21 +36,31 @@ versions: "n/a"
 ssh: true
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-replication-support:
-  minimum-binlog-version: "5.6.2"
-  master-instance:
-    supported: true
-  read-replica:
-    supported: true
+## Replication methods
 
-  view-replication: false
+define-replication-methods: true
+
+log-based-replication-minimum-version: "5.6.2"
+log-based-replication-master-instance: true
+log-based-replication-read-replica: true
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
+view-replication: false
+
 
 # -------------------------- #
 #      Setup Requirements    #

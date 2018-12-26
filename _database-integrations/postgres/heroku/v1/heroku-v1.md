@@ -40,24 +40,34 @@ versions: "9.3+"
 ssh: false
 ssl: true
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
+## Replication methods
 
-replication-support:
-  minimum-binlog-version: "n/a"
-  master-instance:
-    supported: false
-    reason: &not-supported "Heroku doesn't currently support logical replication."
-  read-replica:
-    supported: false
-    reason: *not-supported
+define-replication-methods: true
 
-  view-replication: true
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-master-instance-reason: &not-supported "Heroku doesn't currently support logical replication."
+
+log-based-replication-read-replica: false
+log-based-replication-read-replica-reason: *not-supported
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
+view-replication: true
+
 
 # -------------------------- #
 #     Setup Instructions     #

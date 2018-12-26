@@ -49,14 +49,23 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-replication-support:
-  master-instance:
-    supported: false
-  read-replica:
-    supported: false
+## Replication methods
 
-  view-replication: false
+define-replication-methods: false
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-read-replica: false
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: false
+
+view-replication: false
+
 
 # -------------------------- #
 #   Data types for loading   #

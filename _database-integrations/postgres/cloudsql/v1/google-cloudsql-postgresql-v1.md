@@ -37,25 +37,36 @@ versions: "9.3+"
 ssh: false
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-replication-support:
-  minimum-binlog-version: "n/a"
-  master-instance:
-    supported: false
-    reason: &not-supported "Google CloudSQL doesn't currently support logical replication."
-    doc-link: &not-supported-link "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"
-  read-replica:
-    supported: false
-    reason: *not-supported
-    doc-link: *not-supported-link
+## Replication methods
 
-  view-replication: true
+define-replication-methods: true
+
+log-based-replication-minimum-version: "n/a"
+
+log-based-replication-master-instance: false
+log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support logical replication."
+log-based-replication-master-instance-doc-link: "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"
+
+log-based-replication-read-replica: false
+# log-based-replication-read-replica-reason: *not-supported
+# log-based-replication-read-replica-reason: *not-supported-link
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
+view-replication: true
 
 # -------------------------- #
 #      Setup Requirements    #

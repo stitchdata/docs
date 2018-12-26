@@ -30,9 +30,13 @@ port: 1433
 db-type: "mssql"
 icon: /images/integrations/icons/microsoft-azure.svg
 
+## Stitch features
+
 versions: "2000 through 2016"
 ssh: true
 ssl: false
+
+## General replication features
 
 anchor-scheduling: false
 extraction-logs: false
@@ -40,14 +44,23 @@ loading-reports: false
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-replication-support:
-  master-instance:
-    supported: false
-  read-replica:
-    supported: false
-    
-  view-replication: false
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: true
+log-based-replication-read-replica: false
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
+view-replication: false
+
 
 # -------------------------- #
 #      Setup Requirements    #

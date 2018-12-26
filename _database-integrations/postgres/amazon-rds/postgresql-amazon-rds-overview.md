@@ -38,6 +38,5 @@ sections:
           {% include integrations/templates/versioning/integration-supported-features.html feature-type="databases" %}
       - content: |
           {% include replication/templates/data-types/integration-specific-data-types.html %}
-
 ---
 {% include misc/data-files.html %}

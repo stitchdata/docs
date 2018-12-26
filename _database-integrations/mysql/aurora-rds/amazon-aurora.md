@@ -16,12 +16,11 @@ show-in-menus: true
 name: "aurora-rds"
 display_name: "Aurora RDS"
 singer: true
-author: "Stitch"
-author: "Stitch"
+
 tap-name: "MySQL"
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version:
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -41,22 +40,33 @@ versions: "n/a"
 ssh: true
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-replication-support:
-  minimum-binlog-version: "5.6.2"
-  master-instance:
-    supported: true
-  read-replica:
-    supported: false
-    reason: "Amazon Aurora MySQL doesn't support binary logging on read replicas."
+## Replication methods
 
-  view-replication: true
+define-replication-methods: true
+
+log-based-replication-minimum-version: "5.6.2"
+log-based-replication-master-instance: true
+
+log-based-replication-read-replica: false
+log-based-replication-read-replica-reason: "Amazon Aurora MySQL doesn't support binary logging on read replicas."
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
+view-replication: true
+
 
 # -------------------------- #
 #      Setup Requirements    #
