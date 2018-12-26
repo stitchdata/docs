@@ -35,6 +35,9 @@ tier: "Free"
 status-url: "https://status.delighted.com/"
 icon: /images/integrations/icons/delighted.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

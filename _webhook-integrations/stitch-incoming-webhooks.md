@@ -33,6 +33,9 @@ tier: "Free"
 status-url: "http://status.stitchdata.com/"
 icon:  /images/integrations/icons/incoming-webhooks.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

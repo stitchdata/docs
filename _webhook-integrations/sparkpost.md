@@ -34,6 +34,9 @@ tier: "Free"
 status-url: "https://status.sparkpost.com/"
 icon: /images/integrations/icons/sparkpost.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

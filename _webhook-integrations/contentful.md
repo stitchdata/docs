@@ -34,6 +34,9 @@ tier: "Free"
 status-url: "http://status.contentful.com/"
 icon: /images/integrations/icons/contentful.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
