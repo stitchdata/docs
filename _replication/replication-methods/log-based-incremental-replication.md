@@ -113,6 +113,8 @@ sections:
       - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
       {% endfor %}
 
+
+## SUPPORTED DATABASES
     subsections:
       - title: "Limitation 1: Only available for certain MySQL and PostgreSQL databases"
         anchor: "limitation-1--availability"
@@ -133,7 +135,7 @@ sections:
               **Note**: If public-facing information about the lack of support is available, a link to it will display next to the {{ not-supported | replace:"TOOLTIP","Not supported" }} icon.
 
           {% assign binlog-databases = "mysql|postgres" | split:"|" %}
-          {% assign binlog-support = "master-instance|read-replica|minimum-binlog-version" | split:"|" %}
+          {% assign binlog-support = "log-based-replication-master-instance|log-based-replication-read-replica|log-based-replication-minimum-version" | split:"|" %}
           {% assign all-databases = site.database-integrations | where:"input",true %}
 
           {% for binlog-database in binlog-databases %}
@@ -147,8 +149,8 @@ sections:
           </td>
           {% for support-type in binlog-support %}
           <td class="attribute-description">
-          <strong>{{ support-type | remove:"-binlog" | replace:"-"," " | capitalize }}</strong>
-          {% if support-type == "minimum-binlog-version" %}
+          <strong>{{ support-type | remove:"log-based-" | replace:"-"," " | capitalize }}</strong>
+          {% if support-type == "log-based-replication-minimum-version" %}
           {{ info-icon | replace:"TOOLTIP","The minimum database version required to use Log-based Incremental Replication." }}
           {% endif %}
           </td>
@@ -162,30 +164,48 @@ sections:
           {% for support-type in binlog-support %}
           <td class="attribute-description">
           {% case support-type %}
-          {% when 'minimum-binlog-version' %}
+          {% when 'log-based-replication-minimum-version' %}
 
-          {% case database.replication-support.minimum-binlog-version %}
+          {% case database.log-based-replication-minimum-version %}
           {% when 'n/a' %}
           {{ not-applicable | replace:"TOOLTIP","Not applicable" }}
           {% else %}
-          {{ database.replication-support[support-type] }}
+          {{ database[support-type] }}
           {% endcase %}
 
           {% else %}
 
-          {% case database.replication-support[support-type]supported %}
+          {% case database[support-type] %}
           {% when true %}
           {{ supported | replace:"TOOLTIP","Log-based Incremental Replication is supported." }}
 
           {% when false %}
-          {% if database.replication-support[support-type]reason %}
-          {{ not-supported | replace:"TOOLTIP",database.replication-support[support-type]reason }}
+          {% if database.log-based-replication-read-replica-reason or database.log-based-replication-master-instance-reason %}
+
+          {% if database.log-based-replication-read-replica-reason %}
+          {% assign reason = database.log-based-replication-read-replica-reason %}
+          {% endif %}
+
+          {% if database.log-based-replication-master-instance-reason %}
+          {% assign reason = database.log-based-replication-master-instance-reason %}
+          {% endif %}
+
+          {{ not-supported | replace:"TOOLTIP",reason }}
           {% else %}
           {{ not-supported | replace:"TOOLTIP","Log-based Incremental Replication is not supported." }}
           {% endif %}
 
-          {% if database.replication-support[support-type]doc-link %}
-           (<a href="{{ database.replication-support[support-type]doc-link | flatify }}">link</a>)
+          {% if database.log-based-replication-read-replica-doc-link or database.log-based-replication-master-instance-doc-link %}
+
+          {% if database.log-based-replication-read-replica-doc-link %}
+          {% assign doc-link = database.log-based-replication-read-replica-doc-link %}
+          {% endif %}
+
+          {% if database.log-based-replication-master-instance-doc-link %}
+          {% assign doc-link = database.log-based-replication-master-instance-doc-link %}
+          {% endif %}
+
+           (<a href="{{ doc-link | flatify }}">link</a>)
           {% endif %}
           {% endcase %}
 
@@ -197,6 +217,8 @@ sections:
           </table>
           {% endfor %}
 
+
+## SUPPORTED EVENT TYPES
       - title: "Limitation 2: Only works with specific database event types"
         anchor: "limitation-2--database-event-types"
         content: |
@@ -212,6 +234,8 @@ sections:
 
           For example: If data in a table is modified using `ALTER`, the changes won't be written to the binary log or identified by Stitch.
 
+
+## STRUCTURAL CHANGES
       - title: "Limitation 3: Structural changes require manual intervention"
         anchor: "limitation-3--structural-changes"
         content: |
@@ -297,6 +321,7 @@ sections:
 
           Where Stitch previously detected three columns, the log messages now contain data for four columns. Because the log messages don't contain field information and are read in order, Stitch would be unable to determine what column the `15`, `9`, and `19` values are for.
 
+## VIEWS
       - title: "Limitation 4: Cannot be used with views"
         anchor: "limitation-4--views-are-unsupported"
         content: |
@@ -304,6 +329,7 @@ sections:
 
           Stitch recommends using [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}) instead, where possible.
 
+## MYSQL RETENTION PERIOD
       - title: "Limitation 5: Logs can age out and stop replication (MySQL)"
         anchor: "limitation-5--log-retention-mysql"
         content: |
@@ -325,6 +351,8 @@ sections:
           2. **The log retention settings (`expire_logs_days` or `binlog_expire_logs_seconds`) are set to too short of a time period**. Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
           3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
+
+## POSTGRES INCREASE DISK SPACE
       - title: "Limitation 6: Will increase source disk space usage (PostgreSQL)"
         anchor: "limitation-6--disk-space-usage-postgresql"
         content: |
@@ -344,6 +372,8 @@ sections:
 
           **Note**: If you decide to permanently disable Log-based Incremental Replication for your PostgreSQL database, remove the replication slot to prevent further unnecessary disk space consumption.
 
+
+## POSTGRES MASTER INSTANCE
       - title: "Limitation 7: Can only be used with a master instance (PostgreSQL)"
         anchor: "limitation-7--only-supports-master-instances-postgresql"
         content: |
@@ -355,6 +385,8 @@ sections:
 
           Otherwise, we recommend monitoring the instance's disk space usage during the first few replication jobs to minimize any negative impact on your database's performance.
 
+
+## MULTIPLE CONNECTIONS TO REPLICATION SLOT
       - title: "Limitation 8: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
         anchor: "limitation-8--replication-slot-data-loss-postgresql"
         content: |
@@ -385,7 +417,7 @@ sections:
       For setup instructions, refer to the documentation for your database:
 
       {% assign all-databases = site.database-integrations | where:"input",true %}
-      {% assign only-binlog-databases = all-databases | where:"replication-support.master-instance.supported",true | sort: "title" %}
+      {% assign only-binlog-databases = all-databases | where:"log-based-replication-master-instance",true | sort: "title" %}
 
       {% for database in only-binlog-databases %}
       - [{{ database.title }}]({{ database.url | prepend: site.baseurl }})
