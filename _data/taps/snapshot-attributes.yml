@@ -1,0 +1,106 @@
+# -------------------------- #
+#   INTEGRATION ATTRIBUTES   #
+# -------------------------- #
+
+## This file contains a list of attributes - such as availability, release status, etc -
+## that are pertinent to different integrations.
+
+## Different integration types (ex: database vs. SaaS) can have different attributes.
+
+## Variable reference:
+
+## display_name: The name of the attribute as it should display in the docs
+##
+##         name: The attribute ID, or key. This should match whatever the 
+##               variable is in the integration docs. Ex: status is used to indicate
+##               the release status of the integration.
+## 
+##     category: The category the feature is a part of. Ex: Replication.
+##
+##     doc-link: If applicable, the URL or /_data/urls.yml [link.[thing].[thing]] 
+##               value of the documentation page for the attribute. Note: If 
+##               using urls.yml, the "prepend: site.baseurl" filter must be included.
+##
+##      tooltip: If applicable, the tooltip that describes the attribute. Tooltip
+##               copy lives in _data/tooltips.yml.
+
+
+categories:
+  - name: "stitch"
+    snapshot-order: 1
+
+# -------------------------- #
+#      COMMON ATTRIBUTES     #
+# -------------------------- #
+
+common:
+  - display_name: "Release Status"
+    name: "status"
+    category: "stitch"
+    type: "string"
+
+  - display_name: "Supported By"
+    name: "certified"
+    category: "stitch"
+    tooltip: "{{ site.data.tooltips.supported-by }}"
+    type: "boolean"
+
+    truthy: "[Stitch](mailto:{{ site.support }})"
+    falsy: |
+      [Singer Community]({{ site.singer }}){:target="new"}
+
+  - display_name: "Stitch Plan"
+    name: "tier"
+    category: "stitch"
+    tooltip: "{{ site.data.tooltips.integration-availability }}"
+    type: "string"
+
+  - display_name: "Connect Availability"
+    name: "available-in-connect"
+    category: "stitch"
+    doc-link: "{{ link.connect.api | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.available-in-connect }}"
+    type: "boolean"
+
+    truthy: "Available"
+    falsy: "Unavailable"
+
+  # - display_name: "Default Replication Frequency"
+  #   name: "frequency"
+  #   category: "integration"
+  #   doc-link: "{{ link.replication.rep-frequency | prepend: site.baseurl }}"
+  #   tooltip: "{{ site.data.tooltips.replication-frequency }}"
+
+
+# -------------------------- #
+#   DATABASE INTEGRATIONS    #
+# -------------------------- #
+
+databases:
+  - display_name: "Supported Versions"
+    name: "versions"
+    category: "stitch"
+    tooltip: "{{ site.data.tooltips.supported-by }}"
+    type: "string"
+
+  - display_name: "GitHub Repository"
+    name: "repo-url"
+    category: "stitch"
+    type: "link"
+
+    link: "{{ integration.display_name }} Repository"
+
+
+# -------------------------- #
+#      SAAS INTEGRATIONS     #
+# -------------------------- #
+
+saas:
+  - display_name: "GitHub Repository"
+    name: "repo-url"
+    category: "stitch"
+    type: "link"
+
+    link: "{{ integration.display_name }} Repository"
+
+webhook:
