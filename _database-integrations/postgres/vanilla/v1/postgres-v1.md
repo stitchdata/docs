@@ -176,6 +176,8 @@ setup-steps:
   - title: "Create a replication slot"
     anchor: "create-replication-slot"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
 
   - title: "Connect Stitch"

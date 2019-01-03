@@ -116,6 +116,8 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
       - title: "Configure the database parameter group"
@@ -143,12 +145,13 @@ setup-steps:
   - title: "Create a replication slot"
     anchor: "create-replication-slot"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+
       {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
 
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
     content: |
-
       {% include shared/aws-connection-details.html %}
 
   - title: "Connect Stitch"

@@ -100,6 +100,8 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
       - title: "Configure the database parameter group"
@@ -147,6 +149,8 @@ setup-steps:
   - title: "Define the binlong retention setting"
     anchor: "define-binlog-retention-setting"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="binlog-retention-hours" %}
 
   - title: "Locate RDS connection details in AWS"

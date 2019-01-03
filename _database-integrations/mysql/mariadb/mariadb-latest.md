@@ -84,6 +84,8 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+
       {% include integrations/databases/setup/binlog/vanilla-mysql.html %}
 
   - title: "Create a Stitch database user"
@@ -98,6 +100,8 @@ setup-steps:
   - title: "Retrieve server IDs"
     anchor: "server-id"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/mysql-server-id.html %}
 
   - title: "Connect Stitch"
