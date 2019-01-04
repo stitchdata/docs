@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: FrontApp
+title: FrontApp (v1.0)
 permalink: /integrations/saas/frontapp
 tags: [saas_integrations]
 keywords: frontapp, integration, schema, etl frontapp, frontapp etl, frontapp schema
@@ -27,7 +27,7 @@ name: "frontapp"
 display_name: "FrontApp"
 
 singer: true 
-tap-name: "frontapp"
+tap-name: "FrontApp"
 repo-url: https://github.com/singer-io/tap-frontapp
 
 # this-version: "1.0"
@@ -37,12 +37,12 @@ repo-url: https://github.com/singer-io/tap-frontapp
 # -------------------------- #
 
 status: "Open Beta"
-certified: true 
+certified: false 
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free/Paid"
-status-url: ""
+tier: "Free"
+status-url: "https://www.frontstatus.com/"
 icon: /images/integrations/icons/frontapp.svg
 
 anchor-scheduling: true
@@ -75,14 +75,24 @@ setup-steps:
       4. In the **Company** section on the left side of the page, click **Plugins & API**.
       5. On the page that displays, click **API**.
       6. Click the **New Token** button.
+      7. On the **New Token** page, click the **Select Scopes** dropdown and select the type of resources you want to replicate data from.
+      8. Click **Create** to create the API token.
+
+      Keep the token handy - you'll need it in the next step to complete the setup.
+
+# Per FrontApp support on 12/18/18:
+# If you use the shared namespace, you will get analytics for all shared inboxes across all teams. If you use the private namespace, you will get analytics for private inboxes that users have marked accessible to the public API (is an individual user setting).
+# I'm not sure how this works with the Get Analtyics endpoint, since this metric seems to be team-focused.
 
   - title: "add integration"
     content: |
       4. In the **API Token** field, paste the {{ integration.display_name }} API token you generated in [Step 1](#generate-frontapp-api-token).
-      5. In the **Metric** field,
-      6. In the **Incremental Range** field, 
+      5. From the **Incremental Range** dropdown, select one of the following options:
+         - **Daily** - Data will be aggregated on a daily basis.
+         - **Hourly** - Data will be aggregated on an hourly basis.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
@@ -90,12 +100,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/frontapp
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
