@@ -55,6 +55,31 @@ common:
     tooltip: "{{ site.data.tooltips.integration-availability }}"
     type: "string"
 
+  # - display_name: "Default Replication Frequency"
+  #   name: "frequency"
+  #   category: "integration"
+  #   doc-link: "{{ link.replication.rep-frequency | prepend: site.baseurl }}"
+  #   tooltip: "{{ site.data.tooltips.replication-frequency }}"
+
+
+# -------------------------- #
+#      SINGER INTEGRATIONS   #
+# -------------------------- #
+## Attributes specific to Singer integrations.
+
+singer:
+  - display_name: "Singer GitHub Repository"
+    name: "repo-url"
+    category: "stitch"
+    type: "link"
+
+    link: |
+      {% if integration.tap-name %}
+      {{ integration.tap-name }} Repository
+      {% else %}
+      {{ integration.display_name }} Repository
+      {% endif %}
+
 ## Comment out for now, fix logic later
   # - display_name: "Connect Availability"
   #   name: "available-in-connect"
@@ -62,12 +87,6 @@ common:
   #   doc-link: "{{ link.connect.api | prepend: site.baseurl }}"
   #   tooltip: "{{ site.data.tooltips.available-in-connect }}"
   #   type: "connect"
-
-  # - display_name: "Default Replication Frequency"
-  #   name: "frequency"
-  #   category: "integration"
-  #   doc-link: "{{ link.replication.rep-frequency | prepend: site.baseurl }}"
-  #   tooltip: "{{ site.data.tooltips.replication-frequency }}"
 
 
 # -------------------------- #
@@ -81,24 +100,15 @@ databases:
     tooltip: "{{ site.data.tooltips.supported-by }}"
     type: "string"
 
-  - display_name: "GitHub Repository"
-    name: "repo-url"
-    category: "stitch"
-    type: "link"
-
-    link: "{{ integration.display_name }} Repository"
-
 
 # -------------------------- #
 #      SAAS INTEGRATIONS     #
 # -------------------------- #
 
 saas:
-  - display_name: "GitHub Repository"
-    name: "repo-url"
-    category: "stitch"
-    type: "link"
 
-    link: "{{ integration.display_name }} Repository"
+# -------------------------- #
+#     WEBHOOK INTEGRATIONS   #
+# -------------------------- #
 
 webhook:

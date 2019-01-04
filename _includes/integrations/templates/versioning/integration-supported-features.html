@@ -39,8 +39,17 @@
         {% assign snapshot-categories = site.data.taps.snapshot-attributes.categories | concat:feature-categories | sort:"snapshot-order" %}
 
         {% assign integration-attributes = site.data.taps.snapshot-attributes[include.feature-type] | compact %}
-            {% assign all-attributes = common-attributes | concat:integration-attributes %}
-                {% assign snapshot-attributes = all-attributes | concat:features %}
+
+        <!-- For Singer integrations, get the list of Singer-specific attributes -->
+            {% if integration.singer == true %}
+                {% assign singer-attributes = site.data.taps.snapshot-attributes.singer %}
+
+                {% assign all-attributes = common-attributes | concat:integration-attributes | concat: singer-attributes %}
+            {% else %}
+                {% assign all-attributes = common-attributes | concat:integration-attributes %}
+            {% endif %}
+
+            {% assign snapshot-attributes = all-attributes | concat:features %}
     {% endif %}
 
 

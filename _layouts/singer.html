@@ -41,7 +41,13 @@ layout: page
 
 
 <!-- INTEGRATION SNAPSHOT -->
-    {% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type="saas" %}
+    {% if integration.snapshot-type %}
+        {% assign snapshot-type = integration.snapshot-type %}
+    {% else %}
+        {% assign snapshot-type = "saas" %}
+    {% endif %}
+
+    {% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type=snapshot-type %}
 
 
 <!-- CONNECTION INSTRUCTIONS -->
