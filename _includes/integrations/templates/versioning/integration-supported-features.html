@@ -205,8 +205,12 @@
                                         {% endif %}
                                     {% endif %}
                                 {% endif %}
+
+
                             {% when 'link' %}
-                                <p><a href="{{ integration[attribute.name] }}">{{ attribute.link | flatify }}</a></p>
+                                <p>
+                                    <a href="{{ integration[attribute.name] }}">{{ attribute.link | flatify }}</a>
+                                </p>
                         {% endcase %}
                     </td>
 

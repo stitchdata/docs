@@ -1,5 +1,5 @@
 ---
-title: Zendesk
+title: Zendesk (v1.0)
 permalink: /integrations/saas/zendesk
 tags: [saas_integrations]
 keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema

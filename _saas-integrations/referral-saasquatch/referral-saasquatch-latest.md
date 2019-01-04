@@ -1,5 +1,5 @@
 ---
-title: Referral SaaSquatch
+title: Referral SaaSquatch (v1.0)
 permalink: /integrations/saas/referral-saasquatch
 tags: [saas_integrations]
 keywords: referral saasquatch, integration, schema, etl referral saasquatch, referral saasquatch etl, referral saasquatch schema
@@ -17,7 +17,7 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-referral-saasquatch
 
-# this-version:
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

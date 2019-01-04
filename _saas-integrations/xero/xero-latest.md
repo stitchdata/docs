@@ -1,5 +1,5 @@
 ---
-title: Xero
+title: Xero (v1.0)
 permalink: /integrations/saas/xero
 tags: [saas_integrations]
 keywords: xero, integration, schema, etl xero, xero etl, xero schema

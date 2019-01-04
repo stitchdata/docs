@@ -1,5 +1,5 @@
 ---
-title: Shippo
+title: Shippo (v1.0)
 permalink: /integrations/saas/shippo
 tags: [saas_integrations]
 keywords: shippo, integration, schema, etl shippo, shippo etl, shippo schema
@@ -17,7 +17,7 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-shippo
 
-# this-version:
+# this-version: "1.0"
 # api-version: 2016-10-25
 
 # -------------------------- #
