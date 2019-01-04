@@ -55,15 +55,13 @@ common:
     tooltip: "{{ site.data.tooltips.integration-availability }}"
     type: "string"
 
-  - display_name: "Connect Availability"
-    name: "available-in-connect"
-    category: "stitch"
-    doc-link: "{{ link.connect.api | prepend: site.baseurl }}"
-    tooltip: "{{ site.data.tooltips.available-in-connect }}"
-    type: "boolean"
-
-    truthy: "Available"
-    falsy: "Unavailable"
+## Comment out for now, fix logic later
+  # - display_name: "Connect Availability"
+  #   name: "available-in-connect"
+  #   category: "stitch"
+  #   doc-link: "{{ link.connect.api | prepend: site.baseurl }}"
+  #   tooltip: "{{ site.data.tooltips.available-in-connect }}"
+  #   type: "connect"
 
   # - display_name: "Default Replication Frequency"
   #   name: "frequency"

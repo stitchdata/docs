@@ -58,7 +58,7 @@ sections:
     content: |
       There are two types of binary log replication: Statement and row-based. Stitch uses a row-based approach, which means that when rows are modified via [a supported event type](#limitation-2--database-event-types), the entire row is written to the binary log file as a log message.
 
-      During a replication job, Stitch iterates over each message in sequence, or in the same order that the messages were written to the binary log. Data is extracted for any messages that correspond to tables that have been tracked for replication. This means that all tables using {{ page.table }} are extracted from the source database simultaneously as one seamless process.
+      During a replication job, Stitch iterates over each message in sequence, or in the same order that the messages were written to the binary log. Data is extracted for any messages that correspond to tables that have been tracked for replication. This means that all tables using {{ page.title }} are extracted from the source database simultaneously as one seamless process.
 
       To ensure only new and updated data is selected for replication, Stitch will use a binary log's Log Sequence Number (LSN) to 'bookmark' its place in a log file. This value is used to resume replicating data where a previous replication job ended.
 
@@ -83,7 +83,7 @@ sections:
         content: |
           After the historical replication of a table is complete, Stitch will read updates for the table from the database's binary logs. During ongoing replication jobs using {{ page.title }}, a few things will happen:
 
-          1. Using the maximum LSN from the previous job - in this case, the historical replication job - Stitch will begin reading log messages in the binary file. Data for tables set to replicate is extracted. 
+          1. Using the maximum LSN from the previous job - in this case, the historical replication job - Stitch begins reading log messages in the binary file. Data for tables set to replicate is extracted. 
           2. At the end of the replication job, Stitch bookmarks its place in the log file by storing its current LSN.
           3. During the **next** replication job, Stitch will resume reading data with a **greater** LSN than the LSN from the previous job.
           4. At the end of the replication job, Stitch bookmarks its place in the log file again.

@@ -1,5 +1,5 @@
 ---
-title: Selecting data to replicate
+title: Selecting Data to Replicate
 permalink: /replication/syncing-data
 keywords: syncing, sync, replicate, replication, select data, sync data, sync table, sync column
 tags: [replication]

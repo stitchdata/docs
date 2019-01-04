@@ -50,12 +50,12 @@
 
 <table class="attribute-list">
     <tr>
-        <td>
+        <td class="table-subheading">
         </td>
         {% for version in released-versions %}
             {% for doc in all-versioned-docs %}
                 {% if version.number == doc.this-version %}
-                    <td>
+                    <td class="table-subheading">
                         <strong>{{ display_name }}<br>
                         <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
                         {% if version.number == latest-version %} (latest){% endif %}
@@ -68,7 +68,7 @@
     {% for category in feature-categories %}
         {% assign features-in-category = features | where:"category",category.name %}
         <tr>
-            <td colspan="3">
+            <td colspan="3" class="table-subheading">
                 <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
             </td>
         </tr>
