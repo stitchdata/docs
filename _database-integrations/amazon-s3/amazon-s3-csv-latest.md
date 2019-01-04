@@ -468,50 +468,49 @@ setup-steps:
 replication-sections:
   - content: |
       In this section:
-        - [How  are determined](#table-schema-detection)
         - [How data types are determined](#determining-data-types)
         - [How new and updated data is identified and replicated](#incremental-replication-for-amazon-s3-csv)
         - [How Primary Keys affect loading data](#primary-keys-append-only)
 
-  - title: "Table schema detection"
-    anchor: "table-schema-detection"
-    content: |
-      Stitch's {{ integration.display_name }} integration expects the structure of a given CSV file to be stable. This means that header rows should be the same for every file included in a table's configuration.
+  # - title: "Table schema detection"
+  #   anchor: "table-schema-detection"
+  #   content: |
+  #     Stitch's {{ integration.display_name }} integration expects the structure of a given CSV file to be stable. This means that header rows should be the same for every file included in a table's configuration.
 
-      To determine a table's structure, Stitch will analyze the first **five** files returned by the table's [Search Pattern](#define-table-search-pattern). Stitch will use the header rows in these five files to determine the schema of the destination table. **Note**: If the header rows change after the fifth file, Stitch will not detect the differences.
+  #     To determine a table's structure, Stitch will analyze the first **five** files returned by the table's [Search Pattern](#define-table-search-pattern). Stitch will use the header rows in these five files to determine the schema of the destination table. **Note**: If the header rows change after the fifth file, Stitch will not detect the differences.
 
-      For example: The first five files for a configured table contain the following header rows:
+  #     For example: The first five files for a configured table contain the following header rows:
 
-      <table class="attribute-list">
-      <tr>
-      <td><strong>id</strong></td>
-      <td><strong>name</strong></td>
-      <td><strong>age</strong></td>
-      <td><strong>location</strong></td>
-      </tr>
-      </table>
+  #     <table class="attribute-list">
+  #     <tr>
+  #     <td><strong>id</strong></td>
+  #     <td><strong>name</strong></td>
+  #     <td><strong>age</strong></td>
+  #     <td><strong>location</strong></td>
+  #     </tr>
+  #     </table>
 
-      In the sixth CSV file, a new column named `active` is added, changing the schema to the following:
+  #     In the sixth CSV file, a new column named `active` is added, changing the schema to the following:
 
-      <table class="attribute-list">
-      <tr>
-      <td><strong>id</strong></td>
-      <td><strong>name</strong></td>
-      <td><strong>age</strong></td>
-      <td><strong>location</strong></td>
-      <td><strong>active</strong></td>
-      </tr>
-      </table>
+  #     <table class="attribute-list">
+  #     <tr>
+  #     <td><strong>id</strong></td>
+  #     <td><strong>name</strong></td>
+  #     <td><strong>age</strong></td>
+  #     <td><strong>location</strong></td>
+  #     <td><strong>active</strong></td>
+  #     </tr>
+  #     </table>
 
-    subsections:
-      - title: "Handling schema changes"
-        anchor: "handling-schema-changes"
-        content: |
-          Stitch's {{ integration.display_name }} works best when the header rows are consistent across the files for a given table. If the structure of the files used for a given table changes, this is what Stitch recommends:
+  #   subsections:
+  #     - title: "Handling schema changes"
+  #       anchor: "handling-schema-changes"
+  #       content: |
+  #         Stitch's {{ integration.display_name }} works best when the header rows are consistent across the files for a given table. If the structure of the files used for a given table changes, this is what Stitch recommends:
 
-          1. **Nest files in folders in {{ integration.display_name }}.** For example: `/old-files/customers.csv` and `/new-files/customers.csv`
-          2. **Add a new table configuration to the integration in Stitch.** You can add a new table in the {{ app.page-names.int-settings }} page. The new table's **Search Pattern** should match only the folder containing the updated files for the table.
-          3. **Update the old table's Search Pattern**.
+  #         1. **Nest files in folders in {{ integration.display_name }}.** For example: `/old-files/customers.csv` and `/new-files/customers.csv`
+  #         2. **Add a new table configuration to the integration in Stitch.** You can add a new table in the {{ app.page-names.int-settings }} page. The new table's **Search Pattern** should match only the folder containing the updated files for the table.
+  #         3. **Update the old table's Search Pattern**.
 
   - title: "Determining data types"
     anchor: "determining-data-types"
@@ -523,7 +522,6 @@ replication-sections:
       {% for item in integration.loading-data-types %}
       - `{{ item.name | upcase }}`{% if item.note %} - {{ item.note }}{% endif%}
       {% endfor %}
-
 
   - title: "Incremental Replication for {{ integration.display_name }}"
     anchor: "incremental-replication-for-amazon-s3-csv"
