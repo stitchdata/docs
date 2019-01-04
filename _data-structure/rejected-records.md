@@ -30,8 +30,6 @@ sections:
   - title: "The {{ rejected-records.name }} table"
     anchor: "rejected-records-table"
     content: |
-      {% include note.html type="single-line" content="**Note**: In destinations that don't allow leading underscores in object names, this table may be named `sdc_rejected`. It will still contain the same columns and data outlined below. Additionally, any `_sdc` columns listed here may be prepended with `sdc` instead of `_sdc`." %}
-
       In every integration schema created by Stitch is a table named `{{ rejected-records.name }}` which acts as a log for a particular integration's rejected records.
 
       This table contains information about why a record was rejected, the date of the rejection, and the name of the table in the integration schema that the data was destined for.

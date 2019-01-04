@@ -1,7 +1,7 @@
 # This is the schema for the Primary Keys table
 # for Azure SQL Data Warehouse destinations.
 
-name: "sdc_primary_keys"
+name: "_sdc_primary_keys"
 description: |
   Applicable only to Microsoft Azure SQL Data Warehouse destinations, the `{{ primary-keys-table.name }}` table contains a list of the tables in an integration schema and the columns those tables use as Primary Keys. Every integration schema created by Stitch will contain this table.
 

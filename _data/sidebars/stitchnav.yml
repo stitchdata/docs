@@ -112,19 +112,25 @@ all-docs:
         - title: "Replication"
           url: "{{ link.destinations.overviews.bigquery }}#replication"
 
+        - title: "Table Partitioning and Clustering"
+          url: "{{ link.destinations.storage.bigquery-partitioning }}"
+
         - title: "Limitations"
           url: "{{ link.destinations.overviews.bigquery }}#limitations"
 
         - title: "Stitch Impact on BigQuery Costs"
           url: "{{ link.destinations.overviews.bigquery-pricing }}"
 
-    - title: "Microsoft Azure"
+    - title: "Microsoft Azure SQL Data Warehouse"
       subsections:
         - title: "Overview"
           url: "{{ link.destinations.overviews.azure }}"
 
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.azure }}"
+
+        - title: "Connect to Stitch via SSH"
+          url: "{{ link.destinations.setup.azure-ssh }}"
 
         - title: "Replication"
           url: "{{ link.destinations.overviews.azure }}#replication"

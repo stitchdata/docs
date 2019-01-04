@@ -9,7 +9,7 @@ type: "mirosoft-azure"
 
 content-type: "destination-general"
 
-## The info about the sdc_primary_keys table is kept in _data/stitch/sdc-primary-keys.yml.
+## The info about the _sdc_primary_keys table is kept in _data/stitch/sdc-primary-keys.yml.
 ## This includes the table's description, its list of attributes and their descriptions, etc.
 
 
