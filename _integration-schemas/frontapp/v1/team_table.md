@@ -6,7 +6,7 @@ name: "team_table"
 doc-link: "https://dev.frontapp.com/#analytics"
 singer-schema: "https://github.com/singer-io/tap-frontapp/blob/master/tap_frontapp/schemas/team_table.json"
 description: |
-  The `{{ table.name }}` table contains a list of team member statistics since the last completed replication job through the most recent iteration of the defined [**Incremental Range**](#add-stitch-data-source) (daqy or hour).
+  The `{{ table.name }}` table contains a list of team member statistics since the last completed replication job through the most recent iteration of the defined [**Incremental Range**](#add-stitch-data-source) (day or hour).
 
   This table will include team members from all teams in your {{ integration.display_name }} account.
 
@@ -29,10 +29,6 @@ attributes:
     primary-key: true
     description: "The team member's ID."
     # foreign-key-id: "teammate-id"
-
-  - name: "teammate_id"
-    type: "integer"
-    description: ""
 
   - name: "analytics_date"
     type: "date"
@@ -103,6 +99,10 @@ attributes:
   - name: "num_sent_v"
     type: "integer"
     description: "The team member's number of sent messages for the current period."
+
+  - name: "teammate_id"
+    type: "integer"
+    description: ""
 
   - name: "teammate_p"
     type: "string"
