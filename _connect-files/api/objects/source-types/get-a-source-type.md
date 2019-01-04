@@ -43,18 +43,6 @@ examples:
       {  
          "type":"platform.hubspot",
          "current_step":1,
-         "current_step_hints":{  
-            "api":{  
-               "method":"POST",
-               "url":"/v4/sources"
-            },
-            "js":{  
-               "function":"addSource",
-               "options":{  
-                  "type":"platform.hubspot"
-               }
-            }
-         },
          "steps":[  
             {  
                "type":"form",
@@ -151,5 +139,4 @@ examples:
             }
          ]
       }
-
 ---

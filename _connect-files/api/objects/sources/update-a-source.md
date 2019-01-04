@@ -235,13 +235,7 @@ examples:
                   "type":"fully_configured",
                   "properties":[  ]
                }
-            ],
-            "current_step_hints":{
-               "api":{
-                  "method":"PUT",
-                  "url":"{{ endpoint.short-url | flatify | strip_newlines }}"
-               }
-            }
+            ]
          }
       }
   - type: "errors"

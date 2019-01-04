@@ -90,10 +90,11 @@
                                             (property-json-schema-partial "type"))
                                    "description" ""}]
       (cond (= "object" (property-json-schema-partial "type"))
-            (assoc base-converted-property
-                   "object-properties"
-                   (convert-object-properties tap-fs schema (property-json-schema-partial "properties")))
-
+            (if (nil? (property-json-schema-partial "properties"))
+              (throw (ex-info "Found object type without properties defined: " {:property-name property-name}))
+              (assoc base-converted-property
+                     "object-properties"
+                     (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))))
             (= "array" (property-json-schema-partial "type"))
             (let [items (property-json-schema-partial "items")
                   item-type (items "type")
@@ -185,7 +186,8 @@
   [input-json-schema-file]
   (try
     (let [json-schema (read-schema input-json-schema-file)]
-      (or (and (= "object" (json-schema "type"))
+      (or (and (or (= "object" (json-schema "type"))
+                   (= ["null" "object"] (json-schema "type")))
                (contains? json-schema "properties"))
           (println (format "%s is not a valid schema file" input-json-schema-file))))
     (catch Exception e
@@ -323,7 +325,9 @@
 (defn tap-fs->schema-files
   [{:keys [tap-schema-dir] :as partial-tap-fs}]
   (let [schema-files (.list tap-schema-dir)]
-    (map (partial io/file tap-schema-dir) schema-files)))
+    (->> schema-files
+         (filter (partial re-matches #".*\.json"))
+         (map (partial io/file tap-schema-dir)))))
 
 (defn tap-directory->tap-fs
   [tap-directory]
@@ -387,31 +391,32 @@
             schema-files (:tap-schemas tap-fs)]
         (doall
          (for [file schema-files :when (schema-file? file)]
-           (let [converted-schema-file (convert-schema-file tap-fs file)
-                 yaml-content          (.dump (Yaml. (doto (DumperOptions.)
-                                                       (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
-                                                       (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
-                                                       (.setExplicitStart true)
-                                                       (.setIndent 4)
-                                                       (.setIndicatorIndent 2)
-                                                       (.setPrettyFlow true)
-                                                       (.setSplitLines true)))
-                                              converted-schema-file)
-                 ;; TODO Use make logic to avoid updating unedited schemas
-                 ;; TODO Output to the properly formed
-                 ;; /opt/code/docs/_integration-schemas/<tap-name>/v<N>/<schema-name>.md
-                 target-file           (io/file (get-in parsed-args [:options
-                                                                     :output-directory])
-                                                (string/replace (.getName file)
-                                                                #".json$"
-                                                                ".md"))]
-             (println (format "Writing converted %s to %s"
-                              file
-                              target-file))
-             (spit target-file
-                   (string/replace (str yaml-content "---\n")
-                                   #"\"([^\"]+?)\":"
-                                   "$1:")))))
+           (do (println (str "Processing file: " file))
+               (let [converted-schema-file (convert-schema-file tap-fs file)
+                  yaml-content          (.dump (Yaml. (doto (DumperOptions.)
+                                                        (.setDefaultFlowStyle DumperOptions$FlowStyle/BLOCK)
+                                                        (.setDefaultScalarStyle DumperOptions$ScalarStyle/DOUBLE_QUOTED)
+                                                        (.setExplicitStart true)
+                                                        (.setIndent 4)
+                                                        (.setIndicatorIndent 2)
+                                                        (.setPrettyFlow true)
+                                                        (.setSplitLines true)))
+                                               converted-schema-file)
+                  ;; TODO Use make logic to avoid updating unedited schemas
+                  ;; TODO Output to the properly formed
+                  ;; /opt/code/docs/_integration-schemas/<tap-name>/v<N>/<schema-name>.md
+                  target-file           (io/file (get-in parsed-args [:options
+                                                                      :output-directory])
+                                                 (string/replace (.getName file)
+                                                                 #".json$"
+                                                                 ".md"))]
+              (println (format "Writing converted %s to %s"
+                               file
+                               target-file))
+              (spit target-file
+                    (string/replace (str yaml-content "---\n")
+                                    #"\"([^\"]+?)\":"
+                                    "$1:"))))))
         (when-not *interactive*
           (System/exit 0))))))
 

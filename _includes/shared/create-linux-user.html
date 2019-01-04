@@ -2,26 +2,22 @@
 {% include note.html type="single-line" content="If you aren't using an SSH tunnel, skip this step." %}
 {% endunless %}
 
-**Note:** Anything inside square brackets - `[like this]` - is something you need to define when running the commands yourself.
-
-1. To create the new user, run the following commands as `root` on your Linux server:
+1. Run the following commands as root on your Linux server to create a user named `stitch`:
 
    ```shell
-   adduser --disabled-password [stitch_username]
-   mkdir /home/[stitch_username]/.ssh
+   adduser --disabled-password stitch
+   mkdir /home/stitch/.ssh
    ```
 
-2. Next, import the Public Key into `authorized_keys`. This will ensure the Stitch user has access to the database.
-
-   Copy the entire key into the `authorized_keys` file by:
+2. Next, import the Public Key into `authorized_keys`, replacing `[PASTE KEY HERE]` with the [Stitch Public Key](#retrieve-your-public-key):
 
    ```shell
    echo "[PASTE KEY HERE]" >> /home/[stitch_username]/.ssh/authorized_keys
    ```
 
-3. Alter the permissions on the `/home/[stitch_username]` directory to allow access via SSH:
+3. Alter the permissions on the `/home/stitch` directory to allow access via SSH:
 
    ```shell
-   chown -R [stitch_username]:[stitch_username] /home/[stitch_username]
-   chmod -R 700 /home/[stitch_username]/.ssh
+   chown -R [stitch_username]:stitch /home/stitch
+   chmod -R 700 /home/stitch/.ssh
    ```

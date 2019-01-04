@@ -5,8 +5,12 @@ tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
 
 summary: "Ready to spin up a Redshift data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
+display_name: "Redshift"
 type: "redshift"
 
 # -------------------------- #
@@ -25,22 +29,22 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Create Cluster Login Credentials"
+  - title: "Create cluster login credentials"
     anchor: "create-cluster-login-credentials"
     content: |
       {% include destinations/redshift/create-cluster-login-credentials.html %}
 
-  - title: "Select Nodes & Cluster Types"
+  - title: "Select nodes and cluster types"
     anchor: "select-nodes--cluster-types"
     content: |
       {% include destinations/redshift/select-nodes-cluster-types.html %} 
 
-  - title: "Configure & Launch the {{ destination.display_name }} Cluster"
+  - title: "Configure and launch the {{ destination.display_name }} cluster"
     anchor: "configure-launch-cluster"
     content: |
       Next, you'll define the additional configuration settings for the Redshift cluster. For our purposes, we're going to leave most of the settings as-is and focus on the **Configure Networking Options** and **Security Groups** sections.
     substeps:
-      - title: "Configure Networking Options"
+      - title: "Configure networking options"
         anchor: "configure-cluster-networking-options"
         content: |
           {% include destinations/redshift/configure-cluster--networking-options.html %}
@@ -50,13 +54,13 @@ setup-steps:
         content: |
           {% include destinations/redshift/configure-cluster--define-security-group.html %}
 
-      - title: "Review & Launch the Redshift Cluster"
+      - title: "Review and launch the Redshift cluster"
         anchor: "review-launch-cluster"
         content: |
           {% include destinations/redshift/configure-cluster--review-launch.html %}
 
 
-  - title: "Configure Security & Access Settings"
+  - title: "Configure security and access settings"
     anchor: "configure-security-access-settings"
     content: |
       When the cluster creation process is complete, you can move onto editing the cluster security group's access rules.
@@ -72,24 +76,17 @@ setup-steps:
 
   - title: "create db user"
     content: |
-      {% include destinations/setup/postgresql-create-user-intro.html %}
-
-      {% include destinations/setup/redshift-postgres-permissions.html %}
-
-      ### Create the Database User {#create-the-user}
-
-      {% include destinations/setup/redshift-postgres-database-users.html %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "connect stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-      - title: "Locate the {{ destination.display_name }} Connection Details"
+      - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |
           {% include shared/aws-connection-details.html %}
-
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}

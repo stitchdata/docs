@@ -7,8 +7,6 @@ doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser201
 description: |
   The `{{ table.name }}` table contains info about accounting periods in your NetSuite instance.
 
-  {% include integrations/saas/netsuite-permission-list.html %}
-
 replication-method: "Full Table"
 primary-key: "internalId"
 abstract: false
@@ -17,4 +15,14 @@ permissions:
   - name: "Manage Accounts"
     level: "View"
     location: "Setup"
+
+attributes:
+  - name: "internalId"
+    type: "integer"
+    primary-key: true
+    description: "The accounting period ID."
+
+  - name: "Your Selected Fields"
+    description: |
+      Other fields selected by you. For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
 ---

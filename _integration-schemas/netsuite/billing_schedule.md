@@ -7,7 +7,7 @@ doc-link:
 description: |
   The `{{ table.name }}` table contains info about the accounts in your NetSuite instance.
 
-  {% include integrations/saas/netsuite-permission-list.html %}
+
 
 replication-method: "Full Table"
 primary-key: "internalId"
@@ -17,4 +17,14 @@ permissions:
   - name: "Billing Schedules"
     level: "View"
     location: "Lists"
+
+attributes:
+  - name: "internalId"
+    type: "integer"
+    primary-key: true
+    description: "The account ID."
+
+  - name: "Your Selected Fields"
+    description: |
+      Other fields selected by you.
 ---

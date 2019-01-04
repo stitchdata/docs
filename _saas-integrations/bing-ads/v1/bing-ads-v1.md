@@ -8,6 +8,7 @@ permalink: /integrations/saas/bing-ads/v1
 tags: [saas_integrations]
 keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema
 layout: singer
+input: false
 
 # -------------------------- #
 #         Tap Details        #

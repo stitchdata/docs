@@ -1,4 +1,9 @@
 ---
+# As per Brian, this table isn't currently live in the tap
+# because we encountered issues with server traffic during
+# development. That's why this isn't live in the docs.
+# We can uncomment this when/if it's addressed.
+
 # tap: "freshdesk"
 # version:
 

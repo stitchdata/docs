@@ -3,7 +3,10 @@
 ## been rejected by a destination.
 
 name: "_sdc_rejected"
-description: "This table acts as a log for a given integration's rejected records. Every integration schema created by Stitch will contain this table."
+description: |
+  This table acts as a log for a given integration's rejected records. Every integration schema created by Stitch will contain this table.
+
+  **Note**: For destinations that don't allow leading underscores in object names, this table will be named `sdc_rejected`.
 
 rejected_at: &rejected_at "_sdc_rejected_at"
 
