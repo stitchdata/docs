@@ -40,15 +40,34 @@ versions: "9.3+"
 ssh: false
 ssl: true
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-master-instance-reason: &not-supported "Heroku doesn't currently support logical replication."
+
+log-based-replication-read-replica: false
+log-based-replication-read-replica-reason: *not-supported
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: true
+
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -79,9 +98,21 @@ setup-steps:
 
       Leave this page open for now - you'll need it in the next step to complete the setup.
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

@@ -113,4 +113,9 @@ aurora-rds:
 
 create-user-command: |
   CREATE USER '[stitch_username]'@'localhost' IDENTIFIED BY '[password]';
-  GRANT SELECT, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '[stitch_username]';
+
+grant-user-select-command: |
+  GRANT SELECT ON *.* TO '[stitch_username]';
+
+grant-user-replication-command: |
+  GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '[stitch_username]';

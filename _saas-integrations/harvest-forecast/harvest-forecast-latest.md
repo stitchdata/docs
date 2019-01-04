@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Harvest Forecast
+title: Harvest Forecast (v1.0)
 permalink: /integrations/saas/harvest-forecast
 tags: [saas_integrations]
 keywords: harvest, forecast, integration, schema, etl harvest forecast, harvest forecast etl, harvest forecast schema
@@ -18,7 +18,7 @@ display_name: "Harvest Forecast"
 singer: true 
 repo-url: https://github.com/singer-io/tap-harvest-forecast
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

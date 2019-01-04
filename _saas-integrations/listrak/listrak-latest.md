@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Listrak
+title: Listrak (v1.0)
 permalink: /integrations/saas/listrak
 tags: [saas_integrations]
 keywords: listrak, integration, schema, etl listrak, listrak etl, listrak schema

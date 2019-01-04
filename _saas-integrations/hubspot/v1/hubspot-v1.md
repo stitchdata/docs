@@ -24,7 +24,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true # Stitch-supported integration
 
 historical: "30 days"

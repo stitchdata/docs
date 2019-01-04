@@ -1,5 +1,5 @@
 ---
-title: Marketo
+title: Marketo (v2.0)
 permalink: /integrations/saas/marketo
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 tags: [saas_integrations]

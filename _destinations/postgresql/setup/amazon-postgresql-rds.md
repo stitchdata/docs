@@ -59,7 +59,7 @@ setup-steps:
       - title: "Basic Details: Instance Specifications"
         anchor: "configure--specify--instance-specifications"
         content: |
-          {% include misc/more-info-icons.html %}
+          {% include misc/icons.html %}
           In the **Instance Specifications** section, you can select the licensing model, version, and more.
 
           {% capture required-configuration %}Some fields in this section must be configured a certain way to use Stitch. Required fields will be highlighted  and have a {{ notice-icon | replace:"TOOLTIP", "This field must be configured in the specified way to use Stitch." }} icon next to their name.

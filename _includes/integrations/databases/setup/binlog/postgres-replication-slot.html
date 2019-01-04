@@ -25,7 +25,7 @@ You risk losing data if multiple processes or Stitch integrations share a replic
 
        ```sql
        SELECT *
-       ROM pg_create_logical_replication_slot('stitch', 'wal2json');
+       FROM pg_create_logical_replication_slot('stitch', 'wal2json');
        ```
 
        This will create a replication slot named `stitch`.

@@ -40,15 +40,31 @@ versions: "9.3+"
 ssh: true
 ssl: true
 
+## General replication features
+
 anchor-scheduling: false
 extraction-logs: false
-loading-reports: true
+loading-reports: false
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-read-replica: false
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: true
+
 
 # -------------------------- #
 #    Supported Data Types    #
@@ -57,8 +73,6 @@ view-replication: true
 ## Some data type support & handling is specific to an integration's version.
 
 ## See _data/taps/data-types/postgres.yml
-
-binlog-replication: false
 
 # -------------------------- #
 #      Setup Requirements    #

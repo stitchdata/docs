@@ -35,6 +35,9 @@ status-url: "http://status.sendgrid.com/"
 icon: /images/integrations/icons/sendgrid.svg
 doc-link: "https://sendgrid.com/docs/API_Reference/Webhooks/event.html"
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

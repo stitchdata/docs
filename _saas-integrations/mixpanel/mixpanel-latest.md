@@ -34,7 +34,7 @@ icon: /images/integrations/icons/mixpanel.svg
 table-selection: true
 column-selection: false
 
-anchor-scheduling: false
+anchor-scheduling: true
 extraction-logs: false
 loading-reports: false
 

@@ -35,6 +35,9 @@ tier: "Free"
 status-url: "http://status.particle.io/"
 icon:  /images/integrations/icons/particle.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

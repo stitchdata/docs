@@ -14,7 +14,7 @@ layout: page
     {% if section.subsections %}
         {% for subsection in section.subsections %}
             {% if subsection.title %}
-                <h3 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h3>
+                <h3 id="{{ subsection.anchor | flatify }}">{{ subsection.title | flatify }}</h3>
             {% endif %}
 
             {{ subsection.content | flatify | markdownify }}
@@ -23,7 +23,7 @@ layout: page
             {% if subsection.sub-subsections %}
                 {% for sub-subsection in section.sub-subsections %}
                     {% if sub-subsection.title %}
-                        <h4 id="{{ sub-subsection.anchor }}">{{ sub-subsection.title | flatify }}</h4>
+                        <h4 id="{{ sub-subsection.anchor | flatify }}">{{ sub-subsection.title | flatify }}</h4>
                     {% endif %}
 
                     {{ sub-subsection.content | flatify | markdownify }}

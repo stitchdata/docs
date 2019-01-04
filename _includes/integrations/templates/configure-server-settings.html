@@ -1,3 +1,11 @@
+<!-- Different flavors of databases may not be on the same version as the DB
+that powers their backend, or their settings may be slightly different.
+
+Use the database's display name to pull the correct settings, versus just
+using the type. -->
+
+{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
+
 {% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
 
     {% if integration.name contains "rds" %}
@@ -11,13 +19,6 @@
         {% assign database-setup = database[database-name] %}
     {% endif %}
 
-<!-- Different flavors of databases may not be on the same version as the DB
-that powers their backend, or their settings may be slightly different.
-
-Use the database's display name to pull the correct settings, versus just
-using the type. -->
-
-{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
 
  <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
@@ -40,7 +41,12 @@ Ex: The copy for MySQL lives in _database-integrations/mysql.md > setup-steps, a
     </div>
 
     <div role="tabpanel" class="tab-pane" id="server-settings-details">
-        <p>In the table below are the names, required values, and descriptions of the server settings you must define.</p>
+
+        {% if database-name == 'cloudsql-mysql' %}
+            <p>In the table below are the names, descriptions, and the default values for the binary logging server settings used by {{ integration.display_name }} databases. <strong>Note:</strong> As Google Cloud SQL automatically defines these parameters, no other configuration is required on your part.</p>
+        {% else %}
+            <p>In the table below are the names, required values, and descriptions of the server settings you must define.</p>
+        {% endif %}
         <table class="attribute-list">
             <tr>
                 <td width="28%; fixed" class="attribute-name">

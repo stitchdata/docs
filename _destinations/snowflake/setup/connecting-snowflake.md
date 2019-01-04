@@ -123,6 +123,6 @@ setup-steps:
 ---
 {% assign destination = site.destinations | where:"type",page.type | first %}
 {% include misc/data-files.html %}
-{% include misc/more-info-icons.html %}
+{% include misc/icons.html %}
 
 In this tutorial, we'll walk you through spinning up your own Snowflake data warehouse and connecting it to Stitch.

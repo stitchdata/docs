@@ -35,6 +35,8 @@ tier: "Free"
 status-url: "https://twitter.com/formkeep"
 icon: /images/integrations/icons/formkeep.svg
 
+table-selection: false
+column-selection: false
 
 # -------------------------- #
 #     Integration Tables     #

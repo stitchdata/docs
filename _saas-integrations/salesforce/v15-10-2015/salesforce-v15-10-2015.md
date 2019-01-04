@@ -1,5 +1,5 @@
 ---
-title: Salesforce
+title: Salesforce (v15-10-2015)
 permalink: /integrations/saas/salesforce/v15-10-2015
 tags: [saas_integrations]
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
@@ -24,7 +24,7 @@ this-version: "15-10-2015"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 frequency: "30 minutes"
