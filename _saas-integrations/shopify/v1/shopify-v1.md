@@ -1,5 +1,5 @@
 ---
-title: Shopify (v1)
+title: Shopify (v1.0)
 permalink: /integrations/saas/shopify/v1
 tags: [saas_integrations]
 keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema

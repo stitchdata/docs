@@ -25,10 +25,7 @@ Locate the database configuration file (usually `postgresql.conf`) and define th
 
 {{ config-file-lines }}
 
-A few things to note:
-
-- `max_standby_archive_delay` and `max_standby_streaming_delay` are only applicable if you're connecting a read replica to Stitch. If you aren't connecing a read replica, you don't have to define these parameters.
-- For `max_replication_slots` and `max_wal_senders`, we're defaulting to a value of `5`. This should be sufficient **unless you have a large number of read replicas**.
+**Note**: For `max_replication_slots` and `max_wal_senders`, we're defaulting to a value of `5`. This should be sufficient unless you have a large number of read replicas connected to the master instance.
 {% endcapture %}
 
 {% include integrations/templates/configure-server-settings.html %}

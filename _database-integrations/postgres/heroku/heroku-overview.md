@@ -38,7 +38,7 @@ sections:
       - [Supported data types](#supported-data-types)
     subsections:
       - content: |
-          {% include integrations/templates/versioning/integration-supported-features.html feature-type="databases" %}
+          {% include integrations/templates/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
       - content: |
           {% include replication/templates/data-types/integration-specific-data-types.html %}
 

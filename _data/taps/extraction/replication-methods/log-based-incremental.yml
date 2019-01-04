@@ -1,0 +1,69 @@
+# --------------------------------- #
+# LOG-BASED INCREMENTAL REPLICATION #
+# --------------------------------- #
+
+# Details about Full Table Replication,
+# including its availability in integrations, what it supports,
+# and examples of how it will replicate data.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "log-based-incremental"
+display-name: "Log-based Incremental"
+documentation: "{{ link.replication.log-based-incremental | prepend: site.baseurl }}"
+
+description: "{{ site.data.tooltips.log-based-incremental-rep }}"
+availability: |
+  [Select MySQL and PostgreSQL-backed database integrations]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-1--availability" }})
+
+
+# -------------------------- #
+#    REPLICATION DETAILS     #
+# -------------------------- #
+
+view-support: |
+ [Unsupported]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-5--views-are-unsupported" }})
+
+structural-changes: |
+  [Require manual intervention]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-4--structural-changes" }})
+
+configuration-requirements: |
+  A MySQL or PostgreSQL-backed database that:
+
+  1. Supports binary (MySQL) or logical (PostgreSQL) replication
+  2. Can be configured to use Stitch's required database settings
+
+other: |
+  - Modifications to records must be made using [supported event types]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-2--database-event-types" }})
+  - Logs can age out and stop replication
+
+
+
+# -------------------------- #
+#     DELETION HANDLING      #
+# -------------------------- #
+
+# Indicates the level of support the Replication Method has
+# for soft and hard deletes.
+
+soft-deletes:
+  support: "supported"
+  icon: |
+    {{ supported | replace:"TOOLTIP","Supported"}}
+  destination: "Record will have an updated deleted flag value, if a flag is available in the source."
+
+hard-deletes:
+  support: "sometimes-supported"
+  icon: |
+    {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}
+  destination: |
+    Record will have a timestamp value in the `{{ system-column.deleted-at }}` column.
+
+    **Note**: Only deletes completed as part of a [supported event type]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-2--database-event-types" }}) will be captured.
+
+
+# -------------------------- #
+#    REPLICATION EXAMPLES    #
+# -------------------------- #

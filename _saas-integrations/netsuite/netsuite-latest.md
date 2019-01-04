@@ -34,9 +34,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 icon: /images/integrations/icons/netsuite.svg
-whitelist:
-  tables: true
-  columns: false
+
+table-selection: true
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Setup Instructions    #

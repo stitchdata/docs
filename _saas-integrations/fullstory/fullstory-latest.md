@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: FullStory
+title: FullStory (v1.0)
 permalink: /integrations/saas/fullstory
 tags: [saas_integrations]
 keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstory schema
@@ -18,7 +18,7 @@ display_name: "FullStory"
 singer: true 
 repo-url: https://github.com/singer-io/tap-fullstory
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

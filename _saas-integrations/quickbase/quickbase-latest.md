@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Quick Base
+title: Quick Base (v1.0)
 permalink: /integrations/saas/quick-base
 tags: [saas_integrations]
 keywords: quick-base, integration, schema, etl quick-base, quick-base etl, quick-base schema
@@ -19,7 +19,7 @@ display_name: "Quick Base"
 singer: true
 repo-url: https://github.com/singer-io/tap-quickbase
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

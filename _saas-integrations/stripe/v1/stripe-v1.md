@@ -7,7 +7,7 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Stripe (v1)
+title: Stripe (v1.0)
 permalink: /integrations/saas/stripe
 tags: [saas_integrations]
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema

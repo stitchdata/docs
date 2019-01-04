@@ -43,7 +43,7 @@ The tabs below contain info about the queries Stitch runs during the data syncs 
     </li>
 
 <!-- Only show this for databases where Log-based Incremental is supported -->
-    {% unless integration.binlog-replication == false %}
+    {% unless integration.log-based-replication-master-instance == false %}
         <li>
             <a href="#log-based-incremental" data-toggle="tab">Log-based Incremental</a>
         </li>
@@ -64,6 +64,8 @@ The tabs below contain info about the queries Stitch runs during the data syncs 
     <div role="tabpanel" class="tab-pane active" id="key-based-incremental">
         <h4 id="key-based-incremental--data-syncs">Data syncs for tables using Key-based Incremental</h4>
 
+        <p>Refer to the <a href="{{ link.replication.key-based-incremental | prepend: site.baseurl }}">Key-based Incremental Replication</a> documentation for more info.</p>
+
         <h5 id="key-based-incremental--historical-job">Initial (historical) replication jobs</h5>
 
             <p>During the initial replication job for a table using <strong>Key-based Incremental Replication</strong>, Stitch will replicate the table in full by running a <code>SELECT</code> query and read out of the resulting cursor in batches:</p>
@@ -80,10 +82,13 @@ The tabs below contain info about the queries Stitch runs during the data syncs 
     </div>
 
 <!-- Only show this tab for databses where Log-based Incremental is supported -->
-    {% if integration.binlog-replication == true %}
+    {% if integration.log-based-replication-master-instance == true %}
         <div role="tabpanel" class="tab-pane" id="log-based-incremental">
 
             <h4 id="log-based-incremental--data-syncs">Data syncs for tables using Log-based Incremental</h4>
+
+            <p>Refer to the <a href="{{ link.replication.log-based-incremental | prepend: site.baseurl }}">Log-based Incremental Replication</a> documentation for more info.</p>
+
             <h5 id="log-based-incremental--historical-job">Initial (historical) replication jobs</h5>
                 <p>During the initial replication job for a table using <strong>Log-based Incremental Replication</strong>, Stitch will use a <code>SELECT</code> query to retrieve all data for the table and then read out of the resulting cursor in batches:</p>
 
@@ -101,6 +106,9 @@ The tabs below contain info about the queries Stitch runs during the data syncs 
     {% if integration.db-type != "mongo" %}
         <div role="tabpanel" class="tab-pane" id="full-table">
         <h4 id="full-table--data-syncs">Data syncs for tables using Full Table</h4>
+
+            <p>Refer to the <a href="{{ link.replication.full-table | prepend: site.baseurl }}">Full Table Replication</a> documentation for more info.</p>
+
             <p>For tables using <strong>Full Table Replication</strong>, Stitch runs a single query and reads out of the resulting cursor in batches:</p>
 
             {{ extraction.data-sync-queries.full-table | markdownify }}

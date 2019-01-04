@@ -7,6 +7,8 @@ You can use a 'replace' filter to insert copy that will create a tooltip.
 Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
 
 
+<!-- Support icons -->
+
 {% capture supported %}
 <i class="fa fa-check-circle fa-lg" data-toggle="tooltip" style="color: #66cc66" aria-hidden="true" data-original-title="TOOLTIP"></i>
 {% endcapture %}
@@ -24,4 +26,21 @@ Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
 <!-- The color of this icon is Stitch grey (#999999) if used without a 'style' attribute -->
 {% capture not-applicable %}
 <i class="fa fa-circle-thin fa-lg" data-toggle="tooltip" aria-hidden="true" data-original-title="TOOLTIP"></i>
+{% endcapture %}
+
+
+<!-- Info icons -->
+
+{% capture question-icon %}
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="TOOLTIP" aria-hidden="true"></i>
+{% endcapture %}
+
+
+{% capture info-icon %}
+<i class="fa fa-info-circle fa-lg" data-toggle="tooltip" data-original-title="TOOLTIP" aria-hidden="true"></i>
+{% endcapture %}
+
+
+{% capture notice-icon %}
+<i class="fa fa-exclamation-circle fa-lg" data-toggle="tooltip" data-original-title="TOOLTIP" aria-hidden="true"></i>
 {% endcapture %}

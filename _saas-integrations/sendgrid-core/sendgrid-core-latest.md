@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SendGrid Core
+title: SendGrid Core (v1.0)
 permalink: /integrations/saas/sendgrid-core
 tags: [saas_integrations]
 keywords: sendgrid, integration, schema, etl sendgrid, sendgrid etl, sendgrid schema
@@ -18,7 +18,7 @@ display_name: "SendGrid Core"
 singer: true 
 repo-url: https://github.com/singer-io/tap-sendgrid
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

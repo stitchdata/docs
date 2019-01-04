@@ -1,6 +1,6 @@
 ---
-title: Marketo
-permalink: /integrations/saas/marketo-v1
+title: Marketo (v1.0)
+permalink: /integrations/saas/marketo/v1
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 tags: [saas_integrations]
 summary: "Connection instructions and schema details for Stitch's Marketo integration."
@@ -24,7 +24,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 historical: "1 year"

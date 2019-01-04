@@ -9,7 +9,9 @@ tags: [database_integrations]
 permalink: /integrations/databases/amazon-s3-csv
 summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
 layout: singer
+snapshot-type: "databases"
 show-in-menus: true
+no-schema: true
 
 # -------------------------- #
 #     Integration Details    #
@@ -49,9 +51,23 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: false
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: false
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-read-replica: false
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: false
+
 view-replication: false
+
 
 # -------------------------- #
 #   Data types for loading   #
@@ -138,7 +154,7 @@ requirements-list:
   - item: |
       **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
   - item: |
-      **Verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Compliant columns will persist to the destination.
+      **To verify that column names in CSV files adhere to your destination's length limit for column names**. If a column name exceeds the destination's limit, the [destination will reject the column]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Compliant columns will persist to the destination.
 
       Column name limits vary by destination:
 
@@ -452,9 +468,60 @@ setup-steps:
 replication-sections:
   - content: |
       In this section:
+        - [How data types are determined](#determining-data-types)
         - [How new and updated data is identified and replicated](#incremental-replication-for-amazon-s3-csv)
         - [How Primary Keys affect loading data](#primary-keys-append-only)
-        - [How data types are determined](#determining-data-types)
+
+  # - title: "Table schema detection"
+  #   anchor: "table-schema-detection"
+  #   content: |
+  #     Stitch's {{ integration.display_name }} integration expects the structure of a given CSV file to be stable. This means that header rows should be the same for every file included in a table's configuration.
+
+  #     To determine a table's structure, Stitch will analyze the first **five** files returned by the table's [Search Pattern](#define-table-search-pattern). Stitch will use the header rows in these five files to determine the schema of the destination table. **Note**: If the header rows change after the fifth file, Stitch will not detect the differences.
+
+  #     For example: The first five files for a configured table contain the following header rows:
+
+  #     <table class="attribute-list">
+  #     <tr>
+  #     <td><strong>id</strong></td>
+  #     <td><strong>name</strong></td>
+  #     <td><strong>age</strong></td>
+  #     <td><strong>location</strong></td>
+  #     </tr>
+  #     </table>
+
+  #     In the sixth CSV file, a new column named `active` is added, changing the schema to the following:
+
+  #     <table class="attribute-list">
+  #     <tr>
+  #     <td><strong>id</strong></td>
+  #     <td><strong>name</strong></td>
+  #     <td><strong>age</strong></td>
+  #     <td><strong>location</strong></td>
+  #     <td><strong>active</strong></td>
+  #     </tr>
+  #     </table>
+
+  #   subsections:
+  #     - title: "Handling schema changes"
+  #       anchor: "handling-schema-changes"
+  #       content: |
+  #         Stitch's {{ integration.display_name }} works best when the header rows are consistent across the files for a given table. If the structure of the files used for a given table changes, this is what Stitch recommends:
+
+  #         1. **Nest files in folders in {{ integration.display_name }}.** For example: `/old-files/customers.csv` and `/new-files/customers.csv`
+  #         2. **Add a new table configuration to the integration in Stitch.** You can add a new table in the {{ app.page-names.int-settings }} page. The new table's **Search Pattern** should match only the folder containing the updated files for the table.
+  #         3. **Update the old table's Search Pattern**.
+
+  - title: "Determining data types"
+    anchor: "determining-data-types"
+    content: |
+      To determine a column's data type, Stitch will analyze the first 1,000 lines of (up to) the first **five** files included for a given table.
+
+      Stitch's {{ integration.display_name }} integration will load data from CSV files and type it as one of the following data types:
+
+      {% for item in integration.loading-data-types %}
+      - `{{ item.name | upcase }}`{% if item.note %} - {{ item.note }}{% endif%}
+      {% endfor %}
 
   - title: "Incremental Replication for {{ integration.display_name }}"
     anchor: "incremental-replication-for-amazon-s3-csv"
@@ -603,65 +670,37 @@ replication-sections:
           {% endcapture %}
 
           {% include note.html first-line="**What column do I use as a Primary Key when querying?**" content=append-only-destinations %}
-          
-  - title: "Determining data types"
-    anchor: "determining-data-types"
-    content: |
-      To determine a column's data type, Stitch will analyze the first 1,000 lines of (up to) the first **five** files included for a given table.
-
-      Stitch's {{ integration.display_name }} integration will load data from CSV files and type it as one of the following data types:
-
-      {% for item in integration.loading-data-types %}
-      - `{{ item.name | upcase }}`{% if item.note %} - {{ item.note }}{% endif%}
-      {% endfor %}
 
 
 # -------------------------- #
 #         Schema Info        #
 # -------------------------- #
 
-schema-sections:
-  - content: |
-      In this section:
-      
-      - [Why column names may be transformed](#column-name-transformations)
-
-  - title: "Column name transformations"
-    anchor: "column-name-transformations"
+other-sections:
+  - title: "{{ integration.display_name }} table schemas"
+    anchor: "table-schemas"
     content: |
-      When loading data, Stitch may perform some light transformation on column names to ensure the names follow the destination's rules for column names. This might include removing or replacing spaces or illegal characters such as `!#*`.
+      In this section:
 
-      **Note**: Stitch will not truncate column names to make them adhere to a destination's length limit. If a column's name is too long, the destination will reject the column. Compliant columns will persist to the table.
+      - [Why column names may be transformed](#column-name-transformations)
+    subsections:
+      - title: "Column name transformations"
+        anchor: "column-name-transformations"
+        content: |
+          When loading data, Stitch may perform some light transformation on column names to ensure the names follow the destination's rules for column names. This might include removing or replacing spaces or illegal characters such as `!#*`.
 
-      In the table below are some examples of column names and how they'll be transformed to fit each destination. Hover over the {{ info-icon | replace:"TOOLTIP","" }} icon for info about the example.
+          **Note**: Stitch will not truncate column names to make them adhere to a destination's length limit. If a column's name is too long, the destination will reject the column. Compliant columns will persist to the table.
 
-      {% assign examples = site.data.dataloading.columns.column-names %}
+          For info on and examples of column name transformations, refer to the documentation for your destination type:
 
-      <table class="attribute-list">
-        <tr>
-          <td>
-          </td>
-          {% for example in examples %}
-          <td>
-            <strong>{{ example.value }}</strong><a data-toggle="tooltip" data-original-title="{{ example.description }}">{{ info-icon | replace:"TOOLTIP","" }}</a>
-          </td>
-          {% endfor %}
-        </tr>
+          {% assign destinations = site.destinations | where:"destination",true | sort:"title" %}
+
           {% for destination in destinations %}
-          <tr>
-          <td align="right" width="20%; fixed">
-            <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
-          </td>
-          {% for example in examples %}
-          <td>
-            {{ example[destination.type] }}
-          </td>
+          {% unless destination.type == "data-world" or destination.type == "amazon-s3" %}
+          - [{{ destination.title | remove:" Destination" }}]({{ destination.url | prepend: site.baseurl | append: "#column-naming" }})
+          {% endunless %}
           {% endfor %}
-        </tr>
-        {% endfor %}
-      </table>
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-{% include misc/more-info-icons.html %}
+{% include misc/icons.html %}

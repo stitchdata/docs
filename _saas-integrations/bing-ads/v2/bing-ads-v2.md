@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Bing Ads
+title: Bing Ads (v2)
 permalink: /integrations/saas/bing-ads
 tags: [saas_integrations]
 keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema
