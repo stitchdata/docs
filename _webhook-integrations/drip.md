@@ -35,6 +35,9 @@ tier: "Free"
 status-url: "https://drip.statuspage.io/"
 icon: /images/integrations/icons/drip.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

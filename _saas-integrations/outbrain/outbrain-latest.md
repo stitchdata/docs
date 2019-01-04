@@ -1,5 +1,5 @@
 ---
-title: Outbrain
+title: Outbrain (v1.0)
 permalink: /integrations/saas/outbrain
 tags: [saas_integrations]
 keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain schema
@@ -17,7 +17,7 @@ author: "Fishtown Analytics"
 author-url: http://fishtownanalytics.com/
 repo-url: https://github.com/singer-io/tap-outbrain
 
-# this-version:
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

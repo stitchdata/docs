@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: AppsFlyer
+title: AppsFlyer (v1.0)
 permalink: /integrations/saas/appsflyer
 tags: [saas_integrations]
 keywords: appsflyer, integration, schema, etl appsflyer, appsflyer etl, appsflyer schema
@@ -17,7 +17,7 @@ name: "appsflyer"
 display_name: "AppsFlyer"
 repo-url: https://github.com/singer-io/tap-appsflyer
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: GitHub 
+title: GitHub (v1.0)
 permalink: /integrations/saas/github
 tags: [saas_integrations]
 keywords: github, integration, schema, etl github, github etl, github schema
@@ -20,7 +20,7 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-github
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -81,4 +81,4 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-{% include misc/more-info-icons.html %}
+{% include misc/icons.html %}

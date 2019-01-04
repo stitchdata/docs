@@ -32,7 +32,7 @@ icon: /images/integrations/icons/intercom.svg
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
+anchor-scheduling: true
 extraction-logs: false
 loading-reports: false
 

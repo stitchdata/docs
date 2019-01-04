@@ -1,5 +1,5 @@
 ---
-title: Zendesk
+title: Zendesk (v1.0)
 permalink: /integrations/saas/zendesk
 tags: [saas_integrations]
 keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema
@@ -13,8 +13,6 @@ layout: singer
 name: "zendesk"
 display_name: "Zendesk"
 singer: true
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.zendesk.com/"
 repo-url: "https://github.com/singer-io/tap-zendesk"
 

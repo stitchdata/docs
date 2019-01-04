@@ -10,7 +10,7 @@ type: "database-integration, error"
 ---
 {% include misc/data-files.html %}
 
-{% assign errors = site.data.errors.database-extraction.mysql.errors %}
+{% assign errors = site.data.errors.database-extraction.mysql.all %}
 
 When Stitch replicates data from a MySQL-backed database, it will check for the required user permissions and database server settings. If permissions or server settings aren't properly defined, you may receive an error during the Extraction phase of the replication process. These errors will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
 
@@ -18,7 +18,7 @@ When Stitch replicates data from a MySQL-backed database, it will check for the 
 
 ## MySQL-backed databases {#mysql-databases}
 
-The errors and troubleshooting steps in this article are applicable to the following integrations:
+The errors and troubleshooting steps in this article are applicable to the following database integrations:
 
 {% assign all-mysql-databases = site.database-integrations | where:"db-type","mysql" %}
 

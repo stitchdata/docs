@@ -22,7 +22,9 @@ log-based-incremental:
       - name: "is-deleted"
     examples:
       - job: "initial"
-        source: |
+        source: &initial-source |
+          A table contains three records: `id: 1`, `id: 2`, and `id: 3`.
+        extraction: |
           Stitch uses `SELECT` replication to replicate the table in full.
         destination: |
           Stitch loads the table in full.
@@ -46,11 +48,13 @@ log-based-incremental:
 
       - job: "second"
         source: |
-          Records `1` and `3` are soft deleted (`is_deleted: true`).
+          Records `1` and `3` are soft deleted (`is_deleted: true`) using an `UPDATE` event.
 
-          After the initial replication job, Stitch will switch to using the database's binary log files for replication and its position in the binary log as a Replication Key, or bookmark. 
+          As `UPDATE` is a supported event type for Log-based Replication, log messages describing the modified `is_deleted` values for records `1` and `3` are written to the database's binary log.
+        extraction: |
+          After the historical replication job, Stitch will read updates for the table from the database's binary logs.
 
-          The binary log will contain an entry for updating the `is_deleted` values for records `1` and `3`, which Stitch will detect and replicate.
+          Stitch reads the log messages for records `1` and `3` and replicates the updated records.
         destination: |
           The `is_deleted` and `updated_at` values are updated for records records `1` and `3`.
         tables:
@@ -93,7 +97,8 @@ log-based-incremental:
       - name: "_sdc_deleted_at"
     examples:
       - job: "initial"
-        source: |
+        source: *initial-source
+        extraction: |
           Stitch uses `SELECT` replication to replicate the table in full.
         destination: |
           Stitch loads the table in full.
@@ -113,11 +118,13 @@ log-based-incremental:
             records: *binlog-hard-initial-table
       - job: "second"
         source: |
-          Record `2` is hard deleted.
+          Record `2` is hard deleted using a `DELETE` event.
 
-          After the initial replication job, Stitch will switch to using the database's binary log files for replication and its position in the binary log as a Replication Key, or bookmark. 
+          As `DELETE` is a supported event type for Log-based Replication, log messages describing the delete of record `2` are written to the database's binary log.
+        extraction: |
+          After the historical replication job, Stitch will read updates for the table from the database's binary logs.
 
-          If the record is deleted using a command that is recorded by the binary log, the log file will contain an entry for record `2`'s deletion. Stitch will detect and replicate the updated record.
+          Stitch reads the log message for record `2` and identifies the record as deleted.
         destination: |
           Record `2` will remain in the table, but have a timestamp in the `{{ system-column.deleted-at }}` column indicating when the deletion took place.
         tables:
@@ -166,8 +173,15 @@ key-based-incremental:
       - name: "is-deleted"
     examples:
       - job: "initial"
-        source: "Stitch replicates the entire table, saving `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value."
-        destination: "Stitch loads the entire table in full."
+        source: *initial-source
+        extraction: |
+          Depending on the type of integration, the initial extraction will vary slightly:
+
+          - **Database integration**: Stitch replicates the table in full.
+          - **SaaS integration**: Stitch uses the **Start Date** defined in the {{ app.page-names.int-settings }} as the initial Replication Key (`updated_at`) value. Records with an `updated_at` value greater than or equal to the Start Date are replicated.
+          
+          **For all integrations**, Stitch saves `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value.
+        destination: "Stitch loads the table."
         tables:
           - location: "source"
             records: &key-soft-initial-source-table
@@ -187,10 +201,8 @@ key-based-incremental:
             records: *key-soft-initial-source-table
 
       - job: "second"
-        source: |
-          Records `1` and `3` are soft deleted (`is_deleted: true`). The Replication Key value (`updated_at`) is updated.
-
-          Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`.
+        source: "Records `1` and `3` are soft deleted (`is_deleted: true`). The Replication Key value (`updated_at`) is updated."
+        extraction: "Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`."
         destination: "The `is_deleted` and `updated_at` values are updated for records `1` and `3`."
         tables:
           - location: "source"
@@ -230,8 +242,15 @@ key-based-incremental:
       - name: "updated-at"
     examples:
       - job: "initial"
-        source: "Stitch replicates the entire table, saving `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value."
-        destination: "Stitch loads the entire table in full."
+        source: *initial-source
+        extraction: |
+          Depending on the type of integration, the initial extraction will vary slightly:
+
+          - **Database integration**: Stitch replicates the table in full.
+          - **SaaS integration**: Stitch uses the **Start Date** defined in the {{ app.page-names.int-settings }} as the initial Replication Key value. Records with a Replication Key value greater than or equal to the Start Date are replicated.
+
+          **For all integrations**, Stitch saves `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value.
+        destination: "Stitch loads the table."
         tables:
           - location: "source"
             records: &key-hard-initial-source-table
@@ -248,10 +267,8 @@ key-based-incremental:
             records: *key-hard-initial-source-table
 
       - job: "second"
-        source: |
-          Before the second job begins, record `2` is hard deleted and removed entirely from the source. Records `1` and `3` are updated.
-
-          During the job, Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`.
+        source: "Before the second job begins, record `2` is hard deleted and removed entirely from the source. Records `1` and `3` are updated."
+        extraction: "Stitch replicates all records with an `updated_at` value `>= 2018-07-27 12:07:00`."
         destination: |
           The `updated_at` values for records `1` and `3` are updated.
 
@@ -294,7 +311,8 @@ full-table:
       - name: "is-deleted"
     examples:
       - job: "initial"
-        source: "Stitch replicates the entire table."
+        source: *initial-source
+        extraction: "Stitch replicates the entire table."
         destination: "Stitch loads the entire table in full."
         tables:
           - location: "source"
@@ -313,7 +331,8 @@ full-table:
 
       - job: "second"
         source: |
-          Records `1` and `3` are soft deleted (`is_deleted: true`). Stitch replicates the entire table.
+          Records `1` and `3` are soft deleted (`is_deleted: true`).
+        extraction: "Stitch replicates the entire table."
         destination: |
           Stitch overwrites the table in the destination, resulting in the `is_deleted` values for records `1` and `3` being updated.
         tables:
@@ -351,7 +370,8 @@ full-table:
       - name: "name"
     examples:
       - job: "initial"
-        source: "Stitch replicates the entire table."
+        source: *initial-source
+        extraction: "Stitch replicates the entire table."
         destination: |
           Stitch loads the table in full.
         tables:
@@ -370,10 +390,8 @@ full-table:
             records: *full-hard-initial-source-table
 
       - job: "second"
-        source: |
-          Before the second job begins, record `2` is hard deleted and removed entirely from the source.
-
-          Stitch replicates the table in full.
+        source: "Before the second job begins, record `2` is hard deleted and removed entirely from the source."
+        extraction: "Stitch replicates the table in full."
         destination: |
           Stitch deletes and recreates the table in a single transaction, loading the replicated table in full.
         tables:
@@ -401,7 +419,8 @@ full-table:
       - name: "name"
     examples:
       - job: "initial"
-        source: "Stitch replicates the entire table."
+        source: *initial-source
+        extraction: "Stitch replicates the entire table."
         destination: |
           Stitch loads the table in full.
         tables:
@@ -422,8 +441,7 @@ full-table:
       - job: "second"
         source: |
           Before the second job begins, record `2` is hard deleted and removed entirely from the source.
-
-          Stitch replicates the table in full.
+        extraction: "Stitch replicates the table in full."
         destination: |
           Stitch appends the replicated data to the end of the table in the destination. In this case, records `1` and `3` would be appended.
         tables:

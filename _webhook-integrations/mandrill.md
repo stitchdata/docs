@@ -38,6 +38,9 @@ icon: /images/integrations/icons/mandrill.svg
 
 setup-name: "Incoming Webhooks"
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
