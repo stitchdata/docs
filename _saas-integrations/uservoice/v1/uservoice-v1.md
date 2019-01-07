@@ -31,9 +31,9 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: https://status.uservoice.com/
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
 
 # -------------------------- #
 #      Setup Instructions    #

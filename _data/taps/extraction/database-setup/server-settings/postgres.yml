@@ -75,15 +75,15 @@ postgresql:
     description: *max-wal-senders-description
     doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#RUNTIME-CONFIG-REPLICATION-SENDER"
 
-  - name: *max-standby-archive-name
-    value: *max-standby-archive-value
-    description: *max-standby-archive-description
-    doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY"
+  # - name: *max-standby-archive-name
+  #   value: *max-standby-archive-value
+  #   description: *max-standby-archive-description
+  #   doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY"
 
-  - name: *max-standby-streaming-name
-    value: *max-standby-streaming-value
-    description: *max-standby-streaming-description
-    doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY"
+  # - name: *max-standby-streaming-name
+  #   value: *max-standby-streaming-value
+  #   description: *max-standby-streaming-description
+  #   doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY"
 
 # -------------------------- #
 #      CLOUDSQL SETTINGS     #
@@ -116,10 +116,10 @@ postgresql-rds:
     value: *max-wal-senders-value
     description: *max-wal-senders-description
 
-  - name: *max-standby-archive-name
-    value: *max-standby-archive-value
-    description: *max-standby-archive-description
+  # - name: *max-standby-archive-name
+  #   value: *max-standby-archive-value
+  #   description: *max-standby-archive-description
 
-  - name: *max-standby-streaming-name
-    value: *max-standby-streaming-value
-    description: *max-standby-streaming-description
+  # - name: *max-standby-streaming-name
+  #   value: *max-standby-streaming-value
+  #   description: *max-standby-streaming-description

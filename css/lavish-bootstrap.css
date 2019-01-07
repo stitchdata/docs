@@ -3308,6 +3308,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs {
   border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
 }
 .nav-tabs > li {
   float: left;
@@ -3316,19 +3317,20 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li > a {
   margin-right: 2px;
   line-height: 1.428571429;
-  border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
 .nav-tabs > li > a:hover {
-  border-color: #bac9c2 #bac9c2 #dddddd;
+  border-color: transparent;
+  border-bottom: 3px solid #999999;
+  background-color: transparent;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
   color: #4aadd6;
   background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-bottom-color: transparent;
+  border-color: transparent;
+  border-bottom: 3px solid #FFCC00;
   cursor: default;
 }
 .nav-tabs.nav-justified {

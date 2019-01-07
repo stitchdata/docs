@@ -37,14 +37,35 @@ versions: "9.3+"
 ssh: false
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "n/a"
+
+log-based-replication-master-instance: false
+log-based-replication-master-instance-reason: "Google CloudSQL doesn't currently support logical replication."
+log-based-replication-master-instance-doc-link: "https://groups.google.com/forum/#!topic/google-cloud-sql-discuss/md_7Rq3LgB0"
+
+log-based-replication-read-replica: false
+# log-based-replication-read-replica-reason: *not-supported
+# log-based-replication-read-replica-reason: *not-supported-link
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: true
 
 # -------------------------- #
@@ -74,7 +95,7 @@ setup-steps:
   - title: "Locate database connection details"
     anchor: "locate-database-connection-details"
     content: |
-      In this step, you'll locate the {{ integration.display_name }}'s IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
+      In this step, you'll locate the {{ integration.display_name }} database's IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
 
       {% include shared/google-cloud-platform/locate-database-details.html %}
 
@@ -85,9 +106,21 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

@@ -1,5 +1,5 @@
 ---
-title: Salesforce
+title: Salesforce (v1.0)
 permalink: /integrations/saas/salesforce/
 tags: [saas_integrations]
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
@@ -327,4 +327,4 @@ schema-sections:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-{% include misc/more-info-icons.html %}
+{% include misc/icons.html %}

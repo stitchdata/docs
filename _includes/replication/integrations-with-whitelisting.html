@@ -1,75 +1,97 @@
-{% include misc/support-icons.html %}
-{% include misc/more-info-icons.html %}
+<!-- This file contains a tab for each type of integration,
+    and a table listing table/column selection support for each of
+    Stitch's integrations. -->
 
-<table class="attribute-list">
-	<thead>
-		<tr>
-			<th style="vertical-align: middle; align: center">
-				Integration
-			</th>
-			<th style="vertical-align: middle" align="center">
-				<center>Databases{{ question-icon | replace:"TOOLTIP"," This column is only applicable to database integrations, as tables are considered the top-most level in SaaS integrations." }}</center>
-			</th>
-			<th style="vertical-align: middle" align="center">
-				<center>Tables</center>
-			</th>
-			<th style="vertical-align: middle" align="center">
-				<center>Columns</center>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td style="vertical-align: middle">
-				<a href="{{ site.baseurl }}/integrations/databases/">Database Integrations</a>
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ supported | replace: "TOOLTIP","Whitelisting databases is supported for database integrations." }}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ supported | replace: "TOOLTIP","Whitelisting tables is supported for database integrations." }}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ supported | replace: "TOOLTIP","Whitelisting columns is supported for database integrations." }}
-			</td>
-		</tr>
-		<tr>
-			<td style="vertical-align: middle">
-				<a href="{{ site.baseurl }}/integrations/databases/mongodb">MongoDB</a>{{ question-icon | replace:"TOOLTIP","Field whitelisting is unsupported for Mongo, but Stitch syncs all fields in a document by default." }}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ supported | replace: "TOOLTIP","Whitelisting databases is supported for Mongo integrations." }}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ supported | replace: "TOOLTIP","Whitelisting collections is supported for Mongo integrations." }}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ not-supported | | replace: "TOOLTIP","Whitelisting fields is not supported for Mongo integrations."}}
-			</td>
-		</tr>
-	{% assign saas-integrations = site.saas-integrations | sort: display_name %}
-	{% for integration in saas-integrations %}
-		{% if integration.whitelist.tables == true %}
-		<tr>
-			<td valign="middle" markdown="span">
-				[{{ integration.display_name }} {% if integration.this-version %}(v{{ integration.this-version }}){% endif %}]({{ integration.url | prepend: site.baseurl }})
+{% include misc/icons.html %}
+{% assign integration-types = "database|saas|webhook" | split:"|" %}
 
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ not-applicable | replace:"TOOLTIP","Whitelisting databases is not applicable to SaaS integrations." }}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{{ supported | replace:"TOOLTIP", "Whitelisting tables is supported for this SaaS integration."}}
-			</td>
-			<td style="vertical-align: middle" align="center">
-				{% if integration.whitelist.columns == true %}
-					{{ supported | replace:"TOOLTIP", "Whitelisting columns is supported for this SaaS integration." }}
-				{% elsif integration.whitelist.columns == false %}
-					{{ not-supported | replace:"TOOLTIP", "Whitelisting columns is not supported for this SaaS integration." }}
-				{% endif %}
-			</td>
-		</tr>
-		{% endif %}
-	{% endfor %}
-	</tbody>
-</table>
+
+<ul id="profileTabs" class="nav nav-tabs">
+  {% for integration-type in integration-types %}
+    {% if forloop.first == true %}
+      <li class="active">
+    {% else %}
+      <li>
+    {% endif %}
+
+      <a href="#{{ integration-type | append: "-integrations-data-selection" }}" data-toggle="tab">{{ integration-type | capitalize }} integrations</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<div class="tab-content">
+  {% assign selection-types = "table-selection|column-selection" | split: "|" %}
+
+  {% for integration-type in integration-types %}
+    {% case integration-type %}
+      {% when 'database' %}
+        {% assign integrations = site.database-integrations | where:"input", true | sort:"title" %}
+
+        {% capture tab-copy %}
+        The table and column selection support for each of Stitch's database integrations.
+        {% endcapture %}
+
+      {% when 'saas' %}
+        {% assign all-integrations = site.saas-integrations | where:"input", true | sort:"title" %}
+          {% assign integrations = all-integrations | where_exp:"integration","integration.name != 'import-api'" %}
+
+          {% capture tab-copy %}
+          The table and column selection support for each of Stitch's SaaS integrations.
+          {% endcapture %}
+
+      {% when 'webhook' %}
+        {% assign all-integrations = site.webhook-integrations | where:"input", true | sort:"title" %}
+          {% assign integrations = all-integrations | where_exp:"integration","integration.name != 'incoming-webhooks'" %}
+
+          {% capture tab-copy %}
+          Table and column selection is not available for Stitch's webhook integrations. By default, all data sent to Stitch in a webhook message will be loaded to your destination. Refer to the webhook provider's documentation for info about possible attributes.
+          {% endcapture %}
+    {% endcase %}
+
+    {% if forloop.first == true %}
+      <div role="tabpanel" class="tab-pane active" id="{{ integration-type | append: "-integrations-data-selection" }}">
+    {% else %}
+      <div role="tabpanel" class="tab-pane" id="{{ integration-type | append: "-integrations-data-selection" }}">
+    {% endif %}
+
+      {{ tab-copy }}
+
+        <table class="attribute-list">
+          <tr>
+            <td width="35%; fixed" align="right">
+            </td>
+            {% for selection-type in selection-types %}
+              <td class="attribute-description">
+                <strong>{{ selection-type | capitalize | replace:"-"," " }}</strong>
+              </td>
+            {% endfor %}
+          </tr>
+
+          {% for integration in integrations %}
+            <tr>
+              <td width="35%; fixed" align="right">
+                <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title }}</a>
+              </td>
+
+              {% for selection-type in selection-types %}
+
+            <!-- The copy for the icon tooltip -->
+                {% capture full-tooltip %}[TYPE] [VERB] supported for the [NAME] integration.{% endcapture %}
+            <!-- Clean up the tooltip copy and inject the integration's name -->
+                  {% assign clean-tooltip = full-tooltip | replace:"[TYPE]",selection-type | replace:"-"," " | capitalize | replace:"[name]",integration.title %}
+
+                <td class="attribute-description">
+                  {% case integration[selection-type] %}
+                    {% when true %}
+                      {{ supported | replace:"TOOLTIP",clean-tooltip  | replace:"[verb]","is" }}
+                    {% when false %}
+                      {{ not-supported | replace:"TOOLTIP",clean-tooltip | replace:"[verb]","isn't" }}
+                    {% endcase %}
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+  {% endfor %}
+</div>

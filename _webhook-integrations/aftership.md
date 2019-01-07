@@ -35,6 +35,9 @@ tier: "Free"
 status-url: "https://status.aftership.com/"
 icon: /images/integrations/icons/aftership.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

@@ -1,0 +1,64 @@
+# --------------------------- #
+#    FULL TABLE REPLICATION   #
+# --------------------------- #
+
+# Details about Full Table Replication,
+# including its availability in integrations, what it supports,
+# and examples of how it will replicate data.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "full-table"
+display-name: "Full Table"
+documentation: "{{ link.replication.full-table | prepend: site.baseurl }}"
+
+description: "{{ site.data.tooltips.full-table-rep }}"
+availability: "All integrations except MongoDB"
+
+
+# -------------------------- #
+#    REPLICATION DETAILS     #
+# -------------------------- #
+
+view-support: |
+  Supported
+
+structural-changes: |
+  Detected and automatically handled by Stitch
+
+configuration-requirements: |
+  None
+
+other: ""
+
+
+# -------------------------- #
+#     DELETION HANDLING      #
+# -------------------------- #
+
+# Indicates the level of support the Replication Method has
+# for soft and hard deletes.
+
+soft-deletes:
+  support: "supported"
+  icon: |
+    {{ supported | replace:"TOOLTIP","Supported"}}
+  destination: "Record will have an updated deleted flag value, if a flag is available in the source."
+
+hard-deletes:
+  support: "sometimes-supported"
+  icon: |
+    {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported"}}
+  destination: |
+    Record may remain or be removed.
+
+    {% if page.title contains "Deleted Record" %}
+    Refer to the [Full Table Replication](#full-table) section for more info and examples.
+    {% endif %}
+
+
+# -------------------------- #
+#    REPLICATION EXAMPLES    #
+# -------------------------- #

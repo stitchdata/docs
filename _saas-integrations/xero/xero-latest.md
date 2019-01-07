@@ -1,5 +1,5 @@
 ---
-title: Xero
+title: Xero (v1.0)
 permalink: /integrations/saas/xero
 tags: [saas_integrations]
 keywords: xero, integration, schema, etl xero, xero etl, xero schema
@@ -13,9 +13,8 @@ layout: singer
 name: "xero"
 display_name: "Xero"
 singer: true
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.xero.com"
+repo-url: "https://github.com/singer-io/tap-xero"
 
 this-version: "1.0"
 

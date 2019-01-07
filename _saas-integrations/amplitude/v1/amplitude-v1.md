@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amplitude
+title: Amplitude (v1.0)
 permalink: /integrations/saas/amplitude
 tags: [saas_integrations]
 keywords: amplitude, integration, schema, etl amplitude, amplitude etl, amplitude schema

@@ -36,6 +36,9 @@ tier: "Free"
 status-url: "http://status.customer.io/"
 icon: /images/integrations/icons/customerio.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

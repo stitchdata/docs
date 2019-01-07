@@ -4,10 +4,11 @@ permalink: /replication/syncing-historical-saas-data-resetting-replication-keys
 keywords: replicate, replication, replication key, keys, stitch replicates data, rp, saas, historical data, reset bookmark, reset replication key
 tags: [replication]
 
-summary: "By default, a historical replication job for most SaaS integrations will go back one year. While the Start Date setting allows you to define historical data loads, it can also reset an integration's Replication Keys when you need to re-replicate data."
-type: "syncing"
+content-type: "replication-keys"
 toc: true
-weight: 2
+weight: 3
+
+summary: "By default, a historical replication job for most SaaS integrations will go back one year. While the Start Date setting allows you to define historical data loads, it can also reset an integration's Replication Keys when you need to re-replicate data."
 ---
 {% include misc/data-files.html %}
 
