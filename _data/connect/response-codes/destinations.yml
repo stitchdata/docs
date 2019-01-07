@@ -1,0 +1,36 @@
+# ------------------------------- #
+#   DESTINATIONS ENDPOINT ERRORS  #
+# ------------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "Accounts can have one destination"
+        version: "all"
+        response-body: |
+          `an account can have at most one destination`
+
+      - method: "post"
+        condition: "Missing or prohibited arguments"
+        version: "3"
+        response-body: |
+          `body must be a map with type = redshift, postgres, or snowflake. required-keys = type, connection`
+
+      - method: "post"
+        condition: "Missing or prohibited arguments"
+        version: "4"
+        response-body: |
+          `POST body may only include a type and map of properties`
+
+      - method: "put"
+        condition: "Modifications to `type` are unsupported"
+        version: "all"
+        response-body: |
+          `this API endpoint does not support modifying destination type`
+
+      - method: "put"
+        condition: "Invalid destination ID"
+        version: "all"
+        response-body: |
+          `invalid connection id`

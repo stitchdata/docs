@@ -1,6 +1,7 @@
-{% assign response-codes = site.data.connect.response-codes.all-codes %}
 
-<table width="100%; fixed" style="font-size: 15px;">
+<!-- This file displays reponse code tables for general docs, as well as specific endpoints. -->
+
+<table class="attribute-list">
     <tr>
         <td align="right">
             <strong>
@@ -9,7 +10,11 @@
         </td>
 
 {% case include.type %}
+
+<!-- For endpoint-specific response codes. This will show in the 'errors' tab of each
+    endpoint's documentation. -->
     {% when 'endpoint' %}
+        {% assign all-response-codes = site.data.connect.response-codes[item.endpoint]all | compact %}
             <td width="30%; fixed">
                 <strong>
                     Condition
@@ -21,40 +26,31 @@
                 </strong>
             </td>
         </tr>
-        {% for code in response-codes %}
-            <!-- Checks if the code has error specific to the Connect API -->
-            {% if code.connect-errors %}
-                {% for item in code.connect-errors %}
+            {% for response-code in all-response-codes %}
+                {% assign response-codes = response-code.responses | where_exp:"response","response.method contains item.method" %}
 
-                    <!-- Checks for errors specific to the current endpoint -->
-                    {% if item.endpoint == endpoint.endpoint %}
-                        {% for error in item.errors %}
-
-                            <!-- Only pull errors relevant to this endpoint -->
-                            {% if error.method contains endpoint.method %}
-                                <tr>
-                                    <td>
-                                        <strong>
-                                            {{ code.code }}
-                                        </strong>
-                                    </td>
-                                    <td>
-                                        {{ error.condition | markdownify }}
-                                    </td>
-                                    <td>
-                                        {{ error.response-body | markdownify }}
-                                    </td>
-                                </tr>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
+                    {% for response in response-codes %}
+                        {% if response.version contains "all" or response.version contains item.version %}
+                            <tr>
+                                <td>
+                                    <strong>{{ response-code.code }}</strong>
+                                </td>
+                                <td>
+                                    {{ response.condition | markdownify }}
+                                </td>
+                                <td>
+                                    {{ response.response-body | markdownify }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+            {% endfor %}
     </table>
 
-    {% else %}
 
+<!-- For the general response code documentation -->
+    {% else %}
+        {% assign general-response-codes = site.data.connect.response-codes.general-codes.all-codes %}
                 <td width="20%; fixed">
                     <strong>
                         Text
@@ -66,7 +62,7 @@
                     </strong>
                 </td>
             </tr>
-            {% for code in response-codes %}
+            {% for code in general-response-codes %}
                 <tr>
                     <td align="right">
                         <strong>
