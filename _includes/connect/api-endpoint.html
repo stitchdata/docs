@@ -16,18 +16,26 @@
     </div>
 </div>
 
-    <p>
-        {{ object-method.short | flatify | markdownify }}
-    </p>
 
 {% case include.type %}
     {% when 'single-version' %}
+        {% assign has-multiple-versions = "false" %}
+
         {% for endpoint in endpoints %}
+            <p>
+                {{ endpoint.description | flatify | markdownify }}
+            </p>
+
             {% include connect/api-endpoint-sections.html %}
         {% endfor %}
 
-
     {% when 'multiple-versions' %}
+        {% assign has-multiple-versions = "true" %}
+
+        <p>
+            {{ object-method.short | flatify | markdownify }}
+        </p>
+
         <ul id="profileTabs" class="nav nav-tabs">
             {% for version in object.versions %}
                 {% if forloop.first == true %}
