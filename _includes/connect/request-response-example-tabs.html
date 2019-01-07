@@ -4,27 +4,44 @@
 
     {% when 'function' %}
         {% assign item = function %}
-
 {% endcase %}
 
 <ul id="example{{ item.key }}Tabs" class="nav nav-tabs">
     {% for example in item.examples %}
+
+    <!-- This value comes from _includes/connect/api-endpoint.html -->
+        {% case has-multiple-versions %}
+            {% when "true" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
+            {% when "false" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type %}
+        {% endcase %}
+
         {% if forloop.first == true %} 
             <li class="active">
         {% else %}
             <li>
         {% endif %}
-            <a href="#{{ item.key | append: "-" | append: example.type }}" data-toggle="tab">
+            <a href="#{{ tab-id }}" data-toggle="tab">
             {{ example.type | capitalize }}</a>
         </li>
         {% endfor %}
 </ul>
   <div class="tab-content">
     {% for example in item.examples %}
+
+    <!-- This value comes from _includes/connect/api-endpoint.html -->
+        {% case has-multiple-versions %}
+            {% when "true" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
+            {% when "false" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type %}
+        {% endcase %}
+
         {% if forloop.first == true %}
-            <div role="tabpanel" class="tab-pane active" id="{{ item.key | append: "-" | append: example.type }}">
+            <div role="tabpanel" class="tab-pane active" id="{{ tab-id }}">
         {% else %}
-            <div role="tabpanel" class="tab-pane" id="{{ item.key | append: "-" | append: example.type }}">
+            <div role="tabpanel" class="tab-pane" id="{{ tab-id }}">
         {% endif %}
 
         {% case example.type %}
