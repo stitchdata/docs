@@ -5,10 +5,11 @@ keywords: supported datatypes data types datatype
 tags: [replication]
 sidebar: stitchnav
 
-summary: "A full roll-up of the data types Stitch supports for replication."
-type: "syncing"
+content-type: "select-data"
 toc: true
-weight: 5
+weight: 4
+
+summary: "A full roll-up of the data types Stitch supports for replication."
 ---
 {% include misc/data-files.html %}
 

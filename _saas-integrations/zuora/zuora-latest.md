@@ -1,5 +1,5 @@
 ---
-title: Zuora
+title: Zuora (v1.0)
 permalink: /integrations/saas/zuora
 tags: [saas_integrations]
 keywords: zuora, integration, schema, etl zuora, zuora etl, zuora schema

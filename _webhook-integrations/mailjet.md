@@ -35,6 +35,9 @@ tier: "Free"
 status-url: "https://mailjet.statuspage.io/"
 icon: /images/integrations/icons/mailjet.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

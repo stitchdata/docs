@@ -1,5 +1,5 @@
 ---
-title: Braintree
+title: Braintree (v1.0)
 permalink: /integrations/saas/braintree
 tags: [saas_integrations]
 keywords: braintree, integration, schema, etl braintree, braintree etl, braintree schema

@@ -12,8 +12,6 @@ show-in-menus: true
 
 name: "mongodb"
 display_name: "MongoDB"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -28,18 +26,35 @@ port: 27017
 db-type: "mongo"
 icon: /images/integrations/icons/mongodb.svg
 
+## Stitch features
+
 versions: "2.4 through 3.4"
 ssh: true
 ssl: true
 
-anchor-scheduling: true
-extraction-logs: true
-loading-reports: true
+## General replication features
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 table-selection: true
 column-selection: false
+table-level-reset: false
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: false
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-read-replica: false
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: false
+
 view-replication: false
 
 # -------------------------- #

@@ -12,7 +12,7 @@
 2. Next, import the Public Key into `authorized_keys`, replacing `[PASTE KEY HERE]` with the [Stitch Public Key](#retrieve-your-public-key):
 
    ```shell
-   "[PASTE KEY HERE]" >> /home/stitch/.ssh/authorized_keys
+   echo "[PASTE KEY HERE]" >> /home/[stitch_username]/.ssh/authorized_keys
    ```
 
 3. Alter the permissions on the `/home/stitch` directory to allow access via SSH:

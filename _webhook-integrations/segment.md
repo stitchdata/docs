@@ -33,9 +33,9 @@ frequency: "Continuous"
 tier: "Free"
 status-url: "https://twitter.com/segmentstatus"
 icon: /images/integrations/icons/segment.svg
-whitelist:
-  tables: "No"
-  columns: "No"
+
+table-selection: false
+column-selection: false
 
 # -------------------------- #
 #      Incompatiblities      #

@@ -1,11 +1,10 @@
 ---
 title: Shopify (v1)
-permalink: /integrations/saas/shopify/v1
+permalink: /integrations/saas/shopify
 tags: [saas_integrations]
 keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
-input: false
 
 # -------------------------- #
 #     Integration Details    #
@@ -24,7 +23,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true
 
 historical: "1 year"

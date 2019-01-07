@@ -9,7 +9,7 @@ The backup retention period setting defines the number of days for which automat
 4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
 
 {% else %}
-1. Navigate back to the **Instances** page by using the menu on the left side of the page.
+1. Navigate back to the **Databases** page by using the menu on the left side of the page.
 2. Select the instance you're connecting to Stitch.
 3. Click **Instance actions > Modify**.
 4. Scroll down to the **Backup** section.
@@ -52,7 +52,7 @@ Rebooting the instance will take a few minutes. When the status of the **paramet
 
 In addition to the backup retention period, you also need to define the `binlog retention hours` setting. This parameter specifies the number of hours to the database server should retain binary logs.
 
-To specify the number of hours, use the [`mysql.rds_set_configuration` procedure](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html) when logged into the {{ integration.display_name }} master.
+To specify the number of hours, use the [`mysql.rds_set_configuration` procedure](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html){:target="new"} when logged into the {{ integration.display_name }} master instance.
 
 In this example, the logs will be retained for seven days (`24 x 7 = 168`):
 
@@ -68,5 +68,5 @@ call mysql.rds_set_configuration('binlog retention hours', 168);
 
 
 
-We recommend a minimum of three days for the retention period, but strongly recommend seven. **Note**: The maximum `binlog retention hours` value for {{ integration.display_name }} databases is {{ maximum-value }}.
+Stitch recommends a minimum of three days for the retention period, but strongly recommend seven. **Note**: The maximum `binlog retention hours` value for {{ integration.display_name }} databases is {{ maximum-value }}.
 {% endcase %}

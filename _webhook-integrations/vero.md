@@ -34,6 +34,8 @@ tier: "Free"
 status-url: "http://status.getvero.com/"
 icon:  /images/integrations/icons/vero.svg
 
+table-selection: false
+column-selection: false
 
 # -------------------------- #
 #     Integration Tables     #

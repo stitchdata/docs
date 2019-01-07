@@ -29,9 +29,13 @@ port: 3306
 db-type: "mysql"
 icon: /images/integrations/icons/mysql-rds.svg
 
+## Stitch features
+
 versions: "n/a"
 ssh: true
 ssl: true
+
+## General replication features
 
 anchor-scheduling: true
 extraction-logs: true
@@ -39,9 +43,23 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: true
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "5.6.2"
+log-based-replication-master-instance: true
+log-based-replication-read-replica: true
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: true
+
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -70,6 +88,8 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
       - title: "Configure the database parameter group"
@@ -77,9 +97,21 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/mysql-rds.html %}
 
+## I believe this is only applicable to MySQL and not Aurora,
+## as I can't find evidence of it being necessary in Aurora's
+## documentation.
       - title: "Define the backup retention period"
         anchor: "define-backup-retention-period"
         content: |
+          {% capture mysql-rds-backup-requirement %}
+          **Enabling automatic backups is required to use Log-based Incremental Replication.** In Amazon RDS, enabling automatic backups also enables binary logging, which is what Stitch uses to perform Log-based Incremental Replication.
+
+          Skipping this step or disabling automatic backups will cause replication issues in Stitch.
+
+          Refer to the **Transaction Size** section of [Amazon's Importing Data into a MySQL DB Instance](https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.Other.html){:target="new"} documentation for more info.
+          {% endcapture %}
+          {% include note.html type="single-line" content=mysql-rds-backup-requirement %}
+
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="backup-retention-period" %}
 
       - title: "Apply parameter changes and reboot the database"
@@ -104,6 +136,8 @@ setup-steps:
   - title: "Define the binlong retention setting"
     anchor: "define-binlog-retention-setting"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="binlog-retention-hours" %}
 
   - title: "Locate RDS connection details in AWS"
@@ -111,9 +145,26 @@ setup-steps:
     content: |
       {% include shared/aws-connection-details.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

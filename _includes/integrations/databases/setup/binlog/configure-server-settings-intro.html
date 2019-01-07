@@ -16,6 +16,6 @@ Additionally, setting up binlog replication requires rebooting your database to 
 
 Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}), or binlog replication.
 
-Log-based Incremental Replication is a method of replication that reads a database's binary log files. These files contain information about modifications made to data in a {{ integration.display_name }} instance. Log-based Incremental Replication captures all inserts, updates, and deletes made to records during each replication job, and is the most accurate and efficient method of replication.
+**Note**: While Log-based Incremental Replication is the most accurate and efficient method of replication, using this replication method may, at times, require manual intervention or impact the source database's performance. Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info.
 
-While Stitch recommends using Log-based Replication to replicate data, it isn't mandatory. Stitch offers additional [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) for {{ integration.display_name }} databases that don't require defining these settings.
+You can also use one of Stitch's other [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}), which don't require any database configuration. Replication Methods can be changed at any time.

@@ -36,15 +36,33 @@ versions: "n/a"
 ssh: false
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: true
-view-replication: false
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "5.6.2"
+log-based-replication-master-instance: true
+
+log-based-replication-read-replica: false
+log-based-replication-read-replica-reason: "Google CloudSQL MySQL doesn't support binary logging on read replicas."
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
+view-replication: true
+
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -68,25 +86,32 @@ setup-steps:
 
 # https://cloud.google.com/sql/docs/mysql/configure-ip
 
-  - title: "Configure database server settings"
-    anchor: "server-settings"
+  - title: "Locate database connection details"
+    anchor: "locate-database-connection-details"
     content: |
+      In this step, you'll locate the {{ integration.display_name }} database's IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
 
-    substeps:
-      - title: "Enable binary logging"
-        anchor: "enable-binary-logging"
-        content: |
-          Next, you need to verify that binary logging is enabled for your {{ integration.display_name }} instance.
+      {% include shared/google-cloud-platform/locate-database-details.html %}
 
-          {% include layout/inline_image.html type="right" file="integrations/cloudsql-enable-binary-logging.png" alt="" max-width="500px" %}
-          1. On the **Instance details** page in Google Cloud Platform, click the **Edit** option at the top of the page.
-          2. In the **Configuration options** section, open **Enable auto backups**.
-          3. If unchecked, check the **Enable binary logging** option.
-          4. Click **Save**.
-      - title: "Define database parameters"
-        anchor: "define-database-parameters"
-        content: |
-          {% include integrations/databases/setup/binlog/vanilla-mysql.html %}
+  - title: "Enable automated backups and binary logging"
+    anchor: "enable-auto-backups-binary-logging"
+    content: |
+      {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
+
+      {% capture server-instructions %}
+      {% include layout/inline_image.html type="right" file="integrations/cloudsql-enable-binary-logging.png" alt="" max-width="500px" %}
+      1. On the **Instance details** page in Google Cloud Platform, click the **Edit** option at the top of the page.
+      2. In the **Configuration options** section, open **Enable auto backups**.
+      3. If unchecked, check the **Automate backups** option and select a window for automated backups.
+
+         **Note**: This is required to use Log-based Incremental Replication.
+      3. If unchecked, check the **Enable binary logging** option.
+      4. Click **Save**.
+
+      When binary logging is enabled, Google Cloud SQL will define the required server settings using their pre-defined defaults. Refer to the <a href="#server-settings-details" data-toggle="tab">Server settings list</a> tab for explanations of these parameters and their default values. **No other configuration is required on your part.**
+      {% endcapture %}
+
+      {% include integrations/templates/configure-server-settings.html %}
 
   - title: "Create a Stitch database user"
     anchor: "db-user"
@@ -102,9 +127,26 @@ setup-steps:
     content: |
       {% include integrations/databases/setup/binlog/mysql-server-id.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

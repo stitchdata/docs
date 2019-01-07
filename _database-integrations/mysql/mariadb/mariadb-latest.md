@@ -36,15 +36,31 @@ versions: "n/a"
 ssh: true
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: true
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "5.6.2"
+log-based-replication-master-instance: true
+log-based-replication-read-replica: true
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: false
+
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -68,6 +84,8 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+
       {% include integrations/databases/setup/binlog/vanilla-mysql.html %}
 
   - title: "Create a Stitch database user"
@@ -82,11 +100,30 @@ setup-steps:
   - title: "Retrieve server IDs"
     anchor: "server-id"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/mysql-server-id.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

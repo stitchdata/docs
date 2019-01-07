@@ -3,52 +3,63 @@ title: Stitch Replication
 permalink: /replication/
 keywords: 
 tags: [replication]
+
+content-type: "category-page"
+
 summary: "Documentation and guides for configuring and managing data replication for your Stitch integrations."
-toc: true
 feedback: false
+toc: false
+
+# --------------------------- #
+#          CATEGORIES         #
+# --------------------------- #
+
+## The sections (topics) this category contains.
+## The `id` values are equal to the `content-type`
+## values of the docs in this site's collection.
+
+sections:
+  - id: "select-data"
+    name: "Select data"
+    description: "Select the tables and columns you want Stitch to replicate from your integration."
+
+  - id: "replication-scheduling"
+    name: "Replication Scheduling"
+    description: "Set the replication schedule for an integration, which defines when and how often Stitch should run repliction jobs."
+
+  - id: "replication-methods"
+    name: "Replication Methods"
+    description: "Replication Methods define the approach Stitch takes when extracting data from a source during a replication job."
+
+  - id: "replication-keys"
+    name: "Replication Keys"
+    description: "Replication Keys are source table columns that Stitch uses to identify new and updated data when using an incremental Replication Method."
+
+  - id: "replication-progress"
+    name: "Replication progress"
+    description: "Monitor the status of an integration's replication job, including extraction and loading progress."
 ---
 {% include misc/data-files.html %}
 
-{% assign replication-settings = site.replication | where:"category","settings" %}
-
 {{ page.summary }}
 
-{% assign overview = site.replication | where: "type","overview" %}
-
-{% for page in overview %}
-## [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+{% for section in page.sections %}
+- [**{{ section.name }}**](#{{ section.id }}) - {{ section.description }}
 {% endfor %}
 
 ---
 
-## Syncing Data
+{% for section in page.sections %}
+{% assign all-section-docs = site.replication | where:"content-type",section.id | sort:"weight" %}
 
-{% assign syncing = site.replication | where: "type","syncing" | sort:"weight" %}
+## {{ section.name }} {#{{ section.id }}}
 
-{% for page in syncing %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+{{ section.description }}
+
+{% for doc in all-section-docs %}
+#### [{{ doc.title }}]({{ doc.url | prepend: site.baseurl }})
+
+{{ doc.summary }}
 {% endfor %}
-
 ---
-
-## Replication Settings
-
-{% assign settings = site.replication | where: "type","settings" | sort:"weight" %}
-
-{% for page in settings %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endfor %}
-
----
-
-## Replication Progress
-
-{% assign monitoring = site.replication | where: "type","monitoring" | sort:"weight" %}
-
-{% for page in monitoring %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
 {% endfor %}
