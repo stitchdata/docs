@@ -117,6 +117,7 @@ foreign-keys:
       - table: "tickets"
         join-on: "id"
       - table: "ticket_audits"
+      - table: "ticket_comments"
       - table: "ticket_metrics"
 
   - id: "ticket-metric-id"

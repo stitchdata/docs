@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Campaign Monitor
+title: Campaign Monitor (v1.0)
 permalink: /integrations/saas/campaign-monitor
 tags: [saas_integrations]
 keywords: campaign monitor, integration, schema, etl campaign monitor, campaign monitor etl, campaign monitor schema

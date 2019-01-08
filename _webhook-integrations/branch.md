@@ -35,6 +35,9 @@ tier: "Free"
 status-url: http://status.branch.io/
 icon: /images/integrations/icons/branch.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

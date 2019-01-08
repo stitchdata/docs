@@ -295,34 +295,6 @@ tables:
       - name: user_id
       - name: visible_to
 
-## Goals
-  - name: "goals"
-    doc-link: https://developers.pipedrive.com/v1#methods-Goals
-    description: "info about the goals, or sales targets, in your Pipedrive account."
-    notes: 
-    replication-method: "Full Table"
-    primary-key: "id"
-    nested-structures: false
-    attributes:
-      - name: Goal ID (<code>id</code>)
-      - name: active_flag
-      - name: active_goal_id
-      - name: add_time
-      - name: company_id
-      - name: created_by_user_id
-      - name: currency
-      - name: delivered
-      - name: delivered_sum
-      - name: expected
-      - name: expected_sum
-      - name: expected_type
-      - name: goal_type
-      - name: period
-      - name: period_end
-      - name: period_start
-      - name: user_id
-      - name: user_name
-
 ## Notes
   - name: "notes"
     doc-link: https://developers.pipedrive.com/v1#methods-Recent

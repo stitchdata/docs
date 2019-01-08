@@ -35,11 +35,13 @@ port: 5432
 db-type: "postgres"
 icon: /images/integrations/icons/postgres-rds.svg
 
+# Stitch features
+
 versions: "9.3+; 9.4+ for binlog" ## but 9.4+ is required to use log-based replication
 ssh: true
 ssl: true
 
-# Stitch features
+## General replication features
 
 anchor-scheduling: true
 extraction-logs: true
@@ -47,9 +49,27 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: true
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "9.4"
+log-based-replication-master-instance: true
+
+log-based-replication-read-replica: false
+log-based-replication-read-replica-reason: "PostgreSQL only supports logical replication on master instances."
+log-based-replication-read-replica-doc-link: |
+  {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-7--only-supports-master-instances-postgresql" }} 
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: true
+
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -96,6 +116,8 @@ setup-steps:
   - title: "Configure database server settings"
     anchor: "server-settings"
     content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
       - title: "Configure the database parameter group"
@@ -113,11 +135,6 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="reboot-the-instance" %}
 
-  - title: "Create a replication slot"
-    anchor: "create-replication-slot"
-    content: |
-      {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
-
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
     content: |
@@ -125,15 +142,38 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
+  - title: "Create a replication slot"
+    anchor: "create-replication-slot"
+    content: |
+      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+
+      {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
+
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
     content: |
-
       {% include shared/aws-connection-details.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html %}
+
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "sync data"
 ---

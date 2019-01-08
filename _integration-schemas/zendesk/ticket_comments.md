@@ -30,6 +30,11 @@ attributes:
     type: "string"
     description: "The body of the comment."
 
+  - name: "ticket_id"
+    type: "integer"
+    description: "The ID of the ticket associated with the comment."
+    foreign-key-id: "ticket-id"
+
   - name: "type"
     type: "string"
     description: |

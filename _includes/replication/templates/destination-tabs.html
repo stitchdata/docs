@@ -12,7 +12,7 @@ The table is structured as follows, excluding the `_sdc` columns:
 | order_confirmed  | BOOLEAN      |
 {% endhighlight %}
 
-**During the first sync**, the following rows are replicated:
+**During the first replication job**, the following rows are replicated:
 
 {% highlight markdown %}
 | id [pk] | rep_name    | order_amount | order_confirmed |
@@ -21,7 +21,7 @@ The table is structured as follows, excluding the `_sdc` columns:
 | 2       | Doc Brown   | 10           | true            |
 {% endhighlight %}
 
-**During the next sync**, the following rows are replicated:
+**During the next replication job**, the following rows are replicated:
 
 {% highlight markdown %}
 | id [pk] | rep_name                         | order_amount | order_confirmed |
@@ -34,7 +34,7 @@ The table is structured as follows, excluding the `_sdc` columns:
 | 4       | Doc Brown                        | 11           | true            |
 {% endhighlight %}
 
-Take a look at the `rep_name` column for row 3 - it definitely contains data that exceeds 128 characters.
+Take a look at the `rep_name` column for row 3 - it contains data that exceeds 128 characters.
 
 To accommodate the data, Stitch will widen the `rep_name` column, thus changing the structure of the table:
 
@@ -70,7 +70,7 @@ To accommodate the data, Stitch will widen the `rep_name` column, thus changing 
 <a href="#{{ include.content }}" data-toggle="tab">Destination</a>
 </li>
 {% for destination in destinations %}
-{% unless destination.type == "amazon-s3" or destination.type == "snowflake" or destination.type == "data-world" %}
+{% unless destination.type == "amazon-s3" or destination.type == "snowflake" or destination.type == "data-world" or destination.type == "microsoft-azure"%}
 <li>
 <a href="#{{ destination.type }}-{{ include.content }}" data-toggle="tab">{{ destination.display_name }}</a>
 </li>
@@ -85,7 +85,7 @@ Click a tab to see how each destination handles this scenario.
 
 
 {% for destination in destinations %}
-{% unless destination.type == "amazon-s3" or destination.type == "snowflake" or destination.type == "data-world" %}
+{% unless destination.type == "amazon-s3" or destination.type == "snowflake" or destination.type == "data-world" or destination.type == "microsoft-azure" %}
 <div role="tabpanel" class="tab-pane" id="{{ destination.type }}-{{ include.content }}" markdown="1">
 
 <!-- BIGQUERY TABS -->

@@ -1,5 +1,5 @@
 ---
-title: Urban Airship
+title: Urban Airship (v1.0)
 permalink: /integrations/saas/urban-airship
 tags: [saas_integrations]
 keywords: urban airship, integration, schema, etl urban airship, urban airship etl, urban airship schema
@@ -17,6 +17,8 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-urban-airship
 status-url: https://twitter.com/urbanairship
+
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

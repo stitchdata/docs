@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Close.io
+title: Close.io (v1.0)
 permalink: /integrations/saas/closeio
 tags: [saas_integrations]
 keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema

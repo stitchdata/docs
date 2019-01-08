@@ -1,0 +1,85 @@
+
+
+<!-- This file creates tabs of replication job examples for
+        each Replication Method. -->
+
+<!-- Get the examples for the method passed through the include -->
+    {% assign replication-job-examples = site.data.taps.extraction.replication-methods[include.replication-method]replication-job-examples %}
+
+<!-- Assign a variable to the display name, so it can be used elsewhere -->
+    {% assign replication-method = site.data.taps.extraction.replication-methods[include.replication-method] %}
+
+
+
+<ul id="profileTabs" class="nav nav-tabs">
+    {% for replication-job-example in replication-job-examples %}
+        {% case forloop.first %}
+            {% when 'true' %}
+                <li class="active">
+            {% else %}
+                <li>
+        {% endcase %}
+            <a href="#{{ include.replication-method }}-{{ replication-job-example.id }}" data-toggle="tab">{{ replication-job-example.type }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="tab-content">
+    {% for replication-job-example in replication-job-examples %}
+        {% case forloop.first %}
+            {% when true %}
+                <div role="tabpanel" class="tab-pane active" id="{{ include.replication-method }}-{{ replication-job-example.id }}">
+            {% else %}
+                <div role="tabpanel" class="tab-pane" id="{{ include.replication-method }}-{{ replication-job-example.id }}">
+        {% endcase %}
+
+        {{ replication-job-example.description | flatify | markdownify }}
+
+        {% for example in replication-job-example.examples %}
+            <h3>{{ example.job | capitalize | append: " replication job" }}</h3>
+
+            <p>
+                During the <strong>{{ example.job | append: " job" }}</strong>:
+            </p>
+
+            <ul>
+                <li>
+                    {{ example.source | flatify | prepend: "**In the source:** " | markdownify }}
+                </li>
+                <li>
+                    {{ example.extracted | flatify | prepend: "**During extraction:** " | markdownify }}
+                </li>
+            </ul>
+
+            <table width="100%; fixed" class="table-hover attribute-list">
+                <tr>
+                    {% for table in example.tables %}
+                        <td width="50%; fixed" style="border: 1px solid #999999;">
+                            <strong>{{ table.location | capitalize | append: " records" }}</strong>
+
+                            <table class="table-hover attribute-list">
+                                <tr>
+                                    {% for column in replication-job-example.columns %}
+                                        <td>
+                                            <strong>{{ column.name | replace: "-","_" }}</strong>
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                                {% for record in table.records %}
+                                    <tr>
+                                        {% for column in replication-job-example.columns %}
+                                            <td>
+                                                {{ record[column.name] }}
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </td>
+                    {% endfor %}
+                </tr>
+            </table>
+            {% endfor %}
+        </div>
+    {% endfor %}  <!-- End replication-job-example loop -->
+</div>

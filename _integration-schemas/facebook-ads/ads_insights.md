@@ -231,10 +231,6 @@ attributes:
     type: "number"
     description: "The average cost of each unique click (all)."
 
-  - name: "total_action_value"
-    type: "number"
-    description: "The total value of all conversions contributed to the ad."
-
   - name: "unique_clicks"
     type: "integer"
     description: "The number of people who performed a click (all)."

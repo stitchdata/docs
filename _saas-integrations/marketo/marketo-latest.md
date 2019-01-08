@@ -1,5 +1,5 @@
 ---
-title: Marketo
+title: Marketo (v2.0)
 permalink: /integrations/saas/marketo
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 tags: [saas_integrations]
@@ -136,6 +136,7 @@ setup-steps:
       8. In the **Max Daily API Calls** field, either keep the default 40,000 value or use a larger number based on your **Marketo API Quota**
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 
 replication-sections:

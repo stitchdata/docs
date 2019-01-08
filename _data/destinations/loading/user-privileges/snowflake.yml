@@ -1,0 +1,94 @@
+# -------------------------------------------------- #
+#  Snowflake (DESTINATION) User Privileges and Setup #
+# -------------------------------------------------- #
+
+## This file contains info about the privileges and setup steps
+## required to create a Stitch database user for a Snowflake destination.
+
+## This file includes info about the permissions required, the
+## commands to grant those permissions, and the descriptions that
+## go along with each step of the user creation process.
+
+defaults:
+  names:
+    all-on-warehouse: &all-on-warehouse-name "GRANT ALL ON WAREHOUSE"
+    all-on-database: &all-on-database-name "GRANT ALL ON DATABASE"
+
+  doc-links:
+    all-on-warehouse: &all-on-warehouse-doc-link "https://docs.snowflake.net/manuals/user-guide/security-access-control-privileges.html#virtual-warehouse-privileges"
+    all-on-database: &all-on-database-doc-link "https://docs.snowflake.net/manuals/user-guide/security-access-control-privileges.html#database-privileges"
+
+  reasons:
+    all-on-warehouse: &all-on-warehouse-reason |
+      Required to connect to the warehouse and change the state of the warehouse (start, resume), which is necessary to load data.
+    all-on-database: &all-on-database-reason |
+      Required to create the necessary database objects to load and store your data.
+
+# -------------------------- #
+#    SNOWFLAKE PRIVILEGES    #
+# -------------------------- #
+
+all-permissions:
+  - name: *all-on-warehouse-name
+    reason: *all-on-warehouse-reason
+    doc-link: *all-on-warehouse-doc-link
+
+  - name: *all-on-database-name
+    reason: *all-on-database-reason
+    doc-link: *all-on-database-doc-link
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+create-role: &create-role-sql |
+  CREATE ROLE [stitch_role] COMMENT = 'Role for Stitch access';
+
+grant-role: &grant-role-sql |
+  GRANT ROLE [stitch_role] to role SYSADMIN;
+
+grant-warehouse: &grant-warehouse-sql |
+  GRANT ALL ON WAREHOUSE [warehouse] TO ROLE [stitch_role];
+
+grant-database: &grant-database-sql |
+  GRANT ALL ON DATABASE [stitch_database] TO ROLE [stitch_role];
+
+create-grant-user: &create-grant-user-sql |
+  CREATE USER [stitch_user]
+     PASSWORD='[password]'
+     COMMENT='User for Stitch database user'
+     DEFAULT_ROLE='[stitch_role]'
+     DEFAULT_WAREHOUSE='[warehouse]';
+
+  GRANT ROLE [stitch_role] TO USER [stitch_user];
+
+# -------------------------- #
+#   STEPS FOR CREATING USER  #
+# -------------------------- #
+
+## The individual steps for creating a Snowflake user for Stitch.
+
+all-steps:
+  - copy: |
+      Create a role for the Stitch user:
+    command: *create-role-sql
+
+  - copy: |
+      **Optional**: If you've created a hierarchy that assigns all custom roles to the `SYSADMIN` role, grant the `stitch_role` [to the  `SYSADMIN` role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#role-hierarchy-and-privilege-inheritance){:target="_blank"}:
+    command: *grant-role-sql
+
+  - copy: |
+      [Grant warehouse privileges to the Stitch role]({{ destination-user-setup.defaults.doc-links.all-on-warehouse }}){:target="_blank"}, using the name of the warehouse you created for Stitch.
+
+      **Note**: This will grant all privileges except `OWNERSHIP`, and only apply to the warehouse you specify.
+    command: *grant-warehouse-sql
+
+  - copy: |
+      [Grant database privileges to the Stitch role]({{ destination-user-setup.defaults.doc-links.all-on-database }}){:target="_blank"}, using the name of the database you created for Stitch.
+
+      **Note**: This will grant all privileges except `OWNERSHIP`, and only apply to the database(s) you specify.
+    command: *grant-database-sql
+
+  - copy: |
+      Create the Stitch user and grant the Stitch role to the user:
+    command: *create-grant-user-sql

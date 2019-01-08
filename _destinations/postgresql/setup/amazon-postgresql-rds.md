@@ -4,6 +4,9 @@ permalink: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-war
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, postgres rds, postgres-rds, relational database services
 summary: "Ready to spin up an Amazon PostgreSQL-RDS data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 display_name: "Postgres-RDS"
@@ -25,7 +28,7 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Define Data Warehouse Settings"
+  - title: "Define data warehouse settings"
     anchor: "define-data-warehouse-settings"
     content: |
 
@@ -42,7 +45,7 @@ setup-steps:
          - **Dev/Test:** This option is suitable if this database will operate outside of production, can handle downtime, don’t anticipate heavy usage, or if you simply are giving RDS a try by using the [Free Usage Tier](http://aws.amazon.com/rds/free).
       8. Select the option you want and click the **Next Step** button.
 
-  - title: "Configure the Database: Basic Details"
+  - title: "Configure the database: Basic Details"
     anchor: "configure--specify-basic-details"
     content: |
       There are two steps to configuring the database: specifying the basic details and configuring more advanced settings. In this step, you'll specify the basic details.
@@ -56,7 +59,7 @@ setup-steps:
       - title: "Basic Details: Instance Specifications"
         anchor: "configure--specify--instance-specifications"
         content: |
-          {% include misc/more-info-icons.html %}
+          {% include misc/icons.html %}
           In the **Instance Specifications** section, you can select the licensing model, version, and more.
 
           {% capture required-configuration %}Some fields in this section must be configured a certain way to use Stitch. Required fields will be highlighted  and have a {{ notice-icon | replace:"TOOLTIP", "This field must be configured in the specified way to use Stitch." }} icon next to their name.
@@ -77,7 +80,7 @@ setup-steps:
 
           When finished, click the **Next Step** button.
 
-  - title: "Configure the Database: Advanced Settings"
+  - title: "Configure the database: Advanced Settings"
     anchor: "configure--advanced-settings"
     content: |
       
@@ -89,8 +92,8 @@ setup-steps:
       - [Maintenance](#configure--advanced-settings--maintenance-settings)
 
       {% include important.html type="single-line" content=required-configuration %}
+    
     substeps:
-
       - title: "Advanced Settings: Network & Security"
         anchor: "configure--advanced-settings--network-security-settings"
         content: |
@@ -121,7 +124,7 @@ setup-steps:
 
           {% include destinations/postgres/postgresql-rds-maintenance.html %}
 
-  - title: "Launch the Database"
+  - title: "Launch the database"
     anchor: "launch-database"
     content: |
       When you’re finished defining the configuration settings, click **Launch DB Instance** to create and launch the instance.
@@ -132,7 +135,7 @@ setup-steps:
 
       Once the status has changed to **Available**, you can move onto the next step.
 
-  - title: "Configure the Access Settings"
+  - title: "Configure the access settings"
     anchor: "configure-access-settings"
     content: |
       For Stitch to successfully connect with your Postgres-RDS instance, you'll need to add our IP addresses to the appropriate database Security Group.
@@ -148,20 +151,15 @@ setup-steps:
 
   - title: "create db user"
     content: |
-      {% include destinations/setup/postgresql-create-user-intro.html %}
-
-      {% include destinations/setup/redshift-postgres-permissions.html %}
-
-      ### Create the Database User {#create-the-user}
-
-      {% include destinations/setup/redshift-postgres-database-users.html %}
+      {% assign clean-database-name = page.display_name | downcase %}
+      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
   - title: "connect stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-      - title: "Locate the {{ destination.display_name }} Connection Details"
+      - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |
           {% include shared/aws-connection-details.html %}

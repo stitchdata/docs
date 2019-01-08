@@ -1,5 +1,5 @@
 ---
-title: GitLab
+title: GitLab (v1.0)
 permalink: /integrations/saas/gitlab
 tags: [saas_integrations]
 keywords: gitlab, integration, schema, etl gitlab, gitlab etl, gitlab schema
@@ -17,7 +17,7 @@ author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-gitlab
 
-# this-version:
+# this-version:"1.0"
 
 # -------------------------- #
 #       Stitch Details       #

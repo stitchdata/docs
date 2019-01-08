@@ -4,10 +4,13 @@
 # -------------------------- #
 title: PostgreSQL Destination
 permalink: /destinations/postgresql/
-layout: destination-overview
+layout: destination
 tags: [postgresql_destination]
 keywords: postgres, postgresql, postgres data warehouse, postgres etl, etl to postgres, postgresql data warehouse, etl to postgresql
 summary: "An open-source relational database, PostgreSQL is a powerful and well-known system that has received recognition from both its users and the industry at large. Unlike some other database systems, PostgreSQL is completely customizable and yours to do with as you please (assuming, of course, that your instance is self-hosted)."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 
@@ -34,9 +37,9 @@ icon: /images/destinations/icons/postgresql.svg
 # -------------------------- #
 
 ssl: true
-ssh: false
+ssh: true
 
-incremental-replication: "Upserts, Append-Only"
+incremental-upsert-support: true
 connection-methods: "SSH, SSL"
 supported-versions: "9.3+" ## if Stitch supports certain versions
 
@@ -86,9 +89,10 @@ introduction: |
 
   For a more in-depth look at {{ destination.display_name }}, [click here]({{ destination.main-site }}).
 sections:
-  - title: "pricing"
+  - title: "Pricing"
+    anchor: "pricing"
     content: |
-      Pricing for {{ destination.display_name }} depends entirely on where your instance is hosted.
+      Pricing for {{ destination.display_name }} depends on where your instance is hosted.
 
       - **Self-hosted:** {{ destination.display_name }} is open-source, meaning you don't need to pay an upfront cost to obtain the necessary software. You may, however, have hosting and maintenance costs associated with the server housing the instance. You may have to do a little bit of internal number crunching to figure out these potential costs. 
       - **Heroku:** Heroku has a [variety of plans to choose from](https://www.heroku.com/pricing), and [a guide to help you select the right plan](https://devcenter.heroku.com/articles/heroku-postgres-plans) for you or your company.
@@ -97,27 +101,54 @@ sections:
 
          Before fully committing yourself to using Google CloudSQL PostgreSQL as your data warehouse, we recommend familiarizing yourself with Google's pricing model and [using their pricing calculator to estimate your potential costs]({{ destination.price-calculator }}).
 
-  - title: "setup"
+  - title: "Setup"
+    anchor: "stitch-details-setup-info"
     content: |
-      When it comes to setting up, hosting, and connecting a {{ destination.display_name }} data warehouse to Stitch, you have a few options:
+      {% include destinations/overviews/destination-reference-table.html list="stitch-details" %}
 
-      - [Connect a self-hosted {{ destination.display_name }} database]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}). If you currently use {{ destination.display_name }}, you can create a database for Stitch within the instance and connect it.
-      - [Connect a Heroku-{{ destination.display_name }} database]({{ link.destinations.setup.heroku-postgres | prepend: site.baseurl }}). Heroku offers a managed {{ destination.display_name }}-based database service, which is easy to set up and connect to Stitch. No technical expertise is required to create the database or connect it to Stitch.
-      - [Connect an Amazon {{ destination.display_name }}-RDS database]({{ link.destinations.setup.postgres-rds | prepend: site.baseurl }}). Amazon Web Services' RDS service allows you to create and connect a {{ destination.display_name }} database to Stitch.
-      - [Connect a Google CloudSQL PostgreSQL database]({{ link.destinations.setup.cloudsql-postgres | prepend: site.baseurl }}). Google's fully-managed CloudSQL database service takes only minutes to set up and provision. While no technical expertise is required to set up a simple instance, additional configuration options - such as assigning specific database permissions - is available for more advanced users.
+  - title: "Replication"
+    anchor: "replication"
+    content: |
+      {% include destinations/overviews/destination-reference-table.html list="replication" %}
 
-  - title: "limitations"
-    include: |
-      {% include destinations/overviews/limitations.html %}
+  - title: "Limitations"
+    anchor: "limitations"
+    content: |
+      In this section:
 
-  - title: "replication"
-    include: |
-      {% include destinations/overviews/replication-process.html %}
+      {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
 
-  - title: "schema"
-    include: |
-      {% include destinations/overviews/integration-schemas.html %}
+      {% for item in list-items %}
+      {% for category in reference-categories[item] %}
+      - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
+      {% endfor %}
+      {% endfor %}
 
+    subsections:
+      - title: "Object name limits"
+        anchor: "object-name-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="object-name-limits" %}
+
+      - title: "Table limits"
+        anchor: "table-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="table-limits" %}
+
+      - title: "Data limits"
+        anchor: "data-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="data-limits" %}
+
+      - title: "Column naming"
+        anchor: "column-naming"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="column-naming" %}
+
+  - title: "Compare destinations"
+    anchor: "compare-destinations"
+    content: |
+      **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}

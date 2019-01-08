@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Yotpo
+title: Yotpo (v1.0)
 permalink: /integrations/saas/yotpo
 tags: [saas_integrations]
 keywords: yotpo, integration, schema, etl yotpo, yotpo etl, yotpo schema

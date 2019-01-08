@@ -1,0 +1,267 @@
+# --------------------------- #
+#  KEY-BASED INCREMENTAL REP  #
+# --------------------------- #
+
+# Details about Key-based Incremental Replication,
+# including its availability in integrations, what it supports,
+# and examples of how it will replicate data.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "key-based-incremental"
+display-name: "Key-based Incremental"
+documentation: "{{ link.replication.key-based-incremental | prepend: site.baseurl }}"
+
+description: "{{ site.data.tooltips.key-based-incremental-rep }}"
+availability: "All integrations"
+
+
+# -------------------------- #
+#    REPLICATION DETAILS     #
+# -------------------------- #
+
+view-support: |
+  Supported
+
+structural-changes: |
+  Detected and automatically handled by Stitch
+
+configuration-requirements: |
+  A `timestamp`, `date-time`, or `integer` column suitable as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+
+  **Note**: Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for considerations specific to MongoDB.
+
+other: ""
+
+
+# -------------------------- #
+#     DELETION HANDLING      #
+# -------------------------- #
+
+# Indicates the level of support the Replication Method has
+# for soft and hard deletes.
+
+soft-deletes:
+  support: "supported"
+  icon: |
+    {{ supported | replace:"TOOLTIP","Supported"}}
+  destination: "Record will have an updated deleted flag value, if a flag is available in the source."
+
+hard-deletes:
+  support: "not-supported"
+  icon: |
+    {{ not-supported | replace:"TOOLTIP","Not supported" }}
+  destination: "Record will have an updated deleted flag value, if a flag is available in the source."
+
+# -------------------------- #
+#  DATABASE FILE INCREMENTAL #
+# -------------------------- #
+
+## This is used in database integrations where files (not tables)
+## are replicated.
+
+database-file-integrations:
+  - item: "What's used as a Replication Key?"
+    other-integrations: "A column or columns in a table."
+    this-integration: "The time a file is modified."
+
+  - item: "Are Replication Keys inclusive?"
+    other-integrations: "**Yes**. Rows with a Replication Key value **greater than or equal to** the last saved bookmark are replicated."
+    this-integration: "**No**. Only files with a modification timestamp value greater than the last saved bookmark are replicated."
+
+  - item: "What's replicated during a replication job?"
+    other-integrations: "Only new or updated rows in a table."
+    this-integration: "The entire contents of a modified file."
+
+
+
+# -------------------------- #
+#    REPLICATION EXAMPLES    #
+# -------------------------- #
+
+replication-job-examples:
+  - id: "timestamp-date-time-rep-key"
+    type: "Timestamp/Date-time Replication Key"
+    description: |
+      In this example, we'll demonstrate how {{ replication-method.name }} works with a `timestamp` (or `date-time`) Replication Key column for initial and ongoing replication jobs.
+
+      Let's assume the Replication Key column for the table in this example is a column named `updated_at`.
+    columns:
+      - name: "id"
+      - name: "updated_at"
+        replication-key: true
+      - name: "active"
+    examples:
+      - job: "initial"
+        source: |
+          A table in the source contains three records: `1`, `2`, `3`. Every time a record is created or modified, its `updated_at` value is updated.
+
+        extracted: |
+          Depending on the integration type, the initial extraction for a table using {{ replication-method.name }} will vary slightly:
+
+          - For a **database integration**:
+             1. Stitch replicates the entire table in full.
+             2. Stitch saves `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value.
+
+          - For a **SaaS integration**:
+             1. Stitch uses the **Start Date** defined in the {{ app.page-names.int-settings }} as the initial Replication Key (`updated_at`) value.
+             2. Records with an `updated_at` value greater than or equal to the **Start Date** are replicated.
+             3. Stitch saves `updated_at: 2018-07-27 12:07:00` as the maximum Replication Key value.
+
+        tables:
+          - location: "source"
+            records: &key-timestamp-initial-source-table
+              - id: "1"
+                updated_at: "2018-07-27 12:00:00"
+                active: "false"
+
+              - id: "2"
+                updated_at: "2018-07-27 12:05:00"
+                active: "false"
+
+              - id: "3"
+                updated_at: "2018-07-27 12:07:00"
+                active: "false"
+
+          - location: "extracted"
+            records: *key-timestamp-initial-source-table
+
+      - job: "second"
+        source: |
+          Before the next replication job, record `2` is updated and a new record, `4`, is added to the table in the source. The `updated_at` values for these records are updated.
+          
+        extracted: |
+          Stitch replicates records `3`, `2`, and `4`, as the records' `updated_at` values are either **greater than or equal to** the last saved maximum Replication Key value of `updated_at: 2018-07-27 12:07:00` from the previous replication job.
+
+          Record `3` is selected because its `updated_at` value is equal to the maximum Replication Key value from the previous replication job.
+
+          If this were a SQL query, it would look like this:
+
+          ```sql
+          SELECT *
+            FROM sample_table
+           WHERE updated_at >= '2018-07-27 12:07:00'
+          ```
+        tables:
+          - location: "source"
+            records:
+              - id: "1"
+                updated_at: "2018-07-27 12:00:00"
+                active: "false"
+
+              - id: "2"
+                updated_at: "2018-07-28 09:12:00"
+                active: "true"
+
+              - id: "3"
+                updated_at: "2018-07-27 12:07:00"
+                active: "false"
+
+              - id: "4"
+                updated_at: "2018-07-28 06:53:00"
+                active: "false"
+
+          - location: "extracted"
+            records:
+              - id: "2"
+                updated_at: "2018-07-28 09:12:00"
+                active: "true"
+
+              - id: "3"
+                updated_at: "2018-07-27 12:07:00"
+                active: "false"
+
+              - id: "4"
+                updated_at: "2018-07-28 06:53:00"
+                active: "false"
+
+  - id: "integer-rep-key"
+    type: "Integer Replication Key"
+    description: |
+      In this example, we'll demonstrate how {{ replication-method.name }} works with an auto-incrementing `integer` Replication Key column.
+
+      For this table, the Replication Key is a column named `customer_id`. The value of this column increments every time a new record is added to the table, but it is never updated after the record is created.
+
+    columns:
+      - name: "customer_id"
+        replication-key: true
+      - name: "name"
+      - name: "active"
+    examples:
+      - job: "initial"
+        source: |
+          A table in the source contains three records: `1`, `2`, `3`.
+
+          The `customer_id` value is auto-incremented when a new record is added to the table. This column is not updated, even if changes are made to the record.
+
+        extracted: |
+
+          1. Stitch replicates the entire table in full.
+          2. Stitch saves `customer_id: 3` as the maximum Replication Key value.
+
+        tables:
+          - location: "source"
+            records: &key-integer-initial-source-table
+              - customer_id: "1"
+                name: "Finn"
+                active: "false"
+
+              - customer_id: "2"
+                name: "Jake"
+                active: "false"
+
+              - customer_id: "3"
+                name: "Bubblegum"
+                active: "false"
+
+          - location: "extracted"
+            records: *key-integer-initial-source-table
+
+      - job: "second"
+        source: |
+          Before the next replication job, record `2` is updated and a new record, `4`, is added to the table in the source.
+          
+        extracted: |
+          
+          1. Stitch replicates records `3` and `4`, as the records' `customer_id` values are either **greater than or equal to** the last saved maximum Replication Key value of `customer_id: 3` from the previous replication job. Note that:
+             - Record `3` is selected because its `customer_id` value is equal to the maximum Replication Key value from the previous replication job.
+             - Record `2` is not selected because its `customer_id` value wasn't updated when the record was modified, and was therefore less than the last saved maximum Replication Key value.
+          2. Stitch saves `customer_id: 4` as the new maximum Replication Key value.
+
+          If this were a SQL query, it would look like this:
+
+          ```sql
+          SELECT *
+            FROM sample_table
+           WHERE customer_id >= 3
+          ```
+        tables:
+          - location: "source"
+            records:
+              - customer_id: "1"
+                name: "Finn"
+                active: "false"
+
+              - customer_id: "2"
+                name: "Jake"
+                active: "true"
+
+              - customer_id: "3"
+                name: "Bubblegum"
+                active: "false"
+
+              - customer_id: "4"
+                name: "Beamo"
+                active: "false"
+
+          - location: "extracted"
+            records:
+              - customer_id: "3"
+                name: "Bubblegum"
+                active: "false"
+
+              - customer_id: "4"
+                name: "Beamo"
+                active: "false"

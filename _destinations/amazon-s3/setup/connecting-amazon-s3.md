@@ -4,6 +4,9 @@ permalink: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-sti
 tags: [amazon-s3_destination]
 keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, postgres etl, amazon s3 etl
 summary: "Ready to spin up an Amazon S3 data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 
@@ -193,85 +196,13 @@ setup-steps:
       }
       ```
 
-      For more info about the top-level permissions the Stitch bucket policy grants, click the link below.
-
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ destination.display_name }} Bucket Permissions</a>
-                </h4>
-            </div>
-            
-            <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
-                <div class="panel-body">
-                    <table width="100%" class="table-hover">
-                      <tr>
-                      <td width="18%; fixed">
-                      <strong>Permission Name</strong>
-                      </td>
-                      <td width="25%; fixed">
-                      <strong>Operation</strong>
-                      </td>
-                      <td>
-                      <strong>Operation Description</strong>
-                      </td>
-                      </tr>
-                      {% for permission in destination.permissions %}
-                      {% for operation in permission.operations %}
-                      {%- capture rowspan -%}
-                      {{ forloop.length }}
-                      {%- endcapture -%}
-                      {% endfor %}
-                      <tr>
-                      <td rowspan="{{ rowspan }}">
-                      <strong>{{ permission.name }}</strong>
-                      </td>
-                      {% for operation in permission.operations %}
-                      {% case forloop.first %}
-                      {% when true %}
-                      <td>
-                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                      </td>
-                      <td>
-                      {{ operation.description | flatify | markdownify }}
-                      </td>
-                      </tr>
-                      {% else %}
-                      <tr>
-                      <td>
-                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                      </td>
-                      <td>
-                      {{ operation.description | flatify | markdownify }}
-                      </td>
-                      </tr>
-                      {% endcase %}
-                      {% endfor %}
-                      {% endfor %}
-                      </table>
-                    </div>
-                </div>
-            </div>
-          </div>
-
     substeps:
       - title: "Add the Stitch Bucket Policy"
         anchor: "add-bucket-policy"
         content: |
-          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console.
+          To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console. Follow the instructions in the tab below to add the bucket policy.
 
-          1. Sign into AWS in another tab, if you aren't currently logged in.
-          2. Click **Services** near the top-left corner of the page.
-          3. Under the **Storage** option, click **S3**.
-          4. A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch.
-          5. Click the **Permissions** tab.
-          6. In the **Permissions** tab, click the **Bucket Policy** button.
-          7. In the Bucket policy editor, paste the bucket policy code from Stitch.
-          8. When finished, click **Save**.
-
-          Leave this page open for now - you'll come back to it in the next step.
+          {% include destinations/templates/destination-user-setup.html %}
 
       - title: "Verify bucket access"
         anchor: "verify-bucket-access"

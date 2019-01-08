@@ -12,8 +12,6 @@ show-in-menus: true
 
 name: "sql-server-rds"
 display_name: "SQL Server RDS"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -29,19 +27,37 @@ port: 1433
 db-type: "mssql"
 icon: /images/integrations/icons/mssql-rds.svg
 
-versions: "n/a"
+## Stitch features
+
+versions: "2000 through 2016"
 ssh: false
 ssl: true
 
-anchor-scheduling: true
-extraction-logs: true
-loading-reports: true
+## General replication features
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: true
+
+log-based-replication-minimum-version: "n/a"
+log-based-replication-master-instance: false
+log-based-replication-read-replica: false
+
+## Other Replication Methods
+
+key-based-incremental-replication: true
+full-table-replication: true
+
 view-replication: false
+
 
 # -------------------------- #
 #      Setup Requirements    #

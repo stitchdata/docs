@@ -3,6 +3,9 @@ title: Connecting a data.world Data Warehouse to Stitch
 permalink: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
 keywords: data-world, data-world, data-world data warehouse, etl to s3, s3 etl, data-world etl, amazon s3
 summary: "Connect your data.world destination to Stitch."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 

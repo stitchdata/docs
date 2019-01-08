@@ -35,7 +35,7 @@ icon: /images/integrations/icons/quickbooks.svg
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
+anchor-scheduling: true
 extraction-logs: false
 loading-reports: false
 
@@ -846,7 +846,9 @@ tables:
 
 
 {% contentfor setup %}
-Connecting your [QuickBooks data](https://quickbooks.intuit.com/cloud-accounting-software/){:target="new"} to Stitch is a four-step process:
+Connecting your [QuickBooks data](https://quickbooks.intuit.com/cloud-accounting-software/){:target="new"}* to Stitch is a four-step process:
+
+**Note**: Stitch only integrates with online {{ integration.display_name }}. {{ integration.display_name }} for Desktop is not currently supported.
 
 1. [Add QuickBooks as a Stitch data source](#add-stitch-data-source)
 2. [Define the Historical Sync](#define-historical-sync)
