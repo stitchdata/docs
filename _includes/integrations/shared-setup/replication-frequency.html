@@ -18,9 +18,9 @@ Stitch offers two methods of creating a replication schedule:
 
    - A **Replication Frequency of at least one hour** is required to use anchor scheduling.
    - **An initial replication job may not begin immediately after saving the integration**, depending on the selected Replication Frequency and Anchor Time. Refer to the [Anchor Scheduling]({{ link.replication.rep-scheduling | prepend: site.baseurl | append: "#job-scheduling-and-anchor-times" }}) documentation for more information.
-   {% if integration.permalink contains "databases" %}
+   {% unless integration.anchor-scheduling == true %}
    - **You'll need to contact support to request using an Anchor Time with this integration.**
-   {% endif %}
+   {% endunless %}
 
 To help prevent overages, consider setting the integration to replicate less frequently. See the [Understanding and Reducing Your Row Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) for tips on reducing your usage.
 
