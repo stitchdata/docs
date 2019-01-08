@@ -82,24 +82,6 @@ loading-data-types:
   - name: "string"
 
 # -------------------------- #
-#   Replication Comparison   #
-# -------------------------- #
-
-replication-comparison:
-  - item: "What's used as a Replication Key?"
-    other-integrations: "A column or columns in a table."
-    s3: "The time a file is modified."
-
-  - item: "Are Replication Keys inclusive?"
-    other-integrations: "**Yes**. Rows with a Replication Key value **greater than or equal to** the last saved bookmark are replicated."
-    s3: "**No**. Only files with a modification timestamp value greater than the last saved bookmark are replicated."
-
-  - item: "What's replicated during a replication job?"
-    other-integrations: "Only new or updated rows in a table."
-    s3: "The entire contents of a modified file."
-
-
-# -------------------------- #
 #          Sample data       #
 # -------------------------- #
 
@@ -526,7 +508,7 @@ replication-sections:
   - title: "Incremental Replication for {{ integration.display_name }}"
     anchor: "incremental-replication-for-amazon-s3-csv"
     content: |
-      While data from {{ integration.display_name }} integrations is replicated using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), the behavior for this integration subtly different from other integrations.
+      While data from {{ integration.display_name }} integrations is replicated using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), the behavior for this integration differs subtly from other integrations.
 
       The table below compares Key-based Incremental Replication and [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) behavior for {{ integration.display_name }} to that of other integrations.
 
@@ -541,13 +523,13 @@ replication-sections:
       <strong>Other integrations</strong>
       </td>
       </tr>
-      {% for comparison in integration.replication-comparison %}
+      {% for comparison in site.data.taps.extraction.replication-methods.key-based-incremental.database-file-integrations %}
       <tr>
       <td align="right" width="35%; fixed">
       <strong>{{ comparison.item | flatify }}</strong>
       </td>
       <td>
-      {{ comparison.s3 | markdownify }}
+      {{ comparison.this-integration | markdownify }}
       </td>
       <td>
       {{ comparison.other-integrations | markdownify }}
