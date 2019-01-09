@@ -32,6 +32,7 @@ display_name: "Responsys"
 singer: true 
 tap-name: "Responsys"
 repo-url: https://github.com/singer-io/tap-responsys
+status-url: "https://community.oracle.com/docs/DOC-1011262"
 
 # this-version: "1.0"
 
@@ -45,7 +46,9 @@ certified: true
 historical: "1 year"
 frequency: "1 hour"
 tier: "Paid"
-status-url: "https://community.oracle.com/docs/DOC-1011262"
+port: 22
+db-type: "responsys"
+
 icon: /images/integrations/icons/responsys.svg
 
 ## Stitch features
