@@ -76,7 +76,7 @@ core-objects:
     title: "Destinations"
     section: "#destinations"
     object: "#destination--object"
-    base: "/v3/destinations"
+    base: "/v4/destinations"
     description: "An object representing a destination. Destinations are the data warehouses into which Stitch writes data."
 
     create:
@@ -259,7 +259,10 @@ data-structures:
     title: "Details"
     section: "#details-object"
     short: "A Details object contains information about a destination `type`'s availablity within Stitch."
-    description: "Contained in a [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}), the Details object contains information about a destination `type`'s availability within Stitch."
+    description: |
+      Contained in a [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}), the Details object contains information about a destination `type`'s availability within Stitch.
+
+      **Note**: This object will only be returned when using a `GET` method.
 
   properties:
     title: "Properties"

@@ -57,43 +57,12 @@ examples:
   - type: "request"
     language: "json"
     subexamples:
-      - title: "Create an Amazon S3 destination"
+      - title: "Create a PostgreSQL destination"
         code: |
-          {% capture request-header %}
           curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
                -H "Authorization: Bearer <ACCESS_TOKEN>" 
                -H "Content-Type: application/json"
                -d "{
-          {% endcapture %}
-
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"s3",
-                    "properties": {
-                      "s3_bucket":"com-stitch-test-bucket",
-                      "output_file_format":"csv",
-                      "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
-                      "csv_delimiter":",",
-                      "csv_force_quote":true
-                      }
-                   }"
-
-      - title: "Create an Amazon Redshift destination"
-        code: |
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"redshift",
-                    "properties": {
-                      "host":"<HOST>",
-                      "port":5439,
-                      "username":"<USERNAME>",
-                      "database":"<DATABASE>",
-                      "password":"<PASSWORD>",
-                      "ssl":false
-                      }
-                   }"
-
-      - title: "Create a PostgreSQL destination"
-        code: |
-          {{ request-header | flatify | lstrip | rstrip }}
                     "type":"postgres",
                     "properties": {
                       "host":"<HOST>",
@@ -105,94 +74,183 @@ examples:
                       }
                    }"
 
-      - title: "Create a Snowflake destination"
-        code: |
-          {{ request-header | flatify | lstrip | rstrip }}
-                    "type":"snowflake",
-                    "properties": {
-                      "host":"<HOST>",
-                      "port":443,
-                      "user":"<USERNAME>",
-                      "warehouse":"<WAREHOUSE>",
-                      "database":"<DATABASE>",
-                      "password":"<PASSWORD>",
-                      "role":"<OPTIONAL_ROLE>",
-                      "ssl":false
-                      }
-                   }"
 
   - type: "response"
     language: "json"
     subexamples:
-      - title: "Amazon S3 destination response"
-        description: |
-          **Note**: There are additional steps to creating an Amazon S3 destination beyond submitting a successful request to this endpoint. Refer to the [Amazon S3 Destination Form Property documentation]({{ api.form-properties.destination-forms.section | append: "-amazon-s3-object" }}) for more info.
+      - title: "PostgreSQL destination response"
         code: |
-          {% capture response-header %}
-          HTTP/1.1 200 OK
-          Content-Type: application/json;charset=ISO-8859-1
-
           {
-            "id":"<DESTINATION_ID>",
-            "type":"[DESTINATION-TYPE]",
-            "created_at":"2018-02-06T15:36:36Z",
-            "updated_at":"2018-02-06T15:36:36Z",
+            "properties": {
+              "database": "<DATABASE>",
+              "host": "<HOST>",
+              "port": "5432",
+              "username": "<USERNAME>"
+            },
+            "updated_at": "2019-01-09T22:16:23Z",
             "check_job_name": null,
             "name": "Default Warehouse",
+            "type": "postgres",
             "deleted_at": null,
             "system_paused_at": null,
+            "stitch_client_id": <CLIENT_ID>,
             "paused_at": null,
-            "properties": {
-          {% endcapture %}
-
-
-
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","s3" | lstrip | rstrip }}
-                "s3_bucket":"com-stitch-test-bucket",
-                "output_file_format":"csv",
-                "s3_key_format_string":"[integration_name]/[table_name]/[table_version]_[timestamp_loaded].csv",
-                "csv_delimiter":",",
-                "csv_force_quote":true,
-                "sentinel_key":"stitch-challenge-file-af295ad1-7a4b-4881-89dc-c9be27de13a5"
-            }
-
-      - title: "Amazon Redshift destination response"    
-        code: |
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","redshift" | lstrip | rstrip }}
-                "host":"<HOST>",
-                "port":5439,
-                "username":"<USERNAME>",
-                "database":"<DATABASE>",
-                "password":"<PASSWORD>",
-                "ssl":false
-            }
-
-      - title: "PostgreSQL destination response"    
-        code: |
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","postgres" | lstrip | rstrip }}
-                "host":"<HOST>",
-                "port":5432,
-                "username":"<USERNAME>",
-                "database":"<DATABASE>",
-                "password":"<PASSWORD>",
-                "ssl":false
-            },
+            "id": <DESTINATION_ID>,
+            "created_at": "2019-01-09T22:16:23Z",
             "report_card": {
-                {{ site.data.connect.code-examples.destination-report-cards.postgres }}
+              "type": "postgres",
+              "current_step": 1,
+              "steps": [
+                {
+                  "type": "form",
+                  "properties": [
+                    {
+                      "name": "database",
+                      "is_required": true,
+                      "provided": true,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "encryption_host",
+                      "is_required": false,
+                      "provided": false,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "ipv4"
+                          },
+                          {
+                            "type": "string",
+                            "format": "ipv6"
+                          },
+                          {
+                            "type": "string",
+                            "format": "hostname"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "encryption_port",
+                      "is_required": false,
+                      "provided": false,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string",
+                        "pattern": "^\\d+$"
+                      }
+                    },
+                    {
+                      "name": "encryption_type",
+                      "is_required": true,
+                      "provided": false,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string",
+                        "pattern": "^(ssh|none)$"
+                      }
+                    },
+                    {
+                      "name": "encryption_username",
+                      "is_required": false,
+                      "provided": false,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "host",
+                      "is_required": true,
+                      "provided": true,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "ipv4"
+                          },
+                          {
+                            "type": "string",
+                            "format": "ipv6"
+                          },
+                          {
+                            "type": "string",
+                            "format": "hostname"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "password",
+                      "is_required": true,
+                      "provided": true,
+                      "is_credential": true,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "port",
+                      "is_required": true,
+                      "provided": true,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string",
+                        "pattern": "^\\d+$"
+                      }
+                    },
+                    {
+                      "name": "ssl",
+                      "is_required": true,
+                      "provided": false,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "sslrootcert",
+                      "is_required": false,
+                      "provided": false,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "username",
+                      "is_required": true,
+                      "provided": true,
+                      "is_credential": false,
+                      "system_provided": false,
+                      "json_schema": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "fully_configured",
+                  "properties": []
+                }
+              ]
             }
-
-      - title: "Snowflake destination response"    
-        code: |
-          {{ response-header | flatify | replace: "[DESTINATION-TYPE]","snowflake" | lstrip | rstrip }}
-                "host":"<HOST>",
-                "port":443,
-                "user":"<USERNAME>",
-                "warehouse":"<WAREHOUSE>",
-                "database":"<DATABASE>",
-                "password":"<PASSWORD>",
-                "role":"<OPTIONAL_ROLE>",
-                "ssl":false
-            }
-
+          }
   - type: "errors"
 ---

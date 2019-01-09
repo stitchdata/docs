@@ -53,7 +53,7 @@ sections:
       Source creation is performed through a sequence of [connection steps]({{ api.data-structures.connection-steps.section }}). The required steps and the order of those steps are unique to the source type and are defined in its [Report Card]({{ api.data-structures.report-cards.section }}) object. All source creation, however, begins at the `form` step.
 
       {% capture tip-source-types %}
-      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) (`form` step) and expected properties within each subsequent connection step.<br><br>
+      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) (`step: form`) and expected properties within each subsequent connection step.<br><br>
 
       With this endpoint, you could dynamically generate a UI or initial setup forms for each source type you want to include in your application.
       {% endcapture %}
