@@ -52,6 +52,11 @@ available-methods:
     method: "get"
     short: "{{ api.core-objects.sources.list.description | flatify }}"
 
+  - id: "delete-a-source"
+    title: "Delete a source"
+    method: "delete"
+    short: "{{ api.core-objects.sources.delete.description | flatify }}"
+
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #

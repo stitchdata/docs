@@ -135,6 +135,10 @@ api:
                 method: "get"
                 url: "{{ api.core-objects.sources.retrieve.anchor }}"
 
+              - title: "{{ api.core-objects.sources.delete.title | flatify }}"
+                method: "delete"
+                url: "{{ api.core-objects.sources.delete.anchor }}"
+
       - title: "Data Structures"
         expand-by-default: true
         sections: 

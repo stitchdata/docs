@@ -171,6 +171,13 @@ core-objects:
       anchor: "#update-a-source"
       description: "Updates an existing data source."
 
+    delete:
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
+      title: "Delete a source"
+      method: "delete"
+      anchor: "#delete-a-source"
+      description: "Deletes an existing data source."
+
     retrieve:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
       title: "Retrieve a source"
