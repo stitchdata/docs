@@ -14,6 +14,8 @@ db-type: "s3-csv"
 description: ""
 
 uses-common-fields: false
+uses-feature-fields: false
+
 object-attributes:
   - name: "bucket"
     type: "string"

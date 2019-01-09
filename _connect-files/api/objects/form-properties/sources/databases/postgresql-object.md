@@ -12,5 +12,7 @@ docs-name: "postgres"
 db-type: "postgres"
 
 description: ""
+
 uses-common-fields: true
+uses-feature-fields: true
 ---

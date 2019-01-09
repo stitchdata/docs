@@ -12,5 +12,7 @@ docs-name: "mariadb"
 db-type: "mysql"
 
 description: ""
+
 uses-common-fields: true
+uses-feature-fields: true
 ---

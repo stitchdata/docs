@@ -35,34 +35,38 @@
 	<!-- Get support info for SSL and SSH connections,
 		using the corresponding doc for the database source -->
 		{% for database in this-database %}
-		<!-- Check for SSL support -->
-			{% assign ssl-support = database.ssl %}
-				{% if ssl-support == true %}
+
+			{% assign port = database.port %}
+			{% assign doc-link = database.url | prepend: site.baseurl %}
+
+		<!-- If the form property uses feature fields, run the code below -->
+			{% if form-property.uses-feature-fields == true %}
+
+			<!-- Check for SSL support -->
+				{% if database.ssl == true %}
 					{% assign ssl-fields = connect-database-attributes.ssl %}
 				{% else %}
 					{% assign ssl-fields = null | compact %}
 				{% endif %}
-			
-		<!-- Check for SSH support -->
-			{% assign ssh-support = database.ssh %}
-				{% if ssh-support == true %}
+				
+			<!-- Check for SSH support -->
+				{% if database.ssh == true %}
 					{% assign ssh-fields = connect-database-attributes.ssh %}
 				{% else %}
 					{% assign ssh-fields = null | compact %}
 				{% endif %}
 
-		<!-- Check for binlog support -->
-			{% assign binlog-support = database.binlog-replication %}
-				{% if binlog-support == true %}
+			<!-- Check for binlog support -->
+				{% if database.log-based-replication-master-instance == true %}
 					{% assign binlog-fields = connect-database-attributes.binlog-replication | where:"database",form-property.db-type %}
 				{% else %}
 					{% assign binlog-fields = null | compact %}
 				{% endif %}
 
-			{% assign port = database.port %}
-			{% assign doc-link = database.url | prepend: site.baseurl %}
-
-			{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields %}
+				{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields %}
+			{% else %}
+				{% assign feature-fields = null | compact %}
+			{% endif %}
 		{% endfor %}
 
 
