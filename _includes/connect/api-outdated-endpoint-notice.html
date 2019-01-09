@@ -1,7 +1,24 @@
-<!-- Notice for outdated API endpoints. -->
+<!-- Notice for outdated or unavailable API endpoints. -->
+
+
+<!-- When a method isn't available for a specific version, run this: -->
+
+{% if endpoint.not-available-until-version %}
+{% capture not-available-notice %}
+This method isn't available in version {{ endpoint.version }} of the {{ endpoint.endpoint | capitalize }} endpoint. Use the **{{ endpoint.not-available-until-version | prepend: "v" }}** version to use this method.
+{% endcapture %}
+
+{% include note.html first-line="**Not available in this version**" content=not-available-notice %}
+
+
+
+<!-- When a method isn't the most current version of the endpoint, run this: -->
+{% else %}
 
 {% capture outdated-version-notice %}
 This isn't the most current version of the {{ endpoint.endpoint | capitalize }} endpoint and will be deprecated in the future. Use the **{{ object.latest-version | prepend: "v" }}** version instead.
 {% endcapture %}
 
 {% include note.html first-line="**Outdated endpoint version**" content=outdated-version-notice %}
+
+{% endif %}
