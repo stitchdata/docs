@@ -9,25 +9,25 @@ all:
         condition: "Source's `display_name` is already in use"
         version: "all"
         response-body: |
-          `a source of name <NAME> already exists`
+          `"a source of name <NAME> already exists"`
 
       - method: "post"
         condition: "Prohibited arguments"
         version: "all"
         response-body: |
-          `POST body may only include a type, a display_name and map of string properties`
+          `"POST body may only include a type, a display_name and map of string properties"`
 
       - method: "put"
         condition: "Invalid source ID"
         version: "all"
         response-body: |
-          `unable to locate source(<SOURCE_ID>) for client (<ACCOUNT_ID>) to update`
+          `"unable to locate source(<SOURCE_ID>) for client (<ACCOUNT_ID>) to update"`
 
       - method: "put"
         condition: "Prohibited arguments"
         version: "all"
         response-body: |
-          `PUT body many only include the keys: display_name and properties`
+          `"PUT body many only include the keys: display_name and properties"`
 
       - method: "post, put"
         condition: "Invalid `properties` data"
@@ -46,3 +46,15 @@ all:
           ```
 
           May result from incorrect formatting, incorrect typing (all property values must be strings), or a property has a value that is an empty string.
+
+      - method: "delete"
+        condition: "Prohibited arguments"
+        version: "all"
+        response-body: |
+          `"DELETE body must be empty"`
+
+      - method: "delete"
+        condition: "Invalid source ID"
+        version: "all"
+        response-body: |
+          `"Unable to locate source(<SOURCE_ID>) for client (<ACCOUNT_ID>) to delete"`
