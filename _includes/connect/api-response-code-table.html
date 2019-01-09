@@ -39,7 +39,7 @@
                                     {{ response.condition | markdownify }}
                                 </td>
                                 <td>
-                                    {{ response.response-body | markdownify }}
+                                    {{ response.response-body | flatify | markdownify }}
                                 </td>
                             </tr>
                         {% endif %}

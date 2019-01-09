@@ -43,7 +43,9 @@
                 {% else %}
                     <li>
                 {% endif %}
-                        <a href="#{{ object-method.id }}-{{ version.number | prepend: "v" }}" data-toggle="tab">{{ version.number | prepend: "v" }} {% if version.number == object.latest-version %}(latest){% endif %}</a> 
+                        <a href="#{{ object-method.id }}-{{ version.number | prepend: "v" }}" data-toggle="tab">{{ version.number | prepend: "v" }}
+                        {% if version.number == object.latest-version %} (latest){% endif %}
+                    </a> 
                     </li>
             {% endfor %}
 
@@ -61,11 +63,19 @@
                             
                         {% for endpoint in endpoints %}
                             {% if version.number == endpoint.version %}
+
+                        <!-- If the endpoint's version doesn't match the defined latest version,
+                            display a notice. -->
                                 {% if version.number != object.latest-version %}
                                     {% include connect/api-outdated-endpoint-notice.html %}
                                 {% endif %}
 
-                                {% include connect/api-endpoint-sections.html %}
+                        <!-- If an endpoint has the `not-available-until-version` property, that means
+                            it's likely a new endpoint and is therefore unavilable for older versions.
+                            This will prevent displaying any resource info, as it's not needed. -->
+                                {% unless endpoint.not-available-until-version %}
+                                    {% include connect/api-endpoint-sections.html %}
+                                {% endunless %}
                             {% endif %}
                         {% endfor %}
 

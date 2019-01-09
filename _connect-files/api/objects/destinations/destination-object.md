@@ -50,6 +50,11 @@ available-methods:
     method: "get"
     short: "{{ api.core-objects.destinations.list.description | flatify }}"
 
+  - id: "delete-a-destination"
+    title: "Delete a destination"
+    method: "delete"
+    short: "{{ api.core-objects.destinations.delete.description | flatify }}"
+
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #

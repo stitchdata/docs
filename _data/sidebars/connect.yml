@@ -97,6 +97,10 @@ api:
                 method: "get"
                 url: "{{ api.core-objects.destinations.list.anchor }}"
 
+              - title: "{{ api.core-objects.destinations.delete.title | flatify }}"
+                method: "delete"
+                url: "{{ api.core-objects.destinations.delete.anchor }}"
+
           - title: "Source Types"
             expand-by-default: true
             subsections:
