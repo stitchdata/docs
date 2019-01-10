@@ -287,7 +287,7 @@ sections:
       - title: "Identify the current step"
         anchor: "quick-start--identify-current-step"
         content: |
-          The [Report Card]({{ api.data-structures.report-cards.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
+          The [Source Report Card]({{ api.data-structures.report-cards.source.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
 
           Looking at the report card for our HubSpot source, we can see that we're now on step `2` of configuration, which is the `oauth` step:
 

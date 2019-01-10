@@ -45,7 +45,7 @@ sections:
                   }"
           ```
 
-          When successful, this endpoint return a status of `200 OK` and an access token:
+          When successful, this endpoint returns a status of `200 OK` and an access token:
 
           ```json
           {
@@ -58,7 +58,13 @@ sections:
       - title: "Existing Stitch clients, using OAuth2"
         anchor: "existing-stitch-clients-oauth2"
         content: |
-          You can connect to a user's existing Stitch client account by having the user complete a standard OAuth flow. Registering your application with Stitch is a prerequisite to generating tokens with OAuth, so do that first. Then, follow these steps to complete the OAuth flow:
+          You can connect to a user's existing Stitch client account by having the user complete a standard OAuth flow. Before generating OAuth tokens, registering your application with Stitch. 
+
+          Then, follow these steps to complete the OAuth flow:
+
+          {% for step in subsection.steps %}
+          - [Step {{ forloop.index }}: {{ step.title }}](#{{ step.anchor }})
+          {% endfor %}
 
         steps:
           - title: "Send the user to Stitch"

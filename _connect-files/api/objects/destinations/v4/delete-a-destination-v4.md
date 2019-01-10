@@ -57,7 +57,6 @@ examples:
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
-           -d "{}"
 
   - type: "response"
     language: "json"
