@@ -57,96 +57,27 @@ available-methods:
 
 
 # -------------------------- #
-#      OBJECT ATTRIBUTES     #
+#      COMMON ATTRIBUTES     #
 # -------------------------- #
 
-object-attributes:
+## These attributes are shared across all versions of the object.
+## Attributes specific to a version are in that object's file.
+
+## Ex: _connect-files/api/objects/destinations/v4/destination-object-v4.md
+## Has the attributes specific to version 4 of this object.
+
+common-attributes:
   - name: "id"
     type: "integer"
-    first-appeared-in: "3"
     description: "A unique identifier for this destination."
     example-value: |
       110397
 
-  - name: "connection"
-    type: "object"
-    sub-type: "destination form properties"
-    url: "{{ api.form-properties.destination-forms.section }}"
-    first-appeared-in: "3"
-    deprecated-in: "4"
-    description: |
-      **Renamed in v4 of the Destinations endpoint.** Use `properties` instead.
-
   - name: "created_at"
     type: "timestamp"
-    first-appeared-in: "3"
     description: "The time at which the destination object was created."
     example-value: |
       "2018-11-14T20:09:30Z"
-
-  - name: "deleted_at"
-    type: "timestamp"
-    first-appeared-in: "4"
-    description: "The time at which the destination object was deleted."
-    example-value: |
-      null
-
-  - name: "last_check"
-    type: "object"
-    sub-type: "connection check"
-    url: "{{ api.data-structures.connection-checks.section }}"
-    first-appeared-in: "3"
-    deprecated-in: "4"
-    description: |
-      The status and results of the most recent check run for this destination connection.
-
-      **Note**: This field has been deprecated in v4 of the Destinations endpoint. It will be removed at a future date.
-
-  - name: "name"
-    type: "string"
-    first-appeared-in: "4"
-    description: "The name for the destination."
-    example-value: |
-      "Default Warehouse"
-
-  - name: "paused_at"
-    type: "timestamp"
-    first-appeared-in: "4"
-    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be null."
-    example-value: |
-      null
-
-  - name: "properties"
-    type: "object"
-    sub-type: "destination form properties"
-    url: "{{ api.form-properties.destination-forms.section }}"
-    first-appeared-in: "4"
-    description: |
-      Parameters for connecting to the destination, excluding any sensitive credentials.
-
-      The parameters must adhere to the `type` of destination.
-
-  - name: "report_card"
-    type: "object"
-    sub-type: "destination report card"
-    url: "{{ api.data-structures.report-cards.destination.section }}"
-    first-appeared-in: "4"
-    description: |
-      The Report Card object corresponding to the destination's `type`. For example: `postgres` or `redshift`.
-
-  - name: "stitch_client_id"
-    type: "integer"
-    first-appeared-in: "4"
-    description: "The ID of the Stitch client account."
-    example-value: |
-      7723
-
-  - name: "system_paused_at"
-    type: "timestamp"
-    first-appeared-in: "4"
-    description: "If the connection was paused by the system, the time the pause began. Otherwise, or if the connection is active, this will be null."
-    example-value: |
-      null
 
   - name: "type"
     type: "string"
