@@ -1,12 +1,46 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-object"
 endpoint: "accounts"
 order: 1
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Account"
 description: "{{ api.core-objects.accounts.description }}"
 endpoint-url: "/accounts"
-version: "3"
+
+
+# -------------------------- #
+#        VERSION INFO        #
+# -------------------------- #
+
+latest-version: "3"
+versions:
+  - number: "3"
+    deprecated: false
+
+
+# -------------------------- #
+#      AVAILABLE METHODS     #
+# -------------------------- #
+
+available-methods:
+  - id: "create-an-account"
+    title: "Create an account"
+    method: "post"
+    short: "{{ api.core-objects.accounts.create.description | flatify }}"
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "company"

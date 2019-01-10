@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-amazon-s3-csv-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Amazon S3 CSV Source Form Property"
 api-type: "s3-csv"
@@ -12,6 +21,11 @@ docs-name: "amazon-s3-csv"
 db-type: "s3-csv"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 uses-common-fields: false
 object-attributes:

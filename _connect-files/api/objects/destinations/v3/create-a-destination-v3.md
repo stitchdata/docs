@@ -1,20 +1,31 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "create-a-destination"
 version: "3"
-order: 1
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Create a destination"
 method: "post"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.destinations.create.short }}"
 description: "{{ api.core-objects.destinations.create.description | flatify }}"
 
+
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
 
 arguments:
   - name: "type"
@@ -27,8 +38,18 @@ arguments:
     type: "object"
     description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
+
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}).
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"

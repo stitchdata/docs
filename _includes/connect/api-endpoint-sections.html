@@ -1,0 +1,50 @@
+<!-- This file is included in _includes/connect/api-endpoint.html
+
+    This displays information about a given endpoint. -->
+
+
+<!-- The endpoint's resource list -->
+{% include connect/api-resource-list.html %}
+
+<!-- The arguments the endpoint accepts -->
+    {% if endpoint.arguments %}
+        <h5 id="{{ endpoint.key | append: "--arguments" }}">
+            Arguments
+        </h5>
+
+        <p>This endpoint accepts the following parameters:</p>
+
+            <table class="attribute-list">
+                {% for argument in endpoint.arguments %}
+                    <tr>
+                        <td class="attribute-name">
+                            <strong>
+                                {{ argument.name }}
+                            </strong><br>
+                            {{ argument.type | upcase }}<br>
+                            
+                            {% case argument.required %}
+                                {% when true %}
+                                    <font color="#cc3399">REQUIRED</font>
+                                {% else %}
+                                    OPTIONAL
+                            {% endcase %}
+                        </td>
+                        <td class="description">
+                            {{ argument.description | flatify | markdownify }}
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </table>
+    {% endif %}
+
+
+<!-- Description of what the endpoint returns -->
+    <h5 id="{{ endpoint.key | append: "--returns" }}">
+        Returns
+    </h5>
+        {{ endpoint.returns | flatify | markdownify }}
+
+<!-- Displays the request, response, and error tabs -->
+{% include connect/request-response-example-tabs.html type="endpoint" %}

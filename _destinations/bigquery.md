@@ -34,24 +34,10 @@ icon: /images/destinations/icons/google-bigquery.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-upsert-support: false
-connection-methods: "SSL"
-supported-versions: "n/a"
 
-nested-structure-support: true ## if true, natively supports nested structures
-case: "Case Insensitive"
-table-name-limit: "1,024" ## max # of characters
-column-name-limit: "128" ## max # of characters
-column-limit: "10,000" ## max # of columns allowed in tables
-timestamp-range: "Long/MIN_Value(292269055-12-02T16:47:04.192-00:00)<br>AND<br>Long/MAX_LONG (292278994-08-17T07:12:55.807-00:00)"
-timezones:
-  supported: false
-  storage: "No support for timezones."
-varchar-limit: "None" ## max width for varchars
-integer-limit: "-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807" # https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types
-decimal-limit: "38 numbers, or places"
-decimal-range: "Not applicable"
-reserved-words: "https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical#reserved_keywords"
+## See _data/destinations/reference/bigquery.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
 
 # -------------------------- #

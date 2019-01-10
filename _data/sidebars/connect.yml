@@ -48,7 +48,7 @@ api:
                 method: "object"
                 url: "{{ api.core-objects.accounts.object }}"
 
-              - title: "{{ api.core-objects.accounts.create.name }}"
+              - title: "{{ api.core-objects.accounts.create.title }}"
                 method: "post"
                 url: "{{ api.core-objects.accounts.create.anchor }}"
 
@@ -59,9 +59,24 @@ api:
                 method: "object"
                 url: "{{ api.core-objects.sessions.object }}"
 
-              - title: "{{ api.core-objects.sessions.create.name }}"
+              - title: "{{ api.core-objects.sessions.create.title }}"
                 method: "post"
                 url: "{{ api.core-objects.sessions.create.anchor }}"
+
+          - title: "Destination Types"
+            expand-by-default: true
+            subsections:
+              - title: "The Destination Type Object"
+                method: "object"
+                url: "{{ api.core-objects.destination-types.object }}"
+
+              - title: "{{ api.core-objects.destination-types.list.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.destination-types.list.anchor }}"
+
+              - title: "{{ api.core-objects.destination-types.get.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.destination-types.get.anchor }}"
 
           - title: "Destinations"
             expand-by-default: true
@@ -70,17 +85,21 @@ api:
                 method: "object"
                 url: "{{ api.core-objects.destinations.object }}"
 
-              - title: "{{ api.core-objects.destinations.create.name | flatify }}"
+              - title: "{{ api.core-objects.destinations.create.title | flatify }}"
                 method: "post"
                 url: "{{ api.core-objects.destinations.create.anchor }}"
 
-              - title: "{{ api.core-objects.destinations.update.name | flatify }}"
+              - title: "{{ api.core-objects.destinations.update.title | flatify }}"
                 method: "put"
                 url: "{{ api.core-objects.destinations.update.anchor }}"
 
-              - title: "{{ api.core-objects.destinations.list.name | flatify }}"
+              - title: "{{ api.core-objects.destinations.list.title | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.destinations.list.anchor }}"
+
+              - title: "{{ api.core-objects.destinations.delete.title | flatify }}"
+                method: "delete"
+                url: "{{ api.core-objects.destinations.delete.anchor }}"
 
           - title: "Source Types"
             expand-by-default: true
@@ -89,11 +108,11 @@ api:
                 method: "object"
                 url: "{{ api.core-objects.source-types.object }}"
 
-              - title: "{{ api.core-objects.source-types.list.name | flatify }}"
+              - title: "{{ api.core-objects.source-types.list.title | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.source-types.list.anchor }}"
 
-              - title: "{{ api.core-objects.source-types.get.name | flatify }}"
+              - title: "{{ api.core-objects.source-types.get.title | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.source-types.get.anchor }}"
 
@@ -104,47 +123,64 @@ api:
                 method: "object"
                 url: "{{ api.core-objects.sources.object }}"
 
-              - title: "{{ api.core-objects.sources.create.name | flatify }}"
+              - title: "{{ api.core-objects.sources.create.title | flatify }}"
                 method: "post"
                 url: "{{ api.core-objects.sources.create.anchor }}"
 
-              - title: "{{ api.core-objects.sources.update.name | flatify }}"
+              - title: "{{ api.core-objects.sources.update.title | flatify }}"
                 method: "put"
                 url: "{{ api.core-objects.sources.update.anchor }}"
 
-              - title: "{{ api.core-objects.sources.list.name | flatify }}"
+              - title: "{{ api.core-objects.sources.list.title | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.sources.list.anchor }}"
 
-              - title: "{{ api.core-objects.sources.retrieve.name | flatify }}"
+              - title: "{{ api.core-objects.sources.retrieve.title | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.sources.retrieve.anchor }}"
 
+              - title: "{{ api.core-objects.sources.delete.title | flatify }}"
+                method: "delete"
+                url: "{{ api.core-objects.sources.delete.anchor }}"
+
       - title: "Data Structures"
+        expand-by-default: true
         sections: 
-          - title: "{{ api.data-structures.connection-checks.title }}"
-            method: "object"
-            url: "{{ api.data-structures.connection-checks.section }}"
+          # - title: "{{ api.data-structures.connection-checks.title }}"
+          #   method: "object"
+          #   url: "{{ api.data-structures.connection-checks.section }}"
 
           - title: "{{ api.data-structures.connection-steps.title }}"
             method: "object"
             url: "{{ api.data-structures.connection-steps.section }}"
 
+          - title: "{{ api.data-structures.details.title }}"
+            method: "object"
+            url: "{{ api.data-structures.details.section }}"
+
           - title: "{{ api.data-structures.properties.title }}"
             method: "object"
             url: "{{ api.data-structures.properties.section }}"
 
-          - title: "{{ api.data-structures.report-cards.title }}"
+          - title: "{{ api.data-structures.report-cards.destination.title }}"
             method: "object"
-            url: "{{ api.data-structures.report-cards.section }}"
+            url: "{{ api.data-structures.report-cards.destination.section }}"
+
+          - title: "{{ api.data-structures.report-cards.source.title }}"
+            method: "object"
+            url: "{{ api.data-structures.report-cards.source.section }}"
+
 
       - title: "Form Properties"
+        expand-by-default: true
         sections:
           - title: "Destination Forms"
+            expand-by-default: false
             subsections:
               - 
 
           - title: "Source Forms"
+            expand-by-default: false
             subsections:
               - 
 

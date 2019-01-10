@@ -128,6 +128,7 @@ column-naming-info:
     {{ column-name | downcase | remove: "!" | remove:"# " }}
   with-non-letter-start: *destination-column-name
 
+reserved-words: "https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical#reserved_keywords"
 
 # -------------------------- #
 #       LIST OF VALUES       #

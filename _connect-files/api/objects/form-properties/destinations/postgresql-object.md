@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-postgresql-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "PostgreSQL Destination Form Property"
 api-type: "postgres"
@@ -12,7 +21,14 @@ db-type: "postgres"
 
 description: ""
 
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
 uses-common-fields: true
+## See these fields in _data/connect/common/destination-forms.yml > all-destinations
+
 object-attributes:
   - name: "sslrootcert"
     type: "string"

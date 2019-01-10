@@ -133,6 +133,9 @@ column-naming-info:
   with-non-letter-start: &with-non-letter-start |
     {{ column-name | downcase | remove: "_!" | remove: "# " }}
 
+
+reserved-words: "https://www.postgresql.org/docs/9.6/static/sql-keywords-appendix.html"
+
 # -------------------------- #
 #       LIST OF VALUES       #
 # -------------------------- #

@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-oracle-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Oracle Source Form Property"
 api-type: "oracle"
@@ -13,7 +22,14 @@ db-type: "oracle"
 
 description: ""
 
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
 uses-common-fields: true
+## See these fields in _data/connect/common/database-sources.yml > all-databases
+
 object-attributes:
   - name: "default_replication_method"
     type: "string"

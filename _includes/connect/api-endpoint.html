@@ -1,55 +1,85 @@
+<!-- The display code for object methods/resources. -->
+
+{% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
+    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
+        {% assign endpoints = object-endpoints | where:"key",object-method.id %}
+
 <div class="api-js-heading">
-    <div class="method {{ endpoint.method }}">
-        {{ endpoint.method | flatify | upcase }} 
+    <div class="method {{ object-method.method }}">
+        {{ object-method.method | flatify | upcase }} 
     </div>
 
     <div class="method-resource">
-        <h4 id="{{ endpoint.key }}">
-            {{ endpoint.short-url | flatify }}
+        <h4 id="{{ object-method.id }}">
+            {{ object-method.title | flatify }}
         </h4>
     </div>
 </div>
 
-    <p>{{ endpoint.description | flatify | markdownify }}</p>
 
-    {% include connect/api-resource-list.html %}
+{% case include.type %}
+    {% when 'single-version' %}
+        {% assign has-multiple-versions = "false" %}
 
-    {% if endpoint.arguments %}
-        <h5 id="{{ endpoint.key | append: "--arguments" }}">
-            Arguments
-        </h5>
+        {% for endpoint in endpoints %}
+            <p>
+                {{ endpoint.description | flatify | markdownify }}
+            </p>
 
-        <p>This endpoint accepts the following parameters:</p>
+            {% include connect/api-endpoint-sections.html %}
+        {% endfor %}
 
-            <table class="attribute-list">
-                {% for argument in endpoint.arguments %}
-                    <tr>
-                        <td class="attribute-name">
-                            <strong>
-                                {{ argument.name }}
-                            </strong><br>
-                            {{ argument.type | upcase }}<br>
+    {% when 'multiple-versions' %}
+        {% assign has-multiple-versions = "true" %}
+
+        <p>
+            {{ object-method.short | flatify | markdownify }}
+        </p>
+
+        <ul id="profileTabs" class="nav nav-tabs">
+            {% for version in object.versions %}
+                {% if forloop.first == true %}
+                    <li class="active">
+                {% else %}
+                    <li>
+                {% endif %}
+                        <a href="#{{ object-method.id }}-{{ version.number | prepend: "v" }}" data-toggle="tab">{{ version.number | prepend: "v" }}
+                        {% if version.number == object.latest-version %} (latest){% endif %}
+                    </a> 
+                    </li>
+            {% endfor %}
+
+        </ul>
+        <div class="tab-content">
+            {% for version in object.versions %}
+                {% if forloop.first == true %}
+                    <div role="tabpanel" class="tab-pane active" id="{{ object-method.id }}-{{ version.number | prepend: "v" }}">
+                {% else %}
+                    <div role="tabpanel" class="tab-pane" id="{{ object-method.id }}-{{ version.number | prepend: "v" }}">
+                {% endif %}
+
+                    <!-- Loop through endpoints, and then display the content
+                            for the object version that corresponds with it. -->
                             
-                            {% case argument.required %}
-                                {% when true %}
-                                    <font color="#cc3399">REQUIRED</font>
-                                {% else %}
-                                    OPTIONAL
-                                {% endcase %}
-                        </td>
-                        <td class="description">
-                            {{ argument.description | flatify | markdownify }}
-                        </td>
-                        
-                    </tr>
-                {% endfor %}
-            </table>
-    {% endif %}
+                        {% for endpoint in endpoints %}
+                            {% if version.number == endpoint.version %}
 
+                        <!-- If the endpoint's version doesn't match the defined latest version,
+                            display a notice. -->
+                                {% if version.number != object.latest-version %}
+                                    {% include connect/api-outdated-endpoint-notice.html %}
+                                {% endif %}
 
-    <h5 id="{{ endpoint.key | append: "--returns" }}">
-        Returns
-    </h5>
-        {{ endpoint.returns | flatify | markdownify }}
+                        <!-- If an endpoint has the `not-available-until-version` property, that means
+                            it's likely a new endpoint and is therefore unavilable for older versions.
+                            This will prevent displaying any resource info, as it's not needed. -->
+                                {% unless endpoint.not-available-until-version %}
+                                    {% include connect/api-endpoint-sections.html %}
+                                {% endunless %}
+                            {% endif %}
+                        {% endfor %}
 
-    {% include connect/request-response-example-tabs.html type="endpoint" %}
+                    </div>
+            {% endfor %}
+        </div>
+{% endcase %}

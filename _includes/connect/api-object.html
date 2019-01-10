@@ -1,18 +1,25 @@
+<!-- This file starts a section for a given object. For example: Accounts, which 
+    then contains the Account Object, list of endpoints, etc. -->
+
 {% assign objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
 
-{% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
-    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-        {% assign same-version = object-endpoints | where:"version",object.version %}
-            {% assign endpoints = same-version | sort:"order" %}
 
 {% for object in objects %}
+<!-- Get the total number of versions the object has - this is used later
+    to determine formatting for object attributes and endpoints -->
+
+    {% assign version-count = object.versions | size %}
+
+
     <h3 id="{{ object.endpoint | replace: " ", "-" }}">
         {{ object.title | append: "s" }}
     </h3>
 
-        {% include connect/api-endpoint-rollup.html type="endpoint" %}
+<!-- The display logic for displaying the list of resources for a given object type -->
+    {% include connect/api-endpoint-rollup.html type="endpoint" %}
 
-    {% if object.object-attributes %}
+
+<!-- The display of the object's attributes -->
         <div class="api-js-heading">
             <div class="method object">
                 OBJECT 
@@ -27,34 +34,127 @@
 
             <p>{{ object.description | flatify | markdownify }}</p>
 
-            <table class="attribute-list">
-                {% for attribute in object.object-attributes %}
-                    <tr>
-                        <td class="attribute-name">
-                            <strong>
-                                {{ attribute.name }}
-                            </strong><br>
-                                {{ attribute.type | upcase }}
-                                    {% if attribute.sub-type %}
-                                    (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
+
+    <!-- If an object has multiple versions, we need to display them differently than
+        those with a single version. This will make it easier to distinguish attributes
+        that are available in one version and not in another. -->
+
+        <!-- If an object has more than one version, run this: -->
+            {% if version-count > 1 %}
+                {% assign all-version-objects = site.connect-files | where:"content-type","api-version-object" %}
+                    {% assign this-objects-version-objects = all-version-objects | where:"endpoint",object.endpoint %}
+
+                <ul id="profileTabs" class="nav nav-tabs">
+                    {% for version in object.versions %}
+                        {% if forloop.first == true %}
+                            <li class="active">
+                        {% else %}
+                            <li>
+                        {% endif %}
+                            <a href="#{{ object.title | downcase | replace: " ", "-" | append: "--object--v" | append: version.number }}" data-toggle="tab">{{ version.number | prepend: "v" }}{% if version.number == object.latest-version %} (latest){% endif %}</a>
+                            </li>
+                    {% endfor %}
+                </ul>
+                <div class="tab-content">
+                    {% for version in object.versions %}
+                        {% if forloop.first == true %}
+                            <div role="tabpanel" class="tab-pane active" id="{{ object.title | downcase | replace: " ", "-" | append: "--object--v" | append: version.number }}">
+                        {% else %}
+                            <div role="tabpanel" class="tab-pane" id="{{ object.title | downcase | replace: " ", "-" | append: "--object--v" | append: version.number }}">
+                        {% endif %}
+
+                            {% for version-object in this-objects-version-objects %}
+                                {% if version.number == version-object.version %}
+
+                            <!-- If the version-object's version isn't equal to the latest version,
+                                it's outdated. Display a notice that points the user to the latest
+                                version. -->
+                                    {% if version-object.version != object.latest-version %}
+                                        {% capture outdated-object-notice %}
+                                        <strong>Outdated version</strong>: This isn't the most current version of the {{ object.title }} object and will be deprecated in the future. Use the <strong>{{ object.latest-version | prepend: "v" }}</strong> version instead.
+                                        {% endcapture %}
+                                        {% include note.html type="single-line" content=outdated-object-notice %}
+                                    {% endif %}
+
+                            <!-- Get the version-object's attributes and concat them to any common attributes in the top-level object. -->
+                                    {% assign all-attributes = version-object.object-attributes | concat: object.common-attributes | sort: "name" | compact %}
+
+                                    <table class="attribute-list">
+                                        {% for attribute in all-attributes %}
+                                            <tr>
+                                                <td class="attribute-name">
+                                                    <strong>
+                                                        {{ attribute.name }}
+                                                    </strong><br>
+                                                        {{ attribute.type | upcase }}
+                                                            {% if attribute.sub-type %}
+                                                            (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
+                                                        {% endif %}
+                                                </td>
+                                                <td>
+                                                    {{ attribute.description | flatify | markdownify }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
                                 {% endif %}
-                        </td>
-                        <td>
-                            {{ attribute.description | flatify | markdownify }}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-    {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+    <!-- If the object only has one version, run this: -->
+            {% else %}
+                <table class="attribute-list">
+                    {% for attribute in object.object-attributes %}
+                        <tr>
+                            <td class="attribute-name">
+                                <strong>
+                                    {{ attribute.name }}
+                                </strong><br>
+                                    {{ attribute.type | upcase }}
+                                        {% if attribute.sub-type %}
+                                        (<a href="{{ attribute.url | flatify }}">{{ attribute.sub-type | upcase | strip }}</a>)
+                                    {% endif %}
+                            </td>
+                            <td>
+                                {{ attribute.description | flatify | markdownify }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            {% endif %}
         <hr>
 
-    {% for endpoint in endpoints %}
-        {% include connect/api-endpoint.html %}
+<!-- Endpoint display -->
 
-        {% unless forloop.last == true %}
-            <hr>
-        {% endunless %}
-    {% endfor %}
+<!-- This looks at the `versions` list in the object,
+        and looks to see how many versions there are.
+
+    If there are multiple versions and the docs still need 
+        to be available for it, we need to display the content
+        differently - by using tabs.
+
+        This is the `multiple-versions` logic in _includes/connect/api-endpoint.html-->
+    {% assign versions = object.versions %}
+
+        {% for object-version in versions %}
+            {% assign total-versions = versions.size %}
+        {% endfor %}
+
+        {% for object-method in object-methods %}
+            {% if total-versions == 1 %}
+                {% include connect/api-endpoint.html type="single-version" %}
+            {% else %}
+                {% include connect/api-endpoint.html type="multiple-versions" %}
+            {% endif %}
+
+            {% unless forloop.last == true %}
+                <hr>
+            {% endunless %}
+        {% endfor %}
+
 
 {% unless forloop.last == true %}
     <hr>
