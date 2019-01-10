@@ -29,11 +29,11 @@ object-attributes:
       **Note**: This has been renamed to `properties` in v4 of the Destinations endpoint.
 
   - name: "last_check"
-    type: "object"
-    sub-type: "connection check"
-    url: "{{ api.data-structures.connection-checks.section }}"
+    type: "timestamp"
+    # sub-type: "connection check"
+    # url: "{{ api.data-structures.connection-checks.section }}"
     description: |
-      The status and results of the most recent check run for this destination connection.
+      The time the last connection check to the destination completed.
 
       **Note**: This field has been deprecated in v4 of the Destinations endpoint.
 ---

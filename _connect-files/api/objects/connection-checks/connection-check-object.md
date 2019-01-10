@@ -3,8 +3,8 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-content-type: "api-structure"
-key: "connection-check-object"
+# content-type: "api-structure"
+# key: "connection-check-object"
 
 
 # -------------------------- #
