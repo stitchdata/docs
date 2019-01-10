@@ -50,6 +50,12 @@ object-attributes:
     value: |
       false
 
+  - name: "tap_mutable"
+    type: "boolean"
+    description: "**This is an internal field and is for Stitch use only.**"
+    value: |
+      false
+
   - name: "json_schema"
     type: "array"
     description: |
