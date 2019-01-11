@@ -1,0 +1,25 @@
+---
+tap: "clubspeed"
+version: "1.x"
+name: "event_statuses"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_statuses.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "colorId"
+    type: "integer"
+    description: ""
+  - name: "eventStatusId"
+    type: "integer"
+    description: ""
+  - name: "seq"
+    type: "integer"
+    description: ""
+  - name: "status"
+    type: "string"
+    description: ""
+---

@@ -1,0 +1,28 @@
+---
+tap: "clubspeed"
+version: "1.x"
+name: "event_tasks"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_tasks.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "completedAt"
+    type: "date-time"
+    description: ""
+  - name: "completedBy"
+    type: "integer"
+    description: ""
+  - name: "eventReservationId"
+    type: "integer"
+    description: ""
+  - name: "eventTaskId"
+    type: "integer"
+    description: ""
+  - name: "eventTaskTypeId"
+    type: "integer"
+    description: ""
+---

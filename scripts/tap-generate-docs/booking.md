@@ -1,0 +1,28 @@
+---
+tap: "clubspeed"
+version: "1.x"
+name: "booking"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/booking.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "heatId"
+    type: "integer"
+    description: ""
+  - name: "isPublic"
+    type: "boolean"
+    description: ""
+  - name: "onlineBookingsId"
+    type: "integer"
+    description: ""
+  - name: "productsId"
+    type: "integer"
+    description: ""
+  - name: "quantityTotal"
+    type: "integer"
+    description: ""
+---
