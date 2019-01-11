@@ -1,8 +1,8 @@
 {% unless page.layout == "singer" %}
-### Set tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns {% endif %}to replicate {#syncing-data}
+### Set tables {% if integration.column-selection == true %}and columns {% endif %}to replicate {#syncing-data}
 {% endunless %}
 
-To complete the setup, you'll need to select tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns {% endif %}you want to [replicate to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
+To complete the setup, you'll need to select tables {% if integration.column-selection == true %}and columns {% endif %}you want to [replicate to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
 
 {% case integration.name %}
 
@@ -16,10 +16,10 @@ Check out the Schema section to [learn more about the available tables in {{ int
 {% if integration.singer == true %}
 1. In the list of tables that displays - or in the **Tables to Replicate tab**, if you skipped this step during setup - locate a table you want to replicate.
 2. {{ app.menu-paths.sync-table }}
-{% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}
+{% if integration.column-selection == true %}
 3. {{ app.menu-paths.sync-column }}
 {% endif %}
-{% if integration.whitelist.set-replication-methods == true %}
+{% if integration.set-replication-methods == true %}
 4. **Optional**: To define a table's [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}), click {{ app.buttons.update-table-settings }} on the right side of the page.
 
    Whenever possible, Stitch will default to using Incremental Replication. In these cases, the table's Replication Key will be automatically selected and cannot be changed.
@@ -29,7 +29,7 @@ Check out the Schema section to [learn more about the available tables in {{ int
    1. Select the Replication Method you want the table to use. **Note**: Some tables can only be replicated using Full Table Replication. Incremental Replication will be greyed out when this is applicable.
    2. Click {{ app.buttons.save-table-settings }}.
 {% endif %}
-4. Repeat this process for all the tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns{% endif %} you want to replicate.
+4. Repeat this process for all the tables {% if integration.column-selection == true %}and columns{% endif %} you want to replicate.
 5. When finished, click the **Finalize Your Selections** button at the bottom of the screen to save your selections.
 
 **Note**: If you change these settings while a replication job is still in progress, they will not be used until the next job starts.
@@ -39,9 +39,9 @@ Check out the Schema section to [learn more about the available tables in {{ int
 1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables }} tab.
 2. Locate a table you want to replicate.
 3. {{ app.menu-paths.sync-table }}
-{% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}
+{% if integration.column-selection == true %}
 4. {{ app.menu-paths.sync-column }}
 {% endif %}
-5. Repeat this process for all the tables {% if integration.whitelist.columns == "Yes" or integration.whitelist.columns == true %}and columns{% endif %} you want to replicate.
+5. Repeat this process for all the tables {% if integration.column-selection == true %}and columns{% endif %} you want to replicate.
 
 {% endif %}

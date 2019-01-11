@@ -124,7 +124,7 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 
 {% elsif step.title == "track data" %}
 <h3 id="setting-data-to-replicate">Step {{ forloop.index }}: 
-    {% if integration.whitelist.columns == true %}
+    {% if integration.column-selection == true %}
         Set tables and columns to replicate
     {% else %}
         Set tables to replicate

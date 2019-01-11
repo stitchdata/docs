@@ -79,4 +79,4 @@ Every time Stitch runs a replication job for {{ integration.display_name }}, the
 Stitch replicates data in this way to account for updates made to existing records within the default attribution window of {{ integration.attribution-window }}, thus ensuring you won't make decisions based on stale (or false) data. **As a result, you may see a higher number of replicated rows than what's being generated in {{ integration.display_name }}**.
 {% endif %}
 
-Setting the Replication Frequency to a higher frequency - like 30 minutes - can result in re-replicating recent data and contribute to high row counts. {% if integration.whitelist.tables == true %}Replicating fewer tables or selecting{% else %}Selecting{% endif %} a lower frequency can help prevent overages.
+Setting the Replication Frequency to a higher frequency - like 30 minutes - can result in re-replicating recent data and contribute to high row counts. {% if integration.table-selection == true %}Replicating fewer tables or selecting{% else %}Selecting{% endif %} a lower frequency can help prevent overages.

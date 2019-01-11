@@ -38,6 +38,8 @@ table-selection: true
 column-selection: true
 set-replication-methods: true
 
+define-replication-methods: false
+
 anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
