@@ -42,23 +42,10 @@ icon: /images/destinations/icons/amazon-s3.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-upsert-support: false
-connection-methods: "n/a"
-supported-versions: "n/a"
 
-nested-structure-support: true
-case: "Case Insensitive"
-table-name-limit: "n/a"
-column-name-limit: "n/a"
-column-limit: "n/a"
-timestamp-range: "n/a"
-timezones:
-  supported: false
-  storage: "n/a"
-varchar-limit: "None"
-decimal-limit: "n/a"
-decimal-range: "n/a"
-reserved-words: "None"
+## See _data/destinations/reference/amazon-s3.yml for
+## info about connection support, Stitch support,
+## data limitations, etc.
 
 
 # -------------------------- #

@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-cloudsql-postgresql-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Google CloudSQL PostgreSQL Source Form Property"
 api-type: "cloudsql_pg"
@@ -12,6 +21,13 @@ docs-name: "cloudsql-postgres"
 db-type: "postgres"
 
 description: ""
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+## See these fields in _data/connect/common/database-sources.yml > all-databases
+## This object will also list the fields in the `mysql` list ^
 
 uses-common-fields: true
 uses-feature-fields: true

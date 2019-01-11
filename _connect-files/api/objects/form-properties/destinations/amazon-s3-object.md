@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-amazon-s3-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Amazon S3 Destination Form Property"
 api-type: "s3"
@@ -17,6 +26,11 @@ description: |
   2. Create a "challenge file" in the bucket that allows Stitch to test the connection
 
   Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#grant-verify-bucket-access" }}) for additional details.
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 uses-common-fields: false
 object-attributes:

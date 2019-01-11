@@ -1,3 +1,6 @@
+<!-- This file contains the logic and formatting for displaying
+    API data structures. -->
+
 {% assign data-structures = site.connect-files | where:"content-type","api-structure" %}
 
 {% include connect/api-endpoint-rollup.html type="data-structure" %}
@@ -85,18 +88,66 @@
         
     {% endif %}
 
-    <h4 id="{{ data-structure.key | append: "-example-usage" }}">
-        Example Object
-    </h4>
 
+<!-- Object examples -->
+
+<h4 id="{{ structure.key | append: "-example-usage" }}">
+    Example Object
+</h4>
+
+<!-- If there's more than one example, the page can get pretty long.
+    This will get the size of the example array and then determine
+    the correct formatting for displaying the examples. -->
+
+{% assign example-count = structure.examples | size %}
+
+
+<!-- If there's only 1 example, just display it directly on the page: -->
+{% if example-count == 1 %}
     {% for example in structure.examples %}
 {%- capture example-code -%}
 ```json
 {{ example.code | flatify | rstrip }}
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
-    {% endfor %}
+{% endfor %}
 
+
+
+<!-- If there's more than 1 example, put each example into a tab: -->
+{% else %}
+<ul id="profileTabs" class="nav nav-tabs">
+{% for example in structure.examples %}
+    {% if forloop.first == true %}
+        <li class="active">
+    {% else %}
+        <li>
+    {% endif %}
+        <a href="#{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}" data-toggle="tab">{{ example.title }}</a>
+    </li>
+{% endfor %}
+</ul>
+<div class="tab-content">
+{% for example in structure.examples %}
+    {% if forloop.first == true %}
+        <div role="tabpanel" class="tab-pane active" id="{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}">
+    {% else %}
+        <div role="tabpanel" class="tab-pane" id="{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}">
+    {% endif %}
+
+{%- capture example-code -%}
+```json
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+    
+    </div>
+{% endfor %}
+</div>
+{% endif %}
+    
+
+<!-- Horizontal rule separating sections -->
 {% unless forloop.last == true %}
     <hr>
 {% endunless %}

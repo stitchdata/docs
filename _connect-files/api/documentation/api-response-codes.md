@@ -9,7 +9,7 @@ sections:
 
       {% include connect/api-response-code-table.html %}
 
-  - title: "Error Message Format"
+  - title: "Error message format"
     anchor: "error-message-formats"
     content: |
       {% assign response-codes = site.data.connect.response-codes %}
@@ -17,14 +17,14 @@ sections:
       The API will return error messages in JSON format. Some error messages may be returned as strings:
 
       ```
-      {{ response-codes.example-responses.string | remove: "`" }}
+      {{ site.data.connect.response-codes.general-codes.example-responses.string | remove: "`" }}
       ```
 
       While others may be JSON objects:
 
-      {{ response-codes.example-responses.object | markdownify }}
+      {{ site.data.connect.response-codes.general-codes.example-responses.object | markdownify }}
 
-  - title: "Error Message Text"
+  - title: "Error message text"
     anchor: "error-message-text"
     content: |
       The text in error messages will vary by root cause and endpoint.

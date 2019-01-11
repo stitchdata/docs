@@ -1,0 +1,31 @@
+# -------------------------- #
+#   ACCOUNT ENDPOINT ERRORS  #
+# -------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        code: "ExistingUser"
+        condition: "A Stitch account is already associated with the provided email address."
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "code":"ExistingUser",
+            "message":"This email address is already associated with an active user."
+          }
+          ```
+
+      - method: "post"
+        code: "BadRequest"
+        condition: "Request body contains malformed data."
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "code":"BadRequest",
+            "message":"Invalid form data.",
+            "errors":{}
+          }
+          ```
