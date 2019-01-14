@@ -15,16 +15,21 @@ layout: page
     Instead, users will see the DEPRECATION NOTICE below, where
     they'll be prompted to upgrade to the newest version of the integration -->
 
-    {% for version in released-versions %}
-        {% if version.number == integration.this-version %}
-            {% case version.deprecated %}
-                {% when true %}
-                    {% include notifications/integration-deprecation-notice.html %}
-                {% when false %}
-                    {% include notifications/support-beta-singer-notice.html %}
-            {% endcase %}
-        {% endif %}
-    {% endfor %}
+    {% if integration.this-version %}
+        {% for version in released-versions %}
+            {% if version.number == integration.this-version %}
+                {% case version.deprecated %}
+                    {% when true %}
+                        {% include notifications/integration-deprecation-notice.html %}
+                    {% when false %}
+                        {% include notifications/support-beta-singer-notice.html %}
+                {% endcase %}
+            {% endif %}
+        {% endfor %}
+
+        {% else %}
+            {% include notifications/support-beta-singer-notice.html %}
+    {% endif %}
 
 <!-- DEPRECATION NOTICE 
     This only displays for integrations where version.deprecated == true -->
