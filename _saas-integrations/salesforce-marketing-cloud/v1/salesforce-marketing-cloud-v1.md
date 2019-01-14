@@ -140,9 +140,9 @@ setup-steps:
 
           1. Click the **Add Component** button.
           2. In the **Add Component** window, select the **API Integration** option.
-          3. In the **Add API Integration** window, you'll grant permissions to the Stitch app.
+          3. In the **Add API Integration** window, you'll grant permissions to the Stitch app. 
 
-             Unless otherwise noted, select the **Read** permission next to the following options:
+             The table below lists the categories of permissions and the specific permissions Stitch requires. Unless otherwise noted, select the **Read** permission next to the following options:
 
              <table class="attribute-list">
              {% for category in integration.permission-categories %}
