@@ -27,7 +27,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Defines how data will be aggregated. Possible values are `daily` or `hourly`.
+      Defines how data will be aggregated. Accepted values are `daily` or `hourly`.
     value: "daily"
 
   - name: "token"
