@@ -1,0 +1,25 @@
+---
+tap: "toggl"
+version: "0.x"
+name: "groups"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/groups.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "at"
+    type: "date-time"
+    description: ""
+  - name: "id"
+    type: "integer"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "wid"
+    type: "integer"
+    description: ""
+---
