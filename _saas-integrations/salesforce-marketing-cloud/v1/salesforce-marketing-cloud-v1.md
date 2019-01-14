@@ -81,7 +81,7 @@ permission-categories:
       - name: "List and Subscribers"
   - name: "Data"
     permissions:
-      - name: "Data Extensions"
+      - name: "Data Extensions (Read/Write)"
       - name: "File Locations"
       - name: "Tracking Events"
   - name: "Hub"
@@ -133,7 +133,7 @@ setup-steps:
           6. Click **Save**.
 
 # https://developer.salesforce.com/docs/atlas.en-us.mc-app-development.meta/mc-app-development/api-integration.htm
-      - title: "Add an API Integration component to the package"
+      - title: "Add an API Integration component to the package and set permissions"
         anchor: "add-api-component-to-package"
         content: |
           After the package has been saved, you'll need to add a component and grant the required permissions. This will allow Stitch to connect to your {{ integration.display_name }} instance.
@@ -142,7 +142,7 @@ setup-steps:
           2. In the **Add Component** window, select the **API Integration** option.
           3. In the **Add API Integration** window, you'll grant permissions to the Stitch app.
 
-             Check the **Read** option next to the options listed below for each category:
+             Unless otherwise noted, select the **Read** permission next to the following options:
 
              <table class="attribute-list">
              {% for category in integration.permission-categories %}
@@ -158,6 +158,9 @@ setup-steps:
              {% cycle 'cat-after': '', '', '', '</tr>' %}
              {% endfor %}
              </table>
+
+             **Note**: To replicate **Data Extension** data, you will also need to select the **Write** permission.
+
           4. Click **Save**.
 
       - title: "Locate your API credentials"
@@ -183,12 +186,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/salesforce-marketing-cloud
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
