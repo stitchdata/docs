@@ -69,7 +69,9 @@ setup-steps:
   - title: "Generate a {{ integration.display_name }} API token"
     anchor: "generate-frontapp-api-token"
     content: |
-      1. Sign into your {{ integration.display_name }} account.
+      {% include layout/inline_image.html type="right" file="integrations/frontapp-create-api-token.png" alt="The New API token page in FrontApp" max-width="550px" %}
+
+      1. Sign into your [{{ integration.display_name }} account](https://app.frontapp.com/){:target="new"}.
       2. Click the user menu (your icon) in the top left corner of the page.
       3. Click **Settings**.
       4. In the **Company** section on the left side of the page, click **Plugins & API**.
