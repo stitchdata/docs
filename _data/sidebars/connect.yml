@@ -143,6 +143,36 @@ api:
                 method: "delete"
                 url: "{{ api.core-objects.sources.delete.anchor }}"
 
+          - title: "Streams"
+            expand-by-default: true
+            subsections:
+              - title: "The Stream Object"
+                method: "object"
+                url: "{{ api.core-objects.streams.object }}"
+
+              - title: "{{ api.core-objects.streams.list.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.streams.list.anchor }}"
+
+              - title: "{{ api.core-objects.streams.update.title | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.streams.update.anchor }}"
+
+          - title: "Stream Schemas"
+            expand-by-default: true
+            subsections:
+              - title: "The Stream Schema Object"
+                method: "object"
+                url: "{{ api.core-objects.stream-schemas.object }}"
+
+              - title: "{{ api.core-objects.stream-schemas.retrieve.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.stream-schemas.retrieve.list.anchor }}"
+
+              - title: "{{ api.core-objects.stream-schemas.update.title | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.stream-schemas.update.anchor }}"
+
       - title: "Data Structures"
         expand-by-default: true
         sections: 

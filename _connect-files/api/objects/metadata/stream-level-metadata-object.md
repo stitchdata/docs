@@ -85,6 +85,18 @@ object-attributes:
     value: |
       <SCHEMA_NAME>
 
+  - name: "selected"
+    type: "boolean"
+    description: |
+      Indicates whether a stream should be set to replicate. Accepted values are:
+
+      - `true` - The stream is selected and data for selected fields will be replicated
+      - `false` - The stream is not selected and no data will be replicated
+    modifiable: true
+    applies-to: "all"
+    value: |
+      true
+
   - name: "table-key-properties"
     type: "array"
     description: |
@@ -162,10 +174,3 @@ examples:
         }
       }
 ---
-
-  # - name: "details"
-  #   type: "object"
-  #   sub-type: "details"
-  #   url: "{{ api.data-structures.details.section }}"
-  #   description: |
-  #     {{ api.data-structures.details.short | flatify }}
