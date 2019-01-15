@@ -93,6 +93,27 @@
                                                 </td>
                                                 <td>
                                                     {{ attribute.description | flatify | markdownify }}
+
+                                                    {% if attribute.subattributes %}
+                                                        <table class="attribute-list">
+                                                            {% for subattribute in attribute.subattributes %}
+                                                                <tr>
+                                                                    <td class="attribute-name">
+                                                                        <strong>
+                                                                            {{ subattribute.name }}
+                                                                        </strong><br>
+                                                                            {{ subattribute.type | upcase }}
+                                                                                {% if subattribute.sub-type %}
+                                                                                (<a href="{{ subattribute.url | flatify }}">{{ subattribute.sub-type | upcase | strip }}</a>)
+                                                                            {% endif %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {{ subattribute.description | flatify | markdownify }}
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                        </table>
+                                                    {% endif %}
                                                 </td>
                                             </tr>
                                         {% endfor %}
@@ -119,6 +140,27 @@
                             </td>
                             <td>
                                 {{ attribute.description | flatify | markdownify }}
+
+                                {% if attribute.subattributes %}
+                                    <table class="attribute-list">
+                                        {% for subattribute in attribute.subattributes %}
+                                            <tr>
+                                                <td class="attribute-name">
+                                                    <strong>
+                                                        {{ subattribute.name }}
+                                                    </strong><br>
+                                                        {{ subattribute.type | upcase }}
+                                                            {% if subattribute.sub-type %}
+                                                            (<a href="{{ subattribute.url | flatify }}">{{ subattribute.sub-type | upcase | strip }}</a>)
+                                                        {% endif %}
+                                                </td>
+                                                <td>
+                                                    {{ subattribute.description | flatify | markdownify }}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
