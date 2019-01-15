@@ -264,6 +264,13 @@ data-structures:
 
       **Note**: This object will only be returned when using a `GET` method.
 
+  metadata:
+    stream-level:
+      title: "Stream-level Metadata"
+      section: "#stream-level-metadata-object"
+      description: |
+        Contained in a [Stream object]({{ api.core-objects.streams.object }}), the Stream-level Metadata object contains information about a stream's configuration in Stitch. This includes information about its inclusion, Replication Method, Replication Keys, and key properties.
+
   properties:
     title: "Properties"
     section: "#properties-object"
@@ -276,12 +283,12 @@ data-structures:
     description: "A Report Card object contains information about a source or destination connection's configuration."
 
     destination:
-      title: "Destination Report Card Object"
+      title: "Destination Report Card"
       section: "#report-card-object--destination"
       description: "A Destination Report Card object contains information about a destination's connection configuration."
 
     source:
-      title: "Source Report Card Object"
+      title: "Source Report Card"
       section: "#report-card-object--source"
       description: "A Source Report Card object contains information about a source's connection configuration."
 

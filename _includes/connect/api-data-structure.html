@@ -123,16 +123,16 @@
     {% else %}
         <li>
     {% endif %}
-        <a href="#{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}" data-toggle="tab">{{ example.title }}</a>
+        <a href="#{{ example.title | downcase | replace: " ", "-" | remove:"(" | remove: ")" | prepend: "report-card-example--" }}" data-toggle="tab">{{ example.title }}</a>
     </li>
 {% endfor %}
 </ul>
 <div class="tab-content">
 {% for example in structure.examples %}
     {% if forloop.first == true %}
-        <div role="tabpanel" class="tab-pane active" id="{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}">
+        <div role="tabpanel" class="tab-pane active" id="{{ example.title | downcase | replace: " ", "-" | | remove:"(" | remove: ")" | prepend: "report-card-example--" }}">
     {% else %}
-        <div role="tabpanel" class="tab-pane" id="{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}">
+        <div role="tabpanel" class="tab-pane" id="{{ example.title | downcase | replace: " ", "-" | | remove:"(" | remove: ")" | prepend: "report-card-example--" }}">
     {% endif %}
 
 {%- capture example-code -%}
