@@ -1,0 +1,61 @@
+raw-error:
+  create-new-schema: &create-new-schema "Encountered error while attempting to create new schema."
+  internal-stitch-error: &internal-stitch-error "There was an internal error. We are investigating."
+  max-stitch-record-size: &max-stitch-record-size |
+    [Client [client_id]] [ConnectionType [integration_type]] persistence.core: (ERROR) unable to persist to gatejava.lang.IllegalArgumentException: Can't accept a record larger than 3999998 bytes
+
+  redshift-postgres-column-limit:
+    message: "ERROR: tables can have at most 1600 columns"
+    cause: |
+      A source table contains more than the 1,600 column limit {{ destination-name | flatify }} imposes. This is more common in sources that contain many nested data structures, such as MongoDB or Shopify.
+
+      To load nested data into {{ destination-name }} destinations, Stitch will flatten JSON objects into additional columns in the parent table, which will increase the total number of columns in a table. Refer to the [Nested JSON Data Structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) guide for more info and examples.
+    resolution: |
+      1. **If the integration supports column selection,** consider de-selecting columns.
+      2. **If you have control over the data structure in the source,** consider removing columns from the table or moving attributes to a new table.
+
+      If neither of these solutions are feasible, consider switching to a destination that natively supports nested structures or has a higher maximum for columns in a table:
+
+      - **In BigQuery**, the maximum number of columns per table is {{ site.data.destinations.reference.bigquery.table-limit-info.max-columns-per-table }}. Nested data is loaded intact.
+
+      - **In Snowflake**, there isn't a limit on the number of columns per table. Nested data is loaded into `VARIANT` columns.
+
+
+  redshift-postgres-staging-table-name-too-long: 
+    message: "Staging table name is too long (<number_of_characters> characters, max length is <max_length>)"
+    cause: |
+      The name of the staging table used by Stitch to load data exceeds the character limit ({{ site.data.destinations.reference[destination-type]object-name-limit-info.tables | flatify }}) for tables allowed by {{ destination-name }} destinations. Every table loaded into {{ destination-name }} destinations has a staging table.
+
+      This issue is usually caused by subtables, which are created as a result of [de-nesting nested data structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}). Subtable names include a prefix for every table above it, which can make subtable names quite lengthy.
+
+      For example: The hierarchy for a subtable named `staging__documents__file__file__file__file__file__file__file__file` would be:
+
+      - `staging` (parent table)
+         - `documents` (subtable of `staging`)
+            - `file` (subtable of `documents`)
+               - `file` (subtable of `file`)
+                  - `file` (subtable of `file`)
+                     - `file` (subtable of `file`)
+                        - `file` (subtable of `file`)
+                           - `file` (subtable of `file`)
+                              - `file` (subtable of `file`)
+                                 - `file` (subtable of `file`)
+    resolution: |
+      Consider switching to a destination that natively supports nested structures:
+
+      - **In BigQuery**, nested data is loaded intact.
+
+      - **In Snowflake**, nested data is loaded into `VARIANT` columns.
+
+
+all:
+  - message: "bloop"
+    id: "bloop"
+    applicable-to: 
+    issue-area: ""
+    stops-replication-for: true
+    summary: "blahblahb"
+    cause: 
+    resolution: 
+
+# "The data we are processing for one of your tables is resulting in more than 1000 nested tables."

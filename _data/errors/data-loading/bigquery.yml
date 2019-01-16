@@ -1,0 +1,65 @@
+raw-error:
+## Account issues
+  deleted-account: &deleted-account "Account has been deleted"
+
+  account-disabled: &account-disabled |
+    The account for bucket "null" has been disabled.
+
+  project-bigquery-not-enabled: &project-bigquery-not-enabled "The project [project_name] has not enabled BigQuery."
+
+  read-write-different-locations: &read-write-different-locations "Cannot read and write in different locations: source: US, destination: EU"
+
+  billing-not-enabled: &billing-not-enabled "Billing has not been enabled for this project. Enable billing at https://console.cloud.google.com/billing."
+
+  absent-billing-account: &absent-billing-account "The project to be billed is associated with an absent billing account."
+
+  closed-billing-account: &closed-billing-account "The project to be billed is associated with a closed billing account."
+
+
+## Permission errors
+  tables-create-permission: &tables-create-permission "Access Denied: Dataset data-warehouse-[id]:[project_name]: The user [user_name] does not have bigquery.tables.create permission for dataset data-warehouse-[id]:[project_name]."
+
+  datasets-create-permission: &datasets-create-permission "Access Denied: Project [project_name]: The user [user_name] does not have bigquery.datasets.create permission in project [project_name]."
+
+  storage-buckets-create-permission: &storage-buckets-create-permission "[user_name] does not have storage.buckets.create access to project [project_name]."
+
+  storage-buckets-get-permission: &storage-buckets-get-permission "[user_name] does not have storage.buckets.get access to com-stitchdata-staging-[client_id]."
+
+  staging-file-access-denied: &staging-file-access-denied "Access Denied: File gs://com-stitchdata-staging-[file_name]: Access Denied"
+
+  job-access-denied: &job-access-denied "Access Denied: Job [job_name]: The user [user_name] does not have permission to access the job [job_name]."
+
+  
+## Schema/data type issues
+  cannot-create-valid-output-schema: &cannot-create-valid-output-schema "Cannot create valid output schema for [field_name]. Try renaming [field_name] to [field_name_suggestion] in the outermost SELECT."
+
+  max-columns-exceeded: &max-columns-exceeded "Too many fields: [total_number_of_fields]"
+
+  too-many-leaf-fields: &too-many-leaf-fields "Too many total leaf fields: [total_leaf_fields]"
+
+  dataset-already-exists: &dataset-already-exists "Already Exists: Dataset [dataset_name]"
+
+  incompatible-data-types: &incompatible-data-types |
+    Some fields have multiple datatypes that can't be stored in the same BigQuery field: [table_name].previous_value: (string, array); [table_name].value: (string, array)"
+
+    "Error while reading data, error message: JSON table encountered too many errors, giving up. Rows: 251; errors: 1. Please look into the error stream for more details. Error while reading data, error message: JSON parsing error in row starting at position 317982: JSON object specified for non-record field: data.previous_attributes.attributes"
+
+
+## Miscellaneous
+  internal-error: &internal-error "An internal error occurred and the request could not be completed."
+
+  backend-error: &backend-error "Backend Error"
+
+  bad-request: &bad-request "Bad Request"
+
+
+
+all:
+  - message: 
+    id: ""
+    applicable-to: 
+    issue-area: ""
+    replication-stopper: true
+    summary: 
+    cause: 
+    resolution: 

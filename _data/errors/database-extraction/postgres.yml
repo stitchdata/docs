@@ -1,0 +1,111 @@
+# ------------------------------- #
+#   PostgreSQL Extraction Errors  #
+# ------------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a PostgreSQL-backed database.
+
+raw-error:
+  unsupported-read-replica: &unsupported-read-replica "recovery is in progress"
+  replication-slot-not-found: &replication-slot-not-found "Unable to find replication slot. name: [replication_slot_name] with plugin: wal2json"
+  rds-replication-role-walsender: &rds-replication-role-walsender "FATAL: must be superuser or replication role to start walsender"
+  pgres-copy-both-connection-drop: &pgres-copy-both-connection-drop "error: error with status PGRES_COPY_BOTH and no message from the libpq"
+  zero-tables-discovered: &zero-tables-discovered "0 tables were discovered across the entire cluster"
+
+# - https://app.intercom.io/a/apps/okjpf68w/inbox/inbox/conversation/17906135515
+# - https://github.com/psycopg/psycopg2/issues/281
+# - "the cause was actually not the psycopg2. It was a network error between a client program and a postgres it was trying to connect to in the Heroku. Somehow instead of throwing a connection error, psycopg2 will only throw error which are built in by default. In this case the error was ".. no message from libpq". This error was misleading as it indicated there was something with the psycopg2 happening in the background. "
+# - run following commands & provide results:
+#   show tcp_keepalives_idle; 
+#   show tcp_keepalives_interval; 
+#   show tcp_keepalives_interval;
+# - typically surfaces as a result of dropped connections
+  
+
+all:
+  - message: *unsupported-read-replica
+    id: "unsupported-read-replica"
+    applicable-to: &all-databases "All PostgreSQL-based databases"
+    issue-area: &log-based-setup "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      The database connected to Stitch is a read replica, which PostgreSQL doesn't currently support for logical (Log-based) replication.
+    cause: |
+      PostgreSQL currently supports logical replication - which Stitch uses to perform Log-based Replication - only on **master** instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
+    resolution: |
+      To resolve this issue, you'll need to either:
+
+      - **Connect Stitch to the master instance** to continue using Log-based Incremental Replication, or
+      - **Use Key-based Incremental or Full Table Replication** for your tables and continue replicating from the read replica
+
+
+## Replication slot not found
+  - message: *replication-slot-not-found
+    id: "replication-slot-not-found"
+    applicable-to: *all-databases
+    issue-area: *log-based-setup
+    replication-stopper: true
+    summary: |
+      The replication slot Stitch expects to find for Log-based Incremental Replication does not exist, or its name does not conform to Stitch's requirements.
+    cause: |
+      A replication slot is required to use Log-based Incremental Replication with a PostgreSQL-based database.
+
+      Replication slot names may only contain lower case letters, numbers, and underscores (`_`).
+
+      - **If you're connecting a single database**, the replication slot should be named `stitch`
+      - **If you're connecting multiple databases**, the replication slot for each database you're connecting should be named `stitch_<raw_database_name>`, where `<raw_database_name>` is the name of the database the replication slot is associated with.
+
+         For example: For databases named `us_prod` and `us_dev`, the replication slot names would be `stitch_us_prod` and `stitch_us_dev`, respectively.
+
+    resolution: |
+      **If a replication slot doesn't exist**:
+      
+      You'll need to create one. To do this:
+      
+      1. Log into the database as a superuser and run the following command, replacing `<replication_slot_name>` with the desired name of the replication slot:
+
+         ```sql
+         SELECT *
+           FROM pg_create_logical_replication_slot('<replication_slot_name>', 'wal2json');
+         ```
+      2. Next, verify that the Stitch user can read from the replication slot.
+
+         Log into the database as the Stitch user and run the following command, replacing `<replication_slot_name>` with the name of the replication slot:
+
+         ```sql
+         SELECT COUNT(*)
+           FROM pg_logical_slot_peek_changes('<replication_slot_name>', null, null);
+         ```
+
+      **If a replication slot does exist**:
+
+      Verify that:
+
+      1. The name of the replication slot meets Stitch's requirements as noted above, and
+      2. That the Stitch user can read from the replication slot. To do this, log into the database as the Stitch user and run the following command, replacing `<replication_slot_name>` with the name of the replication slot:
+
+         ```sql
+         SELECT COUNT(*)
+           FROM pg_logical_slot_peek_changes('<replication_slot_name>', null, null);
+         ```
+
+
+## For Postgres RDS: Stitch doesn't have the rds_replication role
+  - message: *rds-replication-role-walsender
+    id: "rds-replication-role-walsender"
+    applicable-to: "[Amazon PostgreSQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-postgresql/) (v1.0+)"
+    issue-area: *log-based-setup
+    replication-stopper: true
+    summary: &rds-superuser-cause |
+      The Stitch database user doesn't have the `rds_replication` role, which is required to use Log-based Incremental Replication.
+    cause: *rds-superuser-cause
+    resolution: |
+      Grant the Stitch user the `rds_replication` role.
+
+      Log into your database as a user with the `rds_superuser` role and run the following command:
+
+      ```sql
+      {{ site.data.taps.extraction.database-setup.user-privileges.postgres.postgresql-grant-replication-role }}
+      ```
+
+      This will grant the `rds_replication` role to the Stitch user.

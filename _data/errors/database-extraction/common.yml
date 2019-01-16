@@ -1,0 +1,31 @@
+# ------------------------------- #
+#    Common DB Extraction Errors  #
+# ------------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from any database integration.
+
+raw-errors:
+  replication-method-not-set: &replication-method-not-set "Unrecognized replication_method None"
+# a table is selected for replication, but does nothave a rep method defined
+
+
+all:
+## Selected table doesn't have a Replication Method 
+  - message: *replication-method-not-set
+    id: "replication-method-not-set"
+    applicable-to: "All database integrations"
+    issue-area: "Setup / Stitch settings"
+    replication-stopper: true
+    summary: &replication-method-not-set-cause "A table has been set to replicate, but a Replication Method has not yet been selected."
+    cause: *replication-method-not-set-cause
+    resolution: |
+      Define a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for the table:
+
+      1. In the **Tables to Replicate** tab, look for the table(s) that don't have a value in the **Method** column:
+
+         ![Selected table without a defined Replication Method]({{ site.baseurl }}/images/replication/replication-method-not-set.png)
+      2. Click the table name.
+      3. In the page that displays, click {{ app.buttons.update-table-settings }} on the right side of the page.
+      4. Select a Replication Method.
+      5. When finished, click {{ app.buttons.save-table-settings }}.

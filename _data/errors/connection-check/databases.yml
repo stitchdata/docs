@@ -1,0 +1,121 @@
+# ------------------------------- #
+#    Database Connection Errors   #
+# ------------------------------- #
+
+## This file contains the raw error messages for connection checks
+## that apply to database integrations.
+
+## The `all` list below contains additional details about the causes
+## of these errors, whether they're show-stoppers, and the most
+## common way we've found to resolve them.
+
+raw-error:
+  list-databases-tables: &list-databases-tables "Could not list databases/tables for connection."
+  unsupported-table: &unsupported-table "[table_name] unsupported"
+  premature-file: &premature-file "Prematurely reached end of file/stream"
+  io-error: &io-error "An I/O error occurred while sending to the backend."
+  mongo-authentication-database: &mongo-authentication-database |
+    Timed out after XXXX ms while waiting for a server that matches ReadPreferenceServerSelector{readPreference=primary}.
+    
+    Client view of cluster state is {type=UNKNOWN, servers=[{address=[host]:[port], type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSecurityException:
+    
+    Exception authenticating MongoCredential{mechanism=null, userName='[user_name]', source='[database_name]', password=, mechanismProperties={}}}, caused by {com.mongodb.MongoCommandException
+    
+    Command failed with error 18: 'Authentication failed.' on server [[host]:[port].
+      
+    The full response is { "ok" : 0.0, "errmsg" : "Authentication failed.", "code" : 18, "codeName" : "AuthenticationFailed" }}}]
+
+# ----------------- #
+#   List of Errors  #
+# ----------------- #
+
+all:
+## Insufficient access to databases and tables
+  - message: *list-databases-tables
+    id: "list-databases-tables"
+    applicable-to: &all-databases "All database integrations"
+    issue-area: "Setup / User permisisons"
+    replication-stopper: true
+    type: "connection"
+    summary: &list-databases-tables-cause "Stitch is unable to access the databases or tables in your database."
+    cause: *list-databases-tables-cause
+    resolution: &verify-permissions |
+      Verify that the Stitch database user has the necessary permissions for the type of database you’re connecting.
+
+      You can find the permissions in the [Creating a Stitch Database User section of the setup guide for your database]({{ site.baseurl }}/integrations/databases).
+
+
+## IO error
+  - message: *io-error
+    id: "io-error"
+    applicable-to: |
+      Any Amazon RDS-based database integration
+    issue-area: "{{ type | capitalize }} configuration"
+    replication-stopper: true
+    type: "connection"
+    summary: "Communication with the database was interrupted."
+    cause: "Communication with the database was interrupted."
+    resolution: |
+      This is a transient error and should clear itself during the next replication job. If this error persists, refer to [these troubleshooting tips]({{ link.troubleshooting.aws-io-errors | prepend: site.baseurl }}) to diagnose and treat the issue.
+
+
+## Unsupported table
+  - message: *unsupported-table
+    id: "unsupported-table"
+    applicable-to: *all-databases
+    issue-area: "Setup / User permissions"
+    replication-stopper: true
+    type: "connection"
+    summary: &unsupported-table-cause "Stitch is unable to access the table or the table is in an unsupported format."
+    cause: *unsupported-table-cause
+    resolution: *verify-permissions
+
+
+## MongoDB incorrect SSL
+  - message: *premature-file
+    id: "premature-file"
+    applicable-to: "[MongoDB database integrations]({{ site.baseurl }}/integrations/databases/mongodb)"
+    issue-area: "Setup / Stitch settings"
+    replication-stopper: true
+    type: "connection"
+    summary: "Stitch was unable to connect to the MongoDB database, likely due to incorrectly configured SSL settings."
+    cause: |
+      Connecting a database integration to Stitch via SSL has two parts: Configuration on the database's server and in the Stitch app. For the connection to be successful, the settings in both Stitch and on the database server must align.
+
+      For example: A MongoDB server doesn't support SSL connections but the SSL option is checked in Stitch. This will result in a connection error.
+    resolution: |
+      1. Verify the MongoDB's support for SSL connections.
+      2. Next:
+         - **If SSL connections aren't supported,** make sure the **Connect using SSL** box in Stitch is **unchecked** and try saving the integration again.
+         - **If SSL connections are required,** make sure the **Connect using SSL** box in Stitch is **checked** and try saving the integration again.
+
+
+## MongoDB authentication database
+  - message: |
+      {{ site.data.errors.connection-check.databases.raw-error.mongo-authentication-database | truncate: 120 }}
+    id: "mongo-authentication-database"
+    applicable-to: "[MongoDB database integrations]({{ site.baseurl }}/integrations/databases/mongodb)"
+    issue-area: "Setup / Stitch settings"
+    replication-stopper: true
+    type: "connection"
+    full-error: |
+      ```
+      {{ site.data.errors.connection-check.databases.raw-error.mongo-authentication-database }}
+      ```
+    summary: |
+      Stitch was unable to authenticate against the MongoDB database entered in the {{ app.page-names.int-settings }} page. This error usually means that the database entered into Stitch isn't the same database that's used for user authentication.
+    cause: |
+      Stitch requires a database user and a MongoDB server with `auth` enabled to create MongoDB connections. When authenticating a user in this way, [MongoDB requires that the user be validated against their authentication database](https://docs.mongodb.com/manual/core/security-users/#authenticate-a-user){:target="new"}.
+
+      Currently, Stitch's MongoDB integration currently assumes the database entered in the {{ app.page-names.int-settings }} page is the authentication database. Due to MongoDB's authentication process and Stitch's current functionality, the database entered into Stitch must be the user's authentication database.
+
+      **Note**: This database is only used to create the connection. Stitch will be able to detect any other databases the Stitch user has access to.
+    resolution: |
+      1. Verify that the Stitch database user can perform all the required actions on the authentication database, in addition to any other databases that contain data you want to replicate. Refer to the [Create a Mongo Database user section]({{ site.baseurl }}/integrations/databases/mongodb#create-database-user) of the Mongo setup guide for the full list of requirements.
+
+          **Note**: If this is an Atlas-based MongoDB instance, the authentication database will be the `admin` database.
+      2. In the {{ app.page-names.int-settings }} page, re-enter the name of the user's authentication database:
+
+         - **For Atlas-based MongoDB instances**: The database must be `admin`.
+         - **For other MongoDB instances**: Enter the name of the user's authentication database.
+      3. Save the integration.

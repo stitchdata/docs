@@ -1,0 +1,121 @@
+# ----------------------------------------------- #
+#  Common Database/Destination Connection Errors  #
+# ----------------------------------------------- #
+
+## This file contains the raw error messages for connection checks
+## that are common to both destinations and database integrations.
+
+## The `all` list below contains additional details about the causes
+## of these errors, whether they're show-stoppers, and the most
+## common way we've found to resolve them.
+
+
+raw-errors:
+  connection-refused: &connection-refused "Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections."
+  bq-connection-refused: &bq-connection-refused "Connection refused (Connection refused)"
+  connection-reset: &connection-reset "Connection reset"
+  database-type: &database-type "We encountered an error while attempting to check the type or version for this {{ type }}. Please select the correct {{ type }} type and try again."
+  password-auth: &password-auth "FATAL: Password authentication failed for user [user_name]"
+  time-out: &time-out "Connection timed out."
+  internal-error: &internal-error "We encountered an internal error while checking the connection."
+  closed-connection: &closed-connection "This connection has been closed."
+  connection-attempt-failed: &connection-attempt-failed "The connection attempt failed."
+
+
+# ----------------- #
+#   List of Errors  #
+# ----------------- #
+
+all:
+## Connection refused
+  - message: *connection-refused
+    id: "connection-refused"
+    applicable-to: |
+      All {{ type | append: "s" }}
+    issue-area: "Setup"
+    replication-stopper: true
+    type: "connection"
+    summary: "Stitch encountered an error when attempting to connect to the {{ type }}."
+    cause: |
+      Stitch encountered an error when attempting to connect to the {{ type }}. Possible causes include failure to whitelist Stitch's IP addresses, incorrectly entering connection details into Stitch, or a configuration setting in the {{ type }}.
+    resolution: |
+      {% capture hostname %}
+      1. Verify that the **Hostname** entered in the {{ page-name }} page is correct.
+
+         **Note**: If using an Amazon RDS-based {{ type }}, verify that the port has been removed from the end of the hostname string.
+      {% endcapture %}
+      {% capture port %}
+      2. Verify that the **Port** entered in the {{ page-name }} Settings page is correct.
+      {% endcapture %}
+
+      {{ hostname }}
+      {{ port }}
+      3. Verify that Stitch's IP addresses, listed below, have been whitelisted. Refer to the documentation for your {{ type }} for instructions:
+         {% capture ip-address-list %}
+         {% for ip-address in ip-addresses %}
+         - {{ ip-address.ip }}
+         {% endfor %}
+         {% endcapture %}
+
+         {{ ip-address-list }}
+
+         **Note**: If using an Amazon RDS-based {{ type }}, verify that the Security Group and VPC Subnet associated with the database allows access from all Stitch's IP addresses.
+
+
+## Incorrect database type selected
+  - message: *database-type
+    id: "database-type"
+    applicable-to: |
+      All {{ type | append: "s" }}
+    issue-area: "Setup"
+    replication-stopper: true
+    type: "connection"
+    summary: "The {{ type }} type doesn’t match the {{ type }} you selected in Stitch."
+    cause: |
+      The {{ type }} type doesn’t match the {{ type }} you selected in Stitch. 
+
+      For example: you select {{ wrong-type }} in Stitch, but we detect that it’s actually a PostgreSQL {{ type }}.
+    resolution: "Verify that you’ve selected the correct {{ type }} type. If the incorrect {{ type }} type was chosen, select the correct {{ type }} type and try completing the setup again."
+
+
+## Incorrect password
+  - message: *password-auth
+    id: "password-auth"
+    applicable-to: |
+      All {{ type | append: "s" }}
+    issue-area: "Authentication"
+    replication-stopper: true
+    type: "connection"
+    summary: &password-auth-cause "The password associated with the {{ type }} user for Stitch is incorrect."
+    cause: *password-auth-cause
+    resolution: "Verify that the correct password for the user Stitch is using to connect to the {{ type }} is entered in the {{ page-name }} Settings page of Stitch."
+
+
+## Connection timed out
+  - message: *time-out
+    id: "time-out"
+    applicable-to: |
+      All {{ type | append: "s" }}
+    replication-stopper: true
+    type: "connection"
+    summary: &time-out-cause "The connection timed out before Stitch could successfully establish a connection."
+    cause: *time-out-cause
+    resolution: |
+      This error may be transient and resolve on its own, but if it persists, try the following before contacting support:
+
+      {{ hostname }}
+      {{ port }}
+
+
+
+## Internal error
+  - message: *internal-error
+    id: "internal-error"
+    applicable-to: |
+      All {{ type | append: "s" }}
+    issue-area: "Stitch"
+    replication-stopper: true
+    type: "connection"
+    summary: &internal-error-cause "Stitch encountered an internal issue."
+    cause: *internal-error-cause
+    resolution: "This error is usually transient and will resolve on its own, but if it persists,  check Stitch's [Status Page]({{ site.status }}) for reported service outages."

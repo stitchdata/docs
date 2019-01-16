@@ -1,0 +1,43 @@
+# ------------------------------- #
+#          Error Fields           #
+# ------------------------------- #
+
+## Descriptions of the attributes assigned to
+## errors. All errors are kept in _data/errors/*
+
+all:
+  - name: "Error message"
+    id: "error-message"
+    description: |
+      The raw error message.
+
+  - name: "Applicable to"
+    id: "applicable-to"
+    description: |
+      Indicates the integration(s) or destination(s) the error is applicable to.
+
+  - name: "Replication stopper"
+    id: "replication-stopper"
+    description: |
+      Indicates if the error's presence will stop replication.
+
+      - **Yes** {{ not-supported | rstrip }} - The issue causing the error will prevent Stitch from replicating data.
+      - **No** {{ supported | rstrip }} - The issue causing the error will not prevent Stitch from replicating data.
+
+  - name: "Issue area"
+    id: "issue-area"
+    description: |
+      The area where the issue causing the error originated.
+
+  - name: "Full error"
+    id: "full-error"
+    description: |
+      The full raw error message. This will only display in cases where the error message is long.
+
+  - name: "Cause"
+    id: "cause"
+    description: "The possible root cause of the error."
+
+  - name: "Resolution"
+    id: "resolution"
+    description: "The steps required for resolving the issue causing the error."

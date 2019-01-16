@@ -1,0 +1,65 @@
+# ------------------------------- #
+#  Destination Connection Errors  #
+# ------------------------------- #
+
+## This file contains the raw error messages for connection checks
+## that apply to destinations.
+
+## The `all` list below contains additional details about the causes
+## of these errors, whether they're show-stoppers, and the most
+## common way we've found to resolve them.
+
+raw-error:
+  s3-missing-challenge-file: &s3-missing-challenge-file "An error occurred (404) when calling the HeadObject operation: Not Found"
+  io-error: &io-error "An I/O error occurred while sending to the backend."
+  ssl-not-supported: &ssl-not-supported "The server does not support SSL."
+
+  snowflake-invalid-credentials: &invalid-credentials "JDBC driver not able to connect to Snowflake. Error code: 390100, Message: Incorrect username or password was specified."
+
+
+# "No suitable driver found"
+# I'm not sure this is worth documenting. I think what causes this is that:
+# 1. User sets up a warehouse like Redshift or Postgres
+# 2. A replication job kicks off
+# 3. User deletes the Redshift or Postgres warehouse
+# 4. User adds another type of warehouse like BigQuery
+# 5. Data is prepped according to original warehouse type, but can't be loaded because it has changed, thus causing the driver errors.
+
+# ----------------- #
+#   List of Errors  #
+# ----------------- #
+
+all:
+## S3: Missing challenge file
+  - message: *s3-missing-challenge-file
+    id: "s3-missing-challenge-file"
+    applicable-to: "[Amazon S3 destinations]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl }})"
+    issue-area: "Setup"
+    replication-stopper: true
+    type: "connection"
+    summary: |
+      The Stitch [challenge file]({{ link.destinations.setup.amazon-s3 | append: "#verify-bucket-access" }}) isn't found in the S3 bucket specified in the {{ app.page-names.dw-settings }} page.
+    cause: |
+      The challenge file is used to test Stitch's connection to the bucket. Stitch will surface this error if it cannot find the challenge file, whether because the file was removed or never created.
+    resolution: |
+      - **If you still have access to the challenge file name**, follow [these instructions]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) to create the file in your S3 bucket.
+      - **If you no longer have access to the challenge file name**, you'll need to create a new S3 destination [using these instructions]({{ link.destinations.overviews.switch-destination | prepend: site.baseurl }}).
+
+         **Note**: Creating a new destination doesn't mean you'll need to re-replicate all of your data. During the destination change process, you can choose to pick up replication where it left off or to queue a historical re-replication.
+
+
+## IO error
+  - message: *io-error
+    id: "io-error"
+    applicable-to: |
+      [Amazon Redshift]({{ link.destinations.overviews.redshift | prepend: site.baseurl }}), [Amazon PostgreSQL-RDS]({{ link.destinations.setup.postgres-rds | prepend: site.baseurl }}), and [Panoply]({{ link.destinations.overviews.panoply | prepend: site.baseurl }}) destinations
+    issue-area: "{{ type | capitalize }} configuration"
+    replication-stopper: true
+    type: "connection"
+    summary: "Communication with the database was interrupted."
+    cause: |
+      Communication with the database was interrupted. While this is typically a transient error that resolves itself, we've found that it can be indicative of an issue related to timeout settings.
+    resolution: |
+      If the error persists after the next replication job, refer to [these troubleshooting tips]({{ link.troubleshooting.aws-io-errors | prepend: site.baseurl }}) to diagnose and treat the issue.
+
+      If the error persists even after following this guide, reach out to Amazon support (for Redshift and PostgreSQL-RDS destinations) or Panoply support (for Panoply destinations).

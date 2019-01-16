@@ -7,8 +7,15 @@
 
 raw-error:
   binlog-not-enabled: &binlog-not-enabled "MySQL binary logging is not enabled."
-  server-id-not-unique: &server-id-not-unique "(1236, 'A slave with the same server_uuid/server_id as this slave has connected to the master [...]'')"
+  binary-logging-not-enabled: &binary-logging-not-enabled "(1381, 'You are not using binary logging')"
+  version-requirement: &version-requirement "[...] binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication."
+
   master-server-id-not-set: &master-server-id-not-set "(1236, 'Misconfigured master - server id was not set')"
+  server-id-not-unique: &server-id-not-unique "(1236, 'A slave with the same server_uuid/server_id as this slave has connected to the master [...]'')"
+
+  replication-client-privilege: &replication-client-privilege "(1227, 'Access denied; you need (at least one of) the SUPER, REPLICATION CLIENT privilege(s) for this operation')"
+  replication-slave-privilege: &replication-slave-privilege "(1227, 'Access denied; you need (at least one of) the REPLICATION SLAVE privilege(s) for this operation')"
+
   binlog-format-row: &binlog-format-row "[...] binlog_format is not set to 'ROW': [MIXED or STATEMENT]."
   binlog-row-image-full: &binlog-row-image-full "[...] binlog_row_image is not set to 'FULL': [MINIMAL or NOBLOB]."
   schema-violation: &schema-violation |
@@ -16,7 +23,8 @@ raw-error:
   binlog-unsupported-views: &binlog-unsupported-views "[...] it is a view."
   log-retention-purge: &log-retention-purge "Unable to replicate binlog stream because the following binary log(s) no longer exist: [binary_log_file_name]"
   binlog-current-position: &binlog-current-position "[...] requested position ([log_file_position_from_state]) for log file [binary_log_file_name] is greater than current position ([current_log_file_position_on_server])."
-  version-requirement: &version-requirement "[...] binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication."
+
+  no-replication-method-selected: &no-replication-method-selected "only INCREMENTAL, LOG_BASED, and FULL TABLE replication methods are supported"
 
 
 all:
@@ -24,11 +32,15 @@ all:
 ## Binlog is not enabled
   - message: *binlog-not-enabled
     id: "binlog-not-enabled"
-    meaning: |
+    applicable-to: &all-databases "All MySQL-based databases"
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
       Binary logging is not enabled for the MySQL server.
-    fix-it: |
-      Enable binary logging on your MySQL server. This is done by defining the `log-bin` parameter.
-
+    cause: |
+      Binary logging is not enabled for the database. This can be caused by incorrectly editing the `my.cnf` file or by not restarting the server after editing the `my.cnf` file.
+    resolution: |
+      {% capture enable-binary-logging %}
       The steps for enabling binary logging will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
 
       - [MySQL]({{ site.baseurl }}/integrations/databases/mysql#server-settings)
@@ -36,15 +48,37 @@ all:
       - [MariaDB]({{ site.baseurl }}/integrations/databases/mariadb#server-settings)
 
       **Note**: [Amazon MySQL RDS]({{ site.baseurl }}/integrations/databases/amazon-rds-mysql#configure-database-parameter-group) and [Amazon Aurora RDS]({{ site.baseurl }}/integrations/databases/amazon-aurora#configure-database-parameter-group) databases should have binary logging enabled by default. If you receive this error for either of these databases, verify that the rest of the required server settings are defined correctly.
+      {% endcapture %}
+
+      {{ enable-binary-logging }}
+
+
+## Binary logging not enabled
+  - message: *binary-logging-not-enabled
+    id: "binary-logging-not-enabled"
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      Binary logging is not enabled for the MySQL server.
+    cause: |
+      Binary logging is not enabled for the database. This can be caused by incorrectly editing the `my.cnf` file or by not restarting the server after editing the `my.cnf` file.
+    resolution: |
+      {{ enable-binary-logging }}
+
 
 
 ## Server ID is not unique
   - message: *server-id-not-unique
     id: "server-id-not-unique"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      The server ID of the instance Stitch is connected to is not unique.
+    cause: |
       The server ID of the instance Stitch is connected to is not unique. When using Log-based Replication, the ID of the server Stitch connects to must be unique. This is because MySQL doesn't allow replication to occur using the same server ID simultaneously across multiple connections.
-
-    fix-it: |
+    resolution: |
       If you're using Log-based Replication and any of the following are true, you'll need to define a unique server ID in the integration's **Settings** page in Stitch:
 
       1. You connected one or more read replicas
@@ -63,22 +97,30 @@ all:
 ## Master server ID isn't set
   - message: *master-server-id-not-set
     id: "master-server-id-not-set"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      Server settings are either missing or have not been correctly applied.
+    cause: |
       The [likely cause of this error is setting server parameters](https://dba.stackexchange.com/questions/76089/error-1236-from-master-after-restored-replication){:target="new"} - in this case, related to enabling binlog replication - on the master server without rebooting the master.
 
       Rebooting the master instance is required for server parameter changes to take effect.
-
-    fix-it: |
-      Reboot the master instance to ensure the server parameters for enabling binlog are applied.
+    resolution: |
+      **Reboot the master instance**. This will ensure the server parameters for enabling binlog are applied.
 
 
 ## Unsupported binlog_format parameter value
   - message: *binlog-format-row
     id: "binlog-format-row"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: &binlog-format-row-cause |
       The `binlog_format` server parameter is not set to `ROW`, which Stitch requires for MySQL Log-based Replication.
-    fix-it: |
-      Change the `binlog_format` paramter to `ROW`. This ensures that binary replication is "row-based", meaning that events affecting individual rows are captured.
+    cause: *binlog-format-row-cause
+    resolution: |
+      **Change the `binlog_format` paramter to `ROW`.** This ensures that binary replication is "row-based" which will capture events that affect individual rows.
 
       {% capture mysql-server-settings-list %}
       The steps for changing this parameter will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
@@ -96,11 +138,13 @@ all:
 ## Unsupported binlog_row_image parameter value
   - message: *binlog-row-image-full
     id: "binlog-row-image-full"
-    meaning: |
-      The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication.
-      
-    fix-it: |
-      Changing the `binlog_row_image` parameter to `FULL`. This ensures that when a row is updated in the source database, the entire row is captured versus only the updated values.
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: &binlog-row-image-cause "The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication."
+    cause: *binlog-row-image-cause
+    resolution: |
+      **Change the `binlog_row_image` parameter to `FULL`.** This ensures that when a row is updated in the source database, the entire row is captured versus only the updated values.
 
       {{ mysql-server-settings-list }}
 
@@ -108,8 +152,13 @@ all:
 ## Schema violation
   - message: *schema-violation
     id: "schema-violation"
-    meaning: |
-      The data replicated for a table does not match the expected schema. This occurs when the structure of a table changes in the source and Stitch is unable to verify its schema..
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      The data replicated for a table does not match the expected schema.
+    cause: |
+      The data replicated for a table does not match the expected schema. This occurs when the structure of a table changes in the source and Stitch is unable to verify its schema.
 
       This can be caused by:
 
@@ -118,9 +167,8 @@ all:
       - The Stitch database user not having access to all the columns in the table
 
       This occurs due to how Log-based Incremental Replication works, and how log messages are structured in database binary files. Refer to the [Log-based Incremental Replication]({{ link.replication.log-based-rep | prepend: site.baseurl | append: "#limitation-4--structural-changes" }}) documentation for more info and examples.
-
-    fix-it: |
-      To resolve the error, you'll need to perform a table-level reset. To do this, open the **{{ app.page-names.table-settings }}** page for the table and click the {{ app.buttons.reset-rep-keys }} button. This will clear the table's Replication Key value and queue a full re-replication of the table.
+    resolution: |
+      **Perform a table-level reset.** To do this, open the **{{ app.page-names.table-settings }}** page for the table and click the {{ app.buttons.reset-rep-keys }} button. This will clear the table's Replication Key value and queue a full re-replication of the table.
 
       To prevent this error in the future:
 
@@ -133,23 +181,31 @@ all:
 ## View replication error
   - message: *binlog-unsupported-views
     id: "binlog-unsupported-views"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      The source object is a database view, which is unsupported for Log-based Incremental Replication.
+    cause: |
       The source object is a database view. Binary logging doesn't track events that occur in database views, so Stitch is unable to use Log-based Replication for views.
-    fix-it: |
+    resolution: |
       Update the view's Replication Method to either [Key-based Incremental]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}).
 
 
 ## Log retention settings & purges
   - message: *log-retention-purge
     id: "log-retention-purge"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
       The requested binary log file has been removed from the server. When a binary log file is removed before Stitch can read from it, replicaiton will be unable to proceed.
-
+    cause: |
       This error typically arises due to insufficient log retention settings, which define how long log files remain on a server before they're automatically purged.
 
       It can also be caused by binary log files being purged before historical replication completes or critical errors that prevent Stitch from replicating data. When this occurs, it means Stitch was unable to proceed to the binary log file before the retention period passed and the log was purged.
-    fix-it: |
-      To resolve the error, you'll need to perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
+    resolution: |
+      **Perform an integration-level reset**. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
 
       To prevent this error in the future, verify your server's log retention settings and update them if needed. Stitch recommends a minimum of 3 days, but 7 days is preferred. This ensures that you have time to resolve any issues that arise before logs age out and are purged.
 
@@ -161,14 +217,19 @@ all:
 ## Binlog is ahead of current position on server
   - message: *binlog-current-position
     id: "binlog-current-position"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      The log position Stitch is attempting to use to resume its place in a binary log file is greater than the maximum log position available in the database.
+    cause: |
       When Stitch replicates data using Log-based Replication, it will "bookmark" its place by saving a position in the log file. When the next replication job begins, Stitch will use this value to identify the place in the log where it should begin reading data.
 
       This error means that the log position Stitch has is "ahead" of the server. To summarize, the log position Stitch is attempting to use is greater than the log position that the MySQL database has available.
 
       Typically this will be an issue only if the server uses a very small [`max_binlog_size`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_max_binlog_size){:target="new"} value.
-    fix-it: |
-      Perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
+    resolution: |
+      **Perform an integration-level reset**. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
 
       We also recommend checking the value of the `max_binlog_size` server parameter and increasing it if it's too small. By default, this is set to MySQL's maximum of 1 GB (1073741824 bytes).
 
@@ -176,8 +237,65 @@ all:
 ## Unsupported MySQL version
   - message: *version-requirement
     id: "version-requirement"
-    meaning: |
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: |
+      The source MySQL database is running a MySQL version incompatible with binlog replication, which is required to use Log-based Incremental Replication in Stitch.
+    cause: |
       The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running. This means that binary logging, or binlog replication, is not a feature supported by the current database version.
-
-    fix-it: |
+    resolution: |
       The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.
+
+
+
+## Missing REPLICATION CLIENT privilege
+  - message: *replication-client-privilege
+    id: "replication-client-privilege"
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: &replication-client-privilege-cause "The Stitch database user doesn't have the `REPLICATION CLIENT` privilege, which is required to execute commands necessary to perform Log-based Incremental Replication."
+    cause: *replication-client-privilege-cause
+    resolution: |
+      **Grant the Stitch database user the `REPLICATION CLIENT` privilege**. Log into your database and run this command as a user with the `GRANT` privilege:
+
+      ```sql
+      {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-permissions-command | remove: "SELECT, " | remove: ", REPLICATION SLAVE" | rstrip }}
+      ```
+
+
+## Missing REPLICATION SLAVE privilege
+  - message: *replication-slave-privilege
+    id: "replication-slave-privilege"
+    applicable-to: *all-databases
+    issue-area: "Setup / Log-based Incremental Replication"
+    replication-stopper: true
+    summary: &replication-slave-privilege-cause "The Stitch database user doesn't have the `REPLICATION SLAVE` privilege, which is required to execute commands necessary to perform Log-based Incremental Replication."
+    cause: *replication-slave-privilege-cause
+    resolution: |
+      **Grant the Stitch database user the `REPLICATION SLAVE` privilege**. Log into your database and run this command as a user with the `GRANT` privilege:
+
+      ```sql
+      {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-permissions-command | remove: "SELECT, " | remove: "REPLICATION CLIENT, " | rstrip }}
+      ```
+
+
+## Selected table doesn't have a Replication Method
+  - message: *no-replication-method-selected
+    id: "no-replication-method-selected"
+    applicable-to: *all-databases
+    issue-area: "Setup"
+    replication-stopper: true
+    summary: &no-replication-method-selected-cause "A table has been set to replicate, but a Replication Method has not yet been selected."
+    cause: *no-replication-method-selected-cause
+    resolution: |
+      **Define a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for the table**.
+
+      1. In the **Tables to Replicate** tab, look for the table(s) that don't have a value in the **Method** column:
+
+         ![Selected table without a defined Replication Method]({{ site.baseurl }}/images/replication/replication-method-not-set.png)
+      2. Click the table name.
+      3. In the page that displays, click {{ app.buttons.update-table-settings }} on the right side of the page.
+      4. Select a Replication Method.
+      5. When finished, click {{ app.buttons.save-table-settings }}.

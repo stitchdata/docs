@@ -1,0 +1,193 @@
+# ------------------------------- #
+#    Snowflake Loading Errors     #
+# ------------------------------- #
+
+## This file contains the raw error messages for
+## loading data to Snowflake destinations.
+
+## The `all` list below contains additional details about the causes
+## of these errors, whether they're show-stoppers, and the most
+## common way we've found to resolve them.
+
+raw-errors:
+# -----------------------------#
+#   Destination/setup issues   #
+# ---------------------------- #
+
+  no-active-warehouse-in-session: &no-active-warehouse-in-session "No active warehouse selected in the current session. Select an active warehouse with the 'use warehouse' command."
+
+  object-type-soft-limit: &object-type-soft-limit "Operation failed because soft limit of object type '[object_type]' for this account has been exceeded. Please remove unneeded objects of this type or contact Snowflake Support about raising the limit."
+
+  max-resource-monitor-quota: &max-resource-monitor-quota "Warehouse '[WAREHOUSE_NAME]' cannot be resumed because resource monitor '[WAREHOUSE_NAME]' has exceeded its quota."
+
+  no-space-left-on-device: &no-space-left-on-device "No space left on device"
+
+# -----------------------------#
+#       Privilege issues       #
+# ---------------------------- #
+
+  insufficient-table-privileges: &insufficient-table-privileges "SQL access control error: Insufficient privileges to operate on table '[TABLE_NAME]'"
+
+  insufficient-warehouse-privileges: &insufficient-warehouse-privileges "SQL access control error: Insufficient privileges to operate on warehouse 'LOADING'"
+
+
+# -----------------------------#
+#   Schema & data type issues  #
+# ---------------------------- #
+
+  null-in-non-nullable-column: &null-in-non-nullable-column |
+    NULL result in a non-nullable column
+    File '[file_name].tab.gz', line 1, character 1
+    Row 1, column "STAGING_[stitch_staging_table_name]"["[column_name]":1]
+    If you would like to continue loading when an error is encountered, use other values such as 'SKIP_FILE' or 'CONTINUE' for the ON_ERROR option. For more information on loading options, please run 'info loading_data' in a SQL client.
+
+  primary-key-mismatch: &primary-key-mismatch "Primary Keys for table do not match Primary Keys of incoming data"
+
+
+
+# ----------------- #
+#   List of Errors  #
+# ----------------- #
+
+all:
+# -----------------------------#
+#   Destination/setup issues   #
+# ---------------------------- #
+
+## No active warehouse in session
+  - message: *no-active-warehouse-in-session
+    id: "no-active-warehouse-in-session"
+    applicable-to: &all-destinations "All Snowflake destinations"
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "Stitch is unable to communicate with the Snowflake warehouse specified in the {{ page_name }} page."
+    cause: |
+      Stitch is unable to communicate with the warehouse specified in the {{ page_name }} page. This is usually because:
+
+      1. The specified Snowflake user doesn't have a default warehouse, or
+      2. The warehouse is inactive
+    resolution: |
+      1. **Verify that the specified Snowflake user has a default warehouse**. Refer to [Step 2.2]({{ link.destinations.setup.snowflake | prepend: site.baseurl | append: "#create-stitch-database-user" }}) of the Snowflake setup guide for instructions.
+      2. **Verify that the warehouse is active.** To load data, Snowflake requires [that a warehouse be running](https://docs.snowflake.net/manuals/user-guide/warehouses-tasks.html#using-a-warehouse){:target="new"}. To see the warehouse's status, sign into your Snowflake account, click the **Warehouse** button at the top, and look at the **Status** column.
+
+## Object soft limit
+  - message: *object-type-soft-limit
+    id: "object-type-soft-limit"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "The Snowflake-imposed maximum limit for the specified object type has been reached."
+    cause: |
+      According to [Snowflake's support forum](https://support.snowflake.net/s/question/0D50Z00007vvkODSAY/what-is-soft-limit-){:target="new"}, Snowflake imposes account-level soft limits on the number of objects that can be created for a given object type. This includes users, dtabases, tables, variables, and so on.
+
+      These soft limits are intended to protect your account from accidentally or intentionally harmful behavior.
+    resolution: |
+      Contact Snowflake support or your Snowflake representative for assistance.
+
+
+## Resource monitor quota
+  - message: *max-resource-monitor-quota
+    id: "max-resource-monitor-quota"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "The number of credits allocated to the Snowflake warehouse specified in Stitch have been consumed."
+    cause: |
+      In Snowflake, virtual warehouses consume credits while they run. Warehouses are active - or running - when Stitch loads data, when you perform queries on your warehouse, etc.
+
+      To control costs and credit usage, Snowflake offers a feature called a [Resource Monitor](https://docs.snowflake.net/manuals/user-guide/resource-monitors.html){:target="new"}. Resource Monitors are created by `ACCOUNTADMIN` Snowflake users and control the number of Snowflake credits allocated to a specific warehouse.
+
+      When the credit limits specified by the Resource Monitor have been reached, this error will surface. Stitch will be unable to proceed with loading data into the Snowflake warehouse until the issue is resolved.
+    resolution: |
+      1. **Verify the Resource Monitor settings for the warehouse.** If you aren't an `ACCOUNTADMIN` in Snowflake, you may need to contact a user who has this role.
+      2. **Increase the credit quota for the Resource Monitor**, if feasible.
+
+      Refer to [Snowflake's Resource Monitor documentation](https://docs.snowflake.net/manuals/user-guide/resource-monitors.html){:target="new"} for more info.
+
+
+## No space left on device
+  - message: *no-space-left-on-device
+    id: "no-space-left-on-device"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "The destination is full."
+    cause: "The destination is full, meaning that no disk space is available for Stitch to load data."
+    resolution: |
+      - Add additional space to the instance, or
+      - Remove tables and/or data from the instance to free up disk space
+
+
+# -----------------------------#
+#       Privilege issues       #
+# ---------------------------- #
+
+## Insufficient database privileges
+  - message: *insufficient-database-privileges
+    id: "insufficient-database-privileges"
+    applicable-to: *all-destinations
+    issue-area: "Setup / Permissions"
+    stops-replication-for: "All integrations"
+    summary: "The Snowflake user specified in the {{ page_name }} page has insufficient database privileges."
+    cause: |
+      The Snowflake user specified in the {{ page_name }} page has insufficient database privileges. These are required by Stitch to load data.
+
+      This is usually caused by not granting the [`ALL ON DATABASE` privilege](https://docs.snowflake.net/manuals/user-guide/security-access-control-privileges.html#database-privileges){:target="new"} to the Stitch role.
+    resolution: |
+      Grant the Stitch role the required database permissions as outlined in [Step 2.2]({{ link.destinations.setup.snowflake | prepend: site.baseurl | append: "#create-stitch-database-user" }}) of the Snowflake setup guide.
+
+
+## Insufficient warehouse privileges
+  - message: *insufficient-warehouse-privileges
+    id: "insufficient-warehouse-privileges"
+    applicable-to: *all-destinations
+    issue-area: "Setup / Permissions"
+    stops-replication-for: "All integrations"
+    summary: "The Snowflake user specified in the {{ page_name }} page has insufficient warehouse privileges."
+    cause: |
+      The Snowflake user specified in the {{ page_name }} page has insufficient warehouse privileges. These are required by Stitch to load data.
+
+      This is usually caused by not granting the [`ALL ON WAREHOUSE` privilege](https://docs.snowflake.net/manuals/user-guide/security-access-control-privileges.html#virtual-warehouse-privileges){:target="new"} to the Stitch role. 
+    resolution: |
+      Grant the Stitch role the required warehouse permissions as outlined in [Step 2.2]({{ link.destinations.setup.snowflake | prepend: site.baseurl | append: "#create-stitch-database-user" }}) of the Snowflake setup guide.
+
+
+# -----------------------------#
+#   Schema & data type issues  #
+# ---------------------------- #
+
+## Null in non-nullable column
+  - message: *null-in-non-nullable-column
+    id: "null-in-non-nullable-column"
+    applicable-to: *all-destinations
+    issue-area: "Source data"
+    stops-replication-for: "Affected table"
+    summary: |
+      A `null` value has been detected in the source data for a non-nullable column. This usually relates to columns used as Primary Keys, as Stitch uses `NOT NULL` Primary Key constraints for Snowflake destinations.
+    cause: |
+      A `null` value has been detected in the source data for a non-nullable column. This usually relates to columns used as Primary Keys, as Stitch uses `NOT NULL` Primary Key constraints for Snowflake destinations.
+
+      To load data to Snowflake, every record must have a valid, not null Primary Key value.
+    resolution: |
+      In the source, locate the record that contains a `null` value in the Primary Key column. You'll either need to add a Primary Key for the record or drop it from the source in order for Stitch to continue loading data.
+
+
+## Primary Key mismatch
+  - message: *primary-key-mismatch
+    id: "primary-key-mismatch"
+    applicable-to: "Snowflake destinations"
+    issue-area: "Source"
+    stops-replication-for: "Affected table"
+    summary: |
+      The Primary Keys in the incoming data don't match the Primary Key constraints that already exist in the destination table.
+    cause: |
+      The Primary Keys in the incoming data don't match the Primary Key constraints that already exist in the destination table. This means that the Primary Keys in the source have been modified.
+
+      When a table is created in Snowflake, Primary Key constraints are applied to the table. These constraints include the column(s) used as Primary Keys, as well as the requirements those columns must meet (ex: `NOT NULL`). 
+
+      As Stitch is unable to change the Primary Key constraint on existing tables, this error will present if Primary Keys are changed in the source.
+    resolution: |
+      How you resolve this issue depends on what caused the Primary Key change in the source:
+
+      - **If the Primary Keys were accidentally changed**, reverse the change. Loading will resume using the original Primary Key definition.
+      - **If the new Primary Keys are correct**, drop the table in your Snowflake warehouse and allow Stitch to re-create it with the current Primary Key constraint. **Note**: If the table uses [Log-based Incremental]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) or [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), you will also need to [reset the table]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) to ensure historical data is re-loaded.

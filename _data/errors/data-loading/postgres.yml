@@ -1,0 +1,157 @@
+# ------------------------------- #
+#    PostgreSQL Loading Errors    #
+# ------------------------------- #
+
+## This file contains the raw error messages for
+## loading data to PostgreSQL destinations.
+
+## The `all` list below contains additional details about the causes
+## of these errors, whether they're show-stoppers, and the most
+## common way we've found to resolve them.
+
+
+
+  # Postgres:
+  #   - Database connection failed when canceling copy operation
+  #   - ERROR: could not extend file "base/16395/t3_20097019.23": wrote only 4096 of 8192 bytes at block 3029065 Hint: Check free disk space. Where: COPY staging_0_20_loader-pg6-12020-0b0b012e-acbc-409e-a015-4367ce1b9, line 1859686
+  #   - ERROR: could not write to hash-join temporary file: No space left on device
+  #   - ERROR: date/time field value out of range: "0001-02-29 00:00:00.000+0000" Where: COPY staging_2_14_loader-pg1-12039-bfc56e56-2324-4541-a924-805137ac3, line 5, column value: "0001-02-29 00:00:00.000+0000"
+  #   - ERROR: deadlock detected Detail: Process 11359 waits for AccessShareLock on relation 528019 of database 16389; blocked by process 11274. Process 11274 waits for AccessExclusiveLock on relation 572900 of database 16389; blocked by process 11359. Hint: See server log for query details. Where: PL/pgSQL function update_core_product_taxonomy() line 13 at SQL statement
+  #   - ERROR: null value in column "__sdc_primary_key" violates not-null constraint Detail: Failing row contains (null, 2018-03-08 22:02:01.421+00, 2018-02-22 19:46:05.489+00, 1519328765333, 0, 89842, 60, PCT_DISCOUNT, "%", 14125, , ). Where: COPY staging_0_19_loader-pg9-12011-32d01142-4388-49d6-bf8a-a4dab6c4a, line 1: ""89842" 0 "14125" 2018-02-22 19:46:05.489+0000 1519328765333  "PCT_DISCOUNT"  60  ""  ""  """%""" 2018-03..."
+  #   - ERROR: permission denied for database [database_name]
+  #   - ERROR: permission denied for schema [schema_name]
+  #   - ERROR: permission denied for relation _sdc_rejected
+  #   - 
+  #   - FATAL: no pg_hba.conf entry for host "52.204.223.208", user "[username]", database "[databse_name]", SSL on
+  #   - FATAL: the database system is in recovery mode
+  #   - FATAL: the database system is shutting down
+  #   - FATAL: the database system is starting up
+  #   - FATAL: too many connections for role "[role_name]"
+  #   - "The hostname [hostname] could not be verified."
+
+
+
+raw-error:
+# -----------------------------#
+#   Destination/setup issues   #
+# ---------------------------- #
+
+  no-space-left-on-device: &no-space-left-on-device "ERROR: could not write block XXXX of temporary file: No space left on device"
+
+  transaction-status-no-space-on-device: &transaction-status-no-space-on-device |
+    ERROR: could not access status of transaction
+    Detail: Could not write to file "pg_subtrans0093" at offset 188416: No space left on device.
+
+  max-temp-file-limit: &max-temp-file-limit
+    temporary file size exceeds temp_file_limit
+
+  could-not-extend-file: &could-not-extend-file |
+    ERROR: could not extend file "base/16389/t2_285302": No space left on device
+    Hint: Check free disk space.
+    Where: COPY staging_[table_name], line 1142260
+
+# -----------------------------#
+#       Privilege issues       #
+# ---------------------------- #
+
+
+# -----------------------------#
+#   Schema & data type issues  #
+# ---------------------------- #
+
+  max-table-name-limit: &max-table-name-limit "root table name ([table_name]) is too long ([table_name_length]) for postgres"
+
+  duplicate-key-value: &duplicate-key-value |
+    ERROR: duplicate key value violates unique constraint "[table_name]"
+    Detail: Key ([column_name])=([column_value]) already exists.
+
+  update-delete-fkey-violation: &update-delete-fkey-violation |
+    ERROR: update or delete on table "[table_name_1]" violates foreign key constraint "[column_name_1]" on table "[table_name_2]"
+    Detail: Key ([column_name_2])=([column_value]) is still referenced from table "[table_name_2].
+
+# ----------------- #
+#   List of Errors  #
+# ----------------- #
+
+all:
+# -----------------------------#
+#   Destination/setup issues   #
+# ---------------------------- #
+
+## No space on device
+  - message: *no-space-left-on-device
+    id: "no-space-left-on-device"
+    applicable-to: &all-destinations "Any PostgreSQL-based destination"
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    type: "loading"
+    summary: &no-space-left "Stitch is unable to load data into the destination because the database is full."
+    cause: *no-space-left 
+    resolution: &no-space-left-resolution |
+      1. Add additional space to make the database larger, or
+      2. Remove tables and/or data from the existing instance to free up disk space
+
+
+## Extend file issue
+  - message: *could-not-extend-file
+    id: "could-not-extend-file"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    type: "loading"
+    summary: *no-space-left
+    cause: *no-space-left
+    resolution: *no-space-left-resolution
+
+
+## temp_file_limit issue
+  - message: *max-temp-file-limit
+    id: "max-temp-file-limit"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    type: "loading"
+    summary: &max-temp-file-limit-cause |
+      The `temp_file_limit` parameter is set too low to allow enough capacity for Stitch to load data. This parameter defines the amount of space that a process can use for temporary files.
+    cause: |
+      The `temp_file_limit` parameter is set too low to allow enough capacity for Stitch to load data. This parameter defines the amount of space that a process can use for temporary files. Refer to [PostgreSQL's documentation](https://www.postgresql.org/docs/10/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-DISK){:target="new"} for more info about this parameter.
+    resolution: |
+      1. Increase the value of `temp_file_limit` to allow Stitch to proceed with loading.
+      2. Consider applying an index to the Replication Key column for the problem table.
+
+
+## Foreign key constraints
+  - message: *update-delete-fkey-violation
+    id: "update-delete-fkey-violation"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "Affected table and subtables"
+    type: "loading"
+    summary: &fkey-violation-cause "Foreign key constraints have been applied to the table in the destination, which Stitch does not currently support."
+    cause: *fkey-violation-cause
+    resolution: |
+      Remove the foreign key constraints from the affected table.
+
+
+## Maximum number of columns per table
+## This is in _data/errors/data-loading/common.yml, since it's shared with other destinations
+  - message: "{{ site.data.errors.data-loading.common.redshift-postgres-column-limit.message }}"
+    id: "max-columns-per-table"
+    applicable-to: *all-destinations
+    issue-area: "Source data"
+    stops-replication-for: "Affected table and subtables"
+    summary: "A source table contains more than the 1,600 column limit Redshift/Panoply imposes."
+    cause: |
+      {{ site.data.errors.data-loading.common.redshift-postgres-column-limit.cause }}
+    resolution: |
+      {{ site.data.errors.data-loading.common.redshift-postgres-column-limit.resolution }}
+
+
+# -----------------------------#
+#       Privilege issues       #
+# ---------------------------- #
+
+
+# -----------------------------#
+#   Schema & data type issues  #
+# ---------------------------- #

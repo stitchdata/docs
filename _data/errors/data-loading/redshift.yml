@@ -1,0 +1,327 @@
+# -------------------------------- #
+#  Redshift/Panoply Loading Errors #
+# -------------------------------- #
+
+## This file contains the raw error messages for
+## loading data to Redshift and Panoply destinations.
+
+## The `all` list below contains additional details about the causes
+## of these errors, whether they're show-stoppers, and the most
+## common way we've found to resolve them.
+
+# - ERROR: NOT NULL column without DEFAULT must be included in column list
+# - ERROR: permission denied for database [database_name]
+# - ERROR: permission denied for schema [schema_name]
+# - ERROR: Relation "[table_name]" already exists
+# - Encountered error while attempting to create new schema.
+# - ERROR: 1023 Detail: Serializable isolation violation on table - 315527, transactions forming the cycle are: 20380273, 20380335 (pid:23723)
+# - ERROR: deadlock detected Detail: Process 3119 waits for AccessExclusiveLock on relation 5905173 of database 100126; blocked by process 3190. Process 3190 waits for AccessShareLock on relation 972314 of database 100126; blocked by process 3119.
+# - ERROR: more than one row returned by a subquery used as an expression
+# - ERROR: duplicate key violates unique constraint "pg_class_relname_nsp_index" (possibly caused by concurrent transaction conflict)
+# - ERROR: table 10695455 dropped by concurrent transaction
+# - FATAL: A fatal error occurred. The database will be restarted.
+# - ERROR: column name "oid" conflicts with a system column name
+# - ERROR: column "[column_name]" of relation "[table_name]" does not exist
+# - ERROR: Query (2022841) cancelled on user's request
+# - ERROR: permission denied for relation _sdc_rejected
+
+
+# ERROR: S3ServiceException:The provided token is malformed or otherwise invalid.,Status 400,Error InvalidToken,Rid F1525B9FEBB330CF,ExtRid 3BYHcAT7pTMadBc2Ero3cn1devu6r/pNlQRihLgtYxLQuq8lYvxmKh97fieMMtMuaDp/4opIgjM=,CanRetry 1
+#   Detail: 
+#   -----------------------------------------------
+#   error:  S3ServiceException:The provided token is malformed or otherwise invalid.,Status 400,Error InvalidToken,Rid F1525B9FEBB330CF,ExtRid 3BYHcAT7pTMadBc2Ero3cn1devu6r/pNlQRihLgtYxLQuq8lYvxmKh97fieMMtMuaDp/4opIgjM=,CanRetry 1
+#   code:      8001
+#   context:   Listing bucket=com-stitchdata-prod-loaders-staging-us-east-1 prefix=loader-x24-12474-329abcae-1ba8-407d-9482-4caa88eeae19/clients/100274/17-4edcb9f124b644f95f34be7ebeaf3462-5733772612152106923.tab
+#   query:     3061396
+#   location:  s3_utility.cpp:560
+#   process:   padbmaster [pid=13536]
+#   -----------------------------------------------
+
+# ERROR: Assert
+#   Detail: 
+#   -----------------------------------------------
+#   error:  Assert
+#   code:      1000
+#   context:   static_cast[ssize_t](m_inmem_src_size) ]= 0 - src_size cannot be negative:18446744073709520539
+#   query:     4405578
+#   location:  code_pool.cpp:236
+#   process:   padbmaster [pid=6475]
+#   -----------------------------------------------
+
+raw-error:
+# -----------------------------#
+#   Destination/setup issues   #
+# ---------------------------- #
+
+  disk-full-detail: &disk-full |
+    ERROR: Disk Full Detail:
+    -----------------------------
+    error:  Disk Full
+    code:      1016
+    context:   node: 3
+    query:     1005177
+    location:  fdisk_api.cpp:345
+    process:   query3_66 [pid=27629]
+    -----------------------------
+
+  out-of-memory: &out-of-memory |
+    ERROR: Out of memory Detail:
+    -----------------------------------------------
+    error: Out of memory
+    code: 1004
+    context: alloc(524288,MtPool)
+    query: 871539
+    location: alloc.cpp:452
+    process: padbmaster [pid=4912]
+    -----------------------------------------------
+ 
+  resize-mode: &resize-mode |
+    ERROR: Cannot execute query because system is in resize mode
+    Detail: System is in resize mode, and ONLY read-only queries are allowed to execute.
+
+  database-does-not-exist: &database-does-not-exist |
+    FATAL: database "[database_name]" does not exist
+
+# -----------------------------#
+#        Stitch issues         #
+# ---------------------------- #
+
+  vacuum: &vacuum |
+    ERROR: VACUUM is running
+    Hint: re-execute after other vacuum finished
+
+# -----------------------------#
+#       Privilege issues       #
+# ---------------------------- #
+
+  permission-denied-schema: &permission-denied-schema "ERROR: permission denied for schema [schema_name]"
+
+  relation-owner: &relation-owner "Must be owner of relation [table_name]"
+
+  creating-new-schema: &creating-new-schema "Encountered error while attempting to create new schema."
+
+
+# ---------------------------- #
+#   Schema & data type issues  #
+# ---------------------------- #
+
+  dependent-objects: &dependent-objects |
+    ERROR: cannot drop table [schema_name].[table_name] column type because other objects depend on it
+
+    Hint: Use DROP ... CASCADE to drop the dependent objects too.
+
+  max-tables-exceeded: &max-tables-exceeded |
+    ERROR: 1040 Detail: Maximum tables limit exceeded. The maximum number of tables per cluster is [maximum_number] for this instance type. The limit includes permanent and temporary tables. (pid:32724)
+  
+  column-does-not-exist: &column-does-not-exist "ERROR: column [table_name].[column_name] does not exist"
+
+  
+
+# ----------------- #
+#   List of Errors  #
+# ----------------- #
+
+all:
+  - message: 
+    id: ""
+    applicable-to: 
+    issue-area: ""
+    stops-replication-for: true
+    summary: 
+    cause: 
+    resolution: 
+
+
+# -----------------------------#
+#   Destination/setup issues   #
+# ---------------------------- #
+
+## Disk full
+  - message: *disk-full
+    id: "disk-full"
+    applicable-to: &all-destinations "Amazon Redshift and Panoply destinations"
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "The destination instance is full."
+    cause: "The destination is full, meaning that no disk space is available for Stitch to load data."
+    resolution: |
+      - Add additional space to the instance, or
+      - Remove tables and/or data from the instance to free up disk space
+
+
+## Out of memory
+  - message: *out-of-memory
+    id: "out-of-memory"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "The destination instance is full."
+    cause: "The destination is full, meaning that no disk space is available for Stitch to load data."
+    resolution: |
+      - Add additional space to the instance, or
+      - Remove tables and/or data from the instance to free up disk space
+
+## Resize mode
+  - message: *resize-mode
+    id: "resize-mode"
+    applicable-to: "Amazon Redshift destinations"
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "Stitch is temporarily unable to load data because the Redshift cluster is being resized."
+    cause: |
+      Stitch is temporarily unable to load data because the Redshift cluster is currently in resize mode. When a cluster is resized, Amazon puts it into read-only mode to apply the changes. During this time, Stitch will be unable to load data. Refer to [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html){:target="new"} for more info.
+
+      **Note**: No data will be lost during this time. When the resize process ends, Stitch will resume loading the data that accummulated during this time.
+    resolution: |
+      No action is required. This is a transient issue; Stitch will resume loading data after the resize process ends. 
+
+
+## Maximum number of columns per table
+## This is in _data/errors/data-loading/common.yml, since it's shared with other destinations
+  - message: "{{ site.data.errors.data-loading.common.raw-error.redshift-postgres-column-limit.message }}"
+    id: "max-columns-per-table"
+    applicable-to: *all-destinations
+    issue-area: "Source data"
+    stops-replication-for: "Affected table and subtables"
+    summary: "A source table contains more than the 1,600 column limit Redshift/Panoply imposes."
+    cause: |
+      {{ site.data.errors.data-loading.common.raw-error.redshift-postgres-column-limit.cause | flatify }}
+    resolution: |
+      {{ site.data.errors.data-loading.common.raw-error.redshift-postgres-column-limit.resolution | flatify }}
+
+
+## Database does not exist
+  - message: *database-does-not-exist
+    id: "database-does-not-exist"
+    applicable-to: *all-destinations
+    issue-area: "Setup"
+    stops-replication-for: "All integrations"
+    summary: "Stitch is unable to find the database specified in the {{ app.page-names.dw-settings }} page."
+    cause: |
+      Stitch is unable to find the database specified in the {{ app.page-names.dw-settings }} page. The database might not exist, or its name might have been entered incorrectly.
+    resolution: |
+      1. **Verify that the databse exists** by logging into your Redshift/Panoply account.
+      2. **Verify that the database name is correctly entered in Stitch**. Navigate to the {{ app.page-names.dw-settings }} to check the database name. To perform a connection check after verifying the database name is correct, click the **Update Redshift Settings** button.
+
+# -----------------------------#
+#        Stitch issues         #
+# ---------------------------- #
+
+  - message: *vacuum
+    id: "vacuum"
+    applicable-to: *all-destinations 
+    issue-area: "Stitch"
+    stops-replication-for: ""
+    summary: "" 
+    cause: ""
+    resolution: "" 
+
+# -----------------------------#
+#       Privilege issues       #
+# ---------------------------- #
+
+## Schema permission denied
+  - message: *permission-denied-schema
+    id: "permission-denied-schema"
+    applicable-to: *all-destinations
+    issue-area: "Setup / Permissions"
+    stops-replication-for: "Affected integration"
+    summary: "Stitch does not have the permissions required to create tables within a schema."
+    cause: &schema-creation-cause |
+      Stitch requires `CREATE ON DATABASE` privileges to create the necessary database objects to load and store your data.
+
+      `CREATE` permissions on the database are required to successfully load data. When Stitch loads data, it will run a `CREATE SCHEMA IF NOT EXISTS` command, which will create a schema if it doesn't already exist. To run this command, the Stitch user must have the `CREATE ON DATABASE` permission.
+
+      **Note**: The `CREATE ON SCHEMA` permission is not a sufficient alternative for `CREATE ON DATABASE`. [As outlined in Redshift's documentation]({{ site.data.destinations.loading.user-privileges.redshift.defaults.doc-links.create-database | flatify }}){:target="new"}, this permission only allows a user to create objects within a schema, but not the schema itself.
+    resolution: &schema-creation-resolution |
+      Grant the Stitch user `CREATE ON DATABASE` privileges by running the following command:
+
+      ```sql
+      {{ site.data.destinations.loading.user-privileges.common.postgresql.sql-commands.create-database | flatify | rstrip }}
+      ```
+
+
+## Must be relation owner
+  - message: *relation-owner
+    id: "relation-owner"
+    applicable-to: *all-destinations
+    issue-area: "Setup / Permissions"
+    stops-replication-for: "Affected integration"
+    summary: "Stitch is not the owner of the table or schema, which is required to perform functions necessary to loading data."
+    cause: |
+      Ownership permissions are required for all schemas and tables Stitch will load data into. Stitch occasionally needs to run `COMMENT` and `ALTER TABLE` commands to insert data, which require ownership permissions.
+
+      Refer to the [Redshift setup guide]({{ link.destinations.setup.redshift | prepend: site.baseurl }}) for more info.
+    resolution: |
+      Transfer ownership of the schema or table to the Stitch user.
+
+      **To transfer schema ownership**, run the following command:
+
+      ```sql
+      ALTER SCHEMA [schema_name] OWNER TO [stitch_username];
+      ```
+
+      **To transfer table ownership**, run the following command. If there are multiple tables where Stitch is not the owner, you will need to run this command once for each table:
+
+      ```sql
+      ALTER TABLE [schema_name] OWNER TO [stitch_username];
+      ```
+
+
+## Error when creating new schema
+  - message: *creating-new-schema
+    id: "creating-new-schema"
+    applicable-to: *all-destinations
+    issue-area: "Setup / Permissions"
+    stops-replication-for: "Affected integration"
+    summary: |
+      Stitch was unable to create or load data into a schema in the destination.
+    cause: *schema-creation-cause
+    resolution: *schema-creation-resolution
+
+# ---------------------------- #
+#   Schema & data type issues  #
+# ---------------------------- #
+
+## Dependent objects
+  - message: *dependent-objects 
+    id: "dependent-objects"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "Affected table and subtables"
+    type: "loading"
+    summary: "Stitch is attempting to alter a table, but cannot due to dependencies on the table."
+    cause: |
+      Altering a table involes dropping and re-creating the table. Stitch performs these actions to accommodate schema changes from the source, such as widening a `VARCHAR` column or adding a completely new column.
+
+      If there are objects in the destination that depend on the table, Stitch will be unable to drop the table. This will halt replication just for the affected table. Replication will proceed as normal for other tables.
+    resolution: |
+      **Temporarily drop the dependent objects**, which will allow Stitch to drop and re-create the table. Refer to the [Redshift Dependency Errors]({{ link.troubleshooting.view-dependency-errors | prepend: site.baseurl }}) guide for additional info and resolution steps.
+
+
+## Maximum number of tables exceeded
+  - message: *max-tables-exceeded
+    id: "max-tables-exceeded"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "All integrations"
+    summary: "The maximum number of tables allowed for the cluster type the Redshift destination uses has been exceeded."
+    cause: |
+      The maximum number of tables Redshift allows depends on the type of cluster node being used. When the maximum number of tables is reached, Stitch will be unable to continue loading data. 
+
+      Refer to [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html){:target="new"} for info on the table limits for each cluster node type.
+    resolution: |
+      1. **Upgrade your Redshift cluster** to a type that allows more tables, or
+      2. **Drop some tables** to get the current number of tables below the cluster limit.
+
+
+## Staging table name is too long
+  - message: "{{ site.data.errors.data-loading.common.redshift-postgres-staging-table-name-too-long.message | flatify }}"
+    id: "staging-table-name-too-long"
+    applicable-to: *all-destinations
+    issue-area: "Destination"
+    stops-replication-for: "Affected table and subtables"
+    summary: "The name of the staging table used by Stitch to load data exceeds the character limit for tables allowed by Redshift and Panoply destinations."
+    cause: "{{ site.data.errors.data-loading.common.redshift-postgres-staging-table-name-too-long.cause }}"
+    resolution: "{{ site.data.errors.data-loading.common.redshift-postgres-staging-table-name-too-long.resolution }}"
+  
