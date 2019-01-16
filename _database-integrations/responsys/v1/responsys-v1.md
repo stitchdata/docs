@@ -185,7 +185,7 @@ setup-steps:
           "Message from SFTP server: Authentication failed. - Please ensure that the server is configured to accept the public key for this integration."
           ```
 
-  - title: "Verify {{ integration.display_name }} Connect data export configuration"
+  - title: "Verify {{ integration.display_name }} Connect data xport configuration"
     anchor: "verify-connect-data-export-file-configuration"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/responsys-data-export-file-settings.png" alt="Connect Data Export Destination Specification page" max-width="450px" %}
