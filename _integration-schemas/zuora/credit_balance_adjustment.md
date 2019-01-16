@@ -6,9 +6,9 @@ name: "creditBalanceAdjustment"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/credit balance adjustments
 #singer-schema: 
 description: |
-  The `creditBalanceAdjustment` table contains information about [credit balance adjustments](https://knowledgecenter.zuora.com/CB_Billing/G_Credit_Balances), or the application of credit balances to invoices, payments, and refunds.
+  The `{{ table.name }}` table contains information about [credit balance adjustments](https://knowledgecenter.zuora.com/CB_Billing/G_Credit_Balances), or the application of credit balances to invoices, payments, and refunds.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The credit balance adjustment ID."
+    # foreign-key-id: "credit-balance-adjustment-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -27,21 +28,22 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the contact."
-    foreign-key: true
+    foreign-key-id: "account-id"
 
   - name: "accountingCode"
     type: "string"
     description: "The accounting code associated with the adjustment."
+    foreign-key-id: "accounting-code"
 
   - name: "accountingPeriodId"
     type: "string"
     description: "The ID of the accounting period associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "accounting-period-id"
 
   - name: "accountReceivableAccountingCodeId"
     type: "string"
     description: "The ID of the account's receivable accounting code associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "account-receivable-accounting-code-id"
 
   - name: "adjustmentDate"
     type: "date-time"
@@ -54,7 +56,7 @@ attributes:
   - name: "billToContactId"
     type: "string"
     description: "The ID of the billing contact associated with the account to whom the product/service is billed."
-    foreign-key: true
+    foreign-key-id: "bill-to-contact-id"
 
   - name: "cancelledOn"
     type: "date-time"
@@ -63,7 +65,7 @@ attributes:
   - name: "cashOnAccountAccountingCodeId"
     type: "string"
     description: "The accounting code for customer cash on account."
-    foreign-key: true
+    foreign-key-id: "cash-on-account-accounting-code-id"
 
   - name: "comment"
     type: "string"
@@ -80,7 +82,7 @@ attributes:
   - name: "defaultPaymentMethodId"
     type: "string"
     description: "The default payment method the associated account uses to make payments."
-    foreign-key: true
+    foreign-key-id: "default-payment-method-id"
 
   - name: "deleted"
     type: "boolean"
@@ -90,17 +92,17 @@ attributes:
   - name: "invoiceId"
     type: "string"
     description: "The ID of the invoice to which the adjustment is applied."
-    foreign-key: true
+    foreign-key-id: "invoice-id"
 
   - name: "journalEntryId"
     type: "string"
     description: "The journal entry ID associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "journal-entry-id"
 
   - name: "journalRunId"
     type: "string"
     description: "The ID of the journal run associated with the adjustment."
-    foreign-key: true
+    foreign-keyid: "journal-run-id"
 
   - name: "number"
     type: "string"
@@ -109,22 +111,22 @@ attributes:
   - name: "parentAccountId"
     type: "string"
     description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
-    foreign-key: true
+    foreign-key-id: "parent-account-id"
 
   - name: "paymentId"
     type: "string"
     description: "The ID of the payment associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "payment-id"
 
   - name: "paymentMethodId"
     type: "string"
     description: "The ID of the payment method associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "payment-method-id"
 
   - name: "paymentMethodSnapshotId"
     type: "string"
     description: "The ID of the payment method snapshot associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "payment-method-snapshot-id"
 
   - name: "reasonCode"
     type: "string"
@@ -133,35 +135,33 @@ attributes:
   - name: "referenceId"
     type: "string"
     description: "The ID of the payment that the adjustment is for."
-    # this is equal to payment.referenceId
+    foreign-key-id: "reference-id"
 
   - name: "refundId"
     type: "string"
     description: "The ID of the refund associated with the adjustment."
-    foreign-key: true
+    foreign-key-id: "refund-id"
 
   - name: "soldToContactId"
     type: "string"
     description: "The ID of the person who bought the subscription associated with the account."
-    foreign-key: true
+    foreign-key-id: "sold-to-contact-id"
 
   - name: "sourceTransactionId"
     type: "string"
     description: |
-      The ID of the object that the adjustment was applied to. Depending on the type of transaction (`sourceTransactionType` value), this field will be a foreign key to the following:
+      The ID of the object that the adjustment was applied to.
 
-      - **Invoice**: `invoice.id`
-      - **Payment**: `payment.id`
-      - **Refund**: `refund.id`
+      Depending on the type of transaction (`sourceTransactionType` value), this field will be a foreign key to either the `invoice`, `payment`, or `refund` table.
+    foreign-key-id: "source-transaction-id"
 
   - name: "sourceTransactionNumber"
     type: "string"
     description: |
-      The number of the object that the adjustment was applied to. Depending on the type of transaction (`sourceTransactionType` value), this field will be a foreign key to the following:
+      The number of the object that the adjustment was applied to.
 
-      - **Invoice**: `invoice.InvoiceNumber`
-      - **Payment**: `payment.number`
-      - **Refund**: `refund.number`
+      Depending on the type of transaction (`sourceTransactionType` value), this field will be a foreign key to either the `invoice`, `payment`, or `refund` table.
+    foreign-key-id: "source-transaction-number"
 
   - name: "sourceTransactionType"
     type: "string"
@@ -193,5 +193,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the credit balance adjustment."
-
 ---

@@ -24,11 +24,11 @@ later on in the template.
 
     <!-- If there are any requirements for setting up the
     integration, display them here. -->
-    {% if integration.requirements-list or integration.tier == "Premium" %}
-        <h3 id="setup-requirements">{{ integration.display_name }} Setup Requirements</h3>
+    {% if integration.requirements-list or integration.tier == "Paid" %}
+        <h3 id="setup-requirements">{{ integration.display_name }} Setup requirements</h3>
             <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
             <ul>
-                {% if integration.tier == "Premium" %}
+                {% if integration.tier == "Paid" %}
                 <li><strong>A paid Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a paid plan is selected after the trial ends.</li>
                 {% endif %}
             {% for requirement in integration.requirements-list %}
@@ -76,7 +76,7 @@ later on in the template.
 
 
 {% if step.title == "add integration" %}
-<h3 id="add-stitch-data-source">Step {{ forloop.index }}: Add {{ integration.display_name }} as a Stitch Data Source</h3>
+<h3 id="add-stitch-data-source">Step {{ forloop.index }}: Add {{ integration.display_name }} as a Stitch data source</h3>
 <!-- Includes with Markdown formatting aren't rendered
 correctly when passed into HTML templates, so first we capture
 the content and assign a variable -->
@@ -94,7 +94,18 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 {% elsif step.title == "historical sync" %}
 <h3 id="define-historical-sync">Step {{ forloop.index }}: Define the Historical Sync</h3>
 {% capture historical-sync %}
+{% if step.content %}
+
+{% capture historical-step-content %}
+{{ step.content | flatify }}
+{% endcapture %}
+
+{% include integrations/saas/setup/historical-sync.html step-content=historical-step-content %}
+
+{% else %}
 {% include integrations/saas/setup/historical-sync.html %}
+{% endif %}
+
 {% endcapture %}
 
 {{ historical-sync | markdownify }}
@@ -102,7 +113,7 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 
 
 {% elsif step.title == "replication frequency" %}
-<h3 id="define-rep-frequency">Step {{ forloop.index }}: Define Replication Frequency</h3>
+<h3 id="define-rep-frequency">Step {{ forloop.index }}: Create a replication schedule</h3>
 {% capture replication-frequency %}
 {% include integrations/shared-setup/replication-frequency.html %}
 {% endcapture %}
@@ -113,10 +124,10 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 
 {% elsif step.title == "track data" %}
 <h3 id="setting-data-to-replicate">Step {{ forloop.index }}: 
-    {% if integration.whitelist.columns == true %}
-        Set Tables & Columns to Replicate
+    {% if integration.column-selection == true %}
+        Set tables and columns to replicate
     {% else %}
-        Set Tables to Replicate
+        Set tables to replicate
     {% endif %}</h3>
 {% capture set-data-to-replicate %}
 {% if step.content %}
@@ -140,8 +151,10 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 {% endfor %}
 
 
+{% unless integration.type == "import-api" or integration.type == "Webhook" %}
 {% capture post-setup %}
 {% include integrations/shared-setup/initial-syncs.html %}
 {% endcapture %}
 
 {{ post-setup | markdownify }}
+{% endunless %}

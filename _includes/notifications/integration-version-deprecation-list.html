@@ -1,4 +1,7 @@
-{% assign versioned-integrations = site.documents | where:"input",true %}
+{% assign database-integrations = site.database-integrations %}
+{% assign saas-integrations = site.saas-integrations %}
+
+{% assign all-integrations = saas-integrations | concat: database-integrations | sort: "display_name" %}
 
 <table width="100%">
 	<tr>
@@ -8,30 +11,32 @@
 		<th>Deprecation Date</th>
 		<th>Link to latest version</th>
 	</tr>
-	{% for integration in versioned-integrations %}
+	{% for integration in all-integrations %}
 		{% if integration.this-version %}
-			{% assign released-versions = site.data.taps.versions.[integration.name].released-versions %}
+			{% assign released-versions = site.data.taps.versions.[integration.name].released-versions | where:"deprecated",true %}
 
 			{% for version in released-versions %}
-				{% if version.deprecation-date %}
-				<tr>
-					<td>
-						<a href="{{ integration.url | prepend: site.baseurl | append: "v" | append: version.number | remove: "." }}">{{ integration.display_name }}</a>
-					</td>
-					<td>
-						{{ version.number }}
-					</td>
-					<td>
-						{{ version.date-released }}
-					</td>
-					<td>
-						{{ version.deprecation-date }}
-					</td>
-					<td>
-						<a href="{{ integration.repo-url }}" target="new">See the code here.</a>
-					</td>
-				</tr>
-				{% endif %}
+				{% unless version.deprecation-date == "n/a" or version.deprecation-date == "To be determined" %}
+					{% if integration.this-version == version.number %}
+						<tr>
+							<td>
+								<a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.display_name }}</a>
+							</td>
+							<td>
+								{{ version.number | prepend: "v" }}
+							</td>
+							<td>
+								{{ version.date-released }}
+							</td>
+							<td>
+								{{ version.deprecation-date }}
+							</td>
+							<td>
+								<a href="{{ integration.repo-url }}" target="new">See the code here.</a>
+							</td>
+						</tr>
+					{% endif %}
+				{% endunless %}
 			{% endfor %}
 		{% endif %}
 	{% endfor %}

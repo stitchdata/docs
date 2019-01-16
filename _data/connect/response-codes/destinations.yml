@@ -1,0 +1,72 @@
+# ------------------------------- #
+#   DESTINATIONS ENDPOINT ERRORS  #
+# ------------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "Accounts can have one destination"
+        version: "all"
+        response-body: |
+          `an account can have at most one destination`
+
+      - method: "post"
+        condition: "Missing or prohibited arguments"
+        version: "3"
+        response-body: |
+          `body must be a map with type = redshift, postgres, or snowflake. required-keys = type, connection`
+
+      - method: "post"
+        condition: "Missing or prohibited arguments"
+        version: "4"
+        response-body: |
+          `POST body may only include a type and map of properties`
+
+      - method: "put"
+        condition: "Modifications to `type` are unsupported"
+        version: "all"
+        response-body: |
+          `this API endpoint does not support modifying destination type`
+
+      - method: "put"
+        condition: "Invalid destination ID"
+        version: "all"
+        response-body: |
+          `invalid connection id`
+
+      - method: "delete"
+        condition: "Invalid destination ID"
+        version: "4"
+        response-body: |
+          `Unable to locate dest (<DESTINATION_ID>) for client (<ACCOUNT_ID>) to delete`
+
+          May result from an incorrect destination ID, or if the destination has already been deleted.
+
+  - code: "502"
+    responses:
+      - method: "delete"
+        condition: "Destination ID not provided"
+        version: "4"
+        response-body: |
+          Occurs when a destination ID argument isn't included in the request URL. Below is an incorrectly formatted request URL:
+
+          ```curl
+          {{ endpoint.full-url | flatify | replace: "{id","" | remove: right-bracket | strip_newlines }}
+          ```
+
+          This is correct:
+
+          ```
+          {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
+          ```
+
+      - method: "delete"
+        condition: "Destination ID contains illegal characters"
+        version: "4"
+        response-body: |
+          Occurs when a destination ID argument includes illegal characters, such as letters. For example:
+
+          ```curl
+          {{ endpoint.full-url | flatify | replace: "{id","abc" | remove: right-bracket | strip_newlines }}
+          ```

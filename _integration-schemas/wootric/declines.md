@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/
 description: |
   The `declines` table contains info about declines, or the instances where a user is presented with a survey opportunity and opts out.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: getAllDeclines
   doc-link: http://docs.wootric.com/api/#get-all-declines

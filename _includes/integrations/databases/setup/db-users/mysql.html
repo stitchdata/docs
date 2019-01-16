@@ -1,24 +1,23 @@
-{% include note.html content="You must have `GRANT` privileges to create a database user for Stitch." %}
 
-To create a database user for Stitch, run the following command when logged into {{ integration.display_name }}:
+1. Log into your database as a user with `CREATE USER` and `GRANT OPTION` privileges.
+2. Run the following command to create the Stitch database user:
 
-```shell
-GRANT SELECT ON *.* TO '[stitch_username]'@'localhost' IDENTIFIED BY '[secure password here]';
-```
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mysql.create-user-command | flatify | rstrip }}
+   ```
 
-Replace `[secure password here]` with a secure password{% if integration.ssh == true %}, which can be different than the SSH password.{% else %}.{% endif %}
+   Replace `[password]` with a secure password. {% if integration.ssh == true %}If using SSH, this can be different than the SSH password.{% endif %}
 
-If you wish to restrict this user from accessing data in specific databases, tables, or columns, you can instead run `GRANT` queries that only allow access to the data you permit.
+3. Grant the Stitch user `SELECT` privileges on the database:
 
-{% if integration.name == "azure" %}
-{% capture azure-db-access %}
-**Master Database Access & Replicating Data**<br>
-Depending on your setup and the access you grant to the Stitch database user, you may need to create several Azure integrations to allow Stitch to replicate all your data. This is due to an Azure limitation on how access is granted to `sys.database` views.<br><br>
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-select-command | flatify | rstrip }}
+   ```
 
-If the Stitch user has access to the master database and this database is then used for authentication, you can sync all databases that the user has access to from a single Azure integration setup.<br><br>
+   To restrict the Stitch user from accessing data in specific databases, tables, or columns, you can instead run `GRANT` commands that only allow access to the data you permit.
 
-If the database you're replicating isn't the master database, you'll only be able to sync schemas and tables within that database. This will require creating additional Azure integrations in Stitch.
-{% endcapture %}
+4. **If using Log-based Incremental Replication**, you'll also need to grant the Stitch user replication privileges:
 
-{% include note.html content=azure-db-access %}
-{% endif %}
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-replication-command | flatify | rstrip }}
+   ```

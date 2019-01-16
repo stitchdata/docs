@@ -1,0 +1,125 @@
+# -------------------------- #
+#      Server Settings       #
+# -------------------------- #
+
+## The required server settings for a PostgreSQL server, and their required values.
+
+defaults:
+  names:
+    wal-level: &wal-level-name "wal_level"
+    rds-logical-rep: &rds-logical-rep-name "rds.logical_replication"
+    max_standby_archive_delay: &max-standby-archive-name "max_standby_archive_delay"
+    max_standby_streaming_delay: &max-standby-streaming-name "max_standby_streaming_delay"
+    max_wal_senders: &max-wal-senders-name "max_wal_senders"
+    max_replication_slots: &max-replication-slots-name "max_replication_slots"
+
+  values:
+    wal-level: &wal-level-value "logical"
+    rds-logical-rep: &rds-logical-rep-value "1"
+    max_standby_archive_delay: &max-standby-archive-value "28800000-43200000"
+    max_standby_streaming_delay: &max-standby-streaming-value "28800000-43200000"
+    max_wal_senders: &max-wal-senders-value "5"
+    max_replication_slots: &max-replication-slots-value "5"
+
+descriptions:
+  wal-level: &wal-level-description |
+    **Required to use Log-based Replication; available on PostgreSQL versions 9.4 and higher.** Determines the level of information that is written to the write-ahead log (WAL).
+
+    A value of `logical` is required to use Log-based Replication. This level logs information needed to extract logical changesets - such as updates or deletes - and replicate data from the WAL.
+
+  rds-logical-rep: &rds-logical-rep-description |
+    **Required to use Log-based Replication; available on PostgreSQL versions 9.4 and higher.** Enables logical (log-based) replication for the database server.
+
+  max_standby_archive_delay: &max-standby-archive-description |
+    **Applicable only if you're connecting a read replica.** Defines the maximum delay, in miliseconds, before canceling queries when a hot server standby is processing archived WAL data.
+
+     If the setting for this parameter is too low, [slow, intermittent replication]({{ link.troubleshooting.postgres-hot-standby | prepend: site.baseurl }}) may result when Stitch attempts to replicate large volumes of data - such as during a historical job or if a table is using Full Table Replication.
+
+     Proactively increasing this parameter's limit can help avoid this issue. We recommend a delay of 8 hours (`28800000`) to 12 hours (`43200000`).
+
+  max_standby_streaming_delay: &max-standby-streaming-description |
+    **Applicable only if you're connecting a read replica.** Defines the maximum delay, in miliseconds, before canceling queries when a hot standby server is processing streamed WAL data.
+
+    If the setting for this parameter is too low, [slow, intermittent replication]({{ link.troubleshooting.postgres-hot-standby | prepend: site.baseurl }}) may result when Stitch attempts to replicate large volumes of data - such as during a historical job or if a table is using Full Table Replication.
+
+     Proactively increasing this parameter's limit can help avoid this issue. We recommend a delay of 8 hours (`28800000`) to 12 hours (`43200000`).
+
+  max_wal_senders: &max-wal-senders-description |
+    **Available on PostgreSQL versions 9.4 and higher.** Specifies the maximum number of concurrent connections from standby servers or streaming base backup clients (the maximum number of simultaneously running WAL sender processes).
+
+    **If you have a large number of replica databases,** you may want to define this setting during setup.{% if integration.name contains "rds" %} Typically, Amazon's default value of `5` should be sufficient.{% endif %}
+
+  max_replication_slots: &max-replication-slots-description |
+    **Required to use Log-based Replication; available on PostgreSQL versions 9.4 and higher.** Specifies the maximum number of replication slots that the server can support.
+
+    This must be greater than 1. If you have a large number of replica databases, you may want to increase the value of this parameter.{% if integration.name contains "rds" %} Typically, Amazon's default value of `5` should be sufficient.{% endif %}
+
+
+# -------------------------- #
+#    POSTGRESQL SETTINGS     #
+# -------------------------- #
+
+postgresql:
+  - name: *wal-level-name
+    value: *wal-level-value
+    description: *wal-level-description
+    doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-wal.html#GUC-WAL-LEVEL"
+
+  - name: *max-replication-slots-name
+    value: *max-replication-slots-value
+    description: *max-replication-slots-description
+    doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS"
+
+  - name: *max-wal-senders-name
+    value: *max-wal-senders-value
+    description: *max-wal-senders-description
+    doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#RUNTIME-CONFIG-REPLICATION-SENDER"
+
+  # - name: *max-standby-archive-name
+  #   value: *max-standby-archive-value
+  #   description: *max-standby-archive-description
+  #   doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY"
+
+  # - name: *max-standby-streaming-name
+  #   value: *max-standby-streaming-value
+  #   description: *max-standby-streaming-description
+  #   doc-link: "https://www.postgresql.org/docs/9.4/static/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY"
+
+# -------------------------- #
+#      CLOUDSQL SETTINGS     #
+# -------------------------- #
+
+cloudsql-postgres:
+  - name: *max-standby-archive-name
+    value: *max-standby-archive-value
+    description: *max-standby-archive-description
+
+  - name: *max-standby-streaming-name
+    value: *max-standby-streaming-value
+    description: *max-standby-streaming-description
+
+
+# -------------------------- #
+#   POSTGRES RDS SETTINGS    #
+# -------------------------- #
+
+postgresql-rds:
+  - name: *rds-logical-rep-name
+    value: *rds-logical-rep-value
+    description: *rds-logical-rep-description
+
+  - name: *max-replication-slots-name
+    value: *max-replication-slots-value
+    description: *max-replication-slots-description
+
+  - name: *max-wal-senders-name
+    value: *max-wal-senders-value
+    description: *max-wal-senders-description
+
+  # - name: *max-standby-archive-name
+  #   value: *max-standby-archive-value
+  #   description: *max-standby-archive-description
+
+  # - name: *max-standby-streaming-name
+  #   value: *max-standby-streaming-value
+  #   description: *max-standby-streaming-description

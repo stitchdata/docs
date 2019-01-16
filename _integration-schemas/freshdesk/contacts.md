@@ -1,4 +1,9 @@
 ---
+# As per Brian, this table isn't currently live in the tap
+# because we encountered issues with server traffic during
+# development. That's why this isn't live in the docs.
+# We can uncomment this when/if it's addressed.
+
 # tap: "freshdesk"
 # version:
 
@@ -12,7 +17,7 @@ description: |
 
   If applicable, Stitch will replicate custom fields related to `contacts` in {{ integration.display_name }}.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "listAllContacts"
   doc-link: https://developers.freshdesk.com/api/#list_all_contacts

@@ -1,24 +1,39 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "sources"
 key: "list-sources"
 version: "4"
-order: 3
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "List sources"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sources.list.description }}"
 description: "{{ api.core-objects.sources.list.description }}"
 
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Objects]({{ api.core-objects.sources.object }}), including paused and deleted sources.
 
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"
@@ -74,15 +89,7 @@ examples:
                      "type":"fully_configured",
                      "properties":[  ]
                   }
-               ],
-               "current_step_hints":{  
-                  "js":{
-                     "function":"authorizeSource",
-                     "options":{  
-                        "id":<SOURCE_ID>
-                     }
-                  }
-               }
+               ]
             }
          },
          {  
@@ -125,15 +132,7 @@ examples:
                      "type":"fully_configured",
                      "properties":[  ]
                   }
-               ],
-               "current_step_hints":{
-                  "js":{
-                     "function":"authorizeSource",
-                     "options":{  
-                        "id":<SOURCE_ID>
-                     }
-                  }
-               }
+               ]
             }
          },
          {  
@@ -176,13 +175,7 @@ examples:
                      "type":"fully_configured",
                      "properties":[  ]
                   }
-               ],
-               "current_step_hints":{
-                  "api":{
-                     "method":"PUT",
-                     "url":"{{ endpoint.short-url | flatify | strip_newlines }}{id}"
-                  }
-               }
+               ]
             }
          },
          {  
@@ -225,13 +218,7 @@ examples:
                      "type":"fully_configured",
                      "properties":[  ]
                   }
-               ],
-               "current_step_hints":{
-                  "api":{
-                     "method":"PUT",
-                     "url":"{{ endpoint.short-url | flatify | strip_newlines }}{id}"
-                  }
-               }
+               ]
             }
          }
       ]

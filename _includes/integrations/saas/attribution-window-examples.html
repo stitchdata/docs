@@ -1,0 +1,81 @@
+
+<!-- Capture the copy for the Historical & full tab, so it can be written as markdown -->
+{% capture historical-copy %}
+For historical and full re-replications of {{ integration.display_name }} data, Stitch will query for and extract data newer than or equal to the date defined in the **Start Date** field in the Integration Settings page.
+
+The **Start Date**, in conjunction with the **{{ window }}**, will define the minimum date Stitch should query for when extracting historical data. This is calculated as:
+
+`Start Date - {{ window }} = Minimum Extraction Date`
+
+**Example**
+
+{% if integration.attribution-is-configurable %}
+During the initial set up, the **{{ window }}** and **Start Date** settings are defined as:
+
+- **{{ window }}**: {{ integration.attribution-window }} (default setting)
+- **Start Date**: `07/03/2017`, or `2017-07-03 00:00:00`
+
+{% else %}
+During the initial set up, the **Start Date** field is set to `{{ start-date }}`, or `{{ start-date-value }}`.
+{% endif %}
+
+To account for the {{ window }}, Stitch would calculate the **Minimum Extraction Date** value as: `2017-07-03 00:00:00 - {{ integration.attribution-window }} = {{ replication-key-historical }}`
+
+If you were to write a SQL query using this date for the `{{ table }}` table, it might look like this:
+
+```sql
+  SELECT *
+    FROM {{ integration.name | replace: "-","_" }}.{{ table }}
+   WHERE {{ replication-key }} >= '{{ replication-key-historical }}'   /* Min. Extraction Date */
+ORDER BY {{ replication-key }}
+```
+{% endcapture %}
+
+
+
+{% capture ongoing-copy %}
+For ongoing replication jobs, Stitch will query for and extract data using the last saved maximum value in the table's Replication Key column and the {{ window }} setting.
+
+**Note:** This applies to every replication job that takes place after the historical replication job.
+
+**Example**
+
+The last maximum saved Replication Key value for the `{{ table }}` table is `2017-10-01 00:00:00`.
+
+To account for the {{ window }} of {{ integration.attribution-window }}, we'd subtract this from the last maximum saved Replication Key value:
+
+`2017-10-01 00:00:00 - {{ integration.attribution-window }} = {{ replication-key-ongoing }}`
+
+In this case, Stitch would query for and extract data that is newer than or equal to `{{ replication-key-ongoing }}` and older than or equal to `2017-10-01 00:00:00`.
+
+If this were a SQL query, it might look like this:
+
+```sql
+  SELECT *
+    FROM {{ table }}
+   WHERE {{ replication-key }} >= '{{ replication-key-ongoing }}'
+                              /* max Replication Key value - {{ window }} */
+     AND {{ replication-key }} <= '2017-10-01 00:00:00'
+                              /* max Replication Key value from previous job */
+ORDER BY {{ replication-key }}
+```
+{% endcapture %}
+
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#historical-replications" data-toggle="tab">Historical and full re-replications</a>
+    </li>
+    <li>
+        <a href="#ongoing-replications" data-toggle="tab">Ongoing replications</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="historical-replications">
+      {{ historical-copy | flatify | markdownify }}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="ongoing-replications">
+      {{ ongoing-copy | flatify | markdownify }}
+    </div>
+</div>

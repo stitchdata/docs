@@ -3,6 +3,35 @@ title: Form Properties
 content-type: "api-doc"
 order: 8
 
+# This parameter is used in _includes/connect/api-endpoint-rollup.html
+# To display the correct description for a given form property
+property-description: |
+  {% assign integration = VARIABLE.display-name %}
+  {% case VARIABLE.source-type %}
+  {% when 'database' %}
+  {% assign first-letter = integration | slice: 0 %}
+
+  {% if first-letter == "A"
+  or first-letter == "O"
+  or first-letter == "I"
+  or first-letter == "E"
+  or first-letter == "U" %}
+      {% assign article = "an" %}
+  {% else %}
+  {% assign article = "a" %}
+  {% endif %}
+
+  {{ article | capitalize }} {{ integration }} connection reads data from {{ article }} {{ integration }} database and corresponds to source `type: platform.{{ VARIABLE.api-type }}`.
+
+  {% when 'saas' %}
+  {{ integration }} connections read data from the {{ integration }} API and correspond to source `type: platform.{{ VARIABLE.api-type }}`.
+  
+  {% else %}
+  {% assign destination = VARIABLE.display-name %}
+  A {{ destination }} connection writes data to a {{ destination }} database and corresponds to destination `type: {{ VARIABLE.api-type }}`.
+  {% endcase %}
+
+
 sections:
   - content: |
       Stitch connects to a large, diverse universe of applications and data warehouses, each of which is configured differently.

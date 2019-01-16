@@ -24,7 +24,7 @@ below.  -->
 <!-- Assigns a variable to the SSH fields -->
 {% if destination.type == "redshift" %}
 {% unless page.ssh %}
-{% include note.html content="Stitch will attempt to connect to Redshift destinations using SSL by default. This doesn't require any additional configuration." %}
+{% include note.html type="single-line" content="Stitch will attempt to connect to Redshift destinations using SSL by default. This doesn't require any additional configuration." %}
 {% endunless %}
 {% endif %} 
 
@@ -54,15 +54,19 @@ Lastly, you'll fill in the SSH fields with the bastion details.
 3. The following fields will display - fill them in as follows:
    {% for field in ssh-fields %}
 
-   <!-- Redshift has different terminology, so a different variable produces the field descriptions -->
-   {% if destination.type == "redshift" %}
+   <!-- Redshift and Azure have different terminology, so a different variable produces the field descriptions -->
+   {% case destination.type %}
+   {% when 'redshift' %}
    - **{{ field.field }}**: {{ field.redshift-copy | flatify }}
+
+   {% when 'microsoft-azure' %}
+   - **{{ field.field }}**: {{ field.microsoft-azure-copy | flatify }}
    
-   <!-- Copy variables for all destinations that are NOT Redshift -->
+   <!-- Copy variables for all destinations that are NOT Redshift or Azure -->
    {% else %}
    - **{{ field.field }}**: {{ field.copy | flatify }}
    
-   {% endif %}
+   {% endcase %}
    
    {% endfor %}
 

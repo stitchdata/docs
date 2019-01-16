@@ -6,9 +6,9 @@ name: "export"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Exports
 #singer-schema: 
 description: |
-  The `export` table contains information about export jobs and files.
+  The `{{ table.name }}` table contains information about export jobs and files.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:
@@ -93,5 +93,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the export."
-
 ---

@@ -4,6 +4,11 @@ layout: page
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}
 
+<!-- destination beta notice -->
+{% if destination.status contains "Beta" %}
+    {% include notifications/destination-beta-notice.html %}
+{% endif %}
+
 {% if page.content %}
 {{ content }}
 {% endif %}
@@ -70,7 +75,7 @@ layout: page
             {% if step.title == "connect stitch" %}
                 {% if forloop.last %}
                     <h3 id="enter-connection-details-into-stitch">
-                        Step {{ section-step-number | strip }}.{{ substep-number | plus: 1 | strip }}: Enter Connection Details into Stitch
+                        Step {{ section-step-number | strip }}.{{ substep-number | plus: 1 | strip }}: Enter connection details into Stitch
                     </h3>
                 {% endif %}
             {% endif %}

@@ -4,10 +4,13 @@
 # -------------------------- #
 title: Google BigQuery Destination
 permalink: /destinations/bigquery/
-layout: destination-overview
+layout: destination
 tags: [bigquery_destination]
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 
@@ -31,24 +34,10 @@ icon: /images/destinations/icons/google-bigquery.svg
 # -------------------------- #
 #           Support          #
 # -------------------------- #
-incremental-replication: "Append-Only"
-connection-methods: "SSL"
-supported-versions: "n/a"
 
-nested-structure-support: true ## if true, natively supports nested structures
-case: "Case Insensitive"
-table-name-limit: "1,024" ## max # of characters
-column-name-limit: "128" ## max # of characters
-column-limit: "10,000" ## max # of columns allowed in tables
-timestamp-range: "Long/MIN_Value(292269055-12-02T16:47:04.192-00:00)<br>AND<br>Long/MAX_LONG (292278994-08-17T07:12:55.807-00:00)"
-timezones:
-  supported: false
-  storage: "No support for timezones."
-varchar-limit: "None" ## max width for varchars
-integer-limit: "-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807" # https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types
-decimal-limit: "38 numbers, or places"
-decimal-range: "Not applicable"
-reserved-words: "https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical#reserved_keywords"
+## See _data/destinations/reference/bigquery.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
 
 # -------------------------- #
@@ -82,7 +71,8 @@ introduction: |
   For more information, check out [Google's {{ destination.display_name }} overview]({{ destination.what-is-bq }}).
 
 sections:
-  - title: "pricing"
+  - title: "Pricing"
+    anchor: "pricing"
     content: |
       Unlike many other cloud-based data warehouse solutions, {{ destination.display_name }}'s pricing model is based on **usage** and not a fixed-rate. This means that your bill can vary over time. 
 
@@ -90,27 +80,54 @@ sections:
 
       **[Learn more about Stitch & {{ destination.display_name }} pricing]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }})**
 
-  - title: "setup"
+  - title: "Setup info"
+    anchor: "stitch-details-setup-info"
     content: |
-      To set up {{ destination.display_name }}, Stitch requires:
+      {% include destinations/overviews/destination-reference-table.html list="stitch-details" %}
 
-      1. **A user with full access to an existing [Google Cloud Platform project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
-      2. **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions.
-      2. **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
+  - title: "Replication"
+    anchor: "replication"
+    content: |
+      {% include destinations/overviews/destination-reference-table.html list="replication" %}
 
-      **[Spin up a {{ destination.display_name }} data warehouse]({{ link.destinations.setup.bigquery | prepend: site.baseurl }})**
+  - title: "Limitations"
+    anchor: "limitations"
+    content: |
+      In this section:
 
-  - title: "limitations"
-    include: |
-      {% include destinations/overviews/limitations.html %}
+      {% assign list-items = "object-name-limits|table-limits|data-limits|column-naming" | split: "|" %}
 
-  - title: "replication"
-    include: |
-      {% include destinations/overviews/replication-process.html %}
+      {% for item in list-items %}
+      {% for category in reference-categories[item] %}
+      - [**{{ category.name }}**](#{{ item }}) - {{ category.description | flatify }}
+      {% endfor %}
+      {% endfor %}
 
-  - title: "schema"
-    include: |
-      {% include destinations/overviews/integration-schemas.html %}
+    subsections:
+      - title: "Object name limits"
+        anchor: "object-name-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="object-name-limits" %}
+
+      - title: "Table limits"
+        anchor: "table-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="table-limits" %}
+
+      - title: "Data limits"
+        anchor: "data-limits"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="data-limits" %}
+
+      - title: "Column naming"
+        anchor: "column-naming"
+        content: |
+          {% include destinations/overviews/destination-reference-table.html list="column-naming" %}
+
+  - title: "Compare destinations"
+    anchor: "compare-destinations"
+    content: |
+      **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
 
 ---
 {% assign destination = page %}

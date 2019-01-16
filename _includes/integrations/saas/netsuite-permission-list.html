@@ -1,0 +1,97 @@
+{% capture full-access-note %}
+The {{ integration.display_name }} permissions listed below are based off of the permissions {{ integration.display_name }} lists for the [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"} in their documentation.
+
+For more info about these permissions and how they work within {{ integration.display_name }}, refer to {{ integration.display_name }}'s [Permissions Documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N326485.html){:target="new"} spreadsheet, [which can be downloaded here from their help center](https://system.netsuite.com/core/media/media.nl?id=104726101&c=NLCORP&h=280cab9399b431b9b2ba&_xt=.xls){:target="new"}. You may need to log into {{ integration.display_name }} to access their documentation.
+{% endcapture %}
+
+{% include note.html first-line="**About NetSuite permissions**" content=full-access-note %}
+
+{% assign all-netsuite-permissions = site.data.taps.extraction.netsuite.netsuite-permissions %}
+
+{% assign permission-types = "required|transactions|reports|lists|setup" | split: "|" %}
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#adding-permissions" data-toggle="tab">Adding permissions</a>
+    </li>
+    {% for permission-type in permission-types %}
+        <li>
+            <a href="#{{ permission-type }}-permissions" data-toggle="tab">{{ permission-type | capitalize }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="adding-permissions">
+        {{ adding-permission-instructions | flatify | markdownify }}
+    </div>
+    {% for permission-type in permission-types %}
+        {% case permission-type %}
+            {% when 'required' %}
+                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"required","true" %}
+
+{% capture tab-description %}
+These permissions are the minimum required to successfully connect Stitch to your {{ integration.display_name }} integration.
+
+**Note**: While Stitch may be able to replicate some data using only these permisisons, it is unlikely that Stitch will be able to replicate all possible {{ integration.display_name }} objects. You should grant the permissions outlined in the other tabs to ensure successful replication.
+{% endcapture %}
+
+            {% else %}
+
+                {% assign permission-type-cap = permission-type | capitalize %} 
+                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"tab",permission-type-cap %}
+
+{% capture tab-description %}
+These permissions are found in the **{{ permission-type-cap }}** tab of the **Create Role** page in {{ integration.display_name }}.
+{% endcapture %}
+            
+        {% endcase %}
+            <div role="tabpanel" class="tab-pane" id="{{ permission-type }}-permissions">
+
+            {{ tab-description | flatify | markdownify }}
+
+        {% include tip.html content="**Use the table below as a checklist.** As you add the permissions in NetSuite, check them off here to keep track." %}
+
+            <table class="attribute-list">
+                <tr>
+                    <td width="10%; fixed" align="right">
+                        <strong>Added</strong>
+                    </td>
+                    <td width="35%; fixed">
+                        <strong>Permission name</strong>
+                    </td>
+                    {% if permission-type == "required" %}
+                        <td width="12%; fixed">
+                            <strong>Location</strong>
+                        </td>
+                    {% endif %}
+                    <td class="attribute-description">
+                        <strong>Level</strong>
+                    </td>
+                </tr>
+                {% for permission in netsuite-permissions %}
+                    <tr>
+                        <td width="10%; fixed" align="right">
+                            <input type="checkbox">
+                        </td>
+                        <td width="35%; fixed">
+                            <strong>{{ permission.name }}</strong>
+                        </td>
+                        {% if permission-type == "required" %}
+                            <td width="12%; fixed">
+                                {{ permission.tab | append: " tab" }}
+                            </td>
+                        {% endif %}
+                        <td class="attribute-description">
+                            <p>{{ permission.level }}</p>
+
+                            {% if permission.description %}
+                                {{ permission.description | flatify | markdownify }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+</div>

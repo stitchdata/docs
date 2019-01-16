@@ -1,0 +1,78 @@
+<!-- Different flavors of databases may not be on the same version as the DB
+that powers their backend, or their settings may be slightly different.
+
+Use the database's display name to pull the correct settings, versus just
+using the type. -->
+
+{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
+
+{% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+
+    {% if integration.name contains "rds" %}
+        {% case integration.name %}
+            {% when 'mysql-rds' %}
+                {% assign database-setup = database.mysql-rds %}
+            {% when 'aurora-rds' %}
+                {% assign database-setup = database.aurora-rds %}
+        {% endcase %}
+    {% else %}
+        {% assign database-setup = database[database-name] %}
+    {% endif %}
+
+
+ <ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#server-instructions" data-toggle="tab">Instructions</a>
+    </li>
+    <li>
+        <a href="#server-settings-details" data-toggle="tab">Server settings list</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="server-instructions">
+
+<!-- The settings are pulled from the database's setup file, in _data/taps/extraction/database-setup -->
+
+<!-- The purpose of the server settings may change from DB to DB. Ex: This might be for binlog, it could be for read-replicas. To ensure this template can be used anywhere, the copy for the instructions inside the tab are pulled directly from the integration's page.
+
+Ex: The copy for MySQL lives in _database-integrations/mysql.md > setup-steps, and is right before this include is referenced. -->
+
+{{ server-instructions | flatify | markdownify }}
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="server-settings-details">
+
+        {% if database-name == 'cloudsql-mysql' %}
+            <p>In the table below are the names, descriptions, and the default values for the binary logging server settings used by {{ integration.display_name }} databases. <strong>Note:</strong> As Google Cloud SQL automatically defines these parameters, no other configuration is required on your part.</p>
+        {% else %}
+            <p>In the table below are the names, required values, and descriptions of the server settings you must define.</p>
+        {% endif %}
+        <table class="attribute-list">
+            <tr>
+                <td width="28%; fixed" class="attribute-name">
+                    <strong>Setting</strong>
+                </td>
+                <td width="20%; fixed">
+                    <strong>Value</strong>
+                </td>
+                <td>
+                    <strong>Description</strong>
+                </td>
+            </tr>
+            {% for setting in database-setup %}
+                <tr>
+                    <td align="right">
+                        <a href="{{ setting.doc-link }}">{{ setting.name }}</a>
+                    </td>
+                    <td>
+                        <code>{{ setting.value }}</code>
+                    </td>
+                    <td>
+                        {{ setting.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>

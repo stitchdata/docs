@@ -6,11 +6,11 @@ name: "deal_pipelines"
 doc-link: https://developers.hubspot.com/docs/methods/deal-pipelines/overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/deal_pipelines.json
 description: |
-  The `deal_pipelines` table contains info about the `deal stage` and `pipeline` properties.
+  The `{{ table.name }}` table contains info about the `deal stage` and `pipeline` properties.
 
 replication-method: "Full Table"
 api-method:
-  name: getAllDealPipelines
+  name: "Get all deal pipelines"
   doc-link: https://developers.hubspot.com/docs/methods/deal-pipelines/get-all-deal-pipelines
 
 attributes:
@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The internal ID of the pipeline."
+    # foreign-key-id: "deal-pipeline-id"
 
   - name: "stages"
     type: "array"

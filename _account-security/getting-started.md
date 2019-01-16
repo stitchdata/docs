@@ -61,7 +61,7 @@ If you're new to data warehousing or you want to see how Stitch's destination of
 
 [You can find setup instructions for each of our destinations here.]({{ site.baseurl }}/destinations/)
 
-### Connecting a Destination
+### Connect a destination
 
 For the purpose of this guide, we'll walk you through the simplest destination to setup: [Panoply.io]({{ link.destinations.overviews.panoply | prepend: site.baseurl }}). Panoply is a cloud-hosted, fully managed data warehouse solution based on Amazon Redshift.
 
@@ -78,11 +78,11 @@ After you've set up a destination, you can start connecting your integrations.
 
 An **integration** is the Stitch word for **data source**. Using Stitch's native integrations, you can replicate data from [**databases**]({{ site.baseurl }}/integrations/databases/) and [**SaaS applications**]({{ site.baseurl }}/integrations/saas/) like PostgreSQL, MongoDB, Salesforce, Zendesk, Segment, Autopilot, and more into your destination.
 
-During your free trial, you'll have access to all of the integrations we offer. 
+During your Free Trial, you'll have access to all of the integrations we offer. After your trial ends, some integrations - for example, MongoDB or Salesforce - will only be available if you select a **paid** plan.
 
-After your trial ends, some integrations - for example, MongoDB or Salesforce - will only be available if you select a **paid** plan.
+### Don't see an integration you want?
 
-Don't see an integration you want? Don't worry - you have options:
+Don't worry - there are options:
 
 - Use the [**Import API**]({{ link.integrations.import-api | prepend: site.baseurl }}) integration to push arbitrary data into your data warehouse. You can use the IAPI to replicate data from CSV files, Google Sheets, and more.
 - Use the [**Stitch Incoming Webhooks**]({{ link.integrations.stitch-incoming-webhooks | prepend: site.baseurl }}) integration to pull event data from a webhook-based service. This generic integration can be used with dozens of services.
@@ -91,7 +91,7 @@ Don't see an integration you want? Don't worry - you have options:
 
 You can find setup instructions in our [database]({{ site.baseurl }}/integrations/databases/) and [SaaS]({{ site.baseurl }}/integrations/saas/) integration docs.
 
-### Connecting a Database Integration
+### Connect a Database Integration
 
 To provide you with a comprehensive look at how Stitch works, the rest of this guide will walk you through what the setup process would look like if a [MySQL database integration]({{ site.baseurl }}/integrations/databases/mysql) were connected to Stitch.
 
@@ -103,7 +103,7 @@ Connecting a database to Stitch may be a little intimidating if you're not a dev
 
 The next step is to define **how** you want Stitch to replicate data from your integration. Before we walk you through how to define replication, you should know a bit about Stitch's replication process.
 
-### Stitch's Replication Process
+### Stitch's replication process
 
 The Stitch replication process consists of three steps: extracting, preparing, and loading.
 
@@ -113,7 +113,7 @@ Once the data has been extracted, it moves into the **Preparing** phase of the r
 
 The last step is **Loading**. Stitch completes the replication process by writing the replicated data to your data warehouse in batches.
 
-### Defining Replication
+### Defining replication
 
 Let's define the replication settings for our MySQL database integration. The following settings dictate how and how often Stitch will replicate data from your integration. It's important to be thoughtful when defining these settings, as they can impact what data is replicated from your integration and how many rows you replicate.
 
@@ -139,15 +139,15 @@ The [**Replication Frequency**]({{ link.replication.rep-frequency | prepend: sit
 
 Keep in mind that the more often an integration is set to replicate, the higher your row count will be. This may lead to overages as Stitch charges by the number of rows replicated.
 
-#### Syncing Data
+#### Replicating data
 
-[**Syncing**]({{ link.replication.syncing | prepend: site.baseurl }}) tells Stitch which tables and columns to replicate data from. If syncing tables and columns is required to finish setting up an integration, Stitch will direct you to do so after the connection has been saved.
+[Selecting tables and columns]({{ link.replication.syncing | prepend: site.baseurl }}) tells Stitch what data you want to replicate. If selecting tables and columns is required to finish setting up an integration, Stitch will direct you to do so after the connection has been saved.
 
-- [**Whitelisting**]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}) is the Stitch term for the ability to sync specific tables and columns.
+- [**Whitelisting**]({{ link.replication.syncing | prepend: site.baseurl | append: "#integrations-that-support-whitelisting" }}) is the Stitch term for the ability to replicate specific tables and columns.
 - All **database integrations** support some level of whitelisting...
 - ... However, most **SaaS integrations** currently don't. For SaaS integrations that don't support whitelisting, **all available tables** will be selected for replication. Check out the **Schema** section in any of the [SaaS integration docs]({{ site.baseurl }}/integrations/saas/) to learn more about the tables Stitch pulls in.
 
-##### Syncing Tables & Columns
+##### Set tables and columns to replicate
 
 1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables }}.
 2. {{ app.menu-paths.sync }}
@@ -155,20 +155,22 @@ Keep in mind that the more often an integration is set to replicate, the higher 
 
    For example: when the `stats_service` database shown below is set to sync, the tables it contains immediately displayed and along with a prompt to sync some:
 
-   ![Syncing a parent database.]({{ site.baseurl }}/images/getting-started/syncing-parent-object.gif)
-4. Repeat this process for every table you want to replicate. Note that when you sync a table, by default **all** columns will also be set to sync.
+   ![Selecting a parent database.]({{ site.baseurl }}/images/getting-started/syncing-parent-object.gif)
+4. Repeat this process for every table you want to replicate. **Note**: When you select a table, by default **all** columns will also be set to select.
 
-After you set a **table** to sync, a new window will display. This is the {{ app.page-names.table-settings }} page and contains the remaining replication settings you need to define: the Replication Method and Replication Key. Note that Replication Methods and Keys can only be set for tables in **database integrations.**
+After you set a **table** to replicate, a new window will display. This is the {{ app.page-names.table-settings }} page and contains the remaining replication settings you need to define: the Replication Method and Replication Key. **Note**: Replication Methods and Keys can only be set for tables in **database integrations.**
 
 #### Replication Methods
 
 {% capture rep-methods-warning %}
-**Before you set Replication Methods and Keys for your own database integration tables,** we strongly recommend checking out the [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) articles. This guide will only give you a high-level view of both topics.<br><br>
-Replication Methods and Keys are the most important settings when it comes to ensuring Stitch replicates your data accurately. Incorrectly defining them can lead to data discrepancies, row overages, and increase the potential for latency.{% endcapture %}
+Before you set Replication Methods and Keys for your own database integration tables, we strongly recommend checking out the [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) articles. This guide will only give you a high-level view of both topics.
 
-{% include important.html content=rep-methods-warning %}
+Replication Methods and Keys are the most important settings when it comes to ensuring Stitch replicates your data accurately. Incorrectly defining them can lead to data discrepancies, row overages, and increase the potential for latency.
+{% endcapture %}
 
-[**Replication Methods**]({{ link.replication.rep-methods | prepend: site.baseurl }}) tell Stitch how to replicate the data in syncing tables: Fully or Incrementally.
+{% include important.html first-line="**Avoid discrepancies: Learn about Replication Methods and Keys**" content=rep-methods-warning %}
+
+[**Replication Methods**]({{ link.replication.rep-methods | prepend: site.baseurl }}) tell Stitch how to replicate the data in selected tables: Fully or Incrementally.
 
 {% include layout/inline_image.html file="getting-started/replication-methods.png" alt="Table Settings page > Replication Methods" type="right" max-width="65%" %}
 ##### Incremental Replication
@@ -193,7 +195,7 @@ If you want to use Incremental Replication, you'll also need to select a [**Repl
 
 When Stitch replicates your data, it will store the last recorded maximum value of the Replication Key column and compare it against the data source - **not what’s in your data warehouse** - to identify new/updated data. Any row with a Replication Key value greater than or equal to the stored value is where Stitch will begin the next replication attempt.
 
-##### Defining Replication Methods & Keys
+##### Define Replication Methods and Keys
 
 The `created_at` value in this table is populated with the present time each time a new record is created in this table. Since records are never updated, Stitch only needs to know when new data is created. Because of this, we can use `created_at` as the Replication Key for the `{{ ex-table }}` table.
 
@@ -208,21 +210,23 @@ Here's how we set the `{{ ex-table }}` table to use Incremental Replication base
 
 ---
 
-## Monitoring Your Data
+## Monitor the replication process
 
 After you initially connect an integration, you might see a **Pending** status in the **Last Sync Status** field on the {{ app.page-names.dashboard }} page or on the {{ app.page-names.int-details }} page:
 
 ![Newly connected integration with Pending Sync status.]({{ site.baseurl }}/images/getting-started/new-pending-integration.png)
 
-A Pending status indicates that Stitch is in the process of scheduling a replication job for the integration. For newly created integrations, this can take up to 30 minutes.
+A **Pending** status indicates that Stitch is in the process of scheduling a replication job for the integration. For newly created integrations, this can take up to 30 minutes.
 
-### Initial/Historical Syncs
+### Initial/Historical data loads
 
-During the initial sync, Stitch will replicate the integration's historical data. Historical syncs tend to be larger in volume compared to subsequent syncs, and as a result may take longer to process and load into your data warehouse. It's normal to see a large spike in replicated rows during this time.
+During the initial replication job, Stitch will replicate the integration's historical data. Historical syncs tend to be larger in volume compared to subsequent replication jobs, and as a result may take longer to process and load into your data warehouse. It's normal to see a large spike in replicated rows during this time.
 
-### Ongoing Syncs
+After the Free Trial ends, any new integrations you create will replicate data free for seven days. [Refer to the Billing FAQ]({{ link.billing.billing-faq | prepend: site.baseurl | append: "#integrations" }}) for more info.
 
-After the integration's historical sync completes, you can expect the number of replicated rows for the integration to decrease and eventually level out. The time it takes for Stitch to extract, prep, and load data should also decrease.
+### Ongoing replication jobs
+
+After the integration's historical replication completes, you can expect the number of replicated rows for the integration to decrease and eventually level out. The time it takes for Stitch to extract, prep, and load data should also decrease.
 
 {% include replication/replication-stats-copy.html %}
 
@@ -234,15 +238,15 @@ Congratulations! You set up a destination, connected an integration, and configu
 
 While you wait for the initial sync to complete, we recommend:
 
-### Learning About Stitch Billing
+### Learning About Stitch billing
 
 Our pricing is built on the number of replicated rows Stitch loads into your data warehouse. But what does "replicated row" mean? How can you keep your row count down and prevent overages? [Check out the Understanding Your Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) to learn more about Stitch billing and how to reduce your usage.
 
-### Getting to Know Your Destination
+### Getting to know your destination
 
 Every destination handles data differently, which will impact how Stitch loads and stores the data it replicates from your integrations. [**Check out the Destination Data Loading guide**]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for the specifics on your destination.
 
-### Getting to Know Your SaaS Integrations
+### Getting to know your SaaS integrations
 
 Just like destinations, every SaaS integration structures its data differently. How Stitch replicates and loads SaaS data depends in part on how that data is created and structured. [**Our extensive SaaS integration docs**]({{ site.baseurl }}/integrations/saas/) cover what Stitch will replicate and how.
 

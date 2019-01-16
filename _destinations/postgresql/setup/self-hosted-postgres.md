@@ -4,6 +4,9 @@ permalink: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-war
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl
 summary: "Ready to spin up a PostgreSQL data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 
@@ -28,38 +31,35 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "Whitelist Stitch's IP Addresses"
+  - title: "Whitelist Stitch's IP addresses"
     anchor: "whitelist-stitch-ips"
     content: |
       {% include shared/whitelist-stitch-ips.html %}
 
-  - title: "Create a Postgres Database"
+  - title: "Create a Postgres database"
     anchor: "create-postgres-database"
     content: |
       Next, you’ll create a database in your {{ destination.display_name }} instance for Stitch. This is where data replicated by Stitch will be stored.
 
       {% include destinations/postgres/create-database.html %}
 
-  - title: "Retrieve Your Public Key"
+  - title: "Retrieve your Public Key"
     anchor: "retrieve-public-key"
     content: |
       {% include shared/retrieve-public-key.html %}
 
-  - title: "Create a Stitch Linux User"
+  - title: "Create a Stitch Linux user"
     anchor: "create-stitch-linux-user"
     content: |
       {% include shared/create-linux-user.html %}
 
   - title: "create db user"
     content: |
-      {% include destinations/setup/redshift-postgres-permissions.html %}
+      {% assign clean-database-name = page.display_name | downcase %}
 
-      ### Create the Database User {#create-the-user}
-
-      {% include destinations/setup/redshift-postgres-database-users.html %}
+      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
   - title: "connect stitch"
-
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}

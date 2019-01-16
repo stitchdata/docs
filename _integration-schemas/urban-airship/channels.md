@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_ur
 description: |
   The `channels` table contains info about the channels - or unique identifiers - used to address applications on iOS, Android, and Amazon devices.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: channelListing
   doc-link: https://docs.urbanairship.com/api/ua/#channel-list-api

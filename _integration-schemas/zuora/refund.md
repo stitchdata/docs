@@ -7,13 +7,14 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Refunds
 description: |
   The `refund` table contains info about refunds, or transactions where money is returned to a customer.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The refund ID."
+    foreign-key-id: "refund-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,22 +24,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the refund."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "id"
-
-    ##   - table-name: "contact"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "invoice"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "payment"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "subscription"
-    ##     attribute: "accountId"
+    foreign-key-id: "account-id"
 
   - name: "amount"
     type: "number"
@@ -47,7 +33,7 @@ attributes:
   - name: "billToContactId"
     type: "string"
     description: "The ID of the billing contact for the associated account."
-    foreign-key: true
+    foreign-key-id: "bill-to-contact-id"
 
   - name: "cancelledOn"
     type: "date-time"
@@ -68,12 +54,12 @@ attributes:
   - name: "creditMemoId"
     type: "string"
     description: "The ID of the credit memo that is refunded."
-    foreign-key: true
+    # foreign-key-id: "credit-memo-id"
 
   - name: "defaultPaymentMethodId"
     type: "string"
     description: "The ID of the default payment method for the associated account."
-    foreign-key: true
+    foreign-key-id: "default-payment-method-id"
 
   - name: "deleted"
     type: "boolean"
@@ -130,31 +116,22 @@ attributes:
   - name: "parentAccountId"
     type: "string"
     description: "The ID of the parent customer account for the associated account. This field is used when customer hierarchy is enabled in Zuora."
-    foreign-key: true
+    foreign-key-id: "parent-account-id"
 
   - name: "paymentId"
     type: "string"
     description: "The ID of the payment that is refunded."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "payment"
-    ##     attribute: "id"
+    foreign-key-id: "pamyent-id"
 
   - name: "paymentMethodId"
     type: "string"
     description: "The unique ID of the payment method that the customer used to make the refund."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "paymentMethod"
-    ##     attribute: "id"
+    foreign-key-id: "payment-method-id"
 
   - name: "paymentMethodSnapshotId"
     type: "string"
     description: "The unqiue ID of the payment method snapshot, which is a copy of the particular payment method used in a transaction."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "paymentMethodSnapshot"
-    ##     attribute: "id"
+    # foreign-key-id: "payment-method-snapshot-id"
 
   - name: "reasonCode"
     type: "string"
@@ -163,6 +140,7 @@ attributes:
   - name: "referenceId"
     type: "string"
     description: "The transaction ID returned by the payment gateway for an electronic refund."
+    # foreign-key-id: "reference-id"
 
   - name: "refundDate"
     type: "date-time"
@@ -191,7 +169,7 @@ attributes:
   - name: "soldToContactId"
     type: "string"
     description: "The ID of the person who bought the subscription associated with the account."
-    foreign-key: true
+    foreign-key-id: "sold-to-contact-id"
 
   - name: "status"
     type: "string"

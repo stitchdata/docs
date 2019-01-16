@@ -38,8 +38,11 @@ all-docs:
     - title: Overview
       url: "{{ link.destinations.main }}"
 
-    - title: Choosing a Destination
+    - title: "Choosing a Destination"
       url: "{{ link.destinations.overviews.choose-destination }}"
+
+    - title: "Destination & Integration Compatibility"
+      url: "{{ link.destinations.overviews.compatibility }}"
 
     - title: Amazon Redshift
       subsections:
@@ -52,8 +55,14 @@ all-docs:
         - title: "Connect to Stitch via SSH"
           url: "{{ link.destinations.setup.redshift-ssh }}"
 
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.redshift }}#replication"
+
         - title: "Encodings, SORT, and DIST Keys"
           url: "{{ link.destinations.storage.redshift-encodings }}"
+
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.redshift }}#limitations"
 
     - title: "Amazon S3"
       subsections:
@@ -69,8 +78,11 @@ all-docs:
         - title: "Schema"
           url: "{{ link.destinations.overviews.amazon-s3 }}#schema"
 
-        - title: "Loading Notifications"
-          url: "{{ link.destinations.overviews.amazon-s3}}#webhook-loading-notifications"
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
+
+        # - title: "Loading Notifications"
+        #   url: "{{ link.destinations.overviews.amazon-s3}}#webhook-loading-notifications"
 
     - title: "data world"
       subsections:
@@ -91,14 +103,43 @@ all-docs:
         - title: "Overview"
           url: "{{ link.destinations.overviews.bigquery }}"
 
-        - title: "Stitch Impact on BigQuery Costs"
-          url: "{{ link.destinations.overviews.bigquery-pricing }}"
-
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.bigquery }}"
 
         - title: "Change BigQuery Location"
           url: "{{ link.destinations.overviews.switch-bigquery-destination }}"
+
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.bigquery }}#replication"
+
+        - title: "Table Partitioning and Clustering"
+          url: "{{ link.destinations.storage.bigquery-partitioning }}"
+
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.bigquery }}#limitations"
+
+        - title: "Stitch Impact on BigQuery Costs"
+          url: "{{ link.destinations.overviews.bigquery-pricing }}"
+
+    - title: "Microsoft Azure SQL Data Warehouse"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.overviews.azure }}"
+
+        - title: "Connect to Stitch"
+          url: "{{ link.destinations.setup.azure }}"
+
+        - title: "Connect to Stitch via SSH"
+          url: "{{ link.destinations.setup.azure-ssh }}"
+
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.azure }}#replication"
+
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.azure }}#limitations"
+
+        - title: "Primary Key Handling"
+          url: "{{ link.destinations.storage.azure-primary-keys }}"
 
     - title: Panoply
       subsections:
@@ -110,6 +151,12 @@ all-docs:
 
         - title: "Connect a New Destination"
           url: "{{ link.destinations.setup.panoply-new }}"
+
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.panoply }}#replication"
+
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.panoply }}#limitations"
 
     - title: PostgreSQL 
       subsections:
@@ -128,6 +175,12 @@ all-docs:
         - title: "Connect a Self-Hosted Destination"
           url: "{{ link.destinations.setup.self-hosted-postgres }}"
 
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.postgres }}#replication"
+
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.postgres }}#limitations"
+
     - title: Snowflake  
       subsections:
         - title: "Overview"
@@ -135,6 +188,12 @@ all-docs:
 
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.snowflake }}"
+
+        - title: "Replication"
+          url: "{{ link.destinations.overviews.snowflake }}#replication"
+
+        - title: "Limitations"
+          url: "{{ link.destinations.overviews.snowflake }}#limitations"
 
         - title: "Snowflake Pricing"
           url: "{{ link.destinations.overviews.snowflake }}#pricing"
@@ -196,7 +255,7 @@ all-docs:
           url: "{{ link.replication.rep-keys }}"
 
         - title: MongoDB Replication Keys
-          url: "{{ link.mongo-rep-keys }}"
+          url: "{{ link.replication.mongo-rep-keys }}"
 
         - title: Reset Replication Keys
           url: "{{ link.replication.reset-rep-keys }}"
@@ -206,23 +265,42 @@ all-docs:
         - title: Overview
           url: "{{ link.replication.rep-methods }}"
 
-        - title: Incremental
-          url: "{{ link.replication.rep-methods }}#incremental-replication"
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.log-based-incremental }}"
 
-        - title: "Append-Only"
-          url: "{{ link.replication.rep-methods }}#append-only-incremental-replication"
+        - title: "Key-based Incremental"
+          url: "{{ link.replication.key-based-incremental }}"
 
         - title: Full Table
-          url: "{{ link.replication.rep-methods }}#full-table-replication"
+          url: "{{ link.replication.full-table }}"
 
-    - title: Replication Frequency
-      url: "{{ link.replication.rep-frequency }}"
+    - title: Replication Scheduling
+      subsections:
+        - title: "Overview"
+          url: "{{ link.replication.rep-scheduling }}"
+
+        - title: "Replication Frequency"
+          url: "{{ link.replication.rep-frequency }}"
+
+        - title: "Anchor Scheduling"
+          url: "{{ link.replication.anchor-scheduling }}"
 
     - title: Supported Data Types
       url: "{{ link.replication.supported-data-types }}"
 
-    - title: Deletions
-      url: "{{ link.replication.rep-methods }}#deleted-records--incremental-replication"
+    - title: Deleted record handling
+      subsections:
+        - title: "Deletion methods"
+          url: "{{ link.replication.deleted-records }}"
+
+        - title: "Log-based Incremental"
+          url: "{{ link.replication.deleted-records }}#log-based-incremental"
+
+        - title: "Key-based Incremental"
+          url: "{{ link.replication.deleted-records }}#key-based-incremental"
+
+        - title: "Full Table"
+          url: "{{ link.replication.deleted-records }}#full-table"
 
     - title: Monitoring Progress
       subsections:
@@ -241,7 +319,21 @@ all-docs:
       url: "{{ link.replication.loading-reports }}"
 
     - title: Integration Schemas
-      url: "{{ link.destinations.storage.stitch-schema }}"
+      subsections:
+        - title: "Overview"
+          url: "{{ link.destinations.storage.stitch-schema }}"
+
+        - title: "Schema Names"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
+
+        - title: "Schema Composition"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
+
+        - title: "Table Schemas"
+          url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
+
+        - title: "_sdc Columns"
+          url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
 
     - title: Loading Data into Destinations
       url: "{{ link.destinations.storage.loading-data }}"
@@ -253,7 +345,10 @@ all-docs:
       url: "{{ link.destinations.storage.structure-changes }}"
 
     - title: Append-Only Tables
-      url: "{{ link.replication.append-only }}"
+      url: "{{ link.replication.append-only-querying }}"
+
+    - title: "_sdc Columns"
+      url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
 
     - title: Rejected Records
       url: "{{ link.destinations.storage.rejected-records }}"

@@ -5,22 +5,16 @@ version: 1.0
 name: "product"
 doc-link: http://knowledgecenter.zuora.com/DC_Developers/SOAP_API/E1_SOAP_API_Object_Reference/Product#Field_Descriptions
 description: |
-  The `product` table contains info about your company's product offerings.
+  The `{{ table.name }}` table contains info about your company's product offerings.
 
-
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The product ID."
-    ## foreign-keys:
-    ##   - table-name: "invoiceItem"
-    ##     attribute: "productId"
-
-    ##   - table-name: "productRatePlan"
-    ##     attribute: "productId"
+    foreign-key-id: "product-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -76,5 +70,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the product."
-
 ---

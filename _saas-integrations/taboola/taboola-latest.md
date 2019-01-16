@@ -1,5 +1,5 @@
 ---
-title: Taboola
+title: Taboola (v1.0)
 permalink: /integrations/saas/taboola
 tags: [saas_integrations]
 keywords: taboola, taboola integration, schema, etl taboola, taboola etl, taboola schema
@@ -18,7 +18,7 @@ author-url: http://fishtownanalytics.com/
 repo-url: https://github.com/singer-io/tap-taboola
 status-url: https://twitter.com/taboola?lang=en
 
-# this-version:
+# this-version: "1.0"
 
 # -------------------------- #
 #     Integration Details    #
@@ -31,9 +31,13 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 icon: /images/integrations/icons/taboola.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

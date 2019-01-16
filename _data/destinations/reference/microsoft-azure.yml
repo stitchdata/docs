@@ -1,0 +1,336 @@
+# -------------------------- #
+#       Azure Reference      #
+# -------------------------- #
+
+# This file contains the data used in this destination's overview/reference
+# guide. Includes supported connection types, data type limits, object
+# naming rules, etc.
+
+
+# -------------------------- #
+#         DEFAULTS           #
+# -------------------------- #
+
+# The sections below contain key:value pairs for each category.
+# This is done so that individual values can be called instead of having
+# to loop through the entire list of items to get a single thing.
+
+# -------------------------- #
+#       Stitch Details       #
+# -------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for the destination.
+
+stitch-details-info:
+  pricing-tier: &pricing-tier |
+    All Stitch plans
+  supported-versions: &supported-versions |
+    n/a
+
+# Connection methods
+
+  connection-methods:
+    ssl: &connection-methods-ssl |
+      true
+    ssh: &connection-methods-ssh |
+      true
+    vpn: &connection-methods-vpn |
+      false
+
+# -------------------------- #
+#         Replication        #
+# -------------------------- #
+
+replication-info:
+  incremental-replication:
+    upserts: &incremental-rep-upserts |
+      true
+    append: &incremental-rep-append |
+      true
+
+  primary-keys:
+    supported: &primary-key-support |
+      false
+
+  multiple-data-types:
+    supported: &multiple-data-type-support |
+      false
+
+  nested-structures:
+    supported: &nested-structure-support |
+      false
+
+  incompatible-sources: &incompatible-sources |
+    None
+
+# -------------------------- #
+#         Limitations        #
+# -------------------------- #
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+object-name-limit-info:
+  case-sensitivity: &case-sensitivity "Insensitive"
+  tables: &table-name-length "112 characters"
+  columns: &column-name-length "128 characters"
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+table-limit-info:
+  max-columns-per-table: &max-columns-per-table "1,024 columns"
+  max-table-size: &max-table-size "60 TB compressed on disk"
+  max-per-database: &max-per-database "10,000 tables"
+
+# -------------------------- #
+#      Data type limits      #
+# -------------------------- #
+
+data-limit-info:
+  max-record-size: &max-record-size "1 MB"
+
+  boolean:
+    values: &boolean "1, 0, NULL"
+
+  date-and-time:
+    timezone-support: &timezone-support |
+      false
+
+    date-range: &date-range "January 1, 0001 AD, through December 31, 9999 AD"
+    timestamp-range: &timestamp-range "00:00:00 through 23:59:59.997"
+
+  decimal:
+    precision: &decimal-precision "Must be between 1 and 38 (38 is the default)"
+    scale: &decimal-scale "Must be between 0 and the precision value"
+
+  strings:
+    max-width: &strings-max-width "4,000 bytes"
+
+# -------------------------- #
+#     Object naming rules    #
+# -------------------------- #
+
+# Naming scenarios for columns
+
+column-naming-info:
+  with-mixed-case: &destination-column-name |
+    {{ column-name | downcase | remove: "_!" | remove: "# " }}
+
+  with-spaces: *destination-column-name
+  with-unsupported-characters: *destination-column-name
+  with-underscore-start: *destination-column-name
+  with-non-letter-start: *destination-column-name
+
+reserved-words: "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql?view=sql-server-2017"
+
+# -------------------------- #
+#       LIST OF VALUES       #
+# -------------------------- #
+
+# This is all the values from the sections up there ^ in list form.
+# This allows forloops to be used to display the data all at once instead of 
+# Calling each thing individually.
+
+# Note that anything preceeded by an asterisk is a reference. This means that
+# to change its value, you need to find the corresponding anchor (preceeded by an
+# ampersand) in the section up there ^.
+
+# For example: To change the value of *pricing-tier, you'd look for &pricing-tier
+# and then change whatever you need to change.
+
+attributes:
+  - id: "pricing-tier"
+    categories: "stitch-details"
+    value: *pricing-tier
+
+  - id: "supported-versions"
+    categories: "stitch-details"
+    value: *supported-versions
+    description: |
+      Currently, Stitch supports all versions of {{ destination.display_name }}.
+
+  - id: "ssl-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssl
+    # description:
+
+  - id: "ssh-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssh
+    description: |
+      Refer to [these instructions]({{ link.destinations.setup.azure-ssh | prepend: site.baseurl }}) for connecting via SSH.
+
+  - id: "vpn-connections"
+    categories: "stitch-details"
+    value: *connection-methods-vpn
+
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}
+
+  - id: "incremental-replication-upserts"
+    categories: "replication"
+    value: *incremental-rep-upserts
+    description: |
+      Using a table's Primary Keys, Stitch will perform an update operation on existing rows to overwrite the data.
+
+  - id: "primary-keys"
+    categories: "replication"
+    value: *primary-key-support
+    description: |
+      {{ destination.display_name }} destinations do not have native support for Primary Keys.
+
+      To ensure existing rows can be updated in incrementally-replicated tables, Stitch will create an `_sdc_primary_keys` table in every integration schema. This table contains the Primary Key data for every table in the given schema, which Stitch will use to de-dupe rows during loading.
+
+      **Note**: De-duplicating doesn't apply to tables that are replicated in full.
+
+      Refer to our [Azure Primary Key handling documentation]({{ link.destinations.storage.azure-primary-keys | prepend: site.baseurl }}) for more info.
+
+  - id: "multiple-data-types"
+    categories: "replication"
+    value: *multiple-data-type-support
+    description: |
+      {{ destination.display_name }} destinations do not support multiple data types in a single column.
+
+      To accommodate this scenario, Stitch will create additional columns for each data type:
+
+      - The **original column**'s name will remain as-is. It will be typed according to the first data type Stitch detected for the column.
+      - **Subsequent columns** will have the data type appended to their name. Additionally, only data of this type will be stored in this column. For example: `customer_id__bi` would contain data determined to be a big integer. **Note**: If multiple data types are loaded during creation of the column, all columns will be created with the data type appended to their name.
+
+  - id: "nested-data-structures"
+    categories: "replication"
+    value: *nested-structure-support
+    description: |
+      {{ destination.display_name }} destinations do not have native support for nested data structures.
+
+      To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+
+  # - id: "incompatible-sources"
+  #   categories: "replication"
+  #   value: *incompatible-sources
+
+  - id: "case-sensitivity"
+    categories: "object-name-limits"
+    value: *case-sensitivity
+    description: |
+      This means that {{ destination.display_name }} destinations treat upper- and lowercase characters as the same. For example: `CUSTOMERID` and `customerid` are equal in {{ destination.display_name }}.
+
+      When column names are loaded into {{ destination.display_name }}, any uppercase characters will be forced into lowercase. This means that `Id` and `id` will canonicalize to the same name, which can lead to object collision errors. Refer to the [Column naming section of this guide](#column-naming) for examples.
+
+  - id: "table-name-length"
+    categories: "object-name-limits"
+    value: *table-name-length
+    description: |
+      Tables with names that exceed this limit will be rejected. Rejected tables are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      
+  - id: "column-name-length"
+    categories: "object-name-limits"
+    value: *column-name-length
+    description: |
+      Columns with names that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "max-columns-per-table"
+    categories: "table-limits"
+    value: *max-columns-per-table
+
+  - id: "max-table-size"
+    categories: "table-limits"
+    value: *max-table-size
+
+  - id: "max-tables-per-database"
+    categories: "table-limits"
+    value: *max-per-database
+
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      This limit is imposed by [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#loads){:target="new"}, which is required to load data into {{ destination.display_name }} destinations.
+
+  - id: "boolean-values"
+    categories: "data-limits"
+    important: true
+    value: *boolean
+    description: |
+      {{ destination.display_name }} will store data typed as `BOOLEAN` using only the above values. These columns will be `BIT` columns in the destination.
+
+      For example: If a `BOOLEAN` source value is `true`, it will be stored as `1` in {{ destination.display_name }}.
+
+  - id: "date-and-time-timezone-support"
+    categories: "data-limits"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the value in UTC with the specified offset. These columns are type as `DATETIMEOFFSET`.
+
+      More info about timestamp data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "date-and-time-date-range"
+    categories: "data-limits"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    categories: "data-limits"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql?view=sql-server-2017){:target="new"}.
+
+  - id: "decimal-precision"
+    categories: "data-limits"
+    value: *decimal-precision
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-scale"
+    categories: "data-limits"
+    value: *decimal-scale
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "strings-max-width"
+    categories: "data-limits"
+    value: *strings-max-width
+    important: true
+    description: |
+      String values outside of this range will be truncated to the maximum allowed width.
+
+  - id: "mixed-case"
+    categories: "column-naming"
+    example: |
+      {{ column-name | remove: "_!" | remove: "# " }}
+    value: *destination-column-name
+
+  - id: "with-spaces"
+    categories: "column-naming"
+    example: |
+      {{ column-name | downcase | remove: "_!" | remove: "#" }}
+    value: *destination-column-name
+
+  - id: "with-unsupported-characters"
+    categories: "column-naming"
+    example: |
+      {{ column-name | downcase | remove: "_" }}
+    value: *destination-column-name
+
+  - id: "with-underscore-start"
+    categories: "column-naming"
+    example: |
+      {{ column-name | downcase | remove: "!" | remove: "# " }}
+    value: *destination-column-name
+
+  - id: "with-non-letter-start"
+    categories: "column-naming"
+    example: |
+      {{ column-name | downcase | replace: "_!","123" | remove: "# " }}
+    value: *destination-column-name

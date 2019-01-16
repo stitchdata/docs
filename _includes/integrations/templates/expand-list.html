@@ -1,4 +1,4 @@
-{% include misc/more-info-icons.html %}
+{% include misc/icons.html %}
 
 
 <!-- This captures the values of these variables and outputs them as strings. This is done so the values can be used as tooltips inside the info icons, as variables can't be used inside other variables. -->
@@ -7,7 +7,7 @@
 {% endcapture %}
 
 {% capture incremental %}
-{{ site.data.tooltips.incremental-rep }}
+{{ site.data.tooltips.key-based-incremental-rep }}
 {% endcapture %}
 
 {% capture full-table %}
@@ -28,7 +28,7 @@
                         {% if table.replication-method == "Append-Only (Incremental)" %}
                             {{ question-icon | replace:"TOOLTIP",append-only }}
 
-                        {% elsif table.replication-method == "Incremental" %}
+                        {% elsif table.replication-method contains "Incremental" %}
                             {{ question-icon | replace:"TOOLTIP",incremental }}
 
                         {% elsif table.replication-method == "Full Table" %}

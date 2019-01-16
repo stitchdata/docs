@@ -1,52 +1,42 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-postgresql-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "PostgreSQL Destination Form Property"
-description: "{{ api.form-properties.destination-forms.postgresql.description }}"
+api-type: "postgres"
+display-name: "PostgreSQL"
+
+docs-name: "postgres"
+db-type: "postgres"
+
+description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-common-fields: true
+## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
 object-attributes:
-  - name: "host"
+  - name: "sslrootcert"
     type: "string"
-    required: true
-    description: "{{ connect.common.attributes.host }}"
-
-  - name: "port"
-    type: "integer"
-    required: true
-    description: "{{ connect.common.attributes.port }}"
-
-  - name: "database"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.database }}"
-
-  - name: "username"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.username }}"
-
-  - name: "password"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.password }}"
-
-  - name: "ssl"
-    type: "boolean"
     required: false
-    description: "{{ connect.common.attributes.ssl }}"
+    description: |
+      **Optional**: The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided.
 
-examples:
-  - code: |
-      {
-         "connection":{
-            "host":"postgres.some-host.com",
-            "port":5432,
-            "database":"stitch",
-            "username":"stitch_user",
-            "password":"<PASSWORD>",
-            "ssl":true
-         }
-      }
+      **Note**: Providing a certificate via this property isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
+    value: |
+      "<OPTIONAL_SSL_CERTIFICATE>"
 ---

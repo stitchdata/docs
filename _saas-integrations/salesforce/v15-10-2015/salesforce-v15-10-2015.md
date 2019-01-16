@@ -1,5 +1,5 @@
 ---
-title: Salesforce
+title: Salesforce (v15-10-2015)
 permalink: /integrations/saas/salesforce/v15-10-2015
 tags: [saas_integrations]
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
@@ -24,16 +24,20 @@ this-version: "15-10-2015"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 frequency: "30 minutes"
 historical: "1 year"
-tier: "Premium"
+tier: "Paid"
 icon: /images/integrations/icons/salesforce.svg
-whitelist:
-  tables: true
-  columns: true
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: false
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Querying Details      #

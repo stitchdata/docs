@@ -1,36 +1,58 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "source-types"
 key: "get-a-source-type"
 version: "4"
-order: 1
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Get a source type"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/{type}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{type}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.get.short }}"
 description: "{{ api.core-objects.source-types.get.description | flatify }}"
 
 
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
+
 arguments:
   - name: "type"
     required: true
     type: "string"
-    description: "{{ connect.common.attributes.type-argument }}"
+    description: |
+      {{ connect.common.attributes.type-argument | replace: "[TYPE]","source" | replace: "[TYPE-1]","platform.hubspot" | replace: "[TYPE-2]","platform.marketo" }}
 
+
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Report Card object]({{ api.data-structures.report-cards.section }}) corresponding to `type`.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source Report Card object]({{ api.data-structures.report-cards.source.section }}) corresponding to `type`.
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"
     language: "json"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
+      {% assign right-bracket = "}" %}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{type","platform.hubspot" | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
@@ -43,18 +65,6 @@ examples:
       {  
          "type":"platform.hubspot",
          "current_step":1,
-         "current_step_hints":{  
-            "api":{  
-               "method":"POST",
-               "url":"/v4/sources"
-            },
-            "js":{  
-               "function":"addSource",
-               "options":{  
-                  "type":"platform.hubspot"
-               }
-            }
-         },
          "steps":[  
             {  
                "type":"form",
@@ -151,5 +161,4 @@ examples:
             }
          ]
       }
-
 ---

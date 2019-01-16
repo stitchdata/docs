@@ -12,7 +12,7 @@ type: "database-integration, error"
 ---
 {% include misc/data-files.html %}
 
-{% assign connection-checks = site.data.errors.connection-checks.errors %}
+{% assign errors = site.data.errors.connection-checks.errors | where_exp:"error","error.applies-to contains 'databases'" %}
 
 Stitch periodically performs checks on the connection to your database to ensure the connection remains active and healthy. Below are some of the most common errors you might see if Stitch has trouble performing the connection check to your database and how to resolve them.
 

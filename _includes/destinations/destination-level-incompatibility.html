@@ -1,52 +1,85 @@
-<!-- Currently, the liquid loop below uses a hard-coded value in each destination's file to determine whether there are incompatible sources or not. -->
+<!-- This file contains the destination tabs used in the Destination & Integation Compatibility doc. -->
+
+{% include misc/icons.html %}
 
 {% assign all-integrations = site.documents | where:"input",true | sort:"display_name" %}
 {% assign destinations = site.destinations | where:"destination",true %}
 
-{% for destination in destinations %}
-<h3 id="{{ destination.type }}">{{ destination.display_name }}</h3>
 
-<p>For a comprehensive look at how {{ destination.display_name }} will load data - including what may cause data to be "rejected" - refer to the <a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">{{ destination.display_name }} Data Loading Guide</a>.
+<ul id="profileTabs" class="nav nav-tabs">
+    {% for destination in destinations %}
+    	{% if forloop.first == true %}
+    		<li class="active">
+    	{% else %}
+		    <li>
+		{% endif %}
+	    	<a href="#{{ destination.type }}-tab" data-toggle="tab">{{ destination.display_name }}</a>
+	    </li>
+   {% endfor %}
+</ul>
 
-	{% if destination.incompatible-with == 0 %}
-		<p>No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.</p>
-	{% else %}
-		<table width="100%">
-			<thead>
-				<tr>
-					<td style="vertical-align: middle" width="15%; fixed">
-						<strong>Integration</strong>
-					</td>
-					<td align="center" style="vertical-align: middle">
-						<strong>Level</strong>
-					</td>
-					<td style="vertical-align: middle">
-						<strong>Reason for Incompatibility</strong>
-					</td>
-				</tr>
-			</thead>
-			<tbody>
-			{% for integration in all-integrations %}
-				{% if integration.incompatible[destination.type] == "always" or integration.incompatible[destination.type] == "sometimes" %}
-					<tr>
-						<td width="15%; fixed">
-							<strong><a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title }}</a></strong>
-						</td>
-						<td width="10%; fixed" align="center">
-							{% if integration.incompatible[destination.type] == "always" %}
-								{{ not-supported | replace:"TOOLTIP","This destination/integration combination is always incompatible." }} 
+<div class="tab-content">
+    {% for destination in destinations %}
+    	{% if forloop.first == true %}
+    		<div role="tabpanel" class="tab-pane active" id="{{ destination.type }}-tab">
+    	{% else %}
+		    <div role="tabpanel" class="tab-pane" id="{{ destination.type }}-tab">
+		{% endif %}
+	        <p>For a comprehensive look at how {{ destination.display_name }} will load data - including what may cause data to be "rejected" - refer to the <a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">{{ destination.display_name }} Data Loading Guide</a>.</p>
 
-							{% elsif integration.incompatible[destination.type] == "sometimes" %}
-								{{ sometimes-supported | replace:"TOOLTIP","This destination/integration combination is sometimes incompatible." }}
-							{% endif %}
-						</td>
-						<td style="vertical-align: middle" markdown="span" width="70%; fixed">
-							{{ integration.incompatible.reason }}
-						</td>
-					</tr>
-				{% endif %} <!-- Ends integration incompatibility detail loop-->
-			{% endfor %}
-			</tbody>
-		</table>
-	{% endif %}  <!-- Ends incompatibility loop-->
-{% endfor %} 
+
+	<!-- Currently, the liquid loop uses a hard-coded value in each destination's file to determine whether there are incompatible sources or not. -->
+	    {% case destination.incompatible-with %}
+	    	{% when 0 %}
+	    		<p>
+	    			<strong>No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.
+	    			</strong>
+	    		</p>
+	    	{% else %}
+				<table class="attribute-list">
+					<thead>
+						<tr>
+							<td class="attribute-name">
+								<strong>Integration</strong>
+							</td>
+							<td width="10%; fixed" align="center">
+								<strong>Level</strong>
+							</td>
+							<td class="attribute-description">
+								<strong>Reason for Incompatibility</strong>
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+					{% for integration in all-integrations %}
+						{% if integration.incompatible[destination.type] == "always" or integration.incompatible[destination.type] == "sometimes" %}
+							<tr>
+								<td class="attribute-name">
+									<strong>
+										<a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title }}</a>
+									</strong>
+								</td>
+								<td width="10%; fixed" align="center">
+									{% if integration.incompatible[destination.type] == "always" %}
+										{{ not-supported | replace:"TOOLTIP","This destination/integration combination is always incompatible." }} 
+
+									{% elsif integration.incompatible[destination.type] == "sometimes" %}
+										{{ sometimes-supported | replace:"TOOLTIP","This destination/integration combination is sometimes incompatible." }}
+									{% endif %}
+								</td>
+								<td class="attribute-description">
+									{{ integration.incompatible.reason | flatify | markdownify }}
+
+									{% if integration.this-version %}
+										<p><strong>Note:</strong> This is applicable to all versions of this integration.</p>
+									{% endif %}
+								</td>
+							</tr>
+						{% endif %} <!-- Ends integration incompatibility detail loop-->
+					{% endfor %}
+					</tbody>
+				</table>
+			{% endcase %}  <!-- Ends incompatibility loop-->
+	    </div>
+	{% endfor %}
+</div>

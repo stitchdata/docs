@@ -1,5 +1,5 @@
 ---
-title: Marketo
+title: Marketo (v2.0)
 permalink: /integrations/saas/marketo
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 tags: [saas_integrations]
@@ -16,9 +16,8 @@ singer: true
 author: "Stitch"
 author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-marketo
-status-url: http://status.marketo.com/
 
-# this-version:
+this-version: "2.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -28,16 +27,25 @@ status: "Released"
 certified: true
 
 historical: "1 year"
-frequency: "30 minutes"
-tier: "Premium"
+frequency: "12 hours"
+tier: "Paid"
+
+status-url: http://status.marketo.com/
 icon: /images/integrations/icons/marketo.svg
-whitelist:
-  tables: true
-  columns: false
+
+table-selection: true
+column-selection: true
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
+
+requirements-list:
+  - item: "**Admin permissions in Marketo.** Marketo Admin permissions are required to complete portions of the setup process."
 
 requirements-info: |
   Prior to set up, we recommend that you monitor your **Marketo API call usage** if other applications are also connected to your Marketo account. While Stitch is designed to use only a portion of your allotted API calls, replication may be impacted if numerous applications are using the API.
@@ -48,7 +56,7 @@ setup-steps:
   - title: "Create an API-Only User Role in Marketo"
     anchor: "create-api-only-user-role"
     content: |
-      **Completing this step is required only if you DON'T have an [API-Only](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role){:target="new"} user role in your Marketo account.** Skip to the next section if your account has this role.
+      {% include note.html type="single-line" content="If you have an [API-Only User Role](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User+Role) in your Marketo account, [skip to the next section](#create-stitch-marketo-api-user)." %}
 
       1. Sign into your Marketo account.
       2. Click the **Admin** option.
@@ -65,7 +73,7 @@ setup-steps:
   - title: "Create a Stitch Marketo API User"
     anchor: "create-stitch-marketo-api-user"
     content: |
-      Next, [you’ll create an API User](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User) for Stitch. Creating a Stitch-specific user will ensure that Stitch is easily distinguishable in any logs or audits.
+      Next, [you’ll create an API User](http://docs.marketo.com/display/public/DOCS/Create+an+API+Only+User) for Stitch. Creating a Stitch-specific user ensures that Stitch is easily distinguishable in any logs or audits.
 
       1. Click the **Admin** option.
       2. Under Admin, open the **Security** menu.
@@ -125,17 +133,47 @@ setup-steps:
       5. In the **Identity Base URL** field, paste your **Marketo REST API Identity URL**.
       6. In the **Client ID** field, paste your **Marketo API Client ID**.
       7. In the **OAuth Client Secret** field, paste your **Marketo API Client Secret**.
+      8. In the **Max Daily API Calls** field, either keep the default 40,000 value or use a larger number based on your **Marketo API Quota**
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 
 replication-sections:
-  - title: "Stitch & Marketo Daily API Call Limits"
+  - title: "Stitch & Marketo Daily REST API Call Limits"
     anchor: "marketo-daily-api-call-limits"
     content: |
-      By default, all Marketo accounts have a maximum number of 10,000 daily account calls. Stitch's Marketo integration is designed to use up to 8,000 of these calls per day to allow other applications API access to your Marketo account.
+      By default, all Marketo accounts have a maximum number of 50,000 daily account calls. Stitch's Marketo integration is designed to use up to 40,000 of these calls per day to allow other applications API access to your Marketo account.
+       
+       This can be increased or decreased using the integration's **Max Daily API Calls** field.
+       
+       When the **Max Daily API Calls** limit has been reached, Stitch will be unable to replicate any Marketo data until more API quota is available. If you find that the 50,000 total call limit isn't enough, contact Marketo support to inquire about raising your limit.
 
-      When the 10,000 account call limit has been reached, Stitch will be unable to replicate any Marketo data until more API quota is available. If you find that the 10,000 call limit isn't enough, **contact Marketo support** to inquire about raising the limit.
+  - title: "Activities and Leads Replication"
+    anchor: "activities-leads-replication"
+    content: |
+
+      To efficiently replicate activity and lead data, Stitch's Marketo integration uses the Bulk API to extract data. While this approach is more efficient than the REST API, it may also impact your overall row count and frequency with which data is replicated.
+
+      #### Leads Replication and Marketo Corona {#corona-replication}
+
+      To incrementally replicate `leads` data, Marketo requires the authorizing account to have a feature called Corona. Corona allows Stitch to use an `updatedAt` query parameter to extract only new and updated data from the `leads` endpoint.
+
+      If your account doesn't have Corona enabled, the `leads` table will use Full Table Replication. 
+
+      Additionally, the following message will surface in the extraction logs:
+
+      ```
+      Your account does not have Corona support enabled. Without Corona, each sync of the Leads table requires a full export which can lead to lower data freshness. Please contact Marketo to request Corona support be added to your account.
+      ```
+
+      #### Bulk API Limits
+
+      Part of the extraction process using the Bulk API involves writing and downloading a file of the extracted data. Stitch then pushes the data from this file into your destination.
+
+      Marketo currently [limits the amount of data pulled on a daily basis to 500MB](http://developers.marketo.com/rest-api/bulk-extract/#limits). Exceeding the limit will pause replication until midnight CT, when it will be possible to resume.
+
+      **Note**: This applies to the `activity_[activity_types]` and `leads` tables and is a separate quota from the REST API call limits mentioned previously.
 
 
 # -------------------------- #

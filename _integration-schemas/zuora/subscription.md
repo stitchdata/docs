@@ -11,7 +11,7 @@ description: |
 
   If your Zuora subscription records contain custom attributes, Stitch will replicate them.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:
@@ -21,6 +21,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The subscription ID."
+    foreign-key-id: "subscription-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -30,10 +31,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with this subscription."
-    foreign-key: true
-    ## foreign-keys:
-    ##  - table-name: "account"
-    ##    attribute: "id"
+    foreign-key-id: "account-id"
 
   - name: "autoRenew"
     type: "boolean"
@@ -66,17 +64,10 @@ attributes:
   - name: "creatorAccountId"
     type: "string"
     description: "The account ID that created the subscription or the amended subscription."
-    ## foreign-keys:
-    ##  - table-name: "account"
-    ##    attribute: "id"
 
   - name: "creatorInvoiceOwnerId"
     type: "string"
     description: "The account ID that owns the invoices associated with the subscription or the amended subscription."
-    foreign-key: true
-    ## foreign-keys:
-    ##  - table-name: "account"
-    ##    attribute: "id"
 
   - name: "currentTerm"
     type: "integer"
@@ -108,10 +99,7 @@ attributes:
   - name: "invoiceOwnerId"
     type: "string"
     description: "The account ID that owns the invoices associated with the subscription."
-    foreign-key: true
-    ## foreign-keys:
-    ##  - table-name: "account"
-    ##    attribute: "id"
+    # foreign-key-id: "invoice-owner-id"
 
   - name: "isInvoiceSeparate"
     type: "boolean"
@@ -222,5 +210,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the subscription."
-
 ---

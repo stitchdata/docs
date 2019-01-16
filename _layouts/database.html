@@ -9,17 +9,17 @@ layout: page
 
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
-{% if integration.notice %}
-    {% capture notice %}
-    {{ integration.notice | flatify | markdownify }}
+{% if integration.notice-copy %}
+    {% capture notice-copy %}
+        {{ integration.notice-copy | flatify }}
     {% endcapture %}
 
-    {% include important.html content=notice %}
+    {% include important.html first-line=integration.notice-first-line content=notice-copy %}
 {% endif %}
 
 
 <!-- INTEGRATION SNAPSHOT -->
-    {% include integrations/templates/database-integration-snapshot.html %}
+    {% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}
 
 
 <!-- CONNECTION INSTRUCTIONS -->

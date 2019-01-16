@@ -16,7 +16,7 @@ description: |
   
   Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 attribution-window: true
 
 attributes: 
@@ -24,16 +24,19 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the ad."
+    foreign-key-id: "ad-id"
 
   - name: "adset_id"
     type: "string"
     primary-key: true
     description: "The ID of the ad set. An ad set is a group of ads that share the same budget, schedule, delivery optimization, and targeting."
+    foreign-key-id: "adset-id"
 
   - name: "campaign_id"
     type: "string"
     primary-key: true
     description: "The ID of the campaign. Campaigns contain ad sets and ads."
+    foreign-key-id: "campaign-id"
 
   - name: "date_start"
     type: "date-time"
@@ -87,10 +90,12 @@ attributes:
 
       - name: "action_type"
         type: "string"
-        description: &action-type-description |
-          The kind of actions taken on the ad, Page, app, or event after your ad was served to someone, even if they didn't click on it.
+        description: |
+          {{ integration.cost-per-action-type.description | flatify }}
 
-          Action types include Page likes, app installs, conversions, event responses, and more.
+          **Note**: As of July 2018, Facebook has deprecated the following `action` types:
+
+          {{ integration.cost-per-unique-action-type.deprecated-july-2018 | flatify }}
 
       - name: "value"
         type: "number"
@@ -109,13 +114,10 @@ attributes:
     type: "number"
     description: "The average number of times each person saw your ad."
 
-  - name: "total_actions"
-    type: "integer"
-    description: "The total number of actions people took that are attributed to the ad. Actions may include engagement, clicks, or conversions."
-
   - name: "account_id"
     type: "string"
     description: "The ID number of your ad account."
+    foreign-key-id: "account-id"
 
   - name: "account_name"
     type: "string"
@@ -140,11 +142,18 @@ attributes:
 
       - name: "action_type"
         type: "string"
-        description: *action-type-description
+        description: |
+          {{ integration.cost-per-action-type.description | flatify }}
 
-  - name: "social_reach"
-    type: "integer"
-    description: "The number of people who saw the ad when displayed with social information, which shows other Facebook friends who engaged with the Facebook Page or ad."
+          **Note**: Facebook has deprecated some values for this field. They are as follows:
+
+          In July 2018:
+
+          {{ integration.cost-per-unique-action-type.deprecated-july-2018 | flatify }}
+
+          In October 2018:
+
+          {{ integration.cost-per-unique-action-type.deprecated-october-2018 | flatify }}
 
   - name: "inline_post_engagement"
     type: "integer"
@@ -161,14 +170,6 @@ attributes:
 
           **Note:** Relevance scores are shown after ads receive more than 500 impressions. In addition, relevance scores are only applicable to ads and will not appear for ad sets and campaigns.
 
-      - name: "negative_feedback"
-        type: "string"
-        description: "A string that indicates the level of negative feedback received about the ad. Ex: `LOW`"
-
-      - name: "positive_feedback"
-        type: "string"
-        description: "A string that indicates the level of positive feedback received about the ad. Ex: `HIGH`"
-
       - name: "score"
         type: "number"
         description: |
@@ -176,33 +177,13 @@ attributes:
 
           Facebook's documentation states that: _"10 means we (Facebook) estimate the ad is highly relevant and 1 means we (Facebook) estimate it’s not very relevant."_
 
-  - name: "social_clicks"
-    type: "integer"
-    description: "The number of clicks (all) when the ad was displayed with social information, which shows other Facebook friends who engaged with the Facebook Page or ad."
-
   - name: "inline_link_clicks"
-    type: "integer"
-    description: "The number of clicks on links to select destinations or experiences, on or off Facebook-owned properties. Inline link clicks use a fixed 1-day-click attribution window."
-
-  - name: "unique_social_clicks"
     type: "integer"
     description: "The number of clicks on links to select destinations or experiences, on or off Facebook-owned properties. Inline link clicks use a fixed 1-day-click attribution window."
 
   - name: "cpc"
     type: "number"
     description: "The average cost for each click (all)."
-
-  - name: "unique_social_clicks"
-    type: "integer"
-    description: "The number of people who performed a click (all) on the ad when it was displayed with social information, which shows other Facebook friends who engaged with the Page or ad."
-
-  - name: "call_to_action_clicks"
-    type: "integer"
-    description: "The number of times people clicked the call-to-action button on the ad."
-
-  - name: "cost_per_total_action"
-    type: "number"
-    description: "The average cost for a relevant action."
 
   - name: "cost_per_unique_inline_link_click"
     type: "number"
@@ -226,7 +207,9 @@ attributes:
 
   - name: "cost_per_action_type"
     type: "array"
-    description: "Details about the average cost of a relevant action."
+    description: |
+      Details about the average cost of a relevant action.
+
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
     array-attributes:
       - name: "value"
@@ -235,15 +218,22 @@ attributes:
 
       - name: "action_type"
         type: "string"
-        description: *action-type-description
+        description: |
+          {{ integration.cost-per-action-type.description | flatify }}
+
+          **Note**: Facebook has deprecated some values for this field. They are as follows:
+
+          In July 2018:
+
+          {{ integration.cost-per-action-type.deprecated-july-2018 | flatify }}
+
+          In October 2018:
+
+          {{ integration.cost-per-action-type.deprecated-october-2018 | flatify }}
 
   - name: "unique_link_clicks_ctr"
     type: "number"
     description: "The percentage of people who saw the ad and performed a link click."
-
-  - name: "social_reach"
-    type: "number"
-    description: "The number of people who saw the ad when displayed with social information, which shows other Facebook friends who engaged with the Facebook Page or ad."
 
   - name: "spend"
     type: "number"
@@ -252,10 +242,6 @@ attributes:
   - name: "cost_per_unique_click"
     type: "number"
     description: "The average cost of each unique click (all)."
-
-  - name: "total_action_value"
-    type: "number"
-    description: "The total value of all conversions contributed to the ad."
 
   - name: "unique_clicks"
     type: "integer"
@@ -276,10 +262,6 @@ attributes:
     type: "number"
     description: "The average percentage of the Facebook Canvas that people saw."
 
-  - name: "social_impressions"
-    type: "integer"
-    description: "The number of times the ad was viewed when displayed with social information, which shows Facebook friends who engaged with the Facebook Page or ad."
-
   - name: "objective"
     type: "string"
     description: "The objective selected for the campaign. This reflects the goal you want to achieve with your advertising."
@@ -299,8 +281,4 @@ attributes:
   - name: "ctr"
     type: "number"
     description: "The percentage of times people saw your ad and performed a click (all)."
-
-  - name: "total_unique_actions"
-    type: "integer"
-    description: "The number of people who took an action that was attributed to the ad."
 ---

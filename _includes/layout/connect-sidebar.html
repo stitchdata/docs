@@ -12,6 +12,7 @@
 {% assign api = site.data.connect.api %}
 {% assign js = site.data.connect.js-client %}
 
+{% assign all-form-properties = site.connect-files | where: "content-type","api-form" %}
 
 <div class="menu-list">
 
@@ -27,26 +28,16 @@
             {% for category in doc.categories %}
                 <li>
                     {% if category.sections %}
-                        {% if category.expand-by-default == true %}
-                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
-                               aria-expanded="true" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
-                                    {{ category.title }} 
-                            </a>
-
-                        {% else %}
-                            <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
-                               aria-expanded="false" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
-                                    {{ category.title }}
-                            </a>
-
-                        {% endif %}
-
+                        <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
+                           aria-expanded="{{ category.expand-by-default }}" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
+                                {{ category.title }} 
+                        </a>
                     {% else %}
-                            {% if category.new-page == true %}
-                                <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title | flatify }}</a>
-                            {% else %}
-                                <a href="{{ category.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ category.title }}</a>
-                            {% endif %}
+                        {% if category.new-page == true %}
+                            <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title | flatify }}</a>
+                        {% else %}
+                            <a href="{{ category.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ category.title }}</a>
+                        {% endif %}
                     {% endif %}
             
                 {% if category.sections %}
@@ -54,53 +45,60 @@
                         {% when true %}
                             <ul class="collapse in" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
                         {% else %}
-                            <ul class="collapse in" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
-                    {% endcase %}
+                            <ul class="collapse" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                        {% endcase %}
+
                     {% for section in category.sections %}
                         {% if section.subsections %}
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
+                                aria-expanded="{{ section.expand-by-default }}" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
+                                {% if section.method %}
+                                 class="api"
+                                {% endif %}>
+                                {% if section.method %}
+                                    <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
+                                {% endif %}
+                                    {{ section.title }}
+                                </a>
 
                             {% case section.expand-by-default %}
                                 {% when true %}
-                                    <li class="subfolders">
-                                        <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
-                                        aria-expanded="true" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
-                                        {% if section.method %}
-                                         class="api"
-                                        {% endif %}>
-                                        {% if section.method %}
-                                            <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
-                                        {% endif %}
-                                            {{ section.title }} 
-                                        </a>
-
                                     <ul class="collapse in" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                {% else %}
+                                    <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                {% endcase %}
+
+                            {% case section.title %}
+                                {% when 'Source Forms' or 'Destination Forms' %}
+                                    {% if section.title == "Source Forms" %}
+                                        {% assign form-properties = all-form-properties | where: "form-type", "source" | sort: "display-name" %}
+
+                                    {% elsif section.title == "Destination Forms" %}
+                                        {% assign form-properties = all-form-properties | where: "form-type", "destination" | sort: "display-name" %}
+                                    {% endif %}
+                                    
+                                    {% for form-property in form-properties %}
+                                        <li>
+                                            <a href="{{ form-property.key | prepend: "#" | prepend: page.permalink | prepend: site.baseurl }}" class="api">
+                                                <span class="method object method-bullet">OBJECT</span>
+                                                {{ form-property.title | remove: "Source Form Property" | remove: "Destination Form Property" }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
 
                                 {% else %}
-                                    <li class="subfolders">
-                                        <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
-                                        aria-expanded="false" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
-                                        {% if section.method %}
-                                         class="api"
-                                        {% endif %}>
-                                        {% if section.method %}
-                                            <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
-                                        {% endif %}
-                                            {{ section.title }} 
-                                        </a>
-
-                                    <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    {% for subsection in section.subsections %}
+                                        <li>
+                                            <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}" class="api">
+                                                {% if subsection.method %}
+                                                    <span class="method {{ subsection.method }} method-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
+                                                {% endif %}
+                                                {{ subsection.title | flatify }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
                             {% endcase %}
-
-                                {% for subsection in section.subsections %}
-                                    <li>
-                                        <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}" class="api">
-                                            {% if subsection.method %}
-                                                <span class="method {{ subsection.method }} method-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
-                                            {% endif %}
-                                            {{ subsection.title | flatify }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
                                     </ul>
                                     <!-- Sub-section level -->
                                 </li>

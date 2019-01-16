@@ -48,6 +48,7 @@ request-body-example: |
      "id": 10,
      "status": "pending"
     }
+   }
   ]
 
 
@@ -381,7 +382,7 @@ If the requests were received in this order:
 
 ## Revoke {{ integration.display_name }} Access Tokens {#revoke-access-token}
 
-{% include important.html content="We recommend that you generate a new token before revoking the old one. If you revoke access first, the connection to your data will be interrupted." %}
+{% include important.html type="single-line" content="We recommend that you generate a new token before revoking the old one. If you revoke access first, the connection to your data will be interrupted." %}
 
 1. On the {{ app.page-names.dashboard }} page, click the **{{ integration.display_name }}** integration that needs a new token.
 2. When the {{ app.page-names.int-details }} page displays, click {{ app.buttons.update-int-settings }}.

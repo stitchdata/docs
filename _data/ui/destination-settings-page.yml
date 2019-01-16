@@ -27,12 +27,14 @@
 ## Defines the default field names in the Destination Settings page.
 
 default-fields:
-  host: &host Host (Endpoint)
-  port: &port Port
-  username: &username Username
-  password: &password Password
-  database: &database Database
-  ssl: &ssl Connect using SSL
+  host: &host "Host (Endpoint)"
+  port: &port "Port"
+  username: &username "Username"
+  password: &password "Password"
+  database: &database "Database"
+  ssl: &ssl "Connect using SSL"
+  ssl-certificate: &ssl-certificate "SSL Certificate"
+
 
 # -------------------------- #
 #        Default Copy        #
@@ -50,6 +52,12 @@ default-copy:
     Enter the password associated with the Stitch {{ destination.display_name }} user.
   database: &database-copy |
     Enter the name of the {{ destination.display_name }} database that you created for Stitch.
+  ssl: &ssl-copy |
+    Check to connect to {{ destination.display_name }} using SSL. **Note**: This is not required to connect Stitch.
+  ssl-certificate: &ssl-certificate-copy |
+    **Optional**: Provide the certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided here.
+
+            **Note**: Providing a certificate isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
 
 # -------------------------- #
 #         SSH Fields         #
@@ -61,12 +69,17 @@ ssh:
   - field: Remote Address
     copy: "Enter the IP address or hostname of the server Stitch will SSH into."
     redshift-copy: "Enter the bastion box’s IP address. This is the IPv4 CIDR you retrieved in [Step 5](#retrieve-vpc-ip)."
+    microsoft-azure-copy: "Enter the IP address of the virtual machine. This is the public IP address you retrieved in [Step 3.1](#retrieve-vm-public-ip-address)."
+
   - field: SSH Port
-    copy: "Enter the SSH port on your server. (**22** by default)"
+    copy: "Enter the SSH port on the server. (`22` by default)"
     redshift-copy: "Enter the bastion box’s port. If you’re using the default, this will be **22**."
+    microsoft-azure-copy: "Enter the port used by the virtual machine. This should be `22`."
+
   - field: SSH User
-    copy: "Enter the Stitch Linux (SSH) user’s username."
-    redshift-copy: "Enter the Stitch Linux (SSH) user’s username."
+    copy: &ssh-user-copy "Enter the Stitch Linux (SSH) user’s username."
+    redshift-copy: *ssh-user-copy
+    microsoft-azure-copy: *ssh-user-copy
 
 # -------------------------- #
 #           Panoply          #
@@ -78,11 +91,34 @@ panoply:
   - field: *port
     copy: *port-copy
   - field: *username
-    copy: Enter the username of the database user you want to use to connect Panoply to Stitch.
+    copy: "Enter the username of the database user you want to use to connect {{ destination.display_name }} to Stitch."
   - field: *password
-    copy: Enter the password of the database user you want to use to connect Panoply to Stitch.
+    copy: "Enter the password of the database user you want to use to connect {{ destination.display_name }} to Stitch."
   - field: *database
-    copy: Enter the name of the database in your Panoply data warehouse you want to connect to Stitch.
+    copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
+
+# -------------------------- #
+#      Microsoft Azure       #
+# -------------------------- #
+
+microsoft-azure:
+  - field: *host
+    copy: |
+      Enter the host address (server name) used by the {{ destination.display_name }} instance. This is the **Server name** value you retrieved in [the previous step](#locate-connection-details).
+  - field: *port
+    copy: *port-copy
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
+  - field: "Shared Access Signature URL"
+    copy: |
+      Paste the **Blob service SAS URL** [you generated](#generate-shared-access-signature-url).
+  - field: "Access Key for Azure Storage"
+    copy: |
+      Paste the **Key** associated with the [signing key you selected](#generate-shared-access-signature-url).
 
 # -------------------------- #
 #          Postgres          #
@@ -99,7 +135,11 @@ postgres:
     copy: *password-copy
   - field: *database
     copy: *database-copy
-
+  - field: *ssl
+    copy: *ssl-copy
+  - field: *ssl-certificate
+    copy: *ssl-certificate-copy
+    
 # -------------------------- #
 #       Heroku-Postgres      #
 # -------------------------- #
@@ -113,7 +153,7 @@ heroku-postgres:
     copy: "Paste the username of the Heroku database user."
   - field: *password
     copy: |
-      Paste the password of the Heroku database user. Click the **Show** link in the Heroku **Connection Settings** page to reveal it, if you haven't already.
+      Paste the password of the Heroku database user.
   - field: *database
     copy: "Paste the name of the Heroku database."
   - field: *ssl
@@ -137,6 +177,10 @@ postgres-rds:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: *ssl-copy
+  - field: *ssl-certificate
+    copy: *ssl-certificate-copy
 
 # -------------------------- #
 #     CloudSQL Postgres       #
@@ -153,6 +197,10 @@ cloudsql-postgres:
     copy: *password-copy
   - field: *database
     copy: *database-copy
+  - field: *ssl
+    copy: *ssl-copy
+  - field: *ssl-certificate
+    copy: *ssl-certificate-copy
 
 # -------------------------- #
 #          Redshift          #
@@ -176,12 +224,12 @@ redshift:
 
 snowflake:
   - field: *host
-    copy: "Enter the URL of your Snowflake account. For example: `stitch.snowflakecomputing.com`"
+    copy: "Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`"
   - field: *username
     copy: *username-copy
   - field: *password
     copy: *password-copy
   - field: *database
     copy: *database-copy
-  - field: Warehouse
-    copy: "Enter the name of the Snowflake warehouse that you created for Stitch."
+  - field: "Warehouse"
+    copy: "Enter the name of the {{ destination.display_name }} warehouse that you created for Stitch."

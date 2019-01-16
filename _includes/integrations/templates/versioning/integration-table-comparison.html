@@ -1,0 +1,100 @@
+
+
+<!-- Used to generate the "Supported/Unsupported" icons -->
+{% include misc/icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+    {% include integrations/templates/versioning/version-logic.html %}
+
+<!-- Get all of the files in _integration-schemas for the integration -->
+    {% assign all-table-versions = site.integration-schemas | where:"tap",integration.name | sort:"name" %}
+
+<!-- Capture all of the table names -->
+    {% capture all-tables-in-integration %}
+        {% for table in all-table-versions %}
+            {% case forloop.last %}
+                {% when true %}
+                    {{ table.name }}
+                {% else %}
+                    {{ table.name }}|
+                {% endcase %}
+        {% endfor %}
+    {% endcapture %}
+
+<!-- Take the captured table names, make them into an array, and remove any duplicates -->
+    {% assign all-tables-in-integration = all-tables-in-integration | split: "|" | uniq %}
+
+
+<table class="attribute-list">
+    <tr>
+        <td class="attribute-name" width="10%; fixed">
+            <strong>Table name</strong>
+        </td>
+<!--         <td>
+            <strong>TBD</strong>
+        </td> -->
+        {% for version in released-versions %}
+            {% for doc in all-versioned-docs %}
+                {% if version.number == doc.this-version %}
+                    <td class="attribute-description">
+                        <strong>
+                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
+                        </strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+    {% for table in all-tables-in-integration %}
+        <tr>
+            <td class="attribute-name" rowspan="2">
+                <strong>{{ table }}</strong>
+            </td>
+<!--             <td>
+                <strong>Included</strong>
+            </td> -->
+            {% for version in released-versions %}
+            <td>
+                {% assign version-tables = all-table-versions | where:"version",version.number %}
+
+                    {% for version-table in version-tables %}
+                        {% for table in all-tables-in-integration %}
+                            {% if version-table.name == table %}
+                                YAY!
+                            {% else %}
+                                NO!
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+            </td>
+                
+<!--                     {% capture this-versions-tables %}
+                        {% for table in version-tables %}
+                            {{ table.name }}
+                        {% endfor %}
+                    {% endcapture %}
+
+                {% assign string-of-this-versions-tables = this-versions-tables %}
+
+                {% if string-of-this-versions-tables contains table %}
+                    <td>YAY!</td>
+                {% else %}
+                    <td>NOPE!~</td>
+                {% endif %}  -->   
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>
+                <strong>Replication Method</strong>
+            </td>
+            <td>
+                [REPLICATION METHOD]
+            </td>
+            <td>
+                Placeholder
+            </td>
+        </tr>
+    {% endfor %}
+</table>

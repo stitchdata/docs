@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/
 description: |
   The `reward_balance` table contains info about the balances for all rewards.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:

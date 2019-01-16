@@ -8,7 +8,7 @@ singer-schema:
 description: |
   The `user` table contains info about the users in your organization.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: 
   doc-link: 

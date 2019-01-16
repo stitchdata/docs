@@ -1,0 +1,121 @@
+# -------------------------- #
+#  Database User Privileges  #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from a MySQL database.
+
+defaults:
+  names:
+    select: &select-name "SELECT"
+    replication-client: &replication-client-name "REPLICATION CLIENT"
+    replication-slave: &replication-slave-name "REPLICATION SLAVE"
+
+  reasons:
+    select: &select-reason "Required to select rows from tables in a database."
+    replication-client: &replication-client-reason |
+      **Required for binlog replication.** Required to use [`SHOW BINARY LOGS`](https://dev.mysql.com/doc/refman/5.5/en/show-binary-logs.html){:target="new"}, which determines that a binary log exists.
+    replication-slave: &replication-slave-reason |
+      **Required for binlog replication.** Required to use [`SHOW MASTER STATUS`](https://dev.mysql.com/doc/refman/5.5/en/show-binary-logs.html){:target="new"}, which fetches the current binlog file and position on the server.
+
+  doc-links:
+    select: &select-doc "https://dev.mysql.com/doc/refman/5.5/en/privileges-provided.html#priv_select"
+    replication-client: &replication-client-doc "https://dev.mysql.com/doc/refman/5.5/en/privileges-provided.html#priv_replication-client"
+    replication-slave: &replication-slave-doc "https://dev.mysql.com/doc/refman/5.5/en/privileges-provided.html#priv_replication-slave"
+
+# -------------------------- #
+#      MYSQL PRIVILEGES      #
+# -------------------------- #
+
+mysql:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+  - name: *replication-client-name
+    reason: *replication-client-reason
+    doc-link: *replication-client-doc
+
+  - name: *replication-slave-name
+    reason: *replication-slave-reason
+    doc-link: *replication-slave-doc
+
+# -------------------------- #
+#    MARIADB PRIVILEGES      #
+# -------------------------- #
+
+mariadb:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+  - name: *replication-client-name
+    reason: *replication-client-reason
+    doc-link: *replication-client-doc
+
+  - name: *replication-slave-name
+    reason: *replication-slave-reason
+    doc-link: *replication-slave-doc
+
+# -------------------------- #
+#    CLOUDSQL PRIVILEGES     #
+# -------------------------- #
+
+cloudsql-mysql:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+  - name: *replication-client-name
+    reason: *replication-client-reason
+    doc-link: *replication-client-doc
+
+  - name: *replication-slave-name
+    reason: *replication-slave-reason
+    doc-link: *replication-slave-doc
+
+# -------------------------- #
+#    MYSQL RDS PRIVILEGES    #
+# -------------------------- #
+
+mysql-rds:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+  - name: *replication-client-name
+    reason: *replication-client-reason
+    doc-link: *replication-client-doc
+
+  - name: *replication-slave-name
+    reason: *replication-slave-reason
+    doc-link: *replication-slave-doc
+
+# -------------------------- #
+#   AURORA RDS PRIVILEGES    #
+# -------------------------- #
+
+aurora-rds:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+  - name: *replication-client-name
+    reason: *replication-client-reason
+    doc-link: *replication-client-doc
+
+  - name: *replication-slave-name
+    reason: *replication-slave-reason
+    doc-link: *replication-slave-doc
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+create-user-command: |
+  CREATE USER '[stitch_username]'@'localhost' IDENTIFIED BY '[password]';
+
+grant-user-select-command: |
+  GRANT SELECT ON *.* TO '[stitch_username]';
+
+grant-user-replication-command: |
+  GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '[stitch_username]';

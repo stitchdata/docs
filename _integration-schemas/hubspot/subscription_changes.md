@@ -1,34 +1,31 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "subscription_changes"
 doc-link: https://developers.hubspot.com/docs/methods/timeline/timeline-overview
 singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/schemas/subscription_changes.json
 description: |
-  The `subscription_changes` table contains info about changes made subscriptions.
+  The `{{ table.name }}` table contains info about changes made subscriptions.
 
-notes: 
-
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
-  name: getSubscriptionsTimeline
+  name: "Get subscriptions timeline"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_subscriptions_timeline
 
 attributes:
-## Primary Key
   - name: "recipient"
     type: "string"
     primary-key: true
     description: "The contact associated with the subscription change event."
+    # foreign-key-id: ""
 
-## Primary Key
   - name: "portalId"
     type: "integer"
     primary-key: true
     description: "The ID of the portal associated with the subscription change event."
+    foreign-key-id: "portal-id"
 
-## Primary & Replication Key
   - name: "timestamp"
     type: "date-time"
     primary-key: true
@@ -54,10 +51,12 @@ attributes:
       - name: "portalId"
         type: "integer"
         description: "The ID of the portal associated with the change event."
+        foreign-key-id: "portal-id"
 
       - name: "subscriptionId"
         type: "integer"
         description: "If applicable, the ID of the subscription involved in the change event."
+        # foreign-key-id: "subscription-id"
 
       - name: "changeType"
         type: "string"

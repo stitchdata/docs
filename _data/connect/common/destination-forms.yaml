@@ -1,0 +1,91 @@
+# -------------------------- #
+#  COMMON DESTINATION FIELDS #
+# -------------------------- #
+
+# This file contains the fields that are common to destination connections.
+
+all-destinations:
+  - name: "database"
+    required: true
+    type: "string"
+    description: "The name of the logical database to connect to."
+    value: |
+      "<DATABASE_NAME>"
+
+  - name: "host"
+    required: true
+    type: "string"
+    description: "The IP address or hostname of the database server."
+    value: |
+      "<HOST_ADDRESS>"
+
+  - name: "password"
+    required: true
+    type: "string"
+    description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
+    value: |
+      "<PASSWORD>"
+
+  - name: "port"
+    required: true
+    type: "integer"
+    description: "The port of the database server. The default is `{{ port }}`."
+    value: "{{ port }}"
+
+  - name: "user"
+    required: true
+    type: "string"
+    description: "The username of the database user."
+    value: |
+      "<USERNAME>"
+
+
+# -------------------------- #
+#         SSH FIELDS         #
+# -------------------------- #
+
+ssh:
+  - name: "encryption_host"
+    required: false
+    type: "string"
+    description: "If using SSH encryption, the host of the SSH server. Required only if `encryption_type` is `ssh`."
+    value: |
+      "<ENCRYPTION_HOST_ADDRESS>"
+
+  - name: "encryption_port"
+    required: false
+    type: "integer"
+    description: "If using SSH encryption, the port of the SSH server. Required only if `encryption_type` is `ssh`."
+    value: |
+      <ENCRYPTION_PORT>
+
+  - name: "encryption_type"
+    required: true
+    type: "string"
+    description: |
+      Indicates that SSH encryption should be used to connect to the destination. Valid values are:
+
+      - `none` - No encryption will be used.
+      - `ssh` - SSH encryption will be used to connect to the destination. The SSH connection details should be submitted using the `encryption_host`, `encryption_port`, and `encryption_username`.
+
+    value: |
+      "ssh"
+
+  - name: "encryption_username"
+    required: false
+    type: "string"
+    description: "If using SSH encryption, the name of the SSH user. Required only if `encryption_type` is `ssh`."
+    value: |
+      "<ENCRYPTION_USERNAME>"
+
+
+# -------------------------- #
+#         SSL FIELDS         #
+# -------------------------- #
+
+ssl:
+  - name: "ssl"
+    required: false
+    type: "boolean"
+    description: "If `true`, SSL will be used to connect to the database."
+    value: "true"

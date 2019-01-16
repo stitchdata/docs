@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "email_events"
 doc-link: https://developers.hubspot.com/docs/methods/email/email_events_overview
@@ -8,11 +8,19 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `email_events` table contains info about email events and how recipients interact with content.
 
-notes: 
+  #### Email events and HubSpot permissions
 
-replication-method: "Incremental"
+  Replicating this table requires **Super Admin** permissions in HubSpot. The Super Admin role is different than the Admin role, which you can read more about in [HubSpot's documentation](https://knowledge.hubspot.com/articles/kcs_article/settings/hubspot-user-roles-guide#admin).
+
+  If this table is selected and you don't have Super Admin permissions in HubSpot, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
+
+  ```
+  tap - ERROR b'{"status":"error","message":"This oauth-token (**********) does not have proper permissions! (requires any of [email-access])", [...]
+  ```
+
+replication-method: "Key-based Incremental"
 api-method:
-  name: getEventsForCampaignOrRecipient
+  name: "Get events for campaign or recipient"
   doc-link: https://developers.hubspot.com/docs/methods/email/get_events
 
 attributes:
@@ -22,6 +30,7 @@ attributes:
     primary-key: true
     replication-key: true
     description: "The ID of the event."
+    # foreign-key-id: "email-event-id"
 
   - name: "appId"
     type: "integer"
@@ -74,6 +83,7 @@ attributes:
   - name: "emailCampaignId"
     type: "integer"
     description: "The ID of the email campaign that the email message is a part of."
+    foreign-key-id: "campaign-id"
 
   - name: "emailCampaignGroupId"
     type: "integer"
@@ -118,6 +128,7 @@ attributes:
   - name: "portalId"
     type: "integer"
     description: "The ID of the {{ integration.display_name }} portal that sent the email message."
+    foreign-key-id: "portal-id"
 
   - name: "recipient"
     type: "string"

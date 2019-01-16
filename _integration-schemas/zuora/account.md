@@ -6,9 +6,9 @@ name: "account"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
 #singer-schema: 
 description: |
-  The `account` table contains information about the customer accounts in your Zuora instance.
+  The `{{ table.name }}` table contains information about the customer accounts in your Zuora instance.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:
@@ -18,21 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The account ID."
-    ## foreign-keys:
-    ##   - table-name: "contact"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "invoice"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "payment"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "refund"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "subscription"
-    ##     attribute: "accountId"
+    foreign-key-id: "account-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -74,12 +60,12 @@ attributes:
   - name: "billToContactId"
     type: "string"
     description: "The ID of the person to bill for the account."
-    foreign-key: true
+    foreign-key-id: "bill-to-contact-id"
 
   - name: "communicationProfileId"
     type: "string"
     description: "The ID of the communication profile associated with the account."
-    foreign-key: true
+    foreign-key-id: "communication-profile-id"
 
   - name: "createdById"
     type: "string"
@@ -108,7 +94,7 @@ attributes:
   - name: "defaultPaymentMethodId"
     type: "string"
     description: "The ID of the default payment method for the account."
-    foreign-key: true
+    foreign-key-id: "default-payment-method-id"
 
   - name: "deleted"
     type: "boolean"
@@ -142,6 +128,7 @@ attributes:
   - name: "parentAccountId"
     type: "string"
     description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    foreign-key-id: "parent-account-id"
 
   - name: "paymentGateway"
     type: "string"
@@ -162,7 +149,7 @@ attributes:
   - name: "soldToContactId"
     type: "string"
     description: "The ID of the person who bought the subscription associated with the account."
-    foreign-key: true
+    foreign-key-id: "sold-to-contact-id"
 
   - name: "status"
     type: "string"

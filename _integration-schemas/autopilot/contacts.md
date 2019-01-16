@@ -9,7 +9,7 @@ description: |
 
   Any custom fields associated with contacts will also be replicated.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "getAllContacts"
   doc-link: http://docs.autopilot.apiary.io/#reference/api-methods/get-all-contacts

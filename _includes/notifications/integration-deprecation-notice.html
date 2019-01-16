@@ -1,5 +1,3 @@
-{% assign integration = page %}
-
 <!-- Lists all released veresions -->
 {% assign released-versions = site.data.taps.versions.[integration.name].released-versions %}
 
@@ -11,40 +9,41 @@
 
 
 {% for version in released-versions %}
-    {% if version.number == latest-version %}
-        {% capture latest-version-release-date %}
-            {{ version.date-released }}
-        {% endcapture %}
-    {% endif %}
-
     {% if version.number == integration.this-version %}
         {% if version.deprecated == true %}
 
-            {% if version.deprecation-date %}
-                {% capture deprecation %}
-                    <strong>Version {{ version.number }} Deprecation</strong><br>
+    <!-- Get the title for the callout block -->
+        {% capture first-line %}
+            **Version {{ version.number }} deprecation**
+        {% endcapture %}
 
-                    This version of the {{ integration.display_name }} integration will be deprecated on <strong>{{ version.deprecation-date }}</strong> and no longer be formally supported by the Stitch Support Team.<br><br>
+{% if version.deprecation-date == "n/a" or version.deprecation-date == "To be determined" %}
 
-                    <strong>Connections created from {{ version.date-released }} to {{ latest-version-release-date }} use this version.</strong> <a href="{{ site.baseurl }}/integrations/{% if page.url contains "databases" %}databases{% elsif page.url contains "saas" %}saas{% elsif page.url contains "webhooks" %}webhooks{% endif %}/{{ integration.name }}">
-                        Upgrade to the latest version ({{ latest-version }}) to take advantage of the new enhancements.
-                    </a>
-                {% endcapture %}
+<!-- If the version doesn't have a deprecation date yet -->
+<!-- And keep everything flush left, otherwise Jekyll throws a fit -->
 
-            {% else %}
-                {% capture deprecation %}
-                    <strong>Version {{ version.number }} Deprecation</strong><br>
+{% capture deprecation %}
+A newer version of {{ integration.display_name }} is available in Stitch. This version will still continue to replicate data, but may be deprecated at a future date.
 
-                    A newer version of {{ integration.display_name }} is available in Stitch. This version will still continue to replicate data, but may be deprecated at a future date.<br><br>
+**Connections created before {{ version.date-last-connection }} use this version.** <a href="{{ site.baseurl }}/integrations/{% if page.url contains "databases" %}databases{% elsif page.url contains "saas" %}saas{% elsif page.url contains "webhooks" %}webhooks{% endif %}/{{ integration.name }}">
+Upgrade to the latest version ({{ latest-version }}) to take advantage of the new enhancements.
+</a>
+{% endcapture %}
 
-                     <strong>Connections created before {{ latest-version-release-date }} use this version.</strong> <a href="{{ site.baseurl }}/integrations/{% if page.url contains "databases" %}databases{% elsif page.url contains "saas" %}saas{% elsif page.url contains "webhooks" %}webhooks{% endif %}/{{ integration.name }}">
-                        Upgrade to the latest version ({{ latest-version }}) to take advantage of the new enhancements.
-                    </a>
-                {% endcapture %}
-                
-            {% endif %}
+{% else %}
 
-            {% include important.html content=deprecation %}
+<!-- If the version has a deprecation date, display it -->
+{% capture deprecation %}
+This version of the {{ integration.display_name }} integration will be deprecated on **{{ version.deprecation-date }}** and no longer be formally supported by the Stitch Support Team.
+
+**Connections created from {{ version.date-released }} to {{ version.date-last-connection }} use this version.** <a href="{{ site.baseurl }}/integrations/{% if page.url contains "databases" %}databases{% elsif page.url contains "saas" %}saas{% elsif page.url contains "webhooks" %}webhooks{% endif %}/{{ integration.name }}">
+    Upgrade to the latest version ({{ latest-version }}) to take advantage of the new enhancements.
+</a>
+{% endcapture %}
+{% endif %}
+
+
+            {% include important.html first-line=first-line content=deprecation %}
         {% endif %}
     {% endif %}
 {% endfor %}

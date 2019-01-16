@@ -1,0 +1,41 @@
+---
+layout: page
+---
+{% include misc/data-files.html %}
+
+{% for section in page.sections %}
+    {% if section.title %}
+        <h2 id="{{ section.anchor }}">{{ section.title | flatify }}</h2>
+    {% endif %}
+
+        {{ section.content | flatify | markdownify }}
+
+<!-- If a section has subsections -->
+    {% if section.subsections %}
+        {% for subsection in section.subsections %}
+            {% if subsection.title %}
+                <h3 id="{{ subsection.anchor | flatify }}">{{ subsection.title | flatify }}</h3>
+            {% endif %}
+
+            {{ subsection.content | flatify | markdownify }}
+
+        <!-- If a subsection has its own subsections -->
+            {% if subsection.sub-subsections %}
+                {% for sub-subsection in section.sub-subsections %}
+                    {% if sub-subsection.title %}
+                        <h4 id="{{ sub-subsection.anchor | flatify }}">{{ sub-subsection.title | flatify }}</h4>
+                    {% endif %}
+
+                    {{ sub-subsection.content | flatify | markdownify }}
+
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% unless forloop.last == true %}
+        <hr>
+    {% endunless %}
+{% endfor %}
+
+{{ content }}

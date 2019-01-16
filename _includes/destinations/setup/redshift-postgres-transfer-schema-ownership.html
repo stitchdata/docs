@@ -1,5 +1,13 @@
+{% case page.display_name %}
+   {% when "Heroku" %}
+      {% assign username = "<heroku_database_user>" %}
 
-#### Transfer Integration Schema & Table Ownership
+   {% else %}
+      {% assign username = "<stitch_username>" %}
+{% endcase %}
+
+
+#### Transfer integration schema and table ownership
 
 When an integration is initially connected to Stitch, a schema specific to that connection is created in your data warehouse. Ownership to those schemas and all the tables contained within them must be granted to the Stitch user for data replication to be successful.
 
@@ -15,7 +23,7 @@ When an integration is initially connected to Stitch, a schema specific to that 
 2. Transfer ownership of the integration schema to the Stitch user:
 
    ```sql
-   ALTER SCHEMA [schema_name] OWNER TO [stitch_username];
+   ALTER SCHEMA <schema_name> OWNER TO {{ username }};
    ```
 
 3. Next, you'll transfer ownership of all tables in the integration schema to the Stitch user. There are two ways to accomplish this: table-by-table or running a script.
@@ -25,15 +33,17 @@ When an integration is initially connected to Stitch, a schema specific to that 
    For every table in the schema not owned by the Stitch user - as outlined in step 1 - use this command to transfer ownership:
 
    ```sql
-   ALTER TABLE [table_name] OWNER TO  [stitch_username];
+   ALTER TABLE <table_name> OWNER TO {{ username }};
    ```
 
+{% unless page.display_name == "Heroku" %}
    ##### Script
 
    To transfer ownership automatically, run this script from the command line:
 
    ```psql
-   for table in `psql -qAt --host [your.{{ destination.type }}.amazonaws.com] --port [port] --user [admin_user] -c "select tablename from pg_tables where schemaname = '[schema_name]';" [database_name]` ; do psql -qAt --host [your.{{ destination.type }}.amazonaws.com] --port [port] --user [admin_user] -c "alter table \"[schema_name]\".\"$table\" owner to [stitch_username];" [database_name] ; done
+   for table in `psql -qAt --host [your.{{ destination.type }}.amazonaws.com] --port [port] --user [admin_user] -c "select tablename from pg_tables where schemaname = '[schema_name]';" {{ database_name }} ` ; do psql -qAt --host [your.{{ destination.type }}.amazonaws.com] --port [port] --user [admin_user] -c "alter table \"[schema_name]\".\"$table\" owner to [stitch_username];" [database_name] ; done
    ```
+{% endunless %}
 
 **Note:** If you need to transfer ownership of more than one schema and its tables, you'll need to repeat steps 2 and 3 for every integration schema.

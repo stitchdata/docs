@@ -34,6 +34,9 @@ tier: "Free"
 status-url: "https://status.zapier.com/"
 icon:  /images/integrations/icons/zapier.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
@@ -56,7 +59,7 @@ tables:
 {% capture intro %}
 Zapier is incredibly useful, powerful, and flexible. Because Zapier gives you complete control over how your data is defined and sent, we'll walk you through the setup using a Zap we use at Stitch every day.
 
-Whenever you provide feedback to us while chatting on Drift, we record it using a Google Form. We set up a Zap that sends new submissions to our data warehouse, where we can analyze them and determine what our top priorities for development are. Additionally, everyone is notified of a new submission via email and a notification in Slack.
+Whenever you provide feedback to us while chatting on Intercom, we record it using a Google Form. We set up a Zap that sends new submissions to our data warehouse, where we can analyze them and determine what our top priorities for development are. Additionally, everyone is notified of a new submission via email and a notification in Slack.
 {% endcapture %}
 
 {% include integrations/webhooks/webhook-setup.html %}

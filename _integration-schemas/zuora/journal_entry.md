@@ -6,9 +6,9 @@ name: "journalEntry"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
 #singer-schema: 
 description: |
-  The `journalEntry` table contains information about 
+  The `{{ table.name }}` table contains information about 
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name:
   doc-link:
@@ -17,12 +17,12 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "The account ID."
+    description: "The journal entry ID."
 
   - name: "updatedDate"
     type: "date-time"
     replication-key: true
-    description: "The date when the account was last updated."
+    description: "The date when the journal entry was last updated."
 
   - name: "accountingPeriodId"
     type: "string"
@@ -53,7 +53,7 @@ attributes:
   - name: "journalRunId"
     type: "string"
     description: "The ID of the journal run associated with the journal entry."
-    foreign-key: true
+    foreign-key-id: "journal-run-id"
 
   - name: "notes"
     type: "string"
@@ -86,5 +86,4 @@ attributes:
   - name: "transferredBy"
     type: "string"
     description: "The ID of the Zuora user who changed the value of `transferredToAccounting` to `Yes`. This field will be `NULL` otherwise."
-
 ---

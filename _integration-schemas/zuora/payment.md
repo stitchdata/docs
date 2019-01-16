@@ -7,13 +7,14 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Payments
 description: |
   The `payment` table contains info about customer payments.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The payment ID."
+    foreign-key-id: "payment-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,22 +24,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the payment."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "id"
-
-    ##   - table-name: "contact"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "invoice"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "refund"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "subscription"
-    ##     attribute: "accountId"
+    foreign-key-id: "account-id"
 
   - name: "amount"
     type: "number"
@@ -127,26 +113,17 @@ attributes:
   - name: "paymentId"
     type: "string"
     description: "The ID of the payment that is paymented."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "payment"
-    ##     attribute: "id"
+    foreign-key-id: "payment-id"
 
   - name: "paymentMethodId"
     type: "string"
     description: "The unique ID of the payment method that the customer used to make the payment."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "paymentMethod"
-    ##     attribute: "id"
+    foreign-key-id: "payment-method-id"
 
   - name: "paymentMethodSnapshotId"
     type: "string"
     description: "The unqiue ID of the payment method snapshot, which is a copy of the particular payment method used in a transaction."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "paymentMethodSnapshot"
-    ##     attribute: "id"
+    # foreign-key-id: "payment-method-snapshotid"
 
   - name: "paymentTransactionTime"
     type: "date-time"
@@ -160,7 +137,7 @@ attributes:
     type: "number"
     description: "The amount of the payment that is refunded, if applicable."
 
-  - name: "secondpaymentReferenceId"
+  - name: "secondPaymentReferenceId"
     type: "string"
     description: "The transaction ID returned by the payment gateway if there is an additional transaction for the payment."
 
@@ -205,5 +182,4 @@ attributes:
   - name: "updatedById"
     type: "string"
     description: "The ID of the Zuora user who last updated the payment."
-
 ---

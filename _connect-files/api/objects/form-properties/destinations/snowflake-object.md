@@ -1,58 +1,46 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-snowflake-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Snowflake Destination Form Property"
-description: "{{ api.form-properties.destination-forms.snowflake.description }}"
+api-type: "snowflake"
+display-name: "Snowflake"
+
+docs-name: "snowflake"
+db-type: "snowflake"
+
+description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-common-fields: true
+## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 
 object-attributes:
-  - name: "host"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.host }}"
-
-  - name: "port"
-    type: "integer"
-    required: true
-    description: "{{ connect.common.attributes.port }}"
-
-  - name: "database"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.database }}"
-
-  - name: "username"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.username }}"
-
-  - name: "password"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.password }}"
-
-  - name: "ssl"
-    type: "boolean"
-    required: false
-    description: "{{ connect.common.attributes.ssl }}"
-
   - name: "role"
     type: "string"
     required: false
     description: "The role to use."
+    value: |
+      "<OPTIONAL_ROLE>"
 
-examples:
-  - code: |
-      {
-         "connection":{
-            "host":"some-thing.snowflakecomputing.com",
-            "port":443,
-            "warehouse": "stitch_warehouse",
-            "database":"stitch",
-            "username":"stitch_user",
-            "password":"<PASSWORD>",
-            "role":"optional_role"
-         }
-      }
+  - name: "warehouse"
+    type: "string"
+    required: true
+    description: "The name of the Snowflake warehouse Stitch will connect to."
+    value: |
+      "<WAREHOUSE>"
 ---

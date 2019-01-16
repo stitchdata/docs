@@ -13,10 +13,15 @@
 {% if integration.display_name == 'Google ECommerce' %}
 4. Click **Sign in with Google Analytics.**
 {% else %}
-4. Enter a name for the integration. This is the name that will display on the {{ app.integration-names.dashboard }} for the integration; it’ll also be used to create the schema in your destination.
+4. Enter a name for the integration. This is the name that will display on the {{ app.page-names.dashboard }} for the integration; it’ll also be used to create the schema in your destination.
 
-   For example, the name “Stitch {{ integration.display_name | remove: "." | remove: "(" | remove: ")" }}” would create a schema called `stitch_{{ integration.display_name | remove: "." | replace: " ", "_" | replace: "-", "_" | remove: "(" | remove: ")" | downcase }}` in the destination. **Note**: Schema names cannot be changed after you save the integration.
+   For example, the name “Stitch {{ integration.display_name | remove: "(" | remove: ")" }}” would create a schema called `stitch_{{ integration.display_name | remove: "." | replace: " ", "_" | replace: "-", "_" | remove: "(" | remove: ")" | downcase }}` in the destination. **Note**: Schema names cannot be changed after you save the integration.
 {% endif %}
-{% if integration.type == "Webhook" and integration.branded == true %}
+{% case integration.type %}
+{% when 'Webhook' %}
+{% if integration.branded == true %}
 5. Click {{ app.buttons.save-int-settings }}.
 {% endif %}
+{% when 'import-api' %}
+5. Click {{ app.buttons.create-api-token }}.
+{% endcase %}

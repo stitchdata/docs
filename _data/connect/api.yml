@@ -61,7 +61,13 @@ core-objects:
       title: "Create a session"
       method: *post
       anchor: "#create-a-session"
-      description: "Creates a session in the Stitch web application. The session will be for the user for whom the API access token was created."
+      short: "Generates an ephemeral token to create a session in the Stitch web application. Ephemeral tokens expire after one hour."
+      description: |
+         {{ site.data.connect.api.core-objects.sessions.create.short }}
+
+         Ephemeral tokens are used to [create a session](https://www.stitchdata.com/docs/stitch-connect/javascript-client) with the Connect JavaScript client. The session will be for the user for whom the API access token was created.
+
+         After the ephemeral token is used to create a session, the created session will expire once terminated or after 12 hours.
 
 # -------------------------- #
 #        Destinations        #
@@ -70,7 +76,7 @@ core-objects:
     title: "Destinations"
     section: "#destinations"
     object: "#destination--object"
-    base: "/v3/destinations"
+    base: "/v4/destinations"
     description: "An object representing a destination. Destinations are the data warehouses into which Stitch writes data."
 
     create:
@@ -98,6 +104,55 @@ core-objects:
       short: "Lists the destination currently in use for a Stitch account."
       description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single data warehouse is supported per Stitch client account."
 
+    delete:
+      name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
+      title: "Delete a destination"
+      method: "delete"
+      anchor: "#delete-a-destination"
+      short: "Deletes an existing destination."
+      description: |
+        {{ site.data.connect.api.core-objects.destinations.delete.short }}
+
+        **Note**: Stitch requires a destination to replicate data. Replication will be paused until a new destination is created and has a successful connection.
+
+
+# -------------------------- #
+#      Destination Types     #
+# -------------------------- #
+  destination-types:
+    title: "Destination Types"
+    section: "#destination-types"
+    object: "#destination-type--object"
+    base: "/v4/destination-types"
+    description: "The Destination Type object contains the information needed to configure a destination."
+
+    get:
+      name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{type}"
+      title: "Get a destination type"
+      method: *get
+      anchor: "#get-a-destination-type"
+      short: "Retrieves general information about the configuration required for a destination type."
+      description: |
+        {{ site.data.connect.api.core-objects.destination-types.get.short }}
+
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of a destination in a single account. Instead, it will return general configuration information for the specified destination `type`.
+
+        To retrieve specific information about the destination for an account, use the [List Destinations]({{ site.data.connect.api.core-objects.destinations.list.anchor }}) endpoint.
+
+    list:
+      name: "{{ site.data.connect.api.core-objects.destination-types.base }}"
+      title: "List destination types"
+      method: *get
+      anchor: "#list-destination-types"
+      short: "Retrieves general information about the configuration required for all supported destination types."
+      description: |
+        {{ site.data.connect.api.core-objects.destination-types.list.short }}
+
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of a destination in a single account. Instead, it will return general configuration information for all supported destination types.
+
+        To retrieve specific information about the destination for an account, use the [List Destinations]({{ site.data.connect.api.core-objects.destinations.list.anchor }}) endpoint.
+
+
 # -------------------------- #
 #          Sources           #
 # -------------------------- #
@@ -117,9 +172,7 @@ core-objects:
       description: |
         {{ site.data.connect.api.core-objects.sources.create.short }} After the source object is created, additional configuration steps must be completed.
 
-        The configuration process is unique for each type of source. Use the source's `report_card` object's `current_step` attribute to identify the current `step` in configuring the source.
-
-        The `report_card` object's `current_step_hints` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the current step.
+        The configuration process is unique for each type of source. The `report_card` object's `steps` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the appropriate step.
 
     update:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
@@ -127,6 +180,13 @@ core-objects:
       method: *put
       anchor: "#update-a-source"
       description: "Updates an existing data source."
+
+    delete:
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
+      title: "Delete a source"
+      method: "delete"
+      anchor: "#delete-a-source"
+      description: "Deletes an existing data source."
 
     retrieve:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
@@ -140,7 +200,7 @@ core-objects:
       title: "List sources"
       method: *get
       anchor: "#list-sources"
-      description: "List the sources for an account, including active, paused, and deleted sources."
+      description: "Lists the sources for an account, including active, paused, and deleted sources."
 
 # -------------------------- #
 #        Source Types        #
@@ -161,7 +221,7 @@ core-objects:
       description: |
         {{ site.data.connect.api.core-objects.source-types.get.short }}
 
-        **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified `type`.
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `type`.
 
         To retrieve information about a specific data source, use the [Get a Source]({{ site.data.connect.api.core-objects.sources.retrieve.anchor }}) endpoint.
 
@@ -170,7 +230,7 @@ core-objects:
       title: "List source types"
       method: *get
       anchor: "#list-source-types"
-      short: "Retrieves general information about the configuration required for all support data source types."
+      short: "Retrieves general information about the configuration required for all supported data source types."
       description: |
         {{ site.data.connect.api.core-objects.source-types.list.short }}
 
@@ -193,25 +253,16 @@ data-structures:
   connection-steps:
     title: "Connection Steps"
     section: "#connection-step-object"
-    description: "Contained in the [Report Card object]({{ api.data-structures.report-cards.section }}), the Connection Steps object contains the steps necessary to configure a data source or destination."
+    description: "Contained in a [Source]({{ api.data-structures.report-cards.source.section }}) or [Destination]({{ api.data-structures.report-cards.destination.section }}) Report Card object, the Connection Steps object contains the steps necessary to configure a data source or destination."
 
-  current-step-hints:
-    title: "Current Step Hints"
-    section: "#current-step-hint-object"
+  details:
+    title: "Details"
+    section: "#details-object"
+    short: "A Details object contains information about a destination `type`'s availablity within Stitch."
     description: |
-      Contained within the Report Card object, the Current Step Hint object provides the function to call and properties to pass to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}).
+      Contained in a [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}), the Details object contains information about a destination `type`'s availability within Stitch.
 
-      Otherwise, this object will provide information about the next call to make to the API.
-
-    api-hints:
-      title: "API Hints"
-      section: "#current-step-api-hint-object"
-      description: "This object describes the actions requires to complete the current connection step using the API, if applicable."
-
-    stitch-connect-js-hints:
-      title: "JavaScript Hints"
-      section: "#current-step-stitch-js-hint-object"
-      description: "This object describes the actions required to complete the current connection step using the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}), if applicable."
+      **Note**: This object will only be returned when using a `GET` method.
 
   properties:
     title: "Properties"
@@ -222,7 +273,17 @@ data-structures:
   report-cards:
     title: "Report Cards"
     section: "#report-card-object"
-    description: "A Report Card object contains information about a connection's configuration."
+    description: "A Report Card object contains information about a source or destination connection's configuration."
+
+    destination:
+      title: "Destination Report Card Object"
+      section: "#report-card-object--destination"
+      description: "A Destination Report Card object contains information about a destination's connection configuration."
+
+    source:
+      title: "Source Report Card Object"
+      section: "#report-card-object--source"
+      description: "A Source Report Card object contains information about a source's connection configuration."
 
 # -------------------------- #
 #       FORM PROPERTIES      #
@@ -257,58 +318,3 @@ form-properties:
 # -------------------------- #
   source-forms:
     section: "#source-form-properties"
-
-    aurora:
-      title: "Amazon Aurora"
-      section: "#source-form-properties-aurora-object"
-      description: "An Amazon Aurora connection reads data from a Amazon Aurora database and corresponds to source `type: platform.aurora`."
-
-    bing-ads:
-      title: "Bing Ads"
-      section: "#source-form-properties-bing-ads-object"
-      description: "A Bing Ads connection reads data from the Bing Ads API and corresponds to source `type: platform.bingads`."
-
-    cloudsql-mysql:
-      title: "Google CloudSQL MySQL"
-      section: "#source-form-properties-cloudsql-mysql-object"
-      description: "A Google CloudSQL MySQL connection reads data from a Google CloudSQL MySQL database and corresponds to source `type: platform.cloudsql`."
-
-    facebook-ads:
-      title: "Facebook Ads"
-      section: "#source-form-properties-facebook-ads-object"
-      description: "A Facebook Ads connection reads data from the Facebook Ads API and corresponds to source `type: platform.facebook`."
-
-    google-adwords:
-      title: "Google AdWords"
-      section: "#source-form-properties-google-adwords-object"
-      description: "A Google AdWords connection reads data from the Google AdWords API and corresponds to source `type: platform.adwords`."
-
-    hubspot:
-      title: "HubSpot"
-      section: "#source-form-properties-hubspot-object"
-      description: "A HubSpot connection reads data from the HubSpot API and corresponds to source `type: platform.hubspot`."
-
-    mariadb:
-      title: "mariadb"
-      section: "#source-form-properties-mariadb-object"
-      description: "A MariaDB connection reads data from a MariaDB database and corresponds to source `type: platform.mariadb`."
-
-    marketo:
-      title: "Marketo"
-      section: "#source-form-properties-marketo-object"
-      description: "A Marketo connection reads data from the Marketo API and corresponds to source `type: platform.marketo`."
-
-    mysql:
-      title: "MySQL"
-      section: "#source-form-properties-mysql-object"
-      description: "A MySQL connection reads data from a MySQL database and corresponds to source `type: platform.mysql`."
-
-    salesforce:
-      title: "Salesforce"
-      section: "#source-form-properties-salesforce-object"
-      description: "A Salesforce connection reads data from the Salesforce API and corresponds to source `type: platform.salesforce`."
-
-    zuora:
-      title: "Zuora"
-      section: "#source-form-properties-zuora-object"
-      description: "A Zuora connection reads data from the Zuora API and corresponds to source `type: platform.zuora`."

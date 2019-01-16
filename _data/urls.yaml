@@ -50,10 +50,11 @@ destinations:
     switch-bigquery-destination: /destinations/bigquery/changing-google-bigquery-destination-data-locations
 
     amazon-s3: /destinations/amazon-s3/
+    redshift: /destinations/redshift/
     bigquery: /destinations/bigquery/
     bigquery-pricing: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
     data-world: /destinations/data-world/
-    redshift: /destinations/redshift/
+    azure: /destinations/microsoft-azure-sql-data-warehouse/
     postgres: /destinations/postgresql/
     panoply: /destinations/panoply/
     snowflake: /destinations/snowflake/
@@ -61,10 +62,14 @@ destinations:
 ## Setup Guides
 ## used as link.destinations.setup.[id]
   setup:
-    amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch 
+    amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
+
     bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
 
     data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
+
+    azure: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
+    azure-ssh: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
 
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
     panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
@@ -86,6 +91,7 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
+    overview: /data-structure/loading-stitch-data-into-destinations
     bigquery: /data-structure/bigquery-data-loading-behavior
     panoply: /data-structure/panoply-data-loading-behavior
     postgres: /data-structure/postgresql-data-loading-behavior
@@ -106,6 +112,8 @@ destinations:
     nested-structures: /data-structure/nested-data-structures-row-count-impact
     rejected-records: /data-structure/identifying-rejected-records
     redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
+    bigquery-partitioning: /destinations/bigquery/apply-table-partitioning-clustering
+    azure-primary-keys: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
 
 # -------------------------- #
 #         INTEGRATIONS       #
@@ -141,11 +149,19 @@ replication:
   supported-data-types: /replication/supported-data-types
 
 ## Replication Frequency
-  rep-frequency: /replication/replication-frequency
+  rep-scheduling: /replication/replication-scheduling
+  rep-frequency: "/replication/replication-scheduling#replication-frequency"
+  anchor-scheduling: "/replication/replication-scheduling#anchor-scheduling"
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
-  append-only: /data-structure/querying-append-only-tables
+  append-only: "/replication/replication-methods#append-only-incremental-replication"
+  log-based-incremental: /replication/replication-methods/log-based-incremental
+  key-based-incremental: /replication/replication-methods/key-based-incremental
+  full-table: /replication/replication-methods/full-table
+
+  append-only-querying: /data-structure/querying-append-only-tables
+  deleted-records: "/replication/deleted-record-handling"
 
 ## Replication Keys
   rep-keys: /replication/replication-keys
@@ -197,6 +213,7 @@ troubleshooting:
   mysql-tinyint-bit: /troubleshooting/mysql-tinyint1-stored-as-bit
   salesforce-formula-fields: /troubleshooting/stale-salesforce-data-formula-fields
   segment-missing-data: /troubleshooting/missing-segment-data-selective-integration-snippet
+  database-table-name-collisions: /troubleshooting/data-discrepancies/database-integration-table-name-collisions
 
 ## Replication
   postgres-hot-standby: /troubleshooting/postgres-hot-standby-settings-replication
@@ -209,6 +226,7 @@ troubleshooting:
   dw-loading-errors: /troubleshooting/destinations/data-loading-errors
   view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
   aws-io-errors: /troubleshooting/destinations/aws-io-errors
+  mysql-extraction-errors: /troubleshooting/integrations/mysql-database-extraction-errors
 
 ## Connection Errors
   saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors

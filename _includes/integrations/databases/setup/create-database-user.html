@@ -1,69 +1,15 @@
-{% if integration.name == "rds" %}
-This is the part of the process where the steps will vary depending on the database you're using. The idea is the same, though: you'll create a user for Stitch which we'll use to access your database.
+{% case integration.db-type %}
 
-<ul id="profileTabs" class="nav nav-tabs">
-    <li class="active">
-        <a href="#default" data-toggle="tab">Select Database Type</a>
-    </li>
-    <li>
-        <a href="#postgres" data-toggle="tab">PostgreSQL</a>
-    </li>
-    <li>
-        <a href="#mysql" data-toggle="tab">MySQL</a>
-    </li>
-    <li>
-        <a href="#mssql" data-toggle="tab">Microsoft SQL Server</a>
-    </li>
-    <li>
-        <a href="#mongo" data-toggle="tab">Mongo</a>
-    </li>
-</ul>
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane" id="default">
-        Click the tab for the type of database you're connecting to view instructions for creating the user.
-    </div>
-    <div role="tabpanel" class="tab-pane" id="postgres">
-{% capture postgres %}
-{% include integrations/databases/setup/db-users/postgres.html %}
-{% endcapture %}
-
-{{ postgres | flatify | markdownify }}
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="mysql">
-{% capture mysql %}
-{% include integrations/databases/setup/db-users/mysql.html %}
-{% endcapture %}
-
-{{ mysql | flatify | markdownify }}
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="mssql">
-{% capture mssql %}
-{% include integrations/databases/setup/db-users/mssql.html %}
-{% endcapture %}
-
-{{ mssql | flatify | markdownify }}
-    </div>
-
-    <div role="tabpanel" class="tab-pane" id="mongo">
-{% capture mongo %}
-{% include integrations/databases/setup/db-users/mongo.html %}
-{% endcapture %}
-
-{{ mongo | flatify | markdownify }}
-    </div>
-</div>
-
-{% elsif integration.db-type == "postgres" %}
+{% when 'postgres' %}
 {% include integrations/databases/setup/db-users/postgres.html %}
 
-{% elsif integration.db-type == "mysql" %}
+{% when 'mysql' %}
 {% include integrations/databases/setup/db-users/mysql.html %}
 
-{% elsif integration.db-type == "mssql" %}
+{% when 'mssql' %}
 {% include integrations/databases/setup/db-users/mssql.html %}
 
-{% elsif integration.db-type == "mongo" %}
+{% when 'mongo' %}
 {% include integrations/databases/setup/db-users/mongo.html %}
-{% endif %}
+
+{% endcase %}

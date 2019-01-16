@@ -5,19 +5,20 @@ version: 1.0
 name: "ratePlan"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Rate-Plans
 description: |
-  The `ratePlan` table contains info about rate plans, which is a price or collection of prices for services.
+  The `{{ table.name }}` table contains info about rate plans, which is a price or collection of prices for services.
 
-  #### Custom Fields
+  #### Custom Fields {#rate-plan-custom-fields}
 
   In addition to the attributes listed below, our Zuora integration will also replicate any custom fields.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The rate plan ID."
+    foreign-key-id: "rate-plan-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -27,7 +28,7 @@ attributes:
   - name: "amendmentId"
     type: "string"
     description: "The ID of the amendment associated with the rate plan."
-    foreign-key: true
+    foreign-key-id: "amendment-id"
 
   - name: "amendmentType"
     type: "string"
@@ -36,7 +37,7 @@ attributes:
   - name: "billToContactId"
     type: "string"
     description: "The ID of the person to bill for the account associated with the rate plan."
-    foreign-key: true
+    foreign-key-id: "bill-to-contact-id"
 
   - name: "deleted"
     type: "boolean"
@@ -58,18 +59,12 @@ attributes:
   - name: "productRatePlanId"
     type: "string"
     description: "The ID of the associated product rate plan."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "productRatePlan"
-    ##     attribute: "id"
+    foreign-key-id: "product-rate-plan-id"
 
   - name: "subscriptionId"
     type: "string"
     description: "The ID of the subscription that the rate plan belongs to."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "subscription"
-    ##     attribute: "id"
+    foreign-key-id: "subscription-id"
 
   - name: "updatedById"
     type: "string"

@@ -13,6 +13,16 @@ replication-method: "Append-Only (Incremental)"
 attribution-window: true
 
 attributes:
+  - name: "{{ system-column.primary-key }}"
+    type: "string"
+    primary-key: true
+    description: "{{ system-column.primary-key-description }}"
+
+  - name: "day"
+    type: "date-time"
+    replication-key: true
+    description: "The day the record pertains to."
+
   - name: "{{ system-column.customer-id }}"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
@@ -20,16 +30,6 @@ attributes:
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"
     description: "The start time of the Stitch replication job that replicated this record."
-
-  - name: "{{ system-column.primary-key }}"
-    type: "string"
-    description: "{{ system-column.primary-key-description }}"
-
-  - name: "day"
-    type: "date-time"
-    primary-key: true
-    replication-key: true
-    description: "The day the record pertains to."
 
   - name: "Custom Fields"
     description: |

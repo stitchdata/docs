@@ -21,13 +21,13 @@ sections:
 
       All requests must be made over HTTPS or they will fail. API requests that don't contain authentication will also fail.
 
-  - title: "Generate Access Tokens"
+  - title: "Generate access tokens"
     anchor: "generate-access-tokens"
     content: |
       Access tokens are obtained by performing an OAuth2 handshake with an existing Stitch client account or by creating a new account via the API.
 
     subsections:
-      - title: "New Stitch Clients"
+      - title: "New Stitch clients"
         anchor: "generate-access-token-new-stitch-client"
         content: |
           As an API client, you can create a new Stitch client account with the [Create Account endpoint]({{ api.core-objects.accounts.create.section }}):
@@ -45,7 +45,7 @@ sections:
                   }"
           ```
 
-          When successful, this endpoint return a status of `200 OK` and an access token:
+          When successful, this endpoint returns a status of `200 OK` and an access token:
 
           ```json
           {
@@ -55,10 +55,16 @@ sections:
 
           The created account is owned and managed by the user it is created for, and that user will be able to login to the Stitch web interface and receive emails from Stitch.
 
-      - title: "Existing Stitch Clients, Using OAuth2"
+      - title: "Existing Stitch clients, using OAuth2"
         anchor: "existing-stitch-clients-oauth2"
         content: |
-          You can connect to a user's existing Stitch client account by having the user complete a standard OAuth flow. Registering your application with Stitch is a prerequisite to generating tokens with OAuth, so do that first. Then, follow these steps to complete the OAuth flow:
+          You can connect to a user's existing Stitch client account by having the user complete a standard OAuth flow. Before generating OAuth tokens, registering your application with Stitch. 
+
+          Then, follow these steps to complete the OAuth flow:
+
+          {% for step in subsection.steps %}
+          - [Step {{ forloop.index }}: {{ step.title }}](#{{ step.anchor }})
+          {% endfor %}
 
         steps:
           - title: "Send the user to Stitch"

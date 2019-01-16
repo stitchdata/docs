@@ -3,7 +3,7 @@ tap: "google-adwords"
 version: "1.0"
 
 name: "ads"
-doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/AdGroupAdService.AdGroupAd
+doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAd
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ads.json
 description: |
   The `ads` table contains comprehensive info about ads in ad groups in your Google AdWords account.
@@ -47,7 +47,7 @@ attributes:
   - name: "policySummary"
     type: "object"
     description: "Summary of policy findings for the ad."
-    doc-link: https://developers.google.com/adwords/api/docs/reference/v201705/AdGroupAdService.AdGroupAdPolicySummary
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAdPolicySummary
     object-attributes:
       - name: "combinedApprovalStatus"
         type: "string"
@@ -104,5 +104,5 @@ attributes:
   - name: "trademarkDisapproved"
     type: "integer"
     description: "Indicates if the ad isn't serving because it doesn't meet trademark policy."
-    doc-link: https://developers.google.com/adwords/api/docs/reference/v201702/AdGroupAdService.AdGroupAd#trademarkdisapproved
+    doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAd#trademarkdisapproved
 ---

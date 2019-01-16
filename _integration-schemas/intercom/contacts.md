@@ -13,7 +13,7 @@ description: |
 
   If applicable, Stitch will replicate custom fields related to `contacts` (leads) in Intercom.
  
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listLeads
   doc-link: https://developers.intercom.com/reference#list-leads
@@ -23,6 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The lead's Intercom-defined ID."
+    foreign-key-id: "contact-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -128,9 +129,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The Intercom-defined company ID."
-        # foreign-keys:
-        #   - table: "companies"
-        #     attribute: "id"
+        foreign-key-id: "company-id"
 
       - name: "company_id"
         type: "string"
@@ -175,9 +174,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The segment ID."
-        # foreign-keys:
-        #   - table: "segments"
-        #     attribute: "id"
+        foreign-key-id: "segment-id"
 
       - name: "type"
         type: "string"
@@ -190,9 +187,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The tag ID."
-        # foreign-keys:
-        #   - table: "tags"
-        #     attribute: "id"
+        foreign-key-id: "tag-id"
 
       - name: "name"
         type: "string"

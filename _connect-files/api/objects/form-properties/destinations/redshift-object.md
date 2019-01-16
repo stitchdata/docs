@@ -1,52 +1,31 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-redshift-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Redshift Destination Form Property"
-description: "{{ api.form-properties.destination-forms.redshift.description }}"
+api-type: "redshift"
+display-name: "Redshift"
 
-object-attributes:
-  - name: "host"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.host }}"
+docs-name: "redshift"
+db-type: "redshift"
 
-  - name: "port"
-    type: "integer"
-    required: true
-    description: "{{ connect.common.attributes.port }}"
+description: ""
 
-  - name: "database"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.database }}"
 
-  - name: "username"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.username }}"
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
-  - name: "password"
-    type: "string"
-    required: true
-    description: "{{ connect.common.attributes.password }}"
-
-  - name: "ssl"
-    type: "boolean"
-    required: false
-    description: "{{ connect.common.attributes.ssl }}"
-
-examples:
-  - code: |
-      {
-         "connection":{
-            "host":"redshift.somewhere-on-aws.com",
-            "port":5439,
-            "database":"stitch",
-            "username":"stitch_user",
-            "password":"<PASSWORD>",
-            "ssl":true
-         }
-      }
+uses-common-fields: true
+## See these fields in _data/connect/common/destination-forms.yml > all-destinations
 ---

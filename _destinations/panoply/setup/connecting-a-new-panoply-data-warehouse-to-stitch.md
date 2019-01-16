@@ -4,6 +4,9 @@ permalink: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stit
 tags: [panoply_destination]
 keywords: panoply, panoply.io, panoply data warehouse, panoply.io data warehouse etl to redshift, redshift etl, panoply etl
 summary: "Spin up and connect a new Panoply destination to Stitch."
+
+content-type: "destination-setup"
+
 toc: true
 type: "panoply"
 ---
@@ -13,13 +16,12 @@ type: "panoply"
 {{ destination.description }}
 
 {% capture account-creation %}
-**Panoply Account Creation and Management**<br>
-The email address you used to sign into Stitch will be used to create your Panoply data warehouse.<br><br>
+The email address you used to sign into Stitch will be used to create your Panoply data warehouse.
 
-Additionally, Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply data warehouse, [reach out to Panoply]({{ destination.main-site }}).
+Additionally, Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply data warehouse, [reach out to Panoply]({{ destination.main-site }}){:target="new"}.
 {% endcapture %}
 
-{% include note.html content=account-creation %}
+{% include note.html first-line="**Panoply account creation and management**" content=account-creation %}
 
 ---
 

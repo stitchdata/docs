@@ -1,0 +1,72 @@
+{% case include.content %}
+
+{% when 'backup-retention-period' %}
+
+The backup retention period setting defines the number of days for which automated backups are retained. This ensures that data can still be replicated even if a job is interrupted, there's database or Stitch downtime, etc.
+
+{% case integration.name %}
+{% when 'aurora-rds' %}
+4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
+
+{% else %}
+1. Navigate back to the **Databases** page by using the menu on the left side of the page.
+2. Select the instance you're connecting to Stitch.
+3. Click **Instance actions > Modify**.
+4. Scroll down to the **Backup** section.
+
+{% endcase %}
+
+5. Set **Backup retention period** to anything greater than `1 day`:
+
+   ![A backup retention period setting of 1 day for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-backup-retention-period.png)
+
+
+{% when 'reboot-the-instance' %}
+ 
+1. Scroll to the bottom of the page and click **Continue**.
+2. The next page will display a summary of the modifications made to the database.
+
+   In the **Scheduling of Modifications** section, select the **Apply Immediately** option.
+3. Click **Modify DB Instance** to apply the changes.
+4. Navigate to the Instance Details page and locate the **Parameter group**. Initially, the Parameter group should say `applying`.
+
+   When it changes to `pending-reboot`, you can reboot the database and apply the changes.
+5. Scroll up to the top of the page and locate the **Instance actions** menu.
+6. In this menu, click **Reboot**.
+7. On the next page, click **Reboot** to confirm you want to reboot the instance.
+
+Rebooting the instance will take a few minutes. When the status of the **parameter group** changes to `in-sync` and the **DB instance status** (located at the top of the Instance Details page) changes to `available`, the reboot will be complete:
+
+![An "Available" DB instance status for an RDS instance in the AWS console]({{ site.baseurl }}/images/integrations/rds-binlog-db-instance-status.png)
+
+
+
+{% when 'binlog-retention-hours' %}
+    {% case integration.name %}
+        {% when 'mysql-rds' %}
+            {% assign maximum-value = "168 hours (seven days)" %}
+
+        {% when 'aurora-rds' %}
+            {% assign maximum-value = "2160 hours (90 days)" %}
+    {% endcase %}
+
+In addition to the backup retention period, you also need to define the `binlog retention hours` setting. This parameter specifies the number of hours to the database server should retain binary logs.
+
+To specify the number of hours, use the [`mysql.rds_set_configuration` procedure](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html){:target="new"} when logged into the {{ integration.display_name }} master instance.
+
+In this example, the logs will be retained for seven days (`24 x 7 = 168`):
+
+```shell
+call mysql.rds_set_configuration('binlog retention hours', 168);
+```
+
+{% comment %}
+    **WILL NOT DISPLAY ON LIVE SITE**
+    
+    The new value for `binlog retention hours` may not immediately take effect on the server. The amount of time to application may be negligible, but adding a note here in case we need to add this in later.
+{% endcomment %}
+
+
+
+Stitch recommends a minimum of three days for the retention period, but strongly recommend seven. **Note**: The maximum `binlog retention hours` value for {{ integration.display_name }} databases is {{ maximum-value }}.
+{% endcase %}

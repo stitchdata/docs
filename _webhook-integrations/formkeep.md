@@ -35,6 +35,8 @@ tier: "Free"
 status-url: "https://twitter.com/formkeep"
 icon: /images/integrations/icons/formkeep.svg
 
+table-selection: false
+column-selection: false
 
 # -------------------------- #
 #     Integration Tables     #
@@ -66,16 +68,17 @@ tables:
 
 {% contentfor setup %}
 {% capture notice-content %}
-**FormKeep & Webhook Setup**<br>
-There are two ways to set up webhooks in FormKeep: via a custom URL in the FormKeep app or using Zapier's FormKeep integration.<br><br>
+There are two ways to set up webhooks in FormKeep: Via a custom URL in the FormKeep app or using Zapier's FormKeep integration.
 
-**If your form is already using a custom webhook URL in FormKeep**, you'll need to:<br><br>
-  1. **Use Stitch's Zapier integration** instead of **FormKeep**. This is because of how Primary Keys are defined between the Zapier and FormKeep integrations.<br>
-  2. After generating your Stitch webhook URL, follow the instructions for [setting up a FormKeep integration in Zapier](#zapier-formkeep-integration).
+If your form is already using a custom webhook URL in FormKeep, you'll need to:
+
+1. **Use Stitch's Zapier integration** instead of **FormKeep**. This is because of how Primary Keys are defined between the Zapier and FormKeep integrations.
+  
+2. After generating your Stitch webhook URL, follow the instructions for [setting up a FormKeep integration in Zapier](#zapier-formkeep-integration).
 {% endcapture %}
 
 {% capture prerequisites %}
-{% include important.html content=notice-content %}
+{% include important.html first-line="**Already using a FormKeep webhook URL?**" content=notice-content %}
 {% endcapture %}
 
 {% include integrations/webhooks/webhook-setup.html %}
@@ -96,13 +99,9 @@ Otherwise, you can use the instructions in the **Using a Custom Webhook URL** se
 
 6. Click **Save**.
 
-#### Via Zapier's FormKeep Integration {#zapier-formkeep-integration}
+#### Via Zapier's FormKeep integration {#zapier-formkeep-integration}
 
-{% capture zapier %}
-Note that you only need to complete the following if you're NOT using a custom webhook URL in the FormKeep app.
-{% endcapture %}
-
-{% include note.html content=zapier %}
+{% include note.html type="first-line" content="You only need to complete the following if you're not using a custom webhook URL in the FormKeep app." %}
 
 1. In Zapier, click **Make a Zap!**
 2. On the **Choose a Trigger App** page, click **FormKeep**.

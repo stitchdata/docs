@@ -1,24 +1,39 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "source-types"
 key: "list-source-types"
 version: "4"
-order: 2
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "List source types"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.list.short }}"
 description: "{{ api.core-objects.source-types.list.description | flatify }}"
 
 
-returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Report Card objects]({{ api.data-structures.report-cards.section }}), one for each supported source `type`.
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
 
+returns: |
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Report Card objects]({{ api.data-structures.report-cards.source.section }}), one for each supported source `type`.
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"
@@ -38,18 +53,6 @@ examples:
          {  
             "type":"platform.hubspot",                                /* HubSpot source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.hubspot"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -149,18 +152,6 @@ examples:
          {  
             "type":"platform.marketo",                                /* Marketo source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.marketo"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -259,18 +250,6 @@ examples:
          {  
             "type":"platform.zuora",                                  /* Zuora source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.zuora"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -366,18 +345,6 @@ examples:
          {  
             "type":"platform.salesforce",                             /* Salesforce source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.salesforce"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -542,18 +509,6 @@ examples:
          {  
             "type":"platform.yotpo",                                  /* Yotpo source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.yotpo"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -627,18 +582,6 @@ examples:
          {  
             "type":"platform.sendgrid",                               /* SendGrid source */
             "current_step":1,
-            "current_step_hints":{  
-               "api":{  
-                  "method":"POST",
-                  "url":"/v4/sources"
-               },
-               "js":{  
-                  "function":"addSource",
-                  "options":{  
-                     "type":"platform.sendgrid"
-                  }
-               }
-            },
             "steps":[  
                {  
                   "type":"form",
@@ -700,5 +643,4 @@ examples:
             ]
          }
       ]
-
 ---

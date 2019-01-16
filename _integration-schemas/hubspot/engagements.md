@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "2.0"
 
 name: "engagements"
 doc-link: https://developers.hubspot.com/docs/methods/engagements/engagements-overview
@@ -8,21 +8,18 @@ singer-schema: https://github.com/singer-io/tap-hubspot/blob/master/tap_hubspot/
 description: |
   The `engagements` table contains info about all the engagements in a HubSpot portal.
 
-notes: 
-
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
-  name: getAllEngagements
+  name: "Get all engagements"
   doc-link: https://developers.hubspot.com/docs/methods/engagements/get-all-engagements
 
 attributes:
-## Primary Key
   - name: "id"
     type: "integer"
     primary-key: true
     description: "The ID for the engagement."
+    # foreign-key-id: "engagement-id"
 
-## Replication Key
   - name: "lastUpdated"
     type: "date-time"
     replication-key: true
@@ -31,6 +28,7 @@ attributes:
   - name: "portalId"
     type: "integer"
     description: "The ID of the portal the engagement belongs to."
+    foreign-key-id: "portal-id"
 
   - name: "active"
     type: "boolean"
@@ -43,6 +41,7 @@ attributes:
   - name: "ownerId"
     type: "integer"
     description: "The ID of the owner associated with the engagement."
+    foreign-key-id: "owner-id"
 
   - name: "type"
     type: "string"
@@ -63,6 +62,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the contact associated with the campaign."
+            foreign-key-id: "contact-id"
 
       - name: "companyIds"
         type: "array"
@@ -71,6 +71,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the campaign."
+            foreign-key-id: "company-id"
 
       - name: "dealIds"
         type: "array"
@@ -79,6 +80,7 @@ attributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the campaign."
+            foreign-key-id: "deal-id"
 
   - name: "attachments"
     type: "array"

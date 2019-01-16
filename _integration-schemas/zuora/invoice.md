@@ -5,18 +5,16 @@ version: 1.0
 name: "invoice"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Invoices
 description: |
-  The `invoice` table contains info about invoices, which are bills to customers.
+  The `{{ table.name }}` table contains info about invoices, which are bills to customers.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The invoice ID."
-    ## foreign-keys:
-    ##   - table-name: "invoiceItem"
-    ##     attribute: "invoiceId"
+    foreign-key-id: "invoice-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -26,19 +24,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The account ID."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "id"
-
-    ##   - table-name: "contact"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "payment"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "refund"
-    ##     attribute: "accountId"
+    foreign-key-id: "account-id"
 
   - name: "adjustmentAccount"
     type: "double"
@@ -63,16 +49,17 @@ attributes:
   - name: "billRunId"
     type: "string"
     description: "The ID of the bill run associated with the invoice."
+    foreign-key-id: "billling-run-id"
 
   - name: "billToContactId"
     type: "string"
     description: "The ID of the person to bill for the invoice."
-    foreign-key: true
+    foreign-key-id: "bill-to-contact-id"
 
   - name: "billToContactSnapshotId"
     type: "string"
     description: "The ID of the Bill To contact snapshot."
-    ## foreign-key: true
+    foreign-key-id: "bill-to-contact-snapshot-id"
 
   - name: "comments"
     type: "string"
@@ -93,10 +80,7 @@ attributes:
   - name: "defaultPaymentMethodId"
     type: "string"
     description: "The ID of the default payment method for the account."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "defaultPaymentMethodId"
+    foreign-key-id: "default-payment-method-id"
 
   - name: "deleted"
     type: "boolean"
@@ -126,6 +110,7 @@ attributes:
   - name: "invoiceNumber"
     type: "string"
     description: "The unique identification number for the invoice."
+    foreign-key-id: "invoice-number"
 
   - name: "lastEmailSentDate"
     type: "date-time"
@@ -134,10 +119,7 @@ attributes:
   - name: "parentAccountId"
     type: "string"
     description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "parentAccountId"
+    foreign-key-id: "parent-account-id"
 
   - name: "paymentAmount"
     type: "double"
@@ -158,18 +140,12 @@ attributes:
   - name: "soldToContactId"
     type: "string"
     description: "The ID of the person who bought the subscription associated with the account."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "soldToContactId"
+    foreign-key-id: "sold-to-contact-id"
 
   - name: "soldToContactSnapshotId"
     type: "string"
     description: "The ID of the Sold To contact snapshot."
-    ## foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "soldToContactSnapshotId"
+    foreign-key-id: "sold-to-contact-snapshot-id"
 
   - name: "source"
     type: "string"

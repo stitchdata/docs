@@ -8,6 +8,9 @@ layout: destination-overview
 tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
 summary: &summary "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
+
+content-type: "destination-overview"
+
 toc: true
 destination: true
 data-loading: false
@@ -24,7 +27,7 @@ status: "Released"
 description: *summary
 pricing_model: "Varies" ## provider model
 free_option: "Yes"
-fully-managed: false
+fully-managed: true
 pricing_notes: "Data.world plans vary depending on the number of private projects/data sets, size limits per project/dataset, external integrations, and total number of team members that can belong to an account. All plans, however, include unlimited public projects/datasets, API access, joins, queries, activity alerts, and other standard features." 
 icon: /images/destinations/icons/data-world.svg
 
@@ -36,10 +39,10 @@ replication-methods: ""
 connection-methods: "SSH, SSL"
 supported-versions: "n/a"
 
-nested-structures: true ## if true, natively supports nested structures
+nested-structure-support: true ## if true, natively supports nested structures
 case: "Case Insensitive"
-table-name-limit: "" ## max # of characters
-column-name-limit: "" ## max # of characters
+table-name-limit: "n/a" ## max # of characters
+column-name-limit: "n/a" ## max # of characters
 column-limit: "" ## max # of columns allowed in tables
 timestamp-range: ""
 timezones:
@@ -102,7 +105,7 @@ sections:
         content: |
           During the **Extraction** phase, Stitch will check for structural changes to your data, query for data according to the integration's replication settings, and extract the appropriate data.
 
-          Replication settings include the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
+          Replication settings include the integration's [Replication Schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}), the [data set to replicate]({{ link.replication.syncing | prepend: site.baseurl }}), and the selected tables' [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
 
       - title: "Preparation"
         anchor: "preparation"

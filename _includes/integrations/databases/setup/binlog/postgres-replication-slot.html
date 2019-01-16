@@ -1,0 +1,42 @@
+Next, you'll create a dedicated logical replication slot for Stitch. In PostgreSQL, a logical replication slot represents a stream of database changes that can then be replayed to a client in the order they were made on the original server. Each slot streams a sequence of changes from a single database.
+
+{% capture replication-slot-warning %}
+**A logical replication slot should only be used by a single process OR Stitch integration**. If you need to connect multiple databases to Stitch, you'll need to create a replication slot for each database.
+
+You risk losing data if multiple processes or Stitch integrations share a replication slot. This is because [a logical slot emits a single change only once](https://www.postgresql.org/docs/10/static/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS){:target="new"} - if multiple processes or Stitch integrations share a logical slot, only the changes that occurred after the last process/integration consumed them will be received.
+{% endcapture %}
+
+{% include important.html first-line="**Replication slots and data loss**" content=replication-slot-warning %}
+
+**Note**: Replication slots are specific to a given database in a cluster. If you want to connect multiple databases - whether in one integration or several - you'll need to create a replication slot for each database.
+
+1. Log into your master database as a superuser.
+2. Using the `wal2json` plugin, create a logical replication slot:
+   - **If you're connecting multiple databases**, you'll need to run this command for every database you want to connect, replacing `<raw_database_name>` with the name of the database:
+
+       ```sql
+       SELECT *
+       FROM pg_create_logical_replication_slot('stitch_<raw_database_name>', 'wal2json');
+       ```
+
+       This will create a replication slot named `stitch_<raw_database_name>`.
+
+   - **If you're connecting a single database**, run the following command:
+
+       ```sql
+       SELECT *
+       FROM pg_create_logical_replication_slot('stitch', 'wal2json');
+       ```
+
+       This will create a replication slot named `stitch`.
+
+3. Log in as the Stitch user and verify you can read from the replication slot, replacing `<replication_slot_name>` with the name of the replication slot:
+
+   ```sql
+   SELECT COUNT(*)
+   FROM pg_logical_slot_peek_changes('<replication_slot_name>', null, null);
+   ```
+
+   **If connecting multiple databases,** you should verify that the Stitch user can read from each of the replication slots you created.
+
+**Note**: `wal2json` is required to use Log-based replication in Stitch for PostgreSQL-backed databases. {% if integration.name contains "rds" %}{{ integration.display_name }} is included by default and enabled in [Step 4.1](#configure-database-parameter-group) by defining the `rds.logical_replication` parameter.{% endif %}

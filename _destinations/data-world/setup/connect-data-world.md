@@ -3,6 +3,9 @@ title: Connecting a data.world Data Warehouse to Stitch
 permalink: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
 keywords: data-world, data-world, data-world data warehouse, etl to s3, s3 etl, data-world etl, amazon s3
 summary: "Connect your data.world destination to Stitch."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 
@@ -13,11 +16,10 @@ type: "data-world"
 {% assign destination = site.destinations | where:"type",page.type | first %}
 
 {% capture account-management %}
-**{{ destination.display_name }} Account Management**<br>
 Stitch is not involved with the management of {{ destination.display_name }} data warehouses. If you have billing questions or need help regarding your {{ destination.display_name }} data warehouse, [reach out to {{ destination.display_name }}]({{ destination.documentation }}).
 {% endcapture %}
 
-{% include note.html content=account-management %}
+{% include note.html first-line="**data.world account management**" content=account-management %}
 
 {{ destination.description | flatify }} With just a few clicks, you can connect your {{ destination.display_name }} account to Stitch and get the data flowing.
 

@@ -10,16 +10,23 @@
 data-sync-queries:
   incremental: |
     ```
-    SELECT {{ col }}_a, {{ col }}_b <,...>
-    FROM {{ object }}_a
-    WHERE replication_key_{{ col }} >=’last_bookmark_value’
+      SELECT {{ col }}_a, {{ col }}_b <,...>
+        FROM {{ object }}_a
+       WHERE replication_key_{{ col }} >= 'last_maximum_replication_key_value'
     ORDER BY replication_key_{{ col }}
     ```
   
   full-table: |
     ```
     SELECT {{ col }}_a, {{ col }}_b <,...>
-    FROM {{ object }}_a
+      FROM {{ object }}_a
+    ```
+
+  incremental-historical: |
+    ```
+      SELECT {{ col }}_a, {{ col }}_b <,...>
+        FROM {{ object }}_a
+    ORDER BY replication_key_{{ col }}
     ```
 
 # -------------------------- #
@@ -50,7 +57,7 @@ mongo:
       - `db.getMongo().getDBNames()`
       - `db.getCollectionNames()`
 
-      For every collection in the database - even those that aren’t set to sync - Stitch also runs the following queries:
+      For every collection in the database - even those that aren’t set to replicate - Stitch also runs the following queries:
 
       - `db.collection.count()`
       - `db.collection.getIndexes()`
@@ -61,7 +68,10 @@ mongo:
 
 mssql:
   structure-sync: |
-    To perform a structure sync, Stitch runs queries on the `databases` and `partitions` tables in the `sys` schema.
+    {% if integration.db-type == "rds" %}Stitch runs the following queries on MSSQL-based databases to perform a structure sync:{% else %}Stitch runs the following queries on {{ integration.display_name }} databases to perform a structure sync:{% endif %}
+
+    - `SELECT [database_name] FROM sys.sysdatabases`
+    - `SELECT [table_name] FROM [database_name].information_schema.tables`
 
 # -------------------------- #
 #            MySQL           #
@@ -69,10 +79,11 @@ mssql:
 
 mysql:
   structure-sync: |
-    {% if integration.dby-type == "rds" %}Stitch runs the following queries on MySQL-based databases to perform a structure sync:{% else %}Stitch runs the following queries on {{ integration.display_name }} databases to perform a structure sync:{% endif %}
+    {% if integration.db-type == "rds" %}Stitch runs the following queries on MySQL-based databases to perform a structure sync:{% else %}Stitch runs the following queries on {{ integration.display_name }} databases to perform a structure sync:{% endif %}
 
-    - `SHOW TABLES`
-    - `SHOW KEYS FROM [table]`
+    - `SHOW DATABASES`
+    - `SHOW TABLES FROM [database_name]`
+    - `SHOW KEYS FROM [table_name]`
     - `SELECT * FROM INFORMATION_SCHEMA.TABLES`
 
 # -------------------------- #

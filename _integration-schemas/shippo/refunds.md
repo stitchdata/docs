@@ -11,7 +11,7 @@ description: |
   #### Refund Processing Time & Data Discrepancies
   If the data in this table doesn't look like you'd expect it to, keep in mind that refunds can take up to 14 days to be processed.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listAllRefunds
   doc-link: https://goshippo.com/docs/reference?version=2016-10-25#refunds-list

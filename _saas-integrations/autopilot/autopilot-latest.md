@@ -31,9 +31,13 @@ frequency: "60 minutes"
 tier: "Free"
 status-url: "http://status.autopilothq.com/"
 icon: /images/integrations/icons/autopilot.svg
-whitelist:
-  tables: false
-  columns: false
+
+table-selection: false
+column-selection: false
+
+anchor-scheduling: true
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Setup Instructions    #

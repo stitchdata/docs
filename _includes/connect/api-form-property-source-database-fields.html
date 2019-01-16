@@ -1,0 +1,80 @@
+<!-- This file contains the logic used to pull and display applicable fields
+	for database source form properties. -->
+
+
+
+<!-- Create a variable that links to _data/connect/common/database-sources.yml
+		This will be used throughout the file, because it's a nightmare otherwise -->
+	{% assign connect-database-attributes = site.data.connect.common.database-sources %}
+
+
+<!-- Get attributes common to all database sources -->
+{% if form-property.uses-common-fields == true %}
+	{% assign common-database-attributes = connect-database-attributes.all-databases %}
+{% else %}
+	{% assign common-database-attributes = null | compact %}
+{% endif %}
+
+
+<!-- Check if there's a specific list for this database type -->
+	{% if form-property.db-type == "postgres" or form-property.db-type == "mysql" %}
+		{% assign specific-attributes = connect-database-attributes[form-property.db-type] %}
+	{% else %}
+	<!-- If there isn't, create a 1 item array; otherwise Jekyll will throw a fit -->
+		{% assign specific-attributes = null | compact %}
+	{% endif %}
+
+
+<!-- Get the corresponding doc for this database source
+	It'll be used to see if the database supports certain features,
+	which will determine which fields display in its report card -->
+	{% assign all-database-docs = site.database-integrations | where:"name",form-property.docs-name %}
+		{% assign this-database = all-database-docs | where:"input",true %}
+
+
+	<!-- Get support info for SSL and SSH connections,
+		using the corresponding doc for the database source -->
+		{% for database in this-database %}
+		<!-- Check for SSL support -->
+			{% assign ssl-support = database.ssl %}
+				{% if ssl-support == true %}
+					{% assign ssl-fields = connect-database-attributes.ssl %}
+				{% else %}
+					{% assign ssl-fields = null | compact %}
+				{% endif %}
+			
+		<!-- Check for SSH support -->
+			{% assign ssh-support = database.ssh %}
+				{% if ssh-support == true %}
+					{% assign ssh-fields = connect-database-attributes.ssh %}
+				{% else %}
+					{% assign ssh-fields = null | compact %}
+				{% endif %}
+
+		<!-- Check for binlog support -->
+			{% assign binlog-support = database.log-based-replication-master-instance %}
+				{% if binlog-support == true %}
+					{% assign binlog-fields = connect-database-attributes.binlog-replication | where:"database",form-property.db-type %}
+				{% else %}
+					{% assign binlog-fields = null | compact %}
+				{% endif %}
+
+			{% assign port = database.port %}
+			{% assign doc-link = database.url | prepend: site.baseurl %}
+
+			{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields %}
+		{% endfor %}
+
+
+<!-- If the form property has its own specific attributes, get them &
+    concat them to the other arrays -->
+	{% if form-property.object-attributes %}
+		<!-- Get the specific attributes -->
+	    {% assign form-object-attributes = form-property.object-attributes %}
+	    <!-- Concat them to all the other arrays -->
+	    	{% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | concat: form-object-attributes | concat: feature-fields | concat: specific-attributes | sort: "name" %}
+
+	<!-- Otherwise, run this -->
+	{% else %}
+	    {% assign all-form-attributes = common-database-attributes | concat: all-source-attributes | concat: feature-fields | concat: specific-attributes | sort: "name" %}
+	{% endif %}

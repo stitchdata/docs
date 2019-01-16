@@ -15,7 +15,7 @@ The schema of this table will contain two “types” of columns:
 - Columns used by Stitch (prepended with `_sdc`), and
 - Columns sent by the provider's webhook API
 
-{% if page.name == "incoming_webhooks" %}
+{% if page.name == "incoming-webhooks" %}
 **Aside from the Stitch columns, the schema of this table will depend entirely on that provider's webhook API**. With the exception of the `_sdc` fields (and a Primary Key if one isn’t provided), Stitch does not augment Incoming Webhooks data nor does it have any control over the fields sent by the webhook provider.
 
 For example: if the webhook API you integrate with only sends `id`, `event`, and `value` fields, these are the only fields that will be created in the `data` table.

@@ -4,6 +4,9 @@ permalink: /destinations/postgresql/connecting-a-heroku-postgres-data-warehouse-
 tags: [postgresql_destination]
 keywords: postgres data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, heroku data warehouse, heroku etl, heroku
 summary: "Create a Heroku-Postgres data warehouse and connect it to Stitch."
+
+content-type: "destination-setup"
+
 toc: true
 layout: destination-setup-guide
 
@@ -28,7 +31,7 @@ requirements-info: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Create a Heroku Database"
+  - title: "Create a Heroku database"
     anchor: "create-heroku-database"
     content: |
       In this first step, you’ll create and provision a Heroku database.
@@ -44,7 +47,7 @@ setup-steps:
 
       ![Heroku Database Dashboard]({{ site.baseurl }}/images/destinations/heroku-database-dashboard.png)
 
-  - title: "Locate the Heroku Database Connection Settings"
+  - title: "Locate the Heroku database connection settings"
     anchor: "locate-connection-settings"
     content: |
       Next, you’ll locate the database settings in Heroku. This info will be used in the last section to connect Stitch to your Heroku-Postgres destination.
@@ -57,10 +60,17 @@ setup-steps:
 
       Leave this page open for now - you’ll need it to wrap things up.
 
+  - title: "Grant the {{ page.display_name }} user CREATE permissions"
+    anchor: "grant-create-permissions"
+    content: |
+      Stitch requires `CREATE` permissions to create integration schemas and tables in your destination and load data. [By default](https://devcenter.heroku.com/articles/heroku-postgresql-credentials#the-default-credential){:target="new"}, {{ page.display_name }} credentials don't include `CREATE` permissions, so you'll need to grant them to the database user before continuing.
+
+      {% assign clean-database-name = page.display_name | downcase %}
+      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+
   - title: "connect stitch"
     content: |
       Lastly, you'll enter Heroku's connection details into Stitch. When you do this, you'll use the **PostgreSQL** destination option, as noted below.
-
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}

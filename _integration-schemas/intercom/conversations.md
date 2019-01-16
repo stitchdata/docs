@@ -12,7 +12,7 @@ description: |
 
   If your warehouse doesn't natively support nested data structures, a subtable named `conversations__conversation_parts` will be created. More info on this table can be found below.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: listConversations
   doc-link: https://developers.intercom.io/docs/list-conversations
@@ -21,6 +21,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The conversation ID."
+    # foreign-key-id: "conversation-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -70,12 +71,11 @@ attributes:
         object-attributes:
           - name: "id"
             type: "string"
-            description: "The ID of the user who created the conversation message."
-            # foreign-keys:
-            #   - table: "admins"       # if type = "admin"
-            #     attribute: "id"
-            #   - table: "users"
-            #     attribute: "id"
+            description: |
+              The ID of the user who created the conversation message.
+
+              Depending on the user's `type`, this will be a foreign key to the `users` or `admins` table.
+            foreign-key-id: "author-id"
 
           - name: "type"
             type: "string"
@@ -157,9 +157,7 @@ attributes:
       - name: "assigned_to"
         type: "string"
         description: "For `assignment` types only: the ID of the admin that the conversation is assigned to."
-        # foreign-keys:
-        #   - table: "admins"
-        #     attribute: "id"
+        foreign-key-id: "admin-id"
 
       - name: "author"
         type: "object"
@@ -168,6 +166,7 @@ attributes:
           - name: "id"
             type: "string"
             description: "The ID of the admin or user that created the conversation part."
+            foreign-key-id: "author-id"
 
           - name: "type"
             type: "string"
@@ -216,6 +215,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The ID of the user or lead involved in the conversation."
+        foreign-key-id: "user-id"
 
       - name: "type"
         type: "string"
@@ -232,6 +232,7 @@ attributes:
       - name: "id"
         type: "string"
         description: "The ID of the admin that the conversation is assigned to."
+        foreign-key-id: "admin-id"
 
       - name: "type"
         type: "string"
@@ -249,6 +250,7 @@ attributes:
         type: "string"
         primary-key: true
         description: "The user's ID."
+        foreign-key-id: "user-id"
 
       - name: "type"
         type: "string"
@@ -270,11 +272,7 @@ attributes:
         type: "string"
         primary-key: true
         description: "The tag ID."
-        # foreign-keys:
-        #   - table: "leads__tags"
-        #     attribute: "id"
-        #   - table: "tags"
-        #     attribute: "id"
+        foreign-key-id: "tag-id"
 
       - name: "name"
         type: "string"

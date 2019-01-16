@@ -34,6 +34,9 @@ tier: "Free"
 status-url: "https://status.sendwithus.com/"
 icon:  /images/integrations/icons/sendwithus.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

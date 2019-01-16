@@ -35,6 +35,9 @@ tier: "Free"
 status-url: "http://status.iterable.com/"
 icon: /images/integrations/icons/iterable.svg
 
+table-selection: false
+column-selection: false
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #

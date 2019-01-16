@@ -5,15 +5,16 @@ version: 1.0
 name: "contactSnapshot"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Contacts
 description: |
-  The `contactSnapshot` table contains 'snapshot' records of Bill-To or Sold-To contacts on customer accounts. Snapshots are record preservations at specific points in time. When invoices are posted, Zuora will preserve the data for the Bill-To and Sold-To contacts at that point in time.
+  The `{{ table.name }}` table contains 'snapshot' records of Bill-To or Sold-To contacts on customer accounts. Snapshots are record preservations at specific points in time. When invoices are posted, Zuora will preserve the data for the Bill-To and Sold-To contacts at that point in time.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The contact ID."
+    foreign-key-id: "contact-snapshot-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -23,22 +24,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the contact."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "account"
-    ##     attribute: "id"
-
-    ##   - table-name: "invoice"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "payment"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "refund"
-    ##     attribute: "accountId"
-
-    ##   - table-name: "subscription"
-    ##     attribute: "accountId"
+    foreign-key-id: "account-id"
 
   - name: "address1"
     type: "string"
@@ -55,7 +41,7 @@ attributes:
   - name: "contactId"
     type: "string"
     description: "The ID of the associated contact record."
-    foreign-key: true
+    foreign-key-id: "contact-id"
 
   - name: "country"
     type: "string"
@@ -138,5 +124,4 @@ attributes:
   - name: "workPhone"
     type: "string"
     description: "The contact's work phone number."
-
 ---

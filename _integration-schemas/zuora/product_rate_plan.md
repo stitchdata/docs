@@ -5,21 +5,16 @@ version: 1.0
 name: "productRatePlan"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-Plans
 description: |
-  The `productRatePlan` table contains info about product rate plans, or the part of a product that customers can subscribe to.
+  The `{{ table.name }}` table contains info about product rate plans, or the part of a product that customers can subscribe to.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The product rate plan ID."
-    ## foreign-keys:
-    ##   - table-name: "productRatePlanCharge"
-    ##     attribute: "productRatePlanId"
-
-    ##   - table-name: "ratePlan"
-    ##     attribute: "productRatePlanId"
+    foreign-key-id: "product-rate-plan-id"
 
   - name: "updatedDate"
     type: "date-time"
@@ -37,7 +32,7 @@ attributes:
   - name: "defaultPaymentMethodId"
     type: "string"
     description: "The ID of the default payment method associated with the account."
-    foreign-key: true
+    foreign-key-id: "default-payment-method-id"
 
   - name: "deleted"
     type: "boolean"
@@ -63,13 +58,7 @@ attributes:
   - name: "productId"
     type: "string"
     description: "The ID of the product that contains the product rate plan."
-    foreign-key: true
-    ## foreign-keys:
-    ##   - table-name: "invoiceItem"
-    ##     attribute: "productId"
-
-    ##   - table-name: "product"
-    ##     attribute: "id"
+    foreign-key-id: "product-id"
 
   - name: "updatedById"
     type: "string"
