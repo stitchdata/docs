@@ -190,7 +190,7 @@ core-objects:
 
     retrieve:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
-      title: "Retrieve a source"
+      title: "Get a source"
       method: *get
       anchor: "#retrieve-a-source"
       description: "Retrieves a previously created data source by its unique identifier."
@@ -268,6 +268,57 @@ core-objects:
       description: *destination-connection-check
 
 
+# -------------------------- #
+#          Streams           #
+# -------------------------- #
+  streams:
+    title: "Streams"
+    section: "#streams"
+    object: "#stream--object"
+    base: "/v4/sources/{source_id}/streams"
+    description: "An object representing a table in a data source."
+
+    list:
+      name: "{{ site.data.connect.api.core-objects.streams.base }}"
+      title: "List streams for a source"
+      method: *get
+      anchor: "#list-streams"
+      description: "Lists the available streams for a source."
+
+    update:
+      name: "{{ site.data.connect.api.core-objects.streams.base }}/{stream_id}"
+      title: "Select a stream"
+      method: *put
+      anchor: "#update-a-stream"
+      description: "Updates the selection properties for a source's stream."
+
+
+# -------------------------- #
+#       Stream Schemas       #
+# -------------------------- #
+  stream-schemas:
+    title: "Stream schemas"
+    section: "#stream-schemas"
+    object: "#stream-schema--object"
+    base: "/v4/sources/{source_id}/streams"
+    description: "The Stream Schema object contains the information needed to select fields for inclusion in a selected stream."
+
+    retrieve:
+      name: "{{ site.data.connect.api.core-objects.stream-schemas.base }}/{stream_id}"
+      title: "Retrieve a stream's schema"
+      method: *get
+      anchor: "#retrieve-a-streams-schema"
+      description: "Retrieves the schema for a source's stream by its unique identifier."
+
+    update:
+      name: "{{ site.data.connect.api.core-objects.stream-schema.base }}/metadata"
+      title: "Select fields in a stream"
+      method: *put
+      anchor: "#update-a-streams-schema"
+      description: "Updates the field selection properties for a source's stream."
+
+
+# -------------------------- #
 #       DATA STRUCTURES      #
 # -------------------------- #
 data-structures:

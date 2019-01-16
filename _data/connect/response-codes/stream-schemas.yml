@@ -1,0 +1,18 @@
+# -------------------------------- #
+#   STREAM SCHEMA ENDPOINT ERRORS  #
+# -------------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "get"
+        condition: "Invalid stream ID"
+        version: "all"
+        response-body: |
+          "`invalid stream-id: <STREAM_ID>`"
+
+      - method: "get"
+        condition: "Invalid source ID"
+        version: "all"
+        response-body: |
+          "`invalid stream-id: <STREAM_ID>`"
