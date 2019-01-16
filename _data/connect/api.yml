@@ -293,6 +293,12 @@ data-structures:
       **Note**: This object will only be returned when using a `GET` method.
 
   metadata:
+    top-level:
+      title: "Metadata"
+      section: "#metadata-object"
+      description: |
+        A Metadata object describes a stream's schema and the current state of its configuration in Stitch, including its selection status, field inclusion list, Primary Keys, and Replication Method.
+        
     stream-level:
       title: "Stream-level Metadata"
       section: "#stream-level-metadata-object"
@@ -325,6 +331,8 @@ data-structures:
       title: "Source Report Card"
       section: "#report-card-object--source"
       description: "A Source Report Card object contains information about a source's connection configuration."
+
+
 
 # -------------------------- #
 #       FORM PROPERTIES      #

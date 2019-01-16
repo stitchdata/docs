@@ -3,7 +3,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-content-type: "api-structure"
+content-type: "api-sub-structure"
 key: "stream-level-metadata-object"
 
 # -------------------------- #
