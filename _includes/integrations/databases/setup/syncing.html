@@ -49,7 +49,7 @@ You can track {{ object }}s {% if integration.name != "mongodb" %}and {{ col }}s
 2. Locate a {{ object }} you want to replicate.
 3. {{ app.menu-paths.sync }}
 4. If there are child objects, they'll automatically display and you'll be prompted to select some.
-5. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.whitelist.columns == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
+5. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
 6. In the {{ Object }} Settings page, define the {{ object }}'s {% unless integration.name == "mongodb" %}**Replication Method** and, if using Key-based Incremental Replication, its {% endunless %}**Replication Key**.
 
    {% if integration.name == "mongodb" %}
