@@ -143,6 +143,17 @@ api:
                 method: "delete"
                 url: "{{ api.core-objects.sources.delete.anchor }}"
 
+          - title: "Connection Checks"
+            expand-by-default: true
+            subsections:
+              - title: "The Connection Check Object"
+                method: "object"
+                url: "{{ api.core-objects.connection-checks.object }}"
+
+              - title: "{{ api.core-objects.connection-checks.get-source.title }}"
+                method: "get"
+                url: "{{ api.core-objects.connection-checks.get-source.anchor }}"
+
           - title: "Streams"
             expand-by-default: true
             subsections:

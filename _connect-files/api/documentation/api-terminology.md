@@ -18,11 +18,15 @@ all-terms:
     definition: |
       {{ site.data.tooltips.source | flatify }}
 
+  - name: "Stream"
+    definition: |
+      A table in a data source.
+
   - name: "Connection check"
     definition: |
       {{ site.data.tooltips.connection-check }}
 
   - name: "Structure sync"
     definition: |
-      {{ site.data.tooltips.structure-sync }}
+      {{ site.data.tooltips.structure-sync }} This is also referred to as discovery.
 ---
