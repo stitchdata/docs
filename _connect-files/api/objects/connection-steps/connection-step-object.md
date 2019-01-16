@@ -1,9 +1,23 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-structure"
 key: "connection-step-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Connection Step"
 description: "{{ api.data-structures.connection-steps.description | flatify }}"
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "type"
@@ -21,6 +35,11 @@ object-attributes:
   - name: "properties"
     type: "array"
     description: "An array of [Properties objects]({{ api.data-structures.properties.section }})."
+
+
+# -------------------------- #
+#          EXAMPLES          #
+# -------------------------- #
 
 examples:
   - code: |
@@ -52,5 +71,4 @@ examples:
             ]
          }
       }
-
 ---

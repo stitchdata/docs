@@ -56,4 +56,8 @@ common:
 
     type: "The source type. For example: `platform.hubspot` or `platform.marketo`."
 
-    type-argument: "A path parameter indicating the `type` of source to retrieve, such as `platform.marketo` or `platform.hubspot`."
+  # This string has placeholders becaused it's used for both source and destination documentation.
+  # When this is used, replace filters have to be used to display the correct copy
+  # Ex: {{ connect.common.attributes.type-argument | replace: "[TYPE]","destination" | replace: "[TYPE-1]","s3" | replace: "[TYPE-2]","redshift" }}
+    type-argument: |
+      A path parameter indicating the `type` of [TYPE] to retrieve, such as `[TYPE-1]` or `[TYPE-2]`.

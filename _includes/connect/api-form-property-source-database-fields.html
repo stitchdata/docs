@@ -52,7 +52,7 @@
 				{% endif %}
 
 		<!-- Check for binlog support -->
-			{% assign binlog-support = database.binlog-replication %}
+			{% assign binlog-support = database.log-based-replication-master-instance %}
 				{% if binlog-support == true %}
 					{% assign binlog-fields = connect-database-attributes.binlog-replication | where:"database",form-property.db-type %}
 				{% else %}

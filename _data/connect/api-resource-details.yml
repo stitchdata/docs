@@ -2,6 +2,14 @@
 # and what the user should expect as a response from the API.
 
 list:
+  - name: "Request Method"
+    description: |
+      {{ endpoint.method | upcase }}
+
+  - name: "Resource URL"
+    description: |
+      {{ endpoint.short-url | flatify }}
+
   - name: "Authorization"
     description: "Required. The request header must contain **Authorization** and your access token."
 
@@ -23,4 +31,3 @@ list:
 
   - name: "Errors"
     description: "See the **Errors** tab, below."
-

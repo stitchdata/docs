@@ -40,7 +40,7 @@ all-databases:
 
 mysql:
   - name: "database"
-    required: true
+    required: false
     type: "string"
     description: &database-description "The name of the logical database to connect to."
     value: "<DATABASE_NAME>"
