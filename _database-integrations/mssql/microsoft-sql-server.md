@@ -49,7 +49,7 @@ table-level-reset: true
 define-replication-methods: true
 
 log-based-replication-minimum-version: "n/a"
-log-based-replication-master-instance: false
+log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
 ## Other Replication Methods
