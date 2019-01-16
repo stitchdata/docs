@@ -52,7 +52,7 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     subexamples:
       - title: "Create an Amazon S3 destination"
@@ -119,7 +119,7 @@ examples:
                       }
                    }"
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     subexamples:
       - title: "Amazon S3 destination response"
@@ -195,5 +195,5 @@ examples:
             },
           {{ last-check-object | rstrip }}
 
-  - type: "errors"
+  - type: "Errors"
 ---

@@ -35,7 +35,7 @@ options:
 
 
 examples:
-  - type: "function"
+  - type: "Function"
     language: "javascript"
     description: "The code below will run a connection check, discover the schema for source `45612`, and output the results."
     code: |
@@ -48,7 +48,7 @@ examples:
           console.log("Integration not created.", error);
       });
 
-  - type: "result"
+  - type: "Result"
     description: "Stitch.js will run a connection check and output the source's schema. The example below is for source `platform.hubspot`."
     image: "connect/js-source-discovery-function-result.gif"
     image-caption: "Stitch running a connection check and displaying the schema discovery result."

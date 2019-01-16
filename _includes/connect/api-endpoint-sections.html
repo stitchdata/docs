@@ -32,8 +32,32 @@
                         </td>
                         <td class="description">
                             {{ argument.description | flatify | markdownify }}
+
+                            {% if argument.subarguments %}
+                                <table class="attribute-list">
+                                    {% for subargument in argument.subarguments %}
+                                        <tr>
+                                            <td class="attribute-name">
+                                                <strong>
+                                                    {{ subargument.name }}
+                                                </strong><br>
+                                                {{ subargument.type | upcase }}<br>
+                                                
+                                                {% case subargument.required %}
+                                                    {% when true %}
+                                                        <font color="#cc3399">REQUIRED</font>
+                                                    {% else %}
+                                                        OPTIONAL
+                                                {% endcase %}
+                                            </td>
+                                            <td class="description">
+                                                {{ subargument.description | flatify | markdownify }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            {% endif %}
                         </td>
-                        
                     </tr>
                 {% endfor %}
             </table>
@@ -47,4 +71,4 @@
         {{ endpoint.returns | flatify | markdownify }}
 
 <!-- Displays the request, response, and error tabs -->
-{% include connect/request-response-example-tabs.html type="endpoint" %}
+{% include connect/api-examples.html type="endpoint" %}

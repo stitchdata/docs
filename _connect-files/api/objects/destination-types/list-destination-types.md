@@ -36,14 +36,14 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     code: |
       [

@@ -54,7 +54,7 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     subexamples:
       - title: "Create a PostgreSQL destination"
@@ -75,7 +75,7 @@ examples:
                    }"
 
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     subexamples:
       - title: "PostgreSQL destination response"
@@ -252,5 +252,5 @@ examples:
               ]
             }
           }
-  - type: "errors"
+  - type: "Errors"
 ---

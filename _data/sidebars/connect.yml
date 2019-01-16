@@ -211,6 +211,10 @@ api:
             method: "object"
             url: "{{ api.data-structures.report-cards.source.section }}"
 
+          - title: "{{ api.data-structures.metadata.top-level.title }}"
+            method: "object"
+            url: "{{ api.data-structures.metadata.top-level.section }}"
+
           - title: "{{ api.data-structures.metadata.stream-level.title }}"
             method: "object"
             url: "{{ api.data-structures.metadata.stream-level.section }}"

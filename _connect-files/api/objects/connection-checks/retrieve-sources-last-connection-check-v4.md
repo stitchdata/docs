@@ -49,7 +49,7 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
@@ -57,7 +57,7 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     subexamples:
       - title: "In progress connection check"

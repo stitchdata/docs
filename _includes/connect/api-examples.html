@@ -4,7 +4,35 @@
 
     {% when 'function' %}
         {% assign item = function %}
+
+    {% when 'data-structure' %}
+        {% assign item = structure %}
+
+    {% when 'data-sub-structure' %}
+        {% assign item = sub-structure %}
 {% endcase %}
+
+
+<!-- If there's more than one example, the page can get pretty long.
+    This will get the size of the example array and then determine
+    the correct formatting for displaying the examples. -->
+
+{% assign example-count = item.examples | size %}
+
+
+<!-- If there's only 1 example, just display it directly on the page: -->
+{% if example-count == 1 %}
+    {% for example in item.examples %}
+{%- capture example-code -%}
+```{{ example.language | default: "json" }}
+{{ example.code | flatify | rstrip }}
+```
+{%- endcapture -%}{{ example-code | markdownify }}
+{% endfor %}
+
+
+<!-- If there's more than one example, put them into tabs -->
+{% else %}
 
 <ul id="example{{ item.key }}Tabs" class="nav nav-tabs">
     {% for example in item.examples %}
@@ -14,7 +42,7 @@
             {% when "true" %}
                 {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
             {% when "false" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | downcase | replace:" ","-" | remove:"(" | remove: ")" %}
         {% endcase %}
 
         {% if forloop.first == true %} 
@@ -23,7 +51,7 @@
             <li>
         {% endif %}
             <a href="#{{ tab-id }}" data-toggle="tab">
-            {{ example.type | capitalize }}</a>
+            {{ example.type }}</a>
         </li>
         {% endfor %}
 </ul>
@@ -35,7 +63,7 @@
             {% when "true" %}
                 {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
             {% when "false" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | downcase | replace:" ","-" | remove:"(" | remove: ")" %}
         {% endcase %}
 
         {% if forloop.first == true %}
@@ -45,7 +73,7 @@
         {% endif %}
 
         {% case example.type %}
-            {% when 'errors' %}
+            {% when 'Errors' %}
                 {% include connect/api-response-code-table.html type="endpoint" %}
 
             {% else %}
@@ -60,14 +88,19 @@
                     {% endif %}
                 {% endif %}
 
+
+<!-- This is still inside the tab; it just has to be
+    flush left or Jekyll will throw a fit -->
 {% if example.code %}
 {%- capture example-code -%}
-```{{ example.language }}
+```{{ example.language | default: "json" }}
 {{ example.code | flatify | lstrip | rstrip }}
 ```
 {%- endcapture -%}{{ example-code | markdownify }}
 {% endif %}
 
+
+<!-- If there are subexamples, list them out: -->
 {% if example.subexamples %}
 {% for subexample in example.subexamples %}
 <p><strong>{{ subexample.title | append: ":" }}</strong></p>
@@ -77,7 +110,7 @@
 {% endif %}
 
 {%- capture subexample-code -%}
-```{{ example.language }}
+```{{ example.language | default: "json"  }}
 {{ subexample.code | flatify | lstrip | rstrip }}
 ```
 {%- endcapture -%}{{ subexample-code | markdownify }}
@@ -88,3 +121,5 @@
 </div>
 {% endfor %}
 </div>
+
+{% endif %}

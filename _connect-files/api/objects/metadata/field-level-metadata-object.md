@@ -3,7 +3,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-content-type: "api-structure"
+content-type: "api-sub-structure"
 key: "field-level-metadata-object"
 
 # -------------------------- #
@@ -76,7 +76,7 @@ object-attributes:
       this field is unsupported by the Bulk API.
 
 examples:
-  - title: "Database source"
+  - type: "Database source"
     code: |
       {
         "metadata": {
@@ -85,7 +85,7 @@ examples:
           "inclusion": "available"
         }
 
-  - title: "SaaS source"
+  - type: "SaaS source"
     code: |
       {
         "metadata": {
@@ -93,7 +93,7 @@ examples:
           "inclusion": "available"
         }
 
-  - title: "Unsupported field"
+  - type: "Unsupported field"
     code: |
       {
         "metadata": {
