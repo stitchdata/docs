@@ -55,7 +55,7 @@ examples:
   - type: "Request"
     language: "json"
     subexamples:
-      - title: "Create an Amazon S3 destination"
+      - type: "Create an Amazon S3 destination"
         code: |
           {% capture request-header %}
           curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
@@ -75,7 +75,7 @@ examples:
                       }
                    }"
 
-      - title: "Create an Amazon Redshift destination"
+      - type: "Create an Amazon Redshift destination"
         code: |
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"redshift",
@@ -89,7 +89,7 @@ examples:
                       }
                    }"
 
-      - title: "Create a PostgreSQL destination"
+      - type: "Create a PostgreSQL destination"
         code: |
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"postgres",
@@ -103,7 +103,7 @@ examples:
                       }
                    }"
 
-      - title: "Create a Snowflake destination"
+      - type: "Create a Snowflake destination"
         code: |
           {{ request-header | flatify | lstrip | rstrip }}
                     "type":"snowflake",
@@ -122,7 +122,7 @@ examples:
   - type: "Response"
     language: "json"
     subexamples:
-      - title: "Amazon S3 destination response"
+      - type: "Amazon S3 destination response"
         description: |
           **Note**: There are additional steps to creating an Amazon S3 destination beyond submitting a successful request to this endpoint. Refer to the [Amazon S3 Destination Form Property documentation]({{ api.form-properties.destination-forms.section | append: "-amazon-s3-object" }}) for more info.
         code: |
@@ -157,7 +157,7 @@ examples:
             },
           {{ last-check-object | rstrip }}
 
-      - title: "Amazon Redshift destination response"    
+      - type: "Amazon Redshift destination response"    
         code: |
           {{ response-header | flatify | replace: "[DESTINATION-TYPE]","redshift" | lstrip | rstrip }}
                 "host":"<HOST>",
@@ -169,7 +169,7 @@ examples:
             },
           {{ last-check-object | rstrip }}
 
-      - title: "PostgreSQL destination response"    
+      - type: "PostgreSQL destination response"    
         code: |
           {{ response-header | flatify | replace: "[DESTINATION-TYPE]","postgres" | lstrip | rstrip }}
                 "host":"<HOST>",
@@ -181,7 +181,7 @@ examples:
             },
           {{ last-check-object | rstrip }}
 
-      - title: "Snowflake destination response"    
+      - type: "Snowflake destination response"    
         code: |
           {{ response-header | flatify | replace: "[DESTINATION-TYPE]","snowflake" | lstrip | rstrip }}
                 "host":"<HOST>",

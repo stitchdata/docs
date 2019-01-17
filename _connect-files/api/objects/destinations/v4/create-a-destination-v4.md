@@ -78,7 +78,7 @@ examples:
   - type: "Response"
     language: "json"
     subexamples:
-      - title: "PostgreSQL destination response"
+      - type: "PostgreSQL destination response"
         code: |
           {
             "properties": {

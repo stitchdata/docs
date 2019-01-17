@@ -60,7 +60,7 @@ examples:
   - type: "Response"
     language: "json"
     subexamples:
-      - title: "In progress connection check"
+      - type: "In progress connection check"
         code: |
           {
             "target_exit_status": null,
@@ -78,7 +78,7 @@ examples:
             "discovery_error_message":null
           }
 
-      - title: "Successful connection check"
+      - type: "Successful connection check"
         code: |
           {
             "target_exit_status": null,
@@ -96,7 +96,7 @@ examples:
             "discovery_error_message": null
           }
 
-      - title: "Failed connection check"
+      - type: "Failed connection check"
         code: |
           {
             "target_exit_status": null,
