@@ -337,14 +337,20 @@ data-structures:
     stream-level:
       title: "Stream-level Metadata"
       section: "#stream-level-metadata-object"
+      short: "Details about the stream including its selection status, replication details, and key properties."
       description: |
-        Contained in [Metadata]({{ api.data-structures.metadata.top-level.section }}) and [Stream]({{ api.core-objects.streams.object }}) objects, the Stream-level Metadata object contains information about a stream's configuration in Stitch. This includes information about its inclusion, Replication Method, Replication Keys, and key properties.
+        Contained in [Metadata]({{ api.data-structures.metadata.top-level.section }}) and [Stream]({{ api.core-objects.streams.object }}) objects, the Stream-level Metadata object contains information about a stream's configuration in Stitch. This includes information about its selection status, Replication Method, Replication Keys, and key properties.
 
     field-level:
       title: "Field-level Metadata"
       section: "#field-level-metadata-object"
       description: |
-        Contained in a [Metadata]({{ api.data-structures.metadata.top-level.section }}), the Field-level metadata object contains information about a field's inclusion in a stream's field selection list.
+        Contained in a [Metadata object]({{ api.data-structures.metadata.top-level.section }}), the Field-level metadata object contains information about a field's inclusion in a stream's field selection list.
+
+  stream-schemas:
+    title: "Stream Schema"
+    section: "#stream-schema-object"
+    description: "A Stream Schema object contains information needed to select fields for inclusion in a selected stream."
 
   properties:
     title: "Properties"

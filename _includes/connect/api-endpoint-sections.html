@@ -17,7 +17,7 @@
             <table class="attribute-list">
                 {% for argument in endpoint.arguments %}
                     <tr>
-                        <td class="attribute-name">
+                        <td width="20%; fixed" align="right">
                             <strong>
                                 {{ argument.name }}
                             </strong><br>
@@ -37,7 +37,7 @@
                                 <table class="attribute-list">
                                     {% for subargument in argument.subarguments %}
                                         <tr>
-                                            <td class="attribute-name">
+                                            <td width="20%; fixed" align="right">
                                                 <strong>
                                                     {{ subargument.name }}
                                                 </strong><br>
@@ -52,6 +52,31 @@
                                             </td>
                                             <td class="description">
                                                 {{ subargument.description | flatify | markdownify }}
+
+                                                {% if subargument.sub-subarguments %}
+                                                    <table class="attribute-list">
+                                                        {% for sub-subargument in subargument.sub-subarguments %}
+                                                            <tr>
+                                                                <td class="attribute-name">
+                                                                    <strong>
+                                                                        {{ sub-subargument.name }}
+                                                                    </strong><br>
+                                                                    {{ sub-subargument.type | upcase }}<br>
+                                                                    
+                                                                    {% case sub-subargument.required %}
+                                                                        {% when true %}
+                                                                            <font color="#cc3399">REQUIRED</font>
+                                                                        {% else %}
+                                                                            OPTIONAL
+                                                                    {% endcase %}
+                                                                </td>
+                                                                <td class="description">
+                                                                    {{ sub-subargument.description | flatify | markdownify }}
+                                                                </td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </table>
+                                                {% endif %}
                                             </td>
                                         </tr>
                                     {% endfor %}

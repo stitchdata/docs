@@ -176,9 +176,9 @@ api:
       - title: "Data Structures"
         expand-by-default: true
         sections: 
-          # - title: "{{ api.data-structures.connection-checks.title }}"
-          #   method: "object"
-          #   url: "{{ api.data-structures.connection-checks.section }}"
+          - title: "{{ api.data-structures.connection-checks.title }}"
+            method: "object"
+            url: "{{ api.data-structures.connection-checks.section }}"
 
           - title: "{{ api.data-structures.connection-steps.title }}"
             method: "object"
@@ -199,6 +199,10 @@ api:
           - title: "{{ api.data-structures.report-cards.source.title }}"
             method: "object"
             url: "{{ api.data-structures.report-cards.source.section }}"
+
+          - title: "{{ api.data-structures.stream-schemas.title }}"
+            method: "object"
+            url: "{{ api.data-structures.stream-schemas.section }}"
 
           - title: "{{ api.data-structures.metadata.top-level.title }}"
             method: "object"
