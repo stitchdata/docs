@@ -42,9 +42,8 @@ available-methods:
     method: "get"
     short: "{{ api.core-objects.streams.retrieve-schema.description | flatify }}"
 
-
-  - id: "update-a-stream"
-    title: "Select a stream"
+  - id: "update-a-streams-metadata"
+    title: "Update a stream's metadata"
     method: "put"
     short: "{{ api.core-objects.streams.update.description | flatify }}"
 

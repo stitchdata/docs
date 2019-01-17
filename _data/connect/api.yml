@@ -311,11 +311,13 @@ core-objects:
       description: "Retrieves the schema for a source's stream by its unique identifier."
 
     update:
-      name: "{{ site.data.connect.api.core-objects.stream-schema.base }}/metadata"
-      title: "Select fields in a stream"
+      name: "{{ site.data.connect.api.core-objects.streams.base }}/metadata"
+      title: "Update a stream's metadata"
       method: *put
-      anchor: "#update-a-streams-schema"
-      description: "Updates the field selection properties for a source's stream."
+      anchor: "#update-a-streams-metadata"
+      short: "Updates the metadata for streams and fields."
+      description: |
+        {{ api.core-objects.streams.update.short }} This endpoint is used to define the `metadata` properties returned in the [Stream Schema object's]({{ api.data-structures.stream-schemas.section }}) `non-discoverable-metadata-keys` property.
 
 
 # -------------------------- #
