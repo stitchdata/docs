@@ -37,6 +37,12 @@ available-methods:
     method: "get"
     short: "{{ api.core-objects.streams.list.description | flatify }}"
 
+  - id: "retrieve-a-streams-schema"
+    title: "Retrieve a stream's schema"
+    method: "get"
+    short: "{{ api.core-objects.streams.retrieve-schema.description | flatify }}"
+
+
   - id: "update-a-stream"
     title: "Select a stream"
     method: "put"
@@ -48,6 +54,10 @@ available-methods:
 # -------------------------- #
 
 object-attributes:
+  - name: "stream_id"
+    type: "integer"
+    description: "The stream ID."
+    
   - name: "selected"
     type: "boolean"
     description: |
@@ -56,10 +66,6 @@ object-attributes:
       - `null` - Only present if a stream has never been selected. Otherwise, this value will be `true` if selected, and `false` if de-selected.
       - `true` - The stream is selected and data will be replicated for all selected fields
       - `false` - The stream is not selected and data for this stream will not be replicated
-
-  - name: "stream_id"
-    type: "integer"
-    description: "The stream ID."
 
   - name: "stream_name"
     type: "string"

@@ -4,7 +4,7 @@
 # -------------------------- #
 
 content-type: "api-endpoint"
-endpoint: "stream-schemas"
+endpoint: "streams"
 key: "retrieve-a-streams-schema"
 version: "4"
 
@@ -19,8 +19,8 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/{stream_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.stream-schemas.retrieve.short }}"
-description: "{{ api.core-objects.stream-schemas.retrieve.description | flatify }}"
+short: "{{ api.core-objects.streams.retrieve.short }}"
+description: "{{ api.core-objects.streams.retrieve.description | flatify }}"
 
 
 # -------------------------- #
@@ -49,7 +49,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful and valid identifiers were provided, the API will return a status of <code class="api success">200 OK</code> and a single [Stream Schema Object]({{ api.core-objects.stream-schemas.object }}).
+  If successful and valid identifiers were provided, the API will return a status of <code class="api success">200 OK</code> and a single [Stream Schema Object]({{ api.data-structures.stream-schemas.section }}).
 
 
 # ------------------------------ #
@@ -58,7 +58,6 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
     code: |
       {% assign right-bracket = "}" %}
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120643" | replace:"{stream_id","2339248" | remove: right-bracket | strip_newlines }}
@@ -66,7 +65,6 @@ examples:
            -H "Content-Type: application/json"
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "schema": "{\"properties\":{\"position\":{\"type\":[\"null\",\"integer\"]},\"created_at\":{\"type\":[\"null\",\"string\"],\"format\":\"date-time\"},\"sort_value\":{\"type\":[\"null\",\"string\"]},\"collection_id\":{\"type\":[\"null\",\"integer\"]},\"id\":{\"type\":[\"null\",\"integer\"]},\"product_id\":{\"type\":[\"null\",\"integer\"]},\"updated_at\":{\"type\":[\"null\",\"string\"],\"format\":\"date-time\"},\"featured\":{\"type\":[\"null\",\"boolean\"]}},\"type\":\"object\"}",
@@ -174,5 +172,5 @@ examples:
       }
 
   - type: "Errors"
-    # The errors live in: _data/connect/response-codes/stream-schemas.yml
+    # The errors live in: _data/connect/response-codes/streams.yml
 ---
