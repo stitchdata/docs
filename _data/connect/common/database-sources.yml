@@ -96,7 +96,8 @@ binlog-replication:
   - name: "use_log_based_replication"
     required: false
     type: "string"
-    description: "**This field is not currently in use, but will be part of a future release.**"
+    description: |
+      If `true`, Log-based Incremental Replication will be used as the default Replication Method for tables set to replicate. This choice can be overriden on individual tables at any time.
     value: "true"
     database: "mysql"
 

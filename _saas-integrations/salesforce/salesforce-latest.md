@@ -36,7 +36,7 @@ whitelist-ips: true
 
 table-selection: true
 column-selection: true
-define-replication-methods: true
+set-replication-methods: true
 
 anchor-scheduling: true
 extraction-logs: true

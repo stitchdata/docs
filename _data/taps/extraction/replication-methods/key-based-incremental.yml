@@ -55,6 +55,27 @@ hard-deletes:
     {{ not-supported | replace:"TOOLTIP","Not supported" }}
   destination: "Record will have an updated deleted flag value, if a flag is available in the source."
 
+# -------------------------- #
+#  DATABASE FILE INCREMENTAL #
+# -------------------------- #
+
+## This is used in database integrations where files (not tables)
+## are replicated.
+
+database-file-integrations:
+  - item: "What's used as a Replication Key?"
+    other-integrations: "A column or columns in a table."
+    this-integration: "The time a file is modified."
+
+  - item: "Are Replication Keys inclusive?"
+    other-integrations: "**Yes**. Rows with a Replication Key value **greater than or equal to** the last saved bookmark are replicated."
+    this-integration: "**No**. Only files with a modification timestamp value greater than the last saved bookmark are replicated."
+
+  - item: "What's replicated during a replication job?"
+    other-integrations: "Only new or updated rows in a table."
+    this-integration: "The entire contents of a modified file."
+
+
 
 # -------------------------- #
 #    REPLICATION EXAMPLES    #
