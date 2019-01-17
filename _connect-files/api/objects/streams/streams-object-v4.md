@@ -48,6 +48,15 @@ available-methods:
 # -------------------------- #
 
 object-attributes:
+  - name: "selected"
+    type: "boolean"
+    description: |
+      Indicates if the stream is selected for replication. Possible values are:
+
+      - `null` - Only present if a stream has never been selected. Otherwise, this value will be `true` if selected, and `false` if de-selected.
+      - `true` - The stream is selected and data will be replicated for all selected fields
+      - `false` - The stream is not selected and data for this stream will not be replicated
+
   - name: "stream_id"
     type: "integer"
     description: "The stream ID."
@@ -68,5 +77,71 @@ object-attributes:
     sub-type: "stream level metadata"
     url: "{{ api.data-structures.metadata.stream-level.section }}"
     description: |
-      Details about the stream.
+      {{ api.data-structures.metadata.stream-level.short }}
+
+
+# -------------------------- #
+#      OBJECT EXAMPLES       #
+# -------------------------- #
+
+examples:
+  - type: "Database source (non view)"
+    code: |
+      {
+        "selected": null,
+        "stream_id": 2289176,
+        "tap_stream_id": "demni2mf59dt10-heroku-orders",
+        "stream_name": "orders",
+        "metadata": {
+          "database-name": "demni2mf59dt10",
+          "selected": null,
+          "is-view": false,
+          "row-count": 447,
+          "schema-name": "heroku",
+          "table-key-properties": [
+            "id"
+          ]
+        }
+      }
+
+  - type: "Database source (view)"
+    code: |
+      {
+        "selected": true,
+        "stream_id": 2375830,
+        "tap_stream_id": "demni2mf59dt10-public-customer_view",
+        "stream_name": "customer_view",
+        "metadata": {
+          "database-name": "demni2mf59dt10",
+          "selected": true,
+          "is-view": true,
+          "replication-key": "id",
+          "replication-method": "INCREMENTAL",
+          "row-count": 125,
+          "schema-name": "public",
+          "table-key-properties": [],
+          "view-key-properties": [
+            "id"
+          ]
+        }
+      }
+
+  - type: "SaaS source"
+    code: |
+      {
+        "selected": true,
+        "stream_id": 2288757,
+        "tap_stream_id": "abandoned_checkouts",
+        "stream_name": "abandoned_checkouts",
+        "metadata": {
+          "forced-replication-method": "INCREMENTAL",
+          "selected": true,
+          "table-key-properties": [
+            "id"
+          ],
+          "valid-replication-keys": [
+            "updated_at"
+          ]
+        }
+      }
 ---
