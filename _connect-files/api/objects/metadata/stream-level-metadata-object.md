@@ -126,7 +126,7 @@ object-attributes:
       <TODO>
 
 examples:
-  - title: "Database source (non-view)"
+  - type: "Database source (non-view)"
     code: |
       {
         "metadata": {
@@ -142,7 +142,7 @@ examples:
         }
       }
 
-  - title: "Database source (view)"
+  - type: "Database source (view)"
     code: |
       {
         "metadata": {
@@ -159,7 +159,7 @@ examples:
         }
       }
 
-  - title: "SaaS source"
+  - type: "SaaS source"
     code: |
       {
         "metadata": {

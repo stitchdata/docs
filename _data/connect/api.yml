@@ -354,13 +354,13 @@ data-structures:
       title: "Stream-level Metadata"
       section: "#stream-level-metadata-object"
       description: |
-        Contained in a [Stream object]({{ api.core-objects.streams.object }}), the Stream-level Metadata object contains information about a stream's configuration in Stitch. This includes information about its inclusion, Replication Method, Replication Keys, and key properties.
+        Contained in [Metadata]({{ api.data-structures.metadata.top-level.section }}) and [Stream]({{ api.core-objects.streams.object }}) objects, the Stream-level Metadata object contains information about a stream's configuration in Stitch. This includes information about its inclusion, Replication Method, Replication Keys, and key properties.
 
     field-level:
       title: "Field-level Metadata"
       section: "#field-level-metadata-object"
       description: |
-        Contained in a [Stream Schema object]({{ api.core-objects.stream-schemas.object }}), the Field-level metadata object contains information about a field's inclusion in a stream's field selection list.
+        Contained in a [Metadata]({{ api.data-structures.metadata.top-level.section }}), the Field-level metadata object contains information about a field's inclusion in a stream's field selection list.
 
   properties:
     title: "Properties"
