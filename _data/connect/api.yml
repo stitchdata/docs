@@ -285,26 +285,8 @@ core-objects:
       anchor: "#list-streams"
       description: "Lists the available streams for a source."
 
-    update:
+    retrieve-schema:
       name: "{{ site.data.connect.api.core-objects.streams.base }}/{stream_id}"
-      title: "Select a stream"
-      method: *put
-      anchor: "#update-a-stream"
-      description: "Updates the selection properties for a source's stream."
-
-
-# -------------------------- #
-#       Stream Schemas       #
-# -------------------------- #
-  stream-schemas:
-    title: "Stream schemas"
-    section: "#stream-schemas"
-    object: "#stream-schema--object"
-    base: "/v4/sources/{source_id}/streams"
-    description: "The Stream Schema object contains the information needed to select fields for inclusion in a selected stream."
-
-    retrieve:
-      name: "{{ site.data.connect.api.core-objects.stream-schemas.base }}/{stream_id}"
       title: "Retrieve a stream's schema"
       method: *get
       anchor: "#retrieve-a-streams-schema"

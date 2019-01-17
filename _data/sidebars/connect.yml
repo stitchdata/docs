@@ -165,24 +165,13 @@ api:
                 method: "get"
                 url: "{{ api.core-objects.streams.list.anchor }}"
 
+              - title: "{{ api.core-objects.streams.retrieve-schema.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.streams.retrieve-schema.anchor }}"
+
               - title: "{{ api.core-objects.streams.update.title | flatify }}"
                 method: "put"
                 url: "{{ api.core-objects.streams.update.anchor }}"
-
-          - title: "Stream Schemas"
-            expand-by-default: true
-            subsections:
-              - title: "The Stream Schema Object"
-                method: "object"
-                url: "{{ api.core-objects.stream-schemas.object }}"
-
-              - title: "{{ api.core-objects.stream-schemas.retrieve.title | flatify }}"
-                method: "get"
-                url: "{{ api.core-objects.stream-schemas.retrieve.list.anchor }}"
-
-              - title: "{{ api.core-objects.stream-schemas.update.title | flatify }}"
-                method: "put"
-                url: "{{ api.core-objects.stream-schemas.update.anchor }}"
 
       - title: "Data Structures"
         expand-by-default: true

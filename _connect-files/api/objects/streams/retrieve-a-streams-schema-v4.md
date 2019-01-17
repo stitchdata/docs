@@ -19,8 +19,8 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/{stream_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.streams.retrieve.short }}"
-description: "{{ api.core-objects.streams.retrieve.description | flatify }}"
+short: "{{ api.core-objects.streams.retrieve-schema.short }}"
+description: "{{ api.core-objects.streams.retrieve-schema.description | flatify }}"
 
 
 # -------------------------- #
