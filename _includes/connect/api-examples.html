@@ -103,7 +103,7 @@
 <!-- If there are subexamples, list them out: -->
 {% if example.subexamples %}
 {% for subexample in example.subexamples %}
-<p><strong>{{ subexample.title | append: ":" }}</strong></p>
+<p><strong>{{ subexample.type | append: ":" }}</strong></p>
 
 {% if subexample.description %}
 {{ subexample.description | flatify | markdownify }}

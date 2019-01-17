@@ -57,7 +57,7 @@ examples:
   - type: "Request"
     language: "json"
     subexamples:
-      - title: "Create a PostgreSQL destination"
+      - type: "Create a PostgreSQL destination"
         code: |
           curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
                -H "Authorization: Bearer <ACCESS_TOKEN>" 
