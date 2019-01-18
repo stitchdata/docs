@@ -249,14 +249,14 @@ core-objects:
     object: "#connection-check--object"
     base: "/v4/{connection_type}/{connection_id}/last-connection-check"
     description: |
-      An object representing a connection check. {{ site.data.tooltips.connection-check | replace: "A test", "This is a test" }}
+      A Connection Check object shows the results from a test of a connection's parameters.  {{ site.data.tooltips.connection-check | replace: "A test", "This is a test" }} The nature of the test varies by connection type.
 
     get-source:
       name: "/v4/sources/{source_id}/last-connection-check"
       title: "Get a source's connection check"
       method: *get
       anchor: "#retrieve-sources-last-connection-check"
-      short: &source-connection-check "Retrieves the last connection check for a source by its unique identifier."
+      short: &source-connection-check "Retrieves the last connection check for a source by the source's unique identifier."
       description: *source-connection-check
 
     get-destination:
@@ -264,7 +264,7 @@ core-objects:
       title: "Get a destination's connection check"
       method: *get
       anchor: "#retrieve-destinations-last-connection-check"
-      short: &destination-connection-check "Retrieves the last connection check for a destination by its unique identifier."
+      short: &destination-connection-check "Retrieves the last connection check for a destination by the destination's unique identifier."
       description: *destination-connection-check
 
 
@@ -290,7 +290,7 @@ core-objects:
       title: "Retrieve a stream's schema"
       method: *get
       anchor: "#retrieve-a-streams-schema"
-      description: "Retrieves the schema for a source's stream by its unique identifier."
+      description: "Retrieves the schema for a source's stream by the source and stream's unique identifiers."
 
     update:
       name: "{{ site.data.connect.api.core-objects.streams.base }}/metadata"
@@ -307,11 +307,6 @@ core-objects:
 # -------------------------- #
 data-structures:
   section: "#data-structures"
-
-  connection-checks:
-    title: "Connection Checks"
-    section: "#connection-check-object"
-    description: "A connection check object shows the results from a test of a connection's parameters. The nature of the test varies by connection type."
 
   connection-steps:
     title: "Connection Steps"
@@ -350,7 +345,7 @@ data-structures:
   stream-schemas:
     title: "Stream Schema"
     section: "#stream-schema-object"
-    description: "A Stream Schema object contains information needed to select fields for inclusion in a selected stream."
+    description: "A Stream Schema object contains information needed to select a stream and its fields for replication."
 
   properties:
     title: "Properties"

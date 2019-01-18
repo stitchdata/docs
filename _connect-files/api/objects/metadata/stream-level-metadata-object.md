@@ -11,7 +11,9 @@ key: "stream-level-metadata-object"
 # -------------------------- #
 
 title: "Stream-level Metadata"
-description: "{{ api.data-structures.metadata.stream-level.description | flatify }}"
+description: |
+  {% include misc/data-files.html %}
+  {{ api.data-structures.metadata.stream-level.description | flatify }}
 
 
 # -------------------------- #

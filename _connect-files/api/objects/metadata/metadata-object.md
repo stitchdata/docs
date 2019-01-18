@@ -25,7 +25,7 @@ object-attributes:
       An array of strings describing a path into the schema. For example:
 
       - A value of `[]` refers to the entire schema, or stream
-      - A value of `["properties", "id"]` refers to the `properties.id` portion of the schema, or a field named `id`
+      - A value of `["properties", "<FIELD_NAME>"]` refers to the `properties.<FIELD_NAME>` portion of the schema. For example: `["properties", "id"]` would refer to a field named `id`
 
   - name: "metadata"
     type: "object"
@@ -33,7 +33,7 @@ object-attributes:
       An object containing metadata associated with the `breadcrumb`. The type of metadata object depends on the `breadcrumb`:
 
        - For the entire schema (`breadcrumb: []`), this will be a [Stream-level Metadata object]({{ api.data-structures.metadata.stream-level.section }})
-       - For an individual field (`breadcrumb: ["properties", "{field_name}"]`), this will be a [Field-level Metadata object]({{ api.data-structures.metadata.field-level.section }})
+       - For an individual field (`breadcrumb: ["properties", "<FIELD_NAME>"]`), this will be a [Field-level Metadata object]({{ api.data-structures.metadata.field-level.section }})
 
 sub-structures:
   - key: "field-level-metadata-object"
