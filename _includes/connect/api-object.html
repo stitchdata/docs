@@ -11,7 +11,7 @@
     {% assign version-count = object.versions | size %}
 
 
-    <h3 id="{{ object.endpoint | replace: " ", "-" }}">
+    <h3 id="{{ object.endpoint | append: "--section" }}">
         {{ object.title | append: "s" }}
     </h3>
 
