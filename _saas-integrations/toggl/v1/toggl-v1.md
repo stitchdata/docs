@@ -63,13 +63,29 @@ column-selection: true
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: |
-
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Retrieve your {{ integration.display_name }} API token"
+    anchor: "retrieve-toggl-api-token"
     content: |
+      1. [Sign into your {{ integration.display_name }} account](https://toggl.com/login/){:target="new"}.
+      2. Click the **Workspace** menu in the lower left corner.
+      3. Click **Profile settings**.
+      4. Locate the **API token** field, which is highlighted in the image below:
+
+         ![The API token field, highlighted in the Toggl Profile Settings page]({{ site.baseurl }}/images/integrations/toggl-profile-settings-api-token.png)
+
+      5. Copy the API token.
+
+      Keep this handy - you'll need it to complete the next step.
+
+  - title: "add integration"
+    content: |
+      4. In the **API Token** field, paste the API token you retrieve in [Step 1](#retrieve-toggl-api-token).
+      5. In the **Trailing Days** field, 
+
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
