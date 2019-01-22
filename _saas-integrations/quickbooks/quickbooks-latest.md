@@ -27,7 +27,7 @@ status-url: "http://status.developer.intuit.com/"
 status: "Released"
 certified: true
 
-historical: "1/1/2010"
+historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 icon: /images/integrations/icons/quickbooks.svg

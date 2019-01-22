@@ -10,26 +10,27 @@ input: false
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-{% assign all-databases = site.database-integrations | where:"input",true %}
+{% assign all-databases = site.database-integrations | where_exp:"integration","integration.name contains 'rds'" %}
 
 Stitch supports connecting to the following Amazon Relational Database System (RDS) databases:
 
 <ul class="tiles">
-    {% for database in all-databases %}
-        {% if database.name contains "rds" %}
-            <li>
-                <a href="{{ database.url | prepend: site.baseurl }}">
-                    <img src="{{ database.icon | prepend: site.baseurl }}" alt="{{ database.display_name }}">
-                </a>
-                <strong>{{ database.display_name| remove:"(latest)" | prepend: "Amazon "}}</strong><br>
+    {% for integration in all-databases %}
+        {% if integration.show-in-menus == true %}
+        <li>
+            <a href="{{ integration.url | prepend: site.baseurl }}">
+                <img src="{{ site.baseurl }}/images/integrations/icons/{{ integration.name }}.svg" alt="{{ integration.display_name }}">
+            </a>
+            <strong>{{ integration.display_name| remove:"(latest)" | prepend: "Amazon "}}</strong><br>
 
-                {% if database.this-version %}
-                    {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
-                {% else %}
-                    <a href="{{ database.url | prepend: site.baseurl | append: "#setup" }}">Setup</a> 
-                    | <a href="{{ database.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
-                {% endif %}
-            </li>
+            {% if integration.has-versions %}
+                {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
+
+            {% else %}
+                <a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a> 
+                | <a href="{{ integration.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
+            {% endif %}
+        </li>
         {% endif %}
     {% endfor %}
 </ul>

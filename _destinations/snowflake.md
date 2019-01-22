@@ -73,7 +73,7 @@ sections:
   - title: "Pricing"
     anchor: "pricing"
     content: |
-      {{ destination.pricing_notes }}
+      {{ destination.pricing_notes | flatify }}
     subsections:
       - title: "Snowflake warehouse sizes"
         anchor: "warehouse-sizes"
