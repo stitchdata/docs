@@ -32,11 +32,18 @@ We've found that the majority of the time, these resources can resolve most issu
 
 Now that your {{ destination.display_name }} data warehouse is up and running, we recommend learning about how Stitch will load your data into it.
 
-{% if destination.type == "postgres" %}
-- **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/postgresql/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
-{% else %}
-- **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/{{ destination.type }}/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
-{% endif %}
+
+{% case destination.type %}
+	{% when 'postgres' %}
+		{% assign destination-url = "postgresql" %}
+	{% when 'microsoft-azure' %}
+		{% assign destination-url = 'microsoft-azure-sql-data-warehouse' %}
+	{% else %}
+		{% assign destination-url = destination.type %}
+{% endcase %}
+
+- **[{{ destination.display_name }} Destination Overview]({{ site.baseurl }}/destinations/{{ destination-url }}/)**: This overview will give you the high-level basics for working with your {{ destination.display_name }} data warehouse.
+
 {% unless destination.data-loading == false %}
 - **[Destination Data Loading Guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }})**: This article covers many of the common scenarios Stitch will encounter when loading data into your {{ destination.display_name }} destination and the expected behavior for each scenario.
 {% endunless %}

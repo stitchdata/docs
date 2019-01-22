@@ -4,12 +4,12 @@ content-type: "api-doc"
 order: 2
 
 sections:
-  - title: "Register as an API Client"
+  - title: "Register as an API client"
     anchor: "quick-start--register-api-client"
     content: |
       Request access by completing [this form]{{ connect.interest-form | strip }}. Once approved, you'll receive a `partner_id` and `partner_key` for authenticating your API calls.
 
-  - title: "Obtain an Access Token"
+  - title: "Obtain an access token"
     anchor: "quick-start--obtain-access-token"
     content: |
       After you receive your `partner_id` and `partner_key`, you'll need to obtain an access token. Calls to the API are authenticated with an access token associated with a Stitch account. Your application can get an access token in one of two ways:
@@ -21,12 +21,12 @@ sections:
 
         Keep in mind that Stitch client accounts are both owned and managed by the users themselves. For more information on authenticating with the API, refer to the [Authentication guide]({{ api.authentication }}).
 
-  - title: "Create a Destination"
+  - title: "Create a destination"
     anchor: "quick-start--create-a-destination"
     content: |
       If you're providing a destination for the Stitch client's account, we recommend connecting the destination immediately after the account is created. This ensures that Stitch will have a place to load replicated data as soon as data sources are added.
 
-      The first step to [creating a destination]({{ api.core-objects.destinations.create.anchor }}) is providing the attributes required for the destination's configuration, or form. These attributes are passed in the body of your request as the `connection` argument, along with the destination's `type`:
+      The first step to [creating a destination]({{ api.core-objects.destinations.create.anchor }}) is providing the attributes required for the destination's configuration, or form. These attributes are passed in the body of your request as the `properties` argument, along with the destination's `type`:
 
       ```curl
       curl -X POST {{ api.base-url }}{{ api.core-objects.destinations.create.name | flatify }}
@@ -34,7 +34,7 @@ sections:
            -H "Content-Type: application/json"
            -d "{
                 "type":"redshift",
-                "connection": {
+                "properties": {
                   "host": "<HOST>",
                   "port": 5439,
                   "username": "<USERNAME>",
@@ -45,15 +45,15 @@ sections:
                }"
       ```
 
-      Refer to the [Destination Form Properties object]({{ api.form-properties.destination-forms.section | flatify }}) to retrieve the attributes required for the `connection` argument for each destination type. **Note**: Each destination has its own unique configuration and set of form attributes.
+      Refer to the [Destination Form Properties object]({{ api.form-properties.destination-forms.section | flatify }}) to retrieve the attributes required for the `properties` argument for each destination type. **Note**: Each destination has its own unique configuration and set of form attributes.
 
-  - title: "Create a Source"
+  - title: "Create a source"
     anchor: "quick-start--create-a-source"
     content: |
       Source creation is performed through a sequence of [connection steps]({{ api.data-structures.connection-steps.section }}). The required steps and the order of those steps are unique to the source type and are defined in its [Report Card]({{ api.data-structures.report-cards.section }}) object. All source creation, however, begins at the `form` step.
 
       {% capture tip-source-types %}
-      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) (`form` step) and expected properties within each subsequent connection step.<br><br>
+      Use the [Source Type endpoint]({{ api.core-objects.source-types.section }}) to prep for source creation. This endpoint contains information about the configuration process, including the required [Source Form Properties]({{ api.form-properties.source-forms.section }}) (`step: form`) and expected properties within each subsequent connection step.<br><br>
 
       With this endpoint, you could dynamically generate a UI or initial setup forms for each source type you want to include in your application.
       {% endcapture %}
@@ -63,7 +63,7 @@ sections:
       In the example below, we'll use the Source Types endpoint to retrieve the source form properties for HubSpot, which has a `type` of `platform.hubspot`.
 
     subsections:
-      - title: "Get the Source's Report Card"
+      - title: "Get the source's Report Card"
         anchor: "quick-start--get-hubspot-report-card"
         content: |
           Using the Source Types endpoint, retrieve the report card for `platform.hubspot`:
@@ -75,7 +75,7 @@ sections:
 
           The response, or the report card for `platform.hubspot`, will include HubSpot's [Source Form Properties]({{ api.core-objects.sources.create.anchor }}). These are the parameters that are required to complete a source's `form` step.
 
-      - title: "Locate Required Form Properties in the Report Card"
+      - title: "Locate required form properties in the Report Card"
         anchor: "quick-start--locate-form-properties"
         content: |
           Use the response from the previous step to locate the required properties for the `form` step.
@@ -135,7 +135,7 @@ sections:
 
           For `platform.hubspot`, the `frequency_in_minutes` and `start_date` properties must be provided to complete the `form` step.
 
-      - title: "Create the Source"
+      - title: "Create the source"
         anchor: "quick-start--create-source"
         content: |
           Now that the required `properties` for HubSpot have been retrieved, we can create the HubSpot source:
@@ -284,10 +284,10 @@ sections:
 
           After a source's form is created, the `report_card` object within the source should be used to complete its configuration. 
 
-      - title: "Identify the Current Step"
+      - title: "Identify the current step"
         anchor: "quick-start--identify-current-step"
         content: |
-          The [Report Card]({{ api.data-structures.report-cards.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
+          The [Source Report Card]({{ api.data-structures.report-cards.source.section }}) object provides information about the steps required to configure the connection, their sequence, and the progress towards completing the steps.
 
           Looking at the report card for our HubSpot source, we can see that we're now on step `2` of configuration, which is the `oauth` step:
 
@@ -364,7 +364,7 @@ sections:
           }
           ```
 
-  - title: "Use the {{ js.name }} to Complete Source Configuration"
+  - title: "Use the {{ js.name }} to complete source configuration"
     anchor: "quick-start--stitch-js-complete-configuration"
     content: |
       To initiate the OAuth flow, use the [`authorizeSource`]({{ js.section | prepend: site.baseurl | append: js.authorize-a-source.section | flatify }}) function in the {{ js.name }}. This function expects an `options` argument containing the source's `id`:

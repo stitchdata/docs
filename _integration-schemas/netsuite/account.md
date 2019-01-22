@@ -23,7 +23,7 @@ attributes:
     primary-key: true
     description: "The account ID."
 
-  - name: "Your Selected Fields"
+  - name: "Additional fields"
     description: |
-      Other fields selected by you. For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
 ---

@@ -1,24 +1,39 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "list-destinations"
 version: "3"
-order: 3
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "List destinations"
 method: "get"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.destinations.list.short }}"
 description: "{{ api.core-objects.destinations.list.description | flatify }}"
 
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and an array (of length zero or one) of [Destination objects]({{ api.core-objects.destinations.object }}).
 
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"

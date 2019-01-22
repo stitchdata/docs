@@ -1,7 +1,16 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-yotpo-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Yotpo Source Form Property"
 api-type: "yotpo"
@@ -12,6 +21,11 @@ docs-name: "yotpo"
 
 description: |
   **Note**: Creating a Yotpo source requires Yotpo API credentials. Retrieving these credentials requires Yotpo Account Administrator permissions. Refer to [Yotpo's documentation](https://support.yotpo.com/en/article/finding-your-app-key-and-your-secret-key){:target="new"} for more info.
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 object-attributes:
   - name: "api_key"

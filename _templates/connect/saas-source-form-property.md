@@ -10,9 +10,18 @@
 ## PLEASE REMOVE COMMENTS WHEN FINISHED
 
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-[integration]-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "[INTEGRATION] Source Form Property"
 api-type: ""
@@ -23,17 +32,14 @@ docs-name: ""
 
 description: ""
 
-# NOTE: object-attributes is only required if the object has attributes
-#       that are specific to it. Ex: `platform.github` has `access_token`
-#       and `repository` attributes specific to it, along with the other
-#       attributes common to SaaS: `frequency_in_minutes`, `anchor_time`,
-#       and `start_time`. 
-#       The common attributes will display automatically unless the
-#       `attribute.exclude` contains the form-property's `api-type` value.
 
-# 		Common fields:  _data/connect/common/all-sources.yml
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
-#       Please remove me ^
+# uses-common-fields: true/false
+# See these fields in _data/connect/common/all-sources.yml
+# May also include applicable fields in _data/connect/common/all-sources.yml
 
 # object-attributes:
 #   - name: ""

@@ -38,29 +38,9 @@ icon: /images/destinations/icons/snowflake.svg
 #           Support          #
 # -------------------------- #
 
-## DATA TYPES
-## See [FILE] for info on data types supported by Snowflake.
-
-ssl: true
-ssh: false
-
-incremental-upsert-support: true
-connection-methods: "SSL"
-supported-versions: "n/a"
-
-nested-structure-support: true ## if true, natively supports nested structures
-case: "Case Insensitive"
-table-name-limit: "255" ## max # of characters
-column-name-limit: "251" ## max # of characters
-column-limit: "None" ## max # of columns allowed in tables
-timestamp-range: "< 10,000 AD"
-timezones:
-  supported: false
-  storage: "Converted to UTC & <br>`TIMESTAMP WITHOUT TIME ZONE`"
-varchar-limit: "16MB" ## max width for varchars
-decimal-limit: "38 numbers, or places"
-decimal-range: ""
-reserved-words: "https://docs.snowflake.net/manuals/sql-reference/reserved-keywords.html"
+## See _data/destinations/reference/snowflake.yml for
+## info about connection support, Stitch support,
+## data limitations, reserved words, etc.
 
 
 # -------------------------- #
@@ -93,7 +73,7 @@ sections:
   - title: "Pricing"
     anchor: "pricing"
     content: |
-      {{ destination.pricing_notes }}
+      {{ destination.pricing_notes | flatify }}
     subsections:
       - title: "Snowflake warehouse sizes"
         anchor: "warehouse-sizes"

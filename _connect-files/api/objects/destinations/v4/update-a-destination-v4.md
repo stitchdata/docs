@@ -1,20 +1,31 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 content-type: "api-endpoint"
 endpoint: "destinations"
 key: "update-a-destination"
-version: "3"
-order: 2
+version: "4"
 
+
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
 
 title: "Update a destination"
 method: "put"
 short-url: |
-  /v{{ object.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.destinations.update.short }}"
 description: "{{ api.core-objects.destinations.update.description | flatify }}"
 
+
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
 
 arguments:
   - name: "id"
@@ -27,15 +38,23 @@ arguments:
     type: "string"
     description: "{{ connect.common.attributes.destination-type | flatify }}"
 
-  - name: "connection"
+  - name: "properties"
     required: true
     type: "object"
     description: "A [Destination Form Properties object]({{ api.form-properties.destination-forms.section }}) corresponding to the value of `type`."
 
 
-returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Destination object]({{ api.core-objects.destinations.object }}).
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
 
+returns: |
+  If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}) with a `report_card` property.
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "request"
@@ -46,7 +65,7 @@ examples:
            -H "Content-Type: application/json"
            -d "{
                 "type":"postgres",
-                "connection": {
+                "properties": {
                   "host": "<HOST>",
                   "port": 5432,
                   "username": "<USERNAME>",

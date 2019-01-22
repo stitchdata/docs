@@ -10,9 +10,18 @@
 ## PLEASE REMOVE COMMENTS WHEN FINISHED
 
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-[integration]-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "[INTEGRATION] Source Form Property"
 api-type: ""
@@ -23,17 +32,15 @@ docs-name: ""
 db-type: ""
 
 description: ""
-uses-common-fields: true
 
-# NOTE: object-attributes is only required if the object has attributes
-# 		  that are specific to it. Ex: platform.s3-csv has a `bucket` attribute
-#				that is only specific to S3.
-# 			Otherwise, when `uses-common-fields` is `true`, the applicable fields
-#				from _data/connect/common/database-sources.yml will display. You don't
-# 			need to do a thing :)
-# 			Other common fields:  _data/connect/common/all-sources.yml
 
-#				Please remove me ^
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+# uses-common-fields: true/false
+# See these fields in _data/connect/common/all-sources.yml
+# May also include applicable fields in _data/connect/common/database-sources.yml
 
 # object-attributes:
 #   - name: ""
