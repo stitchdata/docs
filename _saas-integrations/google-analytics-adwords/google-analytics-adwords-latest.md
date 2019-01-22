@@ -77,7 +77,7 @@ setup-steps:
   - title: "add integration"
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorize Stitch & Select a {{ integration.display_name }} profile"
+  - title: "Authorize Stitch and select a {{ integration.display_name }} profile"
     anchor: "auth-select-ga-profiles"
     content: |
       1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google AdWords data.
@@ -105,13 +105,13 @@ setup-steps:
 
       Refer to [Google's documentation](https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=adwords) for more info about Google AdWords Metrics and Dimensions.
 
-      #### Choose Your Data
+      #### Choose your data
 
       To complete the setup, you'll select the Metrics and Dimensions you want to replicate.
 
       1. In the **Choose Metrics** field, select up to 10 Metrics to replicate.
 
-         If you want to replicate the same Metrics as [Stitch's old Google AdWords integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}/v1), select the following:
+         If you want to replicate the same Metrics as [Stitch's old Google AdWords integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}//v15-10-2015), select the following:
 
          - `ga:adClicks`
          - `ga:adCost`
@@ -119,7 +119,7 @@ setup-steps:
 
       2. In the **Choose Dimensions** field, select up to seven Dimensions to replicate.
 
-         If you want to replicate the same Dimensions as [Stitch's old Google AdWords integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}/v1), select the following:
+         If you want to replicate the same Dimensions as [Stitch's old Google AdWords integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}//v15-10-2015), select the following:
 
          - `ga:adContent`
          - `ga:adGroup`
