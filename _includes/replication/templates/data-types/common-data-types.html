@@ -8,7 +8,16 @@
 
 <table width="100%; fixed" class="attribute-list">
     {% for data-type in common.data-types %}
-        {% cycle 'before': '<tr>', '', '', '' %}
+    <!-- Get the data-type's index in the array and then divide it by 4 (the #
+        of columns in the table) and get the remainder. If the last item in the
+        array isn't divisible by 4, we need to add the correct number of cells to
+        ensure the formatting doesn't break. -->
+
+        {% assign data-type-number = forloop.index | modulo: 4 %}
+
+        {% if data-type-number == 1 %}
+            <tr>
+        {% endif %}
             <td width="25%">
                 {% if data-type.doc-link %}
                     <a href="{{ data-type.doc-link | flatify | prepend: site.baseurl }}">
@@ -18,10 +27,39 @@
                     {{ data-type.name }}
                 {% endif %}
 
+                {{ data-type-number }}
+
                 {% if data-type.notes %}
                     {{ info-icon | replace:"TOOLTIP",data-type.notes }}
                 {% endif %}
             </td>
-        {% cycle 'after': '', '', '', '</tr>' %}
+
+        {% case data-type-number %}
+            {% when 0 %}
+                </tr>
+            {% else %}
+                {% if forloop.last == true %}
+                    {% case data-type-number %}
+                        {% when 1 %}
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        {% when 2 %}
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        {% when 3 %}
+                                <td>
+                                </td>
+                            </tr>
+                    {% endcase %}
+                {% endif %}
+        {% endcase %}
     {% endfor %}
 </table>
