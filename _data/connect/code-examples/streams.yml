@@ -1,0 +1,484 @@
+# -------------------------- #
+#       STREAM EXAMPLES      #
+# -------------------------- #
+
+## Examples of various streams for integrations
+
+request-bodies:
+  database: |
+    {
+      "streams": [
+        {
+          "tap_stream_id": "demni2mf59dt10-public-customers",
+          "metadata": [
+            {
+              "breadcrumb": [],
+              "metadata": {
+                "selected": true,
+                "replication-method": "INCREMENTAL",
+                "replication-key": "updated_at"
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  saas: |
+    {
+      "streams": [
+        {
+          "tap_stream_id": "time_entries",
+          "metadata": [
+            {
+              "breadcrumb": [],
+              "metadata": {
+                "selected": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+
+database-stream: |
+  {
+    "selected": null,
+    "stream_id": 2289176,
+    "tap_stream_id": "demni2mf59dt10-heroku-orders",
+    "stream_name": "orders",
+    "metadata": {
+      "database-name": "demni2mf59dt10",
+      "selected": null,
+      "replication-method": null,
+      "is-view": false,
+      "row-count": 447,
+      "schema-name": "heroku",
+      "table-key-properties": [
+        "id"
+      ]
+    }
+  }
+
+saas-stream: |
+  {
+    "selected": null,
+    "stream_id": 2394777,
+    "tap_stream_id": "time_entries",
+    "stream_name": "time_entries",
+    "metadata": {
+      "forced-replication-method": "INCREMENTAL",
+      "selected": null,
+      "table-key-properties": [
+        "id"
+      ],
+      "valid-replication-keys": [
+        "updated"
+      ]
+    }
+  }
+
+saas-streams: |
+  [
+    {
+      "selected": null,
+      "stream_id": 2394772,
+      "tap_stream_id": "a_workspaces",
+      "stream_name": "a_workspaces",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394770,
+      "tap_stream_id": "clients",
+      "stream_name": "clients",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394774,
+      "tap_stream_id": "groups",
+      "stream_name": "groups",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394778,
+      "tap_stream_id": "projects",
+      "stream_name": "projects",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394773,
+      "tap_stream_id": "tags",
+      "stream_name": "tags",
+      "metadata": {
+        "forced-replication-method": "FULL_TABLE",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394771,
+      "tap_stream_id": "tasks",
+      "stream_name": "tasks",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394777,
+      "tap_stream_id": "time_entries",
+      "stream_name": "time_entries",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394776,
+      "tap_stream_id": "users",
+      "stream_name": "users",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2394775,
+      "tap_stream_id": "workspace_users",
+      "stream_name": "workspace_users",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "at"
+        ]
+      }
+    }
+  ]
+
+
+saas-stream-schema: |
+  {
+    "schema": "{\"properties\":{\"billable\":{\"type\":[\"null\",\"number\"]},\"dur\":{\"type\":[\"null\",\"integer\"]},\"project\":{\"type\":[\"null\",\"string\"]},\"user\":{\"type\":[\"null\",\"string\"]},\"tags\":{\"items\":{},\"type\":[\"null\",\"array\"]},\"id\":{\"type\":[\"null\",\"integer\"]},\"pid\":{\"type\":[\"null\",\"integer\"]},\"uid\":{\"type\":[\"null\",\"integer\"]},\"start\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]},\"task\":{\"type\":[\"null\",\"string\"]},\"cur\":{\"type\":[\"null\",\"string\"]},\"updated\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]},\"client\":{\"type\":[\"null\",\"string\"]},\"end\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]},\"tid\":{\"type\":[\"null\",\"integer\"]},\"description\":{\"type\":[\"null\",\"string\"]},\"is_billable\":{\"type\":[\"null\",\"boolean\"]},\"use_stop\":{\"type\":[\"null\",\"boolean\"]}},\"type\":[\"null\",\"object\"]}",
+    "metadata": [
+      {
+        "breadcrumb": [],
+        "metadata": {
+          "forced-replication-method": "INCREMENTAL",
+          "valid-replication-keys": [
+            "updated"
+          ],
+          "table-key-properties": [
+            "id"
+          ]
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "start"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "tags"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "is_billable"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "project"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "user"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "uid"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "id"
+        ],
+        "metadata": {
+          "inclusion": "automatic"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "billable"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "client"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "end"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "updated"
+        ],
+        "metadata": {
+          "inclusion": "automatic"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "tid"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "use_stop"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "pid"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "cur"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "dur"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "task"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "description"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      }
+    ],
+    "non-discoverable-metadata-keys": [
+      "selected",
+      "replication-method",
+      "replication-key",
+      "view-key-properties"
+    ]
+  }
+
+
+breadcrumb-explanation: |
+  {
+      "schema": "{\"properties\":{\"id\":{\"type\":[\"null\",\"integer\"]},\"name\":{\"type\":[\"null\",\"string\"]},\"updated\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]}},\"type\":[\"null\",\"object\"]}",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "INCREMENTAL",
+            "valid-replication-keys": [
+              "updated"
+            ],
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        }
+      ],
+      "non-discoverable-metadata-keys": [
+        "selected",
+        "replication-method",
+        "replication-key",
+        "view-key-properties"
+      ]
+    }
+
+
+blank-stream-selection: |
+   {
+     "streams": [
+       {
+         "tap_stream_id": "<TAP_STREAM_ID>",
+         "metadata": [
+           {
+             "breadcrumb": [],
+             "metadata": {
+               "selected": "true"
+             }
+           }
+         ]
+       }
+     ]
+   }
