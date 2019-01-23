@@ -20,7 +20,8 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.connection-checks.get-source.short }}"
-description: "{{ api.core-objects.connection-checks.get-source.description | flatify }}"
+description: |
+  {{ api.core-objects.connection-checks.get-source.description | flatify }}
 
 
 # -------------------------- #
@@ -57,60 +58,20 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
+
+## Code samples live in: _data/connect/code-examples/connection-checks.yml
   - type: "Response"
     language: "json"
     subexamples:
       - type: "In progress connection check"
         code: |
-          {
-            "target_exit_status": null,
-            "tap_error_message": null,
-            "check_exit_status": null,
-            "name":"116078.120645.check.7bc049a4-18cf-11e9-a502-0e61abdd375a",
-            "start_time":"2018-10-08T18:12:34Z",
-            "mode":"check",
-            "tap_exit_status": null,
-            "target_error_message":null,
-            "discovery_exit_status": null,
-            “status”: “running”,
-            "completion_time": null,
-            "error":false,
-            "discovery_error_message":null
-          }
+          {{ site.data.connect.code-examples.connection-checks.in-progress }}
 
       - type: "Successful connection check"
         code: |
-          {
-            "target_exit_status": null,
-            "tap_error_message": null,
-            "check_exit_status": 0,
-            "name": "116078.120645.check.5ee35614-18d8-11e9-b44f-06828117ecd6",
-            "start_time": "2019-01-15T15:15:19Z",
-            "mode": "check",
-            "tap_exit_status": null,
-            "target_error_message": null,
-            "discovery_exit_status": 0,
-            "status": "succeeded",
-            "completion_time": "2019-01-15T15:15:22Z",
-            "error": false,
-            "discovery_error_message": null
-          }
+          {{ site.data.connect.code-examples.connection-checks.successful }}
 
       - type: "Failed connection check"
         code: |
-          {
-            "target_exit_status": null,
-            "tap_error_message": null,
-            "check_exit_status": null,
-            "name": "116078.120643.check.fefa6543-19a7-11e9-9068-12a37e8cec78",
-            "start_time": "2019-01-16T16:01:34Z",
-            "mode": "check",
-            "tap_exit_status": null,
-            "target_error_message": null,
-            "discovery_exit_status": 1,
-            "status": "failed",
-            "completion_time": "2019-01-16T16:01:36Z",
-            "error": true,
-            "discovery_error_message": "FATAL:  password authentication failed for user \"<USERNAME>\""
-          }
+          {{ site.data.connect.code-examples.connection-checks.in-progress }}
 ---
