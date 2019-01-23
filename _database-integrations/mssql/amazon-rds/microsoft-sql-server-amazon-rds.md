@@ -30,7 +30,7 @@ icon: /images/integrations/icons/sql-server-rds.svg
 ## Stitch features
 
 versions: "2000 through 2016"
-ssh: false
+ssh: true
 ssl: true
 
 ## General replication features
