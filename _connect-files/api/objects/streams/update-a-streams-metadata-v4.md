@@ -20,7 +20,11 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.streams.update.short }}"
-description: "{{ api.core-objects.streams.update.description | flatify }}"
+description: |
+  {% include misc/data-files.html %}
+  {{ api.core-objects.streams.update.description | flatify }}
+
+  Refer to the [Select streams and fields guide]({{ link.connect.guides.select-tables-and-fields | prepend: site.baseurl }}) for instructions on selecting streams and fields.
 
 
 # -------------------------- #
@@ -47,7 +51,7 @@ arguments:
       - name: "tap_stream_id"
         required: true
         type: "string"
-        description: "The `tap_stream_id` of the [stream]({{ api.core-objects.stream-schemas.object }}) to be updated."
+        description: "The `tap_stream_id` of the [stream]({{ api.data-structures.stream-schemas.section }}) to be updated."
 
       - name: "metadata"
         required: true

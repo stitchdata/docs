@@ -1,5 +1,5 @@
 ---
-title: Select tables and fields with the Connect API
+title: Select streams and fields with the Connect API
 content-type: "guide"
 content-id: "select-tables-and-fields"
 
@@ -19,12 +19,12 @@ sections:
   - title: "Create and configure the source"
     anchor: "configure-the-source"
     content: |
-      Create and configure a source. Refer to the [Create and configure a source guide]({{ guide.create-a-source | flatify }}) for instructions, including how to configure an OAuth source.
+      Create and configure a source. Refer to the [Create and configure a source guide]({{ link.connect.guides.create-configure-a-source | flatify }}) for instructions, including how to configure an OAuth source.
   
   - title: "Wait for a successful connection check and discovery"
     anchor: "successful-connection-check-discovery"
     content: |
-      After the [Source API]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sources.create.anchor }}) reports that the source's `current_step` is equal to the `discover_schema` connection step, Stitch will automatically kick off a connection check. {{ site.data.tooltips.connection-check | replace:"A test","This is a test" | replace:"parameters.","parameters" }} and discovers the streams and fields available for the source.
+      After the [Source API]({{ api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create.anchor }}) reports that the source's `current_step` is equal to the `discover_schema` connection step, Stitch will automatically kick off a connection check. {{ site.data.tooltips.connection-check | replace:"A test","This is a test" | replace:"parameters.","parameters" }} and discovers the streams and fields available for the source.
 
     subsections:
       - title: "Get the source's last connection check"
@@ -32,10 +32,10 @@ sections:
         content: |
           {% assign right-bracket = "}" %}
 
-          To view the results of the source's [last connection check]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.connection-checks.object }}), make a request to `GET {{ api.core-objects.connection-checks.get-source.name | flatify }}`, replacing `{source_id}` with the source's ID:
+          To view the results of the source's [last connection check]({{ api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.connection-checks.object }}), make a request to `GET {{ site.data.connect.core-objects.connection-checks.get-source.name | flatify }}`, replacing `{source_id}` with the source's ID:
 
           ```json
-          curl -X GET {{ api.base-url | strip_newlines }}{{ api.core-objects.connection-checks.get-source.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+          curl -X GET {{ api.base-url | strip_newlines }}{{ site.data.connect.core-objects.connection-checks.get-source.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <API_TOKEN>'
           ```
@@ -53,15 +53,15 @@ sections:
         content: |
           Next, you'll verify that the source has advanced to the `field_selection` step. This step indicates that available streams and fields can be selected for replication.
 
-          To get the source's `current_step`, make a request to `GET {{ api.core-objects.sources.retrieve.name | flatify }}`, replacing `{source_id}` with the source's ID:
+          To get the source's `current_step`, make a request to `GET {{ site.data.connect.core-objects.sources.retrieve.name | flatify }}`, replacing `{source_id}` with the source's ID:
 
           ```json
-          curl -X GET {{ api.base-url | strip_newlines }}{{ api.core-objects.sources.retrieve.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+          curl -X GET {{ api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.retrieve.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <API_TOKEN>'
           ```
 
-          The response will be the source's [`report_card` object]({{ api.section | flatify | prepend: site.baseurl | append: api.data-structures.report-cards.source.section }}). In this example, the `current_step` is `3`, which corresponds to the `field_selection` step:
+          The response will be the source's [`report_card` object]({{ api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}). In this example, the `current_step` is `3`, which corresponds to the `field_selection` step:
 
           ```json
           {{ site.data.connect.code-examples.source-report-cards.toggl | replace: "<STEP_NUMBER>","3" }}
@@ -70,17 +70,17 @@ sections:
   - title: "Get the source's available streams"
     anchor: "get-available-streams"
     content: |
-      When the [Source API]({{ api.section | flatify | prepend: site.baseurl | append: api.core-objects.sources.retrieve.anchor }}) reports that the source's `current_step` is equal to `field_selection`, you can retrieve a list of the streams available for the source.
+      When the [Source API]({{ api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.sources.retrieve.anchor }}) reports that the source's `current_step` is equal to `field_selection`, you can retrieve a list of the streams available for the source.
 
       In general, a stream is:
 
       - A unique table or database view in a data source, or
       - An API endpoint in a data source
 
-      [To return the streams available for selection]({{ api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.list.anchor | flatify }}), make a request to `GET {{ api.core-objects.streams.list.name | flatify }}`, replacing `{source_id}` with the source's ID:
+      [To return the streams available for selection]({{ api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.list.anchor | flatify }}), make a request to `GET {{ site.data.connect.core-objects.streams.list.name | flatify }}`, replacing `{source_id}` with the source's ID:
 
       ```json
-      curl -X GET {{ api.base-url | strip_newlines }}{{ api.core-objects.streams.list.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+      curl -X GET {{ api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.list.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
            -H 'Content-Type: application/json' \
            -H 'Authorization: Bearer <API_TOKEN>'
       ```
@@ -93,13 +93,9 @@ sections:
 
   - title: "Understand and retrieve the stream's schema"
     anchor: "get-stream-schema"
-    endpoint-resource: "GET {{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify }}"
-    endpoint-name: "title"
-    endpoint-doc-link: "anchor"
-    object: "stream-schema"
     request: |
       ```json
-      curl -X GET {{ api.base-url | strip_newlines }}{{ api.core-objects.streams.retrieve-schema.name | flatify | replace: "{source_id","122635" | replace: "{stream_id","2394777" | remove: right-bracket | strip_newlines }}
+      curl -X GET {{ api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify | replace: "{source_id","122635" | replace: "{stream_id","2394777" | remove: right-bracket | strip_newlines }}
            -H 'Content-Type: application/json' \
            -H 'Authorization: Bearer <API_TOKEN>'
       ```
@@ -107,18 +103,16 @@ sections:
       ```json
       {{ site.data.connect.code-examples.streams.saas-stream-schema | rstrip }}
       ```
-    content: |
-      HOLD
     subsections:
       - title: "Understand field metadata"
         anchor: "understand-field-metadata"
         content: |
-          Before you retrieve the stream's schema, we'll touch on the properties the [Stream Schema object]() contains. You'll eventually use this data to select streams and fields, and if applicable, configure the stream's Replication Method.
+          Before you retrieve the stream's schema, we'll touch on the properties the [Stream Schema object]({{ api.section | prepend: site.baseurl | append: site.data.connect.data-structures.stream-schemas.section | flatify }}) contains. You'll eventually use this data to select streams and fields, and if applicable, configure the stream's Replication Method.
 
           The Stream Schema object contains three root properties:
 
           - `schema` - The JSON schema describing the stream's fields.
-          - `metadata` - An array of [Metadata]() objects, each object referring to a field in the stream.
+          - `metadata` - An array of [Metadata]({{ api.section | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.top-level.section | flatify }}) objects, each object referring to a field in the stream.
           - `non-discoverable-metadata-keys` - A list of `metadata` keys that can be modified.
 
           Each `metadata` object in the response corresponds to a field in the stream, or a `breadcrumb`. The `breadcrumb` is a path into the schema that describes the part of the schema associated with the metadata.
@@ -149,21 +143,18 @@ sections:
         content: |
           Next, you'll retrieve the schema for each stream you want to select for replication. The stream schema is a list of fields the stream contains.
 
-          [To retrieve a stream's schema]({{ api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.retrieve-schema.anchor | flatify }}), make a call to `{{ section.endpoint-resource | flatify }}`, replacing `{source_id}` and `{stream_id}` with the source ID and stream ID, respectively.
+          [To retrieve a stream's schema]({{ api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.retrieve-schema.anchor | flatify }}), make a request to `{{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify }}`, replacing `{source_id}` and `{stream_id}` with the source ID and stream ID, respectively.
 
           In this example, we'll get the schema for the `time_entries` table (`stream_id: 2394777`):
 
           {{ section.request | flatify | markdownify }}
 
-          The response will be a single [Stream Schema object]():
+          The response will be a single [Stream Schema object]({{ api.section | prepend: site.baseurl | append: site.data.connect.data-structures.stream-schemas.section | flatify }}):
 
           {{ section.response | flatify | markdownify | rstrip }}
 
   - title: "Select and configure a stream"
     anchor: "select-configure-a-stream"
-    content: |
-      HOLD
-
     subsections:
       - title: "Create the request body"
         anchor: "create-the-request-body"
