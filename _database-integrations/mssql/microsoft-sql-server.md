@@ -31,7 +31,7 @@ icon: /images/integrations/icons/mssql.svg
 ## Stitch features
 
 versions: "2000 through 2016"
-ssh: false
+ssh: true
 ssl: true
 
 ## General replication features
