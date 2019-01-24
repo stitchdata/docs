@@ -15,6 +15,8 @@
                 {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
             {% when "false" %}
                 {% assign tab-id = item.key | append: "-" | append: example.type %}
+            {% else %}
+                {% assign tab-id = item.key | append: "-" | append: example.type %}
         {% endcase %}
 
         {% if forloop.first == true %} 
@@ -35,6 +37,8 @@
             {% when "true" %}
                 {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
             {% when "false" %}
+                {% assign tab-id = item.key | append: "-" | append: example.type %}
+            {% else %}
                 {% assign tab-id = item.key | append: "-" | append: example.type %}
         {% endcase %}
 
