@@ -6,5 +6,9 @@
     {% when 'tutorial' %}
         {% include layout/sidebars/tutorial-sidebar.html %}
     {% else %}
-        {% include layout/sidebars/general-sidebar.html %}
+    	{% if page.sidebar %}
+    		{% include layout/sidebars/on-page-sidebar.html %}
+    	{% else %}
+	        {% include layout/sidebars/general-sidebar.html %}
+	    {% endif %}
 {% endcase %}

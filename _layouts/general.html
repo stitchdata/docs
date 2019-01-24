@@ -3,6 +3,24 @@ layout: page
 ---
 {% include misc/data-files.html %}
 
+{% if page.intro %}
+    {{ page.intro | flatify | markdownify }}
+
+    <hr>
+{% endif %}
+
+{% if page.requirements %}
+    <h2 id="prerequisites">Prerequisites</h2>
+    
+    <ul>
+        {% for requirement in page.requirements %}
+            <li>{{ requirement.item | flatify | markdownify }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+{% endif %}
+
 {% for section in page.sections %}
     {% if section.title %}
         <h2 id="{{ section.anchor }}">{{ section.title | flatify }}</h2>
@@ -21,7 +39,7 @@ layout: page
 
         <!-- If a subsection has its own subsections -->
             {% if subsection.sub-subsections %}
-                {% for sub-subsection in section.sub-subsections %}
+                {% for sub-subsection in subsection.sub-subsections %}
                     {% if sub-subsection.title %}
                         <h4 id="{{ sub-subsection.anchor | flatify }}">{{ sub-subsection.title | flatify }}</h4>
                     {% endif %}
