@@ -65,6 +65,10 @@ steps:
     anchor: "configure-the-source"
     content: |
       Create and configure a source. Refer to the [Quick start guide]({{ link.connect.guides.create-configure-a-source | flatify | prepend: site.baseurl }}) for instructions.
+
+      {% assign source-id = "122635" %}
+      {% assign stream-id = "2288758" %}
+      {% assign tap-stream-id = "custom_collections" %}
   
   - title: "Wait for a successful connection check and discovery"
     anchor: "successful-connection-check-discovery"
@@ -80,7 +84,7 @@ steps:
           To view the results of the source's [last connection check]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.connection-checks.object }}), make a request to `GET {{ site.data.connect.core-objects.connection-checks.get-source.name | flatify }}`, replacing `{source_id}` with the source's ID:
 
           ```json
-          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.connection-checks.get-source.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.connection-checks.get-source.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }}
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <API_TOKEN>'
           ```
@@ -101,15 +105,15 @@ steps:
           To get the source's `current_step`, make a request to `GET {{ site.data.connect.core-objects.sources.retrieve.name | flatify }}`, replacing `{source_id}` with the source's ID:
 
           ```json
-          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.retrieve.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.retrieve.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }}
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <API_TOKEN>'
           ```
 
-          The response will be the source's [`report_card` object]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}). In this example, the `current_step` is `3`, which corresponds to the `field_selection` step:
+          The response will be the source's [`report_card` object]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}). In this example, the `current_step` is `4`, which corresponds to the `field_selection` step:
 
           ```json
-          {{ site.data.connect.code-examples.source-report-cards.toggl | replace: "<STEP_NUMBER>","3" }}
+          {{ site.data.connect.code-examples.source-report-cards.shopify | replace: "<STEP_NUMBER>","4" }}
           ```
 
   - title: "Get the source's available streams"
@@ -125,7 +129,7 @@ steps:
       [To return the streams available for selection]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.list.anchor | flatify }}), make a request to `GET {{ site.data.connect.core-objects.streams.list.name | flatify }}`, replacing `{source_id}` with the source's ID:
 
       ```json
-      curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.list.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+      curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.list.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }}
            -H 'Content-Type: application/json' \
            -H 'Authorization: Bearer <API_TOKEN>'
       ```
@@ -133,7 +137,7 @@ steps:
       The response will be an array of [Stream objects]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: api.core-objects.streams.object }}), each object corresponding to a stream available for selection:
 
       ```json
-      {{ site.data.connect.code-examples.streams.saas-streams }}
+      {{ site.data.connect.code-examples.streams.saas-streams | rstrip }}
       ```
 
   - title: "Understand and retrieve the stream's schema"
@@ -167,7 +171,7 @@ steps:
           3. `["properties":"name"]` - Refers to `properties.name`, or a field named `name`
           4. `["properties":"updated"]` - Refers to `properties.name`, or a field named `updated`
 
-          Below is what the Stream Schema object for this stream would look like:
+          Below is what the Stream Schema object for this stream might look like:
 
           ```json
           {{ site.data.connect.code-examples.streams.breadcrumb-explanation }}
@@ -180,10 +184,10 @@ steps:
 
           [To retrieve a stream's schema]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.retrieve-schema.anchor | flatify }}), make a request to `{{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify }}`, replacing `{source_id}` and `{stream_id}` with the source ID and stream ID, respectively.
 
-          In this example, we'll get the schema for the `time_entries` table (`stream_id: 2394777`):
+          In this example, we'll get the schema for the `custom_collections` table (`stream_id: {{ stream-id }}`):
 
           ```json
-          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify | replace: "{source_id","122635" | replace: "{stream_id","2394777" | remove: right-bracket | strip_newlines }}
+          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.retrieve-schema.name | flatify | replace: "{source_id",source-id | replace: "{stream_id",stream-id | remove: right-bracket | strip_newlines }}
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <API_TOKEN>'
           ```
@@ -205,12 +209,14 @@ steps:
 
           1. The stream's `tap_stream_id`. **Note** This is different than the `stream_id`, which is always numeric.
 
-             For example: In the examples in this guide, the `stream_id` for the `time_entries` table is `2394777` while its `tap_stream_id` is `time_entries`.
+             For example: In the examples in this guide, the `stream_id` for the `custom_collections` table is `{{ stream-id }}` while its `tap_stream_id` is `{{ tap-stream-id }}`.
           2. A [Metadata object]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.update.anchor | append:"--arguments" | flatify }}) with a `breadcrumb` property that refers to the entire schema, and
           3. A [Stream-level Metadata object]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.stream-level.section | flatify }}) with a `selected` property with a `true` value. This is ultimately what will select the stream.
 
+          This is an example of what the request body will look like:
+
           ```json
-          {{ site.data.connect.code-examples.streams.blank-stream-selection | prepend: quote | append: quote }}
+          {{ site.data.connect.code-examples.streams.request-bodies.blank-stream | prepend: quote | append: quote }}
           ```
 
           **Note**: Multiple streams in a source can be updated in a single request, but for clarity, this guide will focus on selecting a single stream. Refer to the [Update a Stream endpoint documentation]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.update.anchor | append:"--returns" | flatify }}) for examples.
@@ -283,7 +289,7 @@ steps:
           [To select a stream]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.core-objects.streams.update.anchor | flatify }}), make a request to `PUT {{ site.data.connect.core-objects.streams.update.name | flatify }}` with the [appropriate request body metadata properties](#configure-stream-replication) replacing `{source_id}` with the source ID:
 
           {% capture put-stream-request %}
-          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ api.core-objects.streams.update.name | flatify | replace: "{source_id","122635" | remove: right-bracket | strip_newlines }}
+          curl -X GET {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.streams.update.name | flatify | replace: "{source_id",source-id | remove: right-bracket | strip_newlines }}
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <API_TOKEN>'
                -d $
@@ -305,7 +311,7 @@ steps:
 
       After stream selection, field selection can be used to select which fields are replicated from the source stream. The request to select a field is analogous to the request to select a stream, except that the `breadcrumb` should point to the field’s path in the schema.
 
-      For example: This request selects the `id` field in the `time_entries` stream:
+      For example: This request selects the `id` field in the `custom_collections` stream:
 
       ```json
       {{ put-stream-request | flatify | lstrip | rstrip }}
@@ -314,7 +320,7 @@ steps:
 
       Multiple fields in a stream can be submitted as part of the same request. For each field included in the request body, include a `metadata` object referencing the field.
 
-      For example: This request selects the `id`, `published_at`, `project`, and `client` fields in the `time_entries` stream: 
+      For example: This request selects the `id`, `published_at`, `title`, and `handle` fields in the `custom_collections` stream: 
 
       ```json
       {{ put-stream-request | flatify | lstrip | rstrip }}

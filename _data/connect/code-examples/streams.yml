@@ -4,6 +4,10 @@
 
 ## Examples of various streams for integrations
 
+# -------------------------- #
+#       REQUEST BODIES       #
+# -------------------------- #
+
 request-bodies:
   database: |
     {
@@ -28,7 +32,7 @@ request-bodies:
     {
       "streams": [
         {
-          "tap_stream_id": "time_entries",
+          "tap_stream_id": "custom_collections",
           "metadata": [
             {
               "breadcrumb": [],
@@ -41,6 +45,29 @@ request-bodies:
       ]
     }
 
+
+  blank-stream: |
+     {
+       "streams": [
+         {
+           "tap_stream_id": "<TAP_STREAM_ID>",
+           "metadata": [
+             {
+               "breadcrumb": [],
+               "metadata": {
+                 "selected": "true"
+               }
+             }
+           ]
+         }
+       ]
+     }
+
+
+
+# -------------------------- #
+#       DATABASE STREAM      #
+# -------------------------- #
 
 database-stream: |
   {
@@ -61,12 +88,17 @@ database-stream: |
     }
   }
 
+
+# -------------------------- #
+#         SAAS STREAM        #
+# -------------------------- #
+
 saas-stream: |
   {
     "selected": null,
-    "stream_id": 2394777,
-    "tap_stream_id": "time_entries",
-    "stream_name": "time_entries",
+    "stream_id": 2288758,
+    "tap_stream_id": "custom_collections",
+    "stream_name": "custom_collections",
     "metadata": {
       "forced-replication-method": "INCREMENTAL",
       "selected": null,
@@ -74,18 +106,23 @@ saas-stream: |
         "id"
       ],
       "valid-replication-keys": [
-        "updated"
+        "updated_at"
       ]
     }
   }
+
+
+# -------------------------- #
+#        SAAS STREAMS        #
+# -------------------------- #
 
 saas-streams: |
   [
     {
       "selected": null,
-      "stream_id": 2394772,
-      "tap_stream_id": "a_workspaces",
-      "stream_name": "a_workspaces",
+      "stream_id": 2288757,
+      "tap_stream_id": "abandoned_checkouts",
+      "stream_name": "abandoned_checkouts",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -93,15 +130,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394770,
-      "tap_stream_id": "clients",
-      "stream_name": "clients",
+      "stream_id": 2288759,
+      "tap_stream_id": "collects",
+      "stream_name": "collects",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -109,15 +146,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394774,
-      "tap_stream_id": "groups",
-      "stream_name": "groups",
+      "stream_id": 2288758,
+      "tap_stream_id": "custom_collections",
+      "stream_name": "custom_collections",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -125,15 +162,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394778,
-      "tap_stream_id": "projects",
-      "stream_name": "projects",
+      "stream_id": 2288756,
+      "tap_stream_id": "customers",
+      "stream_name": "customers",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -141,28 +178,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394773,
-      "tap_stream_id": "tags",
-      "stream_name": "tags",
-      "metadata": {
-        "forced-replication-method": "FULL_TABLE",
-        "selected": null,
-        "table-key-properties": [
-          "id"
-        ]
-      }
-    },
-    {
-      "selected": null,
-      "stream_id": 2394771,
-      "tap_stream_id": "tasks",
-      "stream_name": "tasks",
+      "stream_id": 2288754,
+      "tap_stream_id": "metafields",
+      "stream_name": "metafields",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -170,15 +194,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394777,
-      "tap_stream_id": "time_entries",
-      "stream_name": "time_entries",
+      "stream_id": 2288751,
+      "tap_stream_id": "order_refunds",
+      "stream_name": "order_refunds",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -186,15 +210,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "updated"
+          "created_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394776,
-      "tap_stream_id": "users",
-      "stream_name": "users",
+      "stream_id": 2288753,
+      "tap_stream_id": "orders",
+      "stream_name": "orders",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -202,15 +226,15 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
         ]
       }
     },
     {
       "selected": null,
-      "stream_id": 2394775,
-      "tap_stream_id": "workspace_users",
-      "stream_name": "workspace_users",
+      "stream_id": 2288755,
+      "tap_stream_id": "products",
+      "stream_name": "products",
       "metadata": {
         "forced-replication-method": "INCREMENTAL",
         "selected": null,
@@ -218,33 +242,64 @@ saas-streams: |
           "id"
         ],
         "valid-replication-keys": [
-          "at"
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288752,
+      "tap_stream_id": "transactions",
+      "stream_name": "transactions",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
         ]
       }
     }
   ]
 
 
+# -------------------------- #
+#     SAAS STREAM SCHEMA     #
+# -------------------------- #
+
+## This example corresponds to the Shopify `custom_collections` stream.
+
 saas-stream-schema: |
   {
-    "schema": "{\"properties\":{\"billable\":{\"type\":[\"null\",\"number\"]},\"dur\":{\"type\":[\"null\",\"integer\"]},\"project\":{\"type\":[\"null\",\"string\"]},\"user\":{\"type\":[\"null\",\"string\"]},\"tags\":{\"items\":{},\"type\":[\"null\",\"array\"]},\"id\":{\"type\":[\"null\",\"integer\"]},\"pid\":{\"type\":[\"null\",\"integer\"]},\"uid\":{\"type\":[\"null\",\"integer\"]},\"start\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]},\"task\":{\"type\":[\"null\",\"string\"]},\"cur\":{\"type\":[\"null\",\"string\"]},\"updated\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]},\"client\":{\"type\":[\"null\",\"string\"]},\"end\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]},\"tid\":{\"type\":[\"null\",\"integer\"]},\"description\":{\"type\":[\"null\",\"string\"]},\"is_billable\":{\"type\":[\"null\",\"boolean\"]},\"use_stop\":{\"type\":[\"null\",\"boolean\"]}},\"type\":[\"null\",\"object\"]}",
+    "schema": "{\"type\":\"object\",\"properties\":{\"handle\":{\"type\":[\"null\",\"string\"]},\"sort_order\":{\"type\":[\"null\",\"string\"]},\"published_at\":{\"type\":[\"null\",\"string\"]},\"published_scope\":{\"type\":[\"null\",\"string\"]},\"image\":{\"type\":[\"null\",\"object\"],\"properties\":{\"width\":{\"type\":[\"null\",\"integer\"]},\"created_at\":{\"type\":[\"null\",\"string\"]},\"alt\":{\"type\":[\"null\",\"string\"]},\"src\":{\"type\":[\"null\",\"string\"]},\"height\":{\"type\":[\"null\",\"integer\"]}}},\"id\":{\"type\":[\"null\",\"integer\"]},\"template_suffix\":{\"type\":[\"null\",\"string\"]},\"updated_at\":{\"type\":[\"null\",\"string\"]},\"admin_graphql_api_id\":{\"type\":[\"null\",\"string\"]},\"title\":{\"type\":[\"null\",\"string\"]},\"body_html\":{\"type\":[\"null\",\"string\"]}}}",
     "metadata": [
+      {
+        "breadcrumb": [
+          "properties",
+          "handle"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
       {
         "breadcrumb": [],
         "metadata": {
-          "forced-replication-method": "INCREMENTAL",
-          "valid-replication-keys": [
-            "updated"
-          ],
           "table-key-properties": [
             "id"
+          ],
+          "forced-replication-method": "INCREMENTAL",
+          "valid-replication-keys": [
+            "updated_at"
           ]
         }
       },
       {
         "breadcrumb": [
           "properties",
-          "start"
+          "template_suffix"
         ],
         "metadata": {
           "inclusion": "available"
@@ -253,7 +308,7 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "tags"
+          "body_html"
         ],
         "metadata": {
           "inclusion": "available"
@@ -262,7 +317,7 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "is_billable"
+          "published_at"
         ],
         "metadata": {
           "inclusion": "available"
@@ -271,7 +326,7 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "project"
+          "sort_order"
         ],
         "metadata": {
           "inclusion": "available"
@@ -280,7 +335,7 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "user"
+          "title"
         ],
         "metadata": {
           "inclusion": "available"
@@ -289,7 +344,16 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "uid"
+          "updated_at"
+        ],
+        "metadata": {
+          "inclusion": "automatic"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "published_scope"
         ],
         "metadata": {
           "inclusion": "available"
@@ -307,7 +371,7 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "billable"
+          "admin_graphql_api_id"
         ],
         "metadata": {
           "inclusion": "available"
@@ -316,88 +380,7 @@ saas-stream-schema: |
       {
         "breadcrumb": [
           "properties",
-          "client"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "end"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "updated"
-        ],
-        "metadata": {
-          "inclusion": "automatic"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "tid"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "use_stop"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "pid"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "cur"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "dur"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "task"
-        ],
-        "metadata": {
-          "inclusion": "available"
-        }
-      },
-      {
-        "breadcrumb": [
-          "properties",
-          "description"
+          "image"
         ],
         "metadata": {
           "inclusion": "available"
@@ -412,6 +395,10 @@ saas-stream-schema: |
     ]
   }
 
+
+# -------------------------- #
+#   BREADCRUMB EXPLANATION   #
+# -------------------------- #
 
 breadcrumb-explanation: |
   {
@@ -464,21 +451,3 @@ breadcrumb-explanation: |
         "view-key-properties"
       ]
     }
-
-
-blank-stream-selection: |
-   {
-     "streams": [
-       {
-         "tap_stream_id": "<TAP_STREAM_ID>",
-         "metadata": [
-           {
-             "breadcrumb": [],
-             "metadata": {
-               "selected": "true"
-             }
-           }
-         ]
-       }
-     ]
-   }
