@@ -175,21 +175,21 @@ core-objects:
         The configuration process is unique for each type of source. The `report_card` object's `steps` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the appropriate step.
 
     update:
-      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
       title: "Update a source"
       method: *put
       anchor: "#update-a-source"
       description: "Updates an existing data source."
 
     delete:
-      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
       title: "Delete a source"
       method: "delete"
       anchor: "#delete-a-source"
       description: "Deletes an existing data source."
 
     retrieve:
-      name: "{{ site.data.connect.api.core-objects.sources.base }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
       title: "Get a source"
       method: *get
       anchor: "#retrieve-a-source"
