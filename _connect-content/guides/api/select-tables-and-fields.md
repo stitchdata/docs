@@ -261,28 +261,6 @@ steps:
           {{ site.data.connect.code-examples.streams.request-bodies.saas | rstrip | prepend: quote | append: quote }}
           ```
 
-
-
-# When this is true, the `replication-method` metadata will be returned at the [stream level](#get-available-streams). For example: This is a stream from a database source:
-
-# ```json
-# {{ site.data.connect.code-examples.streams.database-stream | rstrip }}
-# ```
-        # sub-subsections:
-        #   - title: "SaaS sources"
-        #     anchor: "configure-saas-sources"
-        #     content: |
-
-        #   - title: "Salesforce sources"
-        #     anchor: "configure-salesforce-sources"
-        #     content: |
-
-        #   - title: "Database sources"
-        #     anchor: "configure-database-sources"
-        #     content: |
-
-        #   - 
-
       - title: "Submit the request"
         anchor: "submit-stream-request"
         content: |
