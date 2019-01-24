@@ -10,6 +10,18 @@ layout: page
 	<hr>
 {% endif %}
 
+{% if page.requirements %}
+    <h2 id="prerequisites">Prerequisites</h2>
+    
+    <ul>
+        {% for requirement in page.requirements %}
+            <li>{{ requirement.item | flatify | markdownify }}</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+{% endif %}
+
 {% for step in page.steps %}
 	{% capture step-number %}
         {{ forloop.index }}

@@ -21,6 +21,14 @@
 		</li>
 	{% endif %}
 
+    {% if page.requirements %}
+        <li>
+            <a href="#prerequisites">
+                Prerequisites
+            </a>
+        </li>
+    {% endif %}
+
     {% for step in page.steps %}
     	{% capture step-number %}
 	        {{ forloop.index }}
