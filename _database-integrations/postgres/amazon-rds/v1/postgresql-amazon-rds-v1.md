@@ -33,7 +33,7 @@ frequency: "30 minutes"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/postgres-rds.svg
+icon: /images/integrations/icons/postgresql-rds.svg
 
 # Stitch features
 

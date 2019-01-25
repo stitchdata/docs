@@ -7,7 +7,7 @@ doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser201
 description: |
   The `{{ table.name }}` table contains info about deleted records.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 abstract: true
 
 permissions:
@@ -29,7 +29,6 @@ attributes:
 
   - name: "deletedDate"
     type: "date-time"
-    replication-key: true
     description: |
       The time the {{ table.name | remove: "netsuite_" | replace: "_"," " }} record was deleted.
 
