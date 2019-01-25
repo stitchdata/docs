@@ -81,11 +81,29 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **API Token** field, paste the API token you retrieve in [Step 1](#retrieve-toggl-api-token).
-      5. In the **Trailing Days** field, 
+      5. In the **Trailing Days** field, enter the number of days Stitch should use as an attribution window when replicating time entry data. **Note**: This is only applicable to the `time_entries` table.
+
+         For example: If this value is `5`, Stitch will replicate the past five days' worth of data for the `time_entries` table during every replication job.
 
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
+
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - title: "Replicating time entry data"
+    anchor: "replicating-time-entry-data"
+    content: |
+      The `time_entries` table uses the **Trailing Days** setting as an attribution window during replication. This means that the number entered into the **Trailing Days** field in the {{ app.page-names.int-settings }} page is the number of days Stitch will query time entry data for during every replication job.
+
+      For example: If you set **Trailing Days** to `5`, Stitch will query for and replicate the past five days' worth of data during every replication job for the `time_entries` table.
+
+      While `time_entries` is replicated incrementally - in that only data from the number of trailing days is replicated during each job - a high number of days being used as the attribution window can increase your row usage.
+
 
 # -------------------------- #
 #     Integration Tables     #
