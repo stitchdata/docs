@@ -6,11 +6,15 @@ name: "time_entries"
 doc-link: "https://github.com/toggl/toggl_api_docs/blob/master/reports/detailed.md"
 singer-schema: "https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/time_entries.json"
 description: |
-  The `{{ table.name }}` table contains info about the time entries in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about time entries. **Note**: This table uses an attribution window to replicate data. Refer to the [Replicating time entry data](#replicating-time-entry-data) section for more info.
 
-  TODO: "The requests are scoped with the user whose API token is used. Only his/her time entries and time entries in a workspace where the user is an admin are updated, retrieved and created."
+  #### Time entries and user permissions {#time-entries-user-permissions}
 
-  Does this ^ mean that that one integration can only pull a single user's time entries?
+  The time entries Stitch replicates are dependent upon the user whose API token is used to create the integration in Stitch. Stitch is only able to access the same data as the user whose token is used.
+
+  For example: If the user is unable to access a workspace, or is not an Admin in that workspace, Stitch will not be able to replicate time entry data for those workspaces. In this case, only the user's own time entries will be accessible by Stitch.
+
+  If data from a workspace is missing, verify that the user whose API token is being used in Stitch has Admin permissions in that workspace.
 
 replication-method: "Key-based Incremental"
 api-method:

@@ -63,10 +63,23 @@ column-selection: true
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **Admin access to the workspaces you want to replicate time entry data from, if replicating from multiple workspaces.** Stitch is only able to access the same data as the user whose API token is used to authenticate the integration. {{ integration.display_name }}'s API limits retrieving time entry data to the user's own time entries and the time entries in a workspace where they are also an Admin.
+
+
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} API token"
     anchor: "retrieve-toggl-api-token"
     content: |
+      {% capture toggl-api-tokens %}
+      Your {{ integration.display_name }} API token is specific to you. When replicating data, Stitch will only be able to access the same data as you in Toggl.
+
+      To replicate time entry data from multiple workspaces, you must be an Admin in the workspace you want to replicate data from. Verify that you have this permission in {{ integration.display_name }} before proceeding.
+      {% endcapture %}
+
+      {% include note.html first-line="**Verify your Toggl workspace permissions:**" content=toggl-api-tokens %}
+
       1. [Sign into your {{ integration.display_name }} account](https://toggl.com/login/){:target="new"}.
       2. Click the **Workspace** menu in the lower left corner.
       3. Click **Profile settings**.
