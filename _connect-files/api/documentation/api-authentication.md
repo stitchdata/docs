@@ -17,7 +17,7 @@ sections:
            -H "Authorization: Bearer <ACCESS_TOKEN>"
       ```
 
-      Before you can make requests, you must complete [this form]{{ connect.interest-form | strip }}. Once approved, you'll receive the credentials required to authenticate your API calls.
+      Before you can make requests, you must complete [this form]({{ site.data.connect.api.interest-form }}){:target="new"}. Once approved, you'll receive the credentials required to authenticate your API calls.
 
       All requests must be made over HTTPS or they will fail. API requests that don't contain authentication will also fail.
 
