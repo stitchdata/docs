@@ -6,7 +6,7 @@ name: "workspace_users"
 doc-link: "https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspace_users.md"
 singer-schema: "https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/workspace_users.json"
 description: |
-  The `{{ table.name }}` table contains 
+  The `{{ table.name }}` table contains info about the users in a workspace.
 
 replication-method: "Key-based Incremental"
 api-method:

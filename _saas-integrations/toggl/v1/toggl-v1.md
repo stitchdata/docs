@@ -42,10 +42,8 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-#status-url: "" # None available
 
-# TODO: Add toggl.svg
-icon: /images/integrations/icons/singer.svg
+icon: /images/integrations/icons/toggl.svg
 
 anchor-scheduling: true
 extraction-logs: true
@@ -53,9 +51,6 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
-
-# attribution-window: "# days"
-# attribution-is-configurable: 
 
 # setup-name: ""
 
