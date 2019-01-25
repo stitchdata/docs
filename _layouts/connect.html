@@ -11,9 +11,11 @@ layout: page
 
 
 {% for doc in docs %}
-    <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
-        {{ doc.title }}
-    </h2>
+    {% if doc.title != "" %}
+        <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
+            {{ doc.title }}
+        </h2>
+    {% endif %}
 
     {% if doc.sections %}
         {% for section in doc.sections %}
