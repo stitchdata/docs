@@ -15,7 +15,7 @@ description: |
   {% include misc/data-files.html %}
   {{ api.data-structures.metadata.top-level.description | flatify }}
 
-  Refer to the [Select streams and fields guide]({{ link.connect.guides.select-tables-and-fields | prepend: site.baseurl }}) for instructions on selecting streams and fields.
+  Refer to the [Select streams and fields guide]({{ link.connect.guides.select-streams-and-fields | prepend: site.baseurl }}) for instructions on selecting streams and fields.
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
