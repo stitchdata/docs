@@ -37,7 +37,7 @@
 		{% if step.substeps %}
             <li class="subfolders">
                 <a data-toggle="collapse" href="#{{ step.anchor | append: "--menu" }}" aria-expanded="false" aria-controls="{{ step.anchor | append: "--menu" }}">
-                    {{ step-number | strip }}: {{ step.title }} 
+                    {{ step-number | strip }}: {{ step.title | flatify }} 
                     <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                 </a>
 
@@ -59,7 +59,7 @@
             {% else %}
             	<li>
             		<a href="#{{ step.anchor }}">
-		            	{{ step-number | strip }}: {{ step.title }}
+		            	{{ step-number | strip }}: {{ step.title | flatify }}
 		            </a>
 		        </li>
     		{% endif %}
@@ -84,7 +84,7 @@
 	    	{% for related in page.related %}
 	    		<li>
             		<a href="{{ related.link | flatify }}">
-		            	{{ related.title }}
+		            	{{ related.title | flatify }}
 		            </a>
 		        </li>
 	    	{% endfor %}

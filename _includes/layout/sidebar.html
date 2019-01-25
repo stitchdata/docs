@@ -6,7 +6,7 @@
     {% when 'tutorial' %}
         {% include layout/sidebars/tutorial-sidebar.html %}
     {% else %}
-    	{% if page.sidebar %}
+    	{% if page.sidebar == 'on-page' %}
     		{% include layout/sidebars/on-page-sidebar.html %}
     	{% else %}
 	        {% include layout/sidebars/general-sidebar.html %}
