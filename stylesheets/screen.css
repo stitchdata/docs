@@ -1006,14 +1006,45 @@ blockquote p {
   font-weight: 400;
 }
 
-/* API/JS HEADINGS */
+/* CONTENT TYPE FLAGS */
 /* line 615, ../sass/_components.scss */
+.doc-type-flag {
+  float: left;
+  margin-left: -15px;
+  margin-top: -15px;
+  padding: 5px 10px;
+  font-size: small;
+  font-weight: 600;
+}
+
+/* line 624, ../sass/_components.scss */
+.tutorial {
+  background-color: #41C0FF;
+}
+
+/* line 628, ../sass/_components.scss */
+.concept {
+  background-color: #66CC66;
+}
+
+/* line 632, ../sass/_components.scss */
+.reference {
+  background-color: #FFCC00;
+}
+
+/* line 636, ../sass/_components.scss */
+.troubleshooting {
+  background-color: #ED4040;
+}
+
+/* API/JS HEADINGS */
+/* line 644, ../sass/_components.scss */
 .api-js-heading {
   width: 100%;
   margin: 40px 0px 20px 0px;
   border: 1px solid #EAEAEA;
 }
-/* line 620, ../sass/_components.scss */
+/* line 649, ../sass/_components.scss */
 .api-js-heading div.method {
   padding: 20px 30px 13px 30px;
   float: left;
@@ -1021,37 +1052,37 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 628, ../sass/_components.scss */
+/* line 657, ../sass/_components.scss */
 .object {
   background-color: #DFF5FF;
 }
 
-/* line 632, ../sass/_components.scss */
+/* line 661, ../sass/_components.scss */
 .post {
   background-color: #66CC66;
 }
 
-/* line 636, ../sass/_components.scss */
+/* line 665, ../sass/_components.scss */
 .put {
   background-color: #41C0FF;
 }
 
-/* line 640, ../sass/_components.scss */
+/* line 669, ../sass/_components.scss */
 .get {
   background-color: #FFCC00;
 }
 
-/* line 644, ../sass/_components.scss */
+/* line 673, ../sass/_components.scss */
 .function {
   background-color: #3399CC;
 }
 
-/* line 648, ../sass/_components.scss */
+/* line 677, ../sass/_components.scss */
 .delete {
   background-color: #ED4040;
 }
 
-/* line 652, ../sass/_components.scss */
+/* line 681, ../sass/_components.scss */
 .method-bullet {
   padding: 3px 5px 3px 5px;
   margin-top: -3px;
@@ -1060,17 +1091,17 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 660, ../sass/_components.scss */
+/* line 689, ../sass/_components.scss */
 .method-function {
   padding: 1.5em;
   line-height: 1em;
 }
 
-/* line 665, ../sass/_components.scss */
+/* line 694, ../sass/_components.scss */
 .method-resource {
   padding: 0px;
 }
-/* line 668, ../sass/_components.scss */
+/* line 697, ../sass/_components.scss */
 .method-resource h4 {
   margin-bottom: 1em;
   line-height: 1em;

@@ -3,19 +3,24 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Field selection and compatibility rules
-content-type: "concept"
+title: Field Selection and Compatibility Rules
+doc-type: "concept"
+content-type: "connect-guide"
 content-id: "field-selection-compatibility-rules"
 layout: general
 sidebar: on-page
 
 permalink: /stitch-connect/guides/field-selection-compatibility-rules
+icon: file
+order: 4
 
 toc: false
 summary: false
 feedback: false
 
 summary: "To ensure compatibility and that the fields Stitch requires for replication are included in selected streams, Stitch enforces field selection and compatibility rules. Learn about the metadata types that control field inclusion in the Connect API."
+## This is used only on the /stitch-connect/guides page.
+description: "Learn about the rules and metadata types that control field inclusion."
 
 
 # -------------------------- #
@@ -27,7 +32,7 @@ related:
     link: "{{ link.connect.api | prepend: site.baseurl }}"
 
   - title: "Select streams and fields with the Connect API"
-    link: "{{ link.connect.guides.create-select-tables-and-fields | prepend: site.baseurl }}"
+    link: "{{ link.connect.guides.select-streams-and-fields | prepend: site.baseurl }}"
 
   - title: "Connect guides"
     link: "{{ link.connect.guides.category | prepend: site.baseurl }}"

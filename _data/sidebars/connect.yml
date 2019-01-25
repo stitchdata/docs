@@ -2,6 +2,12 @@ overview:
   - title: sidebar
     categories:
       - title: "Stitch Connect"
+        new-page: true
+        url: &connect "{{ link.connect.overview }}"
+
+      - title: "Tutorials and Resources"
+        new-page: true
+        url: "{{ link.connect.guides.category }}"
 
       - title: "API Reference"
         new-page: true
@@ -16,7 +22,7 @@ api:
     categories:
       - title: "Stitch Connect"
         new-page: true
-        url: &connect "{{ link.connect.overview }}"
+        url: *connect
 
       - title: Introduction
         url: "{{ api.introduction }}"

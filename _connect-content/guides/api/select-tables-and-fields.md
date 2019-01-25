@@ -4,17 +4,22 @@
 # -------------------------- #
 
 title: Select Streams and Fields with the Connect API
-content-type: "tutorial"
+doc-type: "tutorial"
+content-type: "connect-guide"
 content-id: "select-streams-and-fields"
 layout: tutorial
 
 permalink: /stitch-connect/guides/select-streams-and-fields-with-connect-api
+icon: table-selection
+order: 3
 
 toc: false
 summary: false
 feedback: false
 
 summary: "Using the Stitch Connect API, select a source's streams and fields for replication using this step-by-step tutorial."
+## This is used only on the /stitch-connect/guides page.
+description: "Select streams and fields for replication."
 
 
 # -------------------------- #

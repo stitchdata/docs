@@ -1,13 +1,40 @@
 {% include misc/data-files.html %}
 
+{% case page.content-type %}
+	{% when 'connect-overview' %}
+		{% assign items = page.toolkit %}
+
+	{% when 'connect-guide' %}
+		{% assign all-guides = site.connect-content | where:"content-type",page.content-type %}
+			{% assign items = all-guides | where_exp:"item","item.content-id != page.content-id" | sort: "order" %}
+
+{% endcase %}
+
+
 <ul class="tiles">
-    {% for tool in page.toolkit %}
+    {% for item in items %}
         <li class="lg-tile">
-            <a href="{{ tool.url | prepend: site.baseurl | flatify }}">
-                <img src="{{ tool.icon | prepend: site.baseurl | flatify }}">
+        	{% if item.doc-type %}
+	        	<div class="doc-type-flag {{ item.doc-type }}">
+		        	{{ item.doc-type | upcase }}
+		        </div>
+    		{% endif %}
+        	
+            <a href="{{ item.url | prepend: site.baseurl | flatify }}">
+            	{% case page.content-type %}
+            		{% when 'connect-overview' %}
+		                <img src="{{ item.icon | prepend: site.baseurl | flatify }}">
+		            {% when 'connect-guide' %}
+		            	<img src="{{ site.baseurl }}/images/icons/{{ item.icon }}.svg">
+		        {% endcase %}
             </a>
-                <strong>{{ tool.name | flatify }}</strong><br>
-                {{ tool.description | flatify | markdownify }}
+                <strong>{{ item.title | flatify }}</strong><br>
+                {{ item.description | flatify | markdownify }}
+
+                {% unless page.content-type == 'connect-overview' %}
+                	<a href="{{ item.url | prepend: site.baseurl | flatify }}">Read more</a>
+                {% endunless %}
         </li>
     {% endfor %}
 </ul>
+
