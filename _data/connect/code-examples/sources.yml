@@ -1,0 +1,280 @@
+# -------------------------- #
+#       SOURCE OBJECTS       #
+# -------------------------- #
+
+mysql: |
+  {
+    "properties": {
+      "frequency_in_minutes": "60",
+      "host": "<HOST>",
+      "image_version": "1.latest",
+      "port": "3306",
+      "user": "<USER>",
+      "token": null
+    },
+    "updated_at": "2019-01-24T22:24:22Z",
+    "check_job_name": "116078.123903.check.cc8e9583-2026-11e9-b0e4-0e61abdd375a",
+    "name": "mysql",
+    "type": "platform.mysql",
+    "deleted_at": null,
+    "system_paused_at": null,
+    "stitch_client_id": 116078,
+    "paused_at": null,
+    "id": 123903,
+    "display_name": "MySQL",
+    "created_at": "2019-01-24T22:24:22Z",
+    "report_card": {
+      "type": "platform.mysql",
+      "current_step": <STEP>,
+      "steps": [
+        {
+          "type": "form",
+          "properties": [
+            {
+              "name": "image_version",
+              "is_required": true,
+              "provided": true,
+              "is_credential": false,
+              "system_provided": true,
+              "json_schema": null,
+              "tap_mutable": false
+            },
+            {
+              "name": "frequency_in_minutes",
+              "is_required": true,
+              "provided": true,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^1$|^30$|^60$|^360$|^720$|^1440$"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "anchor_time",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "database",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "filter_dbs",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "host",
+              "is_required": true,
+              "provided": true,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "format": "uri"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "password",
+              "is_required": true,
+              "provided": true,
+              "is_credential": true,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "port",
+              "is_required": true,
+              "provided": true,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^\\d+"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "server_id",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^\\d+$"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "ssh",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^(true|false)"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "ssh_host",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "format": "uri"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "ssh_port",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^\\d+"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "ssh_user",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "ssl",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^(true|false)"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "user",
+              "is_required": true,
+              "provided": true,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string"
+              },
+              "tap_mutable": false
+            },
+            {
+              "name": "use_log_based_replication",
+              "is_required": false,
+              "provided": false,
+              "is_credential": false,
+              "system_provided": false,
+              "json_schema": {
+                "type": "string",
+                "pattern": "^(true|false)$"
+              },
+              "tap_mutable": false
+            }
+          ]
+        },
+        {
+          "type": "discover_schema",
+          "properties": []
+        },
+        {
+          "type": "field_selection",
+          "properties": []
+        },
+        {
+          "type": "fully_configured",
+          "properties": []
+        }
+      ]
+    }
+  }
+
+
+
+mysql-without-form-properties: |
+  {
+    "properties": {
+      "frequency_in_minutes": "60",
+      "host": "<HOST>",
+      "image_version": "1.latest",
+      "port": "3306",
+      "user": "<USER>",
+      "token": null
+    },
+    "updated_at": "2019-01-24T22:24:22Z",
+    "check_job_name": "116078.123903.check.cc8e9583-2026-11e9-b0e4-0e61abdd375a",
+    "name": "mysql",
+    "type": "platform.mysql",
+    "deleted_at": null,
+    "system_paused_at": null,
+    "stitch_client_id": 116078,
+    "paused_at": null,
+    "id": 123903,
+    "display_name": "MySQL",
+    "created_at": "2019-01-24T22:24:22Z",
+    "report_card": {
+      "type": "platform.mysql",
+      "current_step": <STEP>,
+      "steps": [
+        {
+          "type": "form",
+          "properties": [...]
+        },
+        {
+          "type": "discover_schema",
+          "properties": []
+        },
+        {
+          "type": "field_selection",
+          "properties": []
+        },
+        {
+          "type": "fully_configured",
+          "properties": []
+        }
+      ]
+    }
+  }
