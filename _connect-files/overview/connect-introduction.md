@@ -1,6 +1,6 @@
 ---
 title: Introduction
-content-type: "overview"
+content-type: "connect-overview"
 order: 1
 
 sections:

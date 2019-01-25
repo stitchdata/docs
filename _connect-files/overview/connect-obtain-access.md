@@ -1,6 +1,6 @@
 ---
 title: Getting Access
-content-type: "overview"
+content-type: "connect-overview"
 order: 2
 
 sections:

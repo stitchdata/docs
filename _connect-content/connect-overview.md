@@ -3,6 +3,9 @@ title: Stitch Connect
 permalink: /stitch-connect/
 sidebar: overview
 layout: connect
+
+content-type: "connect-overview"
+
 toc: false
 summary: false
 feedback: false
