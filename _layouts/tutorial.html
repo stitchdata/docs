@@ -65,7 +65,11 @@ layout: page
         {% endfor %}
     {% endif %}
 
-    {% unless forloop.last == true %}
-        <hr>
-    {% endunless %}
+    <hr>
 {% endfor %}
+
+    {% if page.next-steps %}
+        <h2 id="next-steps">Next steps</h2>
+
+        {{ page.next-steps | flatify | markdownify }}
+    {% endif %}
