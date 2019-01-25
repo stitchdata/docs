@@ -3,12 +3,12 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Select streams and fields with the Connect API
+title: Select Streams and Fields with the Connect API
 content-type: "tutorial"
-content-id: "select-tables-and-fields"
+content-id: "select-streams-and-fields"
 layout: tutorial
 
-permalink: /stitch-connect/guides/select-tables-and-fields-with-connect-api
+permalink: /stitch-connect/guides/select-streams-and-fields-with-connect-api
 
 toc: false
 summary: false
@@ -25,14 +25,14 @@ related:
   - title: "Connect API reference"
     link: "{{ link.connect.api | prepend: site.baseurl }}"
 
+  - title: "Connect guides"
+    link: "{{ link.connect.guides.category | prepend: site.baseurl }}"
+
   - title: "Create and configure a source with Connect"
     link: "{{ link.connect.guides.create-configure-a-source | prepend: site.baseurl }}"
 
   - title: "Field selection and compatibility rules"
     link: "{{ link.connect.guides.field-selection-compatibility-rules | prepend: site.baseurl }}"
-
-  - title: "Connect guides"
-    link: "{{ link.connect.guides.category | prepend: site.baseurl }}"
 
 
 # -------------------------- #
@@ -44,16 +44,20 @@ intro: |
 
   {{ page.summary }}
 
+  **Note**: While this guide will walk you through creating, configuring, and advancing a new source to its `field_selection` [connection step]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.connection-steps.section | flatify }}), the steps are still applicable to existing `fully_configured` sources if their Report Cards have a `field_selection` step. You may only select streams and fields when a source's `current_step` is `field_selection` or `fully_configured`.
+
 
 # -------------------------- #
-#         GUIDE INTRO        #
+#     GUIDE REQUIREMENTS     #
 # -------------------------- #
 
 requirements:
   - item: |
       **Valid credentials**. Using the Connect API requires a valid [access token]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.api.access-api }}), which is obtained through partner credentials.
   - item: |
-      **Access to a source**. This guide will use a [Shopify SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-shopify-object" }}) as an example, but any source type will work. Refer to the [Source Form Properties documentation]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section }}) for the sources supported by Connect.
+      **Access to a source with a `field_selection` connection step**. This guide will use a [Shopify SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-shopify-object" }}) as an example, but any source type with a `field_selection` step will work.
+
+         Refer to the [Source Form Properties documentation]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section }}) for the sources supported by Connect. To determine if a source has a `field_selection` step, [retrieve its Report Card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.source-types.get.anchor | flatify }}).
 
 
 # -------------------------- #
@@ -64,11 +68,11 @@ steps:
   - title: "Create and configure the source"
     anchor: "configure-the-source"
     content: |
-      Create and configure a source. Refer to the [Quick start guide]({{ link.connect.guides.create-configure-a-source | flatify | prepend: site.baseurl }}) for instructions.
-
       {% assign source-id = "122635" %}
       {% assign stream-id = "2288758" %}
       {% assign tap-stream-id = "custom_collections" %}
+
+      Create and configure a source. Refer to the [Quick start guide]({{ link.connect.guides.create-configure-a-source | flatify | prepend: site.baseurl }}) for instructions.
   
   - title: "Wait for a successful connection check and discovery"
     anchor: "successful-connection-check-discovery"
@@ -120,6 +124,8 @@ steps:
     anchor: "get-available-streams"
     content: |
       When the [Source API]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.core-objects.sources.retrieve.anchor }}) reports that the source's `current_step` is equal to `field_selection`, you can retrieve a list of the streams available for the source.
+
+      {% include note.html type="single-line" content="**Note**: If a source has a `field_selection` step in its report card but its `current_step` is `fully_configured`, you can still select additional streams and fields. Selection may only occur during `field_selection` and `fully_configured` steps." %}
 
       In general, a stream is:
 
@@ -306,4 +312,12 @@ steps:
       ```
 
       **Note**: Fields with metadata properties of `inclusion: automatic` or `selected-by-default: true` don't need to be explicitly selected through a request. These fields will be automatically selected for replication regardless of their `selected` value. Refer to the [Field selection and compatibility rules guide]({{ link.connect.guides.field-selection-compatibility-rules | prepend: site.baseurl }}) for more info.
+
+
+# -------------------------- #
+#         NEXT STEPS         #
+# -------------------------- #
+
+next-steps: |
+  Stream and field selection may occur any time when a source's `current_step` is `field_selection` or `fully_configured`, as long as the source's report card has a `field_selection` step. To select additional streams and fields, follow steps 3 - 6.
 ---
