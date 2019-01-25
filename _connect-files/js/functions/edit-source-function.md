@@ -27,7 +27,7 @@ options:
 
 
 examples:
-  - type: "function"
+  - type: "Function"
     language: "javascript"
     description: "The code below will send the user to Stitch and open the Integration Settings page for source `45612`, where the source's settings can be updated."
     code: |
@@ -40,7 +40,7 @@ examples:
           console.log("Editing source failed.", error);
       });
 
-  - type: "result"
+  - type: "Result"
     description: "Stitch.js will display the Integration Settings page for the source, where the user can update the source's configuration settings."
     image: "connect/js-edit-source-function-result.png"
     image-caption: "The Integration Settings page in Stitch."

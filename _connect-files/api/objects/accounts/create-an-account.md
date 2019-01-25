@@ -86,7 +86,7 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "curl"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
@@ -99,7 +99,7 @@ examples:
                 "partner_secret": "<PARTNER_SECRET>",
                 "company": "Stitch Product Team"
               }"
-  - type: "response"
+  - type: "Response"
     language: "json"
     code: |
       HTTP/1.1 200 OK
@@ -109,5 +109,5 @@ examples:
         "access_token":"<ACCESS_TOKEN>"
       }
 
-  - type: "errors"
+  - type: "Errors"
 ---

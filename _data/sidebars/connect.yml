@@ -143,13 +143,39 @@ api:
                 method: "delete"
                 url: "{{ api.core-objects.sources.delete.anchor }}"
 
+          - title: "Connection Checks"
+            expand-by-default: true
+            subsections:
+              - title: "The Connection Check Object"
+                method: "object"
+                url: "{{ api.core-objects.connection-checks.object }}"
+
+              - title: "{{ api.core-objects.connection-checks.get-source.title }}"
+                method: "get"
+                url: "{{ api.core-objects.connection-checks.get-source.anchor }}"
+
+          - title: "Streams"
+            expand-by-default: true
+            subsections:
+              - title: "The Stream Object"
+                method: "object"
+                url: "{{ api.core-objects.streams.object }}"
+
+              - title: "{{ api.core-objects.streams.list.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.streams.list.anchor }}"
+
+              - title: "{{ api.core-objects.streams.retrieve-schema.title | flatify }}"
+                method: "get"
+                url: "{{ api.core-objects.streams.retrieve-schema.anchor }}"
+
+              - title: "{{ api.core-objects.streams.update.title | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.streams.update.anchor }}"
+
       - title: "Data Structures"
         expand-by-default: true
         sections: 
-          # - title: "{{ api.data-structures.connection-checks.title }}"
-          #   method: "object"
-          #   url: "{{ api.data-structures.connection-checks.section }}"
-
           - title: "{{ api.data-structures.connection-steps.title }}"
             method: "object"
             url: "{{ api.data-structures.connection-steps.section }}"
@@ -169,6 +195,22 @@ api:
           - title: "{{ api.data-structures.report-cards.source.title }}"
             method: "object"
             url: "{{ api.data-structures.report-cards.source.section }}"
+
+          - title: "{{ api.data-structures.stream-schemas.title }}"
+            method: "object"
+            url: "{{ api.data-structures.stream-schemas.section }}"
+
+          - title: "{{ api.data-structures.metadata.top-level.title }}"
+            method: "object"
+            url: "{{ api.data-structures.metadata.top-level.section }}"
+
+          - title: "{{ api.data-structures.metadata.stream-level.title }}"
+            method: "object"
+            url: "{{ api.data-structures.metadata.stream-level.section }}"
+
+          - title: "{{ api.data-structures.metadata.field-level.title }}"
+            method: "object"
+            url: "{{ api.data-structures.metadata.field-level.section }}"
 
 
       - title: "Form Properties"

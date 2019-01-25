@@ -53,7 +53,4 @@ sections:
       {% endfor %}
       {% endfor %}
       </table>
-
-
 ---
-

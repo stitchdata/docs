@@ -1,0 +1,45 @@
+# -------------------------- #
+#  DESTINATION CORE OBJECT   #
+# -------------------------- #
+
+title: "Destinations"
+section: "#destinations"
+object: "#destination--object"
+base: "/v4/destinations"
+description: "An object representing a destination. Destinations are the data warehouses into which Stitch writes data."
+
+create:
+  name: "{{ site.data.connect.api.core-objects.destinations.base }}" 
+  title: "Create a destination"
+  method: *post
+  anchor: "#create-a-destination"
+  short: "Creates a new destination."
+  description: |
+    {{ site.data.connect.api.core-objects.destinations.create.short }} Only a single destination is supported per Stitch client account.
+
+update:
+  name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
+  title: "Update a destination"
+  method: &put "put"
+  anchor: "#update-a-destination"
+  short: &update-dest-desc "Updates an existing destination. Modifications to the `type` attribute are not supported."
+  description: *update-dest-desc
+
+list:
+  name: "{{ site.data.connect.api.core-objects.destinations.base }}"
+  title: "List destinations"
+  method: &get "get"
+  anchor: "#list-destinations"
+  short: "Lists the destination currently in use for a Stitch account."
+  description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single data warehouse is supported per Stitch client account."
+
+delete:
+  name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
+  title: "Delete a destination"
+  method: "delete"
+  anchor: "#delete-a-destination"
+  short: "Deletes an existing destination."
+  description: |
+    {{ site.data.connect.api.core-objects.destinations.delete.short }}
+
+    **Note**: Stitch requires a destination to replicate data. Replication will be paused until a new destination is created and has a successful connection.

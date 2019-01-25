@@ -50,7 +50,7 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
@@ -59,7 +59,7 @@ examples:
            -H "Content-Type: application/json"
            -d "{}"
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     code: |
       HTTP/1.1 200 OK
@@ -247,5 +247,5 @@ examples:
             ]
          }
       }
-  - type: "errors"
+  - type: "Errors"
 ---

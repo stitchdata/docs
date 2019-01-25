@@ -14,7 +14,7 @@ sections:
       <tr>
       <td colspan="2" class="table-subheading">
       <strong>
-      <a href="#{{ object.title | downcase | replace: " ", "-" }}">{{ object.title | upcase }}
+      <a href="#{{ object.endpoint | append: "--section" }}">{{ object.title | upcase }}
         </a>
         </strong>
       </td>

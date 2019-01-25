@@ -1,0 +1,65 @@
+# -------------------------------- #
+#      STREAM ENDPOINT ERRORS      #
+# -------------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "get"
+        condition: "Invalid stream ID"
+        version: "all"
+        response-body: |
+          "`invalid stream-id: <STREAM_ID>`"
+
+      - method: "get"
+        condition: "Invalid source ID"
+        version: "all"
+        response-body: |
+          "`invalid stream-id: <STREAM_ID>`"
+
+      - method: "put"
+        condition: "Missing `tap_stream_id`"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "invalid_fields":"invalid tap-stream-ids:  [nil]"
+          }
+          ```
+
+      - method: "put"
+        condition: "Invalid `tap_stream_id`"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "invalid_fields":"invalid tap-stream-ids:  [<INVALID_TAP_STREAM_ID>]"
+          }
+          ```
+      - method: "put"
+        condition: "Request body includes read-only properties"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "invalid_fields": "only non-discoverable metadata can be produced by the UI: #{\"<PROPERTY_NAME>\"}"
+          }
+          ```
+
+      - method: "put"
+        condition: "Request body includes unsupported fields"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "invalid_fields": "Unsupported fields cannot be selected by default"}"
+          }
+          ```
+
+      - method: "put"
+        condition: "Request body is missing `streams`, `breadcrumb`, and/or `metadata` properties"
+        version: "all"
+        response-body: |
+          `"body must contain a 'streams' property with a list of metadatas by tap_stream_id"`
+
+# "body must include a list of discovered survivor schemas"

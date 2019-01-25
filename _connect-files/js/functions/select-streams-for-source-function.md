@@ -28,7 +28,7 @@ options:
 
 
 examples:
-  - type: "function"
+  - type: "Function"
     language: "javascript"
     description: "The code below will prompt the user to select the streams (tables) they want to replicate for source `45612`."
     code: |
@@ -41,7 +41,7 @@ examples:
           console.log("Integration not created.", error);
       });
 
-  - type: "result"
+  - type: "Result"
     description: "Stitch.js will display the streams available for replication. The example below lists the streams for source `platform.hubspot`."
     image: "connect/js-source-stream-selection-function-result.png"
     image-caption: "The streams (tables) available for replication in Stitch."

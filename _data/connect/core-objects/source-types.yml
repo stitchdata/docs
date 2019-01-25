@@ -1,0 +1,35 @@
+# ----------------------------- #
+#    SOURCE TYPE CORE OBJECT    #
+# ----------------------------- #
+
+title: "Source Types"
+section: "#source-types"
+object: "#source-type--object"
+base: "/v4/source-types"
+description: "The Source Type object contains the information needed to configure a data source."
+
+get:
+  name: "{{ site.data.connect.api.core-objects.source-types.base }}/{type}"
+  title: "Get a source type"
+  method: *get
+  anchor: "#get-a-source-type"
+  short: "Retrieves general information about the configuration required for a data source type."
+  description: |
+    {{ site.data.connect.api.core-objects.source-types.get.short }}
+
+    **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `type`.
+
+    To retrieve information about a specific data source, use the [Get a Source]({{ site.data.connect.api.core-objects.sources.retrieve.anchor }}) endpoint.
+
+list:
+  name: "{{ site.data.connect.api.core-objects.source-types.base }}"
+  title: "List source types"
+  method: *get
+  anchor: "#list-source-types"
+  short: "Retrieves general information about the configuration required for all supported data source types."
+  description: |
+    {{ site.data.connect.api.core-objects.source-types.list.short }}
+
+    **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for all supported source types.
+
+    To retrieve specific information about all data sources for an account, use the [List Sources]({{ site.data.connect.api.core-objects.sources.list.anchor }}) endpoint.

@@ -1,0 +1,48 @@
+# ----------------------------- #
+#      SOURCE CORE OBJECT       #
+# ----------------------------- #
+
+title: "Sources"
+section: "#sources"
+object: "#source--object"
+base: "/v4/sources"
+description: "An object representing a data source. Sources are the databases, APIs, and other data applications that Stitch replicates data from. Sources can be retrieved in a list or individually by ID."
+
+create:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}" 
+  title: "Create a source"
+  method: *post
+  anchor: "#create-a-source"
+  short: "Creates a source object, which is the first step in setting up a new data source."
+  description: |
+    {{ site.data.connect.api.core-objects.sources.create.short }} After the source object is created, additional configuration steps must be completed.
+
+    The configuration process is unique for each type of source. The `report_card` object's `steps` attribute will assist you in guiding the user to the [{{ js.name }}]({{ js.section | flatify | prepend: site.baseurl }}) to complete the appropriate step.
+
+update:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
+  title: "Update a source"
+  method: *put
+  anchor: "#update-a-source"
+  description: "Updates an existing data source."
+
+delete:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
+  title: "Delete a source"
+  method: "delete"
+  anchor: "#delete-a-source"
+  description: "Deletes an existing data source."
+
+retrieve:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
+  title: "Get a source"
+  method: *get
+  anchor: "#retrieve-a-source"
+  description: "Retrieves a previously created data source by its unique identifier."
+
+list:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}"
+  title: "List sources"
+  method: *get
+  anchor: "#list-sources"
+  description: "Lists the sources for an account, including active, paused, and deleted sources."

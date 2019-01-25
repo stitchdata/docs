@@ -48,14 +48,14 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
-  - type: "response"
+  - type: "Response"
     language: "json"
     code: |
       HTTP/1.1 200 OK
