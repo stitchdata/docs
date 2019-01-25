@@ -65,13 +65,9 @@
             {% when "true" %}
                 {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
             {% when "false" %}
-<<<<<<< HEAD:_includes/connect/api-examples.html
-                {% assign tab-id = item.key | append: "-" | append: example.type | downcase | replace:" ","-" | remove:"(" | remove: ")" %}
-=======
                 {% assign tab-id = item.key | append: "-" | append: example.type %}
             {% else %}
                 {% assign tab-id = item.key | append: "-" | append: example.type %}
->>>>>>> master:_includes/connect/request-response-example-tabs.html
         {% endcase %}
 
         {% if forloop.first == true %}
