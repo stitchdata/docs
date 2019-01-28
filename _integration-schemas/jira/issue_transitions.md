@@ -1,98 +1,137 @@
 ---
 tap: "jira"
-version: "1.0"
-
+version: "1.x"
 name: "issue_transitions"
-doc-link: https://docs.atlassian.com/jira/REST/ondemand/#api/2/project-getAllProjects
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
-description: |
-  The `issue_transitions` table contains info about the transitions an issue undergoes during its lifecycle. For example: When an issue is opened, it may be a `To Do` item. When work begins, it moves to `In Progress`. Each of these is considered a transition.
-
-  **To replicate data for this table**, the `issues` table must be selected. Additionally, JIRA's API will only return transitions that are available for the [user whose credentials authenticated the integration](#add-stitch-data-source).
-
-replication-method: "Incremental"
-
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json"
+description: ""
+replication-method: ""
 api-method:
-  name: 
-  doc-link: 
-
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "id"
+  - name: "expand"
     type: "string"
-    primary-key: true
-    description: "The issue transition ID."
-
-  - name: "updated"
-    type: "date-time"
-    replication-key: true
-    description: "The date the issue transition was last updated."
-
-  - name: "isConditional"
-    type: "boolean"
-    description: "If `true`, "
-
-  - name: "isGlobal"
-    type: "boolean"
-    description: "If `true`, "
-
-  - name: "isInitial"
-    type: "boolean"
-    description: "If `true`, "
-
-  - name: "issueId"
-    type: "string"
-    description: "The ID of the issue the transition is associated with."
-    foreign-key: true
-
-  - name: "name"
-    type: "string"
-    description: "The name of the issue. For example: `Close Issue`"
-
-  - name: "to"
+    description: ""
+  - name: "fields"
     type: "object"
-    description: "Details about the issue transition and status category."
-    object-attributes:
-      - name: "id"
-        type: "string"
-        description: "The transition action ID."
-
-      - name: "description"
-        type: "string"
-        description: "A description of the transition action."
-
-      - name: "iconUrl"
-        type: "string"
-        description: "The URL of the icon associated with the transition action."
-
-      - name: "name"
-        type: "string"
-        description: "The name of the transition action. For example: `To Do`"
-
-      - name: "self"
-        type: "string"
-        description: "The API URL of the transition action in JIRA."
-
-      - name: "statusCategory"
+    description: ""
+    object-properties:
+      - name: "anyFieldAtAll"
         type: "object"
-        description: "Details about the status category."
-        object-attributes:
-          - name: "id"
-            type: "integer"
-            description: "The status category ID."
-
-          - name: "colorName"
+        description: ""
+        object-properties:
+          - name: "allowedValues"
+            type: "array"
+            description: ""
+            array-attributes:
+              - name: "value"
+                type: "anything"
+                description: ""
+          - name: "autoCompleteUrl"
             type: "string"
-            description: "The name of the color associated with the status category. For example: `grey`"
-
+            description: ""
+          - name: "defaultValue"
+            type: "anything"
+            description: ""
+          - name: "hasDefaultValue"
+            type: "boolean"
+            description: ""
           - name: "key"
             type: "string"
-            description: "The status category key."
-
+            description: ""
           - name: "name"
             type: "string"
-            description: "The name of the status category."
-
+            description: ""
+          - name: "operations"
+            type: "array"
+            description: ""
+            array-attributes:
+              - name: "value"
+                type: "string"
+                description: ""
+          - name: "required"
+            type: "boolean"
+            description: ""
+          - name: "schema"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "custom"
+                type: "string"
+                description: ""
+              - name: "customId"
+                type: "integer"
+                description: ""
+              - name: "items"
+                type: "string"
+                description: ""
+              - name: "system"
+                type: "string"
+                description: ""
+              - name: "type"
+                type: "string"
+                description: ""
+  - name: "hasScreen"
+    type: "boolean"
+    description: ""
+  - name: "id"
+    type: "string"
+    description: ""
+  - name: "isConditional"
+    type: "boolean"
+    description: ""
+  - name: "isGlobal"
+    type: "boolean"
+    description: ""
+  - name: "isInitial"
+    type: "boolean"
+    description: ""
+  - name: "issueId"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "to"
+    type: "object"
+    description: ""
+    object-properties:
+      - name: "description"
+        type: "string"
+        description: ""
+      - name: "iconUrl"
+        type: "string"
+        description: ""
+      - name: "id"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
+      - name: "self"
+        type: "string"
+        description: ""
+      - name: "statusCategory"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "colorName"
+            type: "string"
+            description: ""
+          - name: "id"
+            type: "integer"
+            description: ""
+          - name: "key"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
           - name: "self"
             type: "string"
-            description: "The API URL of the status category in JIRA."
+            description: ""
+      - name: "statusColor"
+        type: "string"
+        description: ""
 ---

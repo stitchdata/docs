@@ -1,112 +1,130 @@
 ---
 tap: "jira"
-version: "1.0"
-
+version: "1.x"
 name: "worklogs"
-doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/#api-api-2-worklog-list-post
-singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/worklogs.json
-description: |
-  The `worklogs` table contains the worklogs contained in issues.
-
-  **Note**: As per [JIRA's documentation](https://developer.atlassian.com/cloud/jira/platform/rest/#api-api-2-worklog-list-post), the `worklogs` endpoint will only ever return 1,000 records at a time.
-
-replication-method: "Incremental"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/worklogs.json"
+description: ""
+replication-method: ""
 api-method:
-  name: getWorklogsModifiedSince
-  doc-link: https://developer.atlassian.com/cloud/jira/platform/rest/#api-api-2-worklog-list-post
-
-user-attributes: &user-attributes
-  - name: "self"
-    type: "string"
-    description: "The URL for the author's user profile."
-
-  - name: "name"
-    type: "string"
-    description: "The name of the author."
-
-  - name: "key"
-    type: "string"
-    description: "The author key."
-
-  - name: "accountId"
-    type: "string"
-    description: "The ID of the author's account."
-
-  - name: "emailAddress"
-    type: "string"
-    description: "The author's email address."
-
-  - name: "displayName"
-    type: "string"
-    description: "The display name of the author."
-
-  - name: "active"
-    type: "boolean"
-    description: "If `true`, the author is an active user."
-
-  - name: "timeZone"
-    type: "string"
-    description: "The time zone the author resides in."
-
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The worklog event ID."
-
-  - name: "updated"
-    type: "date-time"
-    replication-key: true
-    description: "The time the worklog was last updated."
-
-  - name: "self"
-    type: "string"
-    description: "The URL for the worklog."
-
   - name: "author"
     type: "object"
-    description: "Details about the user who created the worklog."
-    object-attributes: *user-attributes
-
-  - name: "updateAuthor"
-    type: "object"
-    description: "Details about the user who created this worklog event."
-    object-attributes: *user-attributes
-
+    description: ""
+    object-properties:
+      - name: "accountId"
+        type: "string"
+        description: ""
+      - name: "active"
+        type: "boolean"
+        description: ""
+      - name: "avatarUrls"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "anyFieldAtAll"
+            type: "string"
+            description: ""
+      - name: "displayName"
+        type: "string"
+        description: ""
+      - name: "emailAddress"
+        type: "string"
+        description: ""
+      - name: "key"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
+      - name: "self"
+        type: "string"
+        description: ""
+      - name: "timeZone"
+        type: "string"
+        description: ""
   - name: "comment"
     type: "string"
-    description: "The comment associated with the worklog event."
-
+    description: ""
   - name: "created"
     type: "date-time"
-    description: "The time the worklog was created."
-
-  - name: "visibility"
-    type: "object"
-    description: "Details about the visibility of the worklog."
-    object-attributes:
-      - name: "type"
-        type: "string"
-        description: "The type of visibility. For example: `role`"
-
-      - name: "value"
-        type: "string"
-        description: "The value. For example: `Vieweable to [...]"
-
-  - name: "started"
-    type: "date-time"
-    description: "The time worklog was started."
-
-  - name: "timeSpent"
+    description: ""
+  - name: "id"
     type: "string"
-    description: "The amount of time the user logged. For example: `10m`"
-
-  - name: "timeSpentSeconds"
-    type: "integer"
-    description: "The amount of time the user logged, in seconds. For example: `600`"
-
+    description: ""
   - name: "issueId"
     type: "string"
-    description: "The ID of the issue associated with the worklog."
-    foreign-key: true
+    description: ""
+  - name: "properties"
+    type: "array"
+    description: ""
+    array-attributes:
+      - name: "key"
+        type: "string"
+        description: ""
+      - name: "value"
+        type: "anything"
+        description: ""
+  - name: "self"
+    type: "uri"
+    description: ""
+  - name: "started"
+    type: "date-time"
+    description: ""
+  - name: "timeSpent"
+    type: "string"
+    description: ""
+  - name: "timeSpentSeconds"
+    type: "integer"
+    description: ""
+  - name: "updateAuthor"
+    type: "object"
+    description: ""
+    object-properties:
+      - name: "accountId"
+        type: "string"
+        description: ""
+      - name: "active"
+        type: "boolean"
+        description: ""
+      - name: "avatarUrls"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "anyFieldAtAll"
+            type: "string"
+            description: ""
+      - name: "displayName"
+        type: "string"
+        description: ""
+      - name: "emailAddress"
+        type: "string"
+        description: ""
+      - name: "key"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
+      - name: "self"
+        type: "string"
+        description: ""
+      - name: "timeZone"
+        type: "string"
+        description: ""
+  - name: "updated"
+    type: "date-time"
+    description: ""
+  - name: "visibility"
+    type: "object"
+    description: ""
+    object-properties:
+      - name: "type"
+        type: "string"
+        description: "Valid values: group, role."
+      - name: "value"
+        type: "string"
+        description: ""
 ---

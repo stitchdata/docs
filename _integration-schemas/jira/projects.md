@@ -1,351 +1,468 @@
 ---
 tap: "jira"
-version: "1.0"
-
+version: "1.x"
 name: "projects"
-doc-link: https://docs.atlassian.com/jira/REST/ondemand/#api/2/project-getAllProjects
-singer-schema: ## link to the JSON schema file in the integration's Singer repo
-description: |
-  The `projects` table contains info about individual projects in your JIRA account.
-
-replication-method: "Full Table"
-
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/projects.json"
+description: ""
+replication-method: ""
 api-method:
-  name: getAllProjects
-  doc-link: https://docs.atlassian.com/jira/REST/ondemand/#api/2/project-getAllProjects
-
-
+    name: ""
+    doc-link: ""
 attributes:
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The project ID."
-
-  - name: "key"
-    type: "string"
-    description: "The project key."
-
   - name: "assigneeType"
     type: "string"
-    description: |
-      Possible values are:
-      - `PROJECT_LEAD`
-      - `UNASSIGNED`
-
-  - name: "name"
-    type: "string"
-    description: "The name of the project."
-
-  - name: "projectTypeKey"
-    type: "string"
-    description: "The key of the project type applied to the project."
-    foreign-key: true
-
-  - name: "self"
-    type: "string"
-    description: "The API URL of the project in JIRA."
-
-  - name: "simplified"
-    type: "boolean"
-    description: ""
-
+    description: "Valid values: PROJECT_LEAD, UNASSIGNED."
   - name: "avatarUrls"
     type: "object"
-    description: "The URLs of the avatars associated with the project."
-    object-attributes:
-      - name: "16x16"
+    description: ""
+    object-properties:
+      - name: "anyFieldAtAll"
         type: "string"
-        description: "The URL of the 16x16 avatar associated with the project."
-
-      - name: "24x24"
-        type: "string"
-        description: "The URL of the 24x24 avatar associated with the project."
-
-      - name: "32x32"
-        type: "string"
-        description: "The URL of the 32x32 avatar associated with the project."
-
-      - name: "48x48"
-        type: "string"
-        description: "The URL of the 48x48 avatar associated with the project."
-
-# Start COMPONENTS
-
+        description: ""
   - name: "components"
     type: "array"
-    description: "Details about the components that make up the project."
+    description: ""
     array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The project component ID."
-
-      - name: "name"
-        type: "string"
-        description: "The name of the project component."
-
-      - name: "description"
-        type: "string"
-        description: "The description of the project component."
-
-      - name: "self"
-        type: "string"
-        description: "The API URL of the project component in JIRA."
-
-      - name: "leadUserName"
-        type: "string"
-        description: "The username of the lead associated with the project component."
-
-    # Start LEAD
-      - name: "lead"
-        type: "array"
-        description: "Details about the lead associated with the project component."
-        array-attributes: &component-user
-          - name: "key"
-            type: "string"
-            description: "The key of the project component {{ subattribute.name }}."
-            foreign-key: true
-            table: "users"
-
-          - name: "accountId"
-            type: "string"
-            description: "The account ID associated with the project component {{ subattribute.name }}."
-
-          - name: "active"
-            type: "boolean"
-            description: "If `true`, the project component {{ subattribute.name }} is active."
-
-          - name: "displayName"
-            type: "string"
-            description: "The display name of the project component {{ subattribute.name }}."
-
-          - name: "name"
-            type: "string"
-            description: "The name of the project component {{ subattribute.name }}."
-
-          - name: "self"
-            type: "string"
-            description: "The URL associated with the project component {{ subattribute.name }}."
-
-        # Start AVATARURLS
-
-          - name: "avatarUrls"
-            type: "object"
-            description: "The URLs associated with the avatars used by the project component {{ subattribute.name }}."
-            object-attributes:
-              - name: "16x16"
-                type: "string"
-                description: "The URL of the project component {{ subattribute.name }}'s 16x16 avatar."
-
-              - name: "24x24"
-                type: "string"
-                description: "The URL of the project component {{ subattribute.name }}'s 24x24 avatar."
-
-              - name: "32x32"
-                type: "string"
-                description: "The URL of the project component {{ subattribute.name }}'s 32x32 avatar."
-
-              - name: "48x48"
-                type: "string"
-                description: "The URL of the project component {{ subattribute.name }}'s 48x48 avatar."
-
-        # End AVATARURLS
-
-    # End LEAD
-
-      - name: "assigneeType"
-        type: "string"
-        description: |
-          The type of assignee the project component can have. Possible values are:
-
-          - `PROJECT_DEFAULT`
-          - `COMPONENT_LEAD`
-          - `PROJECT_LEAD`
-          - `UNASSIGNED`
-
-    # Start ASSIGNEE
-
       - name: "assignee"
         type: "object"
-        description: "Details about the assignee assigned to the project component."
-        object-attributes: *component-user
-
-    # End ASSIGNEE
-
-    # Start REALASSIGNEE
-
-      - name: "realAssignee"
-        type: "object"
-        description: "Details about the real assignee assigned to the project component."
-        object-attributes:
-          - name: "key"
-            type: "string"
-            description: "The key of the real assignee."
-            foreign-key: true
-            table: "users"
-
+        description: ""
+        object-properties:
           - name: "accountId"
             type: "string"
-            description: "The account ID associated with the real assignee."
-
+            description: ""
           - name: "active"
             type: "boolean"
-            description: "If `true`, the real assignee is active."
-
-          - name: "displayName"
-            type: "string"
-            description: "The display name of the real assignee."
-
-          - name: "name"
-            type: "string"
-            description: "The name of the real assignee."
-
-          - name: "self"
-            type: "string"
-            description: "The URL associated with the real assignee."
-
-        # Start AVATARURLS
-
+            description: ""
+          - name: "applicationRoles"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "items"
+                type: "array"
+                description: ""
+                array-attributes:
+                  - name: "name"
+                    type: "string"
+                    description: ""
+                  - name: "self"
+                    type: "uri"
+                    description: ""
+              - name: "max-results"
+                type: "integer"
+                description: ""
+              - name: "size"
+                type: "integer"
+                description: ""
           - name: "avatarUrls"
             type: "object"
-            description: "The URLs associated with the avatars used by the real assignee."
-            object-attributes:
-              - name: "16x16"
-                type: "string"
-                description: "The URL of the real assignee's 16x16 avatar."
-
-              - name: "24x24"
-                type: "string"
-                description: "The URL of the real assignee's 24x24 avatar."
-
-              - name: "32x32"
-                type: "string"
-                description: "The URL of the real assignee's 32x32 avatar."
-
-              - name: "48x48"
-                type: "string"
-                description: "The URL of the real assignee's 48x48 avatar."
-
-        # End AVATARURLS
-
-    # End REALASSIGNEE
-
-      - name: "realAssigneeType"
+            description: ""
+            object-properties:
+              - name: "anyFieldAtAll"
+                type: "uri"
+                description: ""
+          - name: "displayName"
+            type: "string"
+            description: ""
+          - name: "emailAddress"
+            type: "string"
+            description: ""
+          - name: "expand"
+            type: "string"
+            description: ""
+          - name: "groups"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "items"
+                type: "array"
+                description: ""
+                array-attributes:
+                  - name: "name"
+                    type: "string"
+                    description: ""
+                  - name: "self"
+                    type: "uri"
+                    description: ""
+              - name: "max-results"
+                type: "integer"
+                description: ""
+              - name: "size"
+                type: "integer"
+                description: ""
+          - name: "key"
+            type: "string"
+            description: ""
+          - name: "locale"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "self"
+            type: "uri"
+            description: ""
+          - name: "timeZone"
+            type: "string"
+            description: ""
+      - name: "assigneeType"
         type: "string"
-        description: |
-          The type of assignee the real assignee for the project component can have. Possible values are:
-
-          - `PROJECT_DEFAULT`
-          - `COMPONENT_LEAD`
-          - `PROJECT_LEAD`
-          - `UNASSIGNED`
-
+        description: "Valid values: COMPONENT_LEAD, PROJECT_DEFAULT, PROJECT_LEAD,\
+            \ UNASSIGNED."
+      - name: "description"
+        type: "string"
+        description: ""
+      - name: "id"
+        type: "string"
+        description: ""
       - name: "isAssigneeTypeValid"
         type: "boolean"
         description: ""
-
+      - name: "lead"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "accountId"
+            type: "string"
+            description: ""
+          - name: "active"
+            type: "boolean"
+            description: ""
+          - name: "applicationRoles"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "items"
+                type: "array"
+                description: ""
+                array-attributes:
+                  - name: "name"
+                    type: "string"
+                    description: ""
+                  - name: "self"
+                    type: "uri"
+                    description: ""
+              - name: "max-results"
+                type: "integer"
+                description: ""
+              - name: "size"
+                type: "integer"
+                description: ""
+          - name: "avatarUrls"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "anyFieldAtAll"
+                type: "uri"
+                description: ""
+          - name: "displayName"
+            type: "string"
+            description: ""
+          - name: "emailAddress"
+            type: "string"
+            description: ""
+          - name: "expand"
+            type: "string"
+            description: ""
+          - name: "groups"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "items"
+                type: "array"
+                description: ""
+                array-attributes:
+                  - name: "name"
+                    type: "string"
+                    description: ""
+                  - name: "self"
+                    type: "uri"
+                    description: ""
+              - name: "max-results"
+                type: "integer"
+                description: ""
+              - name: "size"
+                type: "integer"
+                description: ""
+          - name: "key"
+            type: "string"
+            description: ""
+          - name: "locale"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "self"
+            type: "uri"
+            description: ""
+          - name: "timeZone"
+            type: "string"
+            description: ""
+      - name: "leadUserName"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
       - name: "project"
         type: "string"
-        description: "The key of the project associated with the component."
-
+        description: ""
       - name: "projectId"
         type: "integer"
-        description: "The ID of the project associated with the component."
-
-# End COMPONENTS
-
-# Start LEAD
-
-  - name: "lead"
-    type: "object"
-    description: "Details about the project lead."
-    object-attributes:
-      - name: "key"
-        type: "string"
-        description: "The key of the project {{ attribute.name }}."
-        foreign-key: true
-        table: "users"
-
-      - name: "accountId"
-        type: "string"
-        description: "The account ID associated with the project {{ attribute.name }}."
-
-      - name: "active"
-        type: "boolean"
-        description: "If `true`, the project {{ attribute.name }} is active."
-
-      - name: "displayName"
-        type: "string"
-        description: "The display name of the project {{ attribute.name }}."
-
-      - name: "name"
-        type: "string"
-        description: "The name of the project {{ attribute.name }}."
-
-      - name: "self"
-        type: "string"
-        description: "The URL associated with the project {{ attribute.name }}."
-
-    # Start AVATARURLS
-
-      - name: "avatarUrls"
+        description: ""
+      - name: "realAssignee"
         type: "object"
-        description: "The URLs associated with the avatars used by the project {{ attribute.name }}."
-        object-attributes:
-          - name: "16x16"
+        description: ""
+        object-properties:
+          - name: "accountId"
             type: "string"
-            description: "The URL of the project {{ attribute.name }}'s 16x16 avatar."
-
-          - name: "24x24"
+            description: ""
+          - name: "active"
+            type: "boolean"
+            description: ""
+          - name: "applicationRoles"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "items"
+                type: "array"
+                description: ""
+                array-attributes:
+                  - name: "name"
+                    type: "string"
+                    description: ""
+                  - name: "self"
+                    type: "uri"
+                    description: ""
+              - name: "max-results"
+                type: "integer"
+                description: ""
+              - name: "size"
+                type: "integer"
+                description: ""
+          - name: "avatarUrls"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "anyFieldAtAll"
+                type: "uri"
+                description: ""
+          - name: "displayName"
             type: "string"
-            description: "The URL of the project {{ attribute.name }}'s 24x24 avatar."
-
-          - name: "32x32"
+            description: ""
+          - name: "emailAddress"
             type: "string"
-            description: "The URL of the project {{ attribute.name }}'s 32x32 avatar."
-
-          - name: "48x48"
+            description: ""
+          - name: "expand"
             type: "string"
-            description: "The URL of the project {{ attribute.name }}'s 48x48 avatar."
-
-    # End AVATARURLS
-
-  # End LEAD
-
-# Start PROJECTCATEGORY
-
-  - name: "projectCategory"
-    type: "object"
-    description: "Details about the project's category."
-    object-attributes:
-      - name: "id"
+            description: ""
+          - name: "groups"
+            type: "object"
+            description: ""
+            object-properties:
+              - name: "items"
+                type: "array"
+                description: ""
+                array-attributes:
+                  - name: "name"
+                    type: "string"
+                    description: ""
+                  - name: "self"
+                    type: "uri"
+                    description: ""
+              - name: "max-results"
+                type: "integer"
+                description: ""
+              - name: "size"
+                type: "integer"
+                description: ""
+          - name: "key"
+            type: "string"
+            description: ""
+          - name: "locale"
+            type: "string"
+            description: ""
+          - name: "name"
+            type: "string"
+            description: ""
+          - name: "self"
+            type: "uri"
+            description: ""
+          - name: "timeZone"
+            type: "string"
+            description: ""
+      - name: "realAssigneeType"
         type: "string"
-        description: "The project category ID."
-        foreign-key: true
-        table: "project_categories"
-
-      - name: "name"
-        type: "string"
-        description: "The name of the project category."
-
+        description: "Valid values: COMPONENT_LEAD, PROJECT_DEFAULT, PROJECT_LEAD,\
+            \ UNASSIGNED."
+      - name: "self"
+        type: "uri"
+        description: ""
+  - name: "description"
+    type: "string"
+    description: ""
+  - name: "email"
+    type: "string"
+    description: ""
+  - name: "expand"
+    type: "string"
+    description: ""
+  - name: "id"
+    type: "string"
+    description: ""
+  - name: "issueTypes"
+    type: "array"
+    description: ""
+    array-attributes:
+      - name: "avatarId"
+        type: "integer"
+        description: ""
       - name: "description"
         type: "string"
-        description: "The description of the project category."
-
+        description: ""
+      - name: "iconUrl"
+        type: "string"
+        description: ""
+      - name: "id"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
       - name: "self"
         type: "string"
-        description: "The API URL for the project category in JIRA."
-
-# End PROJECTCATEGORY
-
+        description: ""
+      - name: "subtask"
+        type: "boolean"
+        description: ""
+  - name: "key"
+    type: "string"
+    description: ""
+  - name: "lead"
+    type: "object"
+    description: ""
+    object-properties:
+      - name: "accountId"
+        type: "string"
+        description: ""
+      - name: "active"
+        type: "boolean"
+        description: ""
+      - name: "applicationRoles"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "items"
+            type: "array"
+            description: ""
+            array-attributes:
+              - name: "name"
+                type: "string"
+                description: ""
+              - name: "self"
+                type: "uri"
+                description: ""
+          - name: "max-results"
+            type: "integer"
+            description: ""
+          - name: "size"
+            type: "integer"
+            description: ""
+      - name: "avatarUrls"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "anyFieldAtAll"
+            type: "uri"
+            description: ""
+      - name: "displayName"
+        type: "string"
+        description: ""
+      - name: "emailAddress"
+        type: "string"
+        description: ""
+      - name: "expand"
+        type: "string"
+        description: ""
+      - name: "groups"
+        type: "object"
+        description: ""
+        object-properties:
+          - name: "items"
+            type: "array"
+            description: ""
+            array-attributes:
+              - name: "name"
+                type: "string"
+                description: ""
+              - name: "self"
+                type: "uri"
+                description: ""
+          - name: "max-results"
+            type: "integer"
+            description: ""
+          - name: "size"
+            type: "integer"
+            description: ""
+      - name: "key"
+        type: "string"
+        description: ""
+      - name: "locale"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
+      - name: "self"
+        type: "uri"
+        description: ""
+      - name: "timeZone"
+        type: "string"
+        description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "projectCategory"
+    type: "object"
+    description: ""
+    object-properties:
+      - name: "description"
+        type: "string"
+        description: ""
+      - name: "id"
+        type: "string"
+        description: ""
+      - name: "name"
+        type: "string"
+        description: ""
+      - name: "self"
+        type: "uri"
+        description: ""
   - name: "projectKeys"
     type: "array"
-    description: "The key(s) associated with the project."
+    description: ""
     array-attributes:
       - name: "value"
         type: "string"
-        description: "The project key."
-
-  - name: "expand"
+        description: ""
+  - name: "projectTypeKey"
     type: "string"
-    description: "This is a field used by Stitch to replicate data for this endpoint from JIRA's API."
+    description: ""
+  - name: "roles"
+    type: "object"
+    description: ""
+    object-properties:
+      - name: "anyFieldAtAll"
+        type: "uri"
+        description: ""
+  - name: "self"
+    type: "uri"
+    description: ""
+  - name: "simplified"
+    type: "boolean"
+    description: ""
+  - name: "url"
+    type: "string"
+    description: ""
 ---
