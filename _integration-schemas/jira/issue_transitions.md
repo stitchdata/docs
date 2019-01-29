@@ -1,137 +1,181 @@
 ---
 tap: "jira"
-version: "1.x"
+version: "1.0"
+
 name: "issue_transitions"
-doc-link: ""
+doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get"
 singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains info about issue transitions.
+
+  **Note**: To replicate this data:
+
+   1. The [`issues`](#issues) table must also be set to replicate, and
+   2. The `Browse Projects` [project {{ integration.display_name }} permission]({{ integration.project-permissions-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
+
+replication-method: "Key-based Incremental"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Get issue transitions"
+    doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get"
+    
 attributes:
+  - name: "id"
+    type: "string"
+    primary-key: true
+    description: "The issue transition ID."
+    # foreign-key-id: "issue-transition-id"
+
   - name: "expand"
     type: "string"
-    description: ""
+    description: "Details of expands available for the transition."
+
   - name: "fields"
     type: "object"
-    description: ""
-    object-properties:
+    description: "Details of the fields associated with the issue transition screen."
+    object-attributes:
       - name: "anyFieldAtAll"
         type: "object"
         description: ""
-        object-properties:
+        object-attributes:
           - name: "allowedValues"
             type: "array"
-            description: ""
+            description: "The list of values allowed in the field."
             array-attributes:
               - name: "value"
-                type: "anything"
-                description: ""
+                type: "varies"
+                description: "The value allowed in the field."
+
           - name: "autoCompleteUrl"
             type: "string"
-            description: ""
+            description: "The URL that can be used to automatically complete the field."
+
           - name: "defaultValue"
             type: "anything"
-            description: ""
+            description: "The default value of the field."
+
           - name: "hasDefaultValue"
             type: "boolean"
-            description: ""
+            description: "Indicates whether the field has a default value."
+
           - name: "key"
             type: "string"
-            description: ""
+            description: "The key of the field."
+
           - name: "name"
             type: "string"
-            description: ""
+            description: "The name of the field."
+
           - name: "operations"
             type: "array"
-            description: ""
+            description: "A list of operations that can be performed on the field."
             array-attributes:
               - name: "value"
                 type: "string"
-                description: ""
+                description: "The operation that can be performed on the field."
+
           - name: "required"
             type: "boolean"
-            description: ""
+            description: "Indicates whether the field is required."
+
           - name: "schema"
             type: "object"
-            description: ""
-            object-properties:
+            description: "The data type of the field."
+            object-attributes:
               - name: "custom"
                 type: "string"
-                description: ""
+                description: "If the field is a custom field, the URI of the field."
+
               - name: "customId"
                 type: "integer"
-                description: ""
+                description: "If the field is a custom field, the ID of the custom field."
+
               - name: "items"
                 type: "string"
-                description: ""
+                description: "When the data type is `array`, the name of the field items within the array."
+
               - name: "system"
                 type: "string"
-                description: ""
+                description: "If the field is a system field, the name of the field."
+
               - name: "type"
                 type: "string"
-                description: ""
+                description: "The data type of the field."
+
   - name: "hasScreen"
     type: "boolean"
-    description: ""
-  - name: "id"
-    type: "string"
-    description: ""
+    description: "Indicates whether there is a screen associated with the issue transition."
+
   - name: "isConditional"
     type: "boolean"
-    description: ""
+    description: "Indicates whether the issue has to meet certain criteria before the issue transition can be applied."
+
   - name: "isGlobal"
     type: "boolean"
-    description: ""
+    description: "Indicates whether the issue transition is global, meaning the transition can be applied to issues regardless of status."
+
   - name: "isInitial"
     type: "boolean"
-    description: ""
+    description: "Indicates whether this is the initial issue transition for the workflow."
+
   - name: "issueId"
     type: "string"
-    description: ""
+    description: "The ID of the issue associated with the transition."
+    foreign-key-id: "issue-id"
+
   - name: "name"
     type: "string"
-    description: ""
+    description: "The name of the issue transition."
+
   - name: "to"
     type: "object"
-    description: ""
-    object-properties:
+    description: "Details of the issue status after the transition."
+    object-attributes:
       - name: "description"
         type: "string"
-        description: ""
+        description: "The description of the transition status."
+
       - name: "iconUrl"
         type: "string"
-        description: ""
+        description: "The URL of the transition status icon."
+
       - name: "id"
         type: "string"
-        description: ""
+        description: "The ID of the transition status."
+
       - name: "name"
         type: "string"
-        description: ""
+        description: "The name of the transition status."
+
       - name: "self"
         type: "string"
-        description: ""
+        description: "The URL of the transition status."
+
       - name: "statusCategory"
         type: "object"
-        description: ""
-        object-properties:
+        description: "The category assigned to the transition status."
+        object-attributes:
           - name: "colorName"
             type: "string"
-            description: ""
+            description: "The name of the color used to represent the status category."
+
           - name: "id"
             type: "integer"
-            description: ""
+            description: "The ID of the status category."
+
           - name: "key"
             type: "string"
-            description: ""
+            description: "The key of the status category."
+
           - name: "name"
             type: "string"
-            description: ""
+            description: "The name of the status category."
+
           - name: "self"
             type: "string"
-            description: ""
+            description: "The URL of the status category."
+
       - name: "statusColor"
         type: "string"
-        description: ""
+        description: "The name of the color of the transition status."
 ---

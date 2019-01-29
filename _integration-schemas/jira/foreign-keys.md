@@ -4,51 +4,113 @@ tap-reference: "jira"
 version: "1.0"
 
 foreign-keys:
-  - attribute: 
+  - id: "changelog-id"
+    attribute: ""
     table: "changelogs"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "changelogs"
+        join-on: "id"
 
-  - attribute:  
+  - id: "issue-comment-id"
+    attribute: "issueCommentId"
     table: "issue_comments"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "issue_comments"
+        join-on: "id"
 
-  - attribute: "issueId"
+  - id: "issue-id"
+    attribute:  "issueId"
     table: "issues"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "changelogs"
+      - table: "issue_comments"
+      - table: "issue_transitions"
+      - table: "issues"
+        join-on: "id"
+      - table: "worklogs"
 
-  - attribute: 
+  - id: "issue-transition-id"
+    attribute: "issueTransitionId"
     table: "issue_transitions"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "issue_transitions"
+        join-on: "id"
 
-  - attribute: "projectTypeKey"
+  - id: "project-type-key"
+    attribute:  "projectTypeKey"
     table: "project_types"
-    join-on: "key"
+    all-foreign-keys:
+      - table: "project_types"
+        join-on: "key"
 
-  - attribute: ""
+  - id: "project-category-id"
+    attribute:  "projectCategoryId"
     table: "project_categories"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "project_categories"
+        join-on: "id"
+      - table: "projects"
+        subattribute: "projectCategory"
+        join-on: "id"
 
-  - attribute: "projectId"
+  - id: "project-id"
+    attribute: "projectId"
     table: "projects"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "projects"
+        join-on: "id"
+      - table: "versions"
 
-  - attribute: 
+  - id: "resolution-id"
+    attribute: "resolutionId"
     table: "resolutions"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "resolutions"
+        join-on: "id"
 
-  - attribute:  
+  - id: "role-id"
+    attribute: "roleId"
     table: "roles"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "roles"
+        join-on: "id"
 
-  - attribute:  
+  - id: "user-key"
+    attribute: "key"
     table: "users"
-    join-on: "key"
+    all-foreign-keys:
+      - table: "changelogs"
+        subattribute: "author"
+      - table: "issue_comments"
+        subattribute: "author"
+      - table: "issue_comments"
+        subattribute: "updateAuthor"
+      - table: "projects"
+        subattribute: "components__assignee"
+      - table: "projects"
+        subattribute: "components__lead"
+      - table: "projects"
+        subattribute: "components__realAssignee"
+      - table: "projects"
+        subattribute: "lead"
+      - table: "users"
+        join-on: "key"
+      - table: "worklogs"
+        subattribute: "author"
+      - table: "worklogs"
+        subattribute: "updateAuthor"
 
-  - attribute: 
+  - id: "version-id"
+    attribute: "versionId"
     table: "versions"
-    join-on: "id"
+    all-foreign-keys:
+      - tables: "versions"
+        join-on: "id"
 
-  - attribute:  
+  - id: "worklog-id"
+    attribute: "worklogId"
     table: "worklogs"
-    join-on: "id"
+    all-foreign-keys:
+      - table: "worklogs"
+        join-on: "id"
 ---
