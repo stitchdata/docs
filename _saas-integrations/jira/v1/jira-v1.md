@@ -95,7 +95,9 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **Base URL** field, enter the base URL for your JIRA site. **Remember**: If you're connecting a self-hosted instance, your server must use the `HTTPs` protocol or Stitch will be unable to successfully connect.
+      4. In the **Base URL** field, enter the base URL for your JIRA site. For example: `stitchdata.atlassian.net`
+
+         **Note**: If you're connecting a self-managed instance, your server must use the `HTTPs` protocol or Stitch will be unable to successfully connect.
       5. In the **Username** field, enter the email address of the JIRA user you want to use to authenticate the integration.
          **Note**: Stitch will replicate only the issues, projects, worklogs, etc. that this user has access to. If this user doesn't have access to specific datasets or records, Stitch will be unable to replicate them from JIRA.
       6. In the **Password or Token** field:
@@ -108,6 +110,15 @@ setup-steps:
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
+
+
+# -------------------------- #
+#    Documentation Links     #
+# -------------------------- #
+
+project-permissions-doc: "https://confluence.atlassian.com/adminjiracloud/managing-project-permissions-776636362.html"
+
+global-permissions-doc: "https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html"
 
 ---
 {% assign integration = page %}
