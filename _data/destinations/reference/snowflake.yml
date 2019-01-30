@@ -160,6 +160,10 @@ reserved-words: "https://docs.snowflake.net/manuals/sql-reference/reserved-keywo
 # and then change whatever you need to change.
 
 attributes:
+  - id: "release-status"
+    categories: "stitch-details"
+    value: *release-status 
+
   - id: "pricing-tier"
     categories: "stitch-details"
     value: *pricing-tier

@@ -57,7 +57,7 @@ setup-steps:
   - title: "Authenticate with Google"
     anchor: "authenticate-with-google"
     content: |
-      The last step is to complete Google's authorization process and grant Stitch access to the BigQuery project you created in Step 2.
+      Next, you'll complete Google's authorization process and grant Stitch access to the BigQuery project you created in [Step 2](#create-gcp-project-enable-billing).
 
       1. Sign into your Stitch account, if you haven't already.
       2. Click the {{ app.menu-paths.destination-settings }}, then the **{{ destination.display_name }}** icon.
@@ -70,13 +70,22 @@ setup-steps:
          - **Basic Profile Information** - Stitch uses your basic profile info to retrieve your user ID.
          - **Offline Access** - To continuously load data, Stitch requires offline access. This allows the authorization token generated during setup process to be used for more than an hour after the initial authentication takes place.
       6. To grant access, click the **Authorize** button.
-      7. After you sign into Google and grant Stitch access, you'll be redirected back to Stitch.
-         Fill in the fields that display: 
-            - **Google Cloud Project**: From the dropdown, select the project you created in [Step 2](#create-gcp-project-enable-billing).
-            - **Google Cloud Storage Location**: From the dropdown, select the location where data should be stored:
-                - **US**: Data will be stored in the United States
-                - **EU**: Data will be stored in Europe
-      8. Click **Finish Setup**.
+
+  - title: "Select a Google Cloud Project and Storage Location"
+    anchor: "select-gcp-project-storage-location"
+    content: |
+      After you sign into Google and grant Stitch access, you'll be redirected back to Stitch. The last step is to select the select a project and define a storage location for your destination.
+
+      Fill in the fields as follows:
+     
+      1. From the **Google Cloud Project** dropdown, select the project you created in [Step 2](#create-gcp-project-enable-billing).
+
+      2. From the **Google Cloud Storage Location**, select the location where data should be stored:
+
+         {% for region in site.data.destinations.reference.bigquery.region-list %}
+         - {{ region.name | markdownify }}
+         {% endfor %}
+      3. Click **Finish Setup**.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","bigquery" | first %}
