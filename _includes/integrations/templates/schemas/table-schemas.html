@@ -13,6 +13,7 @@
 {% endif %}
 
 <!-- NOTICE ABOUT DOC/DESTINATION OBJECT DIFFERENCES -->
+{% if integration.permalink contains "saas" %}
 {% capture schemas-and-destination-loading %}
 Depending on your destination, table and column names may not appear as they are outlined below.
 
@@ -20,6 +21,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
 {% endcapture %}
 
 {% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
+{% endif %}
 
 {% for table in schema %}
 <!-- Table Name -->

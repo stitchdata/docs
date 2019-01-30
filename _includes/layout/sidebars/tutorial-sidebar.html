@@ -1,0 +1,94 @@
+{% include misc/data-files.html %}
+
+<div class="menu-list">
+
+<ul id="mysidebar" class="nav">
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+    <li>
+    	<strong>In this guide:</strong>
+    </li>
+
+    {% if page.intro %}
+	    <li>
+			<a href="#">
+		    	Introduction
+		    </a>
+		</li>
+	{% endif %}
+
+    {% if page.requirements %}
+        <li>
+            <a href="#prerequisites">
+                Prerequisites
+            </a>
+        </li>
+    {% endif %}
+
+    {% for step in page.steps %}
+    	{% capture step-number %}
+	        {{ forloop.index }}
+	    {% endcapture %}
+
+		{% if step.substeps %}
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#{{ step.anchor | append: "--menu" }}" aria-expanded="false" aria-controls="{{ step.anchor | append: "--menu" }}">
+                    {{ step-number | strip }}: {{ step.title | flatify }} 
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="{{ step.anchor | append: "--menu" }}">
+            		<li>
+                        <a href="#{{ step.anchor }}">{{ step-number | strip }}: {{ step.title | flatify }}</a>
+                    </li>
+
+               		{% for substep in step.substeps %}
+               			{% capture substep-number %}
+			                {{ forloop.index }}
+			            {% endcapture %}
+
+                		<li>
+                            <a href="#{{ substep.anchor }}">{{ step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}</a>
+                        </li>
+                	{% endfor %}
+                </ul>
+            {% else %}
+            	<li>
+            		<a href="#{{ step.anchor }}">
+		            	{{ step-number | strip }}: {{ step.title | flatify }}
+		            </a>
+		        </li>
+    		{% endif %}
+    	</li>
+    {% endfor %}
+
+    {% if page.next-steps %}
+        <li>
+            <a href="#next-steps">
+                 Next steps
+            </a>
+        </li>
+    {% endif %}
+
+    {% if page.related %}
+	    <hr>
+
+	    <li>
+	    	<strong>Related:</strong>
+	    </li>
+
+	    	{% for related in page.related %}
+	    		<li>
+            		<a href="{{ related.link | flatify }}">
+		            	{{ related.title | flatify }}
+		            </a>
+		        </li>
+	    	{% endfor %}
+	{% endif %}
+</ul>
+
+</div>

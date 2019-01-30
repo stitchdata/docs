@@ -7,7 +7,7 @@ sections:
   - title: "Register as an API client"
     anchor: "quick-start--register-api-client"
     content: |
-      Request access by completing [this form]{{ connect.interest-form | strip }}. Once approved, you'll receive a `partner_id` and `partner_key` for authenticating your API calls.
+      Request access by completing [this form]({{ site.data.connect.api.interest-form }}). Once approved, you'll receive a `partner_id` and `partner_key` for authenticating your API calls.
 
   - title: "Obtain an access token"
     anchor: "quick-start--obtain-access-token"

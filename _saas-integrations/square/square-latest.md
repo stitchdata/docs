@@ -25,7 +25,7 @@ status-url: "http://issquareup.com/"
 # -------------------------- #
 
 status: "Released"
-certified: false
+certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
@@ -45,7 +45,7 @@ loading-reports: false
 
 tables:
 ## Bank Accounts
-  - name: "bank_accounts"
+  - name: "square_bank_accounts"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-bankaccount
     description: "non-confidential info - this means no full bank account numbers - about a location’s associated bank accounts."
     notes: 
@@ -64,7 +64,7 @@ tables:
       - name: currency_code
 
 ## Cash Drawer Shifts
-  - name: "cash_drawer_shifts"
+  - name: "square_cash_drawer_shifts"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-cashdrawershift
     description: "the details for all of a location’s cash drawer shifts."
     notes: 
@@ -95,7 +95,7 @@ tables:
 
 
 ## Categories
-  - name: "categories"
+  - name: "square_categories"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-category
     description: "info about a location’s item categories."
     notes: 
@@ -109,7 +109,7 @@ tables:
 
 
 ## Discounts
-  - name: "discounts"
+  - name: "square_discounts"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-discount
     description: "info about a location’s discounts."
     notes: 
@@ -128,7 +128,7 @@ tables:
 
 
 ## Employees
-  - name: "employees"
+  - name: "square_employees"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-employee
     description: "summary info for all of a business’s employees."
     notes: 
@@ -149,7 +149,7 @@ tables:
 
 
 ## Fees
-  - name: "fees"
+  - name: "square_fees"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-fee
     description: "info on a location’s fees, or tax items."
     notes: 
@@ -170,7 +170,7 @@ tables:
 
 
 ## Inventory
-  - name: "inventory"
+  - name: "square_inventory"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-inventoryentry
     description: "inventory info for all of a merchant’s inventory-enabled variations."
     notes: 
@@ -184,7 +184,7 @@ tables:
 
 
 ## Items
-  - name: "items"
+  - name: "square_items"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-item
     description: "info about a location’s items."
     notes: 
@@ -209,7 +209,7 @@ tables:
 
 
 ## Location
-  - name: "location"
+  - name: "square_location"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#get-locations
     description: "details for a business’s locations."
     notes: 
@@ -241,7 +241,7 @@ tables:
 
 
 ## Modifier Lists
-  - name: "modifier_lists"
+  - name: "square_modifier_lists"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-modifierlist
     description: "info about modifications for specific items."
     notes: 
@@ -256,7 +256,7 @@ tables:
 
 
 ## Orders
-  - name: "orders"
+  - name: "square_orders"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-order
     description: "summary information for a merchant’s online store orders."
     notes: |
@@ -292,7 +292,7 @@ tables:
 
 
 ## Pages
-  - name: "pages"
+  - name: "square_pages"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-page
     description: "info about favorites pages created in the iPad version of Square Register."
     notes: 
@@ -307,7 +307,7 @@ tables:
 
 
 ## Payments
-  - name: "payments"
+  - name: "square_payments"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-payment
     description: "summary info - including itemizations - for all payments taken by a merchant or the merchant’s mobile staff. <strong>Note that Square doesn't always include itemizations in payments when the payment amount is zero.</strong>"
     notes: |
@@ -342,7 +342,7 @@ tables:
 
 
 ## Refunds
-  - name: "refunds"
+  - name: "square_refunds"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-refund
     description: "the details for all refunds initiated by a merchant or any of the merchant’s mobile staff."
     notes: 
@@ -359,7 +359,7 @@ tables:
 
 
 ## Roles
-  - name: "roles"
+  - name: "square_roles"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-employeerole
     description: "summary info for all of a business’s employee roles."
     notes: 
@@ -376,7 +376,7 @@ tables:
 
 
 ## Settlements
-  - name: "settlements"
+  - name: "square_square_settlements"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#get-settlements
     description: "summary information for all deposits and withdraws initiated by Square to a merchant’s bank account. <strong>This table does not contain entry data</strong>, which lists the individual transactions that contribute to the settlement total."
     notes: 
@@ -393,7 +393,7 @@ tables:
 
 
 ## Timecards
-  - name: "timecards"
+  - name: "square_square_timecards"
     doc-link: https://docs.connect.squareup.com/api/connect/v1/#datatype-timecard
     description: "summary info for all of a business’s employee timecards."
     notes: 

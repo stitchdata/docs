@@ -15,6 +15,20 @@
 # This is done so that individual values can be called instead of having
 # to loop through the entire list of items to get a single thing.
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
+destination-details-info:
+  fully-managed: &fully-managed |
+    true
+  pricing-model: &pricing-model |
+    Usage
+  free-option: &free-option |
+    No
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -22,11 +36,27 @@
 # Details about Stitch's implementation &
 # requirements for the destination.
 
+region-list:
+  - name: "United States (`US`)"
+  - name: "European Union (`EU`)"
+  - name: "London (`europe-west2`)"
+  - name: "Singapore (`asia-southeast`)"
+  - name: "Tokyo (`asia-northeast`)"
+  - name: "Sydney (`australia-southeast`)"
+
+
+
 stitch-details-info:
+  release-status: &release-status |
+    Released
   pricing-tier: &pricing-tier |
     All Stitch plans
   supported-versions: &supported-versions |
     n/a
+  supported-regions: |
+    {% for region in site.data.destinations.reference.bigquery.region-list %}
+    - {{ region.name | markdownify }}
+    {% endfor %}
 
 # Connection methods
 
@@ -146,6 +176,10 @@ reserved-words: "https://cloud.google.com/bigquery/docs/reference/standard-sql/l
 # and then change whatever you need to change.
 
 attributes:
+  - id: "release-status"
+    categories: "stitch-details"
+    value: *release-status 
+
   - id: "pricing-tier"
     categories: "stitch-details"
     value: *pricing-tier
@@ -153,6 +187,12 @@ attributes:
   - id: "supported-versions"
     categories: "stitch-details"
     value: *supported-versions
+
+  - id: "supported-regions"
+    categories: "stitch-details"
+    value: "Stitch supports the following Google Storage Location regions:"
+    description: |
+      {{ site.data.destinations.reference.bigquery.stitch-details-info.supported-regions | flatify }}
 
   - id: "ssl-connections"
     categories: "stitch-details"

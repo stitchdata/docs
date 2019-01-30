@@ -16,7 +16,7 @@ description: |
 
   - [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) - Data segmented by age and gender
   - [`ads_insights_country`](#ads_insights_country) - Data segmented by country
-  - [`ads_insights_platform_and_device`](ads_insights_platform_and_device) - Data segmented by platform and device
+  - [`ads_insights_platform_and_device`](#ads_insights_platform_and_device) - Data segmented by platform and device
   - [`ads_insights_region`](#ads_insights_region) - Data segmented by region
 
 replication-method: "Key-based Incremental"

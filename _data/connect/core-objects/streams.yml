@@ -1,0 +1,32 @@
+# ----------------------------- #
+#      STREAM CORE OBJECT       #
+# ----------------------------- #
+
+title: "Streams"
+section: "#streams"
+object: "#stream--object"
+base: "/v4/sources/{source_id}/streams"
+description: "An object representing a table in a data source."
+
+list:
+  name: "{{ site.data.connect.api.core-objects.streams.base }}"
+  title: "List streams for a source"
+  method: *get
+  anchor: "#list-streams"
+  description: "Lists the available streams for a source."
+
+retrieve-schema:
+  name: "{{ site.data.connect.api.core-objects.streams.base }}/{stream_id}"
+  title: "Retrieve a stream's schema"
+  method: *get
+  anchor: "#retrieve-a-streams-schema"
+  description: "Retrieves the schema for a source's stream by the source and stream's unique identifiers."
+
+update:
+  name: "{{ site.data.connect.api.core-objects.streams.base }}/metadata"
+  title: "Update a stream's metadata"
+  method: *put
+  anchor: "#update-a-streams-metadata"
+  short: "Updates the metadata for streams and fields."
+  description: |
+    {{ api.core-objects.streams.update.short }} This endpoint is used to define the `metadata` properties returned in the [Stream Schema object's]({{ api.data-structures.stream-schemas.section }}) `non-discoverable-metadata-keys` property.

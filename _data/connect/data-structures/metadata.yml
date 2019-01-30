@@ -1,0 +1,22 @@
+# ------------------------------- #
+#      METADATA DATA STRUCTURE    #
+# ------------------------------- #
+
+top-level:
+  title: "Metadata"
+  section: "#metadata-object"
+  description: |
+    A Metadata object describes a stream's schema and the current state of its configuration in Stitch, including its selection status, field inclusion list, Primary Keys, and Replication Method.
+    
+stream-level:
+  title: "Stream-level Metadata"
+  section: "#stream-level-metadata-object"
+  short: "Details about the stream including its selection status, replication details, and key properties."
+  description: |
+    Contained in [Metadata]({{ api.data-structures.metadata.top-level.section }}) and [Stream]({{ api.core-objects.streams.object }}) objects, the Stream-level Metadata object contains information about a stream's configuration in Stitch. This includes information about its selection status, Replication Method, Replication Keys, and key properties.
+
+field-level:
+  title: "Field-level Metadata"
+  section: "#field-level-metadata-object"
+  description: |
+    Contained in a [Metadata object]({{ api.data-structures.metadata.top-level.section }}), the Field-level metadata object contains information about a field's inclusion in a stream's field selection list.

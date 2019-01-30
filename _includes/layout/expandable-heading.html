@@ -1,0 +1,18 @@
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+		
+		<div class="panel-heading">
+    		<h4 class="panel-title">
+        		<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ include.anchor }}">
+                    {{ include.title | flatify }}
+                </a>
+    		</h4>
+		</div>
+		
+		<div id="collapse{{ include.anchor }}" class="panel-collapse collapse noCrossRef">
+    		<div class="panel-body">
+        		{{ include.content | flatify | markdownify }}
+    		</div>
+		</div>
+	</div>
+</div>

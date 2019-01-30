@@ -1,0 +1,98 @@
+# ----------------------------- #
+#     FIELD SELECTION RULES     #
+# ----------------------------- #
+
+metadata-fields:
+  - name: "inclusion"
+    type: "string"
+    modifiable: false
+    description: |
+      Indicates when a field will be included. Possible values are:
+
+      - `automatic` - The field is included all the time, regardless of `selected-by-default` and `selected` values
+      - `available` - The field is available for selection. The field will be included if `selected-by-default` or `selected` is `true`.
+      - `unsupported` - The field is unsupported and will not be included, regardless of `selected-by-default` and `selected` values
+
+  - name: "selected-by-default"
+    type: "boolean"
+    modifiable: false
+    description: |
+      Indicates if a field will be selected by default. Possible values are:
+
+      - `null` - The value has not been set
+      - `true` - The field is selected by default and is included regardless of the `selected` value
+      - `false` - The field is not selected by default. The field will be included if the `selected` value is `true`.
+
+  - name: "selected"
+    type: "boolean"
+    modifiable: true
+    description: |
+      Indicates whether a field should be selected. Possible values are:
+
+      - `null` - The value has not been set
+      - `true` - The field is selected
+      - `false` - The field is not selected
+
+
+# ----------------------------- #
+#      METADATA COMBINATIONS    #
+# ----------------------------- #
+
+## Possible combinations of inclusion, selected, and selected-by-default
+## and whether a field will be replicated or not based on the data
+
+combinations:
+  - inclusion: "automatic"
+    selected: "*"
+    selected-by-default: "*"
+    replicated: true
+
+  - inclusion: "unsupported"
+    selected: "*"
+    selected-by-default: "*"
+    replicated: false
+
+  - inclusion: "available"
+    selected: "true"
+    selected-by-default: "null"
+    replicated: true
+
+  - inclusion: "available"
+    selected: "true"
+    selected-by-default: "true"
+    replicated: true
+
+  - inclusion: "available"
+    selected: "true"
+    selected-by-default: "false"
+    replicated: true
+
+  - inclusion: "available"
+    selected: "false"
+    selected-by-default: "null"
+    replicated: false
+
+  - inclusion: "available"
+    selected: "false"
+    selected-by-default: "true"
+    replicated: true
+
+  - inclusion: "available"
+    selected: "false"
+    selected-by-default: "false"
+    replicated: false
+
+  - inclusion: "available"
+    selected: "null"
+    selected-by-default: "true"
+    replicated: true
+
+  - inclusion: "available"
+    selected: "null"
+    selected-by-default: "false"
+    replicated: false
+
+  - inclusion: "available"
+    selected: "null"
+    selected-by-default: "null"
+    replicated: false

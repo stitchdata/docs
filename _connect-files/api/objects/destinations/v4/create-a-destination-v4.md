@@ -54,10 +54,10 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     subexamples:
-      - title: "Create a PostgreSQL destination"
+      - type: "Create a PostgreSQL destination"
         code: |
           curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
                -H "Authorization: Bearer <ACCESS_TOKEN>" 
@@ -75,10 +75,10 @@ examples:
                    }"
 
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     subexamples:
-      - title: "PostgreSQL destination response"
+      - type: "PostgreSQL destination response"
         code: |
           {
             "properties": {
@@ -252,5 +252,5 @@ examples:
               ]
             }
           }
-  - type: "errors"
+  - type: "Errors"
 ---

@@ -33,7 +33,7 @@ object-attributes:
 # -------------------------- #
 
 examples:
-  - title: "Database source"
+  - type: "Database source"
     code: |
       {
         "type": "platform.mysql",
@@ -244,7 +244,7 @@ examples:
       }
 
 
-  - title: "SaaS source"
+  - type: "SaaS source"
     code: |
       {
          "report_card":{

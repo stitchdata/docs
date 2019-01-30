@@ -27,7 +27,7 @@ options:
 
 
 examples:
-  - type: "function"
+  - type: "Function"
     language: "javascript"
     description: "The code below will create a HubSpot integration (`type: platform.hubspot`) in the user's Stitch account, with the `campaigns` and `companies` tables pre-selected for replication."
     code: |
@@ -44,12 +44,7 @@ examples:
           console.log("Integration not created.", error);
       });
 
-  # - type: "returns"
-  #   language:
-  #   description:
-  #   code:
-
-  - type: "result"
+  - type: "Result"
     description: |
       Stitch.js will send the user to Stitch and open the Integration Settings page, where the user can configure the integration.
     image: "connect/js-create-a-source-result.png"

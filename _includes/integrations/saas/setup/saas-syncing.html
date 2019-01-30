@@ -2,7 +2,7 @@
 ### Set tables {% if integration.column-selection == true %}and columns {% endif %}to replicate {#syncing-data}
 {% endunless %}
 
-To complete the setup, you'll need to select tables {% if integration.column-selection == true %}and columns {% endif %}you want to [replicate to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
+To complete the setup, you'll need to select the tables {% if integration.column-selection == true %}and columns {% endif %}you want to [replicate to your data warehouse]({{ link.replication.syncing | prepend: site.baseurl }}).
 
 {% case integration.name %}
 
@@ -19,7 +19,8 @@ Check out the Schema section to [learn more about the available tables in {{ int
 {% if integration.column-selection == true %}
 3. {{ app.menu-paths.sync-column }}
 {% endif %}
-{% if integration.set-replication-methods == true %}
+
+{% if integration.define-replication-methods == true %}
 4. **Optional**: To define a table's [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}), click {{ app.buttons.update-table-settings }} on the right side of the page.
 
    Whenever possible, Stitch will default to using Incremental Replication. In these cases, the table's Replication Key will be automatically selected and cannot be changed.

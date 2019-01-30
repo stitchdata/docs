@@ -26,7 +26,7 @@ options:
     description: "{{ connect.common.attributes.default-streams | flatify }}"
 
 examples:
-  - type: "function"
+  - type: "Function"
     language: "javascript"
     description: "The code below will first send the user to Stitch and then re-direct to the appropriate third-party to complete an OAuth handshake."
     code: |
@@ -39,7 +39,7 @@ examples:
           console.log("Integration not created.", error);
       });
 
-  - type: "result"
+  - type: "Result"
     description: |
       Stitch.js will send the user to Stitch and then re-direct to the appropriate third-party to complete an OAuth handshake.
 

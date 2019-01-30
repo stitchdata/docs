@@ -74,7 +74,7 @@ requirements-info: |
   Additionally, note that:
 
   - **If using SSL**, your server must require SSL connections. Note that SSL is **not** required to connect a {{ integration.display_name }} database to Stitch.
-  - **If connecting via Atlas**, Stitch can only connect to instances using a **paid Atlas plan**. The Free Atlas plan utilizes a setup that Stitch doesn't currently support.
+  - **If connecting via Atlas**, Stitch can only connect to instances using a **paid Atlas plan** with a **dedicated cluster**. The Free Atlas plan and shared clusters utilize a setup that Stitch doesn't currently support.
 
 
 # -------------------------- #
