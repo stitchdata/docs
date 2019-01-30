@@ -1,3 +1,7 @@
+<!-- This file includes the logic used to get table primary keys
+    and replication keys.
+    USED IN: _includes/integrations/templates/schemas/table-snapshot.html -->
+
 {% case include.key %}
 
     {% when 'primary-key' %}
@@ -36,20 +40,31 @@
             1. Only runs if the table is marked as "Incremental"
             2. Captures attributes marked as Replication Keys -->
 
-            {% capture clean-replication-keys %}
-                {% for attribute in table.attributes %}
-                    {% if attribute.replication-key == true %}
-                        {{ attribute.name | flatify | append: " :" }}
-                    {% endif %}
-                {% endfor %}
-            {% endcapture %}
+            <!-- Sometimes Stitch uses query parameters to incrementally replicate
+            data. Since this isn't actually a field, it won't be in the table.attributes
+            list - it gets its own Frontmatter variable (table.replication-key).
+             -->
+                {% if table.replication-key.name %}
+                    {% assign replication-keys = table.replication-key.name %}
+                    {% assign replication-tooltip = table.replication-key.tooltip %}
 
-            {% capture reverse-rk-keys %}
-                {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
-            {% endcapture %}
+                {% else %}
 
-            {% capture replication-keys %}
-                {{ reverse-rk-keys | split: "" | reverse | join: "" }}
-            {% endcapture %}
+                    {% capture clean-replication-keys %}
+                        {% for attribute in table.attributes %}
+                            {% if attribute.replication-key == true %}
+                                {{ attribute.name | flatify | append: " :" }}
+                            {% endif %}
+                        {% endfor %}
+                    {% endcapture %}
+
+                    {% capture reverse-rk-keys %}
+                        {{ clean-replication-keys | split: "" | reverse | join: "" | remove_first: ": " }}
+                    {% endcapture %}
+
+                    {% capture replication-keys %}
+                        {{ reverse-rk-keys | split: "" | reverse | join: "" }}
+                    {% endcapture %}
+                {% endif %}
         <!-- End Replication Key -->
 {% endcase %}
