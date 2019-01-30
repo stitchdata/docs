@@ -13,6 +13,33 @@
 
 
 # -------------------------- #
+#         SSL FIELDS         #
+# -------------------------- #
+
+## NOTE: This is not currently supported for all MySQL-backed integrations.
+
+ssl:
+  - name: "SSL Certificate"
+    connect: "ssl_ca"
+    copy: |
+      The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certifcate verifies against the certificate provided.
+
+            **Note**: Providing a certifcate via this property isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
+
+  - name: "Use an SSL client key"
+    connect: "ssl_client_auth_enabled"
+    copy: "If SSL client authentication should be used, check this box. This will display the **Client Certificate** and **Client Key** fields, which are both required when using client authentication."
+
+  - name: "Client Certificate"
+    connect: "ssl_cert"
+    copy: "If using SSL client authentication, paste the client certificate Stitch should use into this field. **Note**: You must also provide a **Client Key** for the connection to be successful."
+
+  - name: "Client Key"
+    connect: "ssl_key"
+    copy: "If using SSL client authentication, paste the client key Stitch should use into this field. **Note**: You must also provide a **Client Certificate** for the connection to be successful."
+
+
+# -------------------------- #
 #       VANILLA MYSQL        #
 # -------------------------- #
 
