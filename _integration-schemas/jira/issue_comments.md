@@ -8,12 +8,17 @@ singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schem
 description: |
   The `{{ table.name }}` table contains info about comments made on issues.
 
-  **Note**: To replicate this data:
+  #### Replication requirements {#replication-requirements-issue-comments}
 
-  1. The [`issues`](#issues) table must also be set to replicate, and
+  To replicate this data:
+
+  1. The [`issues`](#issues) table must also be set to replicate. **Note**: When an issue is updated, all the comments for that issue will also be replicated.
   2. The `Browse Projects` [project {{ integration.display_name }} permission]({{ integration.project-permissions-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
 
 replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "issues.updated"
 
 api-method:
     name: "Get issue comments"

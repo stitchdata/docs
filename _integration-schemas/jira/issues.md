@@ -32,6 +32,9 @@ description: |
      WHERE fields__status__name = 'Deleted'
      ```
 
+replication-key:
+  name: "updated"
+
 replication-method: "Key-based Incremental"
 
 api-method:
