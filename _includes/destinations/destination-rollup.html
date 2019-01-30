@@ -1,5 +1,8 @@
 {% include misc/icons.html %}
+
 {% assign destinations = site.destinations | where:"destination",true %}
+
+{% assign destination-reference = site.data.destinations.reference %}
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
@@ -33,9 +36,6 @@
                 <td class="attribute-description">
                     <strong>Release Status</strong>
                 </td>
-               <td class="attribute-description">
-                    <strong>Database Type</strong><a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.db-type }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
-                </td>
                 <td class="attribute-description">
                     <strong>Fully Managed?</strong><a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.fully-managed }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
@@ -44,25 +44,23 @@
                 <tr>
                     <td class="attribute-name">
                         <strong>
-                            <a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a>
+                            <a href="{{ destination.url | prepend: site.baseurl }}">
+                                {{ destination.display_name }}
+                            </a>
                         </strong>
                     </td>
                     <td class="attribute-description">
-                        {{ destination.status }}
+                        {{ destination-reference[destination.type]stitch-details-info.release-status | default: "Released" }}
                     </td>
                     
                     <td class="attribute-description">
-                        {{ destination.db-type | capitalize }}
-                    </td>
-                    <td class="attribute-description">
-                        {% case destination.fully-managed %}
-                            {% when false %}
-                                No
-                            {% when true %}
-                                Yes
-                            {% else %}
-                                {{ destination.fully-managed }}{{ info-icon | replace:"TOOLTIP","Heroku instances include maintenance; Amazon RDS & self-hosted instances do not." }}
-                        {% endcase %}
+                        {% if destination-reference[destination.type]destination-details-info.fully-managed contains "true" %}
+                        Yes
+                        {% elsif destination-reference[destination.type]destination-details-info.fully-managed contains "false" %}
+                        No
+                        {% else %}
+                        {{ destination-reference[destination.type]destination-details-info.fully-managed | flatify | default: "Yes" }}
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
@@ -92,10 +90,12 @@
                         </strong>
                     </td>
                     <td class="attribute-description">
-                        <a href="{{ destination.pricing }}">{{ destination.pricing_model }}</a>
+                        <a href="{{ destination.pricing }}">
+                            {{ destination-reference[destination.type]destination-details-info.pricing-model | flatify | default: "Varies" }}
+                        </a>
                     </td>
                     <td class="attribute-description">
-                        {{ destination.free_option }}
+                        {{ destination-reference[destination.type]destination-details-info.free-option | flatify | default: "Yes" }}
                     </td>
                 </tr>
             {% endfor %}
@@ -123,10 +123,40 @@
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
                     <td class="attribute-description">
-                        {{ destination.supported-versions }}
+                        {{ destination-reference[destination.type]stitch-details-info.supported-versions | flatify | default: "n/a"}}
                     </td>
                     <td class="attribute-description">
-                        {{ destination.connection-methods }}
+                        {% assign all-connection-methods ="ssl|ssh" | split: "|" %}
+
+                    <!-- This is really sloppy and will need to be rewritten at some point -->
+                        {% capture connection-methods %}
+                            {% for method in all-connection-methods %}
+                                {% if destination-reference[destination.type]stitch-details-info.connection-methods[method] contains "true" %}
+                                    {{ method | upcase | strip }} 
+                                {% elsif destination-reference[destination.type]stitch-details-info.connection-methods[method] contains "n/a" %}
+                                    n/a 
+                                {% endif %}
+                            {% endfor %}
+                        {% endcapture %}
+
+                        {% assign connection-methods-array = connection-methods | split: " " %}
+
+                        {% for method in connection-methods-array %}
+                            {% if connection-methods-array.size == 1 %}
+                                {{ method }}
+                            {% else %}
+                                {% if method == "n/a" %}
+                                    {% case forloop.last %}
+                                        {% when true %}
+                                        {% when false %}
+                                            {{ method }}
+                                    {% endcase %}
+                                {% else %}
+                                    {{ method }}{% unless forloop.last == true %}, {% endunless %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+
                     </td>
                     <td class="attribute-description">
                         {% case destination.incompatible-with %}
@@ -175,24 +205,23 @@
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
                     <td class="attribute-description">
-                        {{ destination.table-name-limit }}
+                        {{ destination-reference[destination.type]object-name-limit-info.tables | default: "n/a" | remove: " characters" }}
                     </td>
                     <td class="attribute-description">
-                        {{ destination.column-name-limit }}
+                        {{ destination-reference[destination.type]object-name-limit-info.columns | default: "n/a" | remove: " characters" }}
                     </td>
                     <td class="attribute-description">
-                        {{ destination.column-limit }}
+                        {{ destination-reference[destination.type]table-limit-info.max-columns-per-table | default: "n/a" | remove: " columns" }}
                     </td>
                     <td class="attribute-description">
-                        {{ destination.case | remove: "Case " }}
+                        {{ destination-reference[destination.type]object-name-limit-info.case-sensitivity | default: "n/a" }}
                     </td>
                     <td class="attribute-description">
-                        {% case destination.reserved-words %}
-                            {% when 'None' %}
-                                None
-                            {% else %}
-                                <a href="{{ destination.reserved-words }}">Full List</a>
-                        {% endcase %}
+                        {% if destination-reference[destination.type]reserved-words %}
+                            <a href="{{ destination-reference[destination.type]reserved-words }}" target="new">Full List</a>
+                        {% else %}
+                            None
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
@@ -224,25 +253,23 @@
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
                     <td class="attribute-description">
-                        {% case destination.incremental-upsert-support %}
-                            {% when true %}
-                                <a data-toggle="tooltip" data-original-title="Existing rows can be updated with modified data.">Supported</a>
-                            {% when false %}
-                                <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only }}">Unsupported</a>
-                        {% endcase %}
+                        {% if destination-reference[destination.type]replication-info.incremental-replication.upserts contains "true" %}
+                            <a data-toggle="tooltip" data-original-title="Existing rows can be updated with modified data.">Supported</a>
+                        {% else %}
+                            <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only }}">Unsupported</a>
+                        {% endif %}
                     </td>
                     <td class="attribute-description">
-                        {% case destination.nested-structure-support %}
-                            {% when false %}
-                                <strong>
-                                    <a href="#nested-data-structures">Unsupported</a>
-                                </strong>
+                        {% if destination-reference[destination.type]replication-info.nested-structures.supported contains "false" %}
+                            <strong>
+                                <a href="#nested-data-structures">Unsupported</a>
+                            </strong>
                             {% else %}
                                 Supported
-                        {% endcase %}
+                        {% endif %}
                     </td>
                     <td class="attribute-description">
-                        {{ destination.varchar-limit }}
+                        {{ destination-reference[destination.type]data-limit-info.strings.max-width | default: "n/a" }}
                     </td>
                 </tr>
             {% endfor %}
