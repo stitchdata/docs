@@ -31,7 +31,7 @@ icon: /images/integrations/icons/mssql.svg
 ## Stitch features
 
 versions: "2000 through 2016"
-ssh: false
+ssh: true
 ssl: true
 
 ## General replication features
@@ -84,7 +84,21 @@ setup-steps:
 
   - title: "create db user"
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
   - title: "replication frequency"
 
