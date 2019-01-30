@@ -7,6 +7,11 @@ stitch-details:
     description: |
       High-level details about Stitch's implementation of {{ destination.display_name }}, such as supported connection methods, availability on Stitch plans, etc.
     items:
+      - id: "release-status"
+        name: "Release status"
+        description: |
+          The destination's release status in Stitch.
+          
       - id: "pricing-tier"
         name: "Pricing tier"
         description: |

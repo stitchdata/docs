@@ -15,6 +15,20 @@
 # This is done so that individual values can be called instead of having
 # to loop through the entire list of items to get a single thing.
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
+destination-details-info:
+  fully-managed: &fully-managed |
+    true
+  pricing-model: &pricing-model |
+    Hourly
+  free-option: &free-option |
+    Yes (plan & trial)
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -23,6 +37,8 @@
 # requirements for the destination.
 
 stitch-details-info:
+  release-status: &release-status |
+    Released
   pricing-tier: &pricing-tier |
     All Stitch plans
   supported-versions: &supported-versions |
@@ -144,6 +160,10 @@ reserved-words: "http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.htm
 # and then change whatever you need to change.
 
 attributes:
+  - id: "release-status"
+    categories: "stitch-details"
+    value: *release-status
+
   - id: "pricing-tier"
     categories: "stitch-details"
     value: *pricing-tier

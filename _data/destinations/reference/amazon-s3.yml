@@ -15,6 +15,20 @@
 # This is done so that individual values can be called instead of having
 # to loop through the entire list of items to get a single thing.
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
+destination-details-info:
+  fully-managed: &fully-managed |
+    false
+  pricing-model: &pricing-model |
+    Storage
+  free-option: &free-option |
+    Yes (trial)
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -23,6 +37,8 @@
 # requirements for the destination.
 
 stitch-details-info:
+  release-status: &release-status |
+    Released
   pricing-tier: &pricing-tier |
     All Stitch plans
   supported-versions: &supported-versions |
