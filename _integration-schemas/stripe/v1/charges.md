@@ -8,8 +8,6 @@ singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/s
 description: |
   The `{{ table.name }}` table contains info about charges to credit and debit cards.
 
-# TODO: Will disputes be in this table now, or in `events` as it was in the old integration?
-
 replication-method: "Key-based Incremental"
 
 api-method:
