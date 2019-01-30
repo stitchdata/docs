@@ -38,17 +38,17 @@ object-attributes:
     type: "string"
     required: false
     description: |
-      **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
-    value: "<CA_CERTIFICATE>"
-
-  - name: "ssl_cert"
-    type: "string"
-    required: false
-    description: |
       **Optional**: The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certifcate verifies against the certificate provided.
 
       **Note**: Providing a certifcate via this property isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.
     value: "<SSL_CERTIFICATE>"
+  
+  - name: "ssl_cert"
+    type: "string"
+    required: false
+    description: |
+      **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
+    value: "<CA_CERTIFICATE>"
 
   - name: "ssl_client_auth_enabled"
     type: "string"
