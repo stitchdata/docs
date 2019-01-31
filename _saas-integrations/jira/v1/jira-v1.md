@@ -105,11 +105,7 @@ setup-steps:
          - **If connecting a cloud-hosted {{ integration.display_name }} instance**, paste the API token you generated in [Step 2](#generate-jira-api-token).
   - title: "historical sync"
   - title: "replication frequency"
-
-
-# -------------------------- #
-#     Integration Tables     #
-# -------------------------- #
+  - title: "track data"
 
 
 # -------------------------- #
