@@ -95,7 +95,7 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **Base URL** field, enter the base URL for your JIRA site. For example: `stitchdata.atlassian.net`
+      4. In the **Base URL** field, enter the base URL for your JIRA site. For example: `stitchdata.atlassian.net` or `stitchdata.atlassian.com`
 
          **Note**: If you're connecting a self-managed instance, your server must use the `HTTPs` protocol or Stitch will be unable to successfully connect.
       5. In the **Username** field, enter the email address of the JIRA user you want to use to authenticate the integration.
