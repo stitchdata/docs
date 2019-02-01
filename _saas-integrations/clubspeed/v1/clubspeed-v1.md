@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-clubspeed
 # -------------------------- #
 
 status: "Released"
-certified: true 
+certified: false 
 
 historical: "1 year"
 frequency: "30 minutes"
