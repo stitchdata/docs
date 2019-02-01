@@ -18,14 +18,14 @@
         {% case form-property.source-type %}
             <!-- When the source form property is for a database, run this -->
             {% when 'database' %}
-                {% include connect/api-form-property-source-database-fields.html %}
+                {% include developers/api-form-property-source-database-fields.html %}
 
             <!-- When the source form property is for a SaaS source, run this -->
             {% when 'saas' %}
-                {% include connect/api-form-property-source-saas-fields.html %}
+                {% include developers/api-form-property-source-saas-fields.html %}
         {% endcase %}
 
     <!-- When the form property is a destination, run this -->
     {% when 'destination' %}
-        {% include connect/api-form-property-destination-fields.html %}
+        {% include developers/api-form-property-destination-fields.html %}
 {% endcase %}

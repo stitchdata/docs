@@ -4,7 +4,7 @@
 
 
 <!-- The endpoint's resource list -->
-{% include connect/api-resource-list.html %}
+{% include developers/api-resource-list.html %}
 
 <!-- The arguments the endpoint accepts -->
     {% if endpoint.arguments %}
@@ -96,4 +96,4 @@
         {{ endpoint.returns | flatify | markdownify }}
 
 <!-- Displays the request, response, and error tabs -->
-{% include connect/api-examples.html type="endpoint" %}
+{% include developers/api-examples.html type="endpoint" %}

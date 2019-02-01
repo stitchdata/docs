@@ -1,7 +1,15 @@
 <!-- This file starts a section for a given object. For example: Accounts, which 
     then contains the Account Object, list of endpoints, etc. -->
 
-{% assign objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
+
+{% case page.type %}
+    {% when 'connect' %}
+        {% assign all-docs = site.developer-files | where:"type","connect" %}
+    {% when 'import-api' %}
+        {% assign all-docs = site.developer-files | where:"type","import-api" %}
+{% endcase %}
+
+{% assign objects = all-docs | where:"content-type","api-object" | sort:"order" %}
 
 
 {% for object in objects %}
@@ -16,7 +24,7 @@
     </h3>
 
 <!-- The display logic for displaying the list of resources for a given object type -->
-    {% include connect/api-endpoint-rollup.html type="endpoint" %}
+    {% include developers/api-endpoint-rollup.html type="endpoint" %}
 
 
 <!-- The display of the object's attributes -->
@@ -41,7 +49,7 @@
 
         <!-- If an object has more than one version, run this: -->
             {% if version-count > 1 %}
-                {% assign all-version-objects = site.connect-files | where:"content-type","api-version-object" %}
+                {% assign all-version-objects = all-docs | where:"content-type","api-version-object" %}
                     {% assign this-objects-version-objects = all-version-objects | where:"endpoint",object.endpoint %}
 
                 <ul id="profileTabs" class="nav nav-tabs">
@@ -187,9 +195,9 @@
 
         {% for object-method in object-methods %}
             {% if total-versions == 1 %}
-                {% include connect/api-endpoint.html type="single-version" %}
+                {% include developers/api-endpoint.html type="single-version" %}
             {% else %}
-                {% include connect/api-endpoint.html type="multiple-versions" %}
+                {% include developers/api-endpoint.html type="multiple-versions" %}
             {% endif %}
 
             {% unless forloop.last == true %}

@@ -2,6 +2,16 @@
         all resources of a given type. For example: A list of all
         endpoints, or all form properties, etc. -->
 
+
+{% case page.type %}
+    {% when 'connect' %}
+        {% assign all-docs = site.developer-files | where:"type","connect" %}
+    {% when 'import-api' %}
+        {% assign all-docs = site.developer-files | where:"type","import-api" %}
+{% endcase %}
+
+
+
 {% case include.type %}
     {% when 'endpoint' %}
         {% assign object-methods = object.available-methods %}
@@ -15,16 +25,16 @@
 
     {% when 'form-property' %}
         {% case include.subtype %}
-            {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
+            {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
 
             {% when 'destination' %}
-                {% assign form-properties = site.connect-files | where:"form-type","destination" | sort: "title" %}
+                {% assign form-properties = all-docs | where:"form-type","destination" | sort: "title" %}
 
             {% when 'source' %}
-                {% assign form-properties = site.connect-files | where:"form-type","source" | sort: "title" %}
+                {% assign form-properties = all-docs | where:"form-type","source" | sort: "title" %}
 
             {% else %}
-                {% assign form-properties = site.connect-files | where:"content-type","api-form" | sort: "title" %}
+                {% assign form-properties = all-docs | where:"content-type","api-form" | sort: "title" %}
         {% endcase %}
 
             {% assign item = form-property %}

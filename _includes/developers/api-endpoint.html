@@ -1,6 +1,13 @@
 <!-- The display code for object methods/resources. -->
 
-{% assign all-endpoints = site.connect-files | where:"content-type","api-endpoint" %}
+{% case page.type %}
+    {% when 'connect' %}
+        {% assign all-docs = site.developer-files | where:"type","connect" %}
+    {% when 'import-api' %}
+        {% assign all-docs = site.developer-files | where:"type","import-api" %}
+{% endcase %}
+
+{% assign all-endpoints = all-docs | where:"content-type","api-endpoint" %}
     {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
         {% assign endpoints = object-endpoints | where:"key",object-method.id %}
 
@@ -26,7 +33,7 @@
                 {{ endpoint.description | flatify | markdownify }}
             </p>
 
-            {% include connect/api-endpoint-sections.html %}
+            {% include developers/api-endpoint-sections.html %}
         {% endfor %}
 
     {% when 'multiple-versions' %}
@@ -67,14 +74,14 @@
                         <!-- If the endpoint's version doesn't match the defined latest version,
                             display a notice. -->
                                 {% if version.number != object.latest-version %}
-                                    {% include connect/api-outdated-endpoint-notice.html %}
+                                    {% include developers/api-outdated-endpoint-notice.html %}
                                 {% endif %}
 
                         <!-- If an endpoint has the `not-available-until-version` property, that means
                             it's likely a new endpoint and is therefore unavilable for older versions.
                             This will prevent displaying any resource info, as it's not needed. -->
                                 {% unless endpoint.not-available-until-version %}
-                                    {% include connect/api-endpoint-sections.html %}
+                                    {% include developers/api-endpoint-sections.html %}
                                 {% endunless %}
                             {% endif %}
                         {% endfor %}

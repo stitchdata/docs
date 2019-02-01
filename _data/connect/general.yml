@@ -29,7 +29,8 @@ common:
   ## Databases & Destinations
 
     destination-type: |
-      {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
+      {% assign all-connect-docs = site.developer-files | where:"type","connect" %}
+      {% assign all-form-properties = all-connect-docs | where:"content-type","api-form" %}
       {% assign destination-forms = all-form-properties | where:"form-type","destination" | sort:"api-type" %}
 
       The destination type. Must be one of: 

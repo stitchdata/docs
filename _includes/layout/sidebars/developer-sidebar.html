@@ -1,18 +1,33 @@
 {% include misc/data-files.html %}
 
-{% case page.sidebar %}
-    {% when 'overview' %}
-        {% assign navigation = site.data.sidebars.connect.overview %}
-    {% when 'api' %}
-        {% assign navigation = site.data.sidebars.connect.api %}
-    {% when 'js' %}
-        {% assign navigation = site.data.sidebars.connect.js %}
+
+{% case page.type %}
+    {% when 'connect' %}
+        {% assign api = site.data.connect.api %}
+        {% assign js = site.data.connect.js-client %}
+
+        {% assign all-docs = site.developer-files | where:"type","connect" %}
+            {% assign all-form-properties = all-docs | where: "content-type","api-form" %}
+
+        {% case page.sidebar %}
+            {% when 'overview' %}
+                {% assign navigation = site.data.sidebars.connect.overview %}
+            {% when 'api' %}
+                {% assign navigation = site.data.sidebars.connect.api %}
+            {% when 'js' %}
+                {% assign navigation = site.data.sidebars.connect.js %}
+        {% endcase %}
+    {% when 'import-api' %}
+        {% assign all-docs = site.developer-files | where:"type","import-api" %}
+
+        {% case page.sidebar %}
+            {% when 'overview' %}
+                {% assign navigation = site.data.sidebars.import-api.overview %}
+            {% when 'api' %}
+                {% assign navigation = site.data.sidebars.import-api.api %}
+        {% endcase %}
 {% endcase %}
 
-{% assign api = site.data.connect.api %}
-{% assign js = site.data.connect.js-client %}
-
-{% assign all-form-properties = site.connect-files | where: "content-type","api-form" %}
 
 <div class="menu-list">
 

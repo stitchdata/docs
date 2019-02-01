@@ -1,9 +1,16 @@
 <!-- This file contains the logic and formatting for displaying
     API data structures. -->
 
-{% assign data-structures = site.connect-files | where:"content-type","api-structure" %}
+{% case page.type %}
+    {% when 'connect' %}
+        {% assign all-docs = site.developer-files | where:"type","connect" %}
+    {% when 'import-api' %}
+        {% assign all-docs = site.developer-files | where:"type","import-api" %}
+{% endcase %}
 
-{% include connect/api-endpoint-rollup.html type="data-structure" %}
+{% assign data-structures = all-docs | where:"content-type","api-structure" %}
+
+{% include developers/api-endpoint-rollup.html type="data-structure" %}
 
 {% for structure in data-structures %}
 
@@ -50,12 +57,12 @@
             Example Object
         </h4>
 
-        {% include connect/api-examples.html type="data-structure" %}
+        {% include developers/api-examples.html type="data-structure" %}
     {% endif %}
 
 
     {% if structure.sub-structures %}
-        {% assign all-sub-structures = site.connect-files | where:"content-type","api-sub-structure" %}
+        {% assign all-sub-structures = site.developer-files | where:"content-type","api-sub-structure" %}
 
         {% for sub-structure in all-sub-structures %}
             {% for sub in structure.sub-structures %}
@@ -102,7 +109,7 @@
                             Example Object
                         </h4>
 
-                        {% include connect/api-examples.html type="data-sub-structure" %}
+                        {% include developers/api-examples.html type="data-sub-structure" %}
                     {% endif %}
                 {% endif %}
             {% endfor %}

@@ -5,7 +5,7 @@
 		{% assign items = page.toolkit %}
 
 	{% when 'connect-guide' %}
-		{% assign all-guides = site.connect-content | where:"content-type",page.content-type %}
+		{% assign all-guides = site.developer-content | where:"content-type",page.content-type %}
 			{% assign items = all-guides | where_exp:"item","item.content-id != page.content-id" | sort: "order" %}
 
 {% endcase %}
