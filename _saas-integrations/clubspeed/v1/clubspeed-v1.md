@@ -23,7 +23,7 @@ layout: singer
 #         Tap Details        #
 # -------------------------- #
 
-name: "club-speed"
+name: "clubspeed"
 display_name: "Club Speed"
 
 singer: true 
