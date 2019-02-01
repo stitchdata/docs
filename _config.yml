@@ -79,9 +79,9 @@ collections:
    output: true
   analysis-integrations:
    output: true
-  connect-content:
+  developer-content:
    output: true
-  connect-files:
+  developer-files:
    output: false
   data-structure:
    output: true
@@ -156,6 +156,14 @@ defaults:
       toc: true
       sidebar: stitchnav
       display-summary: "false"
+
+## Developer content
+  - scope:
+      type: developer-content
+    values:
+      layout: developer
+      display-summary: "false"
+      toc: false
 
 ## Replication
   - scope:
