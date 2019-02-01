@@ -1,0 +1,478 @@
+# -------------------------- #
+#       STREAM EXAMPLES      #
+# -------------------------- #
+
+## Examples of various streams for integrations
+
+# -------------------------- #
+#       REQUEST BODIES       #
+# -------------------------- #
+
+request-bodies:
+  database: |
+    {
+      "streams": [
+        {
+          "tap_stream_id": "demni2mf59dt10-public-customers",
+          "metadata": [
+            {
+              "breadcrumb": [],
+              "metadata": {
+                "selected": true,
+                "replication-method": "INCREMENTAL",
+                "replication-key": "updated_at"
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  saas: |
+    {
+      "streams": [
+        {
+          "tap_stream_id": "custom_collections",
+          "metadata": [
+            {
+              "breadcrumb": [],
+              "metadata": {
+                "selected": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+
+  blank-stream: |
+     {
+       "streams": [
+         {
+           "tap_stream_id": "<TAP_STREAM_ID>",
+           "metadata": [
+             {
+               "breadcrumb": [],
+               "metadata": {
+                 "selected": "true"
+               }
+             }
+           ]
+         }
+       ]
+     }
+
+
+
+# -------------------------- #
+#       DATABASE STREAM      #
+# -------------------------- #
+
+database-stream: |
+  {
+    "selected": null,
+    "stream_id": 2289176,
+    "tap_stream_id": "demni2mf59dt10-heroku-orders",
+    "stream_name": "orders",
+    "metadata": {
+      "database-name": "demni2mf59dt10",
+      "selected": null,
+      "replication-method": null,
+      "is-view": false,
+      "row-count": 447,
+      "schema-name": "heroku",
+      "table-key-properties": [
+        "id"
+      ]
+    }
+  }
+
+
+# -------------------------- #
+#        DATABASE VIEW       #
+# -------------------------- #
+
+database-view: |
+  {
+    "selected": true,
+    "stream_id": 2375830,
+    "tap_stream_id": "demni2mf59dt10-public-customer_view",
+    "stream_name": "customer_view",
+    "metadata": {
+      "database-name": "demni2mf59dt10",
+      "selected": true,
+      "is-view": true,
+      "replication-key": "updated_at",
+      "replication-method": "updated_at",
+      "row-count": 56,
+      "schema-name": "public",
+      "table-key-properties": [],
+      "view-key-properties": [
+        "id"
+      ]
+    }
+  }
+
+# -------------------------- #
+#         SAAS STREAM        #
+# -------------------------- #
+
+saas-stream: |
+  {
+    "selected": null,
+    "stream_id": 2288758,
+    "tap_stream_id": "custom_collections",
+    "stream_name": "custom_collections",
+    "metadata": {
+      "forced-replication-method": "INCREMENTAL",
+      "selected": null,
+      "table-key-properties": [
+        "id"
+      ],
+      "valid-replication-keys": [
+        "updated_at"
+      ]
+    }
+  }
+
+
+# -------------------------- #
+#        SAAS STREAMS        #
+# -------------------------- #
+
+saas-streams: |
+  [
+    {
+      "selected": null,
+      "stream_id": 2288757,
+      "tap_stream_id": "abandoned_checkouts",
+      "stream_name": "abandoned_checkouts",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288759,
+      "tap_stream_id": "collects",
+      "stream_name": "collects",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288758,
+      "tap_stream_id": "custom_collections",
+      "stream_name": "custom_collections",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288756,
+      "tap_stream_id": "customers",
+      "stream_name": "customers",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288754,
+      "tap_stream_id": "metafields",
+      "stream_name": "metafields",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288751,
+      "tap_stream_id": "order_refunds",
+      "stream_name": "order_refunds",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288753,
+      "tap_stream_id": "orders",
+      "stream_name": "orders",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288755,
+      "tap_stream_id": "products",
+      "stream_name": "products",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "updated_at"
+        ]
+      }
+    },
+    {
+      "selected": null,
+      "stream_id": 2288752,
+      "tap_stream_id": "transactions",
+      "stream_name": "transactions",
+      "metadata": {
+        "forced-replication-method": "INCREMENTAL",
+        "selected": null,
+        "table-key-properties": [
+          "id"
+        ],
+        "valid-replication-keys": [
+          "created_at"
+        ]
+      }
+    }
+  ]
+
+
+# -------------------------- #
+#     SAAS STREAM SCHEMA     #
+# -------------------------- #
+
+## This example corresponds to the Shopify `custom_collections` stream.
+
+saas-stream-schema: |
+  {
+    "schema": "{\"type\":\"object\",\"properties\":{\"handle\":{\"type\":[\"null\",\"string\"]},\"sort_order\":{\"type\":[\"null\",\"string\"]},\"published_at\":{\"type\":[\"null\",\"string\"]},\"published_scope\":{\"type\":[\"null\",\"string\"]},\"image\":{\"type\":[\"null\",\"object\"],\"properties\":{\"width\":{\"type\":[\"null\",\"integer\"]},\"created_at\":{\"type\":[\"null\",\"string\"]},\"alt\":{\"type\":[\"null\",\"string\"]},\"src\":{\"type\":[\"null\",\"string\"]},\"height\":{\"type\":[\"null\",\"integer\"]}}},\"id\":{\"type\":[\"null\",\"integer\"]},\"template_suffix\":{\"type\":[\"null\",\"string\"]},\"updated_at\":{\"type\":[\"null\",\"string\"]},\"admin_graphql_api_id\":{\"type\":[\"null\",\"string\"]},\"title\":{\"type\":[\"null\",\"string\"]},\"body_html\":{\"type\":[\"null\",\"string\"]}}}",
+    "metadata": [
+      {
+        "breadcrumb": [
+          "properties",
+          "handle"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [],
+        "metadata": {
+          "table-key-properties": [
+            "id"
+          ],
+          "forced-replication-method": "INCREMENTAL",
+          "valid-replication-keys": [
+            "updated_at"
+          ]
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "template_suffix"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "body_html"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "published_at"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "sort_order"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "title"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "updated_at"
+        ],
+        "metadata": {
+          "inclusion": "automatic"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "published_scope"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "id"
+        ],
+        "metadata": {
+          "inclusion": "automatic"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "admin_graphql_api_id"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      },
+      {
+        "breadcrumb": [
+          "properties",
+          "image"
+        ],
+        "metadata": {
+          "inclusion": "available"
+        }
+      }
+    ],
+    "non-discoverable-metadata-keys": [
+      "selected",
+      "replication-method",
+      "replication-key",
+      "view-key-properties"
+    ]
+  }
+
+
+# -------------------------- #
+#   BREADCRUMB EXPLANATION   #
+# -------------------------- #
+
+breadcrumb-explanation: |
+  {
+      "schema": "{\"properties\":{\"id\":{\"type\":[\"null\",\"integer\"]},\"name\":{\"type\":[\"null\",\"string\"]},\"updated\":{\"format\":\"date-time\",\"type\":[\"null\",\"string\"]}},\"type\":[\"null\",\"object\"]}",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "INCREMENTAL",
+            "valid-replication-keys": [
+              "updated"
+            ],
+            "table-key-properties": [
+              "id"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "id"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "name"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "updated"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        }
+      ],
+      "non-discoverable-metadata-keys": [
+        "selected",
+        "replication-method",
+        "replication-key",
+        "view-key-properties"
+      ]
+    }

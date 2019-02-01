@@ -15,6 +15,20 @@
 # This is done so that individual values can be called instead of having
 # to loop through the entire list of items to get a single thing.
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
+destination-details-info:
+  fully-managed: &fully-managed |
+    Depends {{ info-icon | replace:"TOOLTIP","Heroku instances include maintenance; Amazon RDS & self-hosted instances do not." }}
+  pricing-model: &pricing-model |
+    Varies
+  free-option: &free-option |
+    Depends {{ info-icon | replace:"TOOLTIP","Free options vary by provider." }}
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -23,6 +37,8 @@
 # requirements for the destination.
 
 stitch-details-info:
+  release-status: &release-status |
+    Released
   pricing-tier: &pricing-tier |
     All Stitch plans
   supported-versions: &supported-versions |
@@ -152,6 +168,10 @@ reserved-words: "https://www.postgresql.org/docs/9.6/static/sql-keywords-appendi
 # and then change whatever you need to change.
 
 attributes:
+  - id: "release-status"
+    categories: "stitch-details"
+    value: *release-status 
+    
   - id: "pricing-tier"
     categories: "stitch-details"
     value: *pricing-tier

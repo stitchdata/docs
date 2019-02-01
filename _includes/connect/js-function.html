@@ -1,6 +1,9 @@
 {% assign functions = site.connect-files | where:"content-type","stitch-js-function" | sort:"order" %}
 
 {% for function in functions %}
+<!-- This ensures that example tabs from _includes/connect/api-examples.html will display correctly  -->
+    {% assign has-multiple-versions = "false" %}
+
     <div class="api-js-heading">
         <div class="method function">
             FUNCTION
@@ -52,6 +55,6 @@
         Example Usage
     </h4>
 
-    {% include connect/request-response-example-tabs.html type="function" %}
+    {% include connect/api-examples.html type="function" %}
 
 {% endfor %}

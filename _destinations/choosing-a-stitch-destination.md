@@ -1,6 +1,8 @@
 ---
 title: Choosing a Destination
 permalink: /destinations/choosing-a-stitch-destination
+
+redirect_from: /destinations/choosing-a-destination
 tags: [destinations]
 keywords: destination, destinations, data warehouse, data warehouses, warehouse, stitch etl, etl, compare destinations, choose destination, select destination
 summary: "If you're new to data warehousing or want to see how Stitch's destination offerings compare to each other, look no further. This guide will help you choose the best Stitch destination for your data warehousing needs."
@@ -43,7 +45,7 @@ sections:
     content: |
       If you simply want to try Stitch and Redshift, or if you don't have the ability to spin up a Redshift cluster of your own in AWS, we recommend trying [Panoply]({{ link.destinations.overviews.panoply | prepend: site.baseurl | append: "#setup" }}). With just a few clicks, you create your own fully-managed Redshift data warehouse and start replicating data in minutes.
 
-      Keep in mind that switching to a different destination at any point will require a full re-replication of your data.
+      **Note**: If you decide to [switch destinations]({{ link.destinations.overviews.switch-destination | prepend: site.baseurl }}) later, you'll need to queue a full re-replication of your data to ensure historical data is present in the new destination.
 
   - title: "Are your data sources compatible with your destination?"
     anchor: "integration--destination-compatibility"
@@ -84,9 +86,11 @@ sections:
               <tr>
                   <td>
                       <ul>
+                                <li>Amazon S3 (JSON)</li>
+                                <li>data.world</li>
                           {% for destination in destinations %}
-                              {% if destination.nested-structure-support == true %}
-                                  <li>{{ destination.display_name }}{% if destination.type == "amazon-s3" %} (JSON){% endif %}</li>
+                            {% if site.data.destinations.reference[destination.type]replication-info.nested-structures.supported contains "true" %}
+                                  <li>{{ destination.display_name }}</li>
                               {% endif %}
                           {% endfor %}
                       </ul>
@@ -95,7 +99,7 @@ sections:
                       <ul>
                               <li>Amazon S3 (CSV)</li>
                           {% for destination in destinations %}
-                              {% if destination.nested-structure-support == false %}
+                              {% if site.data.destinations.reference[destination.type]replication-info.nested-structures.supported contains "false" %}
                                   <li>{{ destination.display_name }}</li>
                               {% endif %}
                           {% endfor %}

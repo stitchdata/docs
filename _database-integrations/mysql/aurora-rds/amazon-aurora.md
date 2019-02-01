@@ -34,7 +34,7 @@ frequency: "30 minutes"
 tier: "Free"
 port: 3306
 db-type: "mysql"
-icon: /images/integrations/icons/amazon-aurora.svg
+icon: /images/integrations/icons/aurora-rds.svg
 
 versions: "n/a"
 ssh: true

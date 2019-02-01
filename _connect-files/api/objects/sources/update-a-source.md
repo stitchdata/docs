@@ -40,7 +40,7 @@ returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}).
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
@@ -54,7 +54,7 @@ examples:
                    }
                }"
 
-  - type: "response"
+  - type: "Response"
     language: "json"
     code: |
       HTTP/1.1 200 OK
@@ -242,5 +242,5 @@ examples:
             ]
          }
       }
-  - type: "errors"
+  - type: "Errors"
 ---

@@ -1,0 +1,122 @@
+# -------------------------- #
+#        FIELD EXAMPLES      #
+# -------------------------- #
+
+## Examples of various field metadata for integrations
+
+request-bodies:
+  saas-field: |
+    {
+      "streams": [
+        {
+          "tap_stream_id": "custom_collections",
+          "metadata": [
+            {
+              "breadcrumb": [
+                "properties",
+                "id"
+              ],
+              "metadata": {
+                "selected": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+  saas-fields: |
+    {
+      "streams": [
+        {
+          "tap_stream_id": "custom_collections",
+          "metadata": [
+            {
+              "breadcrumb": [
+                "properties",
+                "id"
+              ],
+              "metadata": {
+                "selected": true
+              }
+            },
+            {
+              "breadcrumb": [
+                "properties",
+                "published_at"
+              ],
+              "metadata": {
+                "selected": true
+              }
+            },
+            {
+              "breadcrumb": [
+                "properties",
+                "title"
+              ],
+              "metadata": {
+                "selected": true
+              }
+            },
+            {
+              "breadcrumb": [
+                "properties",
+                "handle"
+              ],
+              "metadata": {
+                "selected": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+
+field-exclusion: |
+  {
+    "breadcrumb": [
+      "properties",
+      "DeviceOS"
+    ],
+    "metadata": {
+      "fieldExclusions": [
+        [
+          "properties",
+          "ExactMatchImpressionSharePercent"
+        ],
+        [
+          "properties",
+          "ImpressionLostToAdRelevancePercent"
+        ],
+        [
+          "properties",
+          "ImpressionLostToBidPercent"
+        ],
+        [
+          "properties",
+          "ImpressionLostToBudgetPercent"
+        ],
+        [
+          "properties",
+          "ImpressionLostToExpectedCtrPercent"
+        ],
+        [
+          "properties",
+          "ImpressionLostToRankPercent"
+        ],
+        [
+          "properties",
+          "ImpressionSharePercent"
+        ]
+      ],
+      "inclusion": "available"
+    }
+  }
+
+unsupported-field: |
+  {
+    "metadata": {
+      "unsupported-description": "this field is unsupported by the Bulk API.",
+      "selected": false,
+      "inclusion": "unsupported"
+    }

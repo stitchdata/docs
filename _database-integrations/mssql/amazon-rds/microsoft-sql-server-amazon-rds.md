@@ -25,7 +25,7 @@ frequency: "30 minutes"
 tier: "Free"
 port: 1433
 db-type: "mssql"
-icon: /images/integrations/icons/mssql-rds.svg
+icon: /images/integrations/icons/sql-server-rds.svg
 
 ## Stitch features
 

@@ -2,16 +2,7 @@
 layout: page
 ---
 
-{% case page.sidebar %}
-    {% when 'overview' %}
-        {% assign docs = site.connect-files | where:"content-type","overview" | sort:"order" %}
-
-    {% when 'api' %}
-        {% assign docs = site.connect-files | where:"content-type","api-doc" | sort:"order" %}
-
-    {% when 'js' %}
-        {% assign docs = site.connect-files | where:"content-type","js-doc" | sort:"order" %}
-{% endcase %}
+{% assign docs = site.connect-files | where:"content-type",page.content-type | sort:"order" %}
 
 {% assign connect = site.data.connect.general %}
 {% assign sample-property-data = site.data.connect.sample-property-data %}
@@ -20,9 +11,11 @@ layout: page
 
 
 {% for doc in docs %}
-    <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
-        {{ doc.title }}
-    </h2>
+    {% if doc.title != "" %}
+        <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
+            {{ doc.title }}
+        </h2>
+    {% endif %}
 
     {% if doc.sections %}
         {% for section in doc.sections %}

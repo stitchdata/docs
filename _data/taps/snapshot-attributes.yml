@@ -2,8 +2,11 @@
 #   INTEGRATION ATTRIBUTES   #
 # -------------------------- #
 
-## This file contains a list of attributes - such as availability, release status, etc -
+## This file contains:
+
+## 1. A list of attributes - such as availability, release status, etc -
 ## that are pertinent to different integrations.
+## 2. A list of field names and values that are used in *table* snapshots.
 
 ## Different integration types (ex: database vs. SaaS) can have different attributes.
 
@@ -112,3 +115,35 @@ saas:
 # -------------------------- #
 
 webhook:
+
+
+
+# -------------------------- #
+#      SNAPSHOT FIELDS       #
+# -------------------------- #
+
+## These are the field names and formatted values for *table* snapshots.
+## Used in: _includes/integrations/templates/schemas/table-snapshot.html
+
+field-names:
+  replication-method: "Replication Method {{ info-icon | flatify }}"
+  primary-key: "Primary Key {{ ui-icon.primary-key | flatify }}"
+  replication-key: "Replication Key {{ ui-icon.replication-key | flatify }}"
+  api-endpoint: "API endpoint {{ info-icon | flatify }}"
+  documentation-link: "Official docs {{ info-icon | flatify }}"
+
+
+field-values:
+  replication-method: "{{ table.replication-method | flatify }}"
+
+  primary-key: |
+    {{ primary-keys | strip }}
+
+  replication-key: |
+    {{ replication-keys | strip }} {% if table.replication-key.name %}{{ info-icon | replace:"TOOLTIP",table.replication-key.tooltip }}{% endif %}
+
+  api-endpoint: |
+    <a href="{{ table.api-method.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} API documentation" target="new">{{ table.api-method.name }}</a>
+
+  doc-link: |
+    <a href="{{ table.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} documentation" target="new">Official Docs</a>

@@ -1,9 +1,9 @@
 ---
-title: Zendesk (v1.0)
+title: Zendesk Support (v1.0)
 permalink: /integrations/saas/zendesk
 tags: [saas_integrations]
 keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema
-summary: "Connection instructions, replication info, and schema details for Stitch's Zendesk integration."
+summary: "Connection instructions, replication info, and schema details for Stitch's Zendesk Support integration."
 layout: singer
 
 # -------------------------- #
@@ -11,7 +11,7 @@ layout: singer
 # -------------------------- #
 
 name: "zendesk"
-display_name: "Zendesk"
+display_name: "Zendesk Support"
 singer: true
 status-url: "https://status.zendesk.com/"
 repo-url: "https://github.com/singer-io/tap-zendesk"
@@ -44,29 +44,32 @@ loading-reports: true
 
 requirements-list:
   - item: |
-      **Administrator permissions in Zendesk**. Some data types in Zendesk may only be accessed with Admin permissions. For example: To replicate ticket metric or tag data, Zendesk's API requires a user with Admin permissions.
+      **Administrator permissions in {{ integration.display_name }}**. Some data types in {{ integration.display_name }} may only be accessed with Admin permissions. For example: To replicate ticket metric or tag data, {{ integration.display_name }}'s API requires a user with Admin permissions.
 
       To ensure you can replicate all the data you need, we recommend a user with Admin permissions set up the integration.
       
   - item: |
-      **A specific Zendesk plan if replicating ticket forms or SLA policies:**
+      **A specific {{ integration.display_name }} plan if replicating ticket forms or SLA policies:**
 
-         - To replicate **SLA policies**, you must be on an Enterprise or Professional Zendesk plan.
-         - To replicate **ticket forms**, you must be on an Enterprise Zendesk plan, or a Professional Zendesk plan with the ticket forms add-on.
+         - To replicate **SLA policies**, you must be on an Enterprise or Professional {{ integration.display_name }} plan.
+         - To replicate **ticket forms**, you must be on an Enterprise {{ integration.display_name }} plan, or a Professional {{ integration.display_name }} plan with the ticket forms add-on.
 
-      All other tables, with the exception of `sla_policies` and `ticket_forms` will be available for replication even if you aren't on either of these Zendesk plans.
+      All other tables, with the exception of `sla_policies` and `ticket_forms` will be available for replication even if you aren't on either of these {{ integration.display_name }} plans.
 
 setup-steps:
   - title: "add integration"
     content: |
-      4. In the **Zendesk Subdomain** field, enter your Zendesk site prefix. For example: For `stitchdata.zendesk.com`, only `stitchdata` would be entered into this field.
+      4. In the **Zendesk Subdomain** field, enter your {{ integration.display_name }} site prefix. For example: For `stitchdata.zendesk.com`, only `stitchdata` would be entered into this field.
 
   - title: "historical sync"
   - title: "replication frequency"
   - title: "Authorize Stitch to access Zendesk"
     anchor: "grant-stitch-authorization"
     content: |
-      {% include note.html type="single-line" content="**Note**: A Zendesk user with Admin permissions must complete this step." %}
+      {% capture zendesk-admin %}
+      **Note**: A {{ integration.display_name }} user with Admin permissions must complete this step.
+      {% endcapture %}
+      {% include note.html type="single-line" content=zendesk-admin %}
 
       1. Next, you'll be prompted to sign into your Zendesk account.
       2. After the authorization process is successfully completed, you'll be directed back to Stitch.
@@ -81,7 +84,7 @@ replication-sections:
   - title: "Replicating SLA policies and ticket forms"
     anchor: "replicate-ticket-forms"
     content: |
-      To replicate SLA policies and ticket forms - or the `sla_policies` and `ticket_forms` tables - you need to be on an Enterprise or Professional Zendesk plan. [To replicate `ticket_forms` on a Professional plan](https://support.zendesk.com/hc/en-us/articles/203661616-Creating-ticket-forms-to-support-multiple-request-types-Professional-add-on-and-Enterprise-){:target="_blank"}, you'll also need to have the ticket forms add-on enabled in your Zendesk account.
+      To replicate SLA policies and ticket forms - or the `sla_policies` and `ticket_forms` tables - you need to be on an Enterprise or Professional {{ integration.display_name }} plan. [To replicate `ticket_forms` on a Professional plan](https://support.zendesk.com/hc/en-us/articles/203661616-Creating-ticket-forms-to-support-multiple-request-types-Professional-add-on-and-Enterprise-){:target="_blank"}, you'll also need to have the ticket forms add-on enabled in your {{ integration.display_name }} account.
 
       If you set either table to replicate and don't meet the requirements listed above, an error similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
@@ -92,7 +95,6 @@ replication-sections:
 
       To resolve the error, de-select the appropriate table(s). Reach out to Zendesk if you have questions about your Zendesk plan.
       
-
   - title: "Replicating user and organization custom fields"
     anchor: "replicate-user-organization-custom-fields"
     content: |

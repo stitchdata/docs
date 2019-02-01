@@ -64,7 +64,7 @@ returns: |
 # ------------------------------ #
 
 examples:
-  - type: "request"
+  - type: "Request"
     language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
@@ -78,7 +78,7 @@ examples:
                       "frequency_in_minutes":"30"
                    }
                 }"
-  - type: "response"
+  - type: "Response"
     language: "json"
     code: |
       HTTP/1.1 200 OK
@@ -202,5 +202,5 @@ examples:
          }
       }
 
-  - type: "errors"
+  - type: "Errors"
 ---

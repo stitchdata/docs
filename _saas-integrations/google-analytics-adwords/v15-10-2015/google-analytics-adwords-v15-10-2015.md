@@ -1,9 +1,10 @@
 ---
 title: Google Analytics (AdWords)
-permalink: /integrations/saas/google-analytics-adwords-v15-10-2015
+permalink: /integrations/saas/google-analytics-adwords/v15-10-2015
 redirect_from: 
   - /integrations/saas/google-adwords-old
   - /integrations/saas/google-adwords-new
+  - /integrations/saas/google-analytics-adwords-v15-10-2015
 tags: [saas_integrations]
 keywords: google adwords, integration, schema, etl google adwords, google adwords etl, google adwords schema
 summary: |

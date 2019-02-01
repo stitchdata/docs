@@ -1,0 +1,26 @@
+# ----------------------------- #
+#  CONNECTION CHECK CORE OBJECT #
+# ----------------------------- #
+
+title: "Connection Checks"
+section: "#connection-checks"
+object: "#connection-check--object"
+base: "/v4/{connection_type}/{connection_id}/last-connection-check"
+description: |
+  A Connection Check object shows the results from a test of a connection's parameters.  {{ site.data.tooltips.connection-check | replace: "A test", "This is a test" }} The nature of the test varies by connection type.
+
+get-source:
+  name: "/v4/sources/{source_id}/last-connection-check"
+  title: "Get a source's connection check"
+  method: *get
+  anchor: "#retrieve-sources-last-connection-check"
+  short: &source-connection-check "Retrieves the last connection check for a source by the source's unique identifier."
+  description: *source-connection-check
+
+get-destination:
+  name: "/v4/destinations/{destination_id}/last-connection-check"
+  title: "Get a destination's connection check"
+  method: *get
+  anchor: "#retrieve-destinations-last-connection-check"
+  short: &destination-connection-check "Retrieves the last connection check for a destination by the destination's unique identifier."
+  description: *destination-connection-check

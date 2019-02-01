@@ -7,6 +7,8 @@
 
 {% for structure in data-structures %}
 
+    {% assign has-multiple-versions = "false" %}
+    
     <div class="api-js-heading">
         <div class="method object">
             OBJECT
@@ -42,6 +44,16 @@
         </table>
     {% endif %}
 
+
+    {% if structure.examples %}
+        <h4 id="{{ structure.key | append: "-example-usage" }}">
+            Example Object
+        </h4>
+
+        {% include connect/api-examples.html type="data-structure" %}
+    {% endif %}
+
+
     {% if structure.sub-structures %}
         {% assign all-sub-structures = site.connect-files | where:"content-type","api-sub-structure" %}
 
@@ -60,6 +72,8 @@
                             </h4>
                         </div>
                     </div>
+
+                    {{ sub-structure.description | flatify | markdownify }}
 
                     <table class="attribute-list">
                         {% for attribute in sub-structure.object-attributes %}
@@ -82,70 +96,19 @@
                             </tr>
                         {% endfor %}
                     </table>
+
+                    {% if sub-structure.examples %}
+                        <h4 id="{{ sub-structure.key | append: "-example-usage" }}">
+                            Example Object
+                        </h4>
+
+                        {% include connect/api-examples.html type="data-sub-structure" %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
         
     {% endif %}
-
-
-<!-- Object examples -->
-
-<h4 id="{{ structure.key | append: "-example-usage" }}">
-    Example Object
-</h4>
-
-<!-- If there's more than one example, the page can get pretty long.
-    This will get the size of the example array and then determine
-    the correct formatting for displaying the examples. -->
-
-{% assign example-count = structure.examples | size %}
-
-
-<!-- If there's only 1 example, just display it directly on the page: -->
-{% if example-count == 1 %}
-    {% for example in structure.examples %}
-{%- capture example-code -%}
-```json
-{{ example.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ example-code | markdownify }}
-{% endfor %}
-
-
-
-<!-- If there's more than 1 example, put each example into a tab: -->
-{% else %}
-<ul id="profileTabs" class="nav nav-tabs">
-{% for example in structure.examples %}
-    {% if forloop.first == true %}
-        <li class="active">
-    {% else %}
-        <li>
-    {% endif %}
-        <a href="#{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}" data-toggle="tab">{{ example.title }}</a>
-    </li>
-{% endfor %}
-</ul>
-<div class="tab-content">
-{% for example in structure.examples %}
-    {% if forloop.first == true %}
-        <div role="tabpanel" class="tab-pane active" id="{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}">
-    {% else %}
-        <div role="tabpanel" class="tab-pane" id="{{ example.title | downcase | replace: " ", "-" | prepend: "report-card-example--" }}">
-    {% endif %}
-
-{%- capture example-code -%}
-```json
-{{ example.code | flatify | rstrip }}
-```
-{%- endcapture -%}{{ example-code | markdownify }}
-    
-    </div>
-{% endfor %}
-</div>
-{% endif %}
-    
 
 <!-- Horizontal rule separating sections -->
 {% unless forloop.last == true %}

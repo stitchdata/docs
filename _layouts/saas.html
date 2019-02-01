@@ -37,7 +37,7 @@ layout: page
             {% endifhascontent %}
 
         <!-- only display this section if integration has whitelist support -->
-            {% if integration.whitelist.tables == "Yes" %}
+            {% if integration.table-selection == true %}
                 <p><strong>Note that these tables won't automatically be created in your data warehouse.</strong> You must set them to sync in the {{ app.page-names.int-details }} page first.</p>
             {% endif %}
 
