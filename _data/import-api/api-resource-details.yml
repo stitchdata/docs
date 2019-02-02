@@ -1,0 +1,35 @@
+# An overview of what needs to be included in a valid request header
+# and what the user should expect as a response from the API.
+
+list:
+  - name: "Request Method"
+    description: |
+      {{ endpoint.method | upcase }}
+
+  - name: "Resource URL"
+    description: |
+      {{ endpoint.short-url | flatify }}
+
+  - name: "Authorization"
+    description: "Required. The request header must contain **Authorization** and your Import API access token."
+
+  - name: "Request Header"
+    description: |
+      The request header must contain the following:
+
+      - **Authorization**: Must specify Bearer Auth, e.g. `Bearer: <ACCESS_TOKEN>`
+      - **Content-Type**: Must specify one of the following:
+         - `application/json` - If using JSON
+         - `application/transit+json` - If using Transit
+
+      See the **Request** tab below for example requests.
+
+  - name: "Request Body"
+    description: |
+      The request body must be valid JSON or Transit and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
+
+  - name: "Response Format"
+    description: "Whether the request succeeds or fails, the API will return JSON."
+
+  - name: "Errors"
+    description: "See the **Errors** tab, below."
