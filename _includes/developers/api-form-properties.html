@@ -3,15 +3,8 @@
 
 {% include misc/data-files.html %}
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-
-{% assign all-form-properties = all-docs | where:"content-type","api-form" %}
+{% assign all-docs = site.developer-files | where:"type",page.type %}
+    {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
 
 
 <!-- Display of correct copy for note about REQUIRED attributes -->

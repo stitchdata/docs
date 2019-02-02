@@ -1,13 +1,7 @@
 <!-- This is for displaying Javascript reference content. -->
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-{% assign functions = all-docs | where:"content-type","stitch-js-function" | sort:"order" %}
+{% assign all-docs = site.developer-files | where:"type",page.type %}
+    {% assign functions = all-docs | where:"content-type","stitch-js-function" | sort:"order" %}
 
 {% for function in functions %}
 <!-- This ensures that example tabs from _includes/connect/api-examples.html will display correctly  -->

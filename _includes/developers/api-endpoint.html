@@ -1,15 +1,9 @@
 <!-- The display code for object methods/resources. -->
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-{% assign all-endpoints = all-docs | where:"content-type","api-endpoint" %}
-    {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-        {% assign endpoints = object-endpoints | where:"key",object-method.id %}
+{% assign all-docs = site.developer-files | where:"type",page.type %}
+    {% assign all-endpoints = all-docs | where:"content-type","api-endpoint" %}
+        {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
+            {% assign endpoints = object-endpoints | where:"key",object-method.id %}
 
 <div class="api-js-heading">
     <div class="method {{ object-method.method }}">

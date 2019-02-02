@@ -2,21 +2,15 @@
 layout: page
 ---
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
+{% if page.type == "connect" %}
+    {% assign connect = site.data.connect.general %}
+    {% assign sample-property-data = site.data.connect.sample-property-data %}
+    {% assign api = site.data.connect.api %}
+    {% assign js = site.data.connect.js-client %}
+{% endif %}
 
-        {% assign connect = site.data.connect.general %}
-        {% assign sample-property-data = site.data.connect.sample-property-data %}
-        {% assign api = site.data.connect.api %}
-        {% assign js = site.data.connect.js-client %}
-
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-
-{% assign docs = all-docs | where:"content-type",page.content-type | sort:"order" %}
+{% assign all-docs = site.developer-files | where:"type",page.type %}
+    {% assign docs = all-docs | where:"content-type",page.content-type | sort:"order" %}
 
 
 {% for doc in docs %}

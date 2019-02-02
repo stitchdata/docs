@@ -3,14 +3,7 @@
         endpoints, or all form properties, etc. -->
 
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-
+{% assign all-docs = site.developer-files | where:"type",page.type %}
 
 {% case include.type %}
     {% when 'endpoint' %}

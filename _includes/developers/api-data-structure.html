@@ -1,14 +1,8 @@
 <!-- This file contains the logic and formatting for displaying
     API data structures. -->
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-{% assign data-structures = all-docs | where:"content-type","api-structure" %}
+{% assign all-docs = site.developer-files | where:"type",page.type %}
+    {% assign data-structures = all-docs | where:"content-type","api-structure" %}
 
 {% include developers/api-endpoint-rollup.html type="data-structure" %}
 

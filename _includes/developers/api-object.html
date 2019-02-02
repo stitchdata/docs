@@ -2,14 +2,8 @@
     then contains the Account Object, list of endpoints, etc. -->
 
 
-{% case page.type %}
-    {% when 'connect' %}
-        {% assign all-docs = site.developer-files | where:"type","connect" %}
-    {% when 'import-api' %}
-        {% assign all-docs = site.developer-files | where:"type","import-api" %}
-{% endcase %}
-
-{% assign objects = all-docs | where:"content-type","api-object" | sort:"order" %}
+{% assign all-docs = site.developer-files | where:"type",page.type %}
+    {% assign objects = all-docs | where:"content-type","api-object" | sort:"order" %}
 
 
 {% for object in objects %}
