@@ -34,6 +34,18 @@ uses-common-fields: true
 uses-feature-fields: true
 
 object-attributes:
+  - name: "check_hostname"
+    type: "string"
+    required: false
+    description: |
+      **Optional**: This property works with the `verify_mode` property to validate that the hostname of the database server matches the name in the provided certificate. Accepted values are:
+
+      - `true`
+      - `false`
+
+      **Note**: If the user doesn't want to use a custom CA, this property and the `verify_mode` property should both be enabled (`true`).
+    value: "true"
+    
   - name: "ssl_ca"
     type: "string"
     required: false
@@ -75,5 +87,7 @@ object-attributes:
 
       - `true`
       - `false'
-    value: "false"
+
+      **Note**: If the user doesn't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
+    value: "true"
 ---
