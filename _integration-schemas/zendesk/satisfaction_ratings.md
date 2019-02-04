@@ -10,7 +10,7 @@ description: |
 
   **Note**: This table is only available if satisfaction ratings are enabled in your {{ integration.display_name }} account.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: List satisfaction ratings
