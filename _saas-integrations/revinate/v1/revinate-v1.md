@@ -30,7 +30,7 @@ singer: true
 tap-name: "Revinate"
 repo-url: https://github.com/singer-io/tap-revinate
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -48,8 +48,10 @@ anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false 
+table-selection: false
+column-selection: false
+
+attribution-window: "1 week"
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -69,6 +71,29 @@ setup-steps:
       6. In the **API Secret** field, paste your {{ integration.display_name }} API secret. Your {{ integration.display_name }} API secret must be obtained through [your {{ integration.display_name }} sales representative or account manager](#setup-requirements).
   - title: "historical sync"
   - title: "replication frequency"
+
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
+
+replication-sections:
+  - title: "Extraction overview"
+    anchor: "extraction-overview"
+    content: |
+      When Stitch runs a replication job for {{ integration.display_name }}, a few things will happen:
+
+      1. First, Stitch will get all the hotels that the [authenticating user](#add-stitch-data-source) has access to.
+      2. Stitch will [replicate review snapshot data](#replicate-review-snapshots) (`hotel_reviews_snapshot`, `hotel_reviews_snapshot_by_site`, `hotel_reviews_snapshot_by_time`) for the hotel.
+      3. Stitch will replicate data about the hotel (`hotels`).
+      3. Stitch will repeat steps 2-3 until review snapshot and hotel data has been replicated for all accessible hotels.
+      4. Stitch will replicate review data (`reviews`) based on the last saved `updated_at` value, which is the table's Replication Key.
+
+  - title: "Replicating review snapshots"
+    anchor: "replicate-review-snapshots"
+    content: |
+      When Stitch extracts review snapshot data, it will do so using an **Attribution Window** of **{{ integration.attribution-window }}**. This means that during each replication job, Stitch will replicate snapshot data for that last completed week. For example: If the integration is scheduled to run every 30 minutes, then snapshot data for the last week will be replicated every 30 minutes.
+
+      This is applicable to the `hotel_reviews_snapshot`, `hotel_reviews_snapshot_by_site`, and `hotel_reviews_snapshot_by_time` tables.
 
 # -------------------------- #
 #     Integration Tables     #
