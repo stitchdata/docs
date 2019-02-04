@@ -73,7 +73,7 @@ requirements-list:
 requirements-info: |
   Additionally, note that:
 
-  - **If using SSL**, your server must require SSL connections. Note that SSL is **not** required to connect a {{ integration.display_name }} database to Stitch.
+  - **If using SSL**, your server must require SSL connections. **Note**: SSL is **not** required to connect a {{ integration.display_name }} database to Stitch.
   - **If connecting via Atlas**, Stitch can only connect to instances using a **paid Atlas plan** with a **dedicated cluster**. The Free Atlas plan and shared clusters utilize a setup that Stitch doesn't currently support.
 
 
@@ -106,9 +106,9 @@ setup-steps:
 
   - title: "create db user"
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
     content: |
-
       {% capture mongo-conn %}
       Stitch uses a standalone server connection to connect to your MongoDB instance. What this means is that if you want Stitch to run on secondary instances, you have to give Stitch a host IP for one of your secondary instances.
 
@@ -116,6 +116,24 @@ setup-steps:
       {% endcapture %}
 
       {% include note.html first-line="**Stitch and MongoDB connections**" content=mongo-conn %}
+
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
   - title: "replication frequency"
 

@@ -17,8 +17,10 @@ in the instructions. -->
   {% assign database-settings = site.data.ui.database-integration-settings.[integration.db-type].[integration.name] %}
 
 
+{% case include.type %}
 
-<!-- Generic instructions for all database integrations -->
+{% when 'general' %}
+<!-- GENERAL INSTRUCTIONS -->
 
 1. [Sign into your Stitch account]({{ site.sign-in }}){:target="_blank"}, if you haven't already.
 2. {{ app.menu-paths.add-integration | flatify }}
@@ -29,9 +31,9 @@ in the instructions. -->
    {% endfor %}
 
 
-<!-- If the integration supports SSH (ssh: true), show this section -->
+<!-- FOR SSH -->
 
-{% if integration.ssh == true %}
+{% when 'ssh' %}
 
   {% if integration.singer == true %}
     {% assign ssh-fields = defaults.ssh-singer %}
@@ -39,7 +41,7 @@ in the instructions. -->
     {% assign ssh-fields = defaults.ssh %}
   {% endif %}
 
-#### Enter SSH connection details {#ssh-connection-details}
+{% include note.html type="single-line" content="**Note**: Skip this step if you're not using SSH to connect to Stitch." %}
 
 If you're using an SSH tunnel to connect your {{ integration.display_name }} database to Stitch, you'll also need to complete the following:
 
@@ -53,15 +55,35 @@ If you're using an SSH tunnel to connect your {{ integration.display_name }} dat
    {% for field in ssh-fields %}
    - **{{ field.name }}**: {{ field.copy | flatify }}
    {% endfor %}
-{% endif %}
 
 
-<!-- If the integration supports SSL (ssl: true), show this section -->
+<!-- FOR SSL FIELDS -->
+{% when 'ssl' %}
 
-{% if integration.ssl == true %}
+{% include note.html type="single-line" content="**Note**: Skip this step if you're not using SSL to connect to Stitch." %}
+
+<!-- FOR HEROKU ONLY -->
 {% if integration.name == "heroku" %}
 **Note:** Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data.
 {% else %}
+
+
+<!-- IF THE INTEGRATION HAS SPECIFIC SSL FIELDS, SHOW THEM -->
+{% if include.ssl-fields == "true" %}
+  {% assign ssl-fields = site.data.ui.database-integration-settings.[integration.db-type].ssl %}
+
+1. Check the **{{ defaults.field-names.ssl }}** checkbox. {{ defaults.field-copy.ssl }}
+2. Fill in the fields as follows:
+   {% for field in ssl-fields %}
+   - **{{ field.name }}**: {{ field.copy | flatify }}
+   {% endfor %}
+
+{% else %}
+
+<!-- OTHERWISE, ONLY SHOW THE COPY FOR THE SSL CHECKBOX -->
 In addition, click the **{{ defaults.field-names.ssl }}** checkbox if you're using an SSL connection. {{ defaults.field-copy.ssl }}
 {% endif %}
+
 {% endif %}
+
+{% endcase %}

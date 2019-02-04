@@ -107,7 +107,17 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html %}
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"

@@ -181,7 +181,7 @@ setup-steps:
       {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
@@ -189,7 +189,17 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html %}
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
       - title: "Define Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
