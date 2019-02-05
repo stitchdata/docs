@@ -125,6 +125,34 @@ hubspot: |
   }
 
 
+import-api: |
+  {
+    "type": "import_api",
+    "current_step": 1,
+    "steps": [
+      {
+        "type": "form",
+        "properties": [
+          {
+            "name": "token",
+            "is_required": true,
+            "provided": false,
+            "is_credential": false,
+            "system_provided": true,
+            "tap_mutable": false,
+            "json_schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      {
+        "type": "fully_configured",
+        "properties": []
+      }
+    ]
+  }
+
 
 mysql: |
   {
