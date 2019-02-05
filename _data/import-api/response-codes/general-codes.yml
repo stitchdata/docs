@@ -56,7 +56,9 @@ all-codes:
     text: "Unsupported Media Type"
     error: true
     description: |
-      The content header of the request didn't specify a supported media type. The Import API supports JSON (`application/json`) and Transit (`application/transit+json`).
+      The content header of the request didn't specify a supported media type, or specified an unsupported media type.
+
+      The Import API supports JSON (`application/json`) and Transit (`application/transit+json`).
 
   - code: "422"
     text: "Unprocessable Entity"
