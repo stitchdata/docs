@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-campaign-monitor/blob/master/tap
 description: |
   The `{{ table.name }}` table contains info about the subscribers that a campaign was sent to.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 api-method:
   name: "Get campaign recipients"
