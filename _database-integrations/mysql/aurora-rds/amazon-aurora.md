@@ -38,7 +38,7 @@ icon: /images/integrations/icons/aurora-rds.svg
 
 versions: "n/a"
 ssh: true
-ssl: false
+ssl: true
 
 ## General replication features
 
@@ -82,7 +82,7 @@ requirements-list:
         - View database details, which is required for retrieving the database's connection details.
 
   - item: |
-      **To connect the master instance if using binlog replication.** As per [Amazon's documentation](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.Limitations){:target="new"}, binlog replication can't be enabled on Aurora read replicas.
+      **To connect the master instance if using binlog replication.** As per [Amazon's documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Reference.html){:target="new"}, binlog replication can't be enabled on Aurora read replicas as the `log_slave_updates` parameter is not modifiable.
   - item: "**The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html) is required to create a database user for Stitch."
   - item: "**The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option) is required to grant the necessary privileges to the Stitch database user."
 
@@ -159,7 +159,7 @@ setup-steps:
       {% include shared/aws-connection-details.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
@@ -167,7 +167,17 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html %}
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
       - title: "Define Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
@@ -178,8 +188,6 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
-
-  - title: "connect stitch"
 
   - title: "replication frequency"
 

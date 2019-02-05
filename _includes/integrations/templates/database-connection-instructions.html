@@ -2,7 +2,7 @@
 
 <!-- If there are any requirements for setting up the destination, display them here. -->
 {% if integration.requirements-list %}
-    <h3 id="setup-requirements">{{ integration.display_name }} Setup Requirements</h3>
+    <h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
         <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
         <ul>
         {% if integration.tier == "Paid" %}
@@ -62,7 +62,7 @@
         <hr>
 
     {% elsif step.title == "retrieve public key" %}
-        <h3 id="retrieve-public-key">Step {{ forloop.index }}: Retrieve your Stitch Public Key</h3>
+        <h3 id="retrieve-public-key">Step {{ forloop.index }}: Retrieve your Stitch public key</h3>
 
         {% capture public-key %}
         {% include shared/retrieve-public-key.html %}

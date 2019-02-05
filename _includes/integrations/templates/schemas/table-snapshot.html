@@ -15,7 +15,7 @@
     <!-- Otherwise, create one with a doc link -->
     {% else %}
         {% if table.doc-link %}
-            {% assign snapshot-fields = "replication-method|primary-key" | split:"|" %}
+            {% assign snapshot-fields = "replication-method|primary-key|doc-link" | split:"|" %}
         {% else %}
             {% assign snapshot-fields = "replication-method|primary-key" | split:"|" %}
         {% endif %}
@@ -30,7 +30,7 @@
         {% assign snapshot-fields = "replication-method|replication-key|primary-key|api-endpoint" | split:"|" %}
     {% else %}
         {% if table.doc-link %}    
-            {% assign snapshot-fields = "replication-method|replication-key|primary-key|documentation" | split:"|" %}
+            {% assign snapshot-fields = "replication-method|replication-key|primary-key|doc-link" | split:"|" %}
         {% else %}
             {% assign snapshot-fields = "replication-method|replication-key|primary-key" | split:"|" %}
         {% endif %}

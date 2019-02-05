@@ -101,7 +101,16 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
 
   - title: "replication frequency"
 

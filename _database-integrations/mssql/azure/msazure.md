@@ -34,7 +34,7 @@ icon: /images/integrations/icons/microsoft-azure.svg
 
 versions: "2000 through 2016"
 ssh: true
-ssl: false
+ssl: true
 
 ## General replication features
 
@@ -82,7 +82,26 @@ setup-steps:
 
   - title: "create db user"
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+
+      - title: "Define the SSL connection details"
+        anchor: "ssl-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
   - title: "replication frequency"
 
