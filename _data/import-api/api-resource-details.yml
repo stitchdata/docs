@@ -28,6 +28,10 @@ list:
     description: |
       The request body must be valid JSON or Transit and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
 
+      {% if endpoint.request-body %}
+      {{ endpoint.request-body | flatify }}
+      {% endif %}
+
   - name: "Response Format"
     description: "Whether the request succeeds or fails, the API will return JSON."
 

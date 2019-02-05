@@ -1,5 +1,10 @@
 attributes:
-  client-id: "The Stitch client ID associated with your Stitch account."
+  client-id: |
+    The Stitch client ID associated with your Stitch account.
+
+    To locate your client ID, sign into your Stitch account and look at the URL. The client ID is the number between `client` and `pipeline` in the URL.
+
+    For example: If the URL is `https://app.stitchdata.com/v2/client/7723/pipeline/connections`, the client ID would be `7723`.
 
   table-name: |
     The name of the destination table the data is being pushed to. Table names must be unique in each destination schema, or loading issues will occur.
@@ -18,9 +23,11 @@ attributes:
     - All fields included in `key_names` must be included and their values cannot be `null`.
     - The maximum number of data points per `data` object is 10,000
 
+    Refer to the [Structuring data for the Import API guide]({{ link.import-api.guides.structure-data | prepend: site.baseurl }}) for instructions and examples.
+
 
 request-body-requirements:
-  - description: "Must contain all required arguments."
+  - description: "Must contain all [required arguments](#push-data--arguments)."
   - description: "Must contain a valid `client_id`. Each record in the request body must have the same `client_id`."
   - description: "Must be valid JSON or Transit."
   - description: "Must be an array (batch) of records. The root cannot be an object."
