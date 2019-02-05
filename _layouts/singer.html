@@ -121,7 +121,7 @@ The schema and info displayed below is for **version {{ integration.this-version
 
 <!-- If this isn't the latest version of the integration, re-assign the page variable. -->
 {% if integration.this-version != latest-version %}
-    {% if integration.schema-sections %}
+    {% if integration.schema-sections or integration.old-schema-template %}
         {% assign integration = page %}
     {% else %}
         {% assign integration = site.saas-integrations | where:"name",integration.name | first %}
