@@ -36,27 +36,37 @@ available-methods:
   - id: "create-a-source"
     title: "Create a source"
     method: "post"
-    short: "{{ api.core-objects.sources.create.short | flatify }}"
+    short: "{{ site.data.connect.core-objects.sources.create.short | flatify }}"
 
   - id: "update-a-source"
     title: "Update a source"
     method: "put"
-    short: "{{ api.core-objects.sources.update.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.sources.update.description | flatify }}"
 
   - id: "retrieve-a-source"
     title: "Retrieve a source"
     method: "get"
-    short: "{{ api.core-objects.sources.retrieve.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.sources.retrieve.description | flatify }}"
 
   - id: "list-sources"
     title: "List all sources"
     method: "get"
-    short: "{{ api.core-objects.sources.list.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.sources.list.description | flatify }}"
 
   - id: "delete-a-source"
     title: "Delete a source"
     method: "delete"
-    short: "{{ api.core-objects.sources.delete.description | flatify }}"
+    short: "{{ site.data.connect.core-objects.sources.delete.description | flatify }}"
+
+  - id: "generate-iapi-access-token"
+    title: "Generate Import API source access token"
+    method: "post"
+    short: "{{ site.data.connect.core-objects.sources.create-iapi-token.short | flatify }}"
+
+  - id: "revoke-iapi-access-token"
+    title: "Revoke Import API source access token"
+    method: "delete"
+    short: "{{ site.data.connect.core-objects.sources.revoke-iapi-token.short | flatify }}"
 
 
 # -------------------------- #

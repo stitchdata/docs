@@ -11,7 +11,7 @@ description: "An object representing a data source. Sources are the databases, A
 create:
   name: "{{ site.data.connect.api.core-objects.sources.base }}" 
   title: "Create a source"
-  method: *post
+  method: "post"
   anchor: "#create-a-source"
   short: "Creates a source object, which is the first step in setting up a new data source."
   description: |
@@ -22,7 +22,7 @@ create:
 update:
   name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
   title: "Update a source"
-  method: *put
+  method: "put"
   anchor: "#update-a-source"
   description: "Updates an existing data source."
 
@@ -36,13 +36,29 @@ delete:
 retrieve:
   name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
   title: "Get a source"
-  method: *get
+  method: "get"
   anchor: "#retrieve-a-source"
   description: "Retrieves a previously created data source by its unique identifier."
 
 list:
   name: "{{ site.data.connect.api.core-objects.sources.base }}"
   title: "List sources"
-  method: *get
+  method: "get"
   anchor: "#list-sources"
   description: "Lists the sources for an account, including active, paused, and deleted sources."
+
+create-iapi-token:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}/tokens"
+  title: "Generate Import API access token"
+  method: "post"
+  anchor: "#generate-iapi-access-token"
+  short: &create-iapi-token-desc "Generates a new access token for an Import API source."
+  description: *create-iapi-token-desc
+
+revoke-iapi-token:
+  name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}/tokens/{token_id}"
+  title: "Revoke Import API access token"
+  method: "delete"
+  anchor: "#revoke-iapi-access-token"
+  short: &revoke-iapi-token-desc "Revokes an existing access token for an Import API source."
+  description: *revoke-iapi-token-desc
