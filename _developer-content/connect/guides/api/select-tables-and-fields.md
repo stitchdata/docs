@@ -4,14 +4,17 @@
 # -------------------------- #
 
 title: Select Streams and Fields with the Connect API
+permalink: /developers/stitch-connect/guides/select-streams-and-fields-with-connect-api
+redirect_from: /stitch-connect/guides/select-streams-and-fields-with-connect-api
+
 doc-type: "tutorial"
 
 product-type: "connect"
-content-type: "connect-guide"
+content-type: "guide"
 content-id: "select-streams-and-fields"
 layout: tutorial
 
-permalink: /stitch-connect/guides/select-streams-and-fields-with-connect-api
+
 icon: table-selection
 order: 3
 

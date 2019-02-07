@@ -1,6 +1,8 @@
 ---
 title: "Stitch Connect JavaScript Client"
-permalink: /stitch-connect/javascript-client 
+permalink: /developers/stitch-connect/javascript-client 
+redirect_from: /stitch-connect/javascript-client 
+
 sidebar: js
 layout: developer
 

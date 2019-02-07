@@ -4,15 +4,17 @@
 # -------------------------- #
 
 title: Field Selection and Compatibility Rules
+permalink: /developers/stitch-connect/guides/field-selection-compatibility-rules
+redirect_from: /stitch-connect/guides/field-selection-compatibility-rules
+
 doc-type: "concept"
 
 product-type: "connect"
-content-type: "connect-guide"
+content-type: "guide"
 content-id: "field-selection-compatibility-rules"
 layout: general
 sidebar: on-page
 
-permalink: /stitch-connect/guides/field-selection-compatibility-rules
 icon: file
 order: 4
 

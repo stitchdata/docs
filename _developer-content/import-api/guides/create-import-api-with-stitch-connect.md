@@ -11,7 +11,7 @@ content-type: "guide"
 content-id: "create-import-api-with-stitch-connect"
 layout: tutorial
 
-permalink: /import-api/guides/create-import-api-integration-with-stitch-connect
+permalink: /developers/import-api/guides/create-import-api-integration-with-stitch-connect
 icon: 
 order: 1
 

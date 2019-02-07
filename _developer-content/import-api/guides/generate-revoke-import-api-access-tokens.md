@@ -4,15 +4,18 @@
 # -------------------------- #
 
 title: Generate and Revoke Import API Access Tokens in the Stitch App
+permalink: /developers/import-api/guides/generate-revoke-import-api-access-tokens
+redirect_from: /integrations/import-api/revoking-an-api-access-token
+
 doc-type: "tutorial"
 
 product-type: "import-api"
 content-type: "guide"
 content-id: "generate-revoke-import-api-access-tokens"
+
 layout: general
 sidebar: on-page
 
-permalink: /import-api/guides/generate-revoke-import-api-access-tokens
 icon: table-selection
 order: 1
 

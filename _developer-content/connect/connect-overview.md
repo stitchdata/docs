@@ -1,6 +1,8 @@
 ---
 title: Stitch Connect
-permalink: /stitch-connect/
+permalink: /developers/stitch-connect/
+redirect_from: /stitch-connect/
+
 sidebar: overview
 layout: developer
 

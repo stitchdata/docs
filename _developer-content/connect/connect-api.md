@@ -1,6 +1,8 @@
 ---
 title: Stitch Connect API
-permalink: /stitch-connect/api
+permalink: /developers/stitch-connect/api
+redirect_from: /stitch-connect/api
+
 sidebar: api
 
 product-type: "connect"

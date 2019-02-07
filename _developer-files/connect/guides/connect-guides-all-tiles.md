@@ -1,7 +1,7 @@
 ---
 title: ""
 product-type: "connect"
-content-type: "connect-guide"
+content-type: "guide"
 order: 1
 
 sections:
