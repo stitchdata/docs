@@ -13,8 +13,8 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: scrollOverAllUsers
-  doc-link: https://developers.intercom.com/reference#iterating-over-all-users
+  name: List Users
+  doc-link: https://developers.intercom.com/intercom-api-reference/reference#list-users
 
 attribution-window: true
 
