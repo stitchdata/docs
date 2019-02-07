@@ -386,35 +386,7 @@ replication-sections:
   - title: "Incremental Replication for {{ integration.display_name }}"
     anchor: "incremental-replication-for-amazon-s3-csv"
     content: |
-      While data from {{ integration.display_name }} integrations is replicated using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), the behavior for this integration differs subtly from other integrations.
-
-      The table below compares Key-based Incremental Replication and [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) behavior for {{ integration.display_name }} to that of other integrations.
-
-      <table class="attribute-list">
-      <tr>
-      <td>
-      </td>
-      <td>
-      <strong>{{ integration.display_name }}</strong>
-      </td>
-      <td>
-      <strong>Other integrations</strong>
-      </td>
-      </tr>
-      {% for comparison in site.data.taps.extraction.replication-methods.key-based-incremental.database-file-integrations %}
-      <tr>
-      <td align="right" width="35%; fixed">
-      <strong>{{ comparison.item | flatify }}</strong>
-      </td>
-      <td>
-      {{ comparison.this-integration | markdownify }}
-      </td>
-      <td>
-      {{ comparison.other-integrations | markdownify }}
-      </td>
-      </tr>
-      {% endfor %}
-      </table>
+      {% include replication/extraction/file-modification-replication-keys.html %}
 
     subsections:
       - title: "Frequently updated files and impact on row usage"
