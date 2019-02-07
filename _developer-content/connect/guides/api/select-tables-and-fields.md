@@ -6,7 +6,7 @@
 title: Select Streams and Fields with the Connect API
 doc-type: "tutorial"
 
-type: "connect"
+product-type: "connect"
 content-type: "connect-guide"
 content-id: "select-streams-and-fields"
 layout: tutorial

@@ -3,7 +3,7 @@
         endpoints, or all form properties, etc. -->
 
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
 
 {% case include.type %}
     {% when 'endpoint' %}

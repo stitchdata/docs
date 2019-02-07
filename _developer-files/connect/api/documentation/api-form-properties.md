@@ -1,6 +1,6 @@
 ---
 title: Form Properties
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 8
 

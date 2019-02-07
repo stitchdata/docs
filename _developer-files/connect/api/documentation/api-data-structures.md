@@ -1,6 +1,6 @@
 ---
 title: Data Structures
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 7
 

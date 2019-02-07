@@ -1,6 +1,6 @@
 ---
 title: Introduction
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 1
 
@@ -41,7 +41,7 @@ sections:
   - title: "Terminology"
     anchor: "terminology"
     content: |
-      {% assign all-connect-docs = site.developer-files | where:"type","connect" %}
+      {% assign all-connect-docs = site.developer-files | where:"product-type","connect" %}
       {% assign api-terms = all-connect-docs | where:"content-type","api-terms" %}
 
       <table class="attribute-list">

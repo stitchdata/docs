@@ -1,6 +1,6 @@
 ---
 title: Installation
-type: "connect"
+product-type: "connect"
 content-type: "js-doc"
 order: 3
 

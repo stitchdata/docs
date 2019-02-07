@@ -1,14 +1,14 @@
 {% include misc/data-files.html %}
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
 
-    {% if page.type == "connect" %}
+    {% if page.product-type == "connect" %}
         {% assign api = site.data.connect.api %}
         {% assign js = site.data.connect.js-client %}
         {% assign all-form-properties = all-docs | where: "content-type","api-form" %}
     {% endif %}
 
-{% assign navigation = site.data.sidebars[page.type][page.sidebar] %}
+{% assign navigation = site.data.sidebars[page.product-type][page.sidebar] %}
 
 <div class="menu-list">
 

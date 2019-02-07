@@ -1,5 +1,5 @@
 ---
-type: "connect"
+product-type: "connect"
 content-type: "api-url-parms"
 
 parameters:

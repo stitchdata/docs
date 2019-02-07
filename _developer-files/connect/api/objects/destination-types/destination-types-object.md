@@ -3,7 +3,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-type: "connect"
+product-type: "connect"
 content-type: "api-object"
 endpoint: "destination-types"
 order: 5

@@ -3,7 +3,7 @@
 #      ENDPOINT DETAILS      #
 # -------------------------- #
 
-type: "import-api"
+product-type: "import-api"
 content-type: "api-endpoint"
 endpoint: "push"
 key: "push-data"
@@ -58,7 +58,7 @@ arguments:
       {{ general.attributes.client-id }}
 
       **Note**: This must be the same for every record in the request body. 
-    example-value: "6827"
+    example-value: "7723"
 
   - name: "table_name"
     type: "string"

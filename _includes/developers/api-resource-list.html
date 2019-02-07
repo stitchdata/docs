@@ -1,4 +1,4 @@
-{% assign items = site.data.connect.api-resource-details.list %}
+{% assign items = site.data[page.product-type]api-resource-details.list %}
 
 <!-- Checks to see if the endpoint has an argument list, then assigns a value -->
 {% if endpoint.arguments %}

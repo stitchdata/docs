@@ -1,7 +1,7 @@
 ---
 title: Learning and using Stitch Connect
-type: "connect"
-content-type: "connect-overview"
+product-type: "connect"
+content-type: "overview"
 order: 3
 
 sections:

@@ -14,7 +14,16 @@
 <!-- For endpoint-specific response codes. This will show in the 'errors' tab of each
     endpoint's documentation. -->
     {% when 'endpoint' %}
-        {% assign all-response-codes = site.data.connect.response-codes[item.endpoint]all | compact %}
+
+    <!-- If an endpoint uses example the same errors as another one,
+        it'll include a `same-as` property that points to the other endpoint.
+        This way, we don't need to repeat the list of errors again. -->
+        {% if example.same-as %}
+            {% assign all-response-codes = site.data[page.product-type]response-codes[example.same-as]all | compact %}
+
+        {% else %}
+            {% assign all-response-codes = site.data[page.product-type]response-codes[item.endpoint]all | compact %}
+        {% endif %}
             <td width="30%; fixed">
                 <strong>
                     Condition
@@ -50,7 +59,7 @@
 
 <!-- For the general response code documentation -->
     {% else %}
-        {% assign general-response-codes = site.data.connect.response-codes.general-codes.all-codes %}
+        {% assign general-response-codes = site.data[page.product-type].response-codes.general-codes.all-codes %}
                 <td width="20%; fixed">
                     <strong>
                         Text

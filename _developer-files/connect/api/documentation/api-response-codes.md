@@ -1,6 +1,6 @@
 ---
 title: Response Codes
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 4
 

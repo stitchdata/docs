@@ -1,6 +1,6 @@
 ---
 title: ""
-type: "connect"
+product-type: "connect"
 content-type: "connect-guide"
 order: 1
 

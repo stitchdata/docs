@@ -11,7 +11,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-type: "connect"
+product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-toggl-object"

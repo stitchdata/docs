@@ -4,8 +4,8 @@ permalink: /stitch-connect/
 sidebar: overview
 layout: developer
 
-type: "connect"
-content-type: "connect-overview"
+product-type: "connect"
+content-type: "overview"
 
 toolkit:
   - title: "{{ api.name }}"

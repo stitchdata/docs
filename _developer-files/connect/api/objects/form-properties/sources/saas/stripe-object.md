@@ -8,7 +8,7 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 
-type: "connect"
+product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-stripe-object"

@@ -1,7 +1,7 @@
 ---
 title: ""
-type: "connect"
-content-type: "connect-overview"
+product-type: "connect"
+content-type: "overview"
 order: 1
 
 sections:

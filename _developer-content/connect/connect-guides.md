@@ -6,7 +6,7 @@
 title: Stitch Connect Guides
 doc-type: "category"
 
-type: "connect"
+product-type: "connect"
 content-type: "connect-guide"
 content-id: "connect-guides-category"
 

@@ -1,6 +1,6 @@
 ---
 title: Versioning
-type: "connect"
+product-type: "connect"
 content-type: "js-doc"
 order: 2
 

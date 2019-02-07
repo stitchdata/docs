@@ -1,6 +1,6 @@
 <!-- The display code for object methods/resources. -->
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign all-endpoints = all-docs | where:"content-type","api-endpoint" %}
         {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
             {% assign endpoints = object-endpoints | where:"key",object-method.id %}

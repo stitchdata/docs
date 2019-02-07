@@ -6,7 +6,7 @@
 title: Create and configure an Import API source with Stitch Connect
 doc-type: "tutorial"
 
-type: "import-api"
+product-type: "import-api"
 content-type: "guide"
 content-id: "create-import-api-with-stitch-connect"
 layout: tutorial

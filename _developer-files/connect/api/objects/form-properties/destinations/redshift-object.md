@@ -3,7 +3,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-type: "connect"
+product-type: "connect"
 content-type: "api-form"
 form-type: "destination"
 key: "destination-form-properties-redshift-object"

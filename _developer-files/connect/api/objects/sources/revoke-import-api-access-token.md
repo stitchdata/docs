@@ -3,7 +3,7 @@
 #      ENDPOINT DETAILS      #
 # -------------------------- #
 
-type: "connect"
+product-type: "connect"
 content-type: "api-endpoint"
 endpoint: "sources"
 key: "revoke-iapi-access-token"

@@ -1,6 +1,6 @@
 ---
 title: Core Objects
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 6
 

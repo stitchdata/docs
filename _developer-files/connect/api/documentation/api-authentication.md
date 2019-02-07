@@ -1,6 +1,6 @@
 ---
 title: Authentication
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 3
 
@@ -79,7 +79,7 @@ sections:
 
               While only your `client_id` (`partner_id`) is required, the URL may also include the following parameters:
 
-              {% assign all-connect-docs = site.developer-files | where:"type","connect" %}
+              {% assign all-connect-docs = site.developer-files | where:"product-type","connect" %}
               {% assign auth = all-connect-docs | where:"content-type","api-url-parms" %}
 
               <table class="attribute-list">

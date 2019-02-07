@@ -1,5 +1,5 @@
 ---
-type: "connect"
+product-type: "connect"
 content-type: "stitch-js-function"
 key: "source-stream-selection-function"
 order: 4

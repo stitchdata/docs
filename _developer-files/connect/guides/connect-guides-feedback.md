@@ -1,6 +1,6 @@
 ---
 title: "Questions? Feedback?"
-type: "connect"
+product-type: "connect"
 content-type: "connect-guide"
 order: 2
 

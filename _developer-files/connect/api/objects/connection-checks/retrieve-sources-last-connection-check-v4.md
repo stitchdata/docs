@@ -3,7 +3,7 @@
 #      ENDPOINT DETAILS      #
 # -------------------------- #
 
-type: "connect"
+product-type: "connect"
 content-type: "api-endpoint"
 endpoint: "connection-check"
 key: "retrieve-sources-last-connection-check"

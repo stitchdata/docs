@@ -3,7 +3,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
-type: "import-api"
+product-type: "import-api"
 content-type: "api-object"
 endpoint: "push"
 version: "2"

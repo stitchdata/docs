@@ -1,7 +1,7 @@
 <!-- This file contains the logic and formatting for displaying
     API data structures. -->
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign data-structures = all-docs | where:"content-type","api-structure" %}
 
 {% include developers/api-endpoint-rollup.html type="data-structure" %}

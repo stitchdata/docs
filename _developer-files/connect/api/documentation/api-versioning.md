@@ -1,6 +1,6 @@
 ---
 title: Versioning
-type: "connect"
+product-type: "connect"
 content-type: "api-doc"
 order: 5
 
@@ -8,7 +8,7 @@ sections:
   - content: |
       The API is currently versioned by object. The table below lists the core objects, all available versions, and the endpoints available for each version.
 
-      {% assign all-connect-docs = site.developer-files | where:"type","connect" %}
+      {% assign all-connect-docs = site.developer-files | where:"product-type","connect" %}
       {% assign objects = all-connect-docs | where:"content-type","api-object" | sort:"order"%}
 
       <table class="attribute-list">

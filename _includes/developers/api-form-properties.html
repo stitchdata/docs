@@ -3,7 +3,7 @@
 
 {% include misc/data-files.html %}
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
 
 

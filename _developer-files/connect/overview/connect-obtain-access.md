@@ -1,7 +1,7 @@
 ---
 title: Getting access
-type: "connect"
-content-type: "connect-overview"
+product-type: "connect"
+content-type: "overview"
 order: 2
 
 sections:

@@ -6,7 +6,7 @@
 title: Generate and Revoke Import API Access Tokens in the Stitch App
 doc-type: "tutorial"
 
-type: "import-api"
+product-type: "import-api"
 content-type: "guide"
 content-id: "generate-revoke-import-api-access-tokens"
 layout: general

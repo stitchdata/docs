@@ -2,14 +2,16 @@
 layout: page
 ---
 
-{% if page.type == "connect" %}
+{% if page.product-type == "connect" %}
     {% assign connect = site.data.connect.general %}
     {% assign sample-property-data = site.data.connect.sample-property-data %}
-    {% assign api = site.data.connect.api %}
     {% assign js = site.data.connect.js-client %}
 {% endif %}
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign general = site.data[page.product-type].general %}
+{% assign api = site.data[page.product-type].api %}
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign docs = all-docs | where:"content-type",page.content-type | sort:"order" %}
 
 
@@ -74,4 +76,3 @@ layout: page
 
     <hr>
 {% endfor %}
-       

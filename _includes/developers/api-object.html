@@ -2,7 +2,7 @@
     then contains the Account Object, list of endpoints, etc. -->
 
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign objects = all-docs | where:"content-type","api-object" | sort:"order" %}
 
 

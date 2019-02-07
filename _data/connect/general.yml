@@ -29,7 +29,7 @@ common:
   ## Databases & Destinations
 
     destination-type: |
-      {% assign all-connect-docs = site.developer-files | where:"type","connect" %}
+      {% assign all-connect-docs = site.developer-files | where:"product-type","connect" %}
       {% assign all-form-properties = all-connect-docs | where:"content-type","api-form" %}
       {% assign destination-forms = all-form-properties | where:"form-type","destination" | sort:"api-type" %}
 

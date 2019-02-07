@@ -1,6 +1,6 @@
 <!-- This is for displaying Javascript reference content. -->
 
-{% assign all-docs = site.developer-files | where:"type",page.type %}
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign functions = all-docs | where:"content-type","stitch-js-function" | sort:"order" %}
 
 {% for function in functions %}

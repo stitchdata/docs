@@ -4,6 +4,6 @@ permalink: /stitch-connect/javascript-client
 sidebar: js
 layout: developer
 
-type: "connect"
+product-type: "connect"
 content-type: "js-doc"
 ---
