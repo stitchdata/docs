@@ -140,6 +140,7 @@ requirements-list:
 
       Column name limits vary by destination:
 
+      {% capture destination-column-name-limits %}
       {% assign all-destinations = site.destinations | where:"destination",true | sort:display_name %}
       {% assign destinations = all-destinations | where_exp:"destination","destination.type != 'data-world'" %}
 
@@ -159,6 +160,9 @@ requirements-list:
       {% endcase %}
       - **{{ destination.display_name }}** - {{ column-name-limit }}
       {% endfor %}
+      {% endcapture %}
+
+      {{ destination-column-name-limits }}
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -246,19 +250,7 @@ setup-steps:
 
           Table name limits vary by destination type:
 
-          {% for destination in destinations %}
-          {% case destination.table-name-limit %}
-          {% when 'n/a' %}
-          {% capture table-name-limit %}
-          Not applicable to this destination
-          {% endcapture %}
-          {% else %}
-          {% capture table-name-limit %}
-          Limited to **{{ destination.table-name-limit }} characters**
-          {% endcapture %}
-          {% endcase %}
-          - **{{ destination.display_name }}** - {{ table-name-limit }}
-          {% endfor %}
+          {{ destination-column-name-limits }}
           {% endcapture %}
 
           {% include important.html first-line="**Destination table name limits**" content=table-name-limit-notice %}
