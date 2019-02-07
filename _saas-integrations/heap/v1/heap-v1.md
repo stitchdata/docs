@@ -132,10 +132,7 @@ replication-sections:
 
           {% include replication/extraction/file-modification-replication-keys.html %}
 
-      
 
-# OTHERWISE:
-#   Encountered an Avro type that is not supported in JSON Schema: " + [type]
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
