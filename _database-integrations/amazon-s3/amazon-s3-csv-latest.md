@@ -140,17 +140,21 @@ requirements-list:
 
       Column name limits vary by destination:
 
-      {% assign destinations = site.destinations | where:"destination",true | sort:display_name %}
+      {% assign all-destinations = site.destinations | where:"destination",true | sort:display_name %}
+      {% assign destinations = all-destinations | where_exp:"destination","destination.type != 'data-world'" %}
 
       {% for destination in destinations %}
-      {% case destination.column-name-limit %}
+
+      {% case site.data.destinations.reference[destination.type]object-name-limit-info.columns %}
+
       {% when 'n/a' %}
       {% capture column-name-limit %}
       Not applicable to this destination
       {% endcapture %}
+
       {% else %}
       {% capture column-name-limit %}
-      Limited to **{{ destination.column-name-limit }} characters**
+      Limited to **{{ site.data.destinations.reference[destination.type]object-name-limit-info.columns }} characters**
       {% endcapture %}
       {% endcase %}
       - **{{ destination.display_name }}** - {{ column-name-limit }}
