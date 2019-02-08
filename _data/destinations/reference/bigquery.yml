@@ -92,8 +92,8 @@ replication-info:
     supported: &nested-structure-support |
       true
 
-  # incompatible-sources: &incompatible-sources |
-  #   TODO
+## Refer to _data/destinations/reference/incompatibilities.yml
+## for incompatible sources
 
 # -------------------------- #
 #         Limitations        #
@@ -259,11 +259,10 @@ attributes:
 
       More info and examples can be found in [{{ destination.display_name }}'s documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/arrays#querying-nested-arrays){:target="new"}.
 
-  # - id: "incompatible-sources"
-  #   categories: "replication"
-  #   value: *incompatible-sources
-  #   description: |
-  #     [TODO]
+  - id: "incompatible-sources"
+    categories: "replication"
+    important: true
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
 
   - id: "case-sensitivity"
     categories: "object-name-limits"

@@ -20,12 +20,20 @@
      Splitting anchors onto new lines seems to get around this. IDK. -->
 
 
-
+<!-- Destination info -->
 
 {% assign destination-info = site.data.destinations.reference[page.type].attributes | where_exp:"info","info.categories contains include.list" %}
 
-{% assign reference-categories = site.data.destinations.reference.defaults %}
-{% assign reference-defaults = site.data.destinations.reference.defaults[include.list] %}
+<!-- Used to get incompatible sources -->
+     {% assign all-integrations = site.documents | where:"input",true | sort:"display_name" %}
+
+          {% assign integrations-with-incompatibilities = all-integrations | where:"has-incompatibilities",true %}
+
+
+<!-- Reference lists and defaults -->
+     {% assign reference-categories = site.data.destinations.reference.defaults %}
+          
+     {% assign reference-defaults = site.data.destinations.reference.defaults[include.list] %}
 
 {% for reference-category in reference-defaults %}
 {{ reference-category.description | flatify | markdownify  }}
@@ -83,20 +91,26 @@
                               {% endif %}
                          </td>
                          <td class="attribute-description">
-                              <p>{% if info.value contains "true" %}
-                                   <strong>Supported {{ supported | replace: "TOOLTIP","Supported" }}</strong>
-                              {% elsif info.value contains "false" %}
-                                   <strong>Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}</strong>
-                              {% elsif info.value contains "n/a" %}
-                                   <strong>Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}</strong>
-                              {% elsif info.value contains "Depends" %}
-                                   <strong>Depends {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}</strong>
-                              {% else %}
-                                   <strong>{{ info.value | flatify }}</strong>
-                              {% endif %}</p>
+                              {% if default.value %}
+                                   {{ default.value | flatify | markdownify }}
 
-                              {% if info.description %}
-                                   {{ info.description | flatify | markdownify }}
+                              {% else %}
+                                   <p>{% if info.value contains "true" %}
+                                        <strong>Supported {{ supported | replace: "TOOLTIP","Supported" }}</strong>
+                                   {% elsif info.value contains "false" %}
+                                        <strong>Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}</strong>
+                                   {% elsif info.value contains "n/a" %}
+                                        <strong>Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}</strong>
+                                   {% elsif info.value contains "Depends" %}
+                                        <strong>Depends {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}</strong>
+                                   {% else %}
+                                        <strong>{{ info.value | flatify }}</strong>
+                                   {% endif %}</p>
+
+                                   {% if info.description %}
+                                        {{ info.description | flatify | markdownify }}
+                                   {% endif %}
+
                               {% endif %}
                          </td>
                     </tr>

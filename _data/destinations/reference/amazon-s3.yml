@@ -78,8 +78,9 @@ replication-info:
     supported: &nested-structure-support |
       Depends
 
-  incompatible-sources: &incompatible-sources |
-    None
+## Refer to _data/destinations/reference/incompatibilities.yml
+## for incompatible sources
+
 
 # -------------------------- #
 #         Limitations        #
@@ -223,7 +224,8 @@ attributes:
 
   - id: "incompatible-sources"
     categories: "replication"
-    value: *incompatible-sources
+    important: true
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
 
   - id: "case-sensitivity"
     categories: "object-name-limits"
