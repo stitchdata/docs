@@ -7,6 +7,11 @@ order: 8
 # To display the correct description for a given form property
 property-description: |
   {% assign integration = VARIABLE.display-name %}
+
+  {% if VARIABLE.property-description %}
+  {{ integration }} connections read data from {{ VARIABLE.property-description }} and correspond to source `type: {{ VARIABLE.api-type }}`.
+
+  {% else %}
   {% case VARIABLE.source-type %}
   {% when 'database' %}
   {% assign first-letter = integration | slice: 0 %}
@@ -30,6 +35,7 @@ property-description: |
   {% assign destination = VARIABLE.display-name %}
   A {{ destination }} connection writes data to a {{ destination }} database and corresponds to destination `type: {{ VARIABLE.api-type }}`.
   {% endcase %}
+  {% endif %}
 
 
 sections:
