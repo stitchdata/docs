@@ -24,7 +24,7 @@ key: "source-form-properties-[integration]-object"
 # -------------------------- #
 
 title: "[INTEGRATION] Source Form Property"
-api-type: ""
+api-type: "platform.[integration]"
 display-name: "[INTEGRATION]"
 
 source-type: "database"

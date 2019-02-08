@@ -13,7 +13,7 @@ key: "source-form-properties-closeio-object"
 # -------------------------- #
 
 title: "Close.io Source Form Property"
-api-type: "closeio"
+api-type: "platform.closeio"
 display-name: "Close.io"
 
 source-type: "saas"

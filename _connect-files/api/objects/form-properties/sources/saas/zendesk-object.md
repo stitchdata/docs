@@ -13,7 +13,7 @@ key: "source-form-properties-zendesk-object"
 # -------------------------- #
 
 title: "Zendesk Source Form Property"
-api-type: "zendesk"
+api-type: "platform.zendesk"
 display-name: "Zendesk"
 
 source-type: "saas"

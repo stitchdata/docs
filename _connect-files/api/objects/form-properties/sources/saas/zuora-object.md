@@ -13,7 +13,7 @@ key: "source-form-properties-zuora-object"
 # -------------------------- #
 
 title: "Zuora Source Form Property"
-api-type: "zuora"
+api-type: "platform.zuora"
 display-name: "Zuora"
 
 source-type: "saas"

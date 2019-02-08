@@ -21,10 +21,10 @@ property-description: |
   {% assign article = "a" %}
   {% endif %}
 
-  {{ article | capitalize }} {{ integration }} connection reads data from {{ article }} {{ integration }} database and corresponds to source `type: platform.{{ VARIABLE.api-type }}`.
+  {{ article | capitalize }} {{ integration }} connection reads data from {{ article }} {{ integration }} database and corresponds to source `type: {{ VARIABLE.api-type }}`.
 
   {% when 'saas' %}
-  {{ integration }} connections read data from the {{ integration }} API and correspond to source `type: platform.{{ VARIABLE.api-type }}`.
+  {{ integration }} connections read data from the {{ integration }} API and correspond to source `type: {{ VARIABLE.api-type }}`.
   
   {% else %}
   {% assign destination = VARIABLE.display-name %}

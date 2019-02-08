@@ -13,7 +13,7 @@ form-type: "source"
 key: "source-form-properties-shopify-object"
 
 title: "Shopify Source Form Property"
-api-type: "shopify"
+api-type: "platform.shopify"
 display-name: "Shopify"
 
 source-type: "saas"

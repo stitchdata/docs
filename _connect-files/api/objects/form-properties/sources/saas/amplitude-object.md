@@ -13,7 +13,7 @@ key: "source-form-properties-amplitude-object"
 # -------------------------- #
 
 title: "Amplitude Source Form Property"
-api-type: "amplitude"
+api-type: "platform.amplitude"
 display-name: "Amplitude"
 
 source-type: "saas"

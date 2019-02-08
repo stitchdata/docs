@@ -13,7 +13,7 @@ form-type: "source"
 key: "source-form-properties-typeform-object"
 
 title: "Typeform Source Form Property"
-api-type: "typeform"
+api-type: "platform.typeform"
 display-name: "Typeform"
 
 source-type: "saas"

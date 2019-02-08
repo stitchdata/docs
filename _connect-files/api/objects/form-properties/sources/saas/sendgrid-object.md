@@ -13,7 +13,7 @@ key: "source-form-properties-sendgrid-object"
 # -------------------------- #
 
 title: "SendGrid Source Form Property"
-api-type: "sendgrid"
+api-type: "platform.sendgrid"
 display-name: "SendGrid"
 
 source-type: "saas"

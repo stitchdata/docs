@@ -24,7 +24,7 @@ key: "source-form-properties-clubspeed-object"
 # -------------------------- #
 
 title: "Club Speed Source Form Property"
-api-type: "clubspeed"
+api-type: "platform.clubspeed"
 display-name: "Club Speed"
 
 source-type: "saas"

@@ -13,7 +13,7 @@ key: "source-form-properties-heroku-object"
 # -------------------------- #
 
 title: "Heroku Source Form Property"
-api-type: "heroku_pg"
+api-type: "platform.heroku_pg"
 display-name: "Heroku"
 
 source-type: "database"

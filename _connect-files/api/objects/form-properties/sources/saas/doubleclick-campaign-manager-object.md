@@ -13,7 +13,7 @@ key: "source-form-properties-doubleclick-campaign-manager-object"
 # -------------------------- #
 
 title: "DoubleClick Campaign Manager Source Form Property"
-api-type: "doubleclick-campaign-manager"
+api-type: "platform.doubleclick-campaign-manager"
 display-name: "DoubleClick Campaign Manager"
 
 source-type: "saas"

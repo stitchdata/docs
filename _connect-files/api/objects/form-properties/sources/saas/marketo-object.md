@@ -13,7 +13,7 @@ key: "source-form-properties-marketo-object"
 # -------------------------- #
 
 title: "Marketo Source Form Property"
-api-type: "marketo"
+api-type: "platform.marketo"
 display-name: "Marketo"
 
 source-type: "saas"

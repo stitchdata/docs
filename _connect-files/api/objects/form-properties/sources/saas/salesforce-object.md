@@ -13,7 +13,7 @@ key: "source-form-properties-salesforce-object"
 # -------------------------- #
 
 title: "Salesforce Source Form Property"
-api-type: "salesforce"
+api-type: "platform.salesforce"
 display-name: "Salesforce"
 
 source-type: "saas"

@@ -13,7 +13,7 @@ key: "source-form-properties-hubspot-object"
 # -------------------------- #
 
 title: "HubSpot Source Form Property"
-api-type: "hubspot"
+api-type: "platform.hubspot"
 display-name: "HubSpot"
 
 source-type: "saas"

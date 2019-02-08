@@ -13,7 +13,7 @@ form-type: "source"
 key: "source-form-properties-stripe-object"
 
 title: "Stripe Source Form Property"
-api-type: "stripe"
+api-type: "platform.stripe"
 display-name: "Stripe"
 
 source-type: "saas"

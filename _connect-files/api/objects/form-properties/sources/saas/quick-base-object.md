@@ -13,7 +13,7 @@ key: "source-form-properties-quickbase-object"
 # -------------------------- #
 
 title: "Quick Base Source Form Property"
-api-type: "quickbase"
+api-type: "platform.quickbase"
 display-name: "Quick Base"
 
 source-type: "saas"

@@ -34,9 +34,11 @@
 
 <!-- For SaaS form properties -->
 {% elsif form-property.source-type == "saas" %}
+	{% assign api-type-clean = form-property.api-type | remove: "platform." %}
+
 	<table class="attribute-list">
     	{% for attribute in all-form-attributes %}
-            {% unless attribute.exclude contains form-property.api-type %}
+            {% unless attribute.exclude contains api-type-clean %}
             <tr>
                 <td class="attribute-name">
                     <strong>
