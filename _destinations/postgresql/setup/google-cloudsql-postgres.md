@@ -51,9 +51,24 @@ setup-steps:
     content: |
       **This step is optional**. If you want to use the instance's default database (`postgres`), you can skip this step.
 
-      {% include shared/google-cloud-platform/create-database.html %}
+      <ul id="cloudsqlCreateDatabaseTabs" class="nav nav-tabs">
+          <li class="active"><a href="#console" data-toggle="tab">Console</a></li>
+          <li><a href="#psql" data-toggle="tab">psql Client</a></li>
+      </ul>
+      <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="console" markdown="1">
+      1. In the CloudSQL Instances page, click the **Databases** tab.
+      2. In the Databases tab, click **New database**.
+      3. In the window that displays, enter a name for the database in the **Name** field. Note that Google clone a template database to create the new database - we're going to use the template as-is, but you can change the settings afterwards if you like.
+      4. Click **Create**.
+      </div>
 
-  - title: "Configure security & access settings"
+      <div role="tabpanel" class="tab-pane" id="psql" markdown="1">
+      {% include destinations/postgres/create-database.html %}
+      </div>
+      </div>
+
+  - title: "Configure security and access settings"
     anchor: "configure-security-access-settings"
     content: |
       Next, you'll configure the access settings for the instance. Google access control has two levels: at the instance and at the database.
