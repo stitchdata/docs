@@ -32,7 +32,7 @@ setup-steps:
     anchor: "define-data-warehouse-settings"
     content: |
 
-      #In this step, you'll sign into your AWS account and configure the basic settings for the Postgres-RDS database.
+      In this step, you'll sign into your AWS account and configure the basic settings for the Postgres-RDS database.
 
       1. Sign into your AWS account.
       2. Once you’re signed into the AWS console, click the **Services** menu located in the top-left corner of the page.
@@ -152,6 +152,11 @@ setup-steps:
   - title: "create db user"
     content: |
       {% assign clean-database-name = page.display_name | downcase %}
+
+      {% include note.html type="single-line" content="**Note**: You must have the ability to create a user and grant privileges to complete this step." %}
+
+      In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
+
       {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
   - title: "connect stitch"

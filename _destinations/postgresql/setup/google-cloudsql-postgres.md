@@ -79,6 +79,8 @@ setup-steps:
 
   - title: "create db user"
     content: |
+      {% include note.html type="single-line" content="**Note**: You must have the ability to create a user and grant privileges to complete this step." %}
+
       Configuring the second part of the access control settings requires creating a database user for Stitch. This guide will use the psql method to create the user, which requires the use of a SQL client.
 
       {% assign clean-database-name = page.display_name | downcase | replace:" ","-" %}

@@ -57,6 +57,10 @@ setup-steps:
     content: |
       {% assign clean-database-name = page.display_name | downcase %}
 
+      {% include note.html type="single-line" content="**Note**: You must have superuser privileges or the ability to create a user and grant privileges to complete this step." %}
+
+      In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
+
       {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
   - title: "connect stitch"
