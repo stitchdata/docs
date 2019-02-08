@@ -1,85 +1,85 @@
 <!-- This file contains the destination tabs used in the Destination & Integation Compatibility doc. -->
 
+
+<!-- Refer to _data/destinations/reference/incompatibilities.yml for the list of currently known source:destination incompatibilities, and the reasons for them.
+
+	The content of this file is what gets listed in the table below. -->
+
 {% include misc/icons.html %}
 
 {% assign all-integrations = site.documents | where:"input",true | sort:"display_name" %}
+	{% assign integrations-with-incompatibilities = all-integrations | where:"has-incompatibilities",true %}
+
 {% assign destinations = site.destinations | where:"destination",true %}
 
 
-<ul id="profileTabs" class="nav nav-tabs">
-    {% for destination in destinations %}
-    	{% if forloop.first == true %}
-    		<li class="active">
-    	{% else %}
-		    <li>
-		{% endif %}
-	    	<a href="#{{ destination.type }}-tab" data-toggle="tab">{{ destination.display_name }}</a>
-	    </li>
-   {% endfor %}
-</ul>
 
-<div class="tab-content">
-    {% for destination in destinations %}
-    	{% if forloop.first == true %}
-    		<div role="tabpanel" class="tab-pane active" id="{{ destination.type }}-tab">
-    	{% else %}
-		    <div role="tabpanel" class="tab-pane" id="{{ destination.type }}-tab">
-		{% endif %}
-	        <p>For a comprehensive look at how {{ destination.display_name }} will load data - including what may cause data to be "rejected" - refer to the <a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">{{ destination.display_name }} Data Loading Guide</a>.</p>
+<p>For a comprehensive look at how destinations will load data - including what may cause data to be "rejected" - refer to the <a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">{{ destination.display_name }} Data loading guides</a>.</p>
 
+<table class="attribute-list">
+	{% for destination in destinations %}
+		<tr>
+			<td colspan="4" class="table-subheading">
+				<strong>{{ destination.display_name }}</strong> (<a href="{{ destination.url }}">link</a>)
+			</td>
+		</tr>
 
-	<!-- Currently, the liquid loop uses a hard-coded value in each destination's file to determine whether there are incompatible sources or not. -->
-	    {% case destination.incompatible-with %}
-	    	{% when 0 %}
-	    		<p>
-	    			<strong>No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.
-	    			</strong>
-	    		</p>
-	    	{% else %}
-				<table class="attribute-list">
-					<thead>
+		{% assign destination-incompatibilities = site.data.destinations.reference.incompatibilities[destination.type] | compact %}
+
+			{% assign incompatibility-list-size = destination-incompatibilities | size %}
+
+			{% case incompatibility-list-size %}
+				{% when 0 %}
+					<tr>
+						<td colspan="4">
+							No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td width="20%; fixed" align="right">
+							<strong>Integration</strong>
+						</td>
+						<td width="20%; fixed">
+							<strong>Integration version</strong>
+						</td>
+						<td>
+							<strong>Level</strong>
+						</td>
+						<td>
+							<strong>Reason</strong>
+						</td>
+					</tr>
+
+					{% for incompatibility in destination-incompatibilities %}
+						{% for integration in integrations-with-incompatibilities %}
+							{% if integration.name == incompatibility.integration %}
+								{% capture integration-name %}
+									<a href="{{ integration.url }}">{{ integration.display_name }}</a>
+								{% endcapture %}
+							{% endif %}
+						{% endfor %}
 						<tr>
-							<td class="attribute-name">
-								<strong>Integration</strong>
+							<td width="20%; fixed" align="right">
+								<strong>{{ integration-name }}</strong>
 							</td>
-							<td width="10%; fixed" align="center">
-								<strong>Level</strong>
+							<td width="20%; fixed">
+								{{ incompatibility.version | upcase }}
 							</td>
-							<td class="attribute-description">
-								<strong>Reason for Incompatibility</strong>
-							</td>
-						</tr>
-					</thead>
-					<tbody>
-					{% for integration in all-integrations %}
-						{% if integration.incompatible[destination.type] == "always" or integration.incompatible[destination.type] == "sometimes" %}
-							<tr>
-								<td class="attribute-name">
-									<strong>
-										<a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title }}</a>
-									</strong>
-								</td>
-								<td width="10%; fixed" align="center">
-									{% if integration.incompatible[destination.type] == "always" %}
+							<td>
+								{% case incompatibility.level %}
+									{% when 'always' %}
 										{{ not-supported | replace:"TOOLTIP","This destination/integration combination is always incompatible." }} 
 
-									{% elsif integration.incompatible[destination.type] == "sometimes" %}
+									{% when 'sometimes' %}
 										{{ sometimes-supported | replace:"TOOLTIP","This destination/integration combination is sometimes incompatible." }}
-									{% endif %}
-								</td>
-								<td class="attribute-description">
-									{{ integration.incompatible.reason | flatify | markdownify }}
-
-									{% if integration.this-version %}
-										<p><strong>Note:</strong> This is applicable to all versions of this integration.</p>
-									{% endif %}
-								</td>
-							</tr>
-						{% endif %} <!-- Ends integration incompatibility detail loop-->
+								{% endcase %}
+							</td>
+							<td>
+								{{ incompatibility.reason | flatify | markdownify }}
+							</td>
+						</tr>
 					{% endfor %}
-					</tbody>
-				</table>
-			{% endcase %}  <!-- Ends incompatibility loop-->
-	    </div>
+			{% endcase %}
 	{% endfor %}
-</div>
+</table>
