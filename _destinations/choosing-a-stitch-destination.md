@@ -38,7 +38,7 @@ sections:
 
       The remaining sections of this guide expand on the information in these tabs.
 
-      {% include destinations/destination-rollup.html %}
+      {% include destinations/overviews/choosing-a-destination-rollup.html %}
 
   - title: "Getting started, now"
     anchor: "getting-started-now"

@@ -35,8 +35,6 @@ sections:
     content: |
       Below you'll find a list of integrations that may have full or partial incompatibility with any of Stitch's destination offerings.
 
-      {% include destinations/destination-level-incompatibility.html %}
-
-      {% include destinations/full-incompatibility-matrix.html %}
+      {% include destinations/overviews/destination-level-incompatibility.html %}
 ---
 {% include misc/data-files.html %}
