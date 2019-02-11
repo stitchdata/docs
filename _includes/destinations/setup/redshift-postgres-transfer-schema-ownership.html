@@ -1,3 +1,10 @@
+While you technically can manually create integration schemas in {{ destination.display_name }} and then grant Stitch access to those schemas, we don't recommend it. We understand that security is a high priority and permissions should be carefully granted, but this approach will likely lead to headaches for you.
+
+If you take this approach, you'll need to first create the schema in your data warehouse and then grant the Stitch user the appropriate permissions to access it **every time a new integration is added in Stitch**. If this isn't done, Stitch won't be able to load data into your data warehouse.
+
+Additionally, if there are any differences between the name of the schema you create in your data warehouse and the schema name you enter in Stitch when setting up an integration, Stitch won't be able to load data into your data warehouse.
+
+
 {% case page.display_name %}
    {% when "Heroku" %}
       {% assign username = "<heroku_database_user>" %}
