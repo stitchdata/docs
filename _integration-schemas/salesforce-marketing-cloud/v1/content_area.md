@@ -11,7 +11,7 @@
 tap: "salesforce-marketing-cloud"
 # version: "1.0"
 
-name: "content_areas"
+name: "content_area"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/contentarea.htm
 singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/content_areas.py
 description: |
