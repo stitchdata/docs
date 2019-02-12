@@ -10,26 +10,25 @@
 ## PLEASE REMOVE COMMENTS WHEN FINISHED
 
 
-
 # -------------------------- #
 #        CONTENT TYPE        #
 # -------------------------- #
 
 content-type: "api-form"
-form-type: "destination"
-key: "destination-form-properties-[destination-name]-object"
+form-type: "source"
+key: "source-form-properties-[integration]-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "[DESTINATION-NAME] Destination Form Property"
-api-type: ""
-display-name: "[DESTINATION-NAME]"
+title: "[INTEGRATION] Source Form Property"
+api-type: "platform.[integration]"
+display-name: "[INTEGRATION]"
 
+source-type: "saas"
 docs-name: ""
-db-type: ""
 
 property-description: ""
 ## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
@@ -37,13 +36,13 @@ property-description: ""
 
 description:""
 
-
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
 # uses-common-fields: true/false
-## See these fields in _data/connect/common/destination-forms.yml > all-destinations
+# See these fields in _data/connect/common/all-sources.yml
+# May also include applicable fields in _data/connect/common/all-sources.yml
 
 # object-attributes:
 #   - name: ""

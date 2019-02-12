@@ -13,7 +13,7 @@ key: "source-form-properties-mariadb-object"
 # -------------------------- #
 
 title: "MariaDB Source Form Property"
-api-type: "mariadb"
+api-type: "platform.mariadb"
 display-name: "MariaDB"
 
 source-type: "database"

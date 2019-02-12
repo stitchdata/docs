@@ -13,7 +13,7 @@ key: "source-form-properties-amazon-s3-csv-object"
 # -------------------------- #
 
 title: "Amazon S3 CSV Source Form Property"
-api-type: "s3-csv"
+api-type: "platform.s3-csv"
 display-name: "Amazon S3 CSV"
 
 source-type: "database"
@@ -41,9 +41,9 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The external ID associated with the Amazon Web Services (AWS) Identity Access Management (IAM) role used by Stitch.
+      The external ID associated with the Amazon Web Services (AWS) Identity Access Management (IAM) role used by Stitch. In AWS, external IDs are used to increase role security when granting access to accounts that you don't own or have administrative access to. Stitch will provide this ID when accessing {{ form-property.display-name }}.
 
-      In AWS, external IDs are used to increase role security when granting access to accounts that you don't own or have administrative access to. Stitch will provide this ID when accessing {{ form-property.display-name }}.
+      This value can be anything, but it must be the same as the external ID provided in the AWS console when creating the Stitch IAM role. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-stitch-iam-role" }}) for more info.
     value: "stitch_connection_12345"
 
   - name: "role_name"
@@ -66,4 +66,3 @@ object-attributes:
   #     [PLACEHOLDER]
   #   value: ""
 ---
-

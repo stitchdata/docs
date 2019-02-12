@@ -4,7 +4,7 @@ form-type: "source"
 key: "source-form-properties-responsys-object"
 
 title: "Responsys Source Form Property"
-api-type: "responsys"
+api-type: "platform.responsys"
 display-name: "Responsys"
 
 source-type: "database"

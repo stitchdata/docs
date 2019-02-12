@@ -13,7 +13,7 @@ key: "source-form-properties-github-object"
 # -------------------------- #
 
 title: "GitHub Source Form Property"
-api-type: "github"
+api-type: "platform.github"
 display-name: "GitHub"
 
 source-type: "saas"

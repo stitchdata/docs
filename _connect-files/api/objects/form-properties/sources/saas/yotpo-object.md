@@ -13,7 +13,7 @@ key: "source-form-properties-yotpo-object"
 # -------------------------- #
 
 title: "Yotpo Source Form Property"
-api-type: "yotpo"
+api-type: "platform.yotpo"
 display-name: "Yotpo"
 
 source-type: "saas"

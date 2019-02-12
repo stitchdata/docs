@@ -13,7 +13,7 @@ form-type: "source"
 key: "source-form-properties-frontapp-object"
 
 title: "Front Source Form Property"
-api-type: "frontapp"
+api-type: "platform.frontapp"
 display-name: "Front"
 
 source-type: "saas"
