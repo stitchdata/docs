@@ -13,27 +13,36 @@ tags: [destination-type_destination]
 keywords: destination-type, destination-type data warehouse, destination-type data warehouse, destination-type etl, etl to destination-type, destination-type destination
 summary: "Connect a DESTINATION-NAME destination to your Stitch account."
 toc: true
-layout: destination-setup-guide
+
+layout: tutorial
+use-tutorial-sidebar: false
 
 type: "destination-type"
 display_name: "DESTINATION-NAME"
+
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
+
+intro: |
 
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
 
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: ""
     anchor: ""
     content: ""
-
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","destination-type" | first %}

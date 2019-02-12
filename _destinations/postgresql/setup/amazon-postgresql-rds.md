@@ -1,23 +1,35 @@
 ---
-title: Connecting an Amazon PostgreSQL-RDS Data Warehouse to Stitch
+title: Connecting an Amazon PostgreSQL-RDS Destination to Stitch
 permalink: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-warehouse-to-stitch
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, postgres rds, postgres-rds, relational database services
-summary: "Ready to spin up an Amazon PostgreSQL-RDS data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+summary: "Ready to spin up an Amazon PostgreSQL-RDS destination and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
 
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
+
 display_name: "Postgres-RDS"
 type: "postgres"
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
+
+intro: |
+  Amazon Relational Database Services (RDS) is a managed database service that runs on familiar database engines like PostgreSQL.
+
+  In this tutorial, we’ll walk you through how to spin up a Postgres-RDS instance and then connect it to Stitch as a destination.
 
 
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: "**Some technical know-how and familiarity with AWS.**"
@@ -27,11 +39,10 @@ requirements-list:
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Define data warehouse settings"
     anchor: "define-data-warehouse-settings"
     content: |
-
       In this step, you'll sign into your AWS account and configure the basic settings for the Postgres-RDS database.
 
       1. Sign into your AWS account.
@@ -149,7 +160,8 @@ setup-steps:
          **If you associated an existing Security Group with the database**, click the name of group you selected when you created the database in [Step 3](#configure--advanced-settings--network-security-settings).
       {% include shared/aws-whitelisting.html %}
 
-  - title: "create db user"
+  - title: "Create a {{ destination.display_name }} Stitch user"
+    anchor: "create-stitch-user"
     content: |
       {% assign clean-database-name = page.display_name | downcase %}
 
@@ -159,22 +171,21 @@ setup-steps:
 
       {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-      - title: "Locate the {{ destination.display_name }} connection details"
-        anchor: "locate-connection-details-aws"
+      - title: "Locate {{ destination.display_name }} connection details"
+        anchor: "locate-connection-details"
         content: |
           {% include shared/aws-connection-details.html %}
 
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include destinations/setup/destination-settings.html %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}
-
-Amazon Relational Database Services (RDS) is a managed database service that runs on familiar database engines like PostgreSQL.
-
-In this tutorial, we’ll walk you through how to spin up a Postgres-RDS instance and then connect it to Stitch as a destination, or data warehouse.
-
----

@@ -9,17 +9,37 @@ summary: "If your Redshift cluster is in a private subnet, you can use an SSH tu
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
 
 display_name: "Redshift"
 type: "redshift"
 ssh: true
 
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
+
+intro: |
+  {% capture setup-notice %}
+  This tutorial describes how to spin up a Redshift cluster and connect it to Stitch via an **SSH tunnel**.
+
+  Looking for help setting up a **direct connection?** Refer to the [Connecting a Redshift Data Warehouse]({{ link.destinations.setup.redshift | prepend: site.baseurl }}) guide.
+  {% endcapture %}
+
+  {% include note.html first-line="**This tutorial is for Redshift SSH tunnel setup**" content=setup-notice %}
+
+  {{ page.summary }}
+
+  The method you’ll use to accomplish this involves launching an EC2 instance into the VPC associated with the cluster. This EC2 instance will have a public IP address and act as a bastion, allowing you to forward traffic through an encrypted tunnel to your private Redshift cluster.
+
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: "**Some technical know-how and familiarity with AWS.**"
@@ -39,36 +59,36 @@ requirements-info: |
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Create cluster login credentials"
     anchor: "create-cluster-login-credentials"
     content: |
-      {% include destinations/redshift/create-cluster-login-credentials.html %}
+      {% include destinations/redshift/amazon-redshift-cluster-creation.html type="create-login-credentials" %}
 
   - title: "Select nodes and cluster types"
     anchor: "select-nodes--cluster-types"
     content: |
-      {% include destinations/redshift/select-nodes-cluster-types.html %} 
+      {% include destinations/redshift/amazon-redshift-cluster-creation.html type="select-node-and-cluster-types" %}
 
   - title: "Configure and launch the {{ destination.display_name }} cluster"
     anchor: "configure-launch-cluster"
     content: |
-      Next, you'll define the additional configuration settings for the Redshift cluster. For our purposes, we're going to leave most of the settings as-is and focus on the **Configure Networking Options** and **Security Groups** sections.
+      Next, you'll define the additional configuration settings for the Redshift cluster. This guide will leave most of the settings as-is and focus on the **Configure Networking Options** and **Security Groups** sections.
     substeps:
       - title: "Configure networking options"
         anchor: "configure-cluster-networking-options"
         content: |
-          {% include destinations/redshift/configure-cluster--networking-options.html %}
+          {% include destinations/redshift/amazon-redshift-cluster-creation.html type="networking-options" %}
 
       - title: "Define a Security Group"
         anchor: "define-cluster-security-group"
         content: |
-          {% include destinations/redshift/configure-cluster--define-security-group.html %}
+          {% include destinations/redshift/amazon-redshift-cluster-creation.html type="define-security-group" %}
 
       - title: "Review and launch the Redshift cluster"
         anchor: "review-launch-cluster"
         content: |
-          {% include destinations/redshift/configure-cluster--review-launch.html %}
+          {% include destinations/redshift/amazon-redshift-cluster-creation.html type="review-and-launch" %}
 
   - title: "Create a bastion in your VPC"
     anchor: "create-bastion-in-vpc"
@@ -221,7 +241,8 @@ setup-steps:
         content: |
           {% include shared/create-linux-user.html %}
 
-  - title: "create db user"
+  - title: "Create a Stitch {{ destination.display_name }} user"
+    anchor: "create-database-user"
     content: |
       {% include note.html type="single-line" content="**Note**: You must have superuser privileges or the ability to create a user and grant privileges to complete this step." %}
 
@@ -229,7 +250,8 @@ setup-steps:
       
       {% include destinations/templates/destination-user-setup.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
@@ -238,18 +260,11 @@ setup-steps:
         anchor: "locate-connection-details-aws"
         content: |
           {% include shared/aws-connection-details.html %}
+
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include destinations/setup/destination-settings.html ssh=true %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}
-
-{% capture setup-notice %}
-This tutorial describes how to spin up a Redshift cluster and connect it to Stitch via an **SSH tunnel**.
-
-Looking for help setting up a **direct connection?** Refer to the [Connecting a Redshift Data Warehouse]({{ link.destinations.setup.redshift | prepend: site.baseurl }}) guide.
-{% endcapture %}
-
-{% include note.html first-line="**This tutorial is for Redshift SSH tunnel setup**" content=setup-notice %}
-
-[In this tutorial]({{ link.destinations.setup.redshift | prepend: site.baseurl }}), we covered how to spin up a Redshift cluster with a public IP address to use with Stitch. If your Redshift cluster is in a private subnet, however, you can use an SSH tunnel to connect Stitch to your data warehouse.
-
-The method you’ll use to accomplish this involves launching an EC2 instance into the VPC associated with the cluster. This EC2 instance will have a public IP address and act as a bastion, allowing you to forward traffic through an encrypted tunnel to your private Redshift cluster.

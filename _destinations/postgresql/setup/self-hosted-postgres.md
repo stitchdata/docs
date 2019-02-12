@@ -8,7 +8,8 @@ summary: "Ready to spin up a PostgreSQL data warehouse and connect it to Stitch?
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
 
 type: "postgres"
 display_name: "PostgreSQL"
@@ -18,7 +19,7 @@ ssh: true
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
       **An up-and-running Postgres instance.** Instructions for installing {{ destination.display_name }} and creating an initial database are outside the scope of this tutorial; our instructions assume that you have a {{ destination.display_name }} instance up and running. For help installing and getting started with {{ destination.display_name }}, refer to the [Postgres documentation](https://www.postgresql.org/docs/).
   - item: |
@@ -26,11 +27,12 @@ requirements-list:
   - item: |
       **`createdb` permissions in your {{ destination.display_name }} instance.** This is required to create a database for Stitch.
 
+
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Whitelist Stitch's IP addresses"
     anchor: "whitelist-stitch-ips"
     content: |
@@ -53,7 +55,8 @@ setup-steps:
     content: |
       {% include shared/create-linux-user.html %}
 
-  - title: "create db user"
+  - title: "Create a {{ destination.display_name }} Stitch user"
+    anchor: "create-stitch-user"
     content: |
       {% assign clean-database-name = page.display_name | downcase %}
 
@@ -63,7 +66,13 @@ setup-steps:
 
       {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
+    content: |
+      To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
+
+      {% include destinations/setup/destination-settings.html %}
+
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}

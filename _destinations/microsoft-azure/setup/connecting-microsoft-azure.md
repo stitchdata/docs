@@ -7,7 +7,7 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Connecting a Microsoft Azure SQL Data Warehouse to Stitch
+title: Connecting a Microsoft Azure SQL Data Warehouse Destination to Stitch
 permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
 tags: [microsoft-azure_destination]
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
@@ -16,18 +16,34 @@ summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account."
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
 
 type: "microsoft-azure"
 display_name: "Microsoft Azure"
+
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
+
+intro: |
+  {% capture setup-notice %}
+  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Azure SQL Data Warehouse product](https://azure.microsoft.com/en-us/services/sql-data-warehouse/){:target="new"}.
+
+  Stitch doesn't currently support using Azure SQL Server or Azure SQL Database as a destination. Attempting to connect these products to Stitch via the {{ destination.display_name }} destination in Stitch will result in errors.
+  {% endcapture %}
+
+  {% include note.html first-line="**Stitch only supports connecting to Azure SQL Data Warehouse instances**" content=setup-notice %}
+  
 
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} data warehouse are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/create-data-warehouse-portal){:target="new"}.
+      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/create-data-warehouse-portal){:target="new"}.
   - item: |
       **An existing Azure Storage account.** Instructions for creating an Azure Storage account are outside the scope of this tutorial. For help getting started with an Azure Storage account, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/storage/){:target="new"}.
 
@@ -35,7 +51,7 @@ requirements-list:
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Configure server firewall access"
     anchor: "configure-server-firewall-access"
     content: |
@@ -64,7 +80,8 @@ setup-steps:
 
       {% include destinations/templates/destination-user-setup.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
@@ -78,13 +95,10 @@ setup-steps:
 
           {% include destinations/microsoft-azure/azure-connection-details.html %}
 
-# {% capture setup-notice %}
-# This guide describes how to connect Azure SQL Data Warehouse to Stitch via a **direct connection**.
-
-# Refer to the [Connecting an Azure SQL Data Warehouse via SSH Tunnel]({{ link.destinations.setup.azure-ssh | prepend: site.baseurl }}) guide to connect using an SSH tunnel.
-# {% endcapture %}
-
-# {% include note.html first-line="**This tutorial is for Azure SQL Data Warehouse direct connections**" content=setup-notice %}
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include destinations/setup/destination-settings.html %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","microsoft-azure" | first %}

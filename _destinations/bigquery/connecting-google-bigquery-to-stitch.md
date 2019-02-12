@@ -1,5 +1,5 @@
 ---
-title: Connecting a Google BigQuery Data Warehouse to Stitch
+title: Connecting a Google BigQuery Destination to Stitch
 permalink: /destinations/bigquery/connecting-google-bigquery-to-stitch
 tags: [bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
@@ -8,7 +8,9 @@ summary: "Connect a Google BigQuery destination to your Stitch account."
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
+
 display_name: "BigQuery"
 type: "bigquery"
 
@@ -16,7 +18,7 @@ type: "bigquery"
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
       **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
   - item: |
@@ -28,11 +30,11 @@ requirements-list:
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Create a GCP account"
     anchor: "create-gcp-account"
     content: |
-      This one's easy. Simply [sign up here]({{ destination.sign-up }}) and you'll receive a $300 credit.
+      This one's easy. Simply [sign up here]({{ destination.sign-up }}){:target="new"} to get started.
 
   - title: "Create a GCP project and enable billing"
     anchor: "create-gcp-project-enable-billing"
@@ -89,7 +91,3 @@ setup-steps:
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","bigquery" | first %}
-
-{{ destination.description }}
-
-For detailed info on how Stitch works with BigQuery, check out the [Stitch Google BigQuery Destination Overview]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}).

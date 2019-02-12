@@ -1,0 +1,15 @@
+<!-- This file is used to assign the correct
+	page variable for destination and integration content.
+
+	It'll also display the appropriate beta notice for
+	destinations/integrations that require it. -->
+
+    {% if page.permalink contains "destinations" %}
+        {% assign destination = site.destinations | where:"type",page.type | first %}
+
+        {% if destination.status contains "Beta" %}
+		    {% include notifications/destination-beta-notice.html %}
+		{% endif %}
+    {% elsif page.permalink contains "integrations" %}
+        {% assign integration = page %}
+    {% endif %}
