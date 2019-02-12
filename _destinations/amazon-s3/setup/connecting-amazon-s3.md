@@ -1,5 +1,5 @@
 ---
-title: Connecting an Amazon S3 Data Warehouse to Stitch
+title: Connecting an Amazon S3 Destination to Stitch
 permalink: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
 tags: [amazon-s3_destination]
 keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, postgres etl, amazon s3 etl
@@ -8,22 +8,18 @@ summary: "Ready to spin up an Amazon S3 data warehouse and connect it to Stitch?
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
 
 type: "amazon-s3"
 display_name: "Amazon S3"
 
-# enterprise-cta:
-#   title: "Need loading notifications?"
-#   url: "?utm_medium=docs&utm_campaign=s3-webhook-notifications"
-#   copy: |
-#     As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: |
@@ -35,7 +31,7 @@ requirements-list:
 #     Setup Instructions     #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Create an {{ destination.display_name }} bucket"
     anchor: "create-a-bucket"
     content: |
@@ -57,108 +53,74 @@ setup-steps:
       9. When ready, click **Create bucket**.
 
 
-  - title: "Configure Stitch settings"
+  - title: "Define the bucket name and data storage format"
     anchor: "configure-stitch-settings"
     content: |
-      In this step, you'll define the file and object key format Stitch will use to load data into {{ destination.display_name }}.
+      {% include destinations/setup/destination-settings.html type="configure" %}
 
-      First, enter the name of the bucket in the **Bucket Name** field. Enter only the bucket name: No URLs, `https`, or S3 parts.
+  - title: "Define S3 Object Key"
+    anchor: "define-s3-object-key"
+    content: |
+      In {{ destination.display_name }}, [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) are used to uniquely identify objects in a given bucket.
 
-      For example: `this-is-a-test-bucket-stitch-dev`
+      The **Object Key** setting in Stitch determines the convention used to create Object Keys when Stitch writes to your bucket. For example: If the default Key is used:
 
-    substeps:
-      - title: "Select data storage format"
-        anchor: "select-data-storage-format"
-        content: |
-          The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. Supported options are:
+      ```shell
+      {{ site.data.ui.destination-settings.amazon-s3.object-keys.default }}
+      ```
 
-          - **JSON**: Data will be stored as JSON files (`.jsonl`)
-          - **CSV**: Data will be stored as CSV files (`.csv`)
+      This could create an object with an Object Key of:
 
-          For examples of how data in each format will be stored, [click here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
+      ```shell
+      {{ site.data.ui.destination-settings.amazon-s3.object-keys.example-1 }}
+      ```
 
-          #### CSV-specific Settings
+      You can opt to use the default Key, which is pre-populated, or define your own using the elements in the next section.
 
-          If CSV is selected, there are a few additional configuration options for the files Stitch will write to your bucket:
+      #### S3 Key Elements {#s3-key-elements}
 
-          - **Delimiter**: Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
-          - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
+      The following elements are available to construct an S3 Key:
 
-# Commenting out, since we aren't doing this right now.
-      # - title: "Define Webhook Loading Notifications"
-      #   anchor: "define-webhook-loading-notifications"
-      #   content: |
-      #     {% include enterprise-cta.html %}
+      {% assign all-object-key-elements = site.data.ui.destination-settings.amazon-s3.object-keys.elements %}
 
-      #     Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
+      <table class="attribute-list">
+      <tr>
+      <td width="50%; fixed">
+      <strong>Required Elements</strong>
+      </td>
+      <td>
+      <strong>Optional Elements</strong>
+      </td>
+      </tr>
+      <tr>
+      <td>
+      All of the following elements must be included in the S3 Key, in any order:
+      <ul>
+      {% for element in all-object-key-elements %}
+      {% if element.required == true %}
+      <li><code>[{{ element.name }}]</code>{{ element.description | strip_newlines }}</li>
+      {% endif %}
+      {% endfor %}
+      </ul>
+      </td>
+      <td>
+      The following elements are optional:
+      <ul>
+      {% for element in all-object-key-elements %}
+      {% if element.required == false %}
+      <li><code>[{{ element.name }}]</code></li>
+      {% endif %}
+      {% endfor %}
+      </ul>
+      </td>
+      </tr>
+      </table>
 
-      #     Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
+      Additionally, keep in mind that Keys cannot exceed **500 characters** or include spaces or special characters (`!@#$%^&*`).
 
-      #     To enable this feature, check the **Post to a webhook URL each time loading to S3 completes** box and paste a webhook URL in the **Webhook URL** field.
+      As you update the values in the **S3 Key** field, Stitch will validate the entry. If the Key doesn't include all required elements or contains spaces or special characters, you will be prompted to make corrections.
 
-      #     More info about webhook loading notifications, including a list of attributes and sample use cases, [can be found here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#webhook-loading-notifications" }}).
-
-      - title: "Define S3 Object Key"
-        anchor: "define-s3-object-key"
-        content: |
-          In {{ destination.display_name }}, [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) are used to uniquely identify objects in a given bucket.
-
-          The S3 Key setting determines the convention Stitch uses to create Object Keys when it writes to your bucket. For example: If the default Key is used:
-
-          ```shell
-          {{ destination.default-key }}
-          ```
-
-          This could create an object with an Object Key of:
-
-          ```shell
-          {{ destination.example-key-1 }}
-          ```
-
-          You can opt to use the default Key, which is pre-populated, or define your own using the elements in the next section.
-
-          #### S3 Key Elements {#s3-key-elements}
-
-          The following elements are available to construct an S3 Key:
-
-          <table width="100%">
-          <tr>
-          <td width="50%; fixed">
-          <strong>Required Elements</strong>
-          </td>
-          <td>
-          <strong>Optional Elements</strong>
-          </td>
-          </tr>
-          <tr>
-          <td>
-          All of the following elements must be included in the S3 Key, in any order:
-          <ul>
-          {% for element in destination.key-elements %}
-          {% if element.required == true %}
-          <li>[{{ element.name }}]{{ element.description | strip_newlines }}</li>
-          {% endif %}
-          {% endfor %}
-          </ul>
-          </td>
-          <td>
-          The following elements are optional:
-          <ul>
-          {% for element in destination.key-elements %}
-          {% if element.required == false %}
-          <li>[{{ element.name }}]</li>
-          {% endif %}
-          {% endfor %}
-          </ul>
-          </td>
-          </tr>
-          </table>
-
-          Additionally, keep in mind that Keys cannot exceed **500 characters** or include spaces or special characters (`!@#$%^&*`).
-
-          As you update the values in the **S3 Key** field, Stitch will validate the entry. If the Key doesn't include all required elements or contains spaces or special characters, you will be prompted to make corrections.
-
-          After you've finished defining the Key, click **Continue**.
+      After you've finished defining the Key, click **Continue**.
 
   - title: "Grant and verify bucket access"
     anchor: "grant-verify-bucket-access"
@@ -230,5 +192,5 @@ setup-steps:
           For troubleshooting, refer to the [Destination Connection Errors guide]({{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }}).
           {% endcapture %}
 
-          {% include important.html first-line="The challenge file must remain in your S3 bucket" content=challenge-file-notice %}
+          {% include important.html first-line="**The challenge file must remain in your S3 bucket**" content=challenge-file-notice %}
 ---
