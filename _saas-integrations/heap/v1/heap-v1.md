@@ -71,7 +71,7 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
+      4. In the **S3 Bucket** field, enter the name of the bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `heap-rs3-stitch-bucket`
       5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
 
   - title: "historical sync"
