@@ -43,13 +43,13 @@ object-attributes:
   - name: "api_key"
     type: "string"
     required: true
-    description: "The user's {{ form-property.display-name }} API key. The user can obtain this by contacting their {{ form-property.display_name }} sales representative or account manager."
+    description: "The user's {{ form-property.display-name }} API key. The user can obtain this by contacting their {{ form-property.display-name }} sales representative or account manager."
     value: "<API_KEY>"
 
   - name: "api_secret"
     type: "string"
     required: true
-    description: "The user's {{ form-property.display-name }} API secret. The user can obtain this by contacting their {{ form-property.display_name }} sales representative or account manager."
+    description: "The user's {{ form-property.display-name }} API secret. The user can obtain this by contacting their {{ form-property.display-name }} sales representative or account manager."
     value: "<API_SECRET>"
 
   - name: "username"
