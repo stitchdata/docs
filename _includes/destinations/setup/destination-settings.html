@@ -72,7 +72,10 @@ Lastly, you'll fill in the SSH fields with the bastion details.
 
 {% endif %}
 
+
+{% unless include.type == "configure" %}
 <!-- The content below will display for every type of destination -->
 When finished, click {{ app.buttons.update-dw-settings | flatify }}.
 
 Stitch will perform a connection test to the {{ destination.display_name }} database; if successful, a *Success!* mesage will display at the top of the screen. **Note**: This test may take a few minutes to complete.
+{% endunless %}
