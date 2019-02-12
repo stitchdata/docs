@@ -1,0 +1,45 @@
+# ------------------------------ #
+#   MICROSOFT AZURE DESTINATION  #
+# ------------------------------ #
+
+## This file contains the properties required to successfully set up
+## a Microsoft Azure SQL Data Warehouse destination in Stitch.
+
+microsoft-azure:
+  - app-name: "Host"
+    connect-name: "host"
+    description:
+      app: |
+        Enter the host address (server name) used by the {{ destination.display_name }} instance. This is the **Server name** value you retrieved in [the previous step](#locate-connection-details).
+
+  - app-name: "Port"
+    connect-name: "port"
+    description: 
+      app: 
+  
+  - app-name: "Username"
+    connect-name: "user"
+    description:
+      app: 
+
+  - app-name: "Password"
+    connect-name: "password"
+    description:
+      app:
+
+  - app-name: "Database"
+    connect-name: "database"
+    description:
+      app: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
+
+  - app-name: "Shared Access Signature URL"
+    connect-name: "azure_storage_sas_url"
+    description:
+      app: |
+          Paste the **Blob service SAS URL** [you generated](#generate-shared-access-signature-url).
+  
+  - app-name: "Access Key for Azure Storage"
+    connect-name: "azure_storage_account_token"
+    description:
+      app: |
+          Paste the **Key** associated with the [signing key you selected](#generate-shared-access-signature-url).

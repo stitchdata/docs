@@ -1,0 +1,109 @@
+# -------------------------- #
+#    POSTGREQL DESTINATION   #
+# -------------------------- #
+
+## This file contains the properties required to successfully set up
+## a PostgreSQL destination in Stitch.
+
+# -------------------------- #
+#          Postgres          #
+# -------------------------- #
+
+postgres:
+  - app-name: *host
+    description: *host-description
+  - app-name: *port
+    description: *port-description
+  - app-name: *username
+    description: *username-description
+  - app-name: *password
+    description: *password-description
+  - app-name: *database
+    description: *database-description
+  - app-name: *ssl
+    description: *ssl-description
+  - app-name: *ssl-certificate
+    description: *ssl-certificate-description
+    
+# -------------------------- #
+#       Heroku-Postgres      #
+# -------------------------- #
+
+heroku-postgres:
+  - app-name: *host
+    description: 
+      app: "Paste the host of the Heroku database."
+  - app-name: *port
+    description: 
+      app: "Paste the port used by the Heroku database."
+  - app-name: *username
+    description: 
+      app: "Paste the username of the Heroku database user."
+  - app-name: *password
+    description: 
+      app: |
+        Paste the password of the Heroku database user.
+  - app-name: *database
+    description: 
+      app: "Paste the name of the Heroku database."
+  - app-name: *ssl
+    description: 
+      app: "Check this box. Heroku requires SSL to connect - if left unchecked, Stitch will be unable to connect to your Heroku database."
+
+
+# -------------------------- #
+#        Postgres-RDS        #
+# -------------------------- #
+postgres-rds:
+  - app-name: *host
+    ddescription: 
+      app: &rds |
+        Paste the **Endpoint** address from the {{ destination.display_name }} Details page in AWS into this app-name.
+
+              Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors. For example: if you used the default port, you’d remove the following from the address: `:{{ destination.port }}`
+  - app-name: *port
+    description: 
+      app: *port-description
+  - app-name: *username
+    description: 
+      app: *username-description
+  - app-name: *password
+    description: 
+      app: *password-description
+  - app-name: *database
+    description: 
+      app: *database-description
+  - app-name: *ssl
+    description: 
+      app: *ssl-description
+  - app-name: *ssl-certificate
+    description: 
+      app: *ssl-certificate-description
+
+
+# -------------------------- #
+#     CloudSQL Postgres       #
+# -------------------------- #
+
+cloudsql-postgres:
+  - app-name: *host
+    description: 
+      app: "Paste the address that is in the **IPv4 address** app-name in the Google Console."
+  - app-name: *port
+    description: 
+      app: *port-description
+  - app-name: *username
+    description: 
+      app: *username-description
+  - app-name: *password
+    description: 
+      app: *password-description
+  - app-name: *database
+    description: 
+      app: *database-description
+  - app-name: *ssl
+    description: 
+      app: *ssl-description
+  - app-name: *ssl-certificate
+    description: 
+      app: *ssl-certificate-description
