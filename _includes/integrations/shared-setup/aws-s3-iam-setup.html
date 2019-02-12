@@ -113,30 +113,44 @@ To create the IAM policy:
 
 <!-- CREATING THE STITCH IAM ROLE -->
 {% when 'create-stitch-iam-role' %}
-{% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `CreateRole` and `AttachRolePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
+{% capture iam-role-notice %}
+To complete this step, you need the following AWS IAM permissions: `CreateRole` and `AttachRolePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html){:target="new"} for more info.
+
+{{ info-icon | strip }} **Roles can't be used for multiple integrations**
+
+If you're creating multiple {{ integration.display_name }} integrations, you'll need to complete this step for each integration you're connecting.
+
+The **Role Name** Stitch uses to connect to the Amazon S3 bucket is unique to the integration. Attempting to re-use a role for multiple integrations will cause connection errors.
+{% endcapture %}
+
+{% include note.html first-line="**Required permissions**" content=iam-role-notice %}
 
 In this step, you'll create an IAM role for Stitch and apply the IAM policy from the previous step. This will ensure that Stitch is visible in any logs and audits.
 
-To create the role, you'll need the **Account ID** and **External ID** values provided on the Stitch **Grant Access to Your Bucket** page.
+To create the role, you'll need the **Account ID**, **External ID**, and **Role Name** values provided on the Stitch **Grant Access to Your Bucket** page.
 
-**Note**: If you're creating multiple {{ integration.display_name }} integrations, you need to only complete this process once. After you create the Stitch role, you can just [create an additional IAM policy and attach it to the role](#create-iam-policy).
 
 1. In AWS, navigate to the [IAM Roles](https://console.aws.amazon.com/iam/home#/roles){:target="new"} page.
 2. Click **Create Role**.
 3. On the **Create Role** page:
    1. In the **Select type of trusted entity** section, click the **Another AWS account** option.
-   2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page:
-
-      ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/s3-csv-create-role-fields.png)
-3. In the **Options** section, check the **Require external ID** box.
-4. In the **External ID** field that displays, paste the External ID from Stitch.
-5. Click **Next: Permissions**.
+   2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page.
+   3. In the **Options** section, check the **Require external ID** box.
+   4. In the **External ID** field that displays, paste the External ID from the Stitch **Grant Access to Your Bucket** page:
+      ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/aws-account-external-ids.png)
+   5. Click **Next: Permissions**.
 4. On the **Attach permissions** page:
    1. Search for the policy you created in [Step 6.1](#create-iam-policy).
    2. Once located, check the box next to it in the table.
-   3. Click **Next: Review**.
-5. In the **Role name** field, type `Stitch`.
-6. Click **Create role**.
+   3. Click **Next: Tags**.
+5. If you want to enter any tags, do so on the **Add tags** page. Otherwise, click **Next: Review**.
+5. On the **Review** page:
+   1. In the **Role name** field, paste the Role Name from the Stitch **Grant Access to Your Bucket** page:
+      ![Role name field mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/aws-role-name.png)
+
+      **Remember**: Role names are unique to the Stitch {{ integration.display_name }} integration they're created for. Attempting to use the same role for multiple integrations will cause connection errors.
+   2. Enter a description in the **Role description** field. For example: `Stitch role for {{ integration.display_name }} integration.`
+   3. Click **Create role**.
 
 
 <!-- CHECKING AND SAVING THE CONNECTION -->
