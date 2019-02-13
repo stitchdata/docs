@@ -1,8 +1,12 @@
 ---
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting an Amazon S3 Destination to Stitch
 permalink: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
-tags: [amazon-s3_destination]
 keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, postgres etl, amazon s3 etl
+
 summary: "Ready to spin up an Amazon S3 data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
 
 content-type: "destination-setup"
@@ -16,7 +20,7 @@ display_name: "Amazon S3"
 
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -27,8 +31,9 @@ requirements:
   - item: |
       **An up and running Amazon S3 bucket**. Instructions for creating a bucket using the AWS console are in [Step 1 of this guide](#create-a-bucket).
 
+
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

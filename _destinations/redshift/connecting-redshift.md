@@ -1,4 +1,17 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting an Amazon Redshift Data Warehouse to Stitch
 permalink: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
 tags: [redshift_destination]
@@ -31,7 +44,7 @@ intro: |
 
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -41,8 +54,9 @@ requirements:
   - item: |
       **Optional: Create a non-default VPC**. {% include destinations/redshift/create-a-vpc.html %}
 
+
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

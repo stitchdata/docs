@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Microsoft Azure SQL Data Warehouse Primary Key Handling
 permalink: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
@@ -14,6 +18,12 @@ content-type: "destination-general"
 
 
 # {% include important.html type="single-line" content="**Do not remove or alter this table.** This will cause replication issues and data discrepancies." %}
+
+
+
+# -------------------------- #
+#          Content           #
+# -------------------------- #
 
 sections:
   - content: |

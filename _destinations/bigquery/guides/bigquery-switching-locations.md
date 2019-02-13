@@ -1,38 +1,53 @@
 ---
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Change the Location of a Google BigQuery Destination
 permalink: /destinations/bigquery/changing-google-bigquery-destination-data-locations
-tags: [bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
+
 summary: "Change the location of your Google BigQuery destination."
 
 content-type: "destination-setup"
 
 toc: true
-layout: destination
+layout: tutorial
+use-tutorial-sidebar: false
+
 display_name: "BigQuery"
 type: "bigquery"
 
-sections:
-  - content: |
-      {% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
-      {% endcapture %}
 
-      {% include important.html type="single-line" content=only-for-existing-destinations %}
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
 
-      Need to change the location in which {{ destination.display_name }} stores your data? Using Stitch's Destination Change feature, you can delete the current destination and connect a new one with the desired data storage location.
+intro: |
+  {% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
+  {% endcapture %}
 
-  - title: "Considerations"
-    anchor: "considerations"
-    content: |
-      Here's what you need to know to ensure a smooth switch:
+  {% include important.html type="single-line" content=only-for-existing-destinations %}
 
-      - **Your integrations will be paused.** After the switch is complete, you'll need to manually unpause the integrations you'd like to resume.
+  Need to change the location in which {{ destination.display_name }} stores your data? Using Stitch's Destination Change feature, you can delete the current destination and connect a new one with the desired data storage location.
 
-      - **Some webhook data may be lost during this process**. Due to their continuous, real-time nature, some webhook data may be lost during the switch.
+  ### Considerations
 
-      - **Historical data from webhook-based integrations must be either manually backfilled or replayed**. Some webhook providers - such as Segment - allow customers on certain plans to ‘replay’ their historical data. This feature varies from provider to provider and may not always be available.
+  Here's what you need to know to ensure a smooth switch:
 
-  - title: "Step 1: Select a historical data setting"
+  - **Your integrations will be paused.** After the switch is complete, you'll need to manually unpause the integrations you'd like to resume.
+
+  - **Some webhook data may be lost during this process**. Due to their continuous, real-time nature, some webhook data may be lost during the switch.
+
+  - **Historical data from webhook-based integrations must be either manually backfilled or replayed**. Some webhook providers - such as Segment - allow customers on certain plans to ‘replay’ their historical data. This feature varies from provider to provider and may not always be available.
+
+
+# -------------------------- #
+#         Instructions       #
+# -------------------------- #
+
+steps:
+  - title: "Select a historical data setting"
     anchor: "select-historical-data-setting"
     content: |
       If you need historical data in the new destination, you’ll need to either manually transfer your historical data or queue a historical replication job.
@@ -42,7 +57,7 @@ sections:
          **Complete the historical transfer before continuing.**
 
       - **Queue a historical replication job**: Initializing a historical replication will re-replicate all historical data from your integrations. For SaaS integrations, Stitch will replicate data beginning with the **Start Date** currently in the integration's settings.
-    subsections:
+    substeps:
       - title: "Define the setting"
         anchor: "define-the-setting"
         content: |
@@ -53,7 +68,7 @@ sections:
              - {{ field.field }}: {{ field.copy | flatify }}
              {% endfor %}
   
-  - title: "Step 2: Delete the current destination"
+  - title: "Delete the current destination"
     anchor: "delete-current-bigquery-destination"
     content: |
       1. Click **Continue**. A message will display asking you to confirm the removal of the current destination's settings.
@@ -61,7 +76,7 @@ sections:
 
          To continue with the switch, click **OK** to delete the current destination settings.
 
-  - title: "Step 3: Connect the new {{ destination.display_name }} destination"
+  - title: "Connect the new {{ destination.display_name }} destination"
     anchor: "connect-new-bigquery-destination"
     content: |
       {% capture permissions %}
@@ -90,7 +105,7 @@ sections:
             - **Google Cloud Storage Location**: From the dropdown, select the new location you want to use.
       7. Click **Finish Setup**.
 
-  - title: "Step 4: Delete the existing Google Cloud Storage bucket"
+  - title: "Delete the existing Google Cloud Storage bucket"
     anchor: "delete-current-bucket"
     content: |
       To ensure Stitch can load data into the new BigQuery instance, you'll need to delete the Google Cloud Storage (GCS) bucket that's attached to the project.
@@ -102,7 +117,7 @@ sections:
       3. Locate the Stitch bucket. **If you're unsure of which bucket belongs to Stitch**, reach out to Stitch support.
       4. Delete the bucket.
 
-  - title: "Step 5: Unpause integrations"
+  - title: "Unpause integrations"
     anchor: "unpause-integrations"
     content: |
       After you've successfully connected the new {{ destination.display_name }} destination and deleted the original Stitch GCS bucket, un-pause your integrations in Stitch.

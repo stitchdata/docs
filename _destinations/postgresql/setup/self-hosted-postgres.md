@@ -1,4 +1,17 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting a Self-Hosted PostgreSQL Data Warehouse to Stitch
 permalink: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-warehouse-to-stitch
 tags: [postgresql_destination]
@@ -16,7 +29,7 @@ display_name: "PostgreSQL"
 ssh: true
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -29,7 +42,7 @@ requirements:
 
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

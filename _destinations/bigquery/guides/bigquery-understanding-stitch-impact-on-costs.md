@@ -1,7 +1,10 @@
 ---
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Understanding Stitch's Impact on BigQuery Costs
 permalink: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
-tags: [bigquery_destination]
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
 
 summary: "Unlike traditional relational databases and other cloud solutions, Google BigQuery pricing isn't fixed-rate: it's based on usage. The goal of this article is to help you better understand how your data warehousing costs will be impacted by using Stitch's BigQuery destination so you can make an informed decision."
@@ -9,24 +12,35 @@ summary: "Unlike traditional relational databases and other cloud solutions, Goo
 content-type: "destination-general"
 
 toc: false
+layout: general
 type: "bigquery"
 
+
+# -------------------------- #
+#        Introduction        #
+# -------------------------- #
+
+intro: |
+  Unlike traditional relational databases and other cloud solutions like Amazon Redshift, Google BigQuery pricing is based on usage instead of fixed pricing. Because of this, it can be difficult to estimate how much a Stitch-enabled BigQuery data warehouse will cost to use over time.
+
+  Stitch employs a number of different operations across both Google Cloud Storage and BigQuery as part of the replication process. In this article, we'll give you an overview of those operations and the impact they may have.
+
+
+# -------------------------- #
+#          Content           #
+# -------------------------- #
+
 sections:
-  - content: |
-      Unlike traditional relational databases and other cloud solutions like Amazon Redshift, Google BigQuery pricing is based on usage instead of fixed pricing. Because of this, it can be difficult to estimate how much a Stitch-enabled BigQuery data warehouse will cost to use over time.
-
-      Stitch employs a number of different operations across both Google Cloud Storage and BigQuery as part of the replication process. In this article, we'll give you an overview of those operations and the impact they may have.
-
   - title: "BigQuery pricing basics"
     anchor: "bigquery-pricing-basics"
     content: |
-      BigQuery pricing includes two categories: storage and usage costs.
+      BigQuery pricing includes two categories: Storage and usage costs.
 
       Before we get into the specifics, we strongly recommend that you familiarize yourself with the [BigQuery Pricing Model]({{ destination.pricing }}).
 
       We'll only cover the specific ways Stitch may potentially impact BigQuery costs in this doc, so reading Google's brief overview will help you make an informed decision.
 
-  - title: "Google Cloud Storage Costs"
+  - title: "Google Cloud Storage costs"
     anchor: "google-cloud-storage-costs"
     content: |
       Before your data is loaded into BigQuery, Stitch's replication engine will replicate, process, and prepare data from your various integrations and temporarily move it into a Google Cloud Storage (GCS) bucket. This Cloud Storage bucket is automatically created by Stitch but owned by you.
@@ -42,18 +56,18 @@ sections:
 
       [Click here]({{ destination.storage-pricing }}) for more info on Google's Cloud Storage pricing model.
 
-  - title: "BigQuery Usage Costs"
+  - title: "BigQuery usage costs"
     anchor: "bigquery-usage-costs"
     content: |
-      BigQuery ultimately breaks down pricing into two categories: Storage pricing and query pricing.
+      BigQuery ultimately breaks down pricing into two categories: Storage pricing and query pricing. 
 
     subsections:
       - title: "Storage pricing"
         anchor: "storage-pricing"
         content: |
-          The cost of storing your data in BigQuery is entirely dependent on how much data you replicate into the data warehouse.
+          The cost of storing your data in BigQuery is entirely dependent on how much data you replicate into the destination.
 
-          However, when estimating how much data you expect to store in your data warehouse, it's important to understand the append-only nature of how Stitch replicates most data into BigQuery.
+          However, when estimating how much data you expect to store in your destination, it's important to understand the append-only nature of how Stitch replicates most data into BigQuery.
 
           **To summarize: existing data isn't updated. Updates are added as new rows to existing tables. Due to this, the size of tables can grow substantially over time.**
 
@@ -67,7 +81,6 @@ sections:
           Queries currently run by Stitch to replicate your data do not currently count towards the $5/TB model currently charged by Google. 
 
           [Click here]({{ destination.pricing | append: "#queries" }}) for more info on Google's Query pricing model.
-
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","bigquery" | first %}

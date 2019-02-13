@@ -1,7 +1,19 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting an Amazon PostgreSQL-RDS Destination to Stitch
 permalink: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-warehouse-to-stitch
-tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, postgres rds, postgres-rds, relational database services
 summary: "Ready to spin up an Amazon PostgreSQL-RDS destination and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
 
@@ -26,7 +38,7 @@ intro: |
 
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -36,7 +48,7 @@ requirements:
 
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

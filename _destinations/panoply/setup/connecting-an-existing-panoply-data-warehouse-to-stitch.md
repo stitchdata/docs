@@ -1,7 +1,19 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting an Existing Panoply Data Warehouse to Stitch
 permalink: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
-tags: [panoply_destination]
 keywords: panoply, panoply.io, panoply data warehouse, panoply.io data warehouse etl to redshift, redshift etl, panoply etl
 summary: "Connect your existing Panoply destination to Stitch."
 
@@ -28,14 +40,14 @@ intro: |
 
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
   - item: "**Admin permissions in Panoply.**"
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

@@ -14,8 +14,9 @@ use-tutorial-sidebar: false
 display_name: "BigQuery"
 type: "bigquery"
 
+
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -26,8 +27,9 @@ requirements:
   - item: |
       **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
 
+
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

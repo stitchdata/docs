@@ -1,4 +1,17 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting a Snowflake Destination to Stitch
 permalink: /destinations/snowflake/connecting-a-snowflake-data-warehouse-to-stitch
 tags: [snowflake_destination]
@@ -17,7 +30,7 @@ type: "snowflake"
 
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -31,7 +44,7 @@ requirements:
 
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

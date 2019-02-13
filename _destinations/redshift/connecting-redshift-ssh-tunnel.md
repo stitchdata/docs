@@ -1,7 +1,19 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting an Amazon Redshift Data Warehouse to Stitch via SSH Tunnel
 permalink: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
-tags: [redshift_destination]
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user, redshift ssh, redshift ssh tunnel
 
 summary: "If your Redshift cluster is in a private subnet, you can use an SSH tunnel to connect Stitch to your data warehouse."
@@ -36,7 +48,7 @@ intro: |
 
 
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
 requirements:
@@ -56,7 +68,7 @@ requirements-info: |
   If you have questions or concerns about Stitch security, please refer to the [Security FAQ]({{ link.account.security-faq | prepend: site.baseurl }}).
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
 steps:

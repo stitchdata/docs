@@ -10,6 +10,7 @@ summary: "If you're new to data warehousing or want to see how Stitch's destinat
 content-type: "destination-general"
 
 toc: true
+layout: general
 type: "all"
 destination: false
 
