@@ -13,7 +13,7 @@ key: "source-form-properties-facebook-ads-object"
 # -------------------------- #
 
 title: "Facebook Ads Source Form Property"
-api-type: "facebook"
+api-type: "platform.facebook"
 display-name: "Facebook Ads"
 
 source-type: "saas"

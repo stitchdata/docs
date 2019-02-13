@@ -13,7 +13,7 @@ key: "source-form-properties-fullstory-object"
 # -------------------------- #
 
 title: "FullStory Source Form Property"
-api-type: "fullstory"
+api-type: "platform.fullstory"
 display-name: "FullStory"
 
 source-type: "saas"

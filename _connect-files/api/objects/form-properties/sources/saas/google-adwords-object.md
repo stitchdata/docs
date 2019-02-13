@@ -13,7 +13,7 @@ key: "source-form-properties-google-adwords-object"
 # -------------------------- #
 
 title: "Google AdWords Source Form Property"
-api-type: "adwords"
+api-type: "platform.adwords"
 display-name: "Google AdWords"
 
 source-type: "saas"

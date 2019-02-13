@@ -13,7 +13,7 @@ key: "source-form-properties-postgresql-object"
 # -------------------------- #
 
 title: "PostgreSQL Source Form Property"
-api-type: "postgres"
+api-type: "platform.postgres"
 display-name: "PostgreSQL"
 
 source-type: "database"

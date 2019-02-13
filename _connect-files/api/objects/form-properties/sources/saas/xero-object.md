@@ -13,7 +13,7 @@ key: "source-form-properties-xero-object"
 # -------------------------- #
 
 title: "Xero Source Form Property"
-api-type: "xero"
+api-type: "platform.xero"
 display-name: "Xero"
 
 source-type: "saas"

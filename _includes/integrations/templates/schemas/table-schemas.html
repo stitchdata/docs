@@ -27,7 +27,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
 <!-- Table Name -->
     <div class="table-heading">
         <div class="table-name pull-left">
-            <h3 id="{{ table.name }}">{{ table.name }}</h3>
+            <h3 id="{{ table.name | remove: "[" | remove: "]" }}">{{ table.name }}</h3>
         </div>
 
     <!-- Link to Singer Schema, if one is present -->

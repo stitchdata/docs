@@ -24,7 +24,7 @@ key: "source-form-properties-jira-object"
 # -------------------------- #
 
 title: "Jira Source Form Property"
-api-type: "jira"
+api-type: "platform.jira"
 display-name: "Jira"
 
 source-type: "saas"

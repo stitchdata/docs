@@ -13,7 +13,7 @@ key: "source-form-properties-uservoice-object"
 # -------------------------- #
 
 title: "UserVoice Source Form Property"
-api-type: "uservoice"
+api-type: "platform.uservoice"
 display-name: "UserVoice"
 
 source-type: "saas"

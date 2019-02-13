@@ -11,7 +11,7 @@
 tap: "salesforce-marketing-cloud"
 # version: 
 
-name: "table_name"
+name: "subscriber"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/subscriber.htm
 singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/subscribers.py
 description: |

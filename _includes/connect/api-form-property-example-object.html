@@ -29,7 +29,7 @@
 {% when 'database' %}
 {% highlight json %}
 {
- "type":"platform.{{ form-property.api-type }}",
+ "type":"{{ form-property.api-type }}",
  "properties":{
    {% for attribute in all-form-attributes %}
    {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
@@ -43,6 +43,7 @@
 
 <!-- SaaS form property example -->
 {% when 'saas' %}
+  {% assign api-type-clean = form-property.api-type | remove: "platform." %}
 
 <!-- This gets the last item in the list for the source,
       which is then used in the next block to make sure there
@@ -53,7 +54,7 @@
       So if you're doing "forloop.last" and filtering, it probably won't
       work correctly. That's why this approach was taken. -->
   {% for attribute in all-form-attributes %}
-    {% unless attribute.exclude contains form-property.api-type %}
+    {% unless attribute.exclude contains api-type-clean %}
     {% assign last_item = attribute.name %}
     {% endunless %}
   {% endfor %}
@@ -61,10 +62,10 @@
 
 {% highlight json %}
 {
- "type":"platform.{{ form-property.api-type }}",
+ "type":"{{ form-property.api-type }}",
  "properties":{
    {% for attribute in all-form-attributes %}
-   {%- unless attribute.exclude contains form-property.api-type -%}
+   {%- unless attribute.exclude contains api-type-clean -%}
    {% if attribute.name == last_item %}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
    {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
    {% endif %}

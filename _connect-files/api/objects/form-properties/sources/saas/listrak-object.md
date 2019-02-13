@@ -13,7 +13,7 @@ key: "source-form-properties-listrak-object"
 # -------------------------- #
 
 title: "Listrak Source Form Property"
-api-type: "listrak"
+api-type: "platform.listrak"
 display-name: "Listrak"
 
 source-type: "saas"

@@ -13,7 +13,7 @@ key: "source-form-properties-oracle-object"
 # -------------------------- #
 
 title: "Oracle Source Form Property"
-api-type: "oracle"
+api-type: "platform.oracle"
 display-name: "Oracle"
 
 # source-type: "database"

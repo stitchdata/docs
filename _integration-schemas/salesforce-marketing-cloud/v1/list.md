@@ -19,10 +19,6 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-api-method:
-  name: ""
-  doc-link: ""
-
 attributes:
   - name: "ID"
     type: "integer"
