@@ -93,7 +93,7 @@
                         </strong>
                     </td>
                     <td class="attribute-description">
-                        <a href="{{ destination.pricing }}">
+                        <a href="{{ site.data.destinations.resource-links[destination.type]pricing }}" target="new">
                             {{ destination-reference[destination.type]destination-details-info.pricing-model | flatify | default: "Varies" }}
                         </a>
                     </td>

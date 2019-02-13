@@ -136,7 +136,7 @@ scenarios:
     summary: default    
     result: |
 
-      {{ destination.display_name }} will widen the column to accommodate the width of the largest record up to the limit of `{{ destination.varchar-limit }}`.
+      {{ destination.display_name }} will widen the column to accommodate the width of the largest record up to the limit of `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}`.
 
       For example: during the initial sync, a `VARCHAR` column is created and typed as `VARCHAR(128)`.
 
@@ -151,7 +151,7 @@ scenarios:
 ## VARCHAR exceeds limit
   - id: varchar-max-size
     summary: default
-    result: "{{ destination.display_name }} will truncate the data to the maximumm width of `{{ destination.varchar-limit }}`."
+    result: "{{ destination.display_name }} will truncate the data to the maximumm width of `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}`."
 
     rejectable: false
     error: none
@@ -197,7 +197,7 @@ scenarios:
       ```
       integer out of range for {{ destination.display_name }} on [INTEGER]
       ```
-    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination.integer-limit }}."
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ site.data.destinations.reference[destination.type]data-limit-info.integer-range }}."
 
 ## Column contains decimal data
   - id: decimal-storage
@@ -207,7 +207,7 @@ scenarios:
 
     rejectable: false
     error: none
-    troubleshooting: default
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimal data."
 
 ## Column contains decimal data out of range
   - id: decimals-out-of-range
@@ -219,7 +219,7 @@ scenarios:
       ```
       decimal out of range for {{ destination.display_name }} on [DECIMAL]
       ```
-    troubleshooting: default
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimal data."
 
 # -------------------------------------------- #
 #                                              #

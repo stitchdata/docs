@@ -12,6 +12,7 @@ summary: "Snowflake is a SQL data warehouse built from the ground up for the clo
 content-type: "destination-overview"
 
 toc: true
+layout: general
 destination: true
 
 
@@ -20,19 +21,8 @@ destination: true
 # -------------------------- #
 display_name: "Snowflake"
 type: "snowflake"
-db-type: "Analytic"
-pricing_tier: "standard" ## for Stitch
-status: "Released"
-description: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
 port: 443
-pricing_model: "Usage" ## provider model
-free_option: "No"
-fully-managed: true
-pricing_notes: |
-  Snowflake pricing is based on two factors: the volume or data stored in your Snowflake destination and the amount of compute usage (the time the server runs) in seconds. 
 
-  Snowflake offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about Snowflake plans and pricing here]({{ destination.pricing }}).
-icon: /images/destinations/icons/snowflake.svg
 
 # -------------------------- #
 #           Support          #
@@ -42,38 +32,22 @@ icon: /images/destinations/icons/snowflake.svg
 ## info about connection support, Stitch support,
 ## data limitations, reserved words, etc.
 
+## Resource links can be found in _data/destinations/links.yml
 
-# -------------------------- #
-#    Incompatible Sources    #
-# -------------------------- #
-incompatible-with: 0
-
-
-
-# -------------------------- #
-#            Links           #
-# -------------------------- #
-main-site: https://www.snowflake.net
-sign-up: https://sfc-bzops-1.snowflake.net/
-documentation: https://docs.snowflake.net/manuals/index.html
-help-center: https://snowflakecommunity.force.com/s/
-contact-support: mailto:support@snowflake.net
-pricing: https://www.snowflake.net/product/pricing/
-pricing-guide: https://www.snowflake.net/pricing-page-registration-page/
 
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
-introduction: |
+intro: |
   {{ destination.description }}
 
-  A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Services](http://aws.amazon.com/) cloud infrastructure: AWS EC2 virtual compute instances are used for compute needs, while S3 is utilized for persistent data storage.
+  A fully-managed SaaS data warehouse solution, Snowflake runs on [Amazon Web Services](http://aws.amazon.com/){:target="new"} cloud infrastructure: AWS EC2 virtual compute instances are used for compute needs, while S3 is utilized for persistent data storage.
 
 sections:
   - title: "Pricing"
     anchor: "pricing"
     content: |
-      {{ destination.pricing_notes | flatify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify }}
     subsections:
       - title: "Snowflake warehouse sizes"
         anchor: "warehouse-sizes"

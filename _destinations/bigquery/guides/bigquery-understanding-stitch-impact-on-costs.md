@@ -36,7 +36,7 @@ sections:
     content: |
       BigQuery pricing includes two categories: Storage and usage costs.
 
-      Before we get into the specifics, we strongly recommend that you familiarize yourself with the [BigQuery Pricing Model]({{ destination.pricing }}).
+      Before we get into the specifics, we strongly recommend that you familiarize yourself with the [BigQuery Pricing Model]({{ site.data.destinations.resource-links[destination.type]pricing }}).
 
       We'll only cover the specific ways Stitch may potentially impact BigQuery costs in this doc, so reading Google's brief overview will help you make an informed decision.
 
@@ -54,7 +54,7 @@ sections:
 
       **We expect the cost of using Google Cloud Storage with Stitch to be less than $5 a month.**
 
-      [Click here]({{ destination.storage-pricing }}) for more info on Google's Cloud Storage pricing model.
+      [Click here]({{ site.data.destinations.resource-links[destination.type]storage-pricing }}){:target="new"} for more info on Google's Cloud Storage pricing model.
 
   - title: "BigQuery usage costs"
     anchor: "bigquery-usage-costs"
@@ -71,7 +71,7 @@ sections:
 
           **To summarize: existing data isn't updated. Updates are added as new rows to existing tables. Due to this, the size of tables can grow substantially over time.**
 
-          [Click here]({{ destination.pricing | append: "#storage" }}) for more info on Google's Storage pricing model.
+          [Click here]({{ site.data.destinations.resource-links[destination.type]pricing | append: "#storage" }}) for more info on Google's Storage pricing model.
 
       - title: "Query pricing"
         anchor: "query-pricing"
@@ -80,7 +80,7 @@ sections:
 
           Queries currently run by Stitch to replicate your data do not currently count towards the $5/TB model currently charged by Google. 
 
-          [Click here]({{ destination.pricing | append: "#queries" }}) for more info on Google's Query pricing model.
+          [Click here]({{ site.data.destinations.resource-links[destination.type]pricing | append: "#queries" }}) for more info on Google's Query pricing model.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","bigquery" | first %}

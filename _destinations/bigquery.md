@@ -12,23 +12,17 @@ summary: "Google BigQuery is a fully managed, cloud-based big data analytics web
 content-type: "destination-overview"
 
 toc: true
+layout: general
 destination: true
 
 
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
+
 display_name: "BigQuery"
 type: "bigquery"
-db-type: "Analytic"
-pricing_tier: "standard" ## for Stitch
-status: "Released"
 description: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
-pricing_model: "Usage" ## provider model
-free_option: "No"
-fully-managed: true
-pricing_notes: "BigQuery's pricing isn't based on a fixed rate, meaning your bill can vary over time."
-icon: /images/destinations/icons/google-bigquery.svg
 
 
 # -------------------------- #
@@ -39,27 +33,7 @@ icon: /images/destinations/icons/google-bigquery.svg
 ## info about connection support, Stitch support,
 ## data limitations, reserved words, etc.
 
-
-# -------------------------- #
-#    Incompatible Sources    #
-# -------------------------- #
-incompatible-with: 0
-
-
-# -------------------------- #
-#            Links           #
-# -------------------------- #
-status-url: https://status.cloud.google.com/
-sign-up: https://goo.gl/KSnUR2
-documentation: https://cloud.google.com/bigquery/docs/
-pricing: https://cloud.google.com/bigquery/pricing
-storage-pricing: https://cloud.google.com/storage/pricing
-price-calculator: https://cloud.google.com/products/calculator/
-what-is-bq: https://cloud.google.com/bigquery/what-is-bigquery
-setup-project: https://support.google.com/cloud/answer/6251787
-cost-control: https://cloud.google.com/bigquery/cost-controls
-enable-billing: https://support.google.com/cloud/answer/6288653?hl=en
-
+## Resource links can be found in _data/destinations/links.yml
 
 # -------------------------- #
 #      Overview Content      #

@@ -35,7 +35,7 @@ intro: |
   {% capture account-creation %}
   The email address you used to sign into Stitch will be used to create your Panoply data warehouse.
 
-  Additionally, Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply destination, [reach out to Panoply]({{ destination.main-site }}){:target="new"}.
+  Additionally, Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply destination, [reach out to Panoply]({{ site.data.destinations.resource-links[destination.type]main-site }}){:target="new"}.
   {% endcapture %}
 
   {% include note.html first-line="**Panoply account creation and management**" content=account-creation %}
@@ -68,7 +68,7 @@ steps:
       The Panoply destination connection settings will automatically populate in the {{ app.page-names.dw-settings }} page. If you need to update the settings at any point, click the {{ app.menu-paths.destination-settings }}.
 
 next-steps: |
-  After the account is created, you can manage your Panoply settings by signing into [Panoply](https://www.panoply.io/){:target="new"}.
+  After the account is created, you can manage your Panoply settings by signing into [Panoply]({{ site.data.destinations.resource-links[destination.type]main-site }}){:target="new"}.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","panoply" | first %}

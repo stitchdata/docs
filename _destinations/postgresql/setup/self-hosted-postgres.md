@@ -36,7 +36,7 @@ requirements:
   - item: |
       **An up-and-running Postgres instance.** Instructions for installing {{ destination.display_name }} and creating an initial database are outside the scope of this tutorial; our instructions assume that you have a {{ destination.display_name }} instance up and running. For help installing and getting started with {{ destination.display_name }}, refer to the [Postgres documentation](https://www.postgresql.org/docs/).
   - item: |
-      **A {{ destination.display_name }} instance running on {{ destination.supported-versions }} or above.** While this isn't something that Stitch strictly enforces, we recommend keeping your [version current as a best practice](http://www.postgresql.org/support/versioning/).
+      **A {{ destination.display_name }} instance running on {{ site.data.destinations.reference[destination.type]stitch-details-info.supported-versions }} or above.** While this isn't something that Stitch strictly enforces, we recommend keeping your [version current as a best practice](http://www.postgresql.org/support/versioning/).
   - item: |
       **`createdb` permissions in your {{ destination.display_name }} instance.** This is required to create a database for Stitch.
 

@@ -4,14 +4,13 @@
 # -------------------------- #
 title: data.world Destination
 permalink: /destinations/data-world
-layout: destination-overview
-tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
 summary: &summary "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
 
 content-type: "destination-overview"
 
 toc: true
+layout: general
 destination: true
 data-loading: false
 
@@ -19,78 +18,38 @@ data-loading: false
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
+
 display_name: "data.world"
 type: "data-world"
 db-type: "s3"
-pricing_tier: "standard"
-status: "Released"
-description: *summary
-pricing_model: "Varies" ## provider model
-free_option: "Yes"
-fully-managed: true
-pricing_notes: "Data.world plans vary depending on the number of private projects/data sets, size limits per project/dataset, external integrations, and total number of team members that can belong to an account. All plans, however, include unlimited public projects/datasets, API access, joins, queries, activity alerts, and other standard features." 
-icon: /images/destinations/icons/data-world.svg
 
-
-# -------------------------- #
-#           Support          #
-# -------------------------- #
-replication-methods: ""
-connection-methods: "SSH, SSL"
-supported-versions: "n/a"
-
-nested-structure-support: true ## if true, natively supports nested structures
-case: "Case Insensitive"
-table-name-limit: "n/a" ## max # of characters
-column-name-limit: "n/a" ## max # of characters
-column-limit: "" ## max # of columns allowed in tables
-timestamp-range: ""
-timezones:
-  supported: false
-  storage: ""
-varchar-limit: "" ## max width for varchars
-decimal-limit: ""
-decimal-range: ""
-reserved-words: ""
-
-
-# -------------------------- #
-#    Incompatible Sources    #
-# -------------------------- #
-incompatible-with: 0
-
-
-
-# -------------------------- #
-#            Links           #
-# -------------------------- #
-status-url: https://dataworld.statuspage.io/
-sign-up: &data-world https://data.world/
-main-site: *data-world
-documentation: https://help.data.world/hc/en-us
-pricing: https://data.world/pricing
-
+## Resource links can be found in _data/destinations/links.yml
 
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
 
-introduction: "{{ destination.description | flatify | markdownify }}"
+intro: |
+  {{ destination.summary }}
+
 
 sections:
-  - title: "pricing"
+  - title: "Pricing"
+    anchor: "pricing"
     content: |
-      {{ destination.pricing_notes | flatify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify }}
 
       While Stitch is compatible with all of {{ destination.display_name }} plans, keep in mind that the number of private projects/datasets and the size maximum of those projects varies by plan.
 
-      For more information on {{ destination.display_name }}'s plans, refer to their [pricing page]({{ destination.pricing }}).
+      For more information on {{ destination.display_name }}'s plans, refer to their [pricing page]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"}.
 
-  - title: "setup"
+  - title: "Setup"
+    anchor: "setup"
     content: |
       With just a few clicks, you can [connect your {{ destination.display_name }} account to Stitch]({{ link.destinations.setup.data-world | prepend: site.baseurl }}) and get the data flowing.
 
-  - title: "replication"
+  - title: "Replication"
+    anchor: "replication"
     content: |
       A Stitch replication job consists of three stages: Extraction, Preparation, and Loading.
 
@@ -130,13 +89,8 @@ sections:
 
           **Note**: Extraction Logs and Loading Reports are only available for certain integrations. Refer to the documentation linked above for info on supported integrations.
 
-    # subsections:
-    #   - title: "De-duping and Upserting Data"
-    #     anchor: "de-dupe-and-upserts"
-    #     content: |
-
-
-  - title: "schema"
+  - title: "Schema"
+    anchor: "schema"
     content: |
       When {{ destination.display_name }} retrieves an integration's data from the Amazon S3 bucket, it will be loaded into your {{ destination.display_name }} account as a project with child datasets.
 
@@ -157,7 +111,6 @@ sections:
         anchor: "nested-data-structures"
         content: |
           All replicated data is stored as JSON, both in Amazon S3 and in {{ destination.display_name }} after the final load is complete. This means that nested structures are stored intact.
-
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}

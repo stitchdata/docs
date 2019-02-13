@@ -12,61 +12,35 @@ summary: "Panoply is a fully managed data warehouse service that will spin up a 
 content-type: "destination-overview"
 
 toc: true
+layout: general
 destination: true
 
 
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
+
 display_name: "Panoply"
 type: "panoply"
-db-type: "Analytic"
-pricing_tier: "standard" ## for Stitch
-status: "Released"
-description: "Panoply is a fully managed data warehouse service that will spin up a Redshift instance in just a few clicks. With Panoply, you can use your favorite analysis, SQL, and visualization tools just like you would if you were creating a Redshift data warehouse on your own."
 port: 5439
-pricing_model: "Storage" ## provider model
-free_option: "Yes (trial)"
-fully-managed: true
-pricing_notes: "Panoply charges based on the amount of data stored and offers several plan options for your needs. [Refer to their pricing page for more information](https://panoply.io/pricing/)."
-icon: /images/destinations/icons/panoply.svg
 
 
 # -------------------------- #
 #           Support          #
 # -------------------------- #
 
-
 ## See _data/destinations/reference/amazon-s3.yml for
 ## info about connection support, Stitch support,
 ## data limitations, reserved words, etc.
 
-
-# -------------------------- #
-#    Incompatible Sources    #
-# -------------------------- #
-incompatible-with: 1
-## MongoDB
-## Sometimes Incompatible
-## Deeply nested data in tables may exceed the 1,600 column limit.
-
-
-# -------------------------- #
-#            Links           #
-# -------------------------- #
-main-site: http://www.panoply.io/
-contact: http://panoply.io/contact/
-pricing: https://panoply.io/pricing/
-documentation: http://panoply.io/documentation/
-status-url: "https://twitter.com/panoplyio?lang=en"
-
+## Resource links can be found in _data/destinations/links.yml
 
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
 
-introduction: |
-  {{ destination.description | flatify | markdownify }}
+intro: |
+  {{ destination.summary | flatify | markdownify }}
 
   If you're looking for a cost-effective, no-effort way to test out Stitch or get started consolidating your data, {{ destination.display_name }} is your best bet.
 
@@ -80,7 +54,7 @@ sections:
       - Unlimited user accounts
       - Automatic maintenance, vacuuming, and backups
 
-      {{ destination.pricing_notes | flatify | markdownify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify | markdownify }}
 
   - title: "Setup"
     anchor: "stitch-details-setup-info"
@@ -130,7 +104,6 @@ sections:
     anchor: "compare-destinations"
     content: |
       **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
-
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}

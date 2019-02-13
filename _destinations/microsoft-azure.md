@@ -1,8 +1,4 @@
 ---
-
-## See the following for info about what's in this template:
-## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-overview/
-
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
@@ -16,6 +12,7 @@ summary: &summary |
 content-type: "destination-overview"
 
 toc: true
+layout: general
 destination: true
 data-loading: false
 
@@ -23,24 +20,11 @@ data-loading: false
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
+
 display_name: "Azure SQL Data Warehouse"
 type: "microsoft-azure"
 db-type: "mssql"
-pricing_tier: "standard" ## for Stitch
-
-status: "Released"
-description: *summary
 port: 1433
-pricing_model: "Usage" ## provider model
-free_option: "Free (plan & trial)"
-fully-managed: true
-pricing_notes: |
-  {{ destination.display_name }} bases their pricing on your compute and storage usage. Compute usage is charged using an hourly rate, meaning you'll only be billed for the hours your data warehouse is active. Compute usage is billed in one hour increments.
-
-  Storage charges include the size of your primary database and seven days of incremental snapshots. Microsoft Azure rounds charges to the nearest terabyte (TB). For example: If the data warehouse is 1.5 TB and you have 100 GB of snapshots, your bill will be for 2 TB of data.
-
-  Refer to [Microsoft's documentation](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/gen2/){:target="new"} for more info and examples.
-icon: /images/destinations/icons/microsoft-azure.svg
 
 
 # -------------------------- #
@@ -51,39 +35,20 @@ icon: /images/destinations/icons/microsoft-azure.svg
 ## info about connection support, Stitch support,
 ## data limitations, reserved words, etc.
 
-
-# -------------------------- #
-#    Incompatible Sources    #
-# -------------------------- #
-
-incompatible-with: 0
-
-
-# -------------------------- #
-#            Links           #
-# -------------------------- #
-status-url: https://azure.microsoft.com/en-us/status/
-sign-up: https://azure.microsoft.com/en-us/
-documentation: https://docs.microsoft.com/en-us/azure/sql-database/
-pricing: https://azure.microsoft.com/en-us/pricing/details/sql-database/managed/
-price-calculator: "https://azure.microsoft.com/en-us/pricing/calculator/?service=sql-database"
-database-object-limits: "https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#database-objects"
+## Resource links can be found in _data/destinations/links.yml
 
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
 
-introduction: |
-  {{ destination.description | flatify | markdownify }}
+intro: |
+  {{ destination.summary | flatify }}
 
 sections:
-  - content: |
-      {{ destination.summary | flatify }}
-
   - title: "Pricing"
     anchor: "pricing"
     content: |
-      {{ destination.pricing_notes | flatify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify }}
 
   - title: "Setup info"
     anchor: "stitch-details-setup-info"

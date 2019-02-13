@@ -43,7 +43,7 @@
                                 This is the version of PostgreSQL the database will run on.
                             </td>
                             <td valign="top">
-                                Select your version, but keep in mind that <strong>Stitch only supports versions {{ destination.supported-versions }}.</strong>
+                                Select your version, but keep in mind that <strong>Stitch only supports versions {{ site.data.destinations.reference[destination.type]stitch-details-info.supported-versions | strip }}.</strong>
                             </td>
                         </tr>
                         <tr>

@@ -2,16 +2,16 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
+
 title: Amazon S3 Destination
 permalink: /destinations/amazon-s3/
-layout: destination
-tags: [bigquery_destination]
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3
 summary: &summary "Amazon S3 is a simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
 
 content-type: "destination-overview"
 
 toc: true
+layout: general
 destination: true
 data-loading: false
 
@@ -22,21 +22,13 @@ enterprise-cta:
   copy: |
     As part of an Enterprise plan, you can set up configurable webhooks to notify you when fresh data has finished loading into your destination. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
 
+
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
 
 display_name: "Amazon S3"
 type: "amazon-s3"
-db-type: "s3"
-pricing_tier: "standard"
-status: "Released"
-description: *summary
-pricing_model: "Storage"
-free_option: "Yes (plan & trial)"
-fully-managed: false
-pricing_notes: "{{ destination.display_name }} pricing is based on two factors: the amount of data stored in and location (region) of your {{ destination.display_name }} bucket."
-icon: /images/destinations/icons/amazon-s3.svg
 
 
 # -------------------------- #
@@ -47,64 +39,21 @@ icon: /images/destinations/icons/amazon-s3.svg
 ## info about connection support, Stitch support,
 ## data limitations, etc.
 
-
-# -------------------------- #
-#    Object Key Elements     #
-# -------------------------- #
-key-elements:
-  - name: "integration_name"
-    required: true
-  - name: "table_name"
-    required: true
-  - name: "table_version"
-    required: true
-  - name: "timestamp_loaded"
-    required: true
-    description: " - <strong>Note</strong>: This is a Unix timestamp."
-  - name: "year_loaded"
-    required: false
-  - name: "day_loaded"
-    required: false
-  - name: "month_loaded"
-    required: false
-  - name: "hour_loaded"
-    required: false
-  - name: "Arbitrary text"
-    required: false
-
-default-key: "[integration_name]/[table_name]/[table_version]_[timestamp_loaded].[csv|jsonl]"
-example-key-1: "salesforce-prod/account/1_1519235654474.[csv|jsonl]"
-example-key-2: "salesforce-prod/opportunity/1_1519327555000.[csv|jsonl]"
-
-# -------------------------- #
-#    Incompatible Sources    #
-# -------------------------- #
-
-incompatible-with: 0
-
-# -------------------------- #
-#            Links           #
-# -------------------------- #
-status-url: https://status.aws.amazon.com/
-sign-up: https://aws.amazon.com/s3/
-documentation: https://aws.amazon.com/documentation/s3/
-pricing: https://aws.amazon.com/s3/pricing/
-price-calculator: http://aws.amazon.com/calculator/
-
+## Resource links can be found in _data/destinations/links.yml
 
 # -------------------------- #
 #      Overview Content      #
 # -------------------------- #
 
-introduction: "{{ destination.description | flatify }}"
+intro: "{{ destination.summary | flatify }}"
 
 sections:
   - title: "Pricing"
     anchor: "pricing"
     content: |
-      {{ destination.pricing_notes | flatify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify }}
 
-      To learn more about pricing, refer to Amazon's S3 [pricing page]({{ destination.pricing }}). **Note**: Remember to select the correct region to view accurate pricing.
+      To learn more about pricing, refer to Amazon's S3 [pricing page]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"}. **Note**: Remember to select the correct region to view accurate pricing.
 
   - title: "Setup info"
     anchor: "stitch-details-setup-info"
@@ -173,9 +122,9 @@ sections:
 
               Because of this loading strategy, querying may require a different strategy than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
 
-              #### Example: Incremental Replication
+              #### Example: Key-based Incremental Replication
 
-              Below is an example of how [incrementally replicated tables]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication"}}) will be loaded into {{ destination.display_name }}:
+              Below is an example of how tables using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) will be loaded into {{ destination.display_name }}:
 
               ![Example {{ destination.display_name }} data loading diagram]({{ site.baseurl }}/images/destinations/append-only-s3.png)
 
@@ -199,12 +148,12 @@ sections:
 
           ```shell
           /* Default Key */
-          {{ destination.default-key }}
+          {{ site.data.ui.destination-settings[destination.type]object-keys.default }}
 
 
           /* Example Object Keys */
-            - {{ destination.example-key-1 }}
-            - {{ destination.example-key-2 }}
+            - {{ site.data.ui.destination-settings[destination.type]object-keys.example-1 }}
+            - {{ site.data.ui.destination-settings[destination.type]object-keys.example-2 }}
           ```
 
           As previously mentioned, the S3 Key also determines the folder structure of replicated data. In the AWS console, the folder structure for the `salesforce-prod` integration would look like the following:
@@ -280,33 +229,6 @@ sections:
     anchor: "compare-destinations"
     content: |
       **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
-
-  # - title: "Webhook loading notifications"
-  #   anchor: "webhook-loading-notifications"
-  #   content: |
-  #     {% include enterprise-cta.html %}
-  #     Webhooks allow external services to be notified when an event happens. If you choose, you can configure a webhook for Stitch to notify you when data is successfully loaded into your bucket.
-
-  #     Webhook notifications are sent on a per-integration basis. This means that every time Stitch successfully loads data for an integration, a summary webhook will be sent to the URL you define.
-
-  #   subsections:
-  #     - title: "Sample use cases"
-  #       anchor: "webhook-notification-sample-use-cases"
-  #       content: |
-  #         Enabling loading notifications ensures that you and your team are alerted when fresh data is available in {{ destination.display_name }}. For example, you could:
-
-  #         - Set up a webhook Zap in Zapier that sends a Slack notification whenever data is loaded for a specific integration
-  #         - Use loading notifications to kick off an internal process, such as [DBT](https://www.getdbt.com/) or a script
-
-  #     - title: "Webhook request body"
-  #       anchor: "webhook-body"
-  #       content: |
-  #         {% include destinations/overviews/webhook-loading-notification.html type="request-body" %}
-
-  #     - title: "Webhook request body fields"
-  #       anchor: "webhook-request-body-fields"
-  #       content: |
-  #         {% include destinations/overviews/webhook-loading-notification.html type="request-body-fields" %}
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}

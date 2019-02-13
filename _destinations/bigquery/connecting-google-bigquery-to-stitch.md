@@ -21,11 +21,11 @@ type: "bigquery"
 
 requirements:
   - item: |
-      **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
+      **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
   - item: |
       **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.
   - item: |
-      **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
+      **Access to a project where [billing is enabled]({{ site.data.destinations.resource-links[destination.type]enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
 
 
 # -------------------------- #
@@ -36,12 +36,12 @@ steps:
   - title: "Create a GCP account"
     anchor: "create-gcp-account"
     content: |
-      This one's easy. Simply [sign up here]({{ destination.sign-up }}){:target="new"} to get started.
+      This one's easy. Simply [sign up here]({{ site.data.destinations.resource-links[destination.type]sign-up }}){:target="new"} to get started.
 
   - title: "Create a GCP project and enable billing"
     anchor: "create-gcp-project-enable-billing"
     content: |
-      Next, create a new GCP project to house your BigQuery data warehouse by following [these instructions]({{ destination.setup-project }}).
+      Next, create a new GCP project to house your BigQuery data warehouse by following [these instructions]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="new"}.
 
       **Be sure to enable billing for the account and attach a credit card, even if you're using the free trial option.** If billing isn't enabled, Stitch will encounter issues when loading data into your data warehouse.
 

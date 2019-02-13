@@ -154,7 +154,7 @@ sections:
       <strong>{{ destination.display_name }}</strong>
       </td>
       <td class="attribute-description">
-      {{ destination.pricing_notes | flatify | markdownify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify | markdownify }}
       {% if destination.type == "bigquery" %}
       To learn more about how Stitch may impact your BigQuery costs, <a href="{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}">click here</a>.
       {% endif %}

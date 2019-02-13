@@ -80,11 +80,11 @@ steps:
     anchor: "connect-new-bigquery-destination"
     content: |
       {% capture permissions %}
-      1. **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ destination.setup-project }}){:target="_blank"}**.
+      1. **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="_blank"}**.
 
       2. **Admin permissions for BigQuery and Google Cloud Storage (GCS)**. This includes the BigQuery Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into BigQuery.
 
-      3. **Access to a project where [billing is enabled]({{ destination.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
+      3. **Access to a project where [billing is enabled]({{ site.data.destinations.resource-links[destination.type]enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using BigQuery's free trial, billing must still be enabled for Stitch to load data.
       {% endcapture %}
 
       {% include important.html first-line="**Requirements for connecting BigQuery:**" content=permissions %}
