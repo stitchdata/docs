@@ -30,7 +30,7 @@ sections:
       - title: "New Stitch clients"
         anchor: "generate-access-token-new-stitch-client"
         content: |
-          As an API client, you can create a new Stitch client account with the [Create Account endpoint]({{ api.core-objects.accounts.create.section }}):
+          As an API client, you can create a new Stitch client account with the [Create Account endpoint]({{site.data.connect.core-objects.accounts.create.anchor }}):
 
           ```curl
           curl -X {{ api.core-objects.accounts.create.method | upcase }} {{ api.core-objects.accounts.create.name | prepend: api.base-url | flatify | strip_newlines }}
