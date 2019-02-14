@@ -1,0 +1,52 @@
+<ul id="profileTabs" class="nav nav-tabs">
+    {% for destination in site.data.dataloading.examples[include.example-type]destinations %}
+        {% if forloop.first == true %}
+            <li class="active">
+        {% else %}
+            <li>
+        {% endif %}
+            <a href="#{{ include.example-type }}--{{ destination.name | replace: " ","-" | downcase }}" data-toggle="tab">{{ destination.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+<div class="tab-content">
+    {% for destination in site.data.dataloading.examples[include.example-type]destinations %}
+        {% if forloop.first == true %}
+            <div role="tabpanel" class="tab-pane active" id="{{ include.example-type }}--{{ destination.name | replace: " ","-" | downcase }}">
+        {% else %}
+            <div role="tabpanel" class="tab-pane" id="{{ include.example-type }}--{{ destination.name | replace: " ","-" | downcase }}">
+        {% endif %}
+
+            {{ site.data.dataloading.examples[include.example-type]example-tab-copy | flatify | markdownify }}
+
+        <!-- COPY DEPENDENT ON IF TABLE STRUCTURE ALTERATION OCCURS -->
+            {% case destination.table-is-altered %}
+                {% when true %}
+                    <p>The structure of the <code>{{ site.data.dataloading.examples.example-table.name }}</code> table would be altered to the following:</p>
+                {% when false %}
+                    <p>The structure of the <code>{{ site.data.dataloading.examples.example-table.name }}</code> would remain unchanged:</p>
+            {% endcase %}
+
+                    <table class="attribute-list">
+                        <tr>
+                            <td width="25%; fixed" align="right">
+                                <strong>Column name</strong>
+                            </td>
+                            <td>
+                                <strong>Data type</strong>
+                            </td>
+                        </tr>
+                        {% for column in destination.new-structure %}
+                            <tr>
+                                <td width="25%; fixed" align="right">
+                                    {{ column.name }}
+                                </td>
+                                <td>
+                                    {{ column.type | upcase }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+            </div>
+    {% endfor %}
+</div>

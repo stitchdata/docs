@@ -1,0 +1,18 @@
+# ---------------------------- #
+#      SNOWFLAKE DESTINATION   #
+# ---------------------------- #
+
+## This file contains the properties required to successfully set up
+## an Snowflake destination in Stitch.
+
+snowflake:
+  - field: *host
+    copy: "Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`"
+  - field: *username
+    copy: *username-copy
+  - field: *password
+    copy: *password-copy
+  - field: *database
+    copy: *database-copy
+  - field: "Warehouse"
+    copy: "Enter the name of the {{ destination.display_name }} warehouse that you created for Stitch."

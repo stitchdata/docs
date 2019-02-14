@@ -128,7 +128,7 @@ varchar-widening:
 varchar-max-size:
   heading: "a VARCHAR column exceeds the size maximum?"
   anchor: "varchar-max-size"
-  default-copy: "A `VARCHAR` column is replicated with data that exceeds {{ destination.display_name }}'s size limit of `{{ destination.varchar-limit }}`."
+  default-copy: "A `VARCHAR` column is replicated with data that exceeds {{ destination.display_name }}'s size limit of `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}`."
   default-result: "Stitch will stop processing data for the table."
   categories: "data-types, columns"
 
@@ -163,7 +163,7 @@ timestamps-out-of-range:
   anchor: "timestamps-out-of-range"
   default-copy: "A column contains timestamp data that is outside {{ destination.display_name }}'s supported range."
   default-result: "{{ destination.display_name }} will reject the records that fall outside the supported range."
-  default-troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s timestamp range of {{ destination.timestamp-range }}."
+  default-troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s timestamp range of {{ site.data.destinations.reference[destination.type]data-limit-info.date-and-time.timestamp-range }}."
   categories: "data-types, columns"
 
 # -------------------------- #
@@ -183,7 +183,7 @@ integer-out-of-range:
   anchor: "integer-out-of-range"
   default-copy: "A column contains integer data that is outside {{ destination.display_name }}'s supported range."
   default-result: "{{ destination.display_name }} will reject the records that fall outside the supported range."
-  default-troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination.integer-limit }}."
+  default-troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ site.data.destinations.reference[destination.type]data-limit-info.integer-range }}."
   categories: "data-types, columns"
 
 ## Column contains decimal data
@@ -199,7 +199,7 @@ decimals-out-of-range:
   anchor: "decimals-out-of-range"
   default-copy: "A column contains decimal data that is outside {{ destination.display_name }}'s supported range."
   default-result: "{{ destination.display_name }} will reject the records that fall outside the supported range."
-  default-troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination.decimal-limit }}."
+  default-troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ site.data.destinations.reference[destination.type]data-limit-info.decimal.precision }}."
   categories: "data-types, columns"
 
 
@@ -216,7 +216,7 @@ table-name-limit:
   default-copy: "A table name contains more characters than allowed by {{ destination.display_name }}."
   default-result: "{{ destination.display_name }} will reject all data for the table."
   default-troubleshooting: |
-    If possible, change the table name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination.table-name-limit }} characters.
+    If possible, change the table name in the source to be less than {{ destination.display_name }}'s character limit of {{ site.data.destinations.reference[destination.type]object-name-limit-info.tables }} characters.
   categories: "tables"
 
 ## Table contains too many columns
@@ -225,7 +225,7 @@ column-table-limit:
   anchor: "max-number-of-columns"
   default-copy: "A table arrives with more columns than {{ destination.display_name }} allows."
   default-result: "{{ destination.display_name }} will reject all data for the table."
-  default-troubleshooting: "If possible, unsync some columns to allow Stitch to load data into {{ destination.display_name }} for the table. {{ destination.display_name }} has a limit of {{ destination.column-limit }} columns per table."
+  default-troubleshooting: "If possible, unsync some columns to allow Stitch to load data into {{ destination.display_name }} for the table. {{ destination.display_name }} has a limit of {{ site.data.destinations.reference[destination.type]table-limit-info.max-columns-per-table }} columns per table."
   categories: "tables, columns"
 
 
@@ -474,7 +474,7 @@ column-name-limit:
   default-copy: "A column name contains more characters than allowed by {{ destination.display_name }}."
   default-result: "{{ destination.display_name }} will reject columns with names that exceed the column character limit. Other columns in the table will persist to {{ destination.display_name }}."
   default-troubleshooting: |
-    If possible, change the column name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination.column-name-limit }} characters.
+    If possible, change the column name in the source to be less than {{ destination.display_name }}'s character limit of {{ site.data.destinations.reference[destination.type]object-name-limit-info.columns }} characters.
   categories: "columns"
 
 # -------------------------------------------- #

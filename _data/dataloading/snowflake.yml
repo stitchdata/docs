@@ -166,7 +166,7 @@ scenarios:
     result: |
       {{ destination.display_name }} will default to using the maximum length: `[VARCHAR-LIMIT]`
 
-      Note that `VARCHAR` columns only consume storage for the actual amount of stored data. This means that for a 1-character string in a `{{ destination.varchar-limit }}` column, the storage used is equivalent to one character.
+      **Note**: `VARCHAR` columns only consume storage for the actual amount of stored data. This means that for a 1-character string in a `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}` column, the storage used is equivalent to one character.
 
       For more info on full-length `VARCHAR` declarations and performance in {{ destination.display_name }}, refer to [{{ destination.display_name }}'s documentation](https://docs.{{ destination.display_name }}.net/manuals/sql-reference/data-types-text.html#varchar){:target="_blank"}.
 
@@ -178,7 +178,7 @@ scenarios:
   - id: varchar-widening
     summary: default    
     result: |
-      No widening will occur, as Stitch defaults to storing `VARCHAR` data using {{ destination.display_name }}'s maximum length of `{{ destination.varchar-limit }}`.
+      No widening will occur, as Stitch defaults to storing `VARCHAR` data using {{ destination.display_name }}'s maximum length of `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}`.
     
     rejectable: false
     error: none
@@ -257,7 +257,7 @@ scenarios:
       ```
       integer out of range for {{ destination.display_name }} on [INTEGER]
       ```
-    troubleshooting: &decimal-troubleshooting "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination.decimal-limit }}."
+    troubleshooting: &decimal-troubleshooting "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimal data."
 
 ## Column contains decimal data
   - id: decimal-storage

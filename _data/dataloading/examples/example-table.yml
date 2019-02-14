@@ -1,0 +1,54 @@
+# ---------------------------- #
+# TABLE STRUCTURE FOR EXAMPLES #
+# ---------------------------- #
+
+name: "customers"
+
+columns:
+  - name: "id"
+    type: "bigint"
+    only-new-column-example: false
+    second-job:
+      mixed-data-types: "bigint"
+      varchar-widening: "bigint"
+      new-columns: "bigint"
+    destination-table:
+      new-columns: "bigint"
+
+  - name: "name"
+    type: "string"
+    only-new-column-example: false
+    second-job:
+      mixed-data-types: "string"
+      varchar-widening: "string"
+      new-columns: "string"
+    destination-table:
+      new-columns: "string"
+
+  - name: "age"
+    type: "bigint"
+    only-new-column-example: false
+    second-job:
+      mixed-data-types: "double"
+      varchar-widening: "bigint"
+      new-columns: "bigint"
+    destination-table:
+      new-columns: "bigint"
+
+  - name: "has_magic"
+    type: "boolean"
+    only-new-column-example: false
+    second-job:
+      mixed-data-types: "string"
+      varchar-widening: "boolean"
+      new-columns: "boolean"
+    destination-table:
+      new-columns: "boolean"
+
+  # - name: "type"
+  #   type: "string"
+  #   only-new-column-example: true
+  #   second-job:
+  #     new-columns: "string"
+  #   destination-table:
+  #     new-columns: "string"

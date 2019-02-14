@@ -1,25 +1,51 @@
 ---
-title: Connecting a Google CloudSQL PostgreSQL Data Warehouse to Stitch
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
+title: Connecting a Google CloudSQL PostgreSQL Destination to Stitch
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, cloudsql postgres, cloudsql postgresql, cloudsql data warehouse
 
 permalink: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data-warehouse
 redirect_from: /destinations/postgresq/connecting-a-google-cloudsql-postgresql-data-warehouse
 
-summary: "Ready to spin up a Google CloudSQL PostgreSQL data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+summary: "Ready to spin up a Google CloudSQL PostgreSQL destination and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
 
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
+
 display_name: "CloudSQL PostgreSQL"
 type: "postgres"
 
+
 # -------------------------- #
-#      Setup Requirements    #
+#        Introduction        #
 # -------------------------- #
 
-requirements-list:
+intro: |
+  In this tutorial, we’ll walk you through how to spin up a Google CloudSQL PostgreSQL instance and then connect it to Stitch as a destination.
+
+  For more info on Google CloudSQL's features and limitations, [check out the official Google documentation](https://cloud.google.com/sql/docs/postgres/){:target="new"}.
+
+
+# -------------------------- #
+#        Requirements        #
+# -------------------------- #
+
+requirements:
   - item: |
       **Create or select a Cloud Platform project to house the instance**. [This can be done in the Projects page in the Google Console](https://console.cloud.google.com/project).
   - item: |
@@ -28,10 +54,10 @@ requirements-list:
       **Enable the CloudSQL Administration API** for the [Cloud Platform project](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin).
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Create the CloudSQL instance"
     anchor: "create-cloudsql-instance"
     content: |
@@ -51,9 +77,24 @@ setup-steps:
     content: |
       **This step is optional**. If you want to use the instance's default database (`postgres`), you can skip this step.
 
-      {% include shared/google-cloud-platform/create-database.html %}
+      <ul id="cloudsqlCreateDatabaseTabs" class="nav nav-tabs">
+          <li class="active"><a href="#console" data-toggle="tab">Console</a></li>
+          <li><a href="#psql" data-toggle="tab">psql Client</a></li>
+      </ul>
+      <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="console" markdown="1">
+      1. In the CloudSQL Instances page, click the **Databases** tab.
+      2. In the Databases tab, click **New database**.
+      3. In the window that displays, enter a name for the database in the **Name** field. Note that Google clone a template database to create the new database - we're going to use the template as-is, but you can change the settings afterwards if you like.
+      4. Click **Create**.
+      </div>
 
-  - title: "Configure security & access settings"
+      <div role="tabpanel" class="tab-pane" id="psql" markdown="1">
+      {% include destinations/postgres/create-database.html %}
+      </div>
+      </div>
+
+  - title: "Configure security and access settings"
     anchor: "configure-security-access-settings"
     content: |
       Next, you'll configure the access settings for the instance. Google access control has two levels: at the instance and at the database.
@@ -77,16 +118,20 @@ setup-steps:
       6. Repeat steps 3-5 for each of Stitch's IP addresses.
       7. Click **Save** to update the instance.
 
-  - title: "create db user"
+  - title: "Create a {{ destination.display_name }} Stitch user"
+    anchor: "create-stitch-user"
     content: |
+      {% include note.html type="single-line" content="**Note**: You must have the ability to create a user and grant privileges to complete this step." %}
+
       Configuring the second part of the access control settings requires creating a database user for Stitch. This guide will use the psql method to create the user, which requires the use of a SQL client.
 
       {% assign clean-database-name = page.display_name | downcase | replace:" ","-" %}
       {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
     content: |
-      The last step is to locate the instance's connection details and enter them into Stitch.
+      To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
     substeps:
       - title: "Locating the connection details in the Google Console"
         anchor: "locate-connection-details-in-google"
@@ -98,12 +143,11 @@ setup-steps:
              ![Google CloudSQL PostgreSQL IPv4 address field, which contains the hostname info.]({{ site.baseurl }}/images/destinations/gcp-instance-properties.png)
 
           4. Copy and paste the IPv4 address into a text file **or** leave this page open and open your Stitch account in another tab.
+
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include destinations/setup/destination-settings.html %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}
-
-In this tutorial, we’ll walk you through how to spin up a Google CloudSQL PostgreSQL instance and then connect it to Stitch as a destination, or data warehouse.
-
-For more info on Google CloudSQL's features and limitations, [check out the official Google documentation](https://cloud.google.com/sql/docs/postgres/).
-
----

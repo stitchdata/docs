@@ -10,6 +10,7 @@ summary: "If you're new to data warehousing or want to see how Stitch's destinat
 content-type: "destination-general"
 
 toc: true
+layout: general
 type: "all"
 destination: false
 
@@ -38,7 +39,7 @@ sections:
 
       The remaining sections of this guide expand on the information in these tabs.
 
-      {% include destinations/destination-rollup.html %}
+      {% include destinations/overviews/choosing-a-destination-rollup.html %}
 
   - title: "Getting started, now"
     anchor: "getting-started-now"
@@ -153,7 +154,7 @@ sections:
       <strong>{{ destination.display_name }}</strong>
       </td>
       <td class="attribute-description">
-      {{ destination.pricing_notes | flatify | markdownify }}
+      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify | markdownify }}
       {% if destination.type == "bigquery" %}
       To learn more about how Stitch may impact your BigQuery costs, <a href="{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}">click here</a>.
       {% endif %}

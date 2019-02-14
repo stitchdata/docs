@@ -105,9 +105,12 @@ cloudsql-postgresql:
 
 heroku:
   - copy: "Connect to your {{ page.display_name }} instance using a SQL client and the credentials you retrieved in Step 2."
-  - copy: "After connecting, you'll assign the `CREATE` permissions to the user. This allows Stitch to create integration schemas and tables in the specified database."
+  - copy: |
+      After connecting, you'll assign the `CREATE` permissions to the user. This allows Stitch to create integration schemas and tables in the specified database.
+
+      Run the command below, replacing `<heroku_database_user>` with the database username you retrieved in [Step 2](#locate-connection-settings).
     command: |
-      {{ common.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","database_user" }}
+      {{ common.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","heroku_database_user" }}
 
 
 # -------------------------- #

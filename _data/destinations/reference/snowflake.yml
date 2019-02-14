@@ -25,6 +25,10 @@ destination-details-info:
     true
   pricing-model: &pricing-model |
     Usage
+  pricing-details: &pricing-details |
+    Snowflake pricing is based on two factors: the volume or data stored in your Snowflake destination and the amount of compute usage (the time the server runs) in seconds. 
+
+    Snowflake offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about Snowflake plans and pricing here]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"}.
   free-option: &free-option |
     No
 
@@ -80,8 +84,8 @@ replication-info:
     supported: &nested-structure-support |
       true
 
-  # incompatible-sources: &incompatible-sources |
-  #   TODO
+## Refer to _data/destinations/reference/incompatibilities.yml
+## for incompatible sources
 
 # -------------------------- #
 #         Limitations        #
@@ -228,11 +232,10 @@ attributes:
 
       You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. More info can be found in [{{ destination.display_name }}'s documentation](https://docs.snowflake.net/manuals/sql-reference/functions-semistructured.html){:target="new"}.
 
-  # - id: "incompatible-sources"
-  #   categories: "replication"
-  #   value: *incompatible-sources
-  #   description: |
-  #     TODO
+  - id: "incompatible-sources"
+    categories: "replication"
+    important: true
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
 
   - id: "case-sensitivity"
     categories: "object-name-limits"

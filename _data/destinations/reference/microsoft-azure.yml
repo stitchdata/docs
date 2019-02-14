@@ -25,6 +25,13 @@ destination-details-info:
     true
   pricing-model: &pricing-model |
     Usage
+  pricing-details: &pricing-details |
+    {{ destination.display_name }} bases their pricing on your compute and storage usage. Compute usage is charged using an hourly rate, meaning you'll only be billed for the hours your data warehouse is active. Compute usage is billed in one hour increments.
+
+      Storage charges include the size of your primary database and seven days of incremental snapshots. Microsoft Azure rounds charges to the nearest terabyte (TB). For example: If the data warehouse is 1.5 TB and you have 100 GB of snapshots, your bill will be for 2 TB of data.
+
+      Refer to [Microsoft's documentation]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"} for more info and examples.
+
   free-option: &free-option |
     Yes (plan & trial)
 
@@ -77,8 +84,8 @@ replication-info:
     supported: &nested-structure-support |
       false
 
-  incompatible-sources: &incompatible-sources |
-    None
+## Refer to _data/destinations/reference/incompatibilities.yml
+## for incompatible sources
 
 # -------------------------- #
 #         Limitations        #
@@ -230,9 +237,10 @@ attributes:
 
       To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
-  # - id: "incompatible-sources"
-  #   categories: "replication"
-  #   value: *incompatible-sources
+  - id: "incompatible-sources"
+    categories: "replication"
+    important: true
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
 
   - id: "case-sensitivity"
     categories: "object-name-limits"

@@ -1,25 +1,57 @@
 ---
-title: Connecting a Microsoft Azure SQL Data Warehouse to Stitch via SSH tunnel
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
+title: Connecting a Microsoft Azure SQL Data Warehouse Destination to Stitch via SSH tunnel
 permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
-tags: [microsoft-azure_destination]
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
 summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account via an SSH tunnel."
 
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
 
 type: "microsoft-azure"
 display_name: "Microsoft Azure"
 
 ssh: true
 
+
 # -------------------------- #
-#      Setup Requirements    #
+#        Introduction        #
 # -------------------------- #
 
-requirements-list:
+intro: |
+  {% capture setup-notice %}
+  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Azure SQL Data Warehouse product](https://azure.microsoft.com/en-us/services/sql-data-warehouse/){:target="new"}.
+
+  Stitch doesn't currently support using Azure SQL Server or Azure SQL Database as a destination. Attempting to connect these products to Stitch via the {{ destination.display_name }} destination in Stitch will result in errors.
+  {% endcapture %}
+
+  {% include note.html first-line="**Stitch only supports connecting to Azure SQL Data Warehouse instances**" content=setup-notice %}
+
+  This guide describes how to connect a {{ destination.display_name }} destination to Stitch using an SSH tunnel.
+
+  If your {{ destination.display_name }} instance is private, you can create a virtual machine to serve as an SSH bastion. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private {{ destination.display_name }} instance.
+
+
+# -------------------------- #
+#        Requirements        #
+# -------------------------- #
+
+requirements:
   - item: |
       **Some familiarity with Linux and the command line.** In this tutorial, you'll create a Linux user for Stitch to ensure access via SSH. While we've provided the commands you'll need to create the user, you should know how to access a server using the command line and feel comfortable running commands.
   - item: |
@@ -28,10 +60,10 @@ requirements-list:
       **An existing Azure Storage account.** Instructions for creating an Azure Storage account are outside the scope of this tutorial. For help getting started with an Azure Storage account, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/storage/){:target="new"}.
 
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Generate storage credentials"
     anchor: "generate-storage-credentials"
     content: |
@@ -139,7 +171,8 @@ setup-steps:
 
       {% include destinations/templates/destination-user-setup.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
@@ -153,10 +186,10 @@ setup-steps:
 
           {% include destinations/microsoft-azure/azure-connection-details.html %}
 
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include destinations/setup/destination-settings.html %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type","microsoft-azure" | first %}
-
-This guide describes how to connect {{ destination.display_name }} to Stitch using an SSH tunnel.
-
-If your {{ destination.display_name }} instance is private, you can create a virtual machine to serve as an SSH bastion. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private {{ destination.display_name }} instance.

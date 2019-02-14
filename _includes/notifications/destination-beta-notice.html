@@ -1,8 +1,8 @@
 <div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>
 <strong>{{ destination.display_name }} is in beta</strong><br>
-Our {{ destination.display_name }} destination is currently in <strong>{{ destination.status }}</strong>. As such, the info in this article may change.
+Our {{ destination.display_name }} destination is currently in <strong>{{ site.data.destinations.reference[destination.type]stitch-details-info.release-status | strip }}</strong>. As such, the info in this article may change.
 
-{% if destination.status == "Closed Beta" %}
+{% if site.data.destinations.reference[destination.type]stitch-details-info.release-status == "Closed Beta" %}
 <br><br>
 <strong>Interested in participating in the beta?</strong> <a href="mailto: {{ site.support }}">Get in touch with us</a>.
 {% endif %}

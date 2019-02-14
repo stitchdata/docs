@@ -143,12 +143,9 @@ setup-steps:
 #      Incompatiblities      #
 # -------------------------- #
 
-incompatible:
-  redshift: "sometimes"
-  reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Redshift's 1,600 column limit."
+## See _data/destinations/reference/incompatibilities.yml
 
-  panoply: "sometimes"
-  reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Panoply's 1,600 column limit."
+has-incompatibilities: true
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

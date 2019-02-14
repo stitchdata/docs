@@ -3,6 +3,14 @@ layout: page
 ---
 {% include misc/data-files.html %}
 
+
+<!-- This only runs for destination and integration pgaes.
+    The include assigns a different page variable, and displays the correc
+    beta notice when applicable. -->
+    {% if page.permalink contains "destinations" or "integrations" %}
+        {% include layout/destination-integration-variable-assignment.html %}
+    {% endif %}
+
 {% if page.intro %}
     {{ page.intro | flatify | markdownify }}
 

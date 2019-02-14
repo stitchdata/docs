@@ -52,11 +52,9 @@ loading-reports: true
 #      Incompatiblities      #
 # -------------------------- #
 
-## Incompatibilities with destinations are listed here.
+## See _data/destinations/reference/incompatibilities.yml
 
-incompatible:
-  postgres: "sometimes"
-  reason: "Tables and columns created as a result of de-nesting nested data may have names that exceed PostgreSQL's limit of 63 characters for tables and 59 characters for columns. PostgreSQL data warehouses will reject these tables and columns, meaning Stitch will be unable to load them."
+has-incompatibilities: true
 
 # -------------------------- #
 #      Setup Instructions    #

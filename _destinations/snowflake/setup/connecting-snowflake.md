@@ -1,5 +1,18 @@
 ---
-title: Connecting a Snowflake Data Warehouse to Stitch
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
+title: Connecting a Snowflake Destination to Stitch
 permalink: /destinations/snowflake/connecting-a-snowflake-data-warehouse-to-stitch
 tags: [snowflake_destination]
 keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowflake etl, etl to snowflake, snowflake destination
@@ -9,15 +22,18 @@ summary: "Connect a Snowflake destination to your Stitch account."
 content-type: "destination-setup"
 
 toc: true
-layout: destination-setup-guide
+layout: tutorial
+use-tutorial-sidebar: false
+
 display_name: "Snowflake"
 type: "snowflake"
 
+
 # -------------------------- #
-#      Setup Requirements    #
+#        Requirements        #
 # -------------------------- #
 
-requirements-list:
+requirements:
   - item: "**A {{ destination.display_name }} account.**"
   - item: |
       **`ACCOUNTADMIN` role privileges in Snowflake, OR privileges equivalent to the `SECURITYADMIN` and `SYSADMIN` roles**. [More info on Snowflake's user roles can be found here](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#system-defined-roles){:target="_blank"}.
@@ -26,14 +42,21 @@ requirements-list:
 
       This tutorial will use the SQL Worksheet in the Snowflake web app to run SQL commands.
 
+
 # -------------------------- #
-#     Setup Instructions     #
+#         Instructions       #
 # -------------------------- #
 
-setup-steps:
+steps:
   - title: "Create a Snowflake data warehouse"
     anchor: "create-data-warehouse"
     content: |
+      {% capture auto-suspend-notice %}
+      Make sure the `AUTO_SUSPEND` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
+
+      If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
+      {% endcapture %}
+
       {% capture pricing %}
       Before you create a warehouse, we recommend familiarizing yourself with [Snowflake's pricing and automated warehouse management features](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"}.
       {% endcapture %}
@@ -52,6 +75,8 @@ setup-steps:
          AUTO_SUSPEND = [time_in_seconds];
          ```
 
+         Check out [Snowflake's documentation](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html){:target="new"} for more info on these parameters.
+
          The parameters in this command define the following:
 
           - **AUTO_RESUME**: If `TRUE`, the warehouse will be automatically resumed when accessed by a SQL statement. If `FALSE`, the warehouse will only start again when explicitly resumed through the Snowflake web interface or using `ALTER WAREHOUSE`.
@@ -59,15 +84,7 @@ setup-steps:
 
             The default is `XSMALL`.
           - **AUTO_SUSPEND**: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
-
-      {% capture auto-suspend-notice %}
-      Make sure the `AUTO_SUSPEND` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
-
-      If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
-      {% endcapture %}
-             {% include important.html first-line="**Make sure Auto-Suspend is enabled:**" content=auto-suspend-notice %}
-
-         Additional warehouse parameters are available. [Check out Snowflake's documentation for detailed explanations.](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html)
+              {% include important.html first-line="**Make sure Auto-Suspend is enabled!**" content=auto-suspend-notice %}
 
   - title: "Create a Stitch database and database user"
     anchor: "create-database-and-user"
@@ -118,11 +135,13 @@ setup-steps:
 
       If you encounter an error, ensure that your current IP address is in the Allowed IP List and try again. [Contact Snowflake support]({{ destination.contact-support }}) if errors persist.
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
+    content: |
+      To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
+      {% include destinations/setup/destination-settings.html %}
 ---
 {% assign destination = site.destinations | where:"type",page.type | first %}
 {% include misc/data-files.html %}
 {% include misc/icons.html %}
-
-In this tutorial, we'll walk you through spinning up your own Snowflake data warehouse and connecting it to Stitch.

@@ -1,0 +1,186 @@
+# -------------------------- #
+#  MIXED DATA TYPE EXAMPLES  #
+# -------------------------- #
+
+example-jobs:
+  first-job:
+    - id: "1"
+      name: "Finn"
+      age: "15"
+      has_magic: "false"
+
+    - id: "2"
+      name: "Jake"
+      age: "7"
+      has_magic: "true"
+
+  second-job:
+    - id: "3"
+      name: "Bubblegum"
+      age: "16.0"
+      has_magic: "yes"
+
+    - id: "4"
+      name: "BMO"
+      age: "11"
+      has_magic: "false"
+
+
+# -------------------------- #
+#      EXAMPLE TAB COPY      #
+# -------------------------- #
+
+## Boilerplate copy that explains what the end result is in the destination.
+## Used in: _includes/replication/templates/table-schema-change-tabs.html
+
+example-tab-copy: |
+  When mixed data types are detected in the same column in {{ destination.name }} destinations:
+
+  - **Original columns**: {{ destination.original-column | flatify }}
+  - **Additional columns**: {{ destination.additional-columns | flatify }}
+
+
+# -------------------------- #
+#    DESTINATION RESULTS     #
+# -------------------------- #
+
+## The end result of the scenario for each destination type.
+## Used in: _includes/replication/templates/table-schema-change-tabs.html
+
+destinations:
+# ---------------------------------- #
+# MICROSOFT AZURE SQL DATA WAREHOUSE #
+# ---------------------------------- #
+
+  - name: "Azure SQL Data Warehouse"
+    table-is-altered: true
+    original-column: "The column name remains as-is. The column's data type will be the first data type Stitch detected for the column. For example: `age` will only store `BIGINT` data. If a different data type is detected for `age`, it will be stored in an additional column and this column will be `null`."
+    additional-columns: "The column's data type is appended to the column name. Only data of this type will be stored in this column. For example: `age__fl` will only store float/double data. If a different data type is detected for `age__fl`, it will be stored in the correctly typed column and this column will be `null`."
+    new-structure:
+      - name: "id [pk]"
+        type: "bigint"
+
+      - name: "name"
+        type: "text"
+
+      - name: "age"
+        type: "bigint"
+
+      - name: "age__fl"
+        type: "float"
+
+      - name: "has_magic"
+        type: "boolean"
+
+      - name: "has_magic__st"
+        type: "text"
+
+
+# -------------------------- #
+#          BIGQUERY          #
+# -------------------------- #
+
+  - name: "BigQuery"
+    table-is-altered: true
+    original-column: "The column name remains as-is. The column's data type will be the first data type Stitch detected for the column. For example: `age` will only store `BIGINT` data. If a different data type is detected for `age`, it will be stored in an additional column and this column will be `null`."
+    additional-columns: "The column's data type is appended to the column name. Only data of this type will be stored in this column. For example: `age__nu` will only store numeric data. If a different data type is detected for `age__nu`, it will be stored in the correctly typed column and this column will be `null`."
+    new-structure:
+      - name: "id [pk]"
+        type: "bigint"
+
+      - name: "name"
+        type: "text"
+
+      - name: "age"
+        type: "bigint"
+
+      - name: "age__nu"
+        type: "numeric"
+
+      - name: "has_magic"
+        type: "boolean"
+
+      - name: "has_magic__st"
+        type: "text"
+
+
+# -------------------------- #
+#      PANOPLY/REDSHIFT      #
+# -------------------------- #
+
+  - name: "Panoply and Redshift"
+    table-is-altered: true
+    original-column: &postgres-original-column "The column is re-named to include the original (first detected) data type and only data of the original type will be stored in this column. For example: `age__bi` will only store `BIGINT` data. If a different data type is detected for `age__bi`, it will be stored in an additional column and this column will be `null`."
+    additional-columns: &postgres-subsequent-columns "The column's data type is appended to the column name. Only data of this type will be stored in this column. For example: `age__do` will only store double data. If a different data type is detected for `age__do`, it will be stored in the correctly typed column and this column will be `null`."
+    new-structure:
+      - name: "id [pk]"
+        type: "bigint"
+
+      - name: "name"
+        type: "text"
+
+      - name: "age__bi"
+        type: "bigint"
+
+      - name: "age__do"
+        type: "double"
+
+      - name: "has_magic__bo"
+        type: "boolean"
+
+      - name: "has_magic__st"
+        type: "varchar"
+
+# -------------------------- #
+#         POSTGRESQL         #
+# -------------------------- #
+
+  - name: "PostgreSQL"
+    table-is-altered: true
+    original-column: *postgres-original-column
+    additional-columns: *postgres-subsequent-columns
+    new-structure:
+      - name: "id [pk]"
+        type: "bigint"
+
+      - name: "name"
+        type: "text"
+
+      - name: "age"
+        type: "bigint"
+
+      - name: "age__do"
+        type: "double"
+
+      - name: "has_magic"
+        type: "boolean"
+
+      - name: "has_magic__st"
+        type: "text"
+
+# -------------------------- #
+#          SNOWFLAKE         #
+# -------------------------- #
+
+  - name: "Snowflake"
+    table-is-altered: true
+    original-column: "The column name remains as-is. The column's data type will be the first data type Stitch detected for the column. For example: `age` will only store `BIGINT` data. If a different data type is detected for `age`, it will be stored in an additional column and this column will be `null`."
+    additional-columns: "The column's data type is appended to the column name. Only data of this type will be stored in this column. For example: `age__fl` will only store numeric data. If a different data type is detected for `age__fl`, it will be stored in the correctly typed column and this column will be `null`."
+    new-structure:
+      - name: "ID [pk]"
+        type: "bigint"
+
+      - name: "name"
+        type: "text"
+
+      - name: "age"
+        type: "bigint"
+
+      - name: "age__fl"
+        type: "float"
+
+      - name: "has_magic"
+        type: "boolean"
+
+      - name: "has_magic__st"
+        type: "text"

@@ -1,0 +1,53 @@
+# -------------------------- #
+#  MIXED DATA TYPE EXAMPLES  #
+# -------------------------- #
+
+example-jobs:
+  first-job:
+    - id: "1"
+      name: "Finn"
+      age: "15"
+      has_magic: "false"
+
+    - id: "2"
+      name: "Jake"
+      age: "7"
+      has_magic: "true"
+
+  second-job:
+    - id: "3"
+      name: "Bubblegum"
+      age: "16"
+      has_magic: "true"
+      type: "candy_elemental"
+
+    - id: "4"
+      name: "BMO"
+      age: "11"
+      has_magic: "false"
+      type: "robot"
+
+  destination-table:
+    - id: "1"
+      name: "Finn"
+      age: "15"
+      has_magic: "false"
+      type: ""
+
+    - id: "2"
+      name: "Jake"
+      age: "7"
+      has_magic: "true"
+      type: ""
+
+    - id: "3"
+      name: "Bubblegum"
+      age: "16"
+      has_magic: "true"
+      type: "candy_elemental"
+
+    - id: "4"
+      name: "BMO"
+      age: "11"
+      has_magic: "false"
+      type: "robot"

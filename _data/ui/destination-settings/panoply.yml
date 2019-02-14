@@ -1,0 +1,18 @@
+# -------------------------- #
+#     PANOPLY DESTINATION    #
+# -------------------------- #
+
+## This file contains the properties required to successfully set up
+## a Panoply destination in Stitch.
+
+panoply:
+  - app-name: *host
+    copy: *host-copy
+  - app-name: *port
+    copy: *port-copy
+  - app-name: *username
+    copy: "Enter the username of the database user you want to use to connect {{ destination.display_name }} to Stitch."
+  - app-name: *password
+    copy: "Enter the password of the database user you want to use to connect {{ destination.display_name }} to Stitch."
+  - app-name: *database
+    copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."

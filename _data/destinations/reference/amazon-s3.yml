@@ -25,6 +25,8 @@ destination-details-info:
     false
   pricing-model: &pricing-model |
     Storage
+  pricing-details: &pricing-details |
+    {{ destination.display_name }} pricing is based on two factors: The amount of data stored in and location (region) of your {{ destination.display_name }} bucket.
   free-option: &free-option |
     Yes (trial)
 
@@ -78,8 +80,9 @@ replication-info:
     supported: &nested-structure-support |
       Depends
 
-  incompatible-sources: &incompatible-sources |
-    None
+## Refer to _data/destinations/reference/incompatibilities.yml
+## for incompatible sources
+
 
 # -------------------------- #
 #         Limitations        #
@@ -223,7 +226,8 @@ attributes:
 
   - id: "incompatible-sources"
     categories: "replication"
-    value: *incompatible-sources
+    important: true
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
 
   - id: "case-sensitivity"
     categories: "object-name-limits"

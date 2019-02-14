@@ -4,70 +4,90 @@ layout: page
 
 {% include misc/data-files.html %}
 
-{% if page.intro %}
-	{{ page.intro | flatify | markdownify }}
 
-	<hr>
-{% endif %}
-
-{% if page.requirements %}
-    <h2 id="prerequisites">Prerequisites</h2>
-    
-    <ul>
-        {% for requirement in page.requirements %}
-            <li>{{ requirement.item | flatify | markdownify }}</li>
-        {% endfor %}
-    </ul>
-
-    <hr>
-{% endif %}
-
-{% for step in page.steps %}
-	{% capture step-number %}
-        {{ forloop.index }}
-    {% endcapture %}
-
-    {% if step.title %}
-        <h2 id="{{ step.anchor }}">Step {{ step-number | strip }}: {{ step.title | flatify }}</h2>
+<!-- This only runs for destination and integration pgaes.
+    The include assigns a different page variable, and displays the correc
+    beta notice when applicable. -->
+    {% if page.permalink contains "destinations" or "integrations" %}
+        {% include layout/destination-integration-variable-assignment.html %}
     {% endif %}
 
-        {{ step.content | flatify | markdownify }}
 
-<!-- If a step has substeps -->
-    {% if step.substeps %}
-        {% for substep in step.substeps %}
-        	{% capture substep-number %}
-                {{ forloop.index }}
-            {% endcapture %}
+<!-- TUTORIAL INTRODUCTION -->
+    {% if page.intro %}
+    	{{ page.intro | flatify | markdownify }}
 
-            {% if substep.title %}
-                <h3 id="{{ substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}</h3>
-            {% endif %}
-
-            {{ substep.content | flatify | markdownify }}
-
-        <!-- If a substep has its own substeps -->
-            {% if substep.sub-substeps %}
-                {% for sub-substep in step.sub-substeps %}
-                	{% capture sub-substep-number %}
-		                {{ forloop.index }}
-		            {% endcapture %}
-
-
-                    {% if sub-substep.title %}
-                        <h4 id="{{ sub-substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}.{{ sub-substep-number | strip }}: {{ sub-substep.title | flatify }}</h4>
-                    {% endif %}
-
-                    {{ sub-substep.content | flatify | markdownify }}
-
-                {% endfor %}
-            {% endif %}
-        {% endfor %}
+    	<hr>
     {% endif %}
 
-    <hr>
-{% endfor %}
 
+<!-- TUTORIAL REQUIREMENTS -->
+    {% if page.requirements %}
+        <h2 id="prerequisites">Prerequisites</h2>
+        
+        <ul>
+            {% for requirement in page.requirements %}
+                <li>{{ requirement.item | flatify | markdownify }}</li>
+            {% endfor %}
+        </ul>
+
+        {% if page.requirements-info %}
+            {{ page.requirements-info | flatify | markdownify }}
+        {% endif %}
+
+        <hr>
+    {% endif %}
+
+
+<!-- TUTORIAL STEPS -->
+    {% for step in page.steps %}
+    	{% capture step-number %}
+            {{ forloop.index }}
+        {% endcapture %}
+
+        {% if step.title %}
+            <h2 id="{{ step.anchor }}">Step {{ step-number | strip }}: {{ step.title | flatify }}</h2>
+        {% endif %}
+
+            {{ step.content | flatify | markdownify }}
+
+    <!-- If a step has substeps -->
+        {% if step.substeps %}
+            {% for substep in step.substeps %}
+            	{% capture substep-number %}
+                    {{ forloop.index }}
+                {% endcapture %}
+
+                {% if substep.title %}
+                    <h3 id="{{ substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}</h3>
+                {% endif %}
+
+                {{ substep.content | flatify | markdownify }}
+
+            <!-- If a substep has its own substeps -->
+                {% if substep.sub-substeps %}
+                    {% for sub-substep in step.sub-substeps %}
+                    	{% capture sub-substep-number %}
+    		                {{ forloop.index }}
+    		            {% endcapture %}
+
+
+                        {% if sub-substep.title %}
+                            <h4 id="{{ sub-substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}.{{ sub-substep-number | strip }}: {{ sub-substep.title | flatify }}</h4>
+                        {% endif %}
+
+                        {{ sub-substep.content | flatify | markdownify }}
+
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <hr>
+    {% endfor %}
+
+
+<!-- NEXT STEPS  -->
     {% if page.next-steps %}
         <h2 id="next-steps">Next steps</h2>
 

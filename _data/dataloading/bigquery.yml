@@ -183,7 +183,7 @@ scenarios:
       ```
       integer out of range for {{ destination.display_name }} on [INTEGER]
       ```
-    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s range of {{ destination.integer-limit }}."
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s range of {{ site.data.destinations.reference[destination.type]data-limit-info.integer-range }}."
 
 ## Column contains decimal data
   - id: decimal-storage

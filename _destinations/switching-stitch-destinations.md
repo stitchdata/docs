@@ -8,15 +8,17 @@ summary: "In this guide, we'll show you how to change your Stitch destination."
 content-type: "destination-general"
 
 toc: true
+layout: general
 type: "all"
 destination: "false"
 
+intro: |
+  Sometimes, you may want to replicate data to a different location than what you initially connected to Stitch. 
+
+  For example: You now want to replicate data from your integrations to a different database in your Redshift cluster, or you simply decide that Redshift isn't the destination for you.
+  
+
 sections:
-  - content: |
-      Sometimes, you may want to replicate data to a different location than what you initially connected to Stitch. 
-
-      For example: Nou now want to replicate data from your integrations to a different database in your Redshift cluster, or you simply decide that Redshift isn't the destination for you.
-
   - title: "Prerequisites"
     anchor: "prerequisites"
     content: |

@@ -81,6 +81,30 @@ ssh:
     redshift-copy: *ssh-user-copy
     microsoft-azure-copy: *ssh-user-copy
 
+
+# -------------------------- #
+#         Amazon S3          #
+# -------------------------- #
+
+amazon-s3:
+  - field: "Bucket Name"
+    copy: |
+      Enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
+  - field: "Store Data in This Format"
+    copy: |
+      The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. For examples of how data in each format will be stored, [click here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
+
+            Supported options are:
+
+            - **JSON**: Data will be stored as JSON files (`.jsonl`)
+            - **CSV**: Data will be stored as CSV files (`.csv`). If selected, additional configuration options will be displayed:
+
+                - **Delimiter**: Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
+                - **Quote all elements in key-value pairs**: If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
+
+      
+
+
 # -------------------------- #
 #           Panoply          #
 # -------------------------- #
