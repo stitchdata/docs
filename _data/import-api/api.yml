@@ -35,9 +35,14 @@ core-objects:
 
   validate:
     name: "Validate"
-    short: "Validates request credentials but doesn't persist the data to Stitch."
+    url: "/v2/import/validate"
+    anchor: "#validate-request"
+    object-anchor: "#validate--object"
+    object-description: |
+      An object containing table information, your client ID, and data objects representing records to be validated without being persisted to Stitch. The Validate object is identical to the [Push object]({{ site.data.import-api.api.core-objects.push.object-anchor }}).
+    short: "Validates request credentials and batch data, but doesn't persist the data to Stitch."
     description: |
-      {{ site.data.import-api.core-objects.validate.short }} This allows you to validate your API token or client_id during development.
+      {{ site.data.import-api.api.core-objects.validate.short }} This allows you to validate your API credentials and batch data during development.
 
   push:
     name: "Push"
