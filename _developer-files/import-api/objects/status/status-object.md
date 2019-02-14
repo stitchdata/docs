@@ -14,8 +14,8 @@ order: 1
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Status"
-description: "{{ site.data.import-api.api.core-objects.status.object-description | flatify }}"
+title: "API Status"
+description: "{{ site.data.import-api.api.core-objects.api-status.object-description | flatify }}"
 endpoint-url: "/import/status"
 
 
@@ -36,7 +36,7 @@ available-methods:
   - id: "get-status"
     title: "Get Import API status"
     method: "get"
-    short: "{{ api.core-objects.status.description | flatify }}"
+    short: "{{ api.core-objects.api-status.description | flatify }}"
 
 
 # -------------------------- #

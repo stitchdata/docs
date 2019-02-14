@@ -23,15 +23,15 @@ versioning: "#versioning"
 terms: "#terminology"
 
 core-objects:
-  status:
-    name: "Status"
+  api-status:
+    name: "API Status"
     url: "/v2/import/status"
     anchor: "#get-status"
-    object-anchor: "#status--object"
+    object-anchor: "#api-status--object"
     object-description: "An object describing the status of the Import API at the time a request is sent."
-    short: "Determine if the Import API is operating correctly."
+    short: "Determines if the Import API is operating correctly."
     description: |
-      {{ site.data.import-api.api.core-objects.status.short }} This endpoint doesn't require any authentication.
+      {{ site.data.import-api.api.core-objects.api-status.short }} This endpoint doesn't require any authentication.
 
   validate:
     name: "Validate"
