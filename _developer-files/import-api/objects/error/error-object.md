@@ -50,8 +50,6 @@ object-attributes:
     description: |
       An array of [error reason objects]({{ site.data.import-api.api.data-structures.error-reason.section }}) that describe the properties causing the error.
 
-sub-structures:
-  - key: "error-reason-object"
 
 # -------------------------- #
 #          EXAMPLES          #

@@ -4,7 +4,7 @@
 # -------------------------- #
 
 product-type: "import-api"
-content-type: "api-sub-structure"
+content-type: "api-structure"
 key: "error-reason-object"
 
 
@@ -36,7 +36,20 @@ object-attributes:
 # -------------------------- #
 
 examples:
-  - code: |
+  - type: "With reason as a string"
+    code: |
+      {
+        "status": "ERROR",
+        "error": "Request cannot be processed; see errors.",
+        "errors": [
+          {
+            "reason": "The batch contains data points for multiple clients. Only client_id <CLIENT_ID> is allowed"
+          }
+        ]
+      }
+
+  - type: "With reason as an object"
+    code: |
       {
         "status": "ERROR",
         "error": "Request cannot be processed; see errors.",
