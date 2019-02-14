@@ -14,6 +14,7 @@ key: "stream-schema-object"
 
 title: "Stream Schema"
 description: "{{ api.data-structures.stream-schemas.description }}"
+has-multiple-versions: "false"
 
 
 # -------------------------- #
