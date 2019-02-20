@@ -13,10 +13,8 @@
    ```sql
    {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-select-command | flatify | rstrip }}
    ```
-
-   To restrict the Stitch user from accessing data in specific databases, tables, or columns, you can instead run `GRANT` commands that only allow access to the data you permit.
    
-   **Note**: Column-level permissions are not supported for use with Log-based Incremental Replication.
+   To restrict the Stitch user from accessing data in specific objects, you can instead run `GRANT` commands that only allow access to the data you permit. **Note**: Column-level permissions are not supported for use with Log-based Incremental Replication. Restricting access to columns will cause replication issues.
 
 4. **If using Log-based Incremental Replication**, you'll also need to grant the Stitch user replication privileges:
 
