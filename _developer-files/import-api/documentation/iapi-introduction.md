@@ -8,7 +8,7 @@ sections:
   - content: |
       {% include misc/data-files.html %}
 
-      The Stitch Import API enables you to push arbitrary data from a source into your destination. The Import API acts as a receiving point for data that is sent to Stitch. The Import API will 'listen' for new data, which is then processed by Stitch as it's received.
+      {{ site.data.import-api.api.description }}
 
       This API is a RESTful, method-oriented API that allows you to push data from a source (including those Stitch doesn't currently have an integration for) and send it to Stitch. Each endpoint uses standard HTTP verbs like GET and POST, and will return standard HTTP response codes to indicate request status or errors.
 
@@ -30,7 +30,7 @@ sections:
     content: |
       Anyone with a Stitch account can use the Import API. If you don't currently have an account, [sign up for a free one here]({{ site.home }}){:target="new"}.
 
-      After you have a Stitch account, use the [Generate and Revoke Import API access tokens guide]({{ link.import-api.guides.generate-revoke-access-tokens | prepend: site.baseurl }}) to generate an access token. 
+      After you have a Stitch account, refer to the [Stitch Import API access tokens documentation]({{ link.import-api.guides.access-tokens | prepend: site.baseurl }}) for instructions on generating an API access token. 
 
   - title: "API support"
     anchor: "getting-help"
