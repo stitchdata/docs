@@ -1,0 +1,51 @@
+# -------------------------- #
+#   EXAMPLE CURL REQUESTS    #
+# -------------------------- #
+
+get-status: |
+  curl {{ site.data.import-api.api.base-url }}{{ site.data.import-api.api.core-objects.api-status.url }}
+
+
+validate-request: |
+  curl -X POST {{ site.data.import-api.api.base-url }}{{ site.data.import-api.api.core-objects.validate.url }} \
+       -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
+       -H 'Content-Type: application/json' \
+       -d $'[
+              {
+                "client_id": <STITCH_CLIENT_ID>,
+                "table_name": "customers",
+                "sequence": 1550702321376,
+                "key_names": [
+                  "id"
+                ],
+                "data": {
+                  "id": 1,
+                  "name": "Finn",
+                  "age": 15,
+                  "has_magic": false
+                },
+                "action": "upsert"
+              }
+            ]'
+
+push-data: |
+  curl -X POST {{ site.data.import-api.api.base-url }}{{ site.data.import-api.api.core-objects.push.url }} \
+       -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
+       -H 'Content-Type: application/json' \
+       -d $'[
+              {
+                "client_id": <STITCH_CLIENT_ID>,
+                "table_name": "customers",
+                "sequence": 1550702340229,
+                "key_names": [
+                  "id"
+                ],
+                "data": {
+                  "id": 1,
+                  "name": "Finn",
+                  "age": 15,
+                  "has_magic": false
+                },
+                "action": "upsert"
+              }
+            ]'
