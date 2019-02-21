@@ -181,33 +181,30 @@ replication:
 ## used as link.import-api.[id]
 
 connect:
-  overview: /stitch-connect
-  api: /stitch-connect/api
-  js: /stitch-connect/javascript-client
+  overview: /developers/stitch-connect
+  api: /developers/stitch-connect/api
+  js: /developers/stitch-connect/javascript-client
 
   guides:
-    category: /stitch-connect/guides
-    create-configure-a-source: /stitch-connect/api#quick-start
-    field-selection-compatibility-rules: /stitch-connect/guides/field-selection-compatibility-rules
-    select-streams-and-fields: /stitch-connect/guides/select-streams-and-fields-with-connect-api
+    category: /developers/stitch-connect/guides
+    api-credentials: /developers/stitch-connect/guides/connect-api-credentials
+
+    create-configure-a-source: /developers/stitch-connect/api#quick-start
+    create-import-api-source: /developers/import-api/guides/create-import-api-integration-with-stitch-connect
+    field-selection-compatibility-rules: /developers/stitch-connect/guides/field-selection-compatibility-rules
+    select-streams-and-fields: /developers/stitch-connect/guides/select-streams-and-fields-with-connect-api
 
 
 import-api:
-  overview: /import-api/
-  api: /import-api/api
+  overview: /developers/import-api/
+  api: /developers/import-api/api
 
   guides:
-    category: /import-api/guides
-    generate-revoke-access-tokens: /import-api/guides/generate-revoke-import-api-access-tokens
-    create-import-api-with-stitch-connect: /import-api/guides/create-import-api-integration-with-stitch-connect
-    structure-data: /import-api/guides/structure-data-for-the-import-api
-    
-  getting-started: /integrations/import-api
-  faq: /integrations/import-api/faq
-  auth: /integrations/import-api#auth
-  revoke: /integrations/import-api#revoke-api-access-token
-  methods: /integrations/import-api#methods
-  return: /integrations/import-api#return-codes
+    category: /developers/import-api/guides
+    quick-start: /developers/import-api/quick-start
+    access-tokens: /developers/import-api/guides/import-api-access-tokens
+    structure-data: /developers/import-api/guides/structure-data-for-the-import-api
+    troubleshooting-data: /developers/import-api/guides/troubleshooting-import-api-data
 
 
 # -------------------------- #
