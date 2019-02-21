@@ -59,8 +59,8 @@ object-attributes:
 
   - name: "sequence"
     type: "integer"
-    description: "{{ general.attributes.sequence }}"
-    value: ""
+    description: "{{ general.attributes.sequence | flatify }}"
+    value: "1550702340229"
 
   - name: "action"
     type: "string"

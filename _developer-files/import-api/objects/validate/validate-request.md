@@ -120,10 +120,7 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      {
-        "status": "OK",
-        "message": "Batch is valid!"
-      }
+      {{ site.data.import-api.code-examples.responses.validate-request }}
 
 # This endpoint uses the same errors as the Push endpoint
 # The list of those errors live in _data/import-api/response-codes/push.yml

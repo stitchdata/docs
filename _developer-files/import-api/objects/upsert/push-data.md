@@ -213,17 +213,11 @@ examples:
     subexamples:
       - type: "201 Created"
         code: |
-          {
-            "status": "OK",
-            "message": "Batch Accepted!"
-          }
+          {{ site.data.import-api.code-examples.responses.push-data.batch-created }}
 
       - type: "202 Accepted"
         code: |
-          {
-            "status": "Accepted",
-            "message": "The batch is queued to be processed."
-          }
+          {{ site.data.import-api.code-examples.responses.push-data.batch-accepted }}
 
   - type: "Errors"
 ---

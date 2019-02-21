@@ -47,11 +47,5 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      {
-        "name": "pipeline.gate",
-        "version": "0.3.3-SNAPSHOT",
-        "revision": "a154360ad8c43182965049dbf6239aa7c1f3c84d",
-        "status": "OK",
-        "reason": null
-      }
+      {{ site.data.import-api.code-examples.responses.get-status }}
 ---
