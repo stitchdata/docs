@@ -60,7 +60,9 @@ table-level-reset: true
 ## Replication methods
 
 define-replication-methods: true
+
 set-default-replication-method: true
+default-replication-method-required: true
 
 log-based-replication-minimum-version: "TODO"
 log-based-replication-master-instance: true
@@ -74,21 +76,22 @@ full-table-replication: true
 view-replication: false
 
 
+
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
 requirements-list:
   - item: |
-      **Access to the `V$DATABASE` performance view.** This is required to verify setting configuration while setting up your {{ integration.display_name }} database. Refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1001.htm#i1398692){:target="new"} for more info on performance views.
+      **Access to the `V$DATABASE` performance view.** This is required to verify setting configuration while setting up your {{ integration.display_name }} database. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]reference-docs.vdatabase }}){:target="new"} for more info on performance views.
   - item: |
-      **`CREATE USER` and `GRANT` privileges.** The [`CREATE USER`](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_8003.htm#i2065278){:target="new"} and [`GRANT`](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_9013.htm#sthref9170){:target="new"} privileges are required to create a database user for Stitch and grant the necessary privileges to the user.
+      **`CREATE USER` and `GRANT` privileges.** The [`CREATE USER`]({{ site.data.taps.links[integration.name]reference-docs.create-user }}){:target="new"} and [`GRANT`]({{ site.data.taps.links[integration.name]reference-docs.grant }}){:target="new"} privileges are required to create a database user for Stitch and grant the necessary privileges to the user.
   - item: |
-      **Appropriate `GRANT` or object permissions for the objects you want to replicate.** This is necessary to grant the privileges necessary for selecting data to the Stitch database user. Refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_9013.htm#i2094944){:target="new"} for more info.
+      **Appropriate `GRANT` or object permissions for the objects you want to replicate.** This is necessary to grant the privileges necessary for selecting data to the Stitch database user. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]reference-docs.grant }}){:target="new"} for more info.
   - item: |
-      **System administrator (`SYSDBA`) privileges, if replicating data incrementally.** This is necessary to complete steps required to use {{ integration.display_name }} LogMiner, which enables the use of Log-based Incremental Replication. Refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/database/121/ADMQS/GUID-2033E766-8FE6-4FBA-97E0-2607B083FA2C.htm#ADMQS12004){:target="new"} for more info.
+      **System administrator (`SYSDBA`) privileges, if replicating data incrementally.** This is necessary to complete steps required to use {{ integration.display_name }} LogMiner, which enables the use of Log-based Incremental Replication. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]reference-docs.system-admin }}){:target="new"} for more info.
   - item: |
-      **An existing Recovery Manager (RMAN) configuration, if replicating data incrementally.** RMAN is used to manage database backups and archive logs and is required to use Log-based Incremental Replication. Setting up RMAN is outside the scope of this tutorial. If you need help setting up and using RMAN, refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/cd/B28359_01/backup.111/b28270/rcmquick.htm#BRADV89346){:target="new"} or loop in a member of your technical team.
+      **An existing Recovery Manager (RMAN) configuration, if replicating data incrementally.** RMAN is used to manage database backups and archive logs and is required to use Log-based Incremental Replication. Setting up RMAN is outside the scope of this tutorial. If you need help setting up and using RMAN, refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]recovery-manager }}){:target="new"} or loop in a member of your technical team.
 
 
 # -------------------------- #
@@ -122,7 +125,7 @@ setup-steps:
 
       {% include note.html type="single-line" content=full-table-notice %}
 
-      Log-based Incremental Replication is the most efficient way to replicate {{ integration.display_name }} data. Stitch uses Oracle's LogMiner package to query Oracle's archive logs and retrieve all inserts, updates, and deletes to your database. 
+      Log-based Incremental Replication is the most efficient way to replicate {{ integration.display_name }} data. Stitch uses [Oracle's LogMiner package]({{ site.data.taps.links[integration.name]logminer }}){:target="new"} to query Oracle's archive logs and retrieve all inserts, updates, and deletes to your database. 
 
     substeps:
       - title: "Verify the database's current archiving mode"
@@ -155,7 +158,7 @@ setup-steps:
              SHUTDOWN IMMEDIATE
              ```
 
-          2. **If desired, back up the database.** [Oracle recommends backing up databases before any major changes](https://docs.oracle.com/database/121/ADMIN/archredo.htm#ADMIN-GUID-C12EA833-4717-430A-8919-5AEA747087B9){:target="new"}. Refer to [Oracle's documentation](https://docs.oracle.com/database/121/BRADV/rcmcncpt.htm#BRADV002){:target="new"} for more info.
+          2. **If desired, back up the database.** [Oracle recommends backing up databases before any major changes]({{ site.data.taps.links[integration.name]change-archive-mode }}){:target="new"}. Refer to [Oracle's documentation]({{ site.data.taps.links[integration.name]recovery-manager-backups }}){:target="new"} for more info.
 
           3. Start a new instance and mount (but not open) the database:
 
@@ -179,7 +182,7 @@ setup-steps:
           {% endcapture %}
           {% include note.html first-line="**Note: This step requires:**" content=configure-rman-step-notice %}
 
-          Next, you'll configure Recovery Manager (RMAN) backups. This setting defines how long the database will retain backups and archive logs, which is what Stitch will read from to perform Log-based Incremental Replication. Refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/cd/B28359_01/backup.111/b28270/rcmquick.htm#BRADV89347){:target="new"} for more info about RMAN.
+          Next, you'll configure Recovery Manager (RMAN) backups. This setting defines how long the database will retain backups and archive logs, which is what Stitch will read from to perform Log-based Incremental Replication. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]recovery-manager }}){:target="new"} for more info about RMAN.
 
           Stitch recommends a retention period of at least 3 days, but strongly recommends 7. To specify the RMAN retention policy, run the following:
 
@@ -188,7 +191,7 @@ setup-steps:
           ```
 
           {% capture disk-storage-notice %}
-          To ensure that archive log files don't consume all of your available disk space, you should also set the `DB_RECOVERY_FILE_DEST_SIZE` parameter to a value that agrees with your available disk quota. Refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/cd/B28359_01/backup.111/b28270/rcmconfb.htm#BRADV89425){:target="new"} for more info about this parameter.
+          To ensure that archive log files don't consume all of your available disk space, you should also set the `DB_RECOVERY_FILE_DEST_SIZE` parameter to a value that agrees with your available disk quota. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]reference-docs.db-recovery-file-dest-size }}){:target="new"} for more info about this parameter.
           {% endcapture %}
 
           {% include important.html type="single-line" content=disk-storage-notice %}
@@ -201,7 +204,7 @@ setup-steps:
           {% endcapture %}
           {% include note.html type="single-line" content=enable-supplemental-logging-step-notice %}
 
-          In this step, you'll enable supplemental logging for the database. This ensures that columns are logged in redo log files, which is required by {{ integration.display_name }} to use LogMiner. Refer to [{{ integration.display_name }}'s documentation](https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm#i1021068){:target="new"} for more info about supplemental logging.
+          In this step, you'll enable supplemental logging for the database. This ensures that columns are logged in redo log files, which is required by {{ integration.display_name }} to use LogMiner. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]supplemental-logging }}){:target="new"} for more info about supplemental logging.
 
           Stitch supports supplemental logging at the database and table level. **Note**: You do not need to enable both. Select the level you want to use for supplemental logging (database or table) and follow the steps below:
 
@@ -265,7 +268,7 @@ setup-steps:
           {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
       - title: "Define default replication method"
-        anchor: "define-log-based-replication-method"
+        anchor: "define-default-replication-method"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html type="default-replication-method" %}
 
@@ -278,11 +281,63 @@ setup-steps:
 
   - title: "sync data"
 
-## ABOUT V_$LOGMNR_CONTENTS:
-# If LogMiner is being used on the source database, then you can direct LogMiner to find and create a list of redo log files for analysis automatically. Use the CONTINUOUS_MINE option when you start LogMiner with the DBMS_LOGMNR.START_LOGMNR procedure, and specify a time or SCN range. Although this example specifies the dictionary from the online catalog, any LogMiner dictionary can be used.
-# This is used (probably) to identify where to start the replication job using the saved max SCN value
 
-# (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=oracle-test.clcudnvirbnr.us-east-1.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=ORCL)))
+# -------------------------- #
+#     REPLICATION DETAILS    #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      {% for section in integration.replication-sections %}
+      {% if section.title %}
+      - [{{ section.title }}]({{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
+  - title: "Overview of Log-based Incremental Replication using LogMiner"
+    anchor: "logminer-replication-overview"
+    content: |
+      Stitch uses {{ integration.display_name }}'s [LogMiner package]({{ site.data.taps.links[integration.name]logminer }}){:target="new"} to replicate data incrementally. This means that when Log-based Incremental is selected as the Replication Method for a table, Stitch will only replicate new or updated data for the table during each replication job.
+
+      To identify new and updated data, Stitch uses {{ integration.display_name }}'s [Approximate Commit System Change Numbers]({{ site.data.taps.links[integration.name]reference-docs.commit-scn }}){:target="new"}, or SCNs, as [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}). When reading from the database's logs, records with an SCN value greater than the maximum SCN from the previous job will be replicated.
+
+      Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for a more detailed explanation, examples, and the limitations associated with this replication method.
+
+      **Note**: Stitch currently supports Log-based Incremental and Full Table Replication for {{ integration.display_name }} integrations. Other replication methods are not currently supported.
+
+  - title: "Data typing and LogMiner (Log-based Incremental Replication)"
+    anchor: "data-typing-logminer-replication"
+    content: |
+      {{ integration.display_name }}'s LogMiner packages supports the data types listed in the table below. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]logminer-supported-datatypes }}){:target="new"} for more info.
+
+      **Only columns with the data types listed below are able to be selected and replicated through Stitch**. Columns with data types not in this list will show as `UNSUPPORTED` in Stitch. For reference, you can view the code for data typing in Stitch's {{ integration.display_name }} integrations in the [Singer {{ integration.display_name }} GitHub repository](https://github.com/singer-io/tap-oracle/blob/master/tap_oracle/__init__.py){:target="new"}.
+
+      {% assign attributes="name|stored-as" | split:"|" %}
+
+      <table class="attribute-list">
+      <tr>
+      <td width="40%; fixed" align="right">
+      <strong>{{ integration.display_name }} data type</strong>
+      </td>
+      <td>
+      <strong>Stitch data type mapping</strong>
+      </td>
+      </tr>
+      {% for data-type in site.data.taps.extraction.data-types[integration.name]logminer.supported %}
+      <tr>
+      {% for attribute in attributes %}
+      {% assign attribute-number = forloop.index %}
+      {% if forloop.first == true %}
+      <td width="40%; fixed" align="right">
+      {% else %}
+      <td>
+      {% endif %}
+      {{ data-type[attribute] | upcase }}{% if attribute-number == 2 and data-type.formatted-as %} (formatted as {{ data-type.formatted-as | upcase }}){% endif %}
+      </td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+      </table>
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
