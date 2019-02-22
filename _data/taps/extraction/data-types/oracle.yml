@@ -1,0 +1,73 @@
+# --------------------------------#
+#   ORACLE SUPPORTED DATA TYPES   #
+# --------------------------------#
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to Oracle data sources.
+
+## NOTE: Individual versions of the integration may not support certain data types, or they may handle a data type in a way unique to that version.
+
+# -------------------------- #
+#    LOGMINER DATA TYPES     #
+# -------------------------- #
+
+logminer:
+# -------------------------- #
+#   SUPPORTED FOR LOGMINER   #
+# -------------------------- #
+  supported:
+
+# FLOATS
+    - name: "binary_float"
+      stored-as: "number"
+    - name: "binary_double"
+      stored-as: "number"
+
+# STRINGS
+    - name: "char"
+      stored-as: "string"
+    - name: "nchar"
+      stored-as: "string"
+    - name: "nvarchar2"
+      stored-as: "string"
+    - name: "varchar"
+      stored-as: "string"
+    - name: "varchar2"
+      stored-as: "string"
+
+# DATES
+    - name: "date"
+      stored-as: "string"
+      formatted-as: "date-time"
+    # - name: "interval day to second"
+    # - name: "interval year to month"
+
+# TIMESTAMPS
+    - name: "timestamp"
+      stored-as: "string"
+      formatted-as: "date-time"
+    - name: "timestamp with time zone"
+      stored-as: "string"
+      formatted-as: "date-time"
+    - name: "timestamp with local time zone"
+      stored-as: "string"
+      formatted-as: "date-time"
+
+# NUMBER
+    - name: "number"
+      stored-as: "number"
+
+# -------------------------- #
+#  UNSUPPORTED FOR LOGMINER  #
+# -------------------------- #
+# These are unsupported for LogMiner, but even if they were
+# supported, Stitch still wouldn't be able to replicate them.
+# See Supported Data Types list.
+
+  unsupported:
+    - name: "adt"
+    - name: "blob"
+    - name: "clob"
+    - name: "collection"
+    - name: "long"
+    - name: "long raw"
+    - name: "nclob"
