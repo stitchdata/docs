@@ -1,0 +1,40 @@
+# -------------------------- #
+#   ORACLE SERVER SETTINGS   #
+# -------------------------- #
+
+## The required server settings for a Oracle database, and their required values.
+
+defaults:
+  names:
+    log-mode: "LOG_MODE"
+    supplemental-logging: "SUPPLEMENTAL_LOG_DATA_MIN"
+
+  descriptions:
+    log-mode: ""
+    supplemental-logging: ""
+
+
+# -------------------------- #
+#         COMMANDS           #
+# -------------------------- #
+
+log-mode:
+  command: |
+    SELECT LOG_MODE FROM V$DATABASE
+
+  result:
+    archivelog: |
+      If the result is `ARCHIVELOG`, archiving is enabled and no further action is required.
+
+    noarchivelog: |
+      If the result is `NOARCHIVELOG`, then you’ll need to enable archiving.
+
+rman-retention-policy: |
+  RMAN> CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 7 DAYS;
+
+supplemental-logging:
+  command: |
+    SELECT SUPPLEMENTAL_LOG_DATA_MIN FROM V$DATABASE
+
+  result: |
+    If the returned value is `YES` or `IMPLICIT`, supplemental logging is enabled.
