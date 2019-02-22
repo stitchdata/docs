@@ -5,11 +5,16 @@
     <h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
         <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
         <ul>
-        {% if integration.tier == "Paid" %}
-            <li>
-                <strong>A paid Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a paid plan is selected after the trial ends.
-            </li>
-        {% endif %}
+        {% case integration.tier %}
+            {% when 'Paid' %}
+                <li>
+                    <strong>A paid Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a paid plan is selected after the trial ends.
+                </li>
+            {% when 'Enterprise' %}
+                <li>
+                    <strong>An Enterprise Stitch plan</strong>. {{ integration.display_name }} integrations can be added on as part of an Enterprise plan. Reach out to <a href="mailto: {{ site.support }}">Stitch support</a> for more info.
+                </li>
+        {% endcase %}
         {% for requirement in integration.requirements-list %}
             <li>
                 {{ requirement.item | flatify | markdownify }}{% if requirement.reason %}{{ requirement.reason | flatify | markdownify }}{% endif %}
