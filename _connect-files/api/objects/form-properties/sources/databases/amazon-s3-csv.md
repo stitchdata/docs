@@ -20,6 +20,8 @@ source-type: "database"
 docs-name: "amazon-s3-csv"
 db-type: "s3-csv"
 
+is-filesystem: true
+
 description: ""
 
 

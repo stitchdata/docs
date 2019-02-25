@@ -11,17 +11,29 @@
         <!-- There are two types of form properties: databases and SaaS applications.
                 Each one is a little different, so we need to run logic specific to
                 each type.  -->
-
-        <!-- Get the attributes common to all sources, regardless of type -->
-            {% assign all-source-attributes = site.data.connect.common.all-sources.fields %}
-
+            
         {% case form-property.source-type %}
             <!-- When the source form property is for a database, run this -->
             {% when 'database' %}
+
+            <!-- Filesystems like Amazon S3 CSV and Responsys allow the user to set a start date, so we need to get
+                all the common fields *and* the start_date field, which isn't typical for database sources -->
+                {% if form-property.is-filesystem %}
+                    {% assign all-source-attributes = site.data.connect.common.all-sources.fields | concat: site.data.connect.common.all-sources.start-date %}
+                {% else %}
+
+            <!-- If the database isn't a file system, only get what's in this list -->
+                    {% assign all-source-attributes = site.data.connect.common.all-sources.fields %}
+                {% endif %}
+
                 {% include connect/api-form-property-source-database-fields.html %}
 
             <!-- When the source form property is for a SaaS source, run this -->
             {% when 'saas' %}
+
+            <!-- Get the start_date field and the other common fields -->
+                {% assign all-source-attributes = site.data.connect.common.all-sources.fields | concat: site.data.connect.common.all-sources.start-date %}
+
                 {% include connect/api-form-property-source-saas-fields.html %}
         {% endcase %}
 
