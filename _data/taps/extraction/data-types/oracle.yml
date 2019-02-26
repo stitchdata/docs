@@ -10,6 +10,8 @@
 #    LOGMINER DATA TYPES     #
 # -------------------------- #
 
+
+# https://docs.google.com/document/d/11X3TFUhO_TYZRmcC31I6QlacwbJm_oVwTvF8Uafh_cs/edit
 logminer:
 # -------------------------- #
 #   SUPPORTED FOR LOGMINER   #
@@ -18,9 +20,9 @@ logminer:
 
 # FLOATS
     - name: "binary_float"
-      stored-as: "number"
+      stored-as: "float"
     - name: "binary_double"
-      stored-as: "number"
+      stored-as: "float"
 
 # STRINGS
     - name: "char"
@@ -34,27 +36,27 @@ logminer:
     - name: "varchar2"
       stored-as: "string"
 
-# DATES
+# DATES/TIMESTAMPS
     - name: "date"
-      stored-as: "string"
-      formatted-as: "date-time"
-    # - name: "interval day to second"
-    # - name: "interval year to month"
-
-# TIMESTAMPS
+      stored-as: "date-time"
     - name: "timestamp"
-      stored-as: "string"
-      formatted-as: "date-time"
+      stored-as: "date-time"
     - name: "timestamp with time zone"
-      stored-as: "string"
-      formatted-as: "date-time"
+      stored-as: "date-time"
     - name: "timestamp with local time zone"
-      stored-as: "string"
-      formatted-as: "date-time"
+      stored-as: "date-time"
 
+# INTEGERS
+    - name: "integer"
+      stored-as: "integer"
+    - name: "smallint"
+      stored-as: "integer"
+    - name: "number (*,0)"
+      stored-as: "integer"
+    
 # NUMBER
-    - name: "number"
-      stored-as: "number"
+    - name: "number (*,*)"
+      stored-as: "decimal"
 
 # -------------------------- #
 #  UNSUPPORTED FOR LOGMINER  #
