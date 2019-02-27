@@ -29,11 +29,15 @@ destination: "Destination is the Stitch word for ‘data warehouse.’ A data wa
 
 extraction-logs: "Logs detailing the Extraction phase of the replication process for a given integration. Includes error info, should an error occur."
 
+historical-replication-job: "A Stitch replication job that replicates historical data."
+
 historical-sync: "Historical syncs are how far back from the Stitch connection date, by default, Stitch will fetch historical data."
 
 loading-reports: "Reports detailing the Loading phase of the replication process for a given integration. Includes the number of rows loaded for each table and error info, should an error occur."
 
 primary-key: "Primary Keys are used to identify unique rows within a table and ensure that only the most recently updated version of that record appears in your data warehouse."
+
+replication-job: "The three-step process by which Stitch replicates data. A replication job includes three distinct steps: Extraction, preparation, and loading."
 
 replication-frequency: "Replication Frequency refers to how often - based on the time of the last completed attempt - Stitch will attempt to replicate data from a data source."
 

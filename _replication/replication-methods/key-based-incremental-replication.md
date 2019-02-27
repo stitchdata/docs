@@ -154,14 +154,13 @@ sections:
   - title: "Enable {{ page.title }}"
     anchor: "enabling-key-based-replication"
     content: |
-      {{ page.title }} is available for use with any Stitch integration. Depending on the type of integration, enabling this Replication Method will vary:
+      {{ page.title }} is available for use with the majority of Stitch integrations. Depending on the type of integration, enabling this Replication Method will vary:
 
       - **Database integrations**: To use {{ page.title }}, a table must contain a column suitable for use as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). **Note**: For MongoDB integrations, there are additional considerations for Replication Keys. Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for more info.
 
       - **SaaS integrations**: With the exception of Salesforce, no configuration is required on your part. Replication Methods are pre-defined for every table set to replicate. Stitch will use {{ page.title }} whenever possible to ensure your data is replicated accurately and efficiently.
 
       - **Webhook integrations**: No configuration is required on your part. As webhook data is sent to Stitch in real-time, only new records are ever replicated from a webhook source. This can be thought of as using {{ page.title }} with a Replication Key of `created_at`.
-
 ---
 {% include misc/data-files.html %}
 {% include misc/icons.html %}

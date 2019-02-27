@@ -68,7 +68,7 @@ default-replication-method-required: true
 
 log-based-replication-minimum-version: "8.0"
 log-based-replication-master-instance: true
-log-based-replication-read-replica: true
+log-based-replication-read-replica: false
 
 ## Other Replication Methods
 
