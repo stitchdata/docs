@@ -14,7 +14,7 @@
 
 
 # -------------------------- #
-#           Oracle           #
+#           ORACLE           #
 # -------------------------- #
 
 oracle:
@@ -36,3 +36,29 @@ oracle:
 
   - name: "Oracle System ID (SID)"
     copy: "Enter the Oracle System ID (SID) of the database you retrieved in [Step 2](#retrieve-oracle-system-id)."
+
+
+# -------------------------- #
+#         ORACLE-RDS         #
+# -------------------------- #
+
+oracle-rds:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      {{ defaults.field-copy.host-rds | flatify }}
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "Oracle System ID (SID)"
+    copy: "Enter the Oracle System ID (SID) of the database you retrieved in [Step 4](#retrieve-oracle-system-id)."
