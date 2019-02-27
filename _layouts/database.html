@@ -27,12 +27,6 @@ layout: page
 
 <hr>
 
-<!-- REPLICATION DETAILS -->
-{% capture extraction-queries %}
-{% include replication/databases/extraction-queries.html %}
-{% endcapture %}
-
-{{ extraction-queries | flatify | markdownify }}
 
 {% if integration.replication-sections %}
     <h2 id="replication">{{ integration.display_name }} Replication</h2>

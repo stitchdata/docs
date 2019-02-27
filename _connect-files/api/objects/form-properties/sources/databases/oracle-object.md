@@ -16,9 +16,9 @@ title: "Oracle Source Form Property"
 api-type: "platform.oracle"
 display-name: "Oracle"
 
-# source-type: "database"
-#docs-name: "oracle"
-# db-type: "oracle"
+source-type: "database"
+docs-name: "oracle"
+db-type: "oracle"
 
 description: ""
 
@@ -28,7 +28,6 @@ description: ""
 # -------------------------- #
 
 ## See these fields in _data/connect/common/database-sources.yml > all-databases
-## This object will also list the fields in the `mysql` list ^
 
 uses-common-fields: true
 uses-feature-fields: true
@@ -36,12 +35,14 @@ uses-feature-fields: true
 object-attributes:
   - name: "default_replication_method"
     type: "string"
-    required: false
+    required: true
     description: |
-      The Replication Method type to be used as the default method for tables set to replicate. Accepted values are:
+      The replication method to be used as the default method for tables set to replicate. Accepted values are:
 
       - `FULL_TABLE` - [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}) will be the default
-      - `LOG_BASED` - [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) will be the default
+      - `LOG_BASED` - [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) will be the default. Stitch uses [{{ form-property.display-name }}'s LogMiner package]({{ site.data.taps.links[form-property.docs-name]logminer }}){:target="new"} to perform incremental replication.
+
+         **Note**: This replication method requires additional configuration. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link }}) for more info.
     value: "LOG_BASED"
 
   - name: "filter_schemas"
@@ -52,7 +53,7 @@ object-attributes:
 
   - name: "sid"
     type: "string"
-    required: false
-    description: "The site identifier associated with the Oracle instance."
+    required: true
+    description: "The database's {{ form-property.display-name }} System ID (SID). A SID is used to uniquely identify a specific database in {{ form-property.display-name }}."
     value: "<ORACLE_SID>"
 ---

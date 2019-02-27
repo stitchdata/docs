@@ -9,10 +9,20 @@ The backup retention period setting defines the number of days for which automat
 4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
 
 {% else %}
+
+{% case include.starting-point %}
+{% when 'sign-in' %}
+1. Sign into your AWS account.
+2. Once you’re signed into the AWS console, click the **Services** menu located in the top-left corner of the page.
+3. Locate the **RDS** option. This should be in the **Database** section.
+4. From the RDS Dashboard, click **Databases** on the left side of the page. 
+
+{% else %}
 1. Navigate back to the **Databases** page by using the menu on the left side of the page.
+{% endcase %}
 2. Select the instance you're connecting to Stitch.
-3. Click **Instance actions > Modify**.
-4. Scroll down to the **Backup** section.
+3. Click the **Modify** button.
+4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
 
 {% endcase %}
 

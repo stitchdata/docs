@@ -7,15 +7,16 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/databases/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
+
 # -------------------------- #
 #      Page & Formatting     #
 # -------------------------- #
 
 title: DATABASE-INTEGRATION
 keywords: database_integration, database integration, etl database_integration, database_integration etl
-tags: [database_integrations]
 permalink: /integrations/databases/database_integration
 summary: "Connect and replicate data from your DATABASE-INTEGRATION database using Stitch's DATABASE-INTEGRATION integration."
+
 
 # -------------------------- #
 #     Integration Details    #
@@ -30,6 +31,7 @@ repo-url: ""
 
 # this-version: ""
 
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -38,7 +40,7 @@ status: "Released"
 certified: true/false
 
 frequency: "30 minutes"
-tier: "Free/Paid"
+tier: "Free/Paid/Enterprise"
 port: ## Database's default port - ex: 3306
 db-type: "" 	## mysql,postgres,mongo,mssql
 
@@ -46,7 +48,9 @@ db-type: "" 	## mysql,postgres,mongo,mssql
 
 versions: "n/a"
 ssh: true/false
-ssl: false/false
+ssl: true/false
+
+## General replication features
 
 anchor-scheduling: true
 extraction-logs: true
@@ -54,9 +58,23 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
-binlog-replication: false
+## Replication methods
+
+define-replication-methods: true/false
+
+log-based-replication-minimum-version: ""
+log-based-replication-master-instance: true/false
+log-based-replication-read-replica: true/false
+
+## Other Replication Methods
+
+key-based-incremental-replication: 
+full-table-replication: true/false
+
 view-replication: true/false
+
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -65,6 +83,7 @@ view-replication: true/false
 requirements-list:
   - item: ""
   - item: ""
+
 
 # -------------------------- #
 #     Setup Instructions     #

@@ -72,7 +72,7 @@ mssql-rds:
 
   - name: "{{ defaults.field-names.host }}"
     copy: |
-      Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+      {{ defaults.field-copy.host-rds | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
     copy: "{{ defaults.field-copy.port | flatify }}"

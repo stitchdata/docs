@@ -29,6 +29,11 @@ fields:
       - `1440`
     value: "360"
 
+
+# start_date is in its own list because some non-SaaS sources also use it.
+# the logic for displaying form-properties will filter this property out
+# when it shouldn't be there: _includes/developers/api-form-property-fields-logic.html
+start-date:
   - name: "start_date"
     type: "string"
     required: true

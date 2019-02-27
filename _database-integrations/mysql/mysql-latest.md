@@ -131,7 +131,7 @@ setup-steps:
           {% include integrations/databases/setup/database-integration-settings.html type="ssl" ssl-fields="true" %}
 
       - title: "Define Log-based Replication setting"
-        anchor: "define-log-based-replication-setting"
+        anchor: "define-default-replication-method"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
 

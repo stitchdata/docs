@@ -36,7 +36,11 @@
             {% for privilege in database-setup %}
                 <tr>
                     <td align="right">
-                        <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
+                        {% if privilege.doc-link %}
+                            <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
+                        {% else %}
+                            {{ privilege.name }}
+                        {% endif %}
                     </td>
                     <td>
                         {{ privilege.reason | flatify | markdownify }}

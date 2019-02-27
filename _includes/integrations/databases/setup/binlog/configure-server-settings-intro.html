@@ -1,4 +1,19 @@
 {% case integration.db-type %}
+
+{% when 'oracle' %}
+
+{% capture log-based-notice %}
+1. Log-based Incremental Replication via LogMiner is the only incremental replication method supported for {{ integration.display_name }} integrations at this time. If you choose not to enable this replication method, you will be required to use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}).
+2. Some data types may not be supported for Log-based Incremental Replication. Refer to the [Data typing and LogMiner section](#data-typing-logminer-replication) for more info.
+{% endcapture %}
+
+{% include note.html first-line="**Note: Log-based Incremental Replication**" content=log-based-notice %}
+
+Log-based Incremental Replication is the most efficient way to replicate {{ integration.display_name }} data. Stitch uses [Oracle's LogMiner package]({{ site.data.taps.links[integration.db-type]logminer }}){:target="new"} to query Oracle's archive logs and retrieve all inserts, updates, and deletes to your database.
+
+{% else %}
+
+{% case integration.db-type %}
 {% when 'mysql' %}
 {% capture important %}
 **To use binlog replication, your {{ integration.display_name }} database must be running MySQL version 5.6.2 or greater**.
@@ -19,3 +34,4 @@ Next, you'll configure your server to use [Log-based Incremental Replication]({{
 **Note**: While Log-based Incremental Replication is the most accurate and efficient method of replication, using this replication method may, at times, require manual intervention or impact the source database's performance. Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info.
 
 You can also use one of Stitch's other [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}), which don't require any database configuration. Replication Methods can be changed at any time.
+{% endcase %}

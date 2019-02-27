@@ -1,0 +1,215 @@
+# -------------------------- #
+#  Database User Privileges  #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from an Oracle database.
+
+defaults:
+  names:
+    create-session: &create-session "CREATE SESSION"
+    select: &select "SELECT"
+    execute-dbms-logmnr: &execute-dbms-logmnr "EXECUTE ON DBMS_LOGMNR"
+    execute-dbms-logmnr-d: &execute-dbms-logmnr-d "EXECUTE ON DBMS_LOGMNR_D"
+    execute-catalog-role: &execute-catalog-role "EXECUTE_CATALOG_ROLE"
+    select-v-database: &select-v-database "SELECT ON SYS.V_$DATABASE"
+    select-any-transaction: &select-any-transaction "SELECT ANY TRANSACTION"
+    select-any-dictionary: &select-any-dictionary "SELECT ANY DICTIONARY"
+    select-v-archived-log: &select-v-archived-log "SELECT ON SYS.V_$ARCHIVED_LOG"
+    select-logmnr-contents: &select-logmnr-contents "SELECT ON SYS.V_$LOGMNR_CONTENTS"
+    grant-logmining-version-12: &grant-logmining-version-12 "LOGMINING"
+
+  reasons:
+    create-session: &create-session-reason |
+      Required to log into the {{ integration.display_name }} database.
+
+    select: &select-reason |
+      Required to select data from the tables and columns you want to replicate.
+
+      - `SELECT ANY TABLE` grants `SELECT` privileges to any table in the connected database.
+      - `SELECT ON <SCHEMA.TABLE>` grants `SELECT` privileges only to the specified table.
+
+    execute-dbms-logmnr: &execute-dbms-logmnr-reason |
+      **Required to use Log-based Incremental Replication.** Allows the Stitch user to execute the `DBMS_LOGMNR` package for LogMiner.
+
+    execute-dbms-logmnr-d: &execute-dbms-logmnr-d-reason |
+      **Required to use Log-based Incremental Replication.** Allows the Stitch user to execute the `DBMS_LOGMNR` package for LogMiner.
+
+    execute-catalog-role: &execute-catalog-role-reason |
+      **Required to use Log-based Incremental Replication.** Required by {{ integration.display_name }} to access objects in the `SYS` schema.
+
+    select-any-transaction: &select-any-transaction-reason |
+      **Required to use Log-based Incremental Replication.** Requied by {{ integration.display_name }} to query the `SYS.V$LOGMNR_CONTENTS` view.
+
+    select-any-dictionary: &select-any-dictionary-reason |
+      Required to select from system data dictionary objects.
+
+    select-v-database: &select-v-database-reason |
+      Required to validate the database's configuration settings (archiving mode, supplemental logging, etc).
+
+    select-v-archived-log: &select-v-archived-log-reason |
+      **Required to use Log-based Incremental Replication.** Required to locate the start and end of extracted dictionaries in archived redo log files via the `SYS.V_$ARCHIVED_LOG` view.
+
+    select-logmnr-contents: &select-logmnr-contents-reason |
+      **Required to use Log-based Incremental Replication.** Required to identify the redo log files to mine (read) via the `SYS.V_$LOGMNR_CONTENTS` view.
+
+    grant-logmining-version-12: &grant-logmining-version-12-reason |
+      **Required to use Log-based Incremental Replication if using Oracle version 12.** In version 12 of Oracle, this privilege is required to use the `START_LOGMNR` procedure in LogMiner.
+
+  doc-links:
+    create-session: &create-session-doc "https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_8003.htm#i2065278"
+    execute-dbms-logmnr: &execute-dbms-logmnr-doc "https://docs.oracle.com/database/121/ARPLS/d_logmnr.htm"
+    execute-dbms-logmnr-d: *execute-dbms-logmnr-doc
+    select-any-transaction: &select-any-transaction-doc "https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm#i1014380"
+    select-any-dictionary: &select-any-dictionary-doc "https://docs.oracle.com/cd/B19306_01/network.102/b14266/admusers.htm#i1007207"
+    execute-catalog-role: &execute-catalog-role-doc "https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm#i1014380"
+    select-v-database: &select-v-database-doc "https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1073.htm#REFRN30047"
+    select-v-archived-log: &select-v-archived-log-doc "https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1016.htm#REFRN30011"
+    select-logmnr-contents: &select-logmnr-contents-doc "https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1154.htm#REFRN30132"
+    grant-logmining-version-12: &grant-logmining-version-12-doc "https://docs.oracle.com/database/121/ARPLS/d_logmnr.htm#ARPLS66809"
+
+
+# -------------------------- #
+#     ORACLE PRIVILEGES      #
+# -------------------------- #
+
+oracle:
+  - name: *create-session
+    reason: *create-session-reason
+    doc-link: *create-session-doc
+
+  - name: *select
+    reason: *select-reason
+
+  - name: *execute-catalog-role
+    reason: *execute-catalog-role-reason
+    doc-link: *execute-catalog-role-doc
+
+  - name: *execute-dbms-logmnr
+    reason: *execute-dbms-logmnr-reason
+    doc-link: *execute-dbms-logmnr-doc
+
+  - name: *execute-dbms-logmnr-d
+    reason: *execute-dbms-logmnr-d-reason
+    doc-link: *execute-dbms-logmnr-doc
+
+  - name: *select-v-database
+    reason: *select-v-database-reason
+    doc-link: *select-v-database-doc
+
+  - name: *select-any-transaction
+    reason: *select-any-transaction-reason
+    doc-link: *select-any-transaction-doc
+
+  - name: *select-any-dictionary
+    reason: *select-any-dictionary-reason
+    doc-link: *select-any-dictionary-doc
+
+  - name: *select-v-archived-log
+    reason: *select-v-archived-log-reason
+    doc-link: *select-v-archived-log-doc
+
+  - name: *select-logmnr-contents
+    reason: *select-logmnr-contents-reason
+    doc-link: *select-logmnr-contents-doc
+
+  - name: *grant-logmining-version-12
+    reason: *grant-logmining-version-12-reason
+    doc-link: *grant-logmining-version-12-doc
+
+
+
+# -------------------------- #
+#   ORACLE RDS PRIVILEGES    #
+# -------------------------- #
+
+oracle-rds:
+  - name: *create-session
+    reason: *create-session-reason
+    doc-link: *create-session-doc
+
+  - name: *select
+    reason: *select-reason
+
+  - name: *execute-catalog-role
+    reason: *execute-catalog-role-reason
+    doc-link: *execute-catalog-role-doc
+
+  - name: *execute-dbms-logmnr
+    reason: *execute-dbms-logmnr-reason
+    doc-link: *execute-dbms-logmnr-doc
+
+  - name: *execute-dbms-logmnr-d
+    reason: *execute-dbms-logmnr-d-reason
+    doc-link: *execute-dbms-logmnr-doc
+
+  - name: *select-v-database
+    reason: *select-v-database-reason
+    doc-link: *select-v-database-doc
+
+  - name: *select-any-transaction
+    reason: *select-any-transaction-reason
+    doc-link: *select-any-transaction-doc
+
+  - name: *select-any-dictionary
+    reason: *select-any-dictionary-reason
+    doc-link: *select-any-dictionary-doc
+
+  - name: *select-v-archived-log
+    reason: *select-v-archived-log-reason
+    doc-link: *select-v-archived-log-doc
+
+  - name: *select-logmnr-contents
+    reason: *select-logmnr-contents-reason
+    doc-link: *select-logmnr-contents-doc
+
+  - name: *grant-logmining-version-12
+    reason: *grant-logmining-version-12-reason
+    doc-link: *grant-logmining-version-12-doc
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+# GRANT EXECUTE ON DBMS_LOGMNR TO STITCH;
+
+# GRANT EXECUTE ON DBMS_LOGMNR_D TO STITCH;
+
+
+create-user-command: |
+  CREATE USER STITCH IDENTIFIED BY <password>
+  
+grant-create-session: |
+  GRANT CREATE SESSION TO STITCH
+
+grant-select-all-tables: |
+  GRANT SELECT ANY TABLE TO STITCH
+
+grant-select-specific-tables: |
+  GRANT SELECT ON <SCHEMA>.<TABLE> to STITCH
+
+select-any-transaction: |
+  GRANT SELECT ANY TRANSACTION TO STITCH
+
+select-any-dictionary: |
+  GRANT SELECT ANY DICTIONARY TO STITCH
+
+grant-execute-catalog-role:
+  GRANT EXECUTE_CATALOG_ROLE TO STITCH
+
+execute-dbms-logmnr:
+  GRANT EXECUTE ON DBMS_LOGMNR TO STITCH
+
+execute-dbms-logmnr-d:
+  GRANT EXECUTE ON DBMS_LOGMNR_D TO STITCH
+
+select-v-database: |
+  GRANT SELECT ON SYS.V_$DATABASE TO STITCH
+
+select-v-archived-log: |
+  GRANT SELECT ON SYS.V_$ARCHIVED_LOG TO STITCH
+
+select-logmnr-contents: |
+  GRANT SELECT ON SYS.V_$LOGMNR_CONTENTS TO STITCH
+
+grant-logmining-version-12: |
+  GRANT LOGMINING TO STITCH
