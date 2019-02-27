@@ -1,0 +1,11 @@
+{% include note.html type="single-line" content="**Note**: This step requires access to the `SYS.V_$THREAD` performance view." %}
+
+An Oracle System ID (SID) is used to uniquely identify a specific database in your system. When you connect an {{ integration.display_name }} database to Stitch, you'll enter the SID of the database you want Stitch to extract data from into the **{{ app.page-names.int-settings }}** page.
+
+To retrieve your database's SID, log into your database as a user with access to the `SYS.V_$THREAD` performance view and run the following:
+
+```sql
+SELECT INSTANCE FROM SYS.V_$THREAD
+```
+
+The value returned by the query will be the database's SID. Keep this handy - you'll need it to complete the setup.

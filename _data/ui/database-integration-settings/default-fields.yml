@@ -56,6 +56,13 @@ field-copy:
     Enter the host address (endpoint) used by the {{ integration.display_name }} instance.
 
             In general, this will be `127.0.0.1` (localhost), but could also be some other network address (ex: `192.68.0.1`) or your server's public IP address. **Note:** This must be the actual address - entering `localhost` into this field will cause connection issues.
+
+  host-rds: |
+    Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+
+  host-cloudsql: |
+    Enter the host address (endpoint) of your CloudSQL MySQL instance. This will be the value of the **Primary IPv4 address** that you retrieved in [Step 2](#locate-database-connection-details).
+
   port: |
     Enter the port used by the {{ integration.display_name }} instance. The default is `{{ integration.port }}`.
   

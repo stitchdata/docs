@@ -22,6 +22,9 @@ log-mode:
   command: |
     SELECT LOG_MODE FROM V$DATABASE
 
+  rds: |
+    exec rdsadmin.rdsadmin_util.set_configuration('archivelog retention hours',168);
+
   result:
     archivelog: |
       If the result is `ARCHIVELOG`, archiving is enabled and no further action is required.
@@ -33,6 +36,15 @@ rman-retention-policy: |
   RMAN> CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 7 DAYS;
 
 supplemental-logging:
+  database-level: |
+    ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS
+
+  table-level: |
+    ALTER TABLE <SCHEMA_NAME>.<TABLE_NAME> ADD SUPPLEMENTAL LOG DATA (ALL) COLUMNS
+
+  rds: |
+    exec rdsadmin.rdsadmin_util.alter_supplemental_logging('ADD','ALL');
+    
   command: |
     SELECT SUPPLEMENTAL_LOG_DATA_MIN FROM V$DATABASE
 

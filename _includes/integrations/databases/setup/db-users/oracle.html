@@ -32,6 +32,7 @@ If you want to use Log-based Incremental Replication, you'll also need to grant 
 ```sql
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-execute-catalog-role | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-any-transaction | strip }}
+{{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-any-dictionary | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.execute-dbms-logmnr | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.execute-dbms-logmnr-d | strip }}
 {{ site.data.taps.extraction.database-setup.user-privileges.oracle.select-v-database | strip }}
