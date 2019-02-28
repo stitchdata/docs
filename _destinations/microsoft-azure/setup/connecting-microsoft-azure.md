@@ -23,8 +23,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 type: "microsoft-azure"
 display_name: "Microsoft Azure"
+
+ssh: true
+ssl: true
 
 
 # -------------------------- #

@@ -23,8 +23,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "Postgres-RDS"
 type: "postgres"
+
+ssh: true
+ssl: true
 
 
 # -------------------------- #

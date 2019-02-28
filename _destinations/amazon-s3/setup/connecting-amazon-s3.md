@@ -1,5 +1,14 @@
 ---
 # -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
 #        Page Controls       #
 # -------------------------- #
 
@@ -15,8 +24,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 type: "amazon-s3"
 display_name: "Amazon S3"
+
+ssh: false
+ssl: false
 
 
 # -------------------------- #

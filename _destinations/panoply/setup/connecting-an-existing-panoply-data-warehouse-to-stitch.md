@@ -12,7 +12,7 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Connecting an Existing Panoply Data Warehouse to Stitch
+title: Connecting an Existing Panoply Destination to Stitch
 permalink: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
 keywords: panoply, panoply.io, panoply data warehouse, panoply.io data warehouse etl to redshift, redshift etl, panoply etl
 summary: "Connect your existing Panoply destination to Stitch."
@@ -22,9 +22,16 @@ content-type: "destination-setup"
 layout: tutorial
 use-tutorial-sidebar: false
 
-toc: true
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "Panoply"
 type: "panoply"
+
+ssh: false
+ssl: false
 
 
 # -------------------------- #

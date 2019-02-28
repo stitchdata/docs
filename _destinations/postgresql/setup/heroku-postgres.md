@@ -23,9 +23,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "Heroku"
 type: "postgres"
 
+ssh: false
+ssl: true
 
 # -------------------------- #
 #        Requirements        #

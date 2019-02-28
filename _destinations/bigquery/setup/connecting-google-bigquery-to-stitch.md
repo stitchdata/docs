@@ -1,4 +1,17 @@
 ---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
+# -------------------------- #
+#        Page Controls       #
+# -------------------------- #
+
 title: Connecting a Google BigQuery Destination to Stitch
 permalink: /destinations/bigquery/connecting-google-bigquery-to-stitch
 tags: [bigquery_destination]
@@ -11,8 +24,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "BigQuery"
 type: "bigquery"
+
+ssh: false
+ssl: false
 
 
 # -------------------------- #

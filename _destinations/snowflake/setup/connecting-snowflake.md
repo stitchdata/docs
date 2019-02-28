@@ -25,8 +25,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "Snowflake"
 type: "snowflake"
+
+ssh: false
+ssl: true
 
 
 # -------------------------- #

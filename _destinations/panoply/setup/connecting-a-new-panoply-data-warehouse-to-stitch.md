@@ -22,9 +22,16 @@ content-type: "destination-setup"
 layout: tutorial
 use-tutorial-sidebar: false
 
-toc: true
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "Panoply"
 type: "panoply"
+
+ssh: false
+ssl: false
 
 
 # -------------------------- #

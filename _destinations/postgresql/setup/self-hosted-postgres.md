@@ -12,7 +12,7 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Connecting a Self-Hosted PostgreSQL Data Warehouse to Stitch
+title: Connecting a Self-Hosted PostgreSQL Destination to Stitch
 permalink: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-warehouse-to-stitch
 tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl
@@ -24,9 +24,17 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 type: "postgres"
 display_name: "PostgreSQL"
+
 ssh: true
+ssl: true
+
 
 # -------------------------- #
 #        Requirements        #

@@ -27,8 +27,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "CloudSQL PostgreSQL"
 type: "postgres"
+
+ssh: false
+ssl: false
 
 
 # -------------------------- #

@@ -25,9 +25,16 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
+
+# -------------------------- #
+#     Destination Details    #
+# -------------------------- #
+
 display_name: "Redshift"
 type: "redshift"
 
+ssh: true
+ssl: true
 
 # -------------------------- #
 #        Introduction        #
