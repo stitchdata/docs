@@ -1,57 +1,63 @@
-Next, you'll create a Stitch user on the SSH bastion. This will allow Stitch to authenticate via a public key and connect to the bastion.
+{% capture ssh-windows %}
+**Note**: This section assumes your SSH server is Linux or Ubuntu-based. To use SSH on Windows, you'll need to install an SSH client like [OpenSSH](https://www.openssh.com/){:target="new"}.
+{% endcapture %}
 
-Log into the SSH bastion and run the following commands:
+{% include note.html type="single-line" content=ssh-windows %}
 
-1. Create a group named `stitch`:
+Next, you'll create a Stitch user on the SSH server. This will allow Stitch to authenticate via a public key and connect to the server.
+
+1. Open a new terminal window and log into your SSH server.
+
+2. Create a group named `stitch`:
 
    ```shell
    sudo groupadd stitch
    ```
 
-2. Create a user named `stitch`:
+3. Create a user named `stitch`:
 
    ```shell
    sudo useradd -m -g stitch stitch
    ```
 
-3. Switch to the `stitch` user:
+4. Switch to the `stitch` user:
 
    ```shell
    sudo su - stitch
    ```
 
-4. Create the `.ssh` directory:
+5. Create the `.ssh` directory:
 
    ```shell
    mkdir ~/.ssh
    ```
 
-5. Using [`chmod`](https://en.wikipedia.org/wiki/Chmod){:target="new"}, alter the permissions of the directory to allow access:
+6. Using [`chmod`](https://en.wikipedia.org/wiki/Chmod){:target="new"}, alter the permissions of the directory to allow access:
 
    ```shell
    chmod 700 ~/.ssh
    ```
 
-6. Navigate to the `.ssh` directory:
+7. Navigate to the `.ssh` directory:
 
    ```shell
    cd ~/.ssh
    ```
 
-7. Using [`touch`](http://www.linfo.org/touch.html){:target="new"}, create the `authorized_keys` file:
+8. Using [`touch`](http://www.linfo.org/touch.html){:target="new"}, create the `authorized_keys` file:
 
    ```shell
    touch authorized_keys
    ```
 
-8. Set the permissions for `authorized_keys`:
+9. Set the permissions for `authorized_keys`:
 
    ```shell
    chmod 600 authorized_keys
    ```
 
-9. Import the public key into `authorized_keys`, replacing `<PUBLIC KEY>` with the public key. Verify after replacing the key that it is on one line and doesn't contain line breaks:
+10. Import the public key into `authorized_keys`, replacing `<PUBLIC KEY>` with the public key. Verify after replacing the key that it is on one line and doesn't contain line breaks:
 
-   ```shell
-   echo "[PASTE KEY HERE]" >> ~/.ssh/authorized_keys
-   ```
+    ```shell
+    echo "<PUBLIC KEY>" >> ~/.ssh/authorized_keys
+    ```

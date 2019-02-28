@@ -1,0 +1,105 @@
+<!-- This file contains formatting and logic for the SSH guides. It's used to display the
+    types of databases (source or destination) pertinent to the SSH guide type. Ex: 
+    Amazon-based databases require a different setup for SSH than non-Amazon databases,
+    so only Amazon databases are listed on the Amazon SSH guide. 
+
+    The content this include displays is controlled by an include parameter (ssh-type) that
+    specifies the type of SSH content to display. -->
+
+{% case include.ssh-type %}
+
+<!-- AMAZON SSH CONTENT -->
+{% when 'amazon' %}
+
+{% capture list-inclusion-note %}
+**Note**: Only Amazon-based databases are listed as this guide is only applicable to the databases listed below. Refer to the [Setting up an SSH Tunnel for a database connection guide]({{ link.connections.ssh-generic | prepend: site.baseurl }}) for instructions for non-Amazon databases.
+{% endcapture %}
+
+<!-- AMAZON INTEGRATION LIST -->
+{% capture integration-list %}
+{% assign all-database-integrations = site.database-integrations | where:"input",true %}
+{% assign amazon-database-integrations = all-database-integrations | where_exp:"integration","integration.title contains 'RDS'" | sort: "title" %}
+
+{% for integration in amazon-database-integrations %}
+- [{{ integration.title | remove: " (v1.0)" }}]({{ integration.url | prepend: site.baseurl }})
+{% endfor %}
+{% endcapture %}
+
+
+<!-- AMAZON DESTINATION LIST -->
+{% capture destination-list %}
+{% assign rds-destinations = site.destinations | where_exp:"destination","destination.title contains 'RDS'" | sort: "title" %}
+
+- [Amazon Redshift]({{ link.destinations.setup.redshift | prepend: site.baseurl }})
+{% for destination in rds-destinations %}
+- [{{ destination.title | remove: "Connecting an " | remove: " Destination to Stitch" }}]({{ destination.url | prepend: site.baseurl }})
+{% endfor %}
+{% endcapture %}
+
+
+<!-- GENERIC SSH CONTENT -->
+{% else %}
+
+{% capture list-inclusion-note %}
+**Note**: Amazon-based databases aren't listed as this guide isn't applicable to them. Refer to the [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }}) for more info.
+{% endcapture %}
+
+
+<!-- GENERIC INTEGRATION LIST -->
+{% capture integration-list %}
+{% assign all-database-integrations = site.database-integrations | where:"input",true %}
+{% assign databases-with-ssh-support = all-database-integrations | where:"ssh",true %}
+
+{% for integration in databases-with-ssh-support %}
+{% unless integration.title contains "Amazon" %}
+- [{{ integration.title | remove: " (v1.0)" }}]({{ integration.url | prepend: site.baseurl }})
+{% endunless %}
+{% endfor %}
+{% endcapture %}
+
+
+<!-- GENERIC DESTINATION LIST -->
+{% capture destination-list %}
+{% assign all-destinations = site.destinations | where:"content-type","destination-setup" %}
+{% assign ssh-destinations = all-destinations | where:"ssh",true %}
+
+{% for destination in ssh-destinations %}
+{% unless destination.title contains "Amazon" %}
+- [{{ destination.title | remove: "Connecting an " | remove: "Connecting a " | remove: " Destination to Stitch" }}]({{ destination.url | prepend: site.baseurl }})
+{% endunless %}
+{% endfor %}
+{% endcapture %}
+{% endcase %}
+
+
+The last step is to complete the setup steps required to connect the database to Stitch. The instructions vary from database to database, and whether the database is an integration (where data is extracted) or a destination (where data is loaded).
+
+{{ list-inclusion-note | markdownify }}
+
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-integration-guide-links">I'm connecting an integration.</a>
+        </h4>
+    </div>
+    <div id="collapse-integration-guide-links" class="panel-collapse collapse noCrossRef">
+        <div class="panel-body">
+            {{ integration-list | markdownify }}
+        </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-destination-guide-links">I'm connecting a destination.</a>
+        </h4>
+    </div>
+    <div id="collapse-destination-guide-links" class="panel-collapse collapse noCrossRef">
+        <div class="panel-body">
+            {{ destination-list | markdownify }}
+        </div>
+    </div>
+  </div>
+</div>
