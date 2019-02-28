@@ -206,21 +206,16 @@ steps:
              ![VPC inbound Security Group rule]({{ site.baseurl }}/images/destinations/redshift-ssh-vpc-security-group-rule.png)
           4. When finished, click **Save** to create the rule.
 
-  - title: "Create a Stitch Linux user"
+
+  - title: "Retrieve your Public Key"
+    anchor: "retrieve-your-public-key"
+    content: |
+      {% include shared/retrieve-public-key.html %}
+
+  - title: "Create the Stitch Linux user"
     anchor: "create-stitch-linux-user"
     content: |
-      Next, you'll retrieve your Public Key and create a Linux user on the bastion for Stitch.
-    
-    substeps:
-      - title: "Retrieve your Public Key"
-        anchor: "retrieve-your-public-key"
-        content: |
-          {% include shared/retrieve-public-key.html %}
-
-      - title: "Create the Stitch Linux user"
-        anchor: "create-stitch-linux-user"
-        content: |
-          {% include shared/create-linux-user.html %}
+      {% include shared/create-linux-user.html %}
 
   - title: "Complete the setup for Stitch"
     anchor: "complete-the-setup-for-stitch"
