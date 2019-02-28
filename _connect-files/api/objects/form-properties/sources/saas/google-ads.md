@@ -5,19 +5,19 @@
 
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-google-adwords-object"
+key: "source-form-properties-google-ads-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Google AdWords Source Form Property"
+title: "Google Ads Source Form Property"
 api-type: "platform.adwords"
-display-name: "Google AdWords"
+display-name: "Google Ads"
 
 source-type: "saas"
-docs-name: "google-adwords"
+docs-name: "google-ads"
 
 description: ""
 ---
