@@ -100,11 +100,10 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
-
-  - title: "retrieve public key"
-
-  - title: "create linux user"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"

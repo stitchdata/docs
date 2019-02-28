@@ -87,7 +87,7 @@ setup-steps:
     content: |
       Before you jump into the actual setup, consider how the documents in your Mongo database are updated.
 
-      Our Mongo integration uses [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}) to replicate Mongo data, which means that only new and updated data will be replicated to your data warehouse when a sync runs. Stitch uses a field you designate - called a [Replication Key]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) - to identify new and updated data.
+      Our Mongo integration uses [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) to replicate Mongo data, which means that only new and updated data will be replicated to your destination when a replication job runs. Stitch uses a field you designate - called a [Replication Key]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) - to identify new and updated data.
 
       There are two requirements for Mongo Replication Keys:
 
@@ -98,11 +98,10 @@ setup-steps:
 
       For a detailed look at Mongo Replication Keys, check out the [Selecting & Changing Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) before continuing.
 
-  - title: "whitelist stitch ips"
-
-  - title: "retrieve public key"
-
-  - title: "create linux user"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "create db user"
 

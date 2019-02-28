@@ -81,7 +81,10 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
@@ -93,7 +96,6 @@ setup-steps:
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
     content: |
-
       {% include shared/aws-connection-details.html %}
 
   - title: "Connect Stitch"
@@ -106,6 +108,11 @@ setup-steps:
         anchor: "define-connection-details"
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"

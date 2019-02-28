@@ -1,88 +1,80 @@
-{% case integration.ssh %}
-{% when false %}
+<!-- This file contains the logic and formatting used to display connection options in
+    database (source and destination) setup guides. -->
 
-    {% capture whitelist-ips %}
+
+<!-- Captures the whitelisting IP content. We're doing this here
+    so we don't need to call the include again. -->
+{% capture whitelist-ips %}
     {% include shared/whitelist-stitch-ips.html %}
-    {% endcapture %}
+{% endcapture %}
+
+
+<!--  -->
+{% case page.ssh %}
+
+<!-- If the database doesn't support SSH, just display the whitelisting IP content. -->
+{% when false %}
 
     {{ whitelist-ips | flatify | markdownify }}
 
+
+<!-- If the database does support SSH, do everything here: -->
 {% when true %}
-{% assign database-setup = site.data.taps.extraction.database-setup[integration.db-type] %}
- <ul id="profileTabs" class="nav nav-tabs">
-    <li class="active">
-        <a href="#choose-connection-type" data-toggle="tab">Choose connection type</a>
-    </li>
-    <li>
-        <a href="#direct-connection" data-toggle="tab">Direct connection</a>
-    </li>
-    <li>
-        <a href="#ssh-tunnel-connection" data-toggle="tab">SSH tunnel</a>
-    </li>
-</ul>
-<div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="choose-connection-type">
-        <h4 id="connection-type">Choose your connection type</h4>
 
-        <p>If your database is publicly accessible, you can <strong>directly connect</strong> it to Stitch.</p>
+In this step, you'll configure the database server to allow traffic from Stitch to access it. There are two ways to connect your database:
 
-        <p>If your database is not publicly accessible, you'll need to connect Stitch via an <strong>SSH tunnel</strong>.</p>
+- **A direct connection** will work if your database is publicly accessible.
+- **An SSH tunnel** is required if your database isn't publicly accessible. This method uses a publicly accessible instance, or an SSH server, to act as an intermediary between Stitch and your database. The SSH server will forward traffic from Stitch through an encrypted tunnel to the private database.
 
-        <p>Click the tab with your connection type to view the configuration instructions.</p>
+Click the option you're using below and follow the instructions.
 
+
+<!-- Amazon-based databases require a different setup for SSH than non-Amazon databases do.
+    This gets the correct guide title and link to use in the SSH dropdown. -->
+{% if page.title contains "Amazon" %}
+{% capture ssh-guide %}
+    [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }})
+{% endcapture %}
+
+<!-- For non-Amazon databases -->
+{% else %}
+{% capture ssh-guide %}
+    [Setting up an SSH Tunnel for a database connection guide]({{ link.connections.ssh-generic | prepend: site.baseurl }})
+{% endcapture %}
+
+{% endif %}
+
+
+{% capture ssh-guide-instructions %}
+1. Follow the steps in the {{ ssh-guide }} to set up an SSH tunnel for {{ page.display_name }}.
+2. Complete the steps in this guide after the SSH setup is complete.
+{% endcapture %}
+
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-direct-connection-setup">I'm using a direct connection.</a>
+        </h4>
     </div>
-
-    <div role="tabpanel" class="tab-pane" id="direct-connection">
-        {% capture whitelist-ips %}
-        {% include shared/whitelist-stitch-ips.html %}
-        {% endcapture %}
-
-        {{ whitelist-ips | flatify | markdownify }}
+    <div id="collapse-direct-connection-setup" class="panel-collapse collapse noCrossRef">
+        <div class="panel-body">
+            {{ whitelist-ips | flatify | markdownify }}
+        </div>
     </div>
-        
-    <div role="tabpanel" class="tab-pane" id="ssh-tunnel-connection">
-        <h4 id="whitelist-ips-ssh">Step 1.1: Whitelist Stitch's IP addresses</h4>
-
-        {{ whitelist-ips | flatify | markdownify }}
-
-        <h4 id="retrieve-public-key">Step 1.2: Retrieve your Stitch public key</h4>
-
-        {% capture public-key %}
-        {% include shared/retrieve-public-key.html no-notification=true %}
-        {% endcapture %}
-
-        {{ public-key | flatify | markdownify }}
-
-        <h4 id="create-linux-user">Step 1.3: Create a Stitch SSH user</h4>
-
-        {% capture create-linux-user %}
-        {% include shared/create-linux-user.html no-notification=true %}
-        {% endcapture %}
-
-        {{ create-linux-user| flatify | markdownify }}
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-ssh-connection-setup">I'm using an SSH tunnel to connect.</a>
+        </h4>
     </div>
+    <div id="collapse-ssh-connection-setup" class="panel-collapse collapse noCrossRef">
+        <div class="panel-body">
+            {{ ssh-guide-instructions | flatify | markdownify }}
+        </div>
+    </div>
+  </div>
 </div>
 {% endcase %}
-
-
-
-<!-- <table width="100%; fixed">
-            <tr>
-                <td width="20%; fixed" align="right">
-                    <strong>Privilege name</strong>
-                </td>
-                <td>
-                    <strong>Reason for requirement</strong>
-                </td>
-            </tr>
-            {% for privilege in database-setup.user-privileges %}
-                <tr>
-                    <td align="right">
-                        <a href="{{ privilege.doc-link }}">{{ privilege.name }}</a>
-                    </td>
-                    <td>
-                        {{ privilege.reason | flatify | markdownify }}
-                    </td>
-                </tr>
-            {% endfor %}
-        </table> -->

@@ -1,3 +1,4 @@
+{% unless include.no-notification == true %}
 {% capture ssh-windows %}
 **Note**: This section assumes your SSH server is Linux or Ubuntu-based. To use SSH on Windows, you'll need to install an SSH client like [OpenSSH](https://www.openssh.com/){:target="new"}.
 {% endcapture %}
@@ -5,6 +6,7 @@
 {% include note.html type="single-line" content=ssh-windows %}
 
 Next, you'll create a Stitch user on the SSH server. This will allow Stitch to authenticate via a public key and connect to the server.
+{% endunless %}
 
 1. Open a new terminal window and log into your SSH server.
 
