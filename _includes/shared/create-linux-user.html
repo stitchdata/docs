@@ -1,23 +1,57 @@
-{% unless page.title contains "Redshift" or include.no-notification == true %}
-{% include note.html type="single-line" content="If you aren't using an SSH tunnel, skip this step." %}
-{% endunless %}
+Next, you'll create a Stitch user on the SSH bastion. This will allow Stitch to authenticate via a public key and connect to the bastion.
 
-1. Run the following commands as root on your Linux server to create a user named `stitch`:
+Log into the SSH bastion and run the following commands:
+
+1. Create a group named `stitch`:
 
    ```shell
-   adduser --disabled-password stitch
-   mkdir /home/stitch/.ssh
+   sudo groupadd stitch
    ```
 
-2. Next, import the Public Key into `authorized_keys`, replacing `[PASTE KEY HERE]` with the [Stitch Public Key](#retrieve-your-public-key):
+2. Create a user named `stitch`:
 
    ```shell
-   echo "[PASTE KEY HERE]" >> /home/[stitch_username]/.ssh/authorized_keys
+   sudo useradd -m -g stitch stitch
    ```
 
-3. Alter the permissions on the `/home/stitch` directory to allow access via SSH:
+3. Switch to the `stitch` user:
 
    ```shell
-   chown -R [stitch_username]:stitch /home/stitch
-   chmod -R 700 /home/stitch/.ssh
+   sudo su - stitch
+   ```
+
+4. Create the `.ssh` directory:
+
+   ```shell
+   mkdir ~/.ssh
+   ```
+
+5. Using [`chmod`](https://en.wikipedia.org/wiki/Chmod){:target="new"}, alter the permissions of the directory to allow access:
+
+   ```shell
+   chmod 700 ~/.ssh
+   ```
+
+6. Navigate to the `.ssh` directory:
+
+   ```shell
+   cd ~/.ssh
+   ```
+
+7. Using [`touch`](http://www.linfo.org/touch.html){:target="new"}, create the `authorized_keys` file:
+
+   ```shell
+   touch authorized_keys
+   ```
+
+8. Set the permissions for `authorized_keys`:
+
+   ```shell
+   chmod 600 authorized_keys
+   ```
+
+9. Import the public key into `authorized_keys`, replacing `<PUBLIC KEY>` with the public key. Verify after replacing the key that it is on one line and doesn't contain line breaks:
+
+   ```shell
+   echo "[PASTE KEY HERE]" >> ~/.ssh/authorized_keys
    ```
