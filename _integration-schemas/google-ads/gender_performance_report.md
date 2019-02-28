@@ -1,11 +1,11 @@
 ---
-tap: "google-adwords"
+tap: "google-ads"
 version: "1.0"
 
-name: "display_keyword_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-keyword-performance-report
+name: "gender_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/gender-performance-report
 description: |
-  The `{{ table.name }}` table contains all Display Network and YouTube Network statistics aggregated at the keyword level.
+  The `gender_performance_report` table contains all statistics aggregated by gender.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -33,5 +33,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/campaign-performance-report){:target="_blank"}.
 ---

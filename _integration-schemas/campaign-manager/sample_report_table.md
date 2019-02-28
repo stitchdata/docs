@@ -1,5 +1,5 @@
 ---
-tap: "doubleclick-campaign-manager"
+tap: "campaign-manager"
 # version: "1.0"
 
 name: "[sample_report_table]"

@@ -1,5 +1,5 @@
 ---
-tap: "google-adwords"
+tap: "google-ads"
 version: "1.0"
 
 name: "ad_groups"

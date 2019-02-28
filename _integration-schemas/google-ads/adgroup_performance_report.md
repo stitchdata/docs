@@ -1,11 +1,11 @@
 ---
-tap: "google-adwords"
+tap: "google-ads"
 version: "1.0"
 
-name: "keywordless_query_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywordless-query-report
+name: "adgroup_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/adgroup-performance-report
 description: |
-  The `keywordless_query_report` includes keywordless ads (dynamic search ads) statistics based on search terms.
+  The `ad_performance_report` table contains all statistics aggregated at the ad group level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -33,5 +33,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/keywordless-query-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/adgroup-performance-report){:target="_blank"}.
 ---

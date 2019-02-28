@@ -1,11 +1,11 @@
 ---
-tap: "google-adwords"
+tap: "google-ads"
 version: "1.0"
 
-name: "video_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/video-performance-report
+name: "keywords_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report
 description: |
-  The `video_performance_report` table contains statistics for your account's upgraded [AdWords for Video campaigns](https://adwords.googleblog.com/2015/09/trueview-campaigns-now-in-adwords.html){:target="new"}.
+  The `keywords_performance_report` table contains all statistics aggregated at the keyword level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -33,5 +33,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/keywords-performance-report){:target="_blank"}.
 ---

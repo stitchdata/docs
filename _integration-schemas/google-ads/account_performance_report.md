@@ -1,11 +1,11 @@
 ---
-tap: "google-adwords"
+tap: "google-ads"
 version: "1.0"
 
-name: "call_metrics_call_details_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/call-metrics-call-details-report
+name: "account_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report
 description: |
-  The `{{ table.name }}` table contains data for call tracking of call-only ads or call extensions.
+  The `account_performance_report` table contains all statistics aggregated by default at the account level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -33,5 +33,5 @@ attributes:
 
   - name: "Custom Fields"
     description: |
-      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report){:target="_blank"}.
+      Columns (attributes/segments/metrics) selected by you. For descriptions of available columns, see [Google's documentation](https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report){:target="_blank"}.
 ---

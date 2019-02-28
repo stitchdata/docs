@@ -3,8 +3,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: DoubleClick Campaign Manager
-permalink: /integrations/saas/doubleclick-campaign-manager
+title: Campaign Manager
+permalink: /integrations/saas/campaign-manager
+
+redirect_from: /integrations/saas/doubleclick-campaign-manager
 tags: [saas_integrations]
 keywords: doubleclick campaign manager, integration, schema, etl doubleclick campaign manager, doubleclick campaign manager etl, doubleclick campaign manager schema
 layout: singer
@@ -14,11 +16,11 @@ layout: singer
 #         Tap Details        #
 # -------------------------- #
 
-name: "doubleclick-campaign-manager"
-display_name: "DoubleClick Campaign Manager"
+name: "campaign-manager"
+display_name: "Campaign Manager"
 
 singer: true 
-tap-name: "doubleclick-campaign-manager"
+tap-name: "Campaign Manager"
 repo-url: https://github.com/singer-io/tap-doubleclick-campaign-manager
 
 # this-version: "1.0"

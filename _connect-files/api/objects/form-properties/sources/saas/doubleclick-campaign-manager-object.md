@@ -5,19 +5,19 @@
 
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-doubleclick-campaign-manager-object"
+key: "source-form-properties-campaign-manager-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "DoubleClick Campaign Manager Source Form Property"
+title: "Campaign Manager Source Form Property"
 api-type: "platform.doubleclick-campaign-manager"
-display-name: "DoubleClick Campaign Manager"
+display-name: "Campaign Manager"
 
 source-type: "saas"
-docs-name: "doubleclick-campaign-manager"
+docs-name: "campaign-manager"
 
 description: ""
 ---

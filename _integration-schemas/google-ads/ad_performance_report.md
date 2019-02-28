@@ -1,11 +1,11 @@
 ---
-tap: "google-adwords"
+tap: "google-ads"
 version: "1.0"
 
-name: "display_topics_performance_report"
-doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-topics-performance-report
+name: "ad_performance_report"
+doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/ad-performance-report
 description: |
-  The `{{ table.name }}` table contains all Display Network and YouTube Network statistics aggregated at the topic level.
+  The `ad_performance_report` table contains all statistics aggregated at the ad level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
