@@ -65,7 +65,7 @@ azure:
 #         MSSQL RDS          #
 # -------------------------- #
 
-mssql-rds:
+sql-server-rds:
   - name: "{{ defaults.field-names.integration-name }}"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
