@@ -80,9 +80,30 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "create db user"
+  - title: "Create a Stitch database user"
+    anchor: "db-user"
+    content: |
+      {% include note.html type="single-line" content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
-  - title: "connect stitch"
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+
+      {% include integrations/templates/create-database-user-tabs.html %}
+
+  - title: "Connect Stitch"
+    anchor: "#connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
 
   - title: "replication frequency"
 

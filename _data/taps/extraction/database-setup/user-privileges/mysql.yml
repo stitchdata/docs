@@ -43,6 +43,15 @@ mysql:
 #    MARIADB PRIVILEGES      #
 # -------------------------- #
 
+magento:
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *select-doc
+
+# -------------------------- #
+#    MARIADB PRIVILEGES      #
+# -------------------------- #
+
 mariadb:
   - name: *select-name
     reason: *select-reason
