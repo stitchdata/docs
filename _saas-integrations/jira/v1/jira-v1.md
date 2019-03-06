@@ -84,7 +84,7 @@ setup-steps:
       {% include layout/inline_image.html type="right" file="integrations/jira-cloud-api-token-window.png" max-width="400px" %}
 
       1. Sign into your {{ integration.display_name }} account.
-      2. Click the **user menu (your icon)** in the bottom right corner of the page.
+      2. Click the **user menu (your icon)** in the bottom left corner of the page.
       3. Click **Manage your account**.
       4. Click the **Security** tab.
       5. In the **API token** section, click the **Create and manage API tokens** link.
