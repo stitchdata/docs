@@ -12,9 +12,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ShipHero
+title: ShipHero (v1.0)
 permalink: /integrations/saas/shiphero
-tags: [saas_integrations]
 keywords: shiphero, integration, schema, etl shiphero, shiphero etl, shiphero schema
 layout: singer
 # input: false
