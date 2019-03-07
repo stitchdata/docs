@@ -3,8 +3,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite
-permalink: /integrations/saas/netsuite
+title: NetSuite (v10-15-2015)
+permalink: /integrations/saas/netsuite-suitetalk/v10-15-2015
 tags: [saas_integrations]
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 summary: "Connection instructions and schema details for Stitch's NetSuite integration."
@@ -17,11 +17,8 @@ layout: singer
 name: "netsuite"
 display_name: "NetSuite"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
-status-url: "https://status.netsuite.com/"
 
-# this-version: "10-15-2015"
+this-version: "10-15-2015"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -130,6 +127,8 @@ setup-steps:
              ![The Transactions subsection in the Permissions section of the NetSuite Create Role page]({{ site.baseurl }}/images/integrations/netsuite-role-permissions-tab.png)
           4. Click **Add**.
           5. Repeat these steps until all permissions in the tabs of this guide have been added.
+
+          **Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
           {% endcapture %}
 
           {% include integrations/saas/netsuite-permission-list.html %}

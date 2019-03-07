@@ -1,6 +1,8 @@
 {% capture full-access-note %}
 The {{ integration.display_name }} permissions listed below are based off of the permissions {{ integration.display_name }} lists for the [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"} in their documentation.
 
+Depending on which products are enabled in your {{ integration.display_name }} account, you might not see some of these permissions. **If you don't see a permission in your {{ integration.display_name }} account, skip it.**
+
 For more info about these permissions and how they work within {{ integration.display_name }}, refer to {{ integration.display_name }}'s [Permissions Documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N326485.html){:target="new"} spreadsheet, [which can be downloaded here from their help center](https://system.netsuite.com/core/media/media.nl?id=104726101&c=NLCORP&h=280cab9399b431b9b2ba&_xt=.xls){:target="new"}. You may need to log into {{ integration.display_name }} to access their documentation.
 {% endcapture %}
 
@@ -43,6 +45,8 @@ These permissions are the minimum required to successfully connect Stitch to you
 
 {% capture tab-description %}
 These permissions are found in the **{{ permission-type-cap }}** tab of the **Create Role** page in {{ integration.display_name }}.
+
+**Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
 {% endcapture %}
             
         {% endcase %}
