@@ -1,169 +1,234 @@
 ---
 tap: "shiphero"
-version: "1.x"
+version: "1.0"
+
 name: "shipments"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-shiphero/blob/master/tap_shiphero/schemas/shipments.json"
-description: ""
-replication-method: ""
+description: |
+  The `{{ table.name }}` table contains info about the shipments in your {{ integration.display_name }} account.
+
+replication-method: "Key-based Incremental"
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Get shipments"
+    doc-link: "https://shipheropublic.docs.apiary.io/#reference/shipment/get-shipments/get-shipments"
+
+replication-key:
+  name: "from"
+  description: "A path parameter indicating the date from which records should be selected."
+
 attributes:
+  - name: "shipment_id"
+    type: "string"
+    primary-key: true
+    description: "The shipment ID."
+    foreign-key-id: "shipment-id"
+
   - name: "carrier"
     type: "string"
-    description: ""
+    description: "The carrier associated with the shipment."
+
   - name: "date"
     type: "date-time"
-    description: ""
+    description: "The date of the shipment."
+
   - name: "height"
     type: "number"
-    description: ""
+    description: "The height of the shipment."
+
   - name: "label_cost"
     type: "number"
-    description: ""
+    description: "The cost of the shipping label."
+
   - name: "length"
     type: "number"
-    description: ""
+    description: "The length of the shipment."
+
   - name: "line_items"
     type: "array"
-    description: ""
+    description: "Details about the line items in the shipment."
     array-attributes:
       - name: "line_item_id"
         type: "string"
-        description: ""
+        primary-key: true
+        description: "The line item ID."
+
       - name: "partner_line_item_id"
         type: "string"
-        description: ""
+        description: "The partner line item ID."
+
       - name: "quantity"
         type: "integer"
-        description: ""
+        description: "The quantity."
+
       - name: "shipment_line_item_id"
         type: "string"
-        description: ""
+        description: "The shipment line item ID."
+
       - name: "sku"
         type: "string"
-        description: ""
+        description: "The SKU."
+
   - name: "method"
     type: "string"
-    description: ""
+    description: "The shipping method."
+
   - name: "order"
     type: "object"
-    description: ""
-    object-properties:
+    description: "Details about the order associated with the shipment."
+    object-attributes:
       - name: "authorizations"
         type: "array"
-        description: ""
+        description: "Details about the authorizations associated with the order."
         array-attributes:
           - name: "authorized_amount"
             type: "number"
-            description: ""
+            description: "The authorized amount."
+
           - name: "card_type"
             type: "string"
-            description: ""
+            description: "The card type."
+
           - name: "date"
             type: "date-time"
-            description: ""
+            description: "The date of the authorization."
+
           - name: "postauthed_amount"
             type: "number"
             description: ""
+
           - name: "refunded_amount"
             type: "number"
-            description: ""
+            description: "The refunded amount."
+
           - name: "transaction_id"
             type: "string"
-            description: ""
+            description: "The transaction ID."
+
       - name: "fulfillment_status"
         type: "string"
-        description: ""
+        description: "The fulfillment status of the order."
+
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The ID of the order associated with the shipment."
+        foreign-key-id: "order-id"
+
       - name: "line_items"
         type: "array"
-        description: ""
+        description: "Details about the line items in the order."
         array-attributes:
+          - name: "id"
+            type: "integer"
+            primary-key: true
+            description: "The line item ID."
+
           - name: "backorder_quantity"
             type: "integer"
             description: ""
+
           - name: "barcode"
             type: "string"
-            description: ""
+            description: "The line item ID."
+
           - name: "created_at"
             type: "date-time"
-            description: ""
+            description: "The date the line item was created."
+
           - name: "custom_barcode"
             type: "string"
             description: ""
+
           - name: "custom_options"
             type: "string"
             description: ""
+
           - name: "customs_value"
             type: "string"
             description: ""
+
           - name: "eligible_for_return"
             type: "integer"
-            description: ""
+            description: "Indicates if the line item is eligible for return."
+
           - name: "fulfillment_status"
             type: "string"
-            description: ""
-          - name: "id"
-            type: "integer"
-            description: ""
+            description: "The fulfillment status of the line item."
+
           - name: "large_thumbnail"
             type: "string"
             description: ""
+
           - name: "locked_to_warehouse_id"
             type: "integer"
             description: ""
+
           - name: "name"
             type: "string"
-            description: ""
+            description: "The name of the line item."
+
           - name: "option_title"
             type: "string"
             description: ""
+
           - name: "partner_line_item_id"
             type: "string"
             description: ""
+
           - name: "price"
             type: "string"
-            description: ""
+            description: "The price of the line item."
+
           - name: "product_attributes"
             type: "string"
             description: ""
+
           - name: "product_id"
             type: "string"
-            description: ""
+            description: "The product ID."
+            foreign-key-id: "product-id"
+
           - name: "quantity"
             type: "integer"
-            description: ""
+            description: "The quantity of the product in the order."
+
           - name: "quantity_allocated"
             type: "integer"
             description: ""
+
           - name: "quantity_pending_fulfillment"
             type: "integer"
             description: ""
+
           - name: "quantity_shipped"
             type: "integer"
             description: ""
+
           - name: "sku"
             type: "string"
-            description: ""
+            description: "The SKU."
+
           - name: "subtotal"
             type: "string"
-            description: ""
+            description: "The subtotal for the line item."
+
           - name: "thumbnail"
             type: "string"
             description: ""
+
           - name: "updated_at"
             type: "date-time"
-            description: ""
+            description: "The date the line item was last updated."
+
           - name: "warehouse"
             type: "string"
             description: ""
+
           - name: "warehouse_id"
             type: "integer"
-            description: ""
+            description: "The ID of the warehouse associated with the linte item."
+            foreign-key-id: "warehouse-id"
+
       - name: "note_attributes"
         type: "array"
         description: ""
@@ -171,12 +236,15 @@ attributes:
           - name: "name"
             type: "string"
             description: ""
+
           - name: "value"
             type: "string"
             description: ""
+
       - name: "order_date"
         type: "date-time"
-        description: ""
+        description: "The date of the order."
+
       - name: "order_history"
         type: "array"
         description: ""
@@ -184,132 +252,173 @@ attributes:
           - name: "created_at"
             type: "date-time"
             description: ""
+
           - name: "information"
             type: "string"
             description: ""
+
           - name: "username"
             type: "string"
             description: ""
+
       - name: "order_number"
         type: "string"
-        description: ""
+        description: "The order number."
+
       - name: "partner_order_id"
         type: "string"
         description: ""
+
       - name: "payment_method"
         type: "string"
-        description: ""
+        description: "The payment method associated with the order."
+
       - name: "ready_to_ship"
         type: "integer"
-        description: ""
+        description: "Indicates if the order is ready to ship."
+
       - name: "shipping_address"
         type: "object"
         description: ""
-        object-properties:
+        object-attributes: 
           - name: "address1"
             type: "string"
-            description: ""
+            description: "The first line of the shipping address."
+
           - name: "address2"
             type: "string"
-            description: ""
+            description: "The second line of the shipping address."
+
           - name: "city"
             type: "string"
-            description: ""
+            description: "The city of the shipping address."
+
           - name: "company"
             type: "string"
-            description: ""
+            description: "The company associated with the shipping address."
+
           - name: "country"
             type: "string"
-            description: ""
+            description: "The country of the shipping address."
+
           - name: "country_code"
             type: "string"
-            description: ""
+            description: "The country code."
+
           - name: "email"
             type: "string"
-            description: ""
+            description: "The email address."
+
           - name: "first_name"
             type: "string"
-            description: ""
+            description: "The first name."
+
           - name: "last_name"
             type: "string"
-            description: ""
+            description: "The last name."
+
           - name: "phone"
             type: "string"
-            description: ""
+            description: "The phone number of the shipping address."
+
           - name: "province"
             type: "string"
-            description: ""
+            description: "The province of the shipping address."
+
           - name: "province_code"
             type: "string"
-            description: ""
+            description: "The province code."
+
           - name: "zip"
             type: "string"
-            description: ""
+            description: "The zip code."
+
       - name: "shipping_lines"
         type: "object"
-        description: ""
-        object-properties:
+        description: "Details about the shipping lines in the order."
+        object-attributes:
           - name: "carrier"
             type: "string"
-            description: ""
+            description: "The shipping carrier."
+
           - name: "method"
             type: "string"
-            description: ""
+            description: "The shipping method."
+
           - name: "price"
             type: "number"
-            description: ""
+            description: "The price of the shipping line."
+
           - name: "title"
             type: "string"
-            description: ""
+            description: "The shipping title."
+
       - name: "shop_name"
         type: "string"
-        description: ""
+        description: "The shop name associated with the order."
+
       - name: "subtotal_price"
         type: "string"
-        description: ""
+        description: "The subtotal for the order."
+
       - name: "tags"
-        type: "array, string"
-        description: ""
+        type: "array"
+        description: "Tags applied to the order."
+        array-attributes:
+          - name: "value"
+            type: "string"
+            description: "The tag."
+
       - name: "total_discounts"
         type: "number"
-        description: ""
+        description: "The total discounts applied to the order."
+
       - name: "total_price"
         type: "string"
-        description: ""
+        description: "The total cost of the order."
+
       - name: "total_tax"
         type: "string"
-        description: ""
+        description: "The total tax applied to the order."
+
   - name: "order_id"
     type: "string"
-    description: ""
+    description: "The ID of the order associated with the shipment."
+    foreign-key-id: "order-id"
+
   - name: "order_number"
     type: "string"
-    description: ""
-  - name: "shipment_id"
-    type: "string"
-    description: ""
+    description: "The order number."
+
   - name: "shipper_email"
     type: "string"
-    description: ""
+    description: "The shipper email."
+
   - name: "shipper_id"
     type: "string"
-    description: ""
+    description: "The shipper ID."
+
   - name: "shipping_name"
     type: "string"
-    description: ""
+    description: "The shipping name. For example: `UPS Ground`"
+
   - name: "status"
     type: "string"
-    description: ""
+    description: "The status of the shipment."
+
   - name: "tracking"
     type: "string"
-    description: ""
+    description: "The tracking number for the shipment."
+
   - name: "warehouse"
     type: "string"
-    description: ""
+    description: "The warehouse associated with the shipment."
+
   - name: "weight"
     type: "number"
-    description: ""
+    description: "The weight of the shipment."
+
   - name: "width"
     type: "number"
-    description: ""
+    description: "The width of the shipment."
 ---
