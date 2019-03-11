@@ -6,16 +6,12 @@ name: "products"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-shiphero/blob/master/tap_shiphero/schemas/products.json"
 description: |
-  The `{{ table.name }}` table contains info about
+  The `{{ table.name }}` table contains info about the products in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 api-method:
     name: "Get products"
     doc-link: "https://shipheropublic.docs.apiary.io/#reference/products/get-product/get-product"
-
-replication-key:
-  name: "from"
-  description: "A path parameter indicating the date from which records should be selected."
 
 attributes:
   - name: "id"
@@ -23,6 +19,11 @@ attributes:
     primary-key: true
     description: ""
     foreign-key-id: "product-id"
+
+  - name: "updated_at"
+    type: "date-time"
+    replication-key: true
+    description: "The time the product was last updated."
 
   - name: "account_id"
     type: "integer"
@@ -171,10 +172,6 @@ attributes:
   - name: "thumbnail"
     type: "string"
     description: ""
-
-  - name: "updated_at"
-    type: "date-time"
-    description: "The time the product was last updated."
 
   - name: "value"
     type: "number"

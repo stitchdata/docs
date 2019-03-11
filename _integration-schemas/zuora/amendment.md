@@ -18,7 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The amendment ID."
-    foriegn-key-id: "amendment-id"
+    foreign-key-id: "amendment-id"
 
   - name: "updatedDate"
     type: "date-time"
