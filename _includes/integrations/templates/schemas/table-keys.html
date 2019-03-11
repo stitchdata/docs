@@ -16,10 +16,7 @@
 
         <!-- Captures & cleans field names for PKs -->
             {% capture clean-keys %}
-                {% for attribute in table.attributes %}
-                    {% if attribute.primary-key == true %}
-                        {{ attribute.name | flatify | append: " :" }}
-                    {% endif %}
+                {% for attribute in table.attributes %}{% if attribute.primary-key == true %}{{ attribute.name | flatify | append: " :" }}{% endif %}
                 {% endfor %}
             {% endcapture %}
 
@@ -51,10 +48,7 @@
                 {% else %}
 
                     {% capture clean-replication-keys %}
-                        {% for attribute in table.attributes %}
-                            {% if attribute.replication-key == true %}
-                                {{ attribute.name | flatify | append: " :" }}
-                            {% endif %}
+                        {% for attribute in table.attributes %}{% if attribute.replication-key == true %}{{ attribute.name | flatify | append: " :" }}{% endif %}
                         {% endfor %}
                     {% endcapture %}
 
