@@ -14,8 +14,8 @@ api-method:
     doc-link: "https://shipheropublic.docs.apiary.io/#reference/shipment/get-shipments/get-shipments"
 
 replication-key:
-  name: "from"
-  description: "A path parameter indicating the date from which records should be selected."
+  name: "updated_from:updated_to"
+  description: "Path parameters indicating the date range from which records should be selected."
 
 attributes:
   - name: "shipment_id"
