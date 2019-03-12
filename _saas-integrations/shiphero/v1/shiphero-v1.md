@@ -29,8 +29,6 @@ singer: true
 tap-name: "ShipHero"
 repo-url: https://github.com/singer-io/tap-shiphero
 
-use-default-icon: true
-
 # this-version: "1.0"
 
 # -------------------------- #
