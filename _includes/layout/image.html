@@ -1,1 +1,32 @@
-<figure>{% if {{include.url}} %}<a class="no_icon" target="_blank" href="{{include.url}}">{% endif %}<img class="docimage" src="{{site.baseurl}}{{include.file}}" alt="{{include.alt}}" {% if {{include.max-width}} %}style="max-width: {{include.max-width}}px"{% endif %} />{% if {{include.url}} %}</a>{% endif %}{% if {{include.caption}} %}<figcaption>{{include.caption}}</figcaption></figure>{% endif %}
+<!-- This file contains the formatting for various image types. -->
+
+{% case include.type %}
+
+<!-- For images that should be aligned to the right -->
+{% when 'right' %}
+{% capture image-type-details %}
+img class="right" align="right" style="margin-left: 15px;"
+{% endcapture %}
+
+
+<!-- All other images -->
+{% else %}
+{% capture image-type-details %}
+img class="docimage"
+{% endcapture %}
+{% endcase %}
+
+
+{% unless include.type == "right" or include.type == "inline" %}
+<figure>
+{% endunless %}
+
+{% if include.url %}<a class="no_icon" target="_blank" href="{{include.url}}">{% endif %}{% if include.enlarge == true %}<a href="{{ site.baseurl }}/images{{ include.file }}">{% endif %}<{{ image-type-details | strip }} src="{{ site.baseurl }}/images{{ include.file }}" alt="{{ include.alt }}" {% if include.max-width %} style="max-width: {{ include.max-width }}px"{% endif %} />{% if include.url or include.enlarge %}</a>{% endif %}
+	
+	{% if include.caption %}
+		<p class="caption">{{ include.caption | flatify }}</p>
+	{% endif %}
+
+{% unless include.type == "right" or include.type == "inline" %}
+</figure>
+{% endunless %}
