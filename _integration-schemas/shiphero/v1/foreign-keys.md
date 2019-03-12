@@ -27,12 +27,12 @@ foreign-keys:
       - table: "shipments"
         subtable: "orders__line_items"
 
-  - id: "shipment-id"
-    attribute: "shipment_id"
-    table: "shipments"
-    all-foreign-keys:
-      - table: "shipments"
-        join-on: "id"
+  # - id: "shipment-id"
+  #   attribute: "shipment_id"
+  #   table: "shipments"
+  #   all-foreign-keys:
+  #     - table: "shipments"
+  #       join-on: "id"
       
 
   # - id: "vendor-id"
