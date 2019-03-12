@@ -318,10 +318,39 @@
                                       {"definitions" {"integer" {"type" "integer"}}}
                                       ["an_string" {"$ref" "#/definitions/string"}]))))
 
+(deftest convert-types-with-bad-refs-tests
+  (is (thrown? clojure.lang.ExceptionInfo
+               (convert-multiary-type nil
+                                      nil
+                                      ["an_bad_ref" {"$ref" "#/"}])))
+
+  (is (thrown? clojure.lang.ExceptionInfo
+               (convert-multiary-type nil
+                                      nil
+                                      ["an_bad_ref" {"$ref" ""}]))))
+
 (deftest parse-json-schema-reference-tests
-  (is (= {:file nil :json-pointer ["def"]} (parse-json-schema-reference "#/def")))
-  (is (= {:file nil :json-pointer ["def" "foo" "bar"]} (parse-json-schema-reference "#/def/foo/bar")))
-  (is (= {:file "definitions.json" :json-pointer ["def"]} (parse-json-schema-reference "definitions.json#/def"))))
+  (is (= {:file nil :json-pointer ["def"]}
+         (parse-json-schema-reference "#/def")))
+  (is (= {:file nil :json-pointer ["def" "foo" "bar"]}
+         (parse-json-schema-reference "#/def/foo/bar")))
+  (is (= {:file "definitions.json" :json-pointer ["def"]}
+         (parse-json-schema-reference "definitions.json#/def")))
+  (is (= {:file "shared/type-string.json" :json-pointer []}
+         (parse-json-schema-reference "shared/type-string.json#/")))
+  (is (= {:file "shared/type-string.json" :json-pointer ["def"]}
+         (parse-json-schema-reference "shared/type-string.json#/def")))
+  (is (= {:file "shared/type-string.json" :json-pointer ["def" "foo" "bar"]}
+         (parse-json-schema-reference "shared/type-string.json#/def/foo/bar")))
+  (is (= {:file "shared/type_string.json" :json-pointer ["def"]}
+         (parse-json-schema-reference "shared/type_string.json#/def")))
+  (is (= {:file nil :json-pointer []}
+         (parse-json-schema-reference "#/")))
+
+  (is (thrown? clojure.lang.ExceptionInfo
+               (parse-json-schema-reference "foo-bar.json")))
+  (is (thrown? clojure.lang.ExceptionInfo
+               (parse-json-schema-reference "shared/foo_bar.json"))))
 
 (deftest load-schema-file-tests
   (is (= {} (load-schema-file

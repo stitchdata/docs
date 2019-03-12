@@ -168,12 +168,20 @@
    :post [(contains? % :file)
           (every? string? (:json-pointer %))]}
   (let [res ((insta/parser "<JSONSCHEMAREFERENCE> = FILE? <ROOT> JSONPOINTER+
-                  FILE = #'[-A-Za-z0-9_]+.json'
+                  FILE = #'[-A-Za-z0-9_/]+.json'
                   ROOT = '#'
-                  JSONPOINTER = <'/'> #'[A-Za-z0-9_]+'")
+                  JSONPOINTER = <'/'> #'[A-Za-z0-9_]*'")
              json-schema-reference)
+        res (if (insta/failure? res)
+              (throw (ex-info "Malformed json-schema-reference"
+                              {:json-schema-reference
+                               json-schema-reference}))
+              res)
         file (filter (comp (partial = :FILE) first) res)
-        json-pointer (filter (comp (partial = :JSONPOINTER) first) res)]
+        json-pointer (filter (comp (partial = :JSONPOINTER) first) res)
+        json-pointer (if (= [[:JSONPOINTER ""]] json-pointer)
+                       []
+                       json-pointer)]
     {:file (second (first file))
      :json-pointer (map second json-pointer)}))
 
@@ -199,19 +207,42 @@
 
 (defn convert-multiary-type
   "multiary-type = a property that _may_ have more than one type."
-  [tap-fs schema [property-name property-json-schema-partial :as property]]
+  [tap-fs schema [property-name property-json-schema-partial
+                  :as property]]
   (let [property (if (contains? property-json-schema-partial "$ref")
-                   (let [{:keys [file json-pointer]} (parse-json-schema-reference (property-json-schema-partial "$ref"))
-                         schema (if file (load-schema-file tap-fs file) schema)
-                         referenced-json-schema-partial (get-in schema json-pointer)]
+                   (let [{:keys [file json-pointer]}
+                         (parse-json-schema-reference
+                          (property-json-schema-partial "$ref"))
+
+                         _
+                         (when (and (nil? file)
+                                    (empty? json-pointer))
+                           (throw
+                            (ex-info
+                             "Infinite recursion json schema ref"
+                             {:property-name
+                              property-name
+
+                              :property-json-schema-partial
+                              property-json-schema-partial})))
+
+                         schema
+                         (if file (load-schema-file tap-fs file) schema)
+
+                         referenced-json-schema-partial
+                         (get-in schema json-pointer)]
                      (when (not referenced-json-schema-partial)
                        (throw (ex-info "$ref without matching definition"
                                        {:property property
                                         :schema schema})))
                      [property-name referenced-json-schema-partial])
                    property)]
-    (let [unary-type-properties (property->unary-type-properties property)
-          converted-unary-type-properties (map (partial convert-unary-type tap-fs schema) unary-type-properties)]
+    (let [unary-type-properties
+          (property->unary-type-properties property)
+
+          converted-unary-type-properties
+          (map (partial convert-unary-type tap-fs schema)
+               unary-type-properties)]
       (if (empty? converted-unary-type-properties)
         (do
           (println (str "Null unary type passed for property"
@@ -243,8 +274,16 @@
         ;; Here's it the json-schema-partial. The other calling location
         ;; returns a property.
         schema             (if (contains? schema "$ref")
-                             (let [json-schema-reference          (parse-json-schema-reference (schema "$ref"))
-                                   referenced-json-schema-partial (get-in schema json-schema-reference)]
+                             (let [{:keys [file] :as json-schema-reference}
+                                   (parse-json-schema-reference (schema "$ref"))
+
+                                   _
+                                   (when (nil? file)
+                                     (throw (ex-info "Infinite recursion json schema ref"
+                                                     json-schema-reference)))
+
+                                   referenced-json-schema-partial
+                                   (get-in schema json-schema-reference)]
                                (when (not referenced-json-schema-partial)
                                  (throw (ex-info "$ref without matching definition"
                                                  {:schema-file input-json-schema-file
@@ -422,7 +461,7 @@
 
 (comment
   (def ^:dynamic *interactive* true)
-  (-main "shopify")
+  (-main "bigcommerce")
 
   ;; Ensure you're fresh
   (do (dorun (map remove-ns '(tap-generate-docs tap-generate-docs-test)))
