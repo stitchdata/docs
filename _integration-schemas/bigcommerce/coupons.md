@@ -38,7 +38,7 @@ attributes:
   - name: "applies_to"
     type: "object"
     description: "A list of product or category IDs the coupon can be applied to. The value of the `applies_to__entity` field indicates whether these are product or category IDs."
-    object-attributes:
+    subattributes:
       - name: "entity"
         type: "string"
         description: "The type of entity. For example: `product`"
@@ -46,7 +46,7 @@ attributes:
       - name: "ids"
         type: "array"
         description: "The list of IDs the coupon can be applied to. The value of the `entity` field indicates whether these are product or category IDs."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             primary-key: true
@@ -91,11 +91,11 @@ attributes:
   - name: "restricted_to"
     type: "array"
     description: &restricted-to "A list of countries that the coupon is restricted to."
-    array-attributes:
+    subattributes:
       - name: "countries"
         type: "array"
         description: *restricted-to
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The country the coupon is restricted to."
@@ -103,7 +103,7 @@ attributes:
   - name: "shipping_methods"
     type: "array"
     description: "A list of shipping method names."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the shipping method."

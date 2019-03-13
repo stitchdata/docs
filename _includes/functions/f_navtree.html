@@ -1,0 +1,42 @@
+<div class="table-responsive">
+	<table class="table table-hover">
+		{% for attribute in include.table %} 
+			<tr>
+				<td>
+					<p><strong>{{ attribute.name }}</strong> ({{ attribute.type }})</p>
+				    {{ attribute.description | flatify | markdownify }}
+
+					{% if attribute.subattributes %}
+						{% case attribute.type %}
+							{% when 'object' %}
+								{% capture nested-data-note %}
+									attributes in this object will be flattened into the table. Fields will be named: <code>{{ attribute.name }}__[field_name]</code>
+							{% endcapture %}
+
+						{% when 'array' %}
+							{% capture nested-data-note %}
+								attributes will be denested into a subtable. For example: <code>{{ table.name }}__{{ attribute.name }}</code>
+							{% endcapture %}
+						{% endcase %}
+
+						<p><strong>Note</strong>: This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }}</p>
+
+						<div class="panel-group" id="{{ attribute.name | append: "--" }}">
+						    <div class="panel panel-default">
+						        <div class="panel-heading">
+						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ attribute.name | append: "--" | append: subattribute.name }}" href="#collapse{{ table.name | append: "--" | append: attribute.name }}">Click to expand {{ attribute.name }}</a>
+						        </div>
+
+						        <div id="collapse{{ table.name | append: "--" | append: attribute.name }}" class="panel-collapse collapse noCrossRef">
+						            <div class="panel-body">
+						            </div>
+										{% include /functions/f_navtree.html table=attribute.subattributes %}
+								</div>
+						    </div>
+						</div>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
