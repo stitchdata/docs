@@ -70,16 +70,16 @@
 						{% case attribute.type %}
 							{% when 'object' %}
 								{% capture nested-data-note %}
-									attributes in this object will be flattened into the table. Fields will be named: <code>{{ attribute.name }}__[field_name]</code>
+									attributes in this object will be flattened into the table.
 							{% endcapture %}
 
 						{% when 'array' %}
 							{% capture nested-data-note %}
-								attributes will be denested into a subtable. For example: <code>{{ table.name }}__{{ attribute.name }}</code>
+								attributes will be denested into a subtable.
 							{% endcapture %}
 						{% endcase %}
 
-						<p><strong>Note</strong>: This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }}</p>
+						<p><strong>Note</strong>: This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} Refer to the <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures guide</a> for more details and instructions for joining tables.</p>
 
 						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: forloop.index %}
 
