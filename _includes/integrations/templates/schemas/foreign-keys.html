@@ -32,29 +32,10 @@
     So in this case, the `table` value would say "contacts", indicating that 
     id = contacts.id.  -->
 
-{% case include.attribute-level %}
-<!-- For second-level attributes -->
-    {% when 'subattribute' %}
-        {% assign foreign-key-id = subattribute.foreign-key-id %}
-        {% assign attribute-table = subattribute.table %}
+{% assign foreign-key-id = attribute.foreign-key-id %}
+{% assign attribute-table = attribute.table %}
 
-        {% assign attribute-key = subattribute %}
-
-<!-- For third level attributes -->
-    {% when 'sub-subattribute' %}
-        {% assign foreign-key-id = sub-subattribute.foreign-key-id %}
-        {% assign attribute-table = sub-subattribute.table %}
-
-        {% assign attribute-key = sub-subattribute %}
-
-<!-- For first level attributes -->
-    {% else %}
-        {% assign foreign-key-id = attribute.foreign-key-id %}
-        {% assign attribute-table = attribute.table %}
-
-        {% assign attribute-key = attribute %}
-{% endcase %}
-
+{% assign attribute-key = attribute %}
 
 {% for reference in references %}
     {% for key in reference.foreign-keys %}
