@@ -7,7 +7,7 @@ foreign-keys:
   - id: "contact-id"
     attribute: "ContactID"
     table: "subscribed_contacts"
-    all-foriegn-keys:
+    all-foreign-keys:
       - table: "message_bounces"
       - table: "message_clicks"
       - table: "message_opens"
