@@ -55,7 +55,7 @@ attributes:
   - name: "adLabels"
     type: "array"
     description: "Details about the ad labels applied to the ad."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -92,7 +92,7 @@ attributes:
   - name: "bid_info"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: "clicks"
         type: "integer"
         description: "The clicks you placed on your bid."
@@ -127,7 +127,7 @@ attributes:
     type: "object"
     description: "Details about the creative used by the ad."
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ad-creative/
-    object-attributes:
+    subattributes:
       - name: "creative_id"
         type: "integer"
         description: "The ID of the creative used by the ad."
@@ -160,7 +160,7 @@ attributes:
   - name: "targeting"
     type: "object"
     description: "Details about the targeting specs applied to the ad."
-    object-attributes:
+    subattributes:
       - name: "age_max"
         type: "string"
         description: "The maximum age of the targeted audience."
@@ -190,7 +190,7 @@ attributes:
     type: "array"
     description: "Details about the recommendations for the ad, if there are any."
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ad-recommendation/
-    array-attributes:
+    subattributes:
       - name: "code"
         type: "integer"
         primary-key: true
@@ -227,7 +227,7 @@ attributes:
       If you have applied many tracking specs to your ads, this will result in a large number of subtables in your data warehouse. [Refer to Facebook's documentation for a full list of tracking specs](https://developers.facebook.com/docs/marketing-api/reference/conversion-action-query/).
 
       Subtables created for tracking specs will, in general, have the following schema:
-    array-attributes:
+    subattributes:
       - name: |
           {{ system-column.level-id | replace: "#", "1" }}
         type: "integer"
@@ -244,7 +244,7 @@ attributes:
     description: |
       Conversion specs allow Facebook to surface the ad to users most likely to perform a desired decision. For example: adding to a shopping cart, viewing a particular page, or completing a form.
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/conversion-action-query/
-    array-attributes:
+    subattributes:
       - name: |
           {{ system-column.level-id | replace: "#", "1" }}
         type: "integer"

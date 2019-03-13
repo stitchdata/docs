@@ -43,7 +43,7 @@ attributes:
   - name: "behaviors"
     type: "array"
     description: "ID/name pairs of the behavior targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -56,7 +56,7 @@ attributes:
   - name: "connections"
     type: "array"
     description: "ID/name pairs of the connection targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -69,7 +69,7 @@ attributes:
   - name: "custom_audiences"
     type: "array"
     description: "ID/name pairs of the custom audience targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -82,7 +82,7 @@ attributes:
   - name: "education_majors"
     type: "array"
     description: "ID/name pairs of the education major targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -95,7 +95,7 @@ attributes:
   - name: "excluded_connections"
     type: "array"
     description: "ID/name pairs of the excluded connection targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -108,7 +108,7 @@ attributes:
   - name: "excluded_custom_audiences"
     type: "array"
     description: "ID/name pairs of the excluded custom audience targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -126,7 +126,7 @@ attributes:
   # - name: "exclusions"
   #   type: "array"
   #   description: ""
-  #   array-attributes:
+  #   subattributes:
   #     - name: "id"
   #       type: "string"
   #       primary-key: true
@@ -139,7 +139,7 @@ attributes:
   # - name: "flexible_spec"
   #   type: "array"
   #   description: ""
-  #   array-attributes:
+  #   subattributes:
   #     - name: "id"
   #       type: "string"
   #       primary-key: true
@@ -152,7 +152,7 @@ attributes:
   - name: "family_statuses"
     type: "array"
     description: "ID/name pairs of the family status targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -165,7 +165,7 @@ attributes:
   - name: "friends_of_connections"
     type: "array"
     description: "ID/name pairs of the friend of connections targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -178,7 +178,7 @@ attributes:
   - name: "generation"
     type: "array"
     description: "ID/name pairs of the generation demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -191,7 +191,7 @@ attributes:
   - name: "geo_locations__cities"
     type: "array"
     description: "Details about the city demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "key"
         type: "string"
         description: "The city's key."
@@ -223,7 +223,7 @@ attributes:
   - name: "geo_locations__location_types"
     type: "array"
     description: "Details about the location types included in the targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: |
@@ -240,7 +240,7 @@ attributes:
   - name: "geo_locations__regions"
     type: "array"
     description: "Details about the region demographics included in the targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the region."
@@ -256,7 +256,7 @@ attributes:
   - name: "geo_locations__zips"
     type: "array"
     description: "Details about zip codes included in the targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the zip code. For example: `90210`"
@@ -280,7 +280,7 @@ attributes:
   - name: "geo_locations__geo-markets"
     type: "array"
     description: "Details about the geo market demographics included in the targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "key"
         type: "string"
         description: "The key of the geo market."
@@ -292,7 +292,7 @@ attributes:
   - name: "home_ownership"
     type: "array"
     description: "ID/name pairs of the home ownership demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -305,7 +305,7 @@ attributes:
   - name: "home_type"
     type: "array"
     description: "ID/name pairs of the home type demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -318,7 +318,7 @@ attributes:
   - name: "household_composition"
     type: "array"
     description: "ID/name pairs of the home composition targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -331,7 +331,7 @@ attributes:
   - name: "income"
     type: "array"
     description: "ID/name pairs of the income demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -344,7 +344,7 @@ attributes:
   - name: "industries"
     type: "array"
     description: "ID/name pairs of the industry targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -357,7 +357,7 @@ attributes:
   - name: "interests"
     type: "array"
     description: "ID/name pairs of the interest targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -370,7 +370,7 @@ attributes:
   - name: "life_events"
     type: "array"
     description: "ID/name pairs of the life event targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -383,7 +383,7 @@ attributes:
   - name: "moms"
     type: "array"
     description: "ID/name pairs of the mother demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -396,7 +396,7 @@ attributes:
   - name: "net_worth"
     type: "array"
     description: "ID/name pairs of the net worth demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -409,7 +409,7 @@ attributes:
   - name: "office_type"
     type: "array"
     description: "ID/name pairs of the office type targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -422,7 +422,7 @@ attributes:
   - name: "politics"
     type: "array"
     description: "ID/name pairs of the political demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -435,7 +435,7 @@ attributes:
   - name: "user_adclusters"
     type: "array"
     description: "ID/name pairs of the user adcluster targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -448,7 +448,7 @@ attributes:
   - name: "work_employers"
     type: "array"
     description: "ID/name pairs of the work employer targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -461,7 +461,7 @@ attributes:
   - name: "work_positions"
     type: "array"
     description: "ID/name pairs of the work position targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -476,7 +476,7 @@ attributes:
   - name: "locales"
     type: "array"
     description: "The locale targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The locale to be targeted. Ex: `en`"
@@ -484,7 +484,7 @@ attributes:
   - name: "geo_locations__countries"
     type: "array"
     description: "Details about the country demographic targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The country to be targeted."
@@ -492,7 +492,7 @@ attributes:
   - name: "geo_locations__country_groups"
     type: "array"
     description: "The country group targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The country group code."
@@ -500,7 +500,7 @@ attributes:
   - name: "messenger_positions"
     type: "array"
     description: "The Messenger position targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The Messenger position to be targeted. Ex: `sponsored_messages`"
@@ -508,7 +508,7 @@ attributes:
   - name: "instagram_positions"
     type: "array"
     description: "The Instagram position targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The Instagram position to be targeted. Ex: `stream`, `story`"
@@ -517,7 +517,7 @@ attributes:
     type: "array"
     description: "Audience network position targeting specs applied to the ad/ad set. Facebook's Audience Network feature allows the serving of ads on other publishers' iOS and Android apps and mobile websites."
     doc-link: https://developers.facebook.com/docs/marketing-api/audience-network
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The audience network position to be targeted. Ex: `instream_video`"
@@ -526,7 +526,7 @@ attributes:
     type: "array"
     description: "Education status targeting specs applied to the ad/ad set."
     doc-link: https://developers.facebook.com/docs/marketing-api/targeting-specs/education_and_workplace
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: |
@@ -540,7 +540,7 @@ attributes:
   - name: "publisher_platforms"
     type: "array"
     description: "Publisher platform targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The publisher platform to be targeted. Ex: `facebook`"
@@ -548,7 +548,7 @@ attributes:
   - name: "device_platforms"
     type: "array"
     description: "Device platform targeting specs applied to the ad/ad set. This is the type of device (`mobile`, `desktop`) someone who views your ad has."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The device platform to be targeted."
@@ -556,7 +556,7 @@ attributes:
   - name: "facebook_positions"
     type: "array"
     description: "Facebook position targeting specs applied to the ad/ad set. The position is the location on Facebook where the ad is served. Ex: in the newsfeed or a suggested video."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The Facebook position to be targeted. Ex: `feed`"
@@ -564,7 +564,7 @@ attributes:
   - name: "user_os"
     type: "array"
     description: "User operating system targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The user operating system to be targeted."
@@ -572,7 +572,7 @@ attributes:
   - name: "user_device"
     type: "array"
     description: "User device targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The user device to be targeted."
@@ -580,7 +580,7 @@ attributes:
   - name: "excluded_publisher_categories"
     type: "array"
     description: "Excluded publisher category targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The publisher category to be excluded."
@@ -588,7 +588,7 @@ attributes:
   - name: "targeting_optimization"
     type: "array"
     description: "The targeting optimization specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The targeting optimization spec."
@@ -596,7 +596,7 @@ attributes:
   - name: "relationship_statuses"
     type: "array"
     description: "Relationship status targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The relationship status to be targeted."
@@ -604,7 +604,7 @@ attributes:
   - name: "interested_in"
     type: "array"
     description: "The targeting specs applied to the ad/ad set regarding topics users are interested in."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The topic to be targeted."
@@ -612,7 +612,7 @@ attributes:
   - name: "excluded_user_device"
     type: "array"
     description: "Excluded user device targeting specs applied to the ad/ad set."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The device to be excluded."

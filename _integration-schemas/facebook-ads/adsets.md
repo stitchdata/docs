@@ -50,7 +50,7 @@ attributes:
     type: "object"
     description: "Details about the object an ad set promotes, such as a Page or app."
     doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-promoted-object/"
-    object-attributes:
+    subattributes:
       - name: "custom_event_type"
         type: "string"
         description: "The event from an App event of a mobile app or tag of a conversion pixel."
@@ -145,7 +145,7 @@ attributes:
   - name: "bid_info"
     type: "object"
     description: "Details about the bid information for this ad set."
-    object-attributes:
+    subattributes:
       - name: "clicks"
         type: "integer"
         description: "The clicks you placed on your bid."
@@ -169,7 +169,7 @@ attributes:
   - name: "adLabels"
     type: "array"
     description: "Details about the ad labels applied to the ad set."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true

@@ -86,7 +86,7 @@ attributes:
   - name: "ads"
     type: "array"
     description: "The IDs of the ads associated with the campaign."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
