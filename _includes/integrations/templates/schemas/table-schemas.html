@@ -23,6 +23,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
 {% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
 {% endif %}
 
+
 {% for table in schema %}
 <!-- Table Name -->
     <div class="table-heading">
@@ -48,16 +49,16 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
         {{ table.notes | flatify | markdownify }}
     {% endif %}
 
-    <div class="panel-group" id="accordion">
+    <div class="panel-group" id="{{ table.name }}-schema">
         <div class="panel panel-default">   
             <div class="panel-heading">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name }}-table">{{ table.name }} table schema</a>
+                <h4 class="panel-title">
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name }}-table">{{ table.name }} table schema</a>
+                </h4>
             </div>
           
             <div id="collapse-{{ table.name }}-table" class="panel-collapse collapse noCrossRef">
-                <div class="panel-body">
-                </div>
-                    {% include integrations/templates/schemas/table-attributes.html table=table.attributes %}
+                {% include integrations/templates/schemas/table-attributes.html table=table.attributes %}
             </div>
         </div>
     </div>

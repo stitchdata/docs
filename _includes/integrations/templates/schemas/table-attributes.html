@@ -1,7 +1,7 @@
 <!-- This file recursively gets and formats table attributes for integration tables. -->
 
 <div class="table-responsive">
-	<table class="table table-hover">
+	<table class="attribute-list table-hover" style="margin-top: 0px;">
 	<!-- Uses the include.table parameter to get the data.
 		For the initial loop, this will be the top-level attributes in a
 		given table. For example: table > attributes > id, name, etc.
@@ -39,7 +39,7 @@
                             	{{ attribute.name | flatify }}
                         	{% endif %}
 	                    </strong>
-	                <!-- ATTRIBUTE IS A PRIMARY KEY? -->
+	                    <!-- ATTRIBUTE IS A PRIMARY KEY? -->
 	                    {% if attribute.primary-key == true %}
                             {{ ui-icon.primary-key | flatify }}
                         {% endif %}
@@ -48,9 +48,11 @@
                         {% if attribute.replication-key == true %}
                             {{ ui-icon.replication-key | flatify }}
                         {% endif %}
+                        <br>
+	                    {{ attribute.type | upcase }}
+	                
 
                     <!-- ATTRIBUTE DATA TYPE -->
-	                    ({{ attribute.type }})
 					</p>
 				    
 				    	{{ attribute.description | flatify | markdownify }}
@@ -90,9 +92,7 @@
 						        </div>
 
 						        <div id="collapse{{ full-id }}" class="panel-collapse collapse noCrossRef">
-						            <div class="panel-body">
-						            </div>
-										{% include integrations/templates/schemas/table-attributes.html table=attribute.subattributes %}
+									{% include integrations/templates/schemas/table-attributes.html table=attribute.subattributes %}
 								</div>
 						    </div>
 						</div>
