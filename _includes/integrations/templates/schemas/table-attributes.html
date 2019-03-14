@@ -1,7 +1,7 @@
 <!-- This file recursively gets and formats table attributes for integration tables. -->
 
 <div class="table-responsive">
-	<table class="attribute-list table-hover" style="margin-top: 0px;">
+	<table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
 	<!-- Uses the include.table parameter to get the data.
 		For the initial loop, this will be the top-level attributes in a
 		given table. For example: table > attributes > id, name, etc.
@@ -86,8 +86,8 @@
 						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: forloop.index %}
 
 						<div class="panel-group" id="{{ full-id }}">
-						    <div class="panel panel-default">
-						        <div class="panel-heading">
+						    <div class="panel panel-default" style="border: solid 1px #d2d2d2;">
+						        <div class="panel-heading" style="background-color: #eaeaea; border: solid 1px #d2d2d2;">
 						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id }}" href="#collapse{{ full-id }}">Click to expand {{ attribute.name }}</a>
 						        </div>
 
