@@ -9,7 +9,7 @@ description: |
 
   For example: A report named `Ad Performance Report` in {{ integration.display_name }} may result in a table named `ad_performance_report` or `AD_PERFORMANCE_REPORT`, depending on your destination.
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Append-Only (Key-based Incremental)"
 
 attributes:
   - name: "{{ system-column.primary-key }}"
