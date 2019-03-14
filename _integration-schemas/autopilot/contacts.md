@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The contact ID."
+    foreign-key-id: "contact-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -204,4 +205,5 @@ attributes:
       - name: "value"
         type: "string"
         description: "The ID of the contact list."
+        foreign-key-id: "list-id"
 ---

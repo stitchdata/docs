@@ -18,9 +18,11 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the segment."
+    foreign-key-id: "segment-id"
 
   - name: contact_id
     type: "string"
     primary-key: true
     description: "The ID of the contact that belongs to the segment."
+    foreign-key-id: "contact-id"
 ---
