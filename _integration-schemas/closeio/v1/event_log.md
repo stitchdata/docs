@@ -26,7 +26,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The event ID."
-    foreign-key-id: "event-id"
+    # foreign-key-id: "event-id"
 
   - name: "date_updated"
     type: "string"

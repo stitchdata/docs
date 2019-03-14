@@ -30,7 +30,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The activity ID."
-    foreign-key-id: "activity-id"
+    # foreign-key-id: "activity-id"
 
   - name: "date_created"
     type: "string"
