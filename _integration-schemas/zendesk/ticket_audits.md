@@ -44,7 +44,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Metadata for the audit, custom, and system data."
-    object-attributes:
+    subattributes:
       # Commenting out these fields - they're not documented by Zendesk.
       # - name: "custom"
       #   type: 
@@ -57,7 +57,7 @@ attributes:
       # - name: "notifications_suppressed_for"
       #   type: "array"
       #   description: "[TODO]"
-      #   array-attributes:
+      #   subattributes:
       #     - name: "value"
       #       type: "integer"
       #       description: "[TODO]"
@@ -65,7 +65,7 @@ attributes:
       - name: "flags"
         type: "array"
         description: "For `Comment` and `VoiceComment` events, the comment flags applied to the comment."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: |
@@ -83,13 +83,13 @@ attributes:
       - name: "flags_options"
         type: "object"
         description: "For `Comment` and `VoiceComment` events, additional information about the comment flags."
-        object-attributes:
+        subattributes:
 
   # START METADATA > SYSTEM OBJECT
       - name: "system"
         type: "object"
         description: "Metadata about the system of the user who created the audit."
-        object-attributes:
+        subattributes:
           - name: "location"
             type: "string"
             description: "The user's location. For example: `Philadelphia, PA, United States`"
@@ -131,7 +131,7 @@ attributes:
   - name: "events"
     type: "array"
     description: "The events that happened in the audit."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The audit event ID."
@@ -231,7 +231,7 @@ attributes:
         type: "array"
         description: |
           For `Notification`, `Cc`, `OrganizationActivity`, and `Tweet` events, the IDs of the recipients.
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the recipient."
@@ -242,7 +242,7 @@ attributes:
         type: "object"
         description: |
           Details about the attachments associated with the event, if any.
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             description: "The attachment ID."
@@ -300,7 +300,7 @@ attributes:
           - name: "thumbnails"
             type: "object"
             description: "Details about the thumbnails associated with image attachments."
-            object-attributes:
+            subattributes:
               - name: "id"
                 type: "integer"
                 description:
@@ -348,7 +348,7 @@ attributes:
       - name: "via"
         type: "object"
         description: "Details about how the event was created."
-        object-attributes:
+        subattributes:
           - name: "channel"
             type: "string"
             description: "The channel used to create the event. For example: `web`, `mobile`"
@@ -356,13 +356,13 @@ attributes:
           - name: "source"
             type: "object"
             description: "Additional details about how the event was created. Only available for some channels."
-            object-attributes:
+            subattributes:
 
           # START TO OBJECT
               - name: "to"
                 type: "object"
                 description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
-                object-attributes:
+                subattributes:
                   - name: "address"
                     type: "string"
                     description: ""
@@ -376,7 +376,7 @@ attributes:
               - name: "from"
                 type: "object"
                 description: "Details about the source that created the event."
-                object-attributes:
+                subattributes:
                   - name: "id"
                     type: "integer"
                     description: 
@@ -413,7 +413,7 @@ attributes:
                   - name: "original_recipients"
                     type: "array"
                     description:
-                    array-attributes:
+                    subattributes:
                       - name: "value"
                         type: "string"
                         description:
@@ -427,7 +427,7 @@ attributes:
   - name: "via"
     type: "object"
     description: "Details about how the audit record was created."
-    object-attributes:
+    subattributes:
       - name: "channel"
         type: "string"
         description: "The channel used to create the audit record. For example: `web`, `mobile`"
@@ -435,13 +435,13 @@ attributes:
       - name: "source"
         type: "object"
         description: "Additional details about how the audit record was created. Only available for some channels."
-        object-attributes:
+        subattributes:
 
       # START TO OBJECT
           - name: "to"
             type: "object"
             description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
-            object-attributes:
+            subattributes:
               - name: "address"
                 type: "string"
                 description: ""
@@ -455,7 +455,7 @@ attributes:
           - name: "from"
             type: "object"
             description: "Details about the source that created the audit record."
-            object-attributes:
+            subattributes:
               - name: "id"
                 type: "integer"
                 description: 
@@ -492,7 +492,7 @@ attributes:
               - name: "original_recipients"
                 type: "array"
                 description:
-                array-attributes:
+                subattributes:
                   - name: "value"
                     type: "string"
                     description:

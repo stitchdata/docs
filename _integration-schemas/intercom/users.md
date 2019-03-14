@@ -61,7 +61,7 @@ attributes:
   - name: "avatar"
     type: "object"
     description: "Details about the avatar associated with the user."
-    object-attributes:
+    subattributes:
       - name: "image_url"
         type: "string"
         description: "The URL of the avatar image associated with the user."
@@ -77,7 +77,7 @@ attributes:
   - name: "location_data"
     type: "object"
     description: "Details about the user's location."
-    object-attributes:
+    subattributes:
       - name: "city_name"
         type: "string"
         description: "The name of the city associated with the user's location."
@@ -137,7 +137,7 @@ attributes:
   - name: "companies"
     type: "array"
     description: "Details about the companies the user is associated with."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The Intercom-defined company ID."
@@ -158,7 +158,7 @@ attributes:
   - name: "social_profiles"
     type: "array"
     description: "Details about the social profiles the user is associated with."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The user's user ID on the social platform."
@@ -182,7 +182,7 @@ attributes:
   - name: "segments"
     type: "array"
     description: "Details about the segments the user is associated with."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The segment ID."
@@ -195,7 +195,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Details about the tags the user is associated with."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The tag ID."

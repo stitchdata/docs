@@ -45,7 +45,7 @@ attributes:
   - name: "personaTagIds"
     type: "array"
     description: "Info about the personas tied to the workflow."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the persona tied to the workflow."
@@ -53,7 +53,7 @@ attributes:
   - name: "contactListIds"
     type: "object"
     description: "Summary info for the contact lists associated with the workflow."
-    object-attributes:
+    subattributes:
       - name: "enrolled"
         type: "integer"
         description: "The number of contacts currently enrolled in the workflow."
@@ -65,7 +65,7 @@ attributes:
       - name: "steps"
         type: "array"
         description: "Details about the steps in the workflow for the contact list."
-        array-attributes:
+        subattributes:
           - name: "type"
             type: "string"
             description: "The type of step in the workflow." 

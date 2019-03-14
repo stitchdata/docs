@@ -33,7 +33,7 @@ attributes:
   - name: "cards"
     type: "array"
     description: "Details about the customer's cards."
-    array-attributes: &card-attributes
+    subattributes: &card-attributes
       - name: "id"
         type: "string"
         description: "The card ID."
@@ -148,7 +148,7 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        object-attributes:
+        subattributes:
           - name: "TODO"
             type: 
             description: ""
@@ -196,11 +196,11 @@ attributes:
   - name: "discount"
     type: "object"
     description: "Describes the current discount active on the customer."
-    object-attributes:
+    subattributes:
       - name: "coupon"
         type: "object"
         description: "Details about the coupon applied to the customer."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The coupon ID."
@@ -243,7 +243,7 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: ""
                 type: ""
                 description: ""
@@ -313,7 +313,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: "TODO"
         type: ""
         description: ""
@@ -325,11 +325,11 @@ attributes:
   - name: "shipping"
     type: "object"
     description: "Mailing and shipping addresses for the customer. Appears on invoices emailed to this customer."
-    object-attributes:
+    subattributes:
       - name: "address"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
           - name: "city"
             type: "string"
             description: "The city of the shipping address."
@@ -366,12 +366,12 @@ attributes:
     type: "array"
     description: "The customer's payment sources."
     doc-link: "https://stripe.com/docs/api/sources/object"
-    array-attributes:
+    subattributes:
       - name: "ach_credit_transfer"
         type: "object"
         description: "If the source is an ACH credit transfer, this will contain the details about the ACH credit transfer source."
         doc-link: "https://stripe.com/docs/sources/ach-credit-transfer"
-        object-attributes:
+        subattributes:
           - name: "account_number"
             type: "string"
             description: "A positive integer in the smallest currency unit (that is, `100` cents for `$1.00`, or `1 for `¥1`, Japanese Yen being a zero-decimal currency) representing the total amount associated with the source. This is the amount for which the source will be chargeable once ready."
@@ -444,7 +444,7 @@ attributes:
         type: ""
         description: "If the source is an Alipay source, this will contain the details about the Alipay source."
         doc-link: "https://stripe.com/docs/sources/alipay"
-        object-attributes:
+        subattributes:
           # - name: "TODO"
           #   type: ""
           #   description: ""
@@ -457,7 +457,7 @@ attributes:
         type: ""
         description: "If the source is a Bancontact source, this will contain the details about the Bancontact source."
         doc-link: "https://stripe.com/docs/sources/bancontact"
-        object-attributes:
+        subattributes:
           # - name: "TODO"
           #   type: ""
           #   description: ""
@@ -469,7 +469,7 @@ attributes:
       - name: "card"
         type: "object"
         description: "If the source is a card source, this will contain the details about the card source."
-        object-attributes: *card-attributes
+        subattributes: *card-attributes
 
       - name: "client_secret"
         type: "string"
@@ -504,7 +504,7 @@ attributes:
         type: ""
         description: "If the source is an EPS source, this will contain the details about the EPS source."
         doc-link: "https://stripe.com/docs/sources/eps"
-        object-attributes:
+        subattributes:
 
       - name: "exp_month"
         type: "integer"
@@ -540,7 +540,7 @@ attributes:
         type: "object"
         description: "If the source is an iDEAL source, this will contain the details about the iDEAL source."
         doc-link: "https://stripe.com/docs/sources/ideal"
-        object-attributes:
+        subattributes:
 
       - name: "last4"
         type: "string"
@@ -553,13 +553,13 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
 
       - name: "multibanco"
         type: "object"
         description: ""
         doc-link: "https://stripe.com/docs/sources/multibanco"
-        object-attributes:
+        subattributes:
 
       - name: "name"
         type: "string"
@@ -572,11 +572,11 @@ attributes:
       - name: "owner"
         type: "object"
         description: "Details about the owner of the payment instrument that may be used or required by particular source types."
-        object-attributes:
+        subattributes:
           - name: "address"
             type: "object"
             description: "The owner's address."
-            object-attributes:
+            subattributes:
               - name: "city"
                 type: "string"
                 description: "The city of the owner's address."
@@ -632,7 +632,7 @@ attributes:
       - name: "receiver"
         type: "object"
         description: "Information related to the receiver flow. These attributes will be present if `flow: receiver`."
-        object-attributes:
+        subattributes:
           - name: "address"
             type: "string"
             description: "The address of the receiver source. This is the value that should be communicated to the customer to send their funds to."
@@ -660,7 +660,7 @@ attributes:
       - name: "redirect"
         type: "object"
         description: "Information related to the redirect flow. These attributes will be present if `flow: redirect`."
-        object-attributes:
+        subattributes:
           - name: "failure_reason"
             type: "string"
             description: |
@@ -740,7 +740,7 @@ attributes:
   - name: "subscriptions"
     type: "array"
     description: "The customer's current subscriptions."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The subscription ID."

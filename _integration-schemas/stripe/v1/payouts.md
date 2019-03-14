@@ -51,7 +51,7 @@ attributes:
     type: "object"
     description: "Details about the bank account the payout is being sent to."
     doc-link: "https://stripe.com/docs/api/customer_bank_accounts/object"
-    object-attributes:
+    subattributes:
       - name: "account_holder_name"
         type: "string"
         description: "The name of the person or business that owns the bank account."
@@ -89,7 +89,7 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
 
       - name: "name"
         type: "string"
@@ -152,7 +152,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: ""
         value: ""
         description: ""

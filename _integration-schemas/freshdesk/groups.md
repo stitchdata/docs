@@ -27,7 +27,7 @@ attributes:
   - name: "agent_ids"
     type: "array"
     description: "IDs of the agents that belong to the group."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of an agent that belongs to the group."

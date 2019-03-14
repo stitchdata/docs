@@ -157,7 +157,7 @@ attributes:
   - name: "Addresses"
     type: "array"
     description: "Details about the addresses associated with the organisation."
-    array-attributes:
+    subattributes:
       - name: "Region"
         type: "string"
         description: "The region associated with the address."
@@ -206,7 +206,7 @@ attributes:
   - name: "Phones"
     type: "array"
     description: "Details about the phone numbers associated with the organisation."
-    array-attributes:
+    subattributes:
         - name: "PhoneNumber"
           type: "string"
           description: "The phone number."
@@ -232,7 +232,7 @@ attributes:
   - name: "ExternalLinks"
     type: "array"
     description: "Details about profile links for the organisation, such as Facebook, Twitter, LinkedIn, etc. These are set in the [organisation's settings](https://go.xero.com/Settings/Organisation)."
-    array-attributes:
+    subattributes:
       - name: "LinkType"
         type: "string"
         description: |
@@ -251,11 +251,11 @@ attributes:
   - name: "PaymentTerms"
     type: "array"
     description: "Details about the default payment terms for the organisation."
-    array-attributes:
+    subattributes:
       - name: "Sales"
         type: "object"
         description: "Details about the payment terms used for sales transactions."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
@@ -273,7 +273,7 @@ attributes:
       - name: "Bills"
         type: "object"
         description: "Details about the payment terms used for bills (invoices)."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."

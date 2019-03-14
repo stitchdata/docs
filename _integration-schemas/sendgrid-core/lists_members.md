@@ -65,7 +65,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "The custom fields associated with the list member."
-    array-attributes:
+    subattributes:
       - name: "[field_name]"
         type: "varies"
         description: |

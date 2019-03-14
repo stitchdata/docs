@@ -55,7 +55,7 @@ attributes:
   - name: "to_emails"
     type: "array"
     description: "Email addresses of agents/users who should be notified about the conversation."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address of the person who should be notified about the conversation."
@@ -67,7 +67,7 @@ attributes:
   - name: "cc_emails"
     type: "array"
     description: "Email addresses of agents/users who should be CC'd on the conversation."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address of the person who is being CC'd."
@@ -75,7 +75,7 @@ attributes:
   - name: "bcc_emails"
     type: "array"
     description: "Email addresses of agents/users who should be BCC'd on the conversation."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address of the person who is being BCC'd."

@@ -69,7 +69,7 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user who wrote the review."
-    object-attributes: 
+    subattributes: 
       - name: "user_id"
         type: "number"
         description: "The ID of the user who wrote the review."
@@ -94,7 +94,7 @@ attributes:
   - name: "images_data"
     type: "object"
     description: "Details about images associated with the review."
-    object-attributes: 
+    subattributes: 
       - name: "id"
         type: "number"
         description: "The image ID."
@@ -110,7 +110,7 @@ attributes:
   - name: "comment"
     type: "object"
     description: "Details about the comments left in the review."
-    object-attributes: 
+    subattributes: 
       - name: "id"
         type: "number"
         description: "The comment ID."

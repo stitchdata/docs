@@ -29,7 +29,7 @@ attributes:
   - name: "TaxComponents"
     type: "array"
     description: "Details about the components that make up the tax rate."
-    array-attributes:
+    subattributes:
       - name: "Name"
         type: "string"
         description: "The name of the tax component."

@@ -122,7 +122,7 @@ attributes:
     type: "array"
     description: |
       Options for ticket fields with `type:"tagger"`.
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The ID of the custom ticket field."

@@ -9,7 +9,7 @@ attributes:
   - name: "Sales"
     type: "object"
     description: "Details about the payment terms used for sales transactions."
-    object-attributes:
+    subattributes:
       - name: "Day"
         type: "integer"
         description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
@@ -27,7 +27,7 @@ attributes:
   - name: "Bills"
     type: "object"
     description: "Details about the payment terms used for bills (invoices)."
-    object-attributes:
+    subattributes:
       - name: "Day"
         type: "integer"
         description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."

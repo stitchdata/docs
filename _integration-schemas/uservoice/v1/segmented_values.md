@@ -49,7 +49,7 @@ attributes:
   - name: "links"
     type: "object"
     description: ""
-    object-attributes: 
+    subattributes: 
     - name: "updated_by"
       type: "integer"
       description: "The ID of the user who last updated the segmented value."

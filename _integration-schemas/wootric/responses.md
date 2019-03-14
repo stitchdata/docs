@@ -71,7 +71,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Tags applied to the response."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag applied to the response."

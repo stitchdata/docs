@@ -40,7 +40,7 @@ attributes:
       - `field: email`
       - `operator: contains`
       - `value: @stitchdata.com`
-    array-attributes:
+    subattributes:
       - name: "field"
         type: "string"
         description: "The name of the field used in the condition. For example: `email`"

@@ -91,7 +91,7 @@ attributes:
   - name: "emails"
     type: "array"
     description: "For `incoming_email` tasks, a list email activity IDs related to the task."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email ID."

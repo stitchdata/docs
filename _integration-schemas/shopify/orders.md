@@ -42,7 +42,7 @@ attributes:
     type: "object"
     description: "Details about the mailing address associated with the payment method. This address is an optional field that won't be available on orders that don't require a payment method."
     object-type: "billing address"
-    object-attributes: &address-fields
+    subattributes: &address-fields
       - name: "address1"
         type: "string"
         description: "The street address of the {{ attribute.object-type }}."
@@ -143,7 +143,7 @@ attributes:
   - name: "client_details"
     type: "object"
     description: "Details about the browser the customer used when the order was placed."
-    object-attributes:
+    subattributes:
       - name: "accept_language"
         type: "string"
         description: "The languages and locales that the browser understands."
@@ -368,7 +368,7 @@ attributes:
   - name: "discount_applications"
     type: "array"
     description: "Details about the discount applications associated with the order."
-    array-attributes:
+    subattributes:
       - name: "allocation_method"
         type: "string"
         description: "The method used to allocate the discount application."
@@ -427,7 +427,7 @@ attributes:
   - name: "discount_codes"
     type: "array"
     description: "The discount codees applied to the checkout."
-    array-attributes:
+    subattributes:
       - name: "amount"
         type: "number"
         description: "The amount of the discount."
@@ -475,7 +475,7 @@ attributes:
   - name: "fulfillments"
     type: "array"
     description: "Details about the fulfillments associated with the order."
-    array-attributes:
+    subattributes:
       # - name: "admin_graphql_api_id"
       #   type: "string"
       #   description: ""
@@ -493,7 +493,7 @@ attributes:
       - name: "line_items"
         type: "array"
         description: "Details about the line items associated with the fulfillment."
-        array-attributes: &line-items
+        subattributes: &line-items
           # - name: "admin_graphql_api_id"
           #   type: "string"
           #   description: ""
@@ -509,7 +509,7 @@ attributes:
           - name: "destination_location"
             type: "object"
             description: "Details about the line item's destination location."
-            object-attributes: &default-address-fields
+            subattributes: &default-address-fields
               - name: "address1"
                 type: "string"
                 description: "The street address."
@@ -550,7 +550,7 @@ attributes:
           - name: "discount_allocations"
             type: "array"
             description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-            array-attributes: &discount-allocations
+            subattributes: &discount-allocations
               - name: "amount"
                 type: "number"
                 description: "The discount amount allocated to the line."
@@ -603,7 +603,7 @@ attributes:
           - name: "origin_location"
             type: "object"
             description: "Details about the origin location associated with the refund line item."
-            object-attributes: *default-address-fields
+            subattributes: *default-address-fields
 
           - name: "origin_location_id"
             type: "integer"
@@ -629,7 +629,7 @@ attributes:
           - name: "properties"
             type: "array"
             description: "Details about custom info for the item."
-            array-attributes:
+            subattributes:
               - name: "name"
                 type: "string"
                 description: ""
@@ -657,7 +657,7 @@ attributes:
           - name: "tax_lines"
             type: "array"
             description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-            array-attributes: &tax-lines
+            subattributes: &tax-lines
               - name: "compare_at"
                 type: "string"
                 description: ""
@@ -725,7 +725,7 @@ attributes:
       - name: "receipt"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
           - name: "authorization"
             type: "string"
             description: ""
@@ -757,7 +757,7 @@ attributes:
       - name: "tracking_numbers"
         type: "array"
         description: "A list of the fulfillment's tracking numbers."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The fulfillment's tracking number."
@@ -769,7 +769,7 @@ attributes:
       - name: "tracking_urls"
         type: "array"
         description: "A list of URLs for the fulfillment's tracking numbers."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The URL for a tracking number."
@@ -794,7 +794,7 @@ attributes:
   - name: "line_items"
     type: "array"
     description: "Details about the line items in the order."
-    array-attributes: *line-items
+    subattributes: *line-items
 
   - name: "location_id"
     type: "integer"
@@ -811,7 +811,7 @@ attributes:
   - name: "note_attributes"
     type: "array"
     description: "Additional info added to the order, as it appears in the **Additional details** section of an order page."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: ""
@@ -827,7 +827,7 @@ attributes:
   - name: "order_adjustments"
     type: "array"
     description: "A list of order adjustments attached to the order."
-    array-attributes: &order-adjustments
+    subattributes: &order-adjustments
       - name: "id"
         type: "integer"
         primary-key: true
@@ -903,7 +903,7 @@ attributes:
   - name: "payment_gateway_names"
     type: "array"
     description: "The list of payment gateways used for the order."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The payment gateway used for the order."
@@ -939,7 +939,7 @@ attributes:
   - name: "refunds"
     type: "array"
     description: "A list of refunds applied to the order."
-    array-attributes:
+    subattributes:
       # - name: "admin_graphql_api_id"
       #   type: "string"
       #   description: ""
@@ -962,7 +962,7 @@ attributes:
       - name: "order_adjustments"
         type: "array"
         description: "A list of order adjustments attached to the refund. Order adjustments are generated to account for refunded shipping costs and differences between calculated and actual refund amounts."
-        array-attributes: *order-adjustments
+        subattributes: *order-adjustments
 
       - name: "processed_at"
         type: "date-time"
@@ -972,7 +972,7 @@ attributes:
       - name: "refund_line_items"
         type: "array"
         description: "A list of refunded line items."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             primary-key: true
@@ -981,7 +981,7 @@ attributes:
           - name: "line_item"
             type: "object"
             description: "Details about the refund line item."
-            object-attributes: *line-items
+            subattributes: *line-items
 
           - name: "line_item_id"
             type: "integer"
@@ -1028,12 +1028,12 @@ attributes:
     type: "object"
     description: "Details about the shipping address associated with the order."
     object-type: "shipping address"
-    object-attributes: *address-fields
+    subattributes: *address-fields
 
   - name: "shipping_lines"
     type: "array"
     description: "Details about the shipping methods associated with the order."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -1054,7 +1054,7 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-        array-attributes: *discount-allocations
+        subattributes: *discount-allocations
 
       - name: "discounted_price"
         type: "number"
@@ -1079,7 +1079,7 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the shipping line's tax lines, each of which details a tax applicable to this shipping line."
-        array-attributes: *tax-lines
+        subattributes: *tax-lines
 
       - name: "title"
         type: "string"
@@ -1108,7 +1108,7 @@ attributes:
   - name: "tax_lines"
     type: "array"
     description: "Details about the order's tax lines, each of which is a tax applicable to the order."
-    array-attributes: *tax-lines
+    subattributes: *tax-lines
 
   - name: "taxes_included"
     type: "boolean"

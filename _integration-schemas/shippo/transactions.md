@@ -69,7 +69,7 @@ attributes:
   - name: "tracking_status"
     type: "object"
     description: "The latest tracking information for the shipment."
-    object-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tracking status."
@@ -77,7 +77,7 @@ attributes:
   - name: "tracking_history"
     type: "array"
     description: "A list of tracking events for the shipment the transaction is associated with."
-    array-attributes:
+    subattributes:
 
   - name: "tracking_url_provider"
     type: "string"
@@ -102,7 +102,7 @@ attributes:
   - name: "messages"
     type: "array"
     description: "Details about messages associated with the transaction."
-    array-attributes:
+    subattributes:
       - name: "code"
         type: "string"
         description: "The ID of the message. This may not always be available."

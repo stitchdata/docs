@@ -55,7 +55,7 @@ attributes:
     type: "array"
     description: "The product images associated with the product."
     doc-link: "https://help.shopify.com/en/api/reference/products/product_image"
-    array-attributes:
+    subattributes:
       # - name: "admin_graphql_api_id"
       #   type: "string"
       #   description: ""
@@ -94,7 +94,7 @@ attributes:
       - name: "variant_ids"
         type: "array"
         description: "The variant IDs associated with the product image."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The variant ID."
@@ -106,7 +106,7 @@ attributes:
   - name: "options"
     type: "array"
     description: "The custom properties associated with the product, like `Size`, `Color`, etc."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -129,7 +129,7 @@ attributes:
       - name: "values"
         type: "array"
         description: "The values of the custom property."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The custom property value."
@@ -167,7 +167,7 @@ attributes:
     type: "array"
     description: "The product variants associated with the product, each representing a different version of the product."
     doc-link: "https://help.shopify.com/en/api/reference/products/product_variant"
-    array-attributes:
+    subattributes:
       # - name: "admin_graphql_api_id"
       #   type: "string"
       #   description: ""

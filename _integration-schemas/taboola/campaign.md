@@ -84,7 +84,7 @@ attributes:
   - name: "country_targeting"
     type: "object"
     description: "The list of countries the campaign will target or exclude."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of targeting for the associated country. Possible values are `INCLUDE` or `EXCLUDE`."
@@ -92,7 +92,7 @@ attributes:
       - name: "value"
         type: "array"
         description: "The targeted countries' country codes."
-        array-attributes:
+        subattributes:
           - name: "type"
             type: "string"
             description: "The targeted country's country code."
@@ -100,7 +100,7 @@ attributes:
   - name: "platform_targeting"
     type: "object"
     description: "Details about the platforms the campaign will target or exclude."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of targeting for the associated platform. Possible values are `INCLUDE` or `EXCLUDE`."
@@ -108,7 +108,7 @@ attributes:
       - name: "value"
         type: "array"
         description: "The platform types that will be included/excluded."
-        array-attributes:
+        subattributes:
           - name: "type"
             type: "string"
             description: "The type of platform. Possible values are `DESK` (desktop) and `PHON` (smartphone)."
@@ -116,7 +116,7 @@ attributes:
   - name: "publisher_targeting"
     type: "object"
     description: "Details about the publishers that blacklisted from publishing the campaign."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of targeting for the associated publisher. This will always be `EXCLUDE`."
@@ -124,7 +124,7 @@ attributes:
       - name: "value"
         type: "array"
         description: "The account IDs of blacklisted publishers."
-        array-attributes:
+        subattributes:
           - name: "type"
             type: "string"
             description: "The account ID of the blacklisted publisher."

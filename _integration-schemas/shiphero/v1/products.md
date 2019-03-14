@@ -88,7 +88,7 @@ attributes:
   - name: "images"
     type: "array"
     description: "Images associated with the product."
-    array-attributes:
+    subattributes:
       - name: "sort"
         type: "integer"
         description: "The sort order of the image."
@@ -108,7 +108,7 @@ attributes:
   - name: "kit_components"
     type: "array"
     description: "The components of the kit associated with the order."
-    array-attributes:
+    subattributes:
       - name: "quantity"
         type: "integer"
         description: "The quantity."
@@ -160,7 +160,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Tags associated with the product."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag."
@@ -188,7 +188,7 @@ attributes:
   - name: "warehouses"
     type: "array"
     description: "Details about the warehoues associated with the product."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -238,7 +238,7 @@ attributes:
       - name: "purchase_orders"
         type: "array"
         description: ""
-        array-attributes:
+        subattributes:
           - name: "expected_date"
             type: "date-time"
             description: ""

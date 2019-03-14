@@ -65,7 +65,7 @@ attributes:
   - name: "attachments"
     type: "array"
     description: "Details about attachments associated with the ticket comment, if any."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The attachment ID."
@@ -93,7 +93,7 @@ attributes:
       - name: "thumbnails"
         type: "array"
         description: "Details about the attachment's thumbnails."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             description: "The attachment thumbnail ID."
@@ -117,15 +117,15 @@ attributes:
   - name: "via"
     type: "object"
     description: "Details about how the ticket comment was created."
-    object-attributes:
+    subattributes:
       - name: "source"
         type: "object"
         description: "Details about how the ticket comment was created."
-        object-attributes:
+        subattributes:
           - name: "from"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: "name"
                 type: "string"
                 description: ""
@@ -146,7 +146,7 @@ attributes:
           - name: "to"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: "address"
                 type: "string"
                 description: ""
@@ -166,7 +166,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "System information (web client, IP address, etc.) and comment flags, if any."
-    object-attributes:
+    subattributes:
       # Commenting out these fields - they're not documented by Zendesk.
       # - name: "custom"
       #   type: 
@@ -179,7 +179,7 @@ attributes:
       # - name: "notifications_suppressed_for"
       #   type: "array"
       #   description: "[TODO]"
-      #   array-attributes:
+      #   subattributes:
       #     - name: "value"
       #       type: "integer"
       #       description: "[TODO]"
@@ -187,7 +187,7 @@ attributes:
       - name: "flags"
         type: "array"
         description: "For `Comment` and `VoiceComment` events, the comment flags applied to the comment."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: |
@@ -205,5 +205,5 @@ attributes:
       - name: "flags_options"
         type: "object"
         description: "For `Comment` and `VoiceComment` events, additional information about the comment flags."
-        object-attributes:
+        subattributes:
 ---

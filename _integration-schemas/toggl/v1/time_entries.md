@@ -78,7 +78,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "A list of tag names associated with the time entry."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the tag."

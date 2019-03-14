@@ -59,7 +59,7 @@ attributes:
   - name: "links"
     type: "object"
     description: ""
-    object-attributes: 
+    subattributes: 
     - name: "created_by"
       type: "integer"
       description: "The ID of the user who created the feature."

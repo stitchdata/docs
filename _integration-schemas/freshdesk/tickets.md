@@ -31,7 +31,7 @@ attributes:
   - name: "cc_emails"
     type: "array"
     description: "The email addresses added in the `cc` field of the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address added in the `cc` field of the ticket."
@@ -43,7 +43,7 @@ attributes:
   - name: "to_emails"
     type: "array"
     description: "Email addresses to which the ticket was originally sent."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address to which the ticket was originally sent."
@@ -51,7 +51,7 @@ attributes:
   - name: "fwd_emails"
     type: "array"
     description: "Email addresses added while forwarding a ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address that was added while forwarding a ticket."
@@ -107,7 +107,7 @@ attributes:
   - name: "reply_cc_emails"
     type: "array"
     description: "Email addresses added while responding to the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address added while responding to the ticket."
@@ -119,7 +119,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the ticket."

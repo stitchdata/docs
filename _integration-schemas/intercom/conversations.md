@@ -56,7 +56,7 @@ attributes:
     type: "object"
     description: "Details about the message that started the conversation."
     doc-link: https://developers.intercom.com/reference#section-message-object
-    object-attributes:
+    subattributes:
       - name: "subject"
         type: "string"
         description: "The conversation message subject, or the subject of the message that started the conversation."
@@ -68,7 +68,7 @@ attributes:
       - name: "author"
         type: "object"
         description: "Details about the user that created the conversation message."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: |
@@ -89,7 +89,7 @@ attributes:
       - name: "attachments"
         type: "array"
         description: "Details about the attachments, if any, that are a part of the conversation message."
-        array-attributes:
+        subattributes:
           - name: "url"
             type: "string"
             description: "The attachment URL."
@@ -125,7 +125,7 @@ attributes:
   - name: "conversation_parts"
     type: "array"
     description: "Details about the individual elements that make up the conversation."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -162,7 +162,7 @@ attributes:
       - name: "author"
         type: "object"
         description: "Details about the admin or user that created the conversation part."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The ID of the admin or user that created the conversation part."
@@ -175,7 +175,7 @@ attributes:
       - name: "attachments"
         type: "array"
         description: "Details about the attachments, if any, that are a part of the conversation part."
-        array-attributes:
+        subattributes:
           - name: "url"
             type: "string"
             description: "The attachment URL."
@@ -211,7 +211,7 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user or lead involved in the conversation."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the user or lead involved in the conversation."
@@ -228,7 +228,7 @@ attributes:
   - name: "assignee"
     type: "object"
     description: "Details about the admin assigned to the conversation."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the admin that the conversation is assigned to."
@@ -245,7 +245,7 @@ attributes:
   - name: "customers"
     type: "array"
     description: "Details about the customers (users or leads) involved in the conversation."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -267,7 +267,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the conversation."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true

@@ -36,7 +36,7 @@ attributes:
   - name: "other_companies"
     type: "array"
     description: "Other companies associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "An additional company associated with the user."
@@ -48,7 +48,7 @@ attributes:
   - name: "other_emails"
     type: "array"
     description: "Other email addresses associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "An additional email associated with the contact."
@@ -72,7 +72,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Tags associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the contact."

@@ -22,7 +22,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags applied to the named user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag applied to the named user."
@@ -33,7 +33,7 @@ attributes:
   - name: "channels"
     type: "array"
     description: "The channels associated with the named user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The ID of the channel associated with the named user."

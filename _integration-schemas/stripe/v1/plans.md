@@ -76,7 +76,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: ""
         type: ""
         description: ""
@@ -108,7 +108,7 @@ attributes:
   - name: "tiers"
     type: "array"
     description: "The pricing tiers associated with the plan."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The pricing tier."

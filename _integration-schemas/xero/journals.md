@@ -56,7 +56,7 @@ attributes:
   - name: "JournalLines"
     type: "array"
     description: "Details about the journal lines in the journal."
-    array-attributes:
+    subattributes:
       - name: "JournalLineID"
         type: "string"
         description: "The journal line ID."

@@ -45,7 +45,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "Details about the external accounts and users the user is associated with."
-    object-attributes: 
+    subattributes: 
       - name: "external_accounts"
         type: "integer"
         description: "The ID of the external account associated with the user."

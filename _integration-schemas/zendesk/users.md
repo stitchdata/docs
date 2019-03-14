@@ -118,7 +118,7 @@ attributes:
   - name: "photo"
     type: "object"
     description: "Details about the user's profile picture."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The ID of the user's profile picture."
@@ -162,7 +162,7 @@ attributes:
       - name: "thumbnails"
         type: "object"
         description:
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             description: "The ID of the user's profile picture."
@@ -248,7 +248,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The IDs of the tags associated with the user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The ID of the tag associated with the user."
@@ -280,7 +280,7 @@ attributes:
   # - name: "user_fields"
   #   type: "object"
   #   description: "The values of custom fields in the user's record."
-  #   object-attributes:
+  #   subattributes:
   #     - name: "[TODO]"
   #       type: 
   #       description: 

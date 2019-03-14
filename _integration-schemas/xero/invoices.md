@@ -74,7 +74,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items contained in the invoice."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."

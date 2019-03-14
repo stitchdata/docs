@@ -85,7 +85,7 @@ attributes:
   - name: "CreditNote"
     type: "object"
     description: "Details about the credit note the payment was made against."
-    object-attributes:
+    subattributes:
       - name: "CreditNoteNumber"
         type: "string"
         description: "The number of the credit note the payment was made against."
@@ -93,7 +93,7 @@ attributes:
   - name: "Prepayments"
     type: "array"
     description: "Details about the prepayment the payment was made against."
-    array-attributes:
+    subattributes:
       - name: "PrepaymentID"
         type: "string"
         description: "The ID of the prepayment the payment was made against."
@@ -102,7 +102,7 @@ attributes:
   - name: "Overpayment"
     type: "array"
     description: "Details about the overpayment the payment was made against."
-    array-attributes:
+    subattributes:
       - name: "OverpaymentID"
         type: "string"
         foreign-key: true

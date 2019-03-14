@@ -38,7 +38,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items in the bank transaction."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."

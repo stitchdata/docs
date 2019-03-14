@@ -55,7 +55,7 @@ attributes:
   - name: "card"
     type: "object"
     description: &source-description "Details about the credit or debit card that is the source of the charge."
-    object-attributes: &source-attributes
+    subattributes: &source-attributes
       - name: "id"
         type: "string"
         description: "The card ID."
@@ -171,7 +171,7 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        object-attributes:
+        subattributes:
           - name: ""
             type: 
             description: ""
@@ -227,7 +227,7 @@ attributes:
     type: "object"
     description: |
       Details about fraud assessments for the charge.
-    object-attributes:
+    subattributes:
       - name: "stripe_report"
         type: "string"
         description: |
@@ -253,7 +253,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the charge."
-    object-attributes:
+    subattributes:
       - name: ""
         type: 
         description: ""
@@ -273,7 +273,7 @@ attributes:
   - name: "outcome"
     type: "object"
     description: "Details about whether the payment was accepted and why."
-    object-attributes:
+    subattributes:
       - name: "network_status"
         type: "string"
         description: |
@@ -352,7 +352,7 @@ attributes:
   - name: "refunds"
     type: "array"
     description: "A list of refunds that have been applied to the charge."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         primary-key: true
@@ -365,11 +365,11 @@ attributes:
   - name: "shipping"
     type: "object"
     description: "The shipping information for the charge."
-    object-attributes:
+    subattributes:
       - name: "address"
         type: "object"
         description: "The shipping address."
-        object-attributes:
+        subattributes:
           - name: "city"
             type: "string"
             description: "The city of the shipping address."
@@ -413,7 +413,7 @@ attributes:
   - name: "source"
     type: "object"
     description: *source-description
-    object-attributes: *source-attributes
+    subattributes: *source-attributes
 
   - name: "source_transfer"
     type: "string"

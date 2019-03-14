@@ -55,7 +55,7 @@ attributes:
   - name: "labels"
     type: "array"
     description: "A list of labels applied to the issue."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the label."

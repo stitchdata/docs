@@ -43,7 +43,7 @@ attributes:
   - name: "domain_names"
     type: "array"
     description: "The domain names associated with the organization."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The domain name associated with the organization."
@@ -68,7 +68,7 @@ attributes:
   - name: "organization_fields"
     type: "object"
     description: "Details about this organization's custom fields."
-    object-attributes:
+    subattributes:
       - name: "[zendesk_field_name]"
         type: ""
         description: |
@@ -94,7 +94,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the organization."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the organization."

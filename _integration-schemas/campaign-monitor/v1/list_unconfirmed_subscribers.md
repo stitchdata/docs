@@ -42,7 +42,7 @@ attributes:
   - name: "CustomFields"
     type: "object"
     description: "Custom fields about the subscriber."
-    object-attributes: 
+    subattributes: 
       - name: "Key"
         type: "string"
         description: "The key name of the custom field."

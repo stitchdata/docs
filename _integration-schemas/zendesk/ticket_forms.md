@@ -75,7 +75,7 @@ attributes:
   - name: "ticket_field_ids"
     type: "array"
     description: "IDs of all ticket fields which are in this ticket form."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the ticket field."
@@ -84,7 +84,7 @@ attributes:
   - name: "restricted_brand_ids"
     type: "array"
     description: "IDs of all brands that this ticket form is restricted to."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the brand."

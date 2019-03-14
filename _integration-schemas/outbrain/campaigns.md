@@ -38,7 +38,7 @@ attributes:
   - name: "budget"
     type: "object"
     description: "Details about the budget associated with the campaign."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true

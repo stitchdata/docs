@@ -63,7 +63,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "Details about the suggestion(s), user(s), ticket(s), etc. associated with the request."
-    object-attributes: 
+    subattributes: 
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion associated with the request."

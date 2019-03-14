@@ -52,7 +52,7 @@ attributes:
   - name: "ContentAreaIDs"
     type: "array"
     description: "The IDs of the content areas contained in the email message."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The content area ID."

@@ -51,7 +51,7 @@ attributes:
   - name: "refund_line_items"
     type: "array"
     description: "Details about the line items associated with the refund."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -60,7 +60,7 @@ attributes:
       - name: "line_item"
         type: "object"
         description: "Details about the line item."
-        object-attributes:
+        subattributes:
           # - name: "admin_graphql_api_id"
           #   type: "string"
           #   description: ""
@@ -72,7 +72,7 @@ attributes:
           - name: "discount_allocations"
             type: "array"
             description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-            array-attributes:
+            subattributes:
               - name: "amount"
                 type: "string"
                 description: "The discount amount allocated to the line."
@@ -80,11 +80,11 @@ attributes:
               - name: "amount_set"
                 type: "object"
                 description: "The presentment and shop amounts associated with the line item."
-                object-attributes:
+                subattributes:
                   - name: "presentment_money"
                     type: "object"
                     description: "Details about the presentment amount associated with the line item."
-                    object-attributes: &presentment-money
+                    subattributes: &presentment-money
                       - name: "amount"
                         type: "string"
                         description: "The presentment amount."
@@ -97,7 +97,7 @@ attributes:
                   - name: "shop_money"
                     type: "object"
                     description: "Details about the shop amount associated with the line item."
-                    object-attributes: &shop-money
+                    subattributes: &shop-money
                       - name: "amount"
                         type: "string"
                         description: "The shop amount."
@@ -150,16 +150,16 @@ attributes:
           - name: "pre_tax_price_set"
             type: "object"
             description: "Presentment and shop money details associated with the pre-tax price for the line item."
-            object-attributes:
+            subattributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the pre-tax price."
-                object-attributes: *presentment-money
+                subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the pre-tax price."
-                object-attributes: *shop-money
+                subattributes: *shop-money
 
           - name: "price"
             type: "string"
@@ -168,16 +168,16 @@ attributes:
           - name: "price_set"
             type: "object"
             description: "Presentment and shop money details associated with the price for the line item."
-            object-attributes:
+            subattributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the price."
-                object-attributes: *presentment-money
+                subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the price."
-                object-attributes: *shop-money
+                subattributes: *shop-money
 
           - name: "product_exists"
             type: "boolean"
@@ -191,7 +191,7 @@ attributes:
           - name: "properties"
             type: "array"
             description: "Details about custom info for the item."
-            array-attributes:
+            subattributes:
               - name: "name"
                 type: "string"
                 description: ""
@@ -215,7 +215,7 @@ attributes:
           - name: "tax_lines"
             type: "array"
             description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-            array-attributes:
+            subattributes:
               - name: "price"
                 type: "string"
                 description: "The amount of tax to be charged."
@@ -223,16 +223,16 @@ attributes:
               - name: "price_set"
                 type: "object"
                 description: "Presentment and shop money details associated with the price for the tax line."
-                object-attributes:
+                subattributes:
                   - name: "presentment_money"
                     type: "object"
                     description: "Details about the presentment amount associated with the tax line price."
-                    object-attributes: *presentment-money
+                    subattributes: *presentment-money
 
                   - name: "shop_money"
                     type: "object"
                     description: "Details about the shop amount associated with the tax line price."
-                    object-attributes: *shop-money
+                    subattributes: *shop-money
 
               - name: "rate"
                 type: "number"
@@ -257,16 +257,16 @@ attributes:
           - name: "total_discount_set"
             type: "object"
             description: "Presentment and shop money details associated with the total discount for the line item."
-            object-attributes:
+            subattributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the total discount."
-                object-attributes: *presentment-money
+                subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the total discount."
-                object-attributes: *shop-money
+                subattributes: *shop-money
 
           - name: "variant_id"
             type: "integer"
@@ -314,16 +314,16 @@ attributes:
       - name: "subtotal_set"
         type: "object"
         description: "Presentment and shop money details associated with the subtotal for the line item."
-        object-attributes:
+        subattributes:
           - name: "presentment_money"
             type: "object"
             description: "Details about the presentment amount associated with the subtotal."
-            object-attributes: *presentment-money
+            subattributes: *presentment-money
 
           - name: "shop_money"
             type: "object"
             description: "Details about the shop amount associated with the subtotal."
-            object-attributes: *shop-money
+            subattributes: *shop-money
 
       - name: "total_tax"
         type: "number"
@@ -332,16 +332,16 @@ attributes:
       - name: "total_tax_set"
         type: "object"
         description: "Presentment and shop money details associated with the total tax for the line item."
-        object-attributes:
+        subattributes:
           - name: "presentment_money"
             type: "object"
             description: "Details about the presentment amount associated with the total tax."
-            object-attributes: *presentment-money
+            subattributes: *presentment-money
 
           - name: "shop_money"
             type: "object"
             description: "Details about the shop amount associated with the total tax."
-            object-attributes: *shop-money
+            subattributes: *shop-money
 
   - name: "restock"
     type: "boolean"

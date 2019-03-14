@@ -57,7 +57,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "Details about the status change, suggestion, and user associated with the change."
-    object-attributes: 
+    subattributes: 
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion associated with the status change."

@@ -49,7 +49,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "IDs of nested labels associated with the parent label, if any."
-    object-attributes: 
+    subattributes: 
       - name: "parent"
         type: "integer"
         description: "If the label is a nested label, this field will contain the ID of the parent (top-level) label."

@@ -37,7 +37,7 @@ attributes:
   - name: "conversionOptimizerEligibility"
     type: "object"
     description: "Eligibility data for the campaign to transition to Conversion Optimizer."
-    object-attributes:
+    subattributes:
       - name: "eligible"
         type: "integer"
         description: "Indicates if the campaign is eligible to enter Conversion Optimizer."
@@ -58,7 +58,7 @@ attributes:
   - name: "frequencyCap"
     type: "object"
     description: "Details about the frequency cap for the campaign."
-    object-attributes:
+    subattributes:
       - name: "impressions"
         type: "integer"
         description: "The maximum number of impressions allowed during the time range by this cap."
@@ -70,7 +70,7 @@ attributes:
   - name: "labels"
     type: "array"
     description: "Labels attached to the campaign."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -91,7 +91,7 @@ attributes:
       - name: "attribute"
         type: "object"
         description: "Details about the label attached to the campaign."
-        object-attributes:
+        subattributes:
           - name: "backgroundColor"
             type: "string"
             description: "The background color of the label in RGB format."
@@ -111,7 +111,7 @@ attributes:
   - name: "networkSetting"
     type: "object"
     description: "Network settings for the campaign."
-    object-attributes:
+    subattributes:
       - name: "targetGoogleSearch"
         type: "integer"
         description: "Indicates if ads in the campaign will be served with Google.com search results."
@@ -119,7 +119,7 @@ attributes:
   - name: "settings"
     type: "object"
     description: "List of settings for the campaign."
-    object-attributes:
+    subattributes:
       - name: "languageCode"
         type: "string"
         description: "The language code that indicates what language the domain's content is in. For example: `en` signifies English."

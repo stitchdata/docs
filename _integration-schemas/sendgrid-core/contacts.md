@@ -63,7 +63,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "The custom fields associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "[field_name]"
         type: "varies"
         description: |

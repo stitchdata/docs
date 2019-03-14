@@ -70,7 +70,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items contained in the overpayment."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."
@@ -146,7 +146,7 @@ attributes:
   - name: "Allocations"
     type: "array"
     description: "Details about the allocations associated with the overpayment."
-    array-attributes:
+    subattributes:
       - name: "Date"
         type: "date-time"
         description: |
@@ -160,7 +160,7 @@ attributes:
         type: "object"
         description: |
           Details about the invoices the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} has been allocated against.
-        object-attributes:
+        subattributes:
           - name: "InvoiceID"
             type: "string"
             description: |

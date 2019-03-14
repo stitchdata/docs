@@ -98,7 +98,7 @@ attributes:
   - name: "messages"
     type: "array"
     description: "Details about messages associated with the address."
-    array-attributes:
+    subattributes:
       - name: "code"
         type: "string"
         description: "The ID of the message. This may not always be available."

@@ -31,7 +31,7 @@ attributes:
   - name: "actions"
     type: "array"
     description: "Details about what the macro does."
-    array-attributes:
+    subattributes:
       - name: "field"
         type: "string"
         description: "The name of the ticket field to modify."
@@ -59,7 +59,7 @@ attributes:
   - name: "restriction"
     type: "object"
     description: "Details about who can access the macro."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: |
@@ -78,7 +78,7 @@ attributes:
       - name: "ids"
         type: "array"
         description: "The IDs of the groups or users who can access the macro."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the group or user who can access the macro."

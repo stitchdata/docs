@@ -68,7 +68,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the invoice line item."
-    object-attributes:
+    subattributes:
       - name: ""
         type: 
         description: ""
@@ -80,7 +80,7 @@ attributes:
   - name: "period"
     type: "object"
     description: "The start and end dates of the period associated with the invoice line item."
-    object-attributes:
+    subattributes:
       - name: "end"
         type: "date-time"
         description: "The time the period ended."
@@ -93,7 +93,7 @@ attributes:
     type: "object"
     description: "If the invoice line item is a proration, this will contain details about the plan of the subscription the proration was computed for."
     doc-link: "https://stripe.com/docs/api/plans/object"
-    object-attributes:
+    subattributes:
       - name: "active"
         type: "boolean"
         description: "Indicates if the plan is currently available for new subscriptions."
@@ -152,7 +152,7 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the plan."
-        object-attributes:
+        subattributes:
           - name: ""
             type: 
             description: ""
@@ -173,7 +173,7 @@ attributes:
       - name: "tiers"
         type: "array"
         description: "The pricing tiers associated with the plan."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The pricing tier."

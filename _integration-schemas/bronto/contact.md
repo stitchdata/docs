@@ -69,7 +69,7 @@ attributes:
   - name: "SMSKeywordIDs"
     type: "array"
     description: "The IDs of the SMS keywords the contact is subscribed to."
-    array-attributes: 
+    subattributes: 
       - name: "SMSKeywordID"
         type: "string"
         description: "The SMS keyword ID."
@@ -166,7 +166,7 @@ attributes:
   - name: "listIds"
     type: "array"
     description: "The IDs of the lists that the contact belongs to."
-    array-attributes: 
+    subattributes: 
       - name: "value"
         type: "string"
         description: "The ID of the list that the contact belongs to."

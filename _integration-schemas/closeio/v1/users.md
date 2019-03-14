@@ -56,7 +56,7 @@ attributes:
   - name: "organizations"
     type: "array"
     description: "A list of organizations associated with the user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         primary-key: true

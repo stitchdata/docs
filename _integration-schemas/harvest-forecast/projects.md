@@ -62,7 +62,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "A list of the tags associated with the project."
-    array-attributes: 
+    subattributes: 
       - name: "value"
         type: "string"
         description: "The tag associated with the project."

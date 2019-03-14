@@ -91,7 +91,7 @@ attributes:
   - name: "namespace"
     type: "object"
     description: "Details about the namespace the project is associated with."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The namespace ID."
@@ -135,11 +135,11 @@ attributes:
   - name: "permissions"
     type: "object"
     description: "Details about the group and project-level permissions associated with the project."
-    object-attributes:
+    subattributes:
       - name: "group_access"
         type: "object"
         description: "Details about the group access permissions associated with the project."
-        object-attributes:
+        subattributes:
           - name: "access_level"
             type: "integer"
             description: "The group's access level."
@@ -151,7 +151,7 @@ attributes:
       - name: "project_access"
         type: "object"
         description: "Details about the access permissions associated with the project."
-        object-attributes:
+        subattributes:
           - name: "access_level"
             type: "integer"
             description: "The access level for the project."
@@ -179,7 +179,7 @@ attributes:
   - name: "shared_with_groups"
     type: "array"
     description: "Details about groups the project has been shared with."
-    array-attributes:
+    subattributes:
       - name: "group_id"
         type: "integer"
         description: "The ID of the group the project was shared with."
@@ -207,7 +207,7 @@ attributes:
   - name: "tag_list"
     type: "array"
     description: "A list of tags applied to the project."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the tag."

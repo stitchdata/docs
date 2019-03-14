@@ -76,7 +76,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
 
   - name: "object"
     type: "string"

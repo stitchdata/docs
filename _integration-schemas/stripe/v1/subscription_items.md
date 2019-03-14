@@ -55,11 +55,11 @@ attributes:
   - name: "discount"
     type: "object"
     description: "Describes the current discount active on the subscription item."
-    object-attributes:
+    subattributes:
       - name: "coupon"
         type: "object"
         description: "Details about the coupon applied to the subscription item."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The coupon ID."
@@ -102,7 +102,7 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: ""
                 type: ""
                 description: ""
@@ -146,7 +146,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
 
   - name: "object"
     type: "string"
@@ -155,7 +155,7 @@ attributes:
   - name: "plan"
     type: "object"
     description: "Details about the plan the customer subscribed to."
-    object-attributes:
+    subattributes:
       - name: "active"
         type: "boolean"
         description: "Indicates if the plan is currently available for new subscriptions."
@@ -214,7 +214,7 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the plan."
-        object-attributes:
+        subattributes:
           - name: ""
             type: 
             description: ""
@@ -234,7 +234,7 @@ attributes:
       - name: "tiers"
         type: "array"
         description: "The pricing tiers associated with the plan."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The pricing tier."

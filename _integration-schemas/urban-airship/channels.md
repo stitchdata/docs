@@ -69,7 +69,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "A list of tags associated with the channel."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the channel."
@@ -77,7 +77,7 @@ attributes:
   - name: "tag_groups"
     type: "array"
     description: "Details about the customer-created tag groups and device property tags associated with the channel."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the tag group."
@@ -85,7 +85,7 @@ attributes:
       - name: "tags"
         type: "array"
         description: "Details about the tags associated with the tag group."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The tag associated with the tag group."
@@ -93,7 +93,7 @@ attributes:
   - name: "ios"
     type: "object"
     description: "Details about iOs-specific parameters."
-    object-attributes:
+    subattributes:
       - name: "badge"
         type: "string"
         description: "The current badge value."
@@ -101,7 +101,7 @@ attributes:
       - name: "quiettime"
         type:  "object"
         description: "Details about quiet time iOS parameters."
-        object-attributes:
+        subattributes:
           - name: "start"
             type: "string"
             description: "The start of quiet time."

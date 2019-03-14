@@ -45,7 +45,7 @@ attributes:
   - name: "author"
     type: "object"
     description: "Details about the worklog's author."
-    object-attributes: &userDetails
+    subattributes: &userDetails
       - name: "accountId"
         type: "string"
         description: "The {{ description-type }}'s account ID."
@@ -57,7 +57,7 @@ attributes:
       - name: "avatarUrls"
         type: "object"
         description: "The URLs associated with the avatars used by the {{ description-type }}."
-        object-attributes:
+        subattributes:
           - name: "16x16"
             type: "string"
             description: "The URL of the {{ description-type }}'s 16x16 avatar."
@@ -119,7 +119,7 @@ attributes:
   - name: "properties"
     type: "array"
     description: "Details of properties for the worklog."
-    array-attributes:
+    subattributes:
       - name: "key"
         type: "string"
         description: "The key of the property."
@@ -150,12 +150,12 @@ attributes:
   - name: "updateAuthor"
     type: "object"
     description: "Details about the worklog's update author."
-    object-attributes: *userDetails
+    subattributes: *userDetails
 
   - name: "visibility"
     type: "object"
     description: "The group or role to which the worklog is visible."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: |

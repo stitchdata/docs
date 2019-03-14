@@ -49,7 +49,7 @@ attributes:
   - name: "operations"
     type: "array"
     description: "The list of operations available in the version."
-    array-attributes:
+    subattributes:
       - name: "href"
         type: "string"
         description: ""
@@ -102,7 +102,7 @@ attributes:
   - name: "remotelinks"
     type: "array"
     description: "The list of remote links stored against the project version."
-    array-attributes:
+    subattributes:
       - name: "link"
         type: "string"
         description: "The URL of the remote link."

@@ -40,7 +40,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items contained in the receipt."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."
@@ -149,7 +149,7 @@ attributes:
   - name: "ValidationErrors"
     type: "array"
     description: "Details about the validation errors associated with the receipt, if any."
-    array-attributes:
+    subattributes:
     - name: "Message"
       type: "string"
       description: "The validation error message."
@@ -157,5 +157,5 @@ attributes:
   # - name: "Attachments"
   #   type: "array"
   #   description: ""
-  #   array-attributes:
+  #   subattributes:
 ---

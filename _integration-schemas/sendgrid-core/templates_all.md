@@ -27,7 +27,7 @@ attributes:
   - name: "versions"
     type: "array"
     description: "Details about each version of the template, if the template is versioned."
-    array-attributes:
+    subattributes:
       - name: "template_id"
         type: "string"
         primary-key: true

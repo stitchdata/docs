@@ -60,7 +60,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: ""
         type: ""
         description: ""

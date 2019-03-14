@@ -55,7 +55,7 @@ attributes:
   # - name: "status"
   #   type: "object"
   #   description: "The number of minutes  inside and outside of business hours."
-  #   object-attributes: 
+  #   subattributes: 
   #     - name: "calendar"
   #       type: "integer"
   #       description:
@@ -71,7 +71,7 @@ attributes:
   - name: "agent_wait_time_in_minutes"
     type: "object"
     description: "The number of minutes the agent spent waiting inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes the agent spent waiting outside of business hours."
@@ -91,7 +91,7 @@ attributes:
   - name: "first_resolution_time_in_minutes"
     type: "object"
     description: "The number of minutes to the first resolution time inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes to the first resolution time outside of business hours."
@@ -103,7 +103,7 @@ attributes:
   - name: "full_resolution_time_in_minutes"
     type: "object"
     description: "The number of minutes to the full resolution inside and outside of business hours."
-    object-attributes:
+    subattributes:
 
   - name: "group_stations"
     type: "integer"
@@ -116,7 +116,7 @@ attributes:
   - name: "on_hold_time_in_minutes"
     type: "object"
     description: "The number of minutes the ticket was on hold inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes the ticket was on hold outside of business hours."
@@ -144,7 +144,7 @@ attributes:
   - name: "requester_wait_time_in_minutes"
     type: "object"
     description: "The number of minutes the requester spent waiting inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes the requester spent waiting outside of business hours."
@@ -156,7 +156,7 @@ attributes:
   - name: "reply_time_in_minutes"
     type: "object"
     description: "Number of minutes to the first reply inside and out of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes to the first reply outside of business hours."
@@ -168,7 +168,7 @@ attributes:
   - name: "full_resolution_time_in_minutes"
     type: "object"
     description: "Number of minutes to the full resolution inside and out of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes to the full resolution outside of business hours."

@@ -51,7 +51,7 @@ attributes:
   # - name: "attributes"
   #   type: "array"
   #   description: "Secondary attributes of the activity."
-  #   array-attributes:
+  #   subattributes:
   #     - name: "name"
   #       type: "string"
   #       description: "The name of the secondary attribute."

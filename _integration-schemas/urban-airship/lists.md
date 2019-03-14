@@ -36,7 +36,7 @@ attributes:
   - name: "extra"
     type: "array"
     description: "A list of the arbitrary, user-provided JSON values associated with the list."
-    array-attributes:
+    subattributes:
       - name: "key"
         type: "string"
         description: "The key to the associated value."

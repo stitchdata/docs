@@ -49,7 +49,7 @@ attributes:
   - name: "products"
     type: "array"
     description: "A list of products associated with the booking."
-    array-attributes:
+    subattributes:
       - name: "productsId"
         type: "integer"
         description: "The product ID."

@@ -90,7 +90,7 @@ attributes:
   - name: "rates_list"
     type: "array"
     description: "Values of available rates."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The available rate value."
@@ -98,7 +98,7 @@ attributes:
   - name: "carrier_accounts"
     type: "array"
     description: "IDs of the carrier accounts to be used for getting shipping rates for the shipment."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         primary-key: true
@@ -115,7 +115,7 @@ attributes:
   - name: "messages"
     type: "array"
     description: "Details about messages associated with the shipment."
-    array-attributes:
+    subattributes:
       - name: "code"
         type: "string"
         description: "The ID of the message. This may not always be available."

@@ -39,7 +39,7 @@ attributes:
   - name: "metaData"
     type: "object"
     description: "Metadata about the contact list."
-    object-attributes:
+    subattributes:
       - name: "processing"
         type: "string"
         description: "Indicates the processing status of the contact list. "
@@ -72,11 +72,11 @@ attributes:
     type: "array"
     description: "A list of filters used to define list membership. For example: adding only contacts who have submitted a particular form."
     doc-link: https://developers.hubspot.com/docs/methods/lists/contact-lists-overview
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "array"
         description: "Details about the filters used to define list membership."
-        array-attributes:
+        subattributes:
           - name: "filterFamily"
             type: "string"
             description: "The name of the filter family."

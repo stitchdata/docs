@@ -104,11 +104,11 @@ attributes:
   - name: "discount"
     type: "object"
     description: "Describes the current discount active on the invoice."
-    object-attributes:
+    subattributes:
       - name: "coupon"
         type: "object"
         description: "Details about the coupon applied to the invoice."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The coupon ID."
@@ -151,7 +151,7 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: ""
                 type: ""
                 description: ""
@@ -229,7 +229,7 @@ attributes:
   - name: "lines"
     type: "array"
     description: "The IDs of the line items that make up the invoice. Full details for these records are in the [`invoice_line_items`](#invoice_line_items) table."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         primary-key: true
@@ -243,7 +243,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the invoice."
-    object-attributes:
+    subattributes:
       - name: ""
         type: 
         description: ""

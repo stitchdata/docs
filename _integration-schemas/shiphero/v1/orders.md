@@ -52,7 +52,7 @@ attributes:
     type: "object"
     description: "The customer's billing address."
     address-type: "billing"
-    object-attributes: &address-attributes
+    subattributes: &address-attributes
       - name: "address1"
         type: "string"
         description: "The first line of the {{ attribute.address-type }} address."
@@ -156,7 +156,7 @@ attributes:
   - name: "holds"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: "address"
         type: "integer"
         description: ""
@@ -196,7 +196,7 @@ attributes:
   - name: "line_items"
     type: "array"
     description: "Details about the line items in the order."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -316,7 +316,7 @@ attributes:
   - name: "order_history"
     type: "array"
     description: ""
-    array-attributes:
+    subattributes:
       - name: "created_at"
         type: "date-time"
         description: ""
@@ -373,12 +373,12 @@ attributes:
     type: "object"
     description: ""
     address-type: "shipping"
-    object-attributes: *address-attributes
+    subattributes: *address-attributes
 
   - name: "shipping_lines"
     type: "object"
     description: "Details about the shipping lines in the order."
-    object-attributes:
+    subattributes:
       - name: "carrier"
         type: "string"
         description: "The shipping carrier."
@@ -410,7 +410,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Tags that have been applied to the order."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag applied to the order."
@@ -418,7 +418,7 @@ attributes:
   - name: "third_party_shipper"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
       - name: "account_number"
         type: "string"
         description: ""

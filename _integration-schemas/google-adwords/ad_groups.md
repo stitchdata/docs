@@ -38,7 +38,7 @@ attributes:
     type: "object"
     inclusion: "automatic"
     description: ""
-    object-attributes:
+    subattributes:
       - name: "bidSource"
         type: "string"
         description: "Indicates where the bidding strategy is associated i.e. campaign, ad group, or ad group criterion."
@@ -50,11 +50,11 @@ attributes:
       - name: "bids"
         type: "array"
         description: "Value details associated with bids."
-        array-attributes:
+        subattributes:
           - name: "bid"
             type: "object"
             description: "Value details associated with bids."
-            object-attributes: 
+            subattributes: 
               - name: "ComparableValue.Type"
                 type: "string"
                 description: "Indicates that this instance is a subtype of ComparableValue."
@@ -79,7 +79,7 @@ attributes:
   - name: "labels"
     type: "array"
     description: "Details about the labels applied to the ad."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -95,7 +95,7 @@ attributes:
 
       - name: "attribute"
         type: "object"
-        object-attributes:
+        subattributes:
           - name: "backgroundColor"
             type: "string"
             description: "The background color of the label in RGB format."
@@ -111,7 +111,7 @@ attributes:
   - name: "settings"
     type: "array"
     description: "Details about the settings defined for the ad group."
-    array-attributes:
+    subattributes:
       - name: "optIn"
         type: "integer"
         description: "Indicates the Opt In setting for the Display Campaign Optimizer."
@@ -123,7 +123,7 @@ attributes:
       - name: "details"
         type: "array"
         description: "Contains details about the settings applied to the ad group, including the target and criterion group settings."
-        array-attributes:
+        subattributes:
           - name: "targetAll"
             type: "integer"
             description: "Indicates if criteria of this type can be used to modify bidding but not restrict targeting of ads."

@@ -71,7 +71,7 @@ attributes:
   - name: "folder"
     type: "object"
     description: "Details about the asset's parent folder."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of the parent folder. Possible values are `Folder` or `Program`."

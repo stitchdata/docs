@@ -53,7 +53,7 @@ attributes:
   - name: "group_ids"
     type: "array"
     description: "The group IDs associated with the agent."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "integer"
         description: "The ID of the group."
@@ -61,7 +61,7 @@ attributes:
   - name: "role_ids"
     type: "array"
     description: "The role IDs associated with the agent."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "integer"
         description: "The ID of the role."
@@ -73,7 +73,7 @@ attributes:
   - name: "contact"
     type: "object"
     description: "Details about the contact info associated with the agent."
-    object-attributes:
+    subattributes:
       - name: "active"
         type: "boolean"
         description: "Indicates if the agent is verified."

@@ -34,11 +34,11 @@ attributes:
   - name: "filter"
     type: "object"
     description: "Details about the conditions that a ticket must match in order for the SLA policy to be applied to the ticket."
-    object-attributes:
+    subattributes:
       - name: "all"
         type: "array"
         description: "Indicates logical `AND`. Tickets must meet all of the conditions to be matched to the SLA policy."
-        array-attributes: &filter-attributes
+        subattributes: &filter-attributes
           - name: "field"
             type: "string"
             description: "The name of a ticket field."
@@ -52,12 +52,12 @@ attributes:
       - name: "any"
         type: "array"
         description: "Indicates logical `OR`. Tickets must satisfy any of the conditions to be matched to the SLA policy."
-        array-attributes: *filter-attributes
+        subattributes: *filter-attributes
   
   - name: "policy_metrics"
     type: "object"
     description: "Details about the metric targets for each value of the priority field in a ticket."
-    object-attributes:
+    subattributes:
       - name: "priority"
         type: "string"
         description: "The priority that a ticket must match. For example: `low`"

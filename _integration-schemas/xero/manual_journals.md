@@ -57,7 +57,7 @@ attributes:
   - name: "JournalLines"
     type: "array"
     description: "Details about the journal lines in the manual journal."
-    array-attributes:
+    subattributes:
       - name: "LineAmount"
         type: "number"
         description: "The total amount for the line. This will be a positive value for a debit, negative for a credit."

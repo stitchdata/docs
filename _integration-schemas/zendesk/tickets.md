@@ -53,7 +53,7 @@ attributes:
   - name: "follower_ids"
     type: "array"
     description: "The IDs of agents currently following the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the agent currently following the ticket."
@@ -97,7 +97,7 @@ attributes:
   - name: "collaborator_ids"
     type: "array"
     description: "The IDs of the collaborators currently CC'ed on the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the collaborator currently CC'ed on the ticket."
@@ -106,7 +106,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the ticket."
@@ -139,7 +139,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "The custom fields associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The ID of the custom ticket field."
@@ -164,7 +164,7 @@ attributes:
   - name: "followup_ids"
     type: "array"
     description: "The IDs of the follow-ups created from the ticket. The IDs are only available once the ticket is closed (`status: closed`)."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the follow-up created from the ticket."
@@ -195,15 +195,15 @@ attributes:
   - name: "via"
     type: "object"
     description: "Details about how the ticket was created."
-    object-attributes:
+    subattributes:
       - name: "source"
         type: "object"
         description: "Details about how the ticket was created."
-        object-attributes:
+        subattributes:
           - name: "from"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: "name"
                 type: "string"
                 description: ""
@@ -224,7 +224,7 @@ attributes:
           - name: "to"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: "address"
                 type: "string"
                 description: ""
@@ -249,7 +249,7 @@ attributes:
   - name: "sharing_agreement_ids"
     type: "array"
     description: "The IDs of the sharing agreements used for the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the sharing agreement used for the ticket."
@@ -257,7 +257,7 @@ attributes:
   - name: "email_cc_ids"
     type: "array"
     description: "The IDs of the email CCs associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the email CC associated with the ticket."

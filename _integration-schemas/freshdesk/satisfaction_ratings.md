@@ -56,7 +56,7 @@ attributes:
     type: "array"
     description: "Details about the questions and responses given by the user for the survey."
     doc-link: "https://developer.freshdesk.com/api/#create_satisfaction_rating"
-    array-attributes:
+    subattributes:
       - name: "question"
         type: "string"
         description: "The question associated with the survey."

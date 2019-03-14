@@ -23,7 +23,7 @@ attributes:
   - name: "adGroupAdDisapprovalReasons"
     type: "array"
     description: "The list of disapproval reasons applicable to the ad."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The list of disapproval reasons."
@@ -48,7 +48,7 @@ attributes:
     type: "object"
     description: "Summary of policy findings for the ad."
     doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAdPolicySummary
-    object-attributes:
+    subattributes:
       - name: "combinedApprovalStatus"
         type: "string"
         description: "The approval status that combines review state and status."
@@ -64,7 +64,7 @@ attributes:
       - name: "policyTopicEntries"
         type: "array"
         description: "List of policy findings."
-        array-attributes:
+        subattributes:
           - name: "policyTopicEntryType"
             type: "string"
             description: "The type of the policy topic entry."
@@ -80,7 +80,7 @@ attributes:
 
           - name: "policyTopicEvidences"
             type: "array"
-            array-attributes:
+            subattributes:
               - name: "evidenceText"
                 type: "string"
                 description: "The actual evidence that triggered the policy topic to be reported."
@@ -96,7 +96,7 @@ attributes:
   - name: "trademarks"
     type: "array"
     description: "The trademarked items that were found in the ad."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The trademarked items that were found in the ad."

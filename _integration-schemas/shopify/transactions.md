@@ -138,7 +138,7 @@ attributes:
   - name: "receipt"
     type: "object"
     description: "A transaction receipt attached to the transaction by the gateway."
-    object-attributes:
+    subattributes:
       - name: "authorization"
         type: "integer"
         description: "The authorization number associated with the receipt."

@@ -48,7 +48,7 @@ attributes:
   - name: "changed_fields"
     type: "array"
     description: "For events where `action: updated`, a list of fields that have changed."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the field that was changed."
@@ -70,7 +70,7 @@ attributes:
     type: "object"
     description: |
       Additional information for certain activity types.
-    object-attributes:
+    subattributes:
       - name: "request_method"
         type: "string"
         description: "For events associated with an HTTP request, the method of the request. For example: `POST`"

@@ -35,7 +35,7 @@ attributes:
   - name: "domains"
     type: "array"
     description: "The domains (ex: `stitchdata.com`) associated with the company."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The domain (ex: `stitchdata.com`) associated with the company."

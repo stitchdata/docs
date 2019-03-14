@@ -87,7 +87,7 @@ attributes:
   - name: "Addresses"
     type: "array"
     description: "Details about the contact's addresses."
-    array-attributes:
+    subattributes:
       - name: "Region"
         type: "string"
         description: "The region associated with the address."
@@ -136,7 +136,7 @@ attributes:
   - name: "Phones"
     type: "array"
     description: "Details about the contact's phone numbers."
-    array-attributes:
+    subattributes:
       - name: "PhoneNumber"
         type: "string"
         description: "The phone number."
@@ -174,7 +174,7 @@ attributes:
   - name: "ContactPersons"
     type: "array"
     description: "Details about the contact persons associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "FirstName"
         type: "string"
         description: "The first name of the contact person."
@@ -202,7 +202,7 @@ attributes:
   - name: "SalesTrackingCategories"
     type: "array"
     description: "Details about the default sales tracking categories for the contact."
-    array-attributes: &tracking-categories
+    subattributes: &tracking-categories
       - name: "TrackingCategoryID"
         type: "string"
         description: "The tracking category ID."
@@ -227,7 +227,7 @@ attributes:
       - name: "Options"
         type: "array"
         description: "Details about the tracking option."
-        array-attributes:
+        subattributes:
           - name: "IsActive"
             type: "boolean"
             description: "If `true`, the tracking option is active."
@@ -255,7 +255,7 @@ attributes:
   - name: "PurchasesTrackingCategories"
     type: "array"
     description: "Details about the default purchases tracking categories for the contact."
-    array-attributes: *tracking-categories
+    subattributes: *tracking-categories
 
   - name: "TrackingCategoryName"
     type: "string"
@@ -268,11 +268,11 @@ attributes:
   - name: "PaymentTerms"
     type: "array"
     description: "Details about the contact's payment terms."
-    array-attributes:
+    subattributes:
       - name: "Sales"
         type: "object"
         description: "Details about the payment terms used for sales transactions."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
@@ -290,7 +290,7 @@ attributes:
       - name: "Bills"
         type: "object"
         description: "Details about the payment terms used for bills (invoices)."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."
@@ -328,7 +328,7 @@ attributes:
   - name: "BatchPayments"
     type: "object"
     description: "Details about the batch payment details for the contact."
-    object-attributes:
+    subattributes:
       - name: "Details"
         type: "string"
         description: "Details about the batch payment."
@@ -356,12 +356,12 @@ attributes:
   - name: "Balances"
     type: "object"
     description: "Details about the raw AR (sales invoices) and AP (bills) outstanding and overdue amounts associated with the contact."
-    object-attributes:
+    subattributes:
 
       - name: "AccountsReceivable"
         type: "object"
         description: "Details about the outstanding and/or overdue sales invoices associated with the contact, not converted to base currency."
-        object-attributes:
+        subattributes:
           - name: "Outstanding"
             type: "number"
             description: "The total amount of outstanding sales invoices associated with the contact."
@@ -373,7 +373,7 @@ attributes:
       - name: "AccountsPayable"
         type: "object"
         description: "Details about the outstanding and/or overdue bills associated with the contact, not converted to base currency."
-        object-attributes:
+        subattributes:
           - name: "Outstanding"
             type: "number"
             description: "The total amount of outstanding bills associated with the contact."
@@ -389,7 +389,7 @@ attributes:
   - name: "HasValidationErrors"
     type: "array"
     description: "Details about any validation errors associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "Message"
         type: "string"
         description: "The validation error message."

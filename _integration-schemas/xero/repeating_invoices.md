@@ -39,7 +39,7 @@ attributes:
   - name: "Schedule"
     type: "object"
     description: "Details about the schedule used by the repeating invoice."
-    object-attributes:
+    subattributes:
       - name: "Unit"
         type: "string"
         description: "The unit of time used by the repeating invoice schedule. One of the following: `WEEKLY` or `MONTHLY`."
@@ -77,7 +77,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items contained in the repeating invoice."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."
