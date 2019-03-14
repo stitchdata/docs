@@ -6,7 +6,7 @@ name: "projects"
 doc-link: https://gitlab.com/help/api/projects.md#list-all-projects
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/projects.json
 description: |
-  The `projects` table contains info about specific projects.
+  The `{{ table.name }}` table contains info about specific projects.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The project ID."
+    foreign-key-id: "project-id"
 
   - name: "last_activity_at"
     type: "date-time"
@@ -51,6 +52,7 @@ attributes:
   - name: "creator_id"
     type: "integer"
     description: "The ID of the user who created the project."
+    foreign-key-id: "user-id"
 
   - name: "default_branch"
     type: "string"
