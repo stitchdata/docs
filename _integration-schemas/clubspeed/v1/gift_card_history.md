@@ -7,7 +7,11 @@ singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubs
 description: |
   The `{{ table.name }}` table acts as a transactional log for keeping track of each change that occurs with gift cards.
 
+  {% capture replication-note %}
   **Note**: In {{ integration.display_name }}, each gift card is registered as a [`customer`](#customers). This means that each gift card identifier should be considered a `customerId` in this table.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=replication-note %}
 
 replication-method: "Key-based Incremental"
 

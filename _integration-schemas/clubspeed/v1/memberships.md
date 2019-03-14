@@ -15,15 +15,15 @@ attributes:
     primary-key: true
     description: "The customer ID."
 
-  - name: "changed"
-    type: "date-time"
-    replication-key: true
-    description: "The date at which the membership last changed."
-
   - name: "membershipTypeId"
     type: "integer"
     primary-key: true
     description: "The membership type ID."
+
+  - name: "changed"
+    type: "date-time"
+    replication-key: true
+    description: "The date at which the membership last changed."
 
   - name: "byUserId"
     type: "integer"
