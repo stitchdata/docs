@@ -6,7 +6,7 @@ name: "satisfaction_ratings"
 doc-link: https://developers.freshdesk.com/api/#satisfaction-ratings
 singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/satisfaction_ratings.json
 description: |
-  The `satisfaction-ratings` table contains info about customer satisfaction survey responses, or satisfaction ratings."
+  The `{{ table.name }}` table contains info about customer satisfaction survey responses, or satisfaction ratings.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the satisfaction rating."
+    foreign-key-id: "satisfaction-rating-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -39,14 +40,17 @@ attributes:
   - name: "agent_id"
     type: "integer"
     description: "The responder ID of the ticket for which the satisfaction rating has been created."
+    foreign-key-id: "agent-id"
 
   - name: "group_id"
     type: "integer"
     description: "The group ID associated with the ticket for which the satisfaction rating has been created."
+    foreign-key-id: "group-id"
 
   - name: "ticket_id"
     type: "integer"
     description: "The ID of the ticket for which the satisfaction rating has been created."
+    foreign-key-id: "ticket-id"
 
   - name: "survey_id"
     type: "integer"

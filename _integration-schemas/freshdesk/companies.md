@@ -6,11 +6,11 @@ name: "companies"
 doc-link: https://developers.freshdesk.com/api/#companies
 singer-schema: 
 description: |
-  The `companies` table contains info about the companies your various customers and contacts belong to.
+  The `{{ table.name }}` table contains info about the companies your various customers and contacts belong to.
 
   #### Custom Fields
 
-  If applicable, Stitch will replicate custom fields related to `companies` in {{ integration.display_name }}.
+  If applicable, Stitch will replicate custom fields related to `{{ table.name }}` in {{ integration.display_name }}.
  
 replication-method: "Key-based Incremental"
 api-method:
@@ -22,6 +22,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The company ID."
+    foreign-key-id: "company-id"
 
   - name: "updated_at"
     type: "date-time"

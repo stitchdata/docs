@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the time entry record."
+    # foreign-key-id: "time-entry-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -51,6 +52,7 @@ attributes:
   - name: "ticket_id"
     type: "integer"
     description: "The ID of the ticket associated with the time entry record."
+    foreign-key-id: "ticket-id"
 
   - name: "billable"
     type: "boolean"
@@ -59,4 +61,5 @@ attributes:
   - name: "agent_id"
     type: "integer"
     description: "The agent ID associated with the time entry."
+    foreign-key-id: "agent-id"
 ---
