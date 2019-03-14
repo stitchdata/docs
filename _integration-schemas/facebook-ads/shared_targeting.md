@@ -4,16 +4,17 @@ version: "1.0"
 
 name: "[ads/adsets]__targeting"
 description: |
-  {{ site.data.alerts.note }} <strong>This is not a table that will display in the Stitch app for replication</strong>. The information outlined here is only applicable if you:
+  {% capture replication-note %}
+  The information outlined here is only applicable if you:
 
-  <ol>
-  <li>Are tracking the <code>targeting</code> column in either the <code>ads</code> or <code>adsets</code> tables,</li>
-  <li>Have applied targeting specs to any of your Facebook ad sets, <strong>and</strong></li>
-  <li>Use a data warehouse that doesn't support nested structures.</li>
-  </ol>
-  
-  <p>If all of the above are true, Stitch may create a large number of subtables in your data warehouse.</p>
-  {{ site.data.alerts.end }}
+  - Are tracking the `targeting` column in either the [ads](#ads) or [adsets](#adsets) tables
+  - Have applied targeting specs to any of your Facebook ad sets, and
+  - Use a [destination that doesn't support nested structures]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl | append: "#nested-data-structures" }})
+
+  If all of the above are true, Stitch may create a large number of subtables in your destination.
+  {% endcapture %}
+
+  {% include note.html first-line="**This is not a table that will display in the Stitch app for replication.**" content=replication-note %}
 
   For every applicable targeting spec, a subtable will be created.
 

@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_faceboo
 description: |
   The `ads_insights` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics.
 
-  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
+  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the **Include data from deleted campaigns, ads, and adsets** option in the integration's settings is enabled.
 
   #### Segmented ads_insights Data
 

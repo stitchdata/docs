@@ -10,7 +10,7 @@ description: |
 
   This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `age` and `gender`.
   
-  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
+  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the **Include data from deleted campaigns, ads, and adsets** option in the integration's settings is enabled.
 
 replication-method: "Key-based Incremental"
 attribution-window: true
