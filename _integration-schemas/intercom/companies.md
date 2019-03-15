@@ -1,15 +1,15 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "companies"
 doc-link: https://developers.intercom.com/reference#companies
 description: |
-  The `companies` table contains info about the companies (or commercial organizations) that use your Intercom product.
+  The `{{ table.name }}` table contains info about the companies (or commercial organizations) that use your {{ integration.display_name }} product.
 
   #### Custom Attributes
 
-  If applicable, Stitch will replicate custom fields related to `companies` in Intercom.
+  If applicable, Stitch will replicate custom fields related to `{{ table.name }}` in Intercom.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -69,4 +69,38 @@ attributes:
   - name: "type"
     type: "string"
     description: "The value of this field will be `company`."
+
+  - name: "segments"
+    type: "array"
+    description: "A list of the IDs of the segments associated with the company."
+    subattributes:
+      - name: "segments"
+        type: "array"
+        description: "A list of the IDs of the segments associated with the company."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The segment ID."
+            foreign-key-id: "segment-id"
+
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `segment`."
+
+  - name: "tags"
+    type: "array"
+    description: "A list of the IDs of the tags associated with the company."
+    subattributes:
+      - name: "tags"
+        type: "array"
+        description: "A list of the IDs of the tags associated with the company."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The tag ID."
+            foreign-key-id: "tag-id"
+
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `tag`."
 ---

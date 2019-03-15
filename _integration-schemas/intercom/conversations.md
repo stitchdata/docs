@@ -1,16 +1,16 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "conversations"
 doc-link: https://developers.intercom.com/reference#conversations
 description: |
-  The `conversations` table contains info about user conversations, or conversations initiated by your end-users.
+  The `{{ table.name }}` table contains info about user conversations, or conversations initiated by your end-users.
 
   #### Conversation Parts
   To reconstruct an entire conversation, use the `conversation_parts` associated with the conversation. These are the individual elements - actions, messages, and so on - that make up a conversation.
 
-  If your warehouse doesn't natively support nested data structures, a subtable named `conversations__conversation_parts` will be created. More info on this table can be found below.
+  If your destination doesn't natively support nested data structures, a subtable named `conversations__conversation_parts` will be created. More info on this table can be found below.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -37,7 +37,7 @@ attributes:
     description: |
       An epoch timestamp that indicates the last time a customer responded to an admin, or the time a customer started waiting for a response.
 
-      **Note**: According to [Intercom's documentation](https://developers.intercom.com/reference#conversation-model), this field may sometimes contain a value that is 2000 years in the future. This can occur when the last person to respond was an admin or when the conversation was closed aver a customer response.
+      **Note**: According to [{{ integration.display_name }}'s documentation](https://developers.intercom.com/reference#conversation-model), this field may sometimes contain a value that is 2000 years in the future. This can occur when the last person to respond was an admin or when the conversation was closed aver a customer response.
 
   - name: "snoozed_until"
     type: "date-time"
@@ -268,19 +268,23 @@ attributes:
     type: "array"
     description: "The tags associated with the conversation."
     subattributes:
-      - name: "id"
-        type: "string"
-        primary-key: true
-        description: "The tag ID."
-        foreign-key-id: "tag-id"
+      - name: "tags"
+        type: "array"
+        description: "The tags associated with the conversation."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The tag ID."
+            foreign-key-id: "tag-id"
 
-      - name: "name"
-        type: "string"
-        description: "The name of the tag."
+          - name: "name"
+            type: "string"
+            description: "The name of the tag."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `tag`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `tag`."
 
   - name: "type"
     type: "string"
