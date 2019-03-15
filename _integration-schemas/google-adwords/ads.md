@@ -35,10 +35,12 @@ attributes:
   - name: "baseAdGroupId"
     type: "integer"
     description: "The ID of the base ad group from which the draft/trial ad was created."
+    foreign-key-id: "base-adgroup-id"
 
   - name: "baseCampaignId"
     type: "integer"
     description: "The ID of the base campaign from which the draft/trial ad was created."
+    foreign-key-id: "base-campaign-id"
 
   - name: "customerId"
     type: "integer"

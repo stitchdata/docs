@@ -75,6 +75,7 @@ attributes:
         type: "integer"
         primary-key: true
         description: "The ID of the label applied to the campaign."
+        foreign-key-id: "label-id"
 
       - name: "name"
         type: "string"
