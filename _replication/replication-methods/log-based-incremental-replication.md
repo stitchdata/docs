@@ -85,10 +85,13 @@ sections:
           2. Stitch will use a `SELECT`-based approach to replicate the table in full. If this were a SQL query, it would look like this:
 
              ```sql
-             SELECT column_you_selected_1,
+             SELECT id,
+                    column_you_selected_1,
                     column_you_selected_2,
                     [...]
                FROM schema.table
+              WHERE id < [max id value]
+              ORDER BY id
              ```
 
       - title: "Ongoing replication jobs"
