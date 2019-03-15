@@ -1,14 +1,14 @@
 {% case include.type %}
-	{% when 'right' %}
-		<img class="right" 
-		src="{{ site.baseurl }}/images/{{ include.file }}" 
-		alt="{{ include.alt }}" 
-		align="right" 
-		style="margin-left: 15px; width: {{ include.max-width }};">
+{% when 'right' %}
+<img class="right" 
+src="{{ site.baseurl }}/images/{{ include.file }}" 
+alt="{{ include.alt }}" 
+align="right" 
+style="margin-left: 15px; width: {{ include.max-width }};">
 
-	{% when 'inline' %}
-		<img class="inline" src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" />
+{% when 'inline' %}
+<img class="inline" src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" />
 
-	{% else %}
-		<img src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" style="width: {{ include.max-width }};">
+{% else %}
+<img src="{{ site.baseurl }}/images/{{ include.file }}" alt="{{ include.alt }}" style="width: {{ include.max-width }};">
 {% endcase %}
