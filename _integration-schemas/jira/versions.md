@@ -6,7 +6,9 @@ name: "versions"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-projectIdOrKey-versions-get"
 singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/versions.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about versions in your {{ integration.display_name }} account.
+
+  #### Replication requirements
 
   **Note**: To replicate this data:
 
