@@ -1,7 +1,6 @@
 ---
 title: Urban Airship (v1.0)
 permalink: /integrations/saas/urban-airship
-tags: [saas_integrations]
 keywords: urban airship, integration, schema, etl urban airship, urban airship etl, urban airship schema
 summary: "Connection instructions and schema details for Stitch's Urban Airship integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "urban-airship"
 display_name: "Urban Airship"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-urban-airship
 status-url: https://twitter.com/urbanairship
 
@@ -25,12 +23,11 @@ status-url: https://twitter.com/urbanairship
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/urban-airship.svg
 
 table-selection: false
 column-selection: false
@@ -78,7 +75,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/urban-airship
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

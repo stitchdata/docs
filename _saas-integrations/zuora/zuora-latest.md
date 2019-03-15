@@ -1,7 +1,6 @@
 ---
 title: Zuora (v1.0)
 permalink: /integrations/saas/zuora
-tags: [saas_integrations]
 keywords: zuora, integration, schema, etl zuora, zuora etl, zuora schema
 summary: "Connection instructions and schema details for Stitch's Zuora integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "zuora"
 display_name: "Zuora"
+
 singer: true
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 repo-url: https://github.com/singer-io/tap-zuora
 
 this-version: "1.0"
@@ -30,7 +28,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 status-url: "http://trust.zuora.com/"
-icon: /images/integrations/icons/zuora.svg
 
 table-selection: true
 column-selection: true
@@ -227,7 +224,6 @@ schema-sections:
       **Don't see a table listed here?** The list of tables shown below is not an exhaustive list of all the tables Stitch can replicate from {{ integration.display_name }}.
 
       We're working on adding documentation for additional {{ integration.display_name }} tables. If there's a specific table you'd like to see here, let us know by [opening an issue in the Stitch Docs GitHub repo](https://github.com/stitchdata/docs).
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

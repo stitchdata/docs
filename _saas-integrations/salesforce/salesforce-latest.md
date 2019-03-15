@@ -1,10 +1,8 @@
 ---
 title: Salesforce (v1.0)
 permalink: /integrations/saas/salesforce/
-tags: [saas_integrations]
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Salesforce integration."
-sidebar: page-level
 layout: singer
 
 # -------------------------- #
@@ -13,9 +11,8 @@ layout: singer
 
 name: "salesforce"
 display_name: "Salesforce"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-salesforce
 status-url: "https://trust.salesforce.com/trust/instances"
 
@@ -31,7 +28,6 @@ certified: true
 frequency: "1 hour"
 historical: "1 year"
 tier: "Paid"
-icon: /images/integrations/icons/salesforce.svg
 whitelist-ips: true
 
 table-selection: true
@@ -323,7 +319,6 @@ schema-sections:
       Stitch's {{ integration.display_name }} integration supports the replication of custom objects and fields.
 
       Custom object and field names are appended with `__c` to make identification easier. For example: `AE_Assignment__c` or `Assignment_Group_Name__c`
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

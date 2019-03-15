@@ -1,7 +1,5 @@
 ---
 title: QuickBooks
-permalink: /integrations/saas/quickbooks
-tags: [saas_integrations]
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema, intuit
 summary: "Connection instructions and schema details for Stitch's QuickBooks integration."
 format: ## controls formatting options in template
@@ -15,9 +13,8 @@ format: ## controls formatting options in template
 
 name: "quickbooks"
 display_name: "QuickBooks"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://status.developer.intuit.com/"
 
 # -------------------------- #
@@ -30,7 +27,6 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/quickbooks.svg
 
 table-selection: false
 column-selection: false

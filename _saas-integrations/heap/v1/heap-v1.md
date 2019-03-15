@@ -14,8 +14,8 @@
 
 title: Heap (v1.0)
 permalink: /integrations/saas/heap
-tags: [saas_integrations]
 keywords: heap, integration, schema, etl heap, heap etl, heap schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Heap integration."
 layout: singer
 # input: false
 

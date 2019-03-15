@@ -1,7 +1,6 @@
 ---
-title: Facebook Ads
+title: Facebook Ads (v1.0)
 permalink: /integrations/saas/facebook-ads
-tags: [saas_integrations]
 keywords: facebook ads, integration, schema, etl facebook ads, facebook ads etl
 summary: "Connection instructions, replication info, and schema details for Stitch's Facebook Ads integration."
 layout: singer
@@ -29,7 +28,6 @@ frequency: "30 minutes"
 tier: "Free"
 auth: "oauth"
 status-url: "https://developers.facebook.com/status/"
-icon: /images/integrations/icons/facebook-ads.svg
 
 table-selection: true
 column-selection: true

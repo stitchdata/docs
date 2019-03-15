@@ -1,7 +1,6 @@
 ---
 title: Trello
 permalink: /integrations/saas/trello
-tags: [saas_integrations]
 keywords: trello, integration, schema, etl trello, trello etl, trello schema
 summary: "Connection instructions and schema details for Stitch's Trello integration."
 format: ## controls formatting options in template
@@ -15,9 +14,8 @@ format: ## controls formatting options in template
 
 name: "trello"
 display_name: "Trello"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://www.trellostatus.com/"
 
 # -------------------------- #
@@ -30,7 +28,6 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/trello.svg
 
 table-selection: false
 column-selection: false

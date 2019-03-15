@@ -2,7 +2,6 @@
 title: Google AdWords
 permalink: /integrations/saas/google-adwords
 redirect_from: /integrations/saas/google-adwords-v1
-tags: [saas_integrations]
 keywords: google adwords, google adwords data, etl google adwords, google adwords etl, google adwords schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google AdWords integration."
 layout: singer
@@ -17,9 +16,8 @@ microsites:
 
 name: "google-adwords"
 display_name: "Google AdWords"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-adwords
 
 # this-version: "1.0"
@@ -31,13 +29,12 @@ repo-url: https://github.com/singer-io/tap-adwords
 api-version: "v201806"
 
 status: "Released"
-certified: true # Stitch-supported integration
+certified: true
 
 historical: "30 days"
 frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
-icon: /images/integrations/icons/google-adwords-new.svg
 
 table-selection: true
 column-selection: true

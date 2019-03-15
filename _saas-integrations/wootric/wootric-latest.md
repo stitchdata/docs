@@ -1,7 +1,6 @@
 ---
 title: Wootric (v1.0)
 permalink: /integrations/saas/wootric
-tags: [saas_integrations]
 keywords: wootric, integration, schema, etl wootric, wootric etl, wootric schema
 summary: "Connection instructions and schema details for Stitch's Wootric integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "wootric"
 display_name: "Wootric"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-wootric
 
 # this-version: "1.0"
@@ -30,7 +28,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: 
-icon: /images/integrations/icons/wootric.svg
 
 table-selection: false
 column-selection: false
@@ -69,9 +66,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/wootric
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-

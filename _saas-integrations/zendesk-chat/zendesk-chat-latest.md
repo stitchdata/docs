@@ -1,7 +1,6 @@
 ---
 title: Zendesk Chat (Zopim)
 permalink: /integrations/saas/zendesk-chat
-tags: [saas_integrations]
 keywords: zopim, integration, schema, etl zopim, zopim etl, zopim schema, zendesk chat, zendesk
 summary: "Connection instructions and schema details for Stitch's Zendesk Chat integration."
 format: ## controls formatting options in template
@@ -15,9 +14,8 @@ format: ## controls formatting options in template
 
 name: "zendesk-chat"
 display_name: "Zendesk Chat"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.zendesk.com/"
 
 # -------------------------- #
@@ -30,7 +28,6 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/zendesk-chat.svg
 
 table-selection: false
 column-selection: false

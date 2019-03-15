@@ -1,7 +1,6 @@
 ---
 title: Xero (v1.0)
 permalink: /integrations/saas/xero
-tags: [saas_integrations]
 keywords: xero, integration, schema, etl xero, xero etl, xero schema
 summary: "Connection instructions and schema details for Stitch's Xero integration."
 layout: singer
@@ -12,6 +11,7 @@ layout: singer
 
 name: "xero"
 display_name: "Xero"
+
 singer: true
 status-url: "https://status.xero.com"
 repo-url: "https://github.com/singer-io/tap-xero"
@@ -28,7 +28,6 @@ certified: true
 historical: "1 year"
 frequency: "1 hour"
 tier: "Premium"
-icon: /images/integrations/icons/xero.svg
 
 table-selection: true
 column-selection: true
@@ -86,7 +85,6 @@ subsubtable-note: |
   **Note**: This is an array that may be flattened into a subtable. This table would be named `{{ subtable-name }}`; records in this table may be joined to their parent by following [these instructions]({{ link.destinations.storage.nested-structures | prepend: site.baseurl | append: "#connecting-subtables-to-top-level-records" }}).
 
   Refer to the [`table_name`](#table_name) table for a list of attributes this subtable may contain.
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

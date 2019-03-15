@@ -1,7 +1,6 @@
 ---
 title: Taboola (v1.0)
 permalink: /integrations/saas/taboola
-tags: [saas_integrations]
 keywords: taboola, taboola integration, schema, etl taboola, taboola etl, taboola schema
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "taboola"
 display_name: "Taboola"
-singer: true 
-author: "Fishtown Analytics"
-author-url: http://fishtownanalytics.com/
+
+singer: true
 repo-url: https://github.com/singer-io/tap-taboola
 status-url: https://twitter.com/taboola?lang=en
 
@@ -30,7 +28,6 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/taboola.svg
 
 table-selection: false
 column-selection: false
@@ -64,7 +61,6 @@ setup-steps:
       8. In the **Client Secret** field, enter your Taboola client secret.
   - title: "historical sync"
   - title: "replication frequency"
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

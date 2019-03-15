@@ -5,8 +5,8 @@
 
 title: Campaign Monitor (v1.0)
 permalink: /integrations/saas/campaign-monitor
-tags: [saas_integrations]
 keywords: campaign monitor, integration, schema, etl campaign monitor, campaign monitor etl, campaign monitor schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Campaign Monitor integration."
 layout: singer
 # input: false
 
@@ -33,7 +33,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.campaignmonitor.com/"
-icon: /images/integrations/icons/campaign-monitor.svg
 
 anchor-scheduling: true
 extraction-logs: true
@@ -42,10 +41,6 @@ loading-reports: true
 table-selection: false
 column-selection: false
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
 
 # -------------------------- #
 #      Setup Instructions    #

@@ -1,7 +1,6 @@
 ---
 title: Outbrain (v1.0)
 permalink: /integrations/saas/outbrain
-tags: [saas_integrations]
 keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain schema
 summary: "Connection instructions and schema details for Stitch's Outbrain integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "outbrain"
 display_name: "Outbrain"
+
 singer: true
-author: "Fishtown Analytics"
-author-url: http://fishtownanalytics.com/
 repo-url: https://github.com/singer-io/tap-outbrain
 
 # this-version: "1.0"
@@ -30,7 +28,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: 
-icon: /images/integrations/icons/outbrain.svg
 
 table-selection: false
 column-selection: false
@@ -64,7 +61,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/outbrain
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

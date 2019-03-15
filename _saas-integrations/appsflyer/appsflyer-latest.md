@@ -5,8 +5,8 @@
 
 title: AppsFlyer (v1.0)
 permalink: /integrations/saas/appsflyer
-tags: [saas_integrations]
 keywords: appsflyer, integration, schema, etl appsflyer, appsflyer etl, appsflyer schema
+summary: "Connection instructions, replication info, and schema details for Stitch's AppsFlyer integration."
 layout: singer
 
 # -------------------------- #
@@ -30,7 +30,6 @@ historical: "60 days"
 frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
-icon: /images/integrations/icons/appsflyer.svg
 
 table-selection: false
 column-selection: false

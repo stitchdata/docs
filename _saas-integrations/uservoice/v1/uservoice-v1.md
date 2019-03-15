@@ -5,8 +5,8 @@
 
 title: UserVoice (v1.0)
 permalink: /integrations/saas/uservoice
-tags: [saas_integrations]
 keywords: uservoice, integration, schema, etl uservoice, uservoice etl, uservoice schema
+summary: "Connections instructions, replication info, and schema details for Stitch's UserVoice integration."
 layout: singer
 
 # -------------------------- #
@@ -15,6 +15,7 @@ layout: singer
 
 name: "uservoice"
 display_name: "UserVoice"
+
 singer: true 
 repo-url: https://github.com/singer-io/tap-uservoice
 

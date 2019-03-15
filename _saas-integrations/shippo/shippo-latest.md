@@ -1,7 +1,6 @@
 ---
 title: Shippo (v1.0)
 permalink: /integrations/saas/shippo
-tags: [saas_integrations]
 keywords: shippo, integration, schema, etl shippo, shippo etl, shippo schema
 summary: "Connection instructions and schema details for Stitch's Shippo integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "shippo"
 display_name: "Shippo"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-shippo
 
 # this-version: "1.0"
@@ -25,13 +23,12 @@ repo-url: https://github.com/singer-io/tap-shippo
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.goshippo.com/
-icon: /images/integrations/icons/shippo.svg
 
 table-selection: false
 column-selection: false
@@ -67,7 +64,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/shippo
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
