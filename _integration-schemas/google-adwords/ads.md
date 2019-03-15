@@ -6,10 +6,9 @@ name: "ads"
 doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupAdService.AdGroupAd
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ads.json
 description: |
-  The `ads` table contains comprehensive info about ads in ad groups in your Google AdWords account.
+  The `{{ table.name }}` table contains comprehensive info about ads in ad groups in your Google AdWords account.
 
   [This is a **Core Object** table](#replication).
-notes:
 
 replication-method: "Full Table"
 attribution-window: true
@@ -19,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the ad group containing the ad."
+    foreign-key-id: "adgroup-id"
 
   - name: "adGroupAdDisapprovalReasons"
     type: "array"
@@ -43,6 +43,7 @@ attributes:
   - name: "customerId"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
+    foreign-key-id: "customer-id"
 
   - name: "policySummary"
     type: "object"

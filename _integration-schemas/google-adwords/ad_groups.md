@@ -6,7 +6,7 @@ name: "ad_groups"
 doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/AdGroupService.AdGroup
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/ad_groups.json
 description: |
-  The `ad_groups` table contains detailed info about your ad groups.
+  The `{{ table.name }}` table contains detailed info about your ad groups.
 
   [This is a **Core Object** table](#replication).
 notes:
@@ -20,6 +20,7 @@ attributes:
     primary-key: true
     alias: "adGroupId"
     description: "The ID of the ad group."
+    foreign-key-id: "adgroup-id"
 
   - name: "adGroupType"
     type: "string"
@@ -29,15 +30,17 @@ attributes:
   - name: "baseAdGroupId"
     type: "integer"
     description: "The ID of the base ad group from which the draft/trial ad group was created. This field will be `NULL` if the ad group was created in the draft or trial and has no corresponding base ad group."
+    foreign-key-id: "base-adgroup-id"
 
   - name: "baseCampaignId"
     type: "integer"
     description: "The ID of the base campaign from which the draft/trial ad group was created."
+    foreign-key-id: "base-campaign-id"
 
   - name: "biddingStrategyConfiguration"
     type: "object"
     inclusion: "automatic"
-    description: ""
+    description: "Details about the configuration of the bidding strategy associated with the ad group."
     subattributes:
       - name: "bidSource"
         type: "string"
@@ -67,6 +70,7 @@ attributes:
   - name: "campaignId"
     type: "integer"
     description: "The ID of the campaign associated with the ad group."
+    foreign-key-id: "campaign-id"
 
   - name: "campaignName"
     type: "string"
@@ -75,6 +79,7 @@ attributes:
   - name: "customerId"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
+    foreign-key-id: "customer-id"
 
   - name: "labels"
     type: "array"
@@ -84,6 +89,7 @@ attributes:
         type: "integer"
         primary-key: true
         description: "The ID of the label applied to the ad."
+        foreign-key-id: "label-id"
 
       - name: "name"
         type: "string"

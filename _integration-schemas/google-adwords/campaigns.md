@@ -6,7 +6,7 @@ name: "campaigns"
 doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/CampaignService.Campaign
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/campaigns.json
 description: |
-  The `campaigns` table contains detailed info about your Google AdWords campaigns.
+  The `{{ table.name }}` table contains detailed info about your Google AdWords campaigns.
 
   [This is a **Core Object** table](#replication).
 
@@ -18,9 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the campaign."
-    # foreign-keys:
-    #    - table: "Any"
-    #      attribute: "campaignId"
+    foreign-key-id: "campaign-id"
 
   - name: "adServingOptimizationStatus"
     type: "string"
@@ -33,6 +31,7 @@ attributes:
   - name: "baseCampaignId"
     type: "integer"
     description: "The ID of the base campaign of the draft or trial campaign."
+    foreign-key-id: "base-campaign-id"
 
   - name: "conversionOptimizerEligibility"
     type: "object"
@@ -50,6 +49,7 @@ attributes:
   - name: "customerId"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
+    foreign-key-id: "customer-id"
 
   - name: "endDate"
     type: "date-time"

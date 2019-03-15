@@ -6,7 +6,7 @@ name: "accounts"
 doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/ManagedCustomerService.ManagedCustomer
 singer-schema: https://github.com/singer-io/tap-adwords/blob/master/tap_adwords/schemas/accounts.json
 description: |
-  The `accounts` table contains high-level info about the Google AdWords account(s) you’ve connected to Stitch.
+  The `{{ table.name }}` table contains high-level info about the Google AdWords account(s) you’ve connected to Stitch.
 
   [This is a **Core Object** table](#replication).
 
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the AdWords account that the record belongs to."
+    foreign-key-id: "customer-id"
 
   - name: "canManageClients"
     type: "boolean"

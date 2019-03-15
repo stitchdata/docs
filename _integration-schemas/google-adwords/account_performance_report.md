@@ -5,7 +5,7 @@ version: "1.0"
 name: "account_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report
 description: |
-  The `account_performance_report` table contains all statistics aggregated by default at the account level.
+  The `{{ table.name }}` table contains all statistics aggregated by default at the account level.
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
@@ -26,6 +26,8 @@ attributes:
   - name: "{{ system-column.customer-id }}"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
+    foreign-key-id: "customer-id"
+    foreign-key-id: "customer-id"
 
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"
