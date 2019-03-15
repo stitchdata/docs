@@ -162,9 +162,9 @@ We recommend checking the [Additional & Integration Specific Resources]({{ site.
 
 ## Replication Frequency
 
-If the missing records were created very recently, you may need to wait for an update of your data to complete before they appear in your data warehouse.
+If the missing records were created very recently, or if Stitch is replicating a large historical data set, you may need to wait for an update of your data to complete before they appear in your data warehouse. 
 
-We recommend checking the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), located in the {{ app.buttons.update-int-settings }} tab of the {{ app.page-names.int-details }} page. If it's set to a lower frequency like 12 hours, you may want to increase it temporarily to ensure Stitch kicks off a replication job sooner rather than later.
+We recommend checking the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), located in the {{ app.buttons.update-int-settings }} tab of the {{ app.page-names.int-details }} page. If it's set to a lower frequency like 12 hours, you may want to increase it temporarily to ensure Stitch kicks off a replication job sooner rather than later. If replication is running, wait for it to complete before analyzing data discrepancies.
 
 ---
 
