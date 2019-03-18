@@ -71,7 +71,7 @@
       {"name" "an_object"
        "type" "object"
        "description" ""
-       "object-properties" [{"name" "a"
+       "subattributes" [{"name" "a"
                              "type" "string"
                              "description" ""}
                             {"name" "z"
@@ -83,14 +83,14 @@
       {"name" "an_object"
        "type" "object"
        "description" ""
-       "object-properties" []}
+       "subattributes" []}
 
       ["an_object" {"type" "object"
                     "properties" {"type" {"type" "string"}}}]
       {"name" "an_object"
        "type" "object"
        "description" ""
-       "object-properties" [{"name" "type"
+       "subattributes" [{"name" "type"
                              "type" "string"
                              "description" ""}]}))
 
@@ -101,7 +101,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "value"
+       "subattributes" [{"name" "value"
                             "type" "string"
                             "description" ""}]}
 
@@ -110,7 +110,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "value"
+       "subattributes" [{"name" "value"
                             "type" "number"
                             "description" ""}]}
 
@@ -120,7 +120,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "value"
+       "subattributes" [{"name" "value"
                             "type" "date-time"
                             "description" ""}]}
 
@@ -129,7 +129,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "value"
+       "subattributes" [{"name" "value"
                             "type" "integer, string"
                             "description" ""}]}
 
@@ -139,7 +139,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "a"
+       "subattributes" [{"name" "a"
                             "type" "string"
                             "description" ""}]}
 
@@ -149,7 +149,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "b"
+       "subattributes" [{"name" "b"
                             "type" "string"
                             "description" ""}]}
 
@@ -159,7 +159,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "b"
+       "subattributes" [{"name" "b"
                             "type" "string"
                             "description" ""}]}
 
@@ -169,7 +169,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "a"
+       "subattributes" [{"name" "a"
                             "type" "string"
                             "description" ""}
                            ;; Really?
@@ -184,7 +184,7 @@
        "type" "array"
        "description" ""
        ;; Really?
-       "array-attributes" [{"name" "value"
+       "subattributes" [{"name" "value"
                             "type" "string"
                             "description" ""}
                            {"name" "z"
@@ -198,7 +198,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "a"
+       "subattributes" [{"name" "a"
                             "type" "string"
                             "description" ""}
                            ;; Really?
@@ -214,7 +214,7 @@
       {"name" "an_array"
        "type" "array"
        "description" ""
-       "array-attributes" [{"name" "a"
+       "subattributes" [{"name" "a"
                             "type" "string"
                             "description" ""}
                            ;; Really? Note that there is a conflict
@@ -265,7 +265,7 @@
       {"name" "an_object"
        "type" "date-time, object"
        "description" ""
-       "object-properties" [{"name" "a"
+       "subattributes" [{"name" "a"
                              "type" "string"
                              "description" ""}
                             {"name" "z"
@@ -278,7 +278,7 @@
       {"name" "an_array",
        "type" "array",
        "description" "",
-       "array-attributes" [{"name" "amount",
+       "subattributes" [{"name" "amount",
                             "type" "number",
                             "description" ""}]}
 

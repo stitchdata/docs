@@ -93,7 +93,7 @@
             (if (nil? (property-json-schema-partial "properties"))
               (throw (ex-info "Found object type without properties defined: " {:property-name property-name}))
               (assoc base-converted-property
-                     "object-properties"
+                     "subattributes"
                      (convert-object-properties tap-fs schema (property-json-schema-partial "properties"))))
             (= "array" (property-json-schema-partial "type"))
             (let [items (property-json-schema-partial "items")
@@ -111,7 +111,7 @@
               (if (empty? converted-property)
                 base-converted-property
                 (assoc base-converted-property
-                       "array-attributes"
+                       "subattributes"
                        converted-property)))
 
             (and (= "string" (property-json-schema-partial "type"))
@@ -137,9 +137,9 @@
                                              (sort (map #(get % "type")
                                                         [converted-prop-1 converted-prop-2])))
                          "description" ""}]
-    (if-let [object-properties (or (converted-prop-1 "object-properties")
-                                   (converted-prop-2 "object-properties"))]
-      (assoc base-properties "object-properties" object-properties)
+    (if-let [object-properties (or (converted-prop-1 "subattributes")
+                                   (converted-prop-2 "subattributes"))]
+      (assoc base-properties "subattributes" object-properties)
       base-properties)))
 
 (defn property->unary-type-properties
