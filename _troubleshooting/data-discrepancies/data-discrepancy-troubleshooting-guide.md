@@ -4,7 +4,7 @@ keywords: troubleshooting, integration, trouble, issue, help, data discrepancy, 
 permalink: /troubleshooting/data-discrepancy-troubleshooting-guide
 tags: [data_discrepancy]
 
-summary: "If you've noticed missing or incorrect data in your data warehouse, this guide is the place to start. In it we'll walk you through the most common causes of data discrepancies, how to verify the root cause, and how to fix it. We also outline the next steps should you need to contact support."
+summary: "If you've noticed missing or incorrect data in your destination, this guide is the place to start. In it we'll walk you through the most common causes of data discrepancies, how to verify the root cause, and how to fix it. We also outline the next steps should you need to contact support."
 type: "discrepancy"
 weight: 1
 ---
@@ -28,7 +28,7 @@ If you're missing data, the first place you should look is in the `_sdc_rejected
 
 ## Data Loading
 
-While Stitch is designed to quickly and efficiently process large amounts of data, it can take some time to replicate and load your data into your data warehouse. What looks like missing data may actually be incomplete processing, meaning Stitch hasn’t finished loading all the data.
+While Stitch is designed to quickly and efficiently process large amounts of data, it can take some time to replicate and load your data into your destination. What looks like missing data may actually be incomplete processing, meaning Stitch hasn’t finished loading all the data.
 
 Processing time can be affected by a variety of factors:
 
@@ -58,12 +58,12 @@ Before reporting a data discrepancy to Stitch support, we recommend that you dou
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSQLClient">Are you using a SQL client to directly query your data warehouse?</a>
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSQLClient">Are you using a SQL client to directly query your destination?</a>
             </h4>
         </div>
         <div id="collapseSQLClient" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
-                <p>Make sure you're using a SQL client to <strong>directly query</strong> your data warehouse. This will eliminate the possibility of:</p>
+                <p>Make sure you're using a SQL client to <strong>directly query</strong> your destination. This will eliminate the possibility of:</p>
 
                 <ol>
                     <li>Report refresh lags, which can occur in visualization tools like Tableau or Mode,</li>
@@ -77,7 +77,7 @@ Before reporting a data discrepancy to Stitch support, we recommend that you dou
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseStartDates">Are you querying for the same timeframe in the data source and data warehouse?</a>
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseStartDates">Are you querying for the same timeframe in the data source and destination?</a>
             </h4>
         </div>
         <div id="collapseStartDates" class="panel-collapse collapse noCrossRef">
@@ -88,7 +88,7 @@ Before reporting a data discrepancy to Stitch support, we recommend that you dou
 
                 <img src="{{ site.baseurl }}/images/replication/sync-historical-data.png" alt="Sync Historical Data section.">
 
-                <p>When querying in your data warehouse, check that the timeframe you're querying for matches up with the integration's start date. If you find that the integration's start date was set incorrectly, <a href="{{ link.replication.saas-historical | prepend: site.baseurl }}">you can reset it to queue a full re-sync</a>.</p>
+                <p>When querying in your destination, check that the timeframe you're querying for matches up with the integration's start date. If you find that the integration's start date was set incorrectly, <a href="{{ link.replication.saas-historical | prepend: site.baseurl }}">you can reset it to queue a full re-sync</a>.</p>
             </div>
         </div>
     </div>
@@ -101,11 +101,11 @@ Before reporting a data discrepancy to Stitch support, we recommend that you dou
         </div>
         <div id="collapseTimezoneVariation" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
-                <p>Keep in mind that your data warehouse may handle timestamp data in a specific way, even if your data source is configured to report in a specific timezone.</p>
+                <p>Keep in mind that your destination may handle timestamp data in a specific way, even if your data source is configured to report in a specific timezone.</p>
 
                 <p>Consider this timestamp as an example: <code>2017-08-14 11:24:02 GMT-0400 (EDT)</code></p>
 
-                <p>Below is an explanation and example of how each data warehouse will store this same data point.</p>
+                <p>Below is an explanation and example of how each destination will store this same data point.</p>
 
                 <table>
                     <tr>
@@ -154,7 +154,7 @@ Before reporting a data discrepancy to Stitch support, we recommend that you dou
 
 When investigating a data discrepancy, look for consistencies such as records missing over a specific timeframe or issues that only affect certain records or data types.
 
-For example: [formula fields in Salesforce]({{ link.troubleshooting.salesforce-formula-fields | prepend: site.baseurl }}) can occasionally cause data discrepancies due to how they're updated.
+For example: [Formula fields in Salesforce]({{ link.troubleshooting.salesforce-formula-fields | prepend: site.baseurl }}) can occasionally cause data discrepancies due to how they're updated.
 
 We recommend checking the [Additional & Integration Specific Resources]({{ site.baseurl }}/troubleshooting/data-discrepancies/#additional--integration-specific-resources) section for causes of common data discrepancies and how to resolve them.
 
@@ -162,7 +162,7 @@ We recommend checking the [Additional & Integration Specific Resources]({{ site.
 
 ## Replication Frequency
 
-If the missing records were created very recently, or if Stitch is replicating a large historical data set, you may need to wait for an update of your data to complete before they appear in your data warehouse. 
+If the missing records were created very recently, or if Stitch is replicating a large historical data set, you may need to wait for an update of your data to complete before they appear in your destination. 
 
 We recommend checking the integration's [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}), located in the {{ app.buttons.update-int-settings }} tab of the {{ app.page-names.int-details }} page. If it's set to a lower frequency like 12 hours, you may want to increase it temporarily to ensure Stitch kicks off a replication job sooner rather than later. If replication is running, wait for it to complete before analyzing data discrepancies.
 
@@ -170,25 +170,25 @@ We recommend checking the integration's [Replication Frequency]({{ link.replicat
 
 ## Replication Keys
 
-{% include note.html type="first-line" content="This section is only applicable to database integrations." %}
+{% include note.html type="single-line" content="**Note**: This section is only applicable to database integrations." %}
 
-When a table in a database integration is initially set to use [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append:"#incremental-replication" }}), a Replication Key must be defined. For Stitch to accurately replicate data, Replication Keys must align with how data in the table is updated.
+When a table in a database integration is initially set to use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), a Replication Key must be defined. For Stitch to accurately replicate data, Replication Keys must align with how data in the table is updated.
 
-If the table in question is set to use Incremental Replication, keep in mind that:
+If the table in question is set to use Key-based Incremental Replication, keep in mind that:
 
-1. Stitch won't capture hard deletes.
+1. Stitch won't capture [hard deletes]({{ link.replication.key-based-incremental | prepend: site.baseurl | append: "#limitation-2--hard-deletes-unsupported" }}).
 2. Replication Key columns with `NULL` values are only replicated during an integration's initial replication job.
 3. Records that are updated over time should use a modification timestamp to ensure updates are captured.
-4. [Mongo Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) have additional considerations. For example: multiple data types in the Replication Key column can lead to missing data.
+4. [Mongo Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) have additional considerations. For example: Multiple data types in the Replication Key column can lead to missing data.
 5. BigQuery destinations only support [**Append-Only Incremental Replication**]({{ link.replication.rep-methods | prepend: site.baseurl | append:"#append-only-incremental-replication" }}). What looks like duplicate data may actually be updated records being appended to a table.
 
 ---
 
 ## Contacting Support
 
-If the discrepancy can’t be explained by any of the points above, please reach out to support. Depending on the type of discrepancy, we'll ask you to provide us some information that will help us investigate.
+If the discrepancy can’t be explained by any of the points above, reach out to support. Depending on the type of discrepancy, we'll ask you to provide us some information that will help us investigate.
 
-**Row count discrepancies** describe discrepancies that affect the number of records in your data warehouse. Complete records may be missing, duplicated, etc.
+**Row count discrepancies** describe discrepancies that affect the number of records in your destination. Complete records may be missing, duplicated, etc.
 
 **Field value discrepancies** describe discrepancies that affect values in individual columns.
 
@@ -203,7 +203,7 @@ If the discrepancy can’t be explained by any of the points above, please reach
         <div id="collapseRowCountDiscrepancies" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
                 <ol>
-                    <li><strong>3-5 examples of records that exist in the source but not in your data warehouse</strong>. You can send us the entire record, but at the very least we need:</li>
+                    <li><strong>3-5 examples of records that exist in the source but not in your destination</strong>. You can send us the entire record, but at the very least we need:</li>
                         <ul>
                             <li>The Primary Key</li>
                             <li>The Replication Key</li>
@@ -221,7 +221,7 @@ If the discrepancy can’t be explained by any of the points above, please reach
                     {% endcapture %}
 
                     {{ queries }}
-                    <li>The results for the queries listed below, <strong>run in the data warehouse</strong> for <code>[data_warehouse_schema].[table_name]</code>:</li>
+                    <li>The results for the queries listed below, <strong>run in the destination</strong> for <code>[data_warehouse_schema].[table_name]</code>:</li>
 
                     {{ queries }}
 
@@ -245,7 +245,7 @@ If the discrepancy can’t be explained by any of the points above, please reach
         <div id="collapseFieldValueDiscrepancies" class="panel-collapse collapse noCrossRef">
             <div class="panel-body">
                 <ol>
-                    <li><strong>3-5 examples of discrepancies between the source integration and your data warehouse</strong>. Please include:</li>
+                    <li><strong>3-5 examples of discrepancies between the source integration and your destination</strong>. Please include:</li>
                         <ul>
                             <li>The record's <code>id</code></li>
                             <li>The field with the discrepancy</li>
