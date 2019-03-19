@@ -1,22 +1,16 @@
 <!-- This file contains the logic and formatting used to display connection options in
     database (source and destination) setup guides. -->
 
-
-<!-- Captures the whitelisting IP content. We're doing this here
-    so we don't need to call the include again. -->
-{% capture whitelist-ips %}
-    {% include shared/whitelist-stitch-ips.html %}
+{% capture whitelisting-ips %}
+{% include shared/whitelisting-ips/{{ page.hosting-type }}.html %}
 {% endcapture %}
 
 
-<!--  -->
 {% case page.ssh %}
-
 <!-- If the database doesn't support SSH, just display the whitelisting IP content. -->
 {% when false %}
 
-    {{ whitelist-ips | flatify | markdownify }}
-
+{{ whitelisting-ips | flatify | markdownify }}
 
 <!-- If the database does support SSH, do everything here: -->
 {% when true %}
@@ -31,18 +25,26 @@ Click the option you're using below and follow the instructions.
 
 <!-- Amazon-based databases require a different setup for SSH than non-Amazon databases do.
     This gets the correct guide title and link to use in the SSH dropdown. -->
-{% if page.title contains "Amazon" %}
+
+{% case page.hosting-type %}
+
+{% when 'amazon' %}
 {% capture ssh-guide %}
     [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }})
 {% endcapture %}
 
-<!-- For non-Amazon databases -->
-{% else %}
+{% when 'microsoft-azure' %}
+{% capture ssh-guide %}
+    [Setting up an SSH Tunnel for a Microsoft Azure database guide]({{ link.connections.ssh-microsoft-azure | prepend: site.baseurl }})
+{% endcapture %}
+
+<!-- For self-hosted databases -->
+{% when 'generic' %}
 {% capture ssh-guide %}
     [Setting up an SSH Tunnel for a database connection guide]({{ link.connections.ssh-generic | prepend: site.baseurl }})
 {% endcapture %}
 
-{% endif %}
+{% endcase %}
 
 
 {% capture ssh-guide-instructions %}
@@ -60,7 +62,7 @@ Click the option you're using below and follow the instructions.
     </div>
     <div id="collapse-direct-connection-setup" class="panel-collapse collapse noCrossRef">
         <div class="panel-body">
-            {{ whitelist-ips | flatify | markdownify }}
+            {{ whitelisting-ips | flatify | markdownify }}
         </div>
     </div>
   </div>
@@ -77,4 +79,5 @@ Click the option you're using below and follow the instructions.
     </div>
   </div>
 </div>
+
 {% endcase %}
