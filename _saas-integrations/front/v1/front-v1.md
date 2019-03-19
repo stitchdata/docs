@@ -36,7 +36,7 @@ repo-url: https://github.com/singer-io/tap-frontapp
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: false 
 
 historical: "1 year"

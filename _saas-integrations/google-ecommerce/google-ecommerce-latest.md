@@ -37,7 +37,7 @@ column-selection: false
 
 anchor-scheduling: false
 extraction-logs: false
-loading-reports: false
+loading-reports: true
 
 # -------------------------- #
 #      Querying Details      #

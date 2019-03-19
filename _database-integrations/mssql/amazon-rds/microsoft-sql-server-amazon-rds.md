@@ -39,7 +39,7 @@ ssl: true
 
 anchor-scheduling: false
 extraction-logs: false
-loading-reports: false
+loading-reports: true
 
 table-selection: true
 column-selection: true

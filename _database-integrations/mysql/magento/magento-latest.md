@@ -91,7 +91,7 @@ setup-steps:
       {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 

@@ -13,7 +13,7 @@
    ```sql
    {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-select-command | flatify | rstrip }}
    ```
-   
+
    To restrict the Stitch user from accessing data in specific objects, you can instead run `GRANT` commands that only allow access to the data you permit.
 
 {% unless integration.log-based-replication-master-instance == false %}
