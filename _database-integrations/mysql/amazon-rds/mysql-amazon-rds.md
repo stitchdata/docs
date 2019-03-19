@@ -12,8 +12,8 @@ show-in-menus: true
 
 name: "mysql-rds"
 display_name: "MySQL RDS"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
+hosting-type: "amazon"
+
 
 # -------------------------- #
 #       Stitch Details       #
@@ -175,7 +175,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

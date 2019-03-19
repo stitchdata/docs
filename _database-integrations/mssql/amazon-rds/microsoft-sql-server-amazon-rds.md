@@ -13,6 +13,8 @@ show-in-menus: true
 name: "sql-server-rds"
 display_name: "SQL Server RDS"
 
+hosting-type: "amazon"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -119,9 +121,15 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

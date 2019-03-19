@@ -28,6 +28,8 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
+hosting-type: "generic"
+
 # this-version: "1.0"
 
 # -------------------------- #
@@ -271,7 +273,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 
 # -------------------------- #

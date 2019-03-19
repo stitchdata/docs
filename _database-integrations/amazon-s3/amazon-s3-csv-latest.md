@@ -174,7 +174,8 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
       
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
       4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
       5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
@@ -288,7 +289,10 @@ setup-steps:
 
            Stitch doesn't enforce a limit on the number of tables that you can configure for a single integration.
 
-  - title: "historical sync"
+  - title: "Define the historical sync"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
     content: |
       For example: Let's say we've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
 
@@ -296,7 +300,10 @@ setup-steps:
 
       As files included in a replication job are replicated in full during each job, how data is added to updated files can impact your row count. Refer to the [Incremental Replication for {{ integration.display_name }}](#incremental-replication-for-amazon-s3-csv) section for more info on initial and subsequent replication jobs for {{ integration.display_name }}.
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Grant access to your bucket using AWS IAM"
     anchor: "grant-access-bucket-iam"
@@ -319,7 +326,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/aws-s3-iam-setup.html type="check-and-save" %}
 
-  - title: "track data"
+  - title: "Select data to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 # -------------------------- #
 #      Replication Info      #

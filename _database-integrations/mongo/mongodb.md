@@ -13,6 +13,8 @@ show-in-menus: true
 name: "mongodb"
 display_name: "MongoDB"
 
+hosting-type: "generic"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -103,7 +105,10 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "create db user"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      {% include integrations/databases/setup/db-users/{{ integration.db-type }}.html %}
 
   - title: "Connect Stitch"
     anchor: "#connect-stitch"
@@ -134,9 +139,34 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      - **Mongo data can only be tracked at the {{ object }} level.** When a {{ object }} is set to replicate, all {{ col }}s in the {{ object }} will also be tracked by default.
+      - **Nested records will be de-nested if your destination doesn't natively support nested structures.** Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info.
+
+  - title: "Replication Keys"
+    anchor: "replication-keys"
+    content: |
+      **Only Key-based Incremental Replication is supported for Mongo integrations at this time.** If a {{ object }} ever requires full replication - for example, to backfill existing rows with a new {{ col }}'s values - will require a full re-replication of the integration's data. Refer to the [Reset Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}) for more info.
+
+      Refer to the [Mongo Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
+
+
 
 # -------------------------- #
 #      Incompatiblities      #

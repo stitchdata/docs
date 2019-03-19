@@ -18,6 +18,8 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1.0"
 
+hosting-type: "google-cloudsql"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -88,8 +90,6 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
-
   - title: "Locate database connection details"
     anchor: "locate-database-connection-details"
     content: |
@@ -120,7 +120,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

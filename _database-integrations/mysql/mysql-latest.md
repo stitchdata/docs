@@ -18,12 +18,13 @@ show-in-menus: true
 
 name: "mysql"
 display_name: "MySQL"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: 
+# this-version: "1.0"
+
+hosting-type: "generic"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -39,7 +40,7 @@ db-type: "mysql"
 icon: /images/integrations/icons/mysql.svg
 
 versions: "n/a"
-ssh: true
+ssh: false
 ssl: true
 
 ## General replication features
@@ -140,7 +141,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

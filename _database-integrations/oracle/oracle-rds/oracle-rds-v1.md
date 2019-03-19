@@ -30,6 +30,9 @@ repo-url: "https://github.com/singer-io/tap-oracle"
 
 # this-version: "1.0"
 
+hosting-type: "amazon"
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -227,7 +230,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 
 # -------------------------- #

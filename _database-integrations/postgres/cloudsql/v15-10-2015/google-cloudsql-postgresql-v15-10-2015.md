@@ -15,6 +15,8 @@ display_name: "Google CloudSQL PostgreSQL"
 
 this-version: "15-10-2015"
 
+hosting-type: "google-cloudsql"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -85,7 +87,10 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Locate database connection details"
     anchor: "locate-database-connection-details"
@@ -112,9 +117,15 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="general" %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

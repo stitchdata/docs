@@ -13,12 +13,13 @@ show-in-menus: true
 name: "magento"
 display_name: "Magento"
 setup-name: "MySQL"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: 
+# this-version: "1.0"
+
+hosting-type: "generic"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -105,9 +106,15 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

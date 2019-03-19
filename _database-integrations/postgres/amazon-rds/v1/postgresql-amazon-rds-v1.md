@@ -19,6 +19,8 @@ singer: true
 tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
+hosting-type: "amazon"
+
 this-version: "1.0"
 
 # -------------------------- #
@@ -37,7 +39,7 @@ icon: /images/integrations/icons/postgresql-rds.svg
 
 # Stitch features
 
-versions: "9.3+; 9.4+ for binlog" ## but 9.4+ is required to use log-based replication
+versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true
 
@@ -184,7 +186,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

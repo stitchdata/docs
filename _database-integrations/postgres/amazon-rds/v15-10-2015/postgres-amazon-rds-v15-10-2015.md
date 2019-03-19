@@ -18,6 +18,8 @@ display_name: "PostgreSQL RDS"
 
 this-version: "15-10-2015"
 
+hosting-type: "amazon"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -115,7 +117,6 @@ setup-steps:
   - title: "Locate RDS connection details in AWS"
     anchor: "locating-rds-database-details"
     content: |
-
       {% include shared/aws-connection-details.html %}
 
   - title: "Connect Stitch"
@@ -139,9 +140,15 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

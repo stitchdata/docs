@@ -109,11 +109,6 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="general" %}
 
-      - title: "Define the SSH connection details"
-        anchor: "ssh-connection-details"
-        content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
-
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
@@ -124,7 +119,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

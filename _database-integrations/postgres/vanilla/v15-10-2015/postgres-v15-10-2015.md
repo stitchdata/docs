@@ -16,10 +16,10 @@ microsites:
 
 name: "postgres"
 display_name: "PostgreSQL"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 this-version: "15-10-2015"
+
+hosting-type: "generic"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -111,7 +111,12 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "create db user"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+
+      {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
     anchor: "#connect-stitch"
@@ -134,12 +139,15 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% capture postgres-dw %}
-{% endcapture %}

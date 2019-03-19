@@ -36,6 +36,8 @@ status-url: "https://community.oracle.com/docs/DOC-1011262"
 
 # this-version: "1.0"
 
+hosting-type: "none"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -215,7 +217,8 @@ setup-steps:
       {% endfor %}
       </table>
 
-  - title: "add integration"
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
       The info you need to complete the remaining fields depends on how your SFTP server is hosted:
 
@@ -249,11 +252,20 @@ setup-steps:
       {% endcapture %}
       {% include layout/expandable-heading.html title="My server is self-hosted." content=fields-for-self-hosted anchor="fields-for-self-hosted" %}
 
-  - title: "historical sync"
+  - title: "Define the historical sync"
+    anchor: "define-historical-sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "track data"
+  - title: "Select data to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 
 # -------------------------- #

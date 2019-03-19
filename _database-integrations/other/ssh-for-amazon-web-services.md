@@ -4,12 +4,14 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a database in Amazon Web Services
-permalink: /common/databases/setting-up-ssh-tunnel-for-amazon-web-services
-summary: ""
+permalink: /common/ssh/setting-up-ssh-tunnel-for-amazon-web-services
+summary: "If a database is in private subnet in your Amazon Web Services account, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for an Amazon RDS or Amazon Redshift connection to Stitch."
 
 input: false
 layout: tutorial
 use-tutorial-sidebar: false
+
+hosting-type: "amazon"
 
 # -------------------------- #
 #       Introduction         #
@@ -18,17 +20,19 @@ use-tutorial-sidebar: false
 intro: |
   {% include misc/data-files.html %}
 
-  If a database is in a private subnet in your AWS account, you can use an SSH tunnel to connect Stitch. The approach in this tutorial will use a publicly accessible EC2 instance to create the connection. The SSH server will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to the database in the private subnet.
+  {% include shared/ssh/ssh-intro-requirements.html type="intro" %}
 
-  The approach outlined in this guide is applicable to both [integrations]({{ site.baseurl }}/integrations) (where data is extracted) and [destinations]({{ site.baseurl }}/destinations) (where data is loaded).
+  ---
 
-  Additionally, note the following before you get started:
+  ## Databases this guide applies to {#applicable-databases}
 
-  - **This tutorial is applicable only to Amazon Relational Database Services (RDS) databases.** Refer to [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.connections.ssh-generic | prepend: site.baseurl }}) for general SSH setup instructions.
+  This guide is applicable to the following integrations and destinations:
 
-  - **An SSH tunnel isn’t necessarily more secure than a direct connection**. An SSH tunnel is only as secure as the monitoring and hardening you perform on the SSH server hosting the tunnel.
+  {% include shared/ssh/ssh-intro-requirements.html type="applicable-databases" %}
 
-  If you have questions or concerns about Stitch security, please refer to the [Security FAQ]({{ link.account.security-faq | prepend: site.baseurl }}).
+  For **SSH for self-hosted databases**, refer to the [SSH for self-hosted databases guide]({{ link.connections.ssh-generic | prepend: site.baseurl }}).
+
+  For **SSH for Microsoft Azure databases**, refer to the [SSH for Microsoft Azure guide]({{ link.connections.ssh-microsoft-azure | prepend: site.baseurl }}).
 
 
 # -------------------------- #
@@ -37,13 +41,16 @@ intro: |
 
 requirements:
   - item: |
-      **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
-  - item: |
       **Privileges in AWS that allow you to**:
 
         - **Create/manage EC2 instances.** This is required to create the SSH server.
         - **Create/manage Security Groups**. This is required to whitelist Stitch's IP addresses.
         - **View database details**. This is required to retrieve the database's connection details.
+  - item: |
+      {% include shared/ssh/ssh-intro-requirements.html type="requirements" requirement-type="linux-familiarity" %}
+
+  - item: |
+      {% include shared/ssh/ssh-intro-requirements.html type="requirements" requirement-type="windows-ssh-client" %}
 
 
 # -------------------------- #
@@ -209,16 +216,16 @@ steps:
   - title: "Retrieve your Public Key"
     anchor: "retrieve-your-public-key"
     content: |
-      {% include shared/retrieve-public-key.html %}
+      {% include shared/ssh/ssh-retrieve-public-key.html %}
 
   - title: "Create the Stitch SSH user"
     anchor: "create-stitch-ssh-user"
     content: |
-      {% include shared/create-linux-user.html %}
+      {% include shared/ssh/ssh-create-linux-user.html %}
 
   - title: "Complete the setup for Stitch"
     anchor: "complete-the-setup-for-stitch"
     content: |
-      {% include shared/ssh-connection-guide-links.html ssh-type="amazon" %}
+      {% include shared/ssh/ssh-connection-guide-links.html hosting-type="amazon" %}
 ---
 {% include misc/data-files.html %}
