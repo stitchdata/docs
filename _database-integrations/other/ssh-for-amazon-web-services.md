@@ -82,8 +82,8 @@ steps:
       **Note**: This instance must reside in the same VPC as the database. Refer to [Step 1](#verify-database-vpc) if you aren't sure which VPC to use.
 
     substeps:
-      - title: "Configure the EC2 instance"
-        anchor: "configure-ec2-instance"
+      - title: "Configure the SSH server"
+        anchor: "configure-ssh-server"
         content: |
           The first part of creating an SSH server in your VPC is configuring the instance.
 
@@ -112,8 +112,8 @@ steps:
           6. Click the **Next: Add Storage** button in the lower right corner of the page to continue.
           7. If you're only using the machine as a bastion (which is what we're doing in this tutorial), adding storage and tags are unnecessary. Skip over these pages until you reach the **Configure Security Group** page.
 
-      - title: "Configure the EC2 instance's Security Group"
-        anchor: "ec2-instance-security-group"
+      - title: "Configure the SSH server's Security Group"
+        anchor: "ssh-server-security-group"
         content: |
           The second part of creating an SSH server in your VPC is configuring the security group. During this step, you'll add Stitch's IP addresses to the security group, which will allow traffic from Stitch to access the SSH server.
 
@@ -143,10 +143,10 @@ steps:
              ![Configuring the EC2 Instance Security Group]({{ site.baseurl }}/images/destinations/redshift-ssh-ec2-security-group.png)
           6. When finished, click the **Review and Launch** button in the lower right corner of the page.
 
-      - title: "Review and launch the EC2 instance"
-        anchor: "review-launch-ec2-instance"
+      - title: "Review and launch the SSH server"
+        anchor: "review-launch-ssh-server"
         content: |
-          The last step is to review the settings for the EC2 instance and launch it.
+          The last step is to review the settings for the SSH server and launch it.
 
           Review the instance's settings, paying particular attention to the fields highlighted in the image below:
 
@@ -183,8 +183,8 @@ steps:
              ![VPC details & IPv4 CIDR]({{ site.baseurl }}/images/integrations/amazon-rds-vpc-ipv4-cidr.png)
           5. Copy and paste the VPC's IPv4 CIDR value somewhere convenient - you'll need it in the next step.
 
-      - title: "Create a VPC Security Group"
-        anchor: "create-vpc-security-group"
+      - title: "Create a database VPC Security Group"
+        anchor: "create-database-vpc-security-group"
         content: |
           Now that you've retrieved the SSH server's IP address, you can create a security group that will allow traffic from the SSH server to access the database.
 
@@ -197,8 +197,8 @@ steps:
              - **VPC**: Verify that the **VPC containing the database and SSH server** is selected in the drop-down.
           4. Click **Yes, Create** to create the Security Group.
 
-      - title: "Whitelist the SSH server in the VPC Security Group"
-        anchor: "whitelist-ssh-server-vpc-security-group"
+      - title: "Whitelist the SSH server in the database VPC Security Group"
+        anchor: "whitelist-ssh-server-database-vpc-security-group"
         content: |
           1. Locate and click on the Security Group you created in the previous step.
           2. In the bottom section of the page - where the Security Group's details are displayed - click the **Inbound Rules** tab.
