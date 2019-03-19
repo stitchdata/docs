@@ -443,7 +443,7 @@ tables:
     doc-link: https://developer.intuit.com/docs/api/accounting/JournalEntry
     description: "info about Accounts Receivable and Accounts Payable accounts."
     notes: |
-      ## Journal Entries & Line Item Details
+      #### Journal Entries & Line Item Details
       If the above is true and you see a `quickbooks_journalentries__line` subtable in your data warehouse, you can tie the line item details to the top level table using a composite key. This composite key is made up of the journal entry ID and the row ID: `_sdc_source_key_id` (journal entry ID) : `_sdc_level_0_id` (row ID).
     replication-method: "Key-based Incremental"
     primary-key: "id"
