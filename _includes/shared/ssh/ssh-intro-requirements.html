@@ -1,0 +1,69 @@
+{% case page.hosting-type %}
+
+{% when 'generic' %}
+	{% assign private = "not publicly accessible" %}
+	{% assign ssh-server = "instance" %}
+
+{% when 'amazon' %}
+	{% assign private = "in a private subnet in your AWS account" %}
+	{% assign ssh-server = "EC2 instance" %}
+
+{% when 'microsoft-azure' %}
+	{% assign private = "in private subnet in your Microsoft Azure account" %}
+	{% assign ssh-server = "virtual machine" %}
+
+{% endcase %}
+
+
+{% case include.type %}
+
+{% when 'intro' %}
+If a database is {{ private }}, you can use an SSH tunnel to connect Stitch. The approach in this tutorial will use a publicly accessible {{ ssh-server }}, or SSH server, instance to create the connection. The SSH server will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to the database in the private subnet.
+
+The approach outlined in this guide is applicable to the [integrations and destinations listed in the next section](#applicable-databases).
+
+Before you get started, note that an SSH tunnel isn’t necessarily more secure than a direct connection. An SSH tunnel is only as secure as the monitoring and hardening you perform on the SSH server hosting the tunnel.
+
+If you have questions or concerns about Stitch security, please refer to the [Security FAQ]({{ link.account.security-faq | prepend: site.baseurl }}).
+
+
+{% when 'applicable-databases' %}
+<table class="attribute-list">
+	<tr>
+		<td width="50%; fixed">
+			<strong>Integrations</strong>
+		</td>
+		<td width="50%; fixed">
+			<strong>Destinations</strong>
+		</td>
+	</tr>
+	<tr>
+		<td width="50%; fixed">
+			{% include shared/ssh/ssh-connection-lists.html connection-type="integration" %}
+
+			{{ integration-list | markdownify }}
+		</td>
+		<td width="50%; fixed">
+			{% include shared/ssh/ssh-connection-lists.html connection-type="destination" %}
+
+			{{ destination-list | markdownify }}
+		</td>
+	</tr>
+</table>
+
+
+{% when 'requirements' %}
+
+{% case include.requirement-type %}
+{% when 'linux-familiarity' %}
+**Some familiarity with Linux and the command line.** In this tutorial, you'll create a Linux user for Stitch to ensure access via SSH. While we've provided the commands you'll need to create the user, you should know how to access a server using the command line and feel comfortable running commands.
+
+{% when 'windows-ssh-client' %}
+**An SSH client, if using a Windows operating system.** Some versions of Windows don't include SSH commands, so you may need to install a Windows-based SSH client before proceeding. [Windows 10](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/){:target="new"}, however, does include OpenSSH, which is suitable for this tutorial.
+
+{% if page.hosting-type == "microsoft-azure" %}
+Alternatively, you can use the SSH utilities available in Bash in the [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview){:target="new"}. Note that this approach requires an [Azure file share](https://aka.ms/cloudshell-storage){:target="new"} and a new storage account. Refer to Microsoft's documentation for more info.
+{% endif %}
+
+{% endcase %}
+{% endcase %}
