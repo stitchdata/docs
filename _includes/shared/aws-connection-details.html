@@ -1,43 +1,34 @@
+<!-- This file is used for AWS connection instructions. -->
+
+<!-- DESTINATIONS -->
 {% if page.permalink contains "destinations" %}
 
-{% if destination.type == "redshift" %}
-{% assign database-name = "Database Name" %}
-{% assign master-user = "Master Username" %}
+{% case destination.type %}
+{% when 'postgres' %}
+    {% assign database-name = "DB Name" %}
 
-{% elsif destination.type == "postgres" %}
-{% assign database-name = "DB Name" %}
-{% assign master-user = "Username" %}
-{% endif %}
+    {% assign image = "/integrations/amazon-rds-details-page.png" %}
+    {% assign image-alt ="PostgreSQL RDS database details page" %}
 
+{% when 'redshift' %}
+    {% assign database-name = "Database Name" %}
+
+    {% assign image = "/destinations/redshift-db-details.png" %}
+    {% assign image-alt ="Redshift cluster details" %}
+{% endcase %}
+
+{% include layout/image.html type="right" file=image alt=image-alt max-width="450" %}
 {% include shared/aws-details-nav.html %}
-3. Locate the following fields:
+3. Locate the following fields, which are highlighted in the image on the right:
    - **Endpoint**
-   - **{{ database-name }}:** This is the name of the database you want to connect to Stitch. **This must be a pre-existing database - Stitch won't create one for you.** It could be:
-      - The name of the database you used to launch the instance.
-      - The name of another database within {{ destination.display_name }}. 
-   - **{{ master-user }}:** You'll only need this if you're using the master user's credentials to connect to Stitch.
+   - **{{ database-name }}:** This field contains the name of the database used to launch the instance. You'll only need this info if you want to connect this specific database to Stitch.
+   
+      You can connect this database to Stitch, or another database within {{ destination.display_name }}. 
    - **Port:** This is the port used by the database.
 
 
-These fields are highlighted in the image below:
-
-{% if destination.type == "postgres" %}
-![PostgreSQL database details page]({{ site.baseurl }}/images/destinations/postgresql-rds-db-details.png)
-
-{% elsif destination.type == "redshift" %}
-{% if page.title contains "SSH" %}
-![Redshift cluster details]({{ site.baseurl }}/images/destinations/redshift-ssh-cluster-details.png)
-{% else %}
-![Redshift cluster details]({{ site.baseurl }}/images/destinations/redshift-db-details.png)
-{% endif %}
-{% endif %}
-
-
-
-
+<!-- INTEGRATIONS -->
 {% elsif page.permalink contains "integrations" %}
-{% include note.html type="single-line" content="**Note**: This step requires privileges in AWS that allow you view database instance details." %}
-
 Next, you'll retrieve the connection details required to complete the setup in Stitch. This info can be found on the Instance Details page in AWS.
 
 If you don't still have this page open, click **RDS > Databases** and then the instance you're connecting to Stitch.
@@ -45,8 +36,7 @@ If you don't still have this page open, click **RDS > Databases** and then the i
 1. On the Instance Details page, click the **Connectivity & security** tab if it's not already open.
 2. Locate the **Endpoint** and **Port** fields, which are highlighted in the image below:
 
-   ![Amazon RDS Instance Details page with the Endport and Port fields highlighted]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
+   ![Amazon RDS Instance Details page with the DB Name, Endpoint and Port fields highlighted]({{ site.baseurl }}/images/integrations/amazon-rds-details-page.png)
+{% endif %}
 
 Leave this page open for now - you'll need it to complete the setup.
-
-{% endif %}
