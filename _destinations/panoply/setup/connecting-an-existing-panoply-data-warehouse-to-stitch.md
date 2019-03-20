@@ -32,6 +32,7 @@ type: "panoply"
 
 ssh: false
 ssl: false
+port: 5439
 
 
 # -------------------------- #
@@ -72,7 +73,16 @@ steps:
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
-      {% include destinations/setup/destination-settings.html %}
+    substeps:
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Save the destination"
+        anchor: "save-destination"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}
