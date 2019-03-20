@@ -14,6 +14,7 @@
 
 title: Connecting a Microsoft Azure SQL Data Warehouse Destination to Stitch
 permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
+redirect_from: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
 summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account."
 
@@ -29,10 +30,13 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 type: "microsoft-azure"
-display_name: "Microsoft Azure"
+display_name: "Microsoft Azure SQL Data Warehouse"
+
+hosting-type: "microsoft-azure"
 
 ssh: true
 ssl: true
+port: 1433
 
 
 # -------------------------- #
@@ -64,10 +68,10 @@ requirements:
 # -------------------------- #
 
 steps:
-  - title: "Configure server firewall access"
-    anchor: "configure-server-firewall-access"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
     content: |
-      {% include destinations/microsoft-azure/azure-ip-whitelisting.html %}
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Generate storage credentials"
     anchor: "generate-storage-credentials"
@@ -110,7 +114,17 @@ steps:
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
         content: |
-          {% include destinations/setup/destination-settings.html %}
+          {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Define SSH connection details"
+        anchor: "define-ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
+
+      - title: "Save the destination"
+        anchor: "save-destination"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type","microsoft-azure" | first %}
+{% assign destination = page %}

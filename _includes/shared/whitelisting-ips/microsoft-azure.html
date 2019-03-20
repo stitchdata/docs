@@ -39,14 +39,14 @@ For the connection from Stitch to be successful, you'll need to configure the fi
 <!-- For direct connections only -->
 {% else %}
 7. For each of Stitch's IP addresses listed below, create a rule:
-   - **Rule name**: Enter a name for the rule. For example: `Stitch 1`
+   - **Rule name**: Enter a name for the rule. For example: `Stitch <number>`
    - **Start IP**: Paste one of Stitch's IP addresses.
    - **End IP**: Paste the same IP address.
 
    Stitch's IP addresses are:
 
    {% for ip-address in ip-addresses %}
-    - {{ ip-address.ip }}
+    - {{ ip-address.ip | remove: "/32" }}
     {% endfor %}
 8. Click the three dots to the right of the **End IP** field to add the rule.
 9. Repeat steps 7 and 8 until there is a rule for each IP address. The screen should look similar to the following when you're finished:
