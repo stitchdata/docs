@@ -34,9 +34,13 @@ use-tutorial-sidebar: false
 
 display_name: "CloudSQL PostgreSQL"
 type: "postgres"
+setup-name: "PostgreSQL"
+
+hosting-type: "google-cloudsql"
 
 ssh: false
 ssl: false
+port: 5432
 
 
 # -------------------------- #
@@ -55,76 +59,26 @@ intro: |
 
 requirements:
   - item: |
-      **Create or select a Cloud Platform project to house the instance**. [This can be done in the Projects page in the Google Console](https://console.cloud.google.com/project).
+      {% assign destination = page %}
+      **An up-and-running, publicly accessible {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Google's documentation](https://cloud.google.com/sql/docs/postgres/create-instance){:target="new"}.
+
+      **Note**: The instance you want to connect must be both publicly accessible and running PostgreSQL version 9.3 or higher.
   - item: |
-      **Enable billing for the Cloud Platform project**. Even if you're using the Free option, [billing must be enabled](https://support.google.com/cloud/answer/6293499#enable-billing) for the project or Stitch will encounter connection issues.
+      **An existing, billing-enabled Cloud Platform project that houses the instance**. Even if you're using the Free option, [billing must be enabled](https://support.google.com/cloud/answer/6293499#enable-billing){:target="new"} for the project or Stitch will encounter connection issues.
+
+      Selecting a project can be done in the [Projects page of the Google Console](https://console.cloud.google.com/project){:target="new"}.
   - item: |
-      **Enable the CloudSQL Administration API** for the [Cloud Platform project](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin).
+      **Access to the CloudSQL Administration API for the Cloud Platform Project housing the instance**. Refer to [Google's documentation](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin){:target="new"} for more info.
 
 # -------------------------- #
 #         Instructions       #
 # -------------------------- #
 
 steps:
-  - title: "Create the CloudSQL instance"
-    anchor: "create-cloudsql-instance"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
     content: |
-      1. In the Google Cloud Platform Console, navigate to the [CloudSQL Instances page](https://console.cloud.google.com/projectselector/sql/instances).
-      2. Select the project you created and click **Continue**.
-      3. Click **Create Instance**.
-      4. Click **PostgreSQL**.
-      5. In the **Instance ID** field, enter an ID for the instance. Note that this ID is permanent and must begin with a letter.
-      6. Enter a password for the `postgres` (master) user.
-      7. If you want specific values for other fields, enter them. Otherwise, you can use the defaults. [More info on the Instance Settings can be found here in Google's documentation](https://cloud.google.com/sql/docs/postgres/instance-settings).
-      8. When finished, click **Create**.
-
-      The instance may take a few minutes to finish initializing. After the process completes, click the instance to open it in the CloudSQL Instances page.
-
-  - title: "Create a database in the CloudSQL instance"
-    anchor: "create-database-in-cloudsql"
-    content: |
-      **This step is optional**. If you want to use the instance's default database (`postgres`), you can skip this step.
-
-      <ul id="cloudsqlCreateDatabaseTabs" class="nav nav-tabs">
-          <li class="active"><a href="#console" data-toggle="tab">Console</a></li>
-          <li><a href="#psql" data-toggle="tab">psql Client</a></li>
-      </ul>
-      <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="console" markdown="1">
-      1. In the CloudSQL Instances page, click the **Databases** tab.
-      2. In the Databases tab, click **New database**.
-      3. In the window that displays, enter a name for the database in the **Name** field. Note that Google clone a template database to create the new database - we're going to use the template as-is, but you can change the settings afterwards if you like.
-      4. Click **Create**.
-      </div>
-
-      <div role="tabpanel" class="tab-pane" id="psql" markdown="1">
-      {% include destinations/postgres/create-database.html %}
-      </div>
-      </div>
-
-  - title: "Configure security and access settings"
-    anchor: "configure-security-access-settings"
-    content: |
-      Next, you'll configure the access settings for the instance. Google access control has two levels: at the instance and at the database.
-
-      - At the **instance-level**, you'll whitelist Stitch's IP addresses. This will allow Stitch to connect to the instance.
-
-      - At the **database-level**, you'll create a database user for Stitch. This will allow Stitch to load your data into the database. **We'll cover how to create the user and assign permissions in Step 4**.
-
-      To whitelist Stitch's IP addresses:
-
-      1. In the **CloudSQL Instances page**, locate and click the instance you created in Step 1. 
-      2. Click **Access Control > Authorization**.
-      3. In the **Authorized Networks** section, click **Add Network**.
-      4. Enter one of Stitch's IP addresses in the **Network** field:
-
-         {% for ip-address in ip-addresses %}
-         - {{ ip-address.ip }}
-         {% endfor %}
-
-      5. Click **Done**.
-      6. Repeat steps 3-5 for each of Stitch's IP addresses.
-      7. Click **Save** to update the instance.
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a {{ destination.display_name }} Stitch user"
     anchor: "create-stitch-user"
@@ -141,21 +95,20 @@ steps:
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
     substeps:
-      - title: "Locating the connection details in the Google Console"
-        anchor: "locate-connection-details-in-google"
+      - title: "Locate the connection details in the Google Console"
+        anchor: "locate-database-connection-details"
         content: |
-          1. In the **CloudSQL Instances page**, locate and click the instance you created in Step 1.
-          2. When the instance's **Overview** page displays, scroll down to the **Properties** section.
-          3. Locate the **IPv4 address** field, which is highlighted in the image below:
-
-             ![Google CloudSQL PostgreSQL IPv4 address field, which contains the hostname info.]({{ site.baseurl }}/images/destinations/gcp-instance-properties.png)
-
-          4. Copy and paste the IPv4 address into a text file **or** leave this page open and open your Stitch account in another tab.
+          {% include shared/google-cloud-platform/locate-database-details.html %}
 
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
         content: |
-          {% include destinations/setup/destination-settings.html %}
+          {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Save the destination"
+        anchor: "save-destination"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}
