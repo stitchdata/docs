@@ -30,6 +30,7 @@ use-tutorial-sidebar: false
 
 display_name: "Heroku"
 type: "postgres"
+setup-name: "PostgreSQL"
 
 ssh: false
 ssl: true
@@ -40,12 +41,14 @@ ssl: true
 
 requirements:
   - item: |
-      **A Heroku account**. You can create an account by [clicking here](https://signup.heroku.com/) or entering `https://signup.heroku.com` in your browser.
+      {% assign destination = page %}
+      **A Heroku account**. You can create an account by [clicking here](https://signup.heroku.com/){:target="new"} or entering `https://signup.heroku.com` in your browser.
 
-requirements-info: |
-  Heroku has a [variety of plans](https://www.heroku.com/pricing#databases) to choose from, including a Free option. Check out Heroku’s [Choosing the Right Heroku Postgres Plan article](https://devcenter.heroku.com/articles/heroku-postgres-plans) if you need some help selecting a plan.
+      Heroku has a [variety of plans](https://www.heroku.com/pricing#databases){:target="new"} to choose from, including a Free option. Check out Heroku’s [Choosing the Right Heroku Postgres Plan article](https://devcenter.heroku.com/articles/heroku-postgres-plans){:target="new"} if you need some help selecting a plan.
 
-  Contact Heroku if you have questions about their pricing, product features, or support.
+      Contact Heroku if you have questions about their pricing, product features, or support.
+  - item: |
+      **An up-and-running {{ destination.display_name }} database.** Instructions for creating a {{ destination.display_name }} database are outside the scope of this tutorial; our instructions assume that you have a database up and running. For help getting started with {{ destination.display_name }}, refer to [Heroku's documentation](https://devcenter.heroku.com/articles/heroku-postgresql){:target="new"}.
 
 
 # -------------------------- #
@@ -53,34 +56,10 @@ requirements-info: |
 # -------------------------- #
 
 steps:
-  - title: "Create a Heroku database"
-    anchor: "create-heroku-database"
-    content: |
-      In this first step, you’ll create and provision a Heroku database.
-
-      1. Sign into your Heroku account.
-      2. Navigate to the **Databases** page by clicking the **Options** menu (the grid icon next to your avatar in the upper right corner) then **Databases**.
-      3. Click the **Create Database** button in this screen.
-      4. In the Plan prompt, select the plan you want to use.
-      5. Select the **Region** for the database by clicking the **Default Region** drop-down menu.
-      6. Click **Add Database**.
-
-      Heroku will begin the database provisioning process, which can take a few minutes. The status of your database will change to **Available** in the Database Dashboard page when things are complete:
-
-      ![Heroku Database Dashboard]({{ site.baseurl }}/images/destinations/heroku-database-dashboard.png)
-
-  - title: "Locate the Heroku database connection settings"
+  - title: "Locate the {{ destination.display_name }} connection details"
     anchor: "locate-connection-settings"
     content: |
-      Next, you’ll locate the database settings in Heroku. This info will be used in the last section to connect Stitch to your Heroku-Postgres destination.
-
-      1. On the Heroku Database Dashboard page, **click the database you just created**.
-      2. The database settings and credentials will display. Everything you need is in the **Connection Settings** section of this page:
-
-         ![Heroku Connection Settings]({{ site.baseurl }}/images/destinations/heroku-connection-settings.png)
-      3. Remember to click the **Show** link next to the **Password** field to retrieve the user's password.
-
-      Leave this page open for now - you’ll need it to wrap things up.
+      {% include shared/heroku-connection-details.html %}
 
   - title: "Grant the {{ page.display_name }} user CREATE permissions"
     anchor: "grant-create-permissions"
@@ -95,7 +74,18 @@ steps:
     content: |
       Lastly, you'll enter Heroku's connection details into Stitch. When you do this, you'll use the **PostgreSQL** destination option, as noted below.
 
-      {% include destinations/setup/destination-settings.html %}
+    substeps:
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include shared/database-connection-settings.html type="general" %}
+
+          {% include shared/database-connection-settings.html type="ssl" %}
+
+      - title: "Save the destination"
+        anchor: "save-destination"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}
