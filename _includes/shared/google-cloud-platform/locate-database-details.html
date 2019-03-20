@@ -1,10 +1,11 @@
 
 <!-- Instructions for retrieving a database's connection details in Google Cloud Platform -->
 
-1. On the Cloud SQL Instances page, click the **Overview** tab.
-2. Locate the **Connect to this instance** section.
-3. Copy the IP address from the **Primary IPv4 address** box.
+{% include layout/image.html type="right" file="/destinations/google-cloudsql-public-ip.png" alt="Google CloudSQL PostgreSQL Public IP address field" max-width="250" %}
 
-   ![The Primary IPv4 address box in Google Cloud Platform, highlighted]({{ site.baseurl }}/images/integrations/google-cloudsql-locate-db-details.png)
+In this step, you’ll locate the {{ page.display_name }} database’s public IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
 
-Keep the IP address handy - you'll need it to complete the setup in Stitch.
+1. In the **CloudSQL Instances page**, locate the instance you want to connect to Stitch.
+2. When the instance's **Overview** page displays, scroll down to the **Connect to this instance** section.
+3. Locate the **Public IP address** field.
+4. Copy and paste the public IP address into a text file **or** leave this page open and open your Stitch account in another tab.
