@@ -75,74 +75,78 @@ steps:
       9. When ready, click **Create bucket**.
 
 
-  - title: "Define the bucket name and data storage format"
+  - title: "Define the bucket settings in Stitch"
     anchor: "configure-stitch-settings"
-    content: |
-      {% include destinations/setup/destination-settings.html type="configure" %}
+    content: ""
+    substeps:
+      - title: "Define the bucket name and data storage format"
+        anchor: "define-bucket-name-and-data-storage-format"
+        content: |
+          {% include shared/database-connection-settings.html type="general" %}
 
-  - title: "Define S3 Object Key"
-    anchor: "define-s3-object-key"
-    content: |
-      In {{ destination.display_name }}, [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) are used to uniquely identify objects in a given bucket.
+      - title: "Define S3 Object Key"
+        anchor: "define-s3-object-key"
+        content: |
+          In {{ destination.display_name }}, [Object Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) are used to uniquely identify objects in a given bucket.
 
-      The **Object Key** setting in Stitch determines the convention used to create Object Keys when Stitch writes to your bucket. For example: If the default Key is used:
+          The **Object Key** setting in Stitch determines the convention used to create Object Keys when Stitch writes to your bucket. For example: If the default Key is used:
 
-      ```shell
-      {{ site.data.ui.destination-settings.amazon-s3.object-keys.default }}
-      ```
+          ```shell
+          {{ site.data.ui.destination-settings.amazon-s3.object-keys.default }}
+          ```
 
-      This could create an object with an Object Key of:
+          This could create an object with an Object Key of:
 
-      ```shell
-      {{ site.data.ui.destination-settings.amazon-s3.object-keys.example-1 }}
-      ```
+          ```shell
+          {{ site.data.ui.destination-settings.amazon-s3.object-keys.example-1 }}
+          ```
 
-      You can opt to use the default Key, which is pre-populated, or define your own using the elements in the next section.
+          You can opt to use the default Key, which is pre-populated, or define your own using the elements in the next section.
 
-      #### S3 Key Elements {#s3-key-elements}
+          #### S3 Key Elements {#s3-key-elements}
 
-      The following elements are available to construct an S3 Key:
+          The following elements are available to construct an S3 Key:
 
-      {% assign all-object-key-elements = site.data.ui.destination-settings.amazon-s3.object-keys.elements %}
+          {% assign all-object-key-elements = site.data.ui.destination-settings.amazon-s3.object-keys.elements %}
 
-      <table class="attribute-list">
-      <tr>
-      <td width="50%; fixed">
-      <strong>Required Elements</strong>
-      </td>
-      <td>
-      <strong>Optional Elements</strong>
-      </td>
-      </tr>
-      <tr>
-      <td>
-      All of the following elements must be included in the S3 Key, in any order:
-      <ul>
-      {% for element in all-object-key-elements %}
-      {% if element.required == true %}
-      <li><code>[{{ element.name }}]</code>{{ element.description | strip_newlines }}</li>
-      {% endif %}
-      {% endfor %}
-      </ul>
-      </td>
-      <td>
-      The following elements are optional:
-      <ul>
-      {% for element in all-object-key-elements %}
-      {% if element.required == false %}
-      <li><code>[{{ element.name }}]</code></li>
-      {% endif %}
-      {% endfor %}
-      </ul>
-      </td>
-      </tr>
-      </table>
+          <table class="attribute-list">
+          <tr>
+          <td width="50%; fixed">
+          <strong>Required Elements</strong>
+          </td>
+          <td>
+          <strong>Optional Elements</strong>
+          </td>
+          </tr>
+          <tr>
+          <td>
+          All of the following elements must be included in the S3 Key, in any order:
+          <ul>
+          {% for element in all-object-key-elements %}
+          {% if element.required == true %}
+          <li><code>[{{ element.name }}]</code>{{ element.description | strip_newlines }}</li>
+          {% endif %}
+          {% endfor %}
+          </ul>
+          </td>
+          <td>
+          The following elements are optional:
+          <ul>
+          {% for element in all-object-key-elements %}
+          {% if element.required == false %}
+          <li><code>[{{ element.name }}]</code></li>
+          {% endif %}
+          {% endfor %}
+          </ul>
+          </td>
+          </tr>
+          </table>
 
-      Additionally, keep in mind that Keys cannot exceed **500 characters** or include spaces or special characters (`!@#$%^&*`).
+          Additionally, keep in mind that Keys cannot exceed **500 characters** or include spaces or special characters (`!@#$%^&*`).
 
-      As you update the values in the **S3 Key** field, Stitch will validate the entry. If the Key doesn't include all required elements or contains spaces or special characters, you will be prompted to make corrections.
+          As you update the values in the **S3 Key** field, Stitch will validate the entry. If the Key doesn't include all required elements or contains spaces or special characters, you will be prompted to make corrections.
 
-      After you've finished defining the Key, click **Continue**.
+          After you've finished defining the Key, click **Continue**.
 
   - title: "Grant and verify bucket access"
     anchor: "grant-verify-bucket-access"
