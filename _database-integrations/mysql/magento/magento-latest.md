@@ -1,7 +1,6 @@
 ---
 title: Magento
 keywords: magento, database integration, etl magento, magento etl
-tags: [database_integrations]
 permalink: /integrations/databases/magento
 summary: "Connect and replicate data from your Magento database using Stitch's Magento integration."
 show-in-menus: true
@@ -32,7 +31,8 @@ frequency: "30 minutes"
 tier: "Free"
 port: 3306
 db-type: "mysql"
-icon: /images/integrations/icons/magento.svg
+
+## Stitch features
 
 versions: "n/a"
 ssh: true
@@ -106,10 +106,10 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
 
-  - title: "Create a replication schedule"
-    anchor: "create-replication-schedule"
-    content: |
-      {% include integrations/shared-setup/replication-frequency.html %}
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"
