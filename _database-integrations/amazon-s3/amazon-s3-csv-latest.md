@@ -5,7 +5,6 @@
 
 title: Amazon S3 CSV
 keywords: amazon-s3-csv, database integration, etl amazon-s3-csv, amazon-s3-csv etl
-tags: [database_integrations]
 permalink: /integrations/databases/amazon-s3-csv
 summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
 layout: singer
@@ -39,11 +38,14 @@ frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
 db-type: "s3"
-icon: /images/integrations/icons/amazon-s3-csv.svg
+
+## Stitch features
 
 versions: "n/a"
 ssh: false
 ssl: false
+
+## General replication features
 
 anchor-scheduling: true
 extraction-logs: true
@@ -226,7 +228,7 @@ setup-steps:
           If you include special characters (`/` or `.`) in the file location and want the expression to match exactly, you'll need to escape them in the expression as we did in the example above.
 
           {%- capture incremental-rep-note -%}
-          Large, frequently updated files can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Incremental Replication for {{ integration.display_name }} section](#incremental-replication-for-amazon-s3-csv) for more info.
+          **Note**: Large, frequently updated files can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Incremental Replication for {{ integration.display_name }} section](#incremental-replication-for-amazon-s3-csv) for more info.
           {%- endcapture -%}
 
           {% include note.html type="single-line" content=incremental-rep-note %}
@@ -259,7 +261,7 @@ setup-steps:
       - title: "Define the table's Primary Key"
         anchor: "define-table-primary-key"
         content: |
-          {% include note.html type="single-line" content="This step is optional." %}
+          {% include note.html type="single-line" content="**Note**: This step is optional." %}
 
           In the **Primary Key** field, enter one or more header fields (separated by commas) Stitch can use to identify unique rows. For example:
 
@@ -272,7 +274,7 @@ setup-steps:
       - title: "Specify datetime fields"
         anchor: "specify-datetime-fields"
         content: |
-          {% include note.html type="single-line" content="This step is optional." %}
+          {% include note.html type="single-line" content="**Note**: This step is optional." %}
 
           In the **Specify datetime fields** field, enter one or more header fields (separated by commas) that should appear in the destination table as `datetime` fields instead of strings. For example:
 
@@ -294,7 +296,7 @@ setup-steps:
     content: |
       {% include integrations/saas/setup/historical-sync.html %}
     content: |
-      For example: Let's say we've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
+      For example: You've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
 
       During subsequent replication jobs, Stitch will only replicate the files that have been modified since the last job ran.
 
