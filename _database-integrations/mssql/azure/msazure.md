@@ -1,17 +1,16 @@
 ---
 title: Microsoft Azure
 keywords: microsoft azure, azure, database integration, etl azure, azure etl
-tags: [database_integrations]
 permalink: /integrations/databases/microsoft-azure
-summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Azure integration."
+summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Microsoft Azure integration."
 show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-name: "azure"
-display_name: "Azure"
+name: "microsoft-azure"
+display_name: "Microsoft Azure"
 
 # this-version: ""
 
@@ -28,7 +27,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 1433
 db-type: "mssql"
-icon: /images/integrations/icons/microsoft-azure.svg
 
 ## Stitch features
 
@@ -67,7 +65,7 @@ view-replication: false
 # -------------------------- #
 
 requirements-list:
-  - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -95,22 +93,22 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "Create a replication schedule"
-    anchor: "create-replication-schedule"
-    content: |
-      {% include integrations/shared-setup/replication-frequency.html %}
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

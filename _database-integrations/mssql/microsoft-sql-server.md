@@ -1,7 +1,6 @@
 ---
 title: Microsoft SQL Server
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
-tags: [database_integrations]
 permalink: /integrations/databases/microsoft-sql-server
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
 show-in-menus: true
@@ -28,7 +27,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 1433
 db-type: "mssql"
-icon: /images/integrations/icons/mssql.svg
 
 ## Stitch features
 
@@ -67,11 +65,11 @@ view-replication: false
 # -------------------------- #
 
 requirements-list:
-  - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
   - item: |
       A server that:
       
-      - Uses case-insensitive collation. [More info about collation can be found here in Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn).
+      - Uses case-insensitive collation. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
       - Allows connections over TCP/IP
       - Allows mixed mode authentication
 
@@ -103,22 +101,27 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "Create a replication schedule"
-    anchor: "create-replication-schedule"
-    content: |
-      {% include integrations/shared-setup/replication-frequency.html %}
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"
@@ -128,7 +131,6 @@ setup-steps:
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
----
 
 ## Troubleshooting {#troubleshooting}
 
