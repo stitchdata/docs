@@ -1,7 +1,7 @@
 <!-- This file is used for AWS connection instructions. -->
 
 <!-- FOR RDS DATABASES -->
-{% if page.permalink contains "rds" %}
+{% if page.permalink contains "rds" or page.permalink contains "aurora" %}
   {% assign aws-name = "RDS" %}
   {% assign menu-option = "Database" %}
   {% assign database-name = "DB Name" %}
