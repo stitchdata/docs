@@ -225,4 +225,4 @@ steps:
           {% include shared/database-connection-settings.html type="finish-up" %}
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}
