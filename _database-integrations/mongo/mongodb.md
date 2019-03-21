@@ -1,7 +1,6 @@
 ---
 title: MongoDB
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
-tags: [database_integrations]
 permalink: /integrations/databases/mongodb
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
 show-in-menus: true
@@ -26,7 +25,6 @@ frequency: "30 minutes"
 tier: "Paid"
 port: 27017
 db-type: "mongo"
-icon: /images/integrations/icons/mongodb.svg
 
 ## Stitch features
 
@@ -84,7 +82,7 @@ requirements-info: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Index Replication Key Fields"
+  - title: "Index Replication Key fields"
     anchor: "index-replication-key-fields"
     content: |
       Before you jump into the actual setup, consider how the documents in your Mongo database are updated.
@@ -127,22 +125,27 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "Create a replication schedule"
-    anchor: "create-replication-schedule"
-    content: |
-      {% include integrations/shared-setup/replication-frequency.html %}
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"
@@ -155,17 +158,31 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
-  - content: |
-      - **Mongo data can only be tracked at the {{ object }} level.** When a {{ object }} is set to replicate, all {{ col }}s in the {{ object }} will also be tracked by default.
-      - **Nested records will be de-nested if your destination doesn't natively support nested structures.** Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info.
-
-  - title: "Replication Keys"
-    anchor: "replication-keys"
+  - title: "Supported Replication Methods"
+    anchor: "supported-replication-methods"
     content: |
-      **Only Key-based Incremental Replication is supported for Mongo integrations at this time.** If a {{ object }} ever requires full replication - for example, to backfill existing rows with a new {{ col }}'s values - will require a full re-replication of the integration's data. Refer to the [Reset Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}) for more info.
+      Only Key-based Incremental Replication is supported for {{ integration.display_name }} integrations at this time. If a {{ object }} ever requires full replication - for example, to backfill existing rows with a new {{ col }}'s values - will require a full re-replication of the integration's data. Refer to the [Reset Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}) for more info.
 
-      Refer to the [Mongo Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
+  - title: "{{ integration.display_name }} Replication Keys"
+    anchor: "mongo-replication-keys"
+    content: |
+      Unlike Replication Keys for other database integrations, those for {{ integration.display_name }} have special considerations due to {{ integration.display_name }} functionality. For example: {{ integration.display_name }} allows multiple data types in a single field, which can cause records to be skipped during replication.
 
+      Refer to the [{{ integration.display_name }} Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
+
+  - title: "Data selection limitations"
+    anchor: "data-selection-limitations"
+    content: |
+      {{ integration.display_name }} data can only be tracked at the collection level. This means that when a collection is set to replicate in Stitch, all documents in the collection will also be selected.
+
+  - title: "Heavily nested data and destination column limits"
+    anchor: "nested-data-replication-column-limits"
+    content: |
+      {{ integration.display_name }} documents can contain heavily nested data, meaning an attribute can contain many other attributes.
+
+      If your destination doesn't natively support nested data structures, Stitch will de-nest them to load them into the destination. Depending on how deeply nested the data is and the per table column limit of the destination, Stitch may encounter issues when loading heavily nested data.
+
+      Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info and examples.
 
 
 # -------------------------- #
@@ -178,8 +195,6 @@ has-incompatibilities: true
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
----
 
 ## Troubleshooting
 
