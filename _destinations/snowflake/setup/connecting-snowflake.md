@@ -42,13 +42,12 @@ ssl: true
 # -------------------------- #
 
 requirements:
-  - item: "**A {{ destination.display_name }} account.**"
   - item: |
-      **`ACCOUNTADMIN` role privileges in Snowflake, OR privileges equivalent to the `SECURITYADMIN` and `SYSADMIN` roles**. [More info on Snowflake's user roles can be found here](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#system-defined-roles){:target="_blank"}.
+      **A {{ destination.display_name }} account.** Sign up for a free trial on [{{ destination.display_name }}'s website](https://www.snowflake.com/){:target="new"}.
   - item: |
-      **Familiarity with {{ destination.display_name }}'s [SQL Worksheet feature](https://docs.snowflake.net/manuals/user-guide/snowflake-manager.html#worksheet-page){:target="_blank"} OR access to to a SQL client.**
-
-      This tutorial will use the SQL Worksheet in the Snowflake web app to run SQL commands.
+      **`ACCOUNTADMIN` role privileges in {{ destination.display_name }}, OR privileges equivalent to the `SECURITYADMIN` and `SYSADMIN` roles**. [More info on Snowflake's user roles can be found here](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#system-defined-roles){:target="_blank"}.
+  - item: |
+      **Familiarity with {{ destination.display_name }}'s [SQL Worksheet feature](https://docs.snowflake.net/manuals/user-guide/snowflake-manager.html#worksheet-page){:target="_blank"} OR access to to a SQL client.** This tutorial will use the SQL Worksheet in the {{ destination.display_name }} web app to run SQL commands.
 
 
 # -------------------------- #
@@ -59,31 +58,25 @@ steps:
   - title: "Create a Snowflake data warehouse"
     anchor: "create-data-warehouse"
     content: |
-      {% capture auto-suspend-notice %}
-      Make sure the `AUTO_SUSPEND` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
-
-      If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
-      {% endcapture %}
-
       {% capture pricing %}
-      Before you create a warehouse, we recommend familiarizing yourself with [Snowflake's pricing and automated warehouse management features](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"}.
+      Before you create a warehouse, we recommend familiarizing yourself with [{{ destination.display_name }}'s pricing and automated warehouse management features](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html){:target="_blank"}.
       {% endcapture %}
 
       {% include note.html type="single-line" content=pricing %}
 
-      1. Log into your Snowflake account using a web browser or a SQL client.
+      1. Log into your {{ destination.display_name }} account using a web browser or a SQL client.
       2. If you log in via a web browser, click the **Worksheet** icon at the top of the page.
-      3. Create the warehouse by running this command, changing the`[square_brackets]` to the values you want:
+      3. Create the warehouse by running this command, changing the values in the brackets (`<>`) to the values you want:
 
          ```sql
-         CREATE WAREHOUSE [stitch_warehouse]
+         CREATE WAREHOUSE <stitch_warehouse>
          WITH
-         AUTO_RESUME = TRUE|FALSE
-         WAREHOUSE_SIZE = [size]
-         AUTO_SUSPEND = [time_in_seconds];
+         AUTO_RESUME = TRUE
+         WAREHOUSE_SIZE = <size>
+         AUTO_SUSPEND = <time_in_seconds>;
          ```
 
-         Check out [Snowflake's documentation](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html){:target="new"} for more info on these parameters.
+         Check out [{{ destination.display_name }}'s documentation](https://docs.snowflake.net/manuals/sql-reference/sql/create-warehouse.html){:target="new"} for more info on these parameters.
 
          The parameters in this command define the following:
 
@@ -92,7 +85,14 @@ steps:
 
             The default is `XSMALL`.
           - **AUTO_SUSPEND**: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
-              {% include important.html first-line="**Make sure Auto-Suspend is enabled!**" content=auto-suspend-notice %}
+
+      {% capture auto-suspend-notice %}
+      Make sure the `AUTO_SUSPEND` parameter is included in the warehouse creation command. This parameter determines how many seconds of inactivity must pass before a warehouse is automatically suspended.
+
+      If this parameter isn't included, the default will be `NULL`, meaning that the warehouse will never automatically suspend. As a result, Snowflake credits will continue to be consumed even if the warehouse is inactive.
+      {% endcapture %}
+
+      {% include important.html first-line="**Make sure Auto-Suspend is enabled!**" content=auto-suspend-notice %}
 
   - title: "Create a Stitch database and database user"
     anchor: "create-database-and-user"
@@ -102,10 +102,10 @@ steps:
       - title: "Create the database"
         anchor: "create-snowflake-database"
         content: |
-          Create the database for Stitch, changing `[stitch_database]` to what you want the database to be called:
+          Create the database for Stitch, changing `<stitch_database>` to what you want the database to be named:
 
           ```sql
-          CREATE DATABASE [stitch_database];
+          CREATE DATABASE <stitch_database>;
           ```
 
       - title: "Create the database user"
@@ -122,23 +122,23 @@ steps:
       {% endfor %}
       {% endcapture %}
 
-      In Snowflake, access is configured and managed through [Network Security Policies](https://docs.snowflake.net/manuals/user-guide/network-policies.html). 
+      In {{ destination.display_name }}, access is configured and managed through [Network Security Policies](https://docs.snowflake.net/manuals/user-guide/network-policies.html). 
 
       Stitch's IP addresses must be added to a network policy's **Allowed IP List** for the connection to be successful.
 
       1. Create the network policy and add Stitch's IP addresses to the list of allowed IP addresses.
 
-         In the command below, change `[your-current-ip-address]` to the current IP address of the computer you're working on - this is required for the next step:
+         Replace `<stitch_policy>` with a name for the policy, and `<your-current-ip-address>` with the current IP address of the computer you're working on - this is required for the next step:
 
          ```sql
-         CREATE NETWORK POLICY [stitch_policy]
-         ALLOWED_IP_LIST = ({{ ip-addresses | strip_newlines | append:"'[your-current-ip-address]'" }});
+         CREATE NETWORK POLICY <stitch_policy>
+         ALLOWED_IP_LIST = ({{ ip-addresses | strip_newlines | append:"'<your-current-ip-address>'" }});
          ```
 
-      2. Apply the network policy to the account. Note that your current IP address must be included in the Allowed IP List to run this command successfully:
+      2. Apply the network policy to the account. **Note** Your current IP address must be included in the Allowed IP List to run this command successfully:
 
          ```sql
-         ALTER ACCOUNT SET NETWORK_POLICY = [stitch_policy];
+         ALTER ACCOUNT SET NETWORK_POLICY = <stitch_policy>;
          ```
 
       If you encounter an error, ensure that your current IP address is in the Allowed IP List and try again. [Contact Snowflake support]({{ destination.contact-support }}) if errors persist.
@@ -148,8 +148,17 @@ steps:
     content: |
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
-      {% include destinations/setup/destination-settings.html %}
+    substeps:
+      - title: "Enter connection details into Stitch"
+        anchor: "enter-connection-details-into-stitch"
+        content: |
+          {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Save the destination"
+        anchor: "save-destination"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 ---
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}
 {% include misc/data-files.html %}
 {% include misc/icons.html %}
