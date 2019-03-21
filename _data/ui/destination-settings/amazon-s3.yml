@@ -6,42 +6,64 @@
 ## an Amazon S3 destination in Stitch.
 
 amazon-s3:
-  - app-name: "Bucket Name"
-    connect-name: "s3_bucket"
-    description:
-      app: |
-        Enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
+  - name: "Bucket Name"
+    copy: "Enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`"
+
+  - name: "Store Data in This Format"
+    copy: |
+      The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. For examples of how data in each format will be stored, [click here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
+
+            Supported options are:
+
+            - **JSON**: Data will be stored as JSON files (`.jsonl`)
+            - **CSV**: Data will be stored as CSV files (`.csv`). If selected, additional configuration options will be displayed.
+
+  - name: "Delimiter"
+    copy: |
+      **Applicable only if the data storage format is `csv`.** Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
+
+  - name: "Quote all elements in key-value pairs"
+    copy: |
+      **Applicable only if the data storage format is `csv`.** If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
+
+
+# amazon-s3:
+#   - app-name: "Bucket Name"
+#     connect-name: "s3_bucket"
+#     description:
+#       app: |
+#         Enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
       
-  - app-name: "Store Data in This Format"
-    connect-name: "output_file_format"
-    description:
-      app: |
-        The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. For examples of how data in each format will be stored, [click here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
+#   - app-name: "Store Data in This Format"
+#     connect-name: "output_file_format"
+#     description:
+#       app: |
+#         The data storage format defines the type of file Stitch will write to your {{ destination.display_name }} bucket. For examples of how data in each format will be stored, [click here]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#data-storage-formats" }}).
 
-              Supported options are:
+#               Supported options are:
 
-              - **JSON**: Data will be stored as JSON files (`.jsonl`)
-              - **CSV**: Data will be stored as CSV files (`.csv`). If selected, additional configuration options will be displayed.
+#               - **JSON**: Data will be stored as JSON files (`.jsonl`)
+#               - **CSV**: Data will be stored as CSV files (`.csv`). If selected, additional configuration options will be displayed.
 
-  - app-name: "Delimiter"
-    connect-name: "csv_delimiter"
-    description:
-      app: |
-        **Applicable only if the data storage format is `csv`.** Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
+#   - app-name: "Delimiter"
+#     connect-name: "csv_delimiter"
+#     description:
+#       app: |
+#         **Applicable only if the data storage format is `csv`.** Select the delimiter you want to use. Stitch will use the **comma** (`,`) option by default, but you may also use **pipes** (`|`) and **tabs** (`\t`).
 
-  - app-name: "Quote all elements in key-value pairs"
-    connect-name: "csv_force_quote"
-    description:
-      app: |
-        **Applicable only if the data storage format is `csv`.** If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
+#   - app-name: "Quote all elements in key-value pairs"
+#     connect-name: "csv_force_quote"
+#     description:
+#       app: |
+#         **Applicable only if the data storage format is `csv`.** If selected, Stitch will place all elements of key-value pairs in quotes. For example: Numerical fields will appear as `"123"` instead of `123`.
 
 
-# NOTE: Additional info about this field is in the next section.
-  - app-name: "Object Key"
-    connect-name: "s3_key_format_string"
-    description:
-      app: ""
-      connect: ""
+# # NOTE: Additional info about this field is in the next section.
+#   - app-name: "Object Key"
+#     connect-name: "s3_key_format_string"
+#     description:
+#       app: ""
+#       connect: ""
 
 
 # -------------------------- #
