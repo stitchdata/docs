@@ -1,0 +1,69 @@
+# Content for the REST/BULK API comparion table in the Salesforce docs.
+
+- name: "Good for replicating"
+  rest-api: |
+    Small data sets, more frequently
+    
+    **Note:** Due to the design of {{ integration.display_name }}'s REST API, tracking a large number of columns in a single object can lead to replication issues. See [this guide]({{ link.troubleshooting.salesforce-too-many-columns | prepend: site.baseurl }}) for more info.
+  bulk-api: |
+    Large data sets, less frequently
+    
+    While the Bulk API allows for a greater number of tracked fields, {{ integration.display_name }} only allows each batch to be 5MB.
+
+- name: "API quota"
+  rest-api: |
+    Total usage is calculated by your organization type, the type of licenses held, and the number of licenses.
+
+    Refer to [{{ integration.display_name }}'s documentation](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm){:target="new"} for more info.
+  bulk-api: |
+    **Limited to 10,000 batches per day,** regardless of the standard API quota.<br><br>
+    
+    Refer to [{{ integration.display_name }}'s documentation](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm){:target="new"} for more info.
+
+- name: "Structure sync"
+  icon: |
+    {{ question-icon | replace: "TOOLTIP", "The first step in the replication process, where Stitch looks for changes to the structure of your data, such as new objects or fields." }}
+  rest-api: "Uses the REST API and standard API quota."
+  bulk-api: "Uses the REST API and standard API quota."
+
+- name: "Data extraction"
+  icon: |
+    {{ question-icon | replace: "TOOLTIP", "The second step in the replication process, where Stitch queries for and extracts data from a source." }}
+  rest-api: "Uses the REST API standard API quota."
+  bulk-api: |
+    Uses the Bulk API and Bulk API quota. Each query to an object uses one (1) batch, even if no data is replicated from the object.
+    
+    If you have any other apps using the Salesforce API, you may consume your quota more quickly.
+
+- name: "Compound fields"
+  icon: |
+    {{ question-icon | replace: "TOOLTIP", "A compound field is a field that is comprised of other fields. Ex: An address field made up of street, city, state, etc." }}
+  rest-api: "Supported"
+  bulk-api: |
+    [Unsupported by the Bulk API](https://help.salesforce.com/articleView?id=000204592&type=1){:target="new"}.
+
+    Tracking the individual fields that make up a compound field - such as `street`, `city`, `state`, for a compound `address` field - will yield the same data.
+
+- name: "Unsupported objects"
+  icon: |
+    {{ question-icon | replace: "TOOLTIP", "Objects not available for replication through Stitch due to Salesforce API limitations." }}
+  rest-api: |
+    {% assign blacklisted-objects = site.data.taps.extraction.salesforce.blacklisted-objects %}
+
+    {% for type in blacklisted-objects.list %}
+    {% if type.api contains "common" %}
+    {{ type.reason | flatify }}
+    {% for object in type.objects %}
+    - {{ object.name }}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+  bulk-api: |
+    {% for type in blacklisted-objects.list %}
+    {% if type.api contains "bulk" %}
+    {{ type.reason | flatify }}
+    {% for object in type.objects %}
+    - {{ object.name }}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}

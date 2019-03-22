@@ -9,15 +9,13 @@ description: |
   The `user` table contains info about the users in your organization.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name: 
-  doc-link: 
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The user ID."
+    foreign-key-id: "user-id"
 
   - name: "systemModStamp"
     type: "date-time"
@@ -31,6 +29,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with a Customer Portal user. This field will be `NULL` for Salesforce users."
+    foreign-key-id: "account-id"
 
   - name: "address"
     type: "string"
@@ -82,6 +81,7 @@ attributes:
   - name: "contactId"
     type: "string"
     description: "The ID of the contact associated with the account."
+    foreign-key-id: "contact-id"
 
   - name: "country"
     type: "string"
@@ -112,6 +112,7 @@ attributes:
   - name: "delegatedApproverId"
     type: "string"
     description: "The ID of the user who is a delegated approver for the user."
+    foreign-key-id: "user-id"
 
   - name: "department"
     type: "string"
@@ -233,6 +234,7 @@ attributes:
   - name: "managerId"
     type: "string"
     description: "The ID of the user who manages the user."
+    foreign-key-id: "user-id"
 
   - name: "mediumBannerPhotoUrl"
     type: "string"
@@ -644,6 +646,7 @@ attributes:
   - name: "userRoleId"
     type: "string"
     description: "The ID of the user role assigned to the user."
+    # foreign-key-id: "user-role-id"
 
   - name: "userType"
     type: "string"
