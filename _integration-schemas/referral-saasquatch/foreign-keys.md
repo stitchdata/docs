@@ -1,35 +1,29 @@
 ---
-tap-reference: "revinate"
+tap-reference: "referral-saasquatch"
 
 version: "1.0"
 
 foreign-keys:
-  - id: "hotel-id"
-    attribute: "hotel_id"
-    table: "hotels"
+  - id: "user-id"
+    attribute: "userId"
+    table: "users"
     all-foreign-keys:
-      - table: "hotel_reviews_snapshot"
-      - table: "hotel_reviews_snapshot_by_site"
-      - table: "hotel_reviews_snapshot_by_time"
-      - table: "hotels"
-      - table: "reviews"
+      - table: "referrals"
+        join-on: "referredUser"
+      - table: "referrals"
+        join-on: "referrerUser"
+      - table: "reward_balance"
+      - table: "users"
+        join-on: "id"
 
-  - id: "review-site-id"
-    attribute: "review_site_id"
-    table: ""
+  - id: "account-id"
+    attribute: "accountId"
+    table: "users"
     all-foreign-keys:
-      - table: "hotel_reviews_snapshot_by_site"
-      - table: "reviews"
-  
-  - id: "trip-advisor-id"
-    attribute: "trip_advisor_id"
-    table: "hotels"
-    all-foreign-keys:
-      - table: "hotels"
-
-  - id: "review-id"
-    attribute: "review_id"
-    table: "reviews"
-    all-foreign-keys:
-      - table: "reviews"
+      - table: "referrals"
+        join-on: "referredAccount"
+      - table: "referrals"
+        join-on: "referrerAccount"
+      - table: "reward_balance"
+      - table: "users"
 ---
