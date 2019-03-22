@@ -3,18 +3,18 @@ tap: "zendesk"
 version: "1.0"
 
 name: "ticket_fields"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_fields
+doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_fields
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_fields.json
 description: |
-  The `ticket_fields` table contains info about the basic text and custom ticket fields in your Zendesk account.
+  The `{{ table.name }}` table contains info about the basic text and custom ticket fields in your {{ integration.display_name }} account.
 
-  **Note**: Retrieving ticket metric data requires Zendesk Agent or Admin permissions.
+  **Note**: Retrieving ticket metric data requires {{ integration.display_name }} Agent or Admin permissions.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: List ticket fields
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_fields#list-ticket-fields
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_fields#list-ticket-fields
 
 attributes:
   - name: "id"

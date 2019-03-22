@@ -62,7 +62,7 @@ setup-steps:
 
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorize Stitch to access Zendesk"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
       {% capture zendesk-admin %}
@@ -70,7 +70,7 @@ setup-steps:
       {% endcapture %}
       {% include note.html type="single-line" content=zendesk-admin %}
 
-      1. Next, you'll be prompted to sign into your Zendesk account.
+      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
       2. After the authorization process is successfully completed, you'll be directed back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"

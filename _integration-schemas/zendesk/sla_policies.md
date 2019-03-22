@@ -3,18 +3,18 @@ tap: "zendesk"
 version: "1.0"
 
 name: "sla_policies"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/sla_policies
+doc-link: https://developer.zendesk.com/rest_api/docs/support/sla_policies
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/sla_policies.json
 description: |
-  The `sla_policies` table contains info about the Service Level Agreements (SLAs) in your {{ integration.display_name }} account. An SLA is a documented agreement between a support provider and their customers that defines performance measures for support.
+  The `{{ table.name }}` table contains info about the Service Level Agreements (SLAs) in your {{ integration.display_name }} account. An SLA is a documented agreement between a support provider and their customers that defines performance measures for support.
 
-  **Note**: Replicating SLA policies requires that you be on an Enterprise or Professional Zendesk plan, and have Admin permissions in Zendesk.
+  **Note**: Replicating SLA policies requires that you be on an Enterprise or Professional {{ integration.display_name }} plan, and have Admin permissions in {{ integration.display_name }}.
 
 replication-method: "Full Table"
 
 api-method:
   name: List SLA Policies
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/sla_policies#list-sla-policies
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/sla_policies#list-sla-policies
 
 attributes:
   - name: "id"
@@ -81,7 +81,7 @@ attributes:
           - `pausable_update_time`
           - `periodic_update_time`
           - `requester_wait_time`
-        doc-link: "https://developer.zendesk.com/rest_api/docs/core/sla_policies#metrics"
+        doc-link: "https://developer.zendesk.com/rest_api/docs/support/sla_policies#metrics"
 
   - name: "position"
     type: "integer"

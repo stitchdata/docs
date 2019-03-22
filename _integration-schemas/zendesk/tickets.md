@@ -3,14 +3,14 @@ tap: "zendesk"
 version: "1.0"
 
 name: "tickets"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/tickets
+doc-link: https://developer.zendesk.com/rest_api/docs/support/tickets
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/tickets.json
 description: |
-  The `tickets` table contains info about the tickets in your Zendesk account. Tickets are the means through which your end users (customers) communicate with your Zendesk agents.
+  The `{{ table.name }}` table contains info about the tickets in your {{ integration.display_name }} account. Tickets are the means through which your end users (customers) communicate with your {{ integration.display_name }} agents.
 
-  **Note**: Retrieving ticket data requires Zendesk Admin permissions.
+  **Note**: Retrieving ticket data requires {{ integration.display_name }} Admin permissions.
 
-  #### Custom ticket fields
+  #### Custom ticket fields {#custom-ticket-fields}
 
   Stitch's {{ integration.display_name }} integration will replicate all custom ticket fields.
 
@@ -18,7 +18,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: Incremental ticket export
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-ticket-export
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-ticket-export
 
 attributes:
   - name: "id"
@@ -73,7 +73,7 @@ attributes:
 
   - name: "brand_id"
     type: "integer"
-    description: "**Zendesk Enterprise only.** The ID of the brand associated with the ticket."
+    description: "**{{ integration.display_name }} Enterprise only.** The ID of the brand associated with the ticket."
 
   - name: "group_id"
     type: "integer"
@@ -190,7 +190,7 @@ attributes:
 
   - name: "external_id"
     type: "string"
-    description: "An ID that can be used to link the ticket to local (outside of Zendesk) records."
+    description: "An ID that can be used to link the ticket to local (outside of {{ integration.display_name }}) records."
 
   - name: "via"
     type: "object"
@@ -243,7 +243,7 @@ attributes:
 
   - name: "ticket_form_id"
     type: "integer"
-    description: "**Zendesk Enterprise only**. The ID of the ticket form to render for the ticket."
+    description: "**{{ integration.display_name }} Enterprise only**. The ID of the ticket form to render for the ticket."
     foreign-key-id: "ticket-form-id"
 
   - name: "sharing_agreement_ids"

@@ -3,18 +3,18 @@ tap: "zendesk"
 version: "1.0"
 
 name: "macros"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/macros
+doc-link: https://developer.zendesk.com/rest_api/docs/support/macros
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/macros.json
 description: |
-  The `macros` table contains info about the macros in your Zendesk account. Macros are actions defined by you that modify the values of a ticket’s fields.
+  The `{{ table.name }}` table contains info about the macros in your {{ integration.display_name }} account. Macros are actions defined by you that modify the values of a ticket’s fields.
 
-  **Note**: Retrieving macro data requires Zendesk Agent or Admin permissions.
+  **Note**: Retrieving macro data requires {{ integration.display_name }} Agent or Admin permissions.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: List macros
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/macros#list-macros
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/macros#list-macros
 
 attributes:
   - name: "id"

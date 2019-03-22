@@ -3,22 +3,22 @@ tap: "zendesk"
 version: "1.0"
 
 name: "organizations"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/organizations
+doc-link: https://developer.zendesk.com/rest_api/docs/support/organizations
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/organizations.json
 description: |
-  The `organizations` table contains information about the organizations your end-users belong to.
+  The `{{ table.name }}` table contains information about the organizations your end-users belong to.
 
   #### Custom organization fields
 
   Stitch's {{ integration.display_name }} integration will replicate any custom fields associated with organization records.
 
-  **Note**: Replicating organization custom fields requires that you be on a Team, Professional, or Enterprise Zendesk plan and have Admin permissions in Zendesk.
+  **Note**: Replicating organization custom fields requires that you be on a Team, Professional, or Enterprise {{ integration.display_name }} plan and have Admin permissions in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: Incremental organization export
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-organization-export
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-organization-export
 
 attributes:
   - name: "id"
