@@ -21,7 +21,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The review ID."
-    foreign-key-id: "review-id"
+    # foreign-key-id: "review-id"
 
   - name: "updated_at"
     type: "integer"
