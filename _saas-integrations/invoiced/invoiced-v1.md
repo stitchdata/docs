@@ -29,7 +29,7 @@ singer: true
 tap-name: "Invoiced"
 repo-url: https://github.com/singer-io/tap-invoiced
 
-# this-version: ""
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
