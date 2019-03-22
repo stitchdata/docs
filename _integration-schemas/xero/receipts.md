@@ -132,7 +132,7 @@ attributes:
 
   - name: "ReceiptNumber"
     type: "integer"
-    description: "A Xero-generated sequence number for the receipt in a current claim for a given user."
+    description: "A {{ integration.display_name }}-generated sequence number for the receipt in a current claim for a given user."
 
   - name: "HasAttachments"
     type: "boolean"

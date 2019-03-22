@@ -6,7 +6,7 @@ name: "accounts"
 doc-link: &api-doc https://developer.xero.com/documentation/api/accounts
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/accounts.json
 description: |
-  The `{{ table.name }}` table contains info about the various accounts (ex: banking) connected to your Xero account.
+  The `{{ table.name }}` table contains info about the various accounts (ex: banking) connected to your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
@@ -37,7 +37,7 @@ attributes:
   - name: "Type"
     type: "string"
     description: |
-      The account type. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#AccountTypes) for a list of possible account types.
+      The account type. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#AccountTypes){:target="new"} for a list of possible account types.
     doc-link: https://developer.xero.com/documentation/api/types#AccountTypes
 
   - name: "ReportingCodeName"
@@ -46,7 +46,8 @@ attributes:
 
   - name: "SystemAccount"
     type: "string"
-    description: "If a system account, this field will contain the type of system account. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#SystemAccounts) for a list of possible system account types."
+    description: |
+      If a system account, this field will contain the type of system account. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#SystemAccounts){:target="new"} for a list of possible system account types.
     doc-link: https://developer.xero.com/documentation/api/types#SystemAccounts
 
   - name: "BankAccountType"
@@ -61,7 +62,7 @@ attributes:
 
   - name: "TaxType"
     type: "string"
-    description: "The account's tax type. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#TaxTypes) for a list of possible tax types."
+    description: The account's tax type. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#TaxTypes){:target="new"} for a list of possible tax types.
     doc-link: https://developer.xero.com/documentation/api/types#TaxTypes
 
   - name: "Description"

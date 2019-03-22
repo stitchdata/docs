@@ -80,7 +80,8 @@ attributes:
 
       - name: "TaxType"
         type: "string"
-        description: "The tax type for the journal line. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#TaxTypes) for possible tax types."
+        description: |
+          The tax type for the journal line. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#TaxTypes){:target="new"} for possible tax types.
 
       - name: "Tracking"
         type: ""

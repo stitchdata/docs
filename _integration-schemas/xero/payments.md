@@ -6,7 +6,7 @@ name: "payments"
 doc-link: &api-doc https://developer.xero.com/documentation/api/payments
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payments.json
 description: |
-  The `{{ table.name }}` table contains info about the payments recorded in your Xero account. 
+  The `{{ table.name }}` table contains info about the payments recorded in your {{ integration.display_name }} account. 
 
 replication-method: "Key-based Incremental"
 
@@ -44,7 +44,7 @@ attributes:
 
   - name: "IsReconciled"
     type: "boolean"
-    description: "If `true`, the payment has been marked as manually reconciled. Refer to [Xero's documentation](https://help.xero.com/Q_BankRecNoImport) for more info."
+    description: "If `true`, the payment has been marked as manually reconciled. Refer to [{{ integration.display_name }}'s documentation](https://help.xero.com/Q_BankRecNoImport) for more info."
 
   - name: "Status"
     type: "string"

@@ -152,7 +152,7 @@ attributes:
     description: |
       An identifier for the invoice. The value this field contains varies depending on the invoice `Type`:
 
-      - `ACCPAY` - A non-unique alpha-numeric code identifying the invoice. In the Xero UI, this displays as **Reference**.
+      - `ACCPAY` - A non-unique alpha-numeric code identifying the invoice. In the {{ integration.display_name }} UI, this displays as **Reference**.
       - `ACCREC` - A unique alpha-numeric code identifying the invoice.
 
   - name: "Reference"
@@ -170,7 +170,7 @@ attributes:
 
   - name: "SentToContact"
     type: "boolean"
-    description: "IF `true`, the invoice will display in the Xero app as 'Sent'."
+    description: "IF `true`, the invoice will display in the {{ integration.display_name }} app as 'Sent'."
 
   - name: "ExpectedPaymentDate"
     type: "date-time"

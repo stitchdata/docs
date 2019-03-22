@@ -47,14 +47,15 @@ setup-steps:
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "authorize-stitch"
     content: |
-      Lastly, you'll be directed to Xero's website to complete the setup.
+      Next, you'll be directed to {{ integration.display_name }}'s website to complete the setup.
 
-      1. Enter your Xero credentials and click **Login**.
-      2. A screen asking for authorization to Xero will display. **Note that Stitch will only ever read your data.**
+      1. Enter your {{ integration.display_name }} credentials and click **Login**.
+      2. A screen asking for authorization to {{ integration.display_name }} will display. **Note that Stitch will only ever read your data.**
       3. From the dropdown menu, select the company you want to connect to Stitch.
       3. Click **Authorise.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
+  - title: "track data"
 
 # -------------------------- #
 #    Replication Details     #

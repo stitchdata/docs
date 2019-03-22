@@ -30,7 +30,7 @@ attributes:
 
   - name: "JournalNumber"
     type: "string"
-    description: "A Xero-generated journal number."
+    description: "A {{ integration.display_name }}-generated journal number."
 
   - name: "CreatedDateUTC"
     type: "date-time"
@@ -50,7 +50,7 @@ attributes:
   - name: "SourceType"
     type: "string"
     description: |
-      The type of transaction that created the journal. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/Types#JournalSourceTypes) for a list of possible values.
+      The type of transaction that created the journal. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/Types#JournalSourceTypes){:target="new"} for a list of possible values.
     doc-link: https://developer.xero.com/documentation/api/Types#JournalSourceTypes
 
   - name: "JournalLines"

@@ -28,7 +28,7 @@ attributes:
 
   - name: "ContactNumber"
     type: "string"
-    description: "An identifier for the contact used in an external system. In Xero, this is the **Contact Code** field in the Contacts UI."
+    description: "An identifier for the contact used in an external system. In {{ integration.display_name }}, this is the **Contact Code** field in the Contacts UI."
 
   - name: "AccountNumber"
     type: "string"
@@ -69,7 +69,7 @@ attributes:
   - name: "TaxNumber"
     type: "string"
     description: |
-      The tax number of the contact. Depending on the version of Xero you're using, this could be one of the following in the Xero UI:
+      The tax number of the contact. Depending on the version of {{ integration.display_name }} you're using, this could be one of the following in the {{ integration.display_name }} UI:
 
       - Australia - ABN
       - New Zealand - GST Number

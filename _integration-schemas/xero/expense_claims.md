@@ -74,5 +74,5 @@ attributes:
 
   - name: "ReportingDate"
     type: "date-time"
-    description: "The date when the expense claim will be reported in Xero."
+    description: "The date when the expense claim will be reported in {{ integration.display_name }}."
 ---

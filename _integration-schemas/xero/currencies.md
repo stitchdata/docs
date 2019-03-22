@@ -6,7 +6,7 @@ name: "currencies"
 doc-link: &api-doc https://developer.xero.com/documentation/api/currencies
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/currencies.json
 description: |
-  The `{{ table.name }}` table contains info about the currencies available in your Xero account.
+  The `{{ table.name }}` table contains info about the currencies available in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 

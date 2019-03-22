@@ -6,7 +6,7 @@ name: "bank_transactions"
 doc-link: &api-doc https://developer.xero.com/documentation/api/banktransactions
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transactions.json
 description: |
-  The `{{ table.name }}` table contains info about the bank transactions in your Xero account.
+  The `{{ table.name }}` table contains info about the bank transactions in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
@@ -28,7 +28,8 @@ attributes:
 
   - name: "Type"
     type: "string"
-    description: "The bank transaction type. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#BankTransactionTypes) for possible transaction types."
+    description: |
+      The bank transaction type. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#BankTransactionTypes){:target="new"} for possible transaction types.
     doc-link: https://developer.xero.com/documentation/api/types#BankTransactionTypes
 
   - name: "Contact"

@@ -6,7 +6,7 @@ name: "repeating_invoices"
 doc-link: &api-doc https://developer.xero.com/documentation/api/repeating-invoices
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/repeating_invoices.json
 description: |
-  The `{{ table.name }}` table contains info about invoices set up to repeat in your Xero account. A repeating invoice is a recurring transaction, or a transaction that occurs on a regular basis.
+  The `{{ table.name }}` table contains info about invoices set up to repeat in your {{ integration.display_name }} account. A repeating invoice is a recurring transaction, or a transaction that occurs on a regular basis.
 
 replication-method: "Full Table"
 
