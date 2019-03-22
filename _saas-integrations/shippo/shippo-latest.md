@@ -42,10 +42,10 @@ loading-reports: true
 # -------------------------- #
 
 setup-steps:
-  - title: "Retrieve your Shippo API token"
+  - title: "Retrieve your {{ integration.display_name }} API token"
     anchor: "retrieve-api-creds"
     content: |
-      1. Sign into your Shippo account.
+      1. Sign into your {{ integration.display_name }} account.
       2. In the left nav tab, click **API**.
       3. Locate the **API LIve Token** field in the **Tokens** section:
 
@@ -54,7 +54,7 @@ setup-steps:
          Leave this page open for now - you'll need it to complete the setup.
   - title: "add integration"
     content: |
-      4. In the **Shippo Token** field, paste your Shippo API Live token.
+      4. In the **{{ integration.display_name }} Token** field, paste your {{ integration.display_name }} API Live token.
   - title: "historical sync"
   - title: "replication frequency"
 

@@ -1,11 +1,12 @@
 ---
 tap: "shippo"
+version: "1.0"
 
 name: "shipments"
 doc-link: https://goshippo.com/docs/reference#shipments
 singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/shipments.json
 description: |
-  The `shipments` table contains info about shipment objects. Shipment objects are made up of to and from addresses and the parcel to be shipped.
+  The `{{ table.name }}` table contains info about shipment objects. Shipment objects are made up of to and from addresses and the parcel to be shipped.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -17,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The shipment ID."
+    #foreign-key-id: "shipment-id"
 
   - name: "object_updated"
     type: "date-time"
@@ -42,18 +44,22 @@ attributes:
   - name: "object_from"
     type: "string"
     description: "The ID of the address that should be used as the sender address."
+    foreign-key-id: "address-id"
 
   - name: "object_to"
     type: "string"
     description: "The ID of the address that should be used as the recipient address."
+    foreign-key-id: "address-id"
 
   - name: "object_return"
     type: "string"
     description: "The ID of the address where the shipment will be sent back if it isn't delivered. If this field is not set, shipments will be returned to the address in the `object_from` field."
+    foreign-key-id: "address-id"
 
   - name: "object_parcel"
     type: "string"
     description: "The ID of the parcel to be shipped."
+    foreign-key-id: "parcel-id"
 
   - name: "submission-date"
     type: "date-time"

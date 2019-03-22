@@ -1,11 +1,12 @@
 ---
 tap: "shippo"
+version: "1.0"
 
 name: "transactions"
 doc-link: https://goshippo.com/docs/reference#transactions
 singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/transactions.json
 description: |
-  The `transactions` table contains info about transactions, which are the purchases of shipping labels from a shipping provider for a specific service.
+  The `{{ table.name }}` table contains info about transactions, which are the purchases of shipping labels from a shipping provider for a specific service.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -17,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The transaction ID."
+    foreign-key-id: "transaction-id"
 
   - name: "object_updated"
     type: "date-time"

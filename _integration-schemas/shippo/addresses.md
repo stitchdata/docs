@@ -1,11 +1,12 @@
 ---
 tap: "shippo"
+version: "1.0"
 
 name: "addresses"
 doc-link: https://goshippo.com/docs/reference#addresses
-singer-schema: 
+singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/addresses.json
 description: |
-  info about address objects. These are used to create shipments, obtain rates, and print labels.
+  The `{{ table.name }}` table contains info about address objects. These are used to create shipments, obtain rates, and print labels.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -17,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The address object ID."
+    foreign-key-id: "address-id"
 
   - name: "object_updated"
     type: "date-time"

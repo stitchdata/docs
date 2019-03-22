@@ -1,14 +1,16 @@
 ---
 tap: "shippo"
+version: "1.0"
 # version:
 
 name: "refunds"
 doc-link: https://goshippo.com/docs/reference#refunds
 singer-schema: https://github.com/singer-io/tap-shippo/blob/master/tap_shippo/schemas/refunds.json
 description: |
-  The `refunds` table contains info about refunds, which are reimbursements for successfully created but **unused** transactions.
+  The `{{ table.name }}` table contains info about refunds, which are reimbursements for successfully created but **unused** transactions.
 
-  #### Refund Processing Time & Data Discrepancies
+  #### Refund processing time and data discrepancies
+
   If the data in this table doesn't look like you'd expect it to, keep in mind that refunds can take up to 14 days to be processed.
 
 replication-method: "Key-based Incremental"
@@ -21,6 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The refund ID."
+    #foreign-key-id: "refund-id"
 
   - name: "object_updated"
     type: "date-time"
@@ -38,6 +41,7 @@ attributes:
   - name: "transaction"
     type: "string"
     description: "The ID of the transaction to be refunded."
+    foreign-key-id: "transaction-id"
 
   - name: "test"
     type: "boolean"
