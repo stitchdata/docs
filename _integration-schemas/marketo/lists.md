@@ -6,9 +6,9 @@ name: "lists"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET
 singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/lists.json
 description: |
-  The `leads` table contains info about the static lists in your {{ integration.display_name }} account. 
+  The `{{ table.name }}` table contains info about the static lists in your {{ integration.display_name }} account. 
 
-  **Note**: Due to some of the limitations in Marketo’s API, only static lists will be replicated.
+  **Note**: Due to some of the limitations in {{ integration.display_name }} API, only static lists will be replicated.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -20,6 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the list."
+    # foreign-key-id: "list-id"
 
   - name: "updatedAt"
     type: "date-time"

@@ -6,18 +6,19 @@ name: "programs"
 doc-link: http://developers.marketo.com/rest-api/assets/programs/
 singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/programs.json
 description: |
-  The `programs` table contains info about your Marketo programs. Programs can be parents to most types of assets in Marketo and allow you to track membership and success of leads.
+  The `{{ table.name }}` table contains info about your {{ integration.display_name }} programs. Programs can be parents to most types of assets in {{ integration.display_name }} and allow you to track membership and success of leads.
 
-replication-method: "Incremental"
+replication-method: "Key-based Incremental"
 api-method:
   name: "getPrograms"
-  doc-link: 
+  doc-link: https://developers.marketo.com/rest-api/endpoint-reference/asset-endpoint-reference/#!/Programs/browseProgramsUsingGET
 
 attributes:
   - name: "id"
     type: "integer"
     primary-key: true
     description: "The ID of the program."
+    foreign-key-id: "program-id"
 
   - name: "updatedAt"
     type: "date-time"

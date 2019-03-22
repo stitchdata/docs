@@ -6,11 +6,11 @@ name: "leads"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET
 singer-schema:
 description: |
-  The `leads` table contains info about your {{ integration.display_name }} leads.
+  The `{{ table.name }}` table contains info about your {{ integration.display_name }} leads.
 
-  ### Marketo Corona and Replication Method for Leads
+  #### {{ integration.display_name }} Corona and Replication Method for Leads
 
-  Stitch replicates leads from Marketo using the Bulk API. The Replication Method for this table will vary depending on your Marketo account setup:
+  Stitch replicates leads from {{ integration.display_name }} using the Bulk API. The replication method for this table will vary depending on your {{ integration.display_name }} account setup:
 
   - **If Corona is enabled**, this table will use Incremental Replication based on an `updatedAt` timestamp included in the API query. 
   - **If Corona isn't enabled**, this table will use Full Table Replication.
@@ -18,6 +18,9 @@ description: |
   [Read more about Corona](#corona-replication).
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "updatedAt"
+
 api-method:
   name: "getLeads"
   doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET"
@@ -27,11 +30,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the lead."
-
-  - name: "updatedAt"
-    type: "datetime"
-    replication-key: true
-    description: "`updatedAt` **is not a field that will display in your destination**. This is an API query parameter used to incrementally replicate this table for accounts that have Corona enabled."
+    foreign-key-id: "lead-id"
 
   - name: "acquiredBy"
     type: "boolean"
