@@ -1,12 +1,12 @@
 ---
-tap: "urban_airship"
-# version:
+tap: "urban-airship"
+# version: "1.0"
 
 name: "channels"
 doc-link: http://docs.urbanairship.com/api/ua.html#channels
 singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_urban_airship/schemas/channels.json
 description: |
-  The `channels` table contains info about the channels - or unique identifiers - used to address applications on iOS, Android, and Amazon devices.
+  The `{{ table.name }}` table contains info about the channels - or unique identifiers - used to address applications on iOS, Android, and Amazon devices.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The channel ID."
+    foreign-key-id: "channel-id"
 
   - name: "created"
     type: "date-time"
@@ -57,10 +58,8 @@ attributes:
 
   - name: "named_user_id"
     type: "string"
-    # foreign-keys:
-    #   - table: "named_users"
-    #     attribute: "named_user_id"
     description: "A customer-chosen ID that represents the device user."
+    foreign-key-id: "named-user-id"
 
   - name: "alias"
     type: "string"

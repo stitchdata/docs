@@ -1,12 +1,12 @@
 ---
-tap: "urban_airship"
-# version:
+tap: "urban-airship"
+# version: "1.0"
 
 name: "lists"
 doc-link: http://docs.urbanairship.com/api/ua.html#static-lists
 singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_urban_airship/schemas/lists.json
 description: |
-  The `lists` table contains info about device lists.
+  The `{{ integration.display_name }}` table contains info about device lists.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The name of the list."
+    #foreign-key-id: "list-name"
 
   - name: "created"
     type: "date-time"
