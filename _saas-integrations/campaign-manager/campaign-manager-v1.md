@@ -5,6 +5,7 @@
 
 title: Campaign Manager
 permalink: /integrations/saas/campaign-manager
+
 redirect_from: /integrations/saas/doubleclick-campaign-manager
 keywords: doubleclick campaign manager, integration, schema, etl doubleclick campaign manager, doubleclick campaign manager etl, doubleclick campaign manager schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Campaign Manager integration."
@@ -142,13 +143,7 @@ replication-sections:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/doubleclick-campaign-manager
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
+# Each table has a its own .md file in /_integration-schemas/campaign-manager
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
