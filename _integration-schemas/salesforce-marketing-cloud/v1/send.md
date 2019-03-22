@@ -42,6 +42,7 @@ attributes:
   - name: "EmailID"
     type: "integer"
     description: "The ID of an email message associated with a send."
+    foreign-key-id: "email-id"
 
   - name: "EmailName"
     type: "string"
