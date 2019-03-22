@@ -64,7 +64,7 @@ setup-steps:
     anchor: "retrieve-toggl-api-token"
     content: |
       {% capture toggl-api-tokens %}
-      Your {{ integration.display_name }} API token is specific to you. When replicating data, Stitch will only be able to access the same data as you in Toggl.
+      Your {{ integration.display_name }} API token is specific to you. When replicating data, Stitch will only be able to access the same data as you in {{ integration.display_name }}.
 
       To replicate time entry data from multiple workspaces, you must be an Admin in the workspace you want to replicate data from. Verify that you have this permission in {{ integration.display_name }} before proceeding.
       {% endcapture %}

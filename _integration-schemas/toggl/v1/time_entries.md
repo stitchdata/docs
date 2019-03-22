@@ -26,6 +26,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The time entry ID."
+    #foreign-key-id: "time-entry-id"
 
   - name: "updated"
     type: "date-time"

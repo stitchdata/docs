@@ -13,10 +13,10 @@ version: "1.0"
 
 foreign-keys:
   - id: "workspace-id"
-    table: "a_workspaces"
+    table: "workspaces"
     attribute: "wid"
     all-foreign-keys:
-      - table: "a_workspaces"
+      - table: "workspaces"
         join-on: "id"
       - table: "clients"
       - table: "groups"
