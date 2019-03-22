@@ -31,7 +31,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the journal entry."
+    description: "The ID of the {{ integration.display_name }} user who created the journal entry."
 
   - name: "createdDate"
     type: "date-time"
@@ -44,7 +44,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "journalEntryDate"
     type: "date-time"
@@ -85,5 +85,5 @@ attributes:
 
   - name: "transferredBy"
     type: "string"
-    description: "The ID of the Zuora user who changed the value of `transferredToAccounting` to `Yes`. This field will be `NULL` otherwise."
+    description: "The ID of the {{ integration.display_name }} user who changed the value of `transferredToAccounting` to `Yes`. This field will be `NULL` otherwise."
 ---

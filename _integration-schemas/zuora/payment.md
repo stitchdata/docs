@@ -52,7 +52,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the payment."
+    description: "The ID of the {{ integration.display_name }} user who created the payment."
 
   - name: "createdDate"
     type: "date-time"
@@ -69,7 +69,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "effectiveDate"
     type: "date-time"
@@ -147,11 +147,11 @@ attributes:
 
   - name: "softDescriptor"
     type: "string"
-    description: "A payment gateway-specific field that maps Zuora to other gateways."
+    description: "A payment gateway-specific field that maps {{ integration.display_name }} to other gateways."
 
   - name: "softDescriptorPhone"
     type: "string"
-    description: "A payment gateway-specific field that maps Zuora to other gateways."
+    description: "A payment gateway-specific field that maps {{ integration.display_name }} to other gateways."
 
   - name: "status"
     type: "string"
@@ -181,5 +181,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the payment."
+    description: "The ID of the {{ integration.display_name }} user who last updated the payment."
 ---

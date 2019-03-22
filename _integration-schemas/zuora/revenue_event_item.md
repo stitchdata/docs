@@ -46,7 +46,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the revenue event item."
+    description: "The ID of the {{ integration.display_name }} user who created the revenue event item."
 
   - name: "createdDate"
     type: "date-time"
@@ -65,7 +65,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "journalEntryId"
     type: "string"
@@ -79,7 +79,7 @@ attributes:
 
   - name: "parentAccountId"
     type: "string"
-    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in {{ integration.display_name }}."
     foreign-key-id: "parent-account-id"
 
   - name: "productId"
@@ -144,5 +144,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the revenue event item."
+    description: "The ID of the {{ integration.display_name }} user who last updated the revenue event item."
 ---
