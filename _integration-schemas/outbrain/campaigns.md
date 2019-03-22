@@ -1,12 +1,12 @@
 ---
 tap: "outbrain"
-
+# version: "1.0"
 
 name: "campaigns"
 doc-link: http://docs.amplifyv01.apiary.io/#reference/campaigns
 singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrain/schemas.py#L86
 description: |
-  The `campaigns` table contains info about your Outbrain campaigns.
+  The `{{ table.name }}` table contains info about your {{ integration.display_name }} campaigns.
 
 replication-method: "Full Table"
 api-method:
