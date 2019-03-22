@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "spam_reports"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/spam_reports.json
 description: |
-  The `spam_reports` table contains info about spam reports made against your messages. Spam reports occur when a recipient indicates they think your message is spam, which their email provider then reports to SendGrid.
+  The `{{ table.name }}` table contains info about spam reports made against your messages. Spam reports occur when a recipient indicates they think your message is spam, which their email provider then reports to SendGrid.
 
 replication-method: "Key-based Incremental"
 

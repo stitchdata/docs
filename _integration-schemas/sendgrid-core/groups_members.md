@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "group_members"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/suppressions.html#-GET
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_members.json
 description: |
-  The `group_members` table contains a list of `email` and `group_id` pairs, allowing you to identify recipients and the groups they are members of.
+  The `{{ table.name }}` table contains a list of `email` and `group_id` pairs, allowing you to identify recipients and the groups they are members of.
 
 replication-method: "Full Table"
 

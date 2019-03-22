@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "templates_all"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/templates_all.json
 description: |
-  The `templates_all` table contains info about the transactional templates in your SendGrid account. Transactional templates are templates specifically created for transactional email and are different than Marketing Campaign templates.
+  The `{{ table.name }}` table contains info about the transactional templates in your SendGrid account. Transactional templates are templates specifically created for transactional email and are different than Marketing Campaign templates.
 
 replication-method: "Full Table"
 

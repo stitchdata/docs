@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "segments_members"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_members.json
 description: |
-  The `segments_members` table contains info about the members of your segments.
+  The `{{ table.name }}` table contains info about the members of your segments.
 
   #### Segment member custom fields
 

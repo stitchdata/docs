@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "bounces"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/bounces.html#List-all-bounces-GET
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/bounces.json
 description: |
-  The `bounces` table contains info about bounced emails. A bounced email is when the message is undeliverable and returned to the server that sent it.
+  The `{{ table.name }}` table contains info about bounced emails. A bounced email is when the message is undeliverable and returned to the server that sent it.
 
 replication-method: "Key-based Incremental"
 
