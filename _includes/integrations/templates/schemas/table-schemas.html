@@ -28,7 +28,7 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
 <!-- Table Name -->
     <div class="table-heading">
         <div class="table-name pull-left">
-            <h3 id="{{ table.name | remove: "[" | remove: "]" }}">{{ table.name }}</h3>
+            <h3 id="{{ table.name | slugify }}">{{ table.name }}</h3>
         </div>
 
     <!-- Link to Singer Schema, if one is present -->
@@ -49,15 +49,15 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
         {{ table.notes | flatify | markdownify }}
     {% endif %}
 
-    <div class="panel-group" id="{{ table.name }}-schema">
+    <div class="panel-group" id="{{ table.name | slugify }}-schema">
         <div class="panel panel-default">   
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name }}-table">{{ table.name }} table schema</a>
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-table">{{ table.name }} table schema</a>
                 </h4>
             </div>
           
-            <div id="collapse-{{ table.name }}-table" class="panel-collapse collapse noCrossRef">
+            <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
                 {% include integrations/templates/schemas/table-attributes.html table=table.attributes %}
             </div>
         </div>
