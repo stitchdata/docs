@@ -42,10 +42,10 @@ loading-reports: true
 
 
 setup-steps:
-  - title: "Retrieve Your Wootric API credentials"
+  - title: "Retrieve your {{ integration.display_name }} API credentials"
     anchor: "retrieve-api-creds"
     content: |
-      1. Sign into your Wootric account.
+      1. Sign into your {{ integration.display_name }} account.
       2. Click the **user menu** in the top right corner, then **Settings**.
       3. Click **API** in the left nav tab.
       4. Your Client ID and Client Secret will display:
@@ -55,8 +55,8 @@ setup-steps:
       Leave this page open for now - you'll need it to complete the setup in Stitch.
   - title: "add integration"
     content: |
-      4. In the **Client ID** field, paste your Wootric Client ID.
-      5. In the **Client Secret** field, paste your Wootric Client Secret.
+      4. In the **Client ID** field, paste your {{ integration.display_name }} Client ID.
+      5. In the **Client Secret** field, paste your {{ integration.display_name }} Client Secret.
   - title: "historical sync"
   - title: "replication frequency"
 
