@@ -41,7 +41,7 @@ loading-reports: true
 # -------------------------- #
 
 requirements-list:
-  - item: "**Access to the Taboola API**."
+  - item: "**Access to the {{ integration.display_name }} API**."
   - item: |
       **The following API credentials:**
 
@@ -49,16 +49,16 @@ requirements-list:
       - Client ID
       - Client Secret
 
-requirements-info: "Reach out to your Taboola Account Manager for assistance. Once you receive this information, you can continue with the setup."
+requirements-info: "Reach out to your {{ integration.display_name }} Account Manager for assistance. Once you receive this information, you can continue with the setup."
 
 setup-steps:
   - title: "add integration"
     content: |
-      4. In the **Username** field, enter your Taboola username. This user must have access to the Taboola API.
-      5. In the **Password** field, enter your Taboola password.
-      6. In the **Account ID** field, enter your Taboola account ID.
-      7. In the **Client ID** field, enter your Taboola client ID.
-      8. In the **Client Secret** field, enter your Taboola client secret.
+      4. In the **Username** field, enter your {{ integration.display_name }} username. This user must have access to the {{ integration.display_name }} API.
+      5. In the **Password** field, enter your {{ integration.display_name }} password.
+      6. In the **Account ID** field, enter your {{ integration.display_name }} account ID.
+      7. In the **Client ID** field, enter your {{ integration.display_name }} client ID.
+      8. In the **Client Secret** field, enter your {{ integration.display_name }} client secret.
   - title: "historical sync"
   - title: "replication frequency"
 ---
