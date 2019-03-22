@@ -6,7 +6,7 @@ name: "emails"
 doc-link: https://apidocs.yotpo.com/v1.0/reference#email-analytics-intro
 singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/emails.json
 description: |
-  The `emails` table contains data about every email sent from Yotpo.
+  The `{{ table.name }}` table contains data about every email sent from {{ integration.display_name }}.
 
   #### Attribution window {#email-attribution-window}
 
