@@ -6,7 +6,7 @@
 
 trial-name: &trial-name "Free Trial"
 trial-description: &trial-description |
-  During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination.
+  During the Free Trial, you'll have access to all of Stitch's Free and Paid integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination.
 
 free-name: &free-name "Free"
 
@@ -15,6 +15,8 @@ starter-name: &starter-name "Starter"
 basic-name: &basic-name "Basic"
 
 premier-name: &premier-name "Premier"
+
+standard-name: &standard-name "Standard"
 
 enterprise-name: &enterprise-name "Enterprise"
 
@@ -30,6 +32,7 @@ enterprise-name: &enterprise-name "Enterprise"
 
 # name: plan name
 # paid: true if the plan is a paid plan
+# legacy: true if the plan is a legacy plan - released before March 26, 2019
 # total-integrations: the total number of distinct integration types users can add
 # integrations: the type of integrations included in the plan
 # users: the total number of users an account can have
@@ -40,6 +43,7 @@ enterprise-name: &enterprise-name "Enterprise"
 all-plans:
   - name: *trial-name
     paid: false
+    legacy: false
     description: *trial-description
     total-integrations: "n/a"
     integrations: "all"
@@ -50,6 +54,7 @@ all-plans:
 
   - name: *free-name
     paid: false
+    legacy: false
     integrations: "free"
     total-integrations: "Up to 5"
     users: "5"
@@ -59,6 +64,7 @@ all-plans:
 
   - name: *starter-name
     paid: true
+    legacy: true
     integrations: "all"
     total-integrations: "Up to 5"
     users: "5"
@@ -68,6 +74,7 @@ all-plans:
 
   - name: *basic-name
     paid: true
+    legacy: true
     integrations: "all"
     total-integrations: "Up to 10"
     users: "10"
@@ -77,6 +84,7 @@ all-plans:
 
   - name: *premier-name
     paid: true
+    legacy: true
     integrations: "all"
     total-integrations: "Up to 10"
     users: "10"
@@ -84,8 +92,19 @@ all-plans:
     logs: "7 days"
     reports: "7 days"
 
+  - name: *standard-name
+    paid: true
+    legacy: false
+    integrations: "all"
+    total-integrations: "Up to 10"
+    users: "10"
+    rows: "Varies"
+    logs: "7 days"
+    reports: "7 days"
+
   - name: *enterprise-name
     paid: true
+    legacy: false
     integrations: "all"
     total-integrations: "Unlimited"
     users: "Unlimited"
