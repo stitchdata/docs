@@ -10,13 +10,23 @@ description: |
 
   **This is a Core Object table**.
 
-  #### updated_time & Querying
+  #### updated_time and querying
+
   Because this table uses `updated_time` as part of the Primary Key, query results might return various versions of the same adgroup.
 
   To reflect the latest state of the adgroup, use the latest `updated_time` timestamp.
 
-  #### Deleted Ads
+  #### Deleted ads
+
   If the **Include data from deleted campaigns, ads, and adsets** box in the integration's settings is checked, this table will include data for deleted ads.
+
+  {% capture time_seed %}
+  {{ 'now' | date: "%s" }}
+  {% endcapture %}
+
+  {% assign random = time_seed | times: 1103515245 | plus: 12345 | divided_by: 65536 | modulo: 32768 | modulo: 10 %}
+
+  {{ random }}
   
 replication-method: "Key-based Incremental"
 attribution-window: true
@@ -174,13 +184,603 @@ attributes:
         description: "The app install state of the targeted audience."
 
   - name: "targeting"
-    type: ""
+    type: "array"
     description: |
       Targeting specs are ad set attributes that define who sees an ad.
 
       Stitch may create subtables named `ads__targeting__[spec_name]` for each targeting spec type that is applied to the ad set. For example: `ads__targeting__life_events`
 
-      [Read more about the subtables that may be created here](#[ads/adsets]__targeting).
+      If you have many targeting specs applied to ads, a large number of subtables may be created in your destination.
+
+    subattributes:
+      - name: "id"
+        type: "string"
+        primary-key: true
+        description: "The ad ID."
+        foreign-key-id: "ad-id"
+
+      - name: "updated_time"
+        type: "date-time"
+        primary-key: true
+        replication-key: true
+        description: "The time the ad was last updated."
+
+      - name: "behaviors"
+        type: "array"
+        description: "ID/name pairs of the behavior targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the behavior."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the behavior. Ex: `All travelers`"
+
+      - name: "connections"
+        type: "array"
+        description: "ID/name pairs of the connection targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the connection. Ex: fans of your Page."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the connection. Ex: Stitch Data"
+
+      - name: "custom_audiences"
+        type: "array"
+        description: "ID/name pairs of the custom audience targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the audience."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the audience. Ex: `Outbound Email Leads`"
+
+      - name: "education_majors"
+        type: "array"
+        description: "ID/name pairs of the education major targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the education major."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the education major. Ex: `Computer Science`"
+
+      - name: "excluded_connections"
+        type: "array"
+        description: "ID/name pairs of the excluded connection targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the excluded connection. Ex: Target people who aren't fans of your Page."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the excluded connection. Ex: Stitch Data"
+
+      - name: "excluded_custom_audiences"
+        type: "array"
+        description: "ID/name pairs of the excluded custom audience targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the excluded custom audience."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the excluded custom audience."
+
+
+      # Need to figure out how to display these two things. These arrays can contain 
+      # any of the other array fields (ex: education_majors) and create MORE
+      # subtables.
+
+      # - name: "exclusions"
+      #   type: "array"
+      #   description: ""
+      #   subattributes:
+      #     - name: "id"
+      #       type: "string"
+      #       primary-key: true
+      #       description: "The ID of the "
+
+      #     - name: "name"
+      #       type: "string"
+      #       description: "The name of the "
+
+      # - name: "flexible_spec"
+      #   type: "array"
+      #   description: ""
+      #   subattributes:
+      #     - name: "id"
+      #       type: "string"
+      #       primary-key: true
+      #       description: "The ID of the "
+
+      #     - name: "name"
+      #       type: "string"
+      #       description: "The name of the "
+
+      - name: "family_statuses"
+        type: "array"
+        description: "ID/name pairs of the family status targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the family status."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the family status."
+
+      - name: "friends_of_connections"
+        type: "array"
+        description: "ID/name pairs of the friend of connections targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the friend connection. Ex: Friends of people who are fans of your Page"
+
+          - name: "name"
+            type: "string"
+            description: "The name of the friend connection."
+
+      - name: "generation"
+        type: "array"
+        description: "ID/name pairs of the generation demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the generation demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the generation demographic."
+
+      - name: "geo_locations__cities"
+        type: "array"
+        description: "Details about the city demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "key"
+            type: "string"
+            description: "The city's key."
+
+          - name: "distance_unit"
+            type: "string"
+            description: "The unit used to measure `radius`."
+
+          - name: "region"
+            type: "string"
+            description: "The region associated with the city."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the city."
+
+          - name: "country"
+            type: "string"
+            description: "The country associated with the city."
+
+          - name: "region_id"
+            type: "string"
+            description: "The ID of the region associated with the city."
+
+          - name: "radius"
+            type: "integer"
+            description: "The radius around the city that is included in the targeting. For example: if `radius` is `10` and `distance_unit` is `mile`, an area of `10 miles` outside the given city will be targeted."
+
+      - name: "geo_locations__location_types"
+        type: "array"
+        description: "Details about the location types included in the targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: |
+              The type of location included in the targeting specs. Possible values are:
+
+              - `country`
+              - `country_group`
+              - `region`
+              - `city`
+              - `zip`
+              - `geo_market`
+              - `electoral_district` - Only applicable in the United States.
+
+      - name: "geo_locations__regions"
+        type: "array"
+        description: "Details about the region demographics included in the targeting specs applied to the ad."
+        subattributes:
+          - name: "name"
+            type: "string"
+            description: "The name of the region."
+
+          - name: "country"
+            type: "string"
+            description: "The name of the country associated with the region."
+
+          - name: "key"
+            type: "string"
+            description: "The key of the region."
+
+      - name: "geo_locations__zips"
+        type: "array"
+        description: "Details about zip codes included in the targeting specs applied to the ad."
+        subattributes:
+          - name: "name"
+            type: "string"
+            description: "The name of the zip code. For example: `90210`"
+
+          - name: "country"
+            type: "string"
+            description: "The country associated with the zip code. For example: `US`"
+
+          - name: "key"
+            type: "string"
+            description: "The key of the zip code. For example: `US:90210`"
+
+          - name: "primary_city_id"
+            type: "string"
+            description: "The ID of the city associated with the zip code. For example: `Beverly Hills`"
+
+          - name: "region_id"
+            type: "string"
+            description: "The region associated with the zip code. For example: `California`"
+
+      - name: "geo_locations__geo-markets"
+        type: "array"
+        description: "Details about the geo market demographics included in the targeting specs applied to the ad."
+        subattributes:
+          - name: "key"
+            type: "string"
+            description: "The key of the geo market."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the geo market."
+
+      - name: "home_ownership"
+        type: "array"
+        description: "ID/name pairs of the home ownership demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the home ownership demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the home ownership demographic."
+
+      - name: "home_type"
+        type: "array"
+        description: "ID/name pairs of the home type demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the home type demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the home type demographic."
+
+      - name: "household_composition"
+        type: "array"
+        description: "ID/name pairs of the home composition targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the household composition type."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the household composition type. Ex: `Children in home`"
+
+      - name: "income"
+        type: "array"
+        description: "ID/name pairs of the income demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the income demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the income demographic."
+
+      - name: "industries"
+        type: "array"
+        description: "ID/name pairs of the industry targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the industry type."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the industry type."
+
+      - name: "interests"
+        type: "array"
+        description: "ID/name pairs of the interest targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the interest."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the interest. Ex: `Movies`, `Music`"
+
+      - name: "life_events"
+        type: "array"
+        description: "ID/name pairs of the life event targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the life event."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the life event. Ex: `Recently moved`"
+
+      - name: "moms"
+        type: "array"
+        description: "ID/name pairs of the mother demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the mom demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the mom demographic."
+
+      - name: "net_worth"
+        type: "array"
+        description: "ID/name pairs of the net worth demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the net worth demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the net worth demographic."
+
+      - name: "office_type"
+        type: "array"
+        description: "ID/name pairs of the office type targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the office type."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the office type."
+
+      - name: "politics"
+        type: "array"
+        description: "ID/name pairs of the political demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the political demographic."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the political demographic."
+
+      - name: "user_adclusters"
+        type: "array"
+        description: "ID/name pairs of the user adcluster targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the user adcluster."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the user adcluster. Ex: `Cooking`, `Small Business Owners`"
+
+      - name: "work_employers"
+        type: "array"
+        description: "ID/name pairs of the work employer targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the work employer."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the work employer. Ex: `Microsoft`"
+
+      - name: "work_positions"
+        type: "array"
+        description: "ID/name pairs of the work position targeting specs applied to the ad."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The ID of the work position."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the work position. Ex: `Contractor`"
+
+    # Just value fields start here
+
+      - name: "locales"
+        type: "array"
+        description: "The locale targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The locale to be targeted. Ex: `en`"
+
+      - name: "geo_locations__countries"
+        type: "array"
+        description: "Details about the country demographic targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The country to be targeted."
+
+      - name: "geo_locations__country_groups"
+        type: "array"
+        description: "The country group targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The country group code."
+
+      - name: "messenger_positions"
+        type: "array"
+        description: "The Messenger position targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The Messenger position to be targeted. Ex: `sponsored_messages`"
+
+      - name: "instagram_positions"
+        type: "array"
+        description: "The Instagram position targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The Instagram position to be targeted. Ex: `stream`, `story`"
+
+      - name: "audience_network_positions"
+        type: "array"
+        description: "Audience network position targeting specs applied to the ad. Facebook's Audience Network feature allows the serving of ads on other publishers' iOS and Android apps and mobile websites."
+        doc-link: https://developers.facebook.com/docs/marketing-api/audience-network
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The audience network position to be targeted. Ex: `instream_video`"
+
+      - name: "education_statuses"
+        type: "array"
+        description: "Education status targeting specs applied to the ad."
+        doc-link: https://developers.facebook.com/docs/marketing-api/targeting-specs/education_and_workplace
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: |
+              The education level to be targeted. Facebook uses integers to represent each education level. For example:
+
+              - `1` = `HIGH_SCHOOL`
+              - `2` = `UNDERGRAD`
+
+              [Refer to Facebook's documentation for the full list](https://developers.facebook.com/docs/marketing-api/targeting-specs/education_and_workplace).
+
+      - name: "publisher_platforms"
+        type: "array"
+        description: "Publisher platform targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The publisher platform to be targeted. Ex: `facebook`"
+
+      - name: "device_platforms"
+        type: "array"
+        description: "Device platform targeting specs applied to the ad. This is the type of device (`mobile`, `desktop`) someone who views your ad has."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The device platform to be targeted."
+
+      - name: "facebook_positions"
+        type: "array"
+        description: "Facebook position targeting specs applied to the ad. The position is the location on Facebook where the ad is served. Ex: in the newsfeed or a suggested video."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The Facebook position to be targeted. Ex: `feed`"
+
+      - name: "user_os"
+        type: "array"
+        description: "User operating system targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The user operating system to be targeted."
+
+      - name: "user_device"
+        type: "array"
+        description: "User device targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The user device to be targeted."
+
+      - name: "excluded_publisher_categories"
+        type: "array"
+        description: "Excluded publisher category targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The publisher category to be excluded."
+
+      - name: "targeting_optimization"
+        type: "array"
+        description: "The targeting optimization specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The targeting optimization spec."
+
+      - name: "relationship_statuses"
+        type: "array"
+        description: "Relationship status targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The relationship status to be targeted."
+
+      - name: "interested_in"
+        type: "array"
+        description: "The targeting specs applied to the ad regarding topics users are interested in."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The topic to be targeted."
+
+      - name: "excluded_user_device"
+        type: "array"
+        description: "Excluded user device targeting specs applied to the ad."
+        subattributes:
+          - name: "value"
+            type: "string"
+            description: "The device to be excluded."
 
   - name: "last_updated_by_app_id"
     type: "string"
@@ -221,20 +821,7 @@ attributes:
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/conversion-action-query/
     description: |
       Tracking specs are actions taken by people interacting with the ad. **Note**: tracking specs only **track** - they don't optimize or charge based on that action occurring.
-
-      Stitch may create subtables named named `ads__tracking_specs__[spec_type]` for any tracking spec type applied to the ad. Subtables are created for any tracking spec type.
-
-      If you have applied many tracking specs to your ads, this will result in a large number of subtables in your data warehouse. [Refer to Facebook's documentation for a full list of tracking specs](https://developers.facebook.com/docs/marketing-api/reference/conversion-action-query/).
-
-      Subtables created for tracking specs will, in general, have the following schema:
     subattributes:
-      - name: |
-          {{ system-column.level-id | replace: "#", "1" }}
-        type: "integer"
-        primary-key: true
-        description: |
-          This column functions the same as the `{{ system-column.level-id | replace: "#", "0" }}` column.
-
       - name: "value"
         type: "string"
         description: "The value for the tracking spec."
@@ -245,21 +832,8 @@ attributes:
       Conversion specs allow Facebook to surface the ad to users most likely to perform a desired decision. For example: adding to a shopping cart, viewing a particular page, or completing a form.
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/conversion-action-query/
     subattributes:
-      - name: |
-          {{ system-column.level-id | replace: "#", "1" }}
-        type: "integer"
-        primary-key: true
-        description: |
-          This column functions the same as the `{{ system-column.level-id | replace: "#", "0" }}` column.
-
       - name: "value"
         type: "string"
         description: |
-          Depending on the conversion specs you've applied to the ad, if any, Stitch may create subtables for each spec type. Subtables that are created will be named `ads__conversion_specs__[spec_type]`
-
-          Aside from the columns listed in this subtable (`_sdc_level_0_id`, `_sdc_source_key_id`, etc), these tables will contain a field named `value`.
-
-          Stitch will create a subtable for any conversion spec type. If you have applied many conversion specs, this will result in a large number of subtables in your data warehouse.
-
-          [Refer to Facebook's documentation for a full list of conversion specs](https://developers.facebook.com/docs/marketing-api/reference/conversion-action-query/).
+          The conversion spec.
 ---

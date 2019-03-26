@@ -6,13 +6,12 @@ name: "campaigns"
 doc-link: https://developers.facebook.com/docs/reference/ads-api/adcampaign/
 singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/campaigns.json
 description: |
-  The `campaigns` table contains info about the campaigns in your Facebook Ads account.
+  The `campaigns` table contains info about the campaigns in your Facebook Ads account. Facebook defines campaigns as _"a grouping of ad sets organized by the same business objective."_
 
   **This is a Core Object table**.
 
-  Facebook defines campaigns as _"a grouping of ad sets organized by the same business objective."_
-
-  #### Deleted Campaigns
+  #### Deleted campaigns
+   
   If the **Include data from deleted campaigns, ads, and adsets** box in the integration's settings is checked, this table will include data for deleted campaigns.
 
 replication-method: "Key-based Incremental"

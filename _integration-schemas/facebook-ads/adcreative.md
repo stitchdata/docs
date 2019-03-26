@@ -212,8 +212,6 @@ attributes:
               - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
               - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
               - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
-
-              **Note**: Depending on your data warehouse, a subtable for each deeplink type may be created. For example: For a type of `android`, a table named `adcreative__object_story_spec__link_data__app_link_spec__android` will be created.
             subattributes: &native-deeplinks
               - name: "android"
                 type: "array"
@@ -556,7 +554,6 @@ attributes:
               - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
               - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
 
-              **Note**: Depending on your data warehouse, a subtable for each deeplink type may be created. For example: For a type of `android`, a table named `adcreative__object_story_spec__template_data__app_link_spec__android` will be created.
             subattributes: *native-deeplinks
 
         # End object_story_spec__template_data__app_link_spec
