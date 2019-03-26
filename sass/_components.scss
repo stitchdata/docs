@@ -378,6 +378,16 @@ a[data-toggle="tooltip"] {
 
 .tooltip {
 	font-weight: 400;
+
+	a {
+		color: $stitch-yellow;
+		text-decoration: underline;
+
+		&hover {
+			text-decoration: underline;
+			color: #cca300;
+		}
+	}
 }
 
 /* PANEL STYLES */
