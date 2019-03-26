@@ -48,6 +48,24 @@
                         {% if attribute.replication-key == true %}
                             {{ ui-icon.replication-key | flatify }}
                         {% endif %}
+
+                        {% if attribute.subattributes %}
+                        	{% case attribute.type %}
+								{% when 'object' %}
+									{% capture nested-data-note %}
+										attributes in this object will be flattened into the table.
+									{% endcapture %}
+
+								{% when 'array' %}
+									{% capture nested-data-note %}
+										attributes will be denested into a subtable.
+									{% endcapture %}
+							{% endcase %}
+
+							{% capture nested-data-tooltip %}This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
+
+							{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+                        {% endif %}
                         <br>
 	                    {{ attribute.type | upcase }}
 	                
@@ -68,30 +86,6 @@
 
 					{% if attribute.subattributes %}
 						{% capture attribute-id %}{{ attribute.name }}{% endcapture %}
-
-						{% case attribute.type %}
-							{% when 'object' %}
-								{% capture nested-data-note %}
-									attributes in this object will be flattened into the table.
-								{% endcapture %}
-
-								{% capture nested-data-guide %}
-									for more details and examples.
-								{% endcapture %}
-
-							{% when 'array' %}
-								{% capture nested-data-note %}
-									attributes will be denested into a subtable.
-								{% endcapture %}
-
-								{% capture nested-data-guide %}
-									for more details and instructions for joining tables.
-								{% endcapture %}
-						{% endcase %}
-
-						<p>
-							<strong>Note</strong>: This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} Refer to the <a href="{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}">Nested Data Structures guide</a> {{ nested-data-guide | strip }}
-						</p>
 
 						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: forloop.index %}
 
