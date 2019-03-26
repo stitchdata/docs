@@ -69,10 +69,6 @@
                         <br>
 	                    {{ attribute.type | upcase }}
 	                
-
-                    <!-- ATTRIBUTE DATA TYPE -->
-					</p>
-				    
 				    	{{ attribute.description | flatify | markdownify }}
 
 				    	<!-- FOREIGN-KEY == TRUE -->
@@ -85,17 +81,18 @@
                 	file for an example) -->
 
 					{% if attribute.subattributes %}
-						{% capture attribute-id %}{{ attribute.name }}{% endcapture %}
+						{% if attribute.anchor-id %}
+						{% capture attribute-id %}{{ forloop.index | plus: attribute.anchor-id | random_number }}{% endcapture %}{% else %}{% capture attribute-id %}{{ forloop.index }}{% endcapture %}{% endif %}
 
-						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: forloop.index %}
+						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: attribute-id %}
 
 						<div class="panel-group" id="{{ full-id }}">
 						    <div class="panel panel-default" style="border: solid 1px #d2d2d2;">
 						        <div class="panel-heading" style="background-color: #eaeaea; border: solid 1px #d2d2d2;">
-						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id }}" href="#collapse{{ full-id }}">Click to expand {{ attribute.name }}</a>
+						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | strip }}" href="#collapse{{ full-id }}">Click to expand {{ attribute.name }}</a>
 						        </div>
 
-						        <div id="collapse{{ full-id }}" class="panel-collapse collapse noCrossRef">
+						        <div id="collapse{{ full-id | strip }}" class="panel-collapse collapse noCrossRef">
 									{% include integrations/templates/schemas/table-attributes.html table=attribute.subattributes %}
 								</div>
 						    </div>
