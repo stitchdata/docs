@@ -19,14 +19,6 @@ description: |
   #### Deleted ads
 
   If the **Include data from deleted campaigns, ads, and adsets** box in the integration's settings is checked, this table will include data for deleted ads.
-
-  {% capture time_seed %}
-  {{ 'now' | date: "%s" }}
-  {% endcapture %}
-
-  {% assign random = time_seed | times: 1103515245 | plus: 12345 | divided_by: 65536 | modulo: 32768 | modulo: 10 %}
-
-  {{ random }}
   
 replication-method: "Key-based Incremental"
 attribution-window: true

@@ -55,7 +55,7 @@ attribution-is-configurable: true
 
 requirements-list:
   - item: |
-      **Verify your access in Facebook Ads.** If the user who creates the integration has restricted permissions - meaning the user doesn't have access to all campaigns or ads - Stitch may encounter issues replicating data.
+      **Verify your access in {{ integration.display_name }}.** If the user who creates the integration has restricted permissions - meaning the user doesn't have access to all campaigns or ads - Stitch may encounter issues replicating data.
 
       Even if you only intend to sync certain pieces of data post-setup, the user completing the initial setup should still have full access.
   - item: |
@@ -67,9 +67,11 @@ setup-steps:
       - title: "Select an attribution window"
         anchor: "select-attribution-window"
         content: |
+          {% include misc/icons.html %}
+
           An attribution window is the amount of time for attributing results to ads and the lookback period after those actions occur during which ad results are counted.
 
-          We recommend selecting the [same attribution window you use in Facebook Ads](https://www.facebook.com/business/help/458681590974355) to prevent discrepancies between Facebook's UI and data replicated by Stitch. For example: If the attribution window in Facebook Ads is **7 days**, you should define this setting as **7 days**.
+          We recommend selecting the [same attribution window you use in {{ integration.display_name }}](https://www.facebook.com/business/help/458681590974355){:target="new"} to prevent discrepancies between Facebook's UI and data replicated by Stitch. For example: If the attribution window in {{ integration.display_name }} is **7 days**, you should define this setting as **7 days**.
 
           Then, during every replication job, Stitch will replicate **the past seven days' worth of data** to account for result attribution. This will ensure that records updated during the attribution period are correctly captured by Stitch.
 
