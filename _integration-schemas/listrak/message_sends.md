@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "message_sends"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_sends.json
 description: |
-  The `message_sends` table contains `MsgID` and `EmailAddress` pairs, allowing you to identify the messages that your contacts have been sent.
+  The `{{ table.name }}` table contains `MsgID` and `EmailAddress` pairs, allowing you to identify the messages that your contacts have been sent.
 
 replication-method: "Full Table"
 

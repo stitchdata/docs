@@ -41,7 +41,7 @@ attributes:
   - name: "addresses"
     type: "array"
     description: "A list of the 10 most recently updated addresses for the customer."
-    array-attributes: &address-fields
+    subattributes: &address-fields
       - name: "address1"
         type: "string"
         description: "The street address."

@@ -6,7 +6,7 @@ name: "tickets"
 doc-link: https://developers.freshdesk.com/api/#tickets
 singer-schema:  https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/tickets.json
 description: |
-  The `tickets` table contains info about the tickets in your Freshdesk account.
+  The `tickets` table contains info about the tickets in your {{ integration.display_name }} account.
 
   #### Custom Fields
 
@@ -22,6 +22,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ticket ID."
+    foreign-key-id: "ticket-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -31,7 +32,7 @@ attributes:
   - name: "cc_emails"
     type: "array"
     description: "The email addresses added in the `cc` field of the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address added in the `cc` field of the ticket."
@@ -43,7 +44,7 @@ attributes:
   - name: "to_emails"
     type: "array"
     description: "Email addresses to which the ticket was originally sent."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address to which the ticket was originally sent."
@@ -51,7 +52,7 @@ attributes:
   - name: "fwd_emails"
     type: "array"
     description: "Email addresses added while forwarding a ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address that was added while forwarding a ticket."
@@ -67,10 +68,12 @@ attributes:
   - name: "company_id"
     type: "integer"
     description: "The ID of the company to which the ticket belongs."
+    foreign-key-id: "company-id"
 
   - name: "responder_id"
     type: "integer"
     description: "The ID of the agent assigned to the ticket."
+    foreign-key-id: "agent-id"
 
   - name: "priority"
     type: "number"
@@ -107,7 +110,7 @@ attributes:
   - name: "reply_cc_emails"
     type: "array"
     description: "Email addresses added while responding to the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address added while responding to the ticket."
@@ -119,7 +122,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the ticket."
@@ -147,6 +150,7 @@ attributes:
   - name: "product_id"
     type: "integer"
     description: "The ID of the product associated with the ticket."
+    # foreign-key-id: "product-id"
 
   - name: "fr_escalated"
     type: "boolean"
@@ -167,4 +171,5 @@ attributes:
   - name: "group_id"
     type: "integer"
     description: "The ID of the group to which the ticket has been assigned."
+    foreign-key-id: "group-id"
 ---

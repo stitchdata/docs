@@ -1,0 +1,26 @@
+- name: "Good for replicating"
+  rest-api: "Small data sets, more frequently"
+  aqua-api: "Large data sets, less frequently"
+
+- name: "Deleted records"
+  rest-api: "Unsupported"
+  aqua-api: |
+    **Supported**. An additional column (`deleted`) will be added to objects that support deletions, which indicates the record's deletion status.
+
+    **Deleted data extraction is unsupported by the AQuA API for the following objects**:
+
+    {% assign blacklisted-objects = site.data.taps.extraction.zuora.blacklisted-objects %}
+    {% for type in blacklisted-objects.list %}
+    {% if type.api contains "deleted" %}
+    {% for object in type.objects %}
+    - {{ object.name }}
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+
+    [Refer to {{ integration.display_name }}'s documentation](https://knowledgecenter.zuora.com/DC_Developers/T_Aggregate_Query_API/B_Submit_Query/a_Export_Deleted_Data){:target="new"} for more info.
+
+- name: "Requires additional Zuora credentials"
+  rest-api: "Not required"
+  aqua-api: |
+    **Required**. Using the AQuA API requires a Partner ID - to obtain one, reach out to [Zuora Global Support](http://support.zuora.com/){:target="new"}.

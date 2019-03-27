@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "groups_all"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html#-GET
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/groups_all.json
 description: |
-  The `groups_all` table contains info about the groups in your SendGrid account. Groups are specific types of email you want your recipients to be able to unsubscribe from or subscribe to. For example: Newsletters, Invoices, Alerts, etc.
+  The `{{ table.name }}` table contains info about the groups in your SendGrid account. Groups are specific types of email you want your recipients to be able to unsubscribe from or subscribe to. For example: Newsletters, Invoices, Alerts, etc.
 
 replication-method: "Full Table"
 

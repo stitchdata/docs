@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "messages"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/messages.json
 description: |
-  The `messages` table contains info about message statistics.
+  The `{{ table.name }}` table contains info about message statistics.
 
 replication-method: "Full Table"
 

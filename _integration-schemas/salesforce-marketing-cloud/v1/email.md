@@ -52,7 +52,7 @@ attributes:
   - name: "ContentAreaIDs"
     type: "array"
     description: "The IDs of the content areas contained in the email message."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The content area ID."
@@ -121,7 +121,4 @@ attributes:
   - name: "TextBody"
     type: "string"
     description: "Contains raw text body of a message."
-
-#   - name: "__AdditionalEmailAttribute1"    type: "string']  - name: "__AdditionalEmailAttribute2"    type: "string']  - name: "__AdditionalEmailAttribute3"    type: "string']  - name: "__AdditionalEmailAttribute4"    type: "string']  - name: "__AdditionalEmailAttribute5"    type: "string']},
-# })
 ---

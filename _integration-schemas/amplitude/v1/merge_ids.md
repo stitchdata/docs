@@ -5,7 +5,7 @@ tap: "amplitude"
 name: "merge_ids_[project_id]"
 doc-link: https://amplitude.zendesk.com/hc/en-us/articles/115001902492-Query-Snowflake#column-schema
 description: |
-  {{ table.name }} tables contain info about merged users. These are users whose records have been merged with other user records to eliminate duplicates.
+  `{{ table.name }}` tables contain info about merged users. These are users whose records have been merged with other user records to eliminate duplicates.
 
   For example: If an anonymous user logs events anonymously before signing in, they will go from being anonymous to a recognized user. Without merging the user's records, it'll look like two users with two sets of events, rather than one user completing a series of events.
 

@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/
 description: |
   In [version 1.0 of Stitch's Marketo integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}-v1), the `activities` table contained all data pertaining to lead activities.
 
-  In this version, you can choose to replicate lead activity data for specific activity types. For every activity type defined in your Marketo account, you'll see an `activities_[activity_type]` table in the {{ app.buttons.tables }} tab. For example: `activities_click_email` contains lead activity data for the `click_email` activity type.
+  In this version, you can choose to replicate lead activity data for specific activity types. For every activity type defined in your {{ integration.display_name }} account, you'll see an `{{ table.name }}` table in the {{ app.buttons.tables }} tab. For example: `activities_click_email` contains lead activity data for the `click_email` activity type.
 
   These tables will contain the fields listed below, along with any fields specific to that activity type.
 
@@ -22,6 +22,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the activity."
+    # foreign-key-id: "activity-id"
 
   - name: "activityDate"
     type: "date-time"
@@ -31,10 +32,12 @@ attributes:
   - name: "leadId"
     type: "integer"
     description: "The ID of the lead associated with the activity."
+    foreign-key-id: "lead-id"
 
   - name: "activityTypeId"
     type: "integer"
     description: "The ID of the activity type."
+    foreign-key-id: "activity-type-id"
 
   - name: "primary_attribute_value_id"
     type: "integer"
@@ -51,7 +54,7 @@ attributes:
   # - name: "attributes"
   #   type: "array"
   #   description: "Secondary attributes of the activity."
-  #   array-attributes:
+  #   subattributes:
   #     - name: "name"
   #       type: "string"
   #       description: "The name of the secondary attribute."

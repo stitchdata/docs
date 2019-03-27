@@ -8,7 +8,7 @@ singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schema
 description: |
   The `{{ table.name }}` table contains info about your contact groups. A contact group is a group of contacts that have something in common.
 
-  **Note**: Due to the limits of Xero's API, only active contact groups (`Status: ACTIVE`) may be retrieved.
+  **Note**: Due to the limits of {{ integration.display_name }}'s API, only active contact groups (`Status: ACTIVE`) may be retrieved.
 
 replication-method: "Full Table"
 

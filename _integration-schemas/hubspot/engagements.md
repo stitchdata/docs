@@ -54,11 +54,11 @@ attributes:
   - name: "associations"
     type: "array"
     description: "IDs of the objects associated with the engagement. For example: contacts, deals."
-    array-attributes:
+    subattributes:
       - name: "contactIds"
         type: "array"
         description: "IDs of the contacts associated with the engagement."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the contact associated with the campaign."
@@ -67,7 +67,7 @@ attributes:
       - name: "companyIds"
         type: "array"
         description: "IDs of the companies associated with the engagement."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the campaign."
@@ -76,7 +76,7 @@ attributes:
       - name: "dealIds"
         type: "array"
         description: "IDs of the deals associated with the engagement."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the campaign."
@@ -85,7 +85,7 @@ attributes:
   - name: "attachments"
     type: "array"
     description: "For `NOTE` engagements only. IDs of the files from the file manager that should display in the attachments list when viewing the engagement in HubSpot."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -94,7 +94,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Metadata about the engagement."
-    object-attributes:
+    subattributes:
       - name: "body"
         type: "string"
         description: |
@@ -109,7 +109,7 @@ attributes:
       - name: "from"
         type: "object"
         description: "For `EMAIL` engagements only. Details about the sender of the email engagement."
-        object-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email address of the sender."
@@ -125,7 +125,7 @@ attributes:
       - name: "to"
         type: "object"
         description: "For `EMAIL` engagements only. Details about the recipient of the email engagement."
-        object-attributes:
+        subattributes:
           - name: "email"
             type: "sring"
             description: "The email address of the recipient."
@@ -133,7 +133,7 @@ attributes:
       - name: "cc"
         type: "object"
         description: "For `EMAIL` engagements only. Details about anyone CC'd on the email engagement."
-        object-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email of the CC'd recipient."
@@ -141,7 +141,7 @@ attributes:
       - name: "bcc"
         type: "object"
         description: "For `EMAIL` engagements only. Details about anyone BCC'D on the email engagement."
-        object-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email of the BCC'd recipient."

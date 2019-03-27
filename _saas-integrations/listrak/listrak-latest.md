@@ -5,8 +5,8 @@
 
 title: Listrak (v1.0)
 permalink: /integrations/saas/listrak
-tags: [saas_integrations]
 keywords: listrak, integration, schema, etl listrak, listrak etl, listrak schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Listrak integration."
 layout: singer
 
 # -------------------------- #
@@ -31,7 +31,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: 
-icon: /images/integrations/icons/listrak.svg
 
 table-selection: true
 column-selection: false

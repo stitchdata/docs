@@ -6,11 +6,9 @@ name: "milestones"
 doc-link: https://gitlab.com/help/api/milestones.md#list-project-milestones
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/milestones.json
 description: |
-  The `milestones` table contains info about project milestones.
+  The `{{ table.name }}` table contains info about project milestones.
 
-  #### `milestones` & Incremental Replication
-
-  Data for this table will only be replicated when the associated project (in the `projects` table) is also updated.
+  **Note**: To replicate milestone data, you must set this table and the [`projects`](#projects) table to replicate. Data for this table will only be replicated when the associated project (in the [`projects`](#projects) table) is also updated.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -22,6 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The milestone ID."
+    foreign-key-id: "milestone-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -35,6 +34,7 @@ attributes:
   - name: "project_id"
     type: "integer"
     description: "The ID of the project the milestone is associated with."
+    foreign-key-id: "project-id"
 
   - name: "title"
     type: "string"

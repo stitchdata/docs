@@ -9,7 +9,7 @@
 
 
 tap: "salesforce-marketing-cloud"
-# version: 
+# version: "1.0"
 
 name: "list"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/list.htm
@@ -19,11 +19,16 @@ description: |
 
 replication-method: "Key-based Incremental"
 
+api-method:
+  name: "Retrieve lists"
+  doc-link: "https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/retrieve.htm"
+
 attributes:
   - name: "ID"
     type: "integer"
     primary-key: true
     description: "The list ID."
+    foreign-key-id: "list-id"
 
   - name: "ModifiedDate"
     type: "date-time"
@@ -32,7 +37,8 @@ attributes:
 
   - name: "Category"
     type: "integer"
-    description: "ID of the folder that an item is located in."
+    description: "The ID of the folder that an item is located in."
+    foreign-key-id: "folder-id"
     
   - name: "CreatedDate"
     type: "date-time"

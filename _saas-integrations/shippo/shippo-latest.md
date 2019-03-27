@@ -1,7 +1,6 @@
 ---
 title: Shippo (v1.0)
 permalink: /integrations/saas/shippo
-tags: [saas_integrations]
 keywords: shippo, integration, schema, etl shippo, shippo etl, shippo schema
 summary: "Connection instructions and schema details for Stitch's Shippo integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "shippo"
 display_name: "Shippo"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-shippo
 
 # this-version: "1.0"
@@ -25,13 +23,12 @@ repo-url: https://github.com/singer-io/tap-shippo
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.goshippo.com/
-icon: /images/integrations/icons/shippo.svg
 
 table-selection: false
 column-selection: false
@@ -45,10 +42,10 @@ loading-reports: true
 # -------------------------- #
 
 setup-steps:
-  - title: "Retrieve your Shippo API token"
+  - title: "Retrieve your {{ integration.display_name }} API token"
     anchor: "retrieve-api-creds"
     content: |
-      1. Sign into your Shippo account.
+      1. Sign into your {{ integration.display_name }} account.
       2. In the left nav tab, click **API**.
       3. Locate the **API LIve Token** field in the **Tokens** section:
 
@@ -57,7 +54,7 @@ setup-steps:
          Leave this page open for now - you'll need it to complete the setup.
   - title: "add integration"
     content: |
-      4. In the **Shippo Token** field, paste your Shippo API Live token.
+      4. In the **{{ integration.display_name }} Token** field, paste your {{ integration.display_name }} API Live token.
   - title: "historical sync"
   - title: "replication frequency"
 
@@ -67,7 +64,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/shippo
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -5,8 +5,8 @@
 
 title: GitHub (v1.0)
 permalink: /integrations/saas/github
-tags: [saas_integrations]
 keywords: github, integration, schema, etl github, github etl, github schema
+summary: "Connection instructions, replication info, and schema details for Stitch's GitHub integration."
 layout: singer
 
 # -------------------------- #
@@ -15,9 +15,8 @@ layout: singer
 
 name: "github"
 display_name: "GitHub"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-github
 
 # this-version: "1.0"
@@ -33,7 +32,6 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: https://status.github.com/messages
-icon: /images/integrations/icons/github.svg
 
 table-selection: true
 column-selection: true

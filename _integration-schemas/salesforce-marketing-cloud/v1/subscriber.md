@@ -38,7 +38,7 @@ attributes:
   - name: "Addresses"
     type: "array"
     description: "Indicates addresses belonging to a subscriber, used to create, retrieve, update or delete an email or SMS Address for a given subscriber."
-    array-attributes:
+    subattributes:
       - name: "Address"
         type: "string"
         description: ""
@@ -74,7 +74,7 @@ attributes:
   - name: "ListIDs"
     type: "array"
     description: "The IDs of the lists the subscriber is a part of."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The list ID."

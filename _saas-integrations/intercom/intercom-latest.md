@@ -1,7 +1,6 @@
 ---
 title: Intercom
 permalink: /integrations/saas/intercom
-tags: [saas_integrations]
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Intercom integration."
 layout: singer
@@ -13,8 +12,6 @@ layout: singer
 name: "intercom"
 display_name: "Intercom"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.intercom.io/"
 
 # -------------------------- #
@@ -27,7 +24,6 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/intercom.svg
 
 table-selection: false
 column-selection: false

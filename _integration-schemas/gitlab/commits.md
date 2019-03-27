@@ -1,18 +1,19 @@
 ---
 tap: "gitlab"
-# version: ""
+# version: "1.0"
 
 name: "commits"
 doc-link: https://gitlab.com/help/api/commits.md
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/commits.json
 description: |
-  The `commits` table contains info about repository commits in a project.
+  The `{{ table.name }}` table contains info about repository commits in a project.
 
-  #### `commits` & Incremental Replication
-
-  Data for this table will only be replicated when the associated project (in the `projects` table) is also updated.
+  **Note**: To replicate commit data, you must set this table and the [`projects`](#projects) table to replicate. Data for this table will only be replicated when the associated project (in the [`projects`](#projects) table) is also updated.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "projects.last_activity_at"
+
 api-method:
   name: "listRepositoryCommits"
   doc-link: https://gitlab.com/help/api/commits.md#list-repository-commits
@@ -22,9 +23,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The commit ID."
-
-  - name: "n/a"
-    replication-key: true
+    foreign-key-id: "commit-id"
 
   - name: "created_at"
     type: "date-time"
@@ -33,6 +32,7 @@ attributes:
   - name: "project_id"
     type: "integer"
     description: "The ID of the project associated with the commit."
+    foreign-key-id: "project-id"
 
   - name: "short_id"
     type: "string"

@@ -7,6 +7,7 @@ title: Harvest Forecast (v1.0)
 permalink: /integrations/saas/harvest-forecast
 tags: [saas_integrations]
 keywords: harvest, forecast, integration, schema, etl harvest forecast, harvest forecast etl, harvest forecast schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Harvest Forecast integration."
 layout: singer
 
 # -------------------------- #

@@ -6,7 +6,7 @@ name: "roles"
 doc-link: https://developers.freshdesk.com/api/#roles
 singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/roles.json
 description: |
-  The `roles` table contains info about the various roles that can be assigned to team members in your Freshdesk account.
+  The `{{ table.name }}` table contains info about the various roles that can be assigned to team members in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The role ID."
+    foreign-key-id: "role-id"
 
   - name: "updated_at"
     type: "date-time"

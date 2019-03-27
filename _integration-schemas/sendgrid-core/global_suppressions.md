@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "global_suppressions"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/global_suppressions.html#-Global-Unsubscribes
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/global_suppressions.json
 description: |
-  The `global_suppressions` table contains info about global suppressions, or global unsubscribes. Recipients who are globally suppressed will be removed from any email you send.
+  The `{{ table.name }}` table contains info about global suppressions, or global unsubscribes. Recipients who are globally suppressed will be removed from any email you send.
 
 replication-method: "Key-based Incremental"
 

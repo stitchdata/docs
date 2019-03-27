@@ -37,7 +37,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "The IDs of the users who created/updated the product area."
-    object-attributes: 
+    subattributes: 
       - name: "updated_by"
         type: "integer"
         description: "The ID of the user who last updated the product area."

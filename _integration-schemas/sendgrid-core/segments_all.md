@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "segments_all"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/segments_all.json
 description: |
-  The `segments_all` table contains info about the segments in your SendGrid account, and the conditions required for recipients to be added to the segment.
+  The `{{ table.name }}` table contains info about the segments in your SendGrid account, and the conditions required for recipients to be added to the segment.
 
   For example: A segment for recipients with email addresses that contain `@stitchdata.com`
 
@@ -40,7 +41,7 @@ attributes:
       - `field: email`
       - `operator: contains`
       - `value: @stitchdata.com`
-    array-attributes:
+    subattributes:
       - name: "field"
         type: "string"
         description: "The name of the field used in the condition. For example: `email`"

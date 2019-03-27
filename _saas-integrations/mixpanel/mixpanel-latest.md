@@ -2,7 +2,6 @@
 title: Mixpanel
 permalink: /integrations/saas/mixpanel
 keywords: mixpanel, integration, schema, etl mixpanel, mixpanel etl, mixpanel schema
-tags: [saas_integrations]
 summary: "Connection instructions, replication info, and schema details for Stitch's Mixpanel integration."
 format: ## controls formatting options in template
   schema-list: true
@@ -15,8 +14,6 @@ format: ## controls formatting options in template
 
 name: "mixpanel"
 display_name: "Mixpanel"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.mixpanel.com/"
 
 # -------------------------- #
@@ -29,7 +26,6 @@ certified: true
 historical: "7 days"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/mixpanel.svg
 
 table-selection: true
 column-selection: false

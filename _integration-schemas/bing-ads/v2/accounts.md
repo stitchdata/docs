@@ -59,7 +59,7 @@ attributes:
     type: "array"
     description: |
       The location where your business is legally registered. If you're an agency working as an agent for your customer, this is the location where your client is legally registered. 
-    array-attributes:
+    subattributes:
       - name: "Id"
         type: "string"
         primary-key: true
@@ -116,11 +116,11 @@ attributes:
     type: "array"
     description: "Details about the forward compatibility settings for the account."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
-    array-attributes:
+    subattributes:
       - name: "KeyValuePairOfStringString"
         type: "array"
         description: "Key and value pairs for the account's forward compatibility settings."
-        array-attributes:
+        subattributes:
           - name: "key"
             type: "string"
             description: "The name of the setting."

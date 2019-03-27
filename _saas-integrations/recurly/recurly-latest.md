@@ -1,7 +1,6 @@
 ---
 title: Recurly
 permalink: /integrations/saas/recurly
-tags: [saas_integrations]
 keywords: recurly, integration, schema, etl recurly, recurly etl, recurly schema
 summary: "Connection instructions and schema details for Stitch's Recurly integration."
 format: ## controls formatting options in template
@@ -15,9 +14,8 @@ format: ## controls formatting options in template
 
 name: "recurly"
 display_name: "Recurly"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.recurly.com/"
 
 # -------------------------- #
@@ -30,7 +28,6 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/recurly.svg
 
 table-selection: false
 column-selection: false

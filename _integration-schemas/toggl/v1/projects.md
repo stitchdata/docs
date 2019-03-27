@@ -6,7 +6,7 @@ name: "projects"
 doc-link: "https://github.com/toggl/toggl_api_docs/blob/master/chapters/projects.md"
 singer-schema: "https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/projects.json"
 description: |
-  The `{{ table.name }}` table contains 
+  The `{{ table.name }}` table contains info about the projects in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 api-method:

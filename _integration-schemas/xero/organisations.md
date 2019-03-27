@@ -6,7 +6,7 @@ name: "organisations"
 doc-link: &api-doc https://developer.xero.com/documentation/api/organisation
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/organisations.json
 description: |
-  The `{{ table.name }}` table contains info about the organisations in your Xero account.
+  The `{{ table.name }}` table contains info about the organisations in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
@@ -19,15 +19,16 @@ attributes:
     type: "string"
     primary-key: true
     description: "The organisation ID."
-    foreign-key-id: "organisation-id"
+   #foreign-key-id: "organisation-id"
 
   - name: "APIKey"
     type: "string"
-    description: "The organisation's unique key for [Xero-to-Xero transactions](http://help.xero.com/#X2XSendKey)."
+    description: |
+      The organisation's unique key for [{{ integration.display_name }}-to-{{ integration.display_name }} transactions](http://help.xero.com/#X2XSendKey){:target="new"}.
 
   - name: "Name"
     type: "string"
-    description: "The display name of the organisation in Xero."
+    description: "The display name of the organisation in {{ integration.display_name }}."
 
   - name: "LegalName"
     type: "string"
@@ -39,7 +40,8 @@ attributes:
 
   - name: "Version"
     type: "string"
-    description: "The version of the organisation. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#version) for possible versions."
+    description: |
+      The version of the organisation. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#version){:target="new"} for possible versions.
     doc-link: https://developer.xero.com/documentation/api/types#version
 
   - name: "OrganisationType"
@@ -63,7 +65,8 @@ attributes:
 
   - name: "CountryCode"
     type: "string"
-    description: "The country code (ISO 3166-2 of the organisation. Refer to [XE.com](http://countrycode.org/) for a list currency codes."
+    description: |
+      The country code (ISO 3166-2 of the organisation. Refer to [XE.com](http://countrycode.org/){:target="new"} for a list currency codes.
 
   - name: "IsDemoCompany"
     type: "boolean"
@@ -71,7 +74,7 @@ attributes:
 
   - name: "OrganisationStatus"
     type: "string"
-    description: "This value will be `ACTIVE` if you can connect to the organisation via the Xero API."
+    description: "This value will be `ACTIVE` if you can connect to the organisation via the {{ integration.display_name }} API."
 
   - name: "RegistrationNumber"
     type: "string"
@@ -80,7 +83,7 @@ attributes:
   - name: "TaxNumber"
     type: "string"
     description: |
-      The organisation's tax number. Depending on the version of Xero you're using, this could be one of the following in the Xero UI:
+      The organisation's tax number. Depending on the version of {{ integration.display_name }} you're using, this could be one of the following in the {{ integration.display_name }} UI:
 
       - Australia - ABN
       - New Zealand - GST Number
@@ -97,12 +100,14 @@ attributes:
 
   - name: "SalesTaxBasis"
     type: "string"
-    description: "The accounting basis used for tax returns. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#SalesTaxBasis) for a list of possible values."
+    description: |
+      The accounting basis used for tax returns. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#SalesTaxBasis){:target="new"} for a list of possible values.
     doc-link: https://developer.xero.com/documentation/api/types#SalesTaxBasis
 
   - name: "SalesTaxPeriod"
     type: "string"
-    description: "The frequency with which tax returns are processed. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#SalesTaxPeriod) for a list of possible values."
+    description: |
+      The frequency with which tax returns are processed. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#SalesTaxPeriod){:target="new"} for a list of possible values.
     doc-link: https://developer.xero.com/documentation/api/types#SalesTaxPeriod
 
   - name: "DefaultSalesTax"
@@ -129,7 +134,8 @@ attributes:
 
   - name: "Timezone"
     type: "string"
-    description: "The timezone the organisation is in. Refer to [Xero's documenation](https://github.com/XeroAPI/XeroAPI-Schemas/blob/master/src/main/resources/XeroSchemas/v2.00/Timezone.xsd) for a list of possible timezone values."
+    description: |
+      The timezone the organisation is in. Refer to [{{ integration.display_name }}'s documenation](https://github.com/XeroAPI/XeroAPI-Schemas/blob/master/src/main/resources/XeroSchemas/v2.00/Timezone.xsd){:target="new"} for a list of possible timezone values.
     doc-link: https://github.com/XeroAPI/XeroAPI-Schemas/blob/master/src/main/resources/XeroSchemas/v2.00/Timezone.xsd
 
   - name: "OrganisationEntityType"
@@ -152,12 +158,13 @@ attributes:
 
   - name: "LineOfBusiness"
     type: "string"
-    description: "The description of the business, as defined in the [organisation's settings](https://go.xero.com/Settings/Organisation)."
+    description: |
+      The description of the business, as defined in the [organisation's settings](https://go.xero.com/Settings/Organisation){:target="new"}.
 
   - name: "Addresses"
     type: "array"
     description: "Details about the addresses associated with the organisation."
-    array-attributes:
+    subattributes:
       - name: "Region"
         type: "string"
         description: "The region associated with the address."
@@ -206,7 +213,7 @@ attributes:
   - name: "Phones"
     type: "array"
     description: "Details about the phone numbers associated with the organisation."
-    array-attributes:
+    subattributes:
         - name: "PhoneNumber"
           type: "string"
           description: "The phone number."
@@ -231,8 +238,9 @@ attributes:
 
   - name: "ExternalLinks"
     type: "array"
-    description: "Details about profile links for the organisation, such as Facebook, Twitter, LinkedIn, etc. These are set in the [organisation's settings](https://go.xero.com/Settings/Organisation)."
-    array-attributes:
+    description: |
+      Details about profile links for the organisation, such as Facebook, Twitter, LinkedIn, etc. These are set in the [organisation's settings](https://go.xero.com/Settings/Organisation){:target="new"}.
+    subattributes:
       - name: "LinkType"
         type: "string"
         description: |
@@ -251,11 +259,11 @@ attributes:
   - name: "PaymentTerms"
     type: "array"
     description: "Details about the default payment terms for the organisation."
-    array-attributes:
+    subattributes:
       - name: "Sales"
         type: "object"
         description: "Details about the payment terms used for sales transactions."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
@@ -273,7 +281,7 @@ attributes:
       - name: "Bills"
         type: "object"
         description: "Details about the payment terms used for bills (invoices)."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."

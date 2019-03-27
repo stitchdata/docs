@@ -1,11 +1,11 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "segments"
 doc-link: https://developers.intercom.com/reference#segments
 description: |
-  The `segments` table contains info about the segments - or groups of users defined by a set of rules - in your Intercom account.
+  The `{{ table.name }}` table contains info about the segments - or groups of users defined by a set of rules - in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 api-method:

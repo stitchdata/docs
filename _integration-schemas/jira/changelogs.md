@@ -35,7 +35,7 @@ attributes:
   - name: "author"
     type: "object"
     description: "Details about the change log author."
-    object-attributes:
+    subattributes:
       - name: "accountId"
         type: "string"
         description: "The author's account ID."
@@ -47,7 +47,7 @@ attributes:
       - name: "avatarUrls"
         type: "object"
         description: "The URLs associated with the avatars used by the {{ attribute.name }}."
-        object-attributes:
+        subattributes:
           - name: "16x16"
             type: "string"
             description: "The URL of the {{ attribute.name }}'s 16x16 avatar."
@@ -96,7 +96,7 @@ attributes:
   - name: "historyMetadata"
     type: "object"
     description: "Details about issue history metadata."
-    object-attributes:
+    subattributes:
       - name: "activityDescription"
         type: "string"
         description: "The activity described in the history record."
@@ -109,7 +109,7 @@ attributes:
         type: "object"
         description: "Details about the user whose action created the history record."
         action: "generated"
-        object-attributes: &historyMetadataParticipant
+        subattributes: &historyMetadataParticipant
           - name: "avatarUrl"
             type: "string"
             description: "The URL to an avatar for the user or system that {{ subattribute.action }} the history record."
@@ -138,7 +138,7 @@ attributes:
         type: "object"
         description: "Details about the caused that triggered the creation of the history record."
         action: "caused"
-        object-attributes: *historyMetadataParticipant
+        subattributes: *historyMetadataParticipant
 
       - name: "description"
         type: "string"
@@ -159,7 +159,7 @@ attributes:
       - name: "extraData"
         type: "object"
         description: "Additional arbitrary information about the history record."
-        object-attributes:
+        subattributes:
           - name: "fieldName"
             type: "string"
             description: "The arbitrary information about the history record."
@@ -168,7 +168,7 @@ attributes:
         type: "object"
         description: "Details about the user or system that generated the history record."
         action: "generated"
-        object-attributes: *historyMetadataParticipant
+        subattributes: *historyMetadataParticipant
 
       - name: "type"
         type: "string"
@@ -182,7 +182,7 @@ attributes:
   - name: "items"
     type: "array"
     description: "A list of change items associated with the changelog."
-    array-attributes:
+    subattributes:
       - name: "field"
         type: "string"
         description: "The name of the field that changed."

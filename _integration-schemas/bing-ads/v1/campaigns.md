@@ -27,7 +27,7 @@ attributes:
     type: "object"
     doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/biddingscheme
     description: "Details about the bid strategy type used to manage the campaign."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of bidding scheme set for the campaign."
@@ -57,11 +57,11 @@ attributes:
     type: "array"
     description: "Details about the forward compatibility settings for the campaign."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
-    array-attributes:
+    subattributes:
       - name: "keyValuePairOfStringString"
         type: "array"
         description: "Key and value pairs for the campaign's forward compatibility settings."
-        array-attributes:
+        subattributes:
           - name: "key"
             type: "string"
             description: "The name of the setting."
@@ -85,7 +85,7 @@ attributes:
   - name: "settings"
     type: "array"
     description: "The settings for the campaign."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of setting. For example: `ShoppingSetting`"

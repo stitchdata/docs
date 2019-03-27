@@ -6,8 +6,12 @@ name: "customers"
 singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/customers.json"
 description: |
   The `{{ table.name }}` table contains info about the customers for a location.
-
+  
+  {% capture replication-note %}
   **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means updated customer data will only be selected for replication when the `{{ replication-keys | strip }}` value for the customer's record is updated.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=replication-note %}
 
 replication-method: "Key-based Incremental"
 

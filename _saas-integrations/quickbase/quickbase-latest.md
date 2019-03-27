@@ -5,7 +5,6 @@
 
 title: Quick Base (v1.0)
 permalink: /integrations/saas/quick-base
-tags: [saas_integrations]
 keywords: quick-base, integration, schema, etl quick-base, quick-base etl, quick-base schema
 layout: singer
 old-schema-template: true
@@ -16,6 +15,7 @@ old-schema-template: true
 
 name: "quick-base"
 display_name: "Quick Base"
+
 singer: true
 repo-url: https://github.com/singer-io/tap-quickbase
 
@@ -32,7 +32,6 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: https://service.quickbase.com/#!/
-icon: /images/integrations/icons/quick-base.svg
 
 table-selection: true
 column-selection: true
@@ -223,8 +222,6 @@ schema-sections:
       </tr>
       {% endfor %}
       </table>
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-

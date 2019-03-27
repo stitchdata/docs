@@ -3,24 +3,24 @@ tap: "zendesk"
 version: "1.0"
 
 name: "users"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/users
+doc-link: https://developer.zendesk.com/rest_api/docs/support/users
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/users.json
 description: |
-  The `users` table contains info about the users associated with your Zendesk account. This includes agents, admins, and end-users (customers).
+  The `{{ table.name }}` table contains info about the users associated with your {{ integration.display_name }} account. This includes agents, admins, and end-users (customers).
 
-  **Note**: Retrieving user data requires Zendesk Admin permissions.
+  **Note**: Retrieving user data requires {{ integration.display_name }} Admin permissions.
 
-  #### Custom user fields
+  #### Custom user fields {#customer-user-fields}
 
   Stitch's {{ integration.display_name }} integration will replicate any custom fields associated with user records.
 
-  **Note**: Replicating user custom fields requires that you be on a Team, Professional, or Enterprise Zendesk plan.
+  **Note**: Replicating user custom fields requires that you be on a Team, Professional, or Enterprise {{ integration.display_name }} plan.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: "Incremental user export"
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-user-export
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-user-export
 
 attributes:
   - name: "id"
@@ -118,7 +118,7 @@ attributes:
   - name: "photo"
     type: "object"
     description: "Details about the user's profile picture."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The ID of the user's profile picture."
@@ -162,7 +162,7 @@ attributes:
       - name: "thumbnails"
         type: "object"
         description:
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             description: "The ID of the user's profile picture."
@@ -248,7 +248,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The IDs of the tags associated with the user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The ID of the tag associated with the user."
@@ -280,7 +280,7 @@ attributes:
   # - name: "user_fields"
   #   type: "object"
   #   description: "The values of custom fields in the user's record."
-  #   object-attributes:
+  #   subattributes:
   #     - name: "[TODO]"
   #       type: 
   #       description: 

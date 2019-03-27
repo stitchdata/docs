@@ -31,7 +31,7 @@ attributes:
   - name: "commit"
     type: "object"
     description: "Details about the commit."
-    object-attributes:
+    subattributes:
       - name: "url"
         type: "string"
         description: "The URL to the commit."
@@ -39,7 +39,7 @@ attributes:
       - name: "tree"
         type: "object"
         description: "Details about the commit tree."
-        object-attributes:
+        subattributes:
           - name: "sha"
             type: "string"
             description: "The git commit tree hash."
@@ -51,7 +51,7 @@ attributes:
       - name: "author"
         type: "object"
         description: "Details about the author of the commit."
-        object-attributes:
+        subattributes:
           - name: "date"
             type: "string"
             description: "The date the author committed the change."
@@ -71,7 +71,7 @@ attributes:
       - name: "committer"
         type: "object"
         description: "Details about the user who committed the change."
-        object-attributes:
+        subattributes:
           - name: "date"
             type: "string"
             description: "The date the committer committed the change."
@@ -95,7 +95,7 @@ attributes:
   - name: "parents"
     type: "array"
     description: "Details about the parent commits."
-    array-attributes:
+    subattributes:
       - name: "sha"
         type: "string"
         description: "The git hash of the parent commit."

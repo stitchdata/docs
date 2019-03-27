@@ -31,6 +31,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The review site ID."
+    foreign-key-id: "review-site-id"
 
   - name: "snapshot_start_date"
     type: "integer"

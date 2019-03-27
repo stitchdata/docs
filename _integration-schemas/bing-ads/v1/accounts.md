@@ -59,11 +59,11 @@ attributes:
     type: "array"
     description: "Details about the forward compatibility settings for the account."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
-    array-attributes:
+    subattributes:
       - name: "keyValuePairOfStringString"
         type: "array"
         description: "Key and value pairs for the account's forward compatibility settings."
-        array-attributes:
+        subattributes:
           - name: "key"
             type: "string"
             description: "The name of the setting."

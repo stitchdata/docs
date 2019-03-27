@@ -106,11 +106,11 @@ attributes:
   - name: "links"
     type: "object"
     description: ""
-    object-attributes: 
+    subattributes: 
       - name: "teams"
         type: "array"
         description: "The ID(s) of the team(s) the user is a member of."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the team the user is a member of."
@@ -127,7 +127,7 @@ attributes:
       - name: "external_users"
         type: "array"
         description: "The ID(s) of the external user(s) associated with the user."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the external user associated with the user."

@@ -1,7 +1,6 @@
 ---
 title: Harvest (v2.0)
 permalink: /integrations/saas/harvest
-tags: [saas_integrations]
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
 layout: singer
@@ -28,7 +27,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: http://harveststatus.com/
-icon: /images/integrations/icons/harvest.svg
 
 table-selection: false
 column-selection: false
@@ -75,7 +73,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/harvest
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

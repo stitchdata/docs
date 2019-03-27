@@ -43,7 +43,7 @@ attributes:
   - name: "adLabels"
     type: "array"
     description: "Details about the ad labels applied to the creative."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -95,62 +95,69 @@ attributes:
     description: "Details about the crop specifications (aspect ratios) for images in different ad placements."
     doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
     schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-    array-attributes: &crop-specifications
+    subattributes:
       - name: "100x100"
         type: "array"
         description: "The crop specification for 100x100."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
       - name: "100x72"
         type: "array"
         description: "The crop specification for 100x72."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
       - name: "191x100"
         type: "array"
         description: "The crop specification for 191x100."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
       - name: "400x150"
         type: "array"
         description: "The crop specification for 400x150."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
       - name: "400x500"
         type: "array"
         description: "The crop specification for 400x500."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
       - name: "600x360"
         type: "array"
         description: "The crop specification for 600x360."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
       - name: "90x160"
         type: "array"
         description: "The crop specification for 90x160."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The value of the crop specification."
+        anchor-id: 1
 
   - name: "instagram_actor_id"
     type: "string"
@@ -182,7 +189,7 @@ attributes:
     type: "object"
     description: "Details about the specifications of a creative that are used to create a new unpublished page post."
     doc-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/adcreative.json#L137"
-    object-attributes:
+    subattributes:
       - name: "instagram_actor_id"
         type: "string"
         description: "The Instagram user that the story will be posted to."
@@ -191,9 +198,10 @@ attributes:
 
       - name: "link_data"
         type: "object"
-        description: "Details about the specifications for link or [carousel ads](https://developers.facebook.com/docs/marketing-api/guides/carousel-ads/)."
+        description: |
+          Details about the specifications for link or [carousel ads](https://developers.facebook.com/docs/marketing-api/guides/carousel-ads/){:target="new"}.
         doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data/"
-        object-attributes:
+        subattributes:
           - name: "additional_image_index"
             type: "integer"
             description: "The index (zero based) of the image from the additional images array to use as the ad image for a dynamic product ad."
@@ -208,17 +216,16 @@ attributes:
 
               Stitch will replicate data for the following deeplink types:
 
-              - [`android`](https://developers.facebook.com/docs/graph-api/reference/android-app-link/)
-              - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
-              - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
-              - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
-
-              **Note**: Depending on your data warehouse, a subtable for each deeplink type may be created. For example: For a type of `android`, a table named `adcreative__object_story_spec__link_data__app_link_spec__android` will be created.
-            object-attributes: &native-deeplinks
+              - [`android`](https://developers.facebook.com/docs/graph-api/reference/android-app-link/){:target="new"}
+              - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
+              - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
+              - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
+            anchor-id: 1
+            subattributes:
               - name: "android"
                 type: "array"
                 description: "Details about native deeplinks used on Android."
-                array-attributes:
+                subattributes:
                   - name: "app_name"
                     type: "string"
                     description: "The name of the native app in the Android store."
@@ -234,11 +241,12 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native Android URL that will be navigated to."
+                anchor-id: 1
 
               - name: "ios"
                 type: "array"
                 description: "Details about native deeplinks used on iOS."
-                array-attributes:
+                subattributes:
                   - name: "app_name"
                     type: "string"
                     description: "The name of the native app in the iTunes store."
@@ -251,11 +259,12 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
+                anchor-id: 1
 
               - name: "ipad"
                 type: "array"
                 description: "Details about native deeplinks used on iPads."
-                array-attributes:
+                subattributes:
                   - name: "app_name"
                     type: "string"
                     description: "The name of the native app in the iTunes store."
@@ -268,12 +277,12 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
-                    description: ""
+                anchor-id: 1
 
               - name: "iphone"
                 type: "array"
                 description: "Details about native deeplinks used on iPhones."
-                array-attributes:
+                subattributes:
                   - name: "app_name"
                     type: "string"
                     description: "The name of the native app in the iTunes store."
@@ -286,6 +295,7 @@ attributes:
                   - name: "url"
                     type: "string"
                     description: "The native iOS URL that will be navigated to."
+                anchor-id: 1
 
         # End object_story_spec__link_data__link_spec
 
@@ -307,7 +317,8 @@ attributes:
             type: "object"
             description: "Details about the call to action button."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-call-to-action-value/"
-            object-attributes: &call-to-action
+            anchor-id: 1
+            subattributes: &call-to-action
               - name: "app_destination"
                 type: "string"
                 description: "The app destination type."
@@ -360,7 +371,7 @@ attributes:
             type: "array"
             description: "Details about the link objects required for carousel ads."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-child-attachment/"
-            array-attributes:
+            subattributes:
               - name: "image_hash"
                 type: "string"
                 description: "The image hash of an uploaded image for the attachment."
@@ -374,7 +385,8 @@ attributes:
               - name: "call_to_action"
                 type: "object"
                 description: "Details about the call to associated with the link object."
-                object-attributes: *call-to-action
+                anchor-id: 2
+                subattributes: *call-to-action
 
               # End object_story_spec__link_data__child_attachments__call_to_action
 
@@ -409,7 +421,69 @@ attributes:
                 description: "Details about the crop specifications (aspect ratios) for images in different ad placements for carousel ads."
                 doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
                 schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-                array-attributes: *crop-specifications
+                subattributes:
+                  - name: "100x100"
+                    type: "array"
+                    description: "The crop specification for 100x100."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
+
+                  - name: "100x72"
+                    type: "array"
+                    description: "The crop specification for 100x72."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
+
+                  - name: "191x100"
+                    type: "array"
+                    description: "The crop specification for 191x100."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
+
+                  - name: "400x150"
+                    type: "array"
+                    description: "The crop specification for 400x150."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
+
+                  - name: "400x500"
+                    type: "array"
+                    description: "The crop specification for 400x500."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
+
+                  - name: "600x360"
+                    type: "array"
+                    description: "The crop specification for 600x360."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
+
+                  - name: "90x160"
+                    type: "array"
+                    description: "The crop specification for 90x160."
+                    subattributes:
+                      - name: "value"
+                        type: "integer"
+                        description: "The value of the crop specification."
+                    anchor-id: 2
 
               # End object_story_spec__link_data__child_attachments__image_crops
 
@@ -430,7 +504,69 @@ attributes:
             description: "Details how images should be cropped."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
             schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-            array-attributes: *crop-specifications
+            subattributes:
+              - name: "100x100"
+                type: "array"
+                description: "The crop specification for 100x100."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
+
+              - name: "100x72"
+                type: "array"
+                description: "The crop specification for 100x72."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
+
+              - name: "191x100"
+                type: "array"
+                description: "The crop specification for 191x100."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
+
+              - name: "400x150"
+                type: "array"
+                description: "The crop specification for 400x150."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
+
+              - name: "400x500"
+                type: "array"
+                description: "The crop specification for 400x500."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
+
+              - name: "600x360"
+                type: "array"
+                description: "The crop specification for 600x360."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
+
+              - name: "90x160"
+                type: "array"
+                description: "The crop specification for 90x160."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 3
 
           # End object_story_spec__link_data__image_crops
 
@@ -480,7 +616,7 @@ attributes:
           - name: "retailer_item_ids"
             type: "array"
             description: "The product IDs provided by the advertiser for collections."
-            array-attributes:
+            subattributes:
               - name: "value"
                 type: "string"
                 description: "The ID of the product."
@@ -505,7 +641,7 @@ attributes:
         type: "object"
         description: "Details about the spec for a photo page post."
         doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-photo-data/"
-        object-attributes:
+        subattributes:
           - name: "branded_content_sponsor_page_id"
             type: "string"
             description: "The ID of the branded content sponsor page ID."
@@ -536,8 +672,8 @@ attributes:
 
       - name: "template_data"
         type: "object"
-        description: ""
-        object-attributes:
+        description: "Details about the spec for a template."
+        subattributes:
           - name: "additional_image_index"
             type: "integer"
             description: "The index (zero based) of the image from the additional images array to use as the ad image for a dynamic product ad."
@@ -551,13 +687,87 @@ attributes:
 
               Stitch will replicate data for the following deeplink types:
 
-              - [`android`](https://developers.facebook.com/docs/graph-api/reference/android-app-link/)
-              - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
-              - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
-              - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/)
+              - [`android`](https://developers.facebook.com/docs/graph-api/reference/android-app-link/){:target="new"}
+              - [`ios`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
+              - [`ipad`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
+              - [`iphone`](https://developers.facebook.com/docs/graph-api/reference/ios-app-link/){:target="new"}
 
-              **Note**: Depending on your data warehouse, a subtable for each deeplink type may be created. For example: For a type of `android`, a table named `adcreative__object_story_spec__template_data__app_link_spec__android` will be created.
-            object-attributes: *native-deeplinks
+            anchor-id: 2
+            subattributes:
+              - name: "android"
+                type: "array"
+                description: "Details about native deeplinks used on Android."
+                subattributes:
+                  - name: "app_name"
+                    type: "string"
+                    description: "The name of the native app in the Android store."
+
+                  - name: "class"
+                    type: "string"
+                    description: "The full classified class name of the app for intent generation."
+
+                  - name: "package"
+                    type: "string"
+                    description: "The fully classified package name of the app for intent generation."
+
+                  - name: "url"
+                    type: "string"
+                    description: "The native Android URL that will be navigated to."
+                anchor-id: 3
+
+              - name: "ios"
+                type: "array"
+                description: "Details about native deeplinks used on iOS."
+                subattributes:
+                  - name: "app_name"
+                    type: "string"
+                    description: "The name of the native app in the iTunes store."
+
+                  - name: "app_store_id"
+                    type: "string"
+                    description: "The ID of the native app in the iTunes store."
+                    foreign-key-id: "app-store-id"
+
+                  - name: "url"
+                    type: "string"
+                    description: "The native iOS URL that will be navigated to."
+                anchor-id: 3
+
+              - name: "ipad"
+                type: "array"
+                description: "Details about native deeplinks used on iPads."
+                subattributes:
+                  - name: "app_name"
+                    type: "string"
+                    description: "The name of the native app in the iTunes store."
+
+                  - name: "app_store_id"
+                    type: "string"
+                    description: "The ID of the native app in the iTunes store."
+                    foreign-key-id: "app-store-id"
+
+                  - name: "url"
+                    type: "string"
+                    description: "The native iOS URL that will be navigated to."
+                anchor-id: 3
+
+              - name: "iphone"
+                type: "array"
+                description: "Details about native deeplinks used on iPhones."
+                subattributes:
+                  - name: "app_name"
+                    type: "string"
+                    description: "The name of the native app in the iTunes store."
+
+                  - name: "app_store_id"
+                    type: "string"
+                    description: "The ID of the native app in the iTunes store."
+                    foreign-key-id: "app-store-id"
+
+                  - name: "url"
+                    type: "string"
+                    description: "The native iOS URL that will be navigated to."
+                anchor-id: 3
 
         # End object_story_spec__template_data__app_link_spec
 
@@ -583,7 +793,8 @@ attributes:
             type: "object"
             description: "Details about the call to associated with the link object."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-call-to-action-value/"
-            object-attributes: *call-to-action
+            anchor-id: 3
+            subattributes: *call-to-action
 
         # End object_story_spec__template_data__call_to_action
 
@@ -597,7 +808,7 @@ attributes:
             type: "array"
             description: "Details about the link objects required for carousel ads."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ad-creative-link-data-child-attachment/"
-            array-attributes:
+            subattributes:
               - name: "image_hash"
                 type: "string"
                 description: "The image hash of an uploaded image for the attachment."
@@ -611,7 +822,8 @@ attributes:
               - name: "call_to_action"
                 type: "object"
                 description: "Details about the call to associated with the link object."
-                object-attributes: *call-to-action
+                anchor-id: 4
+                subattributes: *call-to-action
 
             # End object_story_spec__template_data__child_attachments__call_to_action
 
@@ -634,7 +846,69 @@ attributes:
             description: "Details about the crop specifications (aspect ratios) for images in different ad placements."
             doc-link: "https://developers.facebook.com/docs/marketing-api/reference/ads-image-crops/"
             schema-link: "https://github.com/singer-io/tap-facebook/blob/master/tap_facebook/schemas/shared/ads_image_crops.json"
-            array-attributes: *crop-specifications
+            subattributes: 
+              - name: "100x100"
+                type: "array"
+                description: "The crop specification for 100x100."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
+
+              - name: "100x72"
+                type: "array"
+                description: "The crop specification for 100x72."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
+
+              - name: "191x100"
+                type: "array"
+                description: "The crop specification for 191x100."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
+
+              - name: "400x150"
+                type: "array"
+                description: "The crop specification for 400x150."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
+
+              - name: "400x500"
+                type: "array"
+                description: "The crop specification for 400x500."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
+
+              - name: "600x360"
+                type: "array"
+                description: "The crop specification for 600x360."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
+
+              - name: "90x160"
+                type: "array"
+                description: "The crop specification for 90x160."
+                subattributes:
+                  - name: "value"
+                    type: "integer"
+                    description: "The value of the crop specification."
+                anchor-id: 4
 
         # End object_story_spec__template_data__child_attachments__image_crops
 
@@ -680,7 +954,7 @@ attributes:
           - name: "retailer_item_ids"
             type: "array"
             description: "The product IDs provided by the advertiser for collections."
-            array-attributes:
+            subattributes:
               - name: "value"
                 type: "string"
                 description: "The ID of the product."
@@ -699,7 +973,7 @@ attributes:
       - name: "text_data"
         type: "object"
         description: "Details about the text page post used for the ad."
-        object-attributes:
+        subattributes:
           - name: "message"
             type: "string"
             description: "The text of the page post."
@@ -711,7 +985,7 @@ attributes:
       - name: "video_data"
         type: "object"
         description: "Details about the specifications for a video ad."
-        object-attributes:
+        subattributes:
           - name: "branded_content_shared_to_sponsor_status"
             type: "string"
             description: "The branded content shared to sponsor option."
@@ -729,7 +1003,8 @@ attributes:
           - name: "call_to_action"
             type: "object"
             description: "Details about the call to associated with the link object."
-            object-attributes: *call-to-action
+            anchor-id: 5
+            subattributes: *call-to-action
 
           - name: "force_single_link"
             type: "boolean"
@@ -769,7 +1044,7 @@ attributes:
           - name: "retailer_item_ids"
             type: "array"
             description: "The product IDs provided by the advertiser for collections."
-            array-attributes:
+            subattributes:
               - name: "value"
                 type: "string"
                 description: "The ID of the product."
@@ -779,7 +1054,7 @@ attributes:
           - name: "targeting"
             type: "array"
             description: "The post gating for the video."
-            array-attributes:
+            subattributes:
 
           - name: "video_id"
             type: "string"
@@ -827,14 +1102,14 @@ attributes:
   - name: "template_url_spec"
     type: "object"
     description: "Details about the template link specifications used to create ad creatives."
-    object-attributes: 
+    subattributes: 
 
     # Start template_url_spec__android
 
       - name: "android"
         type: "object"
-        description: 
-        object-attributes:
+        description: "Details about template link specifications used on Android."
+        subattributes:
           - name: "app_name"
             type: "string"
             description: "The name of the Android app."
@@ -846,6 +1121,7 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the Android app."
+        anchor-id: 2
 
     # End template_url_spec__android
 
@@ -853,11 +1129,12 @@ attributes:
 
       - name: "config"
         type: "object"
-        description:
-        object-attributes:
+        description: 
+        subattributes:
           - name: "app_id"
             type: "string"
             description: "The ID of the Facebook app where the deeplink information is stored."
+        anchor-id: 2
 
     # End template_url_spec__config
 
@@ -865,8 +1142,8 @@ attributes:
 
       - name: "ios"
         type: "object"
-        description:
-        object-attributes:
+        description: "Details about template link specifications used on iOS."
+        subattributes:
           - name: "app_name"
             type: "string"
             description: "The display name of the iOS app."
@@ -879,6 +1156,7 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the iOS app."
+        anchor-id: 2
 
     # End template_url_spec__ios
 
@@ -886,8 +1164,8 @@ attributes:
 
       - name: "ipad"
         type: "object"
-        description:
-        object-attributes:
+        description: "Details about template link specifications used on iPad."
+        subattributes:
           - name: "app_name"
             type: "string"
             description: "The display name of the iOS app."
@@ -900,6 +1178,7 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the iOS app."
+        anchor-id: 2
 
     # End template_url_spec__ipad
 
@@ -907,8 +1186,8 @@ attributes:
 
       - name: "iphone"
         type: "object"
-        description:
-        object-attributes:
+        description: "Details about template link specifications used on iPhone."
+        subattributes:
           - name: "app_name"
             type: "string"
             description: "The display name of the iOS app."
@@ -921,6 +1200,7 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the iOS app."
+        anchor-id: 2
 
     # End template_url_spec__iphone
 
@@ -928,8 +1208,8 @@ attributes:
 
       - name: "web"
         type: "object"
-        description:
-        object-attributes:
+        description: "Details about template link specifications used on the web."
+        subattributes:
           - name: "should_fallback"
             type: "string"
             description: "Indicates if the web URL should be used as a fallback. If `false`, the content is only meant to be viewed on a native app."
@@ -937,6 +1217,7 @@ attributes:
           - name: "url"
             type: "string"
             description: "The web URL."
+        anchor-id: 2
 
     # End template_url_spec__web
 
@@ -945,7 +1226,7 @@ attributes:
       - name: "windows_phone"
         type: "object"
         description:
-        object-attributes:
+        subattributes:
           - name: "app_id"
             type: "string"
             description: "The app ID as a GUID for the app store."
@@ -958,6 +1239,7 @@ attributes:
           - name: "url"
             type: "string"
             description: "The custom URL scheme for the Windows Phone app."
+        anchor-id: 2
 
     # End template_url_spec__windows_phone
 

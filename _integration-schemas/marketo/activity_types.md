@@ -6,7 +6,7 @@ name: "activity_types"
 doc-link: "http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Activities/getAllActivityTypesUsingGET"
 singer-schema: https://github.com/singer-io/tap-marketo/blob/master/tap_marketo/schemas/activity_types.json
 description: |
-  The `activity_types` table contains metadata about the activity types - form fill, web page visit, lead creation, and so on - available in {{ integration.display_name }}.
+  The `{{ table.name }}` table contains metadata about the activity types - form fill, web page visit, lead creation, and so on - available in {{ integration.display_name }}.
 
 # notes: |
 #   #### Filter Deleted Leads
@@ -26,6 +26,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The activity type ID."
+    foreign-key-id: "activity-type-id"
 
   - name: "name"
     type: "string"
@@ -38,7 +39,7 @@ attributes:
   - name: "primaryAttribute"
     type: "object"
     description: "Primary attributes of the activity type."
-    object-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the primary attribute."
@@ -50,7 +51,7 @@ attributes:
   - name: "attributes"
     type: "array"
     description: "Secondary attributes of the activity type."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the secondary attribute."

@@ -50,7 +50,7 @@ attributes:
     type: "object"
     description: "The item's purchase details."
     doc-link: https://developer.xero.com/documentation/api/items#PurchasesSales
-    object-attributes:
+    subattributes:
       - name: "TaxType"
         type: "string"
         description: "The tax type used for the item in purchase transactions."
@@ -71,7 +71,7 @@ attributes:
     type: "object"
     description: "The item's sales details."
     doc-link: 
-    object-attributes:
+    subattributes:
       - name: "UnitPrice"
         type: "number"
         description: "The unit price of the item in sales transactions."

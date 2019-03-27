@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The list ID."
+    foreign-key-id: "list-id"
 
   - name: "EmailAddress"
     type: "string"
@@ -42,7 +43,7 @@ attributes:
   - name: "CustomFields"
     type: "object"
     description: "Custom fields about the subscriber."
-    object-attributes: 
+    subattributes: 
       - name: "Key"
         type: "string"
         description: "The key name of the custom field."

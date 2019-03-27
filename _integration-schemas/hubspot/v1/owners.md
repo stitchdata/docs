@@ -64,7 +64,7 @@ attributes:
   - name: "remoteList"
     type: "array"
     description: "Details about the remote list associated with the owner."
-    array-attributes:
+    subattributes:
       - name: "portalId"
         type: "integer"
         description: "The ID of the portal the owner is associated with."

@@ -31,6 +31,8 @@ foreign-keys:
     table: "adsets"
     all-foreign-keys:
       - table: "ads"
+      - table: "adsets"
+        join-on: "id"
       - table: "ads_insights"
       - table: "ads_insights"
       - table: "ads_insights_age_and_gender"
@@ -53,6 +55,9 @@ foreign-keys:
     table: "ads"
     all-foreign-keys:
       - table: "ads"
+        join-on: "id"
+      - table: "ads"
+        subtable: "targeting"
         join-on: "id"
       - table: "ads_insights"
       - table: "ads_insights"

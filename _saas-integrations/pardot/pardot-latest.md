@@ -1,7 +1,6 @@
 ---
 title: Pardot
 permalink: /integrations/saas/pardot
-tags: [saas_integrations]
 keywords: pardot, pardot data, etl pardot, pardot etl, pardot schema
 summary: "Connection instructions and schema details for Stitch's Pardot integration."
 format: ## controls formatting options in template
@@ -15,9 +14,8 @@ format: ## controls formatting options in template
 
 name: "pardot"
 display_name: "Pardot"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://trust.pardot.com/"
 
 # -------------------------- #
@@ -30,7 +28,6 @@ certified: true
 historical: "28 days"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/pardot.svg
 
 table-selection: false
 column-selection: false

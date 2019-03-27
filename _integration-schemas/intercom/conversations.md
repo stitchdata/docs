@@ -1,16 +1,16 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "conversations"
 doc-link: https://developers.intercom.com/reference#conversations
 description: |
-  The `conversations` table contains info about user conversations, or conversations initiated by your end-users.
+  The `{{ table.name }}` table contains info about user conversations, or conversations initiated by your end-users.
 
   #### Conversation Parts
   To reconstruct an entire conversation, use the `conversation_parts` associated with the conversation. These are the individual elements - actions, messages, and so on - that make up a conversation.
 
-  If your warehouse doesn't natively support nested data structures, a subtable named `conversations__conversation_parts` will be created. More info on this table can be found below.
+  If your destination doesn't natively support nested data structures, a subtable named `conversations__conversation_parts` will be created. More info on this table can be found below.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -37,7 +37,7 @@ attributes:
     description: |
       An epoch timestamp that indicates the last time a customer responded to an admin, or the time a customer started waiting for a response.
 
-      **Note**: According to [Intercom's documentation](https://developers.intercom.com/reference#conversation-model), this field may sometimes contain a value that is 2000 years in the future. This can occur when the last person to respond was an admin or when the conversation was closed aver a customer response.
+      **Note**: According to [{{ integration.display_name }}'s documentation](https://developers.intercom.com/reference#conversation-model), this field may sometimes contain a value that is 2000 years in the future. This can occur when the last person to respond was an admin or when the conversation was closed aver a customer response.
 
   - name: "snoozed_until"
     type: "date-time"
@@ -56,7 +56,7 @@ attributes:
     type: "object"
     description: "Details about the message that started the conversation."
     doc-link: https://developers.intercom.com/reference#section-message-object
-    object-attributes:
+    subattributes:
       - name: "subject"
         type: "string"
         description: "The conversation message subject, or the subject of the message that started the conversation."
@@ -68,7 +68,7 @@ attributes:
       - name: "author"
         type: "object"
         description: "Details about the user that created the conversation message."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: |
@@ -89,7 +89,7 @@ attributes:
       - name: "attachments"
         type: "array"
         description: "Details about the attachments, if any, that are a part of the conversation message."
-        array-attributes:
+        subattributes:
           - name: "url"
             type: "string"
             description: "The attachment URL."
@@ -125,7 +125,7 @@ attributes:
   - name: "conversation_parts"
     type: "array"
     description: "Details about the individual elements that make up the conversation."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -162,7 +162,7 @@ attributes:
       - name: "author"
         type: "object"
         description: "Details about the admin or user that created the conversation part."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The ID of the admin or user that created the conversation part."
@@ -175,7 +175,7 @@ attributes:
       - name: "attachments"
         type: "array"
         description: "Details about the attachments, if any, that are a part of the conversation part."
-        array-attributes:
+        subattributes:
           - name: "url"
             type: "string"
             description: "The attachment URL."
@@ -211,7 +211,7 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user or lead involved in the conversation."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the user or lead involved in the conversation."
@@ -228,7 +228,7 @@ attributes:
   - name: "assignee"
     type: "object"
     description: "Details about the admin assigned to the conversation."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the admin that the conversation is assigned to."
@@ -245,7 +245,7 @@ attributes:
   - name: "customers"
     type: "array"
     description: "Details about the customers (users or leads) involved in the conversation."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -267,20 +267,24 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the conversation."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        primary-key: true
-        description: "The tag ID."
-        foreign-key-id: "tag-id"
+    subattributes:
+      - name: "tags"
+        type: "array"
+        description: "The tags associated with the conversation."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The tag ID."
+            foreign-key-id: "tag-id"
 
-      - name: "name"
-        type: "string"
-        description: "The name of the tag."
+          - name: "name"
+            type: "string"
+            description: "The name of the tag."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `tag`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `tag`."
 
   - name: "type"
     type: "string"

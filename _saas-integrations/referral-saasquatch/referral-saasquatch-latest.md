@@ -1,7 +1,6 @@
 ---
 title: Referral SaaSquatch (v1.0)
 permalink: /integrations/saas/referral-saasquatch
-tags: [saas_integrations]
 keywords: referral saasquatch, integration, schema, etl referral saasquatch, referral saasquatch etl, referral saasquatch schema
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "referral-saasquatch"
 display_name: "Referral SaaSquatch"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-referral-saasquatch
 
 # this-version: "1.0"
@@ -24,13 +22,12 @@ repo-url: https://github.com/singer-io/tap-referral-saasquatch
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://twitter.com/getSaasquatch
-icon: /images/integrations/icons/referral-saasquatch.svg
 
 table-selection: false
 column-selection: false
@@ -67,7 +64,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/referral-saasquatch
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

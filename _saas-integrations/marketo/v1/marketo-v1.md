@@ -2,7 +2,6 @@
 title: Marketo (v1.0)
 permalink: /integrations/saas/marketo/v1
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
-tags: [saas_integrations]
 summary: "Connection instructions and schema details for Stitch's Marketo integration."
 layout: singer
 input: false
@@ -13,9 +12,8 @@ input: false
 
 name: "marketo"
 display_name: "Marketo"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-marketo
 
 this-version: "1.0"
@@ -30,9 +28,7 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
-
 status-url: http://status.marketo.com/
-icon: /images/integrations/icons/marketo.svg
 
 table-selection: true
 column-selection: false
@@ -153,7 +149,6 @@ replication-sections:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/marketo/v1
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

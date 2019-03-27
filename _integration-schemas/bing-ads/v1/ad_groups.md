@@ -53,11 +53,11 @@ attributes:
     type: "array"
     description: "Details about the forward compatibility settings for the ad group."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
-    array-attributes:
+    subattributes:
       - name: "keyValuePairOfStringString"
         type: "array"
         description: "Key and value pairs for the ad group's forward compatibility settings."
-        array-attributes:
+        subattributes:
           - name: "key"
             type: "string"
             description: "The name of the setting."
@@ -111,7 +111,7 @@ attributes:
   - name: "settings"
     type: "array"
     description: "Details about the settings applied to the ad group."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: "The type of setting. For example: `ShoppingSetting`"

@@ -1,11 +1,11 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "tags"
 doc-link: https://developers.intercom.io/docs/tags
 description: |
-  The `tags` table contains info about the tags in your Intercom account.
+  The `{{ table.name }}` table contains info about the tags in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 api-method:

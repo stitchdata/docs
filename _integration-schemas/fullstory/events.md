@@ -6,9 +6,9 @@ name: "events"
 doc-link: https://help.fullstory.com/technical-questions/data-export#data-export-contents
 singer-schema: https://github.com/singer-io/tap-fullstory/blob/master/tap_fullstory/schemas/events.json
 description: |
-  The `events` table contains raw data about the events that occurred on your site, which are recorded using the FullStory JavaScript library.
+  The `events` table contains raw data about the events that occurred on your site, which are recorded using the {{ integration.display_name }} JavaScript library.
 
-replication-method: "Append-Only Incremental"
+replication-method: "Append-Only (Key-based Incremental)"
 
 attributes:
   - name: "{{ system-column.primary-key }}"

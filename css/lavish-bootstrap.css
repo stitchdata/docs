@@ -4949,9 +4949,10 @@ body.modal-open,
   z-index: 1030;
   display: block;
   visibility: visible;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: 0;
+  word-break: normal;
   filter: alpha(opacity=0);
 }
 .tooltip.in {
@@ -4975,13 +4976,13 @@ body.modal-open,
   padding: 0 5px;
 }
 .tooltip-inner {
-  max-width: 200px;
-  padding: 3px 8px;
+  max-width: 250px;
+  padding: 20px;
   color: #ffffff;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   background-color: #000000;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 .tooltip-arrow {
   position: absolute;
