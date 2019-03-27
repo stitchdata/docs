@@ -31,43 +31,45 @@
 		{% for attribute in include.table %}
 			<tr>
 				<td>
-					<p>
-						<strong>
-							{% if attribute.doc-link %}
-                            	<a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a>
-                        	{% else %}
-                            	{{ attribute.name | flatify }}
-                        	{% endif %}
-	                    </strong>
-	                    <!-- ATTRIBUTE IS A PRIMARY KEY? -->
-	                    {% if attribute.primary-key == true %}
-                            {{ ui-icon.primary-key | flatify }}
-                        {% endif %}
+					{% if attribute.name %}
+						<p>
+							<strong>
+								{% if attribute.doc-link %}
+	                            	<a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a>
+	                        	{% else %}
+	                            	{{ attribute.name | flatify }}
+	                        	{% endif %}
+		                    </strong>
+		                    <!-- ATTRIBUTE IS A PRIMARY KEY? -->
+		                    {% if attribute.primary-key == true %}
+	                            {{ ui-icon.primary-key | flatify }}
+	                        {% endif %}
 
-                    <!-- ATTRIBUTE IS A REPLICATION KEY? -->
-                        {% if attribute.replication-key == true %}
-                            {{ ui-icon.replication-key | flatify }}
-                        {% endif %}
+	                    <!-- ATTRIBUTE IS A REPLICATION KEY? -->
+	                        {% if attribute.replication-key == true %}
+	                            {{ ui-icon.replication-key | flatify }}
+	                        {% endif %}
 
-                        {% if attribute.subattributes %}
-                        	{% case attribute.type %}
-								{% when 'object' %}
-									{% capture nested-data-note %}
-										attributes in this object will be flattened into the table.
-									{% endcapture %}
+	                        {% if attribute.subattributes %}
+	                        	{% case attribute.type %}
+									{% when 'object' %}
+										{% capture nested-data-note %}
+											attributes in this object will be flattened into the table.
+										{% endcapture %}
 
-								{% when 'array' %}
-									{% capture nested-data-note %}
-										attributes will be denested into a subtable.
-									{% endcapture %}
-							{% endcase %}
+									{% when 'array' %}
+										{% capture nested-data-note %}
+											attributes will be denested into a subtable.
+										{% endcapture %}
+								{% endcase %}
 
-							{% capture nested-data-tooltip %}This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
+								{% capture nested-data-tooltip %}This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
 
-							{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
-                        {% endif %}
-                        <br>
-	                    {{ attribute.type | upcase }}
+								{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+	                        {% endif %}
+	                        <br>
+		                    {{ attribute.type | upcase }}
+	                    {% endif %}
 	                
 				    	{{ attribute.description | flatify | markdownify }}
 
