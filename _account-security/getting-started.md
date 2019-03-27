@@ -137,7 +137,7 @@ The [**Replication Frequency**]({{ link.replication.rep-frequency | prepend: sit
 
 5. Click {{ app.buttons.save-int-settings }}.
 
-Keep in mind that the more often an integration is set to replicate, the higher your row count will be. This may lead to overages as Stitch charges by the number of rows replicated.
+Keep in mind that the more often an integration is set to replicate, the higher your overall row usage.
 
 #### Replicating data
 
@@ -165,7 +165,7 @@ After you set a **table** to replicate, a new window will display. This is the {
 {% capture rep-methods-warning %}
 Before you set Replication Methods and Keys for your own database integration tables, we strongly recommend checking out the [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) and [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) articles. This guide will only give you a high-level view of both topics.
 
-Replication Methods and Keys are the most important settings when it comes to ensuring Stitch replicates your data accurately. Incorrectly defining them can lead to data discrepancies, row overages, and increase the potential for latency.
+Replication Methods and Keys are the most important settings when it comes to ensuring Stitch replicates your data accurately. Incorrectly defining them can lead to data discrepancies, increased row usage, and increase the potential for latency.
 {% endcapture %}
 
 {% include important.html first-line="**Avoid discrepancies: Learn about Replication Methods and Keys**" content=rep-methods-warning %}
@@ -240,7 +240,7 @@ While you wait for the initial sync to complete, we recommend:
 
 ### Learning About Stitch billing
 
-Our pricing is built on the number of replicated rows Stitch loads into your data warehouse. But what does "replicated row" mean? How can you keep your row count down and prevent overages? [Check out the Understanding Your Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) to learn more about Stitch billing and how to reduce your usage.
+Our pricing is built on the number of replicated rows Stitch loads into your data warehouse. But what does "replicated row" mean? How can you keep your row count low? [Check out the Understanding Your Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) to learn more about Stitch billing and how to reduce your usage.
 
 ### Getting to know your destination
 

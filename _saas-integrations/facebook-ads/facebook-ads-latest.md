@@ -131,7 +131,7 @@ replication-sections:
         content: |
           Due to the attribution window, a high Replication Frequency may not be necessary. Because Stitch will replicate data from the past `N` days during every replication job, recent data will be re-replicated and count towards your row quota.
 
-          To help prevent overages or unnecessary re-replication, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
+          To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
 # -------------------------- #
 #        Table Schemas       #
 # -------------------------- #

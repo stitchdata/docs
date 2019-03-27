@@ -27,7 +27,8 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Premium"
+tier: "Paid"
+icon: /images/integrations/icons/xero.svg
 
 table-selection: true
 column-selection: true
