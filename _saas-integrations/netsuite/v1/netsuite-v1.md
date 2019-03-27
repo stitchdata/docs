@@ -30,7 +30,7 @@ singer: true
 tap-name: "NetSuite"
 repo-url: https://github.com/singer-io/tap-netsuite
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #

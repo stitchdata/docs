@@ -1,35 +1,169 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+version: "1.0"
 
-name: "netsuite_contact"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/contact.html
+name: "Contact"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Contact.json"
 description: |
-  The `{{ table.name }}` table contains info about contacts.
+  The `{{ table.name }}` table contains info about 
 
-replication-method: "Key-based Incremental"
-primary-key: "internalId"
-replication-key: "lastModifiedDate"
+replication-method: ""
 
-abstract: false
-
-permissions:
-  - name: "Contacts"
-    level: "View"
-    location: "Lists"
+api-method:
+    name: ""
+    doc-link: ""
 
 attributes:
+  - name: "addressbookList"
+    type: "anything"
+    description: ""
+
+  - name: "altEmail"
+    type: "string"
+    description: ""
+
+  - name: "assistant"
+    type: "anything"
+    description: ""
+
+  - name: "assistantPhone"
+    type: "string"
+    description: ""
+
+  - name: "billPay"
+    type: "boolean, string"
+    description: ""
+
+  - name: "categoryList"
+    type: "anything"
+    description: ""
+
+  - name: "comments"
+    type: "string"
+    description: ""
+
+  - name: "company"
+    type: "anything"
+    description: ""
+
+  - name: "contactSource"
+    type: "anything"
+    description: ""
+
+  - name: "customFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "customForm"
+    type: "anything"
+    description: ""
+
+  - name: "dateCreated"
+    type: "date-time"
+    description: ""
+
+  - name: "defaultAddress"
+    type: "string"
+    description: ""
+
+  - name: "email"
+    type: "string"
+    description: ""
+
+  - name: "entityId"
+    type: "string"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "fax"
+    type: "string"
+    description: ""
+
+  - name: "firstName"
+    type: "string"
+    description: ""
+
+  - name: "globalSubscriptionStatus"
+    type: "anything"
+    description: ""
+
+  - name: "homePhone"
+    type: "string"
+    description: ""
+
+  - name: "image"
+    type: "anything"
+    description: ""
+
   - name: "internalId"
-    type: "integer"
-    primary-key: true
-    description: "The contact ID."
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "isPrivate"
+    type: "boolean, string"
+    description: ""
 
   - name: "lastModifiedDate"
     type: "date-time"
-    replication-key: true
-    description: "The time the contact was last updated."
+    description: ""
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "lastName"
+    type: "string"
+    description: ""
+
+  - name: "middleName"
+    type: "string"
+    description: ""
+
+  - name: "mobilePhone"
+    type: "string"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "officePhone"
+    type: "string"
+    description: ""
+
+  - name: "phone"
+    type: "string"
+    description: ""
+
+  - name: "phoneticName"
+    type: "string"
+    description: ""
+
+  - name: "salutation"
+    type: "string"
+    description: ""
+
+  - name: "subscriptionsList"
+    type: "anything"
+    description: ""
+
+  - name: "subsidiary"
+    type: "anything"
+    description: ""
+
+  - name: "supervisor"
+    type: "anything"
+    description: ""
+
+  - name: "supervisorPhone"
+    type: "string"
+    description: ""
+
+  - name: "title"
+    type: "string"
+    description: ""
 ---

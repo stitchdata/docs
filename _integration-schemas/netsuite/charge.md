@@ -1,28 +1,141 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+# version: "1.0"
 
-name: "netsuite_charge"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/charge.html
+name: "Charge"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Charge.json"
 description: |
-  The `{{ table.name }}` table contains info about charges.
+  The `{{ table.name }}` table contains info about 
 
-replication-method: "Full Table"
-primary-key: "internalId"
-abstract: false
+replication-method: ""
 
-permissions:
-  - name: "Statement Charge"
-    level: "View"
-    location: "Setup"
+api-method:
+    name: ""
+    doc-link: ""
 
 attributes:
-  - name: "internalId"
-    type: "integer"
-    primary-key: true
-    description: "The charge ID."
+  - name: "_class"
+    type: "anything"
+    description: ""
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "amount"
+    type: "number, string"
+    description: ""
+
+  - name: "billTo"
+    type: "anything"
+    description: ""
+
+  - name: "billingAccount"
+    type: "anything"
+    description: ""
+
+  - name: "billingItem"
+    type: "anything"
+    description: ""
+
+  - name: "chargeDate"
+    type: "date-time"
+    description: ""
+
+  - name: "chargeType"
+    type: "anything"
+    description: ""
+
+  - name: "createdDate"
+    type: "date-time"
+    description: ""
+
+  - name: "currency"
+    type: "anything"
+    description: ""
+
+  - name: "customForm"
+    type: "anything"
+    description: ""
+
+  - name: "department"
+    type: "anything"
+    description: ""
+
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "internalId"
+    type: "string"
+    description: ""
+
+  - name: "invoice"
+    type: "anything"
+    description: ""
+
+  - name: "invoiceLine"
+    type: "anything"
+    description: ""
+
+  - name: "location"
+    type: "anything"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "projectTask"
+    type: "anything"
+    description: ""
+
+  - name: "quantity"
+    type: "number, string"
+    description: ""
+
+  - name: "rate"
+    type: "string"
+    description: ""
+
+  - name: "rule"
+    type: "anything"
+    description: ""
+
+  - name: "runId"
+    type: "string"
+    description: ""
+
+  - name: "salesOrder"
+    type: "anything"
+    description: ""
+
+  - name: "salesOrderLine"
+    type: "anything"
+    description: ""
+
+  - name: "stage"
+    type: "anything"
+    description: ""
+
+  - name: "subscriptionLine"
+    type: "anything"
+    description: ""
+
+  - name: "timeRecord"
+    type: "anything"
+    description: ""
+
+  - name: "transaction"
+    type: "anything"
+    description: ""
+
+  - name: "transactionLine"
+    type: "anything"
+    description: ""
+
+  - name: "use"
+    type: "anything"
+    description: ""
 ---

@@ -1,30 +1,40 @@
 ---
 tap: "netsuite"
-version: "1.x"
+# version: "1.0"
+
 name: "CurrencyRate"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CurrencyRate.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about 
+
 replication-method: ""
+
 api-method:
     name: ""
     doc-link: ""
+
 attributes:
   - name: "baseCurrency"
     type: "anything"
     description: ""
+
   - name: "effectiveDate"
     type: "date-time"
     description: ""
+
   - name: "exchangeRate"
     type: "number, string"
     description: ""
+
   - name: "internalId"
     type: "string"
     description: ""
+
   - name: "nullFieldList"
     type: "anything"
     description: ""
+
   - name: "transactionCurrency"
     type: "anything"
     description: ""

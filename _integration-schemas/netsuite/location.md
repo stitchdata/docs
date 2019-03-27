@@ -1,28 +1,145 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+version: "1.0"
 
-name: "netsuite_location"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/location.html
+name: "Location"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Location.json"
 description: |
-  The `{{ table.name }}` table contains info about locations.
+  The `{{ table.name }}` table contains info about 
 
-replication-method: "Full Table"
-abstract: false
+replication-method: ""
 
-permissions:
-  - name: "Locations"
-    level: "View"
-    location: "Lists"
+api-method:
+    name: ""
+    doc-link: ""
 
 attributes:
-  - name: "internalId"
-    type: "integer"
-    primary-key: true
-    description: |
-      The {{ table.name | remove: "netsuite_" | replace: "_"," " }} ID.
+  - name: "allowStorePickup"
+    type: "boolean, string"
+    description: ""
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "autoAssignmentRegionSetting"
+    type: "anything"
+    description: ""
+
+  - name: "bufferStock"
+    type: "integer, string"
+    description: ""
+
+  - name: "businessHoursList"
+    type: "anything"
+    description: ""
+
+  - name: "classTranslationList"
+    type: "anything"
+    description: ""
+
+  - name: "customFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "dailyShippingCapacity"
+    type: "integer, string"
+    description: ""
+
+  - name: "excludeLocationRegionsList"
+    type: "anything"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "geolocationMethod"
+    type: "anything"
+    description: ""
+
+  - name: "includeChildren"
+    type: "boolean, string"
+    description: ""
+
+  - name: "includeLocationRegionsList"
+    type: "anything"
+    description: ""
+
+  - name: "internalId"
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "latitude"
+    type: "number, string"
+    description: ""
+
+  - name: "locationType"
+    type: "anything"
+    description: ""
+
+  - name: "logo"
+    type: "anything"
+    description: ""
+
+  - name: "longitude"
+    type: "number, string"
+    description: ""
+
+  - name: "mainAddress"
+    type: "anything"
+    description: ""
+
+  - name: "makeInventoryAvailable"
+    type: "boolean, string"
+    description: ""
+
+  - name: "makeInventoryAvailableStore"
+    type: "boolean, string"
+    description: ""
+
+  - name: "name"
+    type: "string"
+    description: ""
+
+  - name: "nextPickupCutOffTime"
+    type: "date-time"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "parent"
+    type: "anything"
+    description: ""
+
+  - name: "returnAddress"
+    type: "anything"
+    description: ""
+
+  - name: "storePickupBufferStock"
+    type: "number, string"
+    description: ""
+
+  - name: "subsidiaryList"
+    type: "anything"
+    description: ""
+
+  - name: "timeZone"
+    type: "anything"
+    description: ""
+
+  - name: "totalShippingCapacity"
+    type: "integer, string"
+    description: ""
+
+  - name: "tranPrefix"
+    type: "string"
+    description: ""
+
+  - name: "useBins"
+    type: "boolean, string"
+    description: ""
 ---

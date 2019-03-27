@@ -1,28 +1,61 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+# version: "1.0"
 
-name: "netsuite_nexus"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/nexus.html
+name: "Nexus"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Nexus.json"
 description: |
-  The `{{ table.name }}` table contains info about nexus tax items.
+  The `{{ table.name }}` table contains info about 
 
-replication-method: "Full Table"
-abstract: false
+replication-method: ""
 
-permissions:
-  - name: "Tax Items"
-    level: "View"
-    location: "Lists"
+api-method:
+    name: ""
+    doc-link: ""
 
 attributes:
-  - name: "internalId"
-    type: "integer"
-    primary-key: true
-    description: |
-      The record ID.
+  - name: "country"
+    type: "anything"
+    description: ""
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "internalId"
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "parentNexus"
+    type: "anything"
+    description: ""
+
+  - name: "state"
+    type: "anything"
+    description: ""
+
+  - name: "taxAgency"
+    type: "anything"
+    description: ""
+
+  - name: "taxAgencyPst"
+    type: "anything"
+    description: ""
+
+  - name: "taxCode"
+    type: "anything"
+    description: ""
 ---

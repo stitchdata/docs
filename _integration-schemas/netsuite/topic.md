@@ -1,28 +1,53 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+# version: "1.0"
 
-name: "netsuite_topic"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/topic.html
+name: "Topic"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Topic.json"
 description: |
-  The `{{ table.name }}` table contains info about knowledge base topics.
+  The `{{ table.name }}` table contains info about 
 
-replication-method: "Full Table"
-abstract: false
+replication-method: ""
 
-permissions:
-  - name: "Knowledge Base"
-    level: "View"
-    location: "Lists"
+api-method:
+    name: ""
+    doc-link: ""
 
 attributes:
-  - name: "internalId"
-    type: "integer"
-    primary-key: true
-    description: |
-      The {{ table.name | remove: "netsuite_" | replace: "_"," " }} ID.
+  - name: "description"
+    type: "string"
+    description: ""
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "internalId"
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "longDescription"
+    type: "string"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "anything"
+    description: ""
+
+  - name: "parentTopic"
+    type: "anything"
+    description: ""
+
+  - name: "solutionList"
+    type: "anything"
+    description: ""
+
+  - name: "title"
+    type: "string"
+    description: ""
 ---
