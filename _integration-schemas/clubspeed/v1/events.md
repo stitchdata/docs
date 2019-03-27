@@ -7,7 +7,11 @@ singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubs
 description: |
   The `{{ table.name }}` table contains info about events.
 
+  {% capture replication-note %}
   **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that unless an event's `{{ replication-keys | strip }}` value is updated, changes to event records will not be selected for replication.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=replication-note %}
 
 replication-method: "Key-based Incremental"
 

@@ -31,7 +31,6 @@ certified: true
 historical: "1 year"
 frequency: "1 hour"
 tier: "Paid"
-icon: /images/integrations/icons/jira.svg
 
 table-selection: true
 column-selection: true

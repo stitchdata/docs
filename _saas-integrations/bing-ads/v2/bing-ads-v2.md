@@ -3,10 +3,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Bing Ads (v2)
+title: Bing Ads (v2.0)
 permalink: /integrations/saas/bing-ads
-tags: [saas_integrations]
 keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Bing Ads integration."
 layout: singer
 
 # -------------------------- #
@@ -15,9 +15,8 @@ layout: singer
 
 name: "bing-ads"
 display_name: "Bing Ads"
-singer: true 
-author: "Stitch"
-author-url: https://www.stitchdata.com
+
+singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
 
 this-version: "2.0"
@@ -34,7 +33,6 @@ frequency: "24 hours"
 tier: "Free"
 auth: "oauth"
 status-url: https://status.bingads.com/
-icon: /images/integrations/icons/bing-ads.svg
 
 table-selection: true
 column-selection: true
@@ -61,8 +59,6 @@ requirements-list:
       **To pause all ad-blocking software currently in use.** Because Bing Ads authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
   - item: |
       **To have Viewer permissions to the profiles you want to connect.** These read-only permissions will ensure Stitch can read data from the profiles you select for replication. [Read more about Bing Ads user permissions here](https://help.bingads.microsoft.com/#apex/3/en/52037/3/en-US/#ext:none).
-
-requirements-info:
 
 setup-steps:
   - title: "add integration"

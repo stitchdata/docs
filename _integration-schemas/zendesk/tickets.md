@@ -3,14 +3,14 @@ tap: "zendesk"
 version: "1.0"
 
 name: "tickets"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/tickets
+doc-link: https://developer.zendesk.com/rest_api/docs/support/tickets
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/tickets.json
 description: |
-  The `tickets` table contains info about the tickets in your Zendesk account. Tickets are the means through which your end users (customers) communicate with your Zendesk agents.
+  The `{{ table.name }}` table contains info about the tickets in your {{ integration.display_name }} account. Tickets are the means through which your end users (customers) communicate with your {{ integration.display_name }} agents.
 
-  **Note**: Retrieving ticket data requires Zendesk Admin permissions.
+  **Note**: Retrieving ticket data requires {{ integration.display_name }} Admin permissions.
 
-  #### Custom ticket fields
+  #### Custom ticket fields {#custom-ticket-fields}
 
   Stitch's {{ integration.display_name }} integration will replicate all custom ticket fields.
 
@@ -18,7 +18,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: Incremental ticket export
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/incremental_export#incremental-ticket-export
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/incremental_export#incremental-ticket-export
 
 attributes:
   - name: "id"
@@ -53,7 +53,7 @@ attributes:
   - name: "follower_ids"
     type: "array"
     description: "The IDs of agents currently following the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the agent currently following the ticket."
@@ -73,7 +73,7 @@ attributes:
 
   - name: "brand_id"
     type: "integer"
-    description: "**Zendesk Enterprise only.** The ID of the brand associated with the ticket."
+    description: "**{{ integration.display_name }} Enterprise only.** The ID of the brand associated with the ticket."
 
   - name: "group_id"
     type: "integer"
@@ -97,7 +97,7 @@ attributes:
   - name: "collaborator_ids"
     type: "array"
     description: "The IDs of the collaborators currently CC'ed on the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the collaborator currently CC'ed on the ticket."
@@ -106,7 +106,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "The tags associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the ticket."
@@ -139,7 +139,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "The custom fields associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The ID of the custom ticket field."
@@ -164,7 +164,7 @@ attributes:
   - name: "followup_ids"
     type: "array"
     description: "The IDs of the follow-ups created from the ticket. The IDs are only available once the ticket is closed (`status: closed`)."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the follow-up created from the ticket."
@@ -190,20 +190,20 @@ attributes:
 
   - name: "external_id"
     type: "string"
-    description: "An ID that can be used to link the ticket to local (outside of Zendesk) records."
+    description: "An ID that can be used to link the ticket to local (outside of {{ integration.display_name }}) records."
 
   - name: "via"
     type: "object"
     description: "Details about how the ticket was created."
-    object-attributes:
+    subattributes:
       - name: "source"
         type: "object"
         description: "Details about how the ticket was created."
-        object-attributes:
+        subattributes:
           - name: "from"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: "name"
                 type: "string"
                 description: ""
@@ -224,7 +224,7 @@ attributes:
           - name: "to"
             type: "object"
             description: ""
-            object-attributes:
+            subattributes:
               - name: "address"
                 type: "string"
                 description: ""
@@ -243,13 +243,13 @@ attributes:
 
   - name: "ticket_form_id"
     type: "integer"
-    description: "**Zendesk Enterprise only**. The ID of the ticket form to render for the ticket."
+    description: "**{{ integration.display_name }} Enterprise only**. The ID of the ticket form to render for the ticket."
     foreign-key-id: "ticket-form-id"
 
   - name: "sharing_agreement_ids"
     type: "array"
     description: "The IDs of the sharing agreements used for the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the sharing agreement used for the ticket."
@@ -257,7 +257,7 @@ attributes:
   - name: "email_cc_ids"
     type: "array"
     description: "The IDs of the email CCs associated with the ticket."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the email CC associated with the ticket."

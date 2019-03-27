@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "message_opens"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_opens.json
 description: |
-  The `message_opens` table contains info about contact opens for a message.
+  The `{{ table.name }}` table contains info about contact opens for a message.
 
 replication-method: "Full Table"
 

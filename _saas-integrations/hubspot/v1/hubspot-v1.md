@@ -1,7 +1,6 @@
 ---
 title: HubSpot
 permalink: /integrations/saas/hubspot/v1
-tags: [saas_integrations]
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
 layout: singer
@@ -13,9 +12,8 @@ input: false
 
 name: "hubspot"
 display_name: "HubSpot"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-hubspot
 
 this-version: "1.0"
@@ -25,13 +23,12 @@ this-version: "1.0"
 # -------------------------- #
 
 status: "Deprecated"
-certified: true # Stitch-supported integration
+certified: true
 
 historical: "30 days"
 frequency: "30 minutes"
 tier: "Paid"
 status-url: https://status.hubspot.com/
-icon: /images/integrations/icons/hubspot.svg
 
 table-selection: true
 column-selection: false

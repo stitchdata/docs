@@ -1,12 +1,12 @@
 ---
 tap: "wootric"
-# version:
+# version: "1.0"
 
 name: "responses"
 doc-link: http://docs.wootric.com/api/#get-all-responses
 singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/responses.json
 description: |
-  The `responses` table contains info about end user responses to surveys.
+  The `{{ table.name }}` table contains info about end user responses to surveys.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The response ID."
+    # foreign-key-id: "response-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -47,18 +48,12 @@ attributes:
   - name: "end_user_id"
     type: "integer"
     description: "The ID of the end user who gave the response."
-    # foreign-keys:
-    #   - table: "end_users"
-    #     attribute: "id"
-    #   - table: "declines"
-    #     attribute: "end_user_id"
+    foreign-key-id: "end-user-id"
 
   - name: "survey_id"
     type: "integer"
     description: "The ID of the survey associated with the response."
-    # foreign-keys:
-    #   - table: "declines"
-    #     attribute: "survey_id"
+    foreign-key-id: "survey-id"
 
   - name: "completed"
     type: "boolean"
@@ -71,7 +66,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Tags applied to the response."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag applied to the response."

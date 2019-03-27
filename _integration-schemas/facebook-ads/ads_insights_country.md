@@ -10,7 +10,7 @@ description: |
 
   This table contains the same fields as the [`ads_insights`](#ads_insights) table, with the exception of `country`.
 
-  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
+  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the **Include data from deleted campaigns, ads, and adsets** option in the integration's settings is enabled.
 
 replication-method: "Key-based Incremental"
 attribution-window: true
@@ -69,7 +69,7 @@ attributes:
     type: "array"
     description: "The percentage of times people saw the ad and performed a link click."
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
-    array-attributes:
+    subattributes:
       - name: "action_target_id"
         type: "string"
         description: "The ID of the destination where people go after clicking on the ad. This could be your Facebook Page, an external URL for your conversion pixel, or an app configured with the Facebook SDK."
@@ -121,7 +121,7 @@ attributes:
     type: "array"
     description: "Details about the average cost of unique actions."
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: *action-type-value-description
@@ -148,7 +148,7 @@ attributes:
   - name: "relevance_score"
     type: "object"
     description: "Details about the relevance score of the ad."
-    object-attributes:
+    subattributes:
       - name: "status"
         type: "string"
         description: |
@@ -197,7 +197,7 @@ attributes:
       Details about the average cost of a relevant action.
 
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: *action-type-value-description

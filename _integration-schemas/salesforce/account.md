@@ -6,20 +6,16 @@ name: "account"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_account.htm#!
 singer-schema: 
 description: |
-  The `account` table contains info about the individual accounts (organizations and persons) involved with your business. This could be a customer, a competitor, a partner, and so on.
-
-notes: 
+  The `{{ table.name }}` table contains info about the individual accounts (organizations and persons) involved with your business. This could be a customer, a competitor, a partner, and so on.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name: 
-  doc-link: 
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The account ID."
+    foreign-key-id: "account-id"
 
   - name: "systemModStamp"
     type: "date-time"
@@ -182,13 +178,6 @@ attributes:
   - name: "name"
     type: "string"
     description: |
-      The name of the account.
-
-      If the account's record type is `PersonAccount`, the value of this field will be a concatenation of the `FirstName`, `MiddleName`, `LastName`, and `Suffix` fields of the associated person contact.
-
-  - name: "name"
-    type: "string"
-    description: |
       The name of the account. 
 
       If the account's record type is `PersonAccount`, the value of this field will be a concatenation of the `firstName`, `middleName`, `lastName`, and `suffix` fields of the associated person contact. **Only available if using the REST API.**
@@ -204,6 +193,7 @@ attributes:
   - name: "ownerId"
     type: "string"
     description: "The ID of the user who currently owns the account."
+    foreign-key-id: "user-id"
 
   - name: "ownership"
     type: "string"
@@ -220,7 +210,6 @@ attributes:
   - name: "photoUrl"
     type: "string"
     description: |
-
       The path to be combined with the URL of a Salesforce instance to generate a URL to request the social network profile image associated with the account.
 
       This field will be blank if Social Accounts and Contacts aren't enabled for the organization or requesting user.
@@ -328,5 +317,4 @@ attributes:
   - name: "yearStarted"
     type: "string"
     description: "The date when the account (organization) was legally established. **Only available if using Data.com Prospector or Data.com Clean.**"
-
 ---

@@ -24,7 +24,7 @@ attributes:
   - name: "stages"
     type: "array"
     description: "A list of stages for this specific pipeline."
-    array-attributes:
+    subattributes:
       - name: "stageId"
         type: "string"
         description: "The internal ID of the stage."

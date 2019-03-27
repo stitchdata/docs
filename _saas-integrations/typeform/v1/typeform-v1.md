@@ -14,8 +14,8 @@
 
 title: Typeform (v1)
 permalink: /integrations/saas/typeform
-tags: [saas_integrations]
 keywords: typeform, integration, schema, etl typeform, typeform etl, typeform schema
+summary: "Connections instructions, replication info, and schema details for Stitch's Typeform integration."
 layout: singer
 # input: false
 
@@ -43,7 +43,6 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.typeform.com/"
-icon: /images/integrations/icons/typeform.svg
 
 anchor-scheduling: true
 extraction-logs: true

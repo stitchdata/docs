@@ -18,7 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The group ID."
-    foreign-key-id: "group-id"
+    #foreign-key-id: "group-id"
 
   - name: "at"
     type: "date-time"

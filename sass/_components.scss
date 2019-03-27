@@ -132,7 +132,7 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-	padding: 1em 1em 1em 0.5em;
+	padding: 1em 1em 1em 1em;
 	line-height: 1.6;
 	vertical-align: top;
 	border-top: 1px solid $gray-2;
@@ -348,7 +348,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 
 		&:before {
 			font-family: FontAwesome;
-			content: "\f107";
+			content: "\f0d7";
 			color: $blue-channel;
 			margin-right: 8px;
 			font-weight: bold;
@@ -378,11 +378,25 @@ a[data-toggle="tooltip"] {
 
 .tooltip {
 	font-weight: 400;
+
+	a {
+		color: $stitch-yellow;
+		text-decoration: underline;
+
+		&hover {
+			text-decoration: underline;
+			color: #cca300;
+		}
+	}
 }
 
 /* PANEL STYLES */
 .panel-default {
 	border: 1px solid $gray-2;
+}
+
+.panel-table-subattributes {
+	border: 1px solid $gray-5;
 }
 
 .panel-group .panel {
@@ -397,8 +411,23 @@ a[data-toggle="tooltip"] {
 	border-radius: 0;
 }
 
+.panel-table-subattribute-heading {
+	color: $protocol-black;
+	padding: 10px 15px;
+	border-radius: 0;
+	background-color: $gray-2;
+}
+
 .panel-body > table {
 	margin: 0;
+}
+
+.table-subattribute-label {
+	background-color: $gray-2;
+	display: block;
+	padding: .5em .5em .5em 1em;
+	color: $gray-3;
+	font-size: 12px;
 }
 
 /* ALERT STYLES */

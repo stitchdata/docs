@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "message_clicks"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_clicks.json
 description: |
-  The `message_clicks` table contains info about contact clicks for a message.
+  The `{{ table.name }}` table contains info about contact clicks for a message.
 
 replication-method: "Full Table"
 

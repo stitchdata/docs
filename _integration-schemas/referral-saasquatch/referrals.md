@@ -1,34 +1,37 @@
 ---
 tap: "referral-saasquatch"
-# version:
+# version: "1.0"
 
 name: "referrals"
 doc-link: https://docs.referralsaasquatch.com/api/methods/#open_list_referrals
 singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/tap_referral_saasquatch/schemas/referrals.json
 description: |
-  The `referrals` table contains info about all of the referrals in your Referral SaaSquatch tenant.
+  The `{{ table.name }}` table contains info about all of the referrals in your {{ integration.display_name }} tenant.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "createdOrUpdatedSince"
+
 api-method:
-  name:
-  doc-link:
+  name: "List referrals"
+  doc-link: "https://docs.referralsaasquatch.com/api/methods/#list_referrals"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The referral ID."
-
-  - name: "n/a"
-    replication-key: true
+    # foreign-key-id: "referral-id"
 
   - name: "referredUser"
     type: "string"
     description: "The ID of the referred user."
+    foreign-key-id: "user-id"
 
   - name: "referredAccount"
     type: "string"
     description: "The account ID of the referred user."
+    foreign-key-id: "account-id"
 
   - name: "referredReward"
     type: "string"
@@ -42,10 +45,12 @@ attributes:
   - name: "referrerUser"
     type: "string"
     description: "The ID of the referring user."
+    foreign-key-id: "user-id"
 
   - name: "referrerAccount"
     type: "string"
     description: "The account ID of the referring user."
+    foreign-key-id: "account-id"
 
   - name: "referrerReward"
     type: "string"

@@ -78,7 +78,7 @@ attributes:
   - name: "trip_advisor_id"
     type: "integer"
     description: "The trip advisor ID associated with the hotel."
-    foreign-key-id: "trip-advisor-id"
+    #foreign-key-id: "trip-advisor-id"
 
   - name: "revinate_purchase_uri"
     type: "string"

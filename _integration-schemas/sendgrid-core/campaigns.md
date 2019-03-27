@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "campaigns"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/campaigns.json
 description: |
-  The `campaigns` table contains info about all your campaigns.
+  The `{{ table.name }}` table contains info about all your campaigns.
 
 replication-method: "Key-based Incremental"
 
@@ -39,7 +40,7 @@ attributes:
   - name: "list_ids"
     type: "array"
     description: "The IDs of the lists the campaign is being sent to."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The list ID."
@@ -48,7 +49,7 @@ attributes:
   - name: "segment_ids"
     type: "array"
     description: "The segment IDs the campaign is being sent to."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The segment ID."
@@ -57,7 +58,7 @@ attributes:
   - name: "categories"
     type: "array"
     description: "The categories associated with the campaigns."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the category."

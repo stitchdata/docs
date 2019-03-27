@@ -15,6 +15,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The list ID."
+    foreign-key-id: "list-id"
 
   - name: "Name"
     type: "string"

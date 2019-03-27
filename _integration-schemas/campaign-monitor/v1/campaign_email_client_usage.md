@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The campaign ID."
+    foreign-key-id: "campaign-id"
 
   - name: "Client"
     type: "string"

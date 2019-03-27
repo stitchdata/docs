@@ -170,7 +170,7 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user who created the review comment."
-    object-attributes:
+    subattributes:
       - name: "login"
         type: "string"
         description: "The login name of the user who created the review comment."

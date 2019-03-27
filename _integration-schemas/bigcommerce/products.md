@@ -60,7 +60,7 @@ attributes:
   - name: "bulk_pricing_rules"
     type: "array"
     description: "The bulk pricing rules associated with the product."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -95,7 +95,7 @@ attributes:
   - name: "categories"
     type: "array"
     description: "A list of IDs for the categories that the product belongs to."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         primary-key: true
@@ -118,7 +118,7 @@ attributes:
   - name: "custom_fields"
     type: "object"
     description: "Custom fields associated with the product."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The ID of the custom field."
@@ -134,7 +134,7 @@ attributes:
   - name: "custom_url"
     type: "object"
     description: "The custom URL for the product on the storefront."
-    object-attributes:
+    subattributes:
       - name: "is_customized"
         type: "boolean"
         description: "Indicates if the product URL has been customized."
@@ -164,7 +164,7 @@ attributes:
   - name: "gift_wrapping_options_list"
     type: "array"
     description: "A list of gift wrapping option IDs associated with the product."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         primary-key: true
@@ -191,7 +191,7 @@ attributes:
   - name: "images"
     type: "array"
     description: "Images associated with the product."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -380,7 +380,7 @@ attributes:
   - name: "related_products"
     type: "array"
     description: "A list of IDs of related products."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         primary-key: true
@@ -442,7 +442,7 @@ attributes:
     type: "array"
     description: ""
     item-type: "variant"
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -501,7 +501,7 @@ attributes:
       - name: "option_values"
         type: "array"
         description: "A list of option and option value IDs that make up the variant."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             primary-key: true
@@ -559,7 +559,7 @@ attributes:
   - name: "videos"
     type: "array"
     description: ""
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true

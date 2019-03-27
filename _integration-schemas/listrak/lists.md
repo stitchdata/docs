@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "lists"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/lists.json
 description: |
-  The `lists` table contains info about your contact lists.
+  The `{{ table.name }}` table contains info about your contact lists.
 
 replication-method: "Full Table"
 
@@ -88,7 +88,7 @@ attributes:
   - name: "GoogleTrackingDomains"
     type: "array"
     description: "The Google tracking domains associated with the list."
-    array-attributes: 
+    subattributes: 
       - name: "GoogleTrackingDomains"
         type: "string"
         primary-key: true
@@ -111,7 +111,7 @@ attributes:
   # - name: "Vmta"
   #   type: "object"
   #   description: ""
-  #   object-attributes: 
+  #   subattributes: 
   #     - name: "Description"
   #       type: "string"
   #       description: ""

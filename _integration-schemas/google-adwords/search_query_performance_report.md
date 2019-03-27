@@ -26,6 +26,7 @@ attributes:
   - name: "{{ system-column.customer-id }}"
     type: "integer"
     description: "The ID of the AdWords account that the record belongs to."
+    foreign-key-id: "customer-id"
 
   - name: "{{ system-column.report-date-time }}"
     type: "date-time"

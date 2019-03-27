@@ -15,6 +15,7 @@
 title: ShipHero (v1.0)
 permalink: /integrations/saas/shiphero
 keywords: shiphero, integration, schema, etl shiphero, shiphero etl, shiphero schema
+summary: "Connections instructions, replication info, and schema details for Stitch's ShipHero integration."
 layout: singer
 # input: false
 

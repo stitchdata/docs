@@ -1,11 +1,11 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "company_segments"
 doc-link: https://developers.intercom.io/docs/companies
 description: |
-  The `company_segments` table contains info about company segments. A segment is a group of users that are defined by a set of rules.
+  The `{{ table.name }}` table contains info about company segments. A segment is a group of users that are defined by a set of rules.
 
 replication-method: "Full Table"
 api-method:

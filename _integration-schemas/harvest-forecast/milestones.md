@@ -15,7 +15,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The milestone ID."
-    foreign-key-id: "milestone-id"
+    # foreign-key-id: "milestone-id"
 
   - name: "updated_at"
     type: "string"

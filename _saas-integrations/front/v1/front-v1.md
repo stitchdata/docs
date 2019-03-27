@@ -14,8 +14,8 @@
 
 title: Front (v1.0)
 permalink: /integrations/saas/front
-tags: [saas_integrations]
 keywords: front, integration, schema, etl front, front etl, front schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Front integration."
 layout: singer
 # input: false
 
@@ -43,7 +43,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://www.frontstatus.com/"
-icon: /images/integrations/icons/front.svg
 
 anchor-scheduling: true
 extraction-logs: true

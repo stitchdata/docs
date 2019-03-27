@@ -5,8 +5,8 @@
 
 title: FullStory (v1.0)
 permalink: /integrations/saas/fullstory
-tags: [saas_integrations]
 keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstory schema
+summary: "Connection instructions, replication info, and schema details for Stitch's FullStory integration."
 layout: singer
 
 # -------------------------- #
@@ -31,7 +31,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://fullstory.statuspage.io/
-icon: /images/integrations/icons/fullstory.svg
 
 table-selection: false
 column-selection: false

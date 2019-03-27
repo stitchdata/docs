@@ -1,31 +1,33 @@
 ---
 tap: "referral-saasquatch"
-# version:
+# version: "1.0"
 
 name: "users"
 doc-link: https://docs.referralsaasquatch.com/api/methods#list_users
 singer-schema: https://github.com/singer-io/tap-referral-saasquatch/blob/master/tap_referral_saasquatch/schemas/users.json
 description: |
-  The `users` table contains info about the users in your Referral SaaSquatch tenant.
+  The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} tenant.
 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "createdOrUpdatedSince"
+
 api-method:
-  name:
-  doc-link:
+  name: "List users"
+  doc-link: "https://docs.referralsaasquatch.com/api/methods#list_users"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The user ID."
+    foreign-key-id: "user-id"
    
   - name: "accountId"
     type: "string"
     primary-key: true
     description: "The ID of the account the user belongs to."
-
-  - name: "n/a"
-    replication-key: true
+    foreign-key-id: "account-id"
 
   - name: "email"
     type: "string"

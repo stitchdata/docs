@@ -1,12 +1,12 @@
 ---
-tap: "urban_airship"
-# version:
+tap: "urban-airship"
+# version: "1.0"
 
 name: "segments"
 doc-link: http://docs.urbanairship.com/api/ua.html#segments
 singer-schema: 
 description: |
-  The `segments` table contains info about segments, or portions of your audience that have arbitrary metadata attached.
+  The `{{ table.name }}` table contains info about segments, or portions of your audience that have arbitrary metadata attached.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The segment ID."
+    #foreign-key-id: "segment-id"
 
   - name: "creation_date"
     type: "date-time"

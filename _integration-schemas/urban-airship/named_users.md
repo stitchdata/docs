@@ -1,5 +1,5 @@
 ---
-tap: "urban_airship"
+tap: "urban-airship"
 # version:
 
 name: "named_users"
@@ -18,26 +18,23 @@ attributes:
     type: "string"
     primary-key: true
     description: "The named user ID."
+    foreign-key-id: "named-user-id"
 
   - name: "tags"
     type: "array"
     description: "The tags applied to the named user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag applied to the named user."
-        # foreign-keys:
-        #   - table: ""
-        #     attribute: ""
 
   - name: "channels"
     type: "array"
     description: "The channels associated with the named user."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
+        primary-key: true
         description: "The ID of the channel associated with the named user."
-        # foreign-keys:
-        #   - table: "channels"
-        #     attribute: "channel_id"
+        foreign-key-id: "channel-id"
 ---

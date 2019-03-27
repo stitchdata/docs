@@ -3,25 +3,26 @@ tap: "zendesk"
 version: "1.0"
 
 name: "ticket_metrics"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_metrics
+doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_metrics
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_metrics.json
 description: |
-  The `ticket_metrics` table contains info about the metrics associated with Zendesk tickets. **Note**: This table will not include records for deleted tickets.
+  The `{{ table.name }}` table contains info about the metrics associated with {{ integration.display_name }} tickets. **This table will not include records for deleted tickets.**
 
-  **Note**: Retrieving ticket metric data requires Zendesk Admin permissions.
+  **Note**: Retrieving ticket metric data requires {{ integration.display_name }} Admin permissions.
 
   #### Deleted ticket metrics
-  As Zendesk's API doesn't currently support returning metrics for deleted tickets, this table will not contain any metrics for deleted tickets.
 
-  If you believe you're missing records, check in your Zendesk account to see if the missing records are for deleted tickets.
+  As {{ integration.display_name }}'s API doesn't currently support returning metrics for deleted tickets, this table will not contain any metrics for deleted tickets.
+
+  If you believe you're missing records, check in your {{ integration.display_name }} account to see if the missing records are for deleted tickets.
   
-  For more info on how Zendesk handles deleting tickets, [refer to their documentation](https://support.zendesk.com/hc/en-us/articles/203690936).
+  For more info on how {{ integration.display_name }} handles deleting tickets, [refer to their documentation](https://support.zendesk.com/hc/en-us/articles/203690936){:target="new"}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: List ticket metrics
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_metrics#list-ticket-metrics
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_metrics#list-ticket-metrics
 
 attributes:
   - name: "id"
@@ -55,7 +56,7 @@ attributes:
   # - name: "status"
   #   type: "object"
   #   description: "The number of minutes  inside and outside of business hours."
-  #   object-attributes: 
+  #   subattributes: 
   #     - name: "calendar"
   #       type: "integer"
   #       description:
@@ -71,7 +72,7 @@ attributes:
   - name: "agent_wait_time_in_minutes"
     type: "object"
     description: "The number of minutes the agent spent waiting inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes the agent spent waiting outside of business hours."
@@ -91,7 +92,7 @@ attributes:
   - name: "first_resolution_time_in_minutes"
     type: "object"
     description: "The number of minutes to the first resolution time inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes to the first resolution time outside of business hours."
@@ -103,7 +104,7 @@ attributes:
   - name: "full_resolution_time_in_minutes"
     type: "object"
     description: "The number of minutes to the full resolution inside and outside of business hours."
-    object-attributes:
+    subattributes:
 
   - name: "group_stations"
     type: "integer"
@@ -116,7 +117,7 @@ attributes:
   - name: "on_hold_time_in_minutes"
     type: "object"
     description: "The number of minutes the ticket was on hold inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes the ticket was on hold outside of business hours."
@@ -144,7 +145,7 @@ attributes:
   - name: "requester_wait_time_in_minutes"
     type: "object"
     description: "The number of minutes the requester spent waiting inside and outside of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes the requester spent waiting outside of business hours."
@@ -156,7 +157,7 @@ attributes:
   - name: "reply_time_in_minutes"
     type: "object"
     description: "Number of minutes to the first reply inside and out of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes to the first reply outside of business hours."
@@ -168,7 +169,7 @@ attributes:
   - name: "full_resolution_time_in_minutes"
     type: "object"
     description: "Number of minutes to the full resolution inside and out of business hours."
-    object-attributes:
+    subattributes:
       - name: "calendar"
         type: "integer"
         description: "The number of minutes to the full resolution outside of business hours."

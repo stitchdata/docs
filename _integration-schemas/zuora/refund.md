@@ -5,7 +5,7 @@ version: 1.0
 name: "refund"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Refunds
 description: |
-  The `refund` table contains info about refunds, or transactions where money is returned to a customer.
+  The `{{ table.name }}` table contains info about refunds, or transactions where money is returned to a customer.
 
 replication-method: "Key-based Incremental"
 
@@ -45,7 +45,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the refund."
+    description: "The ID of the {{ integration.display_name }} user who created the refund."
 
   - name: "createdDate"
     type: "date-time"
@@ -64,7 +64,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "gatewayId"
     type: "string"
@@ -115,7 +115,7 @@ attributes:
 
   - name: "parentAccountId"
     type: "string"
-    description: "The ID of the parent customer account for the associated account. This field is used when customer hierarchy is enabled in Zuora."
+    description: "The ID of the parent customer account for the associated account. This field is used when customer hierarchy is enabled in {{ integration.display_name }}."
     foreign-key-id: "parent-account-id"
 
   - name: "paymentId"
@@ -160,11 +160,11 @@ attributes:
 
   - name: "softDescriptor"
     type: "string"
-    description: "A payment gateway-specific field that maps Zuora to other gateways."
+    description: "A payment gateway-specific field that maps {{ integration.display_name }} to other gateways."
 
   - name: "softDescriptorPhone"
     type: "string"
-    description: "A payment gateway-specific field that maps Zuora to other gateways."
+    description: "A payment gateway-specific field that maps {{ integration.display_name }} to other gateways."
 
   - name: "soldToContactId"
     type: "string"
@@ -195,5 +195,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the refund."
+    description: "The ID of the {{ integration.display_name }} user who last updated the refund."
 ---

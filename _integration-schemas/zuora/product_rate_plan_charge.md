@@ -5,7 +5,7 @@ version: 1.0
 name: "productRatePlanCharge"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Product-Rate-Plan-Charges
 description: |
-  The `productRatePlanCharge` table contains info about product rate plan charges, which are a charge model or set of fees associated with a product rate plan.
+  The `{{ table.name }}` table contains info about product rate plan charges, which are a charge model or set of fees associated with a product rate plan.
 
 replication-method: "Key-based Incremental"
 
@@ -110,7 +110,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the product rate plan charge."
+    description: "The ID of the {{ integration.display_name }} user who created the product rate plan charge."
 
   - name: "createdDate"
     type: "date-time"
@@ -127,7 +127,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "description"
     type: "string"
@@ -304,7 +304,7 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the product rate plan change."
+    description: "The ID of the {{ integration.display_name }} user who last updated the product rate plan change."
 
   - name: "useDiscountSpecificAccountingCode"
     type: "boolean"

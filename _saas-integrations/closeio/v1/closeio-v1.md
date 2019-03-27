@@ -7,6 +7,7 @@ title: Close.io (v1.0)
 permalink: /integrations/saas/closeio
 tags: [saas_integrations]
 keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Close.io integration."
 layout: singer
 
 # -------------------------- #
@@ -31,7 +32,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 status-url: "http://status.close.io/"
-icon: /images/integrations/icons/closeio.svg
 
 attribution-window: "24 hours"
 

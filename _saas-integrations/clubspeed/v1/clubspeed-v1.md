@@ -12,10 +12,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Club Speed
+title: Club Speed (v1.0)
 permalink: /integrations/saas/clubspeed
-tags: [saas_integrations]
 keywords: club speed, integration, schema, etl club speed, club speed etl, club speed schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Club Speed integration."
 layout: singer
 # input: false
 
@@ -42,7 +42,6 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/club-speed.svg
 
 anchor-scheduling: true
 extraction-logs: true

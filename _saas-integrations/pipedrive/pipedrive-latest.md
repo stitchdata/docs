@@ -1,7 +1,6 @@
 ---
 title: Pipedrive
 permalink: /integrations/saas/pipedrive
-tags: [saas_integrations]
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 summary: "Connection instructions and schema details for Stitch's Pipedrive integration."
 format: ## controls formatting options in template
@@ -15,9 +14,8 @@ format: ## controls formatting options in template
 
 name: "pipedrive"
 display_name: "Pipedrive"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://status.pipedrive.com/"
 
 # -------------------------- #
@@ -30,7 +28,6 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/pipedrive.svg
 
 table-selection: false
 column-selection: false

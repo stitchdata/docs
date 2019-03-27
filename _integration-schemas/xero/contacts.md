@@ -28,7 +28,7 @@ attributes:
 
   - name: "ContactNumber"
     type: "string"
-    description: "An identifier for the contact used in an external system. In Xero, this is the **Contact Code** field in the Contacts UI."
+    description: "An identifier for the contact used in an external system. In {{ integration.display_name }}, this is the **Contact Code** field in the Contacts UI."
 
   - name: "AccountNumber"
     type: "string"
@@ -69,7 +69,7 @@ attributes:
   - name: "TaxNumber"
     type: "string"
     description: |
-      The tax number of the contact. Depending on the version of Xero you're using, this could be one of the following in the Xero UI:
+      The tax number of the contact. Depending on the version of {{ integration.display_name }} you're using, this could be one of the following in the {{ integration.display_name }} UI:
 
       - Australia - ABN
       - New Zealand - GST Number
@@ -87,7 +87,7 @@ attributes:
   - name: "Addresses"
     type: "array"
     description: "Details about the contact's addresses."
-    array-attributes:
+    subattributes:
       - name: "Region"
         type: "string"
         description: "The region associated with the address."
@@ -136,7 +136,7 @@ attributes:
   - name: "Phones"
     type: "array"
     description: "Details about the contact's phone numbers."
-    array-attributes:
+    subattributes:
       - name: "PhoneNumber"
         type: "string"
         description: "The phone number."
@@ -174,7 +174,7 @@ attributes:
   - name: "ContactPersons"
     type: "array"
     description: "Details about the contact persons associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "FirstName"
         type: "string"
         description: "The first name of the contact person."
@@ -202,7 +202,7 @@ attributes:
   - name: "SalesTrackingCategories"
     type: "array"
     description: "Details about the default sales tracking categories for the contact."
-    array-attributes: &tracking-categories
+    subattributes:
       - name: "TrackingCategoryID"
         type: "string"
         description: "The tracking category ID."
@@ -227,7 +227,8 @@ attributes:
       - name: "Options"
         type: "array"
         description: "Details about the tracking option."
-        array-attributes:
+        anchor-id: 1
+        subattributes: &options
           - name: "IsActive"
             type: "boolean"
             description: "If `true`, the tracking option is active."
@@ -255,7 +256,33 @@ attributes:
   - name: "PurchasesTrackingCategories"
     type: "array"
     description: "Details about the default purchases tracking categories for the contact."
-    array-attributes: *tracking-categories
+    subattributes:
+      - name: "TrackingCategoryID"
+        type: "string"
+        description: "The tracking category ID."
+        foreign-key-id: "tracking-category-id"
+
+      - name: "Status"
+        type: "string"
+        description: "The status of the tracking category."
+
+      - name: "TrackingCategoryName"
+        type: "string"
+        description: "The name of the tracking category."
+
+      - name: "Name"
+        type: "string"
+        description: "The name of the tracking option."
+
+      - name: "Option"
+        type: "string"
+        description: "The value of the tracking option."
+
+      - name: "Options"
+        type: "array"
+        description: "Details about the tracking option."
+        anchor-id: 2
+        subattributes: *options
 
   - name: "TrackingCategoryName"
     type: "string"
@@ -268,11 +295,11 @@ attributes:
   - name: "PaymentTerms"
     type: "array"
     description: "Details about the contact's payment terms."
-    array-attributes:
+    subattributes:
       - name: "Sales"
         type: "object"
         description: "Details about the payment terms used for sales transactions."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for sales transactions."
@@ -290,7 +317,7 @@ attributes:
       - name: "Bills"
         type: "object"
         description: "Details about the payment terms used for bills (invoices)."
-        object-attributes:
+        subattributes:
           - name: "Day"
             type: "integer"
             description: "An integer used with the payment term type to indicate the calendar date of the payment term used for bills."
@@ -306,29 +333,29 @@ attributes:
               - `OFFOLLOWINGMONTH` - Of the following month
 
   - name: "ContactGroups"
-    type: ""
+    type: "array"
     description: |
       Details about the contact groups the contact is included in.
-
-      {{ integration.subtable-note | flatify | replace: "table_name","contact_groups" }}
-    foreign-key-id: "contact-group-id"
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `contact_groups` table. Refer to the [`contact_groups`](#contact_groups) table schema for details.
 
   - name: "Website"
     type: "string"
     description: "The website address of the contact."
 
   - name: "BrandingTheme"
-    type: ""
+    type: "object"
     description: |
       Details about the branding theme applied to documents sent to the contact.
-
-      {{ integration.subtable-note | flatify | replace: "table_name","branding_themes" }}
-    foreign-key-id: "branding-theme-id"
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `branding_themes` table. Refer to the [`branding_themes`](#branding_themes) table schema for details.
 
   - name: "BatchPayments"
     type: "object"
     description: "Details about the batch payment details for the contact."
-    object-attributes:
+    subattributes:
       - name: "Details"
         type: "string"
         description: "Details about the batch payment."
@@ -356,12 +383,11 @@ attributes:
   - name: "Balances"
     type: "object"
     description: "Details about the raw AR (sales invoices) and AP (bills) outstanding and overdue amounts associated with the contact."
-    object-attributes:
-
+    subattributes:
       - name: "AccountsReceivable"
         type: "object"
         description: "Details about the outstanding and/or overdue sales invoices associated with the contact, not converted to base currency."
-        object-attributes:
+        subattributes:
           - name: "Outstanding"
             type: "number"
             description: "The total amount of outstanding sales invoices associated with the contact."
@@ -373,7 +399,7 @@ attributes:
       - name: "AccountsPayable"
         type: "object"
         description: "Details about the outstanding and/or overdue bills associated with the contact, not converted to base currency."
-        object-attributes:
+        subattributes:
           - name: "Outstanding"
             type: "number"
             description: "The total amount of outstanding bills associated with the contact."
@@ -389,7 +415,7 @@ attributes:
   - name: "HasValidationErrors"
     type: "array"
     description: "Details about any validation errors associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "Message"
         type: "string"
         description: "The validation error message."

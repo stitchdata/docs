@@ -52,7 +52,7 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user who submitted the review."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The user ID."

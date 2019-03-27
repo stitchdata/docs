@@ -3,20 +3,22 @@ tap: "zendesk"
 version: "1.0"
 
 name: "ticket_audits"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_audits
+doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_audits
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_audits.json
 description: |
-  **Note**: This table uses Append-Only Incremental Replication. This means that new audit records, or updates made to existing audits, are appended as new rows to the end of the table.
+  The `{{ table.name }}` table contains info about the activity associated with a ticket. An audit is a history of all updates to a given ticket. When a ticket is updated in {{ integration.display_name }}, an audit record is created. Each audit represents a single update to a ticket.
 
-  The `ticket_audits` table contains info about the activity associated with a ticket. An audit is a history of all updates to a given ticket. When a ticket is updated in Zendesk, an audit record is created. Each audit represents a single update to a ticket.
+  A single audit record may include multiple event types. For example: A ticket comment, satisfaction rating, and a change event. For a full list of {{ integration.display_name }} audit event types, [refer to {{ integration.display_name }}'s documentation](https://developer.zendesk.com/rest_api/docs/support/ticket_audits#audit-events){:target="new"}.
 
-  A single audit record may include multiple event types. For example: A ticket comment, satisfaction rating, and a change event. For a full list of Zendesk audit event types, [refer to Zendesk's documentation](https://developer.zendesk.com/rest_api/docs/core/ticket_audits#audit-events).
+  #### Replication {#ticket-audit-replication}
+
+  This table uses Append-Only Incremental Replication. This means that new audit records, or updates made to existing audits, are appended as new rows to the end of the table.
 
 replication-method: "Append-Only Incremental"
 
 api-method:
   name: List all ticket audits
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_audits#list-all-ticket-audits
+  doc-link: https://developer.zendesk.com/rest_api/support/core/ticket_audits#list-all-ticket-audits
 
 attributes:
   - name: "id"
@@ -44,7 +46,7 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Metadata for the audit, custom, and system data."
-    object-attributes:
+    subattributes:
       # Commenting out these fields - they're not documented by Zendesk.
       # - name: "custom"
       #   type: 
@@ -57,7 +59,7 @@ attributes:
       # - name: "notifications_suppressed_for"
       #   type: "array"
       #   description: "[TODO]"
-      #   array-attributes:
+      #   subattributes:
       #     - name: "value"
       #       type: "integer"
       #       description: "[TODO]"
@@ -65,15 +67,15 @@ attributes:
       - name: "flags"
         type: "array"
         description: "For `Comment` and `VoiceComment` events, the comment flags applied to the comment."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: |
-              The value of the flag applied to the comment. [Refer to Zendesk's documentation for more info](https://developer.zendesk.com/rest_api/docs/core/ticket_comments#comment-flags).
+              The value of the flag applied to the comment. [Refer to {{ integration.display_name }}'s documentation for more info](https://developer.zendesk.com/rest_api/docs/support/ticket_comments#comment-flags){:target="new"}.
 
               Possible values are:
 
-              - `0` - Zendesk is unsure the comment should be trusted.
+              - `0` - {{ integration.display_name }} is unsure the comment should be trusted.
               - `2` - The comment author was not part of the conversation.
               - `3` - The comment author wasn't signed in when the comment was submitted.
               - `4` - The comment was automatically generated.
@@ -83,13 +85,13 @@ attributes:
       - name: "flags_options"
         type: "object"
         description: "For `Comment` and `VoiceComment` events, additional information about the comment flags."
-        object-attributes:
+        subattributes:
 
   # START METADATA > SYSTEM OBJECT
       - name: "system"
         type: "object"
         description: "Metadata about the system of the user who created the audit."
-        object-attributes:
+        subattributes:
           - name: "location"
             type: "string"
             description: "The user's location. For example: `Philadelphia, PA, United States`"
@@ -131,7 +133,7 @@ attributes:
   - name: "events"
     type: "array"
     description: "The events that happened in the audit."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The audit event ID."
@@ -144,8 +146,8 @@ attributes:
       - name: "type"
         type: "string"
         description: |
-          The event type. Refer to [Zendesk's documentation](https://developer.zendesk.com/rest_api/docs/core/ticket_audits#audit-events) for a full list of event types.
-        doc-link: "https://developer.zendesk.com/rest_api/docs/core/ticket_audits#audit-events"
+          The event type. Refer to [{{ integration.display_name }}'s documentation](https://developer.zendesk.com/rest_api/docs/support/ticket_audits#audit-events){:target="new"} for a full list of event types.
+        doc-link: "https://developer.zendesk.com/rest_api/docs/support/ticket_audits#audit-events"
 
       # Same here.
       # - name: "macro_id"
@@ -224,14 +226,14 @@ attributes:
         description: |
           Applicable to `Change` events. The previous value of the field that was changed.
 
-          **Note**: This field may occasionally be an `array`, which will create a subtable in your destination if nested structures are unsupported. This occurs when the `field_name` value is `tags`. [Refer to Zendesk's documentation for more info](https://developer.zendesk.com/rest_api/docs/core/ticket_audits#change-event).
+          **Note**: This field may occasionally be an `array`, which will create a subtable in your destination if nested structures are unsupported. This occurs when the `field_name` value is `tags`. [Refer to {{ integration.display_name }}'s documentation for more info](https://developer.zendesk.com/rest_api/docs/support/ticket_audits#change-event){:target="new"}.
 
   # START RECIPIENTS
       - name: "recipients"
         type: "array"
         description: |
           For `Notification`, `Cc`, `OrganizationActivity`, and `Tweet` events, the IDs of the recipients.
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the recipient."
@@ -242,7 +244,7 @@ attributes:
         type: "object"
         description: |
           Details about the attachments associated with the event, if any.
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             description: "The attachment ID."
@@ -300,7 +302,7 @@ attributes:
           - name: "thumbnails"
             type: "object"
             description: "Details about the thumbnails associated with image attachments."
-            object-attributes:
+            subattributes:
               - name: "id"
                 type: "integer"
                 description:
@@ -348,7 +350,8 @@ attributes:
       - name: "via"
         type: "object"
         description: "Details about how the event was created."
-        object-attributes:
+        anchor-id: 1
+        subattributes:
           - name: "channel"
             type: "string"
             description: "The channel used to create the event. For example: `web`, `mobile`"
@@ -356,13 +359,15 @@ attributes:
           - name: "source"
             type: "object"
             description: "Additional details about how the event was created. Only available for some channels."
-            object-attributes:
+            anchor-id: 1
+            subattributes:
 
           # START TO OBJECT
               - name: "to"
                 type: "object"
                 description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
-                object-attributes:
+                anchor-id: 1
+                subattributes:
                   - name: "address"
                     type: "string"
                     description: ""
@@ -376,7 +381,8 @@ attributes:
               - name: "from"
                 type: "object"
                 description: "Details about the source that created the event."
-                object-attributes:
+                anchor-id: 1
+                subattributes:
                   - name: "id"
                     type: "integer"
                     description: 
@@ -413,21 +419,22 @@ attributes:
                   - name: "original_recipients"
                     type: "array"
                     description:
-                    array-attributes:
+                    subattributes:
                       - name: "value"
                         type: "string"
                         description:
           # END FROM
               - name: "rel"
                 type: "string"
-                description: "The type of relation that created the event. For example: For an event submitted through a Zendesk widget, this field would have a value of `zendesk_widget`."
+                description: "The type of relation that created the event. For example: For an event submitted through a {{ integration.display_name }} widget, this field would have a value of `zendesk_widget`."
 
   # END VIA
 
   - name: "via"
     type: "object"
     description: "Details about how the audit record was created."
-    object-attributes:
+    anchor-id: 2
+    subattributes:
       - name: "channel"
         type: "string"
         description: "The channel used to create the audit record. For example: `web`, `mobile`"
@@ -435,13 +442,15 @@ attributes:
       - name: "source"
         type: "object"
         description: "Additional details about how the audit record was created. Only available for some channels."
-        object-attributes:
+        anchor-id: 2
+        subattributes:
 
       # START TO OBJECT
           - name: "to"
             type: "object"
             description: "If the source was an email, Twitter message/mention, phone call, etc., details about the recipient."
-            object-attributes:
+            anchor-id: 2
+            subattributes:
               - name: "address"
                 type: "string"
                 description: ""
@@ -455,7 +464,8 @@ attributes:
           - name: "from"
             type: "object"
             description: "Details about the source that created the audit record."
-            object-attributes:
+            anchor-id: 2
+            subattributes:
               - name: "id"
                 type: "integer"
                 description: 
@@ -492,12 +502,12 @@ attributes:
               - name: "original_recipients"
                 type: "array"
                 description:
-                array-attributes:
+                subattributes:
                   - name: "value"
                     type: "string"
                     description:
       # END FROM
           - name: "rel"
             type: "string"
-            description: "The type of relation that created the audit record. For example: For an event submitted through a Zendesk widget, this field would have a value of `zendesk_widget`."
+            description: "The type of relation that created the audit record. For example: For an event submitted through a {{ integration.display_name }} widget, this field would have a value of `zendesk_widget`."
 ---

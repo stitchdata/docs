@@ -43,7 +43,7 @@ attributes:
   - name: "browser"
     type: "object"
     description: "Details about the browser that serviced the event."
-    object-attributes:
+    subattributes:
       - name: "family"
         type: "string"
         description: "The family of the browser that serviced the event."
@@ -112,7 +112,7 @@ attributes:
   - name: "location"
     type: "object"
     description: "Details about where the event occurred, including the city, state, and country."
-    object-attributes:
+    subattributes:
       - name: "city"
         type: "string"
         description: "The city where the event occurred."
@@ -141,7 +141,7 @@ attributes:
   - name: "sentBy"
     type: "object"
     description: "Details about the email message's `SENT` event."
-    object-attributes:
+    subattributes:
       - name: "created"
         type: "date-time"
         description: "The time the email message's `SENT` event occurred."

@@ -1,7 +1,6 @@
 ---
 title: Xero (v1.0)
 permalink: /integrations/saas/xero
-tags: [saas_integrations]
 keywords: xero, integration, schema, etl xero, xero etl, xero schema
 summary: "Connection instructions and schema details for Stitch's Xero integration."
 layout: singer
@@ -12,6 +11,7 @@ layout: singer
 
 name: "xero"
 display_name: "Xero"
+
 singer: true
 status-url: "https://status.xero.com"
 repo-url: "https://github.com/singer-io/tap-xero"
@@ -48,14 +48,15 @@ setup-steps:
   - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "authorize-stitch"
     content: |
-      Lastly, you'll be directed to Xero's website to complete the setup.
+      Next, you'll be directed to {{ integration.display_name }}'s website to complete the setup.
 
-      1. Enter your Xero credentials and click **Login**.
-      2. A screen asking for authorization to Xero will display. **Note that Stitch will only ever read your data.**
+      1. Enter your {{ integration.display_name }} credentials and click **Login**.
+      2. A screen asking for authorization to {{ integration.display_name }} will display. **Note that Stitch will only ever read your data.**
       3. From the dropdown menu, select the company you want to connect to Stitch.
       3. Click **Authorise.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
+  - title: "track data"
 
 # -------------------------- #
 #    Replication Details     #
@@ -86,7 +87,6 @@ subsubtable-note: |
   **Note**: This is an array that may be flattened into a subtable. This table would be named `{{ subtable-name }}`; records in this table may be joined to their parent by following [these instructions]({{ link.destinations.storage.nested-structures | prepend: site.baseurl | append: "#connecting-subtables-to-top-level-records" }}).
 
   Refer to the [`table_name`](#table_name) table for a list of attributes this subtable may contain.
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

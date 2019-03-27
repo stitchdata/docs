@@ -19,6 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The contact ID."
+    foreign-key-id: "contact-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -76,7 +77,7 @@ attributes:
   - name: "anywhere_page_visits"
     type: "array"
     description: "Details about the contact's page visits."
-    array-attributes:
+    subattributes:
       - name: "url"
         type: "string"
         description: "The URL associated with the page visit."
@@ -88,7 +89,7 @@ attributes:
   - name: "anywhere_utm"
     type: "array"
     description: "Details about the UTM parameters associated with the contact's page visits."
-    array-attributes:
+    subattributes:
       - name: "url"
         type: "string"
         description: "The UTM parameter and value associated with the page visit."
@@ -100,7 +101,7 @@ attributes:
   - name: "mail_opened"
     type: "array"
     description: "Details about the emails opened by the contact."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -112,7 +113,7 @@ attributes:
   - name: "mail_received"
     type: "array"
     description: "Details about the emails received by the contact."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -124,7 +125,7 @@ attributes:
   - name: "mail_bounced"
     type: "array"
     description: "Details about the emails sent to the contact that have bounced."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -136,7 +137,7 @@ attributes:
   - name: "mail_hardbounced"
     type: "array"
     description: "Details about the emails sent to the contact that have hardbounced."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -148,7 +149,7 @@ attributes:
   - name: "mail_clicked"
     type: "array"
     description: "Details about the emails clicked by the contact."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -160,7 +161,7 @@ attributes:
   - name: "mail_complained"
     type: "array"
     description: "Details about the emails the contact reported as spam."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -176,7 +177,7 @@ attributes:
   - name: "mail_unsubscribed"
     type: "array"
     description: "Details about the emails the contact has unsubscribed from."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         description: "The ID of the email."
@@ -200,8 +201,9 @@ attributes:
   - name: "lists"
     type: "array"
     description: "The IDs of the lists that the contact belongs to."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The ID of the contact list."
+        foreign-key-id: "list-id"
 ---

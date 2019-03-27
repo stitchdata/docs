@@ -11,7 +11,7 @@ name: "contacts"
 doc-link: https://developers.freshdesk.com/api/#contacts
 singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/contacts.json
 description: |
-  The `contacts` table contains info about the customers or potential customers that have filed support tickets in any of the channels in your Freshdesk account.
+  The `{{ table.name }}` table contains info about the customers or potential customers that have filed support tickets in any of the channels in your {{ integration.display_name }} account.
 
   #### Custom Fields
 
@@ -27,6 +27,7 @@ attributes:
     primary-key: true
     type: "integer"
     description: "The contact ID."
+    foreign-key-id: "contact-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -36,7 +37,7 @@ attributes:
   - name: "other_companies"
     type: "array"
     description: "Other companies associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "An additional company associated with the user."
@@ -48,7 +49,7 @@ attributes:
   - name: "other_emails"
     type: "array"
     description: "Other email addresses associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "An additional email associated with the contact."
@@ -56,6 +57,7 @@ attributes:
   - name: "company_id"
     type: "number"
     description: "The company ID associated with the contact."
+    foreign-key-id: "company-id"
 
   - name: "email"
     type: "string"
@@ -72,7 +74,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "Tags associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the contact."

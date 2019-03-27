@@ -16,16 +16,16 @@ attributes:
     description: "The ID of the customer in the queue."
     foreign-key-id: "customer-id"
 
-  - name: "added"
-    type: "date-time"
-    replication-key: true
-    description: "The date at which the customer was added to the event queue."
-
   - name: "eventId"
     type: "integer"
     primary-key: true
     description: "The ID of the event."
     foreign-key-id: "event-id"
+
+  - name: "added"
+    type: "date-time"
+    replication-key: true
+    description: "The date at which the customer was added to the event queue."
 
   - name: "proskill"
     type: "integer"

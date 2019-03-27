@@ -18,9 +18,11 @@ attributes:
     type: "string"
     primary-key: true
     description: "The list ID."
+    foreign-key-id: "list-id"
 
   - name: "contact_id"
     type: "string"
     primary-key: true
     description: "The ID of the contact that belongs to the list."
+    foreign-key-id: "contact-id"
 ---

@@ -1,17 +1,17 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "contacts"
 doc-link: https://developers.intercom.com/reference#leads
 description: |
-  The `contacts` table contains info about the logged-out users, or leads, of your Intercom app.
+  The `{{ table.name }}` table contains info about the logged-out users, or leads, of your {{ integration.display_name }} app.
 
-  **Note**: `contacts` is equivalent to the `leads` object in Intercom's API. See [Intercom's documentation](https://developers.intercom.com/reference#leads) for more info.
+  **Note**: `contacts` is equivalent to the `leads` object in {{ integration.display_name }}'s API. See [{{ integration.display_name }}'s documentation](https://developers.intercom.com/reference#leads){:target="new"} for more info.
 
   #### Custom Attributes
 
-  If applicable, Stitch will replicate custom fields related to `contacts` (leads) in Intercom.
+  If applicable, Stitch will replicate custom fields related to `contacts` (leads) in {{ integration.display_name }}.
  
 replication-method: "Key-based Incremental"
 api-method:
@@ -57,7 +57,7 @@ attributes:
   - name: "avatar"
     type: "object"
     description: "Details about the avatar associated with the lead."
-    object-attributes:
+    subattributes:
       - name: "image_url"
         type: "string"
         description: "The URL of the avatar image associated with the lead."
@@ -73,7 +73,7 @@ attributes:
   - name: "location_data"
     type: "object"
     description: "Details about the lead's location."
-    object-attributes:
+    subattributes:
       - name: "city_name"
         type: "string"
         description: "The name of the city associated with the lead's location."
@@ -125,75 +125,92 @@ attributes:
   - name: "companies"
     type: "array"
     description: "Details about the companies the lead is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The Intercom-defined company ID."
-        foreign-key-id: "company-id"
+    subattributes:
+      - name: "companies"
+        type: "array"
+        description: "Details about the companies the lead is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The Intercom-defined company ID."
+            foreign-key-id: "company-id"
 
-      - name: "company_id"
-        type: "string"
-        description: "The ID that you assigned to the company."
+          - name: "company_id"
+            type: "string"
+            description: "The ID that you assigned to the company."
 
-      - name: "name"
-        type: "string"
-        description: "The name of the company."
+          - name: "name"
+            type: "string"
+            description: "The name of the company."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `company`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `company`."
 
   - name: "social_profiles"
     type: "array"
     description: "Details about the social profiles the lead is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The lead's user ID on the social platform."
+    subattributes:
+      - name: "social_profiles"
+        type: "array"
+        description: "Details about the social profiles the lead is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The lead's user ID on the social platform."
 
-      - name: "name"
-        type: "string"
-        description: "The name of the social service. Ex: `facebook`"
+          - name: "name"
+            type: "string"
+            description: "The name of the social service. Ex: `facebook`"
 
-      - name: "url"
-        type: "string"
-        description: "The lead's user homepage on the social platform."
+          - name: "url"
+            type: "string"
+            description: "The lead's user homepage on the social platform."
 
-      - name: "username"
-        type: "string"
-        description: "The lead's username on the social platform."
+          - name: "username"
+            type: "string"
+            description: "The lead's username on the social platform."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `social_profile`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `social_profile`."
 
   - name: "segments"
     type: "array"
     description: "Details about the segments the lead is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The segment ID."
-        foreign-key-id: "segment-id"
+    subattributes:
+      - name: "segments"
+        type: "array"
+        description: "Details about the segments the lead is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The segment ID."
+            foreign-key-id: "segment-id"
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `segment`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `segment`."
 
   - name: "tags"
     type: "array"
     description: "Details about the tags the lead is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The tag ID."
-        foreign-key-id: "tag-id"
+    subattributes:
+      - name: "tags"
+        type: "array"
+        description: "Details about the tags the lead is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The tag ID."
+            foreign-key-id: "tag-id"
 
-      - name: "name"
-        type: "string"
-        description: "The name of the tag."
+          - name: "name"
+            type: "string"
+            description: "The name of the tag."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `tag`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `tag`."
 ---

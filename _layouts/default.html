@@ -2,26 +2,18 @@
 <head>
     {% include_cached layout/head.html title=page.title %}
     
+  <!-- Initializes tooltips -->
     <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
+      $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+              delay: {show: 0, hide: 2000}
+            });
         })
     </script>
-    {% if page.datatable == true %}
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function(){
-
-            $('table.datatable').DataTable( {
-                        paging: false,
-                        stateSave: true
-                    });
-            });
-    </script>
-    {% endif %}
 
 </head>
+
+
 
 <body>
 
@@ -62,6 +54,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="{{ site.baseurl }}/js/docsearch.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Used for creating heading anchors -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="//cdn.statuspage.io/se-v2.js"></script>
 

@@ -60,10 +60,10 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
-      - name: ""
-        type: ""
-        description: ""
+    subattributes:
+      - name: "ANYTHING"
+        type: "ANYTHING"
+        description: "This info will vary."
  
   - name: "name"
     type: "string"

@@ -12,9 +12,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: BigCommerce
+title: BigCommerce (v1.0)
 permalink: /integrations/saas/bigcommerce
 keywords: bigcommerce, integration, schema, etl bigcommerce, bigcommerce etl, bigcommerce schema
+summary: "Connection instructions, replication info, and schema details for Stitch's BigCommerce integration."
 layout: singer
 # input: false
 

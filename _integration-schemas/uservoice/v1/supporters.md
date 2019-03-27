@@ -53,7 +53,7 @@ attributes:
   - name: "links"
     type: "object"
     description: ""
-    object-attributes: 
+    subattributes: 
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion associated with the supporter."

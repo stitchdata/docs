@@ -47,7 +47,7 @@ attributes:
   - name: "line_items"
     type: "array"
     description: "Details about the line items in the shipment."
-    array-attributes:
+    subattributes:
       - name: "line_item_id"
         type: "string"
         primary-key: true
@@ -76,11 +76,11 @@ attributes:
   - name: "order"
     type: "object"
     description: "Details about the order associated with the shipment."
-    object-attributes:
+    subattributes:
       - name: "authorizations"
         type: "array"
         description: "Details about the authorizations associated with the order."
-        array-attributes:
+        subattributes:
           - name: "authorized_amount"
             type: "number"
             description: "The authorized amount."
@@ -117,7 +117,7 @@ attributes:
       - name: "line_items"
         type: "array"
         description: "Details about the line items in the order."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             primary-key: true
@@ -232,7 +232,7 @@ attributes:
       - name: "note_attributes"
         type: "array"
         description: ""
-        array-attributes:
+        subattributes:
           - name: "name"
             type: "string"
             description: ""
@@ -248,7 +248,7 @@ attributes:
       - name: "order_history"
         type: "array"
         description: ""
-        array-attributes:
+        subattributes:
           - name: "created_at"
             type: "date-time"
             description: ""
@@ -280,7 +280,7 @@ attributes:
       - name: "shipping_address"
         type: "object"
         description: ""
-        object-attributes: 
+        subattributes: 
           - name: "address1"
             type: "string"
             description: "The first line of the shipping address."
@@ -336,7 +336,7 @@ attributes:
       - name: "shipping_lines"
         type: "object"
         description: "Details about the shipping lines in the order."
-        object-attributes:
+        subattributes:
           - name: "carrier"
             type: "string"
             description: "The shipping carrier."
@@ -364,7 +364,7 @@ attributes:
       - name: "tags"
         type: "array"
         description: "Tags applied to the order."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The tag."

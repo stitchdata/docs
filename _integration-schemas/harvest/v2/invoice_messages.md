@@ -60,7 +60,7 @@ attributes:
   - name: "recipients"
     type: "object"
     description: "Details about the recipients of the message."
-    object-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the message recipient."

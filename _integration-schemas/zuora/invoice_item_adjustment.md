@@ -65,7 +65,7 @@ attributes:
 
   - name: "cancelledById"
     type: "string"
-    description: "The ID of the Zuora user who canceled the adjustment."
+    description: "The ID of the {{ integration.display_name }} user who canceled the adjustment."
 
   - name: "cancelledDate"
     type: "date-time"
@@ -77,7 +77,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the adjustment."
+    description: "The ID of the {{ integration.display_name }} user who created the adjustment."
 
   - name: "createdDate"
     type: "date-time"
@@ -94,7 +94,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "invoiceId"
     type: "string"
@@ -122,7 +122,7 @@ attributes:
 
   - name: "parentAccountId"
     type: "string"
-    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in {{ integration.display_name }}."
     foreign-key-id: "parent-account-id"
 
   - name: "productId"
@@ -156,7 +156,7 @@ attributes:
 
   - name: "referenceId"
     type: "string"
-    description: "A code to reference an object external to Zuora."
+    description: "A code to reference an object external to {{ integration.display_name }}."
 
   - name: "salesTaxPayableAccountingCodeId"
     type: "string"
@@ -214,5 +214,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the adjustment."
+    description: "The ID of the {{ integration.display_name }} user who last updated the adjustment."
 ---

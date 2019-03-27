@@ -3,10 +3,10 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Bronto
+title: Bronto (v1.0)
 permalink: /integrations/saas/bronto
-tags: [saas_integrations]
 keywords: bronto, integration, schema, etl bronto, bronto etl, bronto schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Bronto integration."
 layout: singer
 
 # -------------------------- #
@@ -15,9 +15,8 @@ layout: singer
 
 name: "bronto"
 display_name: "Bronto"
+
 singer: true 
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-bronto
 
 # this-version: ""
@@ -33,7 +32,6 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: 
-icon: /images/integrations/icons/bronto.svg
 
 table-selection: false
 column-selection: false
@@ -50,13 +48,11 @@ requirements-list:
   - item: |
       **Admin permissions in Bronto.** This is required to create an API token.
 
-requirements-info:
-
 setup-steps:
   - title: "Create a {{ integration.display_name }} API token"
     anchor: "create-access-token"
     content: |
-      {% include note.html type="single-line" content="You need Administrator permissions in Bronto to complete this step." %}
+      {% include note.html type="single-line" content="**Note**: You need Administrator permissions in Bronto to complete this step." %}
       
       1. Sign into your Bronto account.
       2. Navigate to **Home > Settings**.
@@ -78,8 +74,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/bronto
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-

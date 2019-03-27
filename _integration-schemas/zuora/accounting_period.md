@@ -6,9 +6,9 @@ name: "accountingPeriod"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounting-Periods
 #singer-schema: 
 description: |
-  The `{{ table.name }}` table contains information about the [accounting periods](https://knowledgecenter.zuora.com/CC_Finance/E_Accounting_Periods) in your Zuora account.
+  The `{{ table.name }}` table contains information about the [accounting periods](https://knowledgecenter.zuora.com/CC_Finance/E_Accounting_Periods){:target="new"} in your {{ integration.display_name }} account.
 
-  **Note**: To replicate this table, you must have Zuora Finance enabled.
+  **Note**: To replicate this table, you must have {{ integration.display_name }} Finance enabled.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -29,7 +29,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the accounting period."
+    description: "The ID of the {{ integration.display_name }} user who created the accounting period."
 
   - name: "createdDate"
     type: "date-time"
@@ -93,5 +93,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the accounting period."
+    description: "The ID of the {{ integration.display_name }} user who last updated the accounting period."
 ---

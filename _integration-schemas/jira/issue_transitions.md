@@ -38,15 +38,15 @@ attributes:
   - name: "fields"
     type: "object"
     description: "Details of the fields associated with the issue transition screen."
-    object-attributes:
+    subattributes:
       - name: "anyFieldAtAll"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
           - name: "allowedValues"
             type: "array"
             description: "The list of values allowed in the field."
-            array-attributes:
+            subattributes:
               - name: "value"
                 type: "varies"
                 description: "The value allowed in the field."
@@ -74,7 +74,7 @@ attributes:
           - name: "operations"
             type: "array"
             description: "A list of operations that can be performed on the field."
-            array-attributes:
+            subattributes:
               - name: "value"
                 type: "string"
                 description: "The operation that can be performed on the field."
@@ -86,7 +86,7 @@ attributes:
           - name: "schema"
             type: "object"
             description: "The data type of the field."
-            object-attributes:
+            subattributes:
               - name: "custom"
                 type: "string"
                 description: "If the field is a custom field, the URI of the field."
@@ -135,7 +135,7 @@ attributes:
   - name: "to"
     type: "object"
     description: "Details of the issue status after the transition."
-    object-attributes:
+    subattributes:
       - name: "description"
         type: "string"
         description: "The description of the transition status."
@@ -159,7 +159,7 @@ attributes:
       - name: "statusCategory"
         type: "object"
         description: "The category assigned to the transition status."
-        object-attributes:
+        subattributes:
           - name: "colorName"
             type: "string"
             description: "The name of the color used to represent the status category."

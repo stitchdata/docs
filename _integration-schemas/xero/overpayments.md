@@ -35,11 +35,12 @@ attributes:
       - `SPEND-OVERPAYMENT`
 
   - name: "Contact"
-    type: ""
+    type: "array"
     description: |
       Details about the contact(s) associated with the overpayment.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `contacts` table. Refer to the [`contacts`](#contacts) table schema for details.
 
   - name: "Date"
     type: "date-time"
@@ -70,7 +71,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items contained in the overpayment."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."
@@ -112,11 +113,12 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "SubTotal"
     type: "number"
@@ -146,11 +148,11 @@ attributes:
   - name: "Allocations"
     type: "array"
     description: "Details about the allocations associated with the overpayment."
-    array-attributes:
+    subattributes:
       - name: "Date"
         type: "date-time"
         description: |
-          The date the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} was applied.
+          The date the overpayment was applied.
 
       - name: "Amount"
         type: "number"
@@ -159,20 +161,21 @@ attributes:
       - name: "Invoice"
         type: "object"
         description: |
-          Details about the invoices the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} has been allocated against.
-        object-attributes:
+          Details about the invoices the overpayment has been allocated against.
+        subattributes:
           - name: "InvoiceID"
             type: "string"
             description: |
-              The ID of the invoice the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} is being allocated against.
+              The ID of the invoice the overpayment is being allocated against.
             foreign-key-id: "invoice-id"
 
   - name: "Payments"
-    type: ""
+    type: "array"
     description: |
       Details about the payments associated with the overpayment.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","payments" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `payments` table. Refer to the [`payments`](#payments) table schema for details.
 
   - name: "Reference"
     type: "string"

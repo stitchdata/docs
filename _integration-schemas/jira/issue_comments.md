@@ -34,7 +34,7 @@ attributes:
   - name: "author"
     type: "object"
     description: "Details about the author of the issue comment."
-    object-attributes: &userDetails
+    subattributes:
       - name: "accountId"
         type: "string"
         description: "The account ID of the user, which uniquely identifies the user across all Atlassian products."
@@ -46,7 +46,7 @@ attributes:
       - name: "avatarUrls"
         type: "object"
         description: "The URLs associated with the avatars used by the user."
-        object-attributes:
+        subattributes:
           - name: "16x16"
             type: "string"
             description: "The URL of the user's 16x16 avatar."
@@ -62,6 +62,7 @@ attributes:
           - name: "48x48"
             type: "string"
             description: "The URL of the user's 48x48 avatar."
+        anchor-id: 1
 
       - name: "displayName"
         type: "string"
@@ -108,7 +109,7 @@ attributes:
   - name: "properties"
     type: "array"
     description: "A list of issue comment properties."
-    array-attributes:
+    subattributes:
       - name: "key"
         type: "string"
         description: "The key of the property."
@@ -128,7 +129,35 @@ attributes:
   - name: "updateAuthor"
     type: "object"
     description: "Details about the user who updated the issue comment."
-    object-attributes: *userDetails
+    subattributes:
+      - name: "accountId"
+        type: "string"
+        description: "The account ID of the user, which uniquely identifies the user across all Atlassian products."
+
+      - name: "active"
+        type: "boolean"
+        description: "Indicates whether the user is active."
+
+      - name: "avatarUrls"
+        type: "object"
+        description: "The URLs associated with the avatars used by the user."
+        subattributes:
+          - name: "16x16"
+            type: "string"
+            description: "The URL of the user's 16x16 avatar."
+
+          - name: "24x24"
+            type: "string"
+            description: "The URL of the user's 24x24 avatar."
+
+          - name: "32x32"
+            type: "string"
+            description: "The URL of the user's 32x32 avatar."
+
+          - name: "48x48"
+            type: "string"
+            description: "The URL of the user's 48x48 avatar."
+        anchor-id: 2
 
   - name: "updated"
     type: "date-time"
@@ -137,7 +166,7 @@ attributes:
   - name: "visibility"
     type: "object"
     description: "The group or role to which this issue comment is visible."
-    object-attributes:
+    subattributes:
       - name: "type"
         type: "string"
         description: |

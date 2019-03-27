@@ -27,7 +27,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the journal run."
+    description: "The ID of the {{ integration.display_name }} user who created the journal run."
 
   - name: "createdDate"
     type: "date-time"
@@ -36,7 +36,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "executedOn"
     type: "date-time"
@@ -77,5 +77,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the journal run."
+    description: "The ID of the {{ integration.display_name }} user who last updated the journal run."
 ---

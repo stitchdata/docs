@@ -2,7 +2,6 @@
 title: AdRoll
 permalink: /integrations/saas/adroll
 keywords: adroll, integration, schema, etl adroll, adroll etl, adroll schema, ad roll
-tags: [saas_integrations]
 summary: "Connection instructions and schema details for Stitch's AdRoll integration."
 format: 
   schema-list: true
@@ -16,8 +15,6 @@ format:
 name: "adroll"
 display_name: "AdRoll"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://status.adroll.com/"
 
 # -------------------------- #
@@ -30,7 +27,6 @@ certified: true
 frequency: "30 minutes"
 historical: "1 year"
 tier: "Free"
-icon: /images/integrations/icons/adroll.svg
 
 table-selection: false
 column-selection: false

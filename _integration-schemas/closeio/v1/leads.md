@@ -32,7 +32,7 @@ attributes:
   - name: "addresses"
     type: "array"
     description: "A list of physical addresses associated with the lead."
-    array-attributes:
+    subattributes:
       - name: "address_1"
         type: "string"
         description: "The first line of the lead's address."
@@ -64,7 +64,7 @@ attributes:
   - name: "contacts"
     type: "array"
     description: "A list of contacts associated with the lead."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -91,7 +91,7 @@ attributes:
       - name: "emails"
         type: "array"
         description: "A list of the email addresses associated with the contact."
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The contact's email address."
@@ -103,7 +103,7 @@ attributes:
       - name: "integration_links"
         type: "array"
         description: "A list of integration links associated with the contact."
-        array-attributes:
+        subattributes:
           - name: "name"
             type: "string"
             description: &integration-link-name "The name of the integration link."
@@ -129,7 +129,7 @@ attributes:
       - name: "phones"
         type: "array"
         description: "A list of phone numbers associated with the contact."
-        array-attributes:
+        subattributes:
           - name: "phone"
             type: "string"
             description: "The phone number associated with the contact."
@@ -154,7 +154,7 @@ attributes:
       - name: "urls"
         type: "array"
         description: ""
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: ""
@@ -171,7 +171,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "A list of custom fields associated with the lead, if applicable."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: ""
@@ -195,7 +195,7 @@ attributes:
   - name: "integration_links"
     type: "array"
     description: "A list of integration links associated with the lead."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: *integration-link-name
@@ -211,7 +211,7 @@ attributes:
   - name: "opportunities"
     type: "array"
     description: "A list of opportunities associated with the lead."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -258,7 +258,7 @@ attributes:
       - name: "integration_links"
         type: "array"
         description: "A list of integration links associated with the opportunity."
-        array-attributes:
+        subattributes:
           - name: "name"
             type: "string"
             description: *integration-link-name
@@ -347,7 +347,7 @@ attributes:
   - name: "tasks"
     type: "array"
     description: "A list of tasks associated with the lead."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
