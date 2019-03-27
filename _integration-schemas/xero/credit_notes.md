@@ -35,12 +35,12 @@ attributes:
       - `ACCRECCREDIT` - An Accounts Receivable (customer) credit note
 
   - name: "Contact"
-    type: ""
+    type: "object"
     description: |
       Details about the contact associated with the credit note.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
-    foreign-key-id: "contact-id"
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `contacts` table. Refer to the [`contacts`](#contacts) table schema for details.
 
   - name: "Date"
     type: "date-time"
@@ -120,12 +120,12 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
-        foreign-key-id: "tracking-category-id"
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "SubTotal"
     type: "number"
@@ -178,7 +178,22 @@ attributes:
 
   - name: "Allocations"
     type: "array"
-    description: ""
+    description: "Details about allocations associated with the credit note."
+    subattributes:
+      - name: "Invoice"
+        type: "object"
+        description: "Details about the invoice associated with the credit note."
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `invoices` table. Refer to the [`invoices`](#invoices) table schema for details.
+
+      - name: "Date"
+        type: "date-time"
+        description: "The date the credit note was applied."
+
+      - name: "Amount"
+        type: "number"
+        description: "The amount being applied to the invoice."
 
   - name: "BrandingThemeID"
     type: "string"

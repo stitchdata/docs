@@ -31,11 +31,12 @@ attributes:
     description: "The date of the receipt."
 
   - name: "Contact"
-    type: ""
+    type: "array"
     description: |
       Details about the contact(s) associated with the receipt.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `contacts` table. Refer to the [`contacts`](#contacts) table schema for details.
 
   - name: "LineItems"
     type: "array"
@@ -82,18 +83,20 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "User"
-    type: ""
+    type: "array"
     description: |
       Details about the user(s) associated with the receipt.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","users" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `users` table. Refer to the [`users`](#users) table schema for details.
 
   - name: "Reference"
     type: "string"

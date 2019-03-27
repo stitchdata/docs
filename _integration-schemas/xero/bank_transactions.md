@@ -81,18 +81,20 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "BankAccount"
-    type: ""
+    type: "array"
     description: |
       Details about the bank account used in the bank transaction.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","accounts" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `accounts` table. Refer to the [`accounts`](#accounts) table schema for details.
 
   - name: "IsReconciled"
     type: "boolean"

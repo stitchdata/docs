@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The purchase order ID."
-    foreign-key-id: "purchase-order-id"
+    #foreign-key-id: "purchase-order-id"
 
   - name: "UpdatedDateUTC"
     type: "date-time"
@@ -99,8 +99,9 @@ attributes:
         type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "BrandingThemeID"
     type: "string"

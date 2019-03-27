@@ -100,9 +100,10 @@ attributes:
         description: "The total tax on the journal line."
 
       - name: "TrackingCategories"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories associated with the journal line.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 ---

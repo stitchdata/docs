@@ -35,11 +35,12 @@ attributes:
       - `ACCREC` - A sales invoice, or an Accounts Receivable or customer invoice
 
   - name: "Contact"
-    type: "" 
+    type: "array" 
     description: |
       Details about the contact(s) associated with the invoice.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","contacts" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `contacts` table. Refer to the [`contacts`](#contacts) table schema for details.
 
   - name: "Date"
     type: "date-time"
@@ -116,11 +117,12 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "SubTotal"
     type: "number"
@@ -193,32 +195,36 @@ attributes:
     description: "If `true`, the invoice has an attachment."
 
   - name: "Payments"
-    type: ""
+    type: "array"
     description: |
       Details about the payments associated with the invoice.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","payments" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `payments` table. Refer to the [`payments`](#payments) table schema for details.
 
   - name: "CreditNotes"
-    type: ""
+    type: "array"
     description: |
       Details about the credit notes associated with the invoice.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","credit_notes" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `credit_notes` table. Refer to the [`credit_notes`](#credit_notes) table schema for details.
 
   - name: "Prepayments"
-    type: ""
+    type: "array"
     description: |
       Details about the prepayments associated with the invoice.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","prepayments" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `prepayments` table. Refer to the [`prepayments`](#prepayments) table schema for details.
 
   - name: "Overpayments"
-    type: ""
+    type: "array"
     description: |
       Details about the overpayments associated with the invoice.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","overpayments" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `overpayments` table. Refer to the [`overpayments`](#overpayments) table schema for details.
 
   - name: "AmountDue"
     type: "number"

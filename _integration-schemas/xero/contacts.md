@@ -202,7 +202,7 @@ attributes:
   - name: "SalesTrackingCategories"
     type: "array"
     description: "Details about the default sales tracking categories for the contact."
-    subattributes: &tracking-categories
+    subattributes:
       - name: "TrackingCategoryID"
         type: "string"
         description: "The tracking category ID."
@@ -227,7 +227,8 @@ attributes:
       - name: "Options"
         type: "array"
         description: "Details about the tracking option."
-        subattributes:
+        anchor-id: 1
+        subattributes: &options
           - name: "IsActive"
             type: "boolean"
             description: "If `true`, the tracking option is active."
@@ -255,7 +256,33 @@ attributes:
   - name: "PurchasesTrackingCategories"
     type: "array"
     description: "Details about the default purchases tracking categories for the contact."
-    subattributes: *tracking-categories
+    subattributes:
+      - name: "TrackingCategoryID"
+        type: "string"
+        description: "The tracking category ID."
+        foreign-key-id: "tracking-category-id"
+
+      - name: "Status"
+        type: "string"
+        description: "The status of the tracking category."
+
+      - name: "TrackingCategoryName"
+        type: "string"
+        description: "The name of the tracking category."
+
+      - name: "Name"
+        type: "string"
+        description: "The name of the tracking option."
+
+      - name: "Option"
+        type: "string"
+        description: "The value of the tracking option."
+
+      - name: "Options"
+        type: "array"
+        description: "Details about the tracking option."
+        anchor-id: 2
+        subattributes: *options
 
   - name: "TrackingCategoryName"
     type: "string"
@@ -306,24 +333,24 @@ attributes:
               - `OFFOLLOWINGMONTH` - Of the following month
 
   - name: "ContactGroups"
-    type: ""
+    type: "array"
     description: |
       Details about the contact groups the contact is included in.
-
-      {{ integration.subtable-note | flatify | replace: "table_name","contact_groups" }}
-    foreign-key-id: "contact-group-id"
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `contact_groups` table. Refer to the [`contact_groups`](#contact_groups) table schema for details.
 
   - name: "Website"
     type: "string"
     description: "The website address of the contact."
 
   - name: "BrandingTheme"
-    type: ""
+    type: "object"
     description: |
       Details about the branding theme applied to documents sent to the contact.
-
-      {{ integration.subtable-note | flatify | replace: "table_name","branding_themes" }}
-    foreign-key-id: "branding-theme-id"
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `branding_themes` table. Refer to the [`branding_themes`](#branding_themes) table schema for details.
 
   - name: "BatchPayments"
     type: "object"
@@ -357,7 +384,6 @@ attributes:
     type: "object"
     description: "Details about the raw AR (sales invoices) and AP (bills) outstanding and overdue amounts associated with the contact."
     subattributes:
-
       - name: "AccountsReceivable"
         type: "object"
         description: "Details about the outstanding and/or overdue sales invoices associated with the contact, not converted to base currency."

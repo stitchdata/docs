@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The organisation ID."
-    foreign-key-id: "organisation-id"
+   #foreign-key-id: "organisation-id"
 
   - name: "APIKey"
     type: "string"

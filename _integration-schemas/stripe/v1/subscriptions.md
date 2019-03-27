@@ -118,10 +118,11 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            subattributes:
-              - name: ""
-                type: ""
-                description: ""
+            anchor-id: 1
+            subattributes: &metadata
+              - name: "ANYTHING"
+                type: "ANYTHING"
+                description: "This info will vary."
 
           - name: "name"
             type: "string"
@@ -172,7 +173,8 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
+    anchor-id: 2
+    subattributes: *metadata
 
   - name: "object"
     type: "string"
@@ -240,10 +242,8 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the plan."
-        subattributes:
-          - name: ""
-            type: 
-            description: ""
+        anchor-id: 3
+        subattributes: *metadata
 
       - name: "nickname"
         type: "string"

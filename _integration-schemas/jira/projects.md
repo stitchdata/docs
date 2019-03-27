@@ -66,7 +66,7 @@ attributes:
       - name: "assignee"
         type: "object"
         description: ""
-        subattributes: &userDetails
+        subattributes:
           - name: "accountId"
             type: "string"
             description: "The {{ description-type }}'s account ID."
@@ -78,10 +78,12 @@ attributes:
           - name: "applicationRoles"
             type: "object"
             description: "Application roles associated with the {{ description-type }}."
+            anchor-id: 1
             subattributes:
               - name: "items"
                 type: "array"
                 description: "A list of application roles associated with the {{ description-type }}."
+                anchor-id: 1
                 subattributes:
                   - name: "name"
                     type: "string"
@@ -102,6 +104,7 @@ attributes:
           - name: "avatarUrls"
             type: "object"
             description: "The URLs associated with the avatars used by the {{ description-type }}."
+            anchor-id: 1
             subattributes:
               - name: "16x16"
                 type: "string"
@@ -134,10 +137,12 @@ attributes:
           - name: "groups"
             type: "object"
             description: "Details about the groups the {{ description-type }} is associated with."
+            anchor-id: 1
             subattributes:
               - name: "items"
                 type: "array"
                 description: "The groups the {{ description-type }} is associated with."
+                anchor-id: 2
                 subattributes:
                   - name: "name"
                     type: "string"
@@ -201,7 +206,119 @@ attributes:
         type: "object"
         description: |
           Details about the lead user associated with the project.
-        subattributes: *userDetails
+        subattributes:
+          - name: "accountId"
+            type: "string"
+            description: "The {{ description-type }}'s account ID."
+
+          - name: "active"
+            type: "boolean"
+            description: "Indicates if the {{ description-type }} is active."
+
+          - name: "applicationRoles"
+            type: "object"
+            description: "Application roles associated with the {{ description-type }}."
+            subattributes:
+              - name: "items"
+                type: "array"
+                description: "A list of application roles associated with the {{ description-type }}."
+                anchor-id: 3
+                subattributes:
+                  - name: "name"
+                    type: "string"
+                    description: "The name of the application role."
+
+                  - name: "self"
+                    type: "string"
+                    description: "The URL of the application role."
+
+              - name: "max-results"
+                type: "integer"
+                description: ""
+
+              - name: "size"
+                type: "integer"
+                description: ""
+
+          - name: "avatarUrls"
+            type: "object"
+            anchor-id: 2
+            description: "The URLs associated with the avatars used by the {{ description-type }}."
+            subattributes:
+              - name: "16x16"
+                type: "string"
+                description: "The URL of the {{ description-type }}'s 16x16 avatar."
+
+              - name: "24x24"
+                type: "string"
+                description: "The URL of the {{ description-type }}'s 24x24 avatar."
+
+              - name: "32x32"
+                type: "string"
+                description: "The URL of the {{ description-type }}'s 32x32 avatar."
+
+              - name: "48x48"
+                type: "string"
+                description: "The URL of the {{ description-type }}'s 48x48 avatar."
+
+          - name: "displayName"
+            type: "string"
+            description: "The {{ description-type }}'s display name. Depending on the user's privacy setting, this may be returned as null."
+
+          - name: "emailAddress"
+            type: "string"
+            description: "The {{ description-type }}'s email address. Depending on the user's privacy setting, this may be returned as null."
+
+          - name: "expand"
+            type: "string"
+            description: "Details of expands available for the {{ description-type }} details."
+
+          - name: "groups"
+            type: "object"
+            description: "Details about the groups the {{ description-type }} is associated with."
+            anchor-id: 2
+            subattributes:
+              - name: "items"
+                type: "array"
+                description: "The groups the {{ description-type }} is associated with."
+                anchor-id: 4
+                subattributes:
+                  - name: "name"
+                    type: "string"
+                    description: "The name of the group."
+
+                  - name: "self"
+                    type: "string"
+                    description: "The URL for the group."
+
+              - name: "max-results"
+                type: "integer"
+                description: ""
+
+              - name: "size"
+                type: "integer"
+                description: ""
+
+          - name: "key"
+            type: "string"
+            description: "The key of the {{ description-type }}."
+            foreign-key-id: "user-key"
+
+          - name: "locale"
+            type: "string"
+            description: "The locale of the {{ description-type }}. Depending on the user's privacy setting, this may be returned as null."
+
+          - name: "name"
+            type: "string"
+            description: "The name of the {{ description-type }}."
+
+          - name: "self"
+            type: "string"
+            description: "The URL for the {{ description-type }}."
+
+          - name: "timeZone"
+            type: "string"
+            description: "The time zone specified in the {{ description-type }}'s profile. Depending on the user's privacy setting, this may be returned as null."
 
       - name: "leadUserName"
         type: "string"

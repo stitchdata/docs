@@ -40,33 +40,36 @@ attributes:
 
   - name: "billing_address"
     type: "object"
-    description: "Details about the mailing address associated with the payment method. This address is an optional field that won't be available on orders that don't require a payment method."
+    description: |
+      Details about the mailing address associated with the payment method. This address is an optional field that won't be available on orders that don't require a payment method.
+
+      {% assign description-type = "billing address" %}
     object-type: "billing address"
     subattributes: &address-fields
       - name: "address1"
         type: "string"
-        description: "The street address of the {{ attribute.object-type }}."
+        description: "The street address of the {{ description-type }}."
 
       - name: "address2"
         type: "string"
-        description: "An optional additional field for the street address of the of the {{ attribute.object-type }}."
+        description: "An optional additional field for the street address of the of the {{ description-type }}."
 
       - name: "city"
         type: "string"
-        description: "The city, town or village of the {{ attribute.object-type }}."
+        description: "The city, town or village of the {{ description-type }}."
 
       - name: "company"
         type: "string"
-        description: "The company of the person associated with the {{ attribute.object-type }}."
+        description: "The company of the person associated with the {{ description-type }}."
 
       - name: "country"
         type: "string"
-        description: "The name of the country of the {{ attribute.object-type }}."
+        description: "The name of the country of the {{ description-type }}."
 
       - name: "country_code"
         type: "string"
         description: &country-code
-          The two-letter [ISO 3166-1 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="new"} for the country of the {{ attribute.object-type }}.
+          The two-letter [ISO 3166-1 code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2){:target="new"} for the country of the {{ description-type }}.
 
       - name: "first_name"
         type: "string"
@@ -78,11 +81,11 @@ attributes:
 
       - name: "latitude"
         type: "number"
-        description: "The latitude of the {{ attribute.object-type }}."
+        description: "The latitude of the {{ description-type }}."
 
       - name: "longitude"
         type: "number"
-        description: "The longitude of the {{ attribute.object-type }}."
+        description: "The longitude of the {{ description-type }}."
 
       - name: "name"
         type: "string"
@@ -90,19 +93,19 @@ attributes:
 
       - name: "phone"
         type: "string"
-        description: "The phone number at the {{ attribute.object-type }}."
+        description: "The phone number at the {{ description-type }}."
 
       - name: "province"
         type: "string"
-        description: "The name of the region of the {{ attribute.object-type }}."
+        description: "The name of the region of the {{ description-type }}."
 
       - name: "province_code"
         type: "string"
-        description: "The two-letter of the region of the {{ attribute.object-type }}."
+        description: "The two-letter of the region of the {{ description-type }}."
 
       - name: "zip"
         type: "string"
-        description: "The postal code of the {{ attribute.object-type }}."
+        description: "The postal code of the {{ description-type }}."
 
   - name: "browser_ip"
     type: "string"
@@ -494,10 +497,6 @@ attributes:
         type: "array"
         description: "Details about the line items associated with the fulfillment."
         subattributes: &line-items
-          # - name: "admin_graphql_api_id"
-          #   type: "string"
-          #   description: ""
-
           - name: "applied_discount"
             type: "integer"
             description: "The discount applied to the line item, if applicable."
@@ -509,6 +508,7 @@ attributes:
           - name: "destination_location"
             type: "object"
             description: "Details about the line item's destination location."
+            anchor-id: 1
             subattributes: &default-address-fields
               - name: "address1"
                 type: "string"
@@ -550,6 +550,7 @@ attributes:
           - name: "discount_allocations"
             type: "array"
             description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
+            anchor-id: 1
             subattributes: &discount-allocations
               - name: "amount"
                 type: "number"
@@ -603,6 +604,7 @@ attributes:
           - name: "origin_location"
             type: "object"
             description: "Details about the origin location associated with the refund line item."
+            anchor-id: 1
             subattributes: *default-address-fields
 
           - name: "origin_location_id"
@@ -629,7 +631,8 @@ attributes:
           - name: "properties"
             type: "array"
             description: "Details about custom info for the item."
-            subattributes:
+            anchor-id: 1
+            subattributes: &properties
               - name: "name"
                 type: "string"
                 description: ""
@@ -657,6 +660,7 @@ attributes:
           - name: "tax_lines"
             type: "array"
             description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
+            anchor-id: 1
             subattributes: &tax-lines
               - name: "compare_at"
                 type: "string"
@@ -794,7 +798,154 @@ attributes:
   - name: "line_items"
     type: "array"
     description: "Details about the line items in the order."
-    subattributes: *line-items
+    subattributes:
+      - name: "applied_discount"
+        type: "integer"
+        description: "The discount applied to the line item, if applicable."
+
+      - name: "compare_at_price"
+        type: "string"
+        description: "The line item's _compare at_ price."
+
+      - name: "destination_location"
+        type: "object"
+        description: "Details about the line item's destination location."
+        anchor-id: 2
+        subattributes: *default-address-fields
+
+      - name: "destination_location_id"
+        type: "integer"
+        description: "The ID of the destination location."
+
+      - name: "discount_allocations"
+        type: "array"
+        description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
+        anchor-id: 2
+        subattributes: *discount-allocations
+
+      - name: "fulfillable_quantity"
+        type: "integer"
+        description: |
+          The amount available to fulfill, calculated as follows:
+
+          _quantity - max(refunded_quantity, fulfilled_quantity) - pending_fulfilled_quantity - open_fulfilled_quantity_
+
+      - name: "fulfillment_service"
+        type: "string"
+        description: "The service provider that fulfilled the item. Possible values are `manual` or the name of the provider, such as `amazon` or `shipwire`"
+
+      - name: "fulfillment_status"
+        type: "string"
+        description: |
+          Indicates how far along an order is in terms of line items fulfilled. Possible values are:
+
+          - `null`
+          - `fulfilled`
+          - `partial`
+          - `not_eligible`
+
+      - name: "gift_card"
+        type: "boolean"
+        description: "Indicates whether the line item is a gift card."
+
+      - name: "grams"
+        type: "integer"
+        description: "The weight of the item in grams."
+
+      - name: "key"
+        type: "string"
+        description: "A unique identifier for the line item, constructed from the line item's `variant_id` plus a hash of the line item's `properties`, even if the item has no additional properties."
+
+      - name: "line_price"
+        type: "string"
+        description: "**This field has been deprecated by {{ integration.display_name }}**."
+
+      - name: "name"
+        type: "string"
+        description: "The name of the product variant."
+
+      - name: "origin_location"
+        type: "object"
+        description: "Details about the origin location associated with the refund line item."
+        anchor-id: 2
+        subattributes: *default-address-fields
+
+      - name: "origin_location_id"
+        type: "integer"
+        description: "The ID of the origin location associated with the refund line item."
+
+      - name: "pre_tax_price"
+        type: "number"
+        description: "The pre-tax price of the item."
+
+      - name: "price"
+        type: "number"
+        description: "The price of the item before discounts were applied."
+
+      - name: "product_exists"
+        type: "boolean"
+        description: "Indicates whether the product exists."
+
+      - name: "product_id"
+        type: "integer"
+        description: "The product ID."
+        foreign-key-id: "product-id"
+
+      - name: "properties"
+        type: "array"
+        description: "Details about custom info for the item."
+        anchor-id: 3
+        subattributes: *properties
+
+      - name: "quantity"
+        type: "integer"
+        description: "The number of items purchased."
+
+      - name: "requires_shipping"
+        type: "boolean"
+        description: "Indicates if the item requires shipping."
+
+      - name: "sku"
+        type: "string"
+        description: "The item's SKU."
+
+      - name: "tax_code"
+        type: "string"
+        description: ""
+
+      - name: "tax_lines"
+        type: "array"
+        description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
+        anchor-id: 2
+        subattributes: *tax-lines
+
+      - name: "taxable"
+        type: "boolean"
+        description: "Indicates if the item is taxable."
+
+      - name: "title"
+        type: "string"
+        description: "The title of the product."
+
+      - name: "total_discount"
+        type: "number"
+        description: "The total of any discounts applied to the line item."
+
+      - name: "variant_id"
+        type: "integer"
+        description: "The product variant ID."
+
+      - name: "variant_inventory_management"
+        type: "string"
+        description: "The name of the inventory management system."
+
+      - name: "variant_title"
+        type: "string"
+        description: "The title of the product variant."
+
+      - name: "vendor"
+        type: "string"
+        description: "The name of the item's supplier."
 
   - name: "location_id"
     type: "integer"
@@ -981,7 +1132,154 @@ attributes:
           - name: "line_item"
             type: "object"
             description: "Details about the refund line item."
-            subattributes: *line-items
+            subattributes:
+              - name: "applied_discount"
+                type: "integer"
+                description: "The discount applied to the line item, if applicable."
+
+              - name: "compare_at_price"
+                type: "string"
+                description: "The line item's _compare at_ price."
+
+              - name: "destination_location"
+                type: "object"
+                description: "Details about the line item's destination location."
+                anchor-id: 3
+                subattributes: *default-address-fields
+
+              - name: "destination_location_id"
+                type: "integer"
+                description: "The ID of the destination location."
+
+              - name: "discount_allocations"
+                type: "array"
+                description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
+                anchor-id: 3
+                subattributes: *discount-allocations
+
+              - name: "fulfillable_quantity"
+                type: "integer"
+                description: |
+                  The amount available to fulfill, calculated as follows:
+
+                  _quantity - max(refunded_quantity, fulfilled_quantity) - pending_fulfilled_quantity - open_fulfilled_quantity_
+
+              - name: "fulfillment_service"
+                type: "string"
+                description: "The service provider that fulfilled the item. Possible values are `manual` or the name of the provider, such as `amazon` or `shipwire`"
+
+              - name: "fulfillment_status"
+                type: "string"
+                description: |
+                  Indicates how far along an order is in terms of line items fulfilled. Possible values are:
+
+                  - `null`
+                  - `fulfilled`
+                  - `partial`
+                  - `not_eligible`
+
+              - name: "gift_card"
+                type: "boolean"
+                description: "Indicates whether the line item is a gift card."
+
+              - name: "grams"
+                type: "integer"
+                description: "The weight of the item in grams."
+
+              - name: "key"
+                type: "string"
+                description: "A unique identifier for the line item, constructed from the line item's `variant_id` plus a hash of the line item's `properties`, even if the item has no additional properties."
+
+              - name: "line_price"
+                type: "string"
+                description: "**This field has been deprecated by {{ integration.display_name }}**."
+
+              - name: "name"
+                type: "string"
+                description: "The name of the product variant."
+
+              - name: "origin_location"
+                type: "object"
+                description: "Details about the origin location associated with the refund line item."
+                anchor-id: 3
+                subattributes: *default-address-fields
+
+              - name: "origin_location_id"
+                type: "integer"
+                description: "The ID of the origin location associated with the refund line item."
+
+              - name: "pre_tax_price"
+                type: "number"
+                description: "The pre-tax price of the item."
+
+              - name: "price"
+                type: "number"
+                description: "The price of the item before discounts were applied."
+
+              - name: "product_exists"
+                type: "boolean"
+                description: "Indicates whether the product exists."
+
+              - name: "product_id"
+                type: "integer"
+                description: "The product ID."
+                foreign-key-id: "product-id"
+
+              - name: "properties"
+                type: "array"
+                description: "Details about custom info for the item."
+                anchor-id: 4
+                subattributes: *properties
+
+              - name: "quantity"
+                type: "integer"
+                description: "The number of items purchased."
+
+              - name: "requires_shipping"
+                type: "boolean"
+                description: "Indicates if the item requires shipping."
+
+              - name: "sku"
+                type: "string"
+                description: "The item's SKU."
+
+              - name: "tax_code"
+                type: "string"
+                description: ""
+
+              - name: "tax_lines"
+                type: "array"
+                description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
+                anchor-id: 5
+                subattributes: *tax-lines
+
+              - name: "taxable"
+                type: "boolean"
+                description: "Indicates if the item is taxable."
+
+              - name: "title"
+                type: "string"
+                description: "The title of the product."
+
+              - name: "total_discount"
+                type: "number"
+                description: "The total of any discounts applied to the line item."
+
+              - name: "variant_id"
+                type: "integer"
+                description: "The product variant ID."
+
+              - name: "variant_inventory_management"
+                type: "string"
+                description: "The name of the inventory management system."
+
+              - name: "variant_title"
+                type: "string"
+                description: "The title of the product variant."
+
+              - name: "vendor"
+                type: "string"
+                description: "The name of the item's supplier."
 
           - name: "line_item_id"
             type: "integer"
@@ -1054,6 +1352,7 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
+        anchor-id: 4
         subattributes: *discount-allocations
 
       - name: "discounted_price"
@@ -1079,6 +1378,7 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the shipping line's tax lines, each of which details a tax applicable to this shipping line."
+        anchor-id: 6
         subattributes: *tax-lines
 
       - name: "title"

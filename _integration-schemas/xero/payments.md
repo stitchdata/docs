@@ -107,6 +107,7 @@ attributes:
         type: "string"
         foreign-key: true
         description: "The ID of the overpayment the payment was made against."
+        foreign-key-id: "overpayment-id"
 
   - name: "BankAmount"
     type: "number"

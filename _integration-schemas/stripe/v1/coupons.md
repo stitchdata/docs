@@ -61,9 +61,9 @@ attributes:
     type: "object"
     description: ""
     subattributes:
-      - name: ""
-        type: ""
-        description: ""
+      - name: "ANYTHING"
+        type: "ANYTHING"
+        description: "This info will vary."
  
   - name: "name"
     type: "string"

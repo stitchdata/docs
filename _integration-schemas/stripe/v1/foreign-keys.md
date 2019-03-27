@@ -50,6 +50,9 @@ foreign-keys:
       - table: "charges"
         subattribute: "source"
         join-on: "id"
+      - table: "customers"
+        subtable: "cards"
+        join-on: "id"
 
   - id: "charge-id"
     table: "charges"

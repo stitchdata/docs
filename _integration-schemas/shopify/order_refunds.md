@@ -84,6 +84,7 @@ attributes:
                   - name: "presentment_money"
                     type: "object"
                     description: "Details about the presentment amount associated with the line item."
+                    anchor-id: 1
                     subattributes: &presentment-money
                       - name: "amount"
                         type: "string"
@@ -97,6 +98,7 @@ attributes:
                   - name: "shop_money"
                     type: "object"
                     description: "Details about the shop amount associated with the line item."
+                    anchor-id: 2
                     subattributes: &shop-money
                       - name: "amount"
                         type: "string"
@@ -154,11 +156,13 @@ attributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the pre-tax price."
+                anchor-id: 2
                 subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the pre-tax price."
+                anchor-id: 2
                 subattributes: *shop-money
 
           - name: "price"
@@ -172,11 +176,13 @@ attributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the price."
+                anchor-id: 3
                 subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the price."
+                anchor-id: 3
                 subattributes: *shop-money
 
           - name: "product_exists"
@@ -227,11 +233,13 @@ attributes:
                   - name: "presentment_money"
                     type: "object"
                     description: "Details about the presentment amount associated with the tax line price."
+                    anchor-id: 4
                     subattributes: *presentment-money
 
                   - name: "shop_money"
                     type: "object"
                     description: "Details about the shop amount associated with the tax line price."
+                    anchor-id: 4
                     subattributes: *shop-money
 
               - name: "rate"
@@ -261,11 +269,13 @@ attributes:
               - name: "presentment_money"
                 type: "object"
                 description: "Details about the presentment amount associated with the total discount."
+                anchor-id: 5
                 subattributes: *presentment-money
 
               - name: "shop_money"
                 type: "object"
                 description: "Details about the shop amount associated with the total discount."
+                anchor-id: 5
                 subattributes: *shop-money
 
           - name: "variant_id"
@@ -318,11 +328,13 @@ attributes:
           - name: "presentment_money"
             type: "object"
             description: "Details about the presentment amount associated with the subtotal."
+            anchor-id: 6
             subattributes: *presentment-money
 
           - name: "shop_money"
             type: "object"
             description: "Details about the shop amount associated with the subtotal."
+            anchor-id: 6
             subattributes: *shop-money
 
       - name: "total_tax"
@@ -336,11 +348,13 @@ attributes:
           - name: "presentment_money"
             type: "object"
             description: "Details about the presentment amount associated with the total tax."
+            anchor-id: 7
             subattributes: *presentment-money
 
           - name: "shop_money"
             type: "object"
             description: "Details about the shop amount associated with the total tax."
+            anchor-id: 7
             subattributes: *shop-money
 
   - name: "restock"

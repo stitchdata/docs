@@ -38,6 +38,7 @@ attributes:
       - name: "items"
         type: "array"
         description: "A list of application roles associated with the user."
+        anchor-id: 1
         subattributes:
           - name: "name"
             type: "string"
@@ -94,6 +95,7 @@ attributes:
       - name: "items"
         type: "array"
         description: "The groups the user is associated with."
+        anchor-id: 2
         subattributes:
           - name: "name"
             type: "string"

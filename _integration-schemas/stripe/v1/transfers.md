@@ -76,7 +76,10 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &metadata
+      - name: "ANYTHING"
+        type: "ANYTHING"
+        description: "This info will vary."
 
   - name: "object"
     type: "string"

@@ -76,10 +76,11 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
+    anchor-id: 1
     subattributes:
-      - name: ""
-        type: ""
-        description: ""
+      - name: "ANYTHING"
+        type: "ANYTHING"
+        description: "This info will vary."
 
   - name: "name"
     type: "string"
