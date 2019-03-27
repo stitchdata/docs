@@ -84,19 +84,21 @@
 
 					{% if attribute.subattributes %}
 						{% if attribute.anchor-id %}
-						{% capture attribute-id %}{{ forloop.index | plus: attribute.anchor-id | random_number }}{% endcapture %}{% else %}{% capture attribute-id %}{{ forloop.index }}{% endcapture %}{% endif %}
+							{% capture attribute-id %}{{ forloop.index | plus: attribute.anchor-id | random_number }}{% endcapture %}{% else %}{% capture attribute-id %}{{ forloop.index }}{% endcapture %}{% endif %}
 
 						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: attribute-id %}
 
 						<div class="panel-group" id="{{ full-id }}">
-						    <div class="panel panel-default" style="border: solid 1px #d2d2d2;">
-						        <div class="panel-heading" style="background-color: #eaeaea; border: solid 1px #d2d2d2;">
+						    <div class="panel panel-table-subattributes">
+						        <div class="panel-table-subattribute-heading">
 						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | strip }}" href="#collapse{{ full-id }}">Click to expand {{ attribute.name }}</a>
 						        </div>
 
 						        <div id="collapse{{ full-id | strip }}" class="panel-collapse collapse noCrossRef">
 									{% include integrations/templates/schemas/table-attributes.html table=attribute.subattributes %}
 								</div>
+								<span class="table-subattribute-label">
+								{{ table.name }} (table), {{ attribute.name }} (attribute)</span>
 						    </div>
 						</div>
 					{% endif %}

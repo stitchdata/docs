@@ -395,6 +395,10 @@ a[data-toggle="tooltip"] {
 	border: 1px solid $gray-2;
 }
 
+.panel-table-subattributes {
+	border: 1px solid $gray-5;
+}
+
 .panel-group .panel {
 	border-radius: 0;
 	box-shadow: none;
@@ -407,8 +411,23 @@ a[data-toggle="tooltip"] {
 	border-radius: 0;
 }
 
+.panel-table-subattribute-heading {
+	color: $protocol-black;
+	padding: 10px 15px;
+	border-radius: 0;
+	background-color: $gray-2;
+}
+
 .panel-body > table {
 	margin: 0;
+}
+
+.table-subattribute-label {
+	background-color: $gray-2;
+	display: block;
+	padding: .5em .5em .5em 1em;
+	color: $gray-3;
+	font-size: 12px;
 }
 
 /* ALERT STYLES */
