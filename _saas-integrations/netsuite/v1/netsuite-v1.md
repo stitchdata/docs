@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite (SuiteTalk)
+title: NetSuite (v1.0)
 permalink: /integrations/saas/netsuite-suitetalk
 redirect_from: /integrations/saas/netsuite
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema

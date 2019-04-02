@@ -5,7 +5,6 @@
 
 title: NetSuite (v10-15-2015)
 permalink: /integrations/saas/netsuite-suitetalk/v10-15-2015
-tags: [saas_integrations]
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 summary: "Connection instructions and schema details for Stitch's NetSuite integration."
 layout: singer
