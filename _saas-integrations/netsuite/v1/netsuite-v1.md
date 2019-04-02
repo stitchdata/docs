@@ -187,6 +187,12 @@ setup-steps:
         content: |
           After you've finished granting permissions to the role, click **Save** to create it.
 
+
+# https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=section_4502013915.html
+# If the user has a SuiteCloud Plus license and has been designated a concurrent web services user,
+# Then the user can have 10 concurrent requests at a time.
+# Otherwise, it's just 1 request (session) at a time.
+
   - title: "Create a Stitch {{ integration.display_name }} user"
     anchor: "create-stitch-netsuite-user"
     content: |
@@ -253,17 +259,6 @@ replication-sections:
       - [{{ section.title | flatify }}](#{{ section.anchor }})
       {% endfor %}
 
-  - title: "Unsupported {{ integration.display_name }} objects"
-    anchor: "unsupported-objects"
-    content: |
-      Stitch supports replicating all objects from {{ integration.display_name }}'s 2018.1 WSDL, with the exception of the following:
-
-      {% assign blacklisted-objects = site.data.taps.extraction.netsuite.blacklisted-objects.all | sort:"name" %}
-
-      {% for blacklisted-object in blacklisted-objects %}
-      - {{ blacklisted-object.name }}
-      {% endfor %}
-
   - title: "Custom records"
     anchor: "custom-records"
     content: |
@@ -292,7 +287,127 @@ replication-sections:
 
           In the example to the right, both of these settings are enabled for the `Stitch Example` custom record type.
 
+  - title: "Deleted records"
+    anchor: "deleted-records"
+    content: |
+      Accounting for deleted records is especially important if you’re performing any sort of aggregate function - for example, totaling invoices or balancing your books.
 
+      To account for deletes in {{ integration.display_name }}, Stitch's {{ integration.display_name }} integration offers a table named [`Deleted`](#deleted). Once set to replicate, this table acts as a log for records deleted in {{ integration.display_name }} for [supported record types](#record-types-with-delete-support).
+
+      In this section:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title | flatify }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Identify deleted records in other tables"
+        anchor: "identify-deleted-records-other-tables"
+        content: |
+          {% include note.html type="single-line" content="**Note**: The SQL queries in this section are only examples. As SQL syntax varies by database type, you may have to modify or rewrite these queries to allow them to run in your destination." %}
+
+          To account for deleted records, you can use a `LEFT JOIN` to tie deleted records back to the appropriate table.
+
+          For example: The following query would return all invoice records that exist in the `Transaction` and `Deleted` tables:
+
+          ```sql
+             SELECT * 
+               FROM netsuite.Transaction tran 
+          LEFT JOIN netsuite.Deleted del
+                 ON tran.internalId = del.internalId 
+                AND tran.type = 'invoice'
+                AND del.type = 'invoice'
+          ```
+
+          If you're using a destination that is case-insensitive, some queries may result in errors. If this occurs, try using `LOWER` to resolve the issue:
+
+          ```sql
+             SELECT *
+               FROM netsuite.Transaction tran 
+          LEFT JOIN netsuite.Deleted del 
+                 ON tran.internalId = del.internalId 
+          AND LOWER(tran.type) = LOWER(del.type)
+          ```
+
+          To filter out deleted records from other data, you can run a query like this one:
+
+          ```sql
+             SELECT *
+               FROM netsuite.Transaction tran 
+          LEFT JOIN netsuite.Deleted del
+                 ON tran.internalId = del.internalId 
+          AND LOWER(tran.type) = LOWER(del.type) 
+              WHERE del.deletedDate is null;
+          ```
+
+          Refer to the [`Deleted` table schema](#deleted) for more info about the available fields in the `Deleted` table.
+
+      - title: "Record types with delete support"
+        anchor: "record-types-with-delete-support"
+        content: |
+          According to [{{ integration.display_name }}'s documentation](https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html){:target="new"}, only certain record types support the `getDeleted` API operation Stitch uses to retrieve deleted record data from the SuiteTalk API.
+
+          In the table below are the record types that have delete support and the name of the Stitch table that contains the data for that record  type. If a record type is listed, records of this type will be logged in the `Deleted` table when they are deleted in {{ integration.display_name }}.
+
+          **Note**: If a record type isn't in this list, it doesn't have delete support. Records not listed here will not be included in the `Deleted` table even if they are deleted in {{ integration.display_name }}.
+
+          <table class="attribute-list">
+          <tr>
+          <td width="40%; fixed" align="right">
+          <strong>
+          {{ integration.display_name }} record type
+          </strong>
+          </td>
+          <td class="attribute-description">
+          <strong>
+          Stitch table name
+          </strong>
+          </td>
+          </tr>
+          {% for object in site.data.taps.extraction.netsuite.objects-with-delete-support %}
+          <tr>
+          <td width="40%; fixed" align="right">
+          {{ object.name }}
+          </td>
+          <td class="attribute-description">
+          {% if object.anchor %}
+          <a href="#{{ object.anchor }}">{{ object.table | default: object.name }}</a>
+          {% else %}
+          {{ object.table | default: object.name }}
+          {% endif %}
+          </td>
+          </tr>
+          {% endfor %}
+          </table>
+
+  - title: "Supported {{ integration.display_name }} transaction types"
+    anchor: "supported-transaction-types"
+    content: |
+      Stitch supports replicating the transaction types listed below. Data for these records can be found in the `Transaction` table:
+
+      {% for transaction-type in site.data.taps.extraction.netsuite.multi-search-objects.transactions %}
+      - {{ transaction-type.name }}
+      {% endfor %}
+
+  - title: "Supported {{ integration.display_name }} item types"
+    anchor: "supported-item-types"
+    content: |
+      Stitch supports replicating the item types listed below. Data for these records can be found in the `Item` table:
+
+      {% for item-type in site.data.taps.extraction.netsuite.multi-search-objects.items %}
+      - {{ item-type.name }}
+      {% endfor %}
+
+  - title: "Unsupported {{ integration.display_name }} record types"
+    anchor: "unsupported-objects"
+    content: |
+      Stitch supports replicating all record types from {{ integration.display_name }}'s 2018.1 WSDL, with the exception of the following:
+
+      {% assign blacklisted-objects = site.data.taps.extraction.netsuite.blacklisted-objects.all | sort:"name" %}
+
+      {% for blacklisted-object in blacklisted-objects %}
+      - {{ blacklisted-object.name }}
+      {% endfor %}
 
 # -------------------------- #
 #     Integration Tables     #

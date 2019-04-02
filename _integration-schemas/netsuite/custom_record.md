@@ -10,11 +10,9 @@ description: |
 
   Custom record tables are named `{{ table.name }}`, where `[custom_record_type]` is the name of the custom record in {{ integration.display_name }}. For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `{{ table.name | replace: "[custom_record_type]","promo_discount" }}`.
 
-replication-method: "Key-based Incremental"
+  **Note**: The Replication Method Stitch uses to replicate custom record types depends on how custom records are configured in {{ integration.display_name }}. Refer to the [Custom records](#custom-records) section for more info.
 
-api-method:
-    name: ""
-    doc-link: ""
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "internalId"
@@ -27,6 +25,8 @@ attributes:
     replication-key: true
     description: |
       The time the record was last updated.
+
+      **Note**: This field will be available only if the custom record type has **Show Last Modified** or **Show Creation Date** enabled in {{ integration.display_name }}. Refer to the [Custom records](#custom-records) section for more info.
 
   - name: "Fields selected by you"
     description: |
