@@ -16,27 +16,27 @@ api-method:
 
 attributes:
   - name: "activity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "author"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "direction"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -44,7 +44,7 @@ attributes:
     description: ""
 
   - name: "folder"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastModifiedDate"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "media"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "note"
@@ -72,19 +72,19 @@ attributes:
     description: ""
 
   - name: "noteType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "record"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recordType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"
@@ -92,10 +92,10 @@ attributes:
     description: ""
 
   - name: "topic"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "transaction"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

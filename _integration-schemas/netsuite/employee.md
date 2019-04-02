@@ -20,7 +20,7 @@ attributes:
     description: ""
 
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "accountNumber"
@@ -28,11 +28,11 @@ attributes:
     description: ""
 
   - name: "accruedTimeList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "addressbookList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "adpId"
@@ -48,7 +48,7 @@ attributes:
     description: ""
 
   - name: "approver"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "baseWage"
@@ -56,7 +56,7 @@ attributes:
     description: ""
 
   - name: "baseWageType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billPay"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "billingClass"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "birthDate"
@@ -76,15 +76,15 @@ attributes:
     description: ""
 
   - name: "commissionPaymentPreference"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "companyContributionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "compensationCurrency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "concurrentWebServicesUser"
@@ -92,15 +92,15 @@ attributes:
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dateCreated"
@@ -108,7 +108,7 @@ attributes:
     description: ""
 
   - name: "deductionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "defaultAddress"
@@ -116,7 +116,7 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "directDeposit"
@@ -124,11 +124,11 @@ attributes:
     description: ""
 
   - name: "directDepositList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "earningList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "eligibleForCommission"
@@ -140,15 +140,15 @@ attributes:
     description: ""
 
   - name: "emergencyContactList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "employeeStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "employeeType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entityId"
@@ -156,7 +156,7 @@ attributes:
     description: ""
 
   - name: "ethnicity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "expenseLimit"
@@ -176,7 +176,7 @@ attributes:
     description: ""
 
   - name: "gender"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "giveAccess"
@@ -184,7 +184,7 @@ attributes:
     description: ""
 
   - name: "globalSubscriptionStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "hasOfflineAccess"
@@ -192,7 +192,7 @@ attributes:
     description: ""
 
   - name: "hcmPositionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "hireDate"
@@ -204,11 +204,11 @@ attributes:
     description: ""
 
   - name: "hrEducationList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "image"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "inheritIPRules"
@@ -240,7 +240,7 @@ attributes:
     description: ""
 
   - name: "job"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "jobDescription"
@@ -268,11 +268,11 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "maritalStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "middleName"
@@ -288,7 +288,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "officePhone"
@@ -304,7 +304,7 @@ attributes:
     description: ""
 
   - name: "payFrequency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "phone"
@@ -320,7 +320,7 @@ attributes:
     description: ""
 
   - name: "purchaseOrderApprover"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "purchaseOrderLimit"
@@ -328,7 +328,7 @@ attributes:
     description: ""
 
   - name: "ratesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "releaseDate"
@@ -340,11 +340,11 @@ attributes:
     description: ""
 
   - name: "rolesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salesRole"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salutation"
@@ -364,23 +364,23 @@ attributes:
     description: ""
 
   - name: "subscriptionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "supervisor"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "template"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "terminationCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "terminationDetails"
@@ -388,19 +388,19 @@ attributes:
     description: ""
 
   - name: "terminationReason"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "terminationRegretted"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeApprover"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeOffPlan"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"
@@ -412,18 +412,18 @@ attributes:
     description: ""
 
   - name: "useTimeData"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "workAssignment"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "workCalendar"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "workplace"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

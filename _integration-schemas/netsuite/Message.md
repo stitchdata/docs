@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "activity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "author"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "authorEmail"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "mediaItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "message"
@@ -76,11 +76,11 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recipient"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recipientEmail"
@@ -100,6 +100,6 @@ attributes:
     description: ""
 
   - name: "transaction"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

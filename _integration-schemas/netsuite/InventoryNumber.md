@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "expirationDate"
@@ -36,11 +36,11 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "locationsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -48,7 +48,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "status"

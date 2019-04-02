@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -24,7 +24,7 @@ attributes:
     description: ""
 
   - name: "employmentCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -44,7 +44,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"

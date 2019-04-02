@@ -24,7 +24,7 @@ attributes:
     description: ""
 
   - name: "attachFrom"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "bundleable"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "encoding"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "fileType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "folder"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "hideInBundle"
@@ -100,7 +100,7 @@ attributes:
     description: ""
 
   - name: "mediaFile"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "mediaTypeName"
@@ -112,15 +112,15 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "owner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "siteCategoryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "siteDescription"
@@ -128,11 +128,11 @@ attributes:
     description: ""
 
   - name: "storeDisplayThumbnail"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "textFileEncoding"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "url"

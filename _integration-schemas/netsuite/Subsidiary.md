@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "accountingBookDetailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "addrLanguage"
@@ -28,11 +28,11 @@ attributes:
     description: ""
 
   - name: "checkLayout"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "classTranslationList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "consol"
@@ -40,15 +40,15 @@ attributes:
     description: ""
 
   - name: "country"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "edition"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "fiscalCalendar"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "inboundEmail"
@@ -80,7 +80,7 @@ attributes:
     description: ""
 
   - name: "interCoAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -100,11 +100,11 @@ attributes:
     description: ""
 
   - name: "logo"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "mainAddress"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "name"
@@ -112,7 +112,7 @@ attributes:
     description: ""
 
   - name: "nexusList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nonConsol"
@@ -120,15 +120,15 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "pageLogo"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "purchaseOrderAmount"
@@ -156,11 +156,11 @@ attributes:
     description: ""
 
   - name: "returnAddress"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "shippingAddress"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "showSubsidiaryName"
@@ -180,11 +180,11 @@ attributes:
     description: ""
 
   - name: "taxFiscalCalendar"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxRegistrationList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "tranPrefix"

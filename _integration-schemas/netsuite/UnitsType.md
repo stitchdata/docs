@@ -32,10 +32,10 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "uomList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

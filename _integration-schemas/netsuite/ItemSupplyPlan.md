@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -32,11 +32,11 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -44,18 +44,18 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "orderList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "units"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

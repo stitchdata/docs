@@ -52,11 +52,11 @@ attributes:
     description: ""
 
   - name: "nexusCountry"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "piggyback"
@@ -72,23 +72,23 @@ attributes:
     description: ""
 
   - name: "subsidiaryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxitem1"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxitem2"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "unitprice1"

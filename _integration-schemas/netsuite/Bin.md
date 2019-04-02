@@ -20,7 +20,7 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -36,7 +36,7 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -44,6 +44,6 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "assigned"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -24,11 +24,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "displayOnline"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "solutionCode"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "solutionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "status"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"
@@ -80,6 +80,6 @@ attributes:
     description: ""
 
   - name: "topicsList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

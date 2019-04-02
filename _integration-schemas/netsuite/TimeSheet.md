@@ -16,19 +16,19 @@ api-method:
 
 attributes:
   - name: "approvalStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "employee"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -44,7 +44,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -52,14 +52,14 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeGridList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "totalHours"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

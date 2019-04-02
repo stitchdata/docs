@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "baseCurrency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "effectiveDate"
@@ -32,10 +32,10 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "transactionCurrency"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

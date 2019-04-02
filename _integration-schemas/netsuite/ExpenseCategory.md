@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "defaultRate"
@@ -32,7 +32,7 @@ attributes:
     description: ""
 
   - name: "expenseAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "rateRequired"
@@ -60,14 +60,14 @@ attributes:
     description: ""
 
   - name: "ratesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiaryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "translationsList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

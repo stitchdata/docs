@@ -20,7 +20,7 @@ attributes:
     description: ""
 
   - name: "customValueList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -48,11 +48,11 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "owner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "scriptId"
@@ -60,6 +60,6 @@ attributes:
     description: ""
 
   - name: "translationsList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

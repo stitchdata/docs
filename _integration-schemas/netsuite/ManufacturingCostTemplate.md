@@ -16,15 +16,15 @@ api-method:
 
 attributes:
   - name: "costDetailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -48,10 +48,10 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -32,7 +32,7 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -40,11 +40,11 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subscriptionPlan"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "usageDate"
@@ -56,10 +56,10 @@ attributes:
     description: ""
 
   - name: "usageSubscription"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "usageSubscriptionLine"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

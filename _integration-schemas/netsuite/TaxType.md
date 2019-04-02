@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "country"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -44,15 +44,15 @@ attributes:
     description: ""
 
   - name: "nexusAccountsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nexusesTaxList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "postToItemCost"

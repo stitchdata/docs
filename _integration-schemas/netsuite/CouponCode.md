@@ -32,15 +32,15 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "promotion"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recipient"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "useCount"

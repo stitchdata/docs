@@ -20,15 +20,15 @@ attributes:
     description: ""
 
   - name: "billOfMaterials"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -48,11 +48,11 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "locationList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -64,18 +64,18 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "routingComponentList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "routingStepList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "accessLevel"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "allDayEvent"
@@ -24,15 +24,15 @@ attributes:
     description: ""
 
   - name: "attendeeList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "company"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "contact"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -40,11 +40,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endByDate"
@@ -56,7 +56,7 @@ attributes:
     description: ""
 
   - name: "exclusionDateList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "frequency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -88,15 +88,15 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "organizer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "owner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "period"
@@ -108,27 +108,27 @@ attributes:
     description: ""
 
   - name: "recurrenceDow"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceDowMaskList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceDowim"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reminderMinutes"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reminderType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "resourceList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "sendEmail"
@@ -144,15 +144,15 @@ attributes:
     description: ""
 
   - name: "status"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "supportCase"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timedEvent"
@@ -164,6 +164,6 @@ attributes:
     description: ""
 
   - name: "transaction"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

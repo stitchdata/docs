@@ -20,7 +20,7 @@ attributes:
     description: ""
 
   - name: "addressbookList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "altEmail"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "category"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "comments"
@@ -68,19 +68,19 @@ attributes:
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "currencyList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dateCreated"
@@ -100,7 +100,7 @@ attributes:
     description: ""
 
   - name: "emailPreference"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "emailTransactions"
@@ -112,7 +112,7 @@ attributes:
     description: ""
 
   - name: "expenseAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -136,7 +136,7 @@ attributes:
     description: ""
 
   - name: "globalSubscriptionStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "homePhone"
@@ -144,11 +144,11 @@ attributes:
     description: ""
 
   - name: "image"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "incoterm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -200,7 +200,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "openingBalance"
@@ -208,7 +208,7 @@ attributes:
     description: ""
 
   - name: "openingBalanceAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "openingBalanceDate"
@@ -224,7 +224,7 @@ attributes:
     description: ""
 
   - name: "payablesAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "phone"
@@ -236,7 +236,7 @@ attributes:
     description: ""
 
   - name: "pricingScheduleList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "printOnCheckAs"
@@ -272,7 +272,7 @@ attributes:
     description: ""
 
   - name: "representingSubsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "requirePwdChange"
@@ -280,7 +280,7 @@ attributes:
     description: ""
 
   - name: "rolesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salutation"
@@ -292,11 +292,11 @@ attributes:
     description: ""
 
   - name: "subscriptionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxIdNum"
@@ -304,11 +304,11 @@ attributes:
     description: ""
 
   - name: "taxItem"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "terms"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"
@@ -332,6 +332,6 @@ attributes:
     description: ""
 
   - name: "workCalendar"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

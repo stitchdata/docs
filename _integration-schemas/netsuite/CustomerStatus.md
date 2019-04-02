@@ -40,7 +40,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "probability"
@@ -48,6 +48,6 @@ attributes:
     description: ""
 
   - name: "stage"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

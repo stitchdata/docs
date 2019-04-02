@@ -44,11 +44,11 @@ attributes:
     description: ""
 
   - name: "fiscalCalendar"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "fiscalCalendarsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payrollLocked"

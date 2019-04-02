@@ -36,15 +36,15 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parentTopic"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "solutionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"

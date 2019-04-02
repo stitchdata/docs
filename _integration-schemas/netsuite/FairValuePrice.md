@@ -16,19 +16,19 @@ api-method:
 
 attributes:
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dimensionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -44,11 +44,11 @@ attributes:
     description: ""
 
   - name: "fairValueFormula"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "fairValueRangePolicy"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "highValue"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemRevenueCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lowValue"
@@ -84,7 +84,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -92,10 +92,10 @@ attributes:
     description: ""
 
   - name: "units"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "unitsType"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

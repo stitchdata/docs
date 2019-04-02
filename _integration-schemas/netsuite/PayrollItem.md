@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "employeePaid"
@@ -24,7 +24,7 @@ attributes:
     description: ""
 
   - name: "expenseAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -40,11 +40,11 @@ attributes:
     description: ""
 
   - name: "itemType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "liabilityAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "name"
@@ -52,14 +52,14 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "vendor"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

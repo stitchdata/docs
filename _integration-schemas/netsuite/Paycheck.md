@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "account"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "address"
@@ -40,11 +40,11 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -68,27 +68,27 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payContribList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payDeductList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payDisburseList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payEarnList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payExpList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payFrequency"
@@ -96,19 +96,19 @@ attributes:
     description: ""
 
   - name: "payPtoList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "paySummaryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payTaxList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payTimeList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "periodEnding"
@@ -116,7 +116,7 @@ attributes:
     description: ""
 
   - name: "postingPeriod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "status"
@@ -136,6 +136,6 @@ attributes:
     description: ""
 
   - name: "workplace"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

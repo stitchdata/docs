@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "accountingBookDetailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "actionItem"
@@ -36,19 +36,19 @@ attributes:
     description: ""
 
   - name: "billAddressList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingAddress"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "buyingReason"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "buyingTimeFrame"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "closeDate"
@@ -56,7 +56,7 @@ attributes:
     description: ""
 
   - name: "competitorsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "contribPct"
@@ -68,7 +68,7 @@ attributes:
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "currencyName"
@@ -76,11 +76,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "daysOpen"
@@ -88,19 +88,19 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entityStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entityTaxRegNum"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "estGrossProfit"
@@ -128,7 +128,7 @@ attributes:
     description: ""
 
   - name: "forecastType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -140,11 +140,11 @@ attributes:
     description: ""
 
   - name: "itemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "job"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastModifiedDate"
@@ -152,11 +152,11 @@ attributes:
     description: ""
 
   - name: "leadSource"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -164,11 +164,11 @@ attributes:
     description: ""
 
   - name: "nexus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "oneTime"
@@ -176,11 +176,11 @@ attributes:
     description: ""
 
   - name: "partner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "partnersList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "probability"
@@ -220,23 +220,23 @@ attributes:
     description: ""
 
   - name: "salesGroup"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salesReadiness"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salesRep"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salesTeamList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "shipAddressList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "shipIsResidential"
@@ -244,7 +244,7 @@ attributes:
     description: ""
 
   - name: "shippingAddress"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "source"
@@ -256,11 +256,11 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiaryTaxRegNum"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "syncPartnerTeams"
@@ -276,7 +276,7 @@ attributes:
     description: ""
 
   - name: "taxDetailsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxDetailsOverride"
@@ -316,6 +316,6 @@ attributes:
     description: ""
 
   - name: "winLossReason"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

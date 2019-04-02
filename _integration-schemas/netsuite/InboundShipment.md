@@ -28,11 +28,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "expectedDeliveryDate"
@@ -56,11 +56,11 @@ attributes:
     description: ""
 
   - name: "itemsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "shipmentMemo"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "shipmentStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "vesselNumber"

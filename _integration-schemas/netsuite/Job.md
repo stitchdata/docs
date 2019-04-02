@@ -20,11 +20,11 @@ attributes:
     description: ""
 
   - name: "actualTime"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "addressbookList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "allocatePayrollExpenses"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "billingSchedule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "calculatedEndDate"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "category"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "comments"
@@ -84,19 +84,19 @@ attributes:
     description: ""
 
   - name: "creditCardsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dateCreated"
@@ -112,7 +112,7 @@ attributes:
     description: ""
 
   - name: "emailPreference"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -124,11 +124,11 @@ attributes:
     description: ""
 
   - name: "entityStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "estimateRevRecTemplate"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "estimatedCost"
@@ -160,11 +160,11 @@ attributes:
     description: ""
 
   - name: "estimatedTime"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "estimatedTimeOverride"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -180,7 +180,7 @@ attributes:
     description: ""
 
   - name: "globalSubscriptionStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "includeCrmTasksInTotals"
@@ -208,11 +208,11 @@ attributes:
     description: ""
 
   - name: "jobBillingType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "jobItem"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "jobPrice"
@@ -220,15 +220,15 @@ attributes:
     description: ""
 
   - name: "jobResourcesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "jobType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "language"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastBaselineDate"
@@ -248,11 +248,11 @@ attributes:
     description: ""
 
   - name: "milestonesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "openingBalance"
@@ -260,7 +260,7 @@ attributes:
     description: ""
 
   - name: "openingBalanceAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "openingBalanceDate"
@@ -268,7 +268,7 @@ attributes:
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "percentComplete"
@@ -276,7 +276,7 @@ attributes:
     description: ""
 
   - name: "percentCompleteOverrideList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "percentTimeComplete"
@@ -292,11 +292,11 @@ attributes:
     description: ""
 
   - name: "plStatementList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "projectExpenseType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "projectedEndDate"
@@ -308,7 +308,7 @@ attributes:
     description: ""
 
   - name: "revRecForecastRule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -320,11 +320,11 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeRemaining"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "usePercentCompleteOverride"
@@ -332,6 +332,6 @@ attributes:
     description: ""
 
   - name: "workplace"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

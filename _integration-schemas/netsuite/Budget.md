@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "account"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "amount"
@@ -28,27 +28,27 @@ attributes:
     description: ""
 
   - name: "budgetType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "category"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -56,15 +56,15 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "periodAmount1"
@@ -164,10 +164,10 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "year"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

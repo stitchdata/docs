@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "amount"
@@ -24,15 +24,15 @@ attributes:
     description: ""
 
   - name: "billTo"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingItem"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "chargeDate"
@@ -40,7 +40,7 @@ attributes:
     description: ""
 
   - name: "chargeType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -48,15 +48,15 @@ attributes:
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -72,23 +72,23 @@ attributes:
     description: ""
 
   - name: "invoice"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "invoiceLine"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "projectTask"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "quantity"
@@ -100,7 +100,7 @@ attributes:
     description: ""
 
   - name: "rule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "runId"
@@ -108,34 +108,34 @@ attributes:
     description: ""
 
   - name: "salesOrder"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salesOrderLine"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "stage"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subscriptionLine"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeRecord"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "transaction"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "transactionLine"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "use"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

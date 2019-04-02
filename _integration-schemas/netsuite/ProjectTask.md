@@ -20,27 +20,27 @@ attributes:
     description: ""
 
   - name: "assigneeList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "company"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "constraintType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "contact"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "eventId"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -100,19 +100,19 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "order"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "owner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "percentTimeComplete"
@@ -120,11 +120,11 @@ attributes:
     description: ""
 
   - name: "predecessorList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "priority"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "remainingWork"
@@ -144,11 +144,11 @@ attributes:
     description: ""
 
   - name: "status"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"

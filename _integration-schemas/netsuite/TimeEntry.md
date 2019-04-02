@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "approvalStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingClass"
@@ -28,7 +28,7 @@ attributes:
     description: ""
 
   - name: "caseTaskEvent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -36,15 +36,15 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "hours"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastModifiedDate"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -80,7 +80,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "overrideRate"
@@ -92,11 +92,11 @@ attributes:
     description: ""
 
   - name: "payrollItem"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "price"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "rate"
@@ -104,10 +104,10 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeType"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

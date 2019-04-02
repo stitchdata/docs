@@ -16,31 +16,31 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "accountingBook"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customDimension"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "destinationAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "effectiveDate"
@@ -60,22 +60,22 @@ attributes:
     description: ""
 
   - name: "itemAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "sourceAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

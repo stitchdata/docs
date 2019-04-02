@@ -20,27 +20,27 @@ attributes:
     description: ""
 
   - name: "allocationResource"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "allocationType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "allocationUnit"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "approvalStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -56,7 +56,7 @@ attributes:
     description: ""
 
   - name: "nextApprover"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "notes"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "numberHours"
@@ -76,11 +76,11 @@ attributes:
     description: ""
 
   - name: "project"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "requestedby"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"

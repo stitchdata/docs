@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "bundleable"
@@ -24,7 +24,7 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -36,11 +36,11 @@ attributes:
     description: ""
 
   - name: "folderType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "group"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "hideInBundle"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "name"
@@ -72,14 +72,14 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

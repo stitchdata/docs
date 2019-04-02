@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "classTranslationList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -44,14 +44,14 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiaryList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

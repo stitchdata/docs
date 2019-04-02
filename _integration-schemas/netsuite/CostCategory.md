@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "account"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -32,7 +32,7 @@ attributes:
     description: ""
 
   - name: "itemCostType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "name"
@@ -40,6 +40,6 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

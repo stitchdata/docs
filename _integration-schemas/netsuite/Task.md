@@ -20,15 +20,15 @@ attributes:
     description: ""
 
   - name: "actualTime"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "assigned"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "company"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "completedDate"
@@ -36,11 +36,11 @@ attributes:
     description: ""
 
   - name: "contact"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "contactList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -48,11 +48,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dueDate"
@@ -64,11 +64,11 @@ attributes:
     description: ""
 
   - name: "estimatedTime"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "estimatedTimeOverride"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -88,19 +88,19 @@ attributes:
     description: ""
 
   - name: "milestone"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "owner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "percentComplete"
@@ -112,15 +112,15 @@ attributes:
     description: ""
 
   - name: "priority"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reminderMinutes"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reminderType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "sendEmail"
@@ -132,19 +132,19 @@ attributes:
     description: ""
 
   - name: "status"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "supportCase"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeRemaining"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timedEvent"
@@ -156,6 +156,6 @@ attributes:
     description: ""
 
   - name: "transaction"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

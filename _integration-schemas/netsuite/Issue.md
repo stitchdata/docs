@@ -16,23 +16,23 @@ api-method:
 
 attributes:
   - name: "assigned"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "brokenInVersionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "buildBroken"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "buildFixed"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "buildTarget"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -40,11 +40,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "emailAssignee"
@@ -52,11 +52,11 @@ attributes:
     description: ""
 
   - name: "emailCellsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "emailEmployeesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalAbstract"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "fixedInVersionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -100,19 +100,19 @@ attributes:
     description: ""
 
   - name: "issueStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "issueTagsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "issueType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastModifiedDate"
@@ -120,7 +120,7 @@ attributes:
     description: ""
 
   - name: "module"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "newDetails"
@@ -128,62 +128,62 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "priority"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "product"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "productTeam"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "relatedIssuesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reportedBy"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reproduce"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "reviewer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "severity"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "source"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "targetVersionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "trackCode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "versionBroken"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "versionFixed"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "versionTarget"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

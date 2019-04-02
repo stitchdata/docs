@@ -16,15 +16,15 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingSchedule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "cashSaleForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdBy"
@@ -36,19 +36,19 @@ attributes:
     description: ""
 
   - name: "currency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customerDefault"
@@ -56,7 +56,7 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "frequency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "idNumber"
@@ -80,7 +80,7 @@ attributes:
     description: ""
 
   - name: "invoiceForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastBillCycleDate"
@@ -92,7 +92,7 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -108,7 +108,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -116,6 +116,6 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

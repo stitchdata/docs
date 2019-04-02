@@ -20,7 +20,7 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "email"
@@ -36,11 +36,11 @@ attributes:
     description: ""
 
   - name: "groupOwner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "groupType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -84,7 +84,7 @@ attributes:
     description: ""
 
   - name: "issueRole"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "laborResources"
@@ -96,26 +96,26 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parentGroupType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "restrictionGroup"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "savedSearch"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "workCalendar"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

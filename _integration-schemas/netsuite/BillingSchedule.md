@@ -32,7 +32,7 @@ attributes:
     description: ""
 
   - name: "frequency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "inArrears"
@@ -44,7 +44,7 @@ attributes:
     description: ""
 
   - name: "initialTerms"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "milestoneList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "monthDom"
@@ -68,15 +68,15 @@ attributes:
     description: ""
 
   - name: "monthDow"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "monthDowim"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "monthMode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "name"
@@ -84,7 +84,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "numberRemaining"
@@ -92,31 +92,31 @@ attributes:
     description: ""
 
   - name: "project"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceDowMaskList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrencePattern"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceTerms"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "repeatEvery"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "scheduleType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "seriesStartDate"
@@ -124,7 +124,7 @@ attributes:
     description: ""
 
   - name: "transaction"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "yearDom"
@@ -132,22 +132,22 @@ attributes:
     description: ""
 
   - name: "yearDow"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "yearDowim"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "yearDowimMonth"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "yearMode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "yearMonth"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

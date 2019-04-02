@@ -20,7 +20,7 @@ attributes:
     description: ""
 
   - name: "amortizationType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "externalId"
@@ -44,7 +44,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "periodOffset"
@@ -52,15 +52,15 @@ attributes:
     description: ""
 
   - name: "recogIntervalSrc"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "recurrenceType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "revRecOffset"

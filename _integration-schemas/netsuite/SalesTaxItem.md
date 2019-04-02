@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "available"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "city"
@@ -28,7 +28,7 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -84,19 +84,19 @@ attributes:
     description: ""
 
   - name: "nexusCountry"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "purchaseAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "rate"
@@ -108,7 +108,7 @@ attributes:
     description: ""
 
   - name: "saleAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "service"
@@ -120,19 +120,19 @@ attributes:
     description: ""
 
   - name: "subsidiaryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxAgency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "validUntil"

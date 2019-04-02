@@ -1,12 +1,12 @@
 ---
-tap: "netsuite"
+# tap: "netsuite"
 version: "1.0"
 
 name: "Item"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Item.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about items.
 
 replication-method: ""
 
@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "_type"
@@ -24,15 +24,15 @@ attributes:
     description: ""
 
   - name: "account"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "accountingBookDetailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "alternateDemandSourceItem"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "amortizationPeriod"
@@ -40,15 +40,15 @@ attributes:
     description: ""
 
   - name: "amortizationTemplate"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "assetAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "authCodesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "autoLeadTime"
@@ -76,31 +76,31 @@ attributes:
     description: ""
 
   - name: "billExchRateVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billOfMaterialsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billPriceVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billQtyVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingRatesMatrix"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "billingSchedule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "binNumberList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "buildEntireAssembly"
@@ -112,7 +112,7 @@ attributes:
     description: ""
 
   - name: "cogsAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "contingentRevenueHandling"
@@ -128,7 +128,7 @@ attributes:
     description: ""
 
   - name: "costCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "costEstimate"
@@ -136,7 +136,7 @@ attributes:
     description: ""
 
   - name: "costEstimateType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "costEstimateUnits"
@@ -148,7 +148,7 @@ attributes:
     description: ""
 
   - name: "costingMethod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "costingMethodDisplay"
@@ -156,7 +156,7 @@ attributes:
     description: ""
 
   - name: "countryOfManufacture"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createJob"
@@ -164,7 +164,7 @@ attributes:
     description: ""
 
   - name: "createRevenuePlansOn"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -176,11 +176,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dateConvertedToInv"
@@ -192,7 +192,7 @@ attributes:
     description: ""
 
   - name: "defaultItemShipMethod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "defaultReturnCost"
@@ -208,11 +208,11 @@ attributes:
     description: ""
 
   - name: "deferralAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "deferredRevenueAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "demandModifier"
@@ -220,7 +220,7 @@ attributes:
     description: ""
 
   - name: "demandSource"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "demandTimeFence"
@@ -228,7 +228,7 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -244,11 +244,11 @@ attributes:
     description: ""
 
   - name: "distributionCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "distributionNetwork"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dontShowPrice"
@@ -256,11 +256,11 @@ attributes:
     description: ""
 
   - name: "dropshipExpenseAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "effectiveBomControl"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "enforceMinQtyInternally"
@@ -272,7 +272,7 @@ attributes:
     description: ""
 
   - name: "expenseAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "expirationDate"
@@ -296,11 +296,11 @@ attributes:
     description: ""
 
   - name: "fraudRisk"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "gainLossAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "generateAccruals"
@@ -332,7 +332,7 @@ attributes:
     description: ""
 
   - name: "hazmatPackingGroup"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "hazmatShippingName"
@@ -352,23 +352,23 @@ attributes:
     description: ""
 
   - name: "incomeAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "intercoCogsAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "intercoDefRevAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "intercoExpenseAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "intercoIncomeAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -376,7 +376,7 @@ attributes:
     description: ""
 
   - name: "invtClassification"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "invtCountInterval"
@@ -440,11 +440,11 @@ attributes:
     description: ""
 
   - name: "issueProduct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemCarrier"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemId"
@@ -452,27 +452,27 @@ attributes:
     description: ""
 
   - name: "itemNumberOptionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemOptionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemRevenueCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemShipMethodList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemTaskTemplatesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "itemVendorList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastInvtCountDate"
@@ -492,15 +492,15 @@ attributes:
     description: ""
 
   - name: "liabilityAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "locationsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "manufacturer"
@@ -548,11 +548,11 @@ attributes:
     description: ""
 
   - name: "matrixOptionList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "matrixType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "maxDonationAmount"
@@ -560,7 +560,7 @@ attributes:
     description: ""
 
   - name: "memberList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "metaTagHtml"
@@ -600,7 +600,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "numOfAllowedDownloads"
@@ -608,7 +608,7 @@ attributes:
     description: ""
 
   - name: "numbersList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "offerSupport"
@@ -624,15 +624,15 @@ attributes:
     description: ""
 
   - name: "originalItemSubtype"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "originalItemType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "outOfStockBehavior"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "outOfStockMessage"
@@ -640,11 +640,11 @@ attributes:
     description: ""
 
   - name: "overallQuantityPricingType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "overheadType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "pageTitle"
@@ -652,11 +652,11 @@ attributes:
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "paymentMethod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "periodicLotSizeDays"
@@ -664,15 +664,15 @@ attributes:
     description: ""
 
   - name: "periodicLotSizeType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "preferenceCriterion"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "preferredLocation"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "preferredStockLevel"
@@ -688,7 +688,7 @@ attributes:
     description: ""
 
   - name: "presentationItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "pricesIncludeTax"
@@ -696,11 +696,11 @@ attributes:
     description: ""
 
   - name: "pricingGroup"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "pricingMatrix"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "printItems"
@@ -708,11 +708,11 @@ attributes:
     description: ""
 
   - name: "prodPriceVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "prodQtyVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "producer"
@@ -720,7 +720,7 @@ attributes:
     description: ""
 
   - name: "productFeedList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "purchaseDescription"
@@ -740,15 +740,15 @@ attributes:
     description: ""
 
   - name: "purchasePriceVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "purchaseTaxCode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "purchaseUnit"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "quantityAvailable"
@@ -788,7 +788,7 @@ attributes:
     description: ""
 
   - name: "quantityPricingSchedule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "quantityReorderUnits"
@@ -840,23 +840,23 @@ attributes:
     description: ""
 
   - name: "revRecForecastRule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "revRecSchedule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "revReclassFXAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "revenueAllocationGroup"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "revenueRecognitionRule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "roundUpAsComponent"
@@ -876,7 +876,7 @@ attributes:
     description: ""
 
   - name: "saleUnit"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salesDescription"
@@ -884,11 +884,11 @@ attributes:
     description: ""
 
   - name: "salesTaxCode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "scheduleBCode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "scheduleBNumber"
@@ -900,7 +900,7 @@ attributes:
     description: ""
 
   - name: "scrapAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "searchKeywords"
@@ -920,7 +920,7 @@ attributes:
     description: ""
 
   - name: "shipPackage"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "shippingCost"
@@ -944,15 +944,15 @@ attributes:
     description: ""
 
   - name: "siteCategoryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "sitemapPriority"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "softDescriptor"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "specialsDescription"
@@ -964,7 +964,7 @@ attributes:
     description: ""
 
   - name: "stockUnit"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "storeDescription"
@@ -976,7 +976,7 @@ attributes:
     description: ""
 
   - name: "storeDisplayImage"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "storeDisplayName"
@@ -984,23 +984,23 @@ attributes:
     description: ""
 
   - name: "storeDisplayThumbnail"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "storeItemTemplate"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiaryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "supplyLotSizingMethod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "supplyReplenishmentMethod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "supplyTimeFence"
@@ -1008,11 +1008,11 @@ attributes:
     description: ""
 
   - name: "supplyType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxSchedule"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "totalValue"
@@ -1028,11 +1028,11 @@ attributes:
     description: ""
 
   - name: "translationsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "unbuildVarianceAccount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "undepFunds"
@@ -1040,7 +1040,7 @@ attributes:
     description: ""
 
   - name: "unitsType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "upcCode"
@@ -1064,7 +1064,7 @@ attributes:
     description: ""
 
   - name: "vendor"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "vendorName"
@@ -1072,7 +1072,7 @@ attributes:
     description: ""
 
   - name: "vsoeDeferral"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "vsoeDelivered"
@@ -1080,7 +1080,7 @@ attributes:
     description: ""
 
   - name: "vsoePermitDiscount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "vsoePrice"
@@ -1088,7 +1088,7 @@ attributes:
     description: ""
 
   - name: "vsoeSopGroup"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "weight"
@@ -1096,7 +1096,7 @@ attributes:
     description: ""
 
   - name: "weightUnit"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "weightUnits"
@@ -1104,10 +1104,10 @@ attributes:
     description: ""
 
   - name: "wipAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "wipVarianceAcct"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

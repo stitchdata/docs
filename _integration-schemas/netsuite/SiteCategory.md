@@ -16,11 +16,11 @@ api-method:
 
 attributes:
   - name: "categoryListLayout"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "correlatedItemsListLayout"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "itemListLayout"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "metaTagHtml"
@@ -60,7 +60,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "pageTitle"
@@ -68,15 +68,15 @@ attributes:
     description: ""
 
   - name: "parentCategory"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "presentationItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "relatedItemsListLayout"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "searchKeywords"
@@ -84,7 +84,7 @@ attributes:
     description: ""
 
   - name: "sitemapPriority"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "storeDetailedDescription"
@@ -92,15 +92,15 @@ attributes:
     description: ""
 
   - name: "storeDisplayImage"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "storeDisplayThumbnail"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "translationsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "urlComponent"
@@ -108,6 +108,6 @@ attributes:
     description: ""
 
   - name: "website"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

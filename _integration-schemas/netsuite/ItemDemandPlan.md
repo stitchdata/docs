@@ -16,19 +16,19 @@ api-method:
 
 attributes:
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "demandPlanCalendarType"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "demandPlanMatrix"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -44,11 +44,11 @@ attributes:
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "memo"
@@ -56,11 +56,11 @@ attributes:
     description: ""
 
   - name: "month"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "units"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "year"

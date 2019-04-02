@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "assigned"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "caseNumber"
@@ -24,15 +24,15 @@ attributes:
     description: ""
 
   - name: "category"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "company"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "contact"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "createdDate"
@@ -40,11 +40,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "email"
@@ -52,7 +52,7 @@ attributes:
     description: ""
 
   - name: "emailEmployeesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "emailForm"
@@ -64,7 +64,7 @@ attributes:
     description: ""
 
   - name: "escalateToList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "escalationMessage"
@@ -88,7 +88,7 @@ attributes:
     description: ""
 
   - name: "insertSolution"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -104,11 +104,11 @@ attributes:
     description: ""
 
   - name: "issue"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "item"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "lastMessageDate"
@@ -124,7 +124,7 @@ attributes:
     description: ""
 
   - name: "module"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "newSolutionFromMsg"
@@ -132,11 +132,11 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "origin"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "outgoingMessage"
@@ -148,15 +148,15 @@ attributes:
     description: ""
 
   - name: "priority"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "product"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "profile"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "searchSolution"
@@ -164,11 +164,11 @@ attributes:
     description: ""
 
   - name: "serialNumber"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "solutionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -176,15 +176,15 @@ attributes:
     description: ""
 
   - name: "status"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "timeItemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"

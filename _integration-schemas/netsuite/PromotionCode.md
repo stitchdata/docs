@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "applyDiscountTo"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "code"
@@ -28,15 +28,15 @@ attributes:
     description: ""
 
   - name: "currencyList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -44,7 +44,7 @@ attributes:
     description: ""
 
   - name: "discount"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "discountType"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "freeShipMethod"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "implementation"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -88,11 +88,11 @@ attributes:
     description: ""
 
   - name: "itemsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "locationList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "minimumOrderAmount"
@@ -104,7 +104,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "numberToGenerate"
@@ -112,7 +112,7 @@ attributes:
     description: ""
 
   - name: "partnersList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "rate"
@@ -124,6 +124,6 @@ attributes:
     description: ""
 
   - name: "useType"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

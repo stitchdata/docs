@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "audience"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "baseCost"
@@ -24,15 +24,15 @@ attributes:
     description: ""
 
   - name: "campaignDirectMailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "campaignEmailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "campaignEventList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "campaignId"
@@ -40,7 +40,7 @@ attributes:
     description: ""
 
   - name: "category"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "convCostPerCustomer"
@@ -60,11 +60,11 @@ attributes:
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "eventResponseList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "expectedRevenue"
@@ -84,7 +84,7 @@ attributes:
     description: ""
 
   - name: "family"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -96,7 +96,7 @@ attributes:
     description: ""
 
   - name: "itemList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "keyword"
@@ -116,15 +116,15 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "offer"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "owner"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "profit"
@@ -132,7 +132,7 @@ attributes:
     description: ""
 
   - name: "promotionCode"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "roi"
@@ -140,7 +140,7 @@ attributes:
     description: ""
 
   - name: "searchEngine"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "startDate"
@@ -164,6 +164,6 @@ attributes:
     description: ""
 
   - name: "vertical"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

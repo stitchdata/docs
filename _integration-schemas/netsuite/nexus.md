@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "country"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "description"
@@ -36,26 +36,26 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parentNexus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "state"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxAgency"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxAgencyPst"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxCode"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

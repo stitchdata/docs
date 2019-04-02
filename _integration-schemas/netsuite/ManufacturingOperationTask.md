@@ -28,15 +28,15 @@ attributes:
     description: ""
 
   - name: "costDetailList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "endDate"
@@ -68,11 +68,11 @@ attributes:
     description: ""
 
   - name: "manufacturingCostTemplate"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "manufacturingWorkCenter"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "message"
@@ -80,7 +80,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "operationSequence"
@@ -88,11 +88,11 @@ attributes:
     description: ""
 
   - name: "order"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "predecessorList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "remainingWork"
@@ -112,7 +112,7 @@ attributes:
     description: ""
 
   - name: "status"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"
@@ -120,6 +120,6 @@ attributes:
     description: ""
 
   - name: "workOrder"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

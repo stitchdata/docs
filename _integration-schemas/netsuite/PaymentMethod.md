@@ -16,7 +16,7 @@ api-method:
 
 attributes:
   - name: "account"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "creditCard"
@@ -48,7 +48,7 @@ attributes:
     description: ""
 
   - name: "merchantAccountsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "name"
@@ -56,7 +56,7 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "payPalEmailAddress"
@@ -72,6 +72,6 @@ attributes:
     description: ""
 
   - name: "visualsList"
-    type: "anything"
+    type: "varies"
     description: ""
 ---

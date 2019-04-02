@@ -16,15 +16,15 @@ api-method:
 
 attributes:
   - name: "_class"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "accessRole"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "addressbookList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "altEmail"
@@ -40,7 +40,7 @@ attributes:
     description: ""
 
   - name: "categoryList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "comments"
@@ -52,15 +52,15 @@ attributes:
     description: ""
 
   - name: "contactRolesList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "customForm"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "dateCreated"
@@ -72,7 +72,7 @@ attributes:
     description: ""
 
   - name: "department"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "eligibleForCommission"
@@ -84,7 +84,7 @@ attributes:
     description: ""
 
   - name: "emailPreference"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "entityId"
@@ -108,7 +108,7 @@ attributes:
     description: ""
 
   - name: "globalSubscriptionStatus"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "homePhone"
@@ -116,7 +116,7 @@ attributes:
     description: ""
 
   - name: "image"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "internalId"
@@ -140,7 +140,7 @@ attributes:
     description: ""
 
   - name: "location"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "loginAs"
@@ -156,11 +156,11 @@ attributes:
     description: ""
 
   - name: "nullFieldList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "parent"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "partnerCode"
@@ -188,7 +188,7 @@ attributes:
     description: ""
 
   - name: "promoCodeList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "referringUrl"
@@ -200,7 +200,7 @@ attributes:
     description: ""
 
   - name: "roleList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "salutation"
@@ -216,15 +216,15 @@ attributes:
     description: ""
 
   - name: "subscriptionsList"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "subsidiary"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxFractionUnit"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "taxIdNum"
@@ -232,7 +232,7 @@ attributes:
     description: ""
 
   - name: "taxRounding"
-    type: "anything"
+    type: "varies"
     description: ""
 
   - name: "title"
