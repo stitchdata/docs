@@ -17,7 +17,7 @@ permalink: /integrations/saas/netsuite-suitetalk
 redirect_from: /integrations/saas/netsuite
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
-# input: false
+input: false
 
 # -------------------------- #
 #         Tap Details        #
