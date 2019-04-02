@@ -242,17 +242,72 @@ setup-steps:
 
 
 # -------------------------- #
+#     Replication Details    #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in page.replication-sections %}
+      - [{{ section.title | flatify }}](#{{ section.anchor }})
+      {% endfor %}
+
+  - title: "Unsupported {{ integration.display_name }} objects"
+    anchor: "unsupported-objects"
+    content: |
+      Stitch supports replicating all objects from {{ integration.display_name }}'s 2018.1 WSDL, with the exception of the following:
+
+      {% assign blacklisted-objects = site.data.taps.extraction.netsuite.blacklisted-objects.all | sort:"name" %}
+
+      {% for blacklisted-object in blacklisted-objects %}
+      - {{ blacklisted-object.name }}
+      {% endfor %}
+
+  - title: "Custom records"
+    anchor: "custom-records"
+    content: |
+      For each custom record type in {{ integration.display_name }}, a table for that custom record type will be available for selection in Stitch.
+
+    subsections:
+      - title: "Table names for custom record types"
+        anchor: "custom-record-types-table-names"
+        content: |
+          Custom record tables are named `customrecord_[custom_record_type]`, where `[custom_record_type]` is the name of the custom record in {{ integration.display_name }}. For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `customrecord_promo_discount`.
+
+      - title: "Replication methods for custom record types"
+        anchor: "custom-record-type-replication"
+        content: |
+          {% include layout/image.html type="right" file="/integrations/netsuite-custom-record-bookmarks.png" alt="Highlighted Show Creation Date and Show Last Modified fields in NetSuite's Custom Record Type page" max-width="350" %}
+          The Replication Method Stitch uses to replicate data for a custom record type depends on two custom record settings in {{ integration.display_name }}: **Show Last Modified** and **Show Creation Date**. These settings determine whether the {{ integration.display_name }} SuiteTalk API will return timestamp columns to use as [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+
+          - **If the record definition has either setting enabled**, Stitch will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). This means that only new and updated records for the record type will be replicated during each job.
+          - **If the record definition doesn't have either setting enabled**, Stitch will use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}). This means that all records for the record type will be replicated in full during each job.
+
+          To check the configuration of these settings for a custom record type in {{ integration.display_name }}:
+
+          1. Type `page: record types` into global search and click the **Page: Record Types** result.
+          2. Locate and click the custom record type in the list. This will open the **Custom Record Type** page.
+          3. Locate the **Show Creation Date** and **Show Last Modified** settings.
+
+          In the example to the right, both of these settings are enabled for the `Stitch Example` custom record type.
+
+
+
+# -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/netsuite
 
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+schema-sections:
+  - content: |
+      To ensure we can provide you with up-to-date documentation, this section will only cover a few of the most popular tables Stitch's {{ integration.display_name }} integration offers.
 
+      Refer to the [{{ integration.display_name }} SuiteTalk Schema Browser](https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_2/schema/index.html){:target="new"} for info on objects not listed here, including the fields available in each object.
+
+      **Note**: Stitch currently supports the replication of the majority of {{ integration.display_name }} objects, with the exception of those listed in the [Unsupported Objects section](#unsupported-objects).
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
