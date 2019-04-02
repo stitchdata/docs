@@ -31,7 +31,6 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/netsuite.svg
 
 table-selection: true
 column-selection: false
