@@ -36,7 +36,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
+status: "Open Beta"
 certified: true 
 
 historical: "1 year"
@@ -94,7 +94,7 @@ setup-steps:
           1. Sign into your {{ integration.display_name }} account as an administrator.
           2. Using the global search, type `page: enable` and click the **Page: Enable Features** result. For example:
 
-             ![]({{ site.baseurl }}/images/integrations/netsuite-v1-global-search-example.png)
+             ![NetSuite global search field]({{ site.baseurl }}/images/integrations/netsuite-v1-global-search-example.png)
           3. On the **Enable Features** page, click the **SuiteCloud** subtab.
           4. Locate the **SuiteTalk (Web Services)** section.
           5. Check the **Web Services** box.
@@ -107,7 +107,7 @@ setup-steps:
           1. On the **Enable Features** page, locate the **Manage Authentication** section. This should be after the **SuiteTalk** section.
           2. Check the **Token-based Authentication** box. Your settings should look like this when finished:
 
-             ![]({{ site.baseurl }}/images/integrations/netsuite-v1-enable-features.png)
+             ![Highlighted Web Services and Token-based Authentication fields on the NetSuite Enable features page]({{ site.baseurl }}/images/integrations/netsuite-v1-enable-features.png)
 
           5. Scroll to the bottom of the page and click **Save**.
 
@@ -125,39 +125,86 @@ setup-steps:
       5. Click the **Save** button. The confirmation page will display a **Consumer key/secret** section.
       6. **Copy the Consumer Key and Secret somewhere handy.** You'll need these credentials to complete the setup in Stitch.
 
-  - title: "Create a Stitch {{ destination.display_name }} and configure permissions"
-    anchor: "create-configure-stitch-user"
+  - title: "Create a Stitch {{ destination.display_name }} role and configure permissions"
+    anchor: "create-configure-stitch-role"
     content: |
-      todo
+      To connect {{ integration.display_name }} to Stitch, we recommend that you create a Stitch-specific role and user for us. We suggest this to ensure that:
+
+      1. Stitch is easily distinguishable in any logs or audits.
+
+      2. Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
+
+      3. Stitch can successfully authenticate to {{ integration.display_name }}. This will require creating a role that mirrors the standard {{ integration.display_name }} [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"}.
+
+         **Note**: Using the Full Access role requires two-factor authentication, which Stitch's integration doesn't currently support. For this reason, **do not assign the actual Full Access role to the Stitch user.**
     substeps:
       - title: "Create a Stitch {{ integration.display_name }} role"
         anchor: "create-stitch-netsuite-role"
         content: |
-          todo
-      - title: "Grant role permissions"
-        anchor: "grant-role-permissions"
+          {% capture two-factor-auth-roles %}
+          {{ integration.display_name }} enforces two-factor authentication for Full Access and Administrator roles as of {{ integration.display_name }} 2018.1.
+
+          Stitch's {{ integration.display_name }} integration doesn't support authenticating with this method. Connection errors will arise if either the Full Access or Administrator role is assigned to the Stitch user.
+          {% endcapture %}
+
+          {% include important.html first-line="**Do not assign the Full Access or Administrator role to Stitch**" content=two-factor-auth-roles %}
+
+          To ensure Stitch can access and replicate all NetSuite objects supported for replication, you'll need to create a role to assign to the Stitch user.
+
+          1. Using the global search, type `page: new role` and click the **Page: New Role** result.
+          2. On the Role page, enter a name for the role in the **Name** field. For example: `Stitch`
+          3. In the **Authentication** section, check the **Web Services Only Role** box.
+          
+      - title: "Configure permissions and save the Stitch role"
+        anchor: "configure-permissions-save-stitch-role"
         content: |
-          todo
+          Next, you'll grant permissions to the role. Below are instructions for adding permissions to the role, the permissions required, and where to find them in {{ integration.display_name }}.
+
+          In {{ integration.display_name }}, the Create Role **Permissions** section contains several subsections. In this guide is a tab that corresponds to the permissions you need to add in each {{ integration.display_name }} subsection. For example: In the **Permissions > Transactions** subsection, you'll add the permissions outlined in the **Transactions** tab of this guide.
+
+          {% capture adding-permission-instructions %}
+          **Refer to the other tabs in this section of the guide for the permissions you need to add**. 
+
+          To add a permission to the role:
+
+          1. In the **Permissions** tab, click a subtab. For example: **Transactions**
+          2. Using the **Permission** dropdown, search for the permission you want to add.
+
+             For example: If adding permissions in the **Transactions** subtab of {{ integration.display_name }}, you'll use the checklist in the **Transactions** tab of this guide.
+          3. Using the **Level** dropdown, set the permission level to the corresponding level outlined in this guide:
+
+             ![The Transactions subsection in the Permissions section of the NetSuite Create Role page]({{ site.baseurl }}/images/integrations/netsuite-role-permissions-tab.png)
+          4. Click **Add**.
+          5. Repeat these steps until all permissions in the tabs of this guide have been added.
+
+          **Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
+          {% endcapture %}
+
+          {% include integrations/saas/netsuite-permission-list.html %}
+
       - title: "Save the role"
         anchor: "save-role"
-        content: ""
-
-      - title: "Create a Stitch {{ integration.display_name }} user"
-        anchor: "create-stitch-netsuite-user"
         content: |
-          Next, you'll create a dedicated {{ integration.display_name }} user for Stitch and assign the Stitch role to it.
+          After you've finished granting permissions to the role, click **Save** to create it.
 
-          1. In your NetSuite account, click **Lists > Employees > Employees > New**.
-          2. In the Employee page, fill in the **Name** and **Email** fields.
-          3. Next, click the **Access** tab.
-          4. In the **Access** tab:
+  - title: "Create a Stitch {{ integration.display_name }} user"
+    anchor: "create-stitch-netsuite-user"
+    content: |
+      {% include layout/image.html type="right" file="/integrations/netsuite-new-employee-page.png" alt="The Name, Email, Access tab, Password, and Role tabs highlighted in the NetSuite " max-width="450" enlarge=true %}
+      Next, you'll create a dedicated {{ integration.display_name }} user for Stitch and assign the Stitch role to it.
 
-             1. Create a password for the Stitch user. Enter it in the **Password** field, then again in the **Confirm Password** field.
-             2. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 3](#create-stitch-netsuite-role).
-             3. Click **Add** once you've located the role.
-          5. When finished, click **Save**.
+      1. Using the global search, type `page: new role` and click the **Page: New Employees** result.
+      2. In the Employee page, fill in the **Name**, **Email**, and any other required fields.
+      3. Click the **Access** tab, located in the bottom half of the page.
+      4. In the **Access** tab:
 
-  - title: "Create access tokens"
+         1. Check the **Manually assign or change password** box to create a password for the Stitch user.
+         2. Enter a password in the **Password** field, then again in the **Confirm Password** field.
+         3. In the **Roles** section, search the dropdown menu to locate the Stitch role you created in [Step 4](#create-configure-stitch-role).
+         3. Click **Add** once you've located the role.
+      5. When finished, click **Save** to create the user.
+
+  - title: "Create access tokens for Stitch"
     anchor: "create-access-tokens"
     content: |
       In this step, you'll generate access tokens for the Stitch integration record (application) and user role.
@@ -166,8 +213,8 @@ setup-steps:
       2. Click the **New Access Token** button.
       3. On the **Access Token** page, fill in the following fields:
          - **Application Name**: Select the integration record you created in [Step 3](#reate-stitch-integration-record).
-         - **User**: Select the [user TODO]().
-         - **Role**: Select the role you created in [Step 4.1](#create-stitch-netsuite-role).
+         - **User**: Select the Stitch user you created in [Step 5](#create-stitch-netsuite-user).
+         - **Role**: Select the Stitch role you created in [Step 4](#create-stitch-netsuite-role).
          - **Token Name**: Enter a name for the token. For example: `Stitch`
       4. Click the **Save** button. The confirmation page will display a **Token ID and Secret**.
       5. **Copy the Token ID and Secret somewhere handy.** You'll need these credentials to complete the setup in Stitch.
@@ -184,7 +231,7 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **Account** field, enter the {{ integration.display_name }} account ID you retrieved in [Step 6](#locate-netsuite-account-id).
+      4. In the **Account** field, enter the {{ integration.display_name }} account ID you retrieved in [Step 7](#locate-netsuite-account-id).
       5. In the **Consumer Key** field, paste the Consumer Key you generated when you [created Stitch's integration record](#create-stitch-integration-record).
       6. In the **Token ID** field, paste the Token ID you generated when you [created Stitch's access tokens](#create-access-tokens).
       7. In the **Consumer Secret** field, paste the Consumer Secret you generated when you [created Stitch's integration record](#create-stitch-integration-record).

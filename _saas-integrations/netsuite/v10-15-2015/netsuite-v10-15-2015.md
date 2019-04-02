@@ -9,6 +9,7 @@ tags: [saas_integrations]
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 summary: "Connection instructions and schema details for Stitch's NetSuite integration."
 layout: singer
+input: false
 
 # -------------------------- #
 #     Integration Details    #
@@ -136,7 +137,7 @@ setup-steps:
       - title: "Save the role and retrieve its internal ID"
         anchor: "save-role-retrieve-id"
         content: |
-          After you've finished granting permissions to the role, click **Save** to create the it.
+          After you've finished granting permissions to the role, click **Save** to create  it.
 
           Next, you'll retrieve the role's internal ID. Stitch requires this ID to successfully create your {{ integration.display_name }} integration.
 
