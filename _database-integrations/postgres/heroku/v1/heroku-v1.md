@@ -78,33 +78,21 @@ notice-copy: |
 
   This article describes how to connect {{ integration.display_name }} **as an input data source.**
 
-  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a Self-Hosted {{ integration.display_name }} Destination guide]({{ link.destinations.setup.heroku-postgres | prepend: site.baseurl }}).
+  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a {{ integration.display_name }} Destination guide]({{ link.destinations.setup.heroku-postgres | prepend: site.baseurl }}).
 
 setup-steps:
-  - title: "Retrieve Your Postgres Credentials from Heroku"
+  - title: "Locate the database connection details in {{ integration.display_name }}"
     anchor: "retrieve-postgres-credentials"
     content: |
-      1. Log into your Heroku account.
-      2. On the dashboard page, click the app that contains the database you want to connect to Stitch. This will open the app's Overview page.
-      3. On this page, locate the **Installed add-ons** section.
-      4. Click the database you want to connect to Stitch. This will open the database's Overview page.
-      5. On this page, click the **Settings** tab.
-      6. In the **Database Credentials** section, click the **View Credentials** button to display the connection details. You'll need the following to complete the setup:
-         - Host
-         - Database
-         - User
-         - Port
-         - Password
-
-      Leave this page open for now - you'll need it in the next step to complete the setup.
+      {% include shared/connection-details/heroku.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Define the database connection details"
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="general" %}

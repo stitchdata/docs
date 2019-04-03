@@ -3,13 +3,40 @@
 
 Your organization may require a different process, but the simplest way to create this user is to execute the following query when logged into the {{ integration.display_name }} database as a user with the right to grant privileges.
 
-Additionally, this user should also own the schema that Stitch is being granted access to.
+**Note**: The user performing this step should also own the schema(s) that Stitch is being granted access to.
 
-```sql
-{{ postgres-setup.create-user-command-default }}
-```
+1. Log into your database.
+2. Create a database user named `stitch`, replacing `<password>` with a password:
 
-Replace `[secure password here]` with a secure password{% if integration.ssh == true %}, which can be different than the SSH password.{% else %}.{% endif %} Additionally, make sure you replace `[database_name]` and `[schema_name]` with the appropriate names in your database. Repeat this process as necessary if you want to connect multiple databases or schemas.
+   ```sql
+   {{ postgres-setup.create-user-command-default | strip }}
+   ```
+
+3. Grant the `stitch` user `CONNECT` privileges to the database, replacing `<database_name>` with the name of a database you want to connect Stitch to:
+
+   ```sql
+   {{ postgres-setup.grant-connect-on-database | strip }}
+   ```
+
+4. Grant the `stitch` user schema usage privileges, replacing `<schema_name>` with the name of a schema you want to replicate data from:
+
+   ```sql
+   {{ postgres-setup.grant-schema-usage | strip }}
+   ```
+
+5. Grant the `stitch` user `SELECT` privileges on the tables in the schema:
+
+   ```sql
+   {{ postgres-setup.grant-select-on-tables | strip }}
+   ```
+
+6. Alter the schema's default privileges to grant `SELECT` privileges on tables to `stitch`. This is required to ensure that objects created in the schema after connecting to Stitch will remain accessible to the `stitch` user:
+
+   ```sql
+   {{ postgres-setup.alter-default-schema-privileges | strip }}
+   ```
+
+7. If you want to replicate data from multiple databases or schemas, repeat steps 3 - 6 as needed.
 
 <!-- Just for RDS integrations -->
 {% if integration.name contains "rds" %}

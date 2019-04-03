@@ -1,7 +1,6 @@
 ---
 title: Amazon PostgreSQL RDS (v1.0)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
-tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-postgresql/v1
 summary: "Connect and replicate data from your Amazon PostgreSQL RDS using Stitch's PostgreSQL integration."
 microsites:
@@ -35,7 +34,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/postgresql-rds.svg
 
 # Stitch features
 
@@ -114,12 +112,25 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "Configure database server settings"
-    anchor: "server-settings"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
     content: |
-      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+
+      {% include integrations/templates/create-database-user-tabs.html %}
+
+  - title: "Configure Log-based Incremental Replication"
+    anchor: "configure-log-based-incremental-replication"
+    content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication." %}
       
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
+
+      In this section:
+
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
     substeps:
       - title: "Configure the database parameter group"
         anchor: "configure-database-parameter-group"
@@ -136,32 +147,23 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="reboot-the-instance" %}
 
-  - title: "Create a Stitch database user"
-    anchor: "create-a-database-user"
-    content: |
-      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
-
-      {% include integrations/templates/create-database-user-tabs.html %}
-
-  - title: "Create a replication slot"
-    anchor: "create-replication-slot"
-    content: |
-      {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
-
-      {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
-
-  - title: "Locate RDS connection details in AWS"
-    anchor: "locating-rds-database-details"
-    content: |
-      {% include shared/aws-connection-details.html %}
+      - title: "Create a replication slot"
+        anchor: "create-replication-slot"
+        content: |
+          {% include integrations/databases/setup/binlog/postgres-replication-slot.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Define the database connection details"
+      - title: "Locate the database connection details in AWS"
+        anchor: "locating-rds-database-details"
+        content: |
+          {% include shared/connection-details/amazon.html type="connection-details" %}
+
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
           {% include integrations/databases/setup/database-integration-settings.html type="general" %}
@@ -179,6 +181,8 @@ setup-steps:
       - title: "Define Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
         content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication." %}
+
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
 
       - title: "Create a replication schedule"

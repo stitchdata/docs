@@ -1,37 +1,36 @@
 <!-- This file is used for AWS connection instructions. -->
 
+
+<!-- FOR REDSHIFT DATABASES-->
+{% if page.permalink contains "redshift" %}
+  {% assign aws-name = "Redshift" %}
+  {% assign menu-option = "Cluster" %}
+  {% assign database-name = "Database Name" %}
+
+{% endif %}
+
 <!-- FOR RDS DATABASES -->
 {% if page.permalink contains "rds" or page.permalink contains "aurora" %}
   {% assign aws-name = "RDS" %}
   {% assign menu-option = "Database" %}
   {% assign database-name = "DB Name" %}
 
-  {% assign image = "/integrations/amazon-rds-details-page.png" %}
-  {% assign image-alt ="An example RDS instance details page in AWS" %}
-
+{% if include.type == "connection-details" %}
 {% capture page-navigation-step %}
-1. On the {{ menu-option }} Details page, click the **Connectivity & security** tab if it's not already open.
+1. On the {{ menu-option }} Details page, scroll down to the **Connect** section.
 {% endcapture %}
-
-
-<!-- FOR REDSHIFT DATABASES-->
-{% elsif page.permalink contains "redshift" %}
-  {% assign aws-name = "Redshift" %}
-  {% assign menu-option = "Cluster" %}
-  {% assign database-name = "Database Name" %}
-
-  {% assign image = "/destinations/redshift-db-details.png" %}
-  {% assign image-alt ="Redshift cluster details" %}
+{% endif %}
 {% endif %}
 
 
-{% include layout/image.html type="right" file=image alt=image-alt max-width="450" %}
-1. Sign into the [AWS Console](https://console.aws.amazon.com){:target="new"}, if you haven't already.
+1. Sign into the [AWS Console](https://console.aws.amazon.com){:target="new"}, if needed.
 2. Navigate to the **{{ aws-name }}** option.
 3. On the **{{ aws-name }} Dashboard** page, click the **{{ menu-option | append: "s" }}** option on the left side of the page. This will open the **{{ aws-name }} {{ menu-option | append: "s" }}** page.
 4. In the list of {{ menu-option | downcase | append: "s" }}, locate and click on the instance you want to connect to Stitch. This will open the **{{ menu-option }} Details** page.
+
+{% if include.type == "connection-details" %}
 {{ page-navigation-step }}
-1. Locate the following fields, which are highlighted in the image on the right:
+1. Locate the following fields:
    - **Endpoint**
    - **{{ database-name }}:** This field contains the name of the database used to launch the instance. You'll only need this info if you want to connect this specific database to Stitch.
    
@@ -39,3 +38,4 @@
    - **Port:** This is the port used by the database.
 
 Leave this page open for now - you'll need it to complete the setup.
+{% endif %}
