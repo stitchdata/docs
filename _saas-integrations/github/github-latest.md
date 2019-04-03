@@ -63,7 +63,9 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **GitHub Access Token** field, paste the access token you created in the Step 1.
-      5. In the **GitHub Repository Name** field, enter the username and repository you want to track seperated by a forwardslash. For example: `mygithubusername/docs`
+      5. In the **GitHub Repository Name** field, enter the paths of the repositories you want to track. The path is relative to `https://github.com`. For example: The path for the Stitch Docs repository is `stitchdata/docs`
+
+         To track multiple repositories, enter a space delimited list of the repository paths. For example: `stitchdata/docs stitchdata/docs-about-docs`
 
          **Note**: At this time, only one repository may be tracked per integration. To track multiple repositories, you'll need to create additional GitHub integrations in your Stitch account.
   - title: "historical sync"
