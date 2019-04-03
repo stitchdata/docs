@@ -409,10 +409,11 @@ scenarios:
     result: |
       {{ destination.display_name }} will convert letters to uppercase. For example:
 
-      | Columns in Source | Columns in {{ destination.display_name }} |
+      | Columns in source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|
       | `CuStOmErId`      | `CUSTOMERID`             |
       | `customerID`      | `CUSTOMERID`             |
+      | `customerid`      | `CUSTOMERID`             |
 
     rejectable: false
     error: none
@@ -424,7 +425,7 @@ scenarios:
     result: |
       {{ destination.display_name }} will remove spaces. For example:
 
-      | Columns in Source | Columns in {{ destination.display_name }} |
+      | Columns in source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|
       | `customer id`     | `CUSTOMERID`             |
       | `CUSTOMER ID`     | `CUSTOMERID`             |
