@@ -59,7 +59,7 @@ log-based-replication-read-replica: false
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: false
+view-replication: true
 
 
 # -------------------------- #
