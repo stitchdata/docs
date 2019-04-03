@@ -24,9 +24,10 @@
                         <li class="category-version-toggle">
                             <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
                             {% if version.number == latest-version %} (latest){% endif %}
-                            {% if version.released == false %} (closed beta){% endif %}
+                            {% if doc.status == "Closed Beta" %} (closed beta){% endif %}
+                            {% if doc.status == "Open Beta" %} (beta){% endif %}
                             {% if version.deprecated == true %} (deprecated){% endif %}
-                            {% if doc.status == "Open Beta" %} (beta){% endif %}</a>
+                            </a>
                         </li>
                     {% endif %}
                 {% endfor %}
@@ -49,9 +50,9 @@
                     <li class="active">
                         version {{ version.number }}
                         {% if version.number == latest-version %} (latest){% endif %}
-                        {% if version.released == false %} (beta){% endif %}
+                        {% if integration.status == "Closed Beta" %} (closed beta){% endif %}
+                        {% if integration.status == "Open Beta" %} (beta){% endif %}
                         {% if version.deprecated == true %} (deprecated){% endif %}
-                        {% if doc.status == "Open Beta" %} (beta){% endif %}
                         <i class="fa fa-check fa-1" aria-hidden="true"></i>
                     </li>
                 {% else %}
@@ -60,9 +61,10 @@
                             <li>
                                 <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
                                 {% if version.number == latest-version %} (latest){% endif %}
-                                {% if version.released == false %} (closed beta){% endif %}
+                                {% if doc.status == "Closed Beta" %} (closed beta){% endif %}
+                                {% if doc.status == "Open Beta" %} (beta){% endif %}
                                 {% if version.deprecated == true %} (deprecated){% endif %}
-                                {% if doc.status == "Open Beta" %} (beta){% endif %}</a>
+                                </a>
                             </li>
                         {% endif %}
                     {% endfor %}
