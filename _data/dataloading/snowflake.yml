@@ -19,10 +19,10 @@ scenarios:
   - id: no-pk
     summary: default  
     result: |
-      - **Initial sync**: Table is created without `NOT NULL` column constraits.
-      - **Subsequent syncs**: If using Incremental Replication, records will be added to the table in an Append-Only fashion.
+      - **Initial job**: Table is created without `NOT NULL` column constraits.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, records will be added to the table in an Append-Only fashion.
 
-        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -32,10 +32,10 @@ scenarios:
   - id: single-pk
     summary: default	
     result: |
-      - **Initial sync:** Table is created. The Primary Key column is created with `NOT NULL` column constraits.
-      - **Subsequent syncs:** If using Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
+      - **Initial job:** Table is created. The Primary Key column is created with `NOT NULL` column constraits.
+      - **Subsequent jobs:** If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
 
-        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -45,10 +45,10 @@ scenarios:
   - id: multiple-pks
     summary: default  
     result: |
-      - **Initial sync**: Table is created. The Primary Key columns are created with `NOT NULL` column constraits.
-      - **Subsequent syncs**: If using Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
+      - **Initial job**: Table is created. The Primary Key columns are created with `NOT NULL` column constraits.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
 
-        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -56,7 +56,7 @@ scenarios:
 
 ## Primary Key column is changed in the warehouse:
   - id: pk-column-change
-    heading: "I change the Primary Key column(s) in the data warehouse?"
+    heading: "I change the Primary Key column(s) in the destination?"
     anchor: "pk-column-change"
     summary: "The table's Primary Key(s) is/are changed."
 
@@ -111,7 +111,7 @@ scenarios:
     summary: default    
     result: |
 
-      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent sync, detected `STRING` values. To accommodate data of varying types, Stitch will:
+      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate data of varying types, Stitch will:
 
       1. Store data for the original data type in the original column. In this example, only `BOOLEAN` values will be stored in `order_confirmed`.
 
@@ -122,9 +122,9 @@ scenarios:
     troubleshooting: none
 
 ## Table contains nested data
-  - id: nested-data-variant
-    heading: "I sync a table that contains nested data structures?"
-    anchor: "nested-data-variant"
+  - id: nested-data-structures
+    heading: "I track a table that contains nested data structures?"
+    anchor: "nested-data-structures"
     summary: "Data is replicated to {{ destination.display_name }} that is nested, containing many top-level properties and potentially nested sub-properties."
     result: |
       The core object - or the top-level properties - will be split into individual columns.
@@ -135,7 +135,7 @@ scenarios:
 
       ```
       {
-        "order_id":"1234",                  // order_id and customer_id are top-level properties
+        "order_id":"1234",                  // top-level properties
         "customer_id":"100",
         "line_items":[                      // start of nested data (array)
             {
@@ -379,7 +379,7 @@ scenarios:
 
          If new data is detected for the removed column, Stitch will re-create it in {{ destination.display_name }}.
 
-         Note: An integration must support syncing individual columns AND you must un-sync the column in Stitch for the column removal to be permanent.
+         Note: An integration must support tracking individual columns AND you must de-select the column in Stitch for the column removal to be permanent.
       - `_sdc` **columns**: Removing a Stitch replication column will prevent Stitch from upserting replicated data into {{ destination.display_name }}.
       - **Columns with data type suffixes**: Removing a column created as result of accommodating [multiple data types](#multiple-data-types) will prevent Stitch from loading replicated data into the table. This applies to columns with names such as: `customer_zip__st`, `customer_zip__int`, etc.
 
@@ -409,10 +409,11 @@ scenarios:
     result: |
       {{ destination.display_name }} will convert letters to uppercase. For example:
 
-      | Columns in Source | Columns in {{ destination.display_name }} |
+      | Columns in source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|
       | `CuStOmErId`      | `CUSTOMERID`             |
       | `customerID`      | `CUSTOMERID`             |
+      | `customerid`      | `CUSTOMERID`             |
 
     rejectable: false
     error: none
@@ -424,7 +425,7 @@ scenarios:
     result: |
       {{ destination.display_name }} will remove spaces. For example:
 
-      | Columns in Source | Columns in {{ destination.display_name }} |
+      | Columns in source | Columns in {{ destination.display_name }} |
       |-------------------+--------------------------|
       | `customer id`     | `CUSTOMERID`             |
       | `CUSTOMER ID`     | `CUSTOMERID`             |

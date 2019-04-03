@@ -44,11 +44,14 @@ all-permissions:
 
 all-steps:
   - copy: |
-      {% include layout/inline_image.html type="right" file="destinations/bigquery-user-permissions.gif" alt="Assigning BigQuery Admin & Storage Admin permissions to a GCP user." max-width="400px" %}
+      {% include layout/inline_image.html type="right" file="destinations/bigquery-permissions.png" alt="Assigning BigQuery Admin and Storage Admin permissions to a GCP user." max-width="400px" %}
 
       In the page that displays, click the **IAM** option in the menu on the left side of the page. This will display a page of all the members that have access to the project.
   - copy: "In the list, locate the user you want to use to connect {{ page.display_name }} to Stitch."
-  - copy: "Click the **Role(s)** drop-down in the row for that user."
-  - copy: "Select the **BigQuery** option and click **BigQuery Admin**."
-  - copy: "Next, select the **Storage** option and click **Storage Admin**."
+  - copy: "Click the **pencil icon** in the row for the user. This will open the **Edit Permissions** modal."
+  - copy: "If the user already has a role assigned, click **+ Add Another Role**."
+  - copy: "Click the **Role** field."
+  - copy: "In the search box, type `bigquery admin` and click the **BigQuery Admin** result."
+  - copy: "Click **+ Add Another Role** and click the **Role** field again."
+  - copy: "In the search box, type `storage admin` and click the **Storage Admin** result."
   - copy: "Click **Save.**"
