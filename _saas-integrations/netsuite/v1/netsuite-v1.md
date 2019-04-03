@@ -13,8 +13,7 @@
 # -------------------------- #
 
 title: NetSuite (v1.0)
-permalink: /integrations/saas/netsuite-suitetalk
-redirect_from: /integrations/saas/netsuite
+permalink: /integrations/saas/netsuite-suitetalk/v1
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
 input: false
@@ -26,7 +25,7 @@ input: false
 name: "netsuite"
 display_name: "NetSuite"
 
-singer: true 
+singer: true
 tap-name: "NetSuite"
 
 this-version: "1.0"
