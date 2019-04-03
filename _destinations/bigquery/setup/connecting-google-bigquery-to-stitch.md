@@ -41,16 +41,18 @@ steps:
   - title: "Create a GCP project and enable billing"
     anchor: "create-gcp-project-enable-billing"
     content: |
-      Next, create a new GCP project to house your BigQuery data warehouse by following [these instructions]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="new"}.
+      Next, create a new GCP project to house your {{ destination.display_name }} destination by following [these instructions]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="new"}.
 
       **Be sure to enable billing for the account and attach a credit card, even if you're using the free trial option.** If billing isn't enabled, Stitch will encounter issues when loading data into your data warehouse.
 
   - title: "Grant user permissions"
     anchor: "grant-user-permissions"
     content: |
-      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The project Info box on the GCP Platform Dashboard page." max-width="250px" %}After the project has been created, open the project in the GCP console. You can do this by either:
+      {% include note.html type="single-line" content="**Note**: Granting permissions to a user in Google Cloud Platform requires the `resourcemanager.projects.setIamPolicy` privilege." %}
+      
+      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The project Info box on the GCP Platform Dashboard page." max-width="300px" %}After the project has been created, open the project in the GCP console. You can do this by either:
 
-      - Clicking **Manage Project Settings** in the **Project Info** box on the dashboard page, as seen to the right.
+      - Clicking **Go to project settings** in the **Project Info** box on the dashboard page, as seen to the right.
 
       - Toggling between Projects by clicking the drop-down menu next to the Google Cloud Platform logo in the upper-left corner.
 
