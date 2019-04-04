@@ -16,7 +16,7 @@ title: Connecting a Microsoft Azure SQL Data Warehouse Destination to Stitch
 permalink: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
 redirect_from: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
 keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure, microsoft azure destination
-summary: "Connect a Microsoft Azure SQL data warehouse to your Stitch account."
+summary: "Connect a Microsoft Azure SQL Data Warehouse destination to your Stitch account."
 
 content-type: "destination-setup"
 
@@ -109,7 +109,7 @@ steps:
           
           This is the value you'll enter in the **Host** field in Stitch in the next step.
 
-          {% include destinations/microsoft-azure/azure-connection-details.html %}
+          {% include shared/connection-details/microsoft-azure.html %}
 
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"

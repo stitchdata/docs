@@ -9,7 +9,7 @@
 ## /_data/ui/common/database-connections.yml
 
 
-microsoft-azure:
+microsoft-azure-sql-data-warehouse:
   - name: "{{ defaults.field-names.host }}"
     copy: "Enter the host address (server name) used by the {{ destination.display_name }} instance. This is the **Server name** value you retrieved in [the previous step](#locate-connection-details)."
 
@@ -26,7 +26,7 @@ microsoft-azure:
     copy: "{{ common.field-copy.destination-database | flatify }}"
 
   - name: "Shared Access Signature URL"
-    copy: "Paste the **Blob service SAS URL** you generated ](#generate-shared-access-signature-url)."
+    copy: "Paste the **Blob service SAS URL** you generated in [Step 2.1](#generate-shared-access-signature-url)."
 
   - name: "Access Key for Azure Storage"
     copy: "Paste the **Key** associated with the signing key you selected in [Step 2.1](#generate-shared-access-signature-url)."
