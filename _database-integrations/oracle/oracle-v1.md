@@ -28,9 +28,10 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
+# this-version: "1.0"
+
 hosting-type: "generic"
 
-# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -109,18 +110,13 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "Retrieve the database's Oracle System ID"
-    anchor: "retrieve-oracle-system-id"
-    content: |
-      {% include integrations/databases/setup/binlog/oracle-retrieve-sid.html %}
-
   - title: "Enable Log-based Incremental Replication with LogMiner"
     anchor: "enable-logminer"
     content: |
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
       {% for substep in step.substeps %}
-      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %} 
 
     substeps:
@@ -242,28 +238,37 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
+  - title: "Retrieve the database's Oracle System ID"
+    anchor: "retrieve-oracle-system-id"
+    content: |
+      {% include integrations/databases/setup/binlog/oracle-retrieve-sid.html %}
+
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
+      {% for substep in step.substeps %}
+      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %} 
+
     substeps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
-      # - title: "Define the SSH connection details"
-      #   anchor: "ssh-connection-details"
-      #   content: |
-      #     {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-      - title: "Define default replication method"
+      - title: "Define the default replication method"
         anchor: "define-default-replication-method"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html type="default-replication-method" %}

@@ -203,24 +203,24 @@ setup-steps:
       - title: "Locate the database connection details in AWS"
         anchor: "locate-connection-details"
         content: |
-          {% include shared/aws-connection-details.html %}
+          {% include shared/aws-connection-details.html type="connection-details" %}
 
-      - title: "Define the database connection details"
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
-      # - title: "Define the SSH connection details"
-      #   anchor: "ssh-connection-details"
-      #   content: |
-      #     {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-      - title: "Define default replication method"
+      - title: "Define the default replication method"
         anchor: "define-default-replication-method"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html type="default-replication-method" %}
