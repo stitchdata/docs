@@ -14,6 +14,8 @@
 
 title: Connecting an Amazon Redshift Data Warehouse to Stitch
 permalink: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
+redirect_from: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
 
 summary: "Ready to spin up an Amazon Redshift destination and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
