@@ -78,4 +78,4 @@ next-steps: |
   After the account is created, you can manage your Panoply settings by signing into [Panoply]({{ site.data.destinations.resource-links[destination.type]main-site }}){:target="new"}.
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type","panoply" | first %}
+{% assign destination = panoply %}
