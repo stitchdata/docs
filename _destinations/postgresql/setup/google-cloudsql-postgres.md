@@ -13,13 +13,12 @@
 # -------------------------- #
 
 title: Connecting a Google CloudSQL PostgreSQL Destination to Stitch
-tags: [postgresql_destination]
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, cloudsql postgres, cloudsql postgresql, cloudsql data warehouse
 
 permalink: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data-warehouse
 redirect_from: /destinations/postgresq/connecting-a-google-cloudsql-postgresql-data-warehouse
 
-summary: "Ready to spin up a Google CloudSQL PostgreSQL destination and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+summary: "Connect a Google CloudSQL PostgreSQL database to your Stitch account as a destination."
 
 content-type: "destination-setup"
 
@@ -48,7 +47,7 @@ port: 5432
 # -------------------------- #
 
 intro: |
-  In this tutorial, we’ll walk you through how to spin up a Google CloudSQL PostgreSQL instance and then connect it to Stitch as a destination.
+  In this tutorial, we’ll walk you through how to connect a Google CloudSQL PostgreSQL instance to Stitch as a destination.
 
   For more info on Google CloudSQL's features and limitations, [check out the official Google documentation](https://cloud.google.com/sql/docs/postgres/){:target="new"}.
 
@@ -69,6 +68,7 @@ requirements:
       Selecting a project can be done in the [Projects page of the Google Console](https://console.cloud.google.com/project){:target="new"}.
   - item: |
       **Access to the CloudSQL Administration API for the Cloud Platform Project housing the instance**. Refer to [Google's documentation](https://console.cloud.google.com/flows/enableapi?apiid=sqladmin){:target="new"} for more info.
+  - item: "**Database privileges that allow you to create users and grant privileges.** This is required to create a database user for Stitch."
 
 # -------------------------- #
 #         Instructions       #

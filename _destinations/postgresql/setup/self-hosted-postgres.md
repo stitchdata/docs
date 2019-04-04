@@ -15,7 +15,7 @@
 title: Connecting a Self-Hosted PostgreSQL Destination to Stitch
 permalink: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-warehouse-to-stitch
 keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl
-summary: "Ready to spin up a PostgreSQL data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+summary: "Connect a self-hosted PostgreSQL database to your Stitch account as a destination."
 
 content-type: "destination-setup"
 
@@ -45,11 +45,9 @@ port: 5432
 requirements:
   - item: |
       **An up-and-running {{ destination.display_name }} instance.** Instructions for installing {{ destination.display_name }} and creating an initial database are outside the scope of this tutorial; our instructions assume that you have a {{ destination.display_name }} instance up and running. For help installing and getting started with {{ destination.display_name }}, refer to the [Postgres documentation](https://www.postgresql.org/docs/){:target="new"}.
-  - item: |
-      **A {{ destination.display_name }} instance running on {{ site.data.destinations.reference[destination.type]stitch-details-info.supported-versions }} or above.** While this isn't something that Stitch strictly enforces, we recommend keeping your [version current as a best practice](http://www.postgresql.org/support/versioning/).
-  - item: |
-      **`createdb` permissions in your {{ destination.display_name }} instance.** This is required to create a database for Stitch.
 
+      **Note**: The database must be running version 9.3 or higher.
+  - item: "**Database privileges that allow you to create users and grant privileges.** This is required to create a database user for Stitch."
 
 # -------------------------- #
 #         Instructions       #
@@ -97,7 +95,6 @@ steps:
         anchor: "save-destination"
         content: |
           {% include shared/database-connection-settings.html type="finish-up" %}
-
 ---
 {% include misc/data-files.html %}
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}

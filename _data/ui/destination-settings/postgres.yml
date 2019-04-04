@@ -63,6 +63,9 @@ heroku:
   - name: "{{ defaults.field-names.database }}"
     copy: "Paste the name of the Heroku database."
 
+  - name: "{{ defaults.field-names.ssl | flatify }}"
+    copy: "Check this box. Heroku requires SSL to connect; if left unchecked, Stitch will be unable to connect to your Heroku database."
+
 
 # -------------------------- #
 #        Postgres-RDS        #

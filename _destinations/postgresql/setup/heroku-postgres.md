@@ -15,7 +15,7 @@
 title: Connecting a Heroku-Postgres Destination to Stitch
 permalink: /destinations/postgresql/connecting-a-heroku-postgres-data-warehouse-to-stitch
 keywords: postgres data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, heroku data warehouse, heroku etl, heroku
-summary: "Create a Heroku-Postgres destination and connect it to Stitch."
+summary: "Connect a Heroku-PostgreSQL destination to your Stitch account."
 
 content-type: "destination-setup"
 
@@ -79,8 +79,6 @@ steps:
         anchor: "enter-connection-details-into-stitch"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
-
-          {% include shared/database-connection-settings.html type="ssl" %}
 
       - title: "Save the destination"
         anchor: "save-destination"
