@@ -14,10 +14,8 @@
 
 title: Connecting a Snowflake Destination to Stitch
 permalink: /destinations/snowflake/connecting-a-snowflake-data-warehouse-to-stitch
-tags: [snowflake_destination]
 keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowflake etl, etl to snowflake, snowflake destination
-
-summary: "Connect a Snowflake destination to your Stitch account."
+summary: "Connect a Snowflake database to your Stitch account as a destination."
 
 content-type: "destination-setup"
 
@@ -122,7 +120,7 @@ steps:
       {% endfor %}
       {% endcapture %}
 
-      In {{ destination.display_name }}, access is configured and managed through [Network Security Policies](https://docs.snowflake.net/manuals/user-guide/network-policies.html). 
+      In {{ destination.display_name }}, access is configured and managed through [Network Security Policies](https://docs.snowflake.net/manuals/user-guide/network-policies.html){:target="new"}. 
 
       Stitch's IP addresses must be added to a network policy's **Allowed IP List** for the connection to be successful.
 
