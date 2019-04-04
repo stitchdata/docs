@@ -16,7 +16,7 @@ title: Connecting an Amazon S3 Destination to Stitch
 permalink: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
 keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, postgres etl, amazon s3 etl
 
-summary: "Connect an Amazon S3 destination to your Stitch account."
+summary: "Connect an Amazon S3 bucket to your Stitch account as a destination."
 
 content-type: "destination-setup"
 
