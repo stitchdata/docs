@@ -98,7 +98,7 @@ steps:
       - title: "Locate the connection details in the Google Console"
         anchor: "locate-database-connection-details"
         content: |
-          {% include shared/google-cloud-platform/locate-database-details.html %}
+          {% include shared/connection-details/google-cloudsql.html %}
 
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"

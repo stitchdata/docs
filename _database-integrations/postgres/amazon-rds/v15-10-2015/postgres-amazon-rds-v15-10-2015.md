@@ -112,17 +112,17 @@ setup-steps:
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
-  - title: "Locate RDS connection details in AWS"
-    anchor: "locating-rds-database-details"
-    content: |
-      {% include shared/aws-connection-details.html %}
-
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
+      - title: "Locate the database connection details in AWS"
+        anchor: "locating-rds-database-details"
+        content: |
+          {% include shared/connection-details/amazon.html %}
+          
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |

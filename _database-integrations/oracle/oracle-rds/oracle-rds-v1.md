@@ -205,7 +205,7 @@ setup-steps:
       - title: "Locate the database connection details in AWS"
         anchor: "locate-connection-details"
         content: |
-          {% include shared/aws-connection-details.html type="connection-details" %}
+          {% include shared/connection-details/amazon.html type="connection-details" %}
 
       - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"

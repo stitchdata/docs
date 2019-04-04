@@ -202,7 +202,7 @@ steps:
       - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |
-          {% include shared/aws-connection-details.html %}
+          {% include shared/connection-details/amazon.html %}
 
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"

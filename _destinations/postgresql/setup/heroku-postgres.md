@@ -59,7 +59,7 @@ steps:
   - title: "Locate the {{ destination.display_name }} connection details"
     anchor: "locate-connection-settings"
     content: |
-      {% include shared/heroku-connection-details.html %}
+      {% include shared/connection-details/heroku.html %}
 
   - title: "Grant the {{ page.display_name }} user CREATE permissions"
     anchor: "grant-create-permissions"
