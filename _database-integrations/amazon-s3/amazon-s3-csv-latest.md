@@ -7,7 +7,6 @@ title: Amazon S3 CSV
 keywords: amazon-s3-csv, database integration, etl amazon-s3-csv, amazon-s3-csv etl
 permalink: /integrations/databases/amazon-s3-csv
 summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
-layout: singer
 snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
@@ -70,6 +69,32 @@ full-table-replication: false
 
 view-replication: false
 
+
+
+# -------------------------- #
+#    Table search patterns   #
+# -------------------------- #
+
+search-pattern-examples:
+  - example: "Single file, periodically updated"
+    file-name: "`customers.csv`"
+    updates: "A single CSV file is periodically updated with new and updated customer data."
+    description: "Because there will only ever be one file, you could enter the exact name of the file in your S3 bucket:"
+    pattern: |
+      customers\.csv
+    matches: "`customer.csv`, exactly"
+
+  - example: "Multiple files, generated daily"
+    file-name: "`customers-<string>.csv`, where `<string>` is a unique, random string"
+    updates: "A new CSV file is created every day that contains new and updated customer data. Old files are never updated after they're created."
+    description: "To ensure new and updated files are identified, you'd want to enter a search pattern that would match all files beginning with `customers`, regardless of the string in the file name:"
+    pattern: |
+      (customers-).*\.csv
+    matches: |
+      - `customers-reQDSwNG6U.csv`
+      - `customers-xaPTXfN4tD.csv`
+      - `customers-MBJMhCbNCp.csv`
+      - etc.
 
 # -------------------------- #
 #   Data types for loading   #
@@ -179,8 +204,7 @@ setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
-      4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
-      5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
+      {% include shared/database-connection-settings.html type="general" %}
 
   - title: "Configure tables"
     anchor: "configure-tables"
@@ -206,57 +230,102 @@ setup-steps:
 ## If a user is including a single file inside of a folder, do they need to escape backslashes and periods?
 ## Is there anything that will *not* work in this field?
 ## Does the first backslash for a directory need to be included? (Ex: /analytics/file.csv vs analytics/file.csv)
-      - title: "Define the table's search pattern"
-        anchor: "define-table-search-pattern"
+      - title: "Define the table's search settings"
+        anchor: "define-table-search-settings"
         content: |
-          {%- capture pyregex -%}
-          **Want to test an expression?** Try using [PyRegex](http://www.pyregex.com/){:target="new"}.
-          {%- endcapture -%}
+          In this step, you'll tell Stitch which files in your S3 bucket you want to replicate data from. To do this, you'll use the **Search Pattern** and **Directory** fields.
 
-          {% include note.html type="single-line" content=pyregex %}
+        sub-substeps:
+          - title: "Define the Search Pattern"
+            anchor: "define-search-pattern"
+            content: |
+              The **Search Pattern** field defines the search criteria Stitch should use for selecting and replicating CSV files. This field accepts regular expressions, which can be used to include a single file or multiple CSV files. 
 
-          The **Search Pattern** field accepts regular expressions, which can be used to include a single file or multiple CSV files. What you enter into this field depends on how data for a particular entity is updated.
+              The search pattern you use depends on how data for a particular entity is updated. Consider these examples:
 
-          **If a single file is replaced in your S3 bucket at some interval**, it would make sense to enter location of the file. For example: Customer data is added to and updated in a single file named `customers.csv`, located in the `analytics` folder of the bucket:
+              <table class="attribute-list">
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>Scenario</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.example }}
+              </td>
+              {% endfor %}
+              </tr>
 
-          ```
-          analytics/customers.csv           /* Single file, no escaped characters */
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>How updates are made</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.updates | markdownify }}
+              </td>
+              {% endfor %}
+              </tr>
 
-          analytics\/customers\.csv         /* Same file with escaped special characters */
-          ```
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>File name</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.file-name | markdownify }}
+              </td>
+              {% endfor %}
+              </tr>
 
-          If you include special characters (`/` or `.`) in the file location and want the expression to match exactly, you'll need to escape them in the expression as we did in the example above.
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>Search pattern</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.description | markdownify }}
 
-          {%- capture incremental-rep-note -%}
-          **Note**: Large, frequently updated files can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Incremental Replication for {{ integration.display_name }} section](#incremental-replication-for-amazon-s3-csv) for more info.
-          {%- endcapture -%}
+              {% highlight text %}
+              {{ example.pattern | strip }}
+              {% endhighlight %}
+              </td>
+              {% endfor %}
+              </tr>
 
-          {% include note.html type="single-line" content=incremental-rep-note %}
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>Matches</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.matches | markdownify }}
+              </td>
+              {% endfor %}
+              </tr>
+              </table>
 
-          In other cases, **there may be multiple files that contain data for an entity**. For example: Every day a new CSV file is generated with new/updated customer data, and it follows the naming convention of `customers-YYYY-MM-DD.csv`.
+              When creating a search pattern, keep the following in mind:
 
-          To ensure data is correctly captured, you'd want to enter a search pattern that would match all files beginning with `customers`, regardless of the date in the file name. This would map all files in the `analytics` folder that begin with `customers` to a single table:
+              - Special characters such as periods (`.`) have special meaning in regular expressions. To match exactly, they'll need to be escaped. For example: `.\`
+              - Stitch uses Python for regular expressions, which may vary in syntax from other varieties. Try using [PyRegex](http://www.pyregex.com/){:target="new"} to test your expressions before saving the integration in Stitch.
 
-          ```
-          analytics\/customers.*\.csv
-          ```
+          - title: "Limit file search to a specific directory"
+            anchor: "limit-search-to-directory"
+            content: |
+              {% include note.html type="single-line" content="**Note**: This step is optional." %}
 
-          This search pattern would match `customers-2018-07-01.csv`, `customers-2018-07-02.csv`, `customers-2018-07-03.csv`, etc., and ensure files are replicated as they're created or updated.
+              The **Directory** field limits the location of the file search Stitch performs during replication jobs. When defined, Stitch will only search for files in this location and select the ones that match the [search pattern](#define-search-pattern).
+
+              To define a specific location in the S3 bucket, enter the directory path into the **Directory** field. For example: `data-exports/lists`. **Note**: This field is not a regular expression.
+
+              While using this field is optional, limiting the search to a single location may make extraction more efficient.
 
       - title: "Define the table's name"
         anchor: "define-table-name"
         content: |
-          When creating table names, keep in mind that each destination has its own rules for how tables can be named. 
+          In the **Table Name** field, enter a name for the table. Keep in mind that each destination has its own rules for how tables can be named. For example: Amazon Redshift table names can't exceed {{ site.data.destinations.reference.redshift.object-name-limit-info.tables }}.
 
-          {% capture table-name-limit-notice %}
-          The table name you enter should adhere to your destination's length limit for table names. If the table name exceeds the destination's limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
-
-          Table name limits vary by destination type:
-
-          {{ destination-column-name-limits }}
-          {% endcapture %}
-
-          {% include important.html first-line="**Destination table name limits**" content=table-name-limit-notice %}
+          If the table name exceeds the destination's character limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Refer to the [documentation for your destination]({{ link.destinations.overview | prepend: site.baseurl }}) for more info about table naming rules.
 
       - title: "Define the table's Primary Key"
         anchor: "define-table-primary-key"
