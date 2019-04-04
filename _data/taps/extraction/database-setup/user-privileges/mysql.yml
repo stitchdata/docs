@@ -121,10 +121,10 @@ aurora-rds:
 # -------------------------- #
 
 create-user-command: |
-  CREATE USER '[stitch_username]'@'localhost' IDENTIFIED BY '[password]';
+  CREATE USER '<stitch_username>'@'localhost' IDENTIFIED BY '<password>';
 
 grant-user-select-command: |
-  GRANT SELECT ON *.* TO '[stitch_username]';
+  GRANT SELECT ON *.* TO '<stitch_username>';
 
 grant-user-replication-command: |
-  GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '[stitch_username]';
+  GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<stitch_username>';

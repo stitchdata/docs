@@ -95,6 +95,8 @@ setup-steps:
   - title: "Configure Log-based Incremental Replication"
     anchor: "configure-log-based-incremental-replication"
     content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
     substeps:
@@ -126,7 +128,7 @@ setup-steps:
   - title: "Create a Stitch database user"
     anchor: "db-user"
     content: |
-      {% include note.html type="single-line" content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
+      {% include note.html type="single-line" content="**Note**: You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
       Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
@@ -138,17 +140,17 @@ setup-steps:
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Locate database connection details"
+      - title: "Locate the database connection details in Google"
         anchor: "locate-database-connection-details"
         content: |
           In this step, you'll locate the {{ integration.display_name }} database's IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
 
-          {% include shared/google-cloud-platform/locate-database-details.html %}
+          {% include shared/connection-details/google-cloudsql.html %}
 
-      - title: "Define the database connection details"
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the Log-based Replication setting"
         anchor: "define-log-based-replication-setting"

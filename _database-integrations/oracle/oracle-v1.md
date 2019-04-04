@@ -113,6 +113,8 @@ setup-steps:
   - title: "Enable Log-based Incremental Replication with LogMiner"
     anchor: "enable-logminer"
     content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+      
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
       {% for substep in step.substeps %}

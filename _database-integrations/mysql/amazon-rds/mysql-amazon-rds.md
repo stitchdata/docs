@@ -87,7 +87,7 @@ setup-steps:
   - title: "Configure Log-based Incremental Replication"
     anchor: "configure-log-based-incremental-replication"
     content: |
-      {% include note.html type="single-line" content="This step is only required to use logical (Log-based Incremental) replication." %}
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#create-a-database-user)." %}
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
@@ -128,8 +128,6 @@ setup-steps:
       - title: "Define the binlong retention setting"
         anchor: "define-binlog-retention-setting"
         content: |
-          {% include note.html type="single-line" content="This step is only required to use logical (Log-based) replication." %}
-          
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="binlog-retention-hours" %}
 
   - title: "Create a Stitch database user"
@@ -147,12 +145,12 @@ setup-steps:
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Locate RDS connection details in AWS"
+      - title: "Locate the database connection details in AWS"
         anchor: "locating-rds-database-details"
         content: |
           {% include shared/connection-details/amazon.html %}
 
-      - title: "Define the database connection details"
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
@@ -170,6 +168,8 @@ setup-steps:
       - title: "Define the Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
         content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#create-replication-schedule)." %}
+
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
 
       - title: "Create a replication schedule"

@@ -123,7 +123,7 @@ setup-steps:
   - title: "Configure Log-based Incremental Replication"
     anchor: "configure-log-based-incremental-replication"
     content: |
-      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication." %}
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#connect-stitch)." %}
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
@@ -206,7 +206,7 @@ setup-steps:
       - title: "Define the Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
         content: |
-          {% include note.html type="single-line" content="**Note**: Skip this step if you're using Log-based Incremental Replication." %}
+          {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#create-replication-schedule)." %}
 
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
 

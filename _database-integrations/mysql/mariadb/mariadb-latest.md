@@ -121,19 +121,19 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssl" %}
 
-      - title: "Define Log-based Replication setting"
+      - title: "Define the Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}

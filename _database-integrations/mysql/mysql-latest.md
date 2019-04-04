@@ -95,7 +95,7 @@ setup-steps:
   - title: "Configure Log-based Incremental Replication"
     anchor: "configure-log-based-incremental-replication"
     content: |
-      {% include note.html type="single-line" content="This step is only required to use logical (Log-based Incremental) replication." %}
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
