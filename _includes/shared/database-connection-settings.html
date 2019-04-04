@@ -1,0 +1,140 @@
+<!-- This file is used to display the fields in the integration/destination
+  connection settings pages inside of Stitch. -->
+
+
+
+{% include misc/data-files.html %}
+
+<!-- Some integrations/destinations don't have a branded UI. Ex: Magento is MySQL, but doesn't
+currently have its own UI. Capture the name that's in the UI and display it
+in the instructions. -->
+{% if page.setup-name %}
+    {% assign connection-name = page.setup-name %}
+{% else %}
+    {% assign connection-name = page.display_name %}
+{% endif %}
+
+
+<!-- Assign values to the default fields -->
+  {% assign defaults = site.data.ui.common.database-connections %}
+
+<!-- The fields that display in the Integration/Destination Settings page 
+  are dependent on the type of integration/destination selected. 
+
+The fields for each integration/destination - including the field name as it displays 
+in the UI and instructions for what goes in each field - are in the data file
+below.  -->
+
+{% if page.permalink contains "integrations" %}
+  {% if page.this-version %}
+    {% assign all-connection-settings = site.data.ui.database-integration-settings.[page.db-type].[page.name] %}
+      {% assign versioned-connection-settings = all-connection-settings | where:"version",page.this-version %}
+        {% assign connection-settings = all-connection-settings | where:"version","all" | concat: versioned-connection-settings %}
+
+  {% else %}
+    {% assign connection-settings = site.data.ui.database-integration-settings.[page.db-type].[page.name] %}
+  {% endif %}
+
+    {% assign ssl-fields = site.data.ui.database-integration-settings.[page.db-type].ssl %}
+
+  {% capture stitch-location-copy %}
+  {{ app.menu-paths.add-integration | flatify }}
+  {% endcapture %}
+
+
+{% elsif page.permalink contains "destinations" %}
+  {% assign common = site.data.ui.destination-settings.common %}
+
+  {% assign destination-name = page.display_name | slugify %}
+    {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name] %}
+      {% assign ssl-fields = site.data.ui.destination-settings[page.type]ssl %}
+
+  {% capture stitch-location-copy %}
+  Click the {{ app.menu-paths.destination-settings }}.
+  {% endcapture %}
+
+{% endif %}
+
+
+{% case include.type %}
+
+{% when 'general' %}
+<!-- GENERAL INSTRUCTIONS -->
+1. If you aren't signed into your Stitch account, [sign in now]({{ site.sign-in }}){:target="_blank"}.
+2. {{ stitch-location-copy }}
+3. Locate and click the **{{ connection-name }}** icon.
+4. Fill in the fields as follows:
+
+   {% for field in connection-settings %}
+    - **{{ field.name | flatify }}**: {{ field.copy | flatify }}
+   {% endfor %}
+
+
+<!-- FOR SSH -->
+
+{% when 'ssh' %}
+  {% if integration.singer == true %}
+    {% assign ssh-fields = defaults.ssh-singer %}
+  {% else %}
+    {% assign ssh-fields = defaults.ssh %}
+  {% endif %}
+
+{% include note.html type="single-line" content="**Note**: Skip this step if you're not using SSH to connect to Stitch." %}
+
+If you're using an SSH tunnel to connect your {{ page.display_name }} database to Stitch, you'll also need to define the SSH settings. Refer to the {{ ssh-guide | strip }} for assistance with completing these fields.
+
+{% if page.singer == true %}
+1. Click the **SSH Tunnel** checkbox.
+{% else %}
+1. Click the **Encryption Type** menu.
+2. Select **SSH** to display the SSH fields.
+{% endif %}
+3. Fill in the fields as follows:
+   {% for field in ssh-fields %}
+   - **{{ field.name | flatify }}**: {{ field.copy | flatify }}
+   {% endfor %}
+
+
+
+<!-- FOR SSL FIELDS -->
+{% when 'ssl' %}
+  {% unless integration.name == "heroku" %}
+    {% include note.html type="single-line" content="**Note**: Skip this step if you're not using SSL to connect to Stitch." %}
+  {% endunless %}
+
+<!-- IF THE CONNECTION HAS SPECIFIC SSL FIELDS, SHOW THEM -->
+{% if include.ssl-fields == true %}
+
+1. Check the **{{ defaults.field-names.ssl }}** checkbox. {{ defaults.field-copy.ssl }}
+2. Fill in the fields as follows:
+   {% for field in ssl-fields %}
+   - **{{ field.name | flatify }}**: {{ field.copy | flatify }}
+   {% endfor %}
+
+{% else %}
+
+<!-- FOR HEROKU ONLY -->
+{% if integration.name == "heroku" %}
+Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data. Skip to the next step.
+
+{% else %}
+
+<!-- OTHERWISE, ONLY SHOW THE COPY FOR THE SSL CHECKBOX -->
+Click the **{{ defaults.field-names.ssl }}** checkbox if you're using an SSL connection. {{ defaults.field-copy.ssl }}
+{% endif %}
+{% endif %}
+
+
+
+{% when 'finish-up' %}
+{% if page.singer == true or page.permalink contains "destinations" %}
+  {% assign save-connection-button = app.buttons.check-and-save %}
+{% else %}
+  {% assign save-connection-button = app.buttons.save-int-settings %}
+{% endif %}
+
+When finished, click {{ save-connection-button | flatify }}.
+
+Stitch will perform a connection test to the {{ page.display_name }} database; if successful, a *Success!* mesage will display at the top of the screen. **Note**: This test may take a few minutes to complete.
+
+{% endcase %}
