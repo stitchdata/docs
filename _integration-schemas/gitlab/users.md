@@ -6,7 +6,7 @@ name: "users"
 doc-link: https://gitlab.com/help/api/users.md#list-users
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/users.json
 description: |
-  The `users` table contains info about the users in your GitLab account.
+  The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The user ID."
+    foreign-key-id: "user-id"
 
   - name: "username"
     type: "string"

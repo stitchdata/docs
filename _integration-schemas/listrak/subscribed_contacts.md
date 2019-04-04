@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "subscribed_contacts"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/subscribed_contacts.json
 description: |
-  The `subscribed_contacts` table contains info about contacts who are currently subscribed to the specified list.
+  The `{{ table.name }}` table contains info about contacts who are currently subscribed to the specified list.
 
 replication-method: "Full Table"
 

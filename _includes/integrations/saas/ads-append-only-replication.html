@@ -62,7 +62,7 @@ For **Report** tables, this means that:
 
 1. **Due to the {{ window }}, a high Replication Frequency may not be necessary.** Because Stitch will replicate data from the past {{ integration.attribution-window }} during every replication job, recent data will be re-replicated and count towards your row quota.
 
-   To help prevent overages or unnecessary re-replication, consider setting the integration to sync less frequently. For example: every 12 or 24 hours.
+   To reduce your row usage and replicating redundant data, consider setting the integration to replicate less frequently. For example: every 12 or 24 hours.
 
 2. **Querying for the latest data in Report tables will require a different strategy than you might usually use**. Stitch will add a column named `{{ system-column.report-date-time }}` to Report tables to help you identify the most recent records in a table. [See the Query for the Latest Data section for more info and a sample query](#query-for-the-latest-data).
 
@@ -87,7 +87,7 @@ Stitch replicates data in this way to account for updates made during the {{ win
 
 <!-- For data loading -->
 {% if include.type == "data-loading" %}
-When Stitch loads the extracted data {% unless integration.name == "doubleclick-campaign-manager" %}for Report tables {% endunless %}into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
+When Stitch loads the extracted data {% unless integration.name == "campaign-manager" %}for Report tables {% endunless %}into your destination, it will do so using Append-Only Replication. This is a type of Incremental Replication where existing rows aren't updated, but appended to the end of the table. 
 
 Additionally, the number of rows loaded into the table during each replication job is dependent on the combination of unique values in the dimension columns you track. See the [Column Selection and Statistic Aggregation section](#column-selection-statistic-aggregation) for more info and examples.
 
@@ -95,7 +95,7 @@ Additionally, the number of rows loaded into the table during each replication j
 
 Let's say these columns are tracking in the `{{ table }}` table:
 
-{% if integration.name == "doubleclick-campaign-manager" %}
+{% if integration.name == "campaign-manager" %}
 - `{{ replication-key }}` (dimension) - The date pertaining to the record.
 {% endif %}
 - `campaignId` (dimension) - This is the ID associated with a campaign. In this example, there are two campaigns: `929007494` and `929599581`
@@ -124,10 +124,10 @@ When querying your {{ integration.display_name }} data, you'll want to include t
 
 {% include note.html first-line="**You may need to alter this query**" content=query-foundation %}
 
-If you want only the most recently replicated data for any {{ integration.display_name }} {% unless integration.name == "doubleclick-campaign-manager" %}Report {% endunless %}table, you can use the sample query below to account for the Append-Only Replication Stitch uses.
+If you want only the most recently replicated data for any {{ integration.display_name }} {% unless integration.name == "campaign-manager" %}Report {% endunless %}table, you can use the sample query below to account for the Append-Only Replication Stitch uses.
 
 {% case integration.name %}
-{% when 'doubleclick-campaign-manager' %}
+{% when 'campaign-manager' %}
 {% assign replication-key = "dimension_1, dimension_2, etc." %}
 
 This query will use the report's Dimensions and the `{{ system-column.report-date-time }}` column to return the latest data:
@@ -153,9 +153,9 @@ SELECT *
 
 In this query:
 
-1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/) to create a 'window' of data for each {% case integration.name %}{% when 'google-ads %}`{{ replication-key }}` and `{{ customerid }}` combination{% when 'campaign-manager' %} combination of Dimensions{% else %} `{{ replication-key }}`{% endcase %},
+1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/){:target="new"} to create a 'window' of data for each {% case integration.name %}{% when 'google-adwords' %}`{{ replication-key }}` and `{{ customerid }}` combination{% when 'campaign-manager' %} combination of Dimensions{% else %} `{{ replication-key }}`{% endcase %},
 2. The values of the `{{ system-column.report-date-time }}` column are ranked within each window partition, and
-4. Then, in the outer query, only the rows with `{{ system-column.report-date-time }}` values ranked as `1` - which is equal to the maximum timestamp - are returned. 
+3. Then, in the outer query, only the rows with `{{ system-column.report-date-time }}` values ranked as `1` - which is equal to the maximum timestamp - are returned. 
 
 
 {% endif %}

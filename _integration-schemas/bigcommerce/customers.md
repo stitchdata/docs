@@ -52,7 +52,7 @@ attributes:
   - name: "form_fields"
     type: "array"
     description: "Custom form fields associated with the customer."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the form field."

@@ -136,7 +136,7 @@ sections:
           {% endfor %}
           </table>
 
-          If the integration were to continue replicating every 30 minutes until 11:59:59, this table would use 480,000 rows in 24 hours. Depending on the [Stitch plan]({{ site.pricing }}){:target="new"} you're using, this type of usage can quickly use up your quota and cause potential overages.
+          If the integration were to continue replicating every 30 minutes until 11:59:59, this table would use 480,000 rows in 24 hours. Depending on the [Stitch plan]({{ site.pricing }}){:target="new"} you're using, this type of usage can quickly use up your row allotment.
 
       - title: "Limitation 3: Unavailable for some integrations"
         anchor: "limitation-3--unavailable-integrations"

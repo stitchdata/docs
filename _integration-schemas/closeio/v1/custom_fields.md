@@ -32,7 +32,7 @@ attributes:
   - name: "choices"
     type: "array"
     description: "For `choices` custom fields, a list of choices available for the custom field."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The choice available for the field."
@@ -49,7 +49,7 @@ attributes:
   - name: "editable_with_roles"
     type: "array"
     description: ""
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: ""

@@ -7,7 +7,7 @@ name: "agents"
 doc-link: https://developers.freshdesk.com/api/#agents
 singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/agents.json
 description: |
-  The `agents` table contains info about the agents in your Freshdesk account.
+  The `{{ table.name }}` table contains info about the agents in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -19,6 +19,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The agent ID."
+    foreign-key-id: "agent-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -53,18 +54,22 @@ attributes:
   - name: "group_ids"
     type: "array"
     description: "The group IDs associated with the agent."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "integer"
+        primary-key: true
         description: "The ID of the group."
+        foreign-key-id: "group-id"
 
   - name: "role_ids"
     type: "array"
     description: "The role IDs associated with the agent."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "integer"
+        primary-key: true
         description: "The ID of the role."
+        foreign-key-id: "role-id"
 
   - name: "created_at"
     type: "date-time"
@@ -73,7 +78,7 @@ attributes:
   - name: "contact"
     type: "object"
     description: "Details about the contact info associated with the agent."
-    object-attributes:
+    subattributes:
       - name: "active"
         type: "boolean"
         description: "Indicates if the agent is verified."

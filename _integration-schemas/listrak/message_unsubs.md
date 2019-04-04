@@ -1,12 +1,12 @@
 ---
 tap: "listrak"
-# version: ""
+# version: "1.0"
 
 name: "message_unsubs"
 doc-link:
 singer-schema: https://github.com/singer-io/tap-listrak/blob/master/tap_listrak/schemas/message_unsubs.json
 description: |
-  The `message_unsubs` table contains info about contacts who requested to be removed from a list from the supplied message.
+  The `{{ table.name }}` table contains info about contacts who requested to be removed from a list from the supplied message.
 
 replication-method: "Full Table"
 

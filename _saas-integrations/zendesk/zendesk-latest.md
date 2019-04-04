@@ -1,7 +1,6 @@
 ---
 title: Zendesk Support (v1.0)
 permalink: /integrations/saas/zendesk
-tags: [saas_integrations]
 keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Zendesk Support integration."
 layout: singer
@@ -12,6 +11,7 @@ layout: singer
 
 name: "zendesk"
 display_name: "Zendesk Support"
+
 singer: true
 status-url: "https://status.zendesk.com/"
 repo-url: "https://github.com/singer-io/tap-zendesk"
@@ -28,7 +28,6 @@ certified: true
 historical: "1 year"
 frequency: "60 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/zendesk.svg
 
 table-selection: true
 column-selection: true
@@ -63,7 +62,7 @@ setup-steps:
 
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorize Stitch to access Zendesk"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "grant-stitch-authorization"
     content: |
       {% capture zendesk-admin %}
@@ -71,7 +70,7 @@ setup-steps:
       {% endcapture %}
       {% include note.html type="single-line" content=zendesk-admin %}
 
-      1. Next, you'll be prompted to sign into your Zendesk account.
+      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account.
       2. After the authorization process is successfully completed, you'll be directed back to Stitch.
       3. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
@@ -112,6 +111,8 @@ replication-sections:
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
+# Looking for the table schemas & info?
+# Each table has a its own .md file in /_integration-schemas/zendesk
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

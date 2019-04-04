@@ -1,11 +1,12 @@
 ---
 tap: "shippo"
+version: "1.0"
 
 name: "parcels"
 doc-link: https://goshippo.com/docs/reference#parcels
 singer-schema: 
 description: |
-  The `parcels` table contains info about parcel objects. Parcels are used to create shipments, obtain rates, and print labels.
+  The `{{ table.name }}` table contains info about parcel objects. Parcels are used to create shipments, obtain rates, and print labels.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -17,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The parcel ID."
+    foreign-key-id: "parcel-id"
 
   - name: "object_updated"
     type: "date-time"

@@ -33,13 +33,12 @@ repo-url: https://github.com/singer-io/tap-adwords
 api-version: "v201806"
 
 status: "Released"
-certified: true # Stitch-supported integration
+certified: true
 
 historical: "30 days"
 frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
-icon: /images/integrations/icons/google-ads.svg
 
 table-selection: true
 column-selection: true

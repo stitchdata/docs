@@ -9,7 +9,7 @@
 
 
 tap: "salesforce-marketing-cloud"
-# version: 
+# version: "1.0"
 
 name: "campaign"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/campaign.htm
@@ -20,14 +20,14 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-  name: ""
+  name: "Retrieve campaigns"
   doc-link: "https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/campaign.htm"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "The campaign ID."
+    #description: "The campaign ID."
 
   - name: "modifiedDate"
     type: "date-time"

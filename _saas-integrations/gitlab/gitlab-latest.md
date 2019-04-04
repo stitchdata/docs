@@ -1,7 +1,6 @@
 ---
 title: GitLab (v1.0)
 permalink: /integrations/saas/gitlab
-tags: [saas_integrations]
 keywords: gitlab, integration, schema, etl gitlab, gitlab etl, gitlab schema
 summary: "Connection instructions and schema details for Stitch's GitLab integration."
 layout: singer
@@ -12,9 +11,8 @@ layout: singer
 
 name: "gitlab"
 display_name: "GitLab"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-gitlab
 
 # this-version:"1.0"
@@ -30,7 +28,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.gitlab.com/
-icon: /images/integrations/icons/gitlab.svg
 
 table-selection: false
 column-selection: false
@@ -74,8 +71,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/gitlab
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-

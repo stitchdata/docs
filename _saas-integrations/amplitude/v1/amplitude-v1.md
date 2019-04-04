@@ -5,8 +5,8 @@
 
 title: Amplitude (v1.0)
 permalink: /integrations/saas/amplitude
-tags: [saas_integrations]
 keywords: amplitude, integration, schema, etl amplitude, amplitude etl, amplitude schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Amplitude integration."
 layout: singer
 # input: false
 
@@ -34,10 +34,6 @@ historical: "n/a"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.amplitude.com/"
-icon: /images/integrations/icons/amplitude.svg
-whitelist:
-  tables: true
-  columns: true
 
 anchor-scheduling: true
 extraction-logs: true

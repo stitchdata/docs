@@ -5,7 +5,7 @@ version: 1.0
 name: "ratePlanChargeTier"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Rate-Plan-Charge-Tiers
 description: |
-  The `ratePlanChargeTier` table contains pricing info for rate plan charges.
+  The `{{ table.name }}` table contains pricing info for rate plan charges.
 
 replication-method: "Key-based Incremental"
 
@@ -28,7 +28,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the rate plan charge tier."
+    description: "The ID of the {{ integration.display_name }} user who created the rate plan charge tier."
 
   - name: "createdDate"
     type: "date-time"
@@ -37,7 +37,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "price"
     type: "number"
@@ -90,5 +90,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the rate plan charge tier."
+    description: "The ID of the {{ integration.display_name }} user who last updated the rate plan charge tier."
 ---

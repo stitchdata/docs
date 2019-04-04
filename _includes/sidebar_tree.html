@@ -1,0 +1,3 @@
+{% capture openfolder_array %}{% include /functions/f_navtree_open.html table=theTable %}{% endcapture %}
+{% assign openfolder_array = openfolder_array | strip_newlines | split: "," %}
+{% include /functions/f_navtree.html table=theTable outer='true' opentree =openfolder_array %}

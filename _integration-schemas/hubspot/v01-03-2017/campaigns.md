@@ -36,7 +36,7 @@ attributes:
     type: "object"
     description: "Event count summaries for the given email."
     doc-link: https://developers.hubspot.com/docs/methods/email/email_events_overview
-    object-attributes:
+    subattributes:
       - name: "delivered"
         type: "integer"
         description: "The count of delivered events for the given email."

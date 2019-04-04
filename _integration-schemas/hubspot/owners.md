@@ -20,16 +20,16 @@ attributes:
     description: "The ID of the owner."
     foreign-key-id: "owner-id"
 
-  - name: "updatedAt"
-    type: "date-time"
-    replication-key: true
-    description: "The time that the owner was last updated in {{ integration.display_name }}."
-
   - name: "portalId"
     type: "integer"
     primary-key: true
     description: "The ID of the portal the owner is associated with."
     foreign-key-id: "portal-id"
+
+  - name: "updatedAt"
+    type: "date-time"
+    replication-key: true
+    description: "The time that the owner was last updated in {{ integration.display_name }}."
 
   - name: "type"
     type: "string"
@@ -62,7 +62,7 @@ attributes:
   - name: "remoteList"
     type: "array"
     description: "Details about the remote list associated with the owner."
-    array-attributes:
+    subattributes:
       - name: "portalId"
         type: "integer"
         description: "The ID of the portal the owner is associated with."

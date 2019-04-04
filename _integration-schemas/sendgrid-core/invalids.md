@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "invalids"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/invalids.json
 description: |
-  The `invalids` table contains info about invalid email addresses. An invalid email occurs when you attempt to send an email to an address that is formatted in a manner that doesn't meet internet email format standards, or the email doesn't exist at the recipient's email server.
+  The `{{ table.name }}` table contains info about invalid email addresses. An invalid email occurs when you attempt to send an email to an address that is formatted in a manner that doesn't meet internet email format standards, or the email doesn't exist at the recipient's email server.
 
   For example: Email addresses that don't include the `@` symbol.
 

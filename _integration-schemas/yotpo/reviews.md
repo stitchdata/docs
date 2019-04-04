@@ -6,7 +6,7 @@ name: "reviews"
 doc-link: https://apidocs.yotpo.com/reference#section-what-are-reviews
 singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/reviews.json
 description: |
-  The `reviews` table contains data about reviews.
+  The `{{ table.name }}` table contains data about reviews.
 
   **Note**: This table is similar to the `product_reviews` table, but doesn't contain custom fields. If you have or need custom fields, you may want to only replicate the `product_reviews` table to prevent redundant data.
 

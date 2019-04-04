@@ -57,7 +57,7 @@ attributes:
   - name: "JournalLines"
     type: "array"
     description: "Details about the journal lines in the manual journal."
-    array-attributes:
+    subattributes:
       - name: "LineAmount"
         type: "number"
         description: "The total amount for the line. This will be a positive value for a debit, negative for a credit."
@@ -80,14 +80,16 @@ attributes:
 
       - name: "TaxType"
         type: "string"
-        description: "The tax type for the journal line. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#TaxTypes) for possible tax types."
+        description: |
+          The tax type for the journal line. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#TaxTypes){:target="new"} for possible tax types.
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking details associated with the journal line.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "Url"
     type: "string"

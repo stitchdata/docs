@@ -3,7 +3,7 @@ tap: "zendesk"
 version: "1.0"
 
 name: "satisfaction_ratings"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/satisfaction_ratings
+doc-link: https://developer.zendesk.com/rest_api/docs/support/satisfaction_ratings
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/satisfaction_ratings.json
 description: |
   The `{{ table.name }}` table contains info about ratings users have offered on support tickets. 
@@ -14,7 +14,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: List satisfaction ratings
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/satisfaction_ratings#list-satisfaction-ratings
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/satisfaction_ratings#list-satisfaction-ratings
 
 attributes:
   - name: "id"

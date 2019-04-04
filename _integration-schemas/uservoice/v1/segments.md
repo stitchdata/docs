@@ -41,7 +41,7 @@ attributes:
   - name: "filters"
     type: "object"
     description: "Details about the filters used in the segment."
-    object-attributes:
+    subattributes:
       - name: "operator"
         type: "string"
         description: "The operator used in the filter. For example: `and`, `or`"
@@ -61,7 +61,7 @@ attributes:
       - name: "expressions"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
           - name: "operator"
             type: "string"
             description: ""

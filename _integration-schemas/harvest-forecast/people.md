@@ -65,7 +65,7 @@ attributes:
   - name: "roles"
     type: "array"
     description: "A list of the roles assigned to the person."
-    array-attributes: 
+    subattributes: 
       - name: "value"
         type: "string"
         description: "The name of the role assigned to the person."
@@ -86,7 +86,7 @@ attributes:
   - name: "working_days"
     type: "object"
     description: "Details about the person's availability during the week."
-    object-attributes: 
+    subattributes: 
       - name: "monday"
         type: "boolean"
         description: &working-days |

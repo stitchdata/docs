@@ -30,7 +30,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The activity ID."
-    foreign-key-id: "activity-id"
+    # foreign-key-id: "activity-id"
 
   - name: "date_created"
     type: "string"
@@ -54,7 +54,7 @@ attributes:
   - name: "attachments"
     type: "array"
     description: "A list of attachments associated with the activity."
-    array-attributes:
+    subattributes:
       - name: "content_id"
         type: "string"
         primary-key: true
@@ -79,7 +79,7 @@ attributes:
   - name: "bcc"
     type: "array"
     description: "For `Email` activities, a list of those BCC'd on the email."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The bcc on the email."
@@ -91,7 +91,7 @@ attributes:
   - name: "body_html_quoted"
     type: "array"
     description: ""
-    array-attributes:
+    subattributes:
       - name: "expand"
         type: "boolean, integer"
         description: ""
@@ -112,7 +112,7 @@ attributes:
   - name: "body_text_quoted"
     type: "array"
     description: ""
-    array-attributes:
+    subattributes:
       - name: "expand"
         type: "boolean, integer"
         description: ""
@@ -124,7 +124,7 @@ attributes:
   - name: "cc"
     type: "array"
     description: "For `Email` activities, a list of those CC'd on the email."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The cc on the email."
@@ -178,11 +178,11 @@ attributes:
   - name: "envelope"
     type: "object"
     description: "For `Email` activities, details about the email associated with the activity."
-    object-attributes:
+    subattributes:
       - name: "bcc"
         type: "array"
         description: "A list of those BCC'd on the email."
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email of the bcc."
@@ -194,7 +194,7 @@ attributes:
       - name: "cc"
         type: "array"
         description: "A list of those CC'd on the email."
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email of the cc."
@@ -210,7 +210,7 @@ attributes:
       - name: "from"
         type: "array"
         description: "Details about who sent the email."
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The address the email was sent from."
@@ -234,7 +234,7 @@ attributes:
       - name: "reply_to"
         type: "array"
         description: ""
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: ""
@@ -246,7 +246,7 @@ attributes:
       - name: "sender"
         type: "array"
         description: "Details about the sender of the email."
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email address of the sender."
@@ -262,7 +262,7 @@ attributes:
       - name: "to"
         type: "array"
         description: "Details about who the email was sent to."
-        array-attributes:
+        subattributes:
           - name: "email"
             type: "string"
             description: "The email address the email was sent to."
@@ -291,7 +291,7 @@ attributes:
   - name: "message_ids"
     type: "array"
     description: "A list of messages associated with the activity."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The message ID."
@@ -337,7 +337,7 @@ attributes:
   - name: "opens"
     type: "array"
     description: "For `Email` activities, details about the person who opened the email."
-    array-attributes:
+    subattributes:
       - name: "ip_address"
         type: "string"
         description: "The IP address of the person who opened the email."
@@ -402,7 +402,7 @@ attributes:
   - name: "references"
     type: "array"
     description: "A list of references associated with the activity."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The reference."
@@ -414,7 +414,7 @@ attributes:
   - name: "send_attempts"
     type: "array"
     description: "For `Email` activities, details about the send attempts."
-    array-attributes:
+    subattributes:
       - name: "date"
         type: "string"
         description: "The date the send was attempted."
@@ -482,7 +482,7 @@ attributes:
     type: "array"
     description: |
       For `Email` activities, a list of the people the email was sent to.
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address the email was sent to."
@@ -516,7 +516,7 @@ attributes:
   - name: "users"
     type: "array"
     description: "For `Created` activities, the list of users associated with the activity."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -554,7 +554,7 @@ attributes:
       - name: "organizations"
         type: "array"
         description: "The list of organizations associated with the user."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The ID of the organization associated with the user."

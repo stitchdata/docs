@@ -75,7 +75,7 @@ attributes:
   - name: "formFieldGroups"
     type: "array"
     description: "Details about the fields in the form."
-    array-attributes:
+    subattributes:
       - name: "default"
         type: "boolean"
         description: "Indicates if the form group is a default group." 
@@ -87,7 +87,7 @@ attributes:
       - name: "richText"
         type: "object"
         description: "Details about the rich text separators used between form field groups."
-        object-attributes:
+        subattributes:
           - name: "content"
             type: "string"
             description: "The content of the rich text separator."
@@ -95,7 +95,7 @@ attributes:
       - name: "fields"
         type: "array"
         description: "Details about the form field in the form."
-        array-attributes:
+        subattributes:
           - name: "name"
             type: "string"
             description: "The name of the form field. This is the **internal** name for the form field. For example: `customerlastname`"
@@ -159,7 +159,7 @@ attributes:
           - name: "options"
             type: "array"
             description: "For enumerated fields, this will be the options available for a field."
-            array-attributes:
+            subattributes:
               - name: "description"
                 type: "string"
                 description: "The description of the field option."
@@ -191,7 +191,7 @@ attributes:
           - name: "validation"
             type: "object"
             description: "Details about the validation options applied to form fields."
-            object-attributes:
+            subattributes:
               - name: "name"
                 type: "string"
                 description: "The name of validation option."
@@ -211,7 +211,7 @@ attributes:
               - name: "blockedEmailAddresses"
                 type: "array"
                 description: "For email fields, the domains that are blocked. For example: `yahoo.com`"
-                array-attributes:
+                subattributes:
                   - name: "value"
                     type: "string"
                     description: "The blocked email domain."
@@ -267,7 +267,7 @@ attributes:
   - name: "metaData"
     type: "array"
     description: "Metadata about the form."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: *deprecated-field

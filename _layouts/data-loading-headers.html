@@ -2,7 +2,7 @@
 layout: page
 ---
 
-{% assign destination = site.destinations | where:"type",page.type | first %}
+{% assign destination = page %}
 {% assign data-loading = site.data.dataloading[page.type].scenarios %}
 {% assign default = site.data.dataloading.scenarios %}
 

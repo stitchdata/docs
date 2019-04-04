@@ -36,7 +36,7 @@ attributes:
   - name: "properties"
     type: "object"
     description: "Details about the company."
-    object-attributes:
+    subattributes:
       - name: "description"
         type: "string"
         description: "The description of the company."

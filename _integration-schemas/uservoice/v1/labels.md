@@ -6,7 +6,7 @@ name: "labels"
 doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/Forum
 singer-schema: https://github.com/singer-io/tap-uservoice/blob/master/tap_uservoice/streams/forums.py
 description: |
-  The `{{ table.name }}` table contains info about labels in your {{ integration.display_name }}, which admins use to internally organize suggestions.
+  The `{{ table.name }}` table contains info about labels in your {{ integration.display_name }} account, which admins use to internally organize suggestions.
 
 replication-method: "Key-based Incremental"
 
@@ -49,7 +49,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "IDs of nested labels associated with the parent label, if any."
-    object-attributes: 
+    subattributes: 
       - name: "parent"
         type: "integer"
         description: "If the label is a nested label, this field will contain the ID of the parent (top-level) label."

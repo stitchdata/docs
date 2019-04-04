@@ -6,7 +6,7 @@ name: "conversations"
 doc-link: https://developers.freshdesk.com/api/#conversations
 singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/conversations.json
 description: |
-  The `conversations` table contains info about replies and public/private notes added to the tickets in your Freshdesk account."
+  The `{{ table.name }}` table contains info about replies and public/private notes added to the tickets in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The conversation ID."
+    # foreign-key-id: "conversation-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -51,11 +52,12 @@ attributes:
   - name: "ticket_id"
     type: "integer"
     description: "The ID of the ticket to which the conversation is being added."
+    foreign-key-id: "ticket-id"
 
   - name: "to_emails"
     type: "array"
     description: "Email addresses of agents/users who should be notified about the conversation."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address of the person who should be notified about the conversation."
@@ -67,7 +69,7 @@ attributes:
   - name: "cc_emails"
     type: "array"
     description: "Email addresses of agents/users who should be CC'd on the conversation."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address of the person who is being CC'd."
@@ -75,7 +77,7 @@ attributes:
   - name: "bcc_emails"
     type: "array"
     description: "Email addresses of agents/users who should be BCC'd on the conversation."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The email address of the person who is being BCC'd."

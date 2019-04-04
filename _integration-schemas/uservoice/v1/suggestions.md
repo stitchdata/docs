@@ -167,7 +167,7 @@ attributes:
   - name: "links"
     type: "object"
     description: ""
-    object-attributes: 
+    subattributes: 
       - name: "category"
         type: "integer"
         description: "The category associated with the suggestion."
@@ -186,7 +186,7 @@ attributes:
       - name: "labels"
         type: "array"
         description: "The IDs of the labels associated with the suggestion."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the label associated with the suggestion."

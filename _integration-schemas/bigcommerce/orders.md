@@ -41,7 +41,7 @@ attributes:
     type: "object"
     description: "The billing address for the customer who placed the order."
     address-type: "billing"
-    object-attributes:
+    subattributes:
       - name: "city"
         type: "string"
         description: &city "The city of the {{ attribute.address-type }} address."
@@ -69,7 +69,7 @@ attributes:
       - name: "form_fields"
         type: "array"
         description: "Details about the form fields associated with the {{ attribute.address-type }} address."
-        array-attributes: &form-fields
+        subattributes: &form-fields
           - name: "name"
             type: "string"
             description: "The name of the form field."
@@ -117,7 +117,7 @@ attributes:
   - name: "coupons"
     type: "array"
     description: "Details about the coupons applied to the order."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -225,7 +225,7 @@ attributes:
   - name: "form_fields"
     type: "array"
     description: "The form fields associated with the order."
-    array-attributes: *form-fields
+    subattributes: *form-fields
 
   - name: "geoip_country"
     type: "string"
@@ -304,7 +304,7 @@ attributes:
   - name: "products"
     type: "array"
     description: "Details about the products in the order."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -314,7 +314,7 @@ attributes:
       - name: "applied_discounts"
         type: "array"
         description: "Details about the discounts applied to the product."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             primary-key: true
@@ -450,7 +450,7 @@ attributes:
       - name: "product_options"
         type: "array"
         description: "Details about the product options applied to the product."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "integer"
             primary-key: true
@@ -573,7 +573,7 @@ attributes:
     type: "array"
     description: "The shipping addresses associated with the order."
     address-type: "shipping"
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -630,7 +630,7 @@ attributes:
       - name: "form_fields"
         type: "array"
         description: ""
-        array-attributes: *form-fields
+        subattributes: *form-fields
 
       - name: "handling_cost_ex_tax"
         type: "number"

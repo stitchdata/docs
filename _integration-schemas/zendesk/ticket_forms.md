@@ -3,18 +3,18 @@ tap: "zendesk"
 version: "1.0"
 
 name: "ticket_forms"
-doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_forms
+doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_forms
 singer-schema: https://github.com/singer-io/tap-zendesk/blob/master/tap_zendesk/schemas/ticket_forms.json
 description: |
-  The `ticket_forms` table contains info about the ticket forms in your Zendesk account.
+  The `{{ table.name }}` table contains info about the ticket forms in your {{ integration.display_name }} account.
 
-  **Note**: Replicating ticket forms requires that you be on an Enterprise Zendesk plan or a Professional plan with the corresponding add-on, and have Admin permissions in Zendesk.
+  **Note**: Replicating ticket forms requires that you be on an Enterprise {{ integration.display_name }} plan or a Professional plan with the corresponding add-on, and have Admin permissions in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 
 api-method:
   name: List ticket forms
-  doc-link: https://developer.zendesk.com/rest_api/docs/core/ticket_forms#list-ticket-forms
+  doc-link: https://developer.zendesk.com/rest_api/docs/support/ticket_forms#list-ticket-forms
 
 attributes:
   - name: "id"
@@ -75,7 +75,7 @@ attributes:
   - name: "ticket_field_ids"
     type: "array"
     description: "IDs of all ticket fields which are in this ticket form."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the ticket field."
@@ -84,7 +84,7 @@ attributes:
   - name: "restricted_brand_ids"
     type: "array"
     description: "IDs of all brands that this ticket form is restricted to."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The ID of the brand."

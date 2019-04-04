@@ -5,8 +5,8 @@
 
 title: Yotpo (v1.0)
 permalink: /integrations/saas/yotpo
-tags: [saas_integrations]
 keywords: yotpo, integration, schema, etl yotpo, yotpo etl, yotpo schema
+summary: "Connections instructions, replication info, and schema details for Stitch's Yotpo integration."
 layout: singer
 input: true
 
@@ -34,7 +34,6 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "http://status.yotpo.com/"
-icon: /images/integrations/icons/yotpo.svg
 
 anchor-scheduling: true
 extraction-logs: true

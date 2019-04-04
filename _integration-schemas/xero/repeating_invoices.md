@@ -6,7 +6,7 @@ name: "repeating_invoices"
 doc-link: &api-doc https://developer.xero.com/documentation/api/repeating-invoices
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/repeating_invoices.json
 description: |
-  The `{{ table.name }}` table contains info about invoices set up to repeat in your Xero account. A repeating invoice is a recurring transaction, or a transaction that occurs on a regular basis.
+  The `{{ table.name }}` table contains info about invoices set up to repeat in your {{ integration.display_name }} account. A repeating invoice is a recurring transaction, or a transaction that occurs on a regular basis.
 
 replication-method: "Full Table"
 
@@ -39,7 +39,7 @@ attributes:
   - name: "Schedule"
     type: "object"
     description: "Details about the schedule used by the repeating invoice."
-    object-attributes:
+    subattributes:
       - name: "Unit"
         type: "string"
         description: "The unit of time used by the repeating invoice schedule. One of the following: `WEEKLY` or `MONTHLY`."
@@ -77,7 +77,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items contained in the repeating invoice."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."
@@ -119,11 +119,12 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "LineAmountTypes"
     type: "string"

@@ -6,7 +6,7 @@ name: "payments"
 doc-link: &api-doc https://developer.xero.com/documentation/api/payments
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payments.json
 description: |
-  The `{{ table.name }}` table contains info about the payments recorded in your Xero account. 
+  The `{{ table.name }}` table contains info about the payments recorded in your {{ integration.display_name }} account. 
 
 replication-method: "Key-based Incremental"
 
@@ -44,7 +44,7 @@ attributes:
 
   - name: "IsReconciled"
     type: "boolean"
-    description: "If `true`, the payment has been marked as manually reconciled. Refer to [Xero's documentation](https://help.xero.com/Q_BankRecNoImport) for more info."
+    description: "If `true`, the payment has been marked as manually reconciled. Refer to [{{ integration.display_name }}'s documentation](https://help.xero.com/Q_BankRecNoImport) for more info."
 
   - name: "Status"
     type: "string"
@@ -85,7 +85,7 @@ attributes:
   - name: "CreditNote"
     type: "object"
     description: "Details about the credit note the payment was made against."
-    object-attributes:
+    subattributes:
       - name: "CreditNoteNumber"
         type: "string"
         description: "The number of the credit note the payment was made against."
@@ -93,7 +93,7 @@ attributes:
   - name: "Prepayments"
     type: "array"
     description: "Details about the prepayment the payment was made against."
-    array-attributes:
+    subattributes:
       - name: "PrepaymentID"
         type: "string"
         description: "The ID of the prepayment the payment was made against."
@@ -102,11 +102,12 @@ attributes:
   - name: "Overpayment"
     type: "array"
     description: "Details about the overpayment the payment was made against."
-    array-attributes:
+    subattributes:
       - name: "OverpaymentID"
         type: "string"
         foreign-key: true
         description: "The ID of the overpayment the payment was made against."
+        foreign-key-id: "overpayment-id"
 
   - name: "BankAmount"
     type: "number"

@@ -30,7 +30,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the export."
+    description: "The ID of the {{ integration.display_name }} user who created the export."
 
   - name: "createdDate"
     type: "date-time"
@@ -39,7 +39,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "encrypted"
     type: "boolean"
@@ -65,7 +65,7 @@ attributes:
   - name: "query"
     type: "string"
     description: |
-      **Currently unsupported by the Zuora API.**
+      **Currently unsupported by the {{ integration.display_name }} API.**
 
   - name: "size"
     type: "integer"
@@ -92,5 +92,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the export."
+    description: "The ID of the {{ integration.display_name }} user who last updated the export."
 ---

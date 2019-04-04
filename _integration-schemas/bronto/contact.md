@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The unique ID for the contact. The id can be used to reference a specific contact when using the contact functions."
-    # foreign-key-id: "contact-id"
+    foreign-key-id: "contact-id"
 
   - name: "modified"
     type: "date-time"
@@ -36,7 +36,8 @@ attributes:
 
   - name: "source"
     type: "string"
-    description: "The source or where the contact came from. The source can manual, import, api, webform, or sforcereport (salesforce report)."
+    description: |
+      The source or where the contact came from. The source can `manual`, `import`, `api`, `webform`, or `sforcereport` (salesforce report).
 
   - name: "numConversions"
     type: "number"
@@ -69,7 +70,7 @@ attributes:
   - name: "SMSKeywordIDs"
     type: "array"
     description: "The IDs of the SMS keywords the contact is subscribed to."
-    array-attributes: 
+    subattributes: 
       - name: "SMSKeywordID"
         type: "string"
         description: "The SMS keyword ID."
@@ -166,7 +167,7 @@ attributes:
   - name: "listIds"
     type: "array"
     description: "The IDs of the lists that the contact belongs to."
-    array-attributes: 
+    subattributes: 
       - name: "value"
         type: "string"
         description: "The ID of the list that the contact belongs to."

@@ -5,7 +5,7 @@ version: 1.0
 name: "contactSnapshot"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Contacts
 description: |
-  The `{{ table.name }}` table contains 'snapshot' records of Bill-To or Sold-To contacts on customer accounts. Snapshots are record preservations at specific points in time. When invoices are posted, Zuora will preserve the data for the Bill-To and Sold-To contacts at that point in time.
+  The `{{ table.name }}` table contains 'snapshot' records of Bill-To or Sold-To contacts on customer accounts. Snapshots are record preservations at specific points in time. When invoices are posted, {{ integration.display_name }} will preserve the data for the Bill-To and Sold-To contacts at that point in time.
 
 replication-method: "Key-based Incremental"
 
@@ -49,7 +49,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the contact."
+    description: "The ID of the {{ integration.display_name }} user who created the contact."
 
   - name: "createdDate"
     type: "date-time"
@@ -111,11 +111,11 @@ attributes:
 
   - name: "taxRegion"
     type: "string"
-    description: "If using Zuora's tax rules."
+    description: "If using {{ integration.display_name }}'s tax rules."
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the contact."
+    description: "The ID of the {{ integration.display_name }} user who last updated the contact."
 
   - name: "workEmail"
     type: "string"

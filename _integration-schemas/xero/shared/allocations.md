@@ -19,7 +19,7 @@ attributes:
     type: "object"
     description: |
       Details about the invoices the {{ table.name | append: " " | remove: "s " | replace: "_", " " }} has been allocated against.
-    object-attributes:
+    subattributes:
       - name: "InvoiceID"
         type: "string"
         description: |

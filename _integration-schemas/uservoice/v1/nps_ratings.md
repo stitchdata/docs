@@ -58,7 +58,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "Details about the origins of the NPS rating."
-    object-attributes: 
+    subattributes: 
       - name: "user"
         type: "integer"
         description: "The ID of the user who submitted the NPS rating."

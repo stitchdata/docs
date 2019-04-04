@@ -2,7 +2,7 @@
 tap: "toggl"
 version: "1.0"
 
-name: "a_workspaces"
+name: "workspaces"
 doc-link: "https://github.com/toggl/toggl_api_docs/blob/master/chapters/workspaces.md"
 singer-schema: "https://github.com/singer-io/tap-toggl/blob/master/tap_toggl/schemas/a_workspaces.json"
 description: |
@@ -63,9 +63,9 @@ attributes:
     description: |
       The type of rounding used by the workspace. Possible values are:
 
-      `-1` - Round down
-      `0` - Nearest
-      `1` - Round up
+      - `-1` - Round down
+      - `0` - Nearest
+      - `1` - Round up
 
   - name: "rounding_minutes"
     type: "integer"

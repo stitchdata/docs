@@ -6,7 +6,7 @@ name: "account"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Accounts
 #singer-schema: 
 description: |
-  The `{{ table.name }}` table contains information about the customer accounts in your Zuora instance.
+  The `{{ table.name }}` table contains information about the customer accounts in your {{ integration.display_name }} instance.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -69,7 +69,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the account."
+    description: "The ID of the {{ integration.display_name }} user who created the account."
 
   - name: "createdDate"
     type: "date-time"
@@ -81,7 +81,7 @@ attributes:
 
   - name: "crmId"
     type: "string"
-    description: "The CRM account ID for the account. Used when Salesforce is integrated with your Zuora instance."
+    description: "The CRM account ID for the account. Used when Salesforce is integrated with your {{ integration.display_name }} instance."
 
   - name: "currency"
     type: "string"
@@ -99,7 +99,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "invoiceDeliveryPrefsEmail"
     type: "boolean"
@@ -119,7 +119,7 @@ attributes:
 
   - name: "name"
     type: "string"
-    description: "The name of the account as displayed in the Zuora UI."
+    description: "The name of the account as displayed in the {{ integration.display_name }} UI."
 
   - name: "notes"
     type: "string"
@@ -127,7 +127,7 @@ attributes:
 
   - name: "parentAccountId"
     type: "string"
-    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in {{ integration.display_name }}."
     foreign-key-id: "parent-account-id"
 
   - name: "paymentGateway"
@@ -199,5 +199,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the account."
+    description: "The ID of the {{ integration.display_name }} user who last updated the account."
 ---

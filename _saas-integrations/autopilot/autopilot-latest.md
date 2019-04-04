@@ -3,7 +3,6 @@ title: Autopilot
 permalink: /integrations/saas/autopilot
 keywords: autopilot, autopilot schema, autopilot data, etl autopilot, autopilot etl
 summary: "Connection instructions and schema details for Stitch's Autopilot integration."
-tags: [saas_integrations]
 layout: singer
 
 # -------------------------- #
@@ -12,25 +11,23 @@ layout: singer
 
 name: "autopilot"
 display_name: "Autopilot"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-autopilot
 
-# this-version: 
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "60 minutes"
 tier: "Free"
 status-url: "http://status.autopilothq.com/"
-icon: /images/integrations/icons/autopilot.svg
 
 table-selection: false
 column-selection: false

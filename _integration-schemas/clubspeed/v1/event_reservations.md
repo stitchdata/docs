@@ -6,8 +6,12 @@ name: "event_reservations"
 singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_reservations.json"
 description: |
   The `{{ table.name }}` table contains info about event reservations, which are linked to [`events`](#events).
-
+  
+  {% capture replication-note %}
   **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that unless an event reservation's `startTime` is updated, changes to event reservation records will not be selected for replication.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=replication-note %}
 
 replication-method: "Key-based Incremental"
 

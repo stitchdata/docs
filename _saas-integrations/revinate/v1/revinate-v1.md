@@ -14,8 +14,8 @@
 
 title: Revinate
 permalink: /integrations/saas/revinate
-tags: [saas_integrations]
 keywords: revinate, integration, schema, etl revinate, revinate etl, revinate schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Revinate integration."
 layout: singer
 # input: false
 
@@ -42,7 +42,6 @@ certified: false
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
-icon: /images/integrations/icons/revinate.svg
 
 anchor-scheduling: true
 extraction-logs: true

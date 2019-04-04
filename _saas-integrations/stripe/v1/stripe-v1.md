@@ -9,7 +9,6 @@
 
 title: Stripe (v1.0)
 permalink: /integrations/saas/stripe
-tags: [saas_integrations]
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
 layout: singer
@@ -22,7 +21,7 @@ layout: singer
 name: "stripe"
 display_name: "Stripe"
 
-singer: false
+singer: true
 tap-name: "Stripe"
 repo-url: https://github.com/singer-io/tap-stripe
 
@@ -39,7 +38,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.stripe.com/"
-icon: /images/integrations/icons/stripe.svg
 
 table-selection: true
 column-selection: true

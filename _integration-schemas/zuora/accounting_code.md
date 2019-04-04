@@ -6,9 +6,9 @@ name: "accountingCode"
 doc-link: https://live-www.zuora.com/developer/api-reference/#operation/GET_AllAccountingCodes
 #singer-schema: 
 description: |
-  The `{{ table.name }}` table contains information about the accounting codes in your Zuora instance. Accounting codes are used to categorize transactions for accounting purposes.
+  The `{{ table.name }}` table contains information about the accounting codes in your {{ integration.display_name }} instance. Accounting codes are used to categorize transactions for accounting purposes.
 
-  **Note**: To replicate this table, you must have Zuora Finance enabled.
+  **Note**: To replicate this table, you must have {{ integration.display_name }} Finance enabled.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -40,7 +40,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the accounting code."
+    description: "The ID of the {{ integration.display_name }} user who created the accounting code."
 
   - name: "createdDate"
     type: "date-time"
@@ -49,7 +49,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "glAccountName"
     type: "string"
@@ -97,5 +97,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the accounting code."
+    description: "The ID of the {{ integration.display_name }} user who last updated the accounting code."
 ---

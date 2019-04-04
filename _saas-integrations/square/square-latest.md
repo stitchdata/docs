@@ -1,7 +1,6 @@
 ---
 title: Square
 permalink: /integrations/saas/square
-tags: [saas_integrations]
 keywords: square, integration, schema, etl square, square etl, square schema
 summary: "Connection instructions and schema details for Stitch's Square integration."
 format: ## controls formatting options in template
@@ -15,9 +14,8 @@ format: ## controls formatting options in template
 
 name: "square"
 display_name: "Square"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://issquareup.com/"
 
 # -------------------------- #
@@ -30,7 +28,6 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/square.svg
 
 table-selection: false
 column-selection: false

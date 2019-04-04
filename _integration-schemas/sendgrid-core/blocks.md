@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "blocks"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/blocks.html#List-all-blocks-GET
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/blocks.json
 description: |
-  The `blocks` table contains info about the email addresses currently on your blocks list. There are several causes for blocked emails: A mail server IP address being on an ISP blacklist, blocked by an ISP, or if the receiving server flags the message content.
+  The `{{ table.name }}` table contains info about the email addresses currently on your blocks list. There are several causes for blocked emails: A mail server IP address being on an ISP blacklist, blocked by an ISP, or if the receiving server flags the message content.
 
 replication-method: "Key-based Incremental"
 

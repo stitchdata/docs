@@ -1,7 +1,6 @@
 ---
 title: Shopify (v1)
 permalink: /integrations/saas/shopify
-tags: [saas_integrations]
 keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
@@ -30,7 +29,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.shopify.com/"
-icon: /images/integrations/icons/shopify.svg
 
 table-selection: true
 column-selection: true
@@ -65,7 +63,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/shopify/v1
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

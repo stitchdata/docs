@@ -30,7 +30,7 @@ attributes:
   - name: "Options"
     type: "array"
     description: "Details about the tracking option."
-    array-attributes:
+    subattributes:
       - name: "IsActive"
         type: "boolean"
         description: "If `true`, the tracking option is active."

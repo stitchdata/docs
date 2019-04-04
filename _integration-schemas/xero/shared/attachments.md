@@ -9,5 +9,5 @@ attributes:
   - name: "items"
     type: "object"
     description: ""
-    object-attributes:
+    subattributes:
 ---

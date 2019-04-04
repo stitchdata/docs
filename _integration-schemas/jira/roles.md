@@ -26,7 +26,7 @@ attributes:
   - name: "actors"
     type: "array"
     description: "Details about the user assigned this project role."
-    array-attributes:
+    subattributes:
       - name: "avatarUrl"
         type: "string"
         description: "The URL of the user's avatar."

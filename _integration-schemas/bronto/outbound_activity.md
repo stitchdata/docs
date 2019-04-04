@@ -15,7 +15,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The outbound activity ID."
-    foreign-key-id: "outbound-activity-id"
+    # foreign-key-id: "outbound-activity-id"
 
   - name: "createdDate"
     type: "date-time"

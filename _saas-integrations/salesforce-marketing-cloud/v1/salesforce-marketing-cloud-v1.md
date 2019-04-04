@@ -14,8 +14,8 @@
 
 title: Salesforce Marketing Cloud (v1)
 permalink: /integrations/saas/salesforce-marketing-cloud
-tags: [saas_integrations]
 keywords: salesforce marketing cloud, integration, schema, etl salesforce marketing cloud, salesforce marketing cloud etl, salesforce marketing cloud schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Salesforce Marketing Cloud (Exact Target) integration."
 layout: singer
 # input: false
 
@@ -43,7 +43,6 @@ certified: false
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
-icon: /images/integrations/icons/salesforce-marketing-cloud.svg
 
 anchor-scheduling: true
 extraction-logs: true

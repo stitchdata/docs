@@ -50,7 +50,7 @@ attributes:
   - name: "CategoryID"
     type: "integer"
     description: "The ID of the folder associated with the content area."
-    # foreign-key-id: "folder-id"
+    foreign-key-id: "folder-id"
 
   - name: "Cellpadding"
     type: "integer"

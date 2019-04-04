@@ -63,11 +63,11 @@ attributes:
   - name: "FinalAppUrls"
     type: "string"
     description: "The last or final URL where a user who clicks on an in-app ad is taken."
-    array-attributes:
+    subattributes:
       - name: "string"
         type: "array"
         description: "The app landing page URL."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The app landing page URL."
@@ -75,11 +75,11 @@ attributes:
   - name: "FinalMobileUrls"
     type: "array"
     description: "The last or final URL where a user who clicks on a mobile ad is taken."
-    array-attributes:
+    subattributes:
       - name: "string"
         type: "array"
         description: "The mobile landing page URL. This is only supported for text ads."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The mobile landing page URL. This is only supported for text ads."
@@ -87,11 +87,11 @@ attributes:
   - name: "FinalUrls"
     type: "string"
     description: "The last or final URL where a user is taken, whether or not the click to final URL path included any redirects."
-    array-attributes:
+    subattributes:
       - name: "string"
         type: "array"
         description: "The last or final URL where a user is taken, whether or not the click to final URL path included any redirects."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The last or final URL where a user is taken, whether or not the click to final URL path included any redirects."
@@ -100,11 +100,11 @@ attributes:
     type: "array"
     description: "Details about the forward compatibility settings for the ad."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
-    array-attributes:
+    subattributes:
       - name: "KeyValuePairOfStringString"
         type: "array"
         description: "Key and value pairs for the ad's forward compatibility settings."
-        array-attributes:
+        subattributes:
           - name: "key"
             type: "string"
             description: "The name of the setting."

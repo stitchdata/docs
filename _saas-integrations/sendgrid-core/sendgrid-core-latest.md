@@ -5,8 +5,8 @@
 
 title: SendGrid Core (v1.0)
 permalink: /integrations/saas/sendgrid-core
-tags: [saas_integrations]
 keywords: sendgrid, integration, schema, etl sendgrid, sendgrid etl, sendgrid schema
+summary: "Connections instructions, replication info, and schema details for Stitch's SendGrid Core integration."
 layout: singer
 
 # -------------------------- #
@@ -15,6 +15,7 @@ layout: singer
 
 name: "sendgrid-core"
 display_name: "SendGrid Core"
+
 singer: true 
 repo-url: https://github.com/singer-io/tap-sendgrid
 
@@ -31,7 +32,6 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.sendgrid.com/
-icon: /images/integrations/icons/sendgrid.svg
 
 table-selection: true
 column-selection: true
@@ -84,7 +84,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/sendgrid
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

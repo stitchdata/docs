@@ -9,7 +9,7 @@
 
 
 tap: "salesforce-marketing-cloud"
-# version: 
+# version: "1.0"
 
 name: "event"
 doc-link: 

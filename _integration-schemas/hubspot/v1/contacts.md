@@ -43,7 +43,7 @@ attributes:
   - name: "merged-vids"
     type: "array"
     description: "A list of vids that have been merged into this contact record."
-    array-attributes:
+    subattributes:
       - name: "type"
         type: "integer"
         description: "The vid that was merged into the contact record."
@@ -72,7 +72,7 @@ attributes:
   - name: "identity-profiles"
     type: "array"
     description: "A list of the identities of the contact."
-    array-attributes:
+    subattributes:
       - name: "deleted-changed-timestamp"
         type: "date-time"
         description: "The timestamp of the last delete or change event associated with a contact's identity profile."
@@ -88,7 +88,7 @@ attributes:
       - name: "identities"
         type: "array"
         description: "A list of individual identities for the contact."
-        array-attributes:
+        subattributes:
           - name: "timestamp"
             type: "date-time"
             description: "A Unix timestamp in milliseconds for when the identity was created."
@@ -104,7 +104,7 @@ attributes:
   - name: "list-memberships"
     type: "array"
     description: "A list of the contact's memberships in contact lists."
-    array-attributes:
+    subattributes:
       - name: "internal-list-id"
         type: "integer"
         description: "The internal list ID."
@@ -128,7 +128,7 @@ attributes:
   - name: "form-submissions"
     type: "array"
     description: "A list of form submissions for the contact."
-    array-attributes:
+    subattributes:
       - name: "conversion-id"
         type: "string"
         description: "A unique ID for the specific form conversion."
@@ -156,7 +156,7 @@ attributes:
   - name: "merge-audits"
     type: "array"
     description: "Details about any merges that have happened for the record."
-    array-attributes:
+    subattributes:
       - name: "canonical-vid"
         type: "integer"
         description: "The vid of the primary contact, or the record that was merged into."
@@ -180,7 +180,7 @@ attributes:
       - name: "merged-from-email"
         type: "object"
         description: "Data from the secondary contact, or the record that the data was merged from."
-        object-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The email address of the secondary contact at the time of the merge."
@@ -208,7 +208,7 @@ attributes:
           - name: "source-vids"
             type: "array"
             description: "A list of secondary contact vids."
-            array-attributes:
+            subattributes:
               - name: "items"
                 type: "integer"
                 description: "The secondary contact's vid."
@@ -216,7 +216,7 @@ attributes:
       - name: "merged-to-email"
         type: "object"
         description: "Data for the primary contact, or the record the data was merged into."
-        object-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The email address of the primary contact at the time of the merge."

@@ -1,14 +1,15 @@
 ---
 tap: "taboola"
-# version: 
+# version: "1.0"
 
 name: "campaign_performance"
 doc-link: https://github.com/taboola/Backstage-API/blob/master/Backstage%20API%20-%20Reports.pdf
 singer-schema: https://github.com/singer-io/tap-taboola/blob/master/tap_taboola/schemas.py#L117
 description: |
-  The `campaign_performance` table contains performance data for the campaigns in your Taboola account, broken down by day.
+  The `{{ table.name }}` table contains performance data for the campaigns in your {{ integration.display_name }} account, broken down by day.
 
 replication-method: "Key-based Incremental"
+
 api-method:
   name: 
   doc-link: 
@@ -17,10 +18,8 @@ attributes:
   - name: "campaign_id"
     type: "integer"
     primary-key: true
-    #  foreign-keys:
-    #    - table: "campaigns"
-    #    - attribute: "id"
     description: "The campaign ID."
+    foreign-key-id: "campaign-id"
 
   - name: "date"
     type: "date"

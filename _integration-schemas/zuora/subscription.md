@@ -5,11 +5,11 @@ version: 1.0
 name: "subscription"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Subscriptions
 description: |
-  The `subscription` table contains info about your products and/or services with recurring charges.
+  The `{{ table.name }}` table contains info about your products and/or services with recurring charges.
 
-  ### Custom Attributes
+  ### Custom Attributes {#custom-subscription-fields}
 
-  If your Zuora subscription records contain custom attributes, Stitch will replicate them.
+  If your {{ integration.display_name }} subscription records contain custom attributes, Stitch will replicate them.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -51,7 +51,7 @@ attributes:
 
   - name: "cpqBundleJsonId__qt"
     type: "string"
-    description: "The bundle product structures from Zuora Quotes, if you utilize bundling in your Salesforce integration with Zuora."
+    description: "The bundle product structures from {{ integration.display_name }} Quotes, if you utilize bundling in your Salesforce integration with {{ integration.display_name }}."
 
   - name: "createdById"
     type: "string"
@@ -80,7 +80,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "initialTerm"
     type: "integer"
@@ -209,5 +209,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the subscription."
+    description: "The ID of the {{ integration.display_name }} user who last updated the subscription."
 ---

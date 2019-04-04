@@ -17,7 +17,6 @@ foreign-keys:
     table: ""
     all-foreign-keys:
       - table: "emails"
-      - table: ""
 
   - id: "product-id"
     attribute: "product_id"
