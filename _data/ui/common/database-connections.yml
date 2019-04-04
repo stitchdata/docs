@@ -48,31 +48,31 @@ field-names:
 
 field-copy:
   integration-name: |
-    Enter a name for the integration. This is the name that will display on the {{ app.page-names.dashboard }} for the integration; it’ll also be used to create the schema in your data warehouse.
+    Enter a name for the integration. This is the name that will display on the {{ app.page-names.dashboard }} for the integration; it’ll also be used to create the schema in your destination.
 
-            For example, the name “Stitch {{ integration.display_name }}” would create a schema called `stitch_{{ integration.name | replace:"-","_" }}` in the data warehouse. **Note:** The schema name cannot be changed after the integration is saved.
+            For example, the name “Stitch {{ integration.display_name }}” would create a schema called `stitch_{{ integration.display_name | slugify | replace:"-","_" }}` in the destination. **Note:** The schema name cannot be changed after the integration is saved.
 
   host: |
-    Enter the host address (endpoint) used by the {{ integration.display_name }} instance.
+    Enter the host address (endpoint) used by the {{ page.display_name }} instance.
 
             In general, this will be `127.0.0.1` (localhost), but could also be some other network address (ex: `192.68.0.1`) or your server's public IP address. **Note:** This must be the actual address - entering `localhost` into this field will cause connection issues.
 
   host-rds: |
-    Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+    Paste the **Endpoint** address from the {{ page.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
 
   host-cloudsql: |
-    Enter the host address (endpoint) of your CloudSQL MySQL instance. This will be the value of the **Primary IPv4 address** that you retrieved in [Step 2](#locate-database-connection-details).
+    Enter the host address (endpoint) of your {{ page.display_name }} instance. This will be the value of the **Public IP address** that you retrieved in [STEP].
 
   port: |
-    Enter the port used by the {{ integration.display_name }} instance. The default is `{{ integration.port }}`.
+    Enter the port used by the {{ page.display-name }} instance. The default is `{{ page.port }}`.
   
-  username: "Enter the Stitch {{ integration.display_name }} database user's username."
+  username: "Enter the Stitch {{ page.display_name }} database user's username."
 
   password: |
-    Enter the password for the Stitch {{ destination.display_name }} database user.
+    Enter the password for the Stitch {{ page.display_name }} database user.
   
   database: |
-    Enter the name of the {{ integration.display_name }} database you want to connect to Stitch. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. This is required for {{ integration.display_name }} integrations.
+    Enter the name of the {{ page.display_name }} database you want to connect to Stitch. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. This is required for {{ page.display_name }} integrations.
 
   optional-database: |
       **Optional:** Enter the name of the default database Stitch will connect to. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to test and complete the connection.
