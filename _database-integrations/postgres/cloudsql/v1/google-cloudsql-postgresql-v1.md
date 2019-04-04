@@ -115,7 +115,7 @@ setup-steps:
       - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"

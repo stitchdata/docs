@@ -1,7 +1,6 @@
 ---
 title: Google CloudSQL PostgreSQL (v15-10-2015)
 keywords: postgresql, postgres, google cloudsql postgres, google cloudsql postgresql, database integration, etl postgres, etl cloudsql, cloudsql etl, postgres etl, postgresql etl, etl
-tags: [database_integrations]
 permalink: /integrations/databases/google-cloudsql-postgresql/v15-10-2015
 summary: "Connect and replicate data from your Google CloudSQL PostgreSQL database using Stitch's Google CloudSQL PostgreSQL integration."
 input: false
@@ -28,8 +27,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/google-cloudsql-postgresql.svg
-
 
 ## Stitch features
 
@@ -92,13 +89,6 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "Locate database connection details"
-    anchor: "locate-database-connection-details"
-    content: |
-      In this step, you'll locate the {{ integration.display_name }}'s IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
-
-      {% include shared/google-cloud-platform/locate-database-details.html %}
-
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
     content: |
@@ -107,20 +97,25 @@ setup-steps:
       {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
+      - title: "Locate the database connection details in Google"
+        anchor: "locate-database-connection-details"
+        content: |
+          {% include shared/connection-details/google-cloudsql.html %}
+          
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
-  - title: "Create a replication schedule"
-    anchor: "create-replication-schedule"
-    content: |
-      {% include integrations/shared-setup/replication-frequency.html %}
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"
@@ -129,12 +124,3 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-{% capture cloudsql %}
-This article only applies to **Postgres-based** CloudSQL databases.<br><br>
-
-If you want to connect a **MySQL-based** CloudSQL instance, use [these instructions]({{ link.integrations.database-integration | prepend: site.baseurl | replace: "INTEGRATION","google-cloudsql-mysql" }}).
-{% endcapture %}
-
-{% include important.html content=cloudsql %}

@@ -1,7 +1,6 @@
 ---
 title: Heroku (v1.0)
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
-tags: [database_integrations]
 permalink: /integrations/databases/heroku/v1
 summary: "Connect and replicate data from your Heroku database using Stitch's Heroku integration."
 microsites:
@@ -32,7 +31,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/heroku.svg
 
 ## Stitch features
 
@@ -95,12 +93,12 @@ setup-steps:
       - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"
