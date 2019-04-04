@@ -18,7 +18,7 @@ redirect_from: /destinations/redshift/connecting-redshift-data-warehouse-to-stit
 
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
 
-summary: "Ready to spin up an Amazon Redshift destination and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+summary: "Connect an Amazon Redshift destination to your Stitch account."
 
 content-type: "destination-setup"
 
@@ -84,7 +84,7 @@ steps:
       - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |
-          {% include shared/connection-details/amazon.html %}
+          {% include shared/connection-details/amazon.html type="connection-details" %}
 
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
