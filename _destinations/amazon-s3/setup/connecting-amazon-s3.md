@@ -16,7 +16,7 @@ title: Connecting an Amazon S3 Destination to Stitch
 permalink: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
 keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, postgres etl, amazon s3 etl
 
-summary: "Ready to spin up an Amazon S3 data warehouse and connect it to Stitch? This step-by-step tutorial will walk you through every part of the process."
+summary: "Connect an Amazon S3 destination to your Stitch account."
 
 content-type: "destination-setup"
 
@@ -185,7 +185,7 @@ steps:
       ```
 
     substeps:
-      - title: "Add the Stitch Bucket Policy"
+      - title: "Add the Stitch bucket policy"
         anchor: "add-bucket-policy"
         content: |
           To allow Stitch to access the bucket, you'll need to add a bucket policy using the AWS console. Follow the instructions in the tab below to add the bucket policy.
