@@ -70,7 +70,7 @@ steps:
       5. Click the **Connectivity & security** tab if it's not already open.
       6. Locate the **VPC** field in the **Networking** section:
 
-         ![The VPC field in the Instance Details page in AWS]({{ site.baseurl }}/images/integrations/amazon-rds-vpc.png)
+         ![The VPC field in the Instance Details page in AWS]({{ site.baseurl }}/images/shared/ssh/amazon-locate-vpc.png)
 
       Keep the name of the VPC handy - you'll need it to complete the next step.
 
@@ -93,10 +93,10 @@ steps:
 
              We’ll be using a Linux-based AMI (like Ubuntu) for this tutorial:
 
-             ![Ubuntu Amazon Machine Image option in AWS]({{ site.baseurl }}/images/destinations/redshift-ssh-ubuntu-ami.png)
+             ![Ubuntu Amazon Machine Image option in AWS]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-ubuntu-ami.png)
 
              Click the **Select** button next to the AMI you want to use.
-          4. On the next page, you'll select the instance type. Generally, a small instance will work just fine. For example: `t2.medium`. You can find more info about instance types on [Amazon's website](https://aws.amazon.com/ec2/instance-types/).
+          4. On the next page, you'll select the instance type. Generally, a small instance will work just fine. For example: `t2.medium`. You can find more info about instance types on [Amazon's website](https://aws.amazon.com/ec2/instance-types/){:target="new"}.
 
              After you select the instance type, click the **Configure Instance Details** button in the lower right corner of the page to continue.
           5. On the Configure Instance Details page, fill in the following fields:
@@ -108,7 +108,7 @@ steps:
 
                Here's a look at our setup:
 
-               ![Configuring the EC2 instance details]({{ site.baseurl }}/images/integrations/amazon-rds-ec2-instance-details.png)
+               ![Configuring the EC2 instance details]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-instance-details.png)
           6. Click the **Next: Add Storage** button in the lower right corner of the page to continue.
           7. If you're only using the machine as a bastion (which is what we're doing in this tutorial), adding storage and tags are unnecessary. Skip over these pages until you reach the **Configure Security Group** page.
 
@@ -140,7 +140,7 @@ steps:
 
              Here's what the Security Group rules should look like:
 
-             ![Configuring the EC2 Instance Security Group]({{ site.baseurl }}/images/destinations/redshift-ssh-ec2-security-group.png)
+             ![Configuring the EC2 Instance Security Group]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-security-group.png)
           6. When finished, click the **Review and Launch** button in the lower right corner of the page.
 
       - title: "Review and launch the SSH server"
@@ -150,7 +150,7 @@ steps:
 
           Review the instance's settings, paying particular attention to the fields highlighted in the image below:
 
-          ![Reviewing the EC2 Instance Details]({{ site.baseurl }}/images/integrations/amazon-rds-ec2-instance-review.png)
+          ![Reviewing the EC2 Instance Details]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-instance-review.png)
 
           - The **Security Groups** section should list either a new Security Group for Stitch OR an existing group that contains group rules for Stitch's IP addresses. If it doesn't, [refer to Step 2.2](#ec2-instance-security-group) for instructions.
           - In the **Instance Details** section:
@@ -180,7 +180,7 @@ steps:
 
              If this column isn't in the table, **click on the VPC** to open its details in the bottom section of the page:
 
-             ![VPC details & IPv4 CIDR]({{ site.baseurl }}/images/integrations/amazon-rds-vpc-ipv4-cidr.png)
+             ![VPC details & IPv4 CIDR]({{ site.baseurl }}/images/shared/ssh/amazon-vpc-ipv4-cidr.png)
           5. Copy and paste the VPC's IPv4 CIDR value somewhere convenient - you'll need it in the next step.
 
       - title: "Create a database VPC Security Group"
@@ -210,7 +210,7 @@ steps:
 
              Here's what the Inbound rule should look like:
 
-             ![VPC inbound Security Group rule]({{ site.baseurl }}/images/destinations/redshift-ssh-vpc-security-group-rule.png)
+             ![VPC inbound Security Group rule]({{ site.baseurl }}/images/shared/ssh/amazon-vpc-inbound-security-group-rule.png)
           4. When finished, click **Save** to create the rule.
 
   - title: "Retrieve your Public Key"
