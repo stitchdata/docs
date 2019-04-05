@@ -12,12 +12,16 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Connecting an Amazon PostgreSQL-RDS Destination to Stitch
-permalink: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-warehouse-to-stitch
-keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres, postgres etl, postgresql etl, postgres rds, postgres-rds, relational database services
-summary: "Connect an Amazon RDS PostgreSQL database to your Stitch account as a destination."
+title: Connecting an Amazon Redshift Destination to Stitch
+permalink: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
+redirect_from: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+
+keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
+
+summary: "Connect an Amazon Redshift destination to your Stitch account."
 
 content-type: "destination-setup"
+order: 1
 
 toc: true
 layout: tutorial
@@ -28,25 +32,14 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Postgres-RDS"
-type: "postgres"
-setup-name: "PostgreSQL"
+display_name: "Redshift"
+type: "redshift"
 
 hosting-type: "amazon"
 
 ssh: true
 ssl: true
-port: 5432
-
-
-# -------------------------- #
-#        Introduction        #
-# -------------------------- #
-
-intro: |
-  Amazon Relational Database Services (RDS) is a managed database service that runs on familiar database engines like PostgreSQL.
-
-  In this tutorial, we’ll walk you through how to connect an Amazon RDS PostgreSQL database to Stitch as a destination.
+port: 5439
 
 
 # -------------------------- #
@@ -56,16 +49,13 @@ intro: |
 requirements:
   - item: |
       {% assign destination = page %}
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Amazon's documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreatePostgreSQLInstance.html){:target="new"}.
-
-      **Note**: The database must be running version 9.3 or higher.
+      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [Amazon's documentation](https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html){:target="new"}.
   - item: |
       **Permissions in Amazon Web Services (AWS) that allow you to**:
 
         - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
         - View database details, which is required for retrieving the database's connection details.
-  - item: "**Database privileges that allow you to create users and grant privileges.** This is required to create a database user for Stitch."
-
+  - item: "**Superuser privileges, or privileges that allow you to create users and grant privileges.** This is required to create a database user for Stitch."
 
 # -------------------------- #
 #         Instructions       #
@@ -77,16 +67,14 @@ steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "Create a {{ destination.display_name }} Stitch user"
-    anchor: "create-stitch-user"
+  - title: "Create a Stitch {{ destination.display_name }} database user"
+    anchor: "create-database-user"
     content: |
-      {% assign clean-database-name = page.display_name | downcase %}
-
-      {% include note.html type="single-line" content="**Note**: You must have the ability to create a user and grant privileges to complete this step." %}
+      {% include note.html type="single-line" content="**Note**: You must have superuser privileges or the ability to create a user and grant privileges to complete this step." %}
 
       In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
 
-      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
@@ -94,12 +82,12 @@ steps:
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
 
     substeps:
-      - title: "Locate the {{ destination.display_name }} connection details in AWS"
+      - title: "Locate the {{ destination.display_name }} connection details"
         anchor: "locate-connection-details-aws"
         content: |
           {% include shared/connection-details/amazon.html type="connection-details" %}
 
-      - title: "Define the connection details in Stitch"
+      - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
@@ -108,11 +96,6 @@ steps:
         anchor: "define-ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
-
-      - title: "Define SSL connection details"
-        anchor: "define-ssl-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssl" ssl-fields=true %}
 
       - title: "Save the destination"
         anchor: "save-destination"

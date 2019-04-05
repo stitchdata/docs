@@ -18,6 +18,7 @@ keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres,
 summary: "Connect a self-hosted PostgreSQL database to your Stitch account as a destination."
 
 content-type: "destination-setup"
+order: 1
 
 toc: true
 layout: tutorial

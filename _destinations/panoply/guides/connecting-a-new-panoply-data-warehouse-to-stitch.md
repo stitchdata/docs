@@ -18,6 +18,7 @@ keywords: panoply, panoply.io, panoply data warehouse, panoply.io data warehouse
 summary: "Spin up and connect a new Panoply destination to Stitch."
 
 content-type: "destination-setup"
+order: 1
 
 layout: tutorial
 use-tutorial-sidebar: false

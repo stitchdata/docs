@@ -10,6 +10,7 @@ keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, big
 summary: "Change the location of your Google BigQuery destination."
 
 content-type: "destination-setup"
+order: 2
 
 toc: true
 layout: tutorial
