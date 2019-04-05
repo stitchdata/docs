@@ -25,6 +25,8 @@ The fields for each integration/destination - including the field name as it dis
 in the UI and instructions for what goes in each field - are in the data file
 below.  -->
 
+
+<!-- FOR INTEGRATIONS -->
 {% if page.permalink contains "integrations" %}
   {% if page.this-version %}
     {% assign all-connection-settings = site.data.ui.database-integration-settings.[page.db-type].[page.name] %}
@@ -42,6 +44,7 @@ below.  -->
   {% endcapture %}
 
 
+<!-- FOR DESTINATIONS -->
 {% elsif page.permalink contains "destinations" %}
   {% assign common = site.data.ui.destination-settings.common %}
 
@@ -98,7 +101,7 @@ If you're using an SSH tunnel to connect your {{ page.display_name }} database t
 
 <!-- FOR SSL FIELDS -->
 {% when 'ssl' %}
-  {% unless integration.name == "heroku" %}
+  {% unless page.name == "heroku" %}
     {% include note.html type="single-line" content="**Note**: Skip this step if you're not using SSL to connect to Stitch." %}
   {% endunless %}
 
@@ -114,7 +117,7 @@ If you're using an SSH tunnel to connect your {{ page.display_name }} database t
 {% else %}
 
 <!-- FOR HEROKU ONLY -->
-{% if integration.name == "heroku" %}
+{% if page.permalink contains "heroku" %}
 Because Heroku enforces SSL by default, you don't need to take any further action to encrypt your data. Skip to the next step.
 
 {% else %}

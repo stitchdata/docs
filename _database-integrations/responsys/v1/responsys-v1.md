@@ -171,7 +171,7 @@ setup-steps:
           {% capture self-hosted %}
           If your SFTP server is self-hosted, or not hosted by Oracle, you'll need to add the public key to the `authorized_keys` file. This will allow Stitch to conntect to the server using a trusted user.
 
-          {% include shared/create-linux-user.html no-notification=true %}
+          {% include shared/ssh/ssh-create-linux-user.html no-notification=true %}
 
           {% endcapture %}
           {% include layout/expandable-heading.html title="My server is self-hosted." content=self-hosted anchor="self-hosted" %}
