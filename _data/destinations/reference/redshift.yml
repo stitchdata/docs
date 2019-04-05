@@ -184,11 +184,13 @@ attributes:
     categories: "stitch-details"
     value: *connection-methods-ssh
     description: |
-      Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for Redshift]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }}).
+      Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for Redshift]({{ link.connections.ssh-amazon | prepend: site.baseurl }}).
 
   - id: "vpn-connections"
     categories: "stitch-details"
     value: *connection-methods-vpn
+    description: |
+      Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
 
   - id: "all-setup-instructions"
     categories: "stitch-details"
