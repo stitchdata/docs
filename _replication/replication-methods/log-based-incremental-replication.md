@@ -94,7 +94,7 @@ sections:
               ORDER BY id
              ```
              
-             Note that Stitch will automatically omit the WHERE clause in this statement if the table has no primary key or a primary key that is not sortable. 
+             **Note**: Stitch will automatically omit the `WHERE` clause in this statement if the table has no Primary Key or a Primary Key that is not sortable. 
 
       - title: "Ongoing replication jobs"
         anchor: "ongoing-replication-jobs"
