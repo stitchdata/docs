@@ -80,7 +80,9 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **API Key** field, paste the {{ integration.display_name }} API key you created in [Step 1](#create-onfleet-api-key).
-      5. In the **Quota Limit** field, 
+      5. In the **Quota Limit** field, enter the percentage of the {{ integration.display_name }} API quota that Stitch is allowed to use. For example: Entering `10` would allow Stitch to use 10% of the API quota.
+
+         {{ integration.display_name }} limits API requests to 20 requests per second across all API keys in a given {{ integration.display_name }} account. Refer to [{{ integration.display_name }}'s documentation](http://docs.onfleet.com/docs/throttling){:target="new"} for more info.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
