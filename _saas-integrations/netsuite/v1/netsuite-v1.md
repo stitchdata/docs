@@ -197,7 +197,7 @@ setup-steps:
       {% include layout/image.html type="right" file="/integrations/netsuite-new-employee-page.png" alt="The Name, Email, Access tab, Password, and Role tabs highlighted in the NetSuite " max-width="450" enlarge=true %}
       Next, you'll create a dedicated {{ integration.display_name }} user for Stitch and assign the Stitch role to it.
 
-      1. Using the global search, type `page: new role` and click the **Page: New Employees** result.
+      1. Using the global search, type `page: new employee` and click the **Page: New Employees** result.
       2. In the Employee page, fill in the **Name**, **Email**, and any other required fields.
       3. Click the **Access** tab, located in the bottom half of the page.
       4. In the **Access** tab:
