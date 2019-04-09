@@ -266,7 +266,11 @@ replication-sections:
       - title: "Table names for custom record types"
         anchor: "custom-record-types-table-names"
         content: |
-          Custom record tables are named `customrecord_[custom_record_type]`, where `[custom_record_type]` is the name of the custom record in {{ integration.display_name }}. For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `customrecord_promo_discount`.
+          Custom record tables are named `customrecord_[custom_record_name]`, where `[custom_record_name]` is the value of the ID field in the Custom Record Setup page in {{ integration.display_name }}.
+
+          For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `customrecord_promo_discount`.
+
+          If the ID field in the Custom Record Setup page is left blank, {{ integration.display_name }} will auto-assign a numerical ID to the record. In Stitch, the table for the custom record would then be something like `customrecord_123`, where `123` is the ID auto-assigned by {{ integration.display_name }}.
 
       - title: "Replication methods for custom record types"
         anchor: "custom-record-type-replication"
