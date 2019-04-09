@@ -275,17 +275,18 @@ replication-sections:
       - title: "Replication methods for custom record types"
         anchor: "custom-record-type-replication"
         content: |
-          {% include layout/image.html type="right" file="/integrations/netsuite-custom-record-bookmarks.png" alt="Highlighted Show Creation Date and Show Last Modified fields in NetSuite's Custom Record Type page" max-width="350" %}
-          The Replication Method Stitch uses to replicate data for a custom record type depends on two custom record settings in {{ integration.display_name }}: **Show Last Modified** and **Show Creation Date**. These settings determine whether the {{ integration.display_name }} SuiteTalk API will return timestamp columns to use as [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+          {% include layout/image.html type="right" file="/integrations/netsuite-custom-record-bookmarks.png" alt="Highlighted  Show Last Modified field in NetSuite's Custom Record Type page" max-width="350" %}
+          The Replication Method Stitch uses to replicate data for a custom record type depends on whether the **Show Last Modified** setting is checked in {{ integration.display_name }} for the custom record. This determines whether the {{ integration.display_name }} SuiteTalk API will return a timestamp column to use as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
 
-          - **If the record definition has either setting enabled**, Stitch will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). This means that only new and updated records for the record type will be replicated during each job.
-          - **If the record definition doesn't have either setting enabled**, Stitch will use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}). This means that all records for the record type will be replicated in full during each job.
+          - **If the record definition has the Show Last Modified setting enabled**, Stitch will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). This means that only new and updated records for the record type will be replicated during each job.
 
-          To check the configuration of these settings for a custom record type in {{ integration.display_name }}:
+          - **If the record definition doesn't have this setting enabled**, Stitch will use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}). This means that all records for the record type will be replicated in full during each job.
+
+          To check the configuration of this setting for a custom record type in {{ integration.display_name }}:
 
           1. Type `page: record types` into global search and click the **Page: Record Types** result.
           2. Locate and click the custom record type in the list. This will open the **Custom Record Type** page.
-          3. Locate the **Show Creation Date** and **Show Last Modified** settings.
+          3. Locate the **Show Last Modified** setting.
 
           In the example to the right, both of these settings are enabled for the `Stitch Example` custom record type.
 
