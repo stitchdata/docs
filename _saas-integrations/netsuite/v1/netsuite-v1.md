@@ -116,7 +116,7 @@ setup-steps:
 
       1. Using the global search, type `page: integrations` and click the **Page: Manage Integrations** result.
       2. On the **Integrations** page, click the **New** button.
-      3. On the **New Integration** pgae, fill in the following fields:
+      3. On the **New Integration** page, fill in the following fields:
          - **Name**: Enter a name for the integration. For example: `Stitch`
          - **State**: Select **Enabled**.
       4. In the **Authentication** tab, select the **Token-based Authentication** option.
