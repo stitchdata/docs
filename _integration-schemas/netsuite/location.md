@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Location"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/location.html"
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/location.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Location.json"
 description: |
   The `{{ table.name }}` table contains info about locations.

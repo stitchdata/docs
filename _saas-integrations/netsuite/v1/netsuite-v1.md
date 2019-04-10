@@ -404,7 +404,7 @@ replication-sections:
   - title: "Unsupported {{ integration.display_name }} record types"
     anchor: "unsupported-objects"
     content: |
-      Stitch supports replicating all record types from {{ integration.display_name }}'s 2018.1 WSDL, with the exception of the following:
+      Stitch supports replicating all record types from {{ integration.display_name }}'s 2017.2 WSDL, with the exception of the following:
 
       {% assign blacklisted-objects = site.data.taps.extraction.netsuite.blacklisted-objects.all | sort:"name" %}
 
