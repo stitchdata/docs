@@ -1,28 +1,145 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+# version: "1.0"
 
-name: "netsuite_file"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/filesearchbasic.html?mode=package
+name: "File"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/File.json"
 description: |
-  The `{{ table.name }}` table contains info about files.
+  The `{{ table.name }}` table contains info about 
 
-replication-method: "Full Table"
-abstract: false
+replication-method: ""
 
-permissions:
-  - name: "Documents and Files"
-    level: "View"
-    location: "Lists"
+api-method:
+    name: ""
+    doc-link: ""
 
 attributes:
-  - name: "internalId"
-    type: "integer"
-    primary-key: true
-    description: |
-      The {{ table.name | remove: "netsuite_" | replace: "_"," " }} ID.
+  - name: "_class"
+    type: "string"
+    description: ""
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "altTagCaption"
+    type: "string"
+    description: ""
+
+  - name: "attachFrom"
+    type: "varies"
+    description: ""
+
+  - name: "bundleable"
+    type: "boolean, string"
+    description: ""
+
+  - name: "caption"
+    type: "string"
+    description: ""
+
+  - name: "content"
+    type: "string"
+    description: ""
+
+  - name: "createdDate"
+    type: "date-time"
+    description: ""
+
+  - name: "department"
+    type: "string"
+    description: ""
+
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "encoding"
+    type: "varies"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "featuredDescription"
+    type: "string"
+    description: ""
+
+  - name: "fileSize"
+    type: "number, string"
+    description: ""
+
+  - name: "fileType"
+    type: "varies"
+    description: ""
+
+  - name: "folder"
+    type: "varies"
+    description: ""
+
+  - name: "hideInBundle"
+    type: "boolean, string"
+    description: ""
+
+  - name: "internalId"
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "isOnline"
+    type: "boolean, string"
+    description: ""
+
+  - name: "isPrivate"
+    type: "boolean, string"
+    description: ""
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    description: ""
+
+  - name: "mediaFile"
+    type: "varies"
+    description: ""
+
+  - name: "mediaTypeName"
+    type: "string"
+    description: ""
+
+  - name: "name"
+    type: "string"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "varies"
+    description: ""
+
+  - name: "owner"
+    type: "varies"
+    description: ""
+
+  - name: "siteCategoryList"
+    type: "varies"
+    description: ""
+
+  - name: "siteDescription"
+    type: "string"
+    description: ""
+
+  - name: "storeDisplayThumbnail"
+    type: "varies"
+    description: ""
+
+  - name: "textFileEncoding"
+    type: "varies"
+    description: ""
+
+  - name: "url"
+    type: "string"
+    description: ""
+
+  - name: "urlComponent"
+    type: "string"
+    description: ""
 ---

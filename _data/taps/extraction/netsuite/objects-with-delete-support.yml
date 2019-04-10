@@ -1,0 +1,318 @@
+# https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html
+# According to that documentation ^, only certain objects support
+# 'soft' deletes - or have records that will show up in the Deleted table
+# when they're deleted in NetSuite.
+
+# This file contains a list of the objects that support deletes
+# and the Stitch table that they map to.
+- name: "AdvInterCompanyJournalEntry"
+  table: "Transaction"
+
+- name: "AssemblyBuild"
+  table: "Transaction"
+
+- name: "AssemblyItem"
+  table: "Item"
+
+- name: "AssemblyUnbuild"
+  table: "Transaction"
+
+- name: "BillingSchedule"
+
+- name: "Bin"
+
+- name: "BinTransfer"
+  table: "Transaction"
+
+- name: "BinWorksheet"
+  table: "Transaction"
+
+# - name: "bom"
+
+# - name: "bomRevision"
+
+- name: "CalendarEvent"
+
+- name: "Campaign"
+
+- name: "CashRefund"
+  table: "Transaction"
+
+- name: "CashSale"
+  table: "Transaction"
+
+- name: "Charge"
+
+- name: "Check"
+  table: "Transaction"
+
+- name: "Contact"
+  anchor: "contact"
+
+- name: "ContactCategory"
+
+- name: "CostCategory"
+
+- name: "CouponCode"
+
+- name: "CreditMemo"
+  table: "Transaction"
+
+- name: "CurrencyRate"
+
+- name: "customRecord"
+  table: "customrecord_[custom_record_name]"
+  anchor: "customrecord-custom-record-name"
+
+- name: "CustomTransaction"
+  table: "Transaction"
+
+- name: "Customer"
+
+- name: "CustomerCategory"
+
+- name: "CustomerMessage"
+
+- name: "CustomerDeposit"
+  table: "Transaction"
+
+- name: "CustomerPayment"
+  table: "Transaction"
+
+- name: "CustomerRefund"
+  table: "Transaction"
+
+- name: "CustomerStatus"
+
+- name: "Deposit"
+  table: "Transaction"
+
+- name: "DepositApplication"
+  table: "Transaction"
+
+- name: "DescriptionItem"
+  table: "Item"
+
+- name: "DiscountItem"
+  table: "Item"
+
+- name: "DownloadItem"
+  table: "Item"
+
+- name: "Employee"
+
+- name: "Estimate"
+  table: "Transaction"
+
+- name: "ExpenseReport"
+  table: "Transaction"
+
+- name: "File"
+
+- name: "Folder"
+
+- name: "GiftCertificateItem"
+  table: "Item"
+
+- name: "GlobalAccountMapping"
+
+- name: "InterCompanyJournalEntry"
+  table: "Transaction"
+
+- name: "InterCompanyTransferOrder"
+  table: "Transaction"
+
+- name: "InventoryAdjustment"
+  table: "Transaction"
+
+- name: "InventoryCostRevaluation"
+  table: "Transaction"
+
+- name: "InventoryItem"
+  table: "Item"
+
+- name: "InventoryNumber"
+
+- name: "InventoryTransfer"
+  table: "Transaction"
+
+- name: "Invoice"
+  table: "Transaction"
+
+- name: "Issue"
+
+- name: "ItemAccountMapping"
+
+- name: "ItemDemandPlan"
+
+- name: "ItemFulfillment"
+  table: "Transaction"
+
+- name: "ItemSupplyPlan"
+
+- name: "ItemGroup"
+  table: "Item"
+
+
+# - name: "ItemReceipt"
+# 
+- name: "ItemRevision"
+
+- name: "Job"
+
+- name: "JobStatus"
+
+- name: "JournalEntry"
+  table: "Transaction"
+
+- name: "KitItem"
+  table: "Item"
+
+- name: "LotNumberedAssemblyItem"
+  table: "Item"
+
+- name: "LotNumberedInventoryItem"
+  table: "Item"
+
+- name: "MarkupItem"
+  table: "Item"
+
+- name: "Message"
+
+- name: "ManufacturingCostTemplate"
+
+- name: "ManufacturingOperationTask"
+
+- name: "ManufacturingRouting"
+
+- name: "Nexus"
+
+- name: "NonInventoryPurchaseItem"
+  table: "Item"
+
+- name: "NonInventoryResaleItem"
+  table: "Item"
+
+- name: "NonInventorySaleItem"
+  table: "Item"
+
+- name: "Note"
+
+- name: "NoteType"
+
+- name: "Opportunity"
+
+- name: "OtherChargePurchaseItem"
+  table: "Item"
+
+- name: "OtherChargeResaleItem"
+  table: "Item"
+
+- name: "OtherChargeSaleItem"
+  table: "Item"
+
+- name: "OtherNameCategory"
+
+- name: "Partner"
+
+- name: "Paycheck"
+  table: "Transaction"
+
+- name: "PaymentItem"
+  table: "Item"
+
+- name: "PaymentMethod"
+
+- name: "PayrollItem"
+
+- name: "PhoneCall"
+
+- name: "PriceLevel"
+
+- name: "PricingGroup"
+
+- name: "ProjectTask"
+
+- name: "PromotionCode"
+
+- name: "PurchaseOrder"
+  table: "Transaction"
+
+# - name: "PurchaseRequisition"
+
+- name: "ResourceAllocation"
+
+- name: "ReturnAuthorization"
+  table: "Transaction"
+
+- name: "SalesOrder"
+  table: "Transaction"
+
+- name: "SalesTaxItem"
+
+- name: "SerializedAssemblyItem"
+
+- name: "SerializedInventoryItem"
+
+- name: "ServicePurchaseItem"
+
+- name: "ServiceResaleItem"
+
+- name: "ServiceSaleItem"
+
+- name: "StatisticalJournalEntry"
+  table: "Transaction"
+
+- name: "SubtotalItem"
+  table: "Item"
+
+- name: "SupportCase"
+
+# - name: "SupportCaseIssue"
+
+# - name: "SupportCaseOrigin"
+
+# - name: "SupportCasePriority"
+
+# - name: "SupportCaseStatus"
+
+# - name: "SupportCaseType"
+
+- name: "Task"
+
+- name: "Term"
+
+- name: "TimeSheet"
+
+- name: "TransferOrder"
+  table: "Transaction"
+
+- name: "Usage"
+
+- name: "Vendor"
+
+- name: "VendorBill"
+  table: "Transaction"
+
+- name: "VendorCredit"
+  table: "Transaction"
+
+- name: "VendorPayment"
+  table: "Transaction"
+
+- name: "VendorReturnAuthorization"
+  table: "Transaction"
+
+- name: "WinLossReason"
+
+- name: "WorkOrder"
+  table: "Transaction"
+
+- name: "WorkOrderIssue"
+  table: "Transaction"
+
+- name: "WorkOrderCompletion"
+  table: "Transaction"
+
+- name: "WorkOrderClose"
+  table: "Transaction"

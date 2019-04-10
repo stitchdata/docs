@@ -1,6 +1,8 @@
 {% capture full-access-note %}
 The {{ integration.display_name }} permissions listed below are based off of the permissions {{ integration.display_name }} lists for the [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"} in their documentation.
 
+Depending on which products are enabled in your {{ integration.display_name }} account, you might not see some of these permissions. **If you don't see a permission in your {{ integration.display_name }} account, skip it.**
+
 For more info about these permissions and how they work within {{ integration.display_name }}, refer to {{ integration.display_name }}'s [Permissions Documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N326485.html){:target="new"} spreadsheet, [which can be downloaded here from their help center](https://system.netsuite.com/core/media/media.nl?id=104726101&c=NLCORP&h=280cab9399b431b9b2ba&_xt=.xls){:target="new"}. You may need to log into {{ integration.display_name }} to access their documentation.
 {% endcapture %}
 
@@ -28,7 +30,7 @@ For more info about these permissions and how they work within {{ integration.di
     {% for permission-type in permission-types %}
         {% case permission-type %}
             {% when 'required' %}
-                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"required","true" %}
+                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"required","true" | sort: "name" %}
 
 {% capture tab-description %}
 These permissions are the minimum required to successfully connect Stitch to your {{ integration.display_name }} integration.
@@ -39,10 +41,12 @@ These permissions are the minimum required to successfully connect Stitch to you
             {% else %}
 
                 {% assign permission-type-cap = permission-type | capitalize %} 
-                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"tab",permission-type-cap %}
+                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"tab",permission-type-cap | sort:"name" %}
 
 {% capture tab-description %}
 These permissions are found in the **{{ permission-type-cap }}** tab of the **Create Role** page in {{ integration.display_name }}.
+
+**Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
 {% endcapture %}
             
         {% endcase %}
@@ -62,7 +66,7 @@ These permissions are found in the **{{ permission-type-cap }}** tab of the **Cr
                     </td>
                     {% if permission-type == "required" %}
                         <td width="12%; fixed">
-                            <strong>Location</strong>
+                            <strong>Tab</strong>
                         </td>
                     {% endif %}
                     <td class="attribute-description">
@@ -70,26 +74,29 @@ These permissions are found in the **{{ permission-type-cap }}** tab of the **Cr
                     </td>
                 </tr>
                 {% for permission in netsuite-permissions %}
-                    <tr>
-                        <td width="10%; fixed" align="right">
-                            <input type="checkbox">
-                        </td>
-                        <td width="35%; fixed">
-                            <strong>{{ permission.name }}</strong>
-                        </td>
-                        {% if permission-type == "required" %}
-                            <td width="12%; fixed">
-                                {{ permission.tab | append: " tab" }}
+                <!-- Only get the permissions that are relevant to the integration's version -->
+                    {% if permission.version == "all" or permission.version == integration.this-version %}
+                        <tr>
+                            <td width="10%; fixed" align="right">
+                                <input type="checkbox">
                             </td>
-                        {% endif %}
-                        <td class="attribute-description">
-                            <p>{{ permission.level }}</p>
-
-                            {% if permission.description %}
-                                {{ permission.description | flatify | markdownify }}
+                            <td width="35%; fixed">
+                                <strong>{{ permission.name }}</strong>
+                            </td>
+                            {% if permission-type == "required" %}
+                                <td width="12%; fixed">
+                                    {{ permission.tab }}
+                                </td>
                             {% endif %}
-                        </td>
-                    </tr>
+                            <td class="attribute-description">
+                                <p>{{ permission.level }}</p>
+
+                                {% if permission.description %}
+                                    {{ permission.description | flatify | markdownify }}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
             </table>
         </div>
