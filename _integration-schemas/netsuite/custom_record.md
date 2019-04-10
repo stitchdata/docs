@@ -28,7 +28,7 @@ attributes:
     description: |
       The time the record was last updated.
 
-      **Note**: This field will be available only if the custom record type has **Show Last Modified** enabled in {{ integration.display_name }}. Refer to the [Custom records](#custom-records) section for more info.
+      **Note**: This field will only contain values if the custom record type has **Show Last Modified** enabled in {{ integration.display_name }}. Refer to the [Custom records](#custom-records) section for more info.
 
   - name: "Fields selected by you"
     description: |
