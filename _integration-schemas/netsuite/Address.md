@@ -1,20 +1,30 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "Address"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Address.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the custom address forms in your {{ integration.display_name }} account.
 
-replication-method: ""
+  Custom address forms can apply to entity, transaction, subsidiary, company information, location, and workplace records in {{ integration.display_name }}. As custom address forms inherit the permissions set on the parent record, the permissions required for the parent record are required to access custom address data.
 
-api-method:
-    name: ""
-    doc-link: ""
+  For example: To get custom address data for a location, the user must have the permission for accessing location data.
+
+permission:
+  tab: "Lists"
+  name: "<Parent Record Permission>"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "address-id"
+
   - name: "addr1"
     type: "string"
     description: ""
@@ -53,10 +63,6 @@ attributes:
 
   - name: "customFieldList"
     type: "varies"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "nullFieldList"

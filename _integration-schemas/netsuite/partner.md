@@ -1,20 +1,37 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "Partner"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/partner.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Partner.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the partners in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Partners"
+
+feature-requirements:
+  - tab: "CRM"
+    name: "Partner Relationship Management"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "partner-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "_class"
     type: "varies"
     description: ""
@@ -119,20 +136,12 @@ attributes:
     type: "varies"
     description: ""
 
-  - name: "internalId"
-    type: "string"
-    description: ""
-
   - name: "isInactive"
     type: "boolean, string"
     description: ""
 
   - name: "isPerson"
     type: "boolean, string"
-    description: ""
-
-  - name: "lastModifiedDate"
-    type: "date-time"
     description: ""
 
   - name: "lastName"

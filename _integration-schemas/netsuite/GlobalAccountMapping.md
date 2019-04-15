@@ -1,20 +1,37 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "GlobalAccountMapping"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/globalaccountmapping.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/GlobalAccountMapping.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains the global account mapping record details in your {{ integration.display_name }} account. 
 
-replication-method: ""
+  For {{ integration.display_name }} accounts using Multi-Book Accounting, the global account mapping record enables you to configure secondary accounting books to post to accounts different from the primary book. These mappings are used by transactions where the user can manually select the account to which the transaction posts.
 
-api-method:
-    name: ""
-    doc-link: ""
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Setup"
+  name: "Global Account Mapping"
+
+feature-requirements:
+  - name: "{{ integration.display_name }} OneWorld"
+  - tab: &tab "Accounting"
+    name: "Multi-Book Accounting"
+  - tab: *tab
+    name: "Chart of Accounts Mapping"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "global-account-mapping-id"
+
   - name: "_class"
     type: "varies"
     description: ""
@@ -52,10 +69,6 @@ attributes:
     description: ""
 
   - name: "externalId"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 

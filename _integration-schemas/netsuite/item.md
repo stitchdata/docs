@@ -1,5 +1,5 @@
 ---
-# tap: "netsuite"
+tap: "netsuite"
 version: "1.0"
 
 name: "Item"
@@ -8,13 +8,27 @@ singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsui
 description: |
   The `{{ table.name }}` table contains info about items.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "[Item Type]"
+  description: ", where **[Item Type]** is a [supported item type](#supported-item-types),"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "item-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "_class"
     type: "varies"
     description: ""
@@ -371,10 +385,6 @@ attributes:
     type: "varies"
     description: ""
 
-  - name: "internalId"
-    type: "string"
-    description: ""
-
   - name: "invtClassification"
     type: "varies"
     description: ""
@@ -476,10 +486,6 @@ attributes:
     description: ""
 
   - name: "lastInvtCountDate"
-    type: "date-time"
-    description: ""
-
-  - name: "lastModifiedDate"
     type: "date-time"
     description: ""
 

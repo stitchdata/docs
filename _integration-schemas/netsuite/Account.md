@@ -6,7 +6,13 @@ name: "Account"
 doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/account.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Account.json"
 description: |
-  The `{{ table.name }}` table contains info about the accounts in your {{ integration.display_name }} instance.
+  The `{{ table.name }}` table contains info about the accounts in the Chart of Accounts in your {{ integration.display_name }} account.
+
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Lists"
+  name: "Accounts"
 
 replication-method: "Full Table"
 

@@ -1,20 +1,33 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "CalendarEvent"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/calendarevent.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CalendarEvent.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the scheduled activities, or events, that are on the calendar in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Calendar"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "calendar-event-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "accessLevel"
     type: "varies"
     description: ""
@@ -65,14 +78,6 @@ attributes:
 
   - name: "frequency"
     type: "varies"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
-    description: ""
-
-  - name: "lastModifiedDate"
-    type: "date-time"
     description: ""
 
   - name: "location"

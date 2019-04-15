@@ -53,6 +53,25 @@ column-selection: true
 #      Setup Instructions    #
 # -------------------------- #
 
+permission-for-table: |
+  {% capture permission-copy %}
+  **{% if table.permission.tab %}{{ table.permission.tab | append: " > " }}{% endif %}{{ table.permission.name }} ({{ table.permission.level | default: "View" }})**
+  {% endcapture %}
+
+  #### {{ table.name }} table replication requirements {#{{ table.name | slugify }}-table--replication-requirements}
+  {% if table.feature-requirements %}
+  Replicating this table requires that the following feature(s) be enabled in your {{ integration.display_name }} account:
+
+  {% for feature-requirement in table.feature-requirements %}
+  - **{% if feature-requirement.tab %}{{ feature-requirement.tab }} > {% endif %}{{ feature-requirement.name | flatify }}**{% if feature-requirement.description %} {{ feature-requirement.description | flatify }}{% endif %}
+  {% endfor %}
+
+  You will also need the {{ permission-copy | flatify }} permission. If you have the above feature(s) enabled, refer to the [Configure the Stitch role](#configure-permissions-save-stitch-role) section for instructions on adding this permission.
+
+  {% else %}
+  Replicating this table requires the {{ permission-copy | flatify }} permission{% if table.permission.description %}{{ table.permission.description | flatify }}{% endif %} in {{ integration.display_name }}. Refer to the [Configure the Stitch role](#configure-permissions-save-stitch-role) section for instructions on adding this permission.
+  {% endif %}
+
 requirements-list:
   - item: "**Administrator permissions in {{ integration.display_name }}**. This is required to complete the setup steps in {{ integration.display_name }}."
 

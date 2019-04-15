@@ -1,20 +1,37 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "SupportCase"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/supportcase.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/SupportCase.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the support cases in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Cases"
+
+feature-requirements:
+  - tab: "CRM"
+    name: "Case Management"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "support-case-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "assigned"
     type: "varies"
     description: ""
@@ -89,10 +106,6 @@ attributes:
 
   - name: "insertSolution"
     type: "varies"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "internalOnly"

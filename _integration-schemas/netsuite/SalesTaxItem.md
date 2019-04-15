@@ -1,20 +1,28 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "SalesTaxItem"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/salestaxitem.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/SalesTaxItem.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the sales tax items in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Tax Items"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "sales-tax-item-id"
+
   - name: "available"
     type: "varies"
     description: ""
@@ -65,10 +73,6 @@ attributes:
 
   - name: "includeChildren"
     type: "boolean, string"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "isDefault"

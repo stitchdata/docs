@@ -1,20 +1,22 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "CustomList"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customlist.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CustomList.json"
 description: |
   The `{{ table.name }}` table contains info about 
 
-replication-method: ""
-
-api-method:
-    name: ""
-    doc-link: ""
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "custom-list-id"
+
   - name: "convertToCustomRecord"
     type: "boolean, string"
     description: ""
@@ -24,10 +26,6 @@ attributes:
     description: ""
 
   - name: "description"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 

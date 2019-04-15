@@ -8,6 +8,12 @@ singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsui
 description: |
   The `{{ table.name }}` table contains info about contacts.
 
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Lists"
+  name: "Contacts"
+
 replication-method: "Key-based Incremental"
 
 attributes:

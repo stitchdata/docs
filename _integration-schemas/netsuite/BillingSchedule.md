@@ -1,20 +1,39 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "BillingSchedule"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/billingschedule.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/BillingSchedule.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the billing schedules in your {{ integration.display_name }} account. Billing schedules are used to define how bills for transactions are relayed to customers. In general, a billing schedule determines the frequency with which the customer is billed and the amount of each bill. However, the exact effect of a billing schedule varies depending on its type.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Billing Schedules"
+
+feature-requirements:
+  - tab: &tab "Accounting"
+    name: "Advanced Billing"
+    description: "(Required for any billing schedule type)"
+  - tab: *tab
+    name: "Project Management"
+    description: "(Required for Charge-based, Fix-bid interval, Fixed-bid milestone, and Time and materials billing schedules)"
+  - tab: *tab
+    name: "Charge-based Billing"
+    description: "(Required for Charge-based billing schedules)"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "billing-schedule-id"
+
   - name: "applyToSubtotal"
     type: "boolean, string"
     description: ""
@@ -45,10 +64,6 @@ attributes:
 
   - name: "initialTerms"
     type: "varies"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "isInactive"

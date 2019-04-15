@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "SiteCategory"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/sitecategory.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/SiteCategory.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the categories used to organize your website.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Presentation Categories"
+
+feature-requirements:
+  - tab: "Web Presence"
+    name: "Web Site"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "site-category-id"
+
   - name: "categoryListLayout"
     type: "varies"
     description: ""
@@ -32,10 +44,6 @@ attributes:
     description: ""
 
   - name: "externalId"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 

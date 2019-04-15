@@ -8,6 +8,12 @@ singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsui
 description: |
   The `{{ table.name }}` table contains info about customers.
 
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Lists"
+  name: "Customers"
+
 replication-method: "Key-based Incremental"
 
 attributes:
@@ -36,7 +42,7 @@ attributes:
 
   - name: "aging"
     type: "number, string"
-    description: &aging "The overdue Accounts Receiveable balance for the customer."
+    description: &aging "The overdue Accounts Receivable balance for the customer."
 
   - name: "aging1"
     type: "number, string"

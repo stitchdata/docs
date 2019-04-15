@@ -1,20 +1,37 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "Task"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/task.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Task.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the tasks in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Project Tasks"
+
+feature-requirements:
+  - tab: "Company"
+    name: "Project Management"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "task-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "accessLevel"
     type: "boolean, string"
     description: ""
@@ -73,14 +90,6 @@ attributes:
 
   - name: "externalId"
     type: "string"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
-    description: ""
-
-  - name: "lastModifiedDate"
-    type: "date-time"
     description: ""
 
   - name: "message"

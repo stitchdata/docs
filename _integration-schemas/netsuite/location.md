@@ -8,6 +8,16 @@ singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsui
 description: |
   The `{{ table.name }}` table contains info about locations.
 
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Lists"
+  name: "Locations"
+
+feature-requirements:
+  - tab: "Company"
+    name: "Locations"
+
 replication-method: "Full Table"
 
 attributes:

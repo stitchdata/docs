@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "InboundShipment"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inboundshipment.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/InboundShipment.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about inbound shipments in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: ""
+  name: ""
+
+feature-requirements:
+  - tab: "Transactions"
+    name: "Inbound Shipment Management"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "inbound-shipment-id"
+
   - name: "actualDeliveryDate"
     type: "date-time"
     description: ""
@@ -48,10 +60,6 @@ attributes:
     description: ""
 
   - name: "externalId"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 

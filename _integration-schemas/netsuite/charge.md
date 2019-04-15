@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "Charge"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/charge.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Charge.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the charges in your {{ integration.display_name }} account, which represent billable amounts that your clients must pay.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Transactions"
+  name: "Charge"
+
+feature-requirements:
+  - tab: "Transactions"
+    name: "Charge-Based Billing"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "charge-id"
+
   - name: "_class"
     type: "varies"
     description: ""
@@ -64,10 +76,6 @@ attributes:
     description: ""
 
   - name: "externalId"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 

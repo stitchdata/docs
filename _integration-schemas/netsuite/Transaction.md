@@ -1,5 +1,5 @@
 ---
-# tap: "netsuite"
+tap: "netsuite"
 version: "1.0"
 
 name: "Transaction"
@@ -9,11 +9,14 @@ description: |
 
   #### Supported transaction types {#supported-transaction-types}
 
-  Stitch's {{ integration.display_name }} integration supports replicating data for the following transaction types:
+  Stitch's {{ integration.display_name }} integration supports replicating data for the the transaction types in the [Supported {{ integration.display_name }} transaction types](#supported-transaction-types) section.
 
-  {% for transaction in site.data.taps.extraction.netsuite.multi-search-objects.transactions %}
-  - `{{ transaction.name }}`
-  {% endfor %}
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Transactions"
+  name: "[Transaction Type]"
+  description: ", where **[Transaction Type]** is a [supported transaction type](#supported-transaction-types),"
 
 replication-method: "Key-based Incremental"
 

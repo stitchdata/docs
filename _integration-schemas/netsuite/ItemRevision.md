@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "ItemRevision"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemrevision.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ItemRevision.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about item revisions in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Item Revisions"
+
+feature-requirements:
+  - tab: "Items & Inventory"
+    name: "Assembly Items"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "item-revision-id"
+
   - name: "effectiveDate"
     type: "date-time"
     description: ""
@@ -25,10 +37,6 @@ attributes:
 
   - name: "inactive"
     type: "boolean, string"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "item"

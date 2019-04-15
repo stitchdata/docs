@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "RevRecSchedule"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/revrecschedule.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/RevRecSchedule.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the revenue recognition schedules in your {{ integration.display_name }} account. A revenue recognition schedule indicates the posting periods in which revenue should be recognized, and the amount to be recognized in each period, for an item sale.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+permission:
+  tab: "Lists"
+  name: "Revenue Recognition Schedules"
+
+feature-requirements:
+  - tab: "Accounting"
+    name: "Advanced Accounting > Revenue Recognition"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "revenue-recognition-schedule-id"
+
   - name: "amortizationPeriod"
     type: "integer, string"
     description: ""
@@ -29,10 +41,6 @@ attributes:
 
   - name: "initialAmount"
     type: "number, string"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "isInactive"

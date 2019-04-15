@@ -1,20 +1,34 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "ManufacturingCostTemplate"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingcosttemplate.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ManufacturingCostTemplate.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the manufacturing cost templates in your {{ integration.display_name }} account.
 
-replication-method: ""
+  A manufacturing cost template is a list of rates that can be associated with completing a specific operation. The template defines the activities that occur and related costs to be recorded each time this step is completed.
 
-api-method:
-    name: ""
-    doc-link: ""
+  {{ integration.permission-for-table | flatify }}
+
+permission:
+  tab: "Lists"
+  name: "Manufacturing Cost Template"
+
+feature-requirements:
+  - tab: "Items & Inventory"
+    name: "Manufacturing Routing and Work Center"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "manufacturing-cost-template-id"
+
   - name: "costDetailList"
     type: "varies"
     description: ""
@@ -28,10 +42,6 @@ attributes:
     description: ""
 
   - name: "externalId"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 

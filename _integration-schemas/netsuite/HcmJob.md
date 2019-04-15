@@ -1,20 +1,30 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "HcmJob"
-doc-link: ""
+doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/hcmjob.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/HcmJob.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  {{ integration.permission-for-table | flatify }}
 
-replication-method: ""
+permission:
+  tab: "Lists"
+  name: "HCMJob Management"
 
-api-method:
-    name: ""
-    doc-link: ""
+feature-requirements:
+  - tab: "Employees"
+    name: "Job Management"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "hcm-job-id"
+
   - name: "customFieldList"
     type: "varies"
     description: ""
@@ -28,10 +38,6 @@ attributes:
     description: ""
 
   - name: "externalId"
-    type: "string"
-    description: ""
-
-  - name: "internalId"
     type: "string"
     description: ""
 
