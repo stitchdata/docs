@@ -52,9 +52,6 @@ all-docs:
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.redshift }}"
 
-        - title: "Connect to Stitch via SSH"
-          url: "{{ link.destinations.setup.redshift-ssh }}"
-
         - title: "Replication"
           url: "{{ link.destinations.overviews.redshift }}#replication"
 
@@ -128,9 +125,6 @@ all-docs:
 
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.azure }}"
-
-        - title: "Connect to Stitch via SSH"
-          url: "{{ link.destinations.setup.azure-ssh }}"
 
         - title: "Replication"
           url: "{{ link.destinations.overviews.azure }}#replication"
@@ -207,7 +201,8 @@ all-docs:
       - title: Certified Integrations
         subsections:
           - title: "Overview"
-            url: "{{ link.integrations.saas }}#stitch-certified-integrations"
+            url: |
+              {{ link.integrations.saas | append: "#stitch-certified-integrations" }}
 
       - title: Community Integrations
         subsections:
