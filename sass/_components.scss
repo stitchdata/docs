@@ -539,11 +539,12 @@ $green: $green-junction;
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
-	margin: 8px 0 0 ;
-	box-shadow: 5px 5px 0 0 #000000;
-	border-radius: 0;
+	margin: 4px 0 0 ;
+	border-radius: 2px;
 	overflow-y: scroll;
 	max-height: 90vh;
+	max-width: 90%;
+	min-width: 700px;
 
 	&:before {
 		display: none;
@@ -561,7 +562,7 @@ $green: $green-junction;
 
 .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
 	border-radius: 0;
-	padding: 2rem 1rem 1rem;
+	padding: 1rem;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
@@ -570,7 +571,6 @@ $green: $green-junction;
 
 .algolia-docsearch-suggestion--category-header {
 	display: none !important;
-	border: 1px solid red;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
