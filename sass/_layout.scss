@@ -264,13 +264,11 @@ body {
 					margin-top: 0.5rem;
 					text-transform: uppercase;
 
-					&:after {
-						content: "  →";
-						margin-left: 5px;
-					}
-
 					&:hover {
 						background: $stitch-yellow;
+						text-decoration: none;
+					}
+					&:active {
 						text-decoration: none;
 					}
 				}
