@@ -242,38 +242,37 @@ body {
   text-transform: uppercase;
 }
 /* line 245, ../sass/_layout.scss */
-.columns.more li:last-of-type a:after {
-  content: "  →";
-  margin-left: 5px;
-}
-/* line 250, ../sass/_layout.scss */
 .columns.more li:last-of-type a:hover {
   background: #FFCC00;
   text-decoration: none;
 }
+/* line 249, ../sass/_layout.scss */
+.columns.more li:last-of-type a:active {
+  text-decoration: none;
+}
 
-/* line 260, ../sass/_layout.scss */
+/* line 258, ../sass/_layout.scss */
 footer {
   text-align: left;
   color: #999999;
   margin: 2em 0;
   line-height: 1.6em;
 }
-/* line 266, ../sass/_layout.scss */
+/* line 264, ../sass/_layout.scss */
 footer .site-generation {
   float: left;
 }
-/* line 270, ../sass/_layout.scss */
+/* line 268, ../sass/_layout.scss */
 footer .links {
   float: right;
 }
-/* line 272, ../sass/_layout.scss */
+/* line 270, ../sass/_layout.scss */
 footer .links p {
   font-weight: 600;
   text-align: right;
   margin-bottom: 0px;
 }
-/* line 278, ../sass/_layout.scss */
+/* line 276, ../sass/_layout.scss */
 footer .links ul {
   list-style: none;
   padding: 0px;
@@ -1161,38 +1160,43 @@ blockquote p {
 }
 
 /* Footer CTA */
-/* line 758, ../sass/_components.scss */
+/* line 759, ../sass/_components.scss */
+hr.footer-cta {
+  margin: 3em 0 0;
+}
+
+/* line 763, ../sass/_components.scss */
 .footer-signup-cta {
   margin-top: 30px;
   background-color: #F4F4F4;
   padding: 40px 20px;
 }
-/* line 763, ../sass/_components.scss */
+/* line 768, ../sass/_components.scss */
 .footer-signup-cta .wrapper {
   width: auto;
   margin: 0 auto;
   display: flex;
   justify-content: center;
 }
-/* line 769, ../sass/_components.scss */
+/* line 774, ../sass/_components.scss */
 .footer-signup-cta .wrapper div {
   padding: 0 10px;
 }
-/* line 774, ../sass/_components.scss */
+/* line 779, ../sass/_components.scss */
 .footer-signup-cta p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 15px;
 }
-/* line 781, ../sass/_components.scss */
+/* line 786, ../sass/_components.scss */
 .footer-signup-cta .btn-default {
   padding: 15px 30px;
   /* make the standard button a little bigger */
   display: block;
   margin-bottom: 0;
 }
-/* line 786, ../sass/_components.scss */
+/* line 791, ../sass/_components.scss */
 .footer-signup-cta .btn-default:hover {
   color: #FFCC00;
   background: #1E2023;
