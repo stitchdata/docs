@@ -1,8 +1,8 @@
 ---
 title: Security FAQ
-permalink: /account-security/stitch-security
+permalink: /account-security/security-faq
+redirect_from: /account-security/stitch-security
 keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
-tags: [getting_started, account, security]
 
 summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
 type: "security"

@@ -196,8 +196,8 @@ attributes:
     description: |
       Stitch supports using SSH tunnels to connect to the following {{ destination.display_name }}-backed destinations:
 
-      - [Amazon {{ destination.display_name }}-RDS]({{ link.connections.ssh-amazon | prepend: site.baseurl }})
-      - [Self-hosted {{ destination.display_name }}]({{ link.connections.ssh-generic | prepend: site.baseurl }})
+      - [Amazon {{ destination.display_name }}-RDS]({{ link.security.ssh-amazon | prepend: site.baseurl }})
+      - [Self-hosted {{ destination.display_name }}]({{ link.security.ssh-generic | prepend: site.baseurl }})
 
   - id: "vpn-connections"
     categories: "stitch-details"

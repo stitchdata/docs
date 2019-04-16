@@ -12,14 +12,14 @@
 {% when 'amazon' %}
 
 {% capture list-inclusion-note %}
-**Note**: Only Amazon-based databases are listed as this guide is only applicable to the databases listed below. Refer to the [Setting up an SSH Tunnel for a database connection guide]({{ link.connections.ssh-generic | prepend: site.baseurl }}) for instructions for non-Amazon databases.
+**Note**: Only Amazon-based databases are listed as this guide is only applicable to the databases listed below. Refer to the [Setting up an SSH Tunnel for a database connection guide]({{ link.security.ssh-generic | prepend: site.baseurl }}) for instructions for non-Amazon databases.
 {% endcapture %}
 
 <!-- GENERIC SSH CONTENT -->
 {% else %}
 
 {% capture list-inclusion-note %}
-**Note**: Amazon-based databases aren't listed as this guide isn't applicable to them. Refer to the [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }}) for more info.
+**Note**: Amazon-based databases aren't listed as this guide isn't applicable to them. Refer to the [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.security.ssh-amazon | prepend: site.baseurl }}) for more info.
 {% endcapture %}
 {% endcase %}
 

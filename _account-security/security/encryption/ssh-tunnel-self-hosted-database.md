@@ -3,8 +3,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Setting up an SSH Tunnel for a database connection
-permalink: /common/ssh/setting-up-ssh-tunnel-for-database-connection
+title: Setting up an SSH Tunnel for a self-hosted database
+permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
 summary: "If a database is privately accessible, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for a self-hosted database connection to Stitch."
 
 input: false
@@ -30,9 +30,9 @@ intro: |
 
   {% include shared/ssh/ssh-intro-requirements.html type="applicable-databases" %}
 
-  For **SSH for Amazon-hosted databases**, refer to the [SSH for Amazon guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }}).
+  For **SSH for Amazon-hosted databases**, refer to the [SSH for Amazon guide]({{ link.security.ssh-amazon | prepend: site.baseurl }}).
 
-  For **SSH for Microsoft Azure databases**, refer to the [SSH for Microsoft Azure guide]({{ link.connections.ssh-microsoft-azure | prepend: site.baseurl }}).
+  For **SSH for Microsoft Azure databases**, refer to the [SSH for Microsoft Azure guide]({{ link.security.ssh-microsoft-azure | prepend: site.baseurl }}).
 
 
 # -------------------------- #

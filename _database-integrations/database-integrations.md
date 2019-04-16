@@ -20,7 +20,7 @@ sections:
 
       The security and privacy of your data is of the utmost importance to us. To ensure your data stays private, we recommend using an SSH or SSL connection to connect your database and encrypt your data in transit.
 
-      For more info on our security policies and recommended best practices, check out the [Security FAQ]({{ link.account.security-faq | prepend: site.baseurl }}).
+      For more info on our security policies and recommended best practices, check out the [Security FAQ]({{ link.security.faq | prepend: site.baseurl }}).
     subsections:
       - title: "SSH and SSL connection support"
         anchor: "ssh-ssl-connection-support"
