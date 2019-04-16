@@ -17,7 +17,7 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 	<li><a href="{{ link.integrations.main | prepend: site.baseurl }}">Integrations</a></li>
 	<li><a href="{{ link.account.team-members | prepend: site.baseurl }}">Adding/removing team members</a></li>
 	<li><a href="{{ link.billing.billing-guide | prepend: site.baseurl }}">Understanding your usage and billing</a></li>
-	<li><a href="{{ link.account.security-faq | prepend: site.baseurl }}">Security</a></li>
+	<li><a href="{{ link.security.main | prepend: site.baseurl }}">Security</a></li>
 	<li><a href="{{ site.baseurl }}/tag_getting_started">More</a></li>
 </ul>
 <hr />

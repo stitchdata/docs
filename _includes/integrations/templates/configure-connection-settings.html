@@ -30,18 +30,18 @@ Click the option you're using below and follow the instructions.
 
 {% when 'amazon' %}
 {% capture ssh-guide %}
-    [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }})
+    [Setting up an SSH Tunnel for a database in Amazon Web Services guide]({{ link.security.ssh-amazon | prepend: site.baseurl }})
 {% endcapture %}
 
 {% when 'microsoft-azure' %}
 {% capture ssh-guide %}
-    [Setting up an SSH Tunnel for a Microsoft Azure database guide]({{ link.connections.ssh-microsoft-azure | prepend: site.baseurl }})
+    [Setting up an SSH Tunnel for a Microsoft Azure database guide]({{ link.security.ssh-microsoft-azure | prepend: site.baseurl }})
 {% endcapture %}
 
 <!-- For self-hosted databases -->
 {% when 'generic' %}
 {% capture ssh-guide %}
-    [Setting up an SSH Tunnel for a database connection guide]({{ link.connections.ssh-generic | prepend: site.baseurl }})
+    [Setting up an SSH Tunnel for a database connection guide]({{ link.security.ssh-generic | prepend: site.baseurl }})
 {% endcapture %}
 
 {% endcase %}
