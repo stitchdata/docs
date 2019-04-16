@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Setting up an SSH Tunnel for a database in Microsoft Azure
-permalink: /common/ssh/setting-up-ssh-tunnel-for-microsoft-azure
+permalink: /account-security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
 summary: "If a database is in private subnet in your Microsoft Azure account, you can use an SSH tunnel to connect Stitch. This tutorial will walk you through setting up an SSH server and configuring access for a Microsoft Azure SQL Server or Microsoft Azure SQL Data Warehouse connection to Stitch."
 
 input: false
@@ -30,9 +30,9 @@ intro: |
 
   {% include shared/ssh/ssh-intro-requirements.html type="applicable-databases" %}
 
-  For **SSH for Amazon-hosted databases**, refer to the [SSH for Amazon guide]({{ link.connections.ssh-amazon | prepend: site.baseurl }}).
+  For **SSH for Amazon-hosted databases**, refer to the [SSH for Amazon guide]({{ link.security.ssh-amazon | prepend: site.baseurl }}).
 
-  For **SSH for self-hosted databases**, refer to the [SSH for self-hosted databases guide]({{ link.connections.ssh-generic | prepend: site.baseurl }}).
+  For **SSH for self-hosted databases**, refer to the [SSH for self-hosted databases guide]({{ link.security.ssh-generic | prepend: site.baseurl }}).
 
 
 # -------------------------- #
