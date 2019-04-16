@@ -26,7 +26,11 @@ intro: |
 
   {{ page.summary }}
 
-  In this guide, we'll cover Stitch's supported connection options and provide links to additional resources.
+  In this guide, we'll cover Stitch's supported connection options and provide links to additional resources:
+
+  {% for section in page.sections %}
+  - [{{ section.title }}](#{{ section.anchor }})
+  {% endfor %}
 
 # -------------------------- #
 #           Content          #

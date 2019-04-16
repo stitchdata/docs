@@ -3,11 +3,36 @@
 	color: $protocol-black;
 	border-radius: 0;
 	margin-bottom: 1rem;
+	line-height: 1.4;
+	padding: 10px 20px;
+	font-weight: 600;
+	text-transform: uppercase;
+
+	-webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    -webkit-font-smoothing: antialiased;
 
 	&:hover {
 		background: $stitch-yellow;
 		border: 2px solid $stitch-yellow;
+		text-decoration: none !important;
+		cursor: pointer;
 	}
+
+	&--yellow {
+		border: 2px solid $stitch-yellow;
+		background: $stitch-yellow;
+		color: $protocol-black;
+	}
+}
+
+.arrow {
+	&::after{
+	    position: relative;
+	    font-size: 0.9em;
+	    content: "  ➔";
+   	}
 }
 
 .dropdown-menu {
@@ -539,11 +564,12 @@ $green: $green-junction;
 }
 
 .algolia-autocomplete .ds-dropdown-menu {
-	margin: 8px 0 0 ;
-	box-shadow: 5px 5px 0 0 #000000;
-	border-radius: 0;
+	margin: 4px 0 0 ;
+	border-radius: 2px;
 	overflow-y: scroll;
 	max-height: 90vh;
+	max-width: 90%;
+	min-width: 700px;
 
 	&:before {
 		display: none;
@@ -561,7 +587,7 @@ $green: $green-junction;
 
 .algolia-autocomplete .ds-dropdown-menu [class^=ds-dataset-] {
 	border-radius: 0;
-	padding: 2rem 1rem 1rem;
+	padding: 1rem;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
@@ -570,7 +596,6 @@ $green: $green-junction;
 
 .algolia-docsearch-suggestion--category-header {
 	display: none !important;
-	border: 1px solid red;
 }
 
 .algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
@@ -726,5 +751,47 @@ blockquote {
 	h4 {
 		margin-bottom: 1em;
 		line-height: 1em;
+	}
+}
+
+/* Footer CTA */
+
+hr.footer-cta {
+	margin: 3em 0 0;
+}
+
+.footer-signup-cta {
+	margin-top: 30px;
+	background-color: #F4F4F4;
+	padding: 40px 20px;
+
+	.wrapper {
+		width: auto;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+
+		div {
+			padding: 0 10px;
+		}
+	}
+
+	p {
+		line-height: 1.4;
+		font-size: 1.2rem;
+		margin: 0;
+		margin-top: 15px;
+	}
+
+	.btn-default {
+		padding: 15px 30px;  /* make the standard button a little bigger */
+		display: block;
+		margin-bottom: 0;
+
+		&:hover {
+			color: $stitch-yellow;
+			background: $protocol-black;
+			border-color: $protocol-black;
+		}
 	}
 }

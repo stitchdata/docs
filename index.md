@@ -29,7 +29,7 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 	<li><a href="{{ link.replication.rep-keys | prepend: site.baseurl }}">Replication Keys</a></li>
 	<li><a href="{{ link.replication.rep-scheduling| prepend: site.baseurl }}">Replication scheduling</a></li>
 	<li><a href="{{ link.destinations.storage.stitch-schema | prepend: site.baseurl }}">Integration schemas</a></li>
-	<li><a href="{{ link.replication.main | prepend: site.baseurl }}">More</a></li>
+	<li><a href="{{ link.replication.main | prepend: site.baseurl }}">More <span class="arrow"></span></a></li>
 </ul>
 <hr />
 
@@ -41,7 +41,7 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 	<li><a href="{{ link.troubleshooting.discrepancy-guide | prepend: site.baseurl }}">Data discrepancy guide</a></li>
 	<li><a href="{{ link.troubleshooting.errors | prepend: site.baseurl }}">Error notifications</a></li>
 	<li><a href="{{ link.troubleshooting.billing-issues | prepend: site.baseurl }}">Billing Issues</a></li>
-	<li><a href="{{ link.troubleshooting.main | prepend: site.baseurl }}">More</a></li>
+	<li><a href="{{ link.troubleshooting.main | prepend: site.baseurl }}">More <span class="arrow"></span></a></li>
 </ul>
 <hr />
 
