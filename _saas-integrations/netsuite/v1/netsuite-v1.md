@@ -211,6 +211,7 @@ setup-steps:
   - title: "Create access tokens for Stitch"
     anchor: "create-access-tokens"
     content: |
+      {% include note.html type="single-line" content="**Note**: This requires the **Setup > Access Token Management** permission in NetSuite." %}
       In this step, you'll generate access tokens for the Stitch integration record (application) and user role.
 
       1. Using the global search, type `page: tokens` and click the **Page: Access Tokens** result.
