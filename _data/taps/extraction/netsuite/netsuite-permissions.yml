@@ -231,17 +231,6 @@ all-permissions:
 
 # These permissions require the Full level.
 
-  - name: "Access Token Management"
-    tab: "Setup"
-    version: "all"
-    level: "Full"
-    required: true
-    version: "1.0"
-    description: &token-based-auth |
-      Required to perform Token-based Authentication.
-
-      **Note**: NetSuite only allows `Full` as the level for this permission, but this only grants read-only access to the account. Refer to [{{ integration.display_name }}'s documentation](https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=bridgehead_4248124361.html){:target="new"} for more info.
-
   - name: "Log in using Access Tokens"
     tab: "Setup"
     version: "all"
