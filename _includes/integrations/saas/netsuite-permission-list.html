@@ -1,6 +1,11 @@
-{% capture full-access-note %}
-The {{ integration.display_name }} permissions listed below are based off of the permissions {{ integration.display_name }} lists for the [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"} in their documentation.
+{% assign integration-tables = site.integration-schemas | where:"tap",integration.name %}  
 
+{% assign schema = integration-tables | where:"version",integration.this-version | sort:"name" %}
+
+
+{% include misc/icons.html %}
+
+{% capture full-access-note %}
 Depending on which products are enabled in your {{ integration.display_name }} account, you might not see some of these permissions. **If you don't see a permission in your {{ integration.display_name }} account, skip it.**
 
 For more info about these permissions and how they work within {{ integration.display_name }}, refer to {{ integration.display_name }}'s [Permissions Documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N326485.html){:target="new"} spreadsheet, [which can be downloaded here from their help center](https://system.netsuite.com/core/media/media.nl?id=104726101&c=NLCORP&h=280cab9399b431b9b2ba&_xt=.xls){:target="new"}. You may need to log into {{ integration.display_name }} to access their documentation.
@@ -8,97 +13,142 @@ For more info about these permissions and how they work within {{ integration.di
 
 {% include note.html first-line="**About NetSuite permissions**" content=full-access-note %}
 
-{% assign all-netsuite-permissions = site.data.taps.extraction.netsuite.netsuite-permissions %}
 
-{% assign permission-types = "required|transactions|reports|lists|setup" | split: "|" %}
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
         <a href="#adding-permissions" data-toggle="tab">Adding permissions</a>
     </li>
-    {% for permission-type in permission-types %}
-        <li>
-            <a href="#{{ permission-type }}-permissions" data-toggle="tab">{{ permission-type | capitalize }}</a>
-        </li>
-    {% endfor %}
+    <li>
+        <a href="#required-permissions" data-toggle="tab">Required permissions</a>
+    </li>
+    <li>
+        <a href="#optional-permissions" data-toggle="tab">Optional object permissions</a>
+    </li>
 </ul>
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="adding-permissions">
         {{ adding-permission-instructions | flatify | markdownify }}
     </div>
-    {% for permission-type in permission-types %}
-        {% case permission-type %}
-            {% when 'required' %}
-                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"required","true" | sort: "name" %}
 
-{% capture tab-description %}
-These permissions are the minimum required to successfully connect Stitch to your {{ integration.display_name }} integration.
+    <div role="tabpanel" class="tab-pane" id="required-permissions">
+        {% assign required-permissions = site.data.taps.extraction.netsuite.netsuite-permissions.required | sort:"name" %}
+        <p>
+            These permissions are the minimum required to successfully connect Stitch to your {{ integration.display_name }} integration. While Stitch may be able to replicate some data using only these permissions, it is unlikely that Stitch will be able to replicate all possible {{ integration.display_name }} objects. Refer to the <strong>Optional object permissions</strong> tab to grant permissions for specific objects (tables).
+        </p>
 
-**Note**: While Stitch may be able to replicate some data using only these permisisons, it is unlikely that Stitch will be able to replicate all possible {{ integration.display_name }} objects. You should grant the permissions outlined in the other tabs to ensure successful replication.
-{% endcapture %}
+        <table class="attribute-list">
+            <tr>
+                
+                <td width="40%; fixed">
+                    <strong>Permission</strong>
+                </td>
+                <td width="20%; fixed">
+                    <strong>Tab</strong>
+                </td>
+                <td>
+                    <strong>Level</strong>
+                </td>
+            </tr>
 
-            {% else %}
-
-                {% assign permission-type-cap = permission-type | capitalize %} 
-                {% assign netsuite-permissions = all-netsuite-permissions.all-permissions | where:"tab",permission-type-cap | sort:"name" %}
-
-{% capture tab-description %}
-These permissions are found in the **{{ permission-type-cap }}** tab of the **Create Role** page in {{ integration.display_name }}.
-
-**Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
-{% endcapture %}
-            
-        {% endcase %}
-            <div role="tabpanel" class="tab-pane" id="{{ permission-type }}-permissions">
-
-            {{ tab-description | flatify | markdownify }}
-
-        {% include tip.html content="**Use the table below as a checklist.** As you add the permissions in NetSuite, check them off here to keep track." %}
-
-            <table class="attribute-list">
-                <tr>
-                    <td width="10%; fixed" align="right">
-                        <strong>Added</strong>
-                    </td>
-                    <td width="35%; fixed">
-                        <strong>Permission name</strong>
-                    </td>
-                    {% if permission-type == "required" %}
-                        <td width="12%; fixed">
-                            <strong>Tab</strong>
+            {% for permission in required-permissions %}
+                {% if permission.version == "all" or permission.version == integration.this-version %}
+                    <tr>
+                        <td>
+                            {{ permission.name }}
                         </td>
-                    {% endif %}
-                    <td class="attribute-description">
-                        <strong>Level</strong>
+                        <td width="20%; fixed">
+                            {{ permission.tab }}
+                        </td>
+                        <td>
+                            {{ permission.level | default: "View" }}
+                            {% if permission.level == "Full" %}
+                            {{ question-icon | replace:"TOOLTIP","NetSuite only allows Full as the level for this permission, but this only grants read-only access." }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="optional-permissions">
+        <p>
+            <strong>Note</strong>: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
+        </p>
+        <p>
+            Objects with required {{ integration.display_name }} features are marked with a {{ notice-icon | replace:"TOOLTIP","" }} (exclamation icon). Hover over the icon to view the features that are required.
+        </p>
+        <ul>
+            <li>{{ notice-icon | replace:"TOOLTIP","" }} - If present, the table corresponds to a feature or features that must be enabled in {{ integration.display_name }}. If the feature or features aren't enabled in your account, no data will be replicated for the table and the permission listed will not be available.</li>
+            <li><strong>Table name</strong> - The name of the Stitch table.</li>
+            <li><strong>Tab</strong> - The tab in the <strong>Create Role</strong> page that contains the permission.</li>
+            <li><strong>Permission</strong> - The permission required to access and replicate data for the table.</li>
+            <li><strong>Level</strong> - The level of permission required to access and replicate data for the table. This will usually be <strong>View</strong>.</li>
+        </ul>
+
+        <table class="attribute-list">
+            <tr>
+                <td>
+                </td>
+
+                <td>
+                    <strong>Table name</strong>
+                </td>
+
+                <td>
+                    <strong>Permission</strong>
+                </td>
+
+                <td width="20%; fixed">
+                    <strong>Tab</strong>
+                </td>
+
+                <td>
+                    <strong>Level</strong>
+                </td>
+            </tr>
+            
+
+            {% for table in schema %}
+                <tr>
+                    <td>
+                    <!-- Use the table's key to get the permissions and required features (if any) -->
+                        {% assign object = site.data.taps.extraction.netsuite.netsuite-permissions[table.key] %}
+
+                        {% if object.feature-requirements %}
+                            {% capture required-features-tooltip %}
+                            Required {{ integration.display_name }} features:
+
+                            <ul>
+                            {% for feature in object.feature-requirements %}
+                            <li>{{ feature.tab }} > {{ feature.name }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% endcapture %}
+                            {{ notice-icon | replace:"TOOLTIP",required-features-tooltip }}
+                        {% else %}
+                        {% endif %}
+                    </td>
+
+                    <td>
+                        <a href="#{{ table.name | slugify }}">{{ table.name }}</a>
+                    </td>
+
+                    <td>
+                        {{ object.permission.name }}
+                    </td>
+
+                    <td>
+                        {{ object.permission.tab }}
+                    </td>
+
+                    <td>
+                        {{ object.permission.level | default: "View" }}
                     </td>
                 </tr>
-                {% for permission in netsuite-permissions %}
-                <!-- Only get the permissions that are relevant to the integration's version -->
-                    {% if permission.version == "all" or permission.version == integration.this-version %}
-                        <tr>
-                            <td width="10%; fixed" align="right">
-                                <input type="checkbox">
-                            </td>
-                            <td width="35%; fixed">
-                                <strong>{{ permission.name }}</strong>
-                            </td>
-                            {% if permission-type == "required" %}
-                                <td width="12%; fixed">
-                                    {{ permission.tab }}
-                                </td>
-                            {% endif %}
-                            <td class="attribute-description">
-                                <p>{{ permission.level }}</p>
-
-                                {% if permission.description %}
-                                    {{ permission.description | flatify | markdownify }}
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endif %}
-                {% endfor %}
-            </table>
-        </div>
-    {% endfor %}
+            {% endfor %}
+        </table>
+    </div>
 </div>
