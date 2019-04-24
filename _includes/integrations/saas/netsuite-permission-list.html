@@ -23,19 +23,35 @@ For more info about these permissions and how they work within {{ integration.di
         <a href="#required-permissions" data-toggle="tab">Required permissions</a>
     </li>
     <li>
-        <a href="#optional-permissions" data-toggle="tab">Optional object permissions</a>
+        <a href="#object-permissions" data-toggle="tab">Object permissions</a>
     </li>
 </ul>
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="adding-permissions">
-        {{ adding-permission-instructions | flatify | markdownify }}
+{% capture add-permissions-instructions %}
+**Refer to the other tabs in this section of the guide for the permissions you need to add**. 
+
+To add a permission to the role:
+
+1. In the **Permissions** tab, click a subtab. For example: **Transactions**
+2. Using the **Permission** dropdown, search for the permission you want to add. Refer to the other tabs in this section for the permissions you need to add.
+3. Using the **Level** dropdown, set the permission level to the corresponding level outlined in this guide:
+
+   ![The Transactions subsection in the Permissions section of the NetSuite Create Role page]({{ site.baseurl }}/images/integrations/netsuite-role-permissions-tab.png)
+4. Click **Add**.
+5. Repeat these steps until all permissions in the **Required permissions** tab and the desired permissions in the **Object permissions** tab have been added.
+
+**Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific features being enabled in your {{ integration.display_name }} account.
+{% endcapture %}
+
+        {{ add-permissions-instructions | flatify | markdownify }}
     </div>
 
     <div role="tabpanel" class="tab-pane" id="required-permissions">
         {% assign required-permissions = site.data.taps.extraction.netsuite.netsuite-permissions.required | sort:"name" %}
         <p>
-            These permissions are the minimum required to successfully connect Stitch to your {{ integration.display_name }} integration. While Stitch may be able to replicate some data using only these permissions, it is unlikely that Stitch will be able to replicate all possible {{ integration.display_name }} objects. Refer to the <strong>Optional object permissions</strong> tab to grant permissions for specific objects (tables).
+            These permissions are the minimum required to successfully connect Stitch to your {{ integration.display_name }} integration. While Stitch may be able to replicate some data using only these permissions, it is unlikely that Stitch will be able to replicate all possible {{ integration.display_name }} objects. Refer to the <strong>Object permissions</strong> tab to grant permissions for specific objects (tables).
         </p>
 
         <table class="attribute-list">
@@ -73,13 +89,9 @@ For more info about these permissions and how they work within {{ integration.di
         </table>
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="optional-permissions">
-        <p>
-            <strong>Note</strong>: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
-        </p>
-        <p>
-            Objects with required {{ integration.display_name }} features are marked with a {{ notice-icon | replace:"TOOLTIP","" }} (exclamation icon). Hover over the icon to view the features that are required.
-        </p>
+    <div role="tabpanel" class="tab-pane" id="object-permissions">
+        <p>In the table below are object-specific permissions and the tables they correspond to. The permissions for a given table must be granted to the Stitch role in order to access and replicate data for the table.</p>
+        <p>The columns in the table are as follows:</p>
         <ul>
             <li>{{ notice-icon | replace:"TOOLTIP","" }} - If present, the table corresponds to a feature or features that must be enabled in {{ integration.display_name }}. If the feature or features aren't enabled in your account, no data will be replicated for the table and the permission listed will not be available.</li>
             <li><strong>Table name</strong> - The name of the Stitch table.</li>
