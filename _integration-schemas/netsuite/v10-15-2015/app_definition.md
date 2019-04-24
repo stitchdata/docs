@@ -12,8 +12,7 @@ primary-key: "internalId"
 abstract: false
 
 ## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
-
-id: "app-definition"
+key: "app-definition"
 
 attributes:
   - name: "internalId"
