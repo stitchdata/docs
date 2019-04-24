@@ -223,8 +223,8 @@ currency-rate:
 ## CUSTOM RECORDS
 custom-record:
   permission:
-    tab:
-    name:
+    tab: "Setup"
+    name: "Custom Record Types"
 
 ## CUSTOMER
 customer:
@@ -253,8 +253,8 @@ customer-status:
 ## CUSTOM LIST
 custom-list:
   permission:
-    tab:
-    name:
+    tab: "Setup"
+    name: "Custom Lists"
 
 ## DELETED
 deleted:
@@ -345,8 +345,8 @@ hcmjob:
 ## INBOUND SHIPMENT
 inbound-shipment:
   permission:
-    tab: ""
-    name: ""
+    tab: "Lists"
+    name: "Inbound Shipment"
 
   feature-requirements:
     - tab: "Transactions"
@@ -697,7 +697,11 @@ solution:
       name: "Knowledge Base"
 
 ## SUBSIDIARY
-subisidary:
+subsidiary:
+  permission:
+    tab: "Lists"
+    name: "Subsidiaries"
+
   feature-requirements:
     - name: "{{ integration.display_name }} OneWorld"
 
