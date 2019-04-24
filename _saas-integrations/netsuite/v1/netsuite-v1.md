@@ -55,14 +55,17 @@ column-selection: true
 
 permission-for-table: |
   {% assign object = site.data.taps.extraction.netsuite.netsuite-permissions[table.key] %}
+
   {% capture permission-copy %}
   **{% if object.permission.tab %}{{ object.permission.tab | append: " > " }}{% endif %}{{ object.permission.name }} ({{ object.permission.level | default: "View" }})**
   {% endcapture %}
 
   #### {{ table.name }} table replication requirements {#{{ table.name | slugify }}-table--replication-requirements}
-  {% if table.feature-requirements %}
+  {% if object.feature-requirements %}
   Replicating this table requires that the following feature(s) be enabled in your {{ integration.display_name }} account:
 
+  {% for feature in object.feature-requirements %}
+  - **{% if feature.tab %}{{ feature.tab }} > {% endif %}{{ feature.name | flatify }}**{% if feature.description %} {{ feature.description | flatify }}{% endif %}
   {% endfor %}
 
   You will also need the {{ permission-copy | flatify }} permission. If you have the above feature(s) enabled, refer to the [Configure the Stitch role](#configure-permissions-save-stitch-role) section for instructions on adding this permission.
@@ -87,15 +90,16 @@ setup-steps:
       {% endcapture %}
 
       {% include layout/inline_image.html type="right" file="integrations/netsuite-ip-addresses.png" alt="" max-width="400px" %}
-      1. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
-      2. In the **Allowed IP addresses** field, add the following comma-separated list of Stitch's IP addresses:
+      1. Sign into your {{ integration.display_name }} account as an administrator.
+      2. In your {{ integration.display_name }} account, click **Setup > Company > Company Information**.
+      3. In the **Allowed IP addresses** field, add the following comma-separated list of Stitch's IP addresses:
 
          ```
          {{ ip-addresses | strip_newlines }}
          ```
 
          **Note**: Make sure you don't overwrite or change any existing IP addresses in this field - doing so could cause access issues for you and other {{ integration.display_name }} users in your account.
-      3. Click **Save**.
+      4. Click **Save**.
 
   - title: "Configure Web Services and authentication settings"
     anchor: "configure-web-services-and-authentication-settings"
@@ -107,7 +111,7 @@ setup-steps:
         content: |
           In this step, you'll enable Web Services for your {{ integration.display_name }} account. This is required to use {{ integration.display_name }}'s SuiteTalk API, which is what Stitch will use to extract data.
 
-          1. Sign into your {{ integration.display_name }} account as an administrator.
+          1. Sign into your {{ integration.display_name }} account as an administrator, if you aren't already signed in.
           2. Using the global search, type `page: enable` and click the **Page: Enable Features** result. For example:
 
              ![NetSuite global search field]({{ site.baseurl }}/images/integrations/netsuite-v1-global-search-example.png)
@@ -155,13 +159,6 @@ setup-steps:
       - title: "Create a Stitch {{ integration.display_name }} role"
         anchor: "create-stitch-netsuite-role"
         content: |
-          {{ integration.display_name }} enforces two-factor authentication for Full Access and Administrator roles as of {{ integration.display_name }} 2018.1.
-
-          Stitch's {{ integration.display_name }} integration doesn't support authenticating with this method. Connection errors will arise if either the Full Access or Administrator role is assigned to the Stitch user.
-          {% endcapture %}
-
-          {% include important.html first-line="**Do not assign the Full Access or Administrator role to Stitch**" content=two-factor-auth-roles %}
-
           1. Using the global search, type `page: new role` and click the **Page: New Role** result.
           2. On the Role page, enter a name for the role in the **Name** field. For example: `Stitch`
           3. In the **Authentication** section, check the **Web Services Only Role** box.
@@ -169,12 +166,11 @@ setup-steps:
       - title: "Configure permissions and save the Stitch role"
         anchor: "configure-permissions-save-stitch-role"
         content: |
-          2. Using the **Permission** dropdown, search for the permission you want to add.
-          4. Click **Add**.
-          5. Repeat these steps until all permissions in the tabs of this guide have been added.
+          Next, you'll grant permissions to the role. In the tabs below, you'll find the following:
 
-          **Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
-          {% endcapture %}
+          - **Adding permissions** - Step-by-step instructions for adding permissions to the role on the **Create Role** page.
+          - **Required permissions** - The minimum permissions required to successfully connect Stitch to {{ integration.display_name }}.
+          - **Object permissions** - The permissions required to access and replicate data for specific objects in {{ integration.display_name }}. Stitch recommends granting only the permissions required for the objects you want to replicate.
 
           {% include integrations/saas/netsuite-permission-list.html %}
 
