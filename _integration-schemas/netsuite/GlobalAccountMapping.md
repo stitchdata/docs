@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "GlobalAccountMapping"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/globalaccountmapping.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/globalaccountmapping.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/GlobalAccountMapping.json"
 description: |
   The `{{ table.name }}` table contains the global account mapping record details in your {{ integration.display_name }} account. 
@@ -12,16 +12,8 @@ description: |
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Setup"
-  name: "Global Account Mapping"
-
-feature-requirements:
-  - name: "{{ integration.display_name }} OneWorld"
-  - tab: &tab "Accounting"
-    name: "Multi-Book Accounting"
-  - tab: *tab
-    name: "Chart of Accounts Mapping"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "global-account-mapping"
 
 replication-method: "Full Table"
 

@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Campaign"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/campaign.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/campaign.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Campaign.json"
 description: |
   The `{{ table.name }}` table contains info about the campaigns in your {{ integration.display_name }} account. Campaigns are used to manage marketing initiatives.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Marketing Campaigns"
-
-feature-requirements:
-  - tab: "CRM"
-    name: "Marketing Automation"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "campaign"
 
 replication-method: "Full Table"
 

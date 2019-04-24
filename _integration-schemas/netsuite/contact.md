@@ -3,16 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Contact"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/contact.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/contact.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Contact.json"
 description: |
   The `{{ table.name }}` table contains info about contacts.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Contacts"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "contact"
 
 replication-method: "Key-based Incremental"
 

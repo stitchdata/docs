@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "customrecord_[custom_record_name]"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customrecord.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customrecord.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Transaction.json"
 description: |
   For each custom record type in {{ integration.display_name }}, a table for that custom record type will be available for selection in Stitch.
@@ -13,6 +13,9 @@ description: |
   For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `{{ table.name | replace: "[custom_record_name]","promo_discount" }}`. If the ID field in the Custom Record Setup page is left blank, {{ integration.display_name }} will auto-assign a numerical ID to the record. In Stitch, the table for the custom record would then be something like `customrecord_123`, where `123` is the ID auto-assigned by {{ integration.display_name }}.
 
   **Note**: The Replication Method Stitch uses to replicate custom record types depends on how custom records are configured in {{ integration.display_name }}. Refer to the [Custom records](#custom-records) section for more info.
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "custom-record"
 
 replication-method: "Key-based Incremental"
 

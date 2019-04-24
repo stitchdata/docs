@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_payroll_item"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/payrollitem.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/payrollitem.html
 description: |
   The `{{ table.name }}` table contains info about payroll items.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Payroll Items"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "payroll-item"
 
 attributes:
   - name: "internalId"

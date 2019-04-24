@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_vendor_category"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/vendorcategory.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/vendorcategory.html
 description: |
   The `{{ table.name }}` table contains info about vendor categories.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Accounting Lists"
-    level: "View"
-    location: "Setup"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "vendor-category"
 
 attributes:
   - name: "internalId"

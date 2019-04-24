@@ -10,10 +10,8 @@ description: |
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "[Item Type]"
-  description: ", where **[Item Type]** is a [supported item type](#supported-item-types),"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "item"
 
 replication-method: "Key-based Incremental"
 

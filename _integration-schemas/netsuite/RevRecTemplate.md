@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "RevRecTemplate"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/revrectemplate.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/revrectemplate.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/RevRecTemplate.json"
 description: |
   The `{{ table.name }}` table contains info about the revenue recognition templates in your {{ integration.display_name }} account. A revenue recognition template indicates how revenue from associated items should be posted.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Revenue Recognition Schedules"
-
-feature-requirements:
-  - tab: "Accounting"
-    name: "Advanced Accounting > Revenue Recognition"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "rev-rec-template"
 
 replication-method: "Full Table"
 

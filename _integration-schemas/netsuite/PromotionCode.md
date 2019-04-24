@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "PromotionCode"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/promotioncode.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/promotioncode.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/PromotionCode.json"
 description: |
   The `{{ table.name }}` table contains info about the promotion codes in your {{ integration.display_name }} account.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Promotions"
-
-feature-requirements:
-  - tab: "Transactions"
-    name: "Promotion Codes"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "promotion-code"
 
 replication-method: "Full Table"
 

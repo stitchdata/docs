@@ -13,10 +13,8 @@ description: |
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Transactions"
-  name: "[Transaction Type]"
-  description: ", where **[Transaction Type]** is a [supported transaction type](#supported-transaction-types),"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "transaction"
 
 replication-method: "Key-based Incremental"
 

@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Deleted"
-doc-link: "https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html"
+doc-link: "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Deleted.json"
 description: |
   The `{{ table.name }}` table contains info about deleted records.
@@ -12,20 +12,18 @@ description: |
 
   #### Objects with delete support
 
-  According to [{{ integration.display_name }}'s documentation](https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html){:target="new"}, only certain objects support the `{{ table.api-method.name }}` operation Stitch uses to retrieve deleted record data from the SuiteTalk API.
+  According to [{{ integration.display_name }}'s documentation](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html){:target="new"}, only certain objects support the `{{ table.api-method.name }}` operation Stitch uses to retrieve deleted record data from the SuiteTalk API.
 
   Refer to the [Deleted records](#deleted-records) section for more info and a list of record types with delete support.
 
-permission:
-  tab: "Setup"
-  name: "Deleted Records"
-  level: "Full"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "deleted"
 
 replication-method: "Key-based Incremental"
 
 api-method:
     name: "getDeleted"
-    doc-link: "https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html"
+    doc-link: "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html"
 
 attributes:
   - name: "internalId"

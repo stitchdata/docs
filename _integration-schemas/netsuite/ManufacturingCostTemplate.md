@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "ManufacturingCostTemplate"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingcosttemplate.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingcosttemplate.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ManufacturingCostTemplate.json"
 description: |
   The `{{ table.name }}` table contains info about the manufacturing cost templates in your {{ integration.display_name }} account.
@@ -12,13 +12,8 @@ description: |
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Manufacturing Cost Template"
-
-feature-requirements:
-  - tab: "Items & Inventory"
-    name: "Manufacturing Routing and Work Center"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "manufacturing-cost-template"
 
 replication-method: "Full Table"
 

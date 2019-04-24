@@ -3,10 +3,13 @@ tap: "netsuite"
 version: "1.0"
 
 name: "CustomList"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customlist.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customlist.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CustomList.json"
 description: |
   The `{{ table.name }}` table contains info about 
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "custom-list"
 
 replication-method: "Full Table"
 

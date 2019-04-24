@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Charge"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/charge.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/charge.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Charge.json"
 description: |
   The `{{ table.name }}` table contains info about the charges in your {{ integration.display_name }} account, which represent billable amounts that your clients must pay.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Transactions"
-  name: "Charge"
-
-feature-requirements:
-  - tab: "Transactions"
-    name: "Charge-Based Billing"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "charge"
 
 replication-method: "Full Table"
 

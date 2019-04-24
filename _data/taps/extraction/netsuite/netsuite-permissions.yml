@@ -4,966 +4,828 @@
 
 # This file contains the permissions required by Stitch's NetSuite integration.
 
-# -------------------------- #
-#   VIEW-LEVEL PERMISSIONS   #
-# -------------------------- #
-
-# These permissions require the View level.
-
-all-permissions:
-  - name: "Account Detail"
-    tab: "Report"
-    version: "all"
-    level: "View"
-
-  - name: "Accounts Receivable Un-Billed"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Balance Sheet"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Budget"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Cash Flow Statement"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
+required:
   - name: "Custom Body Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
+    tab: &setup "Setup"
     version: "all"
-    description: |
-      Required to allow Stitch to access and replicate custom record types and the data within those records.
+
   - name: "Custom Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
+    tab: *setup
+    version: "all"
 
   - name: "Custom Record Types"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Custom Column Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Custom Entity Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Custom Item Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Custom Event Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Custom Transaction Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Other Custom Fields"
-    tab: "Setup"
-    required: true
-    level: "View"
-
-  - name: "Employees"
-    tab: "Lists"
+    tab: *setup
     version: "all"
-    level: "View"
-
-  - name: "Form 1099 - Federal Miscellaneous Income"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Form W-2 - Wage and Tax Statement"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "General Ledger"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Income Statement"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Inventory"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Payroll Summary & Detail Reports"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Resource Allocations"
-    tab: "Lists"
-    version: "all"
-    level: "View"
-
-  - name: "Access Payment Audit Log"
-    tab: "Transactions"
-    version: "all"
-    level: "View"
-
-  - name: "Payroll Check Register"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Payroll Journal Report"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Payroll Liability Report"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Payroll Summary & Detail Reports"
-    tab: "Reports"
-    version: "all"
-    level: "View"
 
   - name: "Perform Search"
-    tab: "Lists"
-    required: true
-    level: "View"
+    tab: &lists "Lists"
     version: "all"
-    description: "Allows for various object-specific search functions."
-
-  - name: "Purchases"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Reconcile Reporting"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Employee Reminders"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Sales"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Sales By Partner"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Sales By Promotion Code"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Sales Force Automation"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Support"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Tax"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Time Tracking"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Transaction Detail"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Trial Balance"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Web Site Report"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-  - name: "Web Store Report"
-    tab: "Reports"
-    version: "all"
-    level: "View"
-
-# -------------------------- #
-#   FULL-LEVEL PERMISSIONS   #
-# -------------------------- #
-
-# These permissions require the Full level.
-
-  - name: "Access Token Management"
-    tab: "Setup"
-    version: "all"
-    level: "Full"
-    required: true
-    version: "1.0"
-    description: &token-based-auth |
-      Required to perform Token-based Authentication.
-
-      **Note**: NetSuite only allows `Full` as the level for this permission, but this only grants read-only access to the account. Refer to [{{ integration.display_name }}'s documentation](https://975200-sb2.app.netsuite.com/app/help/helpcenter.nl?fid=bridgehead_4248124361.html){:target="new"} for more info.
 
   - name: "Log in using Access Tokens"
-    tab: "Setup"
-    version: "all"
+    tab: *setup
     level: "Full"
-    required: true
     version: "1.0"
-    description: *token-based-auth
 
   - name: "User Access Tokens"
-    tab: "Setup"
-    version: "all"
+    tab: *setup
     level: "Full"
-    required: true
     version: "1.0"
-    description: *token-based-auth
-
-  - name: "Accounting Lists"
-    tab: "Setup"
-    version: "all"
-    level: "Full"
-
-  - name: "Accounts"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Accounts Payable Register"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Accounts Receivable Register"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Adjust Inventory"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Adjust Inventory Worksheet"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Advanced Government Issued IDs"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Approve Direct Deposit"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Approve EFT"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Approve Online Bill Payments"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Audit Trail"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Bank Account Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Bill Purchase Orders"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Bill Sales Orders"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Billing Setup"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Bills"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Calendar"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Marketing Campaign"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Campaign History"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Cases"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Cash Sale"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Cash Sale Refund"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Check"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Classes"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Color Themes"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Companies"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Competitors"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Contacts"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Cost of Goods Sold Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Credit Card"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Credit Card Refund"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Credit Card Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Credit Memo"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "CRM Group"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "CRM Lists"
-    tab: "Setup"
-    version: "all"
-    level: "Full"
-
-  - name: "Currency"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Currency Revaluation"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Custom Record Entries"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Customer Payment"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Customer Profile"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Customer Refund"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Customers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
 
   - name: "Deleted Records"
-    tab: "Setup"
-    required: true
+    tab: *setup
     level: "Full"
     version: "all"
-    description: |
-      Allows Stitch to query for deleted records in objects that the Stitch user has access to. For example: If access to `transactions` is granted, Stitch can replicate deleted transaction records.
-
-      **Note**: NetSuite only allows `Full` as the level for this permission, but this only grants read-only access to deleted records of any type. For example: If the `Departments` permission is set to `View`, Stitch will be able to see and replicate department data (existing and deleted), but not create, delete, or edit records.
-      
-  - name: "Departments"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Deposit"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Direct Deposit Status"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Distribute Inventory"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Documents and Files"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Edit Forecast"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "EFT Status"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Email Template"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Employee Change Reason"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Employee Effective Dating"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Lists"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Employees"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Enter Opening Balances"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Enter Vendor Credits"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Enter Year-to-date Payroll Adjustments"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Equity Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Establish Quotas"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Estimate"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Events"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Expense Categories"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Expense Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Expense Report"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Finance Charge"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Find Transaction"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Fixed Asset Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Fulfill Orders"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Generate Statements"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Government Issued ID Types"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Income Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Individual Paycheck"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Invoice"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Items"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Jobs"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "HCMJob Management"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Journal Approval"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Knowledge Base"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Kudos"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Locations"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Long Term Liability Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Make Journal Entry"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Marketing Template"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Mass Updates"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Media Folders"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Memorized Transactions"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Non Posting Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Notes Tab"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Opportunity"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Organization Value"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Asset Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Current Asset Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Current Liability Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Expense Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Income Registers"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Other Names"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Partners"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Pay Bills"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Pay Sales Tax"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Paychecks"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Payment Methods"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Payroll Items"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Payroll Liability Payments"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Post Time"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Presentation Categories"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Process Payroll"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Promotion"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Purchase Order"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Receive Orders"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Reconcile"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Refund Returns"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Related Items"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Report Customization"
-    tab: "Reports"
-    version: "all"
-    level: "Full"
-
-  - name: "Resource"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Resource Allocation Approval"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Return Auth. Approval"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Return Authorization"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Revenue Commitment"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Revenue Commitment Reversal"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Generate Revenue Commitment"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Generate Revenue Commitment Reversals"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Sales Order"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Sales Order Approval"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Set Up Budgets"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Shipping Items"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Statement Charge"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Store Content Items"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Store Tabs"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Tasks"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Tax Items"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Termination Reasons"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Time-Off Administration"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Track Messages"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "Track Time"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Transfer Funds"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Transfer Inventory"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
-
-  - name: "Vendors"
-    tab: "Lists"
-    version: "all"
-    level: "Full"
-
-  - name: "View Online Bill Pay Status"
-    tab: "Transactions"
-    version: "all"
-    level: "Full"
 
   - name: "Web Services"
-    tab: "Setup"
-    required: true
+    tab: *setup
     level: "Full"
     version: "all"
-    description: |
-      Required to allow Stitch to access your NetSuite account through the SuiteTalk API.
 
-      **Note**: NetSuite only allows `Full` as the level for this permission, but this only grants read-only access to the account. For Stitch to access any entity data, such as `Departments`, permission must also be granted to that entity.
+
+# -------------------------- #
+#      OBJECT PERMISSIONS    #
+# -------------------------- #
+
+## ACCOUNT
+account:
+  permission:
+    tab:  *lists
+    name: "Accounts"
+
+## ACCOUNTING PERIOD
+accounting-period:
+  permission:
+    tab: *setup
+    name: "Manage Accounting Periods"
+
+  feature-requirements:
+    - tab: "Accounting"
+      name: "Accounting Periods"
+
+## ADDRESS
+address:
+  permission:
+    tab: "Lists"
+    name: "[Parent Record Permission]"
+
+# APP DEFINITION
+app-definition:
+  permission:
+    tab: *setup
+    name: &int-app "Integration Application"
+
+# APP PACKAGE
+app-package:
+  permission:
+    tab: *setup
+    name: *int-app
+
+## BILLING ACCOUNT
+billing-account:
+  permission:
+    tab: "Lists"
+    name: "Customers"
+
+  feature-requirements:
+    - tab: "Accounting"
+      name: "Billing Accounts"
+
+## BILLING SCHEDULE
+billing-schedule:
+  permission:
+    tab: *lists
+    name: "Billing Schedules"
+
+  feature-requirements:
+    - tab: &accounting-tab "Accounting"
+      name: "Advanced Billing"
+      description: "(Required for any billing schedule type)"
+    - tab: *accounting-tab
+      name: "Project Management"
+      description: "(Required for Charge-based, Fix-bid interval, Fixed-bid milestone, and Time and materials billing schedules)"
+    - tab: *accounting-tab
+      name: "Charge-based Billing"
+      description: "(Required for Charge-based billing schedules)"
+
+## BIN
+bin:
+  permission:
+    tab: "Lists"
+    name: "Bins"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Bin Management"
+
+## BUDGET
+budget:
+  permission:
+    tab: "Lists"
+    name: "Set Up Budgets"
+
+## CALENDAR EVENT
+calendar-event:
+  permission:
+    tab: "Lists"
+    name: "Calendar"
+
+## CAMPAIGN
+campaign:
+  permission:
+    tab: "Lists"
+    name: "Marketing Campaigns"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Marketing Automation"
+
+## CHARGE
+charge:
+  permission:
+    tab: "Transactions"
+    name: "Charge"
+
+  feature-requirements:
+    - tab: "Transactions"
+      name: "Charge-Based Billing"
+
+## CLASSIFICATION
+classification:
+  permission:
+    tab: "Lists"
+    name: "[Parent Record Permission]"
+
+## CONSOLIDATED EXCHANGE RATE
+consolidated-exchange-rate:
+  permission:
+    tab: "Lists"
+    name: "Currency"
+
+  feature-requirements:
+    - name: "{{ integration.display_name }} OneWorld"
+
+## CONTACT
+contact:
+  permission:
+    tab: "Lists"
+    name: "Contacts"
+
+## CONTACT CATEGORY
+contact-category:
+  permission:
+    tab: "Setup"
+    name: "CRM Lists"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Customer Relationship Management"
+
+## CONTACT ROLE
+contact-role:
+  permission:
+    tab: "Setup"
+    name: "CRM Lists"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Customer Relationship Management"
+
+## COST CATEGORY
+cost-category:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Standard Costing"
+      description: ", or"
+
+    - tab: "Items & Inventory"
+      name: "Landed Cost"
+
+## COUPON CODE
+coupon-code:
+  permission:
+    tab: "Lists"
+    name: "Promotion"
+
+  feature-requirements:
+    - tab: "Transactions"
+      name: "Promotion Codes"
+
+## CURRENCY RATE
+currency-rate:
+  permission:
+    tab: "Lists"
+    name: "Currency"
+
+## CUSTOM RECORDS
+custom-record:
+  permission:
+    tab:
+    name:
+
+## CUSTOMER
+customer:
+  permission:
+    tab: "Lists"
+    name: "Customers"
+
+## CUSTOMER CATEGORY
+customer-category:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+## CUSTOMER MESSAGE
+customer-message:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+## CUSTOMER STATUS
+customer-status:
+  permission:
+    tab: "Setup"
+    name: "Customer Status"
+
+## CUSTOM LIST
+custom-list:
+  permission:
+    tab:
+    name:
+
+## DELETED
+deleted:
+  permission:
+    tab: "Setup"
+    name: "Deleted Records"
+    level: "Full"
+
+## DEPARTMENT
+department:
+  permission:
+    tab: "Lists"
+    name: "Departments"
+
+## EMPLOYEE
+employee:
+  permission:
+    tab: "Lists"
+    name: "Employees"
+
+## ENTITY GROUP
+entity-group:
+  permission:
+    tab: "Lists"
+    name: "CRM Groups"
+
+## EXPENSE CATEGORY
+expense-category:
+  permission:
+    tab: "Lists"
+    name: "Expense Categories"
+
+## FAIR VALUE PRICE
+fair-value-price:
+  permission:
+    tab: "Lists"
+    name: "Fair Value Price"
+
+  feature-requirements:
+    - tab: "Accounting"
+      name: "Advanced Revenue Management"
+
+## FILE
+file:
+  permission:
+    tab: "Lists"
+    name: "Documents and Files"
+
+## FOLDER
+folder:
+  permission:
+    tab: "Lists"
+    name: "Documents and Files"
+
+## GIFT CERTIFICATE
+gift-certificate:
+  permission:
+    tab: "Lists"
+    name: "Items"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Gift Certificates"
+
+## GLOBAL ACCOUNT MAPPING
+global-account-mapping:
+  permission:
+    tab: "Setup"
+    name: "Global Account Mapping"
+
+  feature-requirements:
+    - name: "{{ integration.display_name }} OneWorld"
+    - tab: "Accounting"
+      name: "Multi-Book Accounting"
+    - tab: "Accounting"
+      name: "Chart of Accounts Mapping"
+
+## HCMJOB
+hcmjob:
+  permission:
+    tab: "Lists"
+    name: "HCMJob Management"
+
+  feature-requirements:
+    - tab: "Employees"
+      name: "Job Management"
+
+## INBOUND SHIPMENT
+inbound-shipment:
+  permission:
+    tab: ""
+    name: ""
+
+  feature-requirements:
+    - tab: "Transactions"
+      name: "Inbound Shipment Management"
+
+## INVENTORY NUMBER
+inventory-number:
+  permission:
+    tab: "Lists"
+    name: "Items"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Serialized Inventory or Lot Tracking"
+
+## ISSUE
+issue:
+  permission:
+    tab: "Lists"
+    name: "Issues"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Issue Management"
+
+## ITEM
+item:
+  permission:
+    tab: "Lists"
+    name: "[Item Type]"
+    description: ", where **[Item Type]** is a [supported item type](#supported-item-types),"
+
+## ITEM ACCOUNT MAPPING
+item-account-mapping:
+  permission:
+    tab: "Setup"
+    name: "Item Account Mapping"
+
+  feature-requirements:
+    - name: "NetSuite OneWorld"
+    - tab: "Accounting"
+      name: "Multi-Book Accounting"
+    - tab: "Accounting"
+      name: "Chart of Accounts Mapping"
+
+## ITEM DEMAND PLAN
+item-demand-plan:
+  permission:
+    tab: "Lists"
+    name: "Item Demand Plan"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Demand Planning"
+
+## ITEM REVISION
+item-revision:
+  permission:
+    tab: "Lists"
+    name: "Item Revisions"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Assembly Items"
+
+## ITEM SUPPLY PLAN
+item-supply-plan:
+  permission:
+    tab: "Lists"
+    name: "Item Supply Plan"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Demand Planning"
+
+## JOB
+job:
+  permission:
+    tab: "Lists"
+    name: "Projects"
+
+  feature-requirements:
+    - tab: "Company"
+      name: "Projects"
+
+## JOB STATUS
+job-status:
+  permission:
+    tab: "Lists"
+    name: "Projects"
+
+  feature-requirements:
+    - tab: "Company"
+      name: "Projects"
+
+## JOB TYPE
+job-type:
+  permission:
+    tab: "Lists"
+    name: "Projects"
+
+  feature-requirements:
+    - tab: "Company"
+      name: "Projects"
+
+## LOCATION
+location:
+  permission:
+    tab: "Lists"
+    name: "Locations"
+
+  feature-requirements:
+    - tab: "Company"
+      name: "Locations"
+
+## MANUFACTURING COST TEMPLATE
+manufacturing-cost-template:
+  permission:
+    tab: "Lists"
+    name: "Manufacturing Cost Template"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Manufacturing Routing and Work Center"
+
+## MANUFACTURING OPERATION TASK
+manufacturing-operation-task:
+  permission:
+    tab: "Transactions"
+    name: "Work Orders"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Manufacturing Routing and Work Center"
+
+## MANUFACTURING ROUTING
+manufacturing-routing:
+  permission:
+    tab: "Lists"
+    name: "Manufacturing Routing"
+
+  feature-requirements:
+    - tab: "Items & Inventory"
+      name: "Manufacturing Routing and Work Center"
+
+## MESSAGE
+message:
+  permission:
+    tab: "Lists"
+    name: "Track Messages"
+
+## NEXUS
+nexus:
+  permission:
+    tab: "Lists"
+    name: "Tax Items"
+
+  feature-requirements:
+    - tab: "Tax"
+      name: "Advanced Taxes"
+
+## NOTE
+note:
+  permission:
+    tab: "Lists"
+    name: "Notes Tab"
+
+## NOTE TYPE
+note-type:
+  permission:
+    tab: "Setup"
+    name: "CRM Lists"
+
+## OPPORTUNITY
+opportunity:
+  permission:
+    tab: "Transactions"
+    name: "Opportunity"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Opportunities"
+
+## ORIGINATING LEAD
+originating-lead:
+  permission:
+    tab: "Lists"
+    name: "Customers"
+
+## OTHER NAME CATEGORY
+other-name-category:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Sales Force Automation"
+
+## PARTNER
+partner:
+  permission:
+    tab: "Lists"
+    name: "Partners"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Partner Relationship Management"
+
+## PARTNER CATEGORY
+partner-category:
+  permission:
+    tab: "Setup"
+    name: "CRM Lists"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Partner Relationship Management"
+
+## PAYCHECK
+paycheck:
+  permission:
+    tab: "Transactions"
+    name: "Individual Paycheck"
+
+  feature-requirements:
+    - tab: "Employees"
+      name: "Payroll"
+
+## PAYMENT METHOD
+payment-method:
+  permission:
+    tab: "Lists"
+    name: "Payment Methods"
+
+## PAYROLL ITEM
+payroll-item:
+  permission:
+    tab: "Lists"
+    name: "Payroll Items"
+
+  feature-requirements:
+    - tab: "Employees"
+      name: "Payroll"
+
+## PHONE CALL
+phone-call:
+  permission:
+    tab: "Lists"
+    name: "Phone Call"
+
+## PRICE LEVEL
+price-level:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+## PRICING GROUP
+pricing-group:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+## PROJECT TASK
+project-task:
+  permission:
+    tab: "Lists"
+    name: "Project Tasks"
+
+  feature-requirements:
+    - tab: "Company"
+      name: "Project Management"
+
+## PROMOTION CODE
+promotion-code:
+  permission:
+    tab: "Lists"
+    name: "Promotions"
+
+  feature-requirements:
+    - tab: "Transactions"
+      name: "Promotion Codes"
+
+## RESOURCE ALLOCATION
+resource-allocation:
+  permission:
+    tab: "Lists"
+    name: "Resource Allocations"
+
+  feature-requirements:
+    - tab: "Accounting"
+      name: "Advanced Accounting > Revenue Recognition"
+
+## REVENUE RECOGNITION SCHEDULE
+rev-rec-schedule:
+  permission:
+    tab: "Lists"
+    name: "Revenue Recognition Schedules"
+
+  feature-requirements:
+    - tab: "Accounting"
+      name: "Advanced Accounting > Revenue Recognition"
+
+## REVENUE RECOGNITION TEMPLATE
+rev-rec-template:
+  permission:
+    tab: "Lists"
+    name: "Revenue Recognition Schedules"
+
+  feature-requirements:
+    - tab: "Accounting"
+      name: "Advanced Accounting > Revenue Recognition"
+
+## SALES ROLE
+sales-role:
+  permission:
+    tab: "Lists"
+    name: "Sales Roles"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Team Selling"
+
+## SALES TAX ITEM
+sales-tax-item:
+  permission:
+    tab: "Lists"
+    name: "Tax Items"
+
+## SITE CATEGORY
+site-category:
+  permission:
+    tab: "Lists"
+    name: "Presentation Categories"
+
+feature-requirements:
+  - tab: "Web Presence"
+    name: "Web Site"
+
+## SOLUTION
+solution:
+  permission:
+    tab: "Lists"
+    name: "Knowledge Base"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Knowledge Base"
+
+## SUBSIDIARY
+subisidary:
+  feature-requirements:
+    - name: "{{ integration.display_name }} OneWorld"
+
+## SUPPORT CASE
+support-case:
+  permission:
+    tab: "Lists"
+    name: "Cases"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Case Management"
+
+## TASK
+task:
+  permission:
+    tab: "Lists"
+    name: "Project Tasks"
+
+  feature-requirements:
+    - tab: "Company"
+      name: "Project Management"
+
+## TAX GROUP
+tax-group:
+  permission:
+    tab: "Lists"
+    name: "Tax Groups"
+
+## TAX TYPE
+tax-type:
+  permission:
+    tab: "Lists"
+    name: "Tax Groups"
+
+## TERM
+term:
+  permission:
+    tab: "Transactions"
+    name: "Customer Payment"
+
+## TIME BILL
+time-bill:
+  permission:
+    tab: "Transactions"
+    name: "Track Time"
+
+  feature-requirements:
+    - tab: "Employees"
+      name: "Time Tracking"
+
+## TIME ENTRY
+time-entry:
+  permission:
+    tab: "Transactions"
+    name: "Track Time"
+
+  feature-requirements:
+    - tab: "Employees"
+      name: "Time Sheets"
+
+## TIMESHEET
+timesheet:
+  permission:
+    tab: "Transactions"
+    name: "Track Time"
+
+  feature-requirements:
+    - tab: "Employees"
+      name: "Timesheets"
+
+## TOPIC
+topic:
+  permission:
+    tab: "Lists"
+    name: "Knowledge Base"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Knowledge Base"
+
+## TRANSACTION
+transaction:
+  permission:
+    tab: "Transactions"
+    name: "[Transaction Type]"
+    description: ", where **[Transaction Type]** is a [supported transaction type](#supported-transaction-types),"
+
+## UNITS TYPE
+units-type:
+  permission:
+    tab: "Lists"
+    name: "Units"
+
+  feature-requirements:
+    - tab: "Company"
+      name: &uom "Multiple Units of Measure"
+    - tab: "Accounting"
+      name: *uom
+
+## USAGE
+usage:
+  permission:
+    tab: "Lists"
+    name: "Subscriptions"
+
+  feature-requirements:
+    - name: "SuiteBilling"
+
+## VENDOR
+vendor:
+  permission:
+    tab: "Lists"
+    name: "Vendors"
+
+## VENDOR CATEGORY
+vendor-category:
+  permission:
+    tab: "Setup"
+    name: "Accounting Lists"
+
+
+## WIN LOSS REASON
+win-loss-reason:
+  permission:
+    tab: "Transactions"
+    name: "Opportunity"
+
+  feature-requirements:
+    - tab: "CRM"
+      name: "Opportunities"

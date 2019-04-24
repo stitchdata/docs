@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "ItemAccountMapping"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemaccountmapping.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemaccountmapping.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ItemAccountMapping.json"
 description: |
   The `{{ table.name }}` table contains details about the item account mapping record in your {{ integration.display_name }} account.
@@ -12,16 +12,8 @@ description: |
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Setup"
-  name: "Item Account Mapping"
-
-feature-requirements:
-  - name: "NetSuite OneWorld"
-  - tab: &accounting "Accounting"
-    name: "Multi-Book Accounting"
-  - tab: *accounting
-    name: "Chart of Accounts Mapping"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "item-account-mapping"
 
 replication-method: "Full Table"
 

@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "CurrencyRate"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/currencyrate.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/currencyrate.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CurrencyRate.json"
 description: |
   The `{{ table.name }}` table contains info about currency rate records in you {{ integration.display_name }} account. These are also known as Exchange Rate records in {{ integration.display_name }}.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Currency"
-
-# feature-requirements:
-#   tab: ""
-#   name: ""
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "currency-rate"
 
 replication-method: "Full Table"
 

@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Location"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/location.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/location.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Location.json"
 description: |
   The `{{ table.name }}` table contains info about locations.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Locations"
-
-feature-requirements:
-  - tab: "Company"
-    name: "Locations"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "location"
 
 replication-method: "Full Table"
 

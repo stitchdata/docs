@@ -12,9 +12,8 @@ description: |
 
   For example: To get custom address data for a location, the user must have the permission for accessing location data.
 
-permission:
-  tab: "Lists"
-  name: "<Parent Record Permission>"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "address"
 
 replication-method: "Full Table"
 

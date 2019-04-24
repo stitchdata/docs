@@ -3,16 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "TaxGroup"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/taxgroup.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/taxgroup.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/TaxGroup.json"
 description: |
   The `{{ table.name }}` table contains info about the tax groups in your {{ integration.display_name }} account.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Tax Groups"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "tax-group"
 
 replication-method: "Full Table"
 

@@ -3,16 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "TaxType"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/taxtype.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/taxtype.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/TaxType.json"
 description: |
   The `{{ table.name }}` table contains info about the tax types in your {{ integration.display_name }} account. A tax type determines where the tax paid or collected is tracked on the balance sheet. The balance sheet account to which {{ integration.display_name }} posts the collection or payment of tax is called the tax control account.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Lists"
-  name: "Tax Groups"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "tax-type"
 
 replication-method: "Full Table"
 

@@ -3,20 +3,15 @@ tap: "netsuite"
 version: "1.0"
 
 name: "InboundShipment"
-doc-link: "https://975200-sb2.app.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inboundshipment.html"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inboundshipment.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/InboundShipment.json"
 description: |
   The `{{ table.name }}` table contains info about inbound shipments in your {{ integration.display_name }} account.
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: ""
-  name: ""
-
-feature-requirements:
-  - tab: "Transactions"
-    name: "Inbound Shipment Management"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "inbound-shipment"
 
 replication-method: "Full Table"
 

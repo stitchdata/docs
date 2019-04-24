@@ -10,9 +10,8 @@ description: |
 
   {{ integration.permission-for-table | flatify }}
 
-permission:
-  tab: "Transactions"
-  name: "Customer Payment"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "term"
 
 replication-method: "Full Table"
 
