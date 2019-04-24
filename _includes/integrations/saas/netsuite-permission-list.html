@@ -135,7 +135,7 @@ To add a permission to the role:
 
                             <ul>
                             {% for feature in object.feature-requirements %}
-                            <li>{{ feature.tab }} > {{ feature.name }}</li>
+                            <li>{% if feature.tab %}{{ feature.tab | flatify }} > {% endif %}{{ feature.name | flatify }}</li>
                             {% endfor %}
                             </ul>
                             {% endcapture %}
