@@ -89,7 +89,7 @@ current-columns:
     Depending on the level of nesting, there may be multiple `{{ system-column.level-id | remove: "_#" }}` columns in a subtable.
 
 # PRIMARY_KEY
-  primary-key: &primary-key "_sdc_primary_key"
+  primary-key: &primary-key "__sdc_primary_key"
   primary-key-description: &primary-key-description |
     **Applicable only if Stitch doesn't detect a Primary Key in the source table.** Stitch will use this column to de-dupe data.
 

@@ -7,9 +7,9 @@ keywords: redshift, amazon redshift, redshift data warehouse, redshift etl, etl 
 summary: "Learn how Stitch will load data from your integrations and handle various scenarios into a Redshift destination."
 
 toc: false
+display_name: "Redshift"
 type: "redshift"
 category: "data loading"
 ---
 {% include misc/data-files.html %}
-
-{% assign destination = site.destinations | where:"type","redshift" | first %}
+{% assign destination = page %}

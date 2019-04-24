@@ -95,7 +95,7 @@ frequently-asked-questions:
       - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
         answer: |
-          While VPN connections aren't currently supported, reverse SSH tunnels may be implemented as part of an Enterprise plan. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.reverse-ssh-url }}).
+          Additional connection options such as VPNs or reverse SSH tunnels may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales | append: page.enterprise-cta.reverse-ssh-url }}) for more info.
 
   - topic: "Data Access"
     anchor: "stitch-access"
