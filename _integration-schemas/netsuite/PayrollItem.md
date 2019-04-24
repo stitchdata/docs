@@ -1,20 +1,27 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "PayrollItem"
-doc-link: ""
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/payrollitem.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/PayrollItem.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the payroll items, or payroll transaction line items, in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "payroll-item"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    foreign-key-id: "payroll-item-id"
+
   - name: "customFieldList"
     type: "varies"
     description: ""
@@ -33,10 +40,6 @@ attributes:
 
   - name: "inactive"
     type: "boolean, string"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "itemType"

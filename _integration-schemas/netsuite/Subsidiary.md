@@ -1,20 +1,27 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "Subsidiary"
-doc-link: ""
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/subsidiary.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Subsidiary.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the subsidiary records in your {{ integration.display_name }} account. A subsidiary represents a separate company within your global organization.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "subsidiary"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "subsidiary-id"
+
   - name: "accountingBookDetailList"
     type: "varies"
     description: ""
@@ -81,10 +88,6 @@ attributes:
 
   - name: "interCoAccount"
     type: "varies"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "isElimination"

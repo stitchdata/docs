@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_customer_status"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/customerstatussearchbasic.html?mode=package
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/customerstatus.html
 description: |
   The `{{ table.name }}` table contains info about customer statuses.
 
@@ -11,10 +11,8 @@ replication-method: "Full Table"
 primary-key: "internalId"
 abstract: false
 
-permissions:
-  - name: "Customer Status"
-    level: "View"
-    location: "Setup"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "customer-status"
 
 attributes:
   - name: "internalId"

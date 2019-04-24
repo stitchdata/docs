@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "10-15-2015" 
 
 name: "netsuite_transaction" 
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/transaction.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/transaction.html
 description: |
   The `{{ table.name }}` table contains info about transactions.
 
@@ -50,10 +50,8 @@ supported-types:
   - name: "WorkOrderCompletion" 
   - name: "WorkOrderIssue"
 
-permissions: 
-  - name: "Tasks"  
-    level: "View" 
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "transaction"
 
 attributes: 
   - name: "internalId" 

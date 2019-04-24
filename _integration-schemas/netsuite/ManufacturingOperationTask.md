@@ -1,20 +1,29 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "ManufacturingOperationTask"
-doc-link: ""
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingoperationtask.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ManufacturingOperationTask.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about manufacturing operation tasks in your {{ integration.display_name }} account.
 
-replication-method: ""
+  After a WIP work order that has a designated routing is saved in {{ integration.display_name }}, manufacturing operation tasks are created based on the routing. Each of these tasks is a step that must be done in order for the assembly process to be finished.
 
-api-method:
-    name: ""
-    doc-link: ""
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "manufacturing-operation-task"
+
+replication-method: "Full Table"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "manufacturing-operation-task-id"
+
   - name: "actualWork"
     type: "number, string"
     description: ""
@@ -53,10 +62,6 @@ attributes:
 
   - name: "inputQuantity"
     type: "number, string"
-    description: ""
-
-  - name: "internalId"
-    type: "string"
     description: ""
 
   - name: "laborResources"

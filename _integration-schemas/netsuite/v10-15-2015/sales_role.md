@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_sales_role"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/salesrolesearchbasic.html?mode=package
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/salesrole.html
 description: |
   The `{{ table.name }}` table contains info about sales roles.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Sales Roles"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "sales-role"
 
 attributes:
   - name: "internalId"

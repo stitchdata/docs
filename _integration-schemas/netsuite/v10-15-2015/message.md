@@ -3,17 +3,16 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_message"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/message.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/message.html
 description: |
   The `{{ table.name }}` table contains info about messages.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Track Message"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "message"
+
 attributes:
   - name: "internalId"
     type: "integer"

@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_expense_category"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/expensecategory.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/expensecategory.html
 description: |
   The `{{ table.name }}` table contains info about expense categories.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Expense Categories"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "expense-category"
 
 attributes:
   - name: "internalId"

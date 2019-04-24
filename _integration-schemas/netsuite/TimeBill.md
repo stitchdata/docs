@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "TimeBill"
-doc-link: ""
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/timebill.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/TimeBill.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the time transactions in your {{ integration.display_name }} account. Also known as time bills, these transactions records the hours worked by an employee. This transaction can be used to record billable hours and invoice customers.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "time-bill"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "time-bill-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "_class"
     type: "varies"
     description: ""
@@ -59,20 +71,12 @@ attributes:
     type: "varies"
     description: ""
 
-  - name: "internalId"
-    type: "string"
-    description: ""
-
   - name: "isBillable"
     type: "boolean, string"
     description: ""
 
   - name: "item"
     type: "varies"
-    description: ""
-
-  - name: "lastModifiedDate"
-    type: "date-time"
     description: ""
 
   - name: "location"

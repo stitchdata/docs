@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_manufacturing_operation_task"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/manufacturingoperationtask.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/manufacturingoperationtask.html
 description: |
   The `{{ table.name }}` table contains info about manufacturing operation tasks.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Work Order"
-    level: "View"
-    location: "Transactions"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "manufacturing-operation-task"
 
 attributes:
   - name: "internalId"

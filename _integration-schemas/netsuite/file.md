@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "File"
-doc-link: ""
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/file.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/File.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the files in your {{ integration.display_name }} File Cabinet.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "file"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "file-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "_class"
     type: "string"
     description: ""
@@ -79,10 +91,6 @@ attributes:
     type: "boolean, string"
     description: ""
 
-  - name: "internalId"
-    type: "string"
-    description: ""
-
   - name: "isInactive"
     type: "boolean, string"
     description: ""
@@ -93,10 +101,6 @@ attributes:
 
   - name: "isPrivate"
     type: "boolean, string"
-    description: ""
-
-  - name: "lastModifiedDate"
-    type: "date-time"
     description: ""
 
   - name: "mediaFile"

@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_time_bill"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/timebillsearchbasic.html?mode=package
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/timebill.html
 description: |
   The `{{ table.name }}` table contains info about time bills.
 
 replication-method: "Key-based Incremental"
 abstract: false
 
-permissions:
-  - name: "Track Time"
-    level: "View"
-    location: "Transactions"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "time-bill"
 
 attributes:
   - name: "internalId"

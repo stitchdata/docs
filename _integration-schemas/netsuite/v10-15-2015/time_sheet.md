@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_time_sheet"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/timesheet.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/timesheet.html
 description: |
   The `{{ table.name }}` table contains info about time sheets.
 
 replication-method: "Full Table"
 abstract: false
 
-permissions:
-  - name: "Track Time"
-    level: "View"
-    location: "Transactions"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "timesheet"
 
 attributes:
   - name: "internalId"

@@ -1,20 +1,32 @@
 ---
 tap: "netsuite"
-# version: "1.0"
+version: "1.0"
 
 name: "Issue"
-doc-link: ""
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/issue.html"
 singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Issue.json"
 description: |
-  The `{{ table.name }}` table contains info about 
+  The `{{ table.name }}` table contains info about the support cases in your {{ integration.display_name }} account.
 
-replication-method: ""
+  {{ integration.permission-for-table | flatify }}
 
-api-method:
-    name: ""
-    doc-link: ""
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "issue"
+
+replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "internalId"
+    type: "string"
+    primary-key: true
+    description: ""
+    # foreign-key-id: "issue-id"
+
+  - name: "lastModifiedDate"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "assigned"
     type: "varies"
     description: ""
@@ -75,10 +87,6 @@ attributes:
     type: "varies"
     description: ""
 
-  - name: "internalId"
-    type: "string"
-    description: ""
-
   - name: "isOwner"
     type: "boolean, string"
     description: ""
@@ -113,10 +121,6 @@ attributes:
 
   - name: "item"
     type: "varies"
-    description: ""
-
-  - name: "lastModifiedDate"
-    type: "date-time"
     description: ""
 
   - name: "module"
