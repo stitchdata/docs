@@ -36,11 +36,11 @@ repo-url: https://github.com/singer-io/tap-eloqua
 # -------------------------- #
 
 status: "Open Beta"
-certified: true 
+certified: false 
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Paid"
+tier: "Free"
 status-url: "https://community.oracle.com/community/topliners/eloqua-system-status"
 
 anchor-scheduling: true
@@ -50,31 +50,24 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "grant-stitch-authorization"
+    content: |
+      1. Next, you'll be prompted to sign into your {{ integration.display_name }} account. Click **Sign In** to sign in.
+      2. Enter your {{ integration.display_name }} credentials and click **Sign In** again.
+      3. The next page will display the application (`Stitch`) requesting access to {{ integration.display_name }}. Click **Sign In** to continue.
+      4. The next page will display the company and user you are currently logged into {{ integration.display_name }} as. Click **Accept**.
+      5. After the authorization process is successfully completed, you'll be directed back to Stitch.
+      6. Click {{ app.buttons.finish-int-setup }}.
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
@@ -82,12 +75,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/eloqua
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
