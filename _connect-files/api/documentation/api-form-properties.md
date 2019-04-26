@@ -9,7 +9,7 @@ property-description: |
   {% assign integration = VARIABLE.display-name %}
 
   {% if VARIABLE.property-description %}
-  {{ integration }} connections read data from {{ VARIABLE.property-description }} and correspond to source `type: {{ VARIABLE.api-type }}`.
+  {{ integration }} connections read data from {{ VARIABLE.property-description | flatify }} and correspond to source `type: {{ VARIABLE.api-type }}`.
 
   {% else %}
   {% case VARIABLE.source-type %}
