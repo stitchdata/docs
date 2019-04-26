@@ -69,6 +69,56 @@ setup-steps:
       6. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
 
+
+# -------------------------- #
+#     Replication Details    #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      In this section:
+
+      {% for section in integration.replication-sections %}
+      - [{{ section.title | flatify }}](#{{ section.anchor }})
+      {% endfor %}
+
+  - title: "Tables using the {{ integration.display_name }} Bulk API"
+    anchor: "tables-bulk-api"
+    content: |
+      Stitch uses the [{{ integration.display_name }} Bulk API](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/Getting_Started_Bulk.html){:target="new"} to replicate data for the following tables:
+
+      - [`accounts`](#accounts)
+      - [`activity_bounceback`](#activity_bounceback)
+      - [`activity_email_clickthrough`](#activity_email_clickthrough)
+      - [`activity_email_open`](#activity_email_open)
+      - [`activity_email_send`](#activity_email_send)
+      - [`activity_form_submit`](#activity_form_submit)
+      - [`activity_page_view`](#activity_page_view)
+      - [`activity_subscribe`](#activity_subscribe)
+      - [`activity_unsubscribe`](#activity_unsubscribe)
+      - [`activity_web_visit`](#activity_web_visit)
+      - [`contacts`](#contacts)
+      - [Custom object tables](#custom-objects)
+
+  - title: "Tables using the {{ integration.display_name }} REST API"
+    anchor: "tables-rest-api"
+    content: |
+      Stitch uses the {{ integration.display_name }} Application REST API to replicate data for the following tables:
+
+      - [`assets`](#assets)
+      - [`campaigns`](#campaigns)
+      - [`emails`](#emails)
+      - [`forms`](#forms)
+      - [`visitors`](#visitors)
+
+  - title: "Custom objects and fields"
+    anchor: "custom-objects-fields"
+    content: |
+      Stitch's {{ integration.display_name }} integration supports replicating custom fields and objects.
+
+      For each custom object in your {{ integration.display_name }} account, Stitch will display a table as available for selection. The name of the table will be the normalized name of the object, using snake case (spaces replaced with underscores) and removing special characters. For example: If your account contains an `Enrichement Attributes` custom object, there will be a corresponding `enrichment_attributes` available for selection in Stitch.
+
+
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
