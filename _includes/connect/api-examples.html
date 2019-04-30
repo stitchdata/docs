@@ -40,11 +40,11 @@
     <!-- This value comes from _includes/connect/api-endpoint.html -->
         {% case has-multiple-versions %}
             {% when "true" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number | slugify %}
             {% when "false" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
             {% else %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
         {% endcase %}
 
         {% if forloop.first == true %} 
@@ -63,11 +63,11 @@
     <!-- This value comes from _includes/connect/api-endpoint.html -->
         {% case has-multiple-versions %}
             {% when "true" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number | slugify %}
             {% when "false" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
             {% else %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | slugify %}
         {% endcase %}
 
         {% if forloop.first == true %}
