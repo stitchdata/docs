@@ -38,6 +38,8 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: false
 loading-reports: true
 
