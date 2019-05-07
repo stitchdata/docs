@@ -29,7 +29,7 @@ sections:
 
       1. **Manually starting and stopping replication jobs is only available for Singer-powered integrations.** As integrations are converted to the Singer system, these features will be made available. 
       2. **Only one replication job may run at a time for an integration**. If a job is in progress, you will not be able to start a new job without first stopping the one that is in progress.
-      3. **Canceling a replication job won't stop data that has already been extracted from loading**. Canceling an in progress job only cancels the remaining portion of the Extraction phase. Any data extracted prior to the cancelation will be loaded to your destination.
+      3. **Canceling a replication job won't stop data that has already been extracted from loading**. Canceling an in progress job only cancels the remaining portion of the Extraction phase. Any data extracted prior to the cancellation will be loaded to your destination.
 
   - title: "Start a manual replication job"
     anchor: "start-a-job"
@@ -59,9 +59,9 @@ sections:
 
          **Note**: The {{ app.buttons.stop-extraction }} button will only display when a replication job is currently running.
 
-      2. Click {{ app.buttons.stop-extraction }}. You'll be asked to confirm the job cancelation.
+      2. Click {{ app.buttons.stop-extraction }}. You'll be asked to confirm the job cancellation.
       3. To continue, click the **Stop Extraction** button.
 
-      Stitch will cancel the remainder of the Extraction phase of the replication job. **Note**: This will not cancel the loading of data that has already been extracted. Any data extracted prior to the cancelation will be loaded to your destination.
+      Stitch will cancel the remainder of the Extraction phase of the replication job. **Note**: This will not cancel the loading of data that has already been extracted. Any data extracted prior to the cancellation will be loaded to your destination.
 ---
 {% include misc/data-files.html %}
