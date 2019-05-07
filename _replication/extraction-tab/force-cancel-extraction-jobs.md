@@ -10,7 +10,7 @@ toc: true
 weight: 3
 
 intro: |
-  {% include note.html first-line="**Feature availability**" content="The force/cancel job feature is available only for integrations powered by Singer taps. As integrations are converted to the Singer system, this feature will be made available." %}
+  {% include note.html first-line="**Feature availability**" content="This feature is available only for integrations powered by Singer taps. As integrations are converted to the Singer system, this feature will be made available." %}
 
   All Stitch integrations run on a schedule, but Stitch can also start and stop an integration on demand. This is useful for testing configuration changes or recovering from an error.
 
