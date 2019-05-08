@@ -58,7 +58,7 @@ Next, you'll create a Stitch user on the SSH server. This will allow Stitch to a
    chmod 600 authorized_keys
    ```
 
-10. Import the public key into `authorized_keys`, replacing `<PUBLIC KEY>` with the public key. Verify after replacing the key that it is on one line and doesn't contain line breaks:
+10. Import the [Stitch public key](#retrieve-your-public-key) into `authorized_keys`, replacing `<PUBLIC KEY>` with the public key. Verify after replacing the key that it is on one line and doesn't contain line breaks:
 
     ```shell
     echo "<PUBLIC KEY>" >> ~/.ssh/authorized_keys
