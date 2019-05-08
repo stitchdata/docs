@@ -1,28 +1,144 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+version: "1.0"
 
-name: "netsuite_charge"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/charge.html
+name: "Charge"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/charge.html"
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Charge.json"
 description: |
-  The `{{ table.name }}` table contains info about charges.
+  The `{{ table.name }}` table contains info about the charges in your {{ integration.display_name }} account, which represent billable amounts that your clients must pay.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "charge"
 
 replication-method: "Full Table"
-primary-key: "internalId"
-abstract: false
-
-permissions:
-  - name: "Statement Charge"
-    level: "View"
-    location: "Setup"
 
 attributes:
   - name: "internalId"
-    type: "integer"
+    type: "string"
     primary-key: true
-    description: "The charge ID."
+    description: ""
+    foreign-key-id: "charge-id"
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "_class"
+    type: "varies"
+    description: ""
+
+  - name: "amount"
+    type: "number, string"
+    description: ""
+
+  - name: "billTo"
+    type: "varies"
+    description: ""
+
+  - name: "billingAccount"
+    type: "varies"
+    description: ""
+
+  - name: "billingItem"
+    type: "varies"
+    description: ""
+
+  - name: "chargeDate"
+    type: "date-time"
+    description: ""
+
+  - name: "chargeType"
+    type: "varies"
+    description: ""
+
+  - name: "createdDate"
+    type: "date-time"
+    description: ""
+
+  - name: "currency"
+    type: "varies"
+    description: ""
+
+  - name: "customForm"
+    type: "varies"
+    description: ""
+
+  - name: "department"
+    type: "varies"
+    description: ""
+
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "invoice"
+    type: "varies"
+    description: ""
+
+  - name: "invoiceLine"
+    type: "varies"
+    description: ""
+
+  - name: "location"
+    type: "varies"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "varies"
+    description: ""
+
+  - name: "projectTask"
+    type: "varies"
+    description: ""
+
+  - name: "quantity"
+    type: "number, string"
+    description: ""
+
+  - name: "rate"
+    type: "string"
+    description: ""
+
+  - name: "rule"
+    type: "varies"
+    description: ""
+
+  - name: "runId"
+    type: "string"
+    description: ""
+
+  - name: "salesOrder"
+    type: "varies"
+    description: ""
+
+  - name: "salesOrderLine"
+    type: "varies"
+    description: ""
+
+  - name: "stage"
+    type: "varies"
+    description: ""
+
+  - name: "subscriptionLine"
+    type: "varies"
+    description: ""
+
+  - name: "timeRecord"
+    type: "varies"
+    description: ""
+
+  - name: "transaction"
+    type: "varies"
+    description: ""
+
+  - name: "transactionLine"
+    type: "varies"
+    description: ""
+
+  - name: "use"
+    type: "varies"
+    description: ""
 ---

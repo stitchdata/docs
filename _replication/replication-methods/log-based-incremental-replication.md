@@ -81,15 +81,20 @@ sections:
         content: |
           During the [historical replication job](#log-based-incremental-replication-terminology) for a table using {{ page.title }}, two things will happen:
 
-          1. Stitch will retrieve and store the maximum log position ID from the logs.
+          1. Stitch will retrieve and store the maximum log position from the logs.
           2. Stitch will use a `SELECT`-based approach to replicate the table in full. If this were a SQL query, it would look like this:
 
              ```sql
-             SELECT column_you_selected_1,
+             SELECT id,
+                    column_you_selected_1,
                     column_you_selected_2,
                     [...]
                FROM schema.table
+              WHERE id < [max primary key value]
+              ORDER BY id
              ```
+             
+             **Note**: Stitch will automatically omit the `WHERE` clause in this statement if the table has no Primary Key or a Primary Key that is not sortable. 
 
       - title: "Ongoing replication jobs"
         anchor: "ongoing-replication-jobs"

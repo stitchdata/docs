@@ -1,0 +1,438 @@
+# https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html
+# According to that documentation ^, only certain objects support
+# 'soft' deletes - or have records that will show up in the Deleted table
+# when they're deleted in NetSuite.
+
+# This file contains a list of the objects that support deletes
+# and the Stitch table that they map to.
+- name: "AdvInterCompanyJournalEntry"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "AssemblyBuild"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "AssemblyItem"
+  table: "Item"
+  key: "item"
+
+- name: "AssemblyUnbuild"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "BillingSchedule"
+  # key: "billing-schedule"
+
+- name: "Bin"
+  # key: "bin"
+
+- name: "BinTransfer"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "BinWorksheet"
+  table: "Transaction"
+  key: "transaction"
+
+# - name: "bom"
+
+# - name: "bomRevision"
+
+- name: "CalendarEvent"
+  key: "calendar-event"
+
+- name: "Campaign"
+  key: "campaign"
+
+- name: "CashRefund"
+  table: "Transaction"
+
+- name: "CashSale"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "Charge"
+  key: "charge"
+
+- name: "Check"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "Contact"
+  anchor: "contact"
+  key: "contact"
+
+- name: "ContactCategory"
+  key: "contact-category"
+
+- name: "CostCategory"
+  key: "cost-category"
+
+- name: "CouponCode"
+  key: "coupon-code"
+
+- name: "CreditMemo"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "CurrencyRate"
+  key: "currency-rate"
+
+- name: "customRecord"
+  table: "customrecord_[custom_record_name]"
+  anchor: "customrecord-custom-record-name"
+  key: "custom-record"
+
+- name: "CustomTransaction"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "Customer"
+  key: "customer"
+
+- name: "CustomerCategory"
+  key: "customer-category"
+
+- name: "CustomerMessage"
+  key: "customer-message"
+
+- name: "CustomerDeposit"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "CustomerPayment"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "CustomerRefund"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "CustomerStatus"
+  key: "customer-status"
+
+- name: "Deposit"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "DepositApplication"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "DescriptionItem"
+  table: "Item"
+  key: "item"
+
+- name: "DiscountItem"
+  table: "Item"
+  key: "item"
+
+- name: "DownloadItem"
+  table: "Item"
+  key: "item"
+
+- name: "Employee"
+  key: "employee"
+
+- name: "Estimate"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "ExpenseReport"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "File"
+  key: "file"
+
+- name: "Folder"
+  key: "folder"
+
+- name: "GiftCertificateItem"
+  table: "Item"
+  key: "item"
+
+- name: "GlobalAccountMapping"
+  key: "global-account-mapping"
+
+- name: "InterCompanyJournalEntry"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "InterCompanyTransferOrder"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "InventoryAdjustment"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "InventoryCostRevaluation"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "InventoryItem"
+  table: "Item"
+  key: "item"
+
+- name: "InventoryNumber"
+  key: "inventory-number"
+
+- name: "InventoryTransfer"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "Invoice"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "Issue"
+  key: "issue"
+
+- name: "ItemAccountMapping"
+  key: "item-account-mapping"
+
+- name: "ItemDemandPlan"
+  key: "item-demand-plan"
+
+- name: "ItemFulfillment"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "ItemSupplyPlan"
+  key: "item-supply-plan"
+
+- name: "ItemGroup"
+  table: "Item"
+  key: "item"
+
+# - name: "ItemReceipt"
+# 
+- name: "ItemRevision"
+  key: "item-revision"
+
+- name: "Job"
+  key: "job"
+
+- name: "JobStatus"
+  key: "job-status"
+
+- name: "JournalEntry"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "KitItem"
+  table: "Item"
+  key: "item"
+
+- name: "LotNumberedAssemblyItem"
+  table: "Item"
+  key: "item"
+
+- name: "LotNumberedInventoryItem"
+  table: "Item"
+  key: "item"
+
+- name: "MarkupItem"
+  table: "Item"
+  key: "item"
+
+- name: "Message"
+  key: "message"
+
+- name: "ManufacturingCostTemplate"
+  key: "manufacturing-cost-template"
+
+- name: "ManufacturingOperationTask"
+  key: "manufacturing-operation-task"
+
+- name: "ManufacturingRouting"
+  key: "manufacturing-routing"
+
+- name: "Nexus"
+  key: "nexus"
+
+- name: "NonInventoryPurchaseItem"
+  table: "Item"
+  key: "item"
+
+- name: "NonInventoryResaleItem"
+  table: "Item"
+  key: "item"
+
+- name: "NonInventorySaleItem"
+  table: "Item"
+  key: "item"
+
+- name: "Note"
+  key: "note"
+
+- name: "NoteType"
+  key: "note-type"
+
+- name: "Opportunity"
+  key: "opportunity"
+
+- name: "OtherChargePurchaseItem"
+  table: "Item"
+  key: "item"
+
+- name: "OtherChargeResaleItem"
+  table: "Item"
+  key: "item"
+
+- name: "OtherChargeSaleItem"
+  table: "Item"
+  key: "item"
+
+- name: "OtherNameCategory"
+  key: "other-name-category"
+
+- name: "Partner"
+  key: "partner"
+
+- name: "Paycheck"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "PaymentItem"
+  table: "Item"
+  key: "item"
+
+- name: "PaymentMethod"
+  key: "payment-method"
+
+- name: "PayrollItem"
+  key: "payroll-item"
+
+- name: "PhoneCall"
+  key: "phone-call"
+
+- name: "PriceLevel"
+  key: "price-level"
+
+- name: "PricingGroup"
+  key: "pricing-group"
+
+- name: "ProjectTask"
+  key: "project-task"
+
+- name: "PromotionCode"
+  key: "promotion-code"
+
+- name: "PurchaseOrder"
+  table: "Transaction"
+  key: "transaction"
+
+# - name: "PurchaseRequisition"
+
+- name: "ResourceAllocation"
+  key: "resource-allocation"
+
+- name: "ReturnAuthorization"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "SalesOrder"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "SalesTaxItem"
+  table: "Item"
+  key: "item"
+
+- name: "SerializedAssemblyItem"
+  table: "Item"
+  key: "item"
+
+- name: "SerializedInventoryItem"
+  table: "Item"
+  key: "item"
+
+- name: "ServicePurchaseItem"
+  table: "Item"
+  key: "item"
+
+- name: "ServiceResaleItem"
+  table: "Item"
+  key: "item"
+
+- name: "ServiceSaleItem"
+  table: "Item"
+  key: "item"
+
+- name: "StatisticalJournalEntry"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "SubtotalItem"
+  table: "Item"
+  key: "item"
+
+- name: "SupportCase"
+  key: "support-case"
+
+# - name: "SupportCaseIssue"
+
+# - name: "SupportCaseOrigin"
+
+# - name: "SupportCasePriority"
+
+# - name: "SupportCaseStatus"
+
+# - name: "SupportCaseType"
+
+- name: "Task"
+  key: "task"
+
+- name: "Term"
+  key: "term"
+
+- name: "TimeSheet"
+  key: "time-sheet"
+
+- name: "TransferOrder"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "Usage"
+  key: "usage"
+
+- name: "Vendor"
+  key: "vendor"
+
+- name: "VendorBill"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "VendorCredit"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "VendorPayment"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "VendorReturnAuthorization"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "WinLossReason"
+  key: "win-loss-reason"
+
+- name: "WorkOrder"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "WorkOrderIssue"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "WorkOrderCompletion"
+  table: "Transaction"
+  key: "transaction"
+
+- name: "WorkOrderClose"
+  table: "Transaction"
+  key: "transaction"

@@ -2,7 +2,6 @@
 title: Stitch Replication
 permalink: /replication/
 keywords: 
-tags: [replication]
 
 content-type: "category-page"
 
@@ -25,7 +24,7 @@ sections:
 
   - id: "replication-scheduling"
     name: "Replication Scheduling"
-    description: "Set the replication schedule for an integration, which defines when and how often Stitch should run repliction jobs."
+    description: "Set the replication schedule for an integration, which defines when and how often Stitch should run replication jobs."
 
   - id: "replication-methods"
     name: "Replication Methods"
@@ -61,5 +60,7 @@ sections:
 
 {{ doc.summary }}
 {% endfor %}
+{% unless forloop.last == true %}
 ---
+{% endunless %}
 {% endfor %}

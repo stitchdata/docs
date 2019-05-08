@@ -1,28 +1,56 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+version: "1.0"
 
-name: "netsuite_topic"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/topic.html
+name: "Topic"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/topic.html"
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Topic.json"
 description: |
-  The `{{ table.name }}` table contains info about knowledge base topics.
+  The `{{ table.name }}` table contains info about the topics used to organize knowledge base solutions in your {{ integration.display_name }} account.
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "topic"
 
 replication-method: "Full Table"
-abstract: false
-
-permissions:
-  - name: "Knowledge Base"
-    level: "View"
-    location: "Lists"
 
 attributes:
   - name: "internalId"
-    type: "integer"
+    type: "string"
     primary-key: true
-    description: |
-      The {{ table.name | remove: "netsuite_" | replace: "_"," " }} ID.
+    description: ""
+    # foreign-key-id: "topic-id"
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "longDescription"
+    type: "string"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "varies"
+    description: ""
+
+  - name: "parentTopic"
+    type: "varies"
+    description: ""
+
+  - name: "solutionList"
+    type: "varies"
+    description: ""
+
+  - name: "title"
+    type: "string"
+    description: ""
 ---
