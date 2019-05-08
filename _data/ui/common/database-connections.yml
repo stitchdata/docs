@@ -53,9 +53,7 @@ field-copy:
             For example, the name “Stitch {{ integration.display_name }}” would create a schema called `stitch_{{ integration.display_name | slugify | replace:"-","_" }}` in the destination. **Note:** The schema name cannot be changed after the integration is saved.
 
   host: |
-    Enter the host address (endpoint) used by the {{ page.display_name }} instance.
-
-            In general, this will be `127.0.0.1` (localhost), but could also be some other network address (ex: `192.68.0.1`) or your server's public IP address. **Note:** This must be the actual address - entering `localhost` into this field will cause connection issues.
+    Enter the host address (endpoint) used by the {{ page.display_name }} instance. For example: This could be a network address such as `192.68.0.1`, or a server endpoint like `dbname.hosting-provider.com`.
 
   host-rds: |
     Paste the **Endpoint** address from the {{ page.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
