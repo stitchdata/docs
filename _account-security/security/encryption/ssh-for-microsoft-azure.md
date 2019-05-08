@@ -41,6 +41,11 @@ intro: |
 
 requirements:
   - item: |
+      **Privileges in Microsoft Azure that allow you to**:
+
+         - **Create/manage virtual machines.** This is required to create the SSH server.
+         - **Create/manage security groups.** This is required to enable access between Stitch, the SSH server, and the database.
+  - item: |
       {% include shared/ssh/ssh-intro-requirements.html type="requirements" requirement-type="linux-familiarity" %}
 
   - item: |
@@ -55,64 +60,88 @@ steps:
   - title: "Create and configure a virtual machine"
     anchor: "create-launch-virtual-machine"
     content: |
-      Next, you'll create a virtual machine to serve as the SSH server. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private {{ destination.display_name }} instance.
+      First, you'll create a virtual machine to serve as the SSH server. This publicly accessible instance will act as an intermediary, forwarding the traffic from Stitch through an encrypted tunnel to your private {{ destination.display_name }} instance.
+
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
-      - title: "Launch the virtual machine"
-        anchor: "launch-virtual-machine"
+      - title: "Configure the virtual machine's basic settings"
+        anchor: "configure-vm-basic-settings"
         content: |
-          1. In the sidenav, click **Virtual machines**.
-          2. On the **Virtual machines** page, click the **+ Add** button.
-          3. Fill in the fields in the tabs. In the list below are the fields that require specific values for Stitch:
-             - **Basics tab**:
-                - **Public inbound ports**: Select **Allow selected ports**.
-                - **Select inbound ports**: Select **SSH (22)**.
-          4. After you've finished filling in the required fields, click **Review + create**.
-          5. Click **Create** to create the virutal machine.
+          1. Log into your Microsoft Azure account.
+          2. In the search bar at the top of the page, type `virtual machines`.
+          3. Click the **Virtual machines** result.
+          4. On the **Virtual machines** page, click the **+ Add** button.
+          5. Fill in the fields in the **Basics** tab as needed.
+          6. When finished, click the **Networking** tab.
 
-          After you click **Create**, Azure will launch the deployment process for the virtual machine. This may take a few minutes to complete.
-
-      - title: "Configure the virtual machine's inbound access"
+      - title: "Configure the virtual machine's networking settings"
         anchor: "configure-virtual-machine-inbound-access"
         content: |
           {% capture ip-list %}
           {% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %},{% endunless %}{% endfor %}
           {% endcapture %}
 
-          After Azure finishes deploying the virtual machine, you can move onto configuring the access rules for its security group. Inbound access rules will allow traffic from Stitch's IP addresses to access the virtual machine.
+          Next, you'll create a network security group that will allow inbound traffic from Stitch's IP addresses.
 
-          1. In the sidenav, click **Virtual machines**.
-          2. On the **Virtual machines** page, click virtual machine you created in the previous step.
-          3. The details page for the virtual machine will display. In the middle menu, click **Networking**.
-          4. In the **Inbound Port Rules** section, click the **Add inbound port rule** button.
-          5. In the **Add inbound security rule** tab that displays, fill in the fields as follows. If a field isn't in this list, **use the default value**:
+          1. In the **Virtual network** field, select the virtual network you want to associate with the virtual machine.
+          2. In the **Subnet** field, select the public subnet you want to associate with the virtual machine.
+          3. In the **Public IP** field, verify that a value other than **None** is selected. This is required to allow Stitch to successfully connect to the virtual machine.
+          4. For **NIC network security group**, select **Advanced**. This will display the **Configure network security group** field.
+          5. Click the **Create new** link under the **Configure network security group** field. This will open the **Create network security group** panel.
+          6. In the panel, click the **+ Add an inbound rule** link in the **Inbound rules** section. This will open the **Add inbound security rule** panel.
+          7. Fill in the fields as follows. If a field isn't in this list, **use the default value**:
              - **Source**: Select **IP Addresses**.
              - **Source IP addresses/CIDR ranges**: Paste this comma-delimited list of Stitch's IP addresses:
 
                ```markdown
                {{ ip-list | strip }}
                ```
+             - **Source port ranges**: Enter `22`.
              - **Protocol**: Select **TCP**.
              - **Action**: Select **Allow**.
-             - **Name**: Enter `stitch`.
+             - **Name**: Enter a name. For example: `stitch-inbound`.
+
+             Here's a look at our setup:
+
+             ![The Add inbound security rule panel in Azure, highlighted]({{ site.baseurl }}/images/shared/ssh/azure-inbound-security-rule.png)
           6. When finished, click **Add** to create the inbound rule.
+
+      - title: "Launch the virtual machine"
+        anchor: "launch-the-virtual-machine"
+        content: |
+          1. After you've finished configuring the virtual machine's networking settings, click the **Review + create** tab.
+          2. Review the settings for the virtual machine, verifying that the **Public IP** field is not **None**.
+          3. Click **Create** to launch the virtual machine.
+
+          After you click **Create**, Azure will launch the deployment process for the virtual machine. This may take a few minutes to complete.
 
   - title: "Enable the SSH server to access the database"
     anchor: "enable-ssh-server-access"
     content: |
-      Next, you'll configure the {{ destination.display_name }} database to allow traffic forwarded from the virtual machine to access the database server. This is accomplished by whitelisting the virtual machine's public IP address in the server's firewall settings.
+      Next, you'll configure the database to allow traffic forwarded from the virtual machine to access the database server. This is accomplished by whitelisting the virtual machine's private IP address in the server's firewall settings.
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
-      - title: "Retrieve the virtual server's public IP address"
-        anchor: "retrieve-vm-public-ip-address"
+      - title: "Retrieve the SSH server's connection details"
+        anchor: "retrieve-vm-connection-details"
         content: |
-          You should still be on the **Networking** page for the virtual machine - if not, navigate there before proceeding.
+          In this step, you'll retrieve the SSH server's public and private IP addresses. The private IP address will be used in the next step, whereas the public IP address will be used to complete the setup in Stitch.
 
-          Locate the **Public IP** field, highlighted in the image below:
+          1. In the sidenav, click **Virtual machines**.
+          2. In the search bar at the top of the page, type `virtual machines`.
+          3. Click the **Virtual machines** result.
+          4. In the list of available virtual machines, click the one you created in [Step 1](#create-launch-virtual-machine). This will open the instance's details page.
+          5. Locate the **Public IP address** and **Private IP address** fields, which are highlighted in the image below:
 
-          ![Virtual machine public IP address field]({{ site.baseurl }}/images/destinations/azure-sql-dw-vm-public-ip-address.png)
+             ![The virtual machine details page with the Public and Private IP address fields highlighted]({{ site.baseurl }}/images/shared/ssh/azure-ssh-connection-details.png)
 
-          Keep this handy - you'll need it in the next step and to complete the setup in Stitch.
+          Copy the IP addresses somewhere handy, making sure to note which is public and which is private. Confusing these values will lead to an unsuccessful connection in Stitch.
 
       - title: "Create a server firewall rule for the virtual machine"
         anchor: "create-server-firewall-rule-for-vm"
@@ -134,3 +163,4 @@ steps:
     content: |
       {% include shared/ssh/ssh-connection-guide-links.html hosting-type="generic" %}
 ---
+{% include misc/data-files.html %}
