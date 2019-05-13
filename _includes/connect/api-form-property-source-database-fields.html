@@ -71,7 +71,13 @@
 					{% assign binlog-fields = null | compact %}
 				{% endif %}
 
-				{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields %}
+				{% if database.cron-scheduling == true %}
+					{% assign cron-scheduling-fields = connect-database-attributes.cron-scheduling %}
+				{% else %}
+					{% assign cron-scheduling-fields = null | compact %}
+				{% endif %}
+
+				{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields | concat: cron-scheduling-fields %}
 			{% else %}
 				{% assign feature-fields = null | compact %}
 			{% endif %}
