@@ -11,13 +11,13 @@
 all-databases:
   - name: "host"
     required: true
+    internal: false
     type: "string"
     description: "The IP address or hostname of the database server."
     value: "<HOST_ADDRESS>"
 
   - name: "port"
     required: true
-    type: "string"
     description: "The port of the database server. The default is `{{ port }}`."
     value: "{{ port }}"
 

@@ -7,6 +7,7 @@
 all-destinations:
   - name: "database"
     required: true
+    internal: false
     type: "string"
     description: "The name of the logical database to connect to."
     value: |
@@ -14,6 +15,7 @@ all-destinations:
 
   - name: "host"
     required: true
+    internal: false
     type: "string"
     description: "The IP address or hostname of the database server."
     value: |
@@ -21,6 +23,7 @@ all-destinations:
 
   - name: "password"
     required: true
+    internal: false
     type: "string"
     description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
     value: |
@@ -28,12 +31,14 @@ all-destinations:
 
   - name: "port"
     required: true
+    internal: false
     type: "integer"
     description: "The port of the database server. The default is `{{ port }}`."
     value: "{{ port }}"
 
   - name: "user"
     required: true
+    internal: false
     type: "string"
     description: "The username of the database user."
     value: |
@@ -47,6 +52,7 @@ all-destinations:
 ssh:
   - name: "encryption_host"
     required: false
+    internal: false
     type: "string"
     description: "If using SSH encryption, the host of the SSH server. Required only if `encryption_type` is `ssh`."
     value: |
@@ -54,6 +60,7 @@ ssh:
 
   - name: "encryption_port"
     required: false
+    internal: false
     type: "integer"
     description: "If using SSH encryption, the port of the SSH server. Required only if `encryption_type` is `ssh`."
     value: |
@@ -61,18 +68,19 @@ ssh:
 
   - name: "encryption_type"
     required: true
+    internal: false
     type: "string"
     description: |
       Indicates that SSH encryption should be used to connect to the destination. Valid values are:
 
       - `none` - No encryption will be used.
       - `ssh` - SSH encryption will be used to connect to the destination. The SSH connection details should be submitted using the `encryption_host`, `encryption_port`, and `encryption_username`.
-
     value: |
       "ssh"
 
   - name: "encryption_username"
     required: false
+    internal: false
     type: "string"
     description: "If using SSH encryption, the name of the SSH user. Required only if `encryption_type` is `ssh`."
     value: |
@@ -86,6 +94,7 @@ ssh:
 ssl:
   - name: "ssl"
     required: false
+    internal: false
     type: "boolean"
     description: "If `true`, SSL will be used to connect to the database."
     value: "true"

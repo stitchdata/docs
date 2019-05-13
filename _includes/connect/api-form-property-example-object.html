@@ -27,6 +27,8 @@
 
 <!-- Database form property example -->
 {% when 'database' %}
+  {% assign filter-form-attributes = all-form-attributes | where:"internal",false %}
+
 {% highlight json %}
 {
  "type":"{{ form-property.api-type }}",

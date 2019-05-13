@@ -8,6 +8,7 @@ fields:
   - name: "anchor_time"
     type: "string"
     required: false
+    internal: false
     description: |
       Defines the time that `frequency_in_minutes` is "anchored" to, which Stitch will use to create the integration's replication schedule. In Stitch, this is referred to as [Anchor Scheduling]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}).
 
@@ -19,6 +20,7 @@ fields:
   - name: "frequency_in_minutes"
     type: "string"
     required: true
+    internal: false
     description: |
       Defines how often, in minutes, Stitch should attempt to replicate data from {{ integration }}. Accepted values are:
 
@@ -37,6 +39,7 @@ start-date:
   - name: "start_date"
     type: "string"
     required: true
+    internal: false
     description: |
       The date from which Stitch should begin replicating data from {{ integration }}. Data from this date forward will be replicated.
 
