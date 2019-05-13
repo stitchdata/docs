@@ -16,7 +16,7 @@ title: Recurly (v1.0)
 permalink: /integrations/saas/recurly/v1
 keywords: recurly, integration, schema, etl recurly, recurly etl, recurly schema
 layout: singer
-# input: false
+input: false
 
 # -------------------------- #
 #         Tap Details        #
