@@ -39,6 +39,14 @@
 			{% assign port = database.port %}
 			{% assign doc-link = database.url | prepend: site.baseurl %}
 
+			{% assign replication-frequency-value = database.frequency | remove: " " | remove: "minutes" | remove: "hours" %}
+			<!-- We have to do some math because `frequency_in_minutes` is in minutes, and frequencies in the UI are show in hours. -->
+				{% if replication-frequency-value == "30" %}
+					{% assign replication-frequency = replication-frequency-value %}
+				{% else %}
+					{% assign replication-frequency = replication-frequency-value | times: 60 %}
+				{% endif %}
+
 		<!-- If the form property uses feature fields, run the code below -->
 			{% if form-property.uses-feature-fields == true %}
 
