@@ -40,6 +40,8 @@ column-selection: false
 extraction-logs: true
 loading-reports: true
 anchor-scheduling: true
+cron-scheduling: false
+
 
 # -------------------------- #
 #      Setup Instructions    #

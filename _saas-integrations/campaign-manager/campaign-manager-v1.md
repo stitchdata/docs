@@ -38,6 +38,8 @@ tier: "Free"
 status-url: "https://ads.google.com/status#hl=en&v=status"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

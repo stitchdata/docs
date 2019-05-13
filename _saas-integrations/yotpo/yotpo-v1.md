@@ -36,6 +36,8 @@ tier: "Free"
 status-url: "http://status.yotpo.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

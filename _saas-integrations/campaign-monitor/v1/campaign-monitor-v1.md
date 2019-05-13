@@ -35,6 +35,8 @@ tier: "Free"
 status-url: "https://status.campaignmonitor.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
