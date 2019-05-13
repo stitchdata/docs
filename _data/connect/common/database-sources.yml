@@ -101,6 +101,11 @@ postgres:
 # The properties listed here will only display for a form property if
 # The corresponding doc for that database has a `true` flag for that feature.
 
+
+# -------------------------- #
+#     BINLOG REPLICATION     #
+# -------------------------- #
+
 binlog-replication:
   - name: "use_log_based_replication"
     required: false
@@ -120,12 +125,37 @@ binlog-replication:
     value: "<UNIQUE_SERVER_ID>"
     database: "mysql"
 
+  - name: "debug_lsn"
+    required: false
+    type: "string"
+    description: *internal-field
+    value: ""
+    database: "postgres"
+
+  - name: "logical_poll_total_seconds"
+    required: false
+    type: "string"
+    description: |
+      The total amount of time, in seconds, that the integration should be allowed to poll for records while performing Log-based Incremental Replication.
+    value: "1800"
+    database: "postgres"
+
+
+# -------------------------- #
+#            SSL             #
+# -------------------------- #
+
 ssl:
   - name: "ssl"
     required: false
     type: "string"
     description: "If `true`, SSL will be used to connect to the database."
     value: "false"
+
+
+# -------------------------- #
+#            SSH             #
+# -------------------------- #
 
 ssh:
   - name: "ssh"
