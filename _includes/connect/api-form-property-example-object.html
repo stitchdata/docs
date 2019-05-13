@@ -33,9 +33,9 @@
 {
  "type":"{{ form-property.api-type }}",
  "properties":{
-   {% for attribute in all-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
-   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
+   {% for attribute in filter-form-attributes %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %}
+   {% else %}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %},
    {% endif %}
    {%- endfor -%}
   }
@@ -68,8 +68,8 @@
  "properties":{
    {% for attribute in all-form-attributes %}
    {%- unless attribute.exclude contains api-type-clean -%}
-   {% if attribute.name == last_item %}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
-   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
+   {% if attribute.name == last_item %}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %}
+   {% else %}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %},
    {% endif %}
    {%- endunless -%}
    {%- endfor -%}
