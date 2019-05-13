@@ -46,7 +46,7 @@ mysql:
     value: "<DATABASE_NAME>"
 
   - name: &filterdbs-name "filter_dbs"
-    required: true
+    required: false
     type: "string"
     description: &internal-field "**This is an internal field and is for Stitch use only.**"
     value: ""
