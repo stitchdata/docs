@@ -29,7 +29,7 @@ fields:
       - `360`
       - `720`
       - `1440`
-    value: "360"
+    value: "{{ replication-frequency }}"
 
 
 # start_date is in its own list because some non-SaaS sources also use it.
