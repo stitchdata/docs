@@ -18,17 +18,21 @@ all-databases:
 
   - name: "port"
     required: true
+    internal: false
+    type: "integer"
     description: "The port of the database server. The default is `{{ port }}`."
     value: "{{ port }}"
 
   - name: "user"
     required: true
+    internal: false
     type: "string"
     description: "The username of the {{ integration }} database user."
     value: "<USERNAME>"
 
   - name: "password"
     required: true
+    internal: false
     type: "string"
     description: "The password for the user connecting to the database server. **Note**: This property will never be returned by the API, but it can be submitted when creating or modifying a connection."
     value: "<PASSWORD>"
@@ -41,18 +45,21 @@ all-databases:
 mysql:
   - name: "database"
     required: false
+    internal: false
     type: "string"
     description: &database-description "The name of the logical database to connect to."
     value: "<DATABASE_NAME>"
 
   - name: &filterdbs-name "filter_dbs"
     required: false
+    internal: true
     type: "string"
     description: &internal-field "**This is an internal field and is for Stitch use only.**"
     value: ""
 
   - name: "allow_non_auto_increment_pks"
     required: false
+    internal: false
     type: "string"
     description: |
       If `true`, an auto-incrementing Primary Key will not be required for tables using Full Table Replication. Auto-incrementing Primary Keys are used during full table replication to allow the replication of a table to span multiple replication jobs.
@@ -68,18 +75,21 @@ mysql:
 postgres:
   - name: "dbname"
     required: true
+    internal: false
     type: "string"
     description: *database-description
     value: "<DATABASE_NAME>"
 
   - name: *filterdbs-name
     required: true
+    internal: true
     type: "string"
     description: *internal-field
     value: ""
 
   - name: "include_schemas_in_destination_stream_name"
     required: true
+    internal: false
     type: "string"
     description: |
       If `true`, the name of the source schema will be included in the destination table name. For example: `<source_schema_name>__<table_name>`. This can help prevent table name collisions when two tables canonicalize to the same name.
@@ -89,6 +99,7 @@ postgres:
 
   - name: "itersize"
     required: true
+    internal: true
     type: "string"
     description: *internal-field
     value: ""
@@ -109,6 +120,7 @@ postgres:
 binlog-replication:
   - name: "use_log_based_replication"
     required: false
+    internal: false
     type: "string"
     description: |
       If `true`, Log-based Incremental Replication will be used as the default Replication Method for tables set to replicate. This choice can be overriden on individual tables at any time.
@@ -117,6 +129,7 @@ binlog-replication:
 
   - name: "server_id"
     required: false
+    internal: false
     type: "string"
     description: |
       Defines the unique ID of the server that Stitch will connect to, if using Log-based (binlog) Replication.
@@ -127,6 +140,7 @@ binlog-replication:
 
   - name: "debug_lsn"
     required: false
+    internal: true
     type: "string"
     description: *internal-field
     value: ""
@@ -134,6 +148,7 @@ binlog-replication:
 
   - name: "logical_poll_total_seconds"
     required: false
+    internal: false
     type: "string"
     description: |
       The total amount of time, in seconds, that the integration should be allowed to poll for records while performing Log-based Incremental Replication.
@@ -148,6 +163,7 @@ binlog-replication:
 ssl:
   - name: "ssl"
     required: false
+    internal: false
     type: "string"
     description: "If `true`, SSL will be used to connect to the database."
     value: "false"
@@ -160,24 +176,44 @@ ssl:
 ssh:
   - name: "ssh"
     required: false
+    internal: false
     type: "string"
     description: "If `true`, an SSH tunnel will be used to connect to the database."
     value: "true"
 
   - name: "ssh_host"
     required: false
+    internal: false
     type: "string"
     description: "The IP address or hostname of the SSH server. This property is only required if `ssh: true`."
     value: "<SSH_HOST>"
 
   - name: "ssh_port"
     required: false
+    internal: false
     type: "string"
     description: "The port of the SSH server. This property is only required if `ssh: true`."
     value: "22"
 
   - name: "ssh_user"
     required: false
+    internal: false
     type: "string"
     description: "The username of the SSH user. This property is only required if `ssh: true`."
     value: "<SSH_USERNAME>"
+
+
+# -------------------------- #
+#       CRON SCHEDULING      #
+# -------------------------- #
+
+cron-scheduling:
+  - name: "cron_expression"
+    required: false
+    internal: false
+    type: "string"
+    description: |
+      A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Cron replication scheduling documentation]({{ link.replication.cron-scheduling | prepend: site.baseurl }}) for more info.
+
+      **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value (`{{ replication-frequency | remove: " " | remove: "minutes" | remove: "hours" }}`).
+    value: "0 0 12 ? * MON-FRI *"
