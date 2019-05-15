@@ -25,7 +25,7 @@ this-version: "10-15-2015"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 historical: "1 year"

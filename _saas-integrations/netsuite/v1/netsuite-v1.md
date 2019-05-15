@@ -35,7 +35,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true 
 
 historical: "1 year"
