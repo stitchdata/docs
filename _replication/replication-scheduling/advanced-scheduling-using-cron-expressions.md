@@ -44,6 +44,20 @@ sections:
 
       4. **Reduce the re-replication of data.** Because replication scheduling applies to all selected tables in an integration, tables using Full Table Replication will replicate in full each time a replication job runs. Reducing the number of replication jobs overall will decrease the number of times the same record is replicated.
 
+  - title: "Access to Advanced Scheduling"
+    anchor: "access-advanced-scheduling"
+    summary: "How to access Advanced Scheduling"
+    content: |
+      Advanced Scheduling is available during the Free Trial or on an Enterprise plan. Contact [Stitch Sales]({{ page.enterprise-cta.url | prepend: site.home }}){:target="new"} for more info about Enterprise plans.
+
+    subsections:
+      - title: "Plan downgrades"
+        anchor: "plan-downgrades"
+        content: |
+          When the Free Trial ends or if you downgrade from an Enterprise plan, you'll lose access to the Advanced Scheduling feature.
+
+          In the event that you downgrade, Stitch will automatically pause any integrations using Advanced Scheduling and reset their [Replication Frequencies]({{ link.replication.rep-frequency | prepend: site.baseurl }}) to their defaults. You will need to manually un-pause the integrations to continue replication.
+
   - title: "Advanced Scheduling basics"
     anchor: "basics"
     summary: "The basics of cron scheduling"
@@ -59,7 +73,7 @@ sections:
         anchor: "intro-to-cron"
         summary: "Introduce you to cron and cron expressions"
         content: |
-          So, what's cron? **Cron** is a time-based scheduler used in Unix-like operating systems such as Mac OS, Linux, etc. Tasks, or jobs, created through cron are called **cron jobs**.
+          So, what's cron? **Cron** is a time-based scheduler used in Unix-like operating systems such as Mac OS, Linux, etc. Tasks, or jobs, created through cron are called **cron jobs**. Stitch uses the [Quartz standard]({{ cron.resource-urls.quartz }}){:target="new"} for cron scheduling.
 
           To create a cron job - in this case, an integration's replication schedule - a **cron expression** is used. A cron expression describes the details of the schedule, and when combined, translates to the schedule Stitch will use to extract data from the integration.
 
@@ -208,13 +222,34 @@ sections:
 
          [TODO]
 
+  - title: "Create an Advanced Schedule for an integration"
+    anchor: "create-advanced-schedule"
+    summary: "How to create an Advanced Schedule for an integration"
+    content: |
+      You can create an Advanced Schedule in an integration's **Settings** page. 
+
+      1. To access this page, click the integration from the {{ app.page-names.dashboard }} and then click the {{ app.buttons.update-int-settings }} tab.
+      2. In the **Replication Frequency** section, check the **Advanced** box located under the **Anchor time** menu. This will open the **Advanced Scheduler**.
+
+         **Note**: This feature is only availble [during the Free Trial or on an Enterprise plan](#access-advanced-scheduling).
+      3. Enter the values you want into each of the fields. Stitch will validate the schedule after each change. If the schedule is valid, a sample schedule will display under the fields:
+
+         [TODO - Add when UI is released]
+
+         If the schedule isn't valid, an error will display:
+
+         [TODO - Add when UI is released]
+
+         Refer to the [Troubleshooting section](#troubleshooting-cron-errors) for help resolving these errors.
+      4. When finished, click the {{ app.buttons.save-int-settings }} button.
+
   - title: "Troubleshooting"
     anchor: "troubleshooting-cron-errors"
     summary: "Troubleshooting validation errors"
     content: |
       {% assign cron-errors = site.data.errors.cron-scheduling.errors %}
 
-      If there's an illegal value or the expression syntax is incorrect, Stitch will display an error towards the top of the {{ app.page-names.int-settings }} page when you attempt to save the changes to the integration.
+      If there's an illegal value or the expression syntax is incorrect, Stitch will display an error beneath the Advanced Scheduler fields.
 
       Before you can move on, you'll need to resolve what's causing the error.
 
@@ -241,10 +276,10 @@ sections:
                   </td>
                   <td>
                       <strong>Meaning</strong>
-                      {{ error.meaning | markdownify }}
+                      {{ error.meaning | flatify | markdownify }}
                       <hr>
                       <strong>Solution</strong>
-                      {{ error.fix-it | markdownify }}
+                      {{ error.fix-it | flatify | markdownify }}
                   </td>
               </tr>
           {% endfor %}

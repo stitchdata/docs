@@ -12,20 +12,27 @@
 
 resource-names:
   freeformatter: &freeformatter-name "Quartz Cron Expression Generator"
-  quartz: &quartz-name "Quartz Cron Trigger Tutorial"
+  quartz-tutorial: &quartz-tutorial-name "Quartz Cron Trigger Tutorial"
+  quartz: &quartz "Quartz Scheduler"
 
 resource-urls:
   freeformatter: &freeformatter-url "https://www.freeformatter.com/cron-expression-generator-quartz.html"
-  quartz: &quartz-url "http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"
+  quartz-tutorial: &quartz-tutorial-url "http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"
+  quartz: &quartz-url "http://www.quartz-scheduler.org/"
 
 resource-descriptions:
   crontab: &freeformatter-desc "A simple, web-based editor for Quartz cron expressions."
-  quartz: &quartz-desc "A cron tutorial from the makers of Quartz, the cron implementation used in Stitch."
+  quartz-tutorial: &quartz-tutorial-desc "A cron tutorial from the makers of Quartz, the cron implementation used in Stitch."
+  quartz: &quartz-desc "The official documentation for the Quartz Scheduler."
 
 resource-list:
-  - name: *quartz-name
+  - name: *quartz
     url: *quartz-url
     description: *quartz-desc
+
+  - name: *quartz-tutorial-name
+    url: *quartz-tutorial-url
+    description: *quartz-tutorial-desc
 
   - name: *freeformatter-name
     url: *freeformatter-url
