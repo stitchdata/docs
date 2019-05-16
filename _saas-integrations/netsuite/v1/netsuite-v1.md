@@ -14,7 +14,9 @@
 
 title: NetSuite (v1.0)
 permalink: /integrations/saas/netsuite-suitetalk
-redirect_from: /integrations/saas/netsuite
+redirect_from: 
+  - /integrations/saas/netsuite
+  - /integrations/saas/netsuite-suitetalk/v1
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
 # input: false
