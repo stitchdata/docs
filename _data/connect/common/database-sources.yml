@@ -213,7 +213,7 @@ cron-scheduling:
     internal: false
     type: "string"
     description: |
-      A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Cron replication scheduling documentation]({{ link.replication.cron-scheduling | prepend: site.baseurl }}) for more info.
+      A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info.
 
       **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value (`{{ replication-frequency | remove: " " | remove: "minutes" | remove: "hours" }}`).
     value: "0 0 12 ? * MON-FRI *"
