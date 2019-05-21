@@ -259,8 +259,6 @@ replication-sections:
 
       Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for a more detailed explanation, examples, and the limitations associated with this replication method.
 
-      **Note**: Stitch currently supports Log-based Incremental and Full Table Replication for {{ integration.display_name }} integrations. Other replication methods are not currently supported.
-
   - title: "Data typing and LogMiner (Log-based Incremental Replication)"
     anchor: "data-typing-logminer-replication"
     content: |
