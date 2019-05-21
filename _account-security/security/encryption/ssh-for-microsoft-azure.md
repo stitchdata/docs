@@ -83,7 +83,7 @@ steps:
           {% capture ip-list %}
           {% for ip-address in ip-addresses %}{{ ip-address.ip }}{% unless forloop.last == true %},{% endunless %}{% endfor %}
           {% endcapture %}
-
+          
           Next, you'll create a network security group that will allow inbound traffic from Stitch's IP addresses.
 
           1. In the **Virtual network** field, select the virtual network you want to associate with the virtual machine.
@@ -93,12 +93,14 @@ steps:
           5. Click the **Create new** link under the **Configure network security group** field. This will open the **Create network security group** panel.
           6. In the panel, click the **+ Add an inbound rule** link in the **Inbound rules** section. This will open the **Add inbound security rule** panel.
           7. Fill in the fields as follows. If a field isn't in this list, **use the default value**:
+
              - **Source**: Select **IP Addresses**.
              - **Source IP addresses/CIDR ranges**: Paste this comma-delimited list of Stitch's IP addresses:
 
                ```markdown
                {{ ip-list | strip }}
                ```
+
              - **Source port ranges**: Enter `22`.
              - **Protocol**: Select **TCP**.
              - **Action**: Select **Allow**.

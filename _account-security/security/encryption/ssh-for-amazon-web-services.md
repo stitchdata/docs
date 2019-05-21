@@ -114,7 +114,6 @@ steps:
         anchor: "configure-ssh-server"
         content: |
           The first part of creating an SSH server in your VPC is configuring the instance.
-
           1. Navigate to the EC2 Management Console in AWS. If you use the **Services** menu (top left corner), click the **EC2** option under the **Compute** section.
           2. On the EC2 Dashboard, click the **Launch Instance** button.
           3. Next, you’ll be asked to select the Amazon Machine Image, or AMI, that will be used to launch the instance. For this tutorial, we'll be using a Linux-based AMI.
