@@ -1,17 +1,15 @@
 {% case integration.db-type %}
 {% when 'mongo' %}
 
-{% capture object %}collection{% endcapture %}
-{% capture Object %}collection{% endcapture %}
-{% capture col %}field{% endcapture %}
-{% capture rep-keys-doc-link %}{{ link.replication.mongo-rep-keys | prepend: site.baseurl }}{% endcapture %}
+{% assign object = "collection" %}
+{% assign col = "field" %}
+{% assign rep-keys-doc-link = link.replication.mongo-rep-keys | prepend: site.baseurl %}
 
 {% else %}
 
-{% capture object %}table{% endcapture %}
-{% capture Object %}Table{% endcapture %}
-{% capture col %}column{% endcapture %}
-{% capture rep-keys-doc-link %}{{ link.replication.rep-keys | prepend: site.baseurl }}{% endcapture %}
+{% assign object = "table" %}
+{% assign col = "column" %}
+{% assign rep-keys-doc-link = link.replication.rep-keys | prepend: site.baseurl %}
 
 {% endcase %}
 
@@ -37,85 +35,108 @@ The tabs below contain info about the queries Stitch runs during the data syncs 
 **Note**: {{ integration.display_name }} integrations only support Key-based Incremental replication.
 {% endif %}
 
+
+{% assign all-replication-methods = "" %}
+
+{% if integration.key-based-incremental-replication == true %}
+    {% assign key-incremental = "key-based-incremental-replication|" %}
+    {% assign key-incremental-title = "Key-based Incremental|" %}
+{% endif %}
+
+{% if integration.log-based-replication-master-instance == true %}
+    {% assign log-incremental = "log-based-replication-master-instance|" %}
+    {% assign log-incremental-title = "Log-based Incremental|" %}
+{% endif %}
+
+{% if integration.full-table-replication == true %}
+    {% assign full-table = "full-table-replication" %}
+    {% assign full-table-title = "Full Table" %}
+{% endif %}
+
+{% assign all-replication-methods = key-incremental | append: log-incremental | append: full-table %}
+    {% assign replication-methods = all-replication-methods | split: "|" %}
+
+{% assign all-replication-method-titles = key-incremental-title | append: log-incremental-title | append: full-table-title %}
+    {% assign replication-method-titles = all-replication-method-titles | split: "|" %}
+
+
 <ul id="profileTabs" class="nav nav-tabs">
-    <li class="active">
-        <a href="#key-based-incremental" data-toggle="tab">Key-based Incremental</a>
-    </li>
-
-<!-- Only show this for databases where Log-based Incremental is supported -->
-    {% unless integration.log-based-replication-master-instance == false %}
-        <li>
-            <a href="#log-based-incremental" data-toggle="tab">Log-based Incremental</a>
-        </li>
-    {% endunless %}
-
-<!-- Don't show this for Mongo, as it doesn't support Full Table Replication -->
-    {% if integration.db-type != "mongo" %}
-        <li>
-            <a href="#full-table" data-toggle="tab">Full Table</a>
-        </li>
-    {% endif %}
+    {% for replication-method in replication-methods %}
+        {% if integration[replication-method] == true %}
+            {% if forloop.first == true %}
+                <li class="active">
+            {% else %}
+                <li>
+            {% endif %}
+                    <a href="#{{ replication-method }}" data-toggle="tab">{{ replication-method }}</a>
+                </li>
+        {% endif %}
+    {% endfor %}
 </ul>
+
 
 <!-- Start the tabs -->
 <div class="tab-content">
+    {% for replication-method in replication-methods %}
+        {% if integration[replication-method] == true %}
+            {% if forloop.first == true %}
+                <div role="tabpanel" class="tab-pane active" id="{{ replication-method }}">
+            {% else %}
+                <div role="tabpanel" class="tab-pane" id="{{ replication-method }}">
+            {% endif %}
 
-<!-- Tab for Key-based Incremental -->
-    <div role="tabpanel" class="tab-pane active" id="key-based-incremental">
-        <h4 id="key-based-incremental--data-syncs">Data syncs for tables using Key-based Incremental</h4>
+        {% case replication-method %}
+            {% when 'key-based-incremental-replication' %}
+                <h4 id="key-based-incremental--data-syncs">Data syncs for tables using Key-based Incremental</h4>
 
-        <p>Refer to the <a href="{{ link.replication.key-based-incremental | prepend: site.baseurl }}">Key-based Incremental Replication</a> documentation for more info.</p>
+                <p>Refer to the <a href="{{ link.replication.key-based-incremental | prepend: site.baseurl }}">Key-based Incremental Replication</a> documentation for more info.</p>
 
-        <h5 id="key-based-incremental--historical-job">Initial (historical) replication jobs</h5>
+                <h5 id="key-based-incremental--historical-job">Initial (historical) replication jobs</h5>
 
-            <p>During the initial replication job for a table using <strong>Key-based Incremental Replication</strong>, Stitch will replicate the table in full by running a <code>SELECT</code> query and read out of the resulting cursor in batches:</p>
+                    <p>During the initial replication job for a table using <strong>Key-based Incremental Replication</strong>, Stitch will replicate the table in full by running a <code>SELECT</code> query and read out of the resulting cursor in batches:</p>
 
-            {{ extraction.data-sync-queries.incremental-historical | markdownify }}
+                    {{ extraction.data-sync-queries.incremental-historical | markdownify }}
 
-        <h5 id="key-based-incremental--ongoing-jobs">Ongoing replication jobs</h5>
+                <h5 id="key-based-incremental--ongoing-jobs">Ongoing replication jobs</h5>
 
-            <p>During subsequent jobs, Stitch will use the last saved maximum value of the <a href="{{ rep-keys-doc-link }}">Replication Key</a> column to identify new and updated data. </p>
+                    <p>During subsequent jobs, Stitch will use the last saved maximum value of the <a href="{{ rep-keys-doc-link }}">Replication Key</a> column to identify new and updated data. </p>
 
-            <p>Stitch will run the following query and read out of the associated cursor in batches:</p>
+                    <p>Stitch will run the following query and read out of the associated cursor in batches:</p>
 
-            {{ extraction.data-sync-queries.incremental | markdownify }}
-    </div>
+                    {{ extraction.data-sync-queries.incremental | markdownify }}
 
-<!-- Only show this tab for databses where Log-based Incremental is supported -->
-    {% if integration.log-based-replication-master-instance == true %}
-        <div role="tabpanel" class="tab-pane" id="log-based-incremental">
+    <!-- Only show this tab for databses where Log-based Incremental is supported -->                
+            {% when 'log-based-replication-master-instance' %}
 
-            <h4 id="log-based-incremental--data-syncs">Data syncs for tables using Log-based Incremental</h4>
+                <h4 id="log-based-incremental--data-syncs">Data syncs for tables using Log-based Incremental</h4>
 
-            <p>Refer to the <a href="{{ link.replication.log-based-incremental | prepend: site.baseurl }}">Log-based Incremental Replication</a> documentation for more info.</p>
+                <p>Refer to the <a href="{{ link.replication.log-based-incremental | prepend: site.baseurl }}">Log-based Incremental Replication</a> documentation for more info.</p>
 
-            <h5 id="log-based-incremental--historical-job">Initial (historical) replication jobs</h5>
-                <p>During the initial replication job for a table using <strong>Log-based Incremental Replication</strong>, Stitch will use a <code>SELECT</code> query to retrieve all data for the table and then read out of the resulting cursor in batches:</p>
+                <h5 id="log-based-incremental--historical-job">Initial (historical) replication jobs</h5>
+                    <p>During the initial replication job for a table using <strong>Log-based Incremental Replication</strong>, Stitch will use a <code>SELECT</code> query to retrieve all data for the table and then read out of the resulting cursor in batches:</p>
 
-                {{ extraction.data-sync-queries.full-table | markdownify }}
+                    {{ extraction.data-sync-queries.full-table | markdownify }}
 
-            <h5 id="log-based-incremental--ongoing-jobs">Ongoing replication jobs</h5>
-                <p>During subsequent jobs, Stitch will use the database's binary logs to stream updates.</p>
+                <h5 id="log-based-incremental--ongoing-jobs">Ongoing replication jobs</h5>
+                    <p>During subsequent jobs, Stitch will use the database's binary logs to stream updates.</p>
 
-                <p>Stitch will 'bookmark' its position in the binary log at the end of each replication job, allowing it to resume at the correct position during the next extraction.</p>
+                    <p>Stitch will 'bookmark' its position in the binary log at the end of each replication job, allowing it to resume at the correct position during the next extraction.</p>
 
+    <!-- Only show this tab for databses where Full Table is supported -->    
+            {% when 'full-table-replication' %}
+                <h4 id="full-table--data-syncs">Data syncs for tables using Full Table</h4>
+
+                    <p>Refer to the <a href="{{ link.replication.full-table | prepend: site.baseurl }}">Full Table Replication</a> documentation for more info.</p>
+
+                    <p>For tables using <strong>Full Table Replication</strong>, Stitch runs a single query and reads out of the resulting cursor in batches:</p>
+
+                    {{ extraction.data-sync-queries.full-table | markdownify }}
+
+                    <p>This query will be run for each table using Full Table Replication during every replication job, whether it's the initial historical job or a subsequent job.</p>
+            {% endcase %}
         </div>
-    {% endif %}
-
-<!-- Don't show this for Mongo, as it doesn't support Full Table Replication -->
-    {% if integration.db-type != "mongo" %}
-        <div role="tabpanel" class="tab-pane" id="full-table">
-        <h4 id="full-table--data-syncs">Data syncs for tables using Full Table</h4>
-
-            <p>Refer to the <a href="{{ link.replication.full-table | prepend: site.baseurl }}">Full Table Replication</a> documentation for more info.</p>
-
-            <p>For tables using <strong>Full Table Replication</strong>, Stitch runs a single query and reads out of the resulting cursor in batches:</p>
-
-            {{ extraction.data-sync-queries.full-table | markdownify }}
-
-            <p>This query will be run for each table using Full Table Replication during every replication job, whether it's the initial historical job or a subsequent job.</p>
-        </div>
-    {% endif %}
+        {% endif %}
+    {% endfor %}
 </div>
 
 ### Recommendations

@@ -16,15 +16,15 @@
 
    - To grant Stitch access **to all tables**, run:
 
-      ```sql
-      {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-all-tables | flatify | rstrip }}
-      ```
+     ```sql
+     {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-all-tables | flatify | rstrip }}
+     ```
 
    - To grant Stitch access **to specific tables**, run the following command for each table you want to replicate. Replace `<SCHEMA>` and `<TABLE>` with the name of the schema and table, respectively:
 
-      ```sql
-      {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-specific-tables | flatify | rstrip }}
-      ```
+     ```sql
+     {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-specific-tables | flatify | rstrip }}
+     ```
 
 {% capture log-based-replication-privileges %}
 If you want to use Log-based Incremental Replication, you'll also need to grant additional permissions to the Stitch user:

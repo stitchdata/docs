@@ -32,8 +32,8 @@
  "type":"{{ form-property.api-type }}",
  "properties":{
    {% for attribute in all-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
-   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
+   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}",
    {% endif %}
    {%- endfor -%}
   }

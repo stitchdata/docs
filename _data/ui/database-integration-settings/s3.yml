@@ -1,0 +1,24 @@
+# ------------------------------------------ #
+#   S3-BACKED INTEGRATION SETTINGS FIELDS    #
+# ------------------------------------------ #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each S3-backed database integration.
+
+## Depending on the provider of the database, some field names
+## or values will vary. See the lists below for specifics.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+amazon-s3-csv:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "S3 Bucket"
+    copy: "Enter the name of bucket you want to replicate data from. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`"
+
+  - name: "AWS Account ID"
+    copy: "Paste the AWS account ID you retrieved in [Step 1](#retrieve-aws-account-id)."

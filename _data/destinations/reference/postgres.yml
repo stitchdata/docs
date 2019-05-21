@@ -194,7 +194,10 @@ attributes:
     categories: "stitch-details"
     value: *connection-methods-ssh
     description: |
-      For self-hosted {{ destination.display_name }} destinations, Stitch supports using an SSH tunnel to connect. [Refer to these instructions to set up an SSH tunnel for a self-hosted {{ destination.display_name }} destination]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl }}).
+      Stitch supports using SSH tunnels to connect to the following {{ destination.display_name }}-backed destinations:
+
+      - [Amazon {{ destination.display_name }}-RDS]({{ link.security.ssh-amazon | prepend: site.baseurl }})
+      - [Self-hosted {{ destination.display_name }}]({{ link.security.ssh-generic | prepend: site.baseurl }})
 
   - id: "vpn-connections"
     categories: "stitch-details"

@@ -1,18 +1,28 @@
-# -------------------------- #
-#     PANOPLY DESTINATION    #
-# -------------------------- #
+# ---------------------------- #
+#      PANOPLY DESTINATION     #
+# ---------------------------- #
 
-## This file contains the properties required to successfully set up
-## a Panoply destination in Stitch.
+## This file contains the names and descriptions of fields in the 
+## Destination Settings page for a Panoply-backed destination.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/common/database-connections.yml
+
+## 'common' is a variable assigned to this file: 
+## /_data/ui/destination-settings/common.yml
 
 panoply:
-  - app-name: *host
-    copy: *host-copy
-  - app-name: *port
-    copy: *port-copy
-  - app-name: *username
-    copy: "Enter the username of the database user you want to use to connect {{ destination.display_name }} to Stitch."
-  - app-name: *password
-    copy: "Enter the password of the database user you want to use to connect {{ destination.display_name }} to Stitch."
-  - app-name: *database
-    copy: "Enter the name of the database in your {{ destination.display_name }} data warehouse you want to connect to Stitch."
+  - name: "{{ defaults.field-names.host }}"
+    copy: "Paste the **Host** value from the {{ destination.display_name }} Connect page."
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "Paste the **Port** value from the {{ destination.display_name }} Connect page."
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "Paste the **Username** value from the {{ destination.display_name }} Connect page."
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "Enter the password for the {{ destination.display_name }} database user."
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "Paste the **Database** value from the {{ destination.display_name }} Connect page."

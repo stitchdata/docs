@@ -5,105 +5,158 @@
 ## This file contains the properties required to successfully set up
 ## a PostgreSQL destination in Stitch.
 
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/common/database-connections.yml
+
+## 'common' is a variable assigned to this file: 
+## /_data/ui/destination-settings/common.yml
+
+
+# -------------------------- #
+#         SSL FIELDS         #
+# -------------------------- #
+
+ssl:
+  - name: "{{ common.field-names.ssl-certificate | flatify }}"
+    connect: "ssl_ca"
+    copy: "{{ common.field-copy.ssl-certificate | flatify }}"
+
+
 # -------------------------- #
 #          Postgres          #
 # -------------------------- #
 
-postgres:
-  - app-name: *host
-    description: *host-description
-  - app-name: *port
-    description: *port-description
-  - app-name: *username
-    description: *username-description
-  - app-name: *password
-    description: *password-description
-  - app-name: *database
-    description: *database-description
-  - app-name: *ssl
-    description: *ssl-description
-  - app-name: *ssl-certificate
-    description: *ssl-certificate-description
+postgresql:
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ common.field-copy.destination-database | flatify }}"
     
+
 # -------------------------- #
 #       Heroku-Postgres      #
 # -------------------------- #
 
-heroku-postgres:
-  - app-name: *host
-    description: 
-      app: "Paste the host of the Heroku database."
-  - app-name: *port
-    description: 
-      app: "Paste the port used by the Heroku database."
-  - app-name: *username
-    description: 
-      app: "Paste the username of the Heroku database user."
-  - app-name: *password
-    description: 
-      app: |
-        Paste the password of the Heroku database user.
-  - app-name: *database
-    description: 
-      app: "Paste the name of the Heroku database."
-  - app-name: *ssl
-    description: 
-      app: "Check this box. Heroku requires SSL to connect - if left unchecked, Stitch will be unable to connect to your Heroku database."
+heroku:
+  - name: "{{ defaults.field-names.host }}"
+    copy: "Paste the host of the Heroku database."
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "Paste the port used by the Heroku database."
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "Paste the username of the Heroku database user."
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "Paste the password of the Heroku database user."
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "Paste the name of the Heroku database."
+
+  - name: "{{ defaults.field-names.ssl | flatify }}"
+    copy: "Check this box. Heroku requires SSL to connect; if left unchecked, Stitch will be unable to connect to your Heroku database."
 
 
 # -------------------------- #
 #        Postgres-RDS        #
 # -------------------------- #
+
 postgres-rds:
-  - app-name: *host
-    ddescription: 
-      app: &rds |
-        Paste the **Endpoint** address from the {{ destination.display_name }} Details page in AWS into this app-name.
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host-rds | flatify }}"
 
-              Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors. For example: if you used the default port, you’d remove the following from the address: `:{{ destination.port }}`
-  - app-name: *port
-    description: 
-      app: *port-description
-  - app-name: *username
-    description: 
-      app: *username-description
-  - app-name: *password
-    description: 
-      app: *password-description
-  - app-name: *database
-    description: 
-      app: *database-description
-  - app-name: *ssl
-    description: 
-      app: *ssl-description
-  - app-name: *ssl-certificate
-    description: 
-      app: *ssl-certificate-description
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ common.field-copy.destination-database | flatify }}"
+
+# FOR FUTURE USE:
+# postgres-rds:
+#   - app-name: *host
+#     ddescription: 
+#       app: &rds |
+#         Paste the **Endpoint** address from the {{ destination.display_name }} Details page in AWS into this app-name.
+
+#               Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors. For example: if you used the default port, you’d remove the following from the address: `:{{ destination.port }}`
+#   - app-name: *port
+#     description: 
+#       app: *port-description
+#   - app-name: *username
+#     description: 
+#       app: *username-description
+#   - app-name: *password
+#     description: 
+#       app: *password-description
+#   - app-name: *database
+#     description: 
+#       app: *database-description
+#   - app-name: *ssl
+#     description: 
+#       app: *ssl-description
+#   - app-name: *ssl-certificate
+#     description: 
+#       app: *ssl-certificate-description
 
 
 # -------------------------- #
-#     CloudSQL Postgres       #
+#     CloudSQL Postgres      #
 # -------------------------- #
 
-cloudsql-postgres:
-  - app-name: *host
-    description: 
-      app: "Paste the address that is in the **IPv4 address** app-name in the Google Console."
-  - app-name: *port
-    description: 
-      app: *port-description
-  - app-name: *username
-    description: 
-      app: *username-description
-  - app-name: *password
-    description: 
-      app: *password-description
-  - app-name: *database
-    description: 
-      app: *database-description
-  - app-name: *ssl
-    description: 
-      app: *ssl-description
-  - app-name: *ssl-certificate
-    description: 
-      app: *ssl-certificate-description
+cloudsql-postgresql:
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      {{ defaults.field-copy.host-cloudsql | flatify | replace: "[STEP]","the previous step" }}
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ common.field-copy.destination-database | flatify }}"
+
+
+# FOR FUTURE USE:
+# cloudsql-postgres:
+#   - app-name: *host
+#     description: 
+#       app: 
+#   - app-name: *port
+#     description: 
+#       app: *port-description
+#   - app-name: *username
+#     description: 
+#       app: *username-description
+#   - app-name: *password
+#     description: 
+#       app: *password-description
+#   - app-name: *database
+#     description: 
+#       app: *database-description
+#   - app-name: *ssl
+#     description: 
+#       app: *ssl-description
+#   - app-name: *ssl-certificate
+#     description: 
+#       app: *ssl-certificate-description

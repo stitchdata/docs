@@ -5,7 +5,7 @@
 	destinations/integrations that require it. -->
 
     {% if page.permalink contains "destinations" %}
-        {% assign destination = site.destinations | where:"type",page.type | first %}
+        {% assign destination = page %}
 
         {% if site.data.destinations.reference[destination.type]stitch-details-info.release-status contains "Beta" %}
 		    {% include notifications/destination-beta-notice.html %}

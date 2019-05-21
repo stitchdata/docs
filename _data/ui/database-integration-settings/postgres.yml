@@ -29,25 +29,31 @@ descriptions:
 
 postgres:
   - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
+    version: "all"
+    copy: "{{ defaults.field-copy.integration-name | flatify }}"
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "{{ defaults.field-copy.database | flatify }}"
 
   - name: *schema-names-tables-name
+    version: "1.0"
     copy: *schema-names-tables-description
 
 
@@ -57,26 +63,32 @@ postgres:
 
 cloudsql-postgres:
   - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
+    version: "all"
+    copy: "{{ defaults.field-copy.integration-name | flatify }}"
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: |
-      {{ defaults.field-copy.host-cloudsql | flatify }}
+      {{ defaults.field-copy.host-cloudsql | flatify | replace:"[STEP]","[Step 3.1](#locate-database-connection-details)" }}
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "{{ defaults.field-copy.database | flatify }}"
 
   - name: *schema-names-tables-name
+    version: "1.0"
     copy: *schema-names-tables-description
 
 
@@ -86,25 +98,31 @@ cloudsql-postgres:
 
 heroku:
   - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
+    version: "all"
+    copy: "{{ defaults.field-copy.integration-name | flatify }}"
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: "Paste the **Host** address from the {{ integration.display_name }} Database Settings page into this field."
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "Paste the **User** name from the {{ integration.display_name }} Database Settings page into this field."
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "Paste the **Password** from the {{ integration.display_name }} Database Settings page into this field."
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "Paste the **Database** name from the {{ integration.display_name }} Database Settings page into this field."
 
   - name: *schema-names-tables-name
+    version: "1.0"
     copy: *schema-names-tables-description
 
 
@@ -114,24 +132,29 @@ heroku:
 
 postgresql-rds:
   - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
+    version: "all"
+    copy: "{{ defaults.field-copy.integration-name | flatify }}"
 
   - name: "{{ defaults.field-names.host }}"
-    copy: |
-      {{ defaults.field-copy.host-rds | flatify }}
+    version: "all"
+    copy: "{{ defaults.field-copy.host-rds | flatify }}"
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "{{ defaults.field-copy.database | flatify }}"
 
   - name: *schema-names-tables-name
+    version: "1.0"
     copy: *schema-names-tables-description

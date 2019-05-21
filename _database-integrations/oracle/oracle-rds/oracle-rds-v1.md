@@ -30,6 +30,9 @@ repo-url: "https://github.com/singer-io/tap-oracle"
 
 # this-version: "1.0"
 
+hosting-type: "amazon"
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -105,11 +108,16 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Enable Log-based Incremental Replication with LogMiner"
     anchor: "enable-logminer"
     content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
 
       {% for substep in step.substeps %}
@@ -197,24 +205,24 @@ setup-steps:
       - title: "Locate the database connection details in AWS"
         anchor: "locate-connection-details"
         content: |
-          {% include shared/aws-connection-details.html %}
+          {% include shared/connection-details/amazon.html type="connection-details" %}
 
-      - title: "Define the database connection details"
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
-      # - title: "Define the SSH connection details"
-      #   anchor: "ssh-connection-details"
-      #   content: |
-      #     {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-      - title: "Define default replication method"
+      - title: "Define the default replication method"
         anchor: "define-default-replication-method"
         content: |
           {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html type="default-replication-method" %}
@@ -224,7 +232,10 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 
 # -------------------------- #

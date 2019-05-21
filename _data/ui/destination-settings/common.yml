@@ -1,0 +1,39 @@
+# ------------------------------------------ #
+#     COMMON DESTINATION SETTINGS FIELDS     #
+# ------------------------------------------ #
+
+## This file contains the default field names and descriptions for
+## the fields in the Destination Settings page for destinations.
+
+## As the required fields vary from destination to destination, 
+## each destination type lists the fields required for its
+## specific setup and, if applicable, a destination that's specific
+## to that destination.
+
+## See the other files in this folder (_data/ui/destination-settings)
+## for the specifics of each database type.
+
+
+# -------------------------- #
+#     Default Field Names    #
+# -------------------------- #
+## Defines the default field names in the Destination Settings page.
+
+field-names:
+  ssl-certificate: &ssl-certificate "SSL Certificate"
+
+# -------------------------- #
+#        Default Copy        #
+# -------------------------- #
+
+## Default copy for fields. Used when the user doesn't require any 
+## additional or info specific to the destination to complete the setup.
+
+field-copy:
+  destination-database: |
+    Enter the name of the {{ page.display_name }} database you want to connect to Stitch.
+
+  ssl-certificate: &ssl-certificate-copy |
+    **Optional**: Provide the certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided here.
+
+            **Note**: Providing a certificate isn't required to use SSL. This is only if Stitch should verify the connection against a specific certificate.

@@ -28,10 +28,7 @@ Additionally, setting up binlog replication requires rebooting your database to 
 {% endcase %}
 
 
-
-Next, you'll configure your server to use [Log-based Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}), or binlog replication.
-
-**Note**: While Log-based Incremental Replication is the most accurate and efficient method of replication, using this replication method may, at times, require manual intervention or impact the source database's performance. Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info.
+While Log-based Incremental Replication is the most accurate and efficient method of replication, using this replication method may, at times, require manual intervention or impact the source database's performance. Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info.
 
 You can also use one of Stitch's other [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}), which don't require any database configuration. Replication Methods can be changed at any time.
 {% endcase %}

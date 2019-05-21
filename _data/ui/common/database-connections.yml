@@ -1,0 +1,127 @@
+# ------------------------------------------ #
+#   DEFAULT DB INTEGRATION SETTINGS FIELDS   #
+# ------------------------------------------ #
+
+## This file contains the default field names and descriptions for
+## the fields in the Database Integrations Settings page for database integrations.
+
+## As the required fields vary from integration to integration, 
+## each integration type lists the fields required for its
+## specific setup and, if applicable, a integration that's specific
+## to that integration.
+
+## See the other files in this folder (_data/ui/database-integration-settings)
+## for the specifics of each database type.
+
+
+# -------------------------- #
+#     Default Field Names    #
+# -------------------------- #
+## Defines the default field names in the Database Integration Settings page.
+
+field-names:
+  integration-name: "Integration Name"
+  host: "Host (Endpoint)"
+  port: "Port"
+  username: "Username"
+  password: "Password"
+  database: "Database"
+
+  encryption: "Encryption Type"
+
+## These fields are used when the instructions are for connecting
+## a database using an SSH tunnel or SSL.
+
+  ssh-host: &ssh-host "SSH Host"
+  ssh-user: &ssh-user "SSH User"
+  ssh-port: &ssh-port "SSH Port"
+
+  ssl: "Connect using SSL"
+
+
+# -------------------------- #
+#        Default Copy        #
+# -------------------------- #
+
+## Default copy for fields. Used when the user doesn't require any 
+## additional or info specific to the integration to complete the setup.
+
+field-copy:
+  integration-name: |
+    Enter a name for the integration. This is the name that will display on the {{ app.page-names.dashboard }} for the integration; it’ll also be used to create the schema in your destination.
+
+            For example, the name “Stitch {{ integration.display_name }}” would create a schema called `stitch_{{ integration.display_name | slugify | replace:"-","_" }}` in the destination. **Note:** The schema name cannot be changed after the integration is saved.
+
+  host: |
+    Enter the host address (endpoint) used by the {{ page.display_name }} instance. For example: This could be a network address such as `192.68.0.1`, or a server endpoint like `dbname.hosting-provider.com`.
+
+  host-rds: |
+    Paste the **Endpoint** address from the {{ page.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+
+  host-cloudsql: |
+    Enter the host address (endpoint) of your {{ page.display_name }} instance. This will be the value of the **Public IP address** that you retrieved in [STEP].
+
+  port: |
+    Enter the port used by the {{ page.display-name }} instance. The default is `{{ page.port }}`.
+  
+  username: "Enter the Stitch {{ page.display_name }} database user's username."
+
+  password: |
+    Enter the password for the Stitch {{ page.display_name }} database user.
+  
+  database: |
+    Enter the name of the {{ page.display_name }} database you want to connect to Stitch. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection. This is required for {{ page.display_name }} integrations.
+
+  optional-database: |
+      **Optional:** Enter the name of the default database Stitch will connect to. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to test and complete the connection.
+
+  ssl: |
+    **Note:** The database must support and allow SSL connections for this setting to work correctly.
+
+  ssh-host: &ssh-host-copy |
+    {% case page.hosting-type %}
+
+    {% when 'amazon' %}
+    Paste the **Public DNS** of the SSH sever (EC2 instance) into this field. Refer to the [Amazon SSH guide]({{ link.security.ssh-amazon | prepend: site.baseurl }}#retrieve-ssh-connection-details) for instructions on retrieving this info.
+
+    {% when 'microsoft' %}
+    Paste the **Public IP address** of the SSH server (virtual machine) into this field. Refer to the [Microsoft Azure SSH guide]({{ link.security.ssh-microsoft-azure | prepend: site.baseurl }}#retrieve-vm-connection-details) for instructions on retrieving this info.
+
+    {% else %}
+    Enter the public IP address or hostname of the server Stitch will SSH into.
+    {% endcase %}
+
+  ssh-user: &ssh-user-copy "Enter the Stitch Linux (SSH) user's username."
+
+  ssh-port: &ssh-port-copy |
+    {% case page.hosting-type %}
+    {% when 'amazon' %}
+    Enter the SSH port of the SSH server (EC2 instance) into this field. This will usually be `22`.
+
+    {% when 'microsoft' %}
+    Enter the SSH port of the SSH server (virtual machine) into this field. This will usually be `22`.
+
+    {% else %}
+    Enter the SSH port on your server. (`22` by default)
+    {% endcase %}
+
+
+# -------------------------- #
+#        SSH Fields          #
+# -------------------------- #
+
+ssh:
+  - name: "Remote Address"
+    copy: *ssh-host-copy
+  - name: *ssh-port
+    copy: *ssh-port-copy
+  - name: *ssh-user
+    copy: *ssh-user-copy
+
+ssh-singer:
+  - name: *ssh-host
+    copy: *ssh-host-copy
+  - name: *ssh-port
+    copy: *ssh-port-copy
+  - name: *ssh-user
+    copy: *ssh-user-copy
