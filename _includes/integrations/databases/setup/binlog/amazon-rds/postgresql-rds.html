@@ -3,9 +3,7 @@
 {% assign database-setup = database.postgresql-rds %}
 
 {% capture server-instructions %}
-
-1. From the RDS Dashboard, click **Instances** on the left side of the page.
-2. Click {{ integration.display_name }} instance you want to connect to Stitch. This will open the database's details page.
+{% include shared/connection-details/amazon.html %}
 3. Scroll down to the **Details** section.
 4. In the **Configurations** column, locate the **Parameter group** field.
 5. Click the parameter group. This will open the settings page for the parameter group.
@@ -15,10 +13,7 @@
    - **{{ setting.name }}**: `{{ setting.value }}`
    {% endfor %}
 
-   A few things to note:
-
-   - `max_standby_archive_delay` and `max_standby_streaming_delay` are only applicable if you're connecting a read replica to Stitch. If you aren't connecing a read replica, you don't have to define these parameters.
-   - For `max_replication_slots` and `max_wal_senders`, Amazon's default value of `5` should be sufficient **unless you have a large number of read replicas**.
+   **Note**: For `max_replication_slots` and `max_wal_senders`, Amazon's default value of `5` should be sufficient **unless you have a large number of read replicas**.
 
    See the **Server settings list** tab for more info on these settings.
 8. When finished, click the **Save changes** button.

@@ -40,7 +40,7 @@ mssql:
 #            AZURE           #
 # -------------------------- #
 
-azure:
+microsoft-azure:
   - name: "{{ defaults.field-names.integration-name }}"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
@@ -52,7 +52,7 @@ azure:
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
-    copy: "Enter the Stitch {{ integration.display_name }} user's username. We recommend copying and pasting the username Azure displays to you directly into this field. **Verify that the name includes `'@domain'` or you'll run into connection issues.**"
+    copy: "Enter the Stitch {{ integration.display_name }} user's username. We recommend copying and pasting the username {{ integration.display_name }} displays to you directly into this field. **Note**: Verify that the name includes `'@domain'` or you'll run into connection issues."
 
   - name: "{{ defaults.field-names.password }}"
     copy: "{{ defaults.field-copy.password | flatify }}"
@@ -65,7 +65,7 @@ azure:
 #         MSSQL RDS          #
 # -------------------------- #
 
-mssql-rds:
+sql-server-rds:
   - name: "{{ defaults.field-names.integration-name }}"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}

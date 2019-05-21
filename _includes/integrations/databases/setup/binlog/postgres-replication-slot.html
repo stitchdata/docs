@@ -10,23 +10,23 @@ You risk losing data if multiple processes or Stitch integrations share a replic
 
 **Note**: Replication slots are specific to a given database in a cluster. If you want to connect multiple databases - whether in one integration or several - you'll need to create a replication slot for each database.
 
-1. Log into your master database as a superuser.
+1. Log into the master database as a superuser.
 2. Using the `wal2json` plugin, create a logical replication slot:
    - **If you're connecting multiple databases**, you'll need to run this command for every database you want to connect, replacing `<raw_database_name>` with the name of the database:
 
-       ```sql
-       SELECT *
-       FROM pg_create_logical_replication_slot('stitch_<raw_database_name>', 'wal2json');
-       ```
+     ```sql
+     SELECT *
+     FROM pg_create_logical_replication_slot('stitch_<raw_database_name>', 'wal2json');
+     ```
 
        This will create a replication slot named `stitch_<raw_database_name>`.
 
    - **If you're connecting a single database**, run the following command:
 
-       ```sql
-       SELECT *
-       FROM pg_create_logical_replication_slot('stitch', 'wal2json');
-       ```
+     ```sql
+     SELECT *
+     FROM pg_create_logical_replication_slot('stitch', 'wal2json');
+     ```
 
        This will create a replication slot named `stitch`.
 
@@ -39,4 +39,4 @@ You risk losing data if multiple processes or Stitch integrations share a replic
 
    **If connecting multiple databases,** you should verify that the Stitch user can read from each of the replication slots you created.
 
-**Note**: `wal2json` is required to use Log-based replication in Stitch for PostgreSQL-backed databases. {% if integration.name contains "rds" %}{{ integration.display_name }} is included by default and enabled in [Step 4.1](#configure-database-parameter-group) by defining the `rds.logical_replication` parameter.{% endif %}
+**Note**: `wal2json` is required to use Log-based replication in Stitch for PostgreSQL-backed databases. {% if integration.name contains "rds" %}`wal2json` is included by default and enabled in [Step 3.1](#configure-database-parameter-group) by defining the `rds.logical_replication` parameter.{% endif %}

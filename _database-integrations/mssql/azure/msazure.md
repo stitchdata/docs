@@ -1,21 +1,20 @@
 ---
 title: Microsoft Azure
 keywords: microsoft azure, azure, database integration, etl azure, azure etl
-tags: [database_integrations]
 permalink: /integrations/databases/microsoft-azure
-summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Azure integration."
+summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Microsoft Azure integration."
 show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-name: "azure"
-display_name: "Azure"
-author: "Stitch"
-author-url: https://www.stitchdata.com
+name: "microsoft-azure"
+display_name: "Microsoft Azure"
 
-# this-version: 
+# this-version: ""
+
+hosting-type: "microsoft-azure"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -28,7 +27,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 1433
 db-type: "mssql"
-icon: /images/integrations/icons/microsoft-azure.svg
 
 ## Stitch features
 
@@ -67,20 +65,24 @@ view-replication: true
 # -------------------------- #
 
 requirements-list:
-  - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
 
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "retrieve public key"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
-  - title: "create linux user"
-
-  - title: "create db user"
+      {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
     anchor: "#connect-stitch"
@@ -91,21 +93,27 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

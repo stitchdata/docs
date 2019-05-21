@@ -37,7 +37,7 @@ object-attributes:
     required: true
     type: "string"
     description: "The username of the {{ integration }} database user."
-    value: "<username>"
+    value: "<USERNAME>"
 
   - name: "warehouse"
     type: "string"
