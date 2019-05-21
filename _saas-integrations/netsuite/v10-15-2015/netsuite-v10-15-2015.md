@@ -4,13 +4,12 @@
 # -------------------------- #
 
 title: NetSuite (v10-15-2015)
-permalink: /integrations/saas/netsuite-suitetalk
-redirect_from: /integrations/saas/netsuite
+permalink: /integrations/saas/netsuite-suitetalk/v10-15-2015
 
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 summary: "Connection instructions and schema details for Stitch's NetSuite integration."
 layout: singer
-#input: false
+input: false
 
 # -------------------------- #
 #     Integration Details    #
@@ -26,7 +25,7 @@ this-version: "10-15-2015"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 historical: "1 year"
@@ -86,51 +85,24 @@ setup-steps:
 
       2. Stitch doesn't encounter issues with replication due to {{ integration.display_name }}'s API limitations. Currently, a single {{ integration.display_name }} user is allowed to only have a single open API session at a time. If the user connected to Stitch has another connection elsewhere, replication problems will arise.
 
-      3. Stitch can successfully authenticate to {{ integration.display_name }}. This will require creating a role that mirrors the standard {{ integration.display_name }} [Full Access Role](https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N295396.html){:target="new"}.
-
-         **Note**: Using the Full Access role requires two-factor authentication, which Stitch's integration doesn't currently support. For this reason, **do not assign the actual Full Access role to the Stitch user.**
+      3. Stitch can successfully authenticate to {{ integration.display_name }}.
 
     substeps:
       - title: "Create the new role"
         anchor: "create-the-new-role"
         content: |
-          {% capture two-factor-auth-roles %}
-          {{ integration.display_name }} enforces two-factor authentication for Full Access and Administrator roles as of {{ integration.display_name }} 2018.1.
-
-          Stitch's {{ integration.display_name }} integration can't authenticate using this method. Connection errors will arise if either the Full Access or Administrator role is assigned to the Stitch user.
-          {% endcapture %}
-
-          {% include important.html first-line="**Do not assign the Full Access or Administrator role to Stitch**" content=two-factor-auth-roles %}
-
-          To ensure Stitch can access and replicate all NetSuite objects supported for replication, you'll need to create a role to assign to the Stitch user.
-
-          1. In your {{ integration.display_name }} account, click **Setup > Users/Roles > Manage Roles > New**.
+          1. Using the global search, type `page: new role` and click the **Page: New Role** result.
           2. On the Role page, enter a name for the role in the **Name** field. For example: `Stitch`
+          3. In the **Authentication** section, check the **Web Services Only Role** box.
 
       - title: "Grant permissions to the role"
         anchor: "grant-permissions-to-role"
         content: |
-          Next, you'll grant permissions to the role. Below are instructions for adding permissions to the role, the permissions required, and where to find them in {{ integration.display_name }}.
+          Next, you'll grant permissions to the role. In the tabs below, you'll find the following:
 
-          In {{ integration.display_name }}, the Create Role **Permissions** section contains several subsections. In this guide is a tab that corresponds to the permissions you need to add in each {{ integration.display_name }} subsection. For example: In the **Permissions > Transactions** subsection, you'll add the permissions outlined in the **Transactions** tab of this guide.
-
-          {% capture adding-permission-instructions %}
-          **Refer to the other tabs in this section of the guide for the permissions you need to add**. 
-
-          To add a permission to the role:
-
-          1. In the **Permissions** section, click a subsection. For example: **Transactions**
-          2. Using the **Permission** dropdown, search for the permission you want to add.
-
-             For example: If adding permissions in the **Transactions** subtab of {{ integration.display_name }}, you'll use the checklist in the **Transactions** tab of this guide.
-          3. Using the **Level** dropdown, set the permission level to the corresponding level outlined in this guide:
-
-             ![The Transactions subsection in the Permissions section of the NetSuite Create Role page]({{ site.baseurl }}/images/integrations/netsuite-role-permissions-tab.png)
-          4. Click **Add**.
-          5. Repeat these steps until all permissions in the tabs of this guide have been added.
-
-          **Note**: If you don't see a permission in {{ integration.display_name }} that is listed here, skip it. Some permissions are dependent on specific products being enabled in your {{ integration.display_name }} account.
-          {% endcapture %}
+          - **Adding permissions** - Step-by-step instructions for adding permissions to the role on the **Create Role** page.
+          - **Required permissions** - The minimum permissions required to successfully connect Stitch to {{ integration.display_name }}.
+          - **Object permissions** - The permissions required to access and replicate data for specific objects in {{ integration.display_name }}. Stitch recommends granting only the permissions required for the objects you want to replicate.
 
           {% include integrations/saas/netsuite-permission-list.html %}
 

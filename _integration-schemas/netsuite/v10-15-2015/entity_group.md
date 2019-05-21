@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_entity_group"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/entitygroup.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/entitygroup.html
 description: |
   The `{{ table.name }}` table contains info about entity groups.
 
@@ -11,10 +11,8 @@ replication-method: "Key-based Incremental"
 
 abstract: false
 
-permissions:
-  - name: "CRM Groups"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "entity-group"
 
 attributes:
   - name: "internalId"

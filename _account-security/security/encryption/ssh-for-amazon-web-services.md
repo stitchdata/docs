@@ -61,16 +61,40 @@ steps:
   - title: "Verify the database's VPC"
     anchor: "verify-database-vpc"
     content: |
-      First, you'll log into AWS and verify the Virtual Private Cloud (VPC) the database is in. The SSH server you'll create in Step 2 must reside in the same VPC as the database. 
+      First, you'll log into AWS and verify the Virtual Private Cloud (VPC) the database is in. The SSH server you'll create in Step 2 must reside in the same VPC as the database.
 
-      1. Log into your AWS account.
-      2. Navigate to the RDS Dashboard in AWS. If you use the **Services** menu (top left corner), click the **RDS** option under the **Database** section.
-      3. From the RDS Dashboard, click **Databases** on the left side of the page.
-      4. On the page that displays, click the database you're connecting to Stitch. This will open the Instance Details page.
-      5. Click the **Connectivity & security** tab if it's not already open.
-      6. Locate the **VPC** field in the **Networking** section:
+      First, log into your AWS account. Then use the instructions below for the type of database you're connecting to locate the VPC.
+
+      {% capture rds-menu %}
+      1. Navigate to the RDS Dashboard in AWS. If you use the **Services** menu (top left corner), click the **RDS** option under the **Database** section.
+      2. From the RDS Dashboard, click **Databases** in the menu on the left side of the page.
+      3. On the page that displays, click the database you're connecting to Stitch. This will open the Instance Details page.
+      {% endcapture %}
+
+      {% capture rds-instructions %}
+      {{ rds-menu }}
+      4. Click the **Connectivity & security** tab if it's not already open.
+      5. Locate the **VPC** field in the **Networking** section:
 
          ![The VPC field in the Instance Details page in AWS]({{ site.baseurl }}/images/shared/ssh/amazon-locate-vpc.png)
+      {% endcapture %}
+
+      {% include layout/expandable-heading.html content=rds-instructions anchor="rds-vpc-instructions" title="I'm connecting an RDS database." %}
+
+      {% capture redshift-menu %}
+      1. Navigate to the Redshift Dashboard in AWS. If you use the **Services** menu (top left corner), click the **Amazon Redshift** option under the **Database** section.
+      2. From the Redshift Dashboard, click **Clusters** in the menu on the left side of the page.
+      3. On the page that displays, click the Redshift cluster you're connecting to Stitch. This will open the Cluster Details page.
+      {% endcapture %}
+
+      {% capture redshift-instructions %}
+      {{ redshift-menu }}
+      4. In the **Cluster Properties** section, locate the **VPC ID** field:
+
+         ![The VPC ID field in the Cluster Details page in AWS]({{ site.baseurl }}/images/shared/ssh/amazon-redshift-vpc-field.png)
+      {% endcapture %}
+
+      {% include layout/expandable-heading.html content=redshift-instructions anchor="redshift-vpc-instructions" title="I'm connecting a Redshift database." %}
 
       Keep the name of the VPC handy - you'll need it to complete the next step.
 
@@ -81,30 +105,27 @@ steps:
 
       **Note**: This instance must reside in the same VPC as the database. Refer to [Step 1](#verify-database-vpc) if you aren't sure which VPC to use.
 
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+
     substeps:
       - title: "Configure the SSH server"
         anchor: "configure-ssh-server"
         content: |
           The first part of creating an SSH server in your VPC is configuring the instance.
-
-          1. Navigate to the VPC Management Console in AWS. If you use the **Services** menu (top left corner), click the **VPC** option under the **Networking & Content Delivery** section.
-          2. On the VPC Dashboard, click the **Launch EC2 Instances** button.
-          3. Next, you’ll be asked to select the Amazon Machine Image, or AMI, that will be used to launch the instance.
-
-             We’ll be using a Linux-based AMI (like Ubuntu) for this tutorial:
-
-             ![Ubuntu Amazon Machine Image option in AWS]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-ubuntu-ami.png)
+          1. Navigate to the EC2 Management Console in AWS. If you use the **Services** menu (top left corner), click the **EC2** option under the **Compute** section.
+          2. On the EC2 Dashboard, click the **Launch Instance** button.
+          3. Next, you’ll be asked to select the Amazon Machine Image, or AMI, that will be used to launch the instance. For this tutorial, we'll be using a Linux-based AMI.
 
              Click the **Select** button next to the AMI you want to use.
-          4. On the next page, you'll select the instance type. Generally, a small instance will work just fine. For example: `t2.medium`. You can find more info about instance types on [Amazon's website](https://aws.amazon.com/ec2/instance-types/){:target="new"}.
+          4. On the next page, you'll select the instance type. Generally, a small instance will work just fine. For example: `t2.small`. You can find more info about instance types on [Amazon's website](https://aws.amazon.com/ec2/instance-types/){:target="new"}.
 
              After you select the instance type, click the **Configure Instance Details** button in the lower right corner of the page to continue.
           5. On the Configure Instance Details page, fill in the following fields:
-             - **Network** - Select the same VPC that the database is in. Refer to [Step 1](#verify-database-vpc) if you aren't sure which VPC to use.
-             - **Subnet** - Select the subnet you want to associate with the EC2 instance. This should be a **public** subnet - that is, a subnet with an Internet Gateway - as this will automatically assign a public IP address to machines in the subnet.
-
-               If you’re not sure what subnet to use, simply leave this as the default.
-             - **Auto-assign public IP** - Select **Enable** from the drop-down. This should be enabled to ensure the machine has a public IP address.
+             - **Network**: Select the same VPC that the database is in. Refer to [Step 1](#verify-database-vpc) if you aren't sure which VPC to use.
+             - **Subnet**: Select the public subnet you want to associate with the EC2 instance. **Note**: This must be a public subnet - that is, a subnet with an Internet Gateway - as this will automatically assign a public IP address to machines in the subnet.
+             - **Auto-assign public IP**: Select **Enable** from the drop-down. This is required to ensure the machine has a public IP address.
 
                Here's a look at our setup:
 
@@ -117,7 +138,7 @@ steps:
         content: |
           The second part of creating an SSH server in your VPC is configuring the security group. During this step, you'll add Stitch's IP addresses to the security group, which will allow traffic from Stitch to access the SSH server.
 
-          You can create a **new** Security Group or update an existing one. For this tutorial, we'll create a new group.
+          You can create a new Security Group or update an existing one. For this tutorial, we'll create a new group.
 
           1. In the **Assign a security group** field, select **Create a new security group**.
           2. In the **Security group name** field, enter a unique name for the Security Group. For example: `Stitch Bastion`
@@ -156,62 +177,93 @@ steps:
           - In the **Instance Details** section:
              - **Network**: This field should contain the ID of the same VPC that the database is in.
              - **Subnet**: This field should contain the ID of a public subnet.
-             - **Assign Public IP & Assign IPv6 IP:** We strongly recommend using a [public subnet with the instance](#configure-ec2-instance) and auto-assigning a public IP address. This will ensure that Stitch can access the instance.
+             - **Assign Public IP**: This field should have a value of `Yes`.
+             - **Assign IPv6 IP**: This field should contain the value `Enable`. This indicates that the **Auto-assign public IP** setting from [Step 2.1](#configure-ssh-server) was defined correctly.
 
           After you're reviewed the instance's settings, click the **Launch** button in the lower right corner to launch the instance.
 
-          **Note**: It may take a few minutes for the instance creation process to complete. The status in the VPC Dashboard page will change to `Available` when the instance is ready.
+          **Note**: It may take a few minutes for the instance creation process to complete. The status in the EC2 Dashboard page will change to `Available` when the instance is ready.
 
   - title: "Enable the SSH server to access the database"
     anchor: "enable-ssh-server-access"
     content: |
       After the EC2 instance has finished initializing, you can move onto configuring the access rules for database. In this section, you'll create a VPC Security Group that will forward traffic from the SSH server (EC2 instance) to the database in the private subnet.
+
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
     
     substeps:
-      - title: "Retrieve the VPC's IPv4 CIDR"
-        anchor: "retrieve-vpc-ip"
+      - title: "Retrieve the SSH server's connection details"
+        anchor: "retrieve-ssh-connection-details"
         content: |
-          In this step, you'll retrieve the SSH server's IP address, or IPv4 CIDR. This value will be followed by a slash and a number between 0 and 32. For example: `10.0.0.0/16`
+          In this step, you'll retrieve the SSH server's public DNS (IPv4) and private IP address. This info will be used to set up the VPC security group in the next step, and eventually complete the setup in Stitch.
 
-          1. Navigate to the VPC Management Console in AWS. If you use the **Services** menu (top left corner), click the **VPC** option under the **Networking & Content Delivery** section.
-          2. On the VPC Dashboard, click the **Your VPCs** option under **Virtual Private Cloud** in the menu on the left side of the page.
-          3. A list of all the VPCs you have access to in your AWS account will display. Locate the VPC that contains the database and the SSH server.
-          4. Locate the **IPv4 CIDR** column.
+          1. Navigate to the EC2 Management Console in AWS. If you use the **Services** menu (top left corner), click the **EC2** option under the **Compute** section.
+          2. On the EC2 Dashboard, click the **Instances** option under **Instances** in the menu on the left side of the page.
+          3. In this list of instances that displays, locate the SSH server (EC2 instance) you created in Step 2.
+          4. Click the instance. This will display the instance's details in the **Description** tab.
+          5. Locate the **Public DNS (IPv4)** and **Private IPs** fields in this tab:
 
-             If this column isn't in the table, **click on the VPC** to open its details in the bottom section of the page:
+             ![EC2 Description tab with highlighted Public DNS (IPv4) and Private IPs fields highlighted]({{ site.baseurl }}/images/shared/ssh/amazon-ec2-instance-ip-address-fields.png)
 
-             ![VPC details & IPv4 CIDR]({{ site.baseurl }}/images/shared/ssh/amazon-vpc-ipv4-cidr.png)
-          5. Copy and paste the VPC's IPv4 CIDR value somewhere convenient - you'll need it in the next step.
+          6. Copy these values somewhere handy - you'll need them to complete the setup. **Make sure you know which value is which** - confusing these values will prevent a successful connection.
 
-      - title: "Create a database VPC Security Group"
-        anchor: "create-database-vpc-security-group"
+      - title: "Create a database Security Group and whitelist the SSH server"
+        anchor: "create-database-vpc-security-group-whitelist-ssh"
         content: |
-          Now that you've retrieved the SSH server's IP address, you can create a security group that will allow traffic from the SSH server to access the database.
+          In this step, you'll whitelist the SSH server's private IP address in a Security Group. This will allow traffic from the SSH server to access the database.
 
-          1. From the VPC page, click the **Security Groups** option under **Security** in the menu on the left side of the page.
-          2. Click the **Create Security Group** button.
-          3. In the Create Security Group window:
-             - **Name tag**: Enter a name tag if you want; otherwise, leave blank.
-             - **Group name**: Enter `Stitch`, or a unique name for the Security Group.
+          You can create a new Security Group or update an existing one. For this tutorial, we’ll create a new group.
+
+          1. In the menu on the left side of the page, click the **Security Groups** option under **Security**.
+          2. On the page that displays, click the **Create Security Group** button. A window will display.
+          3. Fill in the fields as follows:
+             - **Security group name**: Enter a unique name for the Security Group.
              - **Description**: Enter a brief description of what the group is.
              - **VPC**: Verify that the **VPC containing the database and SSH server** is selected in the drop-down.
-          4. Click **Yes, Create** to create the Security Group.
-
-      - title: "Whitelist the SSH server in the database VPC Security Group"
-        anchor: "whitelist-ssh-server-database-vpc-security-group"
-        content: |
-          1. Locate and click on the Security Group you created in the previous step.
-          2. In the bottom section of the page - where the Security Group's details are displayed - click the **Inbound Rules** tab.
-          3. Click the **Edit** button to create an Inbound rule for the Security Group:
+          4. In the **Security group rules** section, click the **Inbound** tab.
+          5. Click the **Add Rule** button.
+          6. Fill in the fields as follows:
              - **Type:** Select **Custom TCP Rule**.
-             - **Protocol**: This should default to **TCP** - leave it as-is.
-             - **Port Range**: Enter the port used by the database. For example: For a PostgreSQL database, the port might be `5432`.
-             - **Source**: Enter the SSH server's **VPC IPv4 CIDR**. Ex: `10.0.0.0/16`
+             - **Protocol**: This should default to **TCP**.
+             - **Port Range**: Enter the port used by the database you're connecting to Stitch. For example: For a PostgreSQL database, the port might be `5432`.
+             - **Source**: Paste the SSH server's **Private IP** and add `/32` at the end. In CIDR notation, `/32` indicates a specific IP address. In this case, you're creating a rule specifically for the SSH server's private IP address. For example: `172.31.10.171/32`
+          7. Review the settings. Here's what our Security Group looks like:
 
-             Here's what the Inbound rule should look like:
+             ![The Create Security Group window in AWS]({{ site.baseurl }}/images/shared/ssh/amazon-database-security-group.png)
+          8. Click **Create** to create the Security Group.
 
-             ![VPC inbound Security Group rule]({{ site.baseurl }}/images/shared/ssh/amazon-vpc-inbound-security-group-rule.png)
-          4. When finished, click **Save** to create the rule.
+      - title: "Associate the Security Group with the database"
+        anchor: "associate-security-group-with-database"
+        content: |
+          In this step, you'll associate the Security Group from the previous step with the database. This will allow the traffic from the SSH server to access the database.
+
+          Use the instructions below for the type of database you’re connecting to associate the Security Group with the database.
+
+          {% capture rds-sg-instructions %}
+          {{ rds-menu }} 
+          4. Click the **Modify** button near the top right corner of the page. This will open the **Modify DB Instance** page.
+          5. Locate the **Network & Security** section.
+          6. In the **Security group** dropdown, select the Security Group from the previous step:
+             ![The Security Group dropdown in the Modify DB page, highlighted]({{ site.baseurl }}/images/shared/ssh/amazon-rds-associate-security-group.png)
+          7. Scroll to the bottom of the page and click **Continue**.
+          8. On the next page, you'll review the changes and schedule their application. Select the schedule you want in the **Scheduling of modifications** section.
+          9. Click **Modify DB Instance** to apply the changes.
+          {% endcapture %}
+
+          {% include layout/expandable-heading.html content=rds-sg-instructions anchor="rds-security-group-instructions" title="I'm connecting an RDS database." %}
+
+          {% capture redshift-sg-instructions %}
+          {{ redshift-menu }}
+          4. Click the **Cluster** button, then **Modify Cluster**. This will open the Modify Cluster window.
+          5. In the **VPC security groups** field, select the Security Group from the previous step:
+
+             ![The VPC security groups field in the Modify Cluster window, highlighted]({{ site.baseurl }}/images/shared/ssh/amazon-redshift-modify-cluster.png)
+          6. Click **Modify**.
+          {% endcapture %}
+
+          {% include layout/expandable-heading.html content=redshift-sg-instructions anchor="redshift-security-group-instructions" title="I'm connecting a Redshift database." %}
 
   - title: "Retrieve your Public Key"
     anchor: "retrieve-your-public-key"

@@ -53,9 +53,7 @@ field-copy:
             For example, the name “Stitch {{ integration.display_name }}” would create a schema called `stitch_{{ integration.display_name | slugify | replace:"-","_" }}` in the destination. **Note:** The schema name cannot be changed after the integration is saved.
 
   host: |
-    Enter the host address (endpoint) used by the {{ page.display_name }} instance.
-
-            In general, this will be `127.0.0.1` (localhost), but could also be some other network address (ex: `192.68.0.1`) or your server's public IP address. **Note:** This must be the actual address - entering `localhost` into this field will cause connection issues.
+    Enter the host address (endpoint) used by the {{ page.display_name }} instance. For example: This could be a network address such as `192.68.0.1`, or a server endpoint like `dbname.hosting-provider.com`.
 
   host-rds: |
     Paste the **Endpoint** address from the {{ page.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
@@ -80,11 +78,32 @@ field-copy:
   ssl: |
     **Note:** The database must support and allow SSL connections for this setting to work correctly.
 
-  ssh-host: &ssh-host-copy "Enter the IP address or hostname of the server Stitch will SSH into."
+  ssh-host: &ssh-host-copy |
+    {% case page.hosting-type %}
+
+    {% when 'amazon' %}
+    Paste the **Public DNS** of the SSH sever (EC2 instance) into this field. Refer to the [Amazon SSH guide]({{ link.security.ssh-amazon | prepend: site.baseurl }}#retrieve-ssh-connection-details) for instructions on retrieving this info.
+
+    {% when 'microsoft' %}
+    Paste the **Public IP address** of the SSH server (virtual machine) into this field. Refer to the [Microsoft Azure SSH guide]({{ link.security.ssh-microsoft-azure | prepend: site.baseurl }}#retrieve-vm-connection-details) for instructions on retrieving this info.
+
+    {% else %}
+    Enter the public IP address or hostname of the server Stitch will SSH into.
+    {% endcase %}
 
   ssh-user: &ssh-user-copy "Enter the Stitch Linux (SSH) user's username."
 
-  ssh-port: &ssh-port-copy "Enter the SSH port on your sever. (`22` by default)"
+  ssh-port: &ssh-port-copy |
+    {% case page.hosting-type %}
+    {% when 'amazon' %}
+    Enter the SSH port of the SSH server (EC2 instance) into this field. This will usually be `22`.
+
+    {% when 'microsoft' %}
+    Enter the SSH port of the SSH server (virtual machine) into this field. This will usually be `22`.
+
+    {% else %}
+    Enter the SSH port on your server. (`22` by default)
+    {% endcase %}
 
 
 # -------------------------- #
@@ -92,12 +111,12 @@ field-copy:
 # -------------------------- #
 
 ssh:
-  - name: Remote Address
-    copy: &ssh-host-copy "Enter the IP address or hostname of the server Stitch will SSH into."
-  - name: &ssh-port SSH Port
-    copy: &ssh-port-copy "Enter the SSH port on your server. (`22` by default)"
-  - name: &ssh-user SSH User
-    copy: &ssh-user-copy "Enter the Stitch Linux (SSH) user’s username."
+  - name: "Remote Address"
+    copy: *ssh-host-copy
+  - name: *ssh-port
+    copy: *ssh-port-copy
+  - name: *ssh-user
+    copy: *ssh-user-copy
 
 ssh-singer:
   - name: *ssh-host

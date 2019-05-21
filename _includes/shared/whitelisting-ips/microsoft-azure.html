@@ -19,7 +19,7 @@ For the connection from Stitch to be successful, you'll need to configure the fi
 3. In the sidenav, click **SQL databases**.
 4. On the page that displays, click the name of the database you want to connect to Stitch.
 5. The details page for the database will display. Click the link in the **Server name** field.
-6. The details page for the server will display. Click the **Show firewall settings** link in the **Firewalls and virutal networks** field.
+6. The details page for the server will display. Click the **Show firewall settings** link in the **Firewalls and virtual networks** field.
 
 
 {% case include.type %}
@@ -28,8 +28,8 @@ For the connection from Stitch to be successful, you'll need to configure the fi
 {% when 'ssh' %}
 7. Create a rule for the virutal machine's IP address:
    - **Rule name**: Enter a name for the rule. For example: `Stitch VM`
-   - **Start IP**: Paste the virtual machine's public IP address.
-   - **End IP**: Paste the virtual machine's public IP address again.
+   - **Start IP**: Paste the virtual machine's private IP address.
+   - **End IP**: Paste the virtual machine's private IP address again.
 
    Below is what the rule should look like when finished:
    

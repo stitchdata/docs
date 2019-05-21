@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_item_supply_plan"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/itemsupplyplan.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/itemsupplyplan.html
 description: |
   The `{{ table.name }}` table contains info about item supply plans.
 
 replication-method: "Key-based Incremental"
 abstract: false
 
-permissions:
-  - name: "Item Supply Plan"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "item-supply-plan"
 
 attributes:
   - name: "internalId"

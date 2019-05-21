@@ -3,16 +3,14 @@ tap: "netsuite"
 version: "10-15-2015" 
 
 name: "netsuite_customer"  
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/customersearchbasic.html?mode=package 
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/customer.html 
 description: |
   The `{{ table.name }}` table contains info about customers. 
 replication-method: "Key-based Incremental"  
 abstract: false 
 
-permissions: 
-  - name: "Customer Profile"  
-    level: "View" 
-    location: "Lists" 
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "customer"
 
 attributes:  
   - name: "internalId"  

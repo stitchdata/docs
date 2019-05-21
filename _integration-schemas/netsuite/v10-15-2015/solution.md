@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015" 
 
 name: "netsuite_solution" 
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/solution.html
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/solution.html
 description: |
   The `{{ table.name }}` table contains info about solutions.
 
 replication-method: "Key-based Incremental" 
 abstract: false 
 
-permissions: 
-  - name: "Knowledge Base"  
-    level: "View" 
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "solution"
 
 attributes: 
   - name: "internalId" 

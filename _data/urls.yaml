@@ -49,7 +49,7 @@ security:
   encryption: /account-security/data-encryption
   ssh-generic: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
   ssh-amazon: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
-  ssh-microsoft-azure: /security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
+  ssh-microsoft-azure: /account-security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
 
 
 # -------------------------- #
@@ -187,8 +187,11 @@ replication:
 ## Historical Data & Progress
   saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
   rep-progress: /replication/monitoring-replication-progress
-  extraction-logs: /replication/integration-extraction-logs
   loading-reports: /replication/integration-loading-reports
+
+  extractions-tab: /replication/extractions
+  extraction-logs: /replication/extractions/integration-extraction-logs
+  start-stop-extraction: /replication/extractions/start-stop-extraction-jobs
 
 
 # -------------------------- #

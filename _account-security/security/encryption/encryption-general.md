@@ -31,6 +31,8 @@ intro: |
   {% for section in page.sections %}
   - [{{ section.title }}](#{{ section.anchor }})
   {% endfor %}
+  In this guide, we'll cover Stitch's supported connection options and provide links to additional resources.
+
 
 # -------------------------- #
 #           Content          #
@@ -54,13 +56,13 @@ sections:
   - title: "SSL connections"
     anchor: "ssl-connections"
     content: |
-      [Secure Sockets Layer](https://www.verisign.com/en_US/website-presence/online/ssl-certificates/index.xhtml){:target="new"}, or SSL, is a standard security technology used to establish encrypted communication between a web server and a browser. SSL ensures that communication to and from Stitch remains private and secure.
+      [SSL/TLS](https://www.verisign.com/en_US/website-presence/online/ssl-certificates/index.xhtml){:target="new"} is a standard security technology used to establish encrypted communication between a web server and a browser. SSL/TLS ensures that communication to and from Stitch remains private and secure.
 
     subsections:
       - title: "Stitch application access"
         anchor: "stitch-application"
         content: |
-          Access to the Stitch application enforces SSL to ensure your login credentials remain secure.
+          The Stitch application enforces SSL to ensure all communication with Stitch remains secure.
 
       - title: "Connections that use verified SSL by default"
         anchor: "connections-ssl-default"
@@ -74,7 +76,7 @@ sections:
       - title: "Connections with configurable SSL options"
         anchor: "connections-configurable-ssl"
         content: |
-          For non-web-hosted database connections, Stitch may support configurable SSL. To use SSL with a database Stitch supports, the database support and allow SSL connections.
+          For some integrations - for example, a database hosted on your server - Stitch may support configurable SSL. To use SSL with a database Stitch supports, the database must be configured to support and allow SSL connections.
 
           **Note**: SSL connections are not supported for all databases. Refer to the [documentation for the database]({{ site.baseurl }}/integrations/databases) for SSL support details.
 
@@ -103,7 +105,7 @@ sections:
   - title: "Advanced connectivity"
     anchor: "advanced-connectivity"
     content: |
-      Additional connection options may be implemented as part of a Stitch Enterprise plan. This includes:
+      Additional connection options are available as part of a Stitch Enterprise plan. This includes:
 
       - Virtual Private Network (VPN)
       - Reverse SSH tunneling

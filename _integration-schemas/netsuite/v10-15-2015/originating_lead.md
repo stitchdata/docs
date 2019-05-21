@@ -3,17 +3,15 @@ tap: "netsuite"
 version: "10-15-2015"
 
 name: "netsuite_originating_lead"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/schema/search/originatingleadsearchbasic.html?mode=package
+doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2015_1/schema/record/originatinglead.html
 description: |
   The `{{ table.name }}` table contains info about originating leads.
 
 replication-method: "Key-based Incremental"
 abstract: true
 
-permissions:
-  - name: "Customers"
-    level: "View"
-    location: "Lists"
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "originating-lead"
 
 attributes:
   - name: "internalId"

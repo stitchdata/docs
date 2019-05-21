@@ -74,7 +74,7 @@ steps:
     content: |
       Next, you'll configure the database to allow traffic from the SSH server.
 
-      In your database's firewall, whitelist the SSH server's public IP address to allow it to access the database's port. For example: For PostgreSQL databases, the default port is `5432`.
+      In your database's firewall, whitelist the SSH server's private IP address to allow it to access the database's port. For example: For PostgreSQL databases, the default port is `5432`.
 
   - title: "Retrieve your Public Key"
     anchor: "retrieve-your-public-key"

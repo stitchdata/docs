@@ -1,6 +1,6 @@
 items:
   - name: "AssemblyItem"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/assemblyitem.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/assemblyitem.html"
   - name: "DescriptionItem"
   - name: "DiscountItem"
   - name: "DownloadItem"
@@ -25,63 +25,231 @@ items:
   - name: "ServiceSaleItem"
   - name: "SubtotalItem"
 
+# Lists > Items (View)
 
 transactions:
   - name: "AssemblyBuild"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/assemblybuild.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/assemblybuild.html"
+    netsuite-ui: "Assembly Build"
+    feature-required: &ai "Assembly Items"
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *ai
+
   - name: "AssemblyUnbuild"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/assemblyunbuild.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/assemblyunbuild.html"
+    netsuite-ui: "Assembly Unbuild"
+    feature-required: *ai
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *ai
+
   - name: "BinTransfer"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/bintransfer.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/bintransfer.html"
+    netsuite-ui: "Bin Transfer"
+    feature-required: &bm "Bin Management"
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *bm
+
   - name: "BinWorksheet"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/binworksheet.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/binworksheet.html"
+    netsuite-ui: "Bin Putaway Worksheet"
+    feature-required: *bm
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *bm
+
   - name: "CashRefund"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/cashrefund.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/cashrefund.html"
+    netsuite-ui: "Cash Sale Refund"
+
   - name: "CashSale"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/cashsale.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/cashsale.html"
+    netsuite-ui: "Cash Sale"
+
   - name: "Check"
+    netsuite-ui: "Check"
+
   - name: "CreditMemo"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/creditmemo.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/creditmemo.html"
+    netsuite-ui: "Credit Memo"
+
   - name: "CustomerDeposit"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/customerdeposit.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customerdeposit.html"
+    netsuite-ui: "Customer Deposit"
+
   - name: "CustomerPayment"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/customerpayment.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customerpayment.html"
+    netsuite-ui: "Customer Payment"
+
   - name: "CustomerRefund"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/customerrefund.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customerrefund.html"
+    netsuite-ui: "Customer Refund"
+
   - name: "Deposit"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/deposit.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/deposit.html"
+    netsuite-ui: "Deposit"
+
   - name: "DepositApplication"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/depositapplication.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/depositapplication.html"
+    netsuite-ui: "Deposit Application"
+
   - name: "Estimate"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/estimate.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/estimate.html"
+    netsuite-ui: "Estimate"
+    feature-required: &es "Estimates"
+    feature-requirements:
+      - tab: "Transactions"
+        name: *es
+
   - name: "ExpenseReport"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/expensereport.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/expensereport.html"
+    netsuite-ui: "Expense Report"
+    feature-required: *es
+    feature-requirements:
+      - tab: "Transactions"
+        name: *es
+
   - name: "InventoryTransfer"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/inventorytransfer.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inventorytransfer.html"
+    netsuite-ui: "Inventory Transfer"
+    feature-required: &mli "Multi-Location Inventory" 
+    feature-requirements:
+      - tab: "Company"
+        name: Locations"
+      - tab: "Items & Inventory"
+        name: "Inventory"
+      - tab: "Items & Inventory"
+        name: *mli
+
   - name: "InterCompanyJournalEntry"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/intercompanyjournalentry.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/intercompanyjournalentry.html"
+    netsuite-ui: "Intercompany Journal Entry"
+
   - name: "InventoryAdjustment"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/inventoryadjustment.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inventoryadjustment.html"
+    netsuite-ui: "Inventory Adjustment"
+    feature-required: &inv "Inventory"
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *inv
+
   - name: "InventoryCostRevaluation"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/inventorycostrevaluation.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/inventorycostrevaluation.html"
+    netsuite-ui: "Revalue Inventory Cost"
+    feature-required: &sc "Standard Costing"
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *sc
+
   - name: "Invoice"
-    doc-link: http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/invoice.html"
+    doc-link: http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/invoice.html"
+    netsuite-ui: "Invoice"
+
   - name: "ItemFulfillment"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/itemfulfillment.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemfulfillment.html"
+    netsuite-ui: "Item Fulfillment"
+
   - name: "ItemReceipt"
+    netsuite-ui: "Item Receipt"
+    feature-required: &advr "Advanced Receiving"
+    feature-requirements:
+      - tab: "Transactions"
+        name: *advr
+
   - name: "JournalEntry"
-    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/schema/record/journalentry.html"
+    doc-link: "http://www.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/journalentry.html"
+    netsuite-ui: "Journal Entry"
+
   - name: "PaycheckJournal"
+    netsuite-ui: &pj "Paycheck Journal"
+    feature-required: *pj
+    feature-requirements:
+      - tab: "Company"
+        name: *pj
+
   - name: "PurchaseOrder"
+    netsuite-ui: &po "Purchase Order"
+    feature-required: *po
+    feature-requirements:
+      - tab: "Transactions"
+        name: *po
+
   - name: "ReturnAuthorization"
+    netsuite-ui: &rc "Return Authorization"
+    feature-required: *rc
+    feature-requirements:
+      - tab: "Transactions"
+        name: *rc
+
   - name: "SalesOrder"
+    netsuite-ui: "Sales Order"
+    feature-required: &so "Sales Orders"
+    feature-requirements:
+      - tab: "Transactions"
+        name: *so
+
   - name: "StatisticalJournalEntry"
+    netsuite-ui: "Statistical Journal Entry"
+    feature-required: &sa "Statistical Accounts"
+    feature-requirements:
+      - tab: "Accounting"
+        name: *sa
+
   - name: "TransferOrder"
+    netsuite-ui: "Transfer Order"
+    feature-required: *mli
+    feature-requirements:
+      - tab: "Company"
+        name: Locations"
+      - tab: "Items & Inventory"
+        name: "Inventory"
+      - tab: "Items & Inventory"
+        name: *mli
+
   - name: "VendorBill"
+    netsuite-ui: "Bills"
+
   - name: "VendorCredit"
+    netsuite-ui: "Enter Vendor Credits"
+
   - name: "VendorPayment"
+    netsuite-ui: "Pay Bills"
+
   - name: "VendorReturnAuthorization"
+    netsuite-ui: &vra "Vendor Return Authorization"
+    feature-required: *vra
+    feature-requirements:
+      - tab: "Transactions"
+        name: *vra
+
   - name: "WorkOrder"
+    netsuite-ui: "Work Order"
+    feature-required: "Assembly Items and Work Orders"
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: "Assembly Items"
+      - tab: "Items & Inventory"
+        name: "Work Orders"
+
   - name: "WorkOrderClose"
+    netsuite-ui: "Work Order Close"
+    feature-required: &mwip "Manufacturing Work In Progress (WIP)"
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *mwip
+
   - name: "WorkOrderCompletion"
+    netsuite-ui: "Work Order Completion"
+    feature-required: *mwip
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *mwip
+
   - name: "WorkOrderIssue"
+    netsuite-ui: "Work Order Issue"
+    feature-required: *mwip
+    feature-requirements:
+      - tab: "Items & Inventory"
+        name: *mwip
