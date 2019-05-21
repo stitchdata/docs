@@ -29,7 +29,7 @@ structural-changes: |
   Detected and automatically handled by Stitch
 
 configuration-requirements: |
-  A `TIMESTAMP`, `DATETIME`, or `INTEGER` column suitable as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+  A `TIMESTAMP`, `DATETIME`, `INTEGER`, or `NUMBER` (Oracle only) column suitable as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
 
   **Note**: Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for considerations specific to MongoDB.
 
