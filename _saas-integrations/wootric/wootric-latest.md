@@ -21,7 +21,7 @@ repo-url: https://github.com/singer-io/tap-wootric
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Coming Soon"
+status: "Deprecated"
 certified: false
 
 historical: "1 year"
