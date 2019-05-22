@@ -75,7 +75,7 @@ log-based-replication-read-replica: false
 
 ## Other Replication Methods
 
-key-based-incremental-replication: false
+key-based-incremental-replication: true
 full-table-replication: true
 
 view-replication: false
@@ -258,8 +258,6 @@ replication-sections:
       To identify new and updated data, Stitch uses {{ integration.display_name }}'s [Approximate Commit System Change Numbers]({{ site.data.taps.links[integration.name]reference-docs.commit-scn }}){:target="new"}, or SCNs, as [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}). When reading from the database's logs, records with an SCN value greater than the maximum SCN from the previous job will be replicated.
 
       Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for a more detailed explanation, examples, and the limitations associated with this replication method.
-
-      **Note**: Stitch currently supports Log-based Incremental and Full Table Replication for {{ integration.display_name }} integrations. Other replication methods are not currently supported.
 
   - title: "Data typing and LogMiner (Log-based Incremental Replication)"
     anchor: "data-typing-logminer-replication"

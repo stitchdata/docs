@@ -3,8 +3,7 @@
 {% when 'oracle' %}
 
 {% capture log-based-notice %}
-1. Log-based Incremental Replication via LogMiner is the only incremental replication method supported for {{ integration.display_name }} integrations at this time. If you choose not to enable this replication method, you will be required to use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}).
-2. Some data types may not be supported for Log-based Incremental Replication. Refer to the [Data typing and LogMiner section](#data-typing-logminer-replication) for more info.
+Some data types may not be supported for Log-based Incremental Replication. Refer to the [Data typing and LogMiner section](#data-typing-logminer-replication) for more info.
 {% endcapture %}
 
 {% include note.html first-line="**Note: Log-based Incremental Replication**" content=log-based-notice %}
