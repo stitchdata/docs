@@ -68,7 +68,7 @@ examples:
                 "type":"postgres",
                 "properties": {
                   "host": "<HOST>",
-                  "port": 5432,
+                  "port": "5432",
                   "username": "<USERNAME>",
                   "database": "<DATABASE>",
                   "password": "<PASSWORD>",
