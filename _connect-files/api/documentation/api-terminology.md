@@ -26,6 +26,10 @@ all-terms:
     definition: |
       {{ site.data.tooltips.connection-check }}
 
+  - name: "Replication job"
+    definition: |
+      {{ site.data.tooltips.replication-job }}
+
   - name: "Structure sync"
     definition: |
       {{ site.data.tooltips.structure-sync }} This is also referred to as discovery.
