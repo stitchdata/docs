@@ -13,7 +13,7 @@ order: 9
 # -------------------------- #
 
 title: "Replication Job"
-description: "{{ api.core-objects.replication-jobs.description }}"
+description: "{{ api.core-objects.replication-jobs.description | flatify }}"
 endpoint-url: "/sources/{source_id}/sync"
 
 

@@ -303,12 +303,17 @@ core-objects:
       description: |
         {{ api.core-objects.streams.update.short }} This endpoint is used to define the `metadata` properties returned in the [Stream Schema object's]({{ api.data-structures.stream-schemas.section }}) `non-discoverable-metadata-keys` property.
 
+# -------------------------- #
+#      REPLICATION JOBS      #
+# -------------------------- #
+
   replication-jobs:
     title: "Replication Jobs"
     section: "#replication-jobs"
     object: "#replication-job--object"
     base: "/v4/sources/{source_id}/sync"
-    description: "todo."
+    description: |
+      {{ site.data.tooltips.replication-job }}
 
     post:
       name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
