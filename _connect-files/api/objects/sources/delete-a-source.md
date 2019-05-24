@@ -16,7 +16,7 @@ version: "4"
 title: "Delete a source"
 method: "delete"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{source_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 
@@ -29,7 +29,7 @@ description: "{{ api.core-objects.sources.delete.description }}"
 # -------------------------- #
 
 arguments:
-  - name: "id"
+  - name: "source_id"
     required: true
     type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the source to be deleted."
@@ -54,7 +54,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{}"

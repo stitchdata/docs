@@ -9,7 +9,7 @@ base: "/v4/destination-types"
 description: "The Destination Type object contains the information needed to configure a destination."
 
 get:
-  name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{type}"
+  name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{destination_type}"
   title: "Get a destination type"
   method: *get
   anchor: "#get-a-destination-type"
@@ -17,7 +17,7 @@ get:
   description: |
     {{ site.data.connect.api.core-objects.destination-types.get.short }}
 
-    **Note**: This endpoint doesn't retrieve information about the specific configuration of a destination in a single account. Instead, it will return general configuration information for the specified destination `type`.
+    **Note**: This endpoint doesn't retrieve information about the specific configuration of a destination in a single account. Instead, it will return general configuration information for the specified destination `destination_type`.
 
     To retrieve specific information about the destination for an account, use the [List Destinations]({{ site.data.connect.api.core-objects.destinations.list.anchor }}) endpoint.
 

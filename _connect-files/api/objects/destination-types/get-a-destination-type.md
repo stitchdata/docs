@@ -16,7 +16,7 @@ version: "4"
 title: "Get a destination type"
 method: "get"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{type}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{destination_type}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: |
@@ -30,7 +30,7 @@ description: |
 # -------------------------- #
 
 arguments:
-  - name: "type"
+  - name: "destination_type"
     required: true
     type: "string"
     description: |
@@ -56,7 +56,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{type","snowflake" | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{destination_type","snowflake" | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 

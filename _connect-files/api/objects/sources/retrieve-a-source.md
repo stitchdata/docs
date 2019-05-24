@@ -16,7 +16,7 @@ version: "4"
 title: "Retrieve a source"
 method: "get"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{source_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.sources.retrieve.description }}"
@@ -28,7 +28,7 @@ description: "{{ api.core-objects.sources.retrieve.description }}"
 # -------------------------- #
 
 arguments:
-  - name: "id"
+  - name: "source_id"
     required: true
     type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the data source to be retrieved."
@@ -52,7 +52,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
   - type: "Response"

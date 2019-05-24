@@ -16,7 +16,7 @@ version: "4"
 title: "Get a source type"
 method: "get"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{type}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{source_type}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.get.short }}"
@@ -28,7 +28,7 @@ description: "{{ api.core-objects.source-types.get.description | flatify }}"
 # -------------------------- #
 
 arguments:
-  - name: "type"
+  - name: "source_type"
     required: true
     type: "string"
     description: |
@@ -52,7 +52,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{type","platform.hubspot" | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
