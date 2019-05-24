@@ -16,7 +16,7 @@ version: "4"
 title: "Update a destination"
 method: "put"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{destination_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.destinations.update.short }}"
@@ -28,7 +28,7 @@ description: "{{ api.core-objects.destinations.update.description | flatify }}"
 # -------------------------- #
 
 arguments:
-  - name: "id"
+  - name: "destination_id"
     required: true
     type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the destination to be updated."
@@ -60,7 +60,8 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
+      {% assign right-bracket = "}" %}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{destination_id","86741" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
