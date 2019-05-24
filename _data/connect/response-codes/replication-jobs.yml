@@ -1,0 +1,60 @@
+# -------------------------------- #
+#  REPLICATION JOB ENDPOINT ERRORS #
+# -------------------------------- #
+
+all:
+  - code: "200"
+    responses:
+      - method: "post"
+        condition: "Replication job is already in progress"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "type": "already_running",
+              "message": "Did not create job for client-id: <CLIENT_ID>; connection-id: <SOURCE_ID> because one already exists"
+            }
+          }
+          ```
+
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "Invalid source ID"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "type": "invalid_source",
+              "message": "Unable to locate source(<SOURCE_ID>) for client (<CLIENT_ID>)"
+            }
+          }
+          ```
+
+      - method: "post"
+        condition: "Source has been deleted"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "type": "invalid_source",
+              "message": "Integration is deleted."
+            }
+          }
+          ```
+
+      # - method: "post"
+      #   condition: ""
+      #   version: "all"
+      #   response-body: |
+      #     ```json
+      #     {
+      #       "error": {
+      #         "type": "generic",
+      #         "message": "Could not create job for client-id: <CLIENT_ID>; connection-id: <SOURCE_ID>"
+      #       }
+      #     }
+      #     ```
