@@ -4,8 +4,8 @@
 # -------------------------- #
 
 content-type: "api-endpoint"
-endpoint: "destinations"
-key: "delete-a-destination"
+endpoint: "replication-jobs"
+key: "stop-a-job"
 version: "4"
 
 
@@ -13,15 +13,14 @@ version: "4"
 #       METHOD DETAILS       #
 # -------------------------- #
 
-title: "Delete a destination"
+title: "Stop a replication job"
 method: "delete"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{destination_id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-
-short: "{{ api.core-objects.destinations.delete.description }}"
-description: "{{ api.core-objects.destinations.delete.description | flatify }}"
+short: "{{ api.core-objects.replication-jobs.delete.description }}"
+description: "{{ api.core-objects.replication-jobs.delete.description }}"
 
 
 # -------------------------- #
@@ -29,12 +28,13 @@ description: "{{ api.core-objects.destinations.delete.description | flatify }}"
 # -------------------------- #
 
 arguments:
-  - name: "destination_id"
+  - name: "source_id"
     required: true
     type: "path parameter"
-    description: "A path parameter corresponding to the unique ID of the destination to be deleted."
+    description: |
+      A path parameter corresponding to the [unique ID of the source]({{ api.core-objects.sources.object }}).
     example-value: |
-      120406
+      120643
 
 
 # -------------------------- #
@@ -42,7 +42,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an empty body.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an object with a `status` property with a value of `200`.
 
 
 # ------------------------------ #
@@ -54,14 +54,14 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{destination_id","155582" | remove: right-bracket | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120643" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
   - type: "Response"
     language: "json"
     code: |
-      {}
-
-  - type: "Errors"
+      {
+        "status": 200
+      }
 ---

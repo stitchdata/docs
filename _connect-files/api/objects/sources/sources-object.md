@@ -89,9 +89,12 @@ object-attributes:
 
   - name: "properties"
     type: "object"
-    sub-type: "properties"
-    url: "{{ api.data-structures.properties.section }}"
-    description: "{{ connect.common.attributes.properties | flatify }}"
+    sub-type: " source form properties"
+    url: "{{ api.form-properties.source-forms.section }}"
+    description: |
+      Parameters for connecting to the source, excluding any sensitive credentials. The parameters must adhere to the `type` of source.
+
+      **Note**: When included in responses, this object will contain the current values for the source's form properties. If an optional property (`is_required: false`) has not been provided, it will not be present in this object.
 
   - name: "report_card"
     type: "object"
