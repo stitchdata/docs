@@ -40,9 +40,9 @@ object-attributes:
     sub-type: "destination form properties"
     url: "{{ api.form-properties.destination-forms.section }}"
     description: |
-      Parameters for connecting to the destination, excluding any sensitive credentials.
+      Parameters for connecting to the destination, excluding any sensitive credentials. The parameters must adhere to the `type` of destination.
 
-      The parameters must adhere to the `type` of destination.
+      **Note**: When included in responses, this object will contain the current values for the destination's form properties. If an optional property (`is_required: false`) has not been provided, it will not be present in this object.
 
   - name: "report_card"
     type: "object"
