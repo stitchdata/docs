@@ -67,8 +67,8 @@ examples:
                     "properties": {
                       "host":"<HOST>",
                       "port":"5432",
-                      "username":"<USERNAME>",
-                      "database":"<DATABASE>",
+                      "username":"stitch",
+                      "database":"demni2mf59dt10",
                       "password":"<PASSWORD>",
                       "ssl":false
                       }
@@ -82,24 +82,28 @@ examples:
         code: |
           {
             "properties": {
-              "database": "<DATABASE>",
+              "database": "demni2mf59dt10",
+              "encryption_type": "none",
               "host": "<HOST>",
               "port": "5432",
-              "username": "<USERNAME>"
+              "ssl": "true",
+              "status": "1",
+              "username": "stitch"
             },
-            "updated_at": "2019-01-09T22:16:23Z",
-            "check_job_name": null,
+            "updated_at": "2019-05-24T18:04:08Z",
             "name": "Default Warehouse",
             "type": "postgres",
             "deleted_at": null,
             "system_paused_at": null,
-            "stitch_client_id": <CLIENT_ID>,
+            "stitch_client_id": 116078,
             "paused_at": null,
-            "id": <DESTINATION_ID>,
-            "created_at": "2019-01-09T22:16:23Z",
+            "id": 155582,
+            "display_name": null,
+            "created_at": "2019-05-24T18:03:50Z",
             "report_card": {
               "type": "postgres",
-              "current_step": 1,
+              "current_step": 2,
+              "current_step_type": "fully_configured",
               "steps": [
                 {
                   "type": "form",
@@ -107,19 +111,20 @@ examples:
                     {
                       "name": "database",
                       "is_required": true,
-                      "provided": true,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string"
-                      }
+                      },
+                      "provided": true
                     },
                     {
                       "name": "encryption_host",
                       "is_required": false,
-                      "provided": false,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "anyOf": [
                           {
@@ -135,46 +140,50 @@ examples:
                             "format": "hostname"
                           }
                         ]
-                      }
+                      },
+                      "provided": false
                     },
                     {
                       "name": "encryption_port",
                       "is_required": false,
-                      "provided": false,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string",
                         "pattern": "^\\d+$"
-                      }
+                      },
+                      "provided": false
                     },
                     {
                       "name": "encryption_type",
                       "is_required": true,
-                      "provided": false,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string",
                         "pattern": "^(ssh|none)$"
-                      }
+                      },
+                      "provided": true
                     },
                     {
                       "name": "encryption_username",
                       "is_required": false,
-                      "provided": false,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string"
-                      }
+                      },
+                      "provided": false
                     },
                     {
                       "name": "host",
                       "is_required": true,
-                      "provided": true,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "anyOf": [
                           {
@@ -190,58 +199,64 @@ examples:
                             "format": "hostname"
                           }
                         ]
-                      }
+                      },
+                      "provided": true
                     },
                     {
                       "name": "password",
                       "is_required": true,
-                      "provided": true,
                       "is_credential": true,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string"
-                      }
+                      },
+                      "provided": true
                     },
                     {
                       "name": "port",
                       "is_required": true,
-                      "provided": true,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string",
                         "pattern": "^\\d+$"
-                      }
+                      },
+                      "provided": true
                     },
                     {
                       "name": "ssl",
                       "is_required": true,
-                      "provided": false,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "boolean"
-                      }
+                      },
+                      "provided": true
                     },
                     {
                       "name": "sslrootcert",
                       "is_required": false,
-                      "provided": false,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string"
-                      }
+                      },
+                      "provided": false
                     },
                     {
                       "name": "username",
                       "is_required": true,
-                      "provided": true,
                       "is_credential": false,
                       "system_provided": false,
+                      "property_type": "user_provided",
                       "json_schema": {
                         "type": "string"
-                      }
+                      },
+                      "provided": true
                     }
                   ]
                 },

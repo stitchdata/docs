@@ -56,7 +56,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{destination_type","snowflake" | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{destination_type","redshift" | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 
@@ -64,8 +64,154 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      HTTP/1.1 200 OK
-      Content-Type: application/json;charset=ISO-8859-1
-      
-      {{ site.data.connect.code-examples.destination-report-cards.snowflake | remove: "+*" }}
+      {
+        "type": "redshift",
+        "current_step": 1,
+        "current_step_type": "form",
+        "steps": [
+          {
+            "type": "form",
+            "properties": [
+              {
+                "name": "database",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_host",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    {
+                      "type": "string",
+                      "format": "ipv6"
+                    },
+                    {
+                      "type": "string",
+                      "format": "hostname"
+                    }
+                  ]
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_port",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^\\d+$"
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_type",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^(ssh|none)$"
+                },
+                "provided": false
+              },
+              {
+                "name": "encryption_username",
+                "is_required": false,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              },
+              {
+                "name": "host",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    {
+                      "type": "string",
+                      "format": "ipv6"
+                    },
+                    {
+                      "type": "string",
+                      "format": "hostname"
+                    }
+                  ]
+                },
+                "provided": false
+              },
+              {
+                "name": "password",
+                "is_required": true,
+                "is_credential": true,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              },
+              {
+                "name": "port",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string",
+                  "pattern": "^\\d+$"
+                },
+                "provided": false
+              },
+              {
+                "name": "username",
+                "is_required": true,
+                "is_credential": false,
+                "system_provided": false,
+                "property_type": "user_provided",
+                "json_schema": {
+                  "type": "string"
+                },
+                "provided": false
+              }
+            ]
+          },
+          {
+            "type": "fully_configured",
+            "properties": []
+          }
+        ],
+        "details": {
+          "pricing_tier": "standard",
+          "pipeline_state": "released",
+          "protocol": "redshift",
+          "access": true
+        }
+      }
 ---
