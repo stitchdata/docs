@@ -132,13 +132,12 @@ sections:
       - title: "Fully-managed solutions"
         anchor: "fully-managed-solutions"
         content: |
-          [**Azure SQL Data Warehouse**](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/service-maintenance){:target="new"}, [**BigQuery**](https://cloud.google.com/solutions/bigquery-data-warehouse#maintenance){:target="new"}, [**Heroku**](https://devcenter.heroku.com/articles/platform-updates-maintenance-and-notifications){:target="new"}, **Panoply**, and **Snowflake** are fully-managed solutions that include routine maintenance and upgrades in their plans.
+          **Amazon Aurora PostgreSQL RDS**, [**Azure SQL Data Warehouse**](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/service-maintenance){:target="new"}, [**BigQuery**](https://cloud.google.com/solutions/bigquery-data-warehouse#maintenance){:target="new"}, [**Heroku**](https://devcenter.heroku.com/articles/platform-updates-maintenance-and-notifications){:target="new"}, **Panoply**, and **Snowflake** are fully-managed solutions that include routine maintenance and upgrades in their plans.
 
-          **Note**: Setting up Snowflake requires more technical know-how than the other aforementioned destinations.
       - title: "DIY solutions"
-        anchor: ""
+        anchor: "diy-solutions"
         content: |
-          **Redshift, Amazon Postgres-RDS**, and **self-hosted Postgres instances** will require you to perform and schedule maintenance tasks on your own. Spinning up a Redshift and Amazon Postgres-RDS instance will require technical knowledge and familiarity with the Amazon Web Services (AWS) console.
+          **Redshift, Amazon PostgreSQL-RDS**, and **self-hosted Postgres instances** will require you to perform and schedule maintenance tasks on your own. Spinning up a Redshift and Amazon PostgreSQL-RDS instance will require technical knowledge and familiarity with the Amazon Web Services (AWS) console.
 
   - title: "What's the destination's pricing structure?"
     anchor: "pricing"
