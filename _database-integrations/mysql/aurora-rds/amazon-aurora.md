@@ -1,7 +1,6 @@
 ---
 title: Amazon Aurora (MySQL) RDS
 keywords: amazon aurora, aurora mysql, database integration, etl aurora, aurora etl
-tags: [database_integrations]
 permalink: /integrations/databases/amazon-aurora-mysql
 redirect_from: /integration/databases/amazon-aurora
 summary: "Connect and replicate data from your Amazon Aurora RDS database using Stitch's Aurora integration."
@@ -15,7 +14,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "aurora-rds"
-display_name: "Aurora RDS"
+display_name: "Aurora MySQL RDS"
 singer: true
 
 tap-name: "MySQL"
