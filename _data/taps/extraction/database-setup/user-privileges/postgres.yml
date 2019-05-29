@@ -93,6 +93,29 @@ postgresql-rds:
     reason: *rds-replication-reason
     doc-link: *replication-doc
 
+
+# --------------------------------- #
+#  AURORA POSTGRESQL-RDS PRIVILEGES #
+# --------------------------------- #
+
+aurora-postgresql-rds:
+  - name: *connect-name
+    reason: *connect-reason
+    doc-link: *privileges-doc
+
+  - name: *usage-name
+    reason: *usage-reason
+    doc-link: *privileges-doc
+
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *privileges-doc
+
+  - name: *alter-default-privileges-name
+    reason: *alter-default-privileges-reason
+    doc-link: *alter-default-privileges-doc
+
+
 # -------------------------- #
 #         SQL COMMANDS       #
 # -------------------------- #
