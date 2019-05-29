@@ -1,8 +1,8 @@
 ---
-title: Amazon Relational Database System (RDS) integrations
-keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
-permalink: /integrations/databases/amazon-rds
-summary: "Connect and replicate data from your Amazon RDS databases using Stitch's database integrations."
+title: Amazon Aurora integrations
+keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl, aurora, amazon aurora, aurora rds
+permalink: /integrations/databases/amazon-aurora
+summary: "Connect and replicate data from your Amazon Aurora RDS databases using Stitch's database integrations."
 layout: general
 input: false
 
@@ -11,9 +11,9 @@ feedback: false
 
 sections:
     - content: |
-        {% assign all-databases = site.database-integrations | where_exp:"integration","integration.name contains 'rds'" %}
+        {% assign all-databases = site.database-integrations | where_exp:"integration","integration.name contains 'aurora'" %}
 
-        Stitch supports connecting to the following Amazon Relational Database System (RDS) databases as data sources:
+        Stitch supports connecting to both MySQL and PostgreSQL-backed Amazon Aurora databases as data sources:
 
         <ul class="tiles">
             {% for integration in all-databases %}
@@ -35,6 +35,8 @@ sections:
                 {% endif %}
             {% endfor %}
         </ul>
+
+        For the full list of RDS databases Stitch supports, [click here]({{ site.baseurl }}/integrations/databases/amazon-rds).
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -196,6 +196,7 @@ attributes:
     description: |
       Stitch supports using SSH tunnels to connect to the following {{ destination.display_name }}-backed destinations:
 
+      - [Amazon Aurora {{ destination.display_name }}-RDS]({{ link.security.ssh-amazon | prepend: site.baseurl }})
       - [Amazon {{ destination.display_name }}-RDS]({{ link.security.ssh-amazon | prepend: site.baseurl }})
       - [Self-hosted {{ destination.display_name }}]({{ link.security.ssh-generic | prepend: site.baseurl }})
 

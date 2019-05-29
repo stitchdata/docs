@@ -1,7 +1,7 @@
 ---
 title: Amazon Aurora (MySQL) RDS
-keywords: amazon aurora, aurora, database integration, etl aurora, aurora etl
-permalink: /integrations/databases/amazon-aurora
+keywords: amazon aurora, aurora mysql, database integration, etl aurora, aurora etl
+permalink: /integrations/databases/amazon-aurora-mysql
 summary: "Connect and replicate data from your Amazon Aurora RDS database using Stitch's Aurora integration."
 microsites:
   - title: "{{ page.display_name }} to Postgres"
@@ -13,7 +13,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "aurora-rds"
-display_name: "Aurora RDS"
+display_name: "Aurora MySQL RDS"
 singer: true
 
 tap-name: "MySQL"
@@ -74,7 +74,7 @@ view-replication: true
 #      Setup Requirements    #
 # -------------------------- #
 
-notice: "Stitch's {{ integration.display_name }} integration only supports MySQL-backed instances."
+notice: "Stitch's {{ integration.display_name }} integration only supports MySQL-backed instances. To create an **Aurora PostgreSQL** connection, use the **PostgreSQL** integration in Stitch."
 
 requirements-list:
   - item: |

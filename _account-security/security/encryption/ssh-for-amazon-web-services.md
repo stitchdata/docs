@@ -252,7 +252,7 @@ steps:
           9. Click **Modify DB Instance** to apply the changes.
           {% endcapture %}
 
-          {% include layout/expandable-heading.html content=rds-sg-instructions anchor="rds-security-group-instructions" title="I'm connecting an RDS database." %}
+          {% include layout/expandable-heading.html content=rds-sg-instructions anchor="rds-security-group-instructions" title="I'm connecting an Aurora or RDS database." %}
 
           {% capture redshift-sg-instructions %}
           {{ redshift-menu }}

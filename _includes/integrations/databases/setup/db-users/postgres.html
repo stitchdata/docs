@@ -39,10 +39,10 @@ Your organization may require a different process, but the simplest way to creat
 7. If you want to replicate data from multiple databases or schemas, repeat steps 3 - 6 as needed.
 
 <!-- Just for RDS integrations -->
-{% if integration.name contains "rds" %}
+{% if integration.name contains "rds" and integration.log-based-replication-master-instance == true %}
 
 {% capture rds-replication-role %}
-Additionally, if you want to use Log-based Replication, you'll also need to grant the `rds_replication` role to the Stitch user.
+Additionally, if you want to use Log-based Incremental Replication, you'll also need to grant the `rds_replication` role to the Stitch user.
 
 **Note**: Granting this role requires that you have the `rds_superuser` role. Log into the database as a user with the `rds_superuser` role and run the following command:
 

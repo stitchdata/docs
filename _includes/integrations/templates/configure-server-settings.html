@@ -9,7 +9,7 @@ using the type. -->
 {% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
 
     {% if integration.name contains "rds" %}
-        {% assign database-setup = database[database.name] %}
+        {% assign database-setup = database[integration.name] %}
     {% else %}
         {% assign database-setup = database[database-name] %}
     {% endif %}

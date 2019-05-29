@@ -158,3 +158,37 @@ postgresql-rds:
   - name: *schema-names-tables-name
     version: "1.0"
     copy: *schema-names-tables-description
+
+
+# -------------------------- #
+#    AURORA POSTGRES RDS     #
+# -------------------------- #
+
+aurora-postgresql-rds:
+  - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.integration-name | flatify }}"
+
+  - name: "{{ defaults.field-names.host }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.database | flatify }}"
+
+  - name: *schema-names-tables-name
+    version: "1.0"
+    copy: *schema-names-tables-description
