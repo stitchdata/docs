@@ -99,6 +99,20 @@ cloudsql-postgresql:
     command: *select-systems-tables-sql
 
 
+# ---------------------------- #
+#   AMAZON AURORA POSTGRESQL   #
+# ---------------------------- #
+
+aurora-postgresql:
+  - copy: *sql-client-copy
+  - copy: *create-user-copy
+    command: *create-user-sql
+  - copy: *create-database-copy
+    command: *create-database-sql
+  - copy: *systems-tables-copy
+    command: *select-systems-tables-sql
+
+
 # -------------------------- #
 #            HEROKU          #
 # -------------------------- #

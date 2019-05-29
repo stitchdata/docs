@@ -115,6 +115,29 @@ postgres-rds:
 #       app: *ssl-certificate-description
 
 
+
+
+# -------------------------- #
+#    Aurora Postgres-RDS     #
+# -------------------------- #
+
+aurora-postgresql:
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ common.field-copy.destination-database | flatify }}"
+
+
 # -------------------------- #
 #     CloudSQL Postgres      #
 # -------------------------- #
