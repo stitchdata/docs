@@ -77,7 +77,7 @@ notice-copy: |
 
   This article describes how to connect {{ integration.display_name }} **as an input data source.**
 
-  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting an {{ integration.display_name }} Destination guide]({{ link.destinations.setup.aurora-postgresql | prepend: site.baseurl }}).
+  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting an {{ integration.display_name }} Destination guide]({{ link.destinations.setup.aurora-postgres | prepend: site.baseurl }}).
 
 requirements-list:
   - item: |
