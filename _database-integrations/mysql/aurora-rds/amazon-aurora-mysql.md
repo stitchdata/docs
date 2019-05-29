@@ -74,7 +74,7 @@ view-replication: true
 #      Setup Requirements    #
 # -------------------------- #
 
-notice: "Stitch's {{ integration.display_name }} integration only supports MySQL-backed instances."
+notice: "Stitch's {{ integration.display_name }} integration only supports MySQL-backed instances. To create an **Aurora PostgreSQL** connection, use the **PostgreSQL** integration in Stitch."
 
 requirements-list:
   - item: |
