@@ -11,19 +11,19 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 <hr />
 
 <h2>Getting Started</h2>
-<ul class="columns more">
+<ul class="columns more" data-swiftype-index='false'>
 	<li><a href="{{ link.getting-started | prepend: site.baseurl }}">Getting Started Guide</a></li>
 	<li><a href="{{ link.destinations.main | prepend: site.baseurl }}">Destinations</a></li>
 	<li><a href="{{ link.integrations.main | prepend: site.baseurl }}">Integrations</a></li>
 	<li><a href="{{ link.account.team-members | prepend: site.baseurl }}">Adding/removing team members</a></li>
 	<li><a href="{{ link.billing.billing-guide | prepend: site.baseurl }}">Understanding your usage and billing</a></li>
-	<li><a href="{{ link.account.security-faq | prepend: site.baseurl }}">Security</a></li>
-	<li><a href="{{ site.baseurl }}/tag_getting_started">More <span class="arrow"></span></a></li>
+	<li><a href="{{ link.security.main | prepend: site.baseurl }}">Security</a></li>
+	<li><a href="{{ site.baseurl }}/tag_getting_started">More</a></li>
 </ul>
 <hr />
 
 <h2>Replicating Data</h2>
-<ul class="columns more">
+<ul class="columns more" data-swiftype-index='false'>
 	<li><a href="{{ link.replication.overview | prepend: site.baseurl }}">Stitch's replication process</a></li>
 	<li><a href="{{ link.replication.rep-methods | prepend: site.baseurl }}">Replication Methods</a></li>
 	<li><a href="{{ link.replication.rep-keys | prepend: site.baseurl }}">Replication Keys</a></li>
@@ -34,7 +34,7 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 <hr />
 
 <h2>Troubleshooting</h2>
-<ul class="columns more">
+<ul class="columns more" data-swiftype-index='false'>
 	<li><a href="{{ link.troubleshooting.dw-connection-errors | prepend: site.baseurl }}">Destination connection issues</a></li>
 	<li><a href="{{ link.troubleshooting.db-connection-errors | prepend: site.baseurl }}">Database connection issues</a></li>
 	<li><a href="{{ link.troubleshooting.saas-connection-errors | prepend: site.baseurl }}">SaaS integration connection issues</a></li>
@@ -46,7 +46,7 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 <hr />
 
 <h2>Resources</h2>
-<ul class="columns">
+<ul class="columns" data-swiftype-index='false'>
 	<li><a href="{{ site.resources }}">Stitch resources</a></li>
 	<li><a href="{{ site.status }}">Stitch status</a></li>
 	<li><a href="{{ site.changelog }}">Changelog</a></li>

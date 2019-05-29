@@ -11,12 +11,12 @@ Select a default Replication Method:
 - **Log-based Incremental Replication** - Stitch will use Log-based Incremental Replication. Refer to the [Log-based Incremental documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info, examples, and limitations for this method. {% if integration.name == "oracle" %}**Note**: This method can only be used if you completed the [steps for setting up LogMiner](#enable-logminer).{% endif %}
 {% endif %}
 
-{% if integration.key-based-incremental-replication == true %}
-- **Key-based Incremental Replication** - Stitch will use Key-based Incremental Replication. Refer to the [Key-based Incremental documentation]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) for more info, examples, and limitations for this method.
-{% endif %}
-
 {% if integration.full-table-replication == true %}
 - **Full Table Replication** - Stitch will use Full Table Replication. Refer to the [Full Table documentation]({{ link.replication.full-table | prepend: site.baseurl }}) for more info, examples, and limitations for this method.
+{% endif %}
+
+{% if integration.key-based-incremental-replication == true %}
+**Note**: [Key-based Incremental documentation]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) is also available for this integration, but it must be set manually. This is due to Stitch requiring a Replication Key to be selected for every table set to replicate.
 {% endif %}
 
 

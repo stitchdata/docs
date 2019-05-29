@@ -91,7 +91,7 @@ core-objects:
         {{ site.data.connect.api.core-objects.destinations.create.short }} Only a single destination is supported per Stitch client account.
 
     update:
-      name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{destination_id}"
       title: "Update a destination"
       method: &put "put"
       anchor: "#update-a-destination"
@@ -107,7 +107,7 @@ core-objects:
       description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single data warehouse is supported per Stitch client account."
 
     delete:
-      name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{id}"
+      name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{destination_id}"
       title: "Delete a destination"
       method: "delete"
       anchor: "#delete-a-destination"
@@ -129,7 +129,7 @@ core-objects:
     description: "The Destination Type object contains the information needed to configure a destination."
 
     get:
-      name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{type}"
+      name: "{{ site.data.connect.api.core-objects.destination-types.base }}/{destination_type}"
       title: "Get a destination type"
       method: *get
       anchor: "#get-a-destination-type"
@@ -215,7 +215,7 @@ core-objects:
     description: "The Source Type object contains the information needed to configure a data source."
 
     get:
-      name: "{{ site.data.connect.api.core-objects.source-types.base }}/{type}"
+      name: "{{ site.data.connect.api.core-objects.source-types.base }}/{source_type}"
       title: "Get a source type"
       method: *get
       anchor: "#get-a-source-type"
@@ -223,7 +223,7 @@ core-objects:
       description: |
         {{ site.data.connect.api.core-objects.source-types.get.short }}
 
-        **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `type`.
+        **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `source_type`.
 
         To retrieve information about a specific data source, use the [Get a Source]({{ site.data.connect.api.core-objects.sources.retrieve.anchor }}) endpoint.
 
@@ -303,6 +303,31 @@ core-objects:
       description: |
         {{ api.core-objects.streams.update.short }} This endpoint is used to define the `metadata` properties returned in the [Stream Schema object's]({{ api.data-structures.stream-schemas.section }}) `non-discoverable-metadata-keys` property.
 
+# -------------------------- #
+#      REPLICATION JOBS      #
+# -------------------------- #
+
+  replication-jobs:
+    title: "Replication Jobs"
+    section: "#replication-jobs"
+    object: "#replication-job--object"
+    base: "/v4/sources/{source_id}/sync"
+    description: |
+      {{ site.data.tooltips.replication-job }}
+
+    post:
+      name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
+      title: "Start a replication job"
+      method: "post"
+      anchor: "#start-a-job"
+      description: "Starts a replication job for a source using the source's unique identifier."
+
+    delete:
+      name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
+      title: "Stop a replication job"
+      method: "delete"
+      anchor: "#stop-a-job"
+      description: "Stops an in-progress replication job for a source using the source's unique identifier."
 
 # -------------------------- #
 #       DATA STRUCTURES      #
@@ -318,7 +343,7 @@ data-structures:
   details:
     title: "Details"
     section: "#details-object"
-    short: "A Details object contains information about a destination `type`'s availablity within Stitch."
+    short: "A Details object contains information about a destination `type`'s availability within Stitch."
     description: |
       Contained in a [Destination Report Card object]({{ api.data-structures.report-cards.destination.section }}), the Details object contains information about a destination `type`'s availability within Stitch.
 

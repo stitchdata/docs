@@ -4,17 +4,12 @@ that powers their backend, or their settings may be slightly different.
 Use the database's display name to pull the correct settings, versus just
 using the type. -->
 
-{% assign database-name = integration.display_name | downcase | replace: " ","-" %}
+{% assign database-name = integration.display_name | slugify %}
 
 {% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
 
     {% if integration.name contains "rds" %}
-        {% case integration.name %}
-            {% when 'mysql-rds' %}
-                {% assign database-setup = database.mysql-rds %}
-            {% when 'aurora-rds' %}
-                {% assign database-setup = database.aurora-rds %}
-        {% endcase %}
+        {% assign database-setup = database[database.name] %}
     {% else %}
         {% assign database-setup = database[database-name] %}
     {% endif %}

@@ -1,7 +1,0 @@
-A VPC, or Virtual Private Cloud, is a scalable virtual network that resembles a traditional network used in a data center.
-
-All AWS accounts created after December 3, 2014, [include a default VPC in each AWS region](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html). This means that you can use the default VPC to launch your Redshift cluster instead of spinning up your own. 
-
-Steps for creating a VPC are outside the scope of this tutorial, so the examples in this guide will use a default VPC.
-
-This is optional, but if you want to use your own VPC, you need to create it before continuing. [Amazon's Getting Started with VPC guide](http://docs.aws.amazon.com/AmazonVPC/latest/GettingStartedGuide/GetStarted.html) can walk you through how to do this. {% unless page.title contains "SSH" %}**Note that the cluster you use for Stitch must reside in a publicly accessible subnet.**{% endunless %}

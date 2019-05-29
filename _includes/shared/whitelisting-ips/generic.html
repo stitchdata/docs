@@ -1,0 +1,5 @@
+For the connection to be successful, you'll need to configure your firewall to allow access from our IP addresses. Whitelist the following IPs before continuing onto the next step:
+
+{% for ip-address in ip-addresses %}
+- {{ ip-address.ip }}
+{% endfor %}

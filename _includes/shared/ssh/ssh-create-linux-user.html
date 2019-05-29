@@ -1,0 +1,65 @@
+{% unless include.no-notification == true %}
+{% capture ssh-windows %}
+**Note**: This section assumes your SSH server is Linux or Ubuntu-based. To use SSH on Windows, you'll need to install an SSH client like [OpenSSH](https://www.openssh.com/){:target="new"}.
+{% endcapture %}
+
+{% include note.html type="single-line" content=ssh-windows %}
+
+Next, you'll create a Stitch user on the SSH server. This will allow Stitch to authenticate via a public key and connect to the server.
+{% endunless %}
+
+1. Open a new terminal window and log into your SSH server.
+
+2. Create a group named `stitch`:
+
+   ```shell
+   sudo groupadd stitch
+   ```
+
+3. Create a user named `stitch`:
+
+   ```shell
+   sudo useradd -m -g stitch stitch
+   ```
+
+4. Switch to the `stitch` user:
+
+   ```shell
+   sudo su - stitch
+   ```
+
+5. Create the `.ssh` directory:
+
+   ```shell
+   mkdir ~/.ssh
+   ```
+
+6. Using [`chmod`](https://en.wikipedia.org/wiki/Chmod){:target="new"}, alter the permissions of the directory to allow access:
+
+   ```shell
+   chmod 700 ~/.ssh
+   ```
+
+7. Navigate to the `.ssh` directory:
+
+   ```shell
+   cd ~/.ssh
+   ```
+
+8. Using [`touch`](http://www.linfo.org/touch.html){:target="new"}, create the `authorized_keys` file:
+
+   ```shell
+   touch authorized_keys
+   ```
+
+9. Set the permissions for `authorized_keys`:
+
+   ```shell
+   chmod 600 authorized_keys
+   ```
+
+10. Import the [Stitch public key](#retrieve-your-public-key) into `authorized_keys`, replacing `<PUBLIC KEY>` with the public key. Verify after replacing the key that it is on one line and doesn't contain line breaks:
+
+    ```shell
+    echo "<PUBLIC KEY>" >> ~/.ssh/authorized_keys
+    ```

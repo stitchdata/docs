@@ -9,7 +9,7 @@ base: "/v4/source-types"
 description: "The Source Type object contains the information needed to configure a data source."
 
 get:
-  name: "{{ site.data.connect.api.core-objects.source-types.base }}/{type}"
+  name: "{{ site.data.connect.api.core-objects.source-types.base }}/{source_type}"
   title: "Get a source type"
   method: *get
   anchor: "#get-a-source-type"
@@ -17,7 +17,7 @@ get:
   description: |
     {{ site.data.connect.api.core-objects.source-types.get.short }}
 
-    **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `type`.
+    **Note**: This endpoint doesn't retrieve information about the specific configuration of sources in a single account. Instead, it will return general configuration information for the specified source `source_type`.
 
     To retrieve information about a specific data source, use the [Get a Source]({{ site.data.connect.api.core-objects.sources.retrieve.anchor }}) endpoint.
 

@@ -25,13 +25,31 @@ getting-started: /getting-started
 account:
   account-settings: /account-security/managing-account-settings
   team-members: /account-security/managing-team-members
-  security-faq: /account-security/stitch-security
+  
   hipaa-compliance: /assets/pdfs/operating-stitch-in-compliance-with-hipaa.pdf
   cancel-account: /account-security/cancelling-your-stitch-account
 
 billing:
   billing-guide: /account-security/understanding-stitch-billing-replicated-rows
   billing-faq: /account-security/billing-faq
+
+
+# -------------------------- #
+#          SECURITY          #
+# -------------------------- #
+## used as link.security.[id]
+
+security:
+  main: /security
+
+  faq: /account-security/security-faq
+
+  compliance: /account-security/compliance
+
+  encryption: /account-security/data-encryption
+  ssh-generic: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+  ssh-amazon: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+  ssh-microsoft-azure: /account-security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
 
 
 # -------------------------- #
@@ -64,13 +82,12 @@ destinations:
   setup:
     amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
 
-    bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
-
-    data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
-
     azure: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
-    azure-ssh: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
-
+    
+    bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
+    
+    data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
+    
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
     panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
 
@@ -81,7 +98,6 @@ destinations:
     cloudsql-postgres: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data-warehouse
 
     redshift: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
-    redshift-ssh: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
 
     snowflake: /destinations/snowflake/connecting-a-snowflake-data-warehouse-to-stitch
 
@@ -171,8 +187,11 @@ replication:
 ## Historical Data & Progress
   saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
   rep-progress: /replication/monitoring-replication-progress
-  extraction-logs: /replication/integration-extraction-logs
   loading-reports: /replication/integration-loading-reports
+
+  extractions-tab: /replication/extractions
+  extraction-logs: /replication/extractions/integration-extraction-logs
+  start-stop-extraction: /replication/extractions/start-stop-extraction-jobs
 
 
 # -------------------------- #

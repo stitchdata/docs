@@ -3,21 +3,47 @@
 Creating a user with `SELECT` privileges can either be done via a query or the {{ integration.display_name }} UI. In this section, we'll walk you through using the query method.
 {% endunless %}
 
+{% if integration.name == "microsoft-azure" %}
+Depending on your setup and the access you grant to the Stitch database user, you may need to create several {{ integration.display_name }} integrations to allow Stitch to replicate all your data. This is due to a {{ integration.display_name }} limitation on how access is granted to `sys.database` views.
+
+- If the Stitch user has access to the master database and this database is then used for authentication, you can replicate all databases that the user has access to from a single {{ integration.display_name }} integration setup.
+
+- If the database you're replicating isn't the master database, you'll only be able to replicate schemas and tables within that database. This will require creating additional {{ integration.display_name }} integrations in Stitch.
+{% endif %}
+
+
 {% capture us-english %}This user's language setting must be set to `us_english`. Issues with replication may arise if a different setting is used.
 {% endcapture %}
 
 {% include important.html type="single-line" content=us-english %}
 
-{{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command }}
+1. Log into your database.
+2. Create a SQL login for the Stitch database user:
 
-{% if integration.name == "azure" %}
-{% capture azure-db-access %}
-Depending on your setup and the access you grant to the Stitch database user, you may need to create several Azure integrations to allow Stitch to replicate all your data. This is due to an Azure limitation on how access is granted to `sys.database` views.
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-login-command | strip }}
+   ```
 
-If the Stitch user has access to the master database and this database is then used for authentication, you can replicate all databases that the user has access to from a single Azure integration setup.
+3. Grant the Stitch user access to the database:
 
-If the database you're replicating isn't the master database, you'll only be able to replicate schemas and tables within that database. This will require creating additional Azure integrations in Stitch.
-{% endcapture %}
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-access-command | strip }}
+   ```
 
-{% include note.html first-line="**Master database access and replicating data**" content=azure-db-access %}
-{% endif %}
+4. Create the Stitch database user and map them to the database:
+
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command | strip }}
+   ```
+
+5. Grant the Stitch user `SELECT` privileges. To grant `SELECT` privileges to all tables in the database, run this command:
+
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.all-tables | strip }}
+   ```
+
+   If you want to limit the Stitch user to specific tables, run this command instead:
+
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.specific-tables | strip }}
+   ```
