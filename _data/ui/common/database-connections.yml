@@ -56,7 +56,7 @@ field-copy:
     Enter the host address (endpoint) used by the {{ page.display_name }} instance. For example: This could be a network address such as `192.68.0.1`, or a server endpoint like `dbname.hosting-provider.com`.
 
   host-rds: |
-    Paste the **Endpoint** address from the {{ page.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+    Paste the **Endpoint** address from the {{ page.display_name }} Details page in AWS into this field. Don’t include the port number, if it's appended to the end of the endpoint string - this will cause errors.
 
   host-cloudsql: |
     Enter the host address (endpoint) of your {{ page.display_name }} instance. This will be the value of the **Public IP address** that you retrieved in [STEP].
