@@ -5,9 +5,10 @@ keywords: api keys, create api key, stitch connect access
 layout: general
 
 summary: "Manage your Stitch API access keys."
-type: "settings"
 toc: true
-weight: 2
+
+type: "account-settings"
+weight: 3
 
 enterprise-cta:
   title: "API access is an Enterprise feature"
@@ -21,8 +22,6 @@ intro: |
 
   With the Stitch API, you can programmatically control your Stitch account. This enables you to quickly create and configure integrations, select tables and columns for replication, connect Stitch with an external scheduler, and more.
 
-  API key management and access to the Stitch API are Enterprise features.
-
   In this guide, we'll cover:
 
   {% for section in page.sections %}
@@ -33,6 +32,10 @@ sections:
   - title: "API key basics"
     anchor: "api-key-basics"
     summary: "Some API key basics"
+    content: |
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
     subsections:
       - title: "What does an API key do?"
         anchor: "api-key-actions"
@@ -51,9 +54,21 @@ sections:
       - title: "Who can create an API key?"
         anchor: "who-can-create-keys"
         content: |
-          Any team member in a Stitch account can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
+          Any team member in a Stitch account with API access can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
 
           [TODO-image example]
+
+      - title: "What Stitch plans include API access?"
+        anchor: "plans-with-api-access"
+        content: |
+          Only the Stitch Enterprise plan includes access to the Stitch API. 
+
+      - title: "What happens if I downgrade to a plan without API access?"
+        anchor: "plan-downgrade"
+        content: |
+          If you decide to downgrade to a plan without API access, your API keys will be revoked (disabled).
+
+          If you upgrade from a plan without API access to a plan that includes it, and you previously created API keys in your account, you will need to [re-enable the API keys](#disable-reenable-api-key) to utilize the API again.
 
   - title: "Create an API key"
     anchor: "create-api-key"
@@ -97,4 +112,10 @@ sections:
       If you want to temporarily disable an API key, you can click the [TODO] icon next to the key and use the **Disable this key** option.
 
       To re-enable a disabled key, [TODO]
+
+  - title: "Manage Stitch partner account access"
+    anchor: "manage-stitch-partner-account-access"
+    summary: "How to manage Stitch partner account access"
+    content: |
+      Refer to the [Manage Stitch partner account access guide]({{ link.account.manage-partner-access | prepend: site.baseurl }}) to learn more about managing partner account access.
 ---
