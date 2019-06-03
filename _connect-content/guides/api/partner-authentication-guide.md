@@ -75,7 +75,7 @@ sections:
   - title: "Generate tokens for a new Stitch account with the API"
     anchor: "generate-tokens-new-account"
     content: |
-      This approach will create a new Stitch client account using the API. When a new Stitch clienht account is successfully created, the response will include an access token, which you can use to authenticate API calls to other endpoints:
+      This approach will create a new Stitch client account using the API. When a new Stitch client account is successfully created, the response will include an access token, which you can use to authenticate API calls to other endpoints:
 
       {% for subsection in section.subsections %}
       - [{{ subsection.title }}](#{{ subsection.anchor }})
