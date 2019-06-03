@@ -76,7 +76,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an `access_token` property containing an API access token for the Stitch client's account will be returned.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an `access_token` property containing an API access token for the Stitch client's account.
 
   Otherwise, an error will be returned. For example: If a Stitch client account associated with the user already exists, the request will return `This email address is already associated with an active user.` See the **Errors** tab below for additional possibilities.
 
@@ -87,24 +87,21 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "curl"
+    language: "json"
     code: |
       curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
            -H "Content-Type: application/json"
            -d "{
-                "email": "stitch-api-test@stitchdata.com",
-                "last_name": "Product Team",
                 "partner_id": "<PARTNER_ID>",
-                "first_name": "Stitch",
                 "partner_secret": "<PARTNER_SECRET>",
-                "company": "Stitch Product Team"
+                "first_name": "Stitch",
+                "last_name": "Product Team",
+                "company": "Stitch Product Team",
+                "email": "stitch-api-test@stitchdata.com"
               }"
   - type: "Response"
     language: "json"
     code: |
-      HTTP/1.1 200 OK
-      Content-Type: application/json;charset=ISO-8859-1
-
       {
         "access_token":"<ACCESS_TOKEN>"
       }
