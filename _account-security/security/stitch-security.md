@@ -5,9 +5,11 @@ redirect_from: /account-security/stitch-security
 keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
 
 summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
-type: "security"
-toc: true
+
 layout: faq
+toc: true
+
+type: "security"
 weight: 5
 
 enterprise-cta:

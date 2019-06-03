@@ -5,10 +5,12 @@ keywords: billing, bill info, payment history, tier, plan, charge, overage, invo
 tags: [account, getting_started]
 
 summary: "Learn how to manage and change your Stitch subscription plan, enter payment details, view invoices, and cancel your account."
-type: "billing"
+
 toc: true
 layout: faq
-weight: 1
+
+type: "billing"
+weight: 2
 
 frequently-asked-questions:
 

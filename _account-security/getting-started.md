@@ -2,12 +2,15 @@
 title: Getting Started with Stitch
 permalink: /getting-started/
 keywords: getting started, get started, get set up, set up stitch, setup, guide
-tags: [getting_started]
+
 layout: page
 toc: true
+
+type: "getting-started"
+weight: 1
+
 summary: "In just minutes, you can get your Stitch data pipeline up and running. Here's everything you need to know to get started."
 ---
-
 {% capture ex-table %}batches{% endcapture %}
 {% include misc/data-files.html %}
 
