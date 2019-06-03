@@ -6,7 +6,7 @@
 title: Stitch Partner API Authentication Guide
 doc-type: "tutorial"
 content-type: "connect-guide"
-content-id: "partner-authentication-guide"
+content-id: "partner-authentication"
 layout: general
 sidebar: on-page
 
