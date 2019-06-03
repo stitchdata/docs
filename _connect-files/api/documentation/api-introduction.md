@@ -7,7 +7,9 @@ sections:
   - content: |
       {% include misc/data-files.html %}
 
-      The Stitch Connect API enables you to seamlessly integrate Stitch’s data pipeline functionality into your own platform. This API is a RESTful, resource-oriented API that allows you to programmatically provision Stitch accounts, create and modify data sources, and configure destination connections.
+      The Stitch Connect API enables users to programmatically access and manage their Stitch accounts, or Stitch partners to seamlessly integrate Stitch's data pipleine functionality into their own platforms.
+
+      This API is a RESTful, resource-oriented API that allows you to programmatically provision Stitch accounts, create and modify data sources, and configure destination connections.
 
       Each endpoint uses standard HTTP verbs like GET and POST, and will return [standard HTTP response codes]({{ api.response-codes }}) to indicate request status or errors.
 
@@ -18,24 +20,24 @@ sections:
     content: |
       Using the API, you can:
 
-      - Create and access Stitch client accounts
+      - Create Stitch client accounts (Partners only)
+      - Access Stitch client accounts
       - Create and update destinations
       - Create and update data sources
       - Select streams and fields from data sources for replication
+      - Start and stop replication jobs
 
-      {% capture source-config %}
-      **OAuth sources**: To fully configure an OAuth data source, you will also need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify }}). This will send the user to Stitch, where they will be prompted to authorize access to the data source.
-      {% endcapture %}
-      {% include note.html type="single-line" content=source-config %}
+      Check out the [tutorials and resources]({{ link.connect.guides.category | prepend: site.baseurl }}) to learn more about using Stitch Connect.
 
-      Check out the [tutorials and resources]({{ link.connect.guides.category | prepend: site.baseurl }}) to learn how to leverage Stitch functionality in your applications.
+# {% capture source-config %}
+# **OAuth sources**: To fully configure an OAuth data source, you will also need to use the [{{ js.name }}]({{ js.section | prepend: site.baseurl | flatify }}). This will send the user to Stitch, where they will be prompted to authorize access to the data source.
+# {% endcapture %}
+# {% include note.html type="single-line" content=source-config %}
 
   - title: "Accessing the API"
     anchor: "access-the-api"
     content: |
-      To use the API, you'll need partner credentials. These are necessary for authenticating successfully.
-
-      To request access, please complete and submit [this form]({{ site.data.connect.api.interest-form }}){:target="new"}.
+      To use the API, you'll need to obtain an API access token. This is necessary for authenticating successfully. Refer to the [Authentication section]({{ site.data.connect.api.authentication }}) for more info.
 
   - title: "Terminology"
     anchor: "terminology"
