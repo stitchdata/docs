@@ -32,7 +32,7 @@ repo-url: https://github.com/singer-io/tap-mysql
 status: "Released"
 certified: true
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 3306
 db-type: "mysql"
