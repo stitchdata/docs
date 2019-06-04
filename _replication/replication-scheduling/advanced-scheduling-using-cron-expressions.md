@@ -6,6 +6,8 @@ layout: general
 
 summary: "The Advanced Scheduler feature allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin."
 
+key: "advanced-scheduling"
+method: true
 content-type: "replication-scheduling"
 toc: true
 weight: 4
@@ -225,7 +227,7 @@ sections:
          [TODO]
 
   - title: "Create an Advanced Schedule for an integration"
-    anchor: "create-advanced-schedule"
+    anchor: "create-schedule"
     summary: "How to create an Advanced Schedule for an integration"
     content: |
       You can create an Advanced Schedule in an integration's **Settings** page. 

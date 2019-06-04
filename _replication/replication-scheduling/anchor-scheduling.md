@@ -2,13 +2,15 @@
 title: Anchor Scheduling
 permalink: /replication/replication-scheduling/anchor-scheduling
 keywords: replicate, replication, replication frequency, frequency, scheduling, schedule, interval, change replication time, anchor scheduling, anchor
-
-content-type: "replication-scheduling"
 layout: general
-toc: true
-weight: 3
 
 summary: "Anchor Scheduling is a type of replication scheduling that 'anchors' the start time of extraction jobs to a time you select. This allows you to establish predictable replication and ensure that your downstream processes run as scheduled with the most up-to-date data."
+
+key: "anchor-scheduling"
+method: true
+content-type: "replication-scheduling"
+toc: true
+weight: 3
 
 intro: |
   {{ page.summary }}
@@ -130,7 +132,7 @@ sections:
           **Note**: Stitch doesn't currently send or display notifications when a job is skipped.
 
   - title: "Create an anchored schedule for an integration"
-    anchor: "create-anchored-schedule"
+    anchor: "create-schedule"
     summary: "How to create an anchored schedule for an integration"
     content: |
       You can create an Anchored Schedule in an integration's **Settings** page. 

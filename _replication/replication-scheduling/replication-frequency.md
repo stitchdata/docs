@@ -3,9 +3,11 @@ title: Replication Frequency
 permalink: /replication/replication-scheduling/replication-frequency
 redirect_from: /replication/replication-frequency
 keywords: replicate, replication, replication frequency, frequency, scheduling, schedule, interval, change replication time
-
-content-type: "replication-scheduling"
 layout: general
+
+key: "rep-frequency"
+method: true
+content-type: "replication-scheduling"
 toc: true
 weight: 2
 
@@ -105,7 +107,7 @@ sections:
           **Note**: Stitch doesn't currently send or display notifications when a job is skipped.
 
   - title: "Create an interval schedule for an integration"
-    anchor: "create-interval-schedule"
+    anchor: "create-schedule"
     summary: "How to create an interval schedule for an integration"
     content: |
       You can create an interval schedule using Replication Frequency in an integration's **Settings** page. 
