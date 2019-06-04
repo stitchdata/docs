@@ -27,7 +27,7 @@ hosting-type: "google-cloudsql"
 status: "Released"
 certified: true
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"

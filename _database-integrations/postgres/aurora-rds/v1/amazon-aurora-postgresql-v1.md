@@ -29,7 +29,7 @@ status: "Released"
 certified: true
 setup-name: "PostgreSQL"
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"
