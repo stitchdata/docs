@@ -164,7 +164,7 @@ attributes:
     description: |
 
 # IF SSH IS SUPPORTED:
-# Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for Redshift]({{ link.destinations.setup.redshift-ssh | prepend: site.baseurl }}).
+# Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for {{ destination.display_name }}]({{ link.security.ssh-[TYPE] | prepend: site.baseurl }}).
 
   - id: "vpn-connections"
     categories: "stitch-details"

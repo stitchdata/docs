@@ -1,7 +1,7 @@
 <!-- This is the formatting for the object code examples in the Connect API docs -->
 
 <h5 id="{{ form-property.key | append: "-example-usage" }}">
-	Example Object
+  Example Object
 </h5>
 
 {% case include.content %}
@@ -27,15 +27,13 @@
 
 <!-- Database form property example -->
 {% when 'database' %}
-  {% assign filter-form-attributes = all-form-attributes | where:"internal",false %}
-
 {% highlight json %}
 {
  "type":"{{ form-property.api-type }}",
  "properties":{
-   {% for attribute in filter-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %}
-   {% else %}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %},
+   {% for attribute in all-form-attributes %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}",
    {% endif %}
    {%- endfor -%}
   }
@@ -50,7 +48,6 @@
 <!-- This gets the last item in the list for the source,
       which is then used in the next block to make sure there
       isn't an ending comma in the JSON.
-
       TL:DR; Filtering doesn't actually eliminate the total number
       of items in an array, it only displays the selected things.
       So if you're doing "forloop.last" and filtering, it probably won't
@@ -68,8 +65,8 @@
  "properties":{
    {% for attribute in all-form-attributes %}
    {%- unless attribute.exclude contains api-type-clean -%}
-   {% if attribute.name == last_item %}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %}
-   {% else %}"{{ attribute.name }}":{% if attribute.type == "string" %}"{{ attribute.value | flatify }}"{% else %}{{ attribute.value | flatify }}{% endif %},
+   {% if attribute.name == last_item %}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
    {% endif %}
    {%- endunless -%}
    {%- endfor -%}

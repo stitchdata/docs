@@ -7,6 +7,7 @@ title: Campaign Manager
 permalink: /integrations/saas/campaign-manager
 
 redirect_from: /integrations/saas/doubleclick-campaign-manager
+
 keywords: doubleclick campaign manager, integration, schema, etl doubleclick campaign manager, doubleclick campaign manager etl, doubleclick campaign manager schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Campaign Manager integration."
 layout: singer
@@ -20,7 +21,7 @@ name: "campaign-manager"
 display_name: "Campaign Manager"
 
 singer: true 
-tap-name: "DoubleClick Campaign Manager"
+tap-name: "Campaign Manager"
 repo-url: https://github.com/singer-io/tap-doubleclick-campaign-manager
 
 # this-version: "1.0"

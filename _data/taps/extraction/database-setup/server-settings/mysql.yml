@@ -134,6 +134,11 @@ mariadb:
     description: *log-bin-description
     doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin"
 
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: *log-slave-update-description
+    doc-link: "https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_slave_updates"
+
 
 # -------------------------- #
 #     MYSQL RDS SETTINGS     #

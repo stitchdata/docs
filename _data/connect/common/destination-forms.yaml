@@ -32,9 +32,10 @@ all-destinations:
   - name: "port"
     required: true
     internal: false
-    type: "integer"
+    type: "string"
     description: "The port of the database server. The default is `{{ port }}`."
-    value: "{{ port }}"
+    value: |
+      "{{ port }}"
 
   - name: "user"
     required: true
@@ -61,10 +62,10 @@ ssh:
   - name: "encryption_port"
     required: false
     internal: false
-    type: "integer"
+    type: "string"
     description: "If using SSH encryption, the port of the SSH server. Required only if `encryption_type` is `ssh`."
     value: |
-      <ENCRYPTION_PORT>
+      "<ENCRYPTION_PORT>"
 
   - name: "encryption_type"
     required: true

@@ -48,7 +48,6 @@ api:
         expand-by-default: true
         sections:
           - title: "Accounts"
-            expand-by-default: true
             subsections:
               - title: "The Account Object"
                 method: "object"
@@ -59,7 +58,6 @@ api:
                 url: "{{ api.core-objects.accounts.create.anchor }}"
 
           - title: "Sessions"
-            expand-by-default: true
             subsections:
               - title: "The Session Object"
                 method: "object"
@@ -70,7 +68,6 @@ api:
                 url: "{{ api.core-objects.sessions.create.anchor }}"
 
           - title: "Destination Types"
-            expand-by-default: true
             subsections:
               - title: "The Destination Type Object"
                 method: "object"
@@ -85,7 +82,6 @@ api:
                 url: "{{ api.core-objects.destination-types.get.anchor }}"
 
           - title: "Destinations"
-            expand-by-default: true
             subsections:
               - title: "The Destination Object"
                 method: "object"
@@ -108,7 +104,6 @@ api:
                 url: "{{ api.core-objects.destinations.delete.anchor }}"
 
           - title: "Source Types"
-            expand-by-default: true
             subsections:
               - title: "The Source Type Object"
                 method: "object"
@@ -123,7 +118,6 @@ api:
                 url: "{{ api.core-objects.source-types.get.anchor }}"
 
           - title: "Sources"
-            expand-by-default: true
             subsections:
               - title: "The Source Object"
                 method: "object"
@@ -150,7 +144,6 @@ api:
                 url: "{{ api.core-objects.sources.delete.anchor }}"
 
           - title: "Connection Checks"
-            expand-by-default: true
             subsections:
               - title: "The Connection Check Object"
                 method: "object"
@@ -161,7 +154,6 @@ api:
                 url: "{{ api.core-objects.connection-checks.get-source.anchor }}"
 
           - title: "Streams"
-            expand-by-default: true
             subsections:
               - title: "The Stream Object"
                 method: "object"
@@ -178,6 +170,20 @@ api:
               - title: "{{ api.core-objects.streams.update.title | flatify }}"
                 method: "put"
                 url: "{{ api.core-objects.streams.update.anchor }}"
+
+          - title: "Replication Jobs"
+            subsections:
+              - title: "The Replication Job Object"
+                method: "object"
+                url: "{{ api.core-objects.replication-jobs.object }}"
+
+              - title: "{{ api.core-objects.replication-jobs.post.title | flatify }}"
+                method: "post"
+                url: "{{ api.core-objects.replication-jobs.post.anchor }}"
+
+              - title: "{{ api.core-objects.replication-jobs.delete.title | flatify }}"
+                method: "delete"
+                url: "{{ api.core-objects.replication-jobs.delete.anchor }}"
 
       - title: "Data Structures"
         expand-by-default: true

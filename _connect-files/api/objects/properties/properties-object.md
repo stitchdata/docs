@@ -26,15 +26,9 @@ object-attributes:
     value: |
       "frequency_in_minutes"
 
-  - name: "required_to_be_fully_configured"
+  - name: "is_required"
     type: "boolean"
     description: "If `true`, the property is required for complete configuration."
-    value: |
-      true
-
-  - name: "provided"
-    type: "boolean"
-    description: "If `true`, the property has been provided."
     value: |
       true
 
@@ -46,20 +40,28 @@ object-attributes:
 
   - name: "system_provided"
     type: "boolean"
-    description: "If `true`, the system provides this property."
+    deprecated: true
+    description: |
+      **This property has been deprecated.** Use the `property_type` property instead.
     value: |
       false
 
-  - name: "tap_mutable"
-    type: "boolean"
-    description: "**This is an internal field and is for Stitch use only.**"
-    value: |
-      false
+  - name: "property_type"
+    type: "string"
+    description: |
+      Indicates the type of the property. Possible values are:
+
+      - `user_provided` - Indicates the property must be set by the user.
+      - `read_only` - Indicates the property is read-only and is not settable by the API. Generally, this is an internal field set inside of Stitch.
+      - `system_provided_by_default` - Indicates the property used to be `system_provided: true`, but can now be set by the API consumer. These are generally properties associated with OAuth for generating refresh and access tokens.
+
+         **Note**: Use caution when setting these properties, as using incorrect values can put the source into a non-functioning state.
+    value: "user_provided"
 
   - name: "json_schema"
     type: "array"
     description: |
-      **Note**: Data will only be returned for this array if `system_provided: false`.
+      **Note**: Data will only be returned for this array if `property_type: user_provided` or `property_type: system_provided_by_default`. If `property_type: read_only`, this property will be `null`.
       
       An array containing:
 
@@ -84,49 +86,60 @@ object-attributes:
           ]
           ```
 
+  - name: "provided"
+    type: "boolean"
+    description: "If `true`, the property has been provided. For properties where `property_type: user_provided`, this indicates that the user has provided the property."
+    value: |
+      true
+
+  - name: "tap_mutable"
+    type: "boolean"
+    description: "**This is an internal field and is for Stitch use only.**"
+    value: |
+      false
+
 examples:
-  - code: |
+  - type: "User-provided property"
+    code: |
+        {
+          "name": "frequency_in_minutes",
+          "is_required": false,
+          "is_credential": false,
+          "system_provided": false,
+          "property_type": "user_provided",
+          "json_schema": {
+            "type": "string",
+            "pattern": "^1$|^30$|^60$|^360$|^720$|^1440$"
+          },
+          "provided": false,
+          "tap_mutable": false
+        }
+
+  - type: "Read-only property"
+    code: |
       {
-        "report_card":{  
-            "type":"platform.hubspot",
-            "current_step":2,
-            "steps":[  
-               {  
-                  "type":"form",
-                  "properties":[  
-                     {  
-                        "name":"image_version",
-                        "is_required":true,
-                        "provided":true,
-                        "is_credential":false,
-                        "system_provided":true,
-                        "json_schema":null
-                     },
-                     {  
-                        "name":"frequency_in_minutes",
-                        "is_required":true,
-                        "provided":true,
-                        "is_credential":false,
-                        "system_provided":false,
-                        "json_schema":{  
-                           "type":"string",
-                           "pattern":"^\\d+$"
-                        }
-                     },
-                     {  
-                        "name":"start_date",
-                        "is_required":true,
-                        "provided":true,
-                        "is_credential":false,
-                        "system_provided":false,
-                        "json_schema":{  
-                           "type":"string",
-                           "pattern":"^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$"
-                        }
-                     }
-                  ]
-               }
-            ]
-         }
+        "name": "image_version",
+        "is_required": true,
+        "is_credential": false,
+        "system_provided": true,
+        "property_type": "read_only",
+        "json_schema": null,
+        "provided": false,
+        "tap_mutable": false
+      }
+
+  - type: "System provided by default property"
+    code: |
+      {
+        "name": "client_id",
+        "is_required": true,
+        "is_credential": true,
+        "system_provided": true,
+        "property_type": "system_provided_by_default",
+        "json_schema": {
+          "type": "string"
+        },
+        "provided": false,
+        "tap_mutable": false
       }
 ---

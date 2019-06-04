@@ -49,7 +49,7 @@ sections:
     content: |
       Sometimes, you may want to replicate data to a different location than what you initially connected to Stitch. Whether you're simply switching to a new database or trying a different destination entirely, [you can easily change your destination in Stitch]({{ link.destinations.switch-destinations | prepend: site.baseurl }}).
 
-  - title: "Suggest a destinations"
+  - title: "Suggest a destination"
     anchor: "suggest-a-destinations"
     content: |
       Don't see your destination of choice listed here? We'd love to hear from you! Please [reach out to us](mailto:{{ site.support }}) with your suggestion.

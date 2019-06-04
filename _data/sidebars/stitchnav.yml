@@ -27,7 +27,12 @@ all-docs:
       url: "{{ link.billing.billing-guide }}"
 
     - title: Security
-      url: "{{ link.account.security-faq }}"
+      subsections:
+        - title: "Data Encryption"
+          url: "{{ link.security.encryption }}"
+
+        - title: "FAQ"
+          url: "{{ link.security.faq }}"
 
     - title: Cancel Your Account
       url: "{{ link.account.cancel-account }}"
@@ -51,9 +56,6 @@ all-docs:
 
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.redshift }}"
-
-        - title: "Connect to Stitch via SSH"
-          url: "{{ link.destinations.setup.redshift-ssh }}"
 
         - title: "Replication"
           url: "{{ link.destinations.overviews.redshift }}#replication"
@@ -129,9 +131,6 @@ all-docs:
         - title: "Connect to Stitch"
           url: "{{ link.destinations.setup.azure }}"
 
-        - title: "Connect to Stitch via SSH"
-          url: "{{ link.destinations.setup.azure-ssh }}"
-
         - title: "Replication"
           url: "{{ link.destinations.overviews.azure }}#replication"
 
@@ -162,6 +161,9 @@ all-docs:
       subsections:
         - title: "Overview"
           url: "{{ link.destinations.overviews.postgres }}"
+
+        - title: "Connect an Amazon Aurora RDS Destination"
+          url: "{{ link.destinations.setup.aurora-postgres }}"
 
         - title: "Connect an Amazon RDS Destination"
           url: "{{ link.destinations.setup.postgres-rds }}"
@@ -207,7 +209,8 @@ all-docs:
       - title: Certified Integrations
         subsections:
           - title: "Overview"
-            url: "{{ link.integrations.saas }}#stitch-certified-integrations"
+            url: |
+              {{ link.integrations.saas | append: "#stitch-certified-integrations" }}
 
       - title: Community Integrations
         subsections:

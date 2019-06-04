@@ -1,10 +1,11 @@
 ---
 title: Microsoft SQL Server
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
-tags: [database_integrations]
 permalink: /integrations/databases/microsoft-sql-server
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
 show-in-menus: true
+
+hosting-type: "generic"
 
 # -------------------------- #
 #     Integration Details    #
@@ -12,8 +13,8 @@ show-in-menus: true
 
 name: "mssql"
 display_name: "MSSQL"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
+
+hosting-type: "generic"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -26,7 +27,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 1433
 db-type: "mssql"
-icon: /images/integrations/icons/mssql.svg
 
 ## Stitch features
 
@@ -67,11 +67,11 @@ view-replication: true
 # -------------------------- #
 
 requirements-list:
-  - item: "**Permissions in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
   - item: |
       A server that:
       
-      - Uses case-insensitive collation. [More info about collation can be found here in Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn).
+      - Uses case-insensitive collation. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
       - Allows connections over TCP/IP
       - Allows mixed mode authentication
 
@@ -82,9 +82,17 @@ requirements-info: "**Make sure your server is set up properly before continuing
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "create db user"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+
+      {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
     anchor: "#connect-stitch"
@@ -95,21 +103,36 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
+
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
----
 
 ## Troubleshooting {#troubleshooting}
 

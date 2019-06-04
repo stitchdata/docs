@@ -1,18 +1,28 @@
 # ---------------------------- #
-#      SNOWFLAKE DESTINATION   #
+#     REDSHIFT DESTINATION     #
 # ---------------------------- #
 
-## This file contains the properties required to successfully set up
-## an Snowflake destination in Stitch.
+## This file contains the names and descriptions of fields in the 
+## Destination Settings page for a Redshift-backed destination.
 
-snowflake:
-  - field: *host
-    copy: "Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`"
-  - field: *username
-    copy: *username-copy
-  - field: *password
-    copy: *password-copy
-  - field: *database
-    copy: *database-copy
-  - field: "Warehouse"
-    copy: "Enter the name of the {{ destination.display_name }} warehouse that you created for Stitch."
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/common/database-connections.yml
+
+## 'common' is a variable assigned to this file: 
+## /_data/ui/destination-settings/common.yml
+
+redshift:
+  - name: "{{ defaults.field-names.host }}"
+    copy: "{{ defaults.field-copy.host-rds | flatify }}"
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: "{{ defaults.field-copy.port | flatify }}"
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    copy: "{{ common.field-copy.destination-database | flatify }}"

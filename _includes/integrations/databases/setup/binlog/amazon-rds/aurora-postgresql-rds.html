@@ -1,0 +1,22 @@
+{% assign database = site.data.taps.extraction.database-setup.server-settings[integration.db-type] %}
+
+{% assign database-setup = database.aurora-postgresql-rds %}
+
+{% capture server-instructions %}
+{% include shared/connection-details/amazon.html type="" %}
+3. Scroll down to the details section.
+4. Click the **Configuration** tab and locate the **DB cluster parameter group** field.
+5. Click the parameter group link. This will open the settings page for the DB cluster parameter group.
+6. Click the **Edit parameters** button.
+7. Locate the parameters in the list below, and enter the required values into the **Values** column:
+   {% for setting in database-setup %}
+   - **{{ setting.name }}**: `{{ setting.value }}`
+   {% endfor %}
+
+   **Note**: For `max_replication_slots` and `max_wal_senders`, Amazon's default value of `5` should be sufficient **unless you have a large number of read replicas**.
+
+   See the **Server settings list** tab for more info on these settings.
+8. When finished, click the **Save changes** button.
+{% endcapture %}
+
+{% include integrations/templates/configure-server-settings.html %}

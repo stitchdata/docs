@@ -83,7 +83,7 @@ In short, unless you want complete control over data replication, it’s usually
 
 ## Security
 
-Data submitted to the {{ integration.display_name }} is handled according to [Stitch's security standards]({{ link.account.security-faq | prepend: site.baseurl }}).
+Data submitted to the {{ integration.display_name }} is handled according to [Stitch's security standards]({{ link.security.faq | prepend: site.baseurl }}).
 
 ---
 

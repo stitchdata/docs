@@ -1,0 +1,37 @@
+
+{% if page.permalink contains "integrations" %}
+{% assign port = integration.port %}
+
+{% elsif page.permalink contains "destinations" %}
+{% assign port = destination.port %}
+
+{% endif %}
+
+{% include note.html type="single-line" content="**Note**: This step requires privileges in AWS that allow you to create and manage Security Groups." %}
+
+For Stitch to successfully connect with your database instance, you'll need to add our IP addresses to the appropriate Security Group via the AWS management console.
+
+Security Groups must reside in the same VPC as the instance. Use the instructions below to create a security group for Stitch and grant access to the VPC.
+
+1. Log into your AWS account.
+2. Navigate to the Security Group Management page, typically **Services > Compute > EC2**.
+3. Click the **Security Groups** option, under **Network & Security** in the menu on the left side of the page.
+4. Click **Create Security Group**.
+5. In the window that displays, fill in the fields as follows:
+   - **Security group name**: Enter a unique name for the Security Group. For example: `Stitch`
+   - **Description**: Enter a description for the security group.
+   - **VPC**: Select the VPC that contains the database you want to connect to Stitch. **Note**: The Security Group and database must be in the same VPC, or the connection will fail.
+6. In the **Inbound** tab, click **Add Rule**.
+7. Fill in the fields as follows:
+   - **Type**: Select `Custom TCP Rule`
+   - **Port Range**: Enter the port your database uses. (`{{ port }}` by default)
+   - **CIDR, IP or Security Group**: Enter one of the IP addresses listed below:
+
+        {% for ip-address in ip-addresses %}
+        - {{ ip-address.ip }}
+        {% endfor %}
+8. Click **Add Rule** to add an additional Inbound rule.
+9. Repeat steps 6-8 until all the IP addresses above have been added:
+
+   ![Whitelisting Stitch IP addresses through Inbound Security Group rules]({{ site.baseurl }}/images/shared/whitelisting-ips/amazon-security-group.png)
+10. When finished, click **Create** to create the Security Group.

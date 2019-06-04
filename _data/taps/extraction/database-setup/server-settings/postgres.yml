@@ -123,3 +123,21 @@ postgresql-rds:
   # - name: *max-standby-streaming-name
   #   value: *max-standby-streaming-value
   #   description: *max-standby-streaming-description
+
+
+# ------------------=------------ #
+#   AURORA POSTGRES RDS SETTINGS  #
+# ------------------------------- #
+
+aurora-postgresql-rds:
+  - name: *rds-logical-rep-name
+    value: *rds-logical-rep-value
+    description: *rds-logical-rep-description
+
+  - name: *max-replication-slots-name
+    value: *max-replication-slots-value
+    description: *max-replication-slots-description
+
+  - name: *max-wal-senders-name
+    value: *max-wal-senders-value
+    description: *max-wal-senders-description

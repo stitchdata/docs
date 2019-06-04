@@ -93,22 +93,57 @@ postgresql-rds:
     reason: *rds-replication-reason
     doc-link: *replication-doc
 
+
+# --------------------------------- #
+#  AURORA POSTGRESQL-RDS PRIVILEGES #
+# --------------------------------- #
+
+aurora-postgresql-rds:
+  - name: *connect-name
+    reason: *connect-reason
+    doc-link: *privileges-doc
+
+  - name: *usage-name
+    reason: *usage-reason
+    doc-link: *privileges-doc
+
+  - name: *select-name
+    reason: *select-reason
+    doc-link: *privileges-doc
+
+  - name: *alter-default-privileges-name
+    reason: *alter-default-privileges-reason
+    doc-link: *alter-default-privileges-doc
+
+  - name: *rds-replication-name
+    reason: *rds-replication-reason
+    doc-link: *replication-doc
+
+
 # -------------------------- #
 #         SQL COMMANDS       #
 # -------------------------- #
 
 create-user-command-default: |
-  CREATE USER [stitch_username] WITH ENCRYPTED PASSWORD '[secure password]';
-  GRANT CONNECT ON DATABASE [database_name] TO [stitch_username];
-  GRANT USAGE ON SCHEMA [schema_name] TO [stitch_username];
-  GRANT SELECT ON ALL TABLES IN SCHEMA [schema_name] TO [stitch_username];
-  ALTER DEFAULT PRIVILEGES IN SCHEMA [schema_name] GRANT SELECT ON TABLES TO [stitch_username];
+  CREATE USER stitch WITH ENCRYPTED PASSWORD '<password>'
+
+grant-connect-on-database: |
+  GRANT CONNECT ON DATABASE <database_name> TO stitch
+
+grant-schema-usage: |
+  GRANT USAGE ON SCHEMA <schema_name> TO stitch
+
+grant-select-on-tables: |
+  GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO stitch
+
+alter-default-schema-privileges: |
+  ALTER DEFAULT PRIVILEGES IN SCHEMA <schema_name> GRANT SELECT ON TABLES TO stitch
 
 rds-grant-replication: |
-  GRANT rds_replication TO [stitch_username];
+  GRANT rds_replication TO stitch
 
 postgresql-create-replication-role: |
-  CREATE ROLE replication REPLICATION LOGIN;
+  CREATE ROLE replication REPLICATION LOGIN
 
 postgresql-grant-replication-role: |
-  GRANT replication TO [stitch_username];
+  GRANT replication TO stitch
