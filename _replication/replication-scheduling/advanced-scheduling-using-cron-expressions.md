@@ -1,12 +1,12 @@
 ---
 title: Advanced Replication Scheduling Using Cron Expressions
-permalink: /replication/replication-scheduling/advanced-cron-scheduling
+permalink: /replication/replication-scheduling/advanced-scheduling
 keywords: replicate, replication, replication frequency, frequency, anchor time, scheduling, schedule, interval, change replication time
 layout: general
 
 summary: "The Advanced Scheduler feature allows you to specify granular start times for data extraction. Using cron expressions, you can specify the exact times, days of the week, or even days of the month data extraction should begin."
 
-type: "scheduling"
+content-type: "replication-scheduling"
 toc: true
 weight: 4
 
@@ -36,13 +36,15 @@ sections:
     content: |
       Using Advanced Scheduling, you can:
 
-      1. **Run reports on specified days**. For example: You need reports for a 9:00AM meeting you have every Wednesday. You could create a replication schedule that runs a replication job on Tuesday nights at midnight, which would ensure fresh data is available on Wednesday morning when you need it. Reports could be scheduled to run at 7:00AM, giving you time before your meeting to review the data and resolve replication issues, should any arise.
+      1. **Run reports on specified days**. Using Advanced Scheduling, you can create a replication schedule that ensures reports for a weekly 9:00AM meeting are up-to-date.
 
-      2. **Whitelist hours for starting data extractions.** For example: You know that your production database is under heavy load from 1:00PM to 5:00PM. To avoid adding additional load, you can create a schedule that prevents extractions from starting during this time. **Note**: An extraction may run over into "blackout" hours as the Advanced Scheduler only controls the times jobs **start**. [See the Limitations section for more info](#limitations).
+      2. **Whitelist hours for starting data extractions.** For example: Scheduling replication during off-peak hours will reduce load on your production database.
+
+         **Note**: An extraction may run over into "blackout" hours as the Advanced Scheduler only controls the times jobs **start**. [See the Limitations section for more info](#limitations).
 
       3. **Reduce your row usage**. Only scheduling data extractions when you need them can not only reduce load on data sources and your destination, it can reduce your overall row usage in Stitch.
 
-      4. **Reduce the re-replication of data.** Because replication scheduling applies to all selected tables in an integration, tables using Full Table Replication will replicate in full each time a replication job runs. Reducing the number of replication jobs overall will decrease the number of times the same record is replicated.
+      4. **Reduce the re-replication of data.** Because replication scheduling applies to all selected tables in an integration, tables using [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}) will replicate in full each time a replication job runs. Reducing the number of replication jobs overall will decrease the number of times the same record is replicated.
 
   - title: "Access to Advanced Scheduling"
     anchor: "access-advanced-scheduling"
