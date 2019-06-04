@@ -40,7 +40,7 @@ sections:
 
       3. **Only one replication job can run at a time.** If a replication job is in progress when the next job is scheduled to begin, the second job will be skipped. The next job will be scheduled according to the next iteration in the replication schedule.
 
-      4. **An integration's replication schedule applies to all selected tables**. Defining replication schedules for individual tables isn't currently supported.
+      4. **An integration's replication schedule applies to all selected tables**. Defining replication schedules for individual tables isn't currently supported. You can, however, [use this workaround]({{ link.replication.table-scheduling | prepend: site.baseurl }}), but note that there are some limitations.
 
       5. **Critical errors that occur during Extraction will end the current job.** Errors during the Extraction phase can occur for a myriad of reasons, such as connection/credential issues, Stitch or third-party outages, etc. When Stitch encounters an error during this phase of the replication process, the current job will end. The next job will be scheduled according to the next iteration in the replication schedule.
 
@@ -139,7 +139,7 @@ sections:
 
       {% for scheduling-method in scheduling-methods %}
       {% if scheduling-method.method == true %}
-      - [{{ scheduling-method.title }}]({{ page.url }}#create-schedule)
+      - [{{ scheduling-method.title }}]({{ scheduling-method.url | prepend: site.baseurl }}#create-schedule)
       {% endif %}
       {% endfor %}
 ---
