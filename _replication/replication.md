@@ -43,7 +43,7 @@ sections:
 {{ page.summary }}
 
 {% for section in page.sections %}
-- [**{{ section.name }}**](#{{ section.id }}) - {{ section.description }}
+- [**{{ section.name }}**](#{{ section.id | append: "-section" }}) - {{ section.description }}
 {% endfor %}
 
 ---
@@ -51,7 +51,7 @@ sections:
 {% for section in page.sections %}
 {% assign all-section-docs = site.replication | where:"content-type",section.id | sort:"weight" %}
 
-## {{ section.name }} {#{{ section.id }}}
+## {{ section.name }} {#{{ section.id | append: "-section" }}}
 
 {{ section.description }}
 
