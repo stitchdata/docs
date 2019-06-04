@@ -47,6 +47,7 @@ all-plans:
     description: *trial-description
     total-integrations: "n/a"
     integrations: "all"
+    cron-scheduling: true
     users: "n/a"
     rows: "unlimited"
     logs: "7 days"
@@ -57,6 +58,7 @@ all-plans:
     legacy: false
     integrations: "free"
     total-integrations: "Up to 5"
+    cron-scheduling: false
     users: "5"
     rows: "5 million"
     logs: "24 hours"
@@ -67,6 +69,7 @@ all-plans:
     legacy: true
     integrations: "all"
     total-integrations: "Up to 5"
+    cron-scheduling: false
     users: "5"
     rows: "5 million"
     logs: "7 days"
@@ -77,6 +80,7 @@ all-plans:
     legacy: true
     integrations: "all"
     total-integrations: "Up to 10"
+    cron-scheduling: false
     users: "10"
     rows: "100 million"
     logs: "7 days"
@@ -87,6 +91,7 @@ all-plans:
     legacy: true
     integrations: "all"
     total-integrations: "Up to 10"
+    cron-scheduling: false
     users: "10"
     rows: "250 million"
     logs: "7 days"
@@ -97,6 +102,7 @@ all-plans:
     legacy: false
     integrations: "all"
     total-integrations: "Up to 10"
+    cron-scheduling: false
     users: "10"
     rows: "Varies"
     logs: "7 days"
@@ -107,6 +113,7 @@ all-plans:
     legacy: false
     integrations: "all"
     total-integrations: "Unlimited"
+    cron-scheduling: true
     users: "Unlimited"
     rows: "billions"
     logs: "60 days"
