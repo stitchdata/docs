@@ -38,6 +38,7 @@ example-formatting: |
   <td><strong>Start Time (UTC)</strong></td>
   {% if schedule-example.name == "long-running-skipped-job" %}
   <td><strong>End Time (EST)</strong></td>
+  <td><strong>Duration</strong></td>
   {% endif %}
   </tr>
   {% for job in schedule-example.jobs %}
@@ -47,6 +48,7 @@ example-formatting: |
   <td>{{ job.start-utc }}</td>
   {% if schedule-example.name == "long-running-skipped-job" %}
   <td>{{ job.end-est }}</td>
+  <td>{{ job.duration }}</td>
   {% endif %}
   </tr>
   {% endfor %}
@@ -123,7 +125,7 @@ sections:
         content: |
           {{ page.example-formatting | flatify }}
 
-          In this example, the job that would have been scheduled for `May 1 04:30:00` was skipped because Job 2 took longer than the Replication Frequency (1 hour) to complete. Replication then resumed on the next recurrence of the Replication Frequency, which was at `May 1 05:30:00`.
+          In this example, the job that would have been scheduled for `May 1 04:30:00` was skipped because Job 2 took longer than the Replication Frequency (1 hour/60 minutes) to complete. Replication then resumed on the next recurrence of the Replication Frequency, which was at `May 1 05:30:00`.
 
           **Note**: Stitch doesn't currently send or display notifications when a job is skipped.
 
@@ -134,7 +136,7 @@ sections:
       You can create an Anchored Schedule in an integration's **Settings** page. 
 
       1. To access this page, click the integration from the {{ app.page-names.dashboard }} and then click the {{ app.buttons.update-int-settings }} tab.
-      2. In the **Replication Frequency** section, uncheck the **Use integration** default checkbox.
+      2. In the **Replication Frequency** section, uncheck the **Use integration default** checkbox.
       3. Using the slider, select the Replication Frequency interval you want the schedule to use. **Note**: The Replication Frequency must be **1 hour or greater** to use Anchor Scheduling.
       4. In the **Anchor time** dropdown, select the anchor time you want the schedule to use. Stitch will display a sample schedule at the bottom of the section, which will update as you change the Replication Frequency or anchor time:
 

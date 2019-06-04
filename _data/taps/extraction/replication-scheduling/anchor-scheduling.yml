@@ -14,7 +14,7 @@ name: "anchor-scheduling"
 display-name: "Anchor Scheduling"
 documentation: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
 
-description: ""
+description: "Anchor Scheduling is a type of replication scheduling that 'anchors' the start time of extraction jobs to a time you select."
 
 integration-availability: "Singer-backed integrations"
 plan-availability: "All plans"
@@ -98,19 +98,24 @@ examples:
         start-est: "May 1 02:30:00"
         start-utc: "May 1 18:30:00"
         end-est: "May 1 03:25:00"
+        duration: "55 minutes"
       - number: 2
         start-est: "May 1 03:30:00"
         start-utc: "May 1 19:30:00"
         end-est: "May 1 04:38:00"
+        duration: "68 minutes"
       - number: 3
         start-est: "Job"
         start-utc: "is"
         end-est: "skipped"
+        duration: "-"
       - number: 4
         start-est: "May 1 05:30:00"
         start-utc: "May 1 21:30:00"
         end-est: "May 1 06:21:00"
+        duration: "51 minutes"
       - number: 5
         start-est: "May 1 06:30:00"
         start-utc: "May 1 22:30:00"
         end-est: "May 1 07:01:00"
+        duration: "31 minutes"
