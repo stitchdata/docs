@@ -47,6 +47,12 @@
 					{% assign replication-frequency = replication-frequency-value | times: 60 %}
 				{% endif %}
 
+				{% if database.cron-scheduling == true %}
+					{% assign cron-scheduling = true %}
+				{% else %}
+					{% assign cron-scheduling = false %}
+				{% endif %}
+
 		<!-- If the form property uses feature fields, run the code below -->
 			{% if form-property.uses-feature-fields == true %}
 
@@ -71,13 +77,7 @@
 					{% assign binlog-fields = null | compact %}
 				{% endif %}
 
-				{% if database.cron-scheduling == true %}
-					{% assign cron-scheduling-fields = connect-database-attributes.cron-scheduling %}
-				{% else %}
-					{% assign cron-scheduling-fields = null | compact %}
-				{% endif %}
-
-				{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields | concat: cron-scheduling-fields %}
+				{% assign feature-fields = ssl-fields | concat: ssh-fields | concat: binlog-fields %}
 			{% else %}
 				{% assign feature-fields = null | compact %}
 			{% endif %}

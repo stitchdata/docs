@@ -26,4 +26,10 @@
                 {% else %}
                     {% assign replication-frequency = replication-frequency-value | times: 60 %}
                 {% endif %}
+
+                {% if saas.cron-scheduling == true %}
+                    {% assign cron-scheduling = true %}
+                {% else %}
+                    {% assign cron-scheduling = false %}
+                {% endif %}
         {% endfor %}

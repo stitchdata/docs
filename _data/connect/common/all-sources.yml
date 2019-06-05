@@ -31,6 +31,20 @@ fields:
       - `1440`
     value: "{{ replication-frequency }}"
 
+  - name: "cron_expression"
+    required: false
+    internal: false
+    type: "string"
+    description: |
+      {% if cron-scheduling == false %}
+      **Note: Advanced Scheduling using Cron is not yet supported for this source.** A value may be submitted for this property if the account is on an Enterprise plan, but Stitch will not use the expression submitted.
+      {% endif %}
+
+      A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info.
+
+      **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value (`{{ replication-frequency | remove: " " | remove: "minutes" | remove: "hours" }}`).
+    value: "0 0 12 ? * MON-FRI *"
+
 
 # start_date is in its own list because some non-SaaS sources also use it.
 # the logic for displaying form-properties will filter this property out
