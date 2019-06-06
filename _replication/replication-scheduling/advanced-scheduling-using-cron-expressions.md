@@ -222,9 +222,7 @@ sections:
 
          For example: An integration has a schedule that tells it to run every 20 minutes between the hours of noon and 2:00PM, starting at noon.
 
-         On average, extractions for this integration take between 2-5 minutes. However, the extraction that starts at 1:40PM takes longer than average, causing the job to continue running even after the 2:00PM mark:
-
-         [TODO]
+         On average, extractions for this integration take between 2-5 minutes. However, the extraction that starts at 1:40PM takes longer than average, causing the job to continue running even after the 2:00PM mark. As a result, the job scheduled for 2:00PM will be skipped and resume at the next scheduled interval.
 
   - title: "Create an Advanced Schedule for an integration"
     anchor: "create-schedule"
@@ -236,58 +234,53 @@ sections:
       2. In the **Replication Frequency** section, check the **Advanced** box located under the **Anchor time** menu. This will open the **Advanced Scheduler**.
 
          **Note**: This feature is only availble [during the Free Trial or on an Enterprise plan](#access-advanced-scheduling).
-      3. Enter the values you want into each of the fields. Stitch will validate the schedule after each change. If the schedule is valid, a sample schedule will display under the fields:
+      3. Enter the values you want into each of the fields. Stitch will validate the schedule after each change. If the schedule is valid, a sample schedule will display under the fields.
 
-         [TODO - Add when UI is released]
-
-         If the schedule isn't valid, an error will display:
-
-         [TODO - Add when UI is released]
-
-         Refer to the [Troubleshooting section](#troubleshooting-cron-errors) for help resolving these errors.
       4. When finished, click the {{ app.buttons.save-int-settings }} button.
 
-  - title: "Troubleshooting"
-    anchor: "troubleshooting-cron-errors"
-    summary: "Troubleshooting validation errors"
-    content: |
-      {% assign cron-errors = site.data.errors.cron-scheduling.errors %}
+# Refer to the [Troubleshooting section](#troubleshooting-cron-errors) for help resolving these errors.
 
-      If there's an illegal value or the expression syntax is incorrect, Stitch will display an error beneath the Advanced Scheduler fields.
+  # - title: "Troubleshooting"
+  #   anchor: "troubleshooting-cron-errors"
+  #   summary: "Troubleshooting validation errors"
+  #   content: |
+  #     {% assign cron-errors = site.data.errors.cron-scheduling.errors %}
 
-      Before you can move on, you'll need to resolve what's causing the error.
+  #     If there's an illegal value or the expression syntax is incorrect, Stitch will display an error beneath the Advanced Scheduler fields.
 
-      <table class="attribute-list">
-          <tr>
-              <td width="50%; fixed">
-                  <strong>
-                      Error
-                  </strong>
-              </td>
+  #     Before you can move on, you'll need to resolve what's causing the error.
 
-              <td>
-                  <strong>
-                      Solution
-                  </strong>
-              </td>
-          </tr>
-          {% for error in cron-errors %}
-              <tr>
-                  <td>
-      <pre>
-      {{ error.message | strip }}
-      </pre>
-                  </td>
-                  <td>
-                      <strong>Meaning</strong>
-                      {{ error.meaning | flatify | markdownify }}
-                      <hr>
-                      <strong>Solution</strong>
-                      {{ error.fix-it | flatify | markdownify }}
-                  </td>
-              </tr>
-          {% endfor %}
-      </table>
+  #     <table class="attribute-list">
+  #         <tr>
+  #             <td width="50%; fixed">
+  #                 <strong>
+  #                     Error
+  #                 </strong>
+  #             </td>
+
+  #             <td>
+  #                 <strong>
+  #                     Solution
+  #                 </strong>
+  #             </td>
+  #         </tr>
+  #         {% for error in cron-errors %}
+  #             <tr>
+  #                 <td>
+  #     <pre>
+  #     {{ error.message | strip }}
+  #     </pre>
+  #                 </td>
+  #                 <td>
+  #                     <strong>Meaning</strong>
+  #                     {{ error.meaning | flatify | markdownify }}
+  #                     <hr>
+  #                     <strong>Solution</strong>
+  #                     {{ error.fix-it | flatify | markdownify }}
+  #                 </td>
+  #             </tr>
+  #         {% endfor %}
+  #     </table>
 
   - title: "Additional cron resources"
     anchor: "resources"
