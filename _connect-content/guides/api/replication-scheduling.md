@@ -88,7 +88,7 @@ sections:
     content: |
       Replication scheduling tells Stitch when and how often data extraction should occur.
 
-      For a more in-depth look at replication scheduling, refer to the [Replication Scheduling guide]({{ link.replication.rep-scheduling | prepend: site.baseurl }}).
+      For a more in-depth look at replication scheduling, refer to the [Replication Scheduling overview]({{ link.replication.rep-scheduling | prepend: site.baseurl }}).
 
   - title: "Replication scheduling API properties"
     anchor: "replication-scheduling-api-properties"
