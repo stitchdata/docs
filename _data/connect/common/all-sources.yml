@@ -4,23 +4,37 @@
 
 # This file contains the fields that are common to all source connections.
 
+names:
+  anchor-time: &anchor-time "anchor_time"
+  frequency: &frequency "frequency_in_minutes"
+  advanced: &advanced "cron_expression"
+
+
 fields:
-  - name: "anchor_time"
+  - name: *anchor-time
     type: "string"
     required: false
     internal: false
+    category: "anchor-scheduling"
+    order: 2
     description: |
       Defines the time that `frequency_in_minutes` is "anchored" to, which Stitch will use to create the integration's replication schedule. In Stitch, this is referred to as [Anchor Scheduling]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}).
 
       This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date. For example: `2018-04-30T03:30:00Z`
 
       For example: If `anchor_time` is set to `2018-04-30T03:30:00Z` and `frequency_in_minutes` is set to `360`, Stitch will run a replication job for the integration every `360` minutes, starting at `03:30:00`. This means a job would run at `09:30:00`, `15:30:00`, `21:30:00`, etc.
+    short: |
+      Defines the time that `frequency_in_minutes` is "anchored" to, which Stitch will use to create the integration's replication schedule.
+
+      This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date. For example: `2018-04-30T03:30:00Z`
     value: "2018-04-30T03:30:00Z"
 
-  - name: "frequency_in_minutes"
+  - name: *frequency
     type: "string"
     required: true
     internal: false
+    category: "interval-scheduling, anchor-scheduling"
+    order: 1
     description: |
       Defines how often, in minutes, Stitch should attempt to replicate data from {{ integration }}. Accepted values are:
 
@@ -29,12 +43,22 @@ fields:
       - `360`
       - `720`
       - `1440`
+    short: |
+      Defines how often, in minutes, Stitch should attempt to replicate data from a source. Accepted values are:
+
+      - `30`
+      - `60`
+      - `360`
+      - `720`
+      - `1440`
     value: "{{ replication-frequency }}"
 
-  - name: "cron_expression"
+  - name: *advanced
+    type: "string"
     required: false
     internal: false
-    type: "string"
+    category: "advanced-scheduling"
+    order: 3
     description: |
       {% if cron-scheduling == false %}
       **Note: Advanced Scheduling using Cron is not yet supported for this source.** A value may be submitted for this property if the account is on an Enterprise plan, but Stitch will not use the expression submitted.
@@ -43,6 +67,10 @@ fields:
       A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info.
 
       **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value (`{{ replication-frequency | remove: " " | remove: "minutes" | remove: "hours" }}`).
+    short: |
+      A valid Quartz cron expression representing the replication schedule for the integration. This feature is only available to users on a Stitch Enterprise plan.
+
+      **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value.
     value: "0 0 12 ? * MON-FRI *"
 
 
@@ -54,6 +82,7 @@ start-date:
     type: "string"
     required: true
     internal: false
+    category: "extraction"
     description: |
       The date from which Stitch should begin replicating data from {{ integration }}. Data from this date forward will be replicated.
 
