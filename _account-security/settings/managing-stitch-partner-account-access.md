@@ -30,9 +30,11 @@ sections:
     anchor: "how-stitch-partner-get-account-access"
     summary: "How a Stitch partner is granted account access"
     content: |
-      Stitch partners are granted access to your account when you create a connection to Stitch from their application.
+      Stitch partners are granted access to your account when you create a connection to Stitch from their application. If there aren't any Stitch partners that have access to your account, this section will say **No current partner keys**.
 
-      For example: If you created a Stitch account through your [Snowflake](http://snowflakecomputing.com){:target="new"} account, Snowflake would be listed as an authorized partner for your Stitch account.
+      For example: If you created a Stitch account through your [Snowflake](http://snowflakecomputing.com){:target="new"} account, Snowflake would be listed as an authorized partner for your Stitch account:
+
+      ![A Snowflake partner listed in the Partner keys table in Stitch]({{ site.baseurl }}/images/account-security/partner-access-keys-table.png)
 
   - title: "Revoke a partner's account access"
     anchor: "revoke-partner-account-access"
@@ -42,11 +44,13 @@ sections:
 
       For example: If you revoke access to Snowflake, Stitch will no longer be able to load replicated data into your Snowflake destination.
 
+      ![Disabling a partner key in Stitch]({{ site.baseurl }}/images/account-security/partner-access-keys-disable-menu.png)
+
   - title: "Restore a partner's account access"
     anchor: "restore-partner-account-access"
     summary: "How to restore a partner's account access"
     content: |
-      If you accidentally revoke a partner's access, you can re-authorize the connection to Stitch from the partner's application.
+      If you accidentally revoke a partner's access by deleting their access key, you can re-authorize the connection to Stitch from the partner's application.
 
       To perform the re-authorization, you'll need to sign into the partner's application and complete the re-authorization process.
 

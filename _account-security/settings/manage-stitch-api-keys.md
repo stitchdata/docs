@@ -56,7 +56,7 @@ sections:
         content: |
           Any team member in a Stitch account with API access can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
 
-          [TODO-image example]
+          ![An enabled API access key with a description]({{ site.baseurl }}/images/account-security/api-key-table.png)
 
       - title: "What Stitch plans include API access?"
         anchor: "plans-with-api-access"
@@ -86,7 +86,7 @@ sections:
 
       An entry for the API key will display in the **API access keys** section of the {{ app.page-names.account-settings }} page:
 
-      [TODO-image example]
+      ![An enabled API access key with a description]({{ site.baseurl }}/images/account-security/api-key-table.png)
 
   - title: "Delete an API key"
     anchor: "delete-api-key"
@@ -101,7 +101,7 @@ sections:
       3. Locate the API key you want to delete in the **API access keys** section.
 
          {% include tip.html type="single-line" content="**Not sure which key you need to delete?** If you know the last four characters of the key, you can match them to the value in the **Key (last 4)** column." %}
-      4. Click the [TODO] icon next to the **Status** column.
+      4. Click the icon next to the **Status** column.
       5. Click **Delete this key**.
       6. You'll be prompted to confirm the deletion. Click **Delete** to continue and delete the API key.
 
@@ -109,9 +109,9 @@ sections:
     anchor: "disable-reenable-api-key"
     summary: "How to disable or re-enable an API key"
     content: |
-      If you want to temporarily disable an API key, you can click the [TODO] icon next to the key and use the **Disable this key** option.
+      If you want to temporarily disable an API key, you can click the icon next to the key and use the **Disable this key** option.
 
-      To re-enable a disabled key, [TODO]
+      To re-enable a disabled key, click the icon next to the **Status** column and select **Re-enable this key**.
 
   - title: "Manage Stitch partner account access"
     anchor: "manage-stitch-partner-account-access"
