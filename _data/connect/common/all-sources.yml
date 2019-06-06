@@ -9,6 +9,8 @@ names:
   frequency: &frequency "frequency_in_minutes"
   advanced: &advanced "cron_expression"
 
+guide-callout: |
+  Refer to the [Replication Scheduling for API sources guide]({{ link.connect.guides.replication-scheduling-for-sources | prepend: site.baseurl }}) for more info about replication scheduling using the API.
 
 fields:
   - name: *anchor-time
@@ -23,6 +25,8 @@ fields:
       This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date. For example: `2018-04-30T03:30:00Z`
 
       For example: If `anchor_time` is set to `2018-04-30T03:30:00Z` and `frequency_in_minutes` is set to `360`, Stitch will run a replication job for the integration every `360` minutes, starting at `03:30:00`. This means a job would run at `09:30:00`, `15:30:00`, `21:30:00`, etc.
+
+      {{ site.data.connect.common.all-sources.guide-callout | flatify }}
     short: |
       Defines the time that `frequency_in_minutes` is "anchored" to, which Stitch will use to create the integration's replication schedule.
 
@@ -43,6 +47,8 @@ fields:
       - `360`
       - `720`
       - `1440`
+
+      {{ site.data.connect.common.all-sources.guide-callout | flatify }}
     short: |
       Defines how often, in minutes, Stitch should attempt to replicate data from a source. Accepted values are:
 
@@ -67,6 +73,8 @@ fields:
       A valid Quartz cron expression representing the replication schedule for the integration. Refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}) for more info.
 
       **Note**: If neither a `cron_expression` or `frequency_in_minutes` property is provided, Stitch will use the source's default `frequency_in_minutes` value (`{{ replication-frequency | remove: " " | remove: "minutes" | remove: "hours" }}`).
+
+      {{ site.data.connect.common.all-sources.guide-callout | flatify }}
     short: |
       A valid Quartz cron expression representing the replication schedule for the integration. This feature is only available to users on a Stitch Enterprise plan.
 
