@@ -104,15 +104,16 @@ sections:
 
           The account that will be created will be owned and managed by the user provided in the Create Account request. This user can then log into the Stitch web interface, receive emails from Stitch, etc.
 
-          When successful, this endpoint returns a status of `200 OK` and an access token:
+          When successful, this endpoint returns a status of `200 OK` and an object with `access_token` and `stitch_account_id` properties:
 
           ```json
           {
-            "access_token":"<ACCESS_TOKEN>"
+            "access_token": "<ACCESS_TOKEN>",
+            "stitch_account_id": <STITCH_CLIENT_ID>
           }
           ```
 
-          Your application should store the `access_token` somewhere secure, as the access token will be used to make calls to the API.
+          Your application should store the `access_token` and `stitch_account_id` somewhere secure, as these credentials will be used to make calls to the API.
 
       - title: "Step 2: Authenticate your API requests"
         anchor: "authenticate-your-api-requests"
@@ -220,7 +221,7 @@ sections:
           ```json
           {
             "token_type": "bearer",
-            "access_token": <ACCESS_TOKEN>,
+            "access_token": "<ACCESS_TOKEN>",
             "stitch_account_id": <STITCH_ACCOUNT_ID>
           }
           ```
