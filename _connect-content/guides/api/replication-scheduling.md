@@ -88,6 +88,8 @@ sections:
     content: |
       Replication scheduling tells Stitch when and how often data extraction should occur.
 
+      **Note**: All replication scheduling methods (Replication Frequency, Anchor Scheduling, and Advanced Scheduling) define when data extractions begin. They do not control how long a replication job runs or when data is loaded into a destination.
+
       For a more in-depth look at replication scheduling, refer to the [Replication Scheduling overview]({{ link.replication.rep-scheduling | prepend: site.baseurl }}).
 
   - title: "Replication scheduling API properties"
