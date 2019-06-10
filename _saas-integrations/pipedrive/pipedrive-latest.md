@@ -29,8 +29,8 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
-table-selection: false
-column-selection: false
+table-selection: true
+column-selection: true
 
 anchor-scheduling: false
 extraction-logs: false
