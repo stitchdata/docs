@@ -1,8 +1,9 @@
 ---
 title: Pipedrive
-permalink: /integrations/saas/pipedrive
+permalink: /integrations/saas/pipedrive/v20-01-2017
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 summary: "Connection instructions and schema details for Stitch's Pipedrive integration."
+input: false
 format: ## controls formatting options in template
   schema-list: true
   table-desc: true
@@ -22,7 +23,7 @@ status-url: "http://status.pipedrive.com/"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
+status: "Deprecated"
 certified: false
 
 historical: "1 year"
