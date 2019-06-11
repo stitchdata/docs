@@ -1,6 +1,6 @@
 ---
-title: Pipedrive
-permalink: /integrations/saas/pipedrive/v20-01-2017
+title: Pipedrive (v05-10-2016)
+permalink: /integrations/saas/pipedrive/v05-10-2016
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 summary: "Connection instructions and schema details for Stitch's Pipedrive integration."
 input: false
@@ -18,6 +18,8 @@ display_name: "Pipedrive"
 
 singer: false
 status-url: "http://status.pipedrive.com/"
+
+this-version: "05-10-2016"
 
 # -------------------------- #
 #       Stitch Details       #
