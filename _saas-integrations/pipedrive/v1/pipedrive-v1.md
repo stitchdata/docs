@@ -79,7 +79,9 @@ setup-steps:
       2. Click the **user menu** (where your avatar is) in the top right corner of the screen.
       3. Click **Settings**.
       4. In the settings menu, click **API**.
-      5. The user’s API Token will display.
+      5. The user’s API Token will display:
+
+         ![Personal API token in the Pipedrive app]({{ site.baseurl }}/images/integrations/pipedrive-api-token.png)
 
       Leave this page open for now - you'll need it to complete the setup in Stitch.
 

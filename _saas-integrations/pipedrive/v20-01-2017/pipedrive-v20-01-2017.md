@@ -101,7 +101,7 @@ tables:
 ## Currencies
   - name: "currencies"
     doc-link: https://developers.pipedrive.com/v1#methods-Currencies
-    description: "infor about the currencies listed in your Pipedrive account."
+    description: "info about the currencies listed in your Pipedrive account."
     notes: 
     replication-method: "Full Table"
     primary-key: "id"
