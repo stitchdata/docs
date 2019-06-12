@@ -2,53 +2,31 @@
 title: Account & Security
 permalink: /account-security/
 keywords: billing, plan, change plan, cancel, cancel account, delete, remove
-summary: "Resources for everything account-related: managing billing details, inviting team members, security info, and more."
+summary: "Resources for everything account-related: Managing billing details, inviting team members, security info, and more."
 feedback: false
+
 ---
+
 {% include misc/data-files.html %}
 
 {{ page.summary }}
 
 ---
 
-## Getting Started
+{% assign sections = "getting-started|account-settings|invite-your-team|billing|security" | split:"|" %}
 
-{% assign getting-started = site.account-security | where:"permalink","/getting-started/" %}
+{% for section in sections %}
 
-{% for page in getting-started %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
+## {{ section | capitalize | replace:"-"," " }}
+
+{% assign pages = site.account-security | where:"type",section | sort:"weight" %}
+
+{% for page in pages %}
+<span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | capitalize | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>
 {{ page.summary }}
 {% endfor %}
 
+{% unless forloop.last == true %}
 ---
-
-{% assign account-docs = site.account-security | where:"type","account" | sort:"weight" %}
-
-## Managing Your Account
-
-{% for page in account-docs %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endfor %}
-
----
-
-{% assign billing-docs = site.account-security | where:"type","billing" | sort:"weight" %}
-
-## Stitch Billing
-
-{% for page in billing-docs %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endfor %}
-
----
-
-{% assign security-docs = site.account-security | where:"type","security" | sort:"weight" %}
-
-## Security
-
-{% for page in security-docs %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+{% endunless %}
 {% endfor %}

@@ -11,7 +11,7 @@ description: "The Source Type object contains the information needed to configur
 get:
   name: "{{ site.data.connect.api.core-objects.source-types.base }}/{source_type}"
   title: "Get a source type"
-  method: *get
+  method: "get"
   anchor: "#get-a-source-type"
   short: "Retrieves general information about the configuration required for a data source type."
   description: |
@@ -24,7 +24,7 @@ get:
 list:
   name: "{{ site.data.connect.api.core-objects.source-types.base }}"
   title: "List source types"
-  method: *get
+  method: "get"
   anchor: "#list-source-types"
   short: "Retrieves general information about the configuration required for all supported data source types."
   description: |

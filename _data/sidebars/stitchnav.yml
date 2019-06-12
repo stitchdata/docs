@@ -10,21 +10,44 @@ all-docs:
 
   - title: Account & Security
     sections:
-
-    - title: Your Stitch Account
-      url: /account-security/
-
     - title: Account Settings
-      url: "{{ link.account.account-settings }}"
+      subsections:
+        - title: "Change Your Email & Password"
+          url: "{{ link.account.email-password }}"
 
-    - title: Invite Your Team
-      url: "{{ link.account.team-members }}"
+        - title: "Update Company Details"
+          url: "{{ link.account.account-settings }}#update-company-information"
+
+        - title: "Notification Settings"
+          url: "{{ link.account.account-settings }}#update-account-notification-content"
+
+        - title: "Manage Your API Keys"
+          url: "{{ link.account.manage-api-keys }}"
+
+        - title: "Manage Stitch Partner Access"
+          url: "{{ link.account.manage-partner-access }}"
+
+    - title: "Invite Your Team"
+      subsections:
+        - title: "Team Member Basics"
+          url: "{{ link.account.team-members }}#team-member-basics"
+
+        - title: "Add a Team Member"
+          url: "{{ link.account.team-members }}#invite-team-member"
+
+        - title: "Add a Team Member to Multiple Accounts"
+          url: "{{ link.account.team-members }}#add-to-multiple-accounts"
+
+        - title: "Deactivate a Team Member"
+          url: "{{ link.account.team-members }}#deactivate-team-member"
 
     - title: Billing
-      url: "{{ link.billing.billing-faq }}"
+      subsections:
+        - title: Understand Your Usage
+          url: "{{ link.billing.billing-guide }}"
 
-    - title: Understand Your Usage
-      url: "{{ link.billing.billing-guide }}"
+        - title: "FAQ"
+          url: "{{ link.billing.billing-faq }}"
 
     - title: Security
       subsections:
@@ -36,6 +59,9 @@ all-docs:
 
     - title: Cancel Your Account
       url: "{{ link.account.cancel-account }}"
+
+    - title: All Account & Security
+      url: /account-security/
 
   - title: Destinations
     sections:
