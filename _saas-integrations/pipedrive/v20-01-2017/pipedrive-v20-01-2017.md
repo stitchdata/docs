@@ -1,8 +1,9 @@
 ---
-title: Pipedrive
-permalink: /integrations/saas/pipedrive
+title: Pipedrive (v05-10-2016)
+permalink: /integrations/saas/pipedrive/v05-10-2016
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 summary: "Connection instructions and schema details for Stitch's Pipedrive integration."
+input: false
 format: ## controls formatting options in template
   schema-list: true
   table-desc: true
@@ -18,11 +19,13 @@ display_name: "Pipedrive"
 singer: false
 status-url: "http://status.pipedrive.com/"
 
+this-version: "05-10-2016"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
+status: "Deprecated"
 certified: false
 
 historical: "1 year"
@@ -98,7 +101,7 @@ tables:
 ## Currencies
   - name: "currencies"
     doc-link: https://developers.pipedrive.com/v1#methods-Currencies
-    description: "infor about the currencies listed in your Pipedrive account."
+    description: "info about the currencies listed in your Pipedrive account."
     notes: 
     replication-method: "Full Table"
     primary-key: "id"
