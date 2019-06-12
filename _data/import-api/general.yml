@@ -2,7 +2,7 @@ attributes:
   client-id: |
     The Stitch client ID associated with your Stitch account.
 
-    To locate your client ID, sign into your Stitch account and look at the URL. The client ID is the number between `client` and `pipeline` in the URL.
+    To locate your client ID, sign into your Stitch account and look at the URL. The client ID is the four to six-digit number between `client` and `pipeline` in the URL.
 
     For example: If the URL is `https://app.stitchdata.com/v2/client/7723/pipeline/connections`, the client ID would be `7723`.
 
@@ -13,15 +13,25 @@ attributes:
 
     **Note**: The number of characters in the table name should be within the destination's allowed limits or data will rejected.
 
-  sequence: "An integer that tells the Import API the order in which data points in the request body should be considered."
+  sequence: |
+    An integer that tells the Import API the order in which data points in the request body should be considered. This data will be stored in the destination table in the `{{ system-column.sequence }}` column.
 
-  key-names: "An array of strings representing the Primary Key fields in the destination table. All fields defined as Primary Keys must be present in the `data` object and their value cannot be `null`."
+  key-names: |
+    An array of strings representing the Primary Key fields in the destination table. 
+
+    - All fields defined as Primary Keys must be present in the `data` object and their value cannot be `null`
+    - If a Primary Key is a string, its value must be less than 256 characters
+    - Primary Key fields must be top-level fields in the table. For example: When sending JSON, a Primary Key field cannot be contained in an object or an array.
+
+# This record has an array for a primary key value: [["client_id" []] ["project_no" []] ["feecode_id" []]]
+# https://app.intercom.io/a/apps/okjpf68w/inbox/inbox/search/conversations/18617508680
 
   data: |
     An object representing a record to be pushed into the destination table. 
 
     - All fields included in `key_names` must be included and their values cannot be `null`.
     - The maximum number of data points per `data` object is 10,000
+    - If a Primary Key is a string, its value must be less than 256 characters
 
     Refer to the [Structuring data for the Import API guide]({{ link.import-api.guides.structure-data | prepend: site.baseurl }}) for instructions and examples.
 

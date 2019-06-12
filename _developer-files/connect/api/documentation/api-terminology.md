@@ -3,9 +3,25 @@ product-type: "connect"
 content-type: "api-terms"
 
 all-terms:
+  - name: "Partner ID"
+    definition: |
+      {{ site.data.connect.general.authentication.partner-id | flatify }}
+
+  - name: "Partner key"
+    definition: |
+      {{ site.data.connect.general.authentication.partner-key | flatify }}
+
   - name: "Stitch client account"
     definition: |
       {{ site.data.tooltips.stitch-client-account }}
+
+  - name: "Client account access token"
+    definition: |
+      {{ site.data.connect.general.authentication.client-account-access-token }}
+
+  - name: "Ephemeral token"
+    definition: |
+      {{ site.data.connect.general.authentication.ephemeral-token | flatify }}
 
   - name: "Destination"
     definition: |

@@ -40,11 +40,9 @@
     <!-- This value comes from _includes/connect/api-endpoint.html -->
         {% case has-multiple-versions %}
             {% when "true" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
-            {% when "false" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number | replace: " ","-" | downcase %}
             {% else %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | replace: " ","-" | downcase %}
         {% endcase %}
 
         {% if forloop.first == true %} 
@@ -63,11 +61,9 @@
     <!-- This value comes from _includes/connect/api-endpoint.html -->
         {% case has-multiple-versions %}
             {% when "true" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number %}
-            {% when "false" %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | append: "-v" | append: version.number | replace: " ","-" | downcase %}
             {% else %}
-                {% assign tab-id = item.key | append: "-" | append: example.type %}
+                {% assign tab-id = item.key | append: "-" | append: example.type | replace: " ","-" | downcase %}
         {% endcase %}
 
         {% if forloop.first == true %}

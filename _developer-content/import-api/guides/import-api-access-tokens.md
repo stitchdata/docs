@@ -40,7 +40,7 @@ intro: |
 
 
 # -------------------------- #
-#         GUIDE STEPS        #
+#        GUIDE CONTENT       #
 # -------------------------- #
 
 sections:

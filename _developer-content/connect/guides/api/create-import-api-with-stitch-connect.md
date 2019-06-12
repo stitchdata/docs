@@ -6,17 +6,17 @@
 title: Create and configure an Import API source with Stitch Connect
 doc-type: "tutorial"
 
-product-type: "import-api"
+product-type: "connect"
 content-type: "guide"
-content-id: "create-import-api-with-stitch-connect"
+content-id: "create-import-api-source"
 layout: tutorial
 
-permalink: /developers/import-api/guides/create-import-api-integration-with-stitch-connect
+permalink: /developers/stitch-connect/guides/create-import-api-integration-with-stitch-connect
 icon: 
-order: 1
+order: 5
 
 summary: "Using the Stitch Connect API, create a new Import API integration and generate an access token. You'll also learn how to push data to the Import API after the source has been configured."
-## This is used only on the /import-api/guides page.
+## This is used only on the /stitch-connect/guides page.
 description: "Create an Import API integration using the Stitch Connect API."
 
 
@@ -25,8 +25,8 @@ description: "Create an Import API integration using the Stitch Connect API."
 # -------------------------- #
 
 related:
-  - title: "Generate and Revoke Import API Access Tokens in the Stitch App"
-    link: "{{ link.import-api.guides.generate-revoke-access-tokens | prepend: site.baseurl }}"
+  - title: "Stitch Import API Access Tokens"
+    link: "{{ link.import-api.guides.access-tokens | prepend: site.baseurl }}"
 
   - title: "Structuring Data for the Import API"
     link: "{{ link.import-api.guides.structure-data | prepend: site.baseurl }}"
@@ -45,7 +45,7 @@ intro: |
   {% include misc/data-files.html %}
 
   {% capture import-api-notice %}
-  **Note**: This guide focuses on creating an Import API source using Stitch Connect. For help creating Import API integrations using the Stitch web app, refer to the [Generate and Revoke Import API access tokens in the Stitch app guide]({{ link.import-api.guides.generate-revoke-access-tokens | prepend: site.baseurl }}).
+  **Note**: This guide focuses on creating an Import API source using Stitch Connect. Refer to the [Stitch Import API access token documention]({{ link.import-api.guides.access-tokens | prepend: site.baseurl }}) for instructions on generating API access tokens in the Stitch web app.
   {% endcapture %}
 
   {% include note.html type="single-line" content=import-api-notice %}
@@ -255,7 +255,7 @@ steps:
       **Note**: This step isn't required to create an Import API source. This is only required if you wish to generate and replace an access token. For example: If your token is lost or compromised.
       {% endcapture %}
 
-      {% include note.html content=rotate-tokens-notice %}
+      {% include note.html type="single-line" content=rotate-tokens-notice %}
 
       Each Import API source is allowed a maximum of two active access tokens at a time.
 

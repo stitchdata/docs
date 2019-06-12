@@ -5,36 +5,110 @@
 ## This file lists the various resources other people have
 ## built for using the Stitch Import API.
 
-disclaimer: |
-  Stitch does not formally support the use of the resources listed here. If you need help using these resources, we recommend creating an issue on the GitHub repository or asking the [Stitch Community]({{ site.community }}){:target="new"}.
-
-  If you need help using the Import API, reach out to the [Stitch Support team](mailto: {{ site.support }}) or ask the [Stitch Community]({{ site.community }}){:target="new"}.
+transit:
+  url: "https://github.com/cognitect/transit-format"
+  description: ""
 
 all:
-  - title: "Python Stitch Client"
-    language: "python"
-    resource-type: "library"
-    description: "A Stitch Import API client library for Python."
-    url: "https://github.com/stitchdata/python-stitch-client"
-    external: true
+# -------------------------- #
+#          CLOJURE           #
+# -------------------------- #
 
-  - title: "Stitch Import API Ruby Wrapper"
-    language: "Ruby"
-    resource-type: "wrapper"
-    description: "A Ruby wrapper for the Stitch Import API."
-    url: "https://github.com/Theminijohn/mini_stitch"
-    external: true
+  - id: "clojure"
+    display-name: "Clojure"
+    resources:
+      - title: "Clojure Stitch Client"
+        author: |
+          [Stitch]({{ site.home }}){:target="new"}
+        type: "client"
+        description: "A Stitch Import API client library for Clojure."
+        url: "https://github.com/stitchdata/clojure-stitch-client"
 
-  - title: "Stitch Import API PHP SDK"
-    language: "php"
-    resource-type: "sdk"
-    description: "A PHP SDK for the Stitch Import API."
-    url: "https://github.com/sminnee/stitchdata-php"
-    external: true
 
-  - title: "PHP Stitch Client"
-    language: "php"
-    resource-type: "library"
-    description: "A Stitch Import API client for PHP."
-    url: "https://github.com/mijohansen/php-stitch-client"
-    external: true
+# -------------------------- #
+#            JAVA            #
+# -------------------------- #
+
+  - id: "java"
+    display-name: "Java"
+    resources:
+      - title: "Java Stitch Client"
+        author: |
+          [Stitch]({{ site.home }}){:target="new"}
+        type: "client"
+        description: "A Stitch Import API client library for Java."
+        url: "https://github.com/stitchdata/java-stitch-client"
+
+
+# -------------------------- #
+#           OTHER            #
+# -------------------------- #
+
+  - id: "other"
+    display-name: "Other"
+    resources:
+      - title: "Rust interface for the Stitch Import API"
+        author: |
+          [Steve Cirner](https://github.com/scirner22){:target="new"}
+        type: "interface"
+        description: "A Rust interface for pushing data to the Import API."
+        url: "https://github.com/scirner22/stitch-rs"
+
+
+# -------------------------- #
+#            PHP             #
+# -------------------------- #
+
+  - id: "php"
+    display-name: "PHP"
+    resources:
+      - title: "Stitch Import API PHP SDK"
+        author: |
+          [Sam Minnée](https://github.com/sminnee){:target="new"}
+        type: "sdk"
+        description: "A PHP SDK for the Stitch Import API."
+        url: "https://github.com/sminnee/stitchdata-php"
+
+      - title: "PHP Stitch Client"
+        author: |
+          [Michael Johansen](https://github.com/mijohansen){:target="new"}
+        type: "library"
+        description: "A Stitch Import API client for PHP."
+        url: "https://github.com/mijohansen/php-stitch-client"
+
+
+# -------------------------- #
+#           PYTHON           #
+# -------------------------- #
+
+  - id: "python"
+    display-name: "Python"
+    resources:
+      - title: "Python Stitch Client"
+        author: |
+          [Stitch]({{ site.home }}){:target="new"}
+        type: "library"
+        description: "A Stitch Import API client library for Python."
+        url: "https://github.com/stitchdata/python-stitch-client"
+
+
+# -------------------------- #
+#            RUBY            #
+# -------------------------- #
+
+  - id: "ruby"
+    display-name: "Ruby"
+    resources:
+      - title: "Mini Stitch Ruby Wrapper"
+        author: |
+          [AnyRoad](https://www.anyroad.com/){:target="new"}
+        type: "wrapper"
+        description: "A Ruby wrapper for the Stitch Import API."
+        url: "https://github.com/anyroadcom/mini_stitch"
+
+      - title: "Stitch Import API Ruby Wrapper"
+        author: |
+          [Tailor Brands](https://www.tailorbrands.com/){:target="new"}
+        type: "wrapper"
+        description: "A Ruby wrapper for the Stitch Import API."
+        url: "https://github.com/TailorBrands/stitch_data"
