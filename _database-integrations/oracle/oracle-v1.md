@@ -39,6 +39,7 @@ hosting-type: "generic"
 
 status: "Released"
 certified: true
+enterprise: true
 
 frequency: "30 minutes"
 tier: "Enterprise"

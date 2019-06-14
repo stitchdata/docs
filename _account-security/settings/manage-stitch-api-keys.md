@@ -10,6 +10,7 @@ toc: true
 type: "account-settings"
 weight: 3
 
+enterprise: true
 enterprise-cta:
   title: "API access is an Enterprise feature"
   copy: |

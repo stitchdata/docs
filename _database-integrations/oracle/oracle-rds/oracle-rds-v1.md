@@ -39,6 +39,8 @@ hosting-type: "amazon"
 
 status: "Released"
 certified: true
+enterprise: true
+
 setup-name: "Oracle"
 
 frequency: "30 minutes"

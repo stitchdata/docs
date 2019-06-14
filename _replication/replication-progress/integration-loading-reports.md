@@ -9,6 +9,8 @@ content-type: "replication-progress"
 toc: true
 weight: 3
 
+enterprise: true
+
 enterprise-cta:
   title: "Need more reports?"
   url: "?utm_medium=docs&utm_campaign=loading-report-retention"

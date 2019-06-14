@@ -14,6 +14,8 @@ feedback: false
 type: "security"
 weight: 1
 
+enterprise: true
+
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #

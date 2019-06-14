@@ -10,6 +10,8 @@ content-type: "replication-progress"
 toc: true
 weight: 2
 
+enterprise: true
+
 enterprise-cta:
   title: "Need more logs?"
   url: "?utm_medium=docs&utm_campaign=extraction-log-retention"

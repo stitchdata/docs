@@ -12,6 +12,8 @@ toc: true
 type: "security"
 weight: 5
 
+enterprise: true
+
 enterprise-cta:
   hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
   reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
