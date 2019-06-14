@@ -44,6 +44,8 @@ tier: "Paid"
 status-url: "https://status.recurly.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
