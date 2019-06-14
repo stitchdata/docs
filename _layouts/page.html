@@ -17,34 +17,17 @@ layout: default
         {% include layout/toc.html %}
     {% endunless %}
 
-  {{content}}
+    {% if page.enterprise == true %}
+        {% include enterprise-cta.html %}
+    {% endif %}
+
+      {{content}}
 
 <!-- GitHub Feedback snippet -->
 {% unless page.feedback == false %}
     {% include layout/related-troubleshooting-articles.html %}
     {% include layout/feedback.html %}
 {% endunless %}
-
-<!-- Page tags -->
-    {% for tag in page.tags %}
-    {% assign counter=0 %}
-    {% if page.tags contains tag %}
-            {% assign counter=counter | plus:1 %}
-        {% endif %}
-    {% endfor %}
-
-    {% if counter > 0 %}
-        <div class="tags">
-            <b>Tags: </b>
-            {% assign projectTags = site.data.tags.allowed-tags %}
-            {% for tag in page.tags %}
-                {% if projectTags contains tag %}
-                    <a href="{{ "/tag_" | append: tag | prepend: site.baseurl }}" class="btn btn-default navbar-btn cursorNorm" role="button">{{ tag | replace:"_"," " }}</a>
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endif %}
-
 </div>
 
 {% include layout/footer-cta.html %}

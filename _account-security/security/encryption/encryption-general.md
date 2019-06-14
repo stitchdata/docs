@@ -15,6 +15,11 @@ type: "security"
 weight: 1
 
 enterprise: true
+enterprise-cta:
+  general: false
+  title: "Advanced connectivity for Stitch Enterprise"
+  copy: |
+    [Additional connection options](#advanced-connectivity) are available as part of a Stitch Enterprise plan.
 
 # -------------------------- #
 #        Introduction        #

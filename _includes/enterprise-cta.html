@@ -1,4 +1,7 @@
 <div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i>
-    <strong>{{ page.enterprise-cta.title }}</strong>
-    {{ page.enterprise-cta.copy | flatify | markdownify }}
+	<strong>{{ page.enterprise-cta.title | flatify }}</strong>
+
+	{{ page.enterprise-cta.copy | flatify | markdownify }}
+    
+	<p>For more info about Stitch Enterprise, contact the <a href="{{ site.sales | append: page.enterprise-cta.utm }}" target="new">Stitch Sales team</a>.</p>
 </div>

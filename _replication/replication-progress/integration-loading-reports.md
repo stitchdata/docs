@@ -12,10 +12,9 @@ weight: 3
 enterprise: true
 
 enterprise-cta:
-  title: "Need more reports?"
-  url: "?utm_medium=docs&utm_campaign=loading-report-retention"
-  copy: |
-    Enterprise plans come with 60 days of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+  title: "Get 60 days of Loading Reports with Stitch Enterprise"
+  utm: "?utm_medium=docs&utm_campaign=loading-report-retention"
+  copy: "Enterprise plans come with 60 days of Loading Reports, allowing you to view an integration's loading behavior over time, identify high volume tables, and quickly resolve errors if they arise."
 ---
 {% include misc/data-files.html %}
 
@@ -23,7 +22,7 @@ enterprise-cta:
 
 The last phase of every Stitch replication job is called **Loading**. During Loading, Stitch loads [extracted data]({{ link.replication.extraction-logs | prepend: site.baseurl }}) into your destination according to the table's defined [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}):
 
-- **Incremental Replication**: Data is de-duped based on the table's Primary Key and upserted into the table, including updates to existing records.
+- **Incremental Replication** (Key and Log-based): Data is de-duped based on the table's Primary Key and upserted into the table, including updates to existing records.
 - **Full Table Replication**: New data overwrites the table in its entirety.
 - **Append-Only Replication**: Whether the data is for a new or existing record, it's appended to the end of the table.
 

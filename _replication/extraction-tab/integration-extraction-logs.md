@@ -13,10 +13,9 @@ weight: 2
 enterprise: true
 
 enterprise-cta:
-  title: "Need more logs?"
-  url: "?utm_medium=docs&utm_campaign=extraction-log-retention"
-  copy: |
-    Enterprise plans come with 60 days of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}).
+  title: "Get 60 days of Extraction Logs with Stitch Enterprise"
+  utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"
+  copy: "Enterprise plans come with 60 days of Extraction Logs, allowing you to view an integration's extraction behavior over time, identify patterns, and quickly resolve errors when they arise."
 
 intro: |
   {% include note.html first-line="**Extraction log availability**" content="Extraction logs are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, extraction logs will be made available." %}

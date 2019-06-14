@@ -39,7 +39,12 @@ hosting-type: "generic"
 
 status: "Released"
 certified: true
+
 enterprise: true
+enterprise-cta:
+  feature: "Oracle integrations "
+  title: "{{ site.data.strings.enterprise.title.are-an | prepend: page.enterprise-cta.feature }}"
+  copy: "{{ site.data.strings.enterprise.copy.are-an | prepend: page.enterprise-cta.feature | flatify }}"
 
 frequency: "30 minutes"
 tier: "Enterprise"
