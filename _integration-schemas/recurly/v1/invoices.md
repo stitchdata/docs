@@ -464,11 +464,11 @@ attributes:
                   - `Visa`
 
               - name: "exp_month"
-                type: "number"
+                type: "integer"
                 description: "If the payment method is a credit card, this field will contain the expiration month for the credit card."
 
               - name: "exp_year"
-                type: "number"
+                type: "integer"
                 description: "If the payment method is a credit card, this field will contain the expiration year for the credit card."
 
               - name: "first_six"
@@ -713,7 +713,7 @@ attributes:
               When a line item has been prorated, this is the rate of the proration. Proration rates were made available for line items created after March 30, 2017. For line items created prior to that date, the proration rate will be `null`, even if the line item was prorated.
 
           - name: "quantity"
-            type: "number"
+            type: "integer"
             description: "This number will be multiplied by the unit amount to compute the subtotal before any discounts or taxes."
 
           - name: "refund"
@@ -721,7 +721,7 @@ attributes:
             description: "Indicates if the line item has been refunded."
 
           - name: "refunded_quantity"
-            type: "number"
+            type: "integer"
             description: "For refund charges, the quantity being refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds)."
 
           - name: "shipping_addresses"

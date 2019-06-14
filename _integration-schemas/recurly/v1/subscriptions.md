@@ -205,7 +205,7 @@ attributes:
                     description: "The three-letter ISO 4217 currency code."
 
               - name: "percent"
-                type: "number"
+                type: "integer"
                 description: "**Applicable only when `type: percent`.** The percent of the total that is used to calculate the discount."
 
               - name: "trial"
@@ -334,7 +334,7 @@ attributes:
     description: "The date and time the subscription expired."
 
   - name: "net_terms"
-    type: "number"
+    type: "integer"
     description: "An integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to `0`, it is due on receipt and will become past due 24 hours after it’s created. If an invoice is due net `30`, it will become past due at 31 days exactly."
 
   - name: "object"
@@ -464,19 +464,19 @@ attributes:
     description: "For manual invoicing, this identifies the PO number associated with the subscription."
 
   - name: "quantity"
-    type: "number"
+    type: "integer"
     description: ""
 
   - name: "remaining_billing_cycles"
-    type: "number"
+    type: "integer"
     description: "The remaining billing cycles in the current term."
 
   - name: "remaining_pause_cycles"
-    type: "number"
+    type: "integer"
     description: "This value will be `null` unless the subscription is paused or will pause at the end of the current billing period."
 
   - name: "renewal_billing_cycles"
-    type: "number"
+    type: "integer"
     description: "If `auto_renew: true`, when a term completes, `total_billing_cycles` takes this value as the length of subsequent terms."
 
   - name: "shipping_addresses"

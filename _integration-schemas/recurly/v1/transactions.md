@@ -296,11 +296,11 @@ attributes:
           - `Visa`
 
       - name: "exp_month"
-        type: "number"
+        type: "integer"
         description: "If the payment method is a credit card, this field will contain the expiration month for the credit card."
 
       - name: "exp_year"
-        type: "number"
+        type: "integer"
         description: "If the payment method is a credit card, this field will contain the expiration year for the credit card."
 
       - name: "first_six"

@@ -14,7 +14,7 @@ description: |
 
   ### Custom fields
 
-  Stitch's {{ integration.display_name }} integration supports replicating custom fields for {{ table.name }} objects.
+  Stitch's {{ integration.display_name }} integration supports replicating custom fields for billing info objects.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -120,7 +120,7 @@ attributes:
         description: ""
 
       - name: "score"
-        type: "number"
+        type: "integer"
         description: "The fraud result score. The value will be a number between `1` and `99`."
 
   - name: "id"
@@ -162,11 +162,11 @@ attributes:
           - `Visa`
 
       - name: "exp_month"
-        type: "number"
+        type: "integer"
         description: "If the payment method is a credit card, this field will contain the expiration month for the credit card."
 
       - name: "exp_year"
-        type: "number"
+        type: "integer"
         description: "If the payment method is a credit card, this field will contain the expiration year for the credit card."
 
       - name: "first_six"

@@ -124,7 +124,7 @@ attributes:
             description: ""
 
           - name: "score"
-            type: "number"
+            type: "integer"
             description: "The fraud result score. The value will be a number between `1` and `99`."
 
       - name: "id"
@@ -162,11 +162,11 @@ attributes:
               - `Visa`
 
           - name: "exp_month"
-            type: "number"
+            type: "integer"
             description: "The expiration month for the card."
 
           - name: "exp_year"
-            type: "number"
+            type: "integer"
             description: "The expiration year for the card."
 
           - name: "first_six"

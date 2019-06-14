@@ -88,7 +88,7 @@ attributes:
         description: "The URL to redirect to after signup on the hosted payment pages."
 
   - name: "interval_length"
-    type: "number"
+    type: "integer"
     description: |
       The length of the plan's billing interval in `interval_unit`. For example: A value of `30` with an `interval_unit` of `days` means the plan's billing interval is `30 days`.
 
@@ -135,11 +135,11 @@ attributes:
     description: "Indicates whether the plan is tax exempt."
 
   - name: "total_billing_cycles"
-    type: "number"
+    type: "integer"
     description: "Automatically terminate subscriptions after a defined number of billing cycles. Number of billing cycles before the plan automatically stops renewing, defaults to null for continuous, automatic renewal."
 
   - name: "trial_length"
-    type: "number"
+    type: "integer"
     description: "The length of the plan's trial period in `trial_unit`. A value of `0` means `no trial`."
 
   - name: "trial_unit"

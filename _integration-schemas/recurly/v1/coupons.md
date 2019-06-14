@@ -68,7 +68,7 @@ attributes:
             description: "The three-letter ISO 4217 currency code."
 
       - name: "percent"
-        type: "number"
+        type: "integer"
         description: "**Applicable only when `type: percent`.** The percent of the total that is used to calculate the discount."
 
       - name: "trial"
@@ -76,7 +76,7 @@ attributes:
         description: "**Applicable only when `type: free_trial`**. Details about the discount for free trials."
         subattributes:
           - name: "length"
-            type: "number"
+            type: "integer"
             description: "The trial length measured in units, specified by `unit`."
 
           - name: "unit"
@@ -111,7 +111,7 @@ attributes:
     description: "The date and time the coupon was expired early or reached its `max_redemptions`."
 
   - name: "free_trial_amount"
-    type: "number"
+    type: "integer"
     description: "The duration of time the `free_trial_unit` is for."
 
   - name: "free_trial_unit"
@@ -132,11 +132,11 @@ attributes:
     description: "The description of the coupon as it will appear on invoices."
 
   - name: "max_redemptions"
-    type: "number"
+    type: "integer"
     description: "The maximum number of redemptions for the coupon. The coupon will expire when the maximum redemption is hit."
 
   - name: "max_redemptions_per_account"
-    type: "number"
+    type: "integer"
     description: "The number of times a specific account can redeem the coupon."
 
   - name: "name"
@@ -181,7 +181,7 @@ attributes:
       - `expired`
 
   - name: "temporal_amount"
-    type: "number"
+    type: "integer"
     description: "**Applicable when `duration: temporal_amount`**. The duration that the coupon will be applied to invoices for, calculated as an integer multiplied by `temporal_unit`."
 
   - name: "temporal_unit"
@@ -195,6 +195,6 @@ attributes:
       - `year`
 
   - name: "unique_coupon_codes_count"
-    type: "number"
+    type: "integer"
     description: "The total number of unique redemptions for the coupon."
 ---

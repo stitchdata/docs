@@ -54,7 +54,7 @@ attributes:
         description: "The unit price."
 
   - name: "default_quantity"
-    type: "number"
+    type: "integer"
     description: "The default quantity for the hosted pages."
 
   - name: "deleted_at"

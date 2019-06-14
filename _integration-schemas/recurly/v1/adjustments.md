@@ -87,7 +87,7 @@ attributes:
     foreign-key-id: "plan-add-on-id"
 
   - name: "amount"
-    type: "integer"
+    type: "number"
     description: "The amount of the adjustment."
 
   - name: "created_at"
@@ -191,7 +191,7 @@ attributes:
     description: "Indicates whether the adjustment is a refund or not."
 
   - name: "refunded_quantity"
-    type: "number"
+    type: "integer"
     description: "The refunded quantity of the adjustment."
 
   - name: "shipping_addresses"
