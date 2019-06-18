@@ -42,6 +42,9 @@ fields:
     description: |
       Defines how often, in minutes, Stitch should attempt to replicate data from {{ integration }}. Accepted values are:
 
+      {% if form-property.source-type == "database" %}
+      - `1`
+      {% endif %}
       - `30`
       - `60`
       - `360`
