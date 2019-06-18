@@ -119,7 +119,7 @@ special-characters:
 
       **Note**: Quartz doesn't currently support specifying a value for both the **Day of week** and **Day of month** fields. This value must be present in one of these fields for the expression to be valid.
     example: |
-      - [TODO]
+      - `15` in the **Day of month** field and `?` in the **Day of week** field means _"the 15th day of the month, regardless of the day of the week"_
 
   - character: "/"
     name: "slash"
