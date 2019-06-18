@@ -45,8 +45,9 @@ all-plans:
     paid: false
     legacy: false
     description: *trial-description
-    total-integrations: "n/a"
+    api-access: true
     integrations: "all"
+    total-integrations: "n/a"
     cron-scheduling: true
     users: "n/a"
     rows: "unlimited"
@@ -56,6 +57,7 @@ all-plans:
   - name: *free-name
     paid: false
     legacy: false
+    api-access: false
     integrations: "free"
     total-integrations: "Up to 5"
     cron-scheduling: false
@@ -67,6 +69,7 @@ all-plans:
   - name: *starter-name
     paid: true
     legacy: true
+    api-access: false
     integrations: "all"
     total-integrations: "Up to 5"
     cron-scheduling: false
@@ -78,6 +81,7 @@ all-plans:
   - name: *basic-name
     paid: true
     legacy: true
+    api-access: false
     integrations: "all"
     total-integrations: "Up to 10"
     cron-scheduling: false
@@ -89,6 +93,7 @@ all-plans:
   - name: *premier-name
     paid: true
     legacy: true
+    api-access: false
     integrations: "all"
     total-integrations: "Up to 10"
     cron-scheduling: false
@@ -100,6 +105,7 @@ all-plans:
   - name: *standard-name
     paid: true
     legacy: false
+    api-access: false
     integrations: "all"
     total-integrations: "Up to 10"
     cron-scheduling: false
@@ -111,6 +117,7 @@ all-plans:
   - name: *enterprise-name
     paid: true
     legacy: false
+    api-access: true
     integrations: "all"
     total-integrations: "Unlimited"
     cron-scheduling: true

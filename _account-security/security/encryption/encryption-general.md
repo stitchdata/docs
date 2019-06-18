@@ -11,6 +11,9 @@ input: false
 layout: general
 feedback: false
 
+type: "security"
+weight: 1
+
 # -------------------------- #
 #        Introduction        #
 # -------------------------- #

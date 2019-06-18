@@ -8,7 +8,7 @@ singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schem
 description: |
   The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
 
-  **Note**: To replicate this data, the `Browse users and groups` [global {{ integration.display_name }} permission]({{ integration.global-permission-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
+  **Note**: To replicate this data, the `Administer {{ integration.display_name }}` [global {{ integration.display_name }} permission]({{ integration.global-permissions-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
 
 replication-method: "Full Table"
 

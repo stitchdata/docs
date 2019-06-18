@@ -11,7 +11,7 @@ description: "An object representing a destination. Destinations are the data wa
 create:
   name: "{{ site.data.connect.api.core-objects.destinations.base }}" 
   title: "Create a destination"
-  method: *post
+  method: "post"
   anchor: "#create-a-destination"
   short: "Creates a new destination."
   description: |
@@ -20,7 +20,7 @@ create:
 update:
   name: "{{ site.data.connect.api.core-objects.destinations.base | flatify }}/{destination_id}"
   title: "Update a destination"
-  method: &put "put"
+  method: "put"
   anchor: "#update-a-destination"
   short: &update-dest-desc "Updates an existing destination. Modifications to the `type` attribute are not supported."
   description: *update-dest-desc
@@ -28,7 +28,7 @@ update:
 list:
   name: "{{ site.data.connect.api.core-objects.destinations.base }}"
   title: "List destinations"
-  method: &get "get"
+  method: "get"
   anchor: "#list-destinations"
   short: "Lists the destination currently in use for a Stitch account."
   description: "{{ site.data.connect.api.core-objects.destinations.list.short }} Only a single data warehouse is supported per Stitch client account."

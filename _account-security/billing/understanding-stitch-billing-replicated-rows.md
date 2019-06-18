@@ -5,9 +5,11 @@ keywords: billing, bill info, payment history, tier, plan, charge, row usage, re
 layout: general
 
 summary: "Learn the basics of Stitch billing, how to view & understand your usage, and keep your row count low."
-type: "billing"
+
 toc: true
-weight: 2
+
+type: "billing"
+weight: 1
 
 intro: |
   {% include misc/data-files.html %}
