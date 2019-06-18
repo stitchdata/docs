@@ -34,7 +34,7 @@ related:
   - title: "Anchor Scheduling"
     link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
 
-  - title: "Advanced Scheduling using Cron"
+  - title: "Advanced Scheduling using cron"
     link: "{{ link.replication.advanced-scheduling | prepend: site.baseurl }}"
 
   - title: "Connect API reference"
@@ -236,7 +236,7 @@ sections:
       - title: "Advanced Scheduling using cron"
         anchor: "advanced-scheduling"
         content: |
-          {% include note.html type="single-line" content="**Note**: Advanced Scheduling using cron is only availble to Stitch client accounts with an Enterprise plan." %}
+          {% include note.html type="single-line" content="**Note**: Advanced Scheduling using cron is only available to Stitch client accounts with an Enterprise plan." %}
 
           To create an advanced (cron) schedule for a source, the `{{ common.names.advanced }}` property must be set. The `{{ common.names.advanced }}` value must be a valid Quartz cron expression representing the replication schedule for the source. For example:
 
