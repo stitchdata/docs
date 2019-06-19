@@ -1,0 +1,69 @@
+# -------------------------- #
+#        NOTIFICATIONS       #
+# -------------------------- #
+
+## Details about notifications.
+
+# -------------------------- #
+#   NOTIFICATION CATEGORIES  #
+# -------------------------- #
+
+categories:
+  - "account"
+  - "integration"
+  - "destination"
+  - "replication"
+  - "internal"
+
+# -------------------------- #
+#     NOTIFICATION LEVELS    #
+# -------------------------- #
+
+levels:
+  info:
+    description: &info-desc "Everything is working."
+    icon: &info-icon "{{ supported }}"
+
+  warning:
+    description: &warning-desc "Data has been replicated, but something may require your attention."
+    icon: &warning-icon "{{ sometimes-supported }}"
+
+  critical:
+    description: &critical-desc "Data can't be replicated and requires intervention. Replication will resume when the issue is resolved."
+    icon: &critical-icon "{{ not-supported }}" 
+
+  delay:
+    description: &delay-desc "Data is temporarily not replicating. Replication will resume when the issue is resolved."
+    icon: &delay-icon "{{ time-icon }}"
+
+  all:
+    # - id: "info"
+    #   name: "Info"
+    #   description: *info-desc
+    #   icon: *info-icon
+    #   example: ""
+
+    - id: "warning"
+      name: "Warning"
+      description: *warning-desc
+      icon: *warning-icon
+      example: "Your account nearing its row usage limit."
+
+    - id: "critical"
+      name: "Critical"
+      description: *critical-desc
+      icon: *critical-icon
+      example: "Integration or destination authentication errors."
+
+    - id: "delay"
+      name: "Delay"
+      description: *delay-desc
+      icon: *delay-icon
+      example: "Insufficient integration API quota."
+
+
+# -------------------------- #
+#    EMAIL SUBJECT LINES     #
+# -------------------------- #
+subject-lines:
+  prefix: "Stitch Notification - "

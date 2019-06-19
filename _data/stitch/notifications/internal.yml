@@ -1,0 +1,18 @@
+# ----------------------------- #
+#  INTERNAL EMAIL NOTIFICATIONS #
+# ----------------------------- #
+
+description: |
+  Notifications that are sent when Stitch is experiencing internal issues. While these issues are typically transient, we recommend checking the [Stitch status page]({{ site.status }}){:target="new"} for reported outages if you receive these notifications.
+
+all:
+  - id: "loader-internal-error"
+    name: "Internal loading"
+    level: "delay"
+    email-delay: "3 hours"
+    description: "Sent when an internal Stitch issue has prevented successful data loads to your destination. Stitch will automatically retry loading until the issue is resolved."
+    subject-line: "Data delays"
+    content:
+      - "A list of affected tables"
+    potential-causes:
+      - "Internal Stitch issues or outages"

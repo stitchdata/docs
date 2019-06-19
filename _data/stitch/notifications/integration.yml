@@ -1,0 +1,58 @@
+# -------------------------------- #
+#  INTEGRATION EMAIL NOTIFICATIONS #
+# -------------------------------- #
+
+description: "Notifications that are sent when Stitch encounters issues connecting to an integration."
+
+app-category: "integration"
+
+all:
+# -------------------------- #
+#    AUTHENTICATION ISSUE    #
+# -------------------------- #
+  - id: "integration-auth-error"
+    name: "SaaS integration authentication error"
+    level: "critical"
+    email-delay: "20 minutes"
+    description: "**Applicable only to non-Singer SaaS integrations.** Sent when Stitch encounters issues connecting to or replicating data from a SaaS integration."
+    email-subject: 
+      - "Integration Error"
+    content:
+      - "The name of the affected integration"
+      - "An explanation of the issue, if known"
+      - "The raw error message Stitch received from the source API or database, if any"
+    potential-causes: 
+      - "Connection issues between Stitch and the integration"
+      - "Incorrect user credentials"
+      - "Insufficient user permissions"
+    app-category: "integration"
+    singer: false
+
+# -------------------------- #
+#       DATABASE ISSUES      #
+# -------------------------- #
+  - id: "connection-error"
+    name: "Database integration error"
+    level: "critical"
+    email-delay: "None"
+    description: "**Applicable only to non-Singer database integrations.** Sent when Stitch encounters issues connecting to or extracting data from a database integration."
+    email-subject:
+      - "Database Integration Error"
+    content:
+      - "The name of the affected integration"
+      - "A brief explanation of the issue, if known"
+    potential-causes:
+      - "Incorrect host or port"
+      - "Failure to whitelist Stitch's IP addresses/firewall issues"
+      - "Incorrect database user credentials"
+      - "Insufficient database or table permissions"
+      - "Access denials due to too many connection errors"
+    app-category: "connection"
+    related-types:
+      - "connection_credentials_error"
+      - "connection_max_connections" 
+      - "connection_db_read_error" 
+      - "connection_table_read_error" # last sent in Jan 2017
+      - "connection_failed" # last sent in 2017
+      - "connection_no_schema_rights"
+    singer: false
