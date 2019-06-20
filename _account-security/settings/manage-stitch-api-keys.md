@@ -53,7 +53,7 @@ sections:
       - title: "Who can create an API key?"
         anchor: "who-can-create-keys"
         content: |
-          Any team member in a Stitch account with API access can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
+          Any team member in a Stitch account that has API access can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
 
           ![An enabled API access key with a description]({{ site.baseurl }}/images/account-security/api-key-table.png)
 
