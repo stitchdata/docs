@@ -83,7 +83,9 @@ layout: page
             {% endfor %}
         {% endif %}
 
-        <hr>
+        {% unless forloop.last == true %}
+            <hr>
+        {% endunless %}
     {% endfor %}
 
 

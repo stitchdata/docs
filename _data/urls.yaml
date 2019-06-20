@@ -169,10 +169,12 @@ replication:
   db-views: /replication/replicating-database-views
   supported-data-types: /replication/supported-data-types
 
-## Replication Frequency
+## Replication Scheduling
   rep-scheduling: /replication/replication-scheduling
-  rep-frequency: "/replication/replication-scheduling#replication-frequency"
-  anchor-scheduling: "/replication/replication-scheduling#anchor-scheduling"
+  rep-frequency: "/replication/replication-scheduling/replication-frequency"
+  anchor-scheduling: "/replication/replication-scheduling/anchor-scheduling"
+  advanced-scheduling: /replication/replication-scheduling/advanced-scheduling
+  table-scheduling: /replication/replication-scheduling/scheduling-for-tables
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
@@ -214,6 +216,7 @@ connect:
     create-configure-a-source: /stitch-connect/api#quick-start
     field-selection-compatibility-rules: /stitch-connect/guides/field-selection-compatibility-rules
     select-streams-and-fields: /stitch-connect/guides/select-streams-and-fields-with-connect-api
+    replication-scheduling-for-sources: /stitch-connect/guides/replication-scheduling-for-sources
     partner-authentication: /stitch-connect/guides/stitch-partner-authentication-guide
 
 

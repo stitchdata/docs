@@ -36,6 +36,8 @@ status-url: "http://status.close.io/"
 attribution-window: "24 hours"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

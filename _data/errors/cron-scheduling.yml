@@ -1,0 +1,38 @@
+# -------------------------- #
+#   Cron Scheduling Errors   #
+# -------------------------- #
+
+## This file contains the error messages that can display
+## on an integration's settings page when attempting to use
+## advanced scheduling, or cron scheduling.
+
+## See: https://www.stitchdata.com/docs/replication/replication-scheduling/advanced-cron-scheduling
+
+errors:
+  - message: "This field is required"
+    meaning: "When Advanced Scheduling is selected, a valid value must be provided for each field."
+    fix-it: |
+      If you want to use Advanced Scheduling, enter a valid value for each field: {% for field in expression-fields %}{{ field | capitalize }}{% unless forloop.last == true %}, {% endunless %}{% endfor %}.
+
+      Otherwise, de-select the **Advanced** checkbox to define a Replication Frequency or Anchor Schedule.
+
+  - message: |
+      Invalid value: "{EXPRESSION}": Failed to parse int from {CHARACTER}: strconv.Atoi: parsing "{CHARACTER}": invalid syntax"
+    meaning: |
+      The expression contains an illegal character for a given field. For example: An alphabetical character - such as `H` or `Z` - any field will result in this error.
+    fix-it: |
+      Verify that each of the fields in the expression contains only its [allowed values and special characters](#cron-expression-field-values).
+
+  - message: |
+       Invalid value: "* {VALUE} * * *": End of range ({VALUE}) above maximum ({FIELD MAX VALUE}): {VALUE}
+    meaning: |
+      A field in the expression contains a numerical value that exceeds the maximum allowed for that field.
+
+      For example: The `minutes` field will only accept values from `0-59`, as an hour only contains 60 minutes.
+    fix-it: |
+      Verify that each of the fields in the expression contains a numerical value within its limits:
+
+      - `minutes` - `0-59`
+      - `hours` - `0-23`
+      - `day of month` - `1-31`
+      - `day of week` - `0-6`

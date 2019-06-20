@@ -1,0 +1,121 @@
+# --------------------------------- #
+#         ANCHOR SCHEDULING         #
+# --------------------------------- #
+
+# Details about Anchor Scheduling,
+# including its availability in integrations, what it supports,
+# and examples of how it will schedule replication.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "anchor-scheduling"
+display-name: "Anchor Scheduling"
+documentation: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
+
+description: "Anchor Scheduling is a type of replication scheduling that 'anchors' the start time of extraction jobs to a time you select."
+
+integration-availability: "Singer-backed integrations"
+plan-availability: "All plans"
+
+# -------------------------- #
+#     SCHEDULING DETAILS     #
+# -------------------------- #
+
+# The level of control over scheduling the method offers
+level-of-control: "More"
+
+# Whether the scheduling method supports selecting specific hours for extraction
+select-hours: false
+
+# Whether the scheduling method supports selecting specific days to run extraction jobs
+select-days: false
+
+
+# -------------------------- #
+#      EXAMPLE SCHEDULES     #
+# -------------------------- #
+
+examples:
+  - name: "six-hour"
+    description: |
+      In this example, we'll look at the potential schedule for an integration with an Anchor Time set to shortly after the current time:
+    current-date-time: "May 1 @ 8:00 AM (EST), or UTC 12:00"
+    replication-frequency: "6 hours"
+    anchor-time: "9:00 AM (EST), or UTC 13:00"
+    schedule-summary: "every 6 hours starting on May 1 at 9:00 AM (EST)"
+    jobs:
+      - number: 1
+        start-est: "May 1 09:00:00"
+        start-utc: "May 1 13:00:00"
+      - number: 2
+        start-est: "May 1 15:00:00"
+        start-utc: "May 1 19:00:00"
+      - number: 3
+        start-est: "May 1 21:00:00"
+        start-utc: "May 2 01:00:00"
+      - number: 4
+        start-est: "May 2 03:00:00"
+        start-utc: "May 2 07:00:00"
+      - number: 5
+        start-est: "May 2 09:00:00"
+        start-utc: "May 2 13:00:00"
+
+  - name: "twenty-four-hour"
+    description: |
+      In this example, we'll look at potential schedule for an integration with an Anchor Time that has already passed for the current day:
+    current-date-time: "May 1 @ 12:00 PM (EST), or UTC 16:00"
+    replication-frequency: "24 hours"
+    anchor-time: "9:00 AM (EST), or UTC 13:00"
+    schedule-summary: "every 24 hours starting the following day (May 2) at 9:00 AM (EST)"
+    jobs:
+      - number: 1
+        start-est: "May 2 09:00:00"
+        start-utc: "May 2 13:00:00"
+      - number: 2
+        start-est: "May 3 09:00:00"
+        start-utc: "May 3 13:00:00"
+      - number: 3
+        start-est: "May 4 09:00:00"
+        start-utc: "May 4 13:00:00"
+      - number: 4
+        start-est: "May 5 09:00:00"
+        start-utc: "May 5 13:00:00"
+      - number: 5
+        start-est: "May 6 09:00:00"
+        start-utc: "May 6 13:00:00"
+
+  - name: "long-running-skipped-job"
+    description: |
+      In this example, we'll look at how a job can be skipped and re-scheduled due to a previously long-running job. This can occur when a job takes longer to run than the selected Replication Frequency.
+    current-date-time: "May 1 @ 1:30 PM (EST), or UTC 17:30"
+    replication-frequency: "1 hour"
+    anchor-time: "2:30 PM (EST), or UTC 18:30"
+    schedule-summary: "every hour starting on May 1 at 2:30 PM (EST)"
+    jobs:
+      - number: 1
+        start-est: "May 1 02:30:00"
+        start-utc: "May 1 18:30:00"
+        end-est: "May 1 03:25:00"
+        duration: "55 minutes"
+      - number: 2
+        start-est: "May 1 03:30:00"
+        start-utc: "May 1 19:30:00"
+        end-est: "May 1 04:38:00"
+        duration: "68 minutes"
+      - number: 3
+        start-est: "Job"
+        start-utc: "is"
+        end-est: "skipped"
+        duration: "-"
+      - number: 4
+        start-est: "May 1 05:30:00"
+        start-utc: "May 1 21:30:00"
+        end-est: "May 1 06:21:00"
+        duration: "51 minutes"
+      - number: 5
+        start-est: "May 1 06:30:00"
+        start-utc: "May 1 22:30:00"
+        end-est: "May 1 07:01:00"
+        duration: "31 minutes"
