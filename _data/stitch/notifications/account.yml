@@ -5,26 +5,23 @@
 description: "Notifications that are sent when your Stitch account requires your attention. These notifications are relevant to the account itself, the account's payment method, etc."
 
 all:
-# -------------------------- #
-#    FREE TRIAL EXPIRATION   #
-# -------------------------- #
-
   - id: "plan-free-trial-expired"
-    name: "Free trial expiration"
-    level: "critical"
-    email-delay: "None"
-    description: "Sent when the account's free trial period has ended and a plan has not been selected. Stitch will automatically pause your integrations when the trial expires, and they will remain paused until a plan is selected or the account is deactivated."
-    email-subject:
-      - "Your free trial of Stitch has expired"
-    app-category: "plan"
+  - id: "defunct-client"
+  - id: "usage-nearing-limit"
+  - id: "usage-reached-limit"
 
+
+# -------------------------- #
+#       WARNING LEVEL        #
+# -------------------------- #
+
+warning:
 # -------------------------- #
 #     NEARING USAGE LIMIT    #
 # -------------------------- #
 
   - id: "usage-nearing-limit"
     name: "Approaching row limit"
-    level: "warning"
     email-delay: "None"
     description: "Sent when the usage for the current billing period surpasses 70 or 90% of the account's row limit."
     email-subject:
@@ -42,23 +39,40 @@ all:
 
   - id: "usage-reached-limit"
     name: "Row limit reached"
-    level: "warning"
     email-delay: "None"
     description: "Sent when the usage for the current billing period reaches 100% of the account's row limit."
     email-subject:
       - "Row Limit Reached"
     app-category: "usage"
 
+# ----------------------------
+
+# -------------------------- #
+#       CRITICAL LEVEL       #
+# -------------------------- #
+
+critical:
+# -------------------------- #
+#    FREE TRIAL EXPIRATION   #
+# -------------------------- #
+  - id: "plan-free-trial-expired"
+    name: "Free trial expiration"
+    email-delay: "None"
+    description: "Sent when the account's free trial period has ended and a plan has not been selected. Stitch will automatically pause your integrations when the trial expires, and they will remain paused until a plan is selected or the account is deactivated."
+    email-subject:
+      - "Your free trial of Stitch has expired"
+    app-category: "plan"
+
 # -------------------------- #
 #       INACTIVE CLIENT      #
 # -------------------------- #
-  - id: "defunct_client"
-    name: "Inactive account"
-    level: "critical"
+  - id: "defunct-client"
+    name: "Account inactivity"
     email-delay: "None"
     description: "Sent when data has not been loaded into the account's destination for more than 40 days."
     email-subject: 
       - "Integrations Paused due to Account Inactivity"
+
 
 
 

@@ -5,29 +5,49 @@
 description: "Notifications that are sent when Stitch encounters issues during the replication process."
 
 all:
-# -------------------------- #
-#       API RATE LIMIT       #  
-# -------------------------- #
   - id: "integration-api-limit"
-    name: "SaaS integration API rate limit"
-    level: "delay"
+  - id: "table-persistence-error"
+  - id: "db-replicator-absent-bookmark"
+  - id: "platform.exit_status"
+  - id: "loading-error"
+  - id: "jammed-read-head"
+  - id: "loader-tunnel-error"
+
+
+# -------------------------- #
+#       WARNING LEVEL        #
+# -------------------------- #
+
+warning:
+# -------------------------- #
+#    MISSING DB BOOKMARK     #  
+# -------------------------- #
+  - id: "db-replicator-absent-bookmark"
+    name: "Missing or deleted database Replication Key"
     email-delay: "20 minutes"
-    description: "**Applicable only to non-Singer SaaS integrations.** Sent when an integration has insufficient API quota. This applies to integrations that use APIs that enforce API quotas - for example, Google Analytics. Replication will continue when additional quota becomes available."
+    description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to detect the Replication Key for a selected database integration table."
     email-subject:
-      - "Integration API Rate Limited"
+      - "Database Integration Error"
     content:
-      - "A list of affected integrations"
-    potential-causes: 
-      - "Insufficient API quota"
+      - "The name of the affected table"
+    potential-causes:
+      - "The Replication Key for the affected table is missing or deleted in the source"
     app-category: "integration"
     singer: false
 
+
+# ----------------------------
+
+# -------------------------- #
+#       CRITICAL LEVEL       #
+# -------------------------- #
+
+critical:
 # -------------------------- #
 #    CAN'T PERSIST TABLE     #  
 # -------------------------- #
   - id: "table-persistence-error"
-    name: "Table persistence"
-    level: "critical"
+    name: "Error persisting table data"
     email-delay: "None"
     description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to persist extracted data for a table to your destination."
     email-subject:
@@ -40,28 +60,10 @@ all:
     singer: false
 
 # -------------------------- #
-#    MISSING DB BOOKMARK     #  
-# -------------------------- #
-  - id: "db-replicator-absent-bookmark"
-    name: "Missing or deleted database Replication Key"
-    level: "warning"
-    email-delay: "20 minutes"
-    description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to detect the Replication Key for a selected database integration table."
-    email-subject:
-      - "Database Integration Error"
-    content:
-      - "The name of the affected table"
-    potential-causes:
-      - "The Replication Key for the affected table is missing or deleted in the source"
-    app-category: "integration"
-    singer: false
-
-# -------------------------- #
 #         EXTRACTIONS        #
 # -------------------------- #
   - id: "platform.exit_status"
     name: "Extraction exit status"
-    level: "critical"
     email-delay: "60 minutes"
     description: "**Applicable only to Singer-backed integrations.** Sent when Stitch encounters critical issues during the Extraction phase of the replication process."
     email-subject: 
@@ -85,8 +87,7 @@ all:
 #       LOADING ERRORS       #
 # -------------------------- #
   - id: "loading-error"
-    name: "Data loading"
-    level: "critical"
+    name: "Data loading error"
     email-delay: "2 hours"
     description: "Sent when Stitch encounters issues loading data to the account's destination."
     email-subject:
@@ -110,8 +111,7 @@ all:
 #   JAMMED READ HEAD ERRORS  #
 # -------------------------- #
   - id: "jammed-read-head"
-    name: "Data unsupported by destination"
-    level: "critical"
+    name: "Unable to load data"
     email-delay: "2 hours"
     description: "Sent when Stitch cannot load data into the account's destination because the destination doesn't support it."
     email-subject:
@@ -128,7 +128,6 @@ all:
 # -------------------------- #
   - id: "loader-tunnel-error"
     name: "SSH tunnel connection error"
-    level: "critical"
     email-delay: "2 hours"
     description: "**Applicable only when an SSH tunnel is being used to connect to the destination.** Sent when Stitch cannot load data into the account's destination because Stitch encountered an error creating an SSH tunnel."
     email-subject:
@@ -141,3 +140,27 @@ all:
       - "Incorrectly imported public key"
       - "Failure to whitelist Stitch's IP addresses in the SSH server's firewall"
     app-category: "read_head"
+
+
+# ----------------------------
+
+# -------------------------- #
+#         DELAY LEVEL        #
+# -------------------------- #
+
+delay:
+# -------------------------- #
+#       API RATE LIMIT       #  
+# -------------------------- #
+  - id: "integration-api-limit"
+    name: "SaaS integration API rate limit"
+    email-delay: "20 minutes"
+    description: "**Applicable only to non-Singer SaaS integrations.** Sent when an integration has insufficient API quota. This applies to integrations that use APIs that enforce API quotas - for example, Google Analytics. Replication will continue when additional quota becomes available."
+    email-subject:
+      - "Integration API Rate Limited"
+    content:
+      - "A list of affected integrations"
+    potential-causes: 
+      - "Insufficient API quota"
+    app-category: "integration"
+    singer: false

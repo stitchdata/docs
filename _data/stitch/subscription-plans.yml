@@ -52,6 +52,7 @@ all-plans:
     rows: "unlimited"
     logs: "7 days"
     reports: "7 days"
+    customize-notifications: true
     post-load-notifications: true
 
   - name: *free-name
@@ -64,6 +65,7 @@ all-plans:
     rows: "5 million"
     logs: "24 hours"
     reports: "24 hours"
+    customize-notifications: false
     post-load-notifications: false
 
   - name: *starter-name
@@ -76,6 +78,7 @@ all-plans:
     rows: "5 million"
     logs: "7 days"
     reports: "7 days"
+    customize-notifications: false
     post-load-notifications: false
 
   - name: *basic-name
@@ -88,6 +91,7 @@ all-plans:
     rows: "100 million"
     logs: "7 days"
     reports: "7 days"
+    customize-notifications: false
     post-load-notifications: false
 
   - name: *premier-name
@@ -100,6 +104,7 @@ all-plans:
     rows: "250 million"
     logs: "7 days"
     reports: "7 days"
+    customize-notifications: false
     post-load-notifications: false
 
   - name: *standard-name
@@ -112,6 +117,7 @@ all-plans:
     rows: "Varies"
     logs: "7 days"
     reports: "7 days"
+    customize-notifications: false
     post-load-notifications: false
 
   - name: *enterprise-name
@@ -120,8 +126,9 @@ all-plans:
     api-access: true
     integrations: "all"
     total-integrations: "Unlimited"
-    users: "Unlimited"
+    users: "Custom"
     rows: "billions"
     logs: "60 days"
     reports: "60 days"
+    customize-notifications: true
     post-load-notifications: true

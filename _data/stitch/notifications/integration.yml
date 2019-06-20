@@ -7,12 +7,27 @@ description: "Notifications that are sent when Stitch encounters issues connecti
 app-category: "integration"
 
 all:
+  - id: "integration-auth-error"
+  - id: "database-connection-error"
+
+# -------------------------- #
+#       WARNING LEVEL        #
+# -------------------------- #
+
+# warning:
+
+# ----------------------------
+
+# -------------------------- #
+#       CRITICAL LEVEL       #
+# -------------------------- #
+
+critical:
 # -------------------------- #
 #    AUTHENTICATION ISSUE    #
 # -------------------------- #
   - id: "integration-auth-error"
     name: "SaaS integration authentication error"
-    level: "critical"
     email-delay: "20 minutes"
     description: "**Applicable only to non-Singer SaaS integrations.** Sent when Stitch encounters issues connecting to or replicating data from a SaaS integration."
     email-subject: 
@@ -31,9 +46,8 @@ all:
 # -------------------------- #
 #       DATABASE ISSUES      #
 # -------------------------- #
-  - id: "connection-error"
+  - id: "database-connection-error"
     name: "Database integration error"
-    level: "critical"
     email-delay: "None"
     description: "**Applicable only to non-Singer database integrations.** Sent when Stitch encounters issues connecting to or extracting data from a database integration."
     email-subject:

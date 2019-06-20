@@ -25,20 +25,6 @@ intro: |
   {% endfor %}
 
 sections:
-  - title: "Notification categories"
-    anchor: "notification-categories"
-    summary: "Stitch's notification categories"
-    content: |
-      {% assign notification-categories = notifications.common.categories %}
-
-      Stitch notifications are grouped into the following categories:
-
-      {% for category in notification-categories %}
-      - [**{{ category | capitalize }}**](#{{ category | append: "-notification-reference" }}) - {{ notifications[category]description | flatify }}
-      {% endfor %}
-
-      For more info about the notifications in each category, refer to the [Notification reference section](#notification-reference-section).
-
   - title: "Notification levels"
     anchor: "notification-levels"
     summary: "Notification urgency levels"
@@ -51,6 +37,20 @@ sections:
       {% endfor %}
 
       Refer to the [Notification reference section](#notification-reference) for more info about the issues that trigger notifications and the level assigned to each issue.
+
+  - title: "Notification categories"
+    anchor: "notification-categories"
+    summary: "Stitch's notification categories"
+    content: |
+      {% assign notification-categories = notifications.common.categories %}
+
+      Stitch notifications are grouped into the following categories:
+
+      {% for category in notification-categories %}
+      - **{{ category | capitalize }}** - {{ notifications[category]description | flatify }}
+      {% endfor %}
+
+      For more info about the notifications in each category, refer to the [Notification reference section](#notification-reference-section).
 
   - title: "In-app notifications"
     anchor: "in-app-notifications"
@@ -119,30 +119,54 @@ sections:
     content: |
       In this section is info about the email notifications Stitch will send to the users of your account. This includes a description of the issue triggering the notification, the email's subject, urgency level, send delay (if any), potential causes, and the content of the email notification.
 
-      {% assign attributes = "email-subject|level|email-delay|potential-causes|content" | split:"|" %}
+      {% assign attributes = "email-subject|category|level|email-delay|potential-causes|content" | split:"|" %}
+
+      {% for level in notification-levels.all %}
+      - [{{ level.name | append: " level notifications" }}](#{{ level.id }}-notification-reference)
+      {% endfor %}
+
+      {% for level in notification-levels.all %}
+      ### {{ level.name | append: " level notifications" }} {#{{ level.id }}-notification-reference}
+
+      When {{ level.name | downcase }} level notifications are sent, it means that {{ level.description | flatify | replace: "Data","data" }}
 
       {% for category in notification-categories %}
-      - [**{{ category | capitalize | append: " notifications" }}**](#{{ category | append: "-notification-reference" }})
+      {% for notification in notifications[category][level.id] %}
+      - [{{ notification.name }}](#{{ notification.id }})
+      {% endfor %}
       {% endfor %}
 
       {% for category in notification-categories %}
-      ### **{{ category | capitalize | append: " notifications" }}** {#{{ category | append: "-notification-reference" }}}
+      {% for notification in notifications[category][level.id] %}
 
-      {{ notifications[category]description | flatify | markdownify }}
-
-      {% assign all-category-notifications = notifications[category]all %}
-
-      {% for notification in all-category-notifications %}
-      - [{{ notification.name }}](#{{ notification.name | slugify }})
-      {% endfor %}
-
-      {% for notification in all-category-notifications %}
-      #### {{ notification.name }}
+      #### {{ notification.name }} {#{{ notification.id | slugify }}}
 
       {{ notification.description }}
 
       <table class="attribute-list">
       {% for attribute in attributes %}
+      {% if attribute == "level" %}
+      <tr>
+      <td class="attribute-name">
+      <strong>{{ attribute | capitalize }}</strong>
+      </td>
+      <td>
+      {{ level.name | capitalize }} {{ notification-levels[level.id]icon | flatify | replace:"TOOLTIP",notification-levels[level.id]description }}
+      </td>
+      </tr>
+
+      {% elsif attribute == "category" %}
+      <tr>
+      <td class="attribute-name">
+      <strong>{{ attribute | capitalize }}</strong>
+      </td>
+      <td>
+      {{ category | capitalize }}
+      </td>
+      </tr>
+
+      {% else %}
+
       {% if notification[attribute] %}
       <tr>
       <td class="attribute-name">
@@ -150,7 +174,6 @@ sections:
       </td>
       <td>
       {% if attribute == "email-subject" or attribute == "potential-causes" or attribute == "content" %}
-
       {% assign count = notification[attribute] | size %}
 
       {% case count %}
@@ -167,10 +190,6 @@ sections:
       </ul>
       {% endcase %}
 
-      {% elsif attribute == "level" %}
-      {% assign level = notification[attribute] %}
-      {{ level | capitalize }} {{ notification-levels[level]icon | flatify | replace:"TOOLTIP",notification-levels[level]description }}
-
       {% else %}
       {{ notification[attribute] | flatify }}
       {% endif %}
@@ -178,13 +197,17 @@ sections:
 
       </tr>
       {% endif %}
+      {% endif %}
       {% endfor %}
       </table>
-      {% if forloop.last == true %}
-      [Back to {{ category | capitalize }} notification reference](#{{ category | append: "-notification-reference" }})
 
+      
+      {% endfor %}
+      {% if forloop.last == true %}
+      [Back to {{ level.name }} notification reference](#{{ level.id | append: "-notification-reference" }})
       {% endif %}
-      [Back to Notification reference](#notification-reference)
+
+      
       {% endfor %}
 
       {% unless forloop.last == true %}

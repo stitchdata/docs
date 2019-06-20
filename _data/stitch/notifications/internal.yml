@@ -7,8 +7,14 @@ description: |
 
 all:
   - id: "loader-internal-error"
+
+# -------------------------- #
+#         DELAY LEVEL        #
+# -------------------------- #
+
+delay:
+  - id: "loader-internal-error"
     name: "Internal loading"
-    level: "delay"
     email-delay: "3 hours"
     description: "Sent when an internal Stitch issue has prevented successful data loads to your destination. Stitch will automatically retry loading until the issue is resolved."
     subject-line: "Data delays"
