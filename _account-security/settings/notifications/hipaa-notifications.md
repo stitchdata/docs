@@ -1,10 +1,11 @@
 ---
-title: Managing Notification Settings
-permalink: /account-security/managing-notification-settings
-keywords: notifications, manage notifications, email notifications, email messages, notify, notify me 
-summary: "Manage your account's notification settings on the Notification Settings page."
+title: Managing Notification Content for HIPAA Compliance
+permalink: /account-security/hipaa-compliant-notifications
+keywords: notifications, hipaa, hipaa compliance, hipaa-compliant
+summary: ""
 
 layout: general
+key: "hipaa-notifications"
 toc: true
 
 type: "account-settings"
@@ -25,6 +26,4 @@ sections:
       The {{ app.buttons.suppress-plaintext-notifications }} setting in the **Notifications** section will do just that - suppress plain-text messages in email notifications. This setting is used in compliance with HIPAA requirements to prevent sensitive data from being sent via notifications.
 
       Check the {{ app.buttons.suppress-plaintext-notifications }} checkbox and click the {{ app.buttons.notification-settings }} button to enable plain-text suppressions in notification emails.
-
 ---
-{% include misc/data-files.html %}
