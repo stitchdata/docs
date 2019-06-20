@@ -41,6 +41,32 @@ all-docs:
         - title: "Deactivate a Team Member"
           url: "{{ link.account.team-members }}#deactivate-team-member"
 
+    - title: Notifications
+      subsections:
+        - title: "Urgency Levels"
+          url: "{{ link.account.notification-settings }}#notification-levels"
+
+        - title: "Categories"
+          url: "{{ link.account.notification-settings }}#notification-categories"
+
+        - title: "In-app"
+          url: "{{ link.account.notification-settings }}#in-app-notifications"
+
+        - title: "Email"
+          url: "{{ link.account.notification-settings }}#email-notifications"
+
+        - title: "Reference"
+          url: "{{ link.account.notification-settings }}#notification-reference"
+
+        - title: "Notification Extensions"
+          url: "{{ link.account.customize-notifications }}"
+
+        - title: "HIPAA-compliance"
+          url: "{{ link.account.hipaa-notifications }}"
+
+        # - title: "Post-load Notifications"
+        #   url: "{{ link.account.post-load }}"
+
     - title: Billing
       subsections:
         - title: Understand Your Usage
