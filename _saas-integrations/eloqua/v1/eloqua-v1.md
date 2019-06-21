@@ -44,6 +44,8 @@ tier: "Free"
 status-url: "https://community.oracle.com/community/topliners/eloqua-system-status"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

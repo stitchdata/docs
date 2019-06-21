@@ -46,6 +46,8 @@ status-url: "https://status.heapanalytics.com/"
 icon: /images/integrations/icons/heap.svg
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

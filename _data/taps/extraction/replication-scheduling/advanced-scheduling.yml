@@ -1,0 +1,33 @@
+# --------------------------------- #
+#        ADVANCED SCHEDULING        #
+# --------------------------------- #
+
+# Details about Advanced Scheduling,
+# including its availability in integrations, what it supports,
+# and examples of how it will schedule replication.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "advanced-scheduling"
+display-name: "Advanced Scheduling"
+documentation: "{{ link.replication.advanced-scheduling | prepend: site.baseurl }}"
+
+description: "Advanced Scheduling allows you to specify granular start times for data extraction using cron expressions."
+
+integration-availability: "MySQL and PostgreSQL integrations"
+plan-availability: "Enterprise"
+
+# -------------------------- #
+#     SCHEDULING DETAILS     #
+# -------------------------- #
+
+# The level of control over scheduling the method offers
+level-of-control: "Most"
+
+# Whether the scheduling method supports selecting specific hours for extraction
+select-hours: true
+
+# Whether the scheduling method supports selecting specific days to run extraction jobs
+select-days: true

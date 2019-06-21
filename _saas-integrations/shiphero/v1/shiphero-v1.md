@@ -45,6 +45,8 @@ tier: "Free"
 status-url: "https://status.shiphero.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

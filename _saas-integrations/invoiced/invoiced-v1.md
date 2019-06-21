@@ -44,6 +44,8 @@ tier: "Free"
 status-url: "https://www.invoicedstatus.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

@@ -1,0 +1,296 @@
+## This file contains the required fields for a cron expression, 
+## the special characters supported by each field, and
+## some examples of cron strings and their interpretations.
+
+## See: https://www.stitchdata.com/docs/replication/replication-scheduling/advanced-cron-scheduling
+
+## Looking for cron validation errors? See: /_data/errors/cron-scheduling.yml
+
+# -------------------------- #
+#         Resources          #
+# -------------------------- #
+
+resource-names:
+  freeformatter: &freeformatter-name "Quartz Cron Expression Generator"
+  quartz-tutorial: &quartz-tutorial-name "Quartz Cron Trigger Tutorial"
+  quartz: &quartz "Quartz Scheduler"
+
+resource-urls:
+  freeformatter: &freeformatter-url "https://www.freeformatter.com/cron-expression-generator-quartz.html"
+  quartz-tutorial: &quartz-tutorial-url "http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"
+  quartz: &quartz-url "http://www.quartz-scheduler.org/"
+
+resource-descriptions:
+  crontab: &freeformatter-desc "A simple, web-based editor for Quartz cron expressions."
+  quartz-tutorial: &quartz-tutorial-desc "A cron tutorial from the makers of Quartz, the cron implementation used in Stitch."
+  quartz: &quartz-desc "The official documentation for the Quartz Scheduler."
+
+resource-list:
+  - name: *quartz
+    url: *quartz-url
+    description: *quartz-desc
+
+  - name: *quartz-tutorial-name
+    url: *quartz-tutorial-url
+    description: *quartz-tutorial-desc
+
+  - name: *freeformatter-name
+    url: *freeformatter-url
+    description: *freeformatter-desc
+
+# -------------------------- #
+#      Required Fields       #
+# -------------------------- #
+
+required-fields:
+  - name: "Seconds"
+    info: "This field's value of 0 is pre-defined and cannot be modified."
+    allowed-values: "0"
+    allowed-special-characters: |
+      n/a
+
+  - name: "Minutes"
+    allowed-values: "0-59"
+    allowed-special-characters: &common-special |
+      , - * /
+
+  - name: "Hours"
+    allowed-values: "0-23"
+    allowed-special-characters: *common-special
+
+  - name: "Day of month"
+    info: "If this field is defined, the **Day of week** field must contain a ? value. Refer to the  for more info."
+    allowed-values: "1-31"
+    allowed-special-characters: |
+      , - * ? / L W
+
+  - name: "Month"
+    allowed-values: "1-12 or JAN-DEC"
+    allowed-special-characters: *common-special
+
+  - name: "Day of week"
+    info: "If this field is defined, the **Day of month** field must contain a ? value. Refer to the  for more info."
+    allowed-values: "1-7 or SUN-SAT"
+    allowed-special-characters: |
+      , - * ? / L #
+
+
+# -------------------------- #
+#     Special characters     #
+# -------------------------- #
+
+special-characters:
+  - character: "*"
+    name: "asterisk"
+    allowed-in: &all "All fields"
+    description: |
+      Selects all values within a field.
+
+# **Note**: If used, an asterisk can be the only value in the field. For example: `*,30` would result in an error.
+    example: |
+      - `*` in the **Minute** field means _"every minute"_
+      - `*` in the **Hour** field means _"every hour"_
+      - `*` in the **Month** field means _"every month"_
+      - `*` in the **Day of week** field means _"every day of the week"_
+
+  - character: ","
+    name: "comma"
+    allowed-in: *all
+    description: |
+      Specifies a list of two or more values.
+    example: |
+      - `1,2,5` or `JAN,FEB,MAY` in the **Month** field means _"the months January, February, and May"_
+      - `2,6` or `MON,FRI` in the **Day of week** field means _"the days Monday and Friday"_
+
+  - character: "-"
+    name: "hyphen"
+    allowed-in: *all
+    description: |
+      Specifies a range of values.
+    example: |
+      - `5-8` in the **Hour** field means _"the hours 5, 6, 7, and 8"_
+      - `2-4` or `MON-WED` in the **Day of week** field means _"the days Monday, Tuesday, and Wednesday"_
+
+  - character: "?"
+    name: "question mark"
+    allowed-in: "Day of month, Day of week"
+    description: |
+      Indicates _"no specific value"_. This character is useful when you need to specify something in either the **Day of month** or **Day of week** field, but not the other.
+
+      **Note**: Quartz doesn't currently support specifying a value for both the **Day of week** and **Day of month** fields. This value must be present in one of these fields for the expression to be valid.
+    example: |
+      - `15` in the **Day of month** field and `?` in the **Day of week** field means _"the 15th day of the month, regardless of the day of the week"_
+
+  - character: "/"
+    name: "slash"
+    allowed-in: *all
+    description: |
+      Specifies increments. Formatted as: `<value>/<value_to_increment`>
+    example: |
+      - `0/15` in the **Minute** field means _"the minutes 0, 15, 30, and 45"_
+      - `3/6` in the **Hour** field means _"every 6 hours beginning on the third hour"_
+      - `1/5` in the **Day of month** field means _"every 5 days beginning on the first day of the month"_
+
+  - character: "L"
+    name: "last"
+    allowed-in: "Day of month, Day of week"
+    description: |
+      Depending on the field `L` is used in, this can have different meanings:
+
+      - **Day of month**: Used to indicate the last day of the month.
+      - **Day of week**: If used by itself, this means `7`, or `SAT`.
+         
+         If used after another value in this field (for example: `6L`), this means _"the last [xxx] day of the month"_.
+
+      To avoid confusing or unexpected results, don't specify lists or ranges of values with `L`.
+    example: |
+      - `L` in the **Day of month** field means _"the last day of the month"_, such as January 31 or February 28 (or 29 during a leap year)
+      - `6L` or `FRIL` in the **Day of week** field means _"the last Friday of the month"_
+
+  - character: "W"
+    name: "weekday"
+    allowed-in: "Day of month"
+    description: |
+      Specifies the weekday (Monday - Friday) closest to the given day. **Note**: This character is only allowed when the **Day of month** value is a single day, not a range or list of days.
+
+      `L` can also be combined with `W` in the **Day of month** field to indicate _"the last weekday of the month"_.
+    example: |
+      - `15W` means _"the nearest weekday to the 15th of the month"_. If the 15th were a Saturday, a replication job would begin on Friday the 14th.
+      - `1W` means _"the nearest weekday to the 1st of the month"_. If the 1st is a Saturday, the replication job would begin on Monday the 3rd. Advanced scheduling can't skip over a boundary of days.
+      - `LW` means _"the last weekday of the month"_
+
+  - character: "#"
+    name: "hash"
+    allowed-in: "Day of week"
+    description: |
+      Specifies the `nth` day of the month, such as _"the third Friday of the month"_. This is used with a day of week value (`1-7` or `SUN-SAT`) and an integer of `1-5`, formatted as `<day_of_week_value>#<integer>`.
+
+      **Note**: If `<day_of_week_value>#5` is specified and there isn't a fifth given day of week in the month, then the replication job will not be triggered.
+    example: |
+      - `4#2` or `WED#2` means _"the second Wednesday of the month"_
+      - `2#1` or `MON#1` means _"the first Monday of the month"_
+      - `7#5` or `SAT#5` means _"the fifth Saturday of the month"_. If a month doesn't have five Saturdays, a replication job will not be triggered.
+
+# -------------------------- #
+#     Expression examples    #
+# -------------------------- #
+
+examples:
+  - translation: "Run at midnight every day"
+    anchor: "at-midnight-every-day"
+    expressions:
+      - seconds: "0"
+        minutes: "0"
+        hours: "0"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "*"
+
+      - seconds: "0"
+        minutes: "0"
+        hours: "0"
+        day-of-month: "*"
+        month: "*"
+        day-of-week: "?"
+
+  - translation: "Run at midnight every day from Monday through Friday"
+    anchor: "midnight-every-day-mon-fri"
+    expressions:
+      - seconds: "0"
+        minutes: "0"
+        hours: "0"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "2-6"
+
+      - seconds: "0"
+        minutes: "0"
+        hours: "0"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "MON-FRI"
+
+  - translation: "Run once a week at 11:00PM on Sunday"
+    anchor: "sunday-11pm"
+    expressions:
+      - seconds: "0"
+        minutes: "0"
+        hours: "23"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "1"
+
+      - seconds: "0"
+        minutes: "0"
+        hours: "23"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "SUN"
+
+  - translation: "Run at noon and midnight every day"
+    anchor: "noon-and-midnight"
+    expressions:
+      - seconds: "0"
+        minutes: "0"
+        hours: "0,12"
+        day-of-month: "*"
+        month: "*"
+        day-of-week: "?"
+
+      - seconds: "0"
+        minutes: "0"
+        hours: "0,12"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "*"
+
+  - translation: "Run Tuesday through Thursday every week at 3:00AM"
+    anchor: "tue-thur-3am"
+    expressions:
+      - seconds: "0"
+        minutes: "0"
+        hours: "3"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "3-5"
+
+      - seconds: "0"
+        minutes: "0"
+        hours: "3"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "TUE-THUR"
+
+  - translation: "Run at midnight every Monday, Wednesday, and Friday"
+    anchor: "midnight-mon-wed-fri"
+    expressions:
+      - seconds: "0"
+        minutes: "0"
+        hours: "0"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "2,4,6"
+
+      - seconds: "0"
+        minutes: "0"
+        hours: "0"
+        day-of-month: "?"
+        month: "*"
+        day-of-week: "MON,WED,FRI"
+
+  - translation: "Run at minute 30 and every minute between :05 and :10, every hour, every day in January"
+    anchor: "minutes-hours-in-january"
+    expressions:
+      - seconds: "0"
+        minutes: "5-10,30"
+        hours: "*"
+        day-of-month: "?"
+        month: "1"
+        day-of-week: "*"
+
+      - seconds: "0"
+        minutes: "5-10,30"
+        hours: "*"
+        day-of-month: "*"
+        month: "1"
+        day-of-week: "?"

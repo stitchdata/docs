@@ -36,6 +36,8 @@ table-selection: true
 column-selection: true
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: false
 loading-reports: true
 

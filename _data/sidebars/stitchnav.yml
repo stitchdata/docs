@@ -10,7 +10,7 @@ all-docs:
 
   - title: Account & Security
     sections:
-    - title: Account Settings
+    - title: Account settings
       subsections:
         - title: "Change your email & password"
           url: "{{ link.account.email-password }}"
@@ -131,9 +131,6 @@ all-docs:
 
         - title: "Limitations"
           url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
-
-        # - title: "Loading Notifications"
-        #   url: "{{ link.destinations.overviews.amazon-s3}}#webhook-loading-notifications"
 
     - title: "data world"
       subsections:
@@ -329,6 +326,9 @@ all-docs:
 
         - title: "Anchor Scheduling"
           url: "{{ link.replication.anchor-scheduling }}"
+
+        - title: "Advanced Scheduling using Cron"
+          url: "{{ link.replication.advanced-scheduling }}"
 
     - title: Supported data types
       url: "{{ link.replication.supported-data-types }}"

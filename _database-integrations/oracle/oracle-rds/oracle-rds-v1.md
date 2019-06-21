@@ -62,6 +62,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

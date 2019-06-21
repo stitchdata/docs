@@ -45,6 +45,8 @@ frequency: "1 hour"
 tier: "Paid"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

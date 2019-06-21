@@ -45,6 +45,8 @@ tier: "Free"
 status-url: "https://www.frontstatus.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
