@@ -17,6 +17,11 @@
                     <li>
                         <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
                 {% else %}
+                    {% if category.title == "Developers" %}
+                        <li>
+                            <hr style="margin: 0px; display: inline-block">
+                        </li>
+                    {% endif %}
                 <li>
                     <a data-toggle="collapse" 
                     href="#{{ category.title | slugify }}" 
