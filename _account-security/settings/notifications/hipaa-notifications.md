@@ -1,6 +1,6 @@
 ---
 title: Managing Notification Content for HIPAA Compliance
-permalink: /account-security/hipaa-compliant-notifications
+permalink: /account-security/notifications/hipaa-compliant-notifications
 keywords: notifications, hipaa, hipaa compliance, hipaa-compliant
 summary: ""
 
