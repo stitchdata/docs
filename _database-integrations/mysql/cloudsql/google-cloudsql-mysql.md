@@ -10,7 +10,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "cloudsql-mysql"
-display_name: "CloudSQL MySQL"
+display_name: "Google CloudSQL MySQL"
 singer: true
 
 repo-url: https://github.com/singer-io/tap-mysql

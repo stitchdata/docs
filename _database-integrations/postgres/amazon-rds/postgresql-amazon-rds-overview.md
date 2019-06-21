@@ -12,7 +12,7 @@ has-versions: true
 
 db-type: "postgres"
 name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+display_name: "Amazon PostgreSQL RDS"
 
 sections:
   - title: "Identify your version"

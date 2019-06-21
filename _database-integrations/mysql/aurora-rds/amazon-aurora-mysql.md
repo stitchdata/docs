@@ -13,7 +13,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "aurora-rds"
-display_name: "Aurora MySQL RDS"
+display_name: "Amazon Aurora MySQL RDS"
 singer: true
 
 tap-name: "MySQL"

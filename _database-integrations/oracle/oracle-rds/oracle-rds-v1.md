@@ -22,7 +22,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "oracle-rds"
-display_name: "Oracle RDS"
+display_name: " Amazon Oracle RDS"
 
 singer: true
 tap-name: "Oracle"
