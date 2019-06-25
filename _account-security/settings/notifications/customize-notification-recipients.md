@@ -8,8 +8,8 @@ layout: general
 key: "customize-notifications"
 toc: true
 
-type: "account-settings"
-weight: 5
+type: "notifications"
+weight: 2
 
 enterprise: true
 enterprise-cta:

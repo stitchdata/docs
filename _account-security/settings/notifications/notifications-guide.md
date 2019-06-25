@@ -8,8 +8,8 @@ layout: general
 key: "notification-settings"
 toc: true
 
-type: "account-settings"
-weight: 5
+type: "notifications"
+weight: 1
 
 intro: |
   {% include misc/data-files.html %}

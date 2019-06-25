@@ -8,7 +8,8 @@ layout: general
 key: "post-load-notifications"
 toc: true
 
-weight: 1
+type: "notifications"
+weight: 4
 
 enterprise: true
 enterprise-cta:
