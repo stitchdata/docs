@@ -10,7 +10,7 @@ all-docs:
 
   - title: Account & security
     sections:
-    - title: Account settings
+    - title: Mange your account
       subsections:
         - title: "Change your email & password"
           url: "{{ link.account.email-password }}"
@@ -23,6 +23,9 @@ all-docs:
 
         - title: "Manage Stitch partner access"
           url: "{{ link.account.manage-partner-access }}"
+
+        - title: Cancel your account
+          url: "{{ link.account.cancel-account }}"
 
     - title: "Invite your team"
       subsections:
@@ -79,9 +82,6 @@ all-docs:
 
         - title: "FAQ"
           url: "{{ link.security.faq }}"
-
-    - title: Cancel your account
-      url: "{{ link.account.cancel-account }}"
 
     - title: All Account & Security
       url: /account-security/
@@ -404,10 +404,10 @@ all-docs:
     - title: Analytics
       url: /analysis-tools#analytics
 
-    - title: SQL Editors
+    - title: SQL editors
       url: /analysis-tools#sql-editors
 
-    - title: Data Science
+    - title: Data science
       url: /analysis-tools#data-science
 
   - title: Troubleshooting
