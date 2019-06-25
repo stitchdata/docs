@@ -144,6 +144,7 @@ examples:
           "details": {
             "pricing_tier": "premium",
             "pipeline_state": "released",
+            "default_start_date": "-1 year",
             "default_scheduling_interval": 30,
             "protocol": "platform.closeio",
             "access": true
@@ -289,6 +290,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-30 days",
             "protocol": "platform.hubspot",
             "access": true
           }
@@ -434,6 +436,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "deprecated",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.marketo",
             "access": false
           }
@@ -596,6 +599,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.facebook",
             "access": true
           }
@@ -763,6 +767,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 1440,
+            "default_start_date": "-1 year",
             "protocol": "platform.adwords",
             "access": true
           }
@@ -928,6 +933,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.zuora",
             "access": true
           }
@@ -1271,6 +1277,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": null,
             "protocol": "platform.mysql",
             "access": true
           }
@@ -1365,6 +1372,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.fullstory",
             "access": true
           }
@@ -1621,6 +1629,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": null,
             "protocol": "platform.mysql",
             "access": true
           }
@@ -1877,6 +1886,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": null,
             "protocol": "platform.mysql",
             "access": true
           }
@@ -2228,6 +2238,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": null,
             "protocol": "platform.mysql",
             "access": true
           }
@@ -2427,6 +2438,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.xero",
             "access": true
           }
@@ -2553,6 +2565,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.jira",
             "access": true
           }
@@ -2774,6 +2787,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.salesforce",
             "access": true
           }
@@ -2868,6 +2882,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.pipedrive",
             "access": true
           }
@@ -3012,6 +3027,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 720,
+            "default_start_date": "-1 year",
             "protocol": "platform.marketo",
             "access": true
           }
@@ -3126,6 +3142,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.listrak",
             "access": true
           }
@@ -3305,6 +3322,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 1440,
+            "default_start_date": "-1 year",
             "protocol": "platform.bing-ads",
             "access": true
           }
@@ -3419,6 +3437,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.yotpo",
             "access": true
           }
@@ -3521,6 +3540,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.sendgrid",
             "access": true
           }
@@ -3647,6 +3667,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.quickbase",
             "access": true
           }
@@ -3889,6 +3910,7 @@ examples:
             "pricing_tier": "enterprise",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": null,
             "protocol": "platform.oracle",
             "access": false
           }
@@ -3991,6 +4013,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.bronto",
             "access": true
           }
@@ -4296,6 +4319,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": null,
             "protocol": "platform.postgres",
             "access": true
           }
@@ -4406,6 +4430,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.github",
             "access": true
           }
@@ -4549,6 +4574,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.zendesk",
             "access": true
           }
@@ -4711,6 +4737,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.s3-csv",
             "access": true
           }
@@ -4841,6 +4868,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.doubleclick-campaign-manager",
             "access": true
           }
@@ -4978,6 +5006,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": null,
             "protocol": "platform.amplitude",
             "access": true
           }
@@ -5104,6 +5133,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.uservoice",
             "access": true
           }
@@ -5370,6 +5400,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": null,
             "protocol": "platform.postgres",
             "access": true
           }
@@ -5636,6 +5667,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": null,
             "protocol": "platform.postgres",
             "access": true
           }
@@ -5779,6 +5811,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.harvest-forecast",
             "access": true
           }
@@ -5910,6 +5943,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.campaign-monitor",
             "access": true
           }
@@ -6024,6 +6058,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.platformpurple",
             "access": true
           }
@@ -6138,6 +6173,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.clubspeed",
             "access": true
           }
@@ -6269,6 +6305,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.shopify",
             "access": true
           }
@@ -6291,6 +6328,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": null,
             "protocol": "import_api",
             "access": true
           }
@@ -6429,6 +6467,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.responsys",
             "access": true
           }
@@ -6572,6 +6611,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 30,
+            "default_start_date": "-1 year",
             "protocol": "platform.stripe",
             "access": true
           }
@@ -6710,6 +6750,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.heap",
             "access": true
           }
@@ -6824,6 +6865,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.frontapp",
             "access": true
           }
@@ -6950,6 +6992,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.revinate",
             "access": true
           }
@@ -7076,6 +7119,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.typeform",
             "access": true
           }
@@ -7190,6 +7234,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.toggl",
             "access": true
           }
@@ -7299,6 +7344,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "beta",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.eloqua",
             "access": true
           }
@@ -7401,6 +7447,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "beta",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.shiphero",
             "access": true
           }
@@ -7563,6 +7610,7 @@ examples:
             "pricing_tier": "premium",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.netsuite",
             "access": true
           }
@@ -7689,6 +7737,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.bigcommerce",
             "access": true
           }
@@ -7802,6 +7851,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "beta",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.onfleet",
             "access": true
           }
@@ -7917,6 +7967,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "released",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.invoiced",
             "access": true
           }
@@ -7985,6 +8036,7 @@ examples:
             "pricing_tier": "standard",
             "pipeline_state": "beta",
             "default_scheduling_interval": 60,
+            "default_start_date": "-1 year",
             "protocol": "platform.chargebee",
             "access": true
           }
