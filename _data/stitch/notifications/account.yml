@@ -26,6 +26,7 @@ warning:
     description: "Sent when the usage for the current billing period surpasses 70 or 90% of the account's row limit."
     email-subject:
       - "Approaching Row Limit"
+    contains-raw-errors: false
     content:
       - "The percent of the account's row limit that has been used"
     related-types:
@@ -43,6 +44,7 @@ warning:
     description: "Sent when the usage for the current billing period reaches 100% of the account's row limit."
     email-subject:
       - "Row Limit Reached"
+    contains-raw-errors: false
     app-category: "usage"
 
 # ----------------------------
@@ -61,6 +63,7 @@ critical:
     description: "Sent when the account's free trial period has ended and a plan has not been selected. Stitch will automatically pause your integrations when the trial expires, and they will remain paused until a plan is selected or the account is deactivated."
     email-subject:
       - "Your free trial of Stitch has expired"
+    contains-raw-errors: false
     app-category: "plan"
 
 # -------------------------- #
@@ -72,7 +75,7 @@ critical:
     description: "Sent when data has not been loaded into the account's destination for more than 40 days."
     email-subject: 
       - "Integrations Paused due to Account Inactivity"
-
+    contains-raw-errors: false
 
 
 

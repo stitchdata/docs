@@ -23,6 +23,7 @@ warning:
     description: "**Applicable only to Amazon Redshift destinations.** Sent when Stitch hasn't successfully performed a `VACUUM` operation on tables in your Amazon Redshift destination."
     email-subject:
       - "We’ve been unable to VACUUM for awhile"
+    contains-raw-errors: false
     content:
       - "A list of affected tables"
     potential-causes:
@@ -45,6 +46,7 @@ critical:
     description: "Sent when Stitch can't load data into the account's destination due to insufficient database user privileges."
     email-subject:
       - "Data Warehouse Error"
+    contains-raw-errors: false
     content:
       - "The name of the affected database"
     potential-causes:

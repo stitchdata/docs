@@ -26,6 +26,7 @@ warning:
     name: "Missing or deleted database Replication Key"
     email-delay: "20 minutes"
     description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to detect the Replication Key for a selected database integration table."
+    contains-raw-errors: false
     email-subject:
       - "Database Integration Error"
     content:
@@ -52,6 +53,7 @@ critical:
     description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to persist extracted data for a table to your destination."
     email-subject:
       - "Error persisting data for table <code>[table_name]</code>"
+    contains-raw-errors: false
     content:
       - "The name of the affected table"
     potential-causes:
@@ -68,9 +70,10 @@ critical:
     description: "**Applicable only to Singer-backed integrations.** Sent when Stitch encounters critical issues during the Extraction phase of the replication process."
     email-subject: 
       - "We're encountering some errors with your <code>[integration_display_name]</code> integration"
+    contains-raw-errors: true
     content:
       - "The name of the affected integration"
-      - "The raw error message Stitch received from the source API or database, if any"
+      - "{{ site.data.stitch.notifications.common.content.raw-error-integration | flatify }}"
     potential-causes:
       - "Connection issues between Stitch and the integration"
       - "Incorrect user credentials"
@@ -92,10 +95,11 @@ critical:
     description: "Sent when Stitch encounters issues loading data to the account's destination."
     email-subject:
       - "We're having trouble writing to your data warehouse"
+    contains-raw-errors: true
     content:
       - "A list of affected tables"
       - "A brief explanation of the issue, if known"
-      - "The raw error message received from the destination, if any"
+      - "{{ site.data.stitch.notifications.common.content.raw-error-destination | flatify }}"
     potential-causes:
       - "Connection issues between Stitch and the destination"
       - "[Destination is out of memory]({{ link.troubleshooting.aws-io-errors | prepend: site.baseurl }})"
@@ -116,9 +120,10 @@ critical:
     description: "Sent when Stitch cannot load data into the account's destination because the destination doesn't support it."
     email-subject:
       - "We're unable to load some of your data"
+    contains-raw-errors: true
     content:
       - "A brief explanation of the issue"
-      - "The raw error message received from the destination, if any"
+      - "{{ site.data.stitch.notifications.common.content.raw-error-destination | flatify }}"
     potential-causes:
       - "Stitch is attempting to load data that the destination doesn't support"
     app-category: "read_head"
@@ -132,6 +137,7 @@ critical:
     description: "**Applicable only when an SSH tunnel is being used to connect to the destination.** Sent when Stitch cannot load data into the account's destination because Stitch encountered an error creating an SSH tunnel."
     email-subject:
       - "Stitch cannot load data into your destination"
+    contains-raw-errors: false
     content:
       - "A list of affected tables"
       - "A brief explanation of the issue"
@@ -158,6 +164,7 @@ delay:
     description: "**Applicable only to non-Singer SaaS integrations.** Sent when an integration has insufficient API quota. This applies to integrations that use APIs that enforce API quotas - for example, Google Analytics. Replication will continue when additional quota becomes available."
     email-subject:
       - "Integration API Rate Limited"
+    contains-raw-errors: false
     content:
       - "A list of affected integrations"
     potential-causes: 
