@@ -12,7 +12,7 @@ hosting-type: "generic"
 # -------------------------- #
 
 name: "mssql"
-display_name: "MSSQL"
+display_name: "Microsoft SQL Server"
 
 hosting-type: "generic"
 

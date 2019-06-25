@@ -7,8 +7,8 @@ summary: "Invite your team members to collaborate in Stitch. When someone leaves
 layout: general
 toc: true
 
-type: "invite-your-team"
-weight: 2
+type: "team-members"
+weight: 1
 
 intro: |
   In the **Team Members** section of the {{ app.menu-paths.account-settings }}, you can view and manage the team members associated with your Stitch account.

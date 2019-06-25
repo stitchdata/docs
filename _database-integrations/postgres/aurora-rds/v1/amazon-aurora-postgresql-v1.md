@@ -11,7 +11,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "aurora-postgresql-rds"
-display_name: "Aurora PostgreSQL RDS"
+display_name: "Amazon Aurora PostgreSQL RDS"
 singer: true
 
 tap-name: "Postgres"

@@ -10,7 +10,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "mysql-rds"
-display_name: "MySQL RDS"
+display_name: "Amazon MySQL RDS"
 hosting-type: "amazon"
 
 

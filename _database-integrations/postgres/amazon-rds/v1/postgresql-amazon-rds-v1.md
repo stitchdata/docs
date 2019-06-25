@@ -12,7 +12,7 @@ microsites:
 # -------------------------- #
 
 name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+display_name: "Amazon PostgreSQL RDS"
 
 singer: true
 tap-name: "Postgres"
