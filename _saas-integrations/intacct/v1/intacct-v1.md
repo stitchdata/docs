@@ -19,6 +19,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+no-schema: true
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -59,9 +61,13 @@ column-selection: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration relies on {{ integration.display_name }}'s [Data Delivery Service (DDS)](https://developer.intacct.com/data-delivery-service/){:target="new"} feature to publish CSV files to an Amazon S3 bucket. Stitch will then use [Key-based Incremental Replication](#replication) to replicate data from matching CSV files in the S3 bucket.
+  Stitch's {{ integration.display_name }} integration relies on {{ integration.display_name }}'s [Data Delivery Service (DDS)](https://developer.intacct.com/data-delivery-service/){:target="new"} for Amazon S3. {{ integration.display_name }} DDS exports reports in CSV format to Amazon S3, which Stitch will then replicate using [Key-based Incremental Replication](#replication).
 
-  **Note**: This integration does not use the {{ integration.display_name }} API.
+  While DDS supports other export targets, Stitch only supports replicating {{ integration.display_name }} data through Amazon S3 at this time.
+
+  For more info about DDS, [refer to {{ integration.display_name }}'s documentation](https://www.intacct.com/ia/docs/help/More/Data_Delivery_Service/dds-overview.htm){:target="new"}.
+
+  **Note**: This integration does not use the {{ integration.display_name }} API. Only data available via DDS will be available for replication through Stitch.
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -75,10 +81,10 @@ requirements-list:
       **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
 
 setup-steps:
-  - title: "Set up a Cloud Storage Target in {{ integration.display_name }}"
-    anchor: "set-up-cloud-storage-target"
+  - title: "Set up an {{ integration.display_name }} Cloud Storage Target and automatic data delivery"
+    anchor: "set-up-target-and-delivery"
     content: |
-      In this step, you'll set up a Cloud Storage Target for Amazon S3 in {{ integration.display_name }}.
+      In this step, you'll set up a Cloud Storage Target and automatic data delivery in {{ integration.display_name }}.
 
       {% for substep in step.substeps %}
       - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
@@ -101,6 +107,23 @@ setup-steps:
           1. Sign into your {{ integration.display_name }} account.
           2. Follow the instructions in [Step 2 of {{ integration.display_name }}'s documentation](https://www.intacct.com/ia/docs/help/Reporting/Distribute_and_run_reports/Store_reports/cloud-storage-for-reports.htm?cshid=Reporting/Distribute_and_run_reports/Store_reports/cloud-storage-for-reports.htm#1.){:target="new"} to create the target in {{ integration.display_name }}.
 
+      - title: "Set up an automated data delivery in {{ integration.display_name }}"
+        anchor: "set-up-automated-data-delivery"
+        content: |
+          In this step, you'll create an [automatic delivery schedule](https://www.intacct.com/ia/docs/help/More/Data_Delivery_Service/create-an-automated-delivery.htm#Config){:target="new"} in your {{ integration.display_name }} account.
+
+          1. In your {{ integration.display_name }} account, navigate to **Company > Data Delivery Service > Automatic**.
+          2. Click the **Add** button.
+          3. In the **File attributes** section, define the settings as follows:
+             - **Delimiter**: Commas
+             - **Text qualifier (delimiter)**: Double quote (`"`)
+             - **Encryption**: Do not encrypt
+          4. In the **Delivery options** section, define the settings as follows:
+             - **Cloud storage destination**: Select the Amazon S3 Cloud Storage Target you created in [Step 1.2](#define-target-in-intacct).
+             - **Frequency**: Select the frequency you want to use to trigger a data export in {{ integration.display_name }}.
+          5. In the **Objects** section, select the objects you want to include in the export. These objects will then be available for selection in Stitch.
+          6. Save the schedule.
+
   - title: "add integration"
     content: |
       4. In the **Company ID** field, enter the company ID you use to sign into {{ integration.display_name }}.
@@ -115,6 +138,10 @@ setup-steps:
     anchor: "grant-access-bucket-iam"
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
+
+      {% for substep in step.substeps %}
+      - [Step 5.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
       - title: "Create an IAM policy"
