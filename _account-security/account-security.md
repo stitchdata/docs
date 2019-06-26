@@ -13,7 +13,7 @@ feedback: false
 
 ---
 
-{% assign sections = "getting-started|account-settings|invite-your-team|billing|security" | split:"|" %}
+{% assign sections = "getting-started|account-settings|team-members|notifications|billing|security" | split:"|" %}
 
 {% for section in sections %}
 

@@ -2,6 +2,7 @@
 title: Welcome to Stitch Documentation
 layout: page-no-edit
 toc: false
+enterprise: false
 permalink: index.html
 summary: "Guides and resources for setting up and managing your Stitch data pipeline."
 ---

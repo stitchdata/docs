@@ -17,11 +17,16 @@
                     <li>
                         <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
                 {% else %}
+                    {% if category.title == "Developers" %}
+                        <li>
+                            <hr style="margin: 0px; display: inline-block">
+                        </li>
+                    {% endif %}
                 <li>
                     <a data-toggle="collapse" 
-                    href="#{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
+                    href="#{{ category.title | slugify }}" 
                     aria-expanded="false" 
-                    aria-controls="{{ category.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
+                    aria-controls="{{ category.title | slugify }}">
                         {{ category.title }} 
                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                     </a>
@@ -29,7 +34,7 @@
                 {% endif %}
                 
                 {% unless category.title == "Getting Started" %}
-                    <ul class="collapse" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                    <ul class="collapse" id="{{ category.title | slugify }}">
 
                     <!-- SECOND-LEVEL ITEMS -->
                         {% for section in category.sections %}
@@ -40,34 +45,25 @@
                             <!-- THIRD-LEVEL ITEMS -->
                                 <li class="subfolders">
                                     <a data-toggle="collapse" 
-                                    href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}" 
+                                    href="#{{ section.title | slugify }}" 
                                     aria-expanded="false" 
-                                    aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" | replace: ".", "-" }}">
+                                    aria-controls="{{ section.title | slugify }}">
                                         {{ section.title }} 
                                         <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                                     </a>
 
-                                    <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    <ul class="collapse" id="{{ section.title | slugify }}">
                                     <!-- Third-level items -->
-                                    {% for subsection in section.subsections %}
-                                        <li>
-                                            <a href="{{ subsection.url | flatify | prepend: site.baseurl }}">{{ subsection.title }}</a>
-                                         </li>
-                                    {% endfor %}
 
-                                    <!-- Currently only applies to SaaS Integrations. 
-                                        This may change in the future. -->
+                                        {% for subsection in section.subsections %}
+                                            <li>
+                                                <a href="{{ subsection.url | flatify | prepend: site.baseurl }}">{{ subsection.title }}</a>
+                                             </li>
+                                        {% endfor %}
 
-                                        {% if category.title == "SaaS Integrations" %}
+                                        {% if section.type %}
 
-                                            {% assign all-integrations = site.saas-integrations | where:"input",true | sort: display_name %}
-
-                                            {% case section.title %}
-                                                {% when "Certified Integrations" %}
-                                                    {% assign integrations = all-integrations | where:"certified",true | sort: display_name %}
-                                                {% when "Community Integrations" %}
-                                                    {% assign integrations = all-integrations | where:"certified",false | sort: display_name %}
-                                            {% endcase %}
+                                            {% assign integrations = site[section.type] | where:section.filter,true | sort: "display_name" %}
 
                                             {% for integration in integrations %}
                                                 <li>
@@ -75,46 +71,16 @@
                                                 </li>
                                             {% endfor %}
                                         {% endif %}
-
                                     </ul>
                                 </li>
 
                             {% else %}
 
                             <!-- SECOND-LEVEL ITEMS WITHOUT SUBSECTIONS -->
-                            <!-- Ex: Database Integrations > Overview -->
+
                                 <li>
                                     <a href="{{ section.url | flatify | prepend: site.baseurl }}">{{ section.title }}</a>
                                 </li>
-
-                                {% if category.title contains "Database" or category.title contains "Webhook" %}
-                                    {% case category.title %}
-                                        {% when "Database Integrations" %}
-                                            {% assign all-integrations = site.database-integrations | where:"show-in-menus",true | sort:"title" %}
-                                        {% when "Webhook Integrations" %}
-                                            {% assign all-integrations = site.webhook-integrations | where:"input",true | sort:"title" %}
-                                    {% endcase %}
-
-                                <!-- THIRD-LEVEL ITEMS -->
-
-                                    {% for integration in all-integrations %}
-                                        {% if category.title == "Database Integrations" %}
-                                            <li>
-                                                <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.title }}</a>
-                                            </li>
-                                        {% else %}
-                                            <li>
-                                                <a href="{{ integration.url | prepend: site.baseurl }}">{{ integration.display_name }}</a>
-                                            </li>
-                                        {% endif %}
-                                    {% endfor %}
-
-                                    <li>
-                                        <a href="{{ link.integrations.main | prepend: site.baseurl }}">All Integrations</a>
-                                    </li>
-
-                                {% endif %}
-
                             {% endif %}
                         {% endfor %} 
                     </ul>

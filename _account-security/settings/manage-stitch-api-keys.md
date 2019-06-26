@@ -10,15 +10,14 @@ toc: true
 type: "account-settings"
 weight: 3
 
+enterprise: true
 enterprise-cta:
-  title: "API access is an Enterprise feature"
-  copy: |
-    Access to the Stitch API is an Enterprise feature. [Contact Stitch Sales for more info]({{ site.sales }}){:target="new"}.
+  feature: "API access"
+  title: "{{ site.data.strings.enterprise.title.is-an }}"
+  copy: "{{ site.data.strings.enterprise.copy.is-an | flatify }}"
 
 intro: |
   {% include misc/data-files.html %}
-
-  {% include enterprise-cta.html %}
 
   With the Stitch API, you can programmatically control your Stitch account. This enables you to quickly create and configure integrations, select tables and columns for replication, connect Stitch with an external scheduler, and more.
 
@@ -54,7 +53,7 @@ sections:
       - title: "Who can create an API key?"
         anchor: "who-can-create-keys"
         content: |
-          Any team member in a Stitch account with API access can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
+          Any team member in a Stitch account that has API access can create, delete, disable, or re-enable an API key. While API keys are specific to the user who created them, all members of a Stitch account will be able to see high-level details about the API keys in use:
 
           ![An enabled API access key with a description]({{ site.baseurl }}/images/account-security/api-key-table.png)
 
