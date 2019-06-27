@@ -1,0 +1,28 @@
+---
+tap: "liveperson"
+version: "0.x"
+name: "agent_status"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/agent_status.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "deleted"
+    type: "boolean"
+    description: ""
+  - name: "enabled"
+    type: "boolean"
+    description: ""
+  - name: "id"
+    type: "string"
+    description: ""
+  - name: "state"
+    type: "string"
+    description: ""
+  - name: "text"
+    type: "string"
+    description: ""
+---

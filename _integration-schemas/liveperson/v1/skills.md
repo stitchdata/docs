@@ -1,0 +1,25 @@
+---
+tap: "liveperson"
+version: "0.x"
+name: "skills"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-liveperson/blob/master/tap_liveperson/schemas/skills.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "deleted"
+    type: "boolean"
+    description: ""
+  - name: "id"
+    type: "string"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "pid"
+    type: "string"
+    description: ""
+---
