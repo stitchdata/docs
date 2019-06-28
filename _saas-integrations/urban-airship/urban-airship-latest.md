@@ -18,6 +18,9 @@ status-url: https://twitter.com/urbanairship
 
 # this-version: "1.0"
 
+api: |
+  [Airship API version 3](https://docs.airship.com/api/ua/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -29,14 +32,22 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
-table-selection: false
-column-selection: false
-
 anchor-scheduling: true
 cron-scheduling: false
 
+table-selection: false
+column-selection: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

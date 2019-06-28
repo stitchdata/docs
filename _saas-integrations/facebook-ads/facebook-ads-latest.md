@@ -16,6 +16,9 @@ repo-url: https://github.com/singer-io/tap-facebook
 
 # this-version: "1.0"
 
+api: |
+  [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -50,6 +53,18 @@ loading-reports: true
 replication-notes: true
 attribution-window: "28 days"
 attribution-is-configurable: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates ad, campaign, and adcreative data using the {{ integration.api | flatify | strip }}.
+
+  **Note**: This integration does not currently support replicating data for reviews, pages, etc.
+
+  Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

@@ -31,6 +31,9 @@ repo-url: https://github.com/singer-io/tap-recurly
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Partner API (v2018-08-09)](https://partner-docs.recurly.com/v2018-08-09#section/Getting-Started){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -51,6 +54,14 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

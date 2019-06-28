@@ -18,6 +18,9 @@ status-url: "https://trust.salesforce.com/trust/instances"
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -30,15 +33,23 @@ historical: "1 year"
 tier: "Paid"
 whitelist-ips: true
 
+anchor-scheduling: true
+cron-scheduling: false
+
 table-selection: true
 column-selection: true
 define-replication-methods: true
 
-anchor-scheduling: true
-cron-scheduling: false
-
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

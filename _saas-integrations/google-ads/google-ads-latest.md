@@ -26,11 +26,14 @@ repo-url: https://github.com/singer-io/tap-adwords
 
 # this-version: "1.0"
 
+api: |
+  [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target="new"}
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-api-version: "v201806"
+api-version: "v201809"
 
 status: "Released"
 certified: true
@@ -62,6 +65,16 @@ replication-notes: true
 attribution-window: "30 days"
 
 # -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
+  **Note**: To use the AdWords API, an Ads account must be connected to a [My Client Center (MCC) account](#setup-requirements).
+
+
+# -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
@@ -73,7 +86,7 @@ requirements-list:
 
       An MCC account is an Ads account type that enables you to manage several Ads accounts under a single login. Think of manager accounts as trees: they can branch out to individual accounts or even other manager accounts. [Read more about MCC accounts here](https://support.google.com/adwords/answer/6139186).
 
-      By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the Ads API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/adwords/answer/7459601).
+      By default, regular advertiser accounts - that is, individual Ads accounts - don't have access to the AdWords API. To gain access, they must be linked to an MCC account. If you don't have an MCC account, [create one using these instructions](https://support.google.com/adwords/answer/7459399){:target="new"} and then link it to your Ads account [by following these steps](https://support.google.com/adwords/answer/7459601).
 
 setup-steps:
   - title: "add integration"

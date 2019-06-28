@@ -68,6 +68,7 @@ feature-summary: |
   For more info about DDS, [refer to {{ integration.display_name }}'s documentation](https://www.intacct.com/ia/docs/help/More/Data_Delivery_Service/dds-overview.htm){:target="new"}.
 
   **Note**: This integration does not use the {{ integration.display_name }} API. Only data available via DDS will be available for replication through Stitch.
+  
 
 # -------------------------- #
 #      Setup Instructions    #

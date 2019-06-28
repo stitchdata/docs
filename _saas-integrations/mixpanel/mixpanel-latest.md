@@ -16,6 +16,9 @@ name: "mixpanel"
 display_name: "Mixpanel"
 status-url: "https://status.mixpanel.com/"
 
+api: |
+  [{{ integration.display_name }} Data Export API](https://mixpanel.com/help/reference/data-export-api#people-analytics){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -27,11 +30,11 @@ historical: "7 days"
 frequency: "30 minutes"
 tier: "Free"
 
-table-selection: true
-column-selection: false
-
 anchor-scheduling: true
 cron-scheduling: false
+
+table-selection: true
+column-selection: false
 
 extraction-logs: false
 loading-reports: true
@@ -46,12 +49,12 @@ loading-reports: true
 replication-notes: true
 
 # -------------------------- #
-#      Incompatiblities      #
+#      Feature Summary       #
 # -------------------------- #
 
-## incompatible:
-##  bigquery: "sometimes"
-##  reason: "Mixpanel sometimes sends records that contain multiple data types. BigQuery only allows `FLOAT` and `DOUBLE` data types in the same column; otherwise, the field will be rejected."
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

@@ -16,6 +16,9 @@ repo-url: https://github.com/singer-io/tap-harvest
 
 this-version: "2.0"
 
+api: |
+  [{{ integration.display_name }} REST API V2](https://help.getharvest.com/api-v2/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -35,6 +38,14 @@ extraction-logs: true
 loading-reports: true
 anchor-scheduling: true
 cron-scheduling: false
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #
