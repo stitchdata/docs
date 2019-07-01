@@ -37,8 +37,8 @@ sections:
     content: |
       Using the custom notification list feature, you can:
 
-      - **Integrate with external monitoring systems** like [PagerDuty](https://www.pagerduty.com/){:target="new"} or [Datadog](https://www.datadoghq.com/){:target="new"}. Send Stitch email notifications to your monitoring systems to get ahead of critical issues.
-      - **Post updates to Slack**. Make sure the right people are notified when there's an issue that needs intervention by sending Stitch notifications right to a [Slack](https://slack.com){:target="new"} channel.
+      - **Integrate with external monitoring systems** like [PagerDuty](https://www.pagerduty.com/){:target="new"} or [Datadog](https://www.datadoghq.com/){:target="new"}. Send Stitch email notifications to your monitoring systems to get ahead of critical issues. Check out our [PagerDuty]({{ link.account.pagerduty-notifications | prepend: site.baseurl }}) and [Datadog]({{ link.account.datadog-notifications | prepend: site.baseurl }}) integration guides for more info.
+      - **Post updates to Slack**. Make sure the right people are notified when there's an issue that needs intervention by sending Stitch notifications right to a [Slack](https://slack.com){:target="new"} channel. Check out our [Slack integration guide]({{ link.account.slack-notifications | prepend: site.baseurl }}) for more info.
       - **Trigger other apps** using [Zapier](https://zapier.com){:target="new"}.
 
       For details about the email notifications Stitch sends, refer to the [Notification reference]({{ link.account.notification-reference | prepend: site.baseurl }}). This info can be used to create different alerts for individual notification types.
