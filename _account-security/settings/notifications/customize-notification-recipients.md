@@ -91,6 +91,12 @@ sections:
         content: |
           Any service that supports receiving email can be used with the custom notification list.
 
+          {% capture notice %}
+          Check out the [Datadog]({{ link.account.datadog-notifications | prepend: site.baseurl }}), [PagerDuty]({{ link.account.pagerduty-notifications | prepend: site.baseurl }}), and [Slack integration guides]({{ link.account.slack-notifications | prepend: site.baseurl }}).
+          {% endcapture %}
+
+          {% include tip.html content=notice %}
+
       - title: "Who can add a custom notification email address?"
         anchor: "who-can-add-recipients"
         content: |
@@ -129,4 +135,14 @@ sections:
       If you want to temporarily disable a custom notification recipient, you can click the icon next to the email address and use the **Disable this email** option.
 
       To re-enable a disabled recipient, click the icon next to the **Status** column and select **Re-enable this email**.
+
+  - title: "Guides for integrating popular services"
+    anchor: "popular-service-integration-guides"
+    summary: "Resources for integrating some popular services"
+    content: |
+      Ready to integrate Stitch notifications with your services? Check out our integration guides:
+
+      - [Datadog]({{ link.account.datadog-notifications | prepend: site.baseurl }})
+      - [PagerDuty]({{ link.account.pagerduty-notifications | prepend: site.baseurl }})
+      - [Slack]({{ link.account.slack-notifications | prepend: site.baseurl }})
 ---
