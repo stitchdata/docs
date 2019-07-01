@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Integrate Stitch Notifications with Datadog
+title: Integrating Stitch Notifications with Datadog
 permalink: /account-security/notifications/integrate-notifications-with-datadog
 summary: "Integrate Stitch notifications with Datadog using Stitch's Custom email notification list feature."
 
