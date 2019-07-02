@@ -15,15 +15,17 @@ sections:
 
       We built the API to accept and return [JSON](http://json.org) in all responses, including [errors]({{ api.error-message-formats }}).
 
-  - title: "API Functionality"
+  - title: "API functionality"
     anchor: "api-funcitonality"
     content: |
       Using the API, you can:
 
       - Create Stitch client accounts (Partners only)
       - Access Stitch client accounts
-      - Create and update destinations
-      - Create and update data sources
+      - Create, update, and delete destinations
+      - Retrieve configuration info for destinations
+      - Create, update, pause, unpause, and delete data sources
+      - Retrieve configuration info for data sources
       - Select streams and fields from data sources for replication
       - Start and stop replication jobs
 
