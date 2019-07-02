@@ -1,34 +1,29 @@
 ---
 content-type: "api-endpoint"
 endpoint: "sources"
-key: "update-a-source"
+key: "pause-a-source"
 version: "4"
 
 
-title: "Update a source"
+title: "Pause a source"
 method: "put"
 short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/{source_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.sources.update.description }}"
-description: "{{ api.core-objects.sources.update.description }}"
+short: "{{ api.core-objects.sources.pause.description }}"
+description: |
+  {{ api.core-objects.sources.pause.description }} When a source is paused, Stitch will not automatically start replication jobs for the source. Manual replication jobs can still be started using the [Start a replication job endpoint](#start-a-job), however.
 
+  **Note**: This endpoint behaves identically to [Update a source](#update-a-source).
 
 arguments:
   - name: "source_id"
     required: true
     type: "path parameter"
-    description: "A path parameter corresponding to the unique ID of the source to be updated."
+    description: "A path parameter corresponding to the unique ID of the source to be paused."
     example-value: |
       86741
-
-  - name: "display_name"
-    required: false
-    type: "string"
-    description: "{{ connect.common.attributes.display-name }}"
-    example-value: |
-      "Salesforce"
 
   - name: "paused_at"
     required: false
@@ -37,19 +32,12 @@ arguments:
       The time the source was paused. This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date.
 
       **Note**: Providing any value - past, present, or future - for this property will pause the source immediately if the request is successful.
-
-      Refer to the [Pause a source](#pause-a-source) reference for request and response examples.
     example-value: |
       "2019-06-01T00:00:00Z"
 
-  - name: "properties"
-    required: false
-    type: "object"
-    description: "{{ connect.common.attributes.properties | flatify }}"
-
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}).
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}) with a populated `paused_at` value.
 
 examples:
   - type: "Request"
@@ -60,10 +48,7 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
-                   "display_name":"Shopify",
-                   "properties":{
-                      "frequency_in_minutes":"60"
-                   }
+                 "paused_at":"2019-06-01T00:00:00Z"
                }"
 
   - type: "Response"
@@ -86,7 +71,7 @@ examples:
          "deleted_at":null,
          "system_paused_at":null,
          "stitch_client_id":116078,
-         "paused_at":null,
+         "paused_at":"2019-06-01T00:00:00Z",
          "id":86741,
          "display_name":"Shopify",
          "created_at":"2019-01-10T19:38:18Z",

@@ -131,6 +131,14 @@ api:
                 method: "put"
                 url: "{{ api.core-objects.sources.update.anchor }}"
 
+              - title: "{{ api.core-objects.sources.pause.title | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.sources.pause.anchor }}"
+
+              - title: "{{ api.core-objects.sources.unpause.title | flatify }}"
+                method: "put"
+                url: "{{ api.core-objects.sources.unpause.anchor }}"
+
               - title: "{{ api.core-objects.sources.list.title | flatify }}"
                 method: "get"
                 url: "{{ api.core-objects.sources.list.anchor }}"
