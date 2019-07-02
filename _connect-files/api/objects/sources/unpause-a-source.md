@@ -204,5 +204,4 @@ examples:
             ]
          }
       }
-  - type: "Errors"
 ---
