@@ -130,7 +130,7 @@ sections:
         content: |
           {% include misc/icons.html %}
 
-          A comparison of Stitch features across all HubSpot versions:
+          A comparison of Stitch features across non-sunset HubSpot versions:
 
           <table class="attribute-list">
           <tr>
@@ -143,10 +143,8 @@ sections:
           <td>
           <strong>v1</strong>
           </td>
-          <td>
-          <strong>v01-03-2017</strong>
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -159,10 +157,8 @@ sections:
           <td>
           {{ supported }}
           </td>
-          <td>
-          {{ not-supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -175,10 +171,8 @@ sections:
           <td>
           {{ not-supported }}
           </td>
-          <td>
-          {{ not-supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -191,10 +185,8 @@ sections:
           <td>
           {{ supported }}
           </td>
-          <td>
-          {{ supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -207,10 +199,8 @@ sections:
           <td>
           {{ not-supported }}
           </td>
-          <td>
-          {{ not-supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -223,10 +213,8 @@ sections:
           <td>
           {{ supported }}
           </td>
-          <td>
-          {{ supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -239,10 +227,8 @@ sections:
           <td>
           {{ not-supported }}
           </td>
-          <td>
-          {{ not-supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -255,10 +241,8 @@ sections:
           <td>
           {{ supported }}
           </td>
-          <td>
-          {{ supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -271,10 +255,8 @@ sections:
           <td>
           {{ supported }}
           </td>
-          <td>
-          {{ not-supported }}
-          </td>
           </tr>
+
           <tr>
           <td align="right">
           <strong>
@@ -287,16 +269,13 @@ sections:
           <td>
           {{ not-supported }}
           </td>
-          <td>
-          {{ not-supported }}
-          </td>
           </tr>
           </table>
 
       - title: "Available data comparison"
         anchor: "available-data-comparison"
         content: |
-          A comparison of all available data across all HubSpot versions. Clicking the link in the **[version] table** column will open the schema documentation for the table.
+          A comparison of all available data across non-sunset HubSpot versions. Clicking the link in the **[version] table** column will open the schema documentation for the table.
 
           <table class="attribute-list">
              <tbody>
@@ -310,9 +289,7 @@ sections:
                    <td class="c30 c36" colspan="1" rowspan="1">
                       <strong>v1 table</strong>
                    </td>
-                   <td class="c17 c36" colspan="1" rowspan="1">
-                      <strong>v01-03-2017 table</strong>
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52" colspan="1" rowspan="1">
@@ -324,9 +301,7 @@ sections:
                    <td class="c30" colspan="1" rowspan="1">
                       campaigns
                    </td>
-                   <td class="c17" colspan="1" rowspan="1">
-                      campaigns
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c29" colspan="1" rowspan="1">
@@ -338,9 +313,7 @@ sections:
                    <td class="c29 c30" colspan="1" rowspan="1">
                       companies
                    </td>
-                   <td class="c10" colspan="1" rowspan="1">
-                      companies
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52" colspan="1" rowspan="1">
@@ -352,9 +325,7 @@ sections:
                    <td class="c30" colspan="1" rowspan="1">
                       contact_lists
                    </td>
-                   <td class="c17" colspan="1" rowspan="1">
-                      contact_lists
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c29" colspan="1" rowspan="1">
@@ -366,9 +337,7 @@ sections:
                    <td class="c30 c29" colspan="1" rowspan="1">
                       contacts_by_company
                    </td>
-                   <td class="c10" colspan="1" rowspan="1">
-                      {{ not-supported }}
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52" colspan="1" rowspan="1">
@@ -380,9 +349,7 @@ sections:
                    <td class="c30" colspan="1" rowspan="1">
                       deal_pipelines
                    </td>
-                   <td class="c17" colspan="1" rowspan="1">
-                      {{ not-supported }}
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c29" colspan="1" rowspan="1">
@@ -394,9 +361,7 @@ sections:
                    <td class="c10" colspan="1" rowspan="1">
                       deals
                    </td>
-                   <td class="c10" colspan="1" rowspan="1">
-                      deals
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52" colspan="1" rowspan="1">
@@ -408,9 +373,7 @@ sections:
                    <td class="c30" colspan="1" rowspan="1">
                       email_events
                    </td>
-                   <td class="c17" colspan="1" rowspan="1">
-                      email_events
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c29" colspan="1" rowspan="1">
@@ -422,9 +385,7 @@ sections:
                    <td class="c30 c29" colspan="1" rowspan="1">
                       engagements
                    </td>
-                   <td class="c10" colspan="1" rowspan="1">
-                      engagements
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52" colspan="1" rowspan="1">
@@ -436,9 +397,7 @@ sections:
                    <td class="c30" colspan="1" rowspan="1">
                       forms
                    </td>
-                   <td class="c17" colspan="1" rowspan="1">
-                      forms
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c29" colspan="1" rowspan="1">
@@ -450,9 +409,7 @@ sections:
                    <td class="c30 c29" colspan="1" rowspan="1">
                       {{ not-supported }}
                    </td>
-                   <td class="c10" colspan="1" rowspan="1">
-                      keywords
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52" colspan="1" rowspan="1">
@@ -464,9 +421,7 @@ sections:
                    <td class="c30" colspan="1" rowspan="1">
                       owners
                    </td>
-                   <td class="c17" colspan="1" rowspan="1">
-                      owners
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c29" colspan="1" rowspan="1">
@@ -478,9 +433,7 @@ sections:
                    <td class="c30 c29" colspan="1" rowspan="1">
                       subscription_changes
                    </td>
-                   <td class="c10" colspan="1" rowspan="1">
-                      subscription_changes
-                   </td>
+
                 </tr>
                 <tr class="c13">
                    <td class="c52 c15" colspan="1" rowspan="1">
@@ -492,9 +445,7 @@ sections:
                    <td class="c30 c15" colspan="1" rowspan="1">
                       {{ not-supported }}
                    </td>
-                   <td class="c17 c15" colspan="1" rowspan="1">
-                      workflows
-                   </td>
+
                 </tr>
              </tbody>
           </table>
