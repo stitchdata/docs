@@ -5,6 +5,8 @@ keywords: salesforce, integration, schema, etl salesforce, salesforce etl, sales
 summary: "Connections instructions, replication info, and schema details for Stitch's Salesforce integration."
 layout: general
 
+toc: false
+
 sections:
   - content: |
       <table class="table-snapshot table-hover">
