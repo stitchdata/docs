@@ -20,7 +20,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Open Beta"
 certified: true
 setup-name: "Microsoft SQL Server"
 
@@ -51,7 +51,7 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "2016"
+log-based-replication-minimum-version: "2008"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -74,6 +74,11 @@ requirements-list:
         - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
         - View database details, which is required for retrieving the database's connection details.
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: |
+      **If using Log-based Incremental Replication**, you'll need:
+
+      - **A database running Microsoft SQL Server {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of Microsoft SQL Server don't include Change Tracking functionality which is required for Log-based Incremental Replication.
+      - **The `ALTER DATABASE` privilege in Microsoft SQL Server.** This is required to complete the setup for Log-based Incremental Replication.
   - item: |
       **A database that uses case-insensitive collation**. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
 
@@ -125,7 +130,7 @@ setup-steps:
       {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 

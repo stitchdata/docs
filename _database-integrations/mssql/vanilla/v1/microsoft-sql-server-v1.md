@@ -3,7 +3,7 @@ title: Microsoft SQL Server (v1)
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
 permalink: /integrations/databases/microsoft-sql-server/v1
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
-show-in-menus: true
+show-in-menus: false
 
 hosting-type: "generic"
 
@@ -12,7 +12,7 @@ hosting-type: "generic"
 # -------------------------- #
 
 name: "mssql"
-display_name: "MSSQL"
+display_name: "Microsoft SQL Server"
 
 hosting-type: "generic"
 
@@ -22,7 +22,7 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Open Beta"
 certified: true
 
 frequency: "30 minutes"
@@ -70,6 +70,11 @@ view-replication: true
 
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: |
+      **If using Log-based Incremental Replication**, you'll need:
+
+      - **A database running {{ integration.display_name }} {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of {{ integration.display_name }} don't include Change Tracking functionality which is required for Log-based Incremental Replication.
+      - **The `ALTER DATABASE` privilege in {{ integration.display_name }}.** This is required to complete the setup for Log-based Incremental Replication.
   - item: |
       A server that:
       
@@ -124,7 +129,7 @@ setup-steps:
       {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
