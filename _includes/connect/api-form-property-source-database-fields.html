@@ -17,7 +17,7 @@
 
 
 <!-- Check if there's a specific list for this database type -->
-	{% if form-property.db-type == "postgres" or form-property.db-type == "mysql" %}
+	{% if form-property.db-type == "postgres" or form-property.db-type == "mysql" or form-property.db-type == "mssql" %}
 		{% assign specific-attributes = connect-database-attributes[form-property.db-type] %}
 	{% else %}
 	<!-- If there isn't, create a 1 item array; otherwise Jekyll will throw a fit -->
@@ -72,7 +72,7 @@
 
 			<!-- Check for binlog support -->
 				{% if database.log-based-replication-master-instance == true %}
-					{% assign binlog-fields = connect-database-attributes.binlog-replication | where:"database",form-property.db-type %}
+					{% assign binlog-fields = connect-database-attributes.binlog-replication | where_exp:"field","field.database contains form-property.db-type" %}
 				{% else %}
 					{% assign binlog-fields = null | compact %}
 				{% endif %}
