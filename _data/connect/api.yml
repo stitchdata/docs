@@ -183,6 +183,20 @@ core-objects:
       anchor: "#update-a-source"
       description: "Updates an existing data source."
 
+    pause:
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
+      title: "Pause a source"
+      method: *put
+      anchor: "#pause-a-source"
+      description: "Pauses an existing data source."
+
+    unpause:
+      name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
+      title: "Unpause a source"
+      method: *put
+      anchor: "#unpause-a-source"
+      description: "Unpauses a previously paused data source."
+
     delete:
       name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}"
       title: "Delete a source"
@@ -320,14 +334,14 @@ core-objects:
       title: "Start a replication job"
       method: "post"
       anchor: "#start-a-job"
-      description: "Starts a replication job for a source using the source's unique identifier."
+      description: "Manually starts a replication job for a source using the source's unique identifier."
 
     delete:
       name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
       title: "Stop a replication job"
       method: "delete"
       anchor: "#stop-a-job"
-      description: "Stops an in-progress replication job for a source using the source's unique identifier."
+      description: "Manually stops an in-progress replication job for a source using the source's unique identifier."
 
 # -------------------------- #
 #       DATA STRUCTURES      #

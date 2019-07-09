@@ -199,6 +199,7 @@ examples:
           "pricing_tier": "premium",
           "pipeline_state": "released",
           "default_scheduling_interval": 30,
+          "default_start_date": "-30 days",
           "protocol": "platform.hubspot",
           "access": true
         }
