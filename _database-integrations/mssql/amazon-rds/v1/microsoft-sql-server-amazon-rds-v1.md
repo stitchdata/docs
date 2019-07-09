@@ -10,7 +10,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "sql-server-rds"
-display_name: "SQL Server RDS"
+display_name: "Amazon Microsoft SQL Server RDS"
 
 hosting-type: "amazon"
 
@@ -29,6 +29,12 @@ tier: "Free"
 port: 1433
 db-type: "mssql"
 
+# Stitch features
+
+versions: "2000 through 2016"
+ssh: true
+ssl: true
+
 ## General replication features
 
 anchor-scheduling: true
@@ -45,7 +51,7 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "2008"
+log-based-replication-minimum-version: "2016"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -83,6 +89,33 @@ setup-steps:
     anchor: "connect-settings"
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
+
+  - title: "Enable Log-based Incremental Replication with Change Tracking"
+    anchor: "enable-log-based-incremental-change-tracking"
+    content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+      
+      {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+
+    substeps:
+      - title: "Verify database compatibility"
+        anchor: "verify-database-compatibility"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="verify-compatibility" %}
+
+      - title: "Enable change tracking for the database"
+        anchor: "enable-database-change-tracking"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="enable-database" %}
+
+      - title: "Enable change tracking for tables"
+        anchor: "enable-table-change-tracking"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="enable-table" %}
 
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
