@@ -21,7 +21,7 @@ In this step, you'll verify the database's [database's compatibility level](http
    GO
    ```
 
-   According to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server?view=sql-server-2017#enable-change-tracking-for-a-database){:target="new"}, this value must be greater than `90` or the `CHANGETABLE` function (used in the next section) will return an error.
+   According to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server?view=sql-server-2017#enable-change-tracking-for-a-database){:target="new"}, this value must be greater than `90` or the `CHANGETABLE` function (used to obtain change tracking info during replication) will return an error.
 
 3. If the result is less than `90`, you'll need to increase it to enable Change Tracking.
 
