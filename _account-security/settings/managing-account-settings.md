@@ -1,8 +1,8 @@
 ---
 title: Managing Account Settings
 permalink: /account-security/managing-account-settings
-keywords: company information, 
-summary: "Manage your company's info, notification settings, and team members on the Account Settings page."
+keywords: company information, team members, account settings
+summary: "Manage your company's info and team members on the Account Settings page."
 
 layout: general
 toc: true
@@ -35,16 +35,6 @@ sections:
       1. Click the {{ app.menu-paths.account-settings }}.
       2. In the **Company Name** field, enter the name of your company.
       3. Click the {{ app.buttons.company-profile }} button.
-
-  - title: "Update account notification content"
-    anchor: "update-account-notification-content"
-    summary: "How to manage your account's notification settings"
-    content: |
-      The {{ app.buttons.suppress-plaintext-notifications }} setting in the **Notifications** section will do just that - suppress plain-text messages in email notifications. This setting is used in compliance with HIPAA requirements to prevent sensitive data from being sent via notifications.
-
-      {% include enterprise-cta.html %}
-
-      Check the {{ app.buttons.suppress-plaintext-notifications }} checkbox and click the {{ app.buttons.notification-settings }} button to enable plain-text suppressions in notification emails.
 
   - title: "Manage account team members"
     anchor: "manage-account-team-members"

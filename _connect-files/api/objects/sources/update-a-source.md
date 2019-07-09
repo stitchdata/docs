@@ -30,6 +30,18 @@ arguments:
     example-value: |
       "Salesforce"
 
+  - name: "paused_at"
+    required: false
+    type: "timestamp"
+    description: |
+      The time the source was paused. This field must contain an [ISO 8601-compliant](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} date.
+
+      **Note**: Providing any value - past, present, or future - for this property will pause the source immediately if the request is successful.
+
+      Refer to the [Pause a source](#pause-a-source) reference for request and response examples.
+    example-value: |
+      "2019-06-01T00:00:00Z"
+
   - name: "properties"
     required: false
     type: "object"

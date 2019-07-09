@@ -10,7 +10,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "sql-server-rds"
-display_name: "SQL Server RDS"
+display_name: "Amazon Microsoft SQL Server RDS"
 
 hosting-type: "amazon"
 

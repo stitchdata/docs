@@ -13,7 +13,7 @@ feedback: false
 
 ---
 
-{% assign sections = "getting-started|account-settings|invite-your-team|billing|security" | split:"|" %}
+{% assign sections = "getting-started|account-settings|team-members|notifications|billing|security" | split:"|" %}
 
 {% for section in sections %}
 
@@ -22,7 +22,7 @@ feedback: false
 {% assign pages = site.account-security | where:"type",section | sort:"weight" %}
 
 {% for page in pages %}
-<span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | capitalize | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>
+<span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>
 {{ page.summary }}
 {% endfor %}
 

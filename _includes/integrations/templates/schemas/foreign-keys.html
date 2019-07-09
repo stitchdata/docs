@@ -53,12 +53,12 @@
                                 <a href="#{{ foreign-key.table }}">
                                     {% if foreign-key.subattribute %}
                                         {%- capture full-table-name -%}
-                                            {{ foreign-key.subattribute | prepend: "__" | prepend: foreign-key.table }}
+                                            {{ foreign-key.subattribute | prepend: "." | prepend: foreign-key.table }}
                                         {%- endcapture -%}
 
                                     {% elsif foreign-key.subtable %}
                                         {%- capture full-table-name -%}
-                                            {{ foreign-key.table | append: "__" | append: foreign-key.subtable }}
+                                            {{ foreign-key.table | append: "." | append: foreign-key.subtable }}
                                         {%- endcapture -%}
 
                                     {% else %}

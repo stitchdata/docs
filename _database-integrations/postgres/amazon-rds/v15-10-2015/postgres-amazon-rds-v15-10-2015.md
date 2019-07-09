@@ -13,7 +13,7 @@ microsites:
 # -------------------------- #
 
 name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+display_name: "Amazon PostgreSQL RDS"
 
 this-version: "15-10-2015"
 
