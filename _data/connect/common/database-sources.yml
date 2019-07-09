@@ -104,6 +104,19 @@ postgres:
     description: *internal-field
     value: ""
 
+
+# -------------------------- #
+#    SQL SERVER DATABASES    #
+# -------------------------- #
+
+mssql:
+  - name: "database"
+    required: false
+    internal: false
+    type: "string"
+    description: *database-description
+    value: "<DATABASE_NAME>"
+
 # -------------------------- #
 #       FEATURE FIELDS       #
 # -------------------------- #
@@ -125,7 +138,7 @@ binlog-replication:
     description: |
       If `true`, Log-based Incremental Replication will be used as the default Replication Method for tables set to replicate. This choice can be overriden on individual tables at any time.
     value: "true"
-    database: "mysql"
+    database: "mysql, mssql"
 
   - name: "server_id"
     required: false
