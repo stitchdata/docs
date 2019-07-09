@@ -11,10 +11,7 @@ description: |
 
   **Note**: Stitch will query for and replicate deleted agent statuses.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "startTime"
+replication-method: "Full Table"
 
 api-method:
     name: "List agent statuses"

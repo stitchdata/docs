@@ -11,7 +11,7 @@ description: |
 
   **Note**: Stitch will query for and replicate deleted agent groups.
 
-replication-method: "Key-based Incremental"
+replication-method: "Full Table"
 
 replication-key:
   name: "startTime"

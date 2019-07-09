@@ -9,10 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-liveperson/blob/master/tap_live
 description: |
   The `{{ table.name }}` table contains info about agent session data. Activity data is a list of sessions that occur from the agent's login time to their logout time.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "startTime"
+replication-method: "Full Table"
 
 api-method:
     name: "Retrieve agent activity"

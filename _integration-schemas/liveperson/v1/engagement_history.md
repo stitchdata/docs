@@ -12,7 +12,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 replication-key:
-  name: "startTime"
+  name: "updated_at"
 
 api-method:
     name: "Retrieve engagement list by criteria"

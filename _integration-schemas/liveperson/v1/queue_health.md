@@ -9,10 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-liveperson/blob/master/tap_live
 description: |
   The `{{ table.name }}` table contains queue-related metrics.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "startTime"
+replication-method: "Full Table"
 
 api-method:
     name: "Retrieve queue metrics"
