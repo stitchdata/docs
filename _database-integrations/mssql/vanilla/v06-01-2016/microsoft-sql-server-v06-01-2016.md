@@ -3,7 +3,7 @@ title: Microsoft SQL Server (v06-01-2016)
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
 permalink: /integrations/databases/microsoft-sql-server/v06-01-2016
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
-show-in-menus: true
+show-in-menus: false
 
 hosting-type: "generic"
 
