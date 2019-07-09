@@ -1,7 +1,7 @@
 ---
-title: Microsoft SQL Server
+title: Microsoft SQL Server (v1)
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
-permalink: /integrations/databases/microsoft-sql-server
+permalink: /integrations/databases/microsoft-sql-server/v1
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
 show-in-menus: true
 
@@ -15,6 +15,8 @@ name: "mssql"
 display_name: "MSSQL"
 
 hosting-type: "generic"
+
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,10 +38,10 @@ ssl: true
 
 ## General replication features
 
-anchor-scheduling: false
+anchor-scheduling: true
 cron-scheduling: false
 
-extraction-logs: false
+extraction-logs: true
 loading-reports: true
 
 table-selection: true
@@ -50,8 +52,8 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "n/a"
-log-based-replication-master-instance: false
+log-based-replication-minimum-version: "2008"
+log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
 ## Other Replication Methods
@@ -86,6 +88,33 @@ setup-steps:
     anchor: "connect-settings"
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
+
+  - title: "Enable Log-based Incremental Replication with Change Tracking"
+    anchor: "enable-log-based-incremental-change-tracking"
+    content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+      
+      {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+
+    substeps:
+      - title: "Verify database compatibility"
+        anchor: "verify-database-compatibility"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="verify-compatibility" %}
+
+      - title: "Enable change tracking for the database"
+        anchor: "enable-database-change-tracking"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="enable-database" %}
+
+      - title: "Enable change tracking for tables"
+        anchor: "enable-table-change-tracking"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="enable-table" %}
 
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
@@ -132,16 +161,3 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-## Troubleshooting {#troubleshooting}
-
-### Connection issues and collation
-
-If you're experiencing connection issues and have verified that the database user has the correct permissions, check your server's collation setting.
-
-Connecting MSSQL to Stitch successfully requires that your server use **case-insensitive** collation.
-
-### Data discrepancies and database user language settings
-
-If you're missing data, check that the database user's language setting is set to `us_english`. Using a different setting can cause problems with replication, including issues with properly identifying new and updated data.
