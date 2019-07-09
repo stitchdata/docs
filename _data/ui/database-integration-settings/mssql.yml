@@ -17,22 +17,28 @@
 
 mssql:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
 
 
@@ -42,22 +48,28 @@ mssql:
 
 microsoft-azure:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "Enter the Stitch {{ integration.display_name }} user's username. We recommend copying and pasting the username {{ integration.display_name }} displays to you directly into this field. **Note**: Verify that the name includes `'@domain'` or you'll run into connection issues."
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
 
 
@@ -67,21 +79,27 @@ microsoft-azure:
 
 sql-server-rds:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.host-rds | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "all"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
