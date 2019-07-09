@@ -1,7 +1,7 @@
 ---
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
-keywords: replicate, replication, replication method, stitch replicates data
+keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database repli8cation
 tags: [replication]
 layout: general
 
@@ -40,9 +40,15 @@ example-table:
 #       CONTENT SECTIONS      #
 # --------------------------- #
 
+supported-database-list: "Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed"
+
 sections:
   - content: |
-      {% include note.html type="single-line" content="**Note**: Log-based Replication is available only for MySQL, Oracle, and PostgreSQL-backed databases that support binary log replication." %}
+      {% capture notice %}
+      **Note**: Log-based Incremental Replication is available only for {{ page.supported-database-list }} databases that support log-based replication.
+      {% endcapture %}
+
+      {% include note.html type="single-line" content=notice %}
 
       {{ site.data.tooltips.log-based-incremental-rep }} A log file is a record of events that occur within a database.
 
@@ -61,10 +67,18 @@ sections:
       - **Log message** - A single change made to a database. For example: An `UPDATE` to a record.
       - **Log position ID** - A unique identifier corresponding to the position of a log message in a log file. These values are incremental, increasing as log messages are generated.
 
+         - In **Microsoft SQL Server**, this is called the **Change Tracking Version**. As [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/work-with-change-tracking-sql-server?view=sql-server-2017#version-numbers){:target="new"} notes, this concept is similar to `rowversion`.
          - In **MySQL and PostgreSQL**, this is called a **Log Sequence Number (LSN)**.
          - In **Oracle**, this is called a **System Change Number (SCN)**.
       - **Replication job** - {{ site.data.tooltips.replication-job }}
       - **Historical replication job** - {{ site.data.tooltips.historical-replication-job }}
+
+      In addition to these general terms, each database refers to its log replication feature by a different name. Stitch uses the following database features to perform Log-based Incremental Replication:
+
+      - **Microsoft SQL Server** - [Change Tracking](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017){:target="new"}
+      - **MySQL** - [Binlog log file position based replication](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html){:target="new"}, or binlog replication
+      - **Oracle** - [LogMiner](https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm){:target="new"}
+      - **PostgreSQL** - [Logical replication](https://www.postgresql.org/docs/10/logical-replication.html){:target="new"}
 
   - title: "How {{ page.title }} works"
     anchor: "how-log-based-incremental-replication-works"
@@ -112,7 +126,7 @@ sections:
     content: |
       {{ page.title }} may be a good fit if:
 
-      1. The database is a MySQL, Oracle, or PostgreSQL-backed database [that supports {{ page.title }}](#limitation-1--availability). 
+      1. The database is a {{ page.supported-database-list }} database [that supports {{ page.title }}](#limitation-1--availability). 
       2. Data is contained in a table, [not a view](#limitation-6--views-are-unsupported).
       3. Modifications to records are made only using [supported event types](#limitation-2--database-event-types).
       4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation-4--structural-changes) below for more info.
@@ -134,13 +148,13 @@ sections:
 
 ## SUPPORTED DATABASES
     subsections:
-      - title: "Limitation 1: Only available for certain MySQL, Oracle, and PostgreSQL databases"
+      - title: "Limitation 1: Only available for certain databases"
         anchor: "limitation-1--availability"
         content: |
           {% include misc/icons.html %}
-          {{ page.title }} is available only for certain MySQL, Oracle, and PostgreSQL-backed databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
+          {{ page.title }} is available only for certain {{ page.supported-database-list }} databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
 
-          In the table below are the MySQL, Oracle, and PostgreSQL databases Stitch supports and whether {{ page.title }} can be used in Stitch.
+          In the table below are the databases Stitch supports and whether {{ page.title }} can be used in Stitch for each one.
 
           - {{ supported | replace:"TOOLTIP","Supported" }} indicates that if the database/instance type meets the **Minimum version** requirement, {{ page.title }} can be used in Stitch.
 
@@ -152,14 +166,14 @@ sections:
 
               **Note**: If public-facing information about the lack of support is available, a link to it will display next to the {{ not-supported | replace:"TOOLTIP","Not supported" }} icon.
 
-          {% assign binlog-databases = "mysql|oracle|postgres" | split:"|" %}
+          {% assign binlog-databases = "mssql|mysql|oracle|postgres" | split:"|" %}
           {% assign binlog-support = "log-based-replication-master-instance|log-based-replication-read-replica|log-based-replication-minimum-version" | split:"|" %}
           {% assign all-databases = site.database-integrations | where:"input",true %}
 
           {% for binlog-database in binlog-databases %}
           {% assign databases = all-databases | where:"db-type",binlog-database | sort: "title" %}
 
-          #### Support for {{ binlog-database | replace:"mysql","MySQL" | replace:"postgres","PostgreSQL" | replace: "oracle","Oracle" }} databases
+          #### Support for {{ binlog-database | replace: "mssql", "Microsoft SQL Server" | replace:"mysql","MySQL" | replace:"postgres","PostgreSQL" | replace: "oracle","Oracle" }} databases
 
           <table class="attribute-list">
           <tr>
@@ -350,10 +364,10 @@ sections:
           Stitch recommends using [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}) instead, where possible.
 
 ## MYSQL/ORACLE RETENTION PERIOD
-      - title: "Limitation 5: Logs can age out and stop replication (MySQL and Oracle)"
+      - title: "Limitation 5: Logs can age out and stop replication (Microsoft SQL Server, MySQL, and Oracle)"
         anchor: "limitation-5--log-retention"
         content: |
-          {% include note.html type="single-line" content="This section is applicable only to **MySQL** and **Oracle**-backed database integrations." %}
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL,** and **Oracle**-backed database integrations." %}
 
           Log files, by default, are not stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
 
@@ -378,6 +392,7 @@ sections:
           1. **The log file is purged before historical replication completes**. This is because the maximum [log position ID](#log-based-incremental-replication-terminology) is saved at the start of [historical replication jobs](#log-based-incremental-replication-terminology), so Stitch knows where to begin reading from the database logs after historical data is replicated.
           2. **The log retention settings are set to too short of a time period**. Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
 
+             - **For Microsoft SQL Server databases**, this is the `CHANGE_RETENTION` setting.
              - **For MysQL databases**, these are the `expire_logs_days` or `binlog_expire_logs_seconds` settings.
              - **For Oracle databases**:
                 - **For self-hosted Oracle databases**, this is the [RMAN retention policy setting]({{ site.baseurl }}/integrations/databases/oracle#configure-rman-backups).
