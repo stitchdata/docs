@@ -1,7 +1,6 @@
 ---
 title: PostgreSQL
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
-tags: [database_integrations]
 permalink: /integrations/databases/postgresql
 summary: ""
 layout: general
