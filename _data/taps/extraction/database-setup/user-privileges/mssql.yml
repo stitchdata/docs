@@ -38,21 +38,16 @@ microsoft-azure:
 
 create-login-command: |
   CREATE LOGIN <stitch_username> WITH PASSWORD=’<password>’
-  go
-
-grant-access-command: |
-  USE <database_name>
-  go
 
 create-user-command: |
   CREATE USER <stitch_username> FOR LOGIN 
-  go
 
 grant-select-command:
   all-tables: |
     GRANT SELECT to <stitch_username>
-    go
 
   specific-tables: |
     GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>
-    go 
+
+  change-tracking-tables: |
+    GRANT VIEW CHANGE TRACKING ON <schema_name>.<table_name> TO <stitch_username>
