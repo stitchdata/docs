@@ -19,6 +19,9 @@ repo-url: https://github.com/singer-io/tap-mysql
 
 hosting-type: "google-cloudsql"
 
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

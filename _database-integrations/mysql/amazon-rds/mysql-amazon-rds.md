@@ -11,8 +11,13 @@ show-in-menus: true
 
 name: "mysql-rds"
 display_name: "Amazon MySQL RDS"
+
+# this-version: "1.0"
+
 hosting-type: "amazon"
 
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
