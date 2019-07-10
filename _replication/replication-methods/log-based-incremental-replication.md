@@ -42,6 +42,23 @@ example-table:
 
 supported-database-list: "Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed"
 
+feature-details:
+  - database: "Microsoft SQL Server"
+    name: "Change Tracking"
+    link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
+
+  - database: "MySQL"
+    name: "Binary log file position based replication, or binlog"
+    link: "https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html"
+
+  - database: "Oracle"
+    name: "LogMiner"
+    link: "https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm"
+
+  - database: "PostgreSQL"
+    name: "Logical replication"
+    link: "https://www.postgresql.org/docs/10/logical-replication.html"
+
 sections:
   - content: |
       {% capture notice %}
@@ -75,10 +92,10 @@ sections:
 
       In addition to these general terms, each database refers to its log replication feature by a different name. Stitch uses the following database features to perform Log-based Incremental Replication:
 
-      - **Microsoft SQL Server** - [Change Tracking](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017){:target="new"}
-      - **MySQL** - [Binlog log file position based replication](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html){:target="new"}, or binlog replication
-      - **Oracle** - [LogMiner](https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm){:target="new"}
-      - **PostgreSQL** - [Logical replication](https://www.postgresql.org/docs/10/logical-replication.html){:target="new"}
+      {% for feature in page.feature-details %}
+      - **{{ feature.database }}**: [{{ feature.name }}]({{ feature.link }}){:target="new"}
+      {% endfor %}
+
 
   - title: "How {{ page.title }} works"
     anchor: "how-log-based-incremental-replication-works"
@@ -142,14 +159,13 @@ sections:
       The limitations of {{ page.title }} are:
 
       {% for subsection in section.subsections %}
-      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
+      - [{{ subsection.title | remove: "Limitation " | flatify | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
       {% endfor %}
-
 
 ## SUPPORTED DATABASES
     subsections:
-      - title: "Limitation 1: Only available for certain databases"
-        anchor: "limitation-1--availability"
+      - title: "Limitation {{ forloop.index }}: Only available for certain databases"
+        anchor: "limitation--availability"
         content: |
           {% include misc/icons.html %}
           {{ page.title }} is available only for certain {{ page.supported-database-list }} databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
@@ -249,10 +265,9 @@ sections:
           </table>
           {% endfor %}
 
-
 ## SUPPORTED EVENT TYPES
-      - title: "Limitation 2: Only works with specific database event types"
-        anchor: "limitation-2--database-event-types"
+      - title: "Limitation {{ forloop.index }}: Only works with specific database event types"
+        anchor: "limitation--database-event-types"
         content: |
           {{ page.title }} reads data from a database's log and then replicates the changes. In order to replicate data, the event that caused a change to the data must be written to the log.
 
@@ -266,10 +281,9 @@ sections:
 
           For example: If data in a table is modified using `ALTER`, the changes won't be written to the log or identified by Stitch.
 
-
 ## STRUCTURAL CHANGES
-      - title: "Limitation 3: Structural changes require manual intervention"
-        anchor: "limitation-3--structural-changes"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention"
+        anchor: "limitation--structural-changes"
         content: |
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
@@ -356,16 +370,16 @@ sections:
               Where Stitch previously detected three columns, the log messages now contain data for four columns. Because the log messages don't contain field information and are read in order, Stitch would be unable to determine what column the `15`, `9`, and `19` values are for.
 
 ## VIEWS
-      - title: "Limitation 4: Cannot be used with views"
-        anchor: "limitation-4--views-are-unsupported"
+      - title: "Limitation {{ forloop.index }}: Cannot be used with views"
+        anchor: "limitation--views-are-unsupported"
         content: |
           {{ page.title }} can't be used with database views, as modifications to views are not written to log files.
 
           Stitch recommends using [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}) instead, where possible.
 
 ## MYSQL/ORACLE RETENTION PERIOD
-      - title: "Limitation 5: Logs can age out and stop replication (Microsoft SQL Server, MySQL, and Oracle)"
-        anchor: "limitation-5--log-retention"
+      - title: "Limitation {{ forloop.index }}: Logs can age out and stop replication (Microsoft SQL Server, MySQL, and Oracle)"
+        anchor: "limitation--log-retention"
         content: |
           {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL,** and **Oracle**-backed database integrations." %}
 
@@ -399,10 +413,9 @@ sections:
                 - **For Oracle-RDS databases**, these are the [AWS automated backup]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#enable-aws-automated-backups) and [`archivelog retention hours`]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#define-archivelog-retention-hours) settings.
           3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
-
 ## POSTGRES INCREASE DISK SPACE
-      - title: "Limitation 6: Will increase source disk space usage (PostgreSQL)"
-        anchor: "limitation-6--disk-space-usage-postgresql"
+      - title: "Limitation {{ forloop.index }}: Will increase source disk space usage (PostgreSQL)"
+        anchor: "limitation--disk-space-usage-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-backed database integrations." %}
 
@@ -420,10 +433,9 @@ sections:
 
           **Note**: If you decide to permanently disable Log-based Incremental Replication for your PostgreSQL database, remove the replication slot to prevent further unnecessary disk space consumption.
 
-
 ## POSTGRES MASTER INSTANCE
-      - title: "Limitation 7: Can only be used with a master instance (PostgreSQL)"
-        anchor: "limitation-7--only-supports-master-instances-postgresql"
+      - title: "Limitation {{ forloop.index }}: Can only be used with a master instance (PostgreSQL)"
+        anchor: "limitation--only-supports-master-instances-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
           
@@ -433,10 +445,9 @@ sections:
 
           Otherwise, we recommend monitoring the instance's disk space usage during the first few replication jobs to minimize any negative impact on your database's performance.
 
-
 ## MULTIPLE CONNECTIONS TO REPLICATION SLOT
-      - title: "Limitation 8: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
-        anchor: "limitation-8--replication-slot-data-loss-postgresql"
+      - title: "Limitation {{ forloop.index }}: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
+        anchor: "limitation--replication-slot-data-loss-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
 
