@@ -19,6 +19,8 @@ hosting-type: "generic"
 
 this-version: "06-01-2016"
 
+driver: "6.2.2.jre7"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
