@@ -20,6 +20,9 @@ this-version: "1.0"
 
 hosting-type: "google-cloudsql"
 
+driver: |
+  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

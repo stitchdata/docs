@@ -20,6 +20,9 @@ this-version: "15-10-2015"
 
 hosting-type: "generic"
 
+driver: |
+  [PostgreSQL JDBC 9.4.1208.jre7](https://jdbc.postgresql.org/documentation/94/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
