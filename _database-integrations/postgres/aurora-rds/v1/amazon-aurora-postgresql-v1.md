@@ -17,7 +17,7 @@ singer: true
 tap-name: "Postgres"
 repo-url: https://github.com/singer-io/tap-postgres
 
-#this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "amazon"
 

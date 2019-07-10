@@ -1,9 +1,10 @@
 ---
-title: Microsoft Azure (v06-01-2016)
+title: Microsoft Azure SQL Database (v06-01-2016)
 keywords: microsoft azure, azure, database integration, etl azure, azure etl
 permalink: /integrations/databases/microsoft-azure/v06-01-2016
 summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Microsoft Azure integration."
 show-in-menus: true
+input: false
 
 # -------------------------- #
 #     Integration Details    #
