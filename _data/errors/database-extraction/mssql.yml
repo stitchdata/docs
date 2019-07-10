@@ -1,0 +1,37 @@
+# -------------------------- #
+#   MSSQL Extraction Errors  #
+# -------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a MSSQL-backed database.
+
+raw-error:
+  ct-not-enabled-for-table: &ct-not-enabled-for-table "Cannot sync stream: <NAME> using log-based replication. Change Tracking is not enabled for table: <TABLE_NAME>"
+  ct-not-enabled-for-database: &ct-not-enabled-for-database "Cannot sync stream: <NAME> using log-based replication. Change Tracking is not enabled for database: <DATABASE_NAME>"
+
+all:
+# Change tracking not enabled for database
+  - message: *ct-not-enabled-for-database
+    id: "ct-not-enabled-for-database"
+    level: "critical"
+    meaning: "Change Tracking is not enabled for the named database."
+    fix-it: |
+      Enabled Change Tracking for the database referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level.
+
+      To enable Change Tracking for the database, log into your database and run the following statement, replacing `<database_name>` with the name of the database:
+
+      {{ site.data.taps.extraction.database-setup.server-settings.mssql.enable-change-tracking-for-database | strip }}
+
+# Change tracking not enabled for table
+  - message: *ct-not-enabled-for-table
+    id: "ct-not-enabled-for-table"
+    level: "critical"
+    meaning: "Change tracking is not enabled for the named table."
+    fix-it: |
+      Enable change tracking for the table referenced in the error message. To use Change Tracking, you must enabled it both at the database and table level. Microsoft SQL Server requires that Change Tracking be enabled for every table you want to use Log-based Incremental for.
+
+      To enable Change Tracking for the table, log into your database and run the following statement, replacing `<table_name>` with the name of the table:
+
+      {{ site.data.taps.extraction.database-setup.server-settings.mssql.enable-change-tracking-for-table | strip }}
+
+      Run the statement for every table you want to replicate using Log-based Incremental Replication.
