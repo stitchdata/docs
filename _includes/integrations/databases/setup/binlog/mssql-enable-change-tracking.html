@@ -2,7 +2,7 @@
 
 
 {% when 'verify-compatibility' %}
-{% include note.html type="single-line" content="**Note**: You must have the `ALTER DATABASE` privilege to complete this step." %}
+{% include note.html type="single-line" content="**Note**: THE `SELECT` from `sys.databases` and `ALTER DATABASE` privileges are required to complete this step." %}
 
 In this step, you'll verify the database's [database's compatibility level](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017){:target="new"}. This setting sets some database behaviors to be compatible with a specified version of SQL Server. To use Change Tracking, your database must have a compatibility level greater than `90`.
 
@@ -16,9 +16,7 @@ In this step, you'll verify the database's [database's compatibility level](http
 2. Run the following query to retrieve the database's current compatibility level: 
 
    ```sql
-   SELECT compatibility_level
-   FROM sys.databases WHERE name = '<database_name>';
-   GO
+   {{ site.data.taps.extraction.database-setup.server-settings.mssql.get-compatibility-level | strip }}
    ```
 
    According to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server?view=sql-server-2017#enable-change-tracking-for-a-database){:target="new"}, this value must be greater than `90` or the `CHANGETABLE` function (used to obtain change tracking info during replication) will return an error.
@@ -30,10 +28,9 @@ In this step, you'll verify the database's [database's compatibility level](http
    Use the following command to set the database compatibility level:
 
    ```sql
-   ALTER DATABASE <database_name>
-   SET COMPATIBILITY_LEVEL = 100;
-   GO
+   {{ site.data.taps.extraction.database-setup.server-settings.mssql.set-compatibility-level | strip }}
    ```
+
 
 {% when 'enable-database' %}
 {% include note.html type="single-line" content="**Note**: You must have the `ALTER DATABASE` privilege to complete this step." %}
@@ -41,9 +38,7 @@ In this step, you'll verify the database's [database's compatibility level](http
 In this step, you'll enable Change Tracking at the database level. Use the following command to enable Change Tracking, replacing `<database_name>` with the name of the database:
 
 ```sql
-ALTER DATABASE <database_name>  
-SET CHANGE_TRACKING = ON  
-(CHANGE_RETENTION = 3 DAYS, AUTO_CLEANUP = ON) 
+{{ site.data.taps.extraction.database-setup.server-settings.mssql.enable-change-tracking-for-database | strip }}
 ```
 
 This command also defines the `CHANGE_RETENTION` and `AUTO_CLEANUP` settings:
@@ -60,9 +55,7 @@ For every table you want to replicate using Log-based Incremental Replication, y
 Run the following command to enable change tracking for a table:
 
 ```sql
-ALTER TABLE <schema_name>.<table_name>  
-ENABLE CHANGE_TRACKING  
-WITH (TRACK_COLUMNS_UPDATED = ON)
+{{ site.data.taps.extraction.database-setup.server-settings.mssql.enable-change-tracking-for-table | strip }}
 ```
 
 Repeat this step for every table you want to replicate using Log-based Incremental Replication.
