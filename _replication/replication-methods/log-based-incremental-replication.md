@@ -40,29 +40,37 @@ example-table:
 #       CONTENT SECTIONS      #
 # --------------------------- #
 
-supported-database-list: "Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed"
-
 feature-details:
   - database: "Microsoft SQL Server"
+    db-type: "mssql"
     name: "Change Tracking"
     link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
 
   - database: "MySQL"
+    db-type: "mysql"
     name: "Binary log file position based replication, or binlog"
     link: "https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html"
 
   - database: "Oracle"
+    db-type: "oracle"
     name: "LogMiner"
     link: "https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm"
 
   - database: "PostgreSQL"
+    db-type: "postgres"
     name: "Logical replication"
     link: "https://www.postgresql.org/docs/10/logical-replication.html"
+
+supported-database-list: |
+  {%- for feature in page.feature-details -%}
+  {% if forloop.last == true %}{{ feature.database | prepend: "and " | append: "-backed" }}
+  {% else %}{{ feature.database | append: ", " }}{% endif %}
+  {%- endfor -%}
 
 sections:
   - content: |
       {% capture notice %}
-      **Note**: Log-based Incremental Replication is available only for {{ page.supported-database-list }} databases that support log-based replication.
+      **Note**: Log-based Incremental Replication is available only for {{ page.supported-database-list | flatify | strip }} databases that support log-based replication.
       {% endcapture %}
 
       {% include note.html type="single-line" content=notice %}
@@ -143,11 +151,11 @@ sections:
     content: |
       {{ page.title }} may be a good fit if:
 
-      1. The database is a {{ page.supported-database-list }} database [that supports {{ page.title }}](#limitation-1--availability). 
-      2. Data is contained in a table, [not a view](#limitation-6--views-are-unsupported).
-      3. Modifications to records are made only using [supported event types](#limitation-2--database-event-types).
-      4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation-4--structural-changes) below for more info.
-      5. You're aware that, for PostgreSQL, only [master instances](#limitation-7--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation-6--disk-space-usage-postgresql).
+      1. The database is a {{ page.supported-database-list | flatify | strip }} database [that supports {{ page.title }}](#limitation--availability). 
+      2. Data is contained in a table, [not a view](#limitation--views-are-unsupported).
+      3. Modifications to records are made only using [supported event types](#limitation--database-event-types).
+      4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation--structural-changes) below for more info.
+      5. You're aware that, for PostgreSQL, only [master instances](#limitation--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation--disk-space-usage-postgresql).
 
       If {{ page.title }} isn't appropriate, [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) may be a suitable alternative.
 
@@ -168,7 +176,7 @@ sections:
         anchor: "limitation--availability"
         content: |
           {% include misc/icons.html %}
-          {{ page.title }} is available only for certain {{ page.supported-database-list }} databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
+          {{ page.title }} is available only for certain {{ page.supported-database-list | flatify | strip }} databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
 
           In the table below are the databases Stitch supports and whether {{ page.title }} can be used in Stitch for each one.
 
