@@ -22,7 +22,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "oracle-rds"
-display_name: " Amazon Oracle RDS"
+display_name: "Amazon Oracle RDS"
 
 singer: true
 tap-name: "Oracle"
@@ -32,6 +32,8 @@ repo-url: "https://github.com/singer-io/tap-oracle"
 
 hosting-type: "amazon"
 
+driver: |
+  [cx_Oracle 6.1](https://cx-oracle.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #

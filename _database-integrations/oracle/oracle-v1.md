@@ -32,6 +32,8 @@ repo-url: "https://github.com/singer-io/tap-oracle"
 
 hosting-type: "generic"
 
+driver: |
+  [cx_Oracle 6.1](https://cx-oracle.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
