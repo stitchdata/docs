@@ -3,7 +3,7 @@ title: Heroku PostgreSQL
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
 tags: [database_integrations]
 permalink: /integrations/databases/heroku
-summary: ""
+summary: "Connect and replicate data from your Heroku PostgreSQL database using Stitch's Heroku integration."
 layout: general
 input: false
 
@@ -34,13 +34,19 @@ sections:
     content: |
       In this section:
 
-      - [Supported features](#supported-features)
-      - [Supported data types](#supported-data-types)
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary }}](#{{ subsection.summary | slugify }})
+      {% endfor %}
     subsections:
-      - content: |
+      - summary: "Supported features"
+        content: |
           {% include integrations/templates/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
-      - content: |
-          {% include replication/templates/data-types/integration-specific-data-types.html %}
+      
+      - title: "Data types"
+        anchor: "data-types"
+        summary: "Data types"
+        content: |
+          {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
 
 ---
 {% include misc/data-files.html %}
