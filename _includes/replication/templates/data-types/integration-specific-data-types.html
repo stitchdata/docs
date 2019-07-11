@@ -5,26 +5,56 @@
 {% include misc/icons.html %}
 {% include misc/data-files.html %}
 
-<!-- The logic for pulling version info is in this include -->
-    {% include integrations/templates/versioning/version-logic.html %}
+<!-- If this is being used on a dedicated version page, we might not want to show
+    all the other versions. If the page has a 'this-version' property,
+    we'll only get the version for the page. -->
+    {% if include.version %}
+        {% include integrations/templates/versioning/version-logic.html this-version=include.version %}
 
-<!-- Get the integration's supported data types -->
-    {% assign integration-supported-data-types = site.data.taps.extraction.data-types.[integration_name].all-types %}
+<!-- Otherwise, we'll get all the released versions for the integration. -->
+    {% else %}
+        {% include integrations/templates/versioning/version-logic.html %}
+    {% endif %}
 
-<h3 id="supported-data-types">{{ display_name }} supported data types</h3>
 
-<p>{{ display_name }} integrations support the data types in the table below, in addition to the {% if page.url contains "integrations" %}<a href="{{ link.replication.supported-data-types | prepend: site.baseurl }}">common data types</a>{% else %}common data types{% endif %}.</p>
+<!-- Assign variables, so they're easier to re-use later-->
+    {% assign data-type-files = site.data.taps.extraction.data-types %}
 
-<p>In the table are the data types and how they'll be stored in your destination, depending on the version of the integration being used:</p>
+    {% assign this-integration = data-type-files[integration_name] %}
+
+
+<!-- Get the data types! 
+    Some integrations have data type support that is specific to them.
+    When this happens, the include should have a `specific-types: true` property. -->
+    {% if include.specific-types == true %}
+        {% assign integration-specific-types = this-integration.specific %} 
+    {% else %}
+        {% assign integration-specific-types = null | compact %}
+    {% endif %}
+
+<!-- Gets the data types common to all integrations, and concats the specific types -->
+    {% assign all-data-types = data-type-files.common.all | concat: integration-specific-types | sort:"name" %}
+
+
+<!-- The intro & icon explanation -->
+{% if include.display-intro == true %}
+<p>In the table below are the data types {{ display_name }} integrations support and the Stitch data type it will map to, depending on the version of the integration being used:</p>
 
 <ul>
     <li>
-        {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ data-type-version.stored-as }} marks supported data types. Following the icon is how Stitch will store the data type in the destination. For example: <code>ARRAY</code> data types will be stored as strings.
+        {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ data-type-version.stored-as }} indicates that the data type is supported. Following the icon is the Stitch data type it will map to.
+    </li>
+    <li>{{ info-icon | replace:"TOOLTIP","This data type is supported for this version of the integration, but there's additional info you should know." }} indicates that the data type is supported, but there is additional information you should know. Hover over the icon to view a tooltip with the information.
     </li>
     <li>
-        {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} {{ data-type-version.stored-as }} marks unsupported data types. In Stitch, columns with unsupported data types will have <strong>Unavailable</strong> in the <strong>Type</strong> column of the <strong>Tables to Replicate</strong> tab.
+        {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} {{ data-type-version.stored-as }} indicates that the data type isn't supported. In Stitch, columns with unsupported data types will have <strong>Unavailable</strong> in the <strong>Type</strong> column of the <strong>Tables to Replicate</strong> tab.
     </li>
 </ul>
+
+<p>Refer to the <a href="{{ link.replication.supported-data-types | prepend: site.baseurl }}">Data typing guide</a> for more info about how Stitch identifies and types data when it's loaded into your destination.</p>
+{% endif %}
+
+
 <table class="attribute-list">
     <tr>
         <td>
@@ -41,29 +71,49 @@
             {% endfor %}
         {% endfor %}
     </tr>
-    {% for data-type in integration-supported-data-types %}
+
+    {% for data-type in all-data-types %}
         <tr>
             <td class="attribute-name">
-                <strong>
-                    {% if data-type.doc-link %}
-                        <a href="{{ data-type.doc-link | flatify }}">{{ data-type.name | upcase }}</a>
-                    {% else %}
-                        {{ data-type.name | upcase }}
-                    {% endif %}
-                </strong>
+                <strong>{{ data-type.name | upcase }}</strong>
             </td>
-            {% for data-type-version in data-type.versions %}
-                {% for version in released-versions %}
-                    {% if data-type-version.number == version.number %}
-                        <td>
-                            {% if data-type-version.stored-as == "Unsupported" %}
-                                {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} {{ data-type-version.stored-as }}
+            {% for version in released-versions %}
+        <!-- Remove the '.0' from the version, as it's not used in data file names -->
+                {% assign clean-version = version.number | remove: ".0" | prepend: "v" %}
+                <td>
+                    {% case this-integration.[clean-version].[data-type.name]stitch-type %}
+
+                    <!-- If the data-type is unsupported, show the unsupported icon -->
+                        {% when 'unsupported' %}
+                            {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}
+                        {% else %}
+
+                    <!-- If the data-type has a tooltip property, do this: -->
+                            {% if this-integration.[clean-version].[data-type.name]tooltip %}
+
+                        <!-- Capture the tooltip and flatify it, in case internal links are included -->
+                                {% capture flatified-tooltip %}
+                                {{ this-integration.[clean-version].[data-type.name]tooltip | flatify }}
+                                {% endcapture %}
+
+                        <!-- Put the flatified tooltip into the icon's tooltip -->
+                                {{ info-icon | replace:"TOOLTIP",flatified-tooltip }}
                             {% else %}
-                                {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ data-type-version.stored-as }}
+
+                    <!-- Otherwise, just show the supported icon -->
+                                {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }}
                             {% endif %}
-                        </td>
+                    {% endcase %}
+
+            <!-- If the data-type includes a doc link, do this -->
+                    {% if this-integration.[clean-version].[data-type.name]doc-link %}
+                        <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase }}</a>
+
+            <!-- Otherwise, just output the data-type name and transform it. -->
+                    {% else %}
+                        {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase }}
                     {% endif %}
-                {% endfor %}
+                </td>
             {% endfor %}
         </tr>
     {% endfor %}
