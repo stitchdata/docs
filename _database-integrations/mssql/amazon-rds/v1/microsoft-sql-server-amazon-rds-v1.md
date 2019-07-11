@@ -1,9 +1,9 @@
 ---
 title: Amazon Microsoft SQL Server RDS (v1)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
-permalink: /integrations/databases/amazon-rds-microsoft-sql-server
+permalink: /integrations/databases/amazon-rds-microsoft-sql-server/v1
 summary: "Connect and replicate data from your Amazon Microsoft SQL Server RDS using Stitch's Microsoft SQL Server integration."
-show-in-menus: true
+show-in-menus: false
 
 # -------------------------- #
 #     Integration Details    #

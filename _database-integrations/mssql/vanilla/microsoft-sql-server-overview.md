@@ -2,7 +2,7 @@
 title: Microsoft SQL Server
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
 permalink: /integrations/databases/microsoft-sql-server
-summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
+summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's Microsoft SQL Server integration."
 layout: general
 input: false
 
@@ -31,11 +31,18 @@ sections:
     content: |
       In this section:
 
-      - [Supported features](#supported-features)
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary }}](#{{ subsection.summary | slugify }})
+      {% endfor %}
     subsections:
-      - content: |
+      - summary: "Supported features"
+        content: |
           {% include integrations/templates/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
-      # - content: |
-      #     {% include replication/templates/data-types/integration-specific-data-types.html %}
+      
+      - title: "Data types"
+        anchor: "data-types"
+        summary: "Data types"
+        content: |
+          {% include replication/templates/data-types/integration-specific-data-types.html version="1.0" specific-types=true display-intro=true %}
 ---
 {% include misc/data-files.html %}
