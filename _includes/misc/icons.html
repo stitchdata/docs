@@ -4,7 +4,14 @@ To use, include this file and then use variables to print the icons.
 
 You can use a 'replace' filter to insert copy that will create a tooltip. 
 
-Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
+Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} 
+
+	Additionally, you can use HTML in tooltips.
+	If you include a link, remember to use apostrophes (') and not double quotes (")
+	Because it'll break the formatting. 
+
+	Ex: <a href='https://stitchdata.com'>Stitch</a> will work, but
+		<a href="https://stitchdata.com">Stitch</a> won't. -->
 
 
 <!-- Support icons -->
