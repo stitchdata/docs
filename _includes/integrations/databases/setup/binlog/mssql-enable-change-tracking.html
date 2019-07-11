@@ -4,7 +4,7 @@
 {% when 'verify-compatibility' %}
 {% include note.html type="single-line" content="**Note**: THE `SELECT` from `sys.databases` and `ALTER DATABASE` privileges are required to complete this step." %}
 
-In this step, you'll verify the database's [database's compatibility level](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017){:target="new"}. This setting sets some database behaviors to be compatible with a specified version of SQL Server. To use Change Tracking, your database must have a compatibility level greater than `90`.
+In this step, you'll verify the database's [database's compatibility level]({{ site.data.taps.links.mssql.compatibility-level }}){:target="new"}. This setting sets some database behaviors to be compatible with a specified version of SQL Server. To use Change Tracking, your database must have a compatibility level greater than `90`.
 
 1. Log into your database:
 
@@ -19,7 +19,7 @@ In this step, you'll verify the database's [database's compatibility level](http
    {{ site.data.taps.extraction.database-setup.server-settings.mssql.get-compatibility-level | strip }}
    ```
 
-   According to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server?view=sql-server-2017#enable-change-tracking-for-a-database){:target="new"}, this value must be greater than `90` or the `CHANGETABLE` function (used to obtain change tracking info during replication) will return an error.
+   According to [Microsoft's documentation]({{ site.data.taps.links.mssql.change-tracking-for-database }}){:target="new"}, this value must be greater than `90` or the `CHANGETABLE` function (used to obtain change tracking info during replication) will return an error.
 
 3. If the result is less than `90`, you'll need to increase it to enable Change Tracking.
 
