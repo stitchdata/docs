@@ -32,7 +32,6 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2000 through 2016"
 ssh: true
 ssl: true
 
@@ -52,7 +51,7 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "2008"
+log-based-replication-minimum-version: "n/a"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 

@@ -78,7 +78,7 @@ requirements-list:
         - View database details, which is required for retrieving the database's connection details.
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
   - item: |
-      **A database that uses case-insensitive collation**. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
+      **A database that uses case-insensitive collation**. Refer to [Microsoft's documentation]({{ site.data.taps.links.mssql.collation }}){:target="new"} for more info.
 
 ## Based on this AWS doc, enabling mixed mode auth shouldn't be necessary:
 ## https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html

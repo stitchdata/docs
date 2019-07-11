@@ -2,7 +2,7 @@
 title: Microsoft SQL Server (v1)
 keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
 permalink: /integrations/databases/microsoft-sql-server/v1
-summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's MSSQL integration."
+summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's Microsoft SQL Server integration."
 show-in-menus: false
 
 hosting-type: "generic"
@@ -34,7 +34,7 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2000 through 2016"
+versions: "2008R2 - 2017; 2008+ for Change Tracking"
 ssh: true
 ssl: true
 
@@ -80,7 +80,7 @@ requirements-list:
   - item: |
       A server that:
       
-      - Uses case-insensitive collation. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
+      - **Uses case-insensitive collation**. Refer to [Microsoft's documentation]({{ site.data.taps.links.mssql.collation }}){:target="new"} for more info.
       - Allows connections over TCP/IP
       - Allows mixed mode authentication
 

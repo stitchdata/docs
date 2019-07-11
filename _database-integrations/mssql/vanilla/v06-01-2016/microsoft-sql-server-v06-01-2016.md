@@ -35,7 +35,7 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2000 through 2016"
+versions: "2000 - 2016"
 ssh: true
 ssl: true
 
@@ -76,7 +76,7 @@ requirements-list:
   - item: |
       A server that:
       
-      - Uses case-insensitive collation. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
+      - **Uses case-insensitive collation**. Refer to [Microsoft's documentation]({{ site.data.taps.links.mssql.collation }}){:target="new"} for more info.
       - Allows connections over TCP/IP
       - Allows mixed mode authentication
 

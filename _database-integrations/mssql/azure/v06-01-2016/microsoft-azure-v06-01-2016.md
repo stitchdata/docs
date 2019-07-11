@@ -33,7 +33,6 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2000 through 2016"
 ssh: true
 ssl: true
 

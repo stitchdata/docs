@@ -33,7 +33,7 @@ db-type: "mssql"
 
 # Stitch features
 
-versions: "2000 through 2016"
+versions: "2008R2 - 2017; 2008+ for Change Tracking"
 ssh: true
 ssl: true
 
@@ -82,7 +82,7 @@ requirements-list:
       - **A database running Microsoft SQL Server {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of Microsoft SQL Server don't include Change Tracking functionality which is required for Log-based Incremental Replication.
       - **The `ALTER DATABASE` privilege in Microsoft SQL Server.** This is required to complete the setup for Log-based Incremental Replication.
   - item: |
-      **A database that uses case-insensitive collation**. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
+      **A database that uses case-insensitive collation**. Refer to [Microsoft's documentation]({{ site.data.taps.links.mssql.collation }}){:target="new"} for more info.
 
 ## Based on this AWS doc, enabling mixed mode auth shouldn't be necessary:
 ## https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html
