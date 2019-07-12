@@ -21,6 +21,9 @@ repo-url: "https://github.com/singer-io/tap-jira"
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Cloud REST API v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -40,6 +43,14 @@ cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data from a {{ integration.display_name }} Cloud instance using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

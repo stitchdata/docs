@@ -18,6 +18,9 @@ repo-url: https://github.com/singer-io/tap-shippo
 # this-version: "1.0"
 # api-version: 2016-10-25
 
+api: |
+  [{{ integration.display_name }} API](https://goshippo.com/docs/intro/){:target="new"}
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -38,6 +41,14 @@ cron-scheduling: false
 
 extraction-logs: false
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

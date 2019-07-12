@@ -21,7 +21,7 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.replication-jobs.post.description }}"
 description: |
-  {{ api.core-objects.replication-jobs.post.description }}
+  {{ api.core-objects.replication-jobs.post.description }} Manual replication jobs can be started for active and paused sources.
 
   **Note**: Stitch allows only one replication job to run at a time. Attempting to start a job when another is in progress will return a status of `200 OK` and a single error object. See the **Responses** tab below for an example.
 

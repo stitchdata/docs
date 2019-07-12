@@ -14,6 +14,9 @@ display_name: "Intercom"
 singer: false
 status-url: "https://status.intercom.io/"
 
+api: |
+  [{{ integration.display_name }} REST API (V1.0)](https://developers.intercom.com/intercom-api-reference/v1.0/reference){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -45,6 +48,14 @@ loading-reports: true
 
 replication-notes: true
 attribution-window: "30 days"
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

@@ -13,6 +13,7 @@ display-title: "Analysis tools"
 display-summary: "Analyze your Stitch-replicated data."
 
 key: "analysis-tools"
+
 layout: general
 toc: true
 

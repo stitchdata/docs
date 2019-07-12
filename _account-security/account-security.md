@@ -30,7 +30,7 @@ key: "account-security"
 {% assign pages = site.account-security | where:"type",section | sort:"weight" %}
 
 {% for page in pages %}
-<span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | capitalize | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>
+<span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>
 {{ page.summary }}
 {% endfor %}
 

@@ -48,6 +48,13 @@ object-attributes:
     value: |
       "standard"
 
+  - name: "default_start_date"
+    type: "string"
+    description: |
+      **Applicable only to source report cards.** The default `start_date` value for the source.
+    value: |
+      "-1 year"
+
   - name: "pipeline_state"
     type: "string"
     description: |
@@ -85,6 +92,7 @@ examples:
             "pricing_tier":"enterprise",
             "pipeline_state":"released",
             "default_scheduling_interval":60,
+            "default_start_date": null,
             "protocol":"platform.oracle",
             "access":false
          }

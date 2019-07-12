@@ -18,6 +18,9 @@ display_name: "Trello"
 singer: false
 status-url: "http://www.trellostatus.com/"
 
+api: |
+  [{{ integration.display_name }} REST API](https://developers.trello.com/reference){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -29,14 +32,23 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
-table-selection: false
-column-selection: false
-
 anchor-scheduling: true
 cron-scheduling: false
 
+table-selection: false
+column-selection: false
+
 extraction-logs: false
 loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #
