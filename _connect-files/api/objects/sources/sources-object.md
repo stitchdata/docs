@@ -42,6 +42,16 @@ available-methods:
     method: "put"
     short: "{{ api.core-objects.sources.update.description | flatify }}"
 
+  - id: "pause-a-source"
+    title: "Pause a source"
+    method: "put"
+    short: "{{ api.core-objects.sources.pause.description | flatify }}"
+
+  - id: "unpause-a-source"
+    title: "Unpause a source"
+    method: "put"
+    short: "{{ api.core-objects.sources.unpause.description | flatify }}"
+
   - id: "retrieve-a-source"
     title: "Retrieve a source"
     method: "get"
@@ -85,7 +95,7 @@ object-attributes:
 
   - name: "paused_at"
     type: "timestamp"
-    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be null."
+    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be `null."
 
   - name: "properties"
     type: "object"
