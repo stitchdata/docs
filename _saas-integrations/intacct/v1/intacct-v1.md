@@ -124,11 +124,17 @@ setup-steps:
           5. In the **Objects** section, select the objects you want to include in the export. These objects will then be available for selection in Stitch.
           6. Save the schedule.
 
+  - title: "Retrieve your Amazon Web Services account ID"
+    anchor: "retrieve-aws-account-id"
+    content: |
+      {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
+
   - title: "add integration"
     content: |
       4. In the **Company ID** field, enter the company ID you use to sign into {{ integration.display_name }}.
-      4. In the **S3 Bucket** field, enter the name of the bucket where the {{ integration.display_name }} Data Delivery Service (DDS) outputs data. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `intacct-stitch-bucket`
-      5. **Optional**: In the **Path** field, enter the path configured in {{ integration.display_name }} for use in the S3 bucket.
+      5. In the **S3 Bucket** field, enter the name of the bucket where the {{ integration.display_name }} Data Delivery Service (DDS) outputs data. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `intacct-stitch-bucket`
+      6. In the **AWS Account ID** field, paste the AWS Account ID you retrieved in [Step 2](#retrieve-aws-account-id).
+      7. **Optional**: In the **Path** field, enter the path configured in {{ integration.display_name }} for use in the S3 bucket.
 
   - title: "historical sync"
 
