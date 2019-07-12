@@ -6,7 +6,7 @@ layout: general
 
 permalink: /troubleshooting/integrations/oracle-database-extraction-errors
 
-summary: "When Stitch replicates data from a Oracle-backed database TODO"
+summary: "When Stitch replicates data from an Oracle-backed database, it will check for the required user permissions and database server settings. If permissions or server settings aren't properly defined, an error may arise. In this article are the errors you might see and how to resolve them."
 type: "database-integration, error"
 
 intro: |
