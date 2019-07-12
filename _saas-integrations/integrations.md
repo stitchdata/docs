@@ -6,6 +6,14 @@ layout: general
 permalink: /integrations/
 summary: "Use Stitch's native database & SaaS, Import API, or webhook integrations to connect and replicate your data."
 
+level: "category"
+icon: "source"
+display-title: "Integrations"
+display-summary: "Connect all your data sources to Stitch."
+weight: 4
+
+key: "integrations"
+
 toc: false
 input: false
 feedback: false

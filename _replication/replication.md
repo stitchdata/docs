@@ -1,13 +1,21 @@
 ---
-title: Stitch Replication
+title: Extracting data
 permalink: /replication/
 keywords: 
 
 content-type: "category-page"
 
+level: "category"
+icon: replication
+display-title: "Replication"
+display-summary: "Manage replication for your integrations."
+weight: 5
+
 summary: "Documentation and guides for configuring and managing data replication for your Stitch integrations."
 feedback: false
 toc: false
+
+key: "replication"
 
 # --------------------------- #
 #          CATEGORIES         #
