@@ -56,6 +56,14 @@ column-selection: true
 
 
 # -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data from Avro files published to Amazon S3 via {{ integration.display_name }}'s **Connect** for Amazon S3 feature. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
+
+# -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 

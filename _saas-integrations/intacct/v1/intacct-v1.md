@@ -69,6 +69,7 @@ feature-summary: |
 
   **Note**: This integration does not use the {{ integration.display_name }} API. Only data available via DDS will be available for replication through Stitch.
 
+
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #

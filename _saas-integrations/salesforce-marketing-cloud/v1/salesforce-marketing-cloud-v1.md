@@ -33,6 +33,9 @@ status-url: "https://status.salesforce.com/"
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} SOAP Web Service API](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/web_service_guide.htm){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -97,6 +100,14 @@ permission-categories:
   - name: "Webhooks"
     permissions:
       - name: "Webhooks"
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #

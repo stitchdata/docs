@@ -17,6 +17,9 @@ repo-url: https://github.com/singer-io/tap-outbrain
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Amplify API](http://developer.outbrain.com/home-page/amplify-api/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -27,16 +30,23 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-status-url: 
-
-table-selection: false
-column-selection: false
 
 anchor-scheduling: true
 cron-scheduling: false
 
+table-selection: false
+column-selection: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

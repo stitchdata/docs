@@ -20,9 +20,10 @@ microsites:
 name: "google-analytics"
 display_name: "Google Analytics"
 singer: false
-author: "Stitch"
-author-url: https://www.stitchdata.com
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
+
+api: |
+  [{{ integration.display_name }} Reporting API v4](https://developers.google.com/analytics/devguides/reporting/core/v4/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -56,6 +57,12 @@ loading-reports: true
 
 replication-notes: true
 attribution-window: "15 days"
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
+  **Note**: A single {{ integration.display_name }} integration is limited to 10 Metrics and 7 Dimensions. This is due to limits enforced by Google. Refer to [Google's documentation](https://developers.google.com/analytics/devguides/reporting/core/v3/reference#metrics){:target="new"} for more info.
+
 
 # -------------------------- #
 #     Integration Tables     #
