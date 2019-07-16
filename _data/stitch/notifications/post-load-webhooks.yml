@@ -110,6 +110,13 @@ request-bodies:
       description: |
         If rows were rejected, this value will indicate the total number of rows that were rejected for the table. Refer to the [Rejected records log guide]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for more info.
 
+    - name: "s3_objects"
+      type: "array of strings"
+      description: |
+        **Applicable only if using an Amazon S3 destination.** The table's corresponding Object Key in the S3 bucket. This is determined by [the **Object Key** setting]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#define-s3-object-key" }}) in the **Destination** page of Stitch.
+
+        For example: `stitch-s3-bucket/orders/0_1563294550038.jsonl`
+
     - name: "bookmark_metadata"
       type: "array"
       description: |
@@ -147,28 +154,31 @@ request-bodies:
 
   example-data:
     no-nested-tables: |
-      {
-        "version":"1.0",
-        "minimum_sdc_batched_at":"2019-07-15T14:45:08.026Z",
-        "integration_name":"shopify",
-        "new_version":false,
-        "source_root_table_name":"orders",
-        "destination_root_table_name":"orders",
-        "table_version":0,
-        "tables": [
-          {
-            "source_table_name":"orders",
-            "destination_table_name":"orders",
-            "num_rows":100,
-            "num_rows_rejected":11,
-            "bookmark_metadata": [
-              {
-                "key":"updated_at",
-                "max_value":"2018-12-31T00:00:00Z",
-                "min_value":"2018-12-31T00:00:00Z"
-              }
-            ],
-            "max_time_extracted":"2019-07-15T14:43:09.030Z"
-          }
-        ]
+      {  
+         "version":"1.0",
+         "minimum_sdc_batched_at":"2019-07-15T14:45:08.026Z",
+         "integration_name":"shopify",
+         "new_version":false,
+         "source_root_table_name":"orders",
+         "destination_root_table_name":"orders",
+         "table_version":0,
+         "tables":[  
+            {  
+               "source_table_name":"orders",
+               "destination_table_name":"orders",
+               "num_rows":100,
+               "num_rows_rejected":11,
+               "s3_objects":[  
+                  "stitch-s3-bucket/orders/0_1563294550038.jsonl"
+               ],
+               "bookmark_metadata":[  
+                  {  
+                     "key":"updated_at",
+                     "max_value":"2018-12-31T00:00:00Z",
+                     "min_value":"2018-12-31T00:00:00Z"
+                  }
+               ],
+               "max_time_extracted":"2019-07-15T14:43:09.030Z"
+            }
+         ]
       }
