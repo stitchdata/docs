@@ -117,7 +117,7 @@ sections:
       4. Click the **Save Email** button.
 
   - title: "Delete a custom notification recipient"
-    anchor: "add-custom-notification-recipient"
+    anchor: "delete-custom-notification-recipient"
     summary: "How to delete a custom notification recipient"
     content: |
       To delete a custom notification recipient:
