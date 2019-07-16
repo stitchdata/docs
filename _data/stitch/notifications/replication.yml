@@ -11,6 +11,7 @@ all:
   - id: "platform.exit_status"
   - id: "loading-error"
   - id: "jammed-read-head"
+  - id: "undeliverable-post-load"
   - id: "loader-tunnel-error"
 
 
@@ -35,6 +36,25 @@ warning:
       - "The Replication Key for the affected table is missing or deleted in the source"
     app-category: "integration"
     singer: false
+
+# ----------------------------- #
+#  UNDELIVERABLE POST-LOAD HOOK #
+# ----------------------------- #
+  - id: "undeliverable-post-load"
+    name: "Unable to deliver post-load hook"
+    email-delay: "None - sent immediately after last failed retry"
+    description: |
+      Sent when Stitch is unable to deliver a webhook notification to a [post-load webhook URL]({{ link.account.post-load-notifications | prepend: site.baseurl }}).
+    email-subject:
+      - "Unable to Deliver Post Load Notification"
+    contains-raw-errors: true
+    content:
+      - "A brief explanation of the issue"
+      - "The HTTP status code Stitch received"
+      - "The webhook URL Stitch is attempting to deliver to"
+    potential-causes:
+      - "Issues with the webhook service Stitch is attempting to deliver to"
+    app-category: "post-load-hooks"
 
 
 # ----------------------------
@@ -127,6 +147,7 @@ critical:
     potential-causes:
       - "Stitch is attempting to load data that the destination doesn't support"
     app-category: "read_head"
+
 
 # -------------------------- #
 #   JAMMED READ HEAD ERRORS  #
