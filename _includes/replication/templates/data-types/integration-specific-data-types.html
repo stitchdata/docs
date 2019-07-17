@@ -107,11 +107,15 @@
 
             <!-- If the data-type includes a doc link, do this -->
                     {% if this-integration.[clean-version].[data-type.name]doc-link %}
-                        <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase }}</a>
+                        <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}</a>
 
             <!-- Otherwise, just output the data-type name and transform it. -->
                     {% else %}
-                        {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase }}
+                        {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}
+                    {% endif %}
+
+                    {% if this-integration.[clean-version].[data-type.name]format %}
+                        , formatted as {{ this-integration.[clean-version].[data-type.name]format | upcase }}
                     {% endif %}
                 </td>
             {% endfor %}

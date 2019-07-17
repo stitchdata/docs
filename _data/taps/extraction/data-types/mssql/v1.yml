@@ -78,6 +78,12 @@ real:
   stitch-type: "number"
   doc-link: *float-doc-link
 
+rowversion:
+  stitch-type: "string"
+  doc-link: &rowversion-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017"
+  tooltip: |
+    An auto-generated, auto-incremented, unique binary hex string used to version-stamp rows. This is synonymous with <strong>timestamp</strong>. <a href='https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017' target='new'>Learn more</a>.
+
 smallint:
   stitch-type: "integer"
   doc-link: *int-doc-link     
@@ -89,8 +95,9 @@ time:
 
 timestamp:
   stitch-type: "string"
-  format: "date-time"
-  doc-link: *time-doc-link
+  doc-link: *rowversion
+  tooltip: |
+    In {{ page.display_name }}, this is synonymous with <strong>rowversion</strong>. <a href='https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017' target='new'>Learn more</a>.
 
 tinyint:
   stitch-type: "integer"
