@@ -78,9 +78,8 @@ requirements-list:
       - **A database running {{ integration.display_name }} {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of {{ integration.display_name }} don't include Change Tracking functionality which is required for Log-based Incremental Replication.
       - **The `ALTER DATABASE` privilege in {{ integration.display_name }}.** This is required to complete the setup for Log-based Incremental Replication.
   - item: |
-      A server that:
-      
-      - **Uses case-insensitive collation**. Refer to [Microsoft's documentation]({{ site.data.taps.links.mssql.collation }}){:target="new"} for more info.
+      **A server that**:
+
       - Allows connections over TCP/IP
       - Allows mixed mode authentication
 
