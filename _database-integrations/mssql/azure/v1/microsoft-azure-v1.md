@@ -1,26 +1,28 @@
 ---
-title: Microsoft Azure
+title: Microsoft Azure SQL Database (v1)
 keywords: microsoft azure, azure, database integration, etl azure, azure etl
-permalink: /integrations/databases/microsoft-azure
-summary: "Connect and replicate data from your Microsoft Azure database using Stitch's Microsoft Azure integration."
-show-in-menus: true
+permalink: /integrations/databases/microsoft-azure/v1
+summary: "Connect and replicate data from your Microsoft Azure SQL database using Stitch's Microsoft Azure integration."
+show-in-menus: false
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
 name: "microsoft-azure"
-display_name: "Microsoft Azure"
-
-# this-version: ""
+display_name: "Microsoft Azure SQL Database"
 
 hosting-type: "microsoft-azure"
+
+this-version: "1.0"
+
+driver: "7.2.1.jre8"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Open Beta"
 certified: true
 
 frequency: "30 minutes"
@@ -30,16 +32,15 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2000 through 2016"
 ssh: true
 ssl: true
 
 ## General replication features
 
-anchor-scheduling: false
+anchor-scheduling: true
 cron-scheduling: false
 
-extraction-logs: false
+extraction-logs: true
 loading-reports: true
 
 table-selection: true
@@ -51,7 +52,7 @@ table-level-reset: true
 define-replication-methods: true
 
 log-based-replication-minimum-version: "n/a"
-log-based-replication-master-instance: false
+log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
 ## Other Replication Methods
@@ -68,6 +69,8 @@ view-replication: true
 
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: |
+      **If using Log-based Incremental Replication**, you'll need the `ALTER DATABASE` privilege in {{ integration.display_name }}. This is required to complete the setup for Log-based Incremental Replication.
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -79,6 +82,33 @@ setup-steps:
     content: |
       {% include integrations/templates/configure-connection-settings.html %}
 
+  - title: "Enable Log-based Incremental Replication with Change Tracking"
+    anchor: "enable-log-based-incremental-change-tracking"
+    content: |
+      {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#db-user)." %}
+      
+      {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
+
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+
+    substeps:
+      - title: "Verify database compatibility"
+        anchor: "verify-database-compatibility"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="verify-compatibility" %}
+
+      - title: "Enable change tracking for the database"
+        anchor: "enable-database-change-tracking"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="enable-database" %}
+
+      - title: "Enable change tracking for tables"
+        anchor: "enable-table-change-tracking"
+        content: |
+          {% include integrations/databases/setup/binlog/mssql-enable-change-tracking.html type="enable-table" %}
+
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
     content: |
@@ -87,7 +117,7 @@ setup-steps:
       {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 

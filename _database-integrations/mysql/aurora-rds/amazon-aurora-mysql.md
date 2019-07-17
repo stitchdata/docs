@@ -23,6 +23,9 @@ repo-url: https://github.com/singer-io/tap-mysql
 
 hosting-type: "amazon"
 
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

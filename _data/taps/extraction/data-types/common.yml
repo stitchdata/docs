@@ -1,0 +1,34 @@
+# ------------------------------#
+#   COMMON SUPPORTED DATA TYPES #
+# ------------------------------#
+
+## The data types supported by Stitch for ALL integrations.## If a column shows as 'Unsupported' in the UI, it may be an unsupported data type.
+
+## NOTE: This list does NOT include data types that are supported by specific integrations.
+
+## Refer to the files in _data/taps/extraction/data-types for integration-specific data types.
+
+last-updated: "June 19, 2018"
+
+all:
+  - name: "bigint"
+  - name: "bit"
+  - name: "char"
+  - name: "date"
+  - name: "decimal"
+  - name: "double"
+  - name: "float"
+  - name: "integer"
+  - name: "longvarchar"
+  - name: "longnvarchar"
+  - name: "nchar"
+  - name: "nvarchar"
+  - name: "numeric"
+  - name: "real"
+  - name: "smallint"
+  - name: "time"
+  - name: "timestamp"
+  - name: "tinyint"
+    doc-link: "{{ link.troubleshooting.mysql-tinyint-bit }}"
+    notes: "Under certain circumstances, Stitch may store this data type as `BIT(1)/boolean`. Click the link for more details."
+  - name: "varchar"

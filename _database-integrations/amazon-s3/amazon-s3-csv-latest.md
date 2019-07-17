@@ -25,6 +25,9 @@ status-url: "https://status.aws.amazon.com/"
 
 # this-version: "1.0"
 
+driver: |
+  [Boto 3 1.9.57](https://boto3.amazonaws.com/v1/documentation/api/1.9.57/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Supports      #
 # -------------------------- #

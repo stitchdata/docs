@@ -1,18 +1,25 @@
 ---
-title: Amazon Microsoft SQL Server RDS
-keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
-permalink: /integrations/databases/amazon-rds-microsoft-sql-server
-summary: "Connect and replicate data from your Amazon Microsoft SQL Server RDS using Stitch's Microsoft SQL Server integration."
-show-in-menus: true
+title: Microsoft SQL Server (v06-01-2016)
+keywords: microsoft sql server, sql server, mssql, database integration, etl mssql, mssql etl, sql server etl
+permalink: /integrations/databases/microsoft-sql-server/v06-01-2016
+summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's Microsoft SQL Server integration."
+show-in-menus: false
+input: false
+
+hosting-type: "generic"
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-name: "sql-server-rds"
-display_name: "Amazon Microsoft SQL Server RDS"
+name: "mssql"
+display_name: "Microsoft SQL Server"
 
-hosting-type: "amazon"
+hosting-type: "generic"
+
+this-version: "06-01-2016"
+
+driver: "6.2.2.jre7"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -20,7 +27,6 @@ hosting-type: "amazon"
 
 status: "Released"
 certified: true
-setup-name: "Microsoft SQL Server"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -29,7 +35,7 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2000 through 2016"
+versions: "2000 - 2016"
 ssh: true
 ssl: true
 
@@ -66,17 +72,15 @@ view-replication: true
 # -------------------------- #
 
 requirements-list:
-  - item: |
-      **Privileges in Amazon Web Services (AWS) that allow you to**:
-
-        - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
-        - View database details, which is required for retrieving the database's connection details.
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
   - item: |
-      **A database that uses case-insensitive collation**. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support#Collation_Defn){:target="new"} for more info.
+      A server that:
+      
+      - **Uses case-insensitive collation**. Refer to [Microsoft's documentation]({{ site.data.taps.links.mssql.collation }}){:target="new"} for more info.
+      - Allows connections over TCP/IP
+      - Allows mixed mode authentication
 
-## Based on this AWS doc, enabling mixed mode auth shouldn't be necessary:
-## https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html
+requirements-info: "**Make sure your server is set up properly before continuing**. If you need some help figuring out your hosting details, we recommend looping in a member of your engineering team."
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -101,11 +105,6 @@ setup-steps:
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Locate RDS connection details in AWS"
-        anchor: "locating-rds-database-details"
-        content: |
-          {% include shared/connection-details/amazon.html %}
-
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
@@ -138,3 +137,16 @@ setup-steps:
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
+
+
+## Troubleshooting {#troubleshooting}
+
+### Connection issues and collation
+
+If you're experiencing connection issues and have verified that the database user has the correct permissions, check your server's collation setting.
+
+Connecting MSSQL to Stitch successfully requires that your server use **case-insensitive** collation.
+
+### Data discrepancies and database user language settings
+
+If you're missing data, check that the database user's language setting is set to `us_english`. Using a different setting can cause problems with replication, including issues with properly identifying new and updated data.

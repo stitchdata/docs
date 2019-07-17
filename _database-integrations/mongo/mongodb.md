@@ -14,6 +14,9 @@ display_name: "MongoDB"
 
 hosting-type: "generic"
 
+driver: |
+  [3.4.2](https://mongodb.github.io/mongo-java-driver/3.4/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #

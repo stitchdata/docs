@@ -1,0 +1,63 @@
+{% case include.type %}
+
+
+{% when 'verify-compatibility' %}
+{% include note.html type="single-line" content="**Note**: THE `SELECT` from `sys.databases` and `ALTER DATABASE` privileges are required to complete this step." %}
+
+In this step, you'll verify the database's [database's compatibility level]({{ site.data.taps.links.mssql.compatibility-level }}){:target="new"}. This setting sets some database behaviors to be compatible with a specified version of SQL Server. To use Change Tracking, your database must have a compatibility level greater than `90`.
+
+1. Log into your database:
+
+   ```sql
+   USE <database_name>
+   GO
+   ```
+
+2. Run the following query to retrieve the database's current compatibility level: 
+
+   ```sql
+   {{ site.data.taps.extraction.database-setup.server-settings.mssql.get-compatibility-level | strip }}
+   ```
+
+   According to [Microsoft's documentation]({{ site.data.taps.links.mssql.change-tracking-for-database }}){:target="new"}, this value must be greater than `90` or the `CHANGETABLE` function (used to obtain change tracking info during replication) will return an error.
+
+3. If the result is less than `90`, you'll need to increase it to enable Change Tracking.
+
+   **Note**: Before changing this setting, you should understand how doing so could impact your database. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-2017){:target="new"} for more info.
+
+   Use the following command to set the database compatibility level:
+
+   ```sql
+   {{ site.data.taps.extraction.database-setup.server-settings.mssql.set-compatibility-level | strip }}
+   ```
+
+
+{% when 'enable-database' %}
+{% include note.html type="single-line" content="**Note**: You must have the `ALTER DATABASE` privilege to complete this step." %}
+
+In this step, you'll enable Change Tracking at the database level. Use the following command to enable Change Tracking, replacing `<database_name>` with the name of the database:
+
+```sql
+{{ site.data.taps.extraction.database-setup.server-settings.mssql.enable-change-tracking-for-database | strip }}
+```
+
+This command also defines the `CHANGE_RETENTION` and `AUTO_CLEANUP` settings:
+
+- `CHANGE_RETENTION` - This specifies the time period for which change tracking information is kept. Change tracking information older than the specified time period is periodically removed by {{ integration.display_name }}. Stitch recommends a **minimum** of `3 days`.
+- `AUTO_CLEANUP` - This controls the cleanup task that removes old change tracking information. When `OFF`, the task will be disabled and old change tracking information will not be removed.
+
+   {% include tip.html style="single-line" content="If you encounter an issue with a table, change `AUTO_CLEANUP` to `OFF` to disable cleanup tasks. This will ensure change tracking info is retained, allowing Stitch Support to more thoroughly investigate." %}
+
+
+{% when 'enable-table' %}
+For every table you want to replicate using Log-based Incremental Replication, you will need to enable change tracking. When change tracking is enabled, change tracking information will be maintained for all rows in the table affected by a DML operation.
+
+Run the following command to enable change tracking for a table:
+
+```sql
+{{ site.data.taps.extraction.database-setup.server-settings.mssql.enable-change-tracking-for-table | strip }}
+```
+
+Repeat this step for every table you want to replicate using Log-based Incremental Replication.
+
+{% endcase %}

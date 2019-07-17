@@ -17,26 +17,15 @@ Depending on your setup and the access you grant to the Stitch database user, yo
 
 {% include important.html type="single-line" content=us-english %}
 
-1. Log into your database.
-2. Create a SQL login for the Stitch database user:
+1. Create the Stitch database user, replacing `<database_name>` with the name of the database and `<password>` with a secure password:
 
    ```sql
+   USE <database_name>
    {{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-login-command | strip }}
-   ```
-
-3. Grant the Stitch user access to the database:
-
-   ```sql
-   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-access-command | strip }}
-   ```
-
-4. Create the Stitch database user and map them to the database:
-
-   ```sql
    {{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command | strip }}
    ```
 
-5. Grant the Stitch user `SELECT` privileges. To grant `SELECT` privileges to all tables in the database, run this command:
+2. Grant the Stitch user `SELECT` privileges. To grant `SELECT` privileges to all tables in the database, run this command:
 
    ```sql
    {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.all-tables | strip }}
@@ -47,3 +36,19 @@ Depending on your setup and the access you grant to the Stitch database user, yo
    ```sql
    {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.specific-tables | strip }}
    ```
+
+{% unless integration.log-based-replication-master-instance == false %}
+   **Note:** Column-level permissions are not supported for use with Log-based Incremental Replication. Restricting access to columns will cause replication issues.
+
+{% capture replication-privileges %}
+Additionally, if you want to use Log-based Incremental Replication, you'll also need to grant the Stitch user `VIEW TRACKING CHANGES` privileges on the [tables where change tracking is enabled](#enable-table-change-tracking):
+
+```sql
+{{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.change-tracking-tables | strip }}
+```
+
+For every table you want to replicate, you'll need to run this command.
+{% endcapture %}
+
+{% include important.html first-line="**Using Log-based Incremental Replication**" content=replication-privileges %}
+{% endunless %}

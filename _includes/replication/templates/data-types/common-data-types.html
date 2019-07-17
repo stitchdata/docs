@@ -2,12 +2,12 @@
 
     {% include misc/icons.html %}
 
-    {% assign common = stitch.supported-data-types %}
+    {% assign common = site.data.taps.extraction.data-types.common %}
 
 <p>As of <strong>{{ common.last-updated }}</strong>, the data types in the table below are supported for all integrations.</p>
 
 <table width="100%; fixed" class="attribute-list">
-    {% for data-type in common.data-types %}
+    {% for data-type in common.all %}
     <!-- Get the data-type's index in the array and then divide it by 4 (the #
         of columns in the table) and get the remainder. If the last item in the
         array isn't divisible by 4, we need to add the correct number of cells to
@@ -21,10 +21,10 @@
             <td width="25%">
                 {% if data-type.doc-link %}
                     <a href="{{ data-type.doc-link | flatify | prepend: site.baseurl }}">
-                        {{ data-type.name }}
+                        {{ data-type.name | upcase }}
                     </a>
                 {% else %}
-                    {{ data-type.name }}
+                    {{ data-type.name | upcase }}
                 {% endif %}
 
                 {% if data-type.notes %}

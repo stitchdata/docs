@@ -1,9 +1,8 @@
 ---
 title: PostgreSQL
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
-tags: [database_integrations]
 permalink: /integrations/databases/postgresql
-summary: ""
+summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
 layout: general
 input: false
 
@@ -32,16 +31,20 @@ sections:
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"
     content: |
-      {% include notifications/postgres-binlog-limitations.html %}
-
       In this section:
 
-      - [Supported features](#supported-features)
-      - [Supported data types](#supported-data-types)
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary }}](#{{ subsection.summary | slugify }})
+      {% endfor %}
     subsections:
-      - content: |
+      - summary: "Supported features"
+        content: |
           {% include integrations/templates/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
-      - content: |
-          {% include replication/templates/data-types/integration-specific-data-types.html %}
+      
+      - title: "Data types"
+        anchor: "data-types"
+        summary: "Data types"
+        content: |
+          {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
 ---
 {% include misc/data-files.html %}
