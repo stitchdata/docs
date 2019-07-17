@@ -26,18 +26,7 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="integration-specific">
-        {% if page.url contains "integrations" %}
-
-        <!-- The logic for integration version data is included in this file -->
-			{% include replication/templates/data-types/integration-specific-data-types.html %}
-		{% else %}
-
-        <!-- The 'type="include"' is mandatory here - variables won't get assigned correctly otherwise
-        and the table will break / be blank
-
-        See includes/integrations/templates/versioning/version-logic.html for more info -->
-			{% include replication/templates/data-types/integration-specific-data-types.html type="include" integration_name=include.integration_name display_name=include.display_name %}
-		{% endif %}
+        This is being worked on. Check back soon!
     </div>
 </div>
 
