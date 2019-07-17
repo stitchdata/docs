@@ -54,7 +54,8 @@ microsoft-azure:
 
   - name: "{{ defaults.field-names.host }}"
     version: "all"
-    copy: "{{ defaults.field-copy.host | flatify }}"
+    copy: |
+      Enter the host address (endpoint) used by the {{ integration.display_name }} instance. This is usually a server endpoint like `<server-name>.database.windows.net`.
 
   - name: "{{ defaults.field-names.port }}"
     version: "all"
