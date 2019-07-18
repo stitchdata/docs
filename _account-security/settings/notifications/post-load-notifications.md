@@ -103,11 +103,16 @@ sections:
     content: |
       Any team member in a Stitch account that has access to the post-load webhook feature can create, delete, disable, or re-enable a post-load webhook URL.
 
-      {% for subsection in section.subsections %}
-      - [{{ subsection.title }}](#{{ subsection.anchor }})
-      {% endfor %}
+      You can manage post-load webhooks in two ways:
+
+      1. **In the Stitch app**:
+         {% for subsection in section.subsections %}
+         - [{{ subsection.title | remove: " in the Stitch app" }}](#{{ subsection.anchor }})
+         {% endfor %}
+      2. [**Via the Connect API**]({{ link.connect.api | prepend: site.baseurl | append: "#notifications--section" }}), if your Stitch plan includes API access.
+      
     subsections:
-      - title: "Add a post-load webhook URL"
+      - title: "Add a post-load webhook URL in the Stitch app"
         anchor: "add-post-load-hook"
         content: |
           {% include note.html type="single-line" content="**Note**: An account's post-load hook list may have a maximum of 10 webhook URLs." %}
@@ -122,7 +127,7 @@ sections:
              **Note**: [The webhook URL must use HTTPS](#what-services-post-load-hooks), otherwise you'll receive an `Invalid URI` error and be unable to save the webhook.
           4. Click the **Save Webhook** button.
 
-      - title: "Delete a post-load webhook URL"
+      - title: "Delete a post-load webhook URL in the Stitch app"
         anchor: "delete-post-load-hook"
         summary: "How to delete a post-load hook"
         content: |
@@ -135,7 +140,7 @@ sections:
           5. Click **Delete this webhook**.
           6. You'll be prompted to confirm the deletion. Click **Delete** to continue and delete the webhook URL.
 
-      - title: "Disable or re-enable post-load webhook URLs"
+      - title: "Disable or re-enable post-load webhook URLs in the Stitch app"
         anchor: "disable-reenable-webhook-urls"
         summary: "How to disable or re-enable a post-load webhook URL"
         content: |

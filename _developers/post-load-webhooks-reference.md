@@ -28,8 +28,9 @@ related:
   - title: "Manage post-load hooks in Stitch"
     link: "{{ link.account.post-load-notifications | prepend: site.baseurl }}"
 
-  - title: "Post-load hooks API"
-    link: ""
+  - title: "Post-load hooks API reference"
+    link: |
+      {{ link.connect.api | prepend: site.baseurl | append: "#notifications--section" }}
 
   - title: "Connect API reference"
     link: "{{ link.connect.api | prepend: site.baseurl }}"
@@ -61,7 +62,7 @@ sections:
       You can configure a post-load hook in two ways:
 
       1. [In the Stitch app]({{ link.account.post-load-notifications | prepend: site.baseurl | append: "#manage-post-load-hooks" }})
-      2. [Via the Connect API](), if your Stitch plan includes API access
+      2. [Via the Connect API]({{ link.connect.api | prepend: site.baseurl | append: "#notifications--section" }}), if your Stitch plan includes API access
 
       You can configure up to 10 post-load hooks.
 
