@@ -13,10 +13,12 @@ order: 10
 # -------------------------- #
 
 title: "Notification"
+endpoint-url: "/notifications/public/v1/api"
+
 description: |
   {{ api.core-objects.notifications.description | flatify }} This applies to the [Custom email notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}) and [Post-load hook]({{ link.account.post-load-notifications | prepend: site.baseurl }}) features.
 
-endpoint-url: "/notifications/public/v1/api"
+intro-short: "Create, pause, unpause, and delete notification settings for a Stitch client account" # Used in the API functionality section of the docs
 
 
 # -------------------------- #
