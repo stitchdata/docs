@@ -8,6 +8,7 @@ input: false
 
 show-in-menus: true
 has-versions: true
+has-specific-data-types: true
 
 hosting-type: "generic"
 

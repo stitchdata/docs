@@ -12,6 +12,7 @@ microsites:
 
 show-in-menus: true
 has-versions: true
+has-specific-data-types: true
 
 db-type: "postgres"
 name: "postgres"
