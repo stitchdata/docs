@@ -96,5 +96,5 @@ examples:
 
   - type: "Errors"
     error-file: "hook-notifications"
-  # The errors live in: _data/connect/response-codes/replication-jobs.yml
+  # The errors live in: _data/connect/response-codes/hook-notifications.yml
 ---

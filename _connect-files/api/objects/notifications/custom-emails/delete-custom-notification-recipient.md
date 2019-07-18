@@ -65,7 +65,7 @@ examples:
         1
       ]
 
-  - type: "Errors"
-    error-file: "custom-email-notifications"
-  # The errors live in: _data/connect/response-codes/replication-jobs.yml
+  # - type: "Errors"
+  #   error-file: "custom-email-notifications"
+  # The errors live in: _data/connect/response-codes/custom-email-notifications.yml
 ---
