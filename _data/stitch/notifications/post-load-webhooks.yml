@@ -82,7 +82,7 @@ request-bodies:
       description: |
         The name of the table in the data source.
 
-        **Note**: If this is a subtable created from denesting an array, this value will be the array key. For example: If `orders.order_itmes`, this value would be `order_items`.
+        **Note**: If this is a subtable created from denesting an array, this value will be the array key. For example: If `orders.order_items`, this value would be `order_items`.
 
     - name: "destination_table_name"
       type: "string"
@@ -91,7 +91,7 @@ request-bodies:
 
         **Note**: If this is a subtable created from denesting an array, this value will be the `source_root_table_name` appended with the `source_table_name`.
 
-        For example: If `orders.order_itmes`, this value would be `orders__order_items`.
+        For example: If `orders.order_items`, this value would be `orders__order_items`.
 
     - name: "max_time_extracted"
       type: "timestamp"

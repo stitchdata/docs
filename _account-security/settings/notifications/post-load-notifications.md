@@ -119,7 +119,7 @@ sections:
           3. Click the **Add Webhook** button in the **Post-load hooks** section.
           3. In the field that displays, paste the webhook URL.
 
-             **Note**: [The webhook URL must use HTTPS](#what-services-post-load-hooks), otherwise you'll recieve an `Invalid URI` error and be unable to save the webhook.
+             **Note**: [The webhook URL must use HTTPS](#what-services-post-load-hooks), otherwise you'll receive an `Invalid URI` error and be unable to save the webhook.
           4. Click the **Save Webhook** button.
 
       - title: "Delete a post-load webhook URL"
