@@ -1,26 +1,27 @@
 ---
-title: Supported Data Types
-permalink: /replication/supported-data-types
+title: Data Typing
+permalink: /replication/data-typing
+redirect_from: /replication/supported-data-types
 keywords: supported datatypes data types datatype
-tags: [replication]
 sidebar: stitchnav
 
 content-type: "select-data"
 toc: true
 weight: 4
 
-summary: "A full roll-up of the data types Stitch supports for replication."
+summary: "Data typing in Stitch."
 ---
 {% include misc/data-files.html %}
 
 The data types Stitch supports for replication fall into two categories:
 
-- **Common**, which are data types supported for all integrations
-- **Integration-specific**, which are data types supported for specific integrations and integration versions, where applicable. **Note**: Common data types also apply to integrations that support integration-specific data types.
+- **Common**, which are data types supported for all integrations.
 
-**Note**: If a data type isn't present in either the Common or Integration-specific tables, it means that Stitch doesn't currently support replication for that data type. [Replicating columns with unsupported data types may lead to issues with replication](#sync-unsupported-data-types).
+   **Note**: If a data type isn't present in the **Common data type** list, it means that Stitch doesn't currently support replication for that data type. [Replicating columns with unsupported data types may lead to issues with replication](#sync-unsupported-data-types).
 
-{% include replication/templates/data-types/data-type-formatting.html formatting="tabs" integration_name="postgres" display_name="PostgreSQL" %}
+- **Integration-specific**, which are data types applicable only to specific integrations. For the sake of transparency, integration specific lists contain both supported and unsupported data types. Icons in the list indicate whether the data type is supported by Stitch.
+
+{% include replication/templates/data-types/data-type-formatting.html formatting="tabs" %}
 
 ---
 
