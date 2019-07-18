@@ -17,6 +17,9 @@ repo-url: https://github.com/singer-io/tap-hubspot
 
 this-version: "2.0"
 
+api: |
+  [{{ integration.display_name }} REST API](https://developers.hubspot.com/docs/overview){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -46,6 +49,14 @@ loading-reports: true
 ## See _data/destinations/reference/incompatibilities.yml
 
 has-incompatibilities: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

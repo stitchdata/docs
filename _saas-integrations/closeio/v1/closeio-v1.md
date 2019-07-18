@@ -21,6 +21,10 @@ repo-url: https://github.com/singer-io/tap-closeio
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} REST API](https://developer.close.com/){:target="new"}
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -43,6 +47,14 @@ loading-reports: true
 
 table-selection: false
 column-selection: false
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

@@ -14,11 +14,12 @@ old-schema-template: true
 
 name: "salesforce"
 display_name: "Salesforce"
-author: "Stitch"
-author-url: https://www.stitchdata.com
 status-url: "https://trust.salesforce.com/trust/instances"
 
 this-version: "15-10-2015"
+
+api: |
+  [{{ integration.display_name }} Force.com REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.194.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -50,6 +51,14 @@ loading-reports: true
 ## replicate data. Details are in the Replication section.
 
 enforces-api-limits: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

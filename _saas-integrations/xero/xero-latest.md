@@ -18,6 +18,9 @@ repo-url: "https://github.com/singer-io/tap-xero"
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Accounting API](https://developer.xero.com/documentation/api/api-overview){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -38,6 +41,14 @@ cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

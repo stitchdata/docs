@@ -17,6 +17,9 @@ name: "appsflyer"
 display_name: "AppsFlyer"
 repo-url: https://github.com/singer-io/tap-appsflyer
 
+api: |
+  [{{ integration.display_name }} Raw Data Reports V5 API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
+
 # this-version: "1.0"
 
 # -------------------------- #
@@ -39,6 +42,15 @@ cron-scheduling: false
 
 extraction-logs: false
 loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

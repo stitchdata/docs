@@ -17,6 +17,9 @@ repo-url: https://github.com/singer-io/tap-marketo
 
 this-version: "2.0"
 
+api: |
+  [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -29,14 +32,22 @@ frequency: "12 hours"
 tier: "Paid"
 status-url: http://status.marketo.com/
 
-table-selection: true
-column-selection: true
-
 anchor-scheduling: true
 cron-scheduling: false
 
+table-selection: true
+column-selection: true
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

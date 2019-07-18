@@ -17,6 +17,9 @@ repo-url: https://github.com/singer-io/tap-zuora
 
 this-version: "1.0"
 
+api: |
+  [REST API](https://www.zuora.com/developer/api-reference/){:target="new"} and [AQuA API](https://knowledgecenter.zuora.com/DC_Developers/AB_Aggregate_Query_API/AA_AQuA_API_Introduction){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -37,6 +40,20 @@ cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration can use one of two APIs: {{ integration.api | flatify | strip }}. When setting up the integration in Stitch, you can choose which API to use.
+
+  Additionally, Stitch supports [replicating custom fields](#custom-field-replication) for any object that supports custom fields in {{ integration.display_name }}. Custom fields are supported for both the {{ integration.api | flatify | strip }}.
+
+  **Note**: Each API has its benefits and limitations. For example: With the AQuA API, you can replicate large data sets and [deleted records for objects that support it](#replicate-deleted-data). Once an integration is saved, the API selected can't be changed. [Learn more about the APIs](#rest-vs-aqua-api).
+
+  Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

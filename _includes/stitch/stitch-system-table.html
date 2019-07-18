@@ -21,16 +21,16 @@
 		{% else %}
 			<li>
 		{% endif %}
-	    	<a href="#{{ category.name }}" data-toggle="tab">{{ category.display-name }}</a>
+	    	<a href="#{{ category.name | append:"-tab" }}" data-toggle="tab">{{ category.display-name }}</a>
 	    </li>
 	{% endfor %}
 </ul>
 <div class="tab-content">
 	{% for category in sdc-categories %}
 		{% if forloop.first == true %}
-		    <div role="tabpanel" class="tab-pane active" id="{{ category.name }}">
+		    <div role="tabpanel" class="tab-pane active" id="{{ category.name | append:"-tab" }}">
 		{% else %}
-			<div role="tabpanel" class="tab-pane" id="{{ category.name }}">
+			<div role="tabpanel" class="tab-pane" id="{{ category.name | append:"-tab" }}">
 		{% endif %}
 	        {% assign table-attributes = all-attributes | where:"applicable-to",category.name | sort: "name" %}
 
