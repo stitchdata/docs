@@ -4,14 +4,6 @@
 {% when 'common-table' %}
 	{% include replication/templates/data-types/common-data-types.html %}
 
-<!-- Table for only integration-specific data types -->
-{% when 'integration-specific-table' %}
-	{% if page.url contains "integrations" %}
-		{% include replication/templates/data-types/integration-specific-data-types.html %}
-	{% else %}
-		{% include replication/templates/data-types/integration-specific-data-types.html integration_name=include.integration_name display_name=include.display_name %}
-	{% endif %}
-
 {% when 'tabs' %}
 
 <!-- Tabs for both common and integration-specific data types -->
@@ -26,7 +18,17 @@
     </div>
 
     <div role="tabpanel" class="tab-pane" id="integration-specific">
-        This is being worked on. Check back soon!
+        {% assign integrations-with-specific-types = site.database-integrations | where:"has-specific-data-types",true | sort:"title" %}
+
+        <p>The integrations listed below also have data types that are specific to them. Click the links for more info, including the level of support Stitch offers and the Stitch data type it will map to.</p>
+
+        <ul>
+            {% for integration in integrations-with-specific-types %}
+                <li>
+                    <a href="{{ integration.url | prepend: site.baseurl | append: "#data-types" }}">{{ integration.display_name }}</a>
+                    </li>
+            {% endfor %}
+        </ul>
     </div>
 </div>
 

@@ -44,7 +44,11 @@
     <li>
         {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }} {{ data-type-version.stored-as }} indicates that the data type is supported. Following the icon is the Stitch data type it will map to.
     </li>
-    <li>{{ info-icon | replace:"TOOLTIP","This data type is supported for this version of the integration, but there's additional info you should know." }} indicates that the data type is supported, but there is additional information you should know. Hover over the icon to view a tooltip with the information.
+    <li>
+        {{ info-icon | replace:"TOOLTIP","This data type is supported for this version of the integration, but there's additional info you should know." }} indicates that the data type is supported, but there is additional information you should know. Hover over the icon to view a tooltip with the information.
+    </li>
+    <li>
+        {{ not-applicable | replace:"TOOLTIP","This data type isn't applicable to the integration." }} indicates that the data type isn't applicable to the integration. This is usually because the integration doesn't use that particular data type.
     </li>
     <li>
         {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }} {{ data-type-version.stored-as }} indicates that the data type isn't supported. In Stitch, columns with unsupported data types will have <strong>Unavailable</strong> in the <strong>Type</strong> column of the <strong>Tables to Replicate</strong> tab.
@@ -57,19 +61,33 @@
 
 <table class="attribute-list">
     <tr>
-        <td>
-        </td>
-        {% for version in released-versions %}
-            {% for doc in all-versioned-docs %}
-                {% if version.number == doc.this-version %}
-                    <td>
-                        <strong>{{ display_name }}<br>
-                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
-                        {% if version.number == latest-version %} (latest){% endif %}
-                    </td>
-                {% endif %}
+        {% if include.version-column-headers == false %}
+            <td class="attribute-name">
+                <strong>
+                    Data type
+                </strong>
+            </td>
+            <td>
+                <strong>
+                    Stored as
+                </strong>
+            </td>
+
+        {% else %}
+            <td>
+            </td>
+            {% for version in released-versions %}
+                {% for doc in all-versioned-docs %}
+                    {% if version.number == doc.this-version %}
+                        <td>
+                            <strong>{{ display_name }}<br>
+                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                            {% if version.number == latest-version %} (latest){% endif %}
+                        </td>
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
+        {% endif %}
     </tr>
 
     {% for data-type in all-data-types %}
@@ -86,6 +104,7 @@
                     <!-- If the data-type is unsupported, show the unsupported icon -->
                         {% when 'unsupported' %}
                             {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}
+
                         {% else %}
 
                     <!-- If the data-type has a tooltip property, do this: -->
@@ -97,7 +116,14 @@
                                 {% endcapture %}
 
                         <!-- Put the flatified tooltip into the icon's tooltip -->
-                                {{ info-icon | replace:"TOOLTIP",flatified-tooltip }}
+                                {% case this-integration.[clean-version].[data-type.name]stitch-type %}
+                                    {% when 'not applicable' %}
+                                        {{ not-applicable | replace:"TOOLTIP",flatified-tooltip }}
+
+                                    {% else %}
+                                        {{ info-icon | replace:"TOOLTIP",flatified-tooltip }}
+                                {% endcase %}
+                                
                             {% else %}
 
                     <!-- Otherwise, just show the supported icon -->
