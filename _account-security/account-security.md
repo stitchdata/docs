@@ -5,6 +5,14 @@ keywords: billing, plan, change plan, cancel, cancel account, delete, remove
 summary: "Resources for everything account-related: Managing billing details, inviting team members, security info, and more."
 feedback: false
 
+level: "category"
+icon: "user-profile"
+weight: 2
+display-title: "Your Stitch account"
+display-summary: "Set up and manage your Stitch account."
+
+key: "account-security"
+
 ---
 
 {% include misc/data-files.html %}

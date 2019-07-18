@@ -13,9 +13,10 @@ order: 6
 # -------------------------- #
 
 title: "Source"
-description: "{{ api.core-objects.sources.description }}"
 endpoint-url: "/sources"
 
+description: "{{ api.core-objects.sources.description }}"
+intro-short: "Create, update, pause, unpause, and delete data sources" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

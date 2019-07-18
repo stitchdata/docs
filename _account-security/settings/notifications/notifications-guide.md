@@ -141,7 +141,7 @@ sections:
 
       #### {{ notification.name }} {#{{ notification.id | slugify }}}
 
-      {{ notification.description }}
+      {{ notification.description | flatify }}
 
       <table class="attribute-list">
       {% for attribute in attributes %}

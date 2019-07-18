@@ -20,14 +20,13 @@ sections:
     content: |
       Using the API, you can:
 
-      - Create Stitch client accounts (Partners only)
-      - Access Stitch client accounts
-      - Create, update, and delete destinations
-      - Retrieve configuration info for destinations
-      - Create, update, pause, unpause, and delete data sources
-      - Retrieve configuration info for data sources
-      - Select streams and fields from data sources for replication
-      - Start and stop replication jobs
+      {% assign api-objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
+
+      {% for object in api-objects %}
+      {% if object.intro-short %}
+      - {{ object.intro-short | flatify }}
+      {% endif %}
+      {% endfor %}
 
       Check out the [tutorials and resources]({{ link.connect.guides.category | prepend: site.baseurl }}) to learn more about using Stitch Connect.
 

@@ -4,6 +4,14 @@ keywords: troubleshooting, integration, trouble, issue, help, error, errors
 permalink: /troubleshooting/
 toc: false
 feedback: false
+
+level: "category"
+icon: "support"
+weight: 8
+display-title: "Get help"
+display-summary: "Resolve issues and get your data flowing again."
+
+key: "troubleshooting"
 ---
 {% include misc/data-files.html %}
 

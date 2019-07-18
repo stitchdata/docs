@@ -4,7 +4,15 @@ permalink: /analysis-tools/
 redirect_from: /analysis-integrations/
 
 keywords: analysis, analysis integration, analytics, analyze stitch data, layer, analysis tool, visualization tool, sql, query stitch data
-summary: "Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you’ll need an additional visualization or middleware tool. Whether you want to create visual analyses or run SQL queries, Stitch is compatible with a broad range of tools - from business intelligence platforms to SQL editors to data science tools."
+summary: "Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you’ll need an additional visualization or middleware tool."
+
+level: "category"
+icon: "analytics"
+weight: 7
+display-title: "Analysis tools"
+display-summary: "Analyze your Stitch-replicated data."
+
+key: "analysis-tools"
 
 layout: general
 toc: true

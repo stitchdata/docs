@@ -102,39 +102,52 @@ sections:
         content: |
           Any team member in a Stitch account that has access to the custom notification list feature can create, delete, disable, or re-enable a notification email address.
 
-  - title: "Add a custom notification recipient"
-    anchor: "add-custom-notification-recipient"
-    summary: "How to add a custom notification recipient"
+  - title: "Manage custom notification recipients"
+    anchor: "manage-custom-notification-recipients"
+    summary: "How to manage custom notification recipients"
     content: |
-      {% include note.html type="single-line" content="**Note**: An account's custom notification list may have a maximum of 10 email addresses." %}
+      You can manage custom notification recipients in two ways:
 
-      To add a custom notification recipient:
+      1. **In the Stitch app**:
+         {% for subsection in section.subsections %}
+         - [{{ subsection.title | remove: " in the Stitch app" }}](#{{ subsection.anchor }})
+         {% endfor %}
+      2. [**Via the Connect API**]({{ link.connect.api | prepend: site.baseurl | append: "#notifications--section" }}), if your Stitch plan includes API access.
+      
+    subsections:
+      - title: "Add a custom notification recipient in the Stitch app"
+        anchor: "add-custom-notification-recipient"
+        summary: "How to add a custom notification recipient"
+        content: |
+          {% include note.html type="single-line" content="**Note**: An account's custom notification list may have a maximum of 10 email addresses." %}
 
-      1. Click the {{ app.menu-paths.account-settings }}.
-      2. Click the **{{ app.page-names.notification-tab }}** tab.
-      3. Click the **Add email** button in the **Custom notification list** section.
-      3. In the field that displays, enter an email address.
-      4. Click the **Save Email** button.
+          To add a custom notification recipient:
 
-  - title: "Delete a custom notification recipient"
-    anchor: "add-custom-notification-recipient"
-    summary: "How to delete a custom notification recipient"
-    content: |
-      To delete a custom notification recipient:
+          1. Click the {{ app.menu-paths.account-settings }}.
+          2. Click the **{{ app.page-names.notification-tab }}** tab.
+          3. Click the **Add email** button in the **Custom notification list** section.
+          3. In the field that displays, enter an email address.
+          4. Click the **Save Email** button.
 
-      1. Click the {{ app.menu-paths.account-settings }}.
-      2. Click the **{{ app.page-names.notification-tab }}** tab.
-      3. Click the icon next to the **Status** column.
-      4. Click **Delete this email**.
-      5. You'll be prompted to confirm the deletion. Click **Delete** to continue and delete the email address.
+      - title: "Delete a custom notification recipient in the Stitch app"
+        anchor: "delete-custom-notification-recipient"
+        summary: "How to delete a custom notification recipient"
+        content: |
+          To delete a custom notification recipient:
 
-  - title: "Disable or re-enable custom notification recipients"
-    anchor: "disable-reenable-email-addresses"
-    summary: "How to disable or re-enable a custom notification recipient"
-    content: |
-      If you want to temporarily disable a custom notification recipient, you can click the icon next to the email address and use the **Disable this email** option.
+          1. Click the {{ app.menu-paths.account-settings }}.
+          2. Click the **{{ app.page-names.notification-tab }}** tab.
+          3. Click the icon next to the **Status** column.
+          4. Click **Delete this email**.
+          5. You'll be prompted to confirm the deletion. Click **Delete** to continue and delete the email address.
 
-      To re-enable a disabled recipient, click the icon next to the **Status** column and select **Re-enable this email**.
+      - title: "Disable or re-enable custom notification recipients in the Stitch app"
+        anchor: "disable-reenable-email-addresses"
+        summary: "How to disable or re-enable a custom notification recipient"
+        content: |
+          If you want to temporarily disable a custom notification recipient, you can click the icon next to the email address and use the **Disable this email** option.
+
+          To re-enable a disabled recipient, click the icon next to the **Status** column and select **Re-enable this email**.
 
   - title: "Guides for integrating popular services"
     anchor: "popular-service-integration-guides"

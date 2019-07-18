@@ -90,6 +90,8 @@ collections:
    output: true
   destinations:
    output: true
+  developers:
+    output: true
   integration-schemas:
    output: false
   replication:
@@ -155,6 +157,15 @@ defaults:
 ## Destinations
   - scope:
       type: destinations
+    values:
+      layout: general
+      enterprise: false
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+
+  - scope:
+      type: developers
     values:
       layout: general
       enterprise: false

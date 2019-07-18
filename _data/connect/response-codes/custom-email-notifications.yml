@@ -1,0 +1,66 @@
+# ------------------------------------ #
+#  CUSTOM NOTIFICATION ENDPOINT ERRORS #
+# ------------------------------------ #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "`email_address` property is missing or invalid"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "message": {
+                "email_address": "Required. Must be valid email address format."
+              }
+            }
+          }
+          ```
+
+      - method: "post"
+        condition: "Account has reached the maximum number of allowed custom emails. The current limit is 10."
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "message": "Account not authorized to create additional custom notification email addresses."
+            }
+          }
+          ```
+
+      - method: "post"
+        condition: "Account doesn't have access to the Custom notification list feature"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "message": "Account not authorized to create custom notification email addresses."
+            }
+          }
+          ```
+
+      - method: "put"
+        condition: "`disabled_at` property is missing or invalid"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "disabled_at": "<INVALID_VALUE>"
+          }
+          ```
+
+  - code: "404"
+    responses:
+      - method: "put"
+        condition: "Notification ID is missing or invalid"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "NOT FOUND"
+          }
+          ```

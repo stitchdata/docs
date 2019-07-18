@@ -6,6 +6,12 @@ keywords: getting started, get started, get set up, set up stitch, setup, guide
 layout: page
 toc: true
 
+level: "category"
+icon: "clock"
+display-title: "Get started with Stitch"
+display-summary: "Get your Stitch data pipeline up and running."
+
+key: "getting-started"
 type: "getting-started"
 weight: 1
 

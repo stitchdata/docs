@@ -5,7 +5,7 @@
 
 content-type: "api-object"
 endpoint: "destination-types"
-order: 5
+order: 3
 
 
 # -------------------------- #
@@ -13,9 +13,10 @@ order: 5
 # -------------------------- #
 
 title: "Destination Type"
-description: "{{ api.core-objects.destination-types.description }}"
 endpoint-url: "/destination-types"
 
+description: "{{ api.core-objects.destination-types.description }}"
+intro-short: "Retrieve configuration info for destinations" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

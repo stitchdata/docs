@@ -193,6 +193,52 @@ api:
                 method: "delete"
                 url: "{{ api.core-objects.replication-jobs.delete.anchor }}"
 
+          - title: "Notifications"
+            subsections:
+              - title: "The Notification Object"
+                method: "object"
+                url: "{{ api.core-objects.notifications.object }}"
+
+              - title: "{{ api.core-objects.notifications.custom-emails.post.title }}"
+                method: "post"
+                url: "{{ api.core-objects.notifications.custom-emails.post.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.custom-emails.disable.title }}"
+                method: "put"
+                url: "{{ api.core-objects.notifications.custom-emails.disable.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.custom-emails.re-enable.title }}"
+                method: "put"
+                url: "{{ api.core-objects.notifications.custom-emails.re-enable.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.custom-emails.list.title }}"
+                method: "get"
+                url: "{{ api.core-objects.notifications.custom-emails.list.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.custom-emails.delete.title }}"
+                method: "delete"
+                url: "{{ api.core-objects.notifications.custom-emails.delete.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.hooks.post.title }}"
+                method: "post"
+                url: "{{ api.core-objects.notifications.hooks.post.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.hooks.disable.title }}"
+                method: "put"
+                url: "{{ api.core-objects.notifications.hooks.disable.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.hooks.re-enable.title }}"
+                method: "put"
+                url: "{{ api.core-objects.notifications.hooks.re-enable.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.hooks.list.title }}"
+                method: "get"
+                url: "{{ api.core-objects.notifications.hooks.list.anchor }}"
+
+              - title: "{{ api.core-objects.notifications.hooks.delete.title }}"
+                method: "delete"
+                url: "{{ api.core-objects.notifications.hooks.delete.anchor }}"
+
       - title: "Data Structures"
         expand-by-default: true
         sections: 
@@ -231,6 +277,14 @@ api:
           - title: "{{ api.data-structures.metadata.field-level.title }}"
             method: "object"
             url: "{{ api.data-structures.metadata.field-level.section }}"
+
+          - title: "{{ api.data-structures.notifications.custom-email.title }}"
+            method: "object"
+            url: "{{ api.data-structures.notifications.custom-email.section }}"
+
+          - title: "{{ api.data-structures.notifications.hook.title }}"
+            method: "object"
+            url: "{{ api.data-structures.notifications.hook.section }}"
 
 
       - title: "Form Properties"
