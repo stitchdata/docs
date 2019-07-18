@@ -1,0 +1,68 @@
+# -------------------------------- #
+#     HOOK NOTIFICATION ERRORS     #
+# -------------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "Missing or prohibited arguments"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "data": {
+              "message": "Invalid POST body"
+            },
+            "error": "InvalidBody"
+          }
+          ```
+
+      - method: "post"
+        condition: "Account doesn't have access to the Hook notification feature"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "message": "Client does not have access to hooks."
+            }
+          }
+          ```
+
+      - method: "post"
+        condition: "Account has reached the maximum number of allowed hook notifications. The current limit is 10."
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": {
+              "message": "You have exceeded the limit of [LIMIT] hooks."
+            }
+          }
+          ```
+
+      - method: "put"
+        condition: |
+          Missing or incorrectly typed `boolean` argument, or prohibited arguments
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "data": {
+              "message": "PUT body must only contain boolean 'enable' key"
+            },
+            "error": "InvalidBody"
+          }
+          ```
+
+      - method: "delete"
+        condition: |
+          Invalid hook notification ID
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "NotFound"
+          }
+          ```
