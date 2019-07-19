@@ -70,7 +70,7 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **Verify your access in {{ integration.display_name }}.** Stitch will only be able to replicate the same data as the user who authorizes the integration.
+      **To verify your access in {{ integration.display_name }}.** Stitch will only be able to replicate the same data as the user who authorizes the integration.
 
       If this user has restricted permissions - meaning the user doesn't have access to all campaigns or lists, for example - Stitch may encounter issues replicating data. 
 
