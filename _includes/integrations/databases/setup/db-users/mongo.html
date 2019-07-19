@@ -30,12 +30,12 @@ You can assign a role to the Stitch user if you like, as long as the role has th
 
    If your {{ integration.display_name }} version is 3.x+, use `createUser`:
 
-   ```java
+   ```javascript
    {{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v3 | strip }}
    ```
 
    If your {{ integration.display_name }} version is below 3.x, use `addUser`:
 
-   ```java
+   ```javascript
    {{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v2 | strip }}
    ```

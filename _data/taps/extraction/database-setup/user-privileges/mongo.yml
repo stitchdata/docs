@@ -1,0 +1,34 @@
+# -------------------------- #
+#  Database User Privileges  #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from a MongoDB database.
+## The permissions are: listDatabases, listIndexes, COUNT, dbVersion
+
+# -------------------------- #
+#      MONGODB COMMANDS      #
+# -------------------------- #
+
+switch-database:
+  mongo "mongodb://username@mongodb0.examples.com:27017/?authSource=admin"
+
+create-user-v3: |
+  use [authentication_database]
+  db.createUser( {  user: "<stitch_username>",
+                       pwd: "<secure password here>",
+                       //OPTIONALLY: provide an empty array to avoid using roles, i.e. roles:[]
+                       roles: [
+                         { role: "<other_DB_role>", db: "<other_DB>" },
+                         "<current_DB_role>",
+                         ...
+                       ]
+                    }
+                  )
+
+create-user-v2: |
+  use [authentication_database]
+  db.addUser( {  user: "<stitch_username>",
+                    pwd: "<secure password here>",
+                    roles: ["<role1>", "<role2>"]
+                 }
+               )
