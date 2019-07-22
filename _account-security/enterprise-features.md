@@ -27,15 +27,16 @@ sections:
       The features listed below are available during the free trial or for customers on an Enterprise plan.
 
       {% assign enterprise-features = site.data.stitch.subscription-plans.enterprise.features %}
+      {% assign enterprise-docs = site.documents | where:"enterprise",true %}
 
       {% for feature in enterprise-features %}
       ### {{ feature.category }} {#{{ feature.category | slugify }}}
 
       {% for guide in feature.guides %}
-      {% for site-document in site.documents %}
-      {% if site-document.key == guide.key %}
-      - [**{% if guide.title %}{{ guide.title }}{% else %}{{ site-document.title }}{% endif %}**]({{ site-document.url | prepend: site.baseurl }}):
-      {% if guide.summary %}{{ guide.summary }}{% else %}{{ site-document.summary }}{% endif %}
+      {% for enterprise-doc in enterprise-docs %}
+      {% if enterprise-doc.key == guide.key %}
+      - [**{% if guide.title %}{{ guide.title }}{% else %}{{ enterprise-doc.title }}{% endif %}**]({{ enterprise-doc.url | prepend: site.baseurl }}):
+      {% if guide.summary %}{{ guide.summary }}{% else %}{{ enterprise-doc.summary }}{% endif %}
       {% endif %}
       {% endfor %}
       {% endfor %}
