@@ -5,15 +5,21 @@
 # The below list enables the use of a forloop to pull the name and description of all the current
 # pricing plans. 
 
-all-plans:
-  - name: "free-trial"
-    key: "enterprise"
-  - name: "free"
-  - name: "basic"
-  - name: "starter"
-  - name: "premier"
-  - name: "standard"
-  - name: "enterprise"
+- name: "free-trial"
+  key: "enterprise"
+  legacy: false
+- name: "free"
+  legacy: false
+- name: "basic"
+  legacy: true
+- name: "starter"
+  legacy: true
+- name: "premier"
+  legacy: true
+- name: "standard"
+  legacy: false
+- name: "enterprise"
+  legacy: false
 
 
 #------------------------------------#

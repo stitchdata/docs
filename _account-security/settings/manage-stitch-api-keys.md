@@ -7,6 +7,7 @@ layout: general
 summary: "Manage your Stitch API access keys."
 toc: true
 
+key: "manage-api-keys"
 type: "account-settings"
 weight: 3
 

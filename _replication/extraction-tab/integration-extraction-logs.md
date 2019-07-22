@@ -35,24 +35,15 @@ sections:
 
       Extraction logs are grouped by day. The number of days' worth of logs available to you depends on your Stitch plan:
 
-      {% assign subscription-plans = stitch.subscription-plans.all-plans | where:"legacy",false %}
+      {% assign no-legacy-plans = site.data.stitch.subscription-plans.all-plans | where:"legacy",false %}
 
-      <table class="attribute-list">
-          <tr>
-              {% for plan in subscription-plans %}
-              <td>
-                  <strong>{{ plan.name }}</strong>{% if plan.name == "Standard" %}{{ notice-icon | replace:"TOOLTIP","The Standard plan replaces the Starter, Basic, and Premier plans." }}{% endif %}
-              </td>
-              {% endfor %}
-          </tr>
-          <tr>
-              {% for plan in subscription-plans %}
-              <td>
-                  {{ plan.logs }}
-              </td>
-              {% endfor %}
-          </tr>
-      </table>
+      {% for plan in no-legacy-plans %}
+      {% unless plan.name == "free-trial" %}
+      {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+
+      - **{{ this-plan.name }}**: {{ this-plan.logs }}
+      {% endunless %}
+      {% endfor %}
 
     subsections:
       - title: "Logs and plan changes"
@@ -109,12 +100,12 @@ sections:
 
           {% assign extraction-logs = site.data.ui.extraction-logs %}
 
-          <table>
+          <table class="attribute-list">
               <tr>
-                  <th>
+                  <th width="10%; fixed">
                       Order
                   </th>
-                  <th width="15%; fixed">
+                  <th width="18%; fixed">
                       Name
                   </th>
                   <th>

@@ -17,6 +17,8 @@ permalink: /integrations/databases/oracle
 summary: "Connect and replicate data from your Oracle database using Stitch's Oracle integration."
 show-in-menus: true
 
+key: "oracle-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
