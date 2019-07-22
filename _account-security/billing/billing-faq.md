@@ -49,7 +49,7 @@ frequently-asked-questions:
       - question: "What integrations are available on the Free plan?"
         anchor: "integrations-free-plan"
         answer: |
-          {{ site.data.stitch.subscription-plans.trial-description }}
+          {{ site.data.stitch.subscription-plans.enterprise.trial-description }}
 
           {% assign all-integrations = site.documents | where:"input", true %}
 
@@ -87,7 +87,7 @@ frequently-asked-questions:
       - question: "What integrations are available on a paid plan?"
         anchor: "integrations-paid-plan"
         answer: |
-          {{ site.data.stitch.subscription-plans.trial-description }}
+          {{ site.data.stitch.subscription-plans.enterprise.trial-description }}
 
           {% assign paid-integrations = all-integrations | where:"tier","Paid" | sort:"title" %}
 
@@ -179,16 +179,21 @@ frequently-asked-questions:
           </td>
           </tr>
           {% for plan in site.data.stitch.subscription-plans.all-plans %}
+          {% if plan.key %}
+          {% assign this-plan = site.data.stitch.subscription-plans[plan.key] %}
+          {% else %}
+          {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
+          {% endif %}
           <tr>
           <td class="attribute-name">
-          <strong>{{ plan.name }}</strong>
+          <strong>{{ plan.name | capitalize | replace:"-", " " }}</strong>
 
-          {% if plan.legacy == true %}
+          {% if this-plan.legacy == true %}
           {{ info-icon | replace:"TOOLTIP","This is a legacy plan and has been replaced by the Standard plan." }}
           {% endif %}
           </td>
           <td>
-          {{ plan.total-integrations }}
+          {{ this-plan.total-integrations }}
           </td>
           </tr>
           {% endfor %}

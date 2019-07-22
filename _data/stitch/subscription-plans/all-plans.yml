@@ -1,0 +1,53 @@
+#------------------------------------#
+#    CURRENT STITCH PRICING PLANS    #
+#------------------------------------#
+
+# The below list enables the use of a forloop to pull the name and description of all the current
+# pricing plans. 
+
+- name: "free-trial"
+  key: "enterprise"
+  legacy: false
+- name: "free"
+  legacy: false
+- name: "basic"
+  legacy: true
+- name: "starter"
+  legacy: true
+- name: "premier"
+  legacy: true
+- name: "standard"
+  legacy: false
+- name: "enterprise"
+  legacy: false
+
+
+#------------------------------------#
+#       PLAN FILE PROPERTIES         #
+#------------------------------------#
+
+# name: plan name
+
+# paid: true if the plan is a paid plan
+# legacy: true if the plan is a legacy plan - released before March 26, 2019
+
+# integrations: the type of integrations included in the plan
+# total-integrations: the total number of distinct integration types users can add
+
+# users: the total number of users an account can have
+# rows: the number of rows included in the plan before overages
+# logs: the # of days of Extraction Logs the account will have access to
+# reports: the # of days of Loading Reports the account will have access to
+
+# api-access: true if the plan includes API access
+# customize-notifications: true if the plan includes access to the Custom notifications feature
+# post-load-notifications: true if the plan includes access to Post-load notifications
+# cron-scheduling: true if the plan includes access to the Advanced Scheduling feature
+
+# features: a list of categories and guide keys for the plan. Used to list plan-specific guides. Follows this format:
+
+# features:
+#   - category: "<name>"
+#     guides:
+#       - key: "<guide_key>"
+#         title: "<display_title>"
