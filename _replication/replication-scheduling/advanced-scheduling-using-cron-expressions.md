@@ -12,6 +12,7 @@ content-type: "replication-scheduling"
 toc: true
 weight: 4
 
+enterprise: true
 enterprise-cta:
   title: "Advanced Scheduling is an Enterprise feature"
   url: "?utm_medium=docs&utm_campaign=cron-scheduling"
