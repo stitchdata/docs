@@ -4,14 +4,14 @@ permalink: /replication/extractions/integration-extraction-logs
 redirect_from: /replication/integration-extraction-logs
 keywords: replication, extract, extraction, logs, report
 summary: "Extraction logs provide detail about the extraction portion of the replication process for a given integration."
-
 layout: general
+
+key: "extraction-logs"
 content-type: "replication-progress"
 toc: true
 weight: 2
 
 enterprise: true
-
 enterprise-cta:
   title: "Get 60 days of Extraction Logs with Stitch Enterprise"
   utm: "?utm_medium=docs&utm_campaign=extraction-log-retention"

@@ -4,8 +4,9 @@ permalink: /replication/integration-loading-reports
 keywords: replication, load, loading, report
 tags: [replication]
 summary: "Loading reports provide detail about the loading portion of the replication process for a given integration." 
-
 layout: general
+
+key: "loading-reports"
 content-type: "replication-progress"
 toc: true
 weight: 3
