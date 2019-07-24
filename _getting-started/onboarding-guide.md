@@ -1,7 +1,8 @@
 ---
-title: Getting Started with Stitch
-permalink: /getting-started/
+title: Setting Up Your Stitch Data Pipeline
+permalink: /getting-started/set-up-stitch-data-pipeline
 keywords: getting started, get started, get set up, set up stitch, setup, guide
+summary: "todo"
 
 layout: page
 toc: true
