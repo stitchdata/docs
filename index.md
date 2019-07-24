@@ -13,11 +13,11 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 
 <h2>Getting Started</h2>
 <ul class="columns more" data-swiftype-index='false'>
-	<li><a href="{{ link.getting-started | prepend: site.baseurl }}">Getting Started Guide</a></li>
+	<li><a href="{{ link.getting-started.category | prepend: site.baseurl }}">Getting Started Guide</a></li>
 	<li><a href="{{ link.destinations.main | prepend: site.baseurl }}">Destinations</a></li>
 	<li><a href="{{ link.integrations.main | prepend: site.baseurl }}">Integrations</a></li>
 	<li><a href="{{ link.account.team-members | prepend: site.baseurl }}">Adding/removing team members</a></li>
-	<li><a href="{{ link.billing.billing-guide | prepend: site.baseurl }}">Understanding your usage and billing</a></li>
+	<li><a href="{{ link.getting-started.row-usage | prepend: site.baseurl }}">Understanding your usage and billing</a></li>
 	<li><a href="{{ link.security.faq | prepend: site.baseurl }}">Security</a></li>
 	<li><a href="{{ site.baseurl }}/account-security">More</a></li>
 </ul>

@@ -250,7 +250,7 @@ While you wait for the initial sync to complete, we recommend:
 
 ### Learning About Stitch billing
 
-Our pricing is built on the number of replicated rows Stitch loads into your data warehouse. But what does "replicated row" mean? How can you keep your row count low? [Check out the Understanding Your Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}) to learn more about Stitch billing and how to reduce your usage.
+Our pricing is built on the number of replicated rows Stitch loads into your data warehouse. But what does "replicated row" mean? How can you keep your row count low? [Check out the Understanding Your Usage guide]({{ link.getting-started.row-usage | prepend: site.baseurl }}) to learn more about Stitch billing and how to reduce your usage.
 
 ### Getting to know your destination
 

@@ -116,7 +116,7 @@ sections:
         content: |
           Stitch usage is volume-based. Much like the data part of a cell phone plan, each Stitch plan is allotted a certain number of replicated rows per month. 
 
-          Your overall row usage can be affected by a variety of factors, including the destination you choose and number of integrations you have. For an in-depth walkthrough of how usage is calculated, the factors that affect it, and how you can reduce your usage, refer to the [Understanding and Reducing Your Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}).
+          Your overall row usage can be affected by a variety of factors, including the destination you choose and number of integrations you have. For an in-depth walkthrough of how usage is calculated, the factors that affect it, and how you can reduce your usage, refer to the [Understanding and Reducing Your Usage guide]({{ link.getting-started.row-usage | prepend: site.baseurl }}).
 
       #     **Don't see an integration you need?** If Stitch doesn't have a native integration for one of your sources, don't worry - there are still options:
 
