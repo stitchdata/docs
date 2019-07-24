@@ -92,6 +92,8 @@ collections:
    output: true
   developers:
     output: true
+  getting-started:
+    output: true
   integration-schemas:
    output: false
   replication:
@@ -172,6 +174,15 @@ defaults:
       toc: true
       sidebar: stitchnav
       display-summary: "false"
+
+## Getting Started
+  - scope:
+      type: getting-started
+    values:
+      layout: general
+      enterprise: false
+      sidebar: on-page
+      toc: true
 
 ## Replication
   - scope:
