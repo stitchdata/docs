@@ -7,8 +7,6 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-## PLEASE REMOVE COMMENTS WHEN FINISHED
-
 
 # -------------------------- #
 #        CONTENT TYPE        #
@@ -31,16 +29,14 @@ source-type: "saas"
 docs-name: "jira"
 
 description: |
-  Stitch's {{ form-property.display-name }} source can connect to self-managed (hosted) or cloud-hosted instances. **Note**: The steps for connecting each type of instance vary. Refer to [our JIRA documentation]({{ doc-link }}) for more info.
+  Stitch's {{ form-property.display-name }} source can connect to self-managed (hosted) or cloud-hosted instances. **Note**: The steps for connecting each type of instance vary. Refer to [our {{ form-property.display-name }} documentation]({{ doc-link }}) for more info.
 
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# uses-common-fields: true/false
-# See these fields in _data/connect/common/all-sources.yml
-# May also include applicable fields in _data/connect/common/all-sources.yml
+uses-start-date: true
 
 object-attributes:
   - name: "base_url"

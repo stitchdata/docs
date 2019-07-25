@@ -20,4 +20,11 @@ source-type: "saas"
 docs-name: "xero"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 ---

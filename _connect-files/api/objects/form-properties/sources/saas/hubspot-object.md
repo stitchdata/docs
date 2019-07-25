@@ -20,4 +20,11 @@ source-type: "saas"
 docs-name: "hubspot"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 ---

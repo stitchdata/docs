@@ -34,8 +34,7 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# See these fields in _data/connect/common/all-sources.yml
-# May also include applicable fields in _data/connect/common/all-sources.yml
+uses-start-date: true
 
 object-attributes:
   - name: "api_key"

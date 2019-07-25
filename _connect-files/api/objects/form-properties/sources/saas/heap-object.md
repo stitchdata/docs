@@ -29,6 +29,8 @@ property-description: "data dumps in Amazon S3 buckets"
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   - name: "account_id"
     type: "string"

@@ -31,6 +31,7 @@ description: ""
 
 uses-common-fields: false
 uses-feature-fields: false
+uses-start-date: true
 
 object-attributes:
   - name: "host"

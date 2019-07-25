@@ -30,6 +30,8 @@ property-description: "the NetSuite SuiteTalk API"
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   - name: "account"
     type: "string"

@@ -21,10 +21,9 @@ docs-name: "mailchimp"
 
 description: ""
 
-
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# object-attributes:
+uses-start-date: true
 ---

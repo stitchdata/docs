@@ -31,13 +31,12 @@ docs-name: "liveperson"
 property-description: |
   the [{{ form-property.display-name }} Data Access API](https://developers.liveperson.com/data-access-api-overview.html){:target="new"}
 
+
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# uses-common-fields: true/false
-# See these fields in _data/connect/common/all-sources.yml
-# May also include applicable fields in _data/connect/common/all-sources.yml
+uses-start-date: true
 
 object-attributes:
   - name: "access_token"
