@@ -7,19 +7,14 @@ title: Basic Concepts and System Overview
 permalink: /getting-started/basic-concepts-system-overview
 keywords: getting started, get started, get set up, set up stitch, setup, guide
 
-summary: "TODO"
+summary: "The basic concepts and architecture of Stitch, including an overview of replication and the Stitch system."
 
 layout: general
 sidebar: on-page
 toc: true
 
-level: "category"
-icon: "clock"
-display-title: "Get started with Stitch"
-display-summary: "Get your Stitch data pipeline up and running."
-
-key: "getting-started"
-type: "getting-started"
+level: "guide"
+key: "basic-concepts"
 weight: 1
 
 
@@ -29,16 +24,16 @@ weight: 1
 
 related:
   - title: "Set up your Stitch data pipeline"
-    link: "{{ link.connect.api | prepend: site.baseurl }}"
+    link: "{{ link.getting-started.onboarding | prepend: site.baseurl }}"
 
   - title: "Understand your Stitch row usage"
-    link: "{{ }}"
+    link: "{{ link.getting-started.row-usage | prepend: site.baseurl }}"
 
   - title: "Stitch feature overview"
-    link: "{{ }}"
+    link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
 
   - title: "All Getting Started guides"
-    link: "{{ }}"
+    link: "{{ link.getting-started.category | prepend: site.baseurl }}"
 
 
 # -------------------------- #
@@ -52,6 +47,12 @@ intro: |
 
   Stitch is a cloud-first, open source platform for rapidly moving data. A simple, powerful ETL service, Stitch connects to all your data sources -- from databases like MySQL and MongoDB, to SaaS applications like Salesforce and Zendesk -- and replicates that data to a destination of your choosing.
 
+  In this guide, we'll cover the basic concepts and architecture of Stitch, including:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
 
 # -------------------------- #
 #      CONTENT SECTIONS      #
@@ -60,30 +61,36 @@ intro: |
 sections:
   - title: "Basics"
     anchor: "basics"
-    summary: "basic-concepts"
+    summary: "What Stitch does, how to get set up, and how usage is calculated"
     content: |
       {% for subsection in section.subsections %}
       - [{{ subsection.summary }}](#{{ subsection.anchor }})
       {% endfor %}
 
     subsections:
+      - title: "What is Stitch?"
+        anchor: "what-is-stitch"
+        summary: "What does Stitch do?"
+        content: |
+          Stitch a cloud-based, ETL data pipeline. ETL is short for extract, transform, load, which is a process that replicates data from multiple data sources and loads it into a central repository, or destination.
+
+          That being said, keep in mind that Stitch isn't:
+
+          - **A data analysis service**. We have many [analytics partners]({{ site.partners }}){:target="new"} who can help here, however.
+          - **A data visualization or querying tool.** Stitch only replicates data. To analyze it, you'll need an additional tool. Refer to our list of [analysis tools]({{ site.baseurl | append: "/analysis-tools" }}) for some suggestions.
+          - **A data warehouse**. A data warehouse, or destination, is required to use Stitch. While we can't create one for you, you can use our [Choosing a destination guide]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) if you need some help picking the right destination for your needs.
+
       - title: "Get set up"
         anchor: "concepts--getting-set-up"
         summary: "Getting set up with Stitch"
         content: |
-          Stitch a cloud-based, ETL data pipeline. ETL is short for extract, transform, load, which is a process that replicates data from multiple data sources and loads it into a central repository, or destination.
-
           In just a few minutes, you can set up your own data pipeline:
 
           1. **Sign up for a Stitch account**. Don't have an account yet? [Sign up here for your free trial]({{ site.sign-in }}){:target="new"}.
           2. **Connect a destination**. A destination is a database or warehouse where Stitch will load the replicated data, like Amazon Redshift or Google BigQuery.
           3. **Connect an integration**. Integrations are data sources, or where Stitch replicates data from. This includes SaaS applications like Google Analytics, databases like MySQL, and more.
 
-# That being said, keep in mind that Stitch isn't:
-
-# - **A data analysis service**. We have many [analytics partners]({{ site.partners }}){:target="new"} who can help here, however.
-# - **A data visualization or querying tool.** Stitch only replicates data. To analyze it, you'll need an additional tool. Refer to our list of [analysis tools]({{ site.baseurl | append: "/analysis-tools" }}) for some suggestions.
-# - **A data warehouse**. A destination is required to use Stitch. While we can't create one for you, you can use our [Choosing a destination guide]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) if you need some help picking the right destination for your needs.
+          For a step-by-step look at setting up Stitch, refer to the [Setting up your Stitch data pipeline guide]({{ link.getting-started-onboarding | prepend: site.baseurl }}).
 
       - title: "Integrations and destinations"
         anchor: "concepts--integrations-destinations"
@@ -127,6 +134,7 @@ sections:
 
   - title: "Replication"
     anchor: "replication"
+    summary: "An overview of data replication in Stitch"
     content: |
       Stitch's replication process consists of three distinct phases:
 
@@ -149,9 +157,7 @@ sections:
 
           Additionally, the speed of Extraction and Loading is largely dependent on the resources available in your data sources and destination.
 
-## [TODO- do we have any recommendations for optimizing performance?]
-
-# We pride ourselves on the speed and scalability of the Stitch system, [which you can read more about here](todo).
+          > [TODO- do we have any recommendations for optimizing performance?]
 
       - title: "Deleted records"
         anchor: "replication--never-delete"
@@ -160,12 +166,17 @@ sections:
 
   - title: "Transformations"
     anchor: "transformations"
+    summary: "The data transformations Stitch performs"
     content: |
       Stitch's goal is to get data from your data sources to your destination [in a useful, raw format](https://www.stitchdata.com/blog/why-our-etl-tool-doesnt-do-transformations/){:target="new"}:
 
       > _Useful_ means with types and structures that make the data easy to work with, and _raw_ means staying as close to the original representation as possible.
 
-      This doesn't mean that Stitch doesn't perform transformations during the replication process. Stitch just doesn't perform _arbitrary_ transformations - Stitch will perform only the transformations required to ensure the loaded data is useful and compatible with your destination. The transformations Stitch performs are dependent on the destination you choose.
+      This doesn't mean that Stitch doesn't perform transformations during the replication process. Stitch just doesn't perform _arbitrary_ transformations - Stitch will perform only the transformations required to ensure the loaded data is useful and compatible with your destination. The transformations Stitch performs are dependent on the destination you choose. These can include:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
       Stitch's philosophy is that what you do with your data depends on your needs, and by keeping data close to its original form, Stitch enables you to manage and transform it as you see fit. While we don't support user-defined transformations inside of Stitch, you can take advantage of [Talend's transformation and data quality solutions](https://www.stitchdata.com/platform/datatransformation/){:target="new"} to design and integrate your own transformations.
 
@@ -255,10 +266,11 @@ sections:
 
           For more info, refer to the [loading reference]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for your destination.
 
-## todo: confirm how we handle data that doesn't have timezone info in the source
+          > TODO: confirm how we handle data that doesn't have timezone info in the source
 
   - title: "System architecture"
     anchor: "system-architecture"
+    summary: "A step-by-step tour of the Stitch system, from data extracted to data loaded"
     content: |
       Now that you understand the basics of Stitch and how data replication works, let's take a look at the internal workings of the Stitch system.
 
@@ -268,11 +280,13 @@ sections:
       - title: "Extraction"
         anchor: "system-architecture--extraction"
         content: |
-          The first step in the replication process is called **Extraction**. Everything begins with a data source, or integration.
+          The first phase in the replication process is called **Extraction**. During this phase, data is extracted from an integration using the [replication settings you define](#replication--settings).
 
-          Using the [replication settings](#replication--settings) you define, Stitch will 
+          The Extraction phase includes:
 
-          [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }})
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
 
         sub-subsections:
           - title: "Step 1: The Singer-based replication engine"
@@ -292,16 +306,24 @@ sections:
             content: |
               The next step in the replication process is the Import API. 
 
-              For data sent directly to Stitch through a webhook or Import API integration, this is the first step in the replication process. (**Note**: This is why webhook and Import API integrations don't have .)
+              For data sent directly to Stitch through a webhook or Import API integration, this is the first step in the replication process. (**Note**: This is why webhook and Import API integrations don't have [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).)
 
               The [Import API]({{ link.import-api.getting-started | prepend: site.baseurl }}) is a [Clojure](https://clojure.org/){:target="new"} web service that accepts JSON and [Transit](https://github.com/cognitect/transit-format){:target="new"}, either in large batches or at a point in time. The Import API performs a validation check on the data before writing it to a central Apache Kafka queue.
 
-              If the data fails validation or another critical error occurs, the Extraction fails and an error is surfaced in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
+              If the data fails validation or another critical error occurs, the extraction will fail and trigger an [in-app and email notification]({{ link.account.notification-settings | prepend: site.baseurl }}). The error can also be viewed in an integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) tab.
+
+              ---
 
       - title: "Preparing"
         anchor: "system-architecture--preparing"
         content: |
-          The second step in the replication process is called **Preparing**. During this step, the extracted data is replicated internally for redundancy, batched, and transformed to be compatible with the destination it will be loaded to.
+          The second phase in the replication process is called **Preparing**. During this phase, the extracted data is replicated internally for redundancy, batched, and readied for loading.
+
+          The Preparing phase includes:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
 
         sub-subsections:
           - title: "Step 3: The Kafka queue"
@@ -327,10 +349,19 @@ sections:
             content: |
               After the Streamery writes batches to Amazon S3, those batches enter the Spool. The Spool is a queue of work waiting to be processed by a [Loader](#system-architecture--loaders). Data is stored in an encrypted Amazon S3 bucket by Stitch client, connection, and destination table and retained for no more than 30 days.
 
+              ---
+
       - title: "Loading"
         anchor: "system-architecture--loading"
         content: |
-          todo
+          The last phase in the replication process is **Loading**. During this phase, the prepared data is transformed to be compatible with the destination, and then loaded.
+
+          The Loading phase includes:
+
+          {% for sub-subsection in subsection.sub-subsections %}
+          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
+          {% endfor %}
+          
         sub-subsections:
           - title: "Step 6: The Loaders"
             anchor: "system-architecture--loaders"
@@ -338,4 +369,26 @@ sections:
               A Loader reads data from the Streamery (Amazon S3) and performs the [transformations](#transformations) necessary - such as converting data into the appropriate data types or structure - before loading it into your destination. Disk is used as a temporary buffer, data is encrypted when written, and deleted immediately once loaded.
 
               If available, Stitch will attempt to use [verified SSL/TLS-based encryption]({{ link.security.encryption | prepend: site.baseurl | append: "#connections-ssl-default" }}). Otherwise, Stitch will use an SSH tunnel for encryption, [if one is configured for the destination]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}).
+
+              If a critical error occurs, the load will fail and trigger an [in-app and email notification]({{ link.account.notification-settings | prepend: site.baseurl }}). The error can also be viewed in an integration's [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}) tab.
+
+          - title: "Step 7: Your destination"
+            anchor: "system-architecture--destination"
+            content: |
+              Data is finally loaded into your destination! At this point, you can use an [analysis tool]({{ site.baseurl }}/analysis-tools) to interact with your data.
+
+  - title: "Next steps"
+    anchor: "next-steps"
+    summary: "Some next steps"
+    content: |
+      Now that you've mastered the basics, move onto:
+
+      {% assign getting-started-guides = site.getting-started | where:"level","guide" | sort:"weight" %}
+
+      {% for guide in getting-started-guides %}
+      {% unless guide.url == page.url %}
+      - [**{{ guide.title }}**]({{ guide.url | prepend: site.baseurl }}): {{ guide.summary }}
+      {% endunless %}
+      {% endfor %}
+
 ---
