@@ -7,7 +7,7 @@ name: "list_members"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/list_members.json"
 description: |
-  The `{{ table.name }}` table contains info about the members in a specific {{ integration.display_name }} list.
+  The `{{ table.name }}` table contains info about the members in a specific {{ integration.display_name }} list, including currently subscribed, unsubscribed, and bounced members.
 
 replication-method: "Key-based Incremental"
 

@@ -7,7 +7,7 @@ name: "automations"
 doc-link: "https://developer.mailchimp.com/documentation/mailchimp/reference/automations/#read-get_automations"
 singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/automations.json"
 description: |
-  The `{{ table.name }}` table contains summary info about your {{ integration.display_name }} account's automations.
+  The `{{ table.name }}` table contains summary info about your {{ integration.display_name }} account's automations. In {{ integration.display_name }}, an automation is a feature that sends a series of emails to subscribers when triggered by a specific date, activity, or event.
 
 replication-method: "Full Table"
 

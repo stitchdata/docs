@@ -7,7 +7,7 @@ name: "lists"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/lists.json"
 description: |
-  The `{{ table.name }}` table contains info about all the lists in your {{ integration.display_name }} account.
+  The `{{ table.name }}` table contains info about all the lists in your {{ integration.display_name }} account. A list is also known as an audience, and is where all contacts are stored and managed in {{ integration.display_name }}.
 
 replication-method: "Full Table"
 
