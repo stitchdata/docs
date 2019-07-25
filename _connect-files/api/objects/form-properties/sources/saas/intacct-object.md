@@ -28,6 +28,8 @@ property-description: "reports exported to Amazon S3 via {{ form-property.displa
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   - name: "account_id"
     type: "string"

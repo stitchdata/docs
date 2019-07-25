@@ -31,6 +31,7 @@ description: ""
 
 uses-common-fields: true
 uses-feature-fields: true
+uses-start-date: false
 
 object-attributes:
   - name: "default_replication_method"

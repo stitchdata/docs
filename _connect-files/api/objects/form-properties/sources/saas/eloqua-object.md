@@ -7,8 +7,6 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-## PLEASE REMOVE COMMENTS WHEN FINISHED
-
 
 # -------------------------- #
 #        CONTENT TYPE        #
@@ -39,9 +37,7 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# uses-common-fields: true/false
-# See these fields in _data/connect/common/all-sources.yml
-# May also include applicable fields in _data/connect/common/all-sources.yml
+uses-start-date: true
 
 object-attributes:
   - name: "bulk_page_size"

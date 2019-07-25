@@ -8,9 +8,18 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-stripe-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Stripe Source Form Property"
 api-type: "platform.stripe"
@@ -20,4 +29,11 @@ source-type: "saas"
 docs-name: "Stripe"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 ---

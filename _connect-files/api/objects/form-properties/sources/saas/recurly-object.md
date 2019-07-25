@@ -34,6 +34,8 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   - name: "api_key"
     type: "string"

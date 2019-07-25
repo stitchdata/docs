@@ -20,4 +20,11 @@ source-type: "saas"
 docs-name: "bing-ads"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 ---
