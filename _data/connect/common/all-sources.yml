@@ -8,6 +8,7 @@ names:
   anchor-time: &anchor-time "anchor_time"
   frequency: &frequency "frequency_in_minutes"
   advanced: &advanced "cron_expression"
+  start-date: &start-date "start_date"
 
 guide-callout: |
   Refer to the [Replication Scheduling for API sources guide]({{ link.connect.guides.replication-scheduling-for-sources | prepend: site.baseurl }}) for more info about replication scheduling using the API.
@@ -92,7 +93,7 @@ fields:
 # the logic for displaying form-properties will filter this property out
 # when it shouldn't be there: _includes/developers/api-form-property-fields-logic.html
 start-date:
-  - name: "start_date"
+  - name: *start-date
     type: "string"
     required: true
     internal: false
