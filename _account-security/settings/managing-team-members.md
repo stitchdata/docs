@@ -31,13 +31,15 @@ sections:
       - title: "How many team members can be in an account?"
         anchor: "how-many-team-members"
         content: |
+          {% assign no-legacy-plans = site.data.stitch.subscription-plans.all-plans | where:"legacy",false %}
+
           The number of team members that can be added to your account depends on the [Stitch plan]({{ site.pricing }}){:target="new"} you're using:
 
-          {% assign stitch-plans = site.data.stitch.subscription-plans.all-plans | where:"legacy",false %}
+          {% for plan in no-legacy-plans %}
+          {% unless plan.name == "free-trial" %}
+          {% assign this-plan = site.data.stitch.subscription-plans[plan.name] %}
 
-          {% for plan in stitch-plans %}
-          {% unless plan.name == "Free Trial" %}
-          - **{{ plan.name }}**: {{ plan.users | append: " users" }}
+          - **{{ this-plan.name }}**: {{ this-plan.users | append: " users" }}
           {% endunless %}
           {% endfor %}
 
