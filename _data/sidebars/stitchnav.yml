@@ -5,8 +5,18 @@ all-docs:
   categories:
 
   - title: Getting started
-    url: "{{ link.getting-started }}"
-    drop-down: false
+    sections:
+      - title: "Basic concepts & system overview"
+        url: "{{ link.getting-started.basic-concepts }}"
+
+      - title: "Set up your Stitch data pipeline"
+        url: "{{ link.getting-started.onboarding }}"
+
+      - title: "Understand your Stitch row usage"
+        url: "{{ link.getting-started.row-usage }}"
+
+      - title: "All Getting started"
+        url: "{{ link.getting-started.category }}"
 
   - title: Account & security
     sections:
