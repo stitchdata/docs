@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailc
 description: |
   The `{{ table.name }}` table contains info about members in a [saved segment](https://mailchimp.com/help/save-and-manage-segments/){:target="new"}
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
     name: "Get information about all members in a list segment"

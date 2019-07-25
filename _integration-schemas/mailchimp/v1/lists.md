@@ -9,9 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailc
 description: |
   The `{{ table.name }}` table contains info about all the lists in your {{ integration.display_name }} account.
 
-  - I think you need to replicate this to get `list_members` and `list_segments`
-
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
     name: "Get information about all lists"

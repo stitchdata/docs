@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailc
 description: |
   The `{{ table.name }}` table contains info about the campaigns in your {{ integration.display_name }} account.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
     name: "Get all campaigns"

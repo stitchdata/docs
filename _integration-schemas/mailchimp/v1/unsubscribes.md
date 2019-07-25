@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailc
 description: |
   The `{{ table.name }}` table contains info about members who have unsubscribed from a specific campaign.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
     name: "Get unsubscribed list members"

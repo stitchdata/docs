@@ -4,15 +4,18 @@ version: "1.0"
 
 key: "report-email-activity"
 name: "reports_email_activity"
-doc-link: ""
+doc-link: "https://developer.mailchimp.com/documentation/mailchimp/reference/reports/email-activity/"
 singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailchimp/schemas/reports_email_activity.json"
 description: |
   The `{{ table.name }}` table contains info about a member's subscriber activity in a specific campaign.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "dateTime of email activity"
 
 api-method:
-    name: ""
+    name: "Use batch operation"
     doc-link: "https://developer.mailchimp.com/documentation/mailchimp/guides/how-to-use-batch-operations/"
 
 attributes:

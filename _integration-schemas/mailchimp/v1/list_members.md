@@ -9,7 +9,10 @@ singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailc
 description: |
   The `{{ table.name }}` table contains info about the members in a specific {{ integration.display_name }} list.
 
-replication-method: ""
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "last_modified"
 
 api-method:
     name: "Get information about members in a list"

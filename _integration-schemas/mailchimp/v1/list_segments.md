@@ -9,7 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-mailchimp/blob/master/tap_mailc
 description: |
   The `{{ table.name }}` table contains info about the available segments for a specific list.
 
-replication-method: ""
+replication-method: "Full Table"
 
 api-method:
     name: "Get information about all segments in a list"
