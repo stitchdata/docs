@@ -7,7 +7,7 @@ title: Connecting Other Data Sources to Stitch
 permalink: /integrations/connecting-other-data-sources-to-stitch
 keywords: integrations unsupported other data sources where is integration
 
-summary: "Don't see an integration you want in Stitch? In this guide, we cover the best methods for getting data from not-currently-supported data sources into Stitch."
+summary: "Don't see an integration you want in Stitch? Learn about your options for getting data from not-currently-supported data sources into Stitch."
 
 layout: general
 toc: true
@@ -23,6 +23,15 @@ weight: 4
 related:
   - title: "Set up your Stitch data pipeline"
     link: "{{ link.getting-started.onboarding | prepend: site.baseurl }}"
+
+  - title: "All integrations"
+    link: "{{ site.baseurl }}/integrations"
+
+  - title: "Import API reference"
+    link: "{{ link.import-api.getting-started }}"
+
+  - title: "Incoming Webhooks"
+    link: "{{ link.integrations.stitch-incoming-webhooks }}"
 
 
 # -------------------------- #
@@ -81,7 +90,7 @@ sections:
     anchor: "use-import-api"
     summary: "Use the Import API"
     content: |
-      The [Import API]({{ link.integrations.import-api | prepend: site.baseurl }}) is a REST API that allows you to push any arbitrary data into your destination. Data sent to the Import API is processed and sent through Stitch like data from any other integration. To use this method, you can write a script or application that pushes data to the Import API.
+      The Import API is a REST API that allows you to push any arbitrary data into your destination. Data sent to the Import API is processed and sent through Stitch like data from any other integration. To use this method, you can write a script or application that pushes data to the Import API.
 
       For example: With the Import API, you can push data from sources like [Google Sheets](https://github.com/stitchdata/google-sheets-integration){:target="new"} to Stitch. 
 
