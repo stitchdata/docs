@@ -123,6 +123,10 @@ render the Markdown. This is a Jekyll thing, not a this-site thing. -->
 <h3 id="define-rep-frequency">Step {{ forloop.index }}: Create a replication schedule</h3>
 {% capture replication-frequency %}
 {% include integrations/shared-setup/replication-frequency.html %}
+
+{% if step.content %}
+{{ step.content }}
+{% endif %}
 {% endcapture %}
 
 {{ replication-frequency | markdownify }}
