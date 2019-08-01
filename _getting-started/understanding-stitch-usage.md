@@ -1,51 +1,403 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Understanding and Reducing Your Row Usage
 permalink: /getting-started/understanding-stitch-usage
 redirect_from: /account-security/understanding-stitch-billing-replicated-rows
 keywords: billing, bill info, payment history, tier, plan, charge, row usage, replicated row, replicated rows, usage, row count
 layout: general
 
-summary: "Learn the basics of Stitch billing, how to view & understand your usage, and keep your row count low."
+summary: "Learn the basics of Stitch billing, how to view and understand your usage, and keep your row count low."
 
 toc: true
 
-type: "billing"
-weight: 1
+level: "guide"
+key: "row-usage"
+weight: 3
+
+
+# -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+
+# -------------------------- #
+#         GUIDE INTRO        #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}
 
-  Much like the data part of a cell phone plan, each Stitch plan is allotted a certain number of replicated rows per month. For detailed info on pricing and what's included in each plan, refer to the [pricing page]({{ site.pricing }}){:target="new"} on our website.
-
   In this guide, we'll cover the basics of Stitch billing, how to check and understand your usage, and some tips for keeping your row count low.
 
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary }}](#{{ section.anchor }})
+  {% endfor %}
+
+
+# -------------------------- #
+#      CONTENT SECTIONS      #
+# -------------------------- #
+
 sections:
-  - title: "Billing basics"
+  - title: "Stitch billing basics"
     anchor: "billing-basics"
+    summary: "The basics of Stitch billing"
     content: |
-      {% include billing/replicated-row-definition.html %}
-
-  - title: "Check your usage in Stitch"
-    anchor: "viewing-rows-replicated-in-stitch"
-    content: |
-      {% include billing/view-usage.html %}
-
-      The **reset date** - or the day your row count will reset to zero - can be found in the **Plan Details** section of your {{ app.page-names.billing }} page, accessed by clicking the {{ app.menu-paths.billing }}.
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
     subsections:
-      - title: "Understand your usage"
-        anchor: "understanding-your-usage"
+      - title: "How does Stitch billing work?"
+        anchor: "how-does-billing-work"
         content: |
-          When viewing the number of replicated rows in Stitch, you may be surprised by the totals. You may ask yourself: _"How did Stitch replicate this many rows? There aren't that many in my source or destination!"_
+          Much like the data part of a cell phone plan, each Stitch plan is allotted a certain number of replicated rows per month. For detailed info on pricing and what's included in each plan, refer to the [pricing page]({{ site.pricing }}){:target="new"} on our website.
 
-          Keep in mind that the total reported by Stitch is the number of **replicated** rows. The number of rows Stitch replicates is directly impacted by:
+      - title: "What's a replicated row?"
+        anchor: "what-is-a-replicated-row"
+        content: |
+          {% include billing/replicated-row-definition.html %}
 
-          {% include replication/replicated-rows-calculation.html %}
+  - title: "Understand your usage"
+    anchor: "understanding-your-usage"
+    content: |
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+      
+    subsections:
+      - title: "Source rows ≠ replicated rows"
+        anchor: "source-rows-not-equal-to-replicated-rows"
+        content: |
+          When viewing the number of replicated rows in Stitch, you may be surprised by the totals. You may ask yourself:
+
+          > "How did Stitch replicate this many rows? There aren't that many in my source or destination!"
+
+          We understand that this can be confusing. **Keep in mind that row usage in Stitch is the total number of replicated rows.** This means that the number of rows in the source won't necessarily be equal to your row usage in Stitch.
 
           Because Stitch counts updated rows, copies of existing rows, and rows created from de-nesting towards your total usage, the total of replicated rows and the total number of rows in your data sources or destination may not be equal.
 
+      - title: "Impacts on usage"
+        anchor: "impacts-on-usage"
+        content: |
+          The number of rows Stitch replicates is directly impacted by:
+
+          {% include replication/replicated-rows-calculation.html %}
+
+      - title: "Usage examples"
+        anchor: "usage-examples"
+        example-one:
+          description: |
+            In this example, we'll look at how different replication frequencies can affect the total number of replicated rows.
+
+            Below are the total number of replicated rows for a table with **100 rows** using **Full Table Replication**:
+
+          attributes:
+            - frequency: "30 minutes"
+              daily-total: "4,800"
+              billing-period-total: "144,000"
+
+            - frequency: "1 hour"
+              daily-total: "2,400"
+              billing-period-total: "72,000"
+
+            - frequency: "6 hours"
+              daily-total: "400"
+              billing-period-total: "12,000"
+
+            - frequency: "12 hours"
+              daily-total: "200"
+              billing-period-total: "6,000"
+
+            - frequency: "24 hours"
+              daily-total: "100"
+              billing-period-total: "3,000"
+
+        example-two:
+          description: |
+            **Note**: This example is applicable only to destinations that don't natively support nested data, such as Amazon Redshift or PostgreSQL-based destinations.
+
+            In this example, we'll look at how data structured using JSON arrays can affect the total number of replicated rows.
+
+            For destinations that don't natively support storing nested data, Stitch will "de-nest", or normalize, complex JSON structures into relations. For JSON arrays, data is unpacked into subtables, where each sub-record is counted as a replicated row.
+          attributes:
+            - frequency: "30 minutes"
+              daily-total: "192"
+              billing-period-total: "5,760"
+
+            - frequency: "1 hour"
+              daily-total: "96"
+              billing-period-total: "2,880"
+
+            - frequency: "6 hours"
+              daily-total: "16"
+              billing-period-total: "480"
+
+            - frequency: "12 hours"
+              daily-total: "8"
+              billing-period-total: "240"
+
+            - frequency: "24 hours"
+              daily-total: "4"
+              billing-period-total: "120"
+          data: |
+            ```json
+            {
+               "id":1,
+               "name":"Finn",
+               "type":"human",
+               "best_friends":[
+                  {
+                     "id":2,
+                     "name":"Jake",
+                     "type":"dog"
+                  },
+                  {
+                     "id":3,
+                     "name":"Bubblegum",
+                     "type":"princess"
+                  },
+                  {
+                     "id":4,
+                     "name":"BMO",
+                     "type":"robot"
+                  }
+               ]
+            }
+            ```
+          destination:
+            names:
+              top-level: "people"
+              subtable: "people__best_friends"
+
+            descriptions:
+              top-level: "The top-level table will contain a single record:"
+              subtable: "The subtable will contain three records, one for each item in the `best_friends` array:"
+
+            top-level:
+              - id: "1"
+                name: "Finn"
+                type: "human"
+            subtable:
+              - _sdc_source_key_id: "1"
+                _sdc_level_0_id: "0"
+                id: "2"
+                name: "Jake"
+                type: "dog"
+
+              - _sdc_source_key_id: "1"
+                _sdc_level_0_id: "1"
+                id: "3"
+                name: "Bubblegum"
+                type: "princess"
+
+              - _sdc_source_key_id: "1"
+                _sdc_level_0_id: "2"
+                id: "4"
+                name: "BMO"
+                type: "robot"
+
+        content: |
+          Next, we'll look at some examples. [TODO]
+
+          When looking at the example, note the differences between the source rows and row totals reported in Stitch.
+
+          <ul id="profileTabs" class="nav nav-tabs">
+            <li class="active">
+                <a href="#all-examples" data-toggle="tab">Examples</a>
+            </li>
+            <li>
+                <a href="#example-one" data-toggle="tab">Replication Frequency</a>
+            </li>
+            <li>
+                <a href="#example-two" data-toggle="tab">Data structure</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="all-examples">
+          {% capture example-tab-copy %}
+          In each tab is an example of how certain factors can affect row usage in Stitch.
+
+          For these examples, assume that:
+
+          - The tables are using [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}). This means the table is replicated in full during every replication job.
+          - That Extraction has completed without issue for every scheduled replication job.
+          {% endcapture %}
+
+          {{ example-tab-copy | flatify | markdownify }}
+
+          </div>
+
+              <div role="tabpanel" class="tab-pane" id="example-one">
+                {{ subsection.example-one.description | flatify | markdownify }}
+
+                {% assign rows = "daily-total|billing-period-total" | split:"|" %}
+
+                  <table class="attribute-list">
+                    <tr>
+                      <td>
+                      </td>
+                      {% for attribute in subsection.example-one.attributes %}
+                        <td>
+                          <strong>{{ attribute.frequency }}</strong>
+                        </td>
+                      {% endfor %}
+                    </tr>
+
+                    {% for row in rows %}
+                      <tr>
+                        <td>
+                          <strong>{{ row | replace:"-"," " | capitalize }}</strong>
+                        </td>
+                        {% for attribute in subsection.example-one.attributes %}
+                          <td>
+                            {{ attribute[row] }}
+                          </td>
+                        {% endfor %}
+                      </tr>
+                    {% endfor %}
+                  </table>
+
+                <p>
+                  As you can see, slightly reducing the Replication Frequency can greatly reduce the number of replicated rows overall.
+                </p>
+                <p>
+                  While this example only demonstrates row usage for a single table, think about how row usage will increase when there are multiple tables like this one set to replicate.
+                </p>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="example-two">
+                {{ subsection.example-two.description | flatify | markdownify }}
+
+                <strong>Source record in JSON format</strong>
+
+                <p>
+                  When Stitch extracts data from a source, it's done by putting the data into JSON format. Below is a sample record from a table named <code>people</code>. Note the <code>best_friends</code> array:
+                </p>
+
+                {{ subsection.example-two.data | markdownify }}
+
+                <p>
+                  When Stitch loads this record into the destination, two tables will be created: <code>people</code> and <code>people__best_friends</code>. This is due to Stitch unpacking the JSON arrays.
+                </p>
+
+                {% assign tables = "top-level|subtable" | split:"|" %}
+
+                {% for table in tables %}
+                    <strong>{{ table | capitalize }}: 
+                    <code>{{ subsection.example-two.destination.names[table] }}</code></strong>
+
+                  {{ subsection.example-two.destination.descriptions[table] | markdownify }}
+
+                  {% case table %}
+                    {% when 'top-level' %}
+                      {% assign columns = "id|name|type" | split:"|" %}
+                    {% when 'subtable' %}
+                      {% assign columns = "_sdc_source_key_id|_sdc_level_0_id|id|name|type" | split:"|" %}
+                  {% endcase %}
+
+                  <table class="attribute-list">
+                    <tr>
+                      {% for column in columns %}
+                        <td>
+                          <strong>{{ column }}</strong>
+                        </td>
+                      {% endfor %}
+                    </tr>
+                  {% for record in subsection.example-two.destination[table] %}
+                    <tr>
+                      {% for column in columns %}
+                        <td>
+                          {{ record[column] }}
+                        </td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                  </table>
+                {% endfor %}
+
+                {% assign rows = "daily-total|billing-period-total" | split:"|" %}
+
+                <strong>Row usage totals</strong>
+
+                <p>
+                  This example assumes the table is using <strong>Full Table Replication</strong>. Below are the total number of replicated rows for the <code>people</code> (one record) and <code>people__best_friends</code> (three records) tables:
+                </p>
+
+                  <table class="attribute-list">
+                    <tr>
+                      <td>
+                      </td>
+                      {% for attribute in subsection.example-two.attributes %}
+                        <td>
+                          <strong>{{ attribute.frequency }}</strong>
+                        </td>
+                      {% endfor %}
+                    </tr>
+
+                    {% for row in rows %}
+                      <tr>
+                        <td>
+                          <strong>{{ row | replace:"-"," " | capitalize }}</strong>
+                        </td>
+                        {% for attribute in subsection.example-two.attributes %}
+                          <td>
+                            {{ attribute[row] }}
+                          </td>
+                        {% endfor %}
+                      </tr>
+                    {% endfor %}
+                  </table>
+
+                  <p>
+                    This example demonstrates that while there is only one record in the source, the number of rows replicated and loaded through Stitch will be four due to de-nesting.
+                  </p>
+
+                  <p>
+                    While the example totals may not appear to be significant, think about this as it might relate to real data. Tables can contain dozens or hundreds of records, which will exponentially increase overall row usage.
+                  </p>
+              </div>
+          </div>
+
+
+  - title: "Check your row usage"
+    anchor: "check-your-usage"
+    summary: "How to check your row usage in Stitch"
+    content: |
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Row usage for all integrations"
+        anchor: "row-usage-all-integrations"
+        content: |
+          On the {{ app.page-names.dashboard }} page, you can view the total number of replicated rows for all of your integrations for the current billing period:
+
+          ![Row usage graph on the Stitch Dashboard page for all integrations]({{ site.baseurl }}/images/account-security/all-row-usage-dashboard.png)
+
+      - title: "Row usage for an integration"
+        anchor: "row-usage-for-an-integration"
+        content: |
+          To take a closer look at an individual integration's usage for the current billing period, click on the integration to open the {{ app.page-names.int-details }} page, and check out the **Rows Loaded Over Time** section:
+
+          ![Rows loaded over time for an integration]({{ site.baseurl }}/images/account-security/integration-row-usage.png)
+
+      - title: "Row usage reset date"
+        anchor: "row-usage-reset-date"
+        content: |
+          The reset date - or the day your row count will reset to zero - can be found in the **Your Usage** section of your {{ app.page-names.billing }} page, accessed by clicking the {{ app.menu-paths.billing }}:
+
+          ![Row usage reset date in the Your Usage section of the Stitch Billing page]({{ site.baseurl }}/images/account-security/billing-reset-date.png)
+
   - title: "Reduce your usage"
     anchor: "reducing-your-usage"
+    summary: "Some tips for reducing your usage"
     content: |
       While you can change your plan at any time to accommodate changing volume needs, below are some tried-and-true tips for reducing your row usage and staying within your plan's row allotment:
 
@@ -53,25 +405,19 @@ sections:
       - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
-      - title: "Reduce your integrations' Replication Frequency"
+      - title: "Reduce Replication Frequencies"
         anchor: "reduce-replication-frequency"
         content: |
-          {{ site.data.tooltips.replication-frequency }} Generally, the more often an integration is scheduled to replicate, the higher the number of rows Stitch replicates for the inetgration.
+          Generally, the more often an integration is scheduled to replicate, the higher the number of rows Stitch replicates for the inetgration.
 
           If you're able to get by without the freshest data, consider changing your integrations' [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }}) to something less frequent. For example: Every hour or six hours.
 
-          Keep in mind that the Replication Frequency setting applies to the **entire integration**, not individual tables. This is especially important if there are a lot of tables that use <a href="#" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.full-table-rep }}">Full Table Replication</a> in the integration.
+          Keep in mind that the Replication Frequency setting applies to the **entire integration**, not individual tables. This is especially important if there are a lot of tables that use [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}) in the integration.
 
-      - title: "Understand Stitch's Replication Methods"
-        anchor: "check-table-replication-methods"
+      - title: "Use an incremental Replication Method"
+        anchor: "use-incremental-replication"
         content: |
-          Stitch uses one of three [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}) to replicate data from your data sources. To keep your row usage down, Stitch recommends familiarizing yourself with each of these methods before selecting tables for replication. This will ensure you set Stitch up to accurately and efficiently replicate your data.
-
-          - [**Key-based Incremental Replication**]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) - {{ site.data.tooltips.key-based-incremental-rep }}
-          - [**Log-based Incremental Replication**]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) - {{ site.data.tooltips.log-based-incremental-rep }}
-          - [**Full Table Replication**]({{ link.replication.full-table | prepend: site.baseurl }}) - {{ site.data.tooltips.full-table-rep }}
-
-          For integrations that allow you to configure Replication Methods for selected tables, Stitch recommends using an incremental method whenever possible. This can significantly reduce the amount of redundant data that's replicated by Stitch.
+          For integrations that support Replication Method configuration, we recommend using either [Key-based]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) whenever possible.  
 
       - title: "Get to know your SaaS integrations"
         anchor: "get-to-know-saas-integrations"
@@ -80,20 +426,18 @@ sections:
 
           - **The integration generates massive amounts of data.** Mixpanel, for example, typically contains large amounts of data.
           - **Some tables require Full Table Replication or querying for a time range** (attribution window) during each replication job to ensure accuracy. 
-          - **The integration contains nested data structures.** If you're using a destination that doesn't natively support nested structures, Stitch will de-nest these structures and create sub-rows which will result in a higher number of replicated rows.
-
-             For an in-depth walkthrough of how JSON arrays are deconstructed in Stitch, as well as what arrays are in the first place, check out the [Handling of Nested Data Structures & Row Count Impact]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) guide.
+          - **The integration contains nested data structures.** As we mentioned previously, records created from de-nesting JSON objects and arrays can count toward your row usage. Integrations with data structures that heavily use JSON objects and arrays - such as [Shopify]({{ site.baseurl }}/integrations/saas/shopify) - can lead to higher row counts.
 
           To find out more about your SaaS integrations' data structure and replication methods, we recommend checking out our extensive [SaaS integration docs]({{ site.baseurl }}/integrations/saas). Every SaaS integration has detailed info about the tables Stitch will replicate and the methods used to do so.
 
       - title: "De-select unnecessary data"
         anchor: "deselect-unnecessary-data"
         content: |
+          **Note**: This is only applicable to the [integrations that support table and/or column selection]({{ link.replication.syncing | prepend: site.baseurl | append: "#table-column-selection-support" }}).
+
           To keep your row count down and your destination tidy, you can also de-select any tables or columns you don't need.
 
           For example: If a column contains nested data, additional sub-rows may be created to accommodate loading the data to certain destination types. This will increase the total row count, as [Stitch counts sub-rows towards usage](#billing-basics). If this column is no longer needed, you could de-select it and lower your usage.
-
-          **Note**: This is only applicable to the [integrations that support table and/or column selection]({{ link.replication.syncing | prepend: site.baseurl | append: "#table-column-selection-support" }}).
 
       - title: "Pause integrations"
         anchor: "pause-integrations"
