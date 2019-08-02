@@ -72,13 +72,13 @@ sections:
         anchor: "what-is-stitch"
         summary: "What does Stitch do?"
         content: |
-          Stitch a cloud-based, ETL data pipeline. ETL is short for extract, transform, load, which is a process that replicates data from multiple data sources and loads it into a central repository, or destination.
+          Stitch a cloud-based, ETL data pipeline. ETL is short for extract, transform, load, which are the steps in a process that moves data from a source to a destination.
 
           That being said, keep in mind that Stitch isn't:
 
           - **A data analysis service**. We have many [analytics partners]({{ site.partners }}){:target="new"} who can help here, however.
-          - **A data visualization or querying tool.** Stitch only replicates data. To analyze it, you'll need an additional tool. Refer to our list of [analysis tools]({{ site.baseurl | append: "/analysis-tools" }}) for some suggestions.
-          - **A data warehouse**. A data warehouse, or destination, is required to use Stitch. While we can't create one for you, you can use our [Choosing a destination guide]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) if you need some help picking the right destination for your needs.
+          - **A data visualization or querying tool.** Stitch only moves data. To analyze it, you'll need an additional tool. Refer to our list of [analysis tools]({{ site.baseurl | append: "/analysis-tools" }}) for some suggestions.
+          - **A destination**. A destination is typically a data warehouse and is required to use Stitch. While we can't create one for you, you can use our [Choosing a destination guide]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) if you need some help picking the right destination for your needs.
 
       - title: "Get set up"
         anchor: "concepts--getting-set-up"
@@ -87,7 +87,7 @@ sections:
           In just a few minutes, you can set up your own data pipeline:
 
           1. **Sign up for a Stitch account**. Don't have an account yet? [Sign up here for your free trial]({{ site.sign-in }}){:target="new"}.
-          2. **Connect a destination**. A destination is a database or warehouse where Stitch will load the replicated data, like Amazon Redshift or Google BigQuery.
+          2. **Connect a destination**. A destination, typically a database or data warehouse, where Stitch will load the replicated data. This includes products like Amazon Redshift, Amazon S3, or Google BigQuery.
           3. **Connect an integration**. Integrations are data sources, or where Stitch replicates data from. This includes SaaS applications like Google Analytics, databases like MySQL, and more.
 
           For a step-by-step look at setting up Stitch, refer to the [Setting up your Stitch data pipeline guide]({{ link.getting-started-onboarding | prepend: site.baseurl }}).
@@ -102,7 +102,7 @@ sections:
           - title: "Destinations"
             anchor: "concepts--destinations"
             content: |
-              Stitch offers some of the most popular data lakes, warehouses, and storage platforms as destinations, such as Amazon Redshift, Google BigQuery, and Microsoft Azure SQL Data Warehouse.
+              Stitch supports some of the most popular data lakes, warehouses, and storage platforms as destinations, such as Amazon Redshift, Google BigQuery, and Microsoft Azure SQL Data Warehouse.
 
               The destination you choose determines how replicated data is loaded and structured. This is discussed in more detail in the [Transformations](#transformations) section.
 
@@ -111,9 +111,9 @@ sections:
           - title: "Integrations"
             anchor: "concepts--integrations"
             content: |
-              An integration is a data source. This can be a database, API, or other data application that Stitch replicates data from, such as Google Analytics or MySQL.
+              An integration is a data source. This can be a database, API, file, or other data application that Stitch replicates data from, such as MySQL, Google Analytics, or Amazon S3.
 
-              During your free trial, you'll have access to all of Stitch's integrations. After the trial ends, some integrations - such as MongoDB or Salesforce - are only available if you select a paid plan.
+              During your free trial, all of Stitch's integrations are accessible. After the trial ends, some integrations - such as MongoDB or Salesforce - are only available if you select a paid plan.
 
               Refer to the [Integration]({{ site.baseurl }}/integrations) documentation for more info on each of Stitch's integrations, such as what data is available or what features are supported.
 
@@ -121,16 +121,9 @@ sections:
         anchor: "concepts--rows-stitch-usage"
         summary: "How Stitch usage is calculated"
         content: |
-          Stitch usage is volume-based. Much like the data part of a cell phone plan, each Stitch plan is allotted a certain number of replicated rows per month. 
+          Stitch usage is volume-based. Much like the data part of a cell phone plan, each Stitch plan includes a set number of [replicated rows]({{ link.getting-started.row-usage | prepend: site.baseurl | append:"#what-is-a-replicated-row" }}) per month. Your overall row usage can be affected by a variety of factors, including the destination you choose and number of integrations you have.
 
-          Your overall row usage can be affected by a variety of factors, including the destination you choose and number of integrations you have. For an in-depth walkthrough of how usage is calculated, the factors that affect it, and how you can reduce your usage, refer to the [Understanding and Reducing Your Usage guide]({{ link.getting-started.row-usage | prepend: site.baseurl }}).
-
-      #     **Don't see an integration you need?** If Stitch doesn't have a native integration for one of your sources, don't worry - there are still options:
-
-      #     - Use the [**Import API**]({{ link.integrations.import-api | prepend: site.baseurl }}) integration to push arbitrary data into your data warehouse. You can use the Import API to replicate data from CSV files, Google Sheets, and more.
-      #     - Use the [**Stitch Incoming Webhooks**]({{ link.integrations.stitch-incoming-webhooks | prepend: site.baseurl }}) integration to pull event data from a webhook-based service. This generic integration can be used with dozens of services.
-      #     - Check out (and contribute to) [**Singer**]({{ site.singer }}), our open-source, community-driven ETL platform. 
-      #     - Use the **Suggest Integration** button on the Integrations page in the Stitch app. We're always looking to add new integrations to our offerings.
+          For an in-depth walkthrough of how usage is calculated, the factors that affect it, and how you can reduce your usage, refer to the [Understanding and Reducing Your Usage guide]({{ link.getting-started.row-usage | prepend: site.baseurl }}).
 
   - title: "Replication"
     anchor: "replication"
@@ -138,7 +131,7 @@ sections:
     content: |
       Stitch's replication process consists of three distinct phases:
 
-      1. **Extraction**: Stitch pulls data from your data sources and validates it using our Stitch's Import API.
+      1. **Extraction**: Stitch pulls data from your data sources and persists it to Stitch's data pipeline through the Import API.
       2. **Preparing**: Data is [lightly transformed](#transformations) to ensure compatibility with the destination. 
       3. **Loading**: Stitch loads the data into your destination.
 
@@ -157,12 +150,10 @@ sections:
 
           Additionally, the speed of Extraction and Loading is largely dependent on the resources available in your data sources and destination.
 
-          > [TODO- do we have any recommendations for optimizing performance?]
-
       - title: "Deleted records"
         anchor: "replication--never-delete"
         content: |
-          Stitch will never delete data from your destination, even if records have been hard deleted from the source. Refer to the [Deleted Record Handling guide]({{ link.replication.deleted-records | prepend: site.baseurl }}) for more info and examples.
+          Stitch will never delete data from your destination, even if records have been deleted from the source. Refer to the [Deleted Record Handling guide]({{ link.replication.deleted-records | prepend: site.baseurl }}) for more info and examples.
 
   - title: "Transformations"
     anchor: "transformations"
@@ -181,7 +172,7 @@ sections:
       Stitch's philosophy is that what you do with your data depends on your needs, and by keeping data close to its original form, Stitch enables you to manage and transform it as you see fit. While we don't support user-defined transformations inside of Stitch, you can take advantage of [Talend's transformation and data quality solutions](https://www.stitchdata.com/platform/datatransformation/){:target="new"} to design and integrate your own transformations.
 
     subsections:
-      - title: "Data typing"
+      - title: "Typing data"
         anchor: "data-typing"
         example-data:
           - id: "1"
@@ -202,7 +193,7 @@ sections:
 
           Stitch converts data types only where needed to ensure the data is accepted by your destination.
 
-          With some exceptions, when a data type is changed in the source, Stitch will create an additional column in the destination to accommodate the new data type. This will look like the column has been "split". For example:
+          With some exceptions, when a data type is changed or a field has multiple data types in the source, Stitch will create an additional column in the destination to accommodate the new data type. This will look like the column has been "split". For example:
 
           {% assign column-headings = "id|has_magic__bo|has_magic__st" | split: "|" %}
           {% assign attributes = "id|boolean|string" | split: "|" %}
@@ -230,7 +221,7 @@ sections:
 
           Refer to the [Columns with mixed data types guide]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }}) for more info and examples.
 
-      - title: "JSON structures"
+      - title: "Handling JSON structures"
         anchor: "json-structures"
         content: |
           The destination you're using determines how Stitch handles complex JSON structures such as arrays and objects.
@@ -239,7 +230,7 @@ sections:
 
           If your destinaton doesn't natively support storing nested data, Stitch will "de-nest", or normalize, the data into relations. For JSON objects, attributes will be flattened into the table, while arrays will be unpacked into subtables. For more info and examples, refer to the [Nested JSON structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
-      - title: "Object names"
+      - title: "Naming objects"
         anchor: "object-names"
         content: |
           When you initially set up an integration, you'll define [the name of the schema in the destination]({{ link.destinations.storage.stitch-schema | prepend: site.baseurl | append: "#integration-schema-names" }}) where Stitch will load that integration's data.
@@ -253,7 +244,7 @@ sections:
 
           **Note**: Table and column names cannot be changed in Stitch.
 
-      - title: "Timezones"
+      - title: "Handling timezone data"
         anchor: "timezones"
         content: |
           Some of the destinations Stitch offers don't natively support timezones. To ensure accuracy and consistency, Stitch handles data with timezones in this manner:
@@ -308,7 +299,7 @@ sections:
 
               For data sent directly to Stitch through a webhook or Import API integration, this is the first step in the replication process. (**Note**: This is why webhook and Import API integrations don't have [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).)
 
-              The [Import API]({{ link.import-api.getting-started | prepend: site.baseurl }}) is a [Clojure](https://clojure.org/){:target="new"} web service that accepts JSON and [Transit](https://github.com/cognitect/transit-format){:target="new"}, either in large batches or at a point in time. The Import API performs a validation check on the data before writing it to a central Apache Kafka queue.
+              The [Import API]({{ link.import-api.getting-started | prepend: site.baseurl }}) validates and authenticates each request, and then persists the data to Stitch's internal data pipeline.
 
               If the data fails validation or another critical error occurs, the extraction will fail and trigger an [in-app and email notification]({{ link.account.notification-settings | prepend: site.baseurl }}). The error can also be viewed in an integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) tab.
 
@@ -317,7 +308,7 @@ sections:
       - title: "Preparing"
         anchor: "system-architecture--preparing"
         content: |
-          The second phase in the replication process is called **Preparing**. During this phase, the extracted data is replicated internally for redundancy, batched, and readied for loading.
+          The second phase in the replication process is called **Preparing**. During this phase, the extracted data is buffered in Stitch's durable, highly available internal data pipeline and readied for loading.
 
           The Preparing phase includes:
 
@@ -326,30 +317,24 @@ sections:
           {% endfor %}
 
         sub-subsections:
-          - title: "Step 3: The Kafka queue"
-            anchor: "system-architecture--kafka-queue"
+          - title: "Step 3: The Pipeline"
+            anchor: "system-architecture--pipeline"
             content: |
-              Data sent from the Import API is immediately persisted to Kafka, using Amazon S3 as a fallback. The Kafka queue is used to ensure Stitch meets its most important service-level target: Don't lose data.
-
-              During this step, Stitch replicates our Kafka cluster across three different data centers. Each data point in the extracted data must be written to two data centers before it's accepted. Should the write fail, Stitch will continue to try until it's successful.
-
-              Data is stored encrypted, and deleted after no more than seven days.
+              Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API, and ensure we meet our most important service-level target: don't lose data. Data is always encrypted at rest, and automatically deleted from the buffer after no more than thirty days.
 
           - title: "Step 4: The Streamery"
             anchor: "system-architecture--streamery"
             content: |
-              Next, data is moved from Kafka into what is called the Streamery. A low-latency, multithreaded Clojure application, the Streamery's goal is to maximize throughput while guarding against data loss or data leaking between data sets.
+              Next, data is read from the pipeline and separated, batched, and prepared for loading by an internal Stitch service called the Streamery.
 
-              During this step, data is written to files on Amazon S3 in batches. Batches are separated by Stitch client, integration, and the tables the data is destined for.
-
-              After reaching either a memory limit or an amount of time elapsed since the last batch, the Streamery cuts a batch.
-
-          - title: "Step 5: The Spool"
-            anchor: "system-architecture--spool"
-            content: |
-              After the Streamery writes batches to Amazon S3, those batches enter the Spool. The Spool is a queue of work waiting to be processed by a [Loader](#system-architecture--loaders). Data is stored in an encrypted Amazon S3 bucket by Stitch client, connection, and destination table and retained for no more than 30 days.
+              The Streamery writes data to Amazon S3 that is encrypted and ready to be loaded. Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.
 
               ---
+
+          # - title: "Step 5: The Spool"
+          #   anchor: "system-architecture--spool"
+          #   content: |
+          #     After the Streamery writes batches to Amazon S3, those batches enter the Spool. The Spool is a queue of work waiting to be processed by a [Loader](#system-architecture--loaders). Data is stored in an encrypted Amazon S3 bucket by Stitch client, connection, and destination table and retained for no more than 30 days.
 
       - title: "Loading"
         anchor: "system-architecture--loading"
@@ -368,7 +353,7 @@ sections:
             content: |
               A Loader reads data from the Streamery (Amazon S3) and performs the [transformations](#transformations) necessary - such as converting data into the appropriate data types or structure - before loading it into your destination. Disk is used as a temporary buffer, data is encrypted when written, and deleted immediately once loaded.
 
-              If available, Stitch will attempt to use [verified SSL/TLS-based encryption]({{ link.security.encryption | prepend: site.baseurl | append: "#connections-ssl-default" }}). Otherwise, Stitch will use an SSH tunnel for encryption, [if one is configured for the destination]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}).
+              Stitch defaults to using [SSL/TLS-encrypted connections]({{ link.security.encryption | prepend: site.baseurl | append: "#connections-ssl-default" }}) to your destination when possible. [SSH-encrypted tunnels]({{ link.security.encryption | prepend: site.baseurl | append: "#ssh-tunnel-connections" }}) are also available to be configured for most destination types.
 
               If a critical error occurs, the load will fail and trigger an [in-app and email notification]({{ link.account.notification-settings | prepend: site.baseurl }}). The error can also be viewed in an integration's [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}) tab.
 
@@ -390,5 +375,4 @@ sections:
       - [**{{ guide.title }}**]({{ guide.url | prepend: site.baseurl }}): {{ guide.summary }}
       {% endunless %}
       {% endfor %}
-
 ---
