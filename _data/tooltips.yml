@@ -1,3 +1,15 @@
+# -------------------------- #
+#         Formatting         #
+# -------------------------- #
+
+# Used to create tooltips in copy. 'TOOLTIP' can be replaced with
+# a string or another variable (ex: site.data.tooltips.analysis-integration),
+# and 'DISPLAY-WORD' is the word used to create the link that users
+# over over to see the tooltip.
+
+word-format: |
+  <a href="#" data-toggle="tooltip" data-trigger="hover focus" data-original-title="TOOLTIP" data-html="true" aria-hidden="true">DISPLAY-WORD</a>
+
 
 # -------------------------- #
 #      General Tooltips      #
@@ -10,6 +22,8 @@ anchor-scheduling: "A type of replication scheduling where an integration's Repl
 advanced-scheduling: "A type of replication scheduling that allows you to specify granular start times for data extraction using cron expressions."
 
 attribution-window: "An attribution or conversion window is the amount of time for attributing results to ads, and the lookback period after those actions occur during which ad results are counted."
+
+attribution-window-replication: "Primarily used for ads, an attribution or conversion window is a period of time after an action that a conversion, like a purchase, is recorded. Data replicated in this manner to ensure accuracy, but this approach can lead to increased row usage."
 
 api-quota: "An API quota refers to the total number of API requests that can be made in a given period of time."
 
