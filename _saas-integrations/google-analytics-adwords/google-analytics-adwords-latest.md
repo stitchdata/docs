@@ -40,6 +40,14 @@ cron-scheduling: false
 extraction-logs: false
 loading-reports: true
 
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
+
 # -------------------------- #
 #      Querying Details      #
 # -------------------------- #
