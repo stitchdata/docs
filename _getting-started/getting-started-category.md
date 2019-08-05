@@ -12,7 +12,7 @@ level: "category"
 icon: "user-profile"
 weight: 2
 display-title: "Getting Started"
-display-summary: "todo"
+display-summary: "Everything you need to know to get started with Stitch."
 
 key: "getting-started"
 
