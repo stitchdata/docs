@@ -15,6 +15,24 @@ weight: 2
 
 
 # -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+related:
+  - title: "Basic concepts and system overview"
+    link: "{{ link.getting-started.basic-concepts | prepend: site.baseurl }}"
+
+  - title: "Understand your Stitch row usage"
+    link: "{{ link.getting-started.row-usage | prepend: site.baseurl }}"
+
+  # - title: "Stitch feature overview"
+  #   link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
+
+  - title: "All Getting Started guides"
+    link: "{{ link.getting-started.category | prepend: site.baseurl }}"
+
+
+# -------------------------- #
 #         GUIDE INTRO        #
 # -------------------------- #
 
@@ -23,24 +41,19 @@ intro: |
 
   Welcome to Stitch!
 
-  This guide will help you get your Stitch data pipeline up and running. In this guide, you'll learn how to:
+  This guide will help you get your Stitch data pipeline up and running. In this guide, we'll cover:
 
-  - Connect a data warehouse (we call them **destinations**)
-  - Connect an integration
-  - Configure & monitor replication
-  - Find additional resources and support
-
-  In this guide, we'll walk you through setting up Stitch by demonstrating how to connect a **MySQL** database integration and replicate data from it to a **Panoply** destination.
+  - [The requirements for using Stitch](#prerequisites)
+  {% for step in page.steps %}
+  - [{{ step.summary }}](#{{ step.anchor }})
+  {% endfor %}
+  - [What to do when you're all set up](#next-steps)
 
   {% capture more-help %}If you have any questions not covered in this guide, check out the [rest of our documentation]({{ site.baseurl }}/ ) or reach out to our support team.{% endcapture %}
 
   {{ more-help }}
 
   Let's get started.
-
-  A simple, powerful ETL service, Stitch connects to all your data sources -- from databases like MySQL and MongoDB, to SaaS tools like Salesforce and Zendesk -- and replicates that data to a data warehouse of your choosing. 
-
-  With Stitch, developers can provision data to analysts and team members in minutes, not weeks. Stitch takes care of source management so your developers and analysts can get back to what they do best.
 
 
 # -------------------------- #
@@ -51,9 +64,9 @@ requirements:
   - item: |
       **A Stitch account**. Don't have an account yet? [Sign up for your free trial here]({{ site.sign-in }}){:target="new"} before proceeding.
   - item: |
-      **A destination.** 
+      **A destination.** Typically a database or data warehouse, this is where Stitch will load data replicated from your data sources.
   - item: |
-      **An integration.**
+      **An integration**, like a database or SaaS application. 
 
 
 # -------------------------- #
@@ -63,7 +76,7 @@ requirements:
 steps:
   - title: "Choose and connect a destination"
     anchor: "choose-connect-a-destination"
-    summary: "How to choose and connect a destination"
+    summary: "Choosing and connecting a destination"
     content: |
       {% for substep in step.substeps %}
       - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
@@ -95,6 +108,7 @@ steps:
 
   - title: "Connect an integration"
     anchor: "connect-an-integration"
+    summary: "Connecting an integration"
     content: |
       After you've set up a destination, you can start connecting your integrations.
 
@@ -110,32 +124,36 @@ steps:
       - title: "Verify integration setup requirements"
         anchor: "verify-integration-setup-requirements"
         examples:
+          - integration: "any-database"
+            requirements:
+              - item: "A database using a version supported by Stitch"
+              - item: "Privileges that allow you to create a database user for Stitch"
+              - item: "Privileges that allow you to grant privileges to database users"
+              - item: |
+                  [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#connect-settings" }}), depending on the database server's connectivity settings
+
           - integration: "google-analytics"
             anchor: "prerequisites"
-            requirements: |
-              - Read & Analyze permissions
-              - Recent data in the account
+            requirements:
+              - item: "Read & Analyze permissions"
+              - item: "Recent data in the account"
 
           - integration: "salesforce"
             anchor: "setup-requirements"
-            requirements: |
-              - A paid Stitch account (after free trial ends)
-              - Web Service API access in Salesforce
-              - [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#whitelist-stitch-ips" }}), depending on the account's setup
-              - Access to the objects you want to replicate
-
-          # - integration: "amazon-s3-csv"
-          #   anchor: "setup-requirements"
-          #   requirements: |
-          #     - Privileges in Amazon Web Services (AWS) Identity Access Management (IAM) that allow you to create policies, roles, and attach policies to roles 
-          #     - CSV files that contain a header row
+            requirements:
+              - item: "A paid Stitch account (after free trial ends)"
+              - item: "Web Service API access in Salesforce"
+              - item: |
+                  [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#whitelist-stitch-ips" }}), depending on the account's setup
+              - item: "Access to the objects you want to replicate"
 
           - integration: "netsuite"
             anchor: "setup-requirements"
-            requirements: |
-              - A paid Stitch account (after free trial ends)
-              - Administrator permissions in NetSuite
-              - [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#whitelist-stitch-ips" }}), depending on the account's setup
+            requirements:
+              - item: "A paid Stitch account (after free trial ends)"
+              - item: "Administrator permissions in NetSuite"
+              - item: |
+                  [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#whitelist-stitch-ips" }}), depending on the account's setup
         content: |
           Before setting up a new integration, we recommend first checking the integration's documentation. This way, you can be sure you have everything you need to successfully complete the setup.
 
@@ -143,7 +161,7 @@ steps:
 
           For example: The following table lists some of our most popular integrations and their setup requirements:
 
-          <table class="attribute-list">
+          <table class="attribute-list table-hover">
           <tr>
           <td class="attribute-name">
           <strong>
@@ -154,24 +172,9 @@ steps:
           <strong>Setup requirements</strong>
           </td>
           </tr>
-          <tr>
-          <td class="attribute-name">
-          <strong>
-          <a href="{{ site.baseurl }}/integrations/databases">Most databases</a>
-          </strong>
-          </td>
-          <td>
-          {% capture database-setup %}
-          - A database using a version supported by Stitch
-          - Privileges that allow you to create a database user for Stitch
-          - Privileges that allow you to grant privileges to database users
-          - [Whitelisting Stitch's IP addresses]({{ integration.url | prepend: site.baseurl | append: "#connect-settings" }}), depending on the database server's connectivity settings
-          {% endcapture %}
-
-          {{ database-setup | flatify | markdownify }}
-          </td>
-          </tr>
-          {% assign integrations = site.documents | where:"input",true %}
+          {% assign databases = site.database-integrations | where:"name","any-database" %}
+          {% assign saas = site.saas-integrations | where:"input",true %}
+          {% assign integrations = databases | concat: saas %}
 
           {% for example in substep.examples %}
           {% for integration in integrations %}
@@ -179,13 +182,18 @@ steps:
           <tr>
           <td class="attribute-name">
           <strong>
-          <a href="{{ integration.url | prepend: site.baseurl | append: "#" | append: example.anchor }}">{{ integration.display_name }}</a>
+          <a href="{{ integration.url | prepend: site.baseurl | append: "#" | append: example.anchor }}">{{ integration.display_name | replace:"Any database","Most databases" }}</a>
           </strong>
           </td>
           <td>
-          {{ example.requirements | flatify | markdownify }}
+          <ul>
+          {% for requirement in example.requirements %}
+          <li style="margin: 0px;">{{ requirement.item | flatify | markdownify }}</li>
+          {% endfor %}
+          </ul>
           </td>
           </tr>
+          
           {% endif %}
           {% endfor %}
           {% endfor %}
@@ -204,10 +212,11 @@ steps:
 
   - title: "Define replication settings"
     anchor: "define-replication-settings"
+    summary: "Configuring replication"
     content: |
       {% assign all-extraction-docs = site.replication | where:"method",true %}
 
-      The next steps will vary depending on the type of integration you connect. If you set up an Import API or [webhook]({{ site.baseurl }}/integrations/webhooks) integration, you're all done! These are considered "push" integrations, meaning that data is pushed to Stitch from the data source.
+      The next steps will vary depending on the type of integration you connect. If you set up an Import API or [webhook]({{ site.baseurl }}/integrations/webhooks) integration, you're all done! These are considered "push" integrations, meaning that data is automatically pushed to Stitch from the data source.
 
       For all other integrations, data is "pulled" from the source. An integration's replication settings define how, when, and what data is pulled from a source. 
 
@@ -219,17 +228,9 @@ steps:
       - title: "Understand the replication process"
         anchor: "familiarize-replication-process"
         content: |
-          Before we walk you through how to define replication, you should familiarize yourself with Stitch's replication process. 
+          Before we walk you through how to define replication, you should familiarize yourself with Stitch's replication process. This will ensure settings are defined appropriately and replication is efficient.
 
-          [TODO]
-
-# The Stitch replication process consists of three steps: extracting, preparing, and loading.
-
-# During the **Extract** part of the replication process, Stitch will use the replication settings to determine how often to replicate data, what tables and columns to replicate, and whether to replicate data incrementally or fully from the data source. We'll go into more detail about these settings in the next section.
-
-# Once the data has been extracted, it moves into the **Preparing** phase of the replication process. During this phase, Stitch will perform light transformations such as [de-nesting JSON]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) (if applicable to your destination), [column splitting for fields with multiple data types]({{ link.destinations.storage.structure-changes | prepend: site.baseurl }}), and data typing for some integrations to ready the data for the data warehouse.
-
-# The last step is **Loading**. Stitch completes the replication process by writing the replicated data to your data warehouse in batches.
+          Check out the [Replication section]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append:"#replication" }}) in the [Basic concepts and system overview guide]({{ link.getting-started.basic-concepts | prepend: site.baseurl }}) for a quick overview.
 
       - title: "Create the replication schedule"
         anchor: "create-replication-schedule"
@@ -299,7 +300,7 @@ steps:
 
           If selecting tables and columns is required to finish setting up an integration, Stitch will direct you to do so after the connection has been saved. Additionally, the integration's status will be **Not Configured** in the dashboard until this has been completed:
 
-          [IMAGE?]
+          ![An AppsFlyer integration with a Not Configured status on the Stitch Dashboard page.]({{ site.baseurl }}/images/getting-started/integration-not-configured.png)
 
       - title: "Define table Replication Methods"
         anchor: "define-table-replication-methods"
@@ -338,6 +339,7 @@ steps:
 
   - title: "Monitor replication jobs"
     anchor: "monitor-replication-process"
+    summary: "Monitoring replication progress"
     content: |
       After you fully configure an integration, the integration might have a **Pending** status in the **Last Sync Completed** field on the {{ app.page-names.dashboard }} page:
 
@@ -378,5 +380,7 @@ next-steps: |
   - **Get to know your SaaS integrations**, if you plan on connecting any. Just like destinations, every SaaS integration structures its data differently. How Stitch replicates and loads SaaS data depends in part on how that data is created and structured. [Our extensive SaaS integration docs]({{ site.baseurl }}/integrations/saas/) cover what Stitch will replicate and how.
   - **Invite your team.** [Loop in your colleagues]({{ link.account.team-members | prepend: site.baseurl }}) to set up integrations and get the data flowing.
   - **Connect your analysis tool to your Stitch destination**. If your end-goal is to analyze or interact with the data Stitch replicates, you'll need an additional tool. Check out our [list of analysis tools]({{ site.baseurl }}/analysis-tools/) to find the visualization, analysis, or data science tool that's right for you.
+
+  {{ more-help }}
 ---
 {% include misc/data-files.html %}
