@@ -29,8 +29,8 @@ related:
   - title: "Understand your Stitch row usage"
     link: "{{ link.getting-started.row-usage | prepend: site.baseurl }}"
 
-  - title: "Stitch feature overview"
-    link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
+  # - title: "Stitch feature overview"
+  #   link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
 
   - title: "All Getting Started guides"
     link: "{{ link.getting-started.category | prepend: site.baseurl }}"
@@ -131,9 +131,9 @@ sections:
     content: |
       Stitch's replication process consists of three distinct phases:
 
-      1. **Extraction**: Stitch pulls data from your data sources and persists it to Stitch's data pipeline through the Import API.
-      2. **Preparing**: Data is [lightly transformed](#transformations) to ensure compatibility with the destination. 
-      3. **Loading**: Stitch loads the data into your destination.
+      1. **Extract**: Stitch pulls data from your data sources and persists it to Stitch's data pipeline through the Import API.
+      2. **Prepare**: Data is [lightly transformed](#transformations) to ensure compatibility with the destination. 
+      3. **Load**: Stitch loads the data into your destination.
 
       A single occurrence of these three phases is called a **replication job**. You can keep an eye on a replication job's progress on any [integration's **Summary** page]({{ link.replication.rep-progress | prepend: site.baseurl }}).
 
@@ -172,7 +172,7 @@ sections:
       Stitch's philosophy is that what you do with your data depends on your needs, and by keeping data close to its original form, Stitch enables you to manage and transform it as you see fit. While we don't support user-defined transformations inside of Stitch, you can take advantage of [Talend's transformation and data quality solutions](https://www.stitchdata.com/platform/datatransformation/){:target="new"} to design and integrate your own transformations.
 
     subsections:
-      - title: "Typing data"
+      - title: "Data typing"
         anchor: "data-typing"
         example-data:
           - id: "1"
@@ -217,11 +217,11 @@ sections:
           {% endfor %}
           </table>
 
-          Stitch handles changed data types in this way to ensure previously loaded data is retained in its original format. We recommend using views to coerce data types when this occurs.
+          Stitch handles changed data types in this way to ensure previously loaded data is retained in its original format. Some Stitch customers use views to coerce data types when this occurs.
 
           Refer to the [Columns with mixed data types guide]({{ link.destinations.storage.column-splitting | prepend: site.baseurl }}) for more info and examples.
 
-      - title: "Handling JSON structures"
+      - title: "JSON structures"
         anchor: "json-structures"
         content: |
           The destination you're using determines how Stitch handles complex JSON structures such as arrays and objects.
@@ -230,7 +230,7 @@ sections:
 
           If your destinaton doesn't natively support storing nested data, Stitch will "de-nest", or normalize, the data into relations. For JSON objects, attributes will be flattened into the table, while arrays will be unpacked into subtables. For more info and examples, refer to the [Nested JSON structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
 
-      - title: "Naming objects"
+      - title: "Object names"
         anchor: "object-names"
         content: |
           When you initially set up an integration, you'll define [the name of the schema in the destination]({{ link.destinations.storage.stitch-schema | prepend: site.baseurl | append: "#integration-schema-names" }}) where Stitch will load that integration's data.
@@ -244,7 +244,7 @@ sections:
 
           **Note**: Table and column names cannot be changed in Stitch.
 
-      - title: "Handling timezone data"
+      - title: "Timezones"
         anchor: "timezones"
         content: |
           Some of the destinations Stitch offers don't natively support timezones. To ensure accuracy and consistency, Stitch handles data with timezones in this manner:
@@ -257,23 +257,21 @@ sections:
 
           For more info, refer to the [loading reference]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for your destination.
 
-          > TODO: confirm how we handle data that doesn't have timezone info in the source
-
   - title: "System architecture"
     anchor: "system-architecture"
     summary: "A step-by-step tour of the Stitch system, from data extracted to data loaded"
     content: |
       Now that you understand the basics of Stitch and how data replication works, let's take a look at the internal workings of the Stitch system.
 
-      {% include layout/image.html type="inline" file="/system-architecture.jpg" enlarge=true %}
+      {% include layout/image.html type="inline" file="/system-architecture.png" enlarge=true %}
 
     subsections:
-      - title: "Extraction"
+      - title: "Extract"
         anchor: "system-architecture--extraction"
         content: |
-          The first phase in the replication process is called **Extraction**. During this phase, data is extracted from an integration using the [replication settings you define](#replication--settings).
+          The first phase in the replication process is called **Extract**. During this phase, data is extracted from an integration using the [replication settings you define](#replication--settings).
 
-          The Extraction phase includes:
+          The Extract phase includes:
 
           {% for sub-subsection in subsection.sub-subsections %}
           - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
@@ -305,12 +303,12 @@ sections:
 
               ---
 
-      - title: "Preparing"
+      - title: "Prepare"
         anchor: "system-architecture--preparing"
         content: |
-          The second phase in the replication process is called **Preparing**. During this phase, the extracted data is buffered in Stitch's durable, highly available internal data pipeline and readied for loading.
+          The second phase in the replication process is called **Prepare**. During this phase, the extracted data is buffered in Stitch's durable, highly available internal data pipeline and readied for loading.
 
-          The Preparing phase includes:
+          The Prepare phase includes:
 
           {% for sub-subsection in subsection.sub-subsections %}
           - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
@@ -320,26 +318,21 @@ sections:
           - title: "Step 3: The Pipeline"
             anchor: "system-architecture--pipeline"
             content: |
-              Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API, and ensure we meet our most important service-level target: don't lose data. Data is always encrypted at rest, and automatically deleted from the buffer after no more than thirty days.
+              Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API, and ensure we meet our most important service-level target: don't lose data. Data is always encrypted at rest, and automatically deleted from the buffer after no more than seven days.
 
           - title: "Step 4: The Streamery"
             anchor: "system-architecture--streamery"
             content: |
               Next, data is read from the pipeline and separated, batched, and prepared for loading by an internal Stitch service called the Streamery.
 
-              The Streamery writes data to Amazon S3 that is encrypted and ready to be loaded. Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.
+              The Streamery writes data to Amazon S3 that is encrypted, separated by tenant (Stitch account) and data set, and ready to be loaded. Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.
 
               ---
 
-          # - title: "Step 5: The Spool"
-          #   anchor: "system-architecture--spool"
-          #   content: |
-          #     After the Streamery writes batches to Amazon S3, those batches enter the Spool. The Spool is a queue of work waiting to be processed by a [Loader](#system-architecture--loaders). Data is stored in an encrypted Amazon S3 bucket by Stitch client, connection, and destination table and retained for no more than 30 days.
-
-      - title: "Loading"
+      - title: "Load"
         anchor: "system-architecture--loading"
         content: |
-          The last phase in the replication process is **Loading**. During this phase, the prepared data is transformed to be compatible with the destination, and then loaded.
+          The last phase in the replication process is called **Load**. During this phase, the prepared data is transformed to be compatible with the destination, and then loaded.
 
           The Loading phase includes:
 
@@ -348,7 +341,7 @@ sections:
           {% endfor %}
           
         sub-subsections:
-          - title: "Step 6: The Loaders"
+          - title: "Step 5: The Loaders"
             anchor: "system-architecture--loaders"
             content: |
               A Loader reads data from the Streamery (Amazon S3) and performs the [transformations](#transformations) necessary - such as converting data into the appropriate data types or structure - before loading it into your destination. Disk is used as a temporary buffer, data is encrypted when written, and deleted immediately once loaded.
@@ -357,7 +350,7 @@ sections:
 
               If a critical error occurs, the load will fail and trigger an [in-app and email notification]({{ link.account.notification-settings | prepend: site.baseurl }}). The error can also be viewed in an integration's [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}) tab.
 
-          - title: "Step 7: Your destination"
+          - title: "Step 6: Your destination"
             anchor: "system-architecture--destination"
             content: |
               Data is finally loaded into your destination! At this point, you can use an [analysis tool]({{ site.baseurl }}/analysis-tools) to interact with your data.

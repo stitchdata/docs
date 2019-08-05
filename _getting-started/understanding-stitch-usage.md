@@ -22,6 +22,19 @@ weight: 3
 #   RELATED SIDEBAR LINKS    #
 # -------------------------- #
 
+related:
+  - title: "Basic concepts and system overview"
+    link: "{{ link.getting-started.basic-concepts | prepend: site.baseurl }}"
+
+  - title: "Set up your Stitch data pipeline"
+    link: "{{ link.getting-started.onboarding | prepend: site.baseurl }}"
+
+  # - title: "Stitch feature overview"
+  #   link: "{{ link.getting-started.feature-overview | prepend: site.baseurl }}"
+
+  - title: "All Getting Started guides"
+    link: "{{ link.getting-started.category | prepend: site.baseurl }}"
+
 
 # -------------------------- #
 #         GUIDE INTRO        #
@@ -81,6 +94,10 @@ sections:
           We understand that this can be confusing. **Keep in mind that row usage in Stitch is the total number of replicated rows.** This means that the number of rows in the source won't necessarily be equal to your row usage in Stitch.
 
           Because Stitch counts updated rows, copies of existing rows, and rows created from de-nesting towards your total usage, the total of replicated rows and the total number of rows in your data sources or destination may not be equal.
+
+          Take the following example. As you can see in the second replication job, the total replicated rows reported by Stitch are cumulative, or the total rows replicated across all replication jobs. 
+
+          {% include layout/image.html file="/getting-started/source-to-destination-replicated-rows.png" alt="Example demonstrating how source, Stitch-reported, and destination rows are not always equal." enlarge=true caption="Click to enlarge." %}
 
       - title: "Impacts on usage"
         anchor: "impacts-on-usage"
@@ -203,9 +220,9 @@ sections:
                 type: "robot"
 
         content: |
-          Next, we'll look at some examples. [TODO]
+          Next, we'll look at some examples of how certain factors can affect row usage in Stitch.
 
-          When looking at the example, note the differences between the source rows and row totals reported in Stitch.
+          When looking at the examples, note the differences between the source rows and row totals reported in Stitch.
 
           <ul id="profileTabs" class="nav nav-tabs">
             <li class="active">
@@ -241,6 +258,7 @@ sections:
                   <table class="attribute-list">
                     <tr>
                       <td>
+                        <strong>Replication Frequency</strong>
                       </td>
                       {% for attribute in subsection.example-one.attributes %}
                         <td>
@@ -399,12 +417,116 @@ sections:
     anchor: "reducing-your-usage"
     summary: "Some tips for reducing your usage"
     content: |
-      While you can change your plan at any time to accommodate changing volume needs, below are some tried-and-true tips for reducing your row usage and staying within your plan's row allotment:
+      While you can change your plan at any time to accommodate your data volume needs, below are some tried-and-true tips for reducing your row usage and staying within your plan's row allotment:
 
       {% for subsection in section.subsections %}
       - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
+      - title: "Identify high usage integrations"
+        anchor: "integrations-known-to-be-high-usage"
+        row-hog-reasons:
+          - name: "data-structure"
+            flat-on-page: false
+            problem-if: true
+            summary: "Data contains many nested structures. This is applicable to row usage only when a destination doesn't natively support nested JSON structures."
+            copy: |
+              Data contains many [nested structures]({{ row-hog.url | prepend: site.baseurl | append:"#schema" }})
+
+          - name: "data-volume"
+            flat-on-page: false
+            problem-if: true
+            summary: "Source generates large amounts of data"
+            copy: "High data volume"
+
+          - name: "lots-of-full-table"
+            flat-on-page: false
+            problem-if: true
+            summary: "Integration has a high number of tables using Full Table Replication"
+            copy: |
+              [High number of tables]({{ row-hog.url | prepend: site.baseurl | append:"#schema" }}) using Full Table Replication
+
+          - name: "table-selection"
+            problem-if: false
+            summary: "Integration doesn't currently support table selection"
+            copy: "No table selection"
+
+          - name: "attribution-window"
+            problem-if: true
+            summary: |
+              Integration uses an {{ site.data.tooltips.word-format | replace:"TOOLTIP",site.data.tooltips.attribution-window-replication | replace:"DISPLAY-WORD","attribution window" }} for extraction
+            copy: |
+              Integration uses an [attribution window of {{ attribution-days }}]({{ row-hog.url | prepend: site.baseurl | append:"#replication" }}) for extraction
+
+        content: |
+          For many of Stitch's integrations, row usage shouldn't be an issue. We attempt to use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) for SaaS integrations whenever possible.
+
+          There are, however, times when high row usage may be unavoidable. For example:
+
+          {% for reason in subsection.row-hog-reasons %}
+          - {{ reason.summary | flatify }}
+          {% endfor %}
+
+          **Click below to display integrations known to be heavy row users, and the potential reasons for their increased usage.** If you're using any of these integrations, you can use the remaining tips in this section to keep your usage down.
+
+          {% capture integration-table %}
+          <p style="margin: 10px;">To find out more about your SaaS integrations' data structure and replication methods, we recommend checking out our extensive <a href="{{ site.baseurl }}/integrations/saas">SaaS integration docs</a>. Every SaaS integration has detailed info about the tables Stitch will replicate and the methods used to do so.</p>
+
+          {% assign databases = site.database-integrations | where:"row-usage-hog",true %}
+          {% assign saas = site.saas-integrations | where:"row-usage-hog",true %}
+
+          {% assign all-row-hogs = databases | concat: saas | sort:"display_name" %}
+
+          <div class="table-responsive">
+          <table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
+          <tr>
+          <td class="attribute-name">
+          <strong>Integration</strong>
+          </td>
+          <td>
+          <strong>Reasons</strong>
+          </td>
+          </tr>
+          {% for row-hog in all-row-hogs %}
+          <tr>
+          <td class="attribute-name">
+          <strong>
+          <a href="{{ row-hog.url | prepend: site.baseurl }}">{{ row-hog.display_name }}</a>
+          </strong>
+          </td>
+          <td>
+          <ul>
+          {% for reason in subsection.row-hog-reasons %}
+          {% if reason.flat-on-page == false %}
+            {% assign reason-value = row-hog.row-usage-hog-reasons[reason.name] %}
+          {% else %}
+            {% if reason.name == "attribution-window" %}
+              {% if row-hog.attribution-window contains "days" %}
+                {% assign reason-value = true %}
+                {% assign attribution-days = row-hog.attribution-window %}
+              {% else %}
+                {% assign reason-value = false %}
+              {% endif %}
+            {% else %}
+              {% assign reason-value = row-hog[reason.name] %}
+            {% endif %}
+          {% endif %}
+
+          {% if reason.problem-if == reason-value %}
+          <li style="margin: 0px;">{{ reason.copy | flatify | markdownify }}</li>
+          {% endif %}
+
+          {% endfor %}
+          </ul>
+          </td>
+          </tr>
+          {% endfor %}
+          </table>
+          </div>
+          {% endcapture %}
+
+          {% include layout/expandable-heading.html no-body=true anchor="integrations-that-use-up-rows" title="Integrations with known high row usage" content=integration-table %}
+
       - title: "Reduce Replication Frequencies"
         anchor: "reduce-replication-frequency"
         content: |
@@ -417,18 +539,9 @@ sections:
       - title: "Use an incremental Replication Method"
         anchor: "use-incremental-replication"
         content: |
-          For integrations that support Replication Method configuration, we recommend using either [Key-based]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) whenever possible.  
+          For integrations that support Replication Method configuration, we recommend using either [Key-based]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) whenever possible.
 
-      - title: "Get to know your SaaS integrations"
-        anchor: "get-to-know-saas-integrations"
-        content: |
-          While we try to use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) for SaaS integrations whenever possible, replicating high numbers of rows is sometimes unavoidable. This can be because:
-
-          - **The integration generates massive amounts of data.** Mixpanel, for example, typically contains large amounts of data.
-          - **Some tables require Full Table Replication or querying for a time range** (attribution window) during each replication job to ensure accuracy. 
-          - **The integration contains nested data structures.** As we mentioned previously, records created from de-nesting JSON objects and arrays can count toward your row usage. Integrations with data structures that heavily use JSON objects and arrays - such as [Shopify]({{ site.baseurl }}/integrations/saas/shopify) - can lead to higher row counts.
-
-          To find out more about your SaaS integrations' data structure and replication methods, we recommend checking out our extensive [SaaS integration docs]({{ site.baseurl }}/integrations/saas). Every SaaS integration has detailed info about the tables Stitch will replicate and the methods used to do so.
+      
 
       - title: "De-select unnecessary data"
         anchor: "deselect-unnecessary-data"
