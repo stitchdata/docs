@@ -12,6 +12,8 @@ feedback: false
 table-selection: true
 
 display_name: "Any database"
+name: "any-database"
+
 row-usage-hog: true
 row-usage-hog-reasons:
   data-structure: false
