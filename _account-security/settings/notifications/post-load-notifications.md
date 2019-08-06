@@ -1,6 +1,7 @@
 ---
 title: Automating Post-Load Processing Using Webhooks
 permalink: /account-security/notifications/post-load-notifications
+redirect_from: /account-security/post-load-notifications
 keywords: loading notifications, load notification, post-load, webhook, notify load
 summary: "Automate your post-load processing functions using the Post-load webhooks notification feature. With Post-load notifications, you can configure a webhook to fire each time Stitch loads data into your destination."
 
