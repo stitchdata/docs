@@ -70,7 +70,7 @@ feature-summary: |
 
 setup-steps:
   - title: "Create a {{ integration.display_name }} OAuth client"
-    anchor: "create-oauth-client"
+    anchor: "create-a-oauth-client"
     content: |
       In this step, you'll create a [{{ integration.display_name }} OAuth client](https://www.deputy.com/api-doc/API/Authentication){:target="new"}. This is required to generate credentials for the integration.
 
