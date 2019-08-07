@@ -55,7 +55,7 @@ frequently-asked-questions:
 
           {% assign free-integrations = all-integrations | where:"tier","Free" | sort:"title" %}
 
-          After the Free Trial has ended, the integrations in the table below will be available to all plans, regardless whether it's a free or paid plan.
+          After the Free Trial has ended, the integrations in the table below will be available to any plan.
 
           <table class="attribute-list">
           {% for integration in free-integrations %}
@@ -84,19 +84,15 @@ frequently-asked-questions:
           {% endfor %}
           </table>
 
-      - question: "What integrations are available on a paid plan?"
+      - question: "What integrations are available on a Standard plan?"
         anchor: "integrations-paid-plan"
         answer: |
-          {{ site.data.stitch.subscription-plans.enterprise.trial-description }}
+          {% assign standard-integrations = all-integrations | where:"tier","Standard" | sort:"title" %}
 
-          {% assign paid-integrations = all-integrations | where:"tier","Paid" | sort:"title" %}
-
-          After the Free Trial has ended, the integrations in the table below will only be available to paid plans. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current paid plans.
-
-          **Note**: Paid plans in this context do not include Enterprise plans.
+          After the Free Trial has ended, the integrations in the table below will only be available to Standard and Enterprise plans. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
 
           <table class="attribute-list">
-          {% for integration in paid-integrations %}
+          {% for integration in standard-integrations %}
 
           {% assign index = forloop.index | modulo: 2 %}
 
@@ -127,7 +123,7 @@ frequently-asked-questions:
         answer: |
           {% assign enterprise-integrations = all-integrations | where:"tier","Enterprise" | sort:"title" %}
 
-          The integrations in the table below are only available to Enterprise plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
+          The integrations in the table below are available only to Enterprise plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
 
           <table class="attribute-list">
           {% for integration in enterprise-integrations %}
@@ -156,10 +152,10 @@ frequently-asked-questions:
           {% endfor %}
           </table>
 
-      - question: "Can I use paid integrations if I'm on the Free plan?"
+      - question: "Can I use Standard integrations if I'm on the Free plan?"
         anchor: "paid-integrations-free-plan"
         answer: |
-          No. To use any of Stitch's paid integrations, you'll need to [upgrade to a paid plan]({{ site.pricing }}){:target="new"}.
+          No. To use any of Stitch's Standard integrations, you'll need to [upgrade to a Standard plan]({{ site.pricing }}){:target="new"}.
 
       - question: "How many integrations can I add?"
         anchor: "how-many-integrations-can-i-add"
@@ -200,7 +196,7 @@ frequently-asked-questions:
           </table>
           <br>
 
-          **Note**: The types of integrations available are also dependent on plan type. Users of the Free Plan will only have access to Free integrations, while Paid plan users will have access to free and paid integrations.
+          **Note**: The types of integrations available are also dependent on plan type. Users of the Free Plan will only have access to Free integrations, while Standard plan users will have access to Free and Standard integrations.
 
           For more info, refer to the [pricing page]({{ site.pricing }}){:target="new"}.
 
