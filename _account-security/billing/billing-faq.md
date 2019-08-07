@@ -27,7 +27,7 @@ frequently-asked-questions:
         answer: |
           Plans are based on the volume of rows and events replicated per month. Each plan has a monthly allotment of replicated rows.
 
-          In addition, access to some integrations depends on the type of plan you select. To use Stitch's Paid integrations, you'll need to select a paid plan.
+          In addition, access to some integrations depends on the type of plan you select. To use Stitch's Standard integrations, you'll need to select a Standard plan.
 
           Refer to the [pricing page]({{ site.pricing }}){:target="new"} for more info.
 
@@ -46,7 +46,7 @@ frequently-asked-questions:
   - topic: "Integrations"
     anchor: "integrations"
     items:
-      - question: "What integrations are available on the Free plan?"
+      - question: "What integrations are available on the Free Plan?"
         anchor: "integrations-free-plan"
         answer: |
           {{ site.data.stitch.subscription-plans.enterprise.trial-description }}
@@ -84,12 +84,12 @@ frequently-asked-questions:
           {% endfor %}
           </table>
 
-      - question: "What integrations are available on a Standard plan?"
+      - question: "What integrations are available on a Standard Plan?"
         anchor: "integrations-paid-plan"
         answer: |
           {% assign standard-integrations = all-integrations | where:"tier","Standard" | sort:"title" %}
 
-          After the Free Trial has ended, the integrations in the table below will only be available to Standard and Enterprise plans. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
+          After the Free Trial has ended, the integrations in the table below will only be available to Standard and Enterprise Plans. Refer to the [pricing page]({{ site.pricing }}){:target="new"} for a list of current Stitch plans.
 
           <table class="attribute-list">
           {% for integration in standard-integrations %}
@@ -118,12 +118,12 @@ frequently-asked-questions:
           {% endfor %}
           </table>
 
-      - question: "What integrations are available on an Enterprise plan?"
+      - question: "What integrations are available on an Enterprise Plan?"
         anchor: "integrations-enterprise-plan"
         answer: |
           {% assign enterprise-integrations = all-integrations | where:"tier","Enterprise" | sort:"title" %}
 
-          The integrations in the table below are available only to Enterprise plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
+          The integrations in the table below are available only to Enterprise Plans. [Reach out to sales]({{ site.sales }}){:target="new"} for more info.
 
           <table class="attribute-list">
           {% for integration in enterprise-integrations %}
@@ -152,10 +152,10 @@ frequently-asked-questions:
           {% endfor %}
           </table>
 
-      - question: "Can I use Standard integrations if I'm on the Free plan?"
+      - question: "Can I use Standard Plan integrations if I'm on the Free plan?"
         anchor: "paid-integrations-free-plan"
         answer: |
-          No. To use any of Stitch's Standard integrations, you'll need to [upgrade to a Standard plan]({{ site.pricing }}){:target="new"}.
+          No. To use any of Stitch's Standard Plan integrations, you'll need to [upgrade to a Standard plan]({{ site.pricing }}){:target="new"}.
 
       - question: "How many integrations can I add?"
         anchor: "how-many-integrations-can-i-add"
@@ -163,7 +163,7 @@ frequently-asked-questions:
           {% include misc/icons.html %}
           The total number of integrations refers to the number of distinct integration types each account may add, dependent upon the selected plan type.
 
-          For example: Accounts using the Free plan may add up to five different types of integrations. If an account has five Google Analytics integrations connected, this will only count as one towards the integration type quota. Up to four additional types of integrations may still be added.
+          For example: Accounts using the Free Plan may add up to five different types of integrations. If an account has five Google Analytics integrations connected, this will only count as one towards the integration type quota. Up to four additional types of integrations may still be added.
 
           <table class="attribute-list">
           <tr>
@@ -196,7 +196,7 @@ frequently-asked-questions:
           </table>
           <br>
 
-          **Note**: The types of integrations available are also dependent on plan type. Users of the Free Plan will only have access to Free integrations, while Standard plan users will have access to Free and Standard integrations.
+          **Note**: The types of integrations available are also dependent on plan type. Users of the Free Plan will only have access to Free integrations, while Standard Plan users will have access to Free and Standard Plan integrations.
 
           For more info, refer to the [pricing page]({{ site.pricing }}){:target="new"}.
 
@@ -216,7 +216,7 @@ frequently-asked-questions:
 
           Free historical data loads are only allowed once per integration namespace. For example: If an integration named `stitch_hubspot` is created and receives a free historical data load, subsequent integrations with the same name (created by deleting and creating a new integration) will not receive free historical replication.
 
-          **Note**: While free historical loads apply to all of Stitch's integrations, you need to be on a paid plan to use our Paid integrations.
+          **Note**: While free historical loads apply to all of Stitch's integrations, you need to be on a Standard plan to use our Standard integrations.
 
       - question: "Do free historical data loads apply to integration or table resets?"
         anchor: "free-historical-loads-resets"
@@ -268,10 +268,10 @@ frequently-asked-questions:
         answer: |
           We recommend [following the simple tips in this guide]({{ link.billing.billing-guide | prepend: site.baseurl | append: "#reducing-your-usage" }}) to reduce your row usage.
 
-      - question: "Do rows from free integrations count towards my usage?"
+      - question: "Do rows from Free Plan integrations count towards my usage?"
         anchor: "free-integrations-usage"
         answer: |
-          Yes. Rows replicated from [free integrations](#integrations-each-plan) will count towards your usage. The "free" in "free integration" only indicates that the integration is available on non-paid plans, not that the rows replicated don't count towards your usage.
+          Yes. Rows replicated from [free integrations](#integrations-each-plan) will count towards your usage. The "free" in "free plan integration" only indicates that the integration is available on any plan, not that the rows replicated don't count towards your usage.
 
       - question: "What happens if I use more than the rows allotted in my plan?"
         anchor: "exceed-row-allotment"
@@ -291,7 +291,7 @@ frequently-asked-questions:
         answer: |
           Yes. When your trial ends, Stitch will automatically pause your integrations. Replication will resume after you select a plan and enter a valid credit card.
 
-          **Note**: Some integrations require a **paid** plan after the free trial ends. To continue replicating data from these sources - for example, Salesforce - you'll need to select the Starter plan or higher after your trial concludes.
+          **Note**: Some integrations require a Standard Plan after the free trial ends. To continue replicating data from these sources - for example, Salesforce - you'll need to select a Standard Plan after your trial concludes.
 
       - question: "How can I change my plan?"
         anchor: "change-plan"
@@ -307,9 +307,9 @@ frequently-asked-questions:
 
           - **If you're upgrading**, meaning the new plan has a greater row limit than the current plan, the change will be effective immediately and you will only be billed for the difference between the current plan and the new plan.
 
-             In addition, if you're upgrading from the Free plan to any Paid plan, you will also have immediate access to Paid integrations.
+             In addition, if you're upgrading from the Free Plan to any Standard Plan, you will also have immediate access to Standard integrations.
 
-          - **If you're downgrading**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This will ensure you can take full advantage of the higher row allotment and access to Paid integrations.
+          - **If you're downgrading**, meaning the new plan has a lower row limit than the current plan, the change will take effect at the end of the billing cycle. This will ensure you can take full advantage of the higher row allotment and access to Standard integrations.
 
 # -------------------------- #
 # PAYMENT DETAILS & INVOICES #
