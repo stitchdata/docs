@@ -29,7 +29,7 @@ certified: true
 
 historical: "1 year"
 frequency: "12 hours"
-tier: "Paid"
+tier: "Standard"
 status-url: http://status.marketo.com/
 
 anchor-scheduling: true
