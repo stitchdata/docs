@@ -26,7 +26,7 @@ key: "analysis-tools"
 icon: "analytics"
 display-title: "Analysis tools"
 display-summary: "Interact with your Stitch-replicated data using an additional analysis tool."
-weight: 6
+weight: 7
 
 # -------------------------- #
 #        CONTENT DATA        #
