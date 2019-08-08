@@ -390,6 +390,9 @@ all-docs:
         - title: "Overview"
           url: "{{ link.destinations.storage.stitch-schema }}"
 
+        - title: "Terminology"
+          url: "{{ link.destinations.storage.stitch-schema }}#schema-terminology"
+
         - title: "Schema names"
           url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
 
@@ -399,8 +402,8 @@ all-docs:
         - title: "Table schemas"
           url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
 
-        - title: "_sdc columns"
-          url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
+        - title: "System tables and columns"
+          url: "{{ link.destinations.storage.system-tables-and-columns }}"
 
     - title: Loading data into destinations
       url: "{{ link.destinations.storage.loading-data }}"
@@ -414,8 +417,8 @@ all-docs:
     - title: Append-only tables
       url: "{{ link.replication.append-only-querying }}"
 
-    - title: "_sdc columns"
-      url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
+    - title: "System tables and columns"
+      url: "{{ link.destinations.storage.system-tables-and-columns }}"
 
     - title: Rejected records
       url: "{{ link.destinations.storage.rejected-records }}"
