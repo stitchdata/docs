@@ -13,25 +13,36 @@ type: "mirosoft-azure"
 
 content-type: "destination-general"
 
-## The info about the _sdc_primary_keys table is kept in _data/stitch/sdc-primary-keys.yml.
+## The info about the _sdc_primary_keys table is kept in: 
+## _data/stitch/system-tables/sdc-primary-keys.yml.
 ## This includes the table's description, its list of attributes and their descriptions, etc.
 
 
-# {% include important.html type="single-line" content="**Do not remove or alter this table.** This will cause replication issues and data discrepancies." %}
+# -------------------------- #
+#         GUIDE INTRO        #
+# -------------------------- #
+
+intro: |
+  {% include misc/data-files.html %}
+  {% assign primary-keys-table = site.data.stitch.system-tables.sdc-primary-keys %}
+
+  {{ primary-keys-table.description | flatify }}
+  
+  In this guide, we'll cover:
+
+  {% for section in page.sections %}
+  - [{{ section.summary | flatify }}](#{{ section.anchor }})
+  {% endfor %}
 
 
 # -------------------------- #
-#          Content           #
+#      CONTENT SECTIONS      #
 # -------------------------- #
 
 sections:
-  - content: |
-      {% assign primary-keys-table = site.data.stitch.sdc-primary-keys %}
-
-      {{ primary-keys-table.description | flatify }}
-
   - title: "Usage in replication"
     anchor: "usage-in-replication"
+    summary: "How the {{ primary-keys-table.name }} table is used in replication"
     content: |
       Because Azure SQL Data Warehouse destinations don’t have native support for Primary Keys, Stitch uses the `{{ primary-keys-table.name }}` table to store Primary Key information and de-dupe data during loading incrementally-replicated tables.
     subsections:
@@ -44,6 +55,7 @@ sections:
 
   - title: "Determining Primary Keys"
     anchor: "determining-primary-keys"
+    summary: "How Stitch determines Primary Keys"
     content: |
       Depending on the data source type, Primary Keys are determined in one of two ways:
 
@@ -56,29 +68,13 @@ sections:
 
   - title: "Primary Keys table schema"
     anchor: "table-schema"
+    summary: "The schema of the Primary Keys table"
     content: |
       The `{{ primary-keys-table.name }}` table contains the following columns:
 
-      <table class="attribute-list">
-      <tr>
-      <td class="attribute-name">
-      <strong>Column name</strong>
-      </td>
-      <td class="attribute-description">
-      <strong>Description</strong>
-      </td>
-      </tr>
-      {% for attribute in primary-keys-table.attributes %}
-      <tr>
-      <td class="attribute-name">
-      <strong>{{ attribute.name }}</strong>
-      </td>
-      <td class="attribute-description">
-      {{ attribute.description | flatify | markdownify }}
-      </td>
-      </tr>
-      {% endfor %}
-      </table>
+      {% assign attribute-list=site.data.stitch.system-tables.sdc-primary-keys.attributes %}
+
+      {% include stitch/stitch-system-table.html attribute-list=attribute-list %}
 
     subsections:
       - title: "Example table"
@@ -115,6 +111,7 @@ sections:
 
   - title: "Effects of Primary Key changes"
     anchor: "effects-of-primary-key-changes"
+    summary: "The effects of Primary Key changes in the source"
     content: |
       Replication issues can arise if Primary Keys in the source change, or if data in the `{{ primary-keys-table.name }}` is incorrectly altered or removed.
 
