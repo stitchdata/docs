@@ -345,33 +345,53 @@ steps:
 
       ![Newly connected integration with Pending Sync status.]({{ site.baseurl }}/images/getting-started/new-pending-integration.png)
 
-      A **Pending** status indicates that Stitch is in the process of scheduling a replication job for the integration. To kick off a job sooner, you can use the [Force Extraction feature]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) in the integration's **Extractions** tab.
+      A **Pending** status indicates that Stitch is in the process of scheduling a replication job for the integration. When the status changes to **In Progress**, it means that the replication job has started. To kick off a job sooner, you can use the [Force Extraction feature]({{ link.replication.start-stop-extraction | prepend: site.baseurl }}) in the integration's **Extractions** tab. 
 
-      When the status changes to **In Progress**, it means that the inital replication job has started. During this job, Stitch will replicate the integration's historical data.
+      In this case, the job will replicate all historical data for the integration. Historical jobs tend to be larger in volume compared to subsequent jobs, and as a result may take longer to process and load into your destination. It's normal to see a large spike in replicated rows during this time, but you can expect your row usage to decrease and eventually level out.
+
+      To keep an eye on where Stitch is in the replication process, you can use the integration's replication stats, Extraction Logs, and Loading Reports.
 
     substeps:
-      - title: "Monitor the initial replication job"
-        anchor: "monitor-initial-replication-job"
+      - title: "Integration replication stats"
+        anchor: "integration-replication-stats"
+        no-number: true
         content: |
-          Historical jobs tend to be larger in volume compared to subsequent jobs, and as a result may take longer to process and load into your destination. It's normal to see a large spike in replicated rows during this time, but you can expect your row usage to decrease and eventually level out.
+          Click on the integration from the {{ app.page-names.dashboard }} to open the **{{ app.page-names.int-details }}** page:
 
-      - title: "Monitor ongoing replication jobs"
-        anchor: "monitor-ongoing-replication-jobs"
-        content: |
-          After the historical job completes, the time it takes Stitch to complete subsequent jobs should decrease. To keep an eye on where Stitch is in the replication process, you can use the integration's replication stats.
-
-          Click on the integration from the {{ app.page-names.dashboard }} to open the {{ app.page-names.int-details }} page:
-
-          ![Integration Replication Stats]({{ site.baseurl }}/images/replication/replication-stats.png)
-
-          **Note**: These stats are not real-time and will update every few minutes. You'll need to refresh the page if you're eager to watch your data move through Stitch.
+          {% include layout/image.html file="/replication/replication-stats.png" caption="Integration replication stats. These stats are not real-time and will update every few minutes. You'll need to refresh the page if you're eager to watch your data move through Stitch." alt="Integration Extracted, Preparing, and Loading replication stats." %}
 
           To learn more about how info is displayed in these fields, check out the [Monitoring Replication Progress guide]({{ link.replication.rep-progress | prepend: site.baseurl }}).
 
-          ---
+      - title: "Extraction Logs"
+        anchor: "extraction-logs"
+        no-number: true
+        content: |
+          [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) detail the **Extract** phase of Stitch's replication process. In the logs, you can see how data is queried and extracted, along with any errors that may occur.
+
+          Click the **Extractions** tab in the integration to open its Extraction Logs.
+
+      - title: "Loading Reports"
+        anchor: "loading-reports"
+        no-number: true
+        content: |
+          [Loading Reports]({{ link.replication.loading-reports | prepend: site.baseurl }}) detail the **Loading** phase of Stitch's replication process. In the reports, you can see the status of loads for individual tables, the number of rows loaded for the table, and any errors that occurred during the load.
+          
+          Click the **Loads** tab in the integration to open its Loading Reports.
+
+  - title: "Check out your data"
+    anchor: "check-out-your-data"
+    summary: "Checking out your Stitch-replicated data"
+    content: |
+      Now that Stitch has loaded your data, it's time to check it out! 
+
+      To analyze or interact with the data Stitch replicates, you'll need an additional tool. Check out our [list of analysis tools]({{ site.baseurl }}/analysis-tools/) to find the visualization, analysis, or data science tool that's right for you.
+
+      {% include tip.html type="single-line" content="If an integration's stats or Loading Reports indicate that data was loaded but you don't see any, make sure you're **directly querying your destination with a SQL client**. Some analysis tools, such as Mode or Tableau, have refresh lags on their reports. This means that even if data is in the destination, it may not immediately show up in the app you're using." %}
+
+      ---
 
 next-steps: |
-  Congratulations! You set up a destination, connected an integration, and configured replication settings. You're on your way to consolidating your data.
+  Congratulations! You set up a destination, connected an integration, and configured replication settings. You're on your way to moving your data.
 
   So, what's next? Here's what we recommend:
 
@@ -379,7 +399,6 @@ next-steps: |
   - **Get to know your destination**. Every destination handles data differently, which will impact how Stitch loads and stores the data it replicates from your integrations. [Check out the Destination Data Loading guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for the specifics on your destination.
   - **Get to know your SaaS integrations**, if you plan on connecting any. Just like destinations, every SaaS integration structures its data differently. How Stitch replicates and loads SaaS data depends in part on how that data is created and structured. [Our extensive SaaS integration docs]({{ site.baseurl }}/integrations/saas/) cover what Stitch will replicate and how.
   - **Invite your team.** [Loop in your colleagues]({{ link.account.team-members | prepend: site.baseurl }}) to set up integrations and get the data flowing.
-  - **Connect your analysis tool to your Stitch destination**. If your end-goal is to analyze or interact with the data Stitch replicates, you'll need an additional tool. Check out our [list of analysis tools]({{ site.baseurl }}/analysis-tools/) to find the visualization, analysis, or data science tool that's right for you.
 
   {{ more-help }}
 ---
