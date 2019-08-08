@@ -353,7 +353,9 @@ sections:
           - title: "Step 6: Your destination"
             anchor: "system-architecture--destination"
             content: |
-              Data is finally loaded into your destination! At this point, you can use an [analysis tool]({{ site.baseurl }}/analysis-tools) to interact with your data.
+              Data is finally loaded into your destination! For each integration, Stitch will create a schema (or dataset, or folder, depending on your destination) and load that integration's data into it. Refer to the [Understanding integration schema structures guide]({{ link.destinations.storage.stitch-schema | prepend: site.baseurl }}) for info on how schemas will be structured.
+
+              At this point, you can use an [analysis tool]({{ site.baseurl }}/analysis-tools) to interact with your data.
 
   - title: "Next steps"
     anchor: "next-steps"
