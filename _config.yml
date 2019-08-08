@@ -92,6 +92,8 @@ collections:
    output: true
   developers:
     output: true
+  getting-started:
+    output: true
   integration-schemas:
    output: false
   replication:
@@ -173,6 +175,15 @@ defaults:
       sidebar: stitchnav
       display-summary: "false"
 
+## Getting Started
+  - scope:
+      type: getting-started
+    values:
+      layout: general
+      enterprise: false
+      sidebar: on-page
+      toc: true
+
 ## Replication
   - scope:
       type: replication
@@ -243,6 +254,7 @@ status: https://status.stitchdata.com/
 changelog: https://www.stitchdata.com/changelog
 blog: https://blog.stitchdata.com/
 security: https://www.stitchdata.com/platform/security/
+partners: https://www.stitchdata.com/partners/
 resources: https://www.stitchdata.com/resources/
 data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeline
 

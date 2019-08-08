@@ -13,7 +13,7 @@
             <!-- TOP-LEVEL ITEMS -->
 
             {% for category in doc.categories %}
-                {% if category.title == "Getting Started" or category.drop-down == false %}
+                {% if  category.drop-down == false %}
                     <li>
                         <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
                 {% else %}
@@ -33,7 +33,6 @@
                     
                 {% endif %}
                 
-                {% unless category.title == "Getting Started" %}
                     <ul class="collapse" id="{{ category.title | slugify }}">
 
                     <!-- SECOND-LEVEL ITEMS -->
@@ -84,7 +83,7 @@
                             {% endif %}
                         {% endfor %} 
                     </ul>
-                {% endunless %}
+
                 </li>
             {% endfor %}
         {% endfor %}

@@ -3,13 +3,19 @@ title: Loading data
 permalink: /data-structure/
 keywords: data structure, schema, data load, loading data
 summary: "Resources for learning about how Stitch loads and organizes data into your destination."
+
 toc: false
 feedback: false
 
 level: "category"
-icon: 
-display-title: ""
-display-summary: "Understand how Stitch structures and loads data into your destination."
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+icon: "database"
+display-title: "Loading data"
+display-summary: "Learn how Stitch will load and structure data in your destination."
 weight: 6
 ---
 {% include misc/data-files.html %}

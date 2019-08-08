@@ -16,8 +16,13 @@
 # -------------------------- #
 #       Getting Started      #
 # -------------------------- #
-getting-started: /getting-started
+getting-started:
+  category: /getting-started
 
+  basic-concepts: /getting-started/basic-concepts-system-overview
+  row-usage: /getting-started/understanding-stitch-usage
+  onboarding: /getting-started/set-up-stitch-data-pipeline
+  feature-overview: /getting-started/stitch-feature-overview
 
 # -------------------------- #
 #     Account & Billing      #
@@ -46,7 +51,6 @@ account:
   enterprise-features: /account-security/stitch-enterprise-features
 
 billing:
-  billing-guide: /account-security/understanding-stitch-billing-replicated-rows
   billing-faq: /account-security/billing-faq
 
 
@@ -136,8 +140,9 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
+    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
     stitch-schema: /data-structure/integration-schemas
-    sdc-columns: "/data-structure/integration-schemas#sdc_columns"
+    sdc-columns: *system-data
     loading-data: /data-structure/loading-stitch-data-into-destinations
     structure-changes: /data-structure/table-structural-changes
     column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
@@ -159,6 +164,8 @@ integrations:
   import-api: /integrations/import-api
   webhooks: /integrations/webhooks
   stitch-incoming-webhooks: /integrations/webhooks/stitch-incoming-webhooks
+
+  other-data-sources: /integrations/connecting-other-data-sources-to-stitch
 
   ## Use a filter to replace INTEGRATION with the integration's name to
   ## create the URL.

@@ -30,14 +30,19 @@
     {% endif %}
 
     {% for step in page.steps %}
-    	{% capture step-number %}
-	        {{ forloop.index }}
-	    {% endcapture %}
+        {% unless step.no-number == true %}
+        	{% capture step-number %}
+    	        {{ forloop.index }}
+    	    {% endcapture %}
+        {% endunless %}
 
 		{% if step.substeps %}
             <li class="subfolders">
                 <a data-toggle="collapse" href="#{{ step.anchor | append: "--menu" }}" aria-expanded="false" aria-controls="{{ step.anchor | append: "--menu" }}">
-                    {{ step-number | strip }}: {{ step.title | flatify }} 
+                    {% unless step.no-number == true %}
+                        {{ step-number | strip }}: 
+                    {% endunless %}
+                    {{ step.title | flatify }} 
                     <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
                 </a>
 
@@ -47,19 +52,29 @@
                     </li>
 
                		{% for substep in step.substeps %}
-               			{% capture substep-number %}
-			                {{ forloop.index }}
-			            {% endcapture %}
+                        {% unless substep.no-number == true %}
+                   			{% capture substep-number %}
+    			                {{ forloop.index }}
+    			            {% endcapture %}
+                        {% endunless %}
 
                 		<li>
-                            <a href="#{{ substep.anchor }}">{{ step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}</a>
+                            <a href="#{{ substep.anchor }}">
+                                {% unless substep.no-number == true %}
+                                    {{ step-number | strip }}.{{ substep-number | strip }}: 
+                                {% endunless %}
+                                {{ substep.title | flatify }}
+                            </a>
                         </li>
                 	{% endfor %}
                 </ul>
             {% else %}
             	<li>
             		<a href="#{{ step.anchor }}">
-		            	{{ step-number | strip }}: {{ step.title | flatify }}
+                        {% unless step.no-number == true %}
+		                   {{ step-number | strip }}: 
+                        {% endunless %}
+                           {{ step.title | flatify }}
 		            </a>
 		        </li>
     		{% endif %}

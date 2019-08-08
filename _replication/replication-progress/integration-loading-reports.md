@@ -23,7 +23,7 @@ intro: |
 
   {% include note.html first-line="**Loading report availability**" content="Loading reports are available only for integrations powered by Singer taps. As integrations are converted to the Singer system, loading reports will be made available." %}
 
-  The last phase of every Stitch replication job is called **Loading**. During Loading, Stitch loads [extracted data]({{ link.replication.extraction-logs | prepend: site.baseurl }}) into your destination. The **Loading Reports** tab - accessed by clicking into the integration from the {{ app.page-names.dashboard }} - provides detail about the loading portion of the replication process for a given integration.
+  The last phase of every Stitch replication job is called **Loading**. During Loading, Stitch loads [extracted data]({{ link.replication.extraction-logs | prepend: site.baseurl }}) into your destination. The **Loads** tab - accessed by clicking into the integration from the {{ app.page-names.dashboard }} - provides detail about the loading portion of the replication process for a given integration.
 
   In this guide, we'll cover:
 

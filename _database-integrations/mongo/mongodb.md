@@ -17,6 +17,7 @@ hosting-type: "generic"
 driver: |
   [3.4.2](https://mongodb.github.io/mongo-java-driver/3.4/){:target="new"}
 
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -43,7 +44,7 @@ cron-scheduling: false
 extraction-logs: false
 loading-reports: true
 
-table-selection: true
+table-selection: &table-selection true
 column-selection: false
 table-level-reset: false
 
@@ -61,6 +62,15 @@ key-based-incremental-replication: true
 full-table-replication: false
 
 view-replication: false
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
+
 
 # -------------------------- #
 #      Setup Requirements    #

@@ -56,6 +56,14 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: true
+  lots-of-full-table: true
+
 
 # -------------------------- #
 #      Feature Summary       #

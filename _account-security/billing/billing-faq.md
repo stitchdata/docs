@@ -36,7 +36,7 @@ frequently-asked-questions:
         answer: |
           {% include billing/replicated-row-definition.html %}
 
-          For an in-depth walkthrough of how Stitch calculates your usage, check out the [Understanding and Reducing Your Row Usage guide]({{ link.billing.billing-guide | prepend: site.baseurl }}).
+          For an in-depth walkthrough of how Stitch calculates your usage, check out the [Understanding and Reducing Your Row Usage guide]({{ link.getting-started.row-usage | prepend: site.baseurl }}).
 
 
 # -------------------------- #
@@ -270,7 +270,7 @@ frequently-asked-questions:
       - question: "How can I reduce my row usage?"
         anchor: "reduce-row-usage"
         answer: |
-          We recommend [following the simple tips in this guide]({{ link.billing.billing-guide | prepend: site.baseurl | append: "#reducing-your-usage" }}) to reduce your row usage.
+          We recommend [following the simple tips in this guide]({{ link.getting-started.row-usage | prepend: site.baseurl | append: "#reducing-your-usage" }}) to reduce your row usage.
 
       - question: "Do rows from free integrations count towards my usage?"
         anchor: "free-integrations-usage"

@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Stitch Destinations
 permalink: /destinations/
 keywords: destination, destinations, data warehouse, data warehouses, warehouse, stitch etl, etl
@@ -6,13 +10,9 @@ summary: "After your data is replicated, you'll need a place to store it. Stitch
 
 content-type: "destination-general"
 
-level: "category"
-icon: "destination"
-display-title: "Destinations"
-display-summary: "Popular databases for storing your data."
-weight: 3
-
 key: "destinations"
+
+level: "category"
 
 layout: general
 toc: false
@@ -20,6 +20,22 @@ feedback: false
 type: "all"
 destination: false
 
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "destination"
+display-title: "Destinations"
+display-summary: "Deliver your data to popular data lakes, warehouses, and storage platforms."
+weight: 3
+
+
+# -------------------------- #
+#      CONTENT SECTIONS      #
+# -------------------------- #
 
 enterprise-cta:
   title: "Need multiple destinations?"

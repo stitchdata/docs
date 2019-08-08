@@ -2,7 +2,7 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
-title: Microsoft Azure Destination
+title: Microsoft Azure SQL Data Warehouse Destination
 permalink: /destinations/microsoft-azure-sql-data-warehouse/
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: &summary |

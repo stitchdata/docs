@@ -47,11 +47,21 @@ tier: "Free"
 status-url: "https://status.codat.io/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: false
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: true
 
 
 # -------------------------- #

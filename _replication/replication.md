@@ -2,20 +2,27 @@
 title: Extracting data
 permalink: /replication/
 keywords: 
-
-content-type: "category-page"
-
-level: "category"
-icon: replication
-display-title: "Replication"
-display-summary: "Manage replication for your integrations."
-weight: 5
-
 summary: "Documentation and guides for configuring and managing data replication for your Stitch integrations."
+
 feedback: false
 toc: false
 
+content-type: "category-page"
 key: "replication"
+
+level: "category"
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "replication"
+display-title: "Extracting data"
+display-summary: "Get the data flowing with Stitch's simple, straightforward replication settings."
+weight: 5
+
 
 # --------------------------- #
 #          CATEGORIES         #
