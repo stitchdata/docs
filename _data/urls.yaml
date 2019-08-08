@@ -140,8 +140,9 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
+    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
     stitch-schema: /data-structure/integration-schemas
-    sdc-columns: "/data-structure/integration-schemas#sdc_columns"
+    sdc-columns: *system-data
     loading-data: /data-structure/loading-stitch-data-into-destinations
     structure-changes: /data-structure/table-structural-changes
     column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
@@ -151,7 +152,6 @@ destinations:
     redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
     bigquery-partitioning: /destinations/bigquery/apply-table-partitioning-clustering
     azure-primary-keys: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
-    system-tables-and-columns: /data-structure/system-tables-and-columns
 
 # -------------------------- #
 #         INTEGRATIONS       #
