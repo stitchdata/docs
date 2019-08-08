@@ -11,7 +11,7 @@ summary: "The basic concepts and architecture of Stitch, including an overview o
 
 layout: general
 sidebar: on-page
-toc: true
+toc: false
 
 level: "guide"
 key: "basic-concepts"

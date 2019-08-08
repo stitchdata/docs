@@ -10,7 +10,7 @@ keywords: integrations unsupported other data sources where is integration
 summary: "Don't see an integration you want in Stitch? Learn about your options for getting data from not-currently-supported data sources into Stitch."
 
 layout: general
-toc: true
+toc: false
 
 level: "guide"
 key: "other-data-sources"

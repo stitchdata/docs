@@ -7,7 +7,7 @@ keywords: getting started, get started, get set up, set up stitch, setup, guide
 summary: "Get your Stitch data pipeline up and running."
 
 layout: tutorial
-toc: true
+toc: false
 
 level: "guide"
 key: "onboarding"

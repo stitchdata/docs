@@ -11,7 +11,7 @@ layout: general
 
 summary: "Learn the basics of Stitch billing, how to view and understand your usage, and keep your row count low."
 
-toc: true
+toc: false
 
 level: "guide"
 key: "row-usage"
@@ -78,6 +78,7 @@ sections:
 
   - title: "Understand your usage"
     anchor: "understanding-your-usage"
+    summary: "Understanding your row usage"
     content: |
       {% for subsection in section.subsections %}
       - [{{ subsection.title }}](#{{ subsection.anchor }})
