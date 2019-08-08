@@ -1,22 +1,38 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Stitch Integrations
-tags: [getting_started]
 keywords: integrations, etl saas app, etl saas service, etl database, database etl, integration, data source
-layout: general
 permalink: /integrations/
 summary: "Use Stitch's native database & SaaS, Import API, or webhook integrations to connect and replicate your data."
 
-level: "category"
-icon: "source"
-display-title: "Integrations"
-display-summary: "Connect all your data sources to Stitch."
-weight: 4
-
-key: "integrations"
-
+layout: general
 toc: false
 input: false
 feedback: false
+
+level: "category"
+
+key: "integrations"
+
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "source"
+display-title: "Integrations"
+display-summary: "Connect all your data sources, including databases, SaaS applications, and more."
+weight: 4
+
+
+# -------------------------- #
+#      CONTENT SECTIONS      #
+# -------------------------- #
 
 sections:
   - content: |

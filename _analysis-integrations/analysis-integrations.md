@@ -1,21 +1,36 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Analysis Tools
 permalink: /analysis-tools/
 redirect_from: /analysis-integrations/
-
 keywords: analysis, analysis integration, analytics, analyze stitch data, layer, analysis tool, visualization tool, sql, query stitch data
 summary: "Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you’ll need an additional visualization or middleware tool."
 
+layout: general
+toc: true
+
 level: "category"
-icon: "analytics"
-weight: 7
-display-title: "Analysis tools"
-display-summary: "Analyze your Stitch-replicated data."
 
 key: "analysis-tools"
 
-layout: general
-toc: true
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "analytics"
+display-title: "Analysis tools"
+display-summary: "Interact with your Stitch-replicated data using an additional analysis tool."
+weight: 6
+
+# -------------------------- #
+#        CONTENT DATA        #
+# -------------------------- #
 
 analytics:
   - name: "Chart.io"
@@ -231,6 +246,11 @@ display-table: |
   {% endfor %}
 
   </table>
+
+
+# -------------------------- #
+#      CONTENT SECTIONS      #
+# -------------------------- #
 
 intro: |
   {% include misc/data-files.html %}

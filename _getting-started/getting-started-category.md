@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Getting Started
 permalink: /getting-started/
 keywords: getting started get started stitch onboarding new user set up stitch
@@ -8,13 +12,21 @@ feedback: false
 layout: page
 sidebar: stitch
 
-level: "category"
-icon: "user-profile"
-weight: 2
-display-title: "Getting Started"
-display-summary: "Everything you need to know to get started with Stitch."
-
 key: "getting-started"
+
+level: "category"
+
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "file"
+display-title: "Getting Started"
+display-summary: "Learn about Stitch and set up your own data pipeline."
+weight: 1
 
 ---
 
