@@ -7,11 +7,14 @@ title: System tables and columns
 permalink: /data-structure/system-tables-and-columns
 keywords: sdc, _sdc, system columns, system tables
 summary: "When data is loaded into your destination, Stitch will create some additional columns and tables. Learn about these system columns and tables and how Stitch uses them."
+
 layout: general
-
 toc: true
-weight: 1
 
+level: "guide"
+key: "system-tables-and-columns"
+
+weight: 1
 
 # -------------------------- #
 #         GUIDE INTRO        #

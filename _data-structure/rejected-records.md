@@ -6,11 +6,15 @@
 title: Identifying & Resolving Rejected Record Issues
 keywords: troubleshooting, destination, trouble, issue, help, error, errors
 permalink: /data-structure/identifying-rejected-records
-layout: general
 tags: [troubleshooting_destinations, troubleshooting_errors]
-
 summary: "From time to time, Stitch may run into problems when attempting to load data into your destination. When data is deemed incompatible by the destination, the record will be rejected and Stitch will log it in a rejected records log."
+
+layout: general
 toc: true
+
+level: "guide"
+key: "rejected-records"
+
 weight: 5
 
 

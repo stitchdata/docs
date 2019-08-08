@@ -8,9 +8,13 @@ permalink: /data-structure/integration-schemas
 keywords: integration schemas, stitch schema, _sdc, sdc, stitch creates schemas, data warehouse
 tags: [replication]
 summary: "Learn how Stitch organizes the data replicated from your sources in your data warehouse."
-layout: general
 
+layout: general
 toc: true
+
+level: "guide"
+key: "integration-schemas"
+
 weight: 1
 
 
@@ -152,7 +156,7 @@ sections:
         content: |
           In addition to the columns set to replicate in these tables, there are also a few columns prepended with `{{ system-column.prefix }}`. Stitch uses these columns to replicate your data. **Don't remove these columns**, as doing so will cause replication issues in Stitch.
 
-          For descriptions of the system columns used by Stitch, refer to the [System tables and columns guide]({{ link.TODO | prepend: site.baseurl }}).
+          For descriptions of the system columns used by Stitch, refer to the [System tables and columns guide]({{ link.destinations.storage.system-tables-and-columns | prepend: site.baseurl }}).
 ---
 {% include misc/data-files.html %}
 {% assign sdc-columns = site.data.stitch.sdc-columns %}
