@@ -22,5 +22,5 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 		<strong>{{ category.display-title }}</strong><br>
 		{{ category.display-summary | flatify }}
 	</li>
-{% endfor %}
+{% endfor %} 
 </ul>
