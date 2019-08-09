@@ -18,7 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The tag ID."
-    foreign-key-id: "tag-id"
+    #foreign-key-id: "tag-id"
 
   - name: "name"
     type: "string"

@@ -6,16 +6,16 @@ parameters:
   - name: "client_id"
     required: true
     description: |
-      Your application's client ID. This is the `partner_id` that is obtained when your [API access request]({{ api.access-api }}) is approved.
+      Your API client ID. This is the `partner_id` that is obtained when your [API access request]({{ api.access-api }}) is approved.
 
   - name: "redirect_uri"
     required: false
     description: |
-      The callback URL for your application, which will be used in [Step 3](#authentication--callback-to-app).
+      The callback URL for your application, which will be used in [Step 3](#callback-to-your-application).
 
-      **Note**: If provided in Step 1 as a URL parameter, then the value must match one of the redirect URIs provided with your application's registration.
+      **Note**: If provided as a URL parameter, then the value must match one of the redirect URIs provided with your application's registration.
 
-      If **not** provided in Step 1 as a URL parameter, Stitch will fallback to the first `redirect_uri` associated with your API client.
+      If not provided as a URL parameter, Stitch will fallback to the first `redirect_uri` associated with your API client.
 
   - name: "email"
     required: false

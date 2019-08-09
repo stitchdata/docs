@@ -6,18 +6,16 @@ name: "contact"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_contact.htm
 singer-schema: 
 description: |
-  The `contact` table contains info about your contacts, who are individuals associated with accounts in your Salesforce instance.
+  The `{{ table.name }}` table contains info about your contacts, who are individuals associated with accounts in your {{ integration.display_name }} instance.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name: 
-  doc-link: 
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The contact ID."
+    foreign-key-id: "contact-id"
 
   - name: "systemModStamp"
     type: "date-time"
@@ -27,9 +25,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account that is the parent of the contact."
-    # foreign-key:
-    #   - table: "account"
-    #     attribute: "id"
+    foreign-key-id: "account-id"
 
   - name: "assistantName"
     type: "string" 
@@ -303,11 +299,7 @@ attributes:
   - name: "ownerId"
     type: "string"
     description: "The ID of the owner of the account associated with the contact."
-    # foreign-keys:
-    #  - table: "account"
-    #    attribute: "ownerId"
-    #  - table: "lead"
-    #    attribute: "ownerId"
+    foreign-key-id: "user-id"
 
   - name: "phone"
     type: "string"
@@ -316,7 +308,6 @@ attributes:
   - name: "photoUrl"
     type: "string"
     description: |
-
       The path to be combined with the URL of a Salesforce instance to generate a URL to request the social network profile image associated with the contact.
 
       This field will be blank if Social Accounts and Contacts aren't enabled for the organization or requesting user.
@@ -340,5 +331,4 @@ attributes:
   - name: "title"
     type: "string"
     description: "The title of the contact. For example: `CEO`, `Director of Product`, etc."
-
 ---

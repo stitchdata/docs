@@ -71,7 +71,7 @@ mysql:
 
 
 # -------------------------- #
-#         AURORA RDS         #
+#      AURORA MYSQL RDS      #
 # -------------------------- #
 
 aurora-rds:
@@ -81,7 +81,7 @@ aurora-rds:
 
   - name: "{{ defaults.field-names.host }}"
     copy: |
-      Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+      {{ defaults.field-copy.host-rds | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
     copy: "{{ defaults.field-copy.port | flatify }}"
@@ -161,7 +161,7 @@ mysql-rds:
 
   - name: "{{ defaults.field-names.host }}"
     copy: |
-      Paste the **Endpoint** address from the {{ integration.display_name }} Details page in AWS into this field. Don’t include the port number, which is appended to the end of the endpoint string - this will cause errors.
+      {{ defaults.field-copy.host-rds | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
     copy: "{{ defaults.field-copy.port | flatify }}"
@@ -189,7 +189,7 @@ cloudsql-mysql:
 
   - name: "{{ defaults.field-names.host }}"
     copy: |
-      Enter the host address (endpoint) of your {{ integration.display_name }} instance. This will be the value of the **Primary IPv4 address** that you retrieved in [step 2](#locate-database-connection-details).
+      {{ defaults.field-copy.host-cloudsql | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
     copy: "{{ defaults.field-copy.port | flatify }}"

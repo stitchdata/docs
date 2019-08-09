@@ -7,6 +7,7 @@ title: Close.io (v1.0)
 permalink: /integrations/saas/closeio
 tags: [saas_integrations]
 keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Close.io integration."
 layout: singer
 
 # -------------------------- #
@@ -20,6 +21,10 @@ repo-url: https://github.com/singer-io/tap-closeio
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} REST API](https://developer.close.com/){:target="new"}
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -31,16 +36,25 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
 status-url: "http://status.close.io/"
-icon: /images/integrations/icons/closeio.svg
 
 attribution-window: "24 hours"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: false
 column-selection: false
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

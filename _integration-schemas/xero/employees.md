@@ -8,9 +8,9 @@ singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schema
 description: |
   The `{{ table.name }}` table contains info about employees.
 
-  **Note**: According to [Xero's documentation](https://developer.xero.com/documentation/api/employees), the endpoint that produces this table is:
+  **Note**: According to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/employees), the endpoint that produces this table is:
 
-  > Used for an [employee type](https://help.xero.com/int/Contacts_EmployeeAdd) used exclusively by the global Payrun functionality in Xero core accounting.
+  > Used for an [employee type](https://help.xero.com/int/Contacts_EmployeeAdd) used exclusively by the global Payrun functionality in {{ integration.display_name }} core accounting.
 
   As a result, this table may not contain all employee data. Refer to the `contacts` table if you believe you are missing records.
 

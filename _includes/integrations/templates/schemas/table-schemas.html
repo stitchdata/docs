@@ -23,17 +23,18 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
 {% include note.html first-line="**Table and column names in your destination**" content=schemas-and-destination-loading %}
 {% endif %}
 
+
 {% for table in schema %}
 <!-- Table Name -->
     <div class="table-heading">
         <div class="table-name pull-left">
-            <h3 id="{{ table.name }}">{{ table.name }}</h3>
+            <h3 id="{{ table.name | slugify }}">{{ table.name }}</h3>
         </div>
 
     <!-- Link to Singer Schema, if one is present -->
         <div class="table-github pull-right">
         {% if table.singer-schema %}
-            <a href="{{ table.singer-schema }}" title="Opens in new window: {{ table.name }} schema on GitHub" target="new"><i class="fa fa-github fa-1" aria-hidden="true"></i> View table schema on GitHub</a>
+            <a href="{{ table.singer-schema }}" title="Opens in new window: {{ table.name }} schema on GitHub" target="new"><i class="fab fa-github fa-1" aria-hidden="true"></i> View table schema on GitHub</a>
         {% endif %}
         </div>
     </div>
@@ -48,77 +49,19 @@ For example: Object names are lowercased in Redshift (`CusTomERs` > `customers`)
         {{ table.notes | flatify | markdownify }}
     {% endif %}
 
-<!-- Start the actual table schema -->
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-        
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ table.name | replace: "[", "-" | replace: "]", "-" | replace: "/", "-" | replace: ".","-"}}">{{ table.name }} Table Schema</a>
-            </h4>
-        </div>
-        
-        <div id="collapse{{ table.name | replace: "[", "-" | replace: "]", "-" | replace: "/", "-" | replace: ".","-"}}" class="panel-collapse collapse noCrossRef">
-            <div class="panel-body">
-                <table width="100%" class="table-hover attribute-list">
-                    {% for attribute in table.attributes %}
-                        {% if attribute.name != "n/a" %}
-                            <!-- Formatting for OBJECT -->
-
-                            {% case attribute.type %}
-                            <!-- WHEN TYPE == OBJECT -->
-                                {% when 'object' %}
-                                    {% include integrations/templates/schemas/object-data-type.html %}
-
-                            <!-- WHEN TYPE == ARRAY -->
-                                {% when 'array' %}
-                                    {% include integrations/templates/schemas/array-data-type.html %}
-
-                            <!-- WHEN TYPE == SUBARRAY -->
-                                {% when 'subarray' %}
-                                    {% include integrations/templates/schemas/subarray-data-type.html %}
-
-                            <!-- WHEN TYPE != OBJECT OR ARRAY OR SUBARRAY -->
-                                {% else %}
-                                    <tr>
-                                        <td class="attribute-name">
-                                            {% if attribute.primary-key == true %}
-                                                {{ ui-icon.primary-key | flatify }}
-                                            {% endif %}
-
-                                            {% if attribute.replication-key == true %}
-                                                {{ ui-icon.replication-key | flatify }}
-                                            {% endif %}
-
-                                            {% if attribute.doc-link %}
-                                                <strong><a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a></strong>
-                                            {% else %}
-                                                <strong>{{ attribute.name | flatify }}</strong>
-                                            {% endif %}
-
-                                            {% if attribute.type %}
-                                                <br>
-                                                {{ attribute.type | upcase }}
-                                            {% endif %}
-                                        </td>
-                                        <td class="attribute-description">
-                                            {{ attribute.description | flatify | markdownify }}
-
-                                        <!-- FOREIGN-KEY == TRUE -->
-                                            {% if attribute.foreign-key-id %}
-                                                {% include integrations/templates/schemas/foreign-keys.html %}
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                            {% endcase %}   <!-- END DATA TYPE CASE STATEMENT -->
-                        {% endif %}
-                    {% endfor %}
-                </table>
+    <div class="panel-group" id="{{ table.name | slugify }}-schema">
+        <div class="panel panel-default">   
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ table.name | slugify }}-table">{{ table.name }} table schema</a>
+                </h4>
+            </div>
+          
+            <div id="collapse-{{ table.name | slugify }}-table" class="panel-collapse collapse noCrossRef">
+                {% include integrations/templates/schemas/table-attributes.html table=table.attributes %}
             </div>
         </div>
-
     </div>
-</div>
 
 <hr>
 {% endfor %}

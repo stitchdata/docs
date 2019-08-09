@@ -1,7 +1,6 @@
 ---
 title: MongoDB
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
-tags: [database_integrations]
 permalink: /integrations/databases/mongodb
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
 show-in-menus: true
@@ -12,6 +11,12 @@ show-in-menus: true
 
 name: "mongodb"
 display_name: "MongoDB"
+
+hosting-type: "generic"
+
+driver: |
+  [3.4.2](https://mongodb.github.io/mongo-java-driver/3.4/){:target="new"}
+
 
 # -------------------------- #
 #       Stitch Details       #
@@ -24,7 +29,6 @@ frequency: "30 minutes"
 tier: "Paid"
 port: 27017
 db-type: "mongo"
-icon: /images/integrations/icons/mongodb.svg
 
 ## Stitch features
 
@@ -35,10 +39,12 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: false
-extraction-logs: false
-loading-reports: false
+cron-scheduling: false
 
-table-selection: true
+extraction-logs: false
+loading-reports: true
+
+table-selection: &table-selection true
 column-selection: false
 table-level-reset: false
 
@@ -56,6 +62,15 @@ key-based-incremental-replication: true
 full-table-replication: false
 
 view-replication: false
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
+
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -82,12 +97,12 @@ requirements-info: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Index Replication Key Fields"
+  - title: "Index Replication Key fields"
     anchor: "index-replication-key-fields"
     content: |
       Before you jump into the actual setup, consider how the documents in your Mongo database are updated.
 
-      Our Mongo integration uses [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}) to replicate Mongo data, which means that only new and updated data will be replicated to your data warehouse when a sync runs. Stitch uses a field you designate - called a [Replication Key]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) - to identify new and updated data.
+      Our Mongo integration uses [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) to replicate Mongo data, which means that only new and updated data will be replicated to your destination when a replication job runs. Stitch uses a field you designate - called a [Replication Key]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) - to identify new and updated data.
 
       There are two requirements for Mongo Replication Keys:
 
@@ -98,16 +113,18 @@ setup-steps:
 
       For a detailed look at Mongo Replication Keys, check out the [Selecting & Changing Mongo Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) before continuing.
 
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "retrieve public key"
-
-  - title: "create linux user"
-
-  - title: "create db user"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      {% include integrations/databases/setup/db-users/{{ integration.db-type }}.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       {% capture mongo-conn %}
       Stitch uses a standalone server connection to connect to your MongoDB instance. What this means is that if you want Stitch to run on secondary instances, you have to give Stitch a host IP for one of your secondary instances.
@@ -123,37 +140,76 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
+
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
+
+
+# -------------------------- #
+#    Replication Details     #
+# -------------------------- #
+
+replication-sections:
+  - title: "Supported Replication Methods"
+    anchor: "supported-replication-methods"
+    content: |
+      Only Key-based Incremental Replication is supported for {{ integration.display_name }} integrations at this time. If a {{ object }} ever requires full replication - for example, to backfill existing rows with a new {{ col }}'s values - will require a full re-replication of the integration's data. Refer to the [Reset Replication Keys guide]({{ link.replication.mongo-rep-keys | prepend: site.baseurl | append: "#resetting-replication-keys" }}) for more info.
+
+  - title: "{{ integration.display_name }} Replication Keys"
+    anchor: "mongo-replication-keys"
+    content: |
+      Unlike Replication Keys for other database integrations, those for {{ integration.display_name }} have special considerations due to {{ integration.display_name }} functionality. For example: {{ integration.display_name }} allows multiple data types in a single field, which can cause records to be skipped during replication.
+
+      Refer to the [{{ integration.display_name }} Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
+
+  - title: "Data selection limitations"
+    anchor: "data-selection-limitations"
+    content: |
+      {{ integration.display_name }} data can only be tracked at the collection level. This means that when a collection is set to replicate in Stitch, all documents in the collection will also be selected.
+
+  - title: "Heavily nested data and destination column limits"
+    anchor: "nested-data-replication-column-limits"
+    content: |
+      {{ integration.display_name }} documents can contain heavily nested data, meaning an attribute can contain many other attributes.
+
+      If your destination doesn't natively support nested data structures, Stitch will de-nest them to load them into the destination. Depending on how deeply nested the data is and the per table column limit of the destination, Stitch may encounter issues when loading heavily nested data.
+
+      Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info and examples.
+
 
 # -------------------------- #
 #      Incompatiblities      #
 # -------------------------- #
 
-incompatible:
-  redshift: "sometimes"
-  reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Redshift's 1,600 column limit."
+## See _data/destinations/reference/incompatibilities.yml
 
-  panoply: "sometimes"
-  reason: "As a result of the de-nesting Stitch performs on nested structures, deeply nested data in Mongo may result in tables that exceed Panoply's 1,600 column limit."
+has-incompatibilities: true
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
----
 
 ## Troubleshooting
 

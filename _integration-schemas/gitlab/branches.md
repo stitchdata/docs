@@ -1,17 +1,19 @@
 ---
 tap: "gitlab"
-# version: ""
+# version: "1.0"
 
 name: "branches"
 doc-link: https://gitlab.com/help/api/branches.html
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/branches.json
 description: |
-  The `branches` table contains high-level info about repository branches in your projects.
+  The `{{ table.name }}` table contains high-level info about repository branches in your projects.
 
-  #### `branches` & Incremental Replication
+  **Note**: To replicate branch data, you must set this table and the [`projects`](#projects) table to replicate. Data for this table will only be replicated when the associated project (in the [`projects`](#projects) table) is also updated.
 
-  Data for this table will only be replicated when the associated project (in the `projects` table) is also updated. 
 replication-method: "Key-based Incremental"
+replication-key:
+  name: "projects.last_activity_at"
+
 api-method:
   name: "listRepositoryBranches"
   doc-link: https://gitlab.com/help/api/branches.html#list-repository-branches
@@ -21,14 +23,12 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the project associated with the branch."
+    foreign-key-id: "project-id"
 
   - name: "name"
     type: "string"
     primary-key: true
     description: "The name of the branch."
-
-  - name: "n/a"
-    replication-key: true
 
   - name: "merged"
     type: "boolean"
@@ -49,4 +49,5 @@ attributes:
   - name: "commit_id"
     type: "string"
     description: "The ID of the commit."
+    foreign-key-id: "commit-id"
 ---

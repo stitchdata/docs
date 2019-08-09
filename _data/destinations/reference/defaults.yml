@@ -51,8 +51,7 @@ stitch-details:
         name: "Setup documentation"
         description-full: |
           {% assign all-destination-setup-guides = site.destinations | where:"content-type","destination-setup" %}
-            {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"title" %}
-
+            {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"order" %}
             {% for setup-guide in destination-setup-guides %}
             - [{{ setup-guide.title | remove: " to Stitch" }}]({{ setup-guide.url | prepend: site.baseurl }})
             {% endfor %}
@@ -95,6 +94,38 @@ replication:
         name: "Incompatible sources"
         description: |
           {{ site.data.tooltips.integration-incompatibilities }}
+
+        value: |
+          {% assign destination-incompatibilities = site.data.destinations.reference.incompatibilities[destination.type] | compact %}
+          
+          {% assign incompatibility-list-size = destination-incompatibilities | size %}
+
+          {% case incompatibility-list-size %}
+          {% when 0 %}
+          **No reported incompatibilities**
+
+          No integration compatibility issues have been reported for {{ destination.display_name }}.
+          {% else %}
+          **Has possible incompatibilities**
+
+          Incompatibilities may exist with the following integrations:
+
+          {% for incompatibility in destination-incompatibilities %}
+          
+          {% for integration in integrations-with-incompatibilities %}
+          {% if integration.name == incompatibility.integration %}
+          {% capture integration-name %}
+          [{{ integration.display_name }}]({{ integration.url }})
+          {% endcapture %}
+          {% endif %}
+          {% endfor %}
+
+          - {{ integration-name }}
+          {% endfor %}
+
+          Refer to the [Destination and integration compatibility guide]({{ link.destinations.overviews.compatibility | prepend: site.baseurl | append: "#incompatible-integrations-by-destination-type" }}) for more info.
+          {% endcase %}
+
 
 # -------------------------- #
 #         Limitations        #

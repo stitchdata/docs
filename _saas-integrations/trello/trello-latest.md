@@ -1,7 +1,6 @@
 ---
 title: Trello
 permalink: /integrations/saas/trello
-tags: [saas_integrations]
 keywords: trello, integration, schema, etl trello, trello etl, trello schema
 summary: "Connection instructions and schema details for Stitch's Trello integration."
 format: ## controls formatting options in template
@@ -15,10 +14,12 @@ format: ## controls formatting options in template
 
 name: "trello"
 display_name: "Trello"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://www.trellostatus.com/"
+
+api: |
+  [{{ integration.display_name }} REST API](https://developers.trello.com/reference){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,14 +31,32 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/trello.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

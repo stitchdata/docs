@@ -3,7 +3,8 @@ tap: "salesforce"
 
 list:
   - api: "common-query-strategy"
-    reason: "The following objects require a querying strategy that Stitch doesn't currently support. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#query-restricted-objects)."
+    reason: |
+      The following objects require a querying strategy that Stitch doesn't currently support. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#query-restricted-objects){:target="new"}.
     objects:
       - name: "CollaborationGroupRecord"
       - name: "ContentDocumentLink"
@@ -24,8 +25,10 @@ list:
       - name: "Vote"
 
   - api: "common-incompatible"
-    reason: "The following objects are incompatible with querying. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#query-incompatible-objects)."
+    reason: |
+      The following objects are incompatible with querying. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#query-incompatible-objects){:target="new"}.
     objects:
+      - name: "Any `*ChangeEvent` object"
       - name: "ActivityHistory"
       - name: "AggregateResult"
       - name: "AttachedContentDocument"
@@ -48,7 +51,8 @@ list:
       - name: "UserRecordAccess"
 
   - api: "bulk"
-    reason: "**In addition to the objects listed in the REST API column**, the objects listed below are also unsupported by the Bulk API. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#unsupported-objects)."
+    reason: |
+      **In addition to the objects listed in the REST API column**, the objects listed below are also unsupported by the Bulk API. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#unsupported-objects){:target="new"}.
     objects:
       - name: "AcceptedEventRelation"
       - name: "AssetTokenEvent"

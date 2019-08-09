@@ -1,7 +1,6 @@
 ---
 title: Magento
 keywords: magento, database integration, etl magento, magento etl
-tags: [database_integrations]
 permalink: /integrations/databases/magento
 summary: "Connect and replicate data from your Magento database using Stitch's Magento integration."
 show-in-menus: true
@@ -13,12 +12,16 @@ show-in-menus: true
 name: "magento"
 display_name: "Magento"
 setup-name: "MySQL"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: 
+# this-version: "1.0"
+
+hosting-type: "generic"
+
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -31,7 +34,8 @@ frequency: "30 minutes"
 tier: "Free"
 port: 3306
 db-type: "mysql"
-icon: /images/integrations/icons/magento.svg
+
+## Stitch features
 
 versions: "n/a"
 ssh: true
@@ -40,6 +44,8 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 
@@ -75,19 +81,45 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "retrieve public key"
+  - title: "Create a Stitch database user"
+    anchor: "db-user"
+    content: |
+      {% include note.html type="single-line" content="You must have the `CREATE USER` and `GRANT OPTION` privileges to complete this step." %} 
 
-  - title: "create linux user"
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
-  - title: "create db user"
+      {% include integrations/templates/create-database-user-tabs.html %}
 
-  - title: "connect stitch"
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
+    content: |
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
-  - title: "replication frequency"
+    substeps:
+      - title: "Define the database connection details"
+        anchor: "define-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="general" %}
 
-  - title: "sync data"
+      - title: "Define the SSH connection details"
+        anchor: "ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

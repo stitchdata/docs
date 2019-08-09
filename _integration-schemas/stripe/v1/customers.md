@@ -33,10 +33,11 @@ attributes:
   - name: "cards"
     type: "array"
     description: "Details about the customer's cards."
-    array-attributes: &card-attributes
+    subattributes: &card-attributes
       - name: "id"
         type: "string"
         description: "The card ID."
+        foreign-key-id: "card-id"
 
       - name: "address_city"
         type: "string"
@@ -148,10 +149,11 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        object-attributes:
-          - name: "TODO"
-            type: 
-            description: ""
+        anchor-id: 1
+        subattributes: &metadata
+          - name: "ANYTHING"
+            type: "ANYTHING"
+            description: "This info will vary."
 
       - name: "name"
         type: "string"
@@ -196,11 +198,11 @@ attributes:
   - name: "discount"
     type: "object"
     description: "Describes the current discount active on the customer."
-    object-attributes:
+    subattributes:
       - name: "coupon"
         type: "object"
         description: "Details about the coupon applied to the customer."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The coupon ID."
@@ -243,10 +245,8 @@ attributes:
           - name: "metadata"
             type: "object"
             description: ""
-            object-attributes:
-              - name: ""
-                type: ""
-                description: ""
+            anchor-id: 2
+            subattributes: *metadata
 
           - name: "name"
             type: "string"
@@ -313,10 +313,8 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
-      - name: "TODO"
-        type: ""
-        description: ""
+    anchor-id: 3
+    subattributes: *metadata
 
   - name: "object"
     type: "string"
@@ -325,11 +323,11 @@ attributes:
   - name: "shipping"
     type: "object"
     description: "Mailing and shipping addresses for the customer. Appears on invoices emailed to this customer."
-    object-attributes:
+    subattributes:
       - name: "address"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
           - name: "city"
             type: "string"
             description: "The city of the shipping address."
@@ -366,12 +364,12 @@ attributes:
     type: "array"
     description: "The customer's payment sources."
     doc-link: "https://stripe.com/docs/api/sources/object"
-    array-attributes:
+    subattributes:
       - name: "ach_credit_transfer"
         type: "object"
         description: "If the source is an ACH credit transfer, this will contain the details about the ACH credit transfer source."
         doc-link: "https://stripe.com/docs/sources/ach-credit-transfer"
-        object-attributes:
+        subattributes:
           - name: "account_number"
             type: "string"
             description: "A positive integer in the smallest currency unit (that is, `100` cents for `$1.00`, or `1 for `¥1`, Japanese Yen being a zero-decimal currency) representing the total amount associated with the source. This is the amount for which the source will be chargeable once ready."
@@ -444,7 +442,7 @@ attributes:
         type: ""
         description: "If the source is an Alipay source, this will contain the details about the Alipay source."
         doc-link: "https://stripe.com/docs/sources/alipay"
-        object-attributes:
+        subattributes:
           # - name: "TODO"
           #   type: ""
           #   description: ""
@@ -457,7 +455,7 @@ attributes:
         type: ""
         description: "If the source is a Bancontact source, this will contain the details about the Bancontact source."
         doc-link: "https://stripe.com/docs/sources/bancontact"
-        object-attributes:
+        subattributes:
           # - name: "TODO"
           #   type: ""
           #   description: ""
@@ -469,7 +467,142 @@ attributes:
       - name: "card"
         type: "object"
         description: "If the source is a card source, this will contain the details about the card source."
-        object-attributes: *card-attributes
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The card ID."
+
+          - name: "address_city"
+            type: "string"
+            description: &address-city "The city associated with the card's billing address."
+
+          - name: "address_country"
+            type: "string"
+            description: &address-country "The billing address country."
+
+          - name: "address_line1"
+            type: "string"
+            description: &address-line1 "The first line of the billing address."
+
+          - name: "address_line1_check"
+            type: "string"
+            description: &address-line1-check |
+              If `address_line1` was provided, the results of the check. Possible values are:
+
+              - `pass`
+              - `fail`
+              - `unavailable`
+              - `unchecked`
+
+          - name: "address_line2"
+            type: "string"
+            description: &address-line2 "The second line of the billing address."
+
+          - name: "address_state"
+            type: "string"
+            description: &address-state "The state/county/province/region of the billing address."
+
+          - name: "address_zip"
+            type: "string"
+            description: &address-zip "The zip or postal code of the billing address."
+
+          - name: "address_zip_check"
+            type: "string"
+            description: &address-zip-check |
+              If `address_zip` was provided, the results of the check. Possible values are:
+
+              - `pass`
+              - `fail`
+              - `unavailable`
+              - `unchecked`
+
+          - name: "brand"
+            type: "string"
+            description: &brand |
+              The brand of the card. Possible values are:
+
+              - `American Express`
+              - `Diners Club`
+              - `Discover`
+              - `JCB`
+              - `MasterCard`
+              - `UnionPay`
+              - `Visa`
+              - `Unknown`
+
+          - name: "country"
+            type: "string"
+            description: &country "The two-letter ISO code representing the country of the card."
+
+          - name: "customer"
+            type: "string"
+            description: "The ID of the customer that the card belongs to."
+            foreign-key-id: "customer-id"
+
+          - name: "cvc_check"
+            type: "string"
+            description: &cvc-check |
+              If a CVC was provided, this will be the result of the check. Possible values are:
+
+              - `pass`
+              - `fail`
+              - `unavailable`
+              - `unchecked`
+
+          - name: "dynamic_last4"
+            type: "string"
+            description: &dynamic-last4 "**For tokenized numbers only.** The last four digits of the device account number."
+
+          - name: "exp_month"
+            type: "integer"
+            description: &exp-month "The two-digit number representing the card's expiration month."
+
+          - name: "exp_year"
+            type: "integer"
+            description: &exp-year "The four-digit number representing the card's expiration year."
+
+          - name: "fingerprint"
+            type: "string"
+            description: &fingerprint "A unique ID for the card number."
+
+          - name: "funding"
+            type: "string"
+            description: &funding |
+              The card's funding type. Possible values are:
+
+              - `credit`
+              - `debit`
+              - `prepaid`
+              - `unknown`
+
+          - name: "last4"
+            type: "string"
+            description: &last4 "The last four digits of the card."
+
+          - name: "metadata"
+            type: "object"
+            description: "Additional information attached to the card."
+            anchor-id: 4
+            subattributes: &metadata
+              - name: "ANYTHING"
+                type: "ANYTHING"
+                description: "This info will vary."
+
+          - name: "name"
+            type: "string"
+            description: &card-name "The name of the cardholder."
+
+          - name: "object"
+            type: "string"
+            description: "The type of {{ integration.display_name }} object. This will be `card`."
+
+          - name: "tokenization_method"
+            type: "string"
+            description: &tokenization-method |
+              If the card number is tokenized, this is the method that was used. Possible values are:
+
+              - `apple_pay`
+              - `android_pay`
 
       - name: "client_secret"
         type: "string"
@@ -504,7 +637,7 @@ attributes:
         type: ""
         description: "If the source is an EPS source, this will contain the details about the EPS source."
         doc-link: "https://stripe.com/docs/sources/eps"
-        object-attributes:
+        subattributes:
 
       - name: "exp_month"
         type: "integer"
@@ -540,7 +673,7 @@ attributes:
         type: "object"
         description: "If the source is an iDEAL source, this will contain the details about the iDEAL source."
         doc-link: "https://stripe.com/docs/sources/ideal"
-        object-attributes:
+        subattributes:
 
       - name: "last4"
         type: "string"
@@ -553,13 +686,14 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        object-attributes:
+        anchor-id: 5
+        subattributes: *metadata
 
       - name: "multibanco"
         type: "object"
         description: ""
         doc-link: "https://stripe.com/docs/sources/multibanco"
-        object-attributes:
+        subattributes:
 
       - name: "name"
         type: "string"
@@ -572,11 +706,12 @@ attributes:
       - name: "owner"
         type: "object"
         description: "Details about the owner of the payment instrument that may be used or required by particular source types."
-        object-attributes:
+        subattributes:
           - name: "address"
             type: "object"
             description: "The owner's address."
-            object-attributes:
+            anchor-id: 1
+            subattributes:
               - name: "city"
                 type: "string"
                 description: "The city of the owner's address."
@@ -632,7 +767,7 @@ attributes:
       - name: "receiver"
         type: "object"
         description: "Information related to the receiver flow. These attributes will be present if `flow: receiver`."
-        object-attributes:
+        subattributes:
           - name: "address"
             type: "string"
             description: "The address of the receiver source. This is the value that should be communicated to the customer to send their funds to."
@@ -660,7 +795,7 @@ attributes:
       - name: "redirect"
         type: "object"
         description: "Information related to the redirect flow. These attributes will be present if `flow: redirect`."
-        object-attributes:
+        subattributes:
           - name: "failure_reason"
             type: "string"
             description: |
@@ -740,7 +875,7 @@ attributes:
   - name: "subscriptions"
     type: "array"
     description: "The customer's current subscriptions."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The subscription ID."

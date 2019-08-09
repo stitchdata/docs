@@ -41,7 +41,9 @@
         {% assign integration-attributes = site.data.taps.snapshot-attributes[include.feature-type] | compact %}
 
         <!-- For Singer integrations, get the list of Singer-specific attributes -->
-            {% if integration.singer == true %}
+        <!-- The repo URL attribute will only display if the page has it defined.
+            This is because some tap repos are private, so including a link would cause a 404 -->
+            {% if integration.singer == true and integration.repo-url %}
                 {% assign singer-attributes = site.data.taps.snapshot-attributes.singer %}
 
                 {% assign all-attributes = common-attributes | concat:integration-attributes | concat: singer-attributes %}
@@ -131,7 +133,7 @@
 
 {% when 'integration-snapshot' %}
 
-<h2 id="{{ integration.name }}-snapshot">{{ integration.display_name }} snapshot</h2>
+<h2 id="{{ integration.name }}-feature-snapshot">{{ integration.display_name }} feature snapshot</h2>
 
     <p>A high-level look at Stitch's {{ integration.display_name }}{% if integration.this-version %} ({{ integration.this-version | prepend: "v" }}){% endif %} integration, including release status, useful links, and the features supported in Stitch.</p>
 

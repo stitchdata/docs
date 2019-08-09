@@ -18,6 +18,11 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1.0"
 
+hosting-type: "google-cloudsql"
+
+driver: |
+  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -25,11 +30,10 @@ this-version: "1.0"
 status: "Released"
 certified: true
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/google-cloudsql-postgresql.svg
 
 ## Stitch features
 
@@ -40,6 +44,8 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 
@@ -88,48 +94,48 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
-
-  - title: "Locate database connection details"
-    anchor: "locate-database-connection-details"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
     content: |
-      In this step, you'll locate the {{ integration.display_name }} database's IP address in the Google Cloud Platform console. This will be used to complete the setup in Stitch.
-
-      {% include shared/google-cloud-platform/locate-database-details.html %}
+      {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a Stitch database user"
     anchor: "create-a-database-user"
     content: |
-      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
+      In this step, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
       {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Define the database connection details"
+      - title: "Locate the database connection details in Google"
+        anchor: "locate-database-connection-details"
+        content: |
+          {% include shared/connection-details/google-cloudsql.html %}
+
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
+
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-{% capture cloudsql %}
-This article only applies to **Postgres-based** CloudSQL databases.<br><br>
-
-If you want to connect a **MySQL-based** CloudSQL instance, use [these instructions]({{ link.integrations.database-integration | prepend: site.baseurl | replace: "INTEGRATION","google-cloudsql-mysql" }}).
-{% endcapture %}
-
-{% include important.html content=cloudsql %}

@@ -6,8 +6,12 @@ name: "checks"
 singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/checks.json"
 description: |
   The `{{ table.name }}` table contains info about checks, or financial invoices, that have been closed.
-
+  
+  {% capture replication-note %}
   **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that checks will not be selected for replication until the record has a `{{ replication-keys | strip }}` value, which should occur when the check has a `status` of `closed`.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=replication-note %}
 
 replication-method: "Key-based Incremental"
 

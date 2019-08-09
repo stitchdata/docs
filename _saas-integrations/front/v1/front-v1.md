@@ -14,8 +14,8 @@
 
 title: Front (v1.0)
 permalink: /integrations/saas/front
-tags: [saas_integrations]
 keywords: front, integration, schema, etl front, front etl, front schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Front integration."
 layout: singer
 # input: false
 
@@ -32,20 +32,24 @@ repo-url: https://github.com/singer-io/tap-frontapp
 
 # this-version: "1.0"
 
+api: |
+  [Front API](https://dev.frontapp.com/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: false 
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://www.frontstatus.com/"
-icon: /images/integrations/icons/front.svg
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -56,6 +60,14 @@ column-selection: true
 # attribution-is-configurable: 
 
 # setup-name: ""
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

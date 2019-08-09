@@ -9,7 +9,6 @@
 
 title: Stripe (v1.0)
 permalink: /integrations/saas/stripe
-tags: [saas_integrations]
 keywords: stripe, integration, schema, etl stripe, stripe etl, stripe schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Stripe integration."
 layout: singer
@@ -22,11 +21,14 @@ layout: singer
 name: "stripe"
 display_name: "Stripe"
 
-singer: false
+singer: true
 tap-name: "Stripe"
 repo-url: https://github.com/singer-io/tap-stripe
 
 this-version: "1.0"
+
+api: |
+  [{{ integration.display_name }} REST API](https://stripe.com/docs/api){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -39,24 +41,39 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.stripe.com/"
-icon: /images/integrations/icons/stripe.svg
 
 table-selection: true
 column-selection: true
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: false
+  lots-of-full-table: false
 
 # -------------------------- #
 #      Incompatiblities      #
 # -------------------------- #
 
-## Incompatibilities with destinations are listed here.
+## See _data/destinations/reference/incompatibilities.yml
 
-incompatible:
-  postgres: "sometimes"
-  reason: "Tables and columns created as a result of de-nesting nested data may have names that exceed PostgreSQL's limit of 63 characters for tables and 59 characters for columns. PostgreSQL data warehouses will reject these tables and columns, meaning Stitch will be unable to load them."
+has-incompatibilities: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

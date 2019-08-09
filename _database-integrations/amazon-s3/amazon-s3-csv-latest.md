@@ -5,10 +5,8 @@
 
 title: Amazon S3 CSV
 keywords: amazon-s3-csv, database integration, etl amazon-s3-csv, amazon-s3-csv etl
-tags: [database_integrations]
 permalink: /integrations/databases/amazon-s3-csv
 summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
-layout: singer
 snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
@@ -27,6 +25,9 @@ status-url: "https://status.aws.amazon.com/"
 
 # this-version: "1.0"
 
+driver: |
+  [Boto 3 1.9.57](https://boto3.amazonaws.com/v1/documentation/api/1.9.57/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Supports      #
 # -------------------------- #
@@ -39,13 +40,18 @@ frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
 db-type: "s3"
-icon: /images/integrations/icons/amazon-s3-csv.svg
+
+## Stitch features
 
 versions: "n/a"
 ssh: false
 ssl: false
 
+## General replication features
+
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -68,6 +74,32 @@ full-table-replication: false
 
 view-replication: false
 
+
+
+# -------------------------- #
+#    Table search patterns   #
+# -------------------------- #
+
+search-pattern-examples:
+  - example: "Single file, periodically updated"
+    file-name: "`customers.csv`"
+    updates: "A single CSV file is periodically updated with new and updated customer data."
+    description: "Because there will only ever be one file, you could enter the exact name of the file in your S3 bucket:"
+    pattern: |
+      customers\.csv
+    matches: "`customer.csv`, exactly"
+
+  - example: "Multiple files, generated daily"
+    file-name: "`customers-<string>.csv`, where `<string>` is a unique, random string"
+    updates: "A new CSV file is created every day that contains new and updated customer data. Old files are never updated after they're created."
+    description: "To ensure new and updated files are identified, you'd want to enter a search pattern that would match all files beginning with `customers`, regardless of the string in the file name:"
+    pattern: |
+      (customers-).*\.csv
+    matches: |
+      - `customers-reQDSwNG6U.csv`
+      - `customers-xaPTXfN4tD.csv`
+      - `customers-MBJMhCbNCp.csv`
+      - etc.
 
 # -------------------------- #
 #   Data types for loading   #
@@ -140,21 +172,29 @@ requirements-list:
 
       Column name limits vary by destination:
 
-      {% assign destinations = site.destinations | where:"destination",true | sort:display_name %}
+      {% capture destination-column-name-limits %}
+      {% assign all-destinations = site.destinations | where:"destination",true | sort:display_name %}
+      {% assign destinations = all-destinations | where_exp:"destination","destination.type != 'data-world'" %}
 
       {% for destination in destinations %}
-      {% case destination.column-name-limit %}
+
+      {% case site.data.destinations.reference[destination.type]object-name-limit-info.columns %}
+
       {% when 'n/a' %}
       {% capture column-name-limit %}
       Not applicable to this destination
       {% endcapture %}
+
       {% else %}
       {% capture column-name-limit %}
-      Limited to **{{ destination.column-name-limit }} characters**
+      Limited to **{{ site.data.destinations.reference[destination.type]object-name-limit-info.columns }} characters**
       {% endcapture %}
       {% endcase %}
       - **{{ destination.display_name }}** - {{ column-name-limit }}
       {% endfor %}
+      {% endcapture %}
+
+      {{ destination-column-name-limits }}
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -164,18 +204,12 @@ setup-steps:
   - title: "Retrieve your Amazon Web Services account ID"
     anchor: "retrieve-aws-account-id"
     content: |
-      1. Sign into your Amazon Web Services (AWS) account.
-      2. Click the **user menu**, located between the **bell** and **Global** menus in the top-right corner of the page.
-      3. Click **My Account**.
-      4. In the **Account Settings** section of the page, locate the **Account Id** field:
-
-         ![An AWS account ID, highlighted in the AWS Account Settings page]({{ site.baseurl }}/images/integrations/s3-csv-account-id.png)
-
-      Keep this handy - you'll need it to complete the next step.
-  - title: "add integration"
+      {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
+      
+  - title: "Add {{ integration.display_name }} as a Stitch data source"
+    anchor: "add-stitch-data-source"
     content: |
-      4. In the **S3 Bucket** field, enter the name of bucket. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`
-      5. In the **AWS Account ID** field, paste the account ID you retrieve in [Step 1](#retrieve-aws-account-id).
+      {% include shared/database-connection-settings.html type="general" %}
 
   - title: "Configure tables"
     anchor: "configure-tables"
@@ -201,74 +235,107 @@ setup-steps:
 ## If a user is including a single file inside of a folder, do they need to escape backslashes and periods?
 ## Is there anything that will *not* work in this field?
 ## Does the first backslash for a directory need to be included? (Ex: /analytics/file.csv vs analytics/file.csv)
-      - title: "Define the table's search pattern"
-        anchor: "define-table-search-pattern"
+      - title: "Define the table's search settings"
+        anchor: "define-table-search-settings"
         content: |
-          {%- capture pyregex -%}
-          **Want to test an expression?** Try using [PyRegex](http://www.pyregex.com/){:target="new"}.
-          {%- endcapture -%}
+          In this step, you'll tell Stitch which files in your S3 bucket you want to replicate data from. To do this, you'll use the **Search Pattern** and **Directory** fields.
 
-          {% include note.html type="single-line" content=pyregex %}
+        sub-substeps:
+          - title: "Define the Search Pattern"
+            anchor: "define-search-pattern"
+            content: |
+              The **Search Pattern** field defines the search criteria Stitch should use for selecting and replicating CSV files. This field accepts regular expressions, which can be used to include a single file or multiple CSV files. 
 
-          The **Search Pattern** field accepts regular expressions, which can be used to include a single file or multiple CSV files. What you enter into this field depends on how data for a particular entity is updated.
+              The search pattern you use depends on how data for a particular entity is updated. Consider these examples:
 
-          **If a single file is replaced in your S3 bucket at some interval**, it would make sense to enter location of the file. For example: Customer data is added to and updated in a single file named `customers.csv`, located in the `analytics` folder of the bucket:
+              <table class="attribute-list">
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>Scenario</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.example }}
+              </td>
+              {% endfor %}
+              </tr>
 
-          ```
-          analytics/customers.csv           /* Single file, no escaped characters */
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>How updates are made</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.updates | markdownify }}
+              </td>
+              {% endfor %}
+              </tr>
 
-          analytics\/customers\.csv         /* Same file with escaped special characters */
-          ```
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>File name</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.file-name | markdownify }}
+              </td>
+              {% endfor %}
+              </tr>
 
-          If you include special characters (`/` or `.`) in the file location and want the expression to match exactly, you'll need to escape them in the expression as we did in the example above.
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>Search pattern</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.description | markdownify }}
 
-          {%- capture incremental-rep-note -%}
-          Large, frequently updated files can quickly drive up your row count, as files included in replication jobs are replicated in full each time. Refer to the [Incremental Replication for {{ integration.display_name }} section](#incremental-replication-for-amazon-s3-csv) for more info.
-          {%- endcapture -%}
+              {% highlight text %}
+              {{ example.pattern | strip }}
+              {% endhighlight %}
+              </td>
+              {% endfor %}
+              </tr>
 
-          {% include note.html type="single-line" content=incremental-rep-note %}
+              <tr>
+              <td align="right" width="18%; fixed">
+              <strong>Matches</strong>
+              </td>
+              {% for example in integration.search-pattern-examples %}
+              <td width="42%; fixed">
+              {{ example.matches | markdownify }}
+              </td>
+              {% endfor %}
+              </tr>
+              </table>
 
-          In other cases, **there may be multiple files that contain data for an entity**. For example: Every day a new CSV file is generated with new/updated customer data, and it follows the naming convention of `customers-YYYY-MM-DD.csv`.
+              When creating a search pattern, keep the following in mind:
 
-          To ensure data is correctly captured, you'd want to enter a search pattern that would match all files beginning with `customers`, regardless of the date in the file name. This would map all files in the `analytics` folder that begin with `customers` to a single table:
+              - Special characters such as periods (`.`) have special meaning in regular expressions. To match exactly, they'll need to be escaped. For example: `.\`
+              - Stitch uses Python for regular expressions, which may vary in syntax from other varieties. Try using [PyRegex](http://www.pyregex.com/){:target="new"} to test your expressions before saving the integration in Stitch.
 
-          ```
-          analytics\/customers.*\.csv
-          ```
+          - title: "Limit file search to a specific directory"
+            anchor: "limit-search-to-directory"
+            content: |
+              {% include note.html type="single-line" content="**Note**: This step is optional." %}
 
-          This search pattern would match `customers-2018-07-01.csv`, `customers-2018-07-02.csv`, `customers-2018-07-03.csv`, etc., and ensure files are replicated as they're created or updated.
+              The **Directory** field limits the location of the file search Stitch performs during replication jobs. When defined, Stitch will only search for files in this location and select the ones that match the [search pattern](#define-search-pattern).
+
+              To define a specific location in the S3 bucket, enter the directory path into the **Directory** field. For example: `data-exports/lists`. **Note**: This field is not a regular expression.
+
+              While using this field is optional, limiting the search to a single location may make extraction more efficient.
 
       - title: "Define the table's name"
         anchor: "define-table-name"
         content: |
-          When creating table names, keep in mind that each destination has its own rules for how tables can be named. 
+          In the **Table Name** field, enter a name for the table. Keep in mind that each destination has its own rules for how tables can be named. For example: Amazon Redshift table names can't exceed {{ site.data.destinations.reference.redshift.object-name-limit-info.tables }}.
 
-          {% capture table-name-limit-notice %}
-          The table name you enter should adhere to your destination's length limit for table names. If the table name exceeds the destination's limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
-
-          Table name limits vary by destination type:
-
-          {% for destination in destinations %}
-          {% case destination.table-name-limit %}
-          {% when 'n/a' %}
-          {% capture table-name-limit %}
-          Not applicable to this destination
-          {% endcapture %}
-          {% else %}
-          {% capture table-name-limit %}
-          Limited to **{{ destination.table-name-limit }} characters**
-          {% endcapture %}
-          {% endcase %}
-          - **{{ destination.display_name }}** - {{ table-name-limit }}
-          {% endfor %}
-          {% endcapture %}
-
-          {% include important.html first-line="**Destination table name limits**" content=table-name-limit-notice %}
+          If the table name exceeds the destination's character limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Refer to the [documentation for your destination]({{ link.destinations.overview | prepend: site.baseurl }}) for more info about table naming rules.
 
       - title: "Define the table's Primary Key"
         anchor: "define-table-primary-key"
         content: |
-          {% include note.html type="single-line" content="This step is optional." %}
+          {% include note.html type="single-line" content="**Note**: This step is optional." %}
 
           In the **Primary Key** field, enter one or more header fields (separated by commas) Stitch can use to identify unique rows. For example:
 
@@ -281,7 +348,7 @@ setup-steps:
       - title: "Specify datetime fields"
         anchor: "specify-datetime-fields"
         content: |
-          {% include note.html type="single-line" content="This step is optional." %}
+          {% include note.html type="single-line" content="**Note**: This step is optional." %}
 
           In the **Specify datetime fields** field, enter one or more header fields (separated by commas) that should appear in the destination table as `datetime` fields instead of strings. For example:
 
@@ -298,150 +365,47 @@ setup-steps:
 
            Stitch doesn't enforce a limit on the number of tables that you can configure for a single integration.
 
-  - title: "historical sync"
+  - title: "Define the historical sync"
+    anchor: "define-historical-sync"
     content: |
-      For example: Let's say we've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
+      {% include integrations/saas/setup/historical-sync.html %}
+    content: |
+      For example: You've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year. During the initial replication job, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
 
       During subsequent replication jobs, Stitch will only replicate the files that have been modified since the last job ran.
 
       As files included in a replication job are replicated in full during each job, how data is added to updated files can impact your row count. Refer to the [Incremental Replication for {{ integration.display_name }}](#incremental-replication-for-amazon-s3-csv) section for more info on initial and subsequent replication jobs for {{ integration.display_name }}.
 
-  - title: "replication frequency"
+  - title: "Create a replication schedule"
+    anchor: "create-replication-schedule"
+    content: |
+      {% include integrations/shared-setup/replication-frequency.html %}
 
   - title: "Grant access to your bucket using AWS IAM"
     anchor: "grant-access-bucket-iam"
     content: |
-      {% include note.html type="single-line" content="**Note**: To complete this step, you must have permissions in AWS Identity Access Management (IAM) that allow you to create/modify IAM policies and roles." %}
-
-      Next, Stitch will display a **Grant Access to Your Bucket** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
-
-      **Note**: Saving the integration before you've completed the steps below will result in connection errors.
+      {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
 
     substeps:
       - title: "Create an IAM policy"
         anchor: "create-iam-policy"
         content: |
-          {% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `ListPolicies`, `GetPolicy`, and `CreatePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
-
-          [An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to bucket resources. The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
-
-          For more info about the top-level permissions the Stitch IAM policy grants, click the link below.
-
-          {% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges[integration.name].user-privileges %}
-
-          <div class="panel-group" id="accordion">
-              <div class="panel panel-default">
-
-                  <div class="panel-heading">
-                      <h4 class="panel-title">
-                          <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ integration.display_name }} Bucket Permissions</a>
-                      </h4>
-                  </div>
-
-                  <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
-                      <div class="panel-body">
-                          <table class="attribute-list table-hover">
-                              <tr>
-                                  <td class="attribute-name">
-                                      <strong>Permission Name</strong>
-                                  </td>
-                                  <td class="attribute-description">
-                                      <strong>Operation</strong>
-                                  </td>
-                                  <td class="attribute-description">
-                                      <strong>Operation Description</strong>
-                                  </td>
-                              </tr>
-
-                              {% for permission in integration-permissions %}
-
-                              <!-- Capture the # of objects in the array & use it as the table's rowspan -->
-                                  {% for operation in permission.operations %}
-                                      {%- capture rowspan -%}
-                                          {{ forloop.length }}
-                                      {%- endcapture -%}
-                                  {% endfor %}
-
-                                      <tr>
-                                          <td class="attribute-name" rowspan="{{ rowspan }}">
-                                              <strong>{{ permission.name }}</strong>
-                                          </td>
-                                  {% for operation in permission.operations %}
-                                      {% case forloop.first %}
-                                          {% when true %}
-                                                  <td class="attribute-description">
-                                                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                                                  </td>
-                                                  <td class="attribute-description">
-                                                      {{ operation.description | flatify | markdownify }}
-                                                  </td>
-                                              </tr>
-                                          {% else %}
-                                              <tr>
-                                                  <td class="attribute-description">
-                                                      <strong><a href="{{ operation.link }}">{{ operation.name }}</a></strong>
-                                                  </td>
-                                                  <td class="attribute-description">
-                                                      {{ operation.description | flatify | markdownify }}
-                                                  </td>
-                                              </tr>
-                                      {% endcase %}
-                                  {% endfor %}
-                              {% endfor %}
-                          </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-
-          To create the IAM policy:
-
-          1. In AWS, [navigate to the IAM service](https://console.aws.amazon.com/iam/home#/home){:target="new"} by clicking the **Services** menu and typing **IAM**.
-          2. Click **IAM** once it displays in the results.
-          3. On the IAM home page, click **Policies** in the menu on the left side of the page.
-          4. Click **Create Policy**.
-          5. In the **Create Policy** page, click the **JSON** tab.
-          6. Select everything currently in the text field and delete it.
-          7. In the text field, paste the Stitch IAM policy.
-          8. Click **Review policy**.
-          9. On the **Review Policy** page, give the policy a name. For example: `stitch_s3`
-          10. Click **Create policy**.
+          {% include integrations/shared-setup/aws-s3-iam-setup.html type="create-iam-policy" %}
+          
       - title: "Create an IAM role for Stitch"
         anchor: "create-stitch-iam-role"
         content: |
-          {% include note.html type="single-line" content="**Note**: To complete this step, you need the following AWS IAM permissions: `CreateRole` and `AttachRolePolicy`. Refer to [Amazon's documentation](https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html) for more info." %}
-
-          In this step, you'll create an IAM role for Stitch and apply the IAM policy from the previous step. This will ensure that Stitch is visible in any logs and audits.
-
-          To create the role, you'll need the **Account ID** and **External ID** values provided on the Stitch **Grant Access to Your Bucket** page.
-
-          **Note**: If you're creating multiple {{ integration.display_name }} integrations, you need to only complete this process once. After you create the Stitch role, you can just [create an additional IAM policy and attach it to the role](#create-iam-policy).
-
-          1. In AWS, navigate to the [IAM Roles](https://console.aws.amazon.com/iam/home#/roles){:target="new"} page.
-          2. Click **Create Role**.
-          3. On the **Create Role** page:
-             1. In the **Select type of trusted entity** section, click the **Another AWS account** option.
-             2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page:
-
-                ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/s3-csv-create-role-fields.png)
-             3. In the **Options** section, check the **Require external ID** box.
-             4. In the **External ID** field that displays, paste the External ID from Stitch.
-             5. Click **Next: Permissions**.
-          4. On the **Attach permissions** page:
-             1. Search for the policy you created in [Step 6.1](#create-iam-policy).
-             2. Once located, check the box next to it in the table.
-             3. Click **Next: Review**.
-          5. In the **Role name** field, type `Stitch`.
-          6. Click **Create role**.
+          {% include integrations/shared-setup/aws-s3-iam-setup.html type="create-stitch-iam-role" %}
 
       - title: "Check and save the connection in Stitch"
         anchor: "check-save-stitch-connection"
         content: |
-          {% include note.html type="single-line" content="**Note**: Saving the integration before you've completed the IAM policy and role steps will result in connection errors." %}
+          {% include integrations/shared-setup/aws-s3-iam-setup.html type="check-and-save" %}
 
-          After you've created the IAM policy and role, you can save the integration in Stitch. When finished, click {{ app.buttons.check-and-save }}.
-
-  - title: "track data"
+  - title: "Select data to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 # -------------------------- #
 #      Replication Info      #
@@ -508,35 +472,7 @@ replication-sections:
   - title: "Incremental Replication for {{ integration.display_name }}"
     anchor: "incremental-replication-for-amazon-s3-csv"
     content: |
-      While data from {{ integration.display_name }} integrations is replicated using [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}), the behavior for this integration differs subtly from other integrations.
-
-      The table below compares Key-based Incremental Replication and [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) behavior for {{ integration.display_name }} to that of other integrations.
-
-      <table class="attribute-list">
-      <tr>
-      <td>
-      </td>
-      <td>
-      <strong>{{ integration.display_name }}</strong>
-      </td>
-      <td>
-      <strong>Other integrations</strong>
-      </td>
-      </tr>
-      {% for comparison in site.data.taps.extraction.replication-methods.key-based-incremental.database-file-integrations %}
-      <tr>
-      <td align="right" width="35%; fixed">
-      <strong>{{ comparison.item | flatify }}</strong>
-      </td>
-      <td>
-      {{ comparison.this-integration | markdownify }}
-      </td>
-      <td>
-      {{ comparison.other-integrations | markdownify }}
-      </td>
-      </tr>
-      {% endfor %}
-      </table>
+      {% include replication/extraction/file-modification-replication-keys.html %}
 
     subsections:
       - title: "Frequently updated files and impact on row usage"

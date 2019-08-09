@@ -57,7 +57,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "Details about the links associated with the comment."
-    object-attributes: 
+    subattributes: 
       - name: "suggestion"
         type: "integer"
         description: "The ID of the suggestion."

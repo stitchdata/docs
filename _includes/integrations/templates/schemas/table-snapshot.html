@@ -57,7 +57,7 @@
         {% else %}
             <td width="27%; fixed">
         {% endif %}
-                {{ site.data.taps.snapshot-attributes.field-values[field] | flatify }}
+                {{ site.data.taps.snapshot-attributes.field-values[field] | flatify | markdownify | strip }}
             </td>
         {% if field-index == 0 %}
             </tr>

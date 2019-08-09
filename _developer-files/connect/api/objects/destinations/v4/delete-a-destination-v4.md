@@ -17,7 +17,7 @@ version: "4"
 title: "Delete a destination"
 method: "delete"
 short-url: |
-  /v{{ endpoint.version }}{{ object.endpoint-url }}/{id}
+  /v{{ endpoint.version }}{{ object.endpoint-url }}/{destination_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 
@@ -30,7 +30,7 @@ description: "{{ api.core-objects.destinations.delete.description | flatify }}"
 # -------------------------- #
 
 arguments:
-  - name: "id"
+  - name: "destination_id"
     required: true
     type: "path parameter"
     description: "A path parameter corresponding to the unique ID of the destination to be deleted."
@@ -55,7 +55,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","86741" | remove: right-bracket | strip_newlines }}
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{destination_id","155582" | remove: right-bracket | strip_newlines }}
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
 

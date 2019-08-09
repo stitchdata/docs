@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "contacts"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Marketing_Campaigns/contactdb.html#Get-Recipients-Matching-Search-Criteria-GET
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/contacts.json
 description: |
-  The `contacts` table contains info about the contacts in your SendGrid account.
+  The `{{ table.name }}` table contains info about the contacts in your SendGrid account.
 
   #### Contact custom fields
 
@@ -63,7 +64,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "The custom fields associated with the contact."
-    array-attributes:
+    subattributes:
       - name: "[field_name]"
         type: "varies"
         description: |

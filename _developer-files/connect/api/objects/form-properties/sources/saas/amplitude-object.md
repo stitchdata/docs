@@ -14,7 +14,7 @@ key: "source-form-properties-amplitude-object"
 # -------------------------- #
 
 title: "Amplitude Source Form Property"
-api-type: "amplitude"
+api-type: "platform.amplitude"
 display-name: "Amplitude"
 
 source-type: "saas"
@@ -27,6 +27,8 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   - name: "account"
     type: "string"
@@ -38,7 +40,7 @@ object-attributes:
     required: true
     type: "string"
     description: "The username of the {{ integration }} database user."
-    value: "<username>"
+    value: "<USERNAME>"
 
   - name: "warehouse"
     type: "string"

@@ -1,0 +1,75 @@
+{% case include.table-type %}
+
+{% when 'table-schema' %}
+<table class="attribute-list">
+     <tr>
+          <td width="25%; fixed" align="right">
+               <strong>Column name</strong>
+          </td>
+          <td>
+               <strong>Data type</strong>
+          </td>
+     </tr>
+     {% for column in site.data.dataloading.examples.example-table.columns %}
+          <tr>
+               <td width="25%; fixed" align="right">
+                    {{ column.name }}
+               </td>
+               <td>
+                    {{ column.type | upcase }}
+               </td>
+          </tr>
+     {% endfor %}
+</table>
+
+{% when 'extraction' %}
+
+     {% if include.example-type == "new-columns" and include.job-type != "first-job" %}
+          {% assign included-columns = site.data.dataloading.examples.example-table.columns %}
+
+          {% assign small-columns = true %}
+
+     {% else %}
+          {% assign included-columns = site.data.dataloading.examples.example-table.columns | where:"only-new-column-example",false %}
+
+          {% assign small-columns = false %}
+     {% endif %}
+
+<table class="attribute-list">
+     <tr>
+          {% for column in included-columns %}
+               {% case small-columns %}
+                    {% when true %}
+                         <td width="20%; fixed">
+
+                    {% when false %}
+                         <td width="25%; fixed">
+               {% endcase %}
+                    <strong>
+                         {{ column.name }}
+                         
+                         {% case include.job-type %}
+
+                              {% when 'first-job' %}
+                                    ({{ column.type | upcase }})
+
+                              {% else %}
+                                   ({{ column[include.job-type][include.example-type] | upcase }})
+                         {% endcase %}
+                    </strong>
+               </td>
+          {% endfor %}
+     </tr>
+
+     {% for record in site.data.dataloading.examples[include.example-type]example-jobs[include.job-type] %}
+          <tr>
+               {% for column in included-columns %}
+                    <td>
+                         {{ record[column.name] }}
+                    </td>
+               {% endfor %}
+          </tr>
+     {% endfor %}
+</table>
+
+{% endcase %}

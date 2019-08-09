@@ -5,56 +5,191 @@
 all:
   - code: "400"
     responses:
+
+    # -------------------------- #
+    #        POST ERRORS         #
+    # -------------------------- #
+      - method: "post"
+        condition: "Invalid source `type`"
+        version: "4"
+        response-body: |
+          ```json
+          {
+             "error":"InvalidType",
+             "data":{
+                "message":"invalid source type (platform.<SOURCE_TYPE>)"
+             }
+          }
+          ```
+
       - method: "post"
         condition: "Source's `display_name` is already in use"
         version: "all"
         response-body: |
-          `"a source of name <NAME> already exists"`
+          ```json
+          {
+             "error":"InvalidName",
+             "data":{
+                "message":"non-unique name (<NAME>)"
+             }
+          }
+          ```
 
       - method: "post"
         condition: "Prohibited arguments"
-        version: "all"
+        version: "4"
         response-body: |
-          `"POST body may only include a type, a display_name and map of string properties"`
+          ```json
+          {
+             "error":"InvalidBody",
+             "data":{
+                "message":"POST body may only include a non-empty type, a non-empty display_name and map of string properties"
+             }
+          }
+          ```
 
-      - method: "put"
-        condition: "Invalid source ID"
-        version: "all"
+      - method: "post"
+        condition: "Invalid `name` property"
+        version: "4"
         response-body: |
-          `"unable to locate source(<SOURCE_ID>) for client (<ACCOUNT_ID>) to update"`
+          ```json
+          {
+             "error":"InvalidName",
+             "data":{
+                "message":"The name field must be under 50 characters, and can only contain lowercase letters, numbers, underscores, or dollar signs. It must begin with a letter or an underscore."
+             }
+          }
+          ```
 
-      - method: "put"
-        condition: "Prohibited arguments"
-        version: "all"
+      - method: "post"
+        condition: "Non-unique name property"
+        version: "4"
         response-body: |
-          `"PUT body many only include the keys: display_name and properties"`
+          ```json
+          {  
+             "error":"InvalidName",
+             "data":{  
+                "message":"non-unique name after deriving it from display_name (<DISPLAY_NAME!!!> -> <display_name>)"
+             }
+          }
+          ```
+
+      - method: "post"
+        condition: "Invalid name property"
+        version: "4"
+        response-body: |
+          ```json
+          {
+             "error":"InvalidDisplayName",
+             "data":{
+                "message":"invalid name after deriving it from display_name (#### -> )"
+             }
+          }
+          ```
+
+      - method: "post"
+        condition: "Insufficient access to source type"
+        version: "4"
+        response-body: |
+          ```json
+          {
+             "error":"AccessDenied",
+             "data":{
+                "message":"you do not have access to source type (platform.<SOURCE_TYPE>)"
+             }
+          }
+          ```
 
       - method: "post, put"
         condition: "Invalid `properties` data"
         version: "all"
         response-body: |
-          An array of the `property` names containing invalid data:
-
           ```json
           {
-             "bad_properties":[
-                "start_date",
-                "frequency_in_minutes"
-             ],
-             ...
+             "error":"InvalidProperties",
+             "data":{
+                "message":"properties do not match schema",
+                "bad_properties":[
+                   "<property_name_1>",
+                   "<property_name_2"
+                ],
+                "report_card":{<SOURCE_REPORT_CARD>}
+             }
           }
           ```
 
-          May result from incorrect formatting, incorrect typing (all property values must be strings), or a property has a value that is an empty string.
+          May result from incorrect formatting, incorrect data typing, or a property has a value that is an empty string.
 
-      - method: "delete"
+      - method: "post, put"
+        condition: "Insufficient account access to cron scheduling feature"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "error":"AccessDenied",
+             "data":{  
+                "message":"access to cron_expression based scheduling is not permitted"
+             }
+          }
+          ```
+
+      - method: "post, put"
+        condition: "Cron expressions can't specify both a day-of-week and day-of-month"
+        version: "all"
+        response-body: |
+          ```json
+          {
+             "error":"InvalidCronExpression",
+             "data":{
+                "message":"cron_expression \"* * * * * *\" is invalid: Support for specifying both a day-of-week AND a day-of-month parameter is not implemented."
+             }
+          }
+          ```
+
+
+    # -------------------------- #
+    #        PUT ERRORS          #
+    # -------------------------- #
+
+      - method: "put"
         condition: "Prohibited arguments"
         version: "all"
         response-body: |
-          `"DELETE body must be empty"`
+          ```json
+          {
+             "error":"InvalidBody",
+             "data":{
+                "message":"PUT body many only include the keys: display_name, properties, and paused_at"
+             }
+          }
+          ```
 
-      - method: "delete"
+      - method: "put"
+        condition: "Invalid display name"
+        version: "all"
+        response-body: |
+          ```json
+          {
+             "error":"InvalidDisplayName",
+             "data":{
+                "message":"invalid display_name (<INVALID_DISPLAY_NAME>)"
+             }
+          }
+          ```
+
+    # -------------------------- #
+    #        DELETE ERRORS       #
+    # -------------------------- #
+
+      - method: "put, delete"
         condition: "Invalid source ID"
         version: "all"
         response-body: |
-          `"Unable to locate source(<SOURCE_ID>) for client (<ACCOUNT_ID>) to delete"`
+          ```json
+          {
+             "error":"InvalidId",
+             "data":{
+                "message":"source not found (<SOURCE_ID>)"
+             }
+          }
+          ```

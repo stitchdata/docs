@@ -1,21 +1,39 @@
 ---
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 product-type: "connect"
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-responsys-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Responsys Source Form Property"
-api-type: "responsys"
+api-type: "platform.responsys"
 display-name: "Responsys"
 
 source-type: "database"
 docs-name: "responsys"
 db-type: "responsys"
 
+is-filesystem: true
+
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
 
 uses-common-fields: false
 uses-feature-fields: false
+uses-start-date: true
 
 object-attributes:
   - name: "host"

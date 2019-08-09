@@ -55,7 +55,7 @@ attributes:
   - name: "card"
     type: "object"
     description: &source-description "Details about the credit or debit card that is the source of the charge."
-    object-attributes: &source-attributes
+    subattributes:
       - name: "id"
         type: "string"
         description: "The card ID."
@@ -171,10 +171,11 @@ attributes:
       - name: "metadata"
         type: "object"
         description: "Additional information attached to the card."
-        object-attributes:
-          - name: ""
-            type: 
-            description: ""
+        anchor-id: 1
+        subattributes:
+          - name: "ANYTHING"
+            type: "ANYTHING"
+            description: "This info will vary."
 
       - name: "name"
         type: "string"
@@ -227,7 +228,7 @@ attributes:
     type: "object"
     description: |
       Details about fraud assessments for the charge.
-    object-attributes:
+    subattributes:
       - name: "stripe_report"
         type: "string"
         description: |
@@ -253,7 +254,8 @@ attributes:
   - name: "metadata"
     type: "object"
     description: "Additional information attached to the charge."
-    object-attributes:
+    anchor-id: 2
+    subattributes:
       - name: ""
         type: 
         description: ""
@@ -273,7 +275,7 @@ attributes:
   - name: "outcome"
     type: "object"
     description: "Details about whether the payment was accepted and why."
-    object-attributes:
+    subattributes:
       - name: "network_status"
         type: "string"
         description: |
@@ -352,7 +354,7 @@ attributes:
   - name: "refunds"
     type: "array"
     description: "A list of refunds that have been applied to the charge."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         primary-key: true
@@ -365,11 +367,11 @@ attributes:
   - name: "shipping"
     type: "object"
     description: "The shipping information for the charge."
-    object-attributes:
+    subattributes:
       - name: "address"
         type: "object"
         description: "The shipping address."
-        object-attributes:
+        subattributes:
           - name: "city"
             type: "string"
             description: "The city of the shipping address."
@@ -413,7 +415,143 @@ attributes:
   - name: "source"
     type: "object"
     description: *source-description
-    object-attributes: *source-attributes
+    subattributes: 
+      - name: "id"
+        type: "string"
+        description: "The card ID."
+        foreign-key-id: "card-id"
+
+      - name: "address_city"
+        type: "string"
+        description: "The city associated with the card's billing address."
+
+      - name: "address_country"
+        type: "string"
+        description: "The billing address country."
+
+      - name: "address_line1"
+        type: "string"
+        description: "The first line of the billing address."
+
+      - name: "address_line1_check"
+        type: "string"
+        description: |
+          If `address_line1` was provided, the results of the check. Possible values are:
+
+          - `pass`
+          - `fail`
+          - `unavailable`
+          - `unchecked`
+
+      - name: "address_line2"
+        type: "string"
+        description: "The second line of the billing address."
+
+      - name: "address_state"
+        type: "string"
+        description: "The state/county/province/region of the billing address."
+
+      - name: "address_zip"
+        type: "string"
+        description: "The zip or postal code of the billing address."
+
+      - name: "address_zip_check"
+        type: "string"
+        description: |
+          If `address_zip` was provided, the results of the check. Possible values are:
+
+          - `pass`
+          - `fail`
+          - `unavailable`
+          - `unchecked`
+
+      - name: "brand"
+        type: "string"
+        description: |
+          The brand of the card. Possible values are:
+
+          - `American Express`
+          - `Diners Club`
+          - `Discover`
+          - `JCB`
+          - `MasterCard`
+          - `UnionPay`
+          - `Visa`
+          - `Unknown`
+
+      - name: "country"
+        type: "string"
+        description: "The two-letter ISO code representing the country of the card."
+
+      - name: "customer"
+        type: "string"
+        description: "The ID of the customer that the card belongs to."
+        foreign-key-id: "customer-id"
+
+      - name: "cvc_check"
+        type: "string"
+        description: |
+          If a CVC was provided, this will be the result of the check. Possible values are:
+
+          - `pass`
+          - `fail`
+          - `unavailable`
+          - `unchecked`
+
+      - name: "dynamic_last4"
+        type: "string"
+        description: "**For tokenized numbers only.** The last four digits of the device account number."
+
+      - name: "exp_month"
+        type: "integer"
+        description: "The two-digit number representing the card's expiration month."
+
+      - name: "exp_year"
+        type: "integer"
+        description: "The four-digit number representing the card's expiration year."
+
+      - name: "fingerprint"
+        type: "string"
+        description: "A unique ID for the card number."
+
+      - name: "funding"
+        type: "string"
+        description: |
+          The card's funding type. Possible values are:
+
+          - `credit`
+          - `debit`
+          - `prepaid`
+          - `unknown`
+
+      - name: "last4"
+        type: "string"
+        description: "The last four digits of the card."
+
+      - name: "metadata"
+        type: "object"
+        description: "Additional information attached to the card."
+        anchor-id: 3
+        subattributes:
+          - name: "ANYTHING"
+            type: "ANYTHING"
+            description: "This info will vary."
+
+      - name: "name"
+        type: "string"
+        description: "The name of the cardholder."
+
+      - name: "object"
+        type: "string"
+        description: "The type of {{ integration.display_name }} object. This will be `card`."
+
+      - name: "tokenization_method"
+        type: "string"
+        description: |
+          If the card number is tokenized, this is the method that was used. Possible values are:
+
+          - `apple_pay`
+          - `android_pay`
 
   - name: "source_transfer"
     type: "string"

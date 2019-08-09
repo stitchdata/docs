@@ -5,8 +5,8 @@
 
 title: AppsFlyer (v1.0)
 permalink: /integrations/saas/appsflyer
-tags: [saas_integrations]
 keywords: appsflyer, integration, schema, etl appsflyer, appsflyer etl, appsflyer schema
+summary: "Connection instructions, replication info, and schema details for Stitch's AppsFlyer integration."
 layout: singer
 
 # -------------------------- #
@@ -16,6 +16,9 @@ layout: singer
 name: "appsflyer"
 display_name: "AppsFlyer"
 repo-url: https://github.com/singer-io/tap-appsflyer
+
+api: |
+  [{{ integration.display_name }} Raw Data Reports V5 API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
 
 # this-version: "1.0"
 
@@ -30,14 +33,24 @@ historical: "60 days"
 frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
-icon: /images/integrations/icons/appsflyer.svg
 
 table-selection: false
 column-selection: false
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

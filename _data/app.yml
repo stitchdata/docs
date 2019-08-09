@@ -3,6 +3,8 @@ page-names:
   billing: "Billing"
   account: "Account Settings"
   user-profile: "Your Profile"
+  account-settings: "Account Settings"
+  notification-tab: "Notification Settings"
   dw-settings: "Destination Settings"
   int-details: "Integration Details"
   int-settings: "Integration Settings"
@@ -35,17 +37,24 @@ buttons:
   company-profile: "**Update Company Profile**"
   cancel-account: "**Cancel Your Account**"
 
-  notification-settings: "**Save Notification Settings**"
+  notification-settings: "**Save Content Settings**"
   suppress-plaintext-notifications: "**Hide plain-text error messages in email notifications**"
+
+  generate-api-key: "**Generate a Key**"
+  save-api-key: "**Save and Generate Key**"
+  close-continue: "**Close and Continue**"
 
 ## Integration Settings
   update-int-settings: "**Settings**"
   finish-int-setup: "**All Done**"
   reset-rep-keys: "**Reset Keys**"
   tables: "**Tables to Replicate**"
+  start-extraction: "**Run Extraction Now**"
+  stop-extraction: "**Stop Extraction**"
+
   finalize-data: "**Finalize Your Selections**"
   connect-ssl: "**Connect using SSL**"
-  check-and-save: "**Check and Save**"  # Taps use this copy upon creation, vs "Save Integration"
+  check-and-save: "**Check and Save**"  # Taps/destinations use this copy upon creation, vs "Save <Type>"
   create-oauth-integration: "**Authorize**"
 
 ## Destinations
@@ -70,11 +79,13 @@ buttons:
   create-api-token: "**Save and Generate Token**"
   generate-token: "**Generate Token**"
 
+tabs:
+  extractions: "**Extractions**"
 
 dw:
   prefix1: "_rjm"
   current-prefix: "_sdc"
-  primary-key: "_sdc_primary_key"
+  primary-key: "__sdc_primary_key"
   source-key: "_sdc_source_key_"
   level-id: "_sdc_level_#_id"
   batched-at: "_sdc_batched_at"

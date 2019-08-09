@@ -1,4 +1,14 @@
 ---
+---
+# -------------------------- #
+#     USING THIS TEMPLATE    #
+# -------------------------- #
+
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
+## FOR INSTRUCTIONS & REFERENCE INFO
+
+
 # -------------------------- #
 #        CONTENT TYPE        #
 # -------------------------- #
@@ -14,7 +24,7 @@ key: "source-form-properties-closeio-object"
 # -------------------------- #
 
 title: "Close.io Source Form Property"
-api-type: "closeio"
+api-type: "platform.closeio"
 display-name: "Close.io"
 
 source-type: "saas"
@@ -26,6 +36,8 @@ description: ""
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "api_key"

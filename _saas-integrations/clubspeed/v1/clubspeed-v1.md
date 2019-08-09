@@ -12,12 +12,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Club Speed
+title: Club Speed (v1.0)
 permalink: /integrations/saas/clubspeed
-tags: [saas_integrations]
 keywords: club speed, integration, schema, etl club speed, club speed etl, club speed schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Club Speed integration."
 layout: singer
 # input: false
+
 
 # -------------------------- #
 #         Tap Details        #
@@ -32,6 +33,10 @@ repo-url: https://github.com/singer-io/tap-clubspeed
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://www.programmableweb.com/api/club-speed){:target="new"}
+
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -42,7 +47,6 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/club-speed.svg
 
 anchor-scheduling: true
 extraction-logs: true
@@ -50,6 +54,22 @@ loading-reports: true
 
 table-selection: true
 column-selection: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

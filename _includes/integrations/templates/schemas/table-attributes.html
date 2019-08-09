@@ -1,0 +1,110 @@
+<!-- This file recursively gets and formats table attributes for integration tables. -->
+
+<div class="table-responsive">
+	<table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
+	<!-- Uses the include.table parameter to get the data.
+		For the initial loop, this will be the top-level attributes in a
+		given table. For example: table > attributes > id, name, etc.
+
+		If an attribute is an array or an object, it will have subattributes.
+		This include will then run recursively (see notes below) to get subattribute data,
+		and if those subattributes have subattributes, then that data, and so on. This is
+		done with the include.table parameter - on recursive runs, the value is always 
+		`attribute.subattributes`.
+
+		Because recursive loops will always assign the attribute as attribute and the
+		data structure of everything is the same, this can work.
+
+		Ex:
+		table-name: "orders"
+
+		attributes: 			the list of attributes in the table
+		  - name: "id"			a top-level attribute in the table, captured on first run
+		    type: "string" 
+		  - name: "addresses"	attribute with subattributes
+		    type: "array"
+		    subattributes:		list of subattributes, captured on recursive run
+		      - name: "id"
+		      - name: "city"
+		      - name: "state" -->
+
+		{% for attribute in include.table %}
+			<tr>
+				<td>
+					{% if attribute.name %}
+						<p>
+							<strong>
+								{% if attribute.doc-link %}
+	                            	<a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a>
+	                        	{% else %}
+	                            	{{ attribute.name | flatify }}
+	                        	{% endif %}
+		                    </strong>
+		                    <!-- ATTRIBUTE IS A PRIMARY KEY? -->
+		                    {% if attribute.primary-key == true %}
+	                            {{ ui-icon.primary-key | flatify }}
+	                        {% endif %}
+
+	                    <!-- ATTRIBUTE IS A REPLICATION KEY? -->
+	                        {% if attribute.replication-key == true %}
+	                            {{ ui-icon.replication-key | flatify }}
+	                        {% endif %}
+
+	                        {% if attribute.subattributes %}
+	                        	{% case attribute.type %}
+									{% when 'object' %}
+										{% capture nested-data-note %}
+											attributes in this object will be flattened into the table.
+										{% endcapture %}
+
+									{% when 'array' %}
+										{% capture nested-data-note %}
+											attributes will be denested into a subtable.
+										{% endcapture %}
+								{% endcase %}
+
+								{% capture nested-data-tooltip %}This is a nested data structure. If your destination doesn't natively support nested data, {{ nested-data-note | strip }} <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}' target='new'>Learn more</a>.{% endcapture %}
+
+								{{ plus-icon | replace:"TOOLTIP",nested-data-tooltip }}
+	                        {% endif %}
+	                        <br>
+		                    {{ attribute.type | upcase }}
+	                    {% endif %}
+	                	</p>
+	                
+				    	{{ attribute.description | flatify | markdownify }}
+
+				    	<!-- FOREIGN-KEY == TRUE -->
+                        {% if attribute.foreign-key-id %}
+                            {% include integrations/templates/schemas/foreign-keys.html %}
+                        {% endif %}
+
+                <!-- ATTRIBUTE HAS SUBATTRIBUTES -->
+                <!-- This section only runs if an attribute has subattributes (see top of
+                	file for an example) -->
+
+					{% if attribute.subattributes %}
+						{% if attribute.anchor-id %}
+							{% capture attribute-id %}{{ forloop.index | plus: attribute.anchor-id | random_number }}{% endcapture %}{% else %}{% capture attribute-id %}{{ forloop.index }}{% endcapture %}{% endif %}
+
+						{% assign full-id = table.name | append: "--" | append: attribute.name | append: "--" | append: attribute-id %}
+
+						<div class="panel-group" id="{{ full-id }}">
+						    <div class="panel panel-table-subattributes">
+						        <div class="panel-table-subattribute-heading">
+						            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#{{ full-id | strip }}" href="#collapse{{ full-id }}">Click to expand {{ attribute.name }}</a>
+						        </div>
+
+						        <div id="collapse{{ full-id | strip }}" class="panel-collapse collapse noCrossRef">
+									{% include integrations/templates/schemas/table-attributes.html table=attribute.subattributes %}
+								</div>
+								<span class="table-subattribute-label">
+								{{ table.name }} (table), {{ attribute.name }} (attribute)</span>
+						    </div>
+						</div>
+					{% endif %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>

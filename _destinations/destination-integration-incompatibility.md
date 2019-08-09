@@ -8,16 +8,16 @@ summary: "Verify your integrations' compatibility with your data warehouse."
 content-type: "destination-general"
 
 toc: true
-layout: destination
+layout: general
 type: "all"
 destination: false
 
-sections:
-  - content: |
-      When selecting a destination, it's important to first verify that all the data sources you want to connect to Stitch will be compatible. 
+intro: |
+  When selecting a destination, it's important to first verify that all the data sources you want to connect to Stitch will be compatible. 
 
-      **As Stitch currently allows only one destination per account,** we recommend verifying your integrations' compatibility before connecting a destination. This will ensure that you can successfully connect and replicate data from all your sources.
-  
+  **As Stitch currently allows only one destination per account,** we recommend verifying your integrations' compatibility before connecting a destination. This will ensure that you can successfully connect and replicate data from all your sources.
+
+sections:
   - title: "Degrees of incompatibility"
     anchor: "degrees-of-incompatibility"
     content: |
@@ -35,8 +35,6 @@ sections:
     content: |
       Below you'll find a list of integrations that may have full or partial incompatibility with any of Stitch's destination offerings.
 
-      {% include destinations/destination-level-incompatibility.html %}
-
-      {% include destinations/full-incompatibility-matrix.html %}
+      {% include destinations/overviews/destination-level-incompatibility.html %}
 ---
 {% include misc/data-files.html %}

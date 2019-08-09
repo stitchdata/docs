@@ -1,94 +1,47 @@
 #------------------------------------#
-#         CURRENT PLAN TIERS         #
-#------------------------------------#
-
-# Names & descriptions for Stitch's current pricing plans.
-
-trial-name: &trial-name "Free Trial"
-trial-description: &trial-description |
-  During the Free Trial, you'll have access to all of Stitch's integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination.
-
-free-name: &free-name "Free"
-
-starter-name: &starter-name "Starter"
-
-basic-name: &basic-name "Basic"
-
-premier-name: &premier-name "Premier"
-
-enterprise-name: &enterprise-name "Enterprise"
-
-#------------------------------------#
-#            LIST OF PLANS           #
+#    CURRENT STITCH PRICING PLANS    #
 #------------------------------------#
 
 # The below list enables the use of a forloop to pull the name and description of all the current
 # pricing plans. 
 
-# Should a plan name change, only the corresponding item in the CURRENT PLAN TIERS section
-# above need to be updated. Any changes made there will be automatically reflected in this list.
+all-plans:
+  - name: "free-trial"
+    key: "enterprise"
+  - name: "free"
+  - name: "basic"
+  - name: "starter"
+  - name: "premier"
+  - name: "standard"
+  - name: "enterprise"
+
+
+#------------------------------------#
+#       PLAN FILE PROPERTIES         #
+#------------------------------------#
 
 # name: plan name
+
 # paid: true if the plan is a paid plan
-# total-integrations: the total number of distinct integration types users can add
+# legacy: true if the plan is a legacy plan - released before March 26, 2019
+
 # integrations: the type of integrations included in the plan
+# total-integrations: the total number of distinct integration types users can add
+
 # users: the total number of users an account can have
 # rows: the number of rows included in the plan before overages
 # logs: the # of days of Extraction Logs the account will have access to
 # reports: the # of days of Loading Reports the account will have access to
 
-all-plans:
-  - name: *trial-name
-    paid: false
-    description: *trial-description
-    total-integrations: "n/a"
-    integrations: "all"
-    users: "n/a"
-    rows: "unlimited"
-    logs: "7 days"
-    reports: "7 days"
+# api-access: true if the plan includes API access
+# customize-notifications: true if the plan includes access to the Custom notifications feature
+# post-load-notifications: true if the plan includes access to Post-load notifications
+# cron-scheduling: true if the plan includes access to the Advanced Scheduling feature
 
-  - name: *free-name
-    paid: false
-    integrations: "free"
-    total-integrations: "Up to 5"
-    users: "5"
-    rows: "5 million"
-    logs: "24 hours"
-    reports: "24 hours"
+# features: a list of categories and guide keys for the plan. Used to list plan-specific guides. Follows this format:
 
-  - name: *starter-name
-    paid: true
-    integrations: "all"
-    total-integrations: "Up to 5"
-    users: "5"
-    rows: "5 million"
-    logs: "7 days"
-    reports: "7 days"
-
-  - name: *basic-name
-    paid: true
-    integrations: "all"
-    total-integrations: "Up to 10"
-    users: "10"
-    rows: "100 million"
-    logs: "7 days"
-    reports: "7 days"
-
-  - name: *premier-name
-    paid: true
-    integrations: "all"
-    total-integrations: "Up to 10"
-    users: "10"
-    rows: "250 million"
-    logs: "7 days"
-    reports: "7 days"
-
-  - name: *enterprise-name
-    paid: true
-    integrations: "all"
-    total-integrations: "Unlimited"
-    users: "Unlimited"
-    rows: "billions"
-    logs: "60 days"
-    reports: "60 days"
+# features:
+#   - category: "<name>"
+#     guides:
+#       - key: "<guide_key>"
+#         title: "<display_title>"

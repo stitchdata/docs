@@ -1,6 +1,28 @@
+{% if include.no-body == true %}
+
 <div class="panel-group" id="accordion">
-	<div class="panel panel-default">
-		
+    <div class="panel panel-default">
+        
+        <div class="panel-heading">
+            <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ include.anchor }}">{{ include.title }}</a>
+        </div>
+
+        <div id="collapse{{ include.anchor }}" class="panel-collapse collapse noCrossRef">
+            {{ include.content | flatify | markdownify }}
+
+            <div>
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ include.anchor }}">close</a>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+{% else %}
+
+<div class="panel-group" id="accordion">
+	<div class="panel panel-default">		
 		<div class="panel-heading">
     		<h4 class="panel-title">
         		<a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ include.anchor }}">
@@ -12,7 +34,12 @@
 		<div id="collapse{{ include.anchor }}" class="panel-collapse collapse noCrossRef">
     		<div class="panel-body">
         		{{ include.content | flatify | markdownify }}
+
+                <div>
+                    <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ include.anchor }}">close</a>
+                </div>
     		</div>
 		</div>
 	</div>
 </div>
+{% endif %}

@@ -7,9 +7,9 @@ doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Rate-Plans
 description: |
   The `{{ table.name }}` table contains info about rate plans, which is a price or collection of prices for services.
 
-  #### Custom Fields {#rate-plan-custom-fields}
+  #### Custom fields {#rate-plan-custom-fields}
 
-  In addition to the attributes listed below, our Zuora integration will also replicate any custom fields.
+  In addition to the attributes listed below, our {{ integration.display_name }} integration will also replicate any custom fields.
 
 replication-method: "Key-based Incremental"
 
@@ -42,11 +42,11 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the rate plan."
+    description: "The ID of the {{ integration.display_name }} user who created the rate plan."
 
   - name: "createdDate"
     type: "date-time"
@@ -68,5 +68,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the rate plan."
+    description: "The ID of the {{ integration.display_name }} user who last updated the rate plan."
 ---

@@ -14,7 +14,7 @@ key: "source-form-properties-bronto-object"
 # -------------------------- #
 
 title: "Bronto Source Form Property"
-api-type: "bronto"
+api-type: "platform.bronto"
 display-name: "Bronto"
 
 source-type: "saas"
@@ -26,6 +26,8 @@ description: ""
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "token"

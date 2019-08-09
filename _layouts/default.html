@@ -2,26 +2,18 @@
 <head>
     {% include_cached layout/head.html title=page.title %}
     
+  <!-- Initializes tooltips -->
     <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
+      $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+              delay: {show: 0, hide: 2000}
+            });
         })
     </script>
-    {% if page.datatable == true %}
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.5/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function(){
-
-            $('table.datatable').DataTable( {
-                        paging: false,
-                        stateSave: true
-                    });
-            });
-    </script>
-    {% endif %}
 
 </head>
+
+
 
 <body>
 
@@ -39,22 +31,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="content-column">
         
         <div class="article">
-            {% unless page.title contains "Welcome" %}
-        <div class="breadbox">
-            <div class="breadcrumb-container">
-                <div id="breadcrumb-menu" class="menu-left">
-                    {% include layout/breadcrumbs.html %}
-                </div>
-
-                {% if page.this-version %}
-                    <div class="version-menu menu-right fouc">
-                        {% include integrations/templates/versioning/integration-version-menu.html %}
+          {% unless page.title contains "Welcome" %}
+            <div class="breadbox">
+                <div class="breadcrumb-container" data-swiftype-index='false'>
+                    <div id="breadcrumb-menu" class="menu-left">
+                        {% include layout/breadcrumbs.html %}
                     </div>
-                {% endif %}
+
+                    {% if page.this-version %}
+                        <div class="version-menu menu-right fouc">
+                            {% include integrations/templates/versioning/integration-version-menu.html %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-        {% endunless %}
-            {{content}}
+          {% endunless %}
+
+          {{content}}
         </div>
     </div>
 </div>
@@ -62,6 +55,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="{{ site.baseurl }}/js/docsearch.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Used for creating heading anchors -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="//cdn.statuspage.io/se-v2.js"></script>
 
@@ -82,18 +77,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/okjpf68w';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
 </script>
 
-<!-- Algolia search -->
+<!-- Search -->
 <script type="text/javascript">
-docsearch({
-  apiKey: '436dcd76593779a2261b623269cf5cfd',
-  indexName: 'stitchdata',
-  inputSelector: '#search-input',
-  debug: false, // Set debug to true if you want to inspect the dropdown
-  algoliaOptions: {
-    hitsPerPage: 10 // Controls how many results display in the dropdown
-  }
-});
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','SAg6gNWby6H1xYzjhfzB','2.0.0');
 </script>
+
+<div class="st-search-container"></div>
 
 </body>
 </html>

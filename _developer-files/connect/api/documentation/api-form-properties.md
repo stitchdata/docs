@@ -8,6 +8,11 @@ order: 8
 # To display the correct description for a given form property
 property-description: |
   {% assign integration = VARIABLE.display-name %}
+
+  {% if VARIABLE.property-description %}
+  {{ integration }} connections read data from {{ VARIABLE.property-description | flatify }} and correspond to source `type: {{ VARIABLE.api-type }}`.
+
+  {% else %}
   {% case VARIABLE.source-type %}
   {% when 'database' %}
   {% assign first-letter = integration | slice: 0 %}
@@ -22,15 +27,16 @@ property-description: |
   {% assign article = "a" %}
   {% endif %}
 
-  {{ article | capitalize }} {{ integration }} connection reads data from {{ article }} {{ integration }} database and corresponds to source `type: platform.{{ VARIABLE.api-type }}`.
+  {{ article | capitalize }} {{ integration }} connection reads data from {{ article }} {{ integration }} database and corresponds to source `type: {{ VARIABLE.api-type }}`.
 
   {% when 'saas' %}
-  {{ integration }} connections read data from the {{ integration }} API and correspond to source `type: platform.{{ VARIABLE.api-type }}`.
+  {{ integration }} connections read data from the {{ integration }} API and correspond to source `type: {{ VARIABLE.api-type }}`.
   
   {% else %}
   {% assign destination = VARIABLE.display-name %}
   A {{ destination }} connection writes data to a {{ destination }} database and corresponds to destination `type: {{ VARIABLE.api-type }}`.
   {% endcase %}
+  {% endif %}
 
 
 sections:

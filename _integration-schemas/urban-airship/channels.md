@@ -1,12 +1,12 @@
 ---
-tap: "urban_airship"
-# version:
+tap: "urban-airship"
+# version: "1.0"
 
 name: "channels"
 doc-link: http://docs.urbanairship.com/api/ua.html#channels
 singer-schema: https://github.com/singer-io/tap-urban-airship/blob/master/tap_urban_airship/schemas/channels.json
 description: |
-  The `channels` table contains info about the channels - or unique identifiers - used to address applications on iOS, Android, and Amazon devices.
+  The `{{ table.name }}` table contains info about the channels - or unique identifiers - used to address applications on iOS, Android, and Amazon devices.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The channel ID."
+    foreign-key-id: "channel-id"
 
   - name: "created"
     type: "date-time"
@@ -57,10 +58,8 @@ attributes:
 
   - name: "named_user_id"
     type: "string"
-    # foreign-keys:
-    #   - table: "named_users"
-    #     attribute: "named_user_id"
     description: "A customer-chosen ID that represents the device user."
+    foreign-key-id: "named-user-id"
 
   - name: "alias"
     type: "string"
@@ -69,7 +68,7 @@ attributes:
   - name: "tags"
     type: "array"
     description: "A list of tags associated with the channel."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The tag associated with the channel."
@@ -77,7 +76,7 @@ attributes:
   - name: "tag_groups"
     type: "array"
     description: "Details about the customer-created tag groups and device property tags associated with the channel."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the tag group."
@@ -85,7 +84,7 @@ attributes:
       - name: "tags"
         type: "array"
         description: "Details about the tags associated with the tag group."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The tag associated with the tag group."
@@ -93,7 +92,7 @@ attributes:
   - name: "ios"
     type: "object"
     description: "Details about iOs-specific parameters."
-    object-attributes:
+    subattributes:
       - name: "badge"
         type: "string"
         description: "The current badge value."
@@ -101,7 +100,7 @@ attributes:
       - name: "quiettime"
         type:  "object"
         description: "Details about quiet time iOS parameters."
-        object-attributes:
+        subattributes:
           - name: "start"
             type: "string"
             description: "The start of quiet time."

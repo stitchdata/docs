@@ -14,11 +14,18 @@ key: "source-form-properties-bing-ads-object"
 # -------------------------- #
 
 title: "Bing Ads Source Form Property"
-api-type: "bing-ads"
+api-type: "platform.bing-ads"
 display-name: "Bing Ads"
 
 source-type: "saas"
 docs-name: "bing-ads"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 ---

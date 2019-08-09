@@ -14,9 +14,10 @@ order: 2
 # -------------------------- #
 
 title: "Session"
-description: "{{ api.core-objects.sessions.description | flatify }}"
 endpoint-url: "/sessions"
 
+description: "{{ api.core-objects.sessions.description | flatify }}"
+intro-short: "Access Stitch client accounts" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #      AVAILABLE METHODS     #

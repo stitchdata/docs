@@ -311,7 +311,7 @@ attributes:
   - name: "discount_codes"
     type: "array"
     description: "The discount codees applied to the checkout."
-    array-attributes:
+    subattributes:
       - name: "amount"
         type: "number"
         description: "The amount of the discount."
@@ -344,7 +344,7 @@ attributes:
   - name: "line_items"
     type: "array"
     description: "A list of line items in the checkout."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "string"
         primary-key: true
@@ -403,7 +403,7 @@ attributes:
       - name: "discount_allocations"
         type: "array"
         description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
-        array-attributes:
+        subattributes:
           - name: "amount"
             type: "number"
             description: "The discount amount allocated to the line."
@@ -481,7 +481,7 @@ attributes:
       - name: "properties"
         type: "array"
         description: "Details about custom info for the item."
-        array-attributes:
+        subattributes:
           - name: "name"
             type: "string"
             description: ""
@@ -509,7 +509,7 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the line item's tax lines, each of which details a tax applicable to this line item."
-        array-attributes: &tax-lines
+        subattributes: &tax-lines
           - name: "compare_at"
             type: "string"
             description: ""
@@ -659,7 +659,7 @@ attributes:
   - name: "shipping_lines"
     type: "array"
     description: "Details about the shipping methods associated with the order."
-    array-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -700,7 +700,7 @@ attributes:
       - name: "tax_lines"
         type: "array"
         description: "Details about the shipping line's tax lines, each of which details a tax applicable to this shipping line."
-        array-attributes: *tax-lines
+        subattributes: *tax-lines
 
       - name: "title"
         type: "string"
@@ -739,7 +739,7 @@ attributes:
   - name: "tax_lines"
     type: "array"
     description: "Details about the taxes applicable to the checkout."
-    array-attributes: *tax-lines
+    subattributes: *tax-lines
 
   - name: "taxes_included"
     type: "boolean"

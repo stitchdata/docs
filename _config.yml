@@ -65,6 +65,7 @@ kramdown:
 plugins:
   - jekyll-redirect-from
   - jekyll-include-cache
+  - jekyll-random
 
 # -------------------------- #
 #        Collections         #
@@ -89,6 +90,10 @@ collections:
    output: true
   destinations:
    output: true
+  developers:
+    output: true
+  getting-started:
+    output: true
   integration-schemas:
    output: false
   replication:
@@ -114,11 +119,12 @@ defaults:
       display-summary: "false"          ## controls if page.summary displays in the output
       toc: false                        ## controls the display of the table of contents
 
-## Account & Security
+## Account
   - scope:
       type: account-security
     values:
       layout: page
+      enterprise: false
       sidebar: stitchnav
       display-summary: "false"
       toc: false
@@ -128,6 +134,7 @@ defaults:
       type: data-structure
     values:
       layout: page
+      enterprise: false
       sidebar: stitchnav
       display-summary: "false"
       toc: false
@@ -137,6 +144,7 @@ defaults:
       type: database-integrations
     values:
       layout: database
+      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -152,7 +160,8 @@ defaults:
   - scope:
       type: destinations
     values:
-      layout: destination
+      layout: general
+      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -167,11 +176,31 @@ defaults:
       feedback: false
       summary: false
 
+## Developers
+  - scope:
+      type: developers
+    values:
+      layout: general
+      enterprise: false
+      toc: true
+      sidebar: stitchnav
+      display-summary: "false"
+
+## Getting Started
+  - scope:
+      type: getting-started
+    values:
+      layout: general
+      enterprise: false
+      sidebar: on-page
+      toc: true
+
 ## Replication
   - scope:
       type: replication
     values:
       layout: page
+      enterprise: false
       sidebar: stitchnav
       display-summary: "false"
       toc: true
@@ -181,6 +210,7 @@ defaults:
       type: saas-integrations
     values:
       layout: saas
+      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -197,6 +227,7 @@ defaults:
       type: webhook-integrations
     values:
       layout: webhook
+      enterprise: false
       toc: true
       sidebar: stitchnav
       display-summary: "false"
@@ -233,6 +264,8 @@ destinations: https://www.stitchdata.com/integrations/destinations/
 status: https://status.stitchdata.com/
 changelog: https://www.stitchdata.com/changelog
 blog: https://blog.stitchdata.com/
+security: https://www.stitchdata.com/platform/security/
+partners: https://www.stitchdata.com/partners/
 resources: https://www.stitchdata.com/resources/
 data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeline
 

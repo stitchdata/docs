@@ -1,0 +1,68 @@
+<!-- This file recursively gets and formats attributes
+		and displays them in a table. -->
+
+<div class="table-responsive">
+	<table class="attribute-list table-hover" style="margin-top: 0px;">
+	<!-- Uses the include.table parameter to get the data.
+		You can pass the variable you want as include.table. For example:
+
+		include layout/attribute-display-table.html table=site.data.something
+
+		As long as the variable you pass the include has an array named `attributes`,
+		this include will work.
+
+		If an attribute is an array or an object, it will have subattributes.
+		This include will then run recursively (see notes below) to get subattribute data,
+		and if those subattributes have subattributes, then that data, and so on. This is
+		done with the include.table parameter - on recursive runs, the value is always 
+		`attribute.subattributes`.
+
+		Because recursive loops will always assign the attribute as attribute and the
+		data structure of everything is the same, this can work.
+
+		Ex:
+		table-name: "orders"
+
+		attributes: 			the list of attributes in the table
+		  - name: "id"			a top-level attribute in the table, captured on first run
+		    type: "string" 
+		  - name: "addresses"	attribute with subattributes
+		    type: "array"
+		    subattributes:		list of subattributes, captured on recursive run
+		      - name: "id"
+		      - name: "city"
+		      - name: "state" -->
+
+		<tr>
+			<td width="35%; fixed" align="right">
+				<strong>
+					Attribute name
+				</strong>
+			</td>
+			<td width="15%; fixed">
+				<strong>
+					Type
+				</strong>
+			</td>
+			<td>
+				<strong>
+					Description
+				</strong>
+			</td>
+		</tr>
+
+		{% for attribute in include.table %}
+			<tr>
+				<td width="35%; fixed" align="right">
+					<strong>{{ attribute.name }}</strong>
+				</td>
+				<td>
+					{{ attribute.type }}
+				</td>
+				<td>
+			    	{{ attribute.description | flatify | markdownify }}
+			    </td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>

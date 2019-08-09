@@ -8,19 +8,35 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-shopify-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Shopify Source Form Property"
-api-type: "shopify"
+api-type: "platform.shopify"
 display-name: "Shopify"
 
 source-type: "saas"
 docs-name: "shopify"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   # - name: "date_window_size"

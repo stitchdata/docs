@@ -6,7 +6,7 @@ name: "tax_rates"
 doc-link: &api-doc https://developer.xero.com/documentation/api/tax-rates
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/tax_rates.json
 description: |
-  The `{{ table.name }}` table contains info about the tax rates set up in your Xero account.
+  The `{{ table.name }}` table contains info about the tax rates set up in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
@@ -23,20 +23,20 @@ attributes:
 
   - name: "TaxType"
     type: "string"
-    description: "The tax type of the tax rate. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#TaxTypes) for a list of possible values."
+    description: "The tax type of the tax rate. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#TaxTypes) for a list of possible values."
     doc-link: https://developer.xero.com/documentation/api/types#TaxTypes
 
   - name: "TaxComponents"
     type: "array"
     description: "Details about the components that make up the tax rate."
-    array-attributes:
+    subattributes:
       - name: "Name"
         type: "string"
         description: "The name of the tax component."
 
       - name: "IsCompound"
         type: "boolean"
-        description: "If `true`, the tax rate is compounded. Refer to [Xero's documentation](https://help.xero.com/Tax-SetDefaults) for more info."
+        description: "If `true`, the tax rate is compounded. Refer to [{{ integration.display_name }}'s documentation](https://help.xero.com/Tax-SetDefaults) for more info."
 
       - name: "IsNonRecoverable"
         type: "boolean"
@@ -57,7 +57,7 @@ attributes:
 
   - name: "ReportTaxType"
     type: "string"
-    description: "The report tax type. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#ReportTaxTypes) for a list of possible values."
+    description: "The report tax type. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#ReportTaxTypes) for a list of possible values."
     doc-link: https://developer.xero.com/documentation/api/types#ReportTaxTypes
 
   - name: "CanApplyToAssets"

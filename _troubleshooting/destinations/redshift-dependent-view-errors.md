@@ -51,6 +51,8 @@ When a table's structure changes, dependent views must be temporarily [dropped](
 
 Because we don’t want to affect your work without your say-so, Stitch will not automatically drop views with dependencies.
 
+Refer to the [Table structural changes guide]({{  link.destinations.storage.structure-changes | prepend: site.baseurl }}) for more info and examples.
+
 ---
 
 ## Workarounds

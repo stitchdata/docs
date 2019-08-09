@@ -19,10 +19,10 @@ scenarios:
   - id: no-pk
     summary: default  
     result: |
-      - **Initial sync**: Table is created without Primary Key and no `NOT NULL` columns.
-      - **Subsequent syncs**: If using Incremental Replication, data will be added to the table in an Append-Only fashion.
+      - **Initial job**: Table is created without Primary Key and no `NOT NULL` columns.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
 
-        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -32,10 +32,10 @@ scenarios:
   - id: single-pk
     summary: default	
     result: |
-      - **Initial sync:** Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
-      - **Subsequent syncs:** If using Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
+      - **Initial job:** Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
+      - **Subsequent jobs:** If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
 
-        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -45,10 +45,10 @@ scenarios:
   - id: multiple-pks
     summary: default  
     result: |
-      - **Initial sync**: Table is created without Primary Keys and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
-      - **Subsequent syncs**: If using Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
+      - **Initial job**: Table is created without Primary Keys and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
 
-        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -58,9 +58,9 @@ scenarios:
   - id: pk-column-change
     summary: default
     result: |
-      If using Incremental Replication, data will be added to the table in an Append-Only fashion.
+      If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
 
-      If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+      If using Full Table Replication, the table will be overwritten in its entirety during each job.
 
     rejectable: false
     error: none
@@ -125,7 +125,7 @@ scenarios:
     result: |
       {{ destination.display_name }} will type the column as `VARCHAR(n)`, where `n` is the width of the widest record in the column.
 
-      For example: during the initial sync, data in a `VARCHAR` column is found to have a width greater than `128`. {{ destination.display_name }} will create type this column as `VARCHAR(256)` to accommodate the data.
+      For example: During the initial job, data in a `VARCHAR` column is found to have a width greater than `128`. {{ destination.display_name }} will create type this column as `VARCHAR(256)` to accommodate the data.
 
     rejectable: false
     error: none
@@ -136,9 +136,9 @@ scenarios:
     summary: default    
     result: |
 
-      {{ destination.display_name }} will widen the column to accommodate the width of the largest record up to the limit of `{{ destination.varchar-limit }}`.
+      {{ destination.display_name }} will widen the column to accommodate the width of the largest record up to the limit of `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}`.
 
-      For example: during the initial sync, a `VARCHAR` column is created and typed as `VARCHAR(128)`.
+      For example: During the initial job, a `VARCHAR` column is created and typed as `VARCHAR(128)`.
 
       During a subsequent sync, Stitch identifies data for this column that exceeds the current size maximum of `128` but is less than `256`.
 
@@ -151,7 +151,7 @@ scenarios:
 ## VARCHAR exceeds limit
   - id: varchar-max-size
     summary: default
-    result: "{{ destination.display_name }} will truncate the data to the maximumm width of `{{ destination.varchar-limit }}`."
+    result: "{{ destination.display_name }} will truncate the data to the maximumm width of `{{ site.data.destinations.reference[destination.type]data-limit-info.strings.max-width }}`."
 
     rejectable: false
     error: none
@@ -197,7 +197,7 @@ scenarios:
       ```
       integer out of range for {{ destination.display_name }} on [INTEGER]
       ```
-    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination.integer-limit }}."
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ site.data.destinations.reference[destination.type]data-limit-info.integer-range }}."
 
 ## Column contains decimal data
   - id: decimal-storage
@@ -207,7 +207,7 @@ scenarios:
 
     rejectable: false
     error: none
-    troubleshooting: default
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimal data."
 
 ## Column contains decimal data out of range
   - id: decimals-out-of-range
@@ -219,7 +219,7 @@ scenarios:
       ```
       decimal out of range for {{ destination.display_name }} on [DECIMAL]
       ```
-    troubleshooting: default
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimal data."
 
 # -------------------------------------------- #
 #                                              #
@@ -378,7 +378,7 @@ scenarios:
   - id: column-name-special-char
     summary: default
     result: |
-      {{ destination.display_name }} will remove all special characters. Note that this doesn't include underscores or dollar signs. For example:
+      {{ destination.display_name }} will remove all special characters. **Note**: This doesn't include underscores or dollar signs. For example:
 
       | Columns in Source |  | Columns in {{ destination.display_name }} |
       |-------------------+--+--------------------------|

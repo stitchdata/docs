@@ -22,7 +22,7 @@ key: "source-form-properties-toggl-object"
 # -------------------------- #
 
 title: "Toggl Source Form Property"
-api-type: "toggl"
+api-type: "platform.toggl"
 display-name: "Toggl"
 
 source-type: "saas"
@@ -35,7 +35,7 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-uses-common-fields: true
+uses-start-date: true
 
 object-attributes:
   - name: "api_token"

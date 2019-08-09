@@ -6,7 +6,7 @@ name: "groups"
 doc-link: https://developers.freshdesk.com/api/#groups
 singer-schema: https://github.com/singer-io/tap-freshdesk/blob/master/tap_freshdesk/schemas/groups.json
 description: |
-  The `groups` table contains info about the groups your agents belong to.
+  The `{{ table.name }}` table contains info about the groups your agents belong to.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The group ID."
+    foreign-key-id: "group-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -27,10 +28,12 @@ attributes:
   - name: "agent_ids"
     type: "array"
     description: "IDs of the agents that belong to the group."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
+        primary-key: true
         description: "The ID of an agent that belongs to the group."
+        foreign-key-id: "agent-id"
 
   - name: "auto_ticket_assign"
     type: "boolean"

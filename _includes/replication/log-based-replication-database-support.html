@@ -1,0 +1,98 @@
+<!-- This file is used in the Log-based Incremental Replication guide.
+     It lists out each database type that Stitch supports log-based rep for.-->
+
+
+<!-- Get all databases where the input is true -->
+{% assign all-databases = site.database-integrations | where:"input",true %}
+
+<!-- Use the feature-details list in the page's formatter.
+     It contains a list the databases that support log-based rep and
+     what the feature is called. We're using this list because it's easier
+     to manage. -->
+
+{% for feature in page.feature-details %}
+
+#### Support for {{ feature.database }} databases {#{{ feature.db-type | append: "-support" }}}
+
+{% assign databases-of-this-type = all-databases | where:"db-type", feature.db-type | sort:"display_name" %}
+
+<table class="attribute-list">
+<!-- The list of parameters to check, which will make up the table columns -->
+     {% assign binlog-support = "log-based-replication-Master-instance|log-based-replication-Read-replica|log-based-replication-Minimum-version" | split:"|" %}
+     <tr>
+          <td>
+          </td>
+          {% for support-type in binlog-support %}
+               <td>
+                    <strong>
+                         {{ support-type | remove:"log-based-replication" | replace:"-"," " }}
+                    </strong>
+                    {% if support-type == "log-based-replication-Minimum-version" %}
+                         {{ info-icon | replace:"TOOLTIP","The minimum database version required to use Log-based Incremental Replication." }}
+                    {% endif %}
+               </td>
+          {% endfor %}
+     </tr>
+     {% for database in databases-of-this-type %}
+          <tr>
+               <td width="35%; fixed" align="right">
+                    <strong><a href="{{ database.url | prepend: site.baseurl }}">{{ database.display_name }}</a></strong>
+                    {% if database.this-version %}
+                         <br>{{ database.this-version | prepend: "v" }}
+                    {% endif %}
+               </td>
+
+               {% for base-support-type in binlog-support %}
+                    {% assign support-type = base-support-type | downcase %}
+                    <td>
+                         {% case support-type %}
+                              {% when 'log-based-replication-minimum-version' %}
+                                   {% case database.log-based-replication-minimum-version %}
+                                        {% when 'n/a' %}
+                                             {{ not-applicable | replace:"TOOLTIP","Not applicable" }}
+                                        {% else %}
+                                             {{ database[support-type] }}
+                                   {% endcase %}
+
+                              {% else %}
+
+                                   {% case database[support-type] %}
+                                        {% when true %}
+                                             {{ supported | replace:"TOOLTIP","Log-based Incremental Replication is supported." }}
+
+                                        {% when false %}
+                                             {% if database.log-based-replication-read-replica-reason or database.log-based-replication-master-instance-reason %}
+
+                                                  {% if database.log-based-replication-read-replica-reason %}
+                                                       {% assign reason = database.log-based-replication-read-replica-reason %}
+                                                  {% endif %}
+
+                                                  {% if database.log-based-replication-master-instance-reason %}
+                                                       {% assign reason = database.log-based-replication-master-instance-reason %}
+                                                  {% endif %}
+
+                                                  {{ not-supported | replace:"TOOLTIP",reason }}
+                                             {% else %}
+                                                   {{ not-supported | replace:"TOOLTIP","Log-based Incremental Replication is not supported." }}
+                                             {% endif %}
+
+                                             {% if database.log-based-replication-read-replica-doc-link or database.log-based-replication-master-instance-doc-link %}
+
+                                                  {% if database.log-based-replication-read-replica-doc-link %}
+                                                       {% assign doc-link = database.log-based-replication-read-replica-doc-link %}
+                                                  {% endif %}
+
+                                                  {% if database.log-based-replication-master-instance-doc-link %}
+                                                       {% assign doc-link = database.log-based-replication-master-instance-doc-link %}
+                                                  {% endif %}
+
+                                                  (<a href="{{ doc-link | flatify }}">link</a>)
+                                             {% endif %}
+                                   {% endcase %}
+                         {% endcase %}
+                    </td>
+               {% endfor %}
+          </tr>
+     {% endfor %}
+</table>
+{% endfor %}

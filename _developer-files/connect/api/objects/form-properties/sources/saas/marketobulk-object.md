@@ -14,7 +14,7 @@ key: "source-form-properties-marketo-bulk-object"
 # -------------------------- #
 
 title: "Marketo Bulk Source Form Property"
-api-type: "marketobulk"
+api-type: "platform.marketobulk"
 display-name: "Marketo Bulk"
 
 source-type: "saas"
@@ -26,6 +26,8 @@ description: ""
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "client_id"

@@ -6,20 +6,16 @@ name: "lead"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm
 singer-schema: 
 description: |
-  The `lead` table contains info about your leads, who are prospects or potential Opportunities.
-
-notes: 
+  The `{{ table.name }}` table contains info about your leads, who are prospects or potential Opportunities.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name: 
-  doc-link: 
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The lead ID."
+    #foreign-key-id: "lead-id"
 
   - name: "systemModStamp"
     type: "date-time"
@@ -82,16 +78,12 @@ attributes:
   - name: "convertedAccountId"
     type: "string"
     description: "The reference ID that points to the Account into which the lead has been converted."
-    # foreign-keys:
-    #   - table: "account"
-    #     attribute: "id"
+    foreign-key-id: "account-id"
 
   - name: "convertedContactId"
     type: "string"
     description: "The reference ID that points to the Contact into which the lead has been converted."
-    # foreign-keys:
-    #   - table: "contact"
-    #     attribute: "id"
+    foreign-key-id: "contact-id"
 
   - name: "convertedDate"
     type: "date-time"
@@ -100,9 +92,7 @@ attributes:
   - name: "convertedOpportunityId"
     type: "string"
     description: "The reference ID that points to the Opportunity into which the lead has been converted."
-    # foreign-keys:
-    #   - table: "opportunity"
-    #     attribute: "id"
+    foreign-key-id: "opportunity-id"
 
   - name: "country"
     type: "string"
@@ -235,11 +225,7 @@ attributes:
   - name: "ownerId"
     type: "string"
     description: "The ID of the owner of the lead."
-    # foreign-keys:
-    #   - table: "account"
-    #     attribute: "ownerId"
-    #   - table: "contact"
-    #     attribute: "ownerId"
+    foreign-key-id: "user-id"
 
   - name: "partnerAccountId"
     type: "string"
@@ -252,7 +238,6 @@ attributes:
   - name: "photoUrl"
     type: "string"
     description: |
-
       The path to be combined with the URL of a Salesforce instance to generate a URL to request the social network profile image associated with the lead.
 
       This field will be blank if Social Accounts and Contacts aren't enabled for the organization or requesting user.

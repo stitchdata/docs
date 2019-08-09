@@ -38,7 +38,7 @@ attributes:
   - name: "primaryAttribute"
     type: "object"
     description: "Primary attributes of the activity type."
-    object-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the primary attribute."
@@ -50,7 +50,7 @@ attributes:
   - name: "attributes"
     type: "array"
     description: "Secondary attributes of the activity type."
-    array-attributes:
+    subattributes:
       - name: "name"
         type: "string"
         description: "The name of the secondary attribute."

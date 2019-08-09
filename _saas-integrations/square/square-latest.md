@@ -1,7 +1,6 @@
 ---
 title: Square
 permalink: /integrations/saas/square
-tags: [saas_integrations]
 keywords: square, integration, schema, etl square, square etl, square schema
 summary: "Connection instructions and schema details for Stitch's Square integration."
 format: ## controls formatting options in template
@@ -15,10 +14,12 @@ format: ## controls formatting options in template
 
 name: "square"
 display_name: "Square"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://issquareup.com/"
+
+api: |
+  [{{ integration.display_name }} Connect v1 API](https://developer.squareup.com/docs/api/connect/v1#navsection-v1endpoints){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,14 +31,31 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/square.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: false
+  lots-of-full-table: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 # -------------------------- #
 #     Integration Tables     #

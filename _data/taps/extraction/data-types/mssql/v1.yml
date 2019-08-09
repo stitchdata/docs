@@ -1,0 +1,114 @@
+# --------------------------------- #
+#   MSSQL V1 SUPPORTED DATA TYPES   #
+# --------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to Microsoft SQL Server VERSION 1.
+
+# Source: https://github.com/stitchdata/tap-mssql/blob/master/src/tap_mssql/core.clj#L148
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## Microsoft SQL Server has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/mssql/specific.yml
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+bigint:
+  stitch-type: "integer"
+  doc-link: &int-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-2017"
+
+binary:
+  stitch-type: "string"
+
+bit:
+  stitch-type: "boolean"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-2017"
+
+boolean:
+  stitch-type: "boolean"
+
+char:
+  stitch-type: "string"
+  doc-link: &char-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/char-and-varchar-transact-sql?view=sql-server-2017"
+      
+date:
+  stitch-type: "string"
+  format: "date-time"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/date-transact-sql?view=sql-server-2017"
+      
+decimal:
+  stitch-type: "number"
+  doc-link: &decimal-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=sql-server-2017"
+
+double:
+  stitch-type: "number"
+
+float:
+  stitch-type: "number"  
+  doc-link: &float-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/float-and-real-transact-sql?view=sql-server-2017"
+      
+integer:
+  stitch-type: "integer"
+  doc-link: *int-doc-link 
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "string"
+
+nchar:
+  stitch-type: "string"
+  doc-link: &nchar-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-2017"
+
+numeric:
+  stitch-type: "number"
+  doc-link: *decimal-doc-link
+      
+nvarchar:
+  stitch-type: "string"
+  doc-link: *nchar-doc-link
+
+real:
+  stitch-type: "number"
+  doc-link: *float-doc-link
+
+rowversion:
+  stitch-type: "string"
+  doc-link: &rowversion-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017"
+  tooltip: |
+    An auto-generated, auto-incremented, unique binary hex string used to version-stamp rows. This is synonymous with <strong>timestamp</strong>. <a href='https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017' target='new'>Learn more</a>.
+
+smallint:
+  stitch-type: "integer"
+  doc-link: *int-doc-link     
+
+time:
+  stitch-type: "string"
+  format: "date-time"
+  doc-link: &time-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/time-transact-sql?view=sql-server-2017"
+
+timestamp:
+  stitch-type: "string"
+  doc-link: *rowversion
+  tooltip: |
+    In {{ page.display_name }}, this is synonymous with <strong>rowversion</strong>. <a href='https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017' target='new'>Learn more</a>.
+
+tinyint:
+  stitch-type: "integer"
+  doc-link: *int-doc-link
+
+uniqueidentifier:
+  stitch-type: "string"
+
+varchar:
+  stitch-type: "string"
+  doc-link: *char-doc-link
+
+varbinary:
+  stitch-type: "string"

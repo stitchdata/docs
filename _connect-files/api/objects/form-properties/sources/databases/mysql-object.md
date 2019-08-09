@@ -13,7 +13,7 @@ key: "source-form-properties-mysql-object"
 # -------------------------- #
 
 title: "MySQL Source Form Property"
-api-type: "mysql"
+api-type: "platform.mysql"
 display-name: "MySQL"
 
 source-type: "database"
@@ -31,11 +31,14 @@ description: ""
 ## This object will also list the fields in the `mysql` list ^
 uses-common-fields: true
 uses-feature-fields: true
+uses-start-date: false
+
 
 object-attributes:
   - name: "check_hostname"
     type: "string"
     required: false
+    internal: false
     description: |
       **Optional**: This property works with the `verify_mode` property to validate that the hostname of the database server matches the name in the provided certificate. Accepted values are:
 
@@ -48,6 +51,7 @@ object-attributes:
   - name: "ssl_ca"
     type: "string"
     required: false
+    internal: false
     description: |
       **Optional**: The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certifcate verifies against the certificate provided.
 
@@ -57,6 +61,7 @@ object-attributes:
   - name: "ssl_cert"
     type: "string"
     required: false
+    internal: false
     description: |
       **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication cerficiate stitch should use. The `ssl_key` property must also be provided to ensure the connection is successful.
     value: "<CA_CERTIFICATE>"
@@ -64,6 +69,7 @@ object-attributes:
   - name: "ssl_client_auth_enabled"
     type: "string"
     required: false
+    internal: false
     description: |
       **Optional**: Indicates if SSL client authentication should be used. Accepted values are:
 
@@ -74,6 +80,7 @@ object-attributes:
   - name: "ssl_key"
     type: "string"
     required: false
+    internal: false
     description: |
       **Optional**: If `ssl_client_auth_enabled: true`, the SSL client authentication key stitch should use. The `ssl_ca` property must also be provided to ensure the connection is successful.
     value: "<CA_KEY>"
@@ -81,11 +88,12 @@ object-attributes:
   - name: "verify_mode"
     type: "string"
     required: false
+    internal: false
     description: |
       **Optional**: SSL certificate verification is enabled when a Certificate Authority (CA) is provided. If `true`, Stitch will enforce it in lieu of a custom CA. Accepted values are:
 
       - `true`
-      - `false'
+      - `false`
 
       **Note**: If the user doesn't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
     value: "true"

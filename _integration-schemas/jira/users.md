@@ -8,7 +8,7 @@ singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schem
 description: |
   The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
 
-  **Note**: To replicate this data, the `Browse users and groups` [global {{ integration.display_name }} permission]({{ integration.global-permission-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
+  **Note**: To replicate this data, the `Administer {{ integration.display_name }}` [global {{ integration.display_name }} permission]({{ integration.global-permissions-doc }}){:target="new"} is required. Refer to [{{ integration.display_name }}'s API documentation]({{ table.doc-link }}){:target="new"} for more info.
 
 replication-method: "Full Table"
 
@@ -34,11 +34,12 @@ attributes:
   - name: "applicationRoles"
     type: "object"
     description: "Application roles associated with the user."
-    object-attributes:
+    subattributes:
       - name: "items"
         type: "array"
         description: "A list of application roles associated with the user."
-        array-attributes:
+        anchor-id: 1
+        subattributes:
           - name: "name"
             type: "string"
             description: "The name of the application role."
@@ -58,7 +59,7 @@ attributes:
   - name: "avatarUrls"
     type: "object"
     description: "The URLs associated with the avatars used by the user."
-    object-attributes:
+    subattributes:
       - name: "16x16"
         type: "string"
         description: "The URL of the user's 16x16 avatar."
@@ -90,11 +91,12 @@ attributes:
   - name: "groups"
     type: "object"
     description: "Details about the groups the user is associated with."
-    object-attributes:
+    subattributes:
       - name: "items"
         type: "array"
         description: "The groups the user is associated with."
-        array-attributes:
+        anchor-id: 2
+        subattributes:
           - name: "name"
             type: "string"
             description: "The name of the group."

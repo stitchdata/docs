@@ -60,7 +60,7 @@ attributes:
   - name: "user"
     type: "object"
     description: "Details about the user who created the pull request."
-    object-attributes:
+    subattributes:
       - name: "id"
         type: "integer"
         description: "The user ID."

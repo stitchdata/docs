@@ -29,8 +29,9 @@ description: "{{ api.core-objects.destinations.list.description | flatify }}"
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of `200 OK` and a [Destination object]({{ api.core-objects.destinations.object }}) with a `report_card` property.
+  If successful, the API will return a status of `200 OK` and an array of [Destination objects]({{ api.core-objects.destinations.object }}), one for each destination connected to the account.
 
+  **Note**: Stitch currently supports only one destination per account.
 
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #
@@ -46,180 +47,195 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      HTTP/1.1 200 OK
-      Content-Type: application/json;charset=ISO-8859-1
-      
       [
-        {
-          "properties": {
-            "database": "<DATABASE>",
-            "host": "<HOST>",
-            "port": "5432",
-            "username": "<USERNAME>"
-          },
-          "updated_at": "2019-01-10T16:46:50Z",
-          "name": "Default Warehouse",
-          "type": "postgres",
-          "deleted_at": null,
-          "system_paused_at": null,
-          "stitch_client_id": <CLIENT_ID>,
-          "paused_at": null,
-          "id": 120603,
-          "created_at": "2019-01-10T16:46:50Z",
-          "report_card": {
-            "type": "postgres",
-            "current_step": 1,
-            "steps": [
-              {
-                "type": "form",
-                "properties": [
+         {
+            "properties":{
+               "database":"demni2mf59dt10",
+               "encryption_type":"none",
+               "host":"<HOST>",
+               "port":"5432",
+               "ssl":"true",
+               "status":"1",
+               "username":"stitch"
+            },
+            "updated_at":"2019-05-24T18:04:08Z",
+            "name":"Default Warehouse",
+            "type":"postgres",
+            "deleted_at":null,
+            "system_paused_at":null,
+            "stitch_client_id":116078,
+            "paused_at":null,
+            "id":155582,
+            "display_name":null,
+            "created_at":"2019-05-24T18:03:50Z",
+            "report_card":{
+               "type":"postgres",
+               "current_step":2,
+               "current_step_type":"fully_configured",
+               "steps":[
                   {
-                    "name": "database",
-                    "is_required": true,
-                    "provided": true,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "name": "encryption_host",
-                    "is_required": false,
-                    "provided": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "anyOf": [
+                     "type":"form",
+                     "properties":[
                         {
-                          "type": "string",
-                          "format": "ipv4"
+                           "name":"database",
+                           "is_required":true,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string"
+                           },
+                           "provided":true
                         },
                         {
-                          "type": "string",
-                          "format": "ipv6"
+                           "name":"encryption_host",
+                           "is_required":false,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "anyOf":[
+                                 {
+                                    "type":"string",
+                                    "format":"ipv4"
+                                 },
+                                 {
+                                    "type":"string",
+                                    "format":"ipv6"
+                                 },
+                                 {
+                                    "type":"string",
+                                    "format":"hostname"
+                                 }
+                              ]
+                           },
+                           "provided":false
                         },
                         {
-                          "type": "string",
-                          "format": "hostname"
+                           "name":"encryption_port",
+                           "is_required":false,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string",
+                              "pattern":"^\\d+$"
+                           },
+                           "provided":false
+                        },
+                        {
+                           "name":"encryption_type",
+                           "is_required":true,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string",
+                              "pattern":"^(ssh|none)$"
+                           },
+                           "provided":true
+                        },
+                        {
+                           "name":"encryption_username",
+                           "is_required":false,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string"
+                           },
+                           "provided":false
+                        },
+                        {
+                           "name":"host",
+                           "is_required":true,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "anyOf":[
+                                 {
+                                    "type":"string",
+                                    "format":"ipv4"
+                                 },
+                                 {
+                                    "type":"string",
+                                    "format":"ipv6"
+                                 },
+                                 {
+                                    "type":"string",
+                                    "format":"hostname"
+                                 }
+                              ]
+                           },
+                           "provided":true
+                        },
+                        {
+                           "name":"password",
+                           "is_required":true,
+                           "is_credential":true,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string"
+                           },
+                           "provided":true
+                        },
+                        {
+                           "name":"port",
+                           "is_required":true,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string",
+                              "pattern":"^\\d+$"
+                           },
+                           "provided":true
+                        },
+                        {
+                           "name":"ssl",
+                           "is_required":true,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"boolean"
+                           },
+                           "provided":true
+                        },
+                        {
+                           "name":"sslrootcert",
+                           "is_required":false,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string"
+                           },
+                           "provided":false
+                        },
+                        {
+                           "name":"username",
+                           "is_required":true,
+                           "is_credential":false,
+                           "system_provided":false,
+                           "property_type":"user_provided",
+                           "json_schema":{
+                              "type":"string"
+                           },
+                           "provided":true
                         }
-                      ]
-                    }
+                     ]
                   },
                   {
-                    "name": "encryption_port",
-                    "is_required": false,
-                    "provided": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string",
-                      "pattern": "^\\d+$"
-                    }
-                  },
-                  {
-                    "name": "encryption_type",
-                    "is_required": true,
-                    "provided": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string",
-                      "pattern": "^(ssh|none)$"
-                    }
-                  },
-                  {
-                    "name": "encryption_username",
-                    "is_required": false,
-                    "provided": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "name": "host",
-                    "is_required": true,
-                    "provided": true,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "format": "ipv4"
-                        },
-                        {
-                          "type": "string",
-                          "format": "ipv6"
-                        },
-                        {
-                          "type": "string",
-                          "format": "hostname"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "name": "password",
-                    "is_required": true,
-                    "provided": true,
-                    "is_credential": true,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "name": "port",
-                    "is_required": true,
-                    "provided": true,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string",
-                      "pattern": "^\\d+$"
-                    }
-                  },
-                  {
-                    "name": "ssl",
-                    "is_required": true,
-                    "provided": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "boolean"
-                    }
-                  },
-                  {
-                    "name": "sslrootcert",
-                    "is_required": false,
-                    "provided": false,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "name": "username",
-                    "is_required": true,
-                    "provided": true,
-                    "is_credential": false,
-                    "system_provided": false,
-                    "json_schema": {
-                      "type": "string"
-                    }
+                     "type":"fully_configured",
+                     "properties":[
+
+                     ]
                   }
-                ]
-              },
-              {
-                "type": "fully_configured",
-                "properties": []
-              }
-            ]
-          }
-        }
+               ]
+            }
+         }
       ]
 ---

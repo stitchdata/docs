@@ -1,7 +1,6 @@
 ---
 title: Zendesk Chat (Zopim)
 permalink: /integrations/saas/zendesk-chat
-tags: [saas_integrations]
 keywords: zopim, integration, schema, etl zopim, zopim etl, zopim schema, zendesk chat, zendesk
 summary: "Connection instructions and schema details for Stitch's Zendesk Chat integration."
 format: ## controls formatting options in template
@@ -15,10 +14,12 @@ format: ## controls formatting options in template
 
 name: "zendesk-chat"
 display_name: "Zendesk Chat"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.zendesk.com/"
+
+api: |
+  [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,14 +31,24 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/zendesk-chat.svg
+
+anchor-scheduling: false
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

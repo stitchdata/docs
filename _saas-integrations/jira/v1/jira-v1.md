@@ -21,24 +21,44 @@ repo-url: "https://github.com/singer-io/tap-jira"
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Cloud REST API v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Paid"
-icon: /images/integrations/icons/jira.svg
 
 table-selection: true
 column-selection: true
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data from a {{ integration.display_name }} Cloud instance using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -84,14 +104,15 @@ setup-steps:
       {% include layout/inline_image.html type="right" file="integrations/jira-cloud-api-token-window.png" max-width="400px" %}
 
       1. Sign into your {{ integration.display_name }} account.
-      2. Click the **user menu (your icon)** in the bottom right corner of the page.
-      3. Click **Manage your account**.
-      4. Click the **Security** tab.
-      5. In the **API token** section, click the **Create and manage API tokens** link.
-      6. On the page that displays, click the **Create API token** button.
-      7. In the window that displays, enter a **Label** for the API token. For example: `Stitch`
-      8. Click **Create**.
-      9. A new window containing the API token will display. **Copy the token before closing the window**, as {{ integration.display_name }} will only display it once.
+      2. Click the **user menu (your icon)** in the bottom left corner of the page.
+      3. Click **Profile**.
+      4. Click **Manage your account**.
+      5. Click the **Security** tab.
+      6. In the **API token** section, click the **Create and manage API tokens** link.
+      7. On the page that displays, click the **Create API token** button.
+      8. In the window that displays, enter a **Label** for the API token. For example: `Stitch`
+      9. Click **Create**.
+      10. A new window containing the API token will display. **Copy the token before closing the window**, as {{ integration.display_name }} will only display it once.
 
   - title: "add integration"
     content: |

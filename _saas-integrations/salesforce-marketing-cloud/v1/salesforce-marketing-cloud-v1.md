@@ -14,8 +14,8 @@
 
 title: Salesforce Marketing Cloud (v1)
 permalink: /integrations/saas/salesforce-marketing-cloud
-tags: [saas_integrations]
 keywords: salesforce marketing cloud, integration, schema, etl salesforce marketing cloud, salesforce marketing cloud etl, salesforce marketing cloud schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Salesforce Marketing Cloud (Exact Target) integration."
 layout: singer
 # input: false
 
@@ -33,6 +33,9 @@ status-url: "https://status.salesforce.com/"
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} SOAP Web Service API](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/web_service_guide.htm){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -43,9 +46,10 @@ certified: false
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
-icon: /images/integrations/icons/salesforce-marketing-cloud.svg
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -96,6 +100,14 @@ permission-categories:
   - name: "Webhooks"
     permissions:
       - name: "Webhooks"
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #

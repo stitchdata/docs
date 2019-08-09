@@ -14,15 +14,15 @@
 <!-- For endpoint-specific response codes. This will show in the 'errors' tab of each
     endpoint's documentation. -->
     {% when 'endpoint' %}
-
-    <!-- If an endpoint uses example the same errors as another one,
-        it'll include a `same-as` property that points to the other endpoint.
-        This way, we don't need to repeat the list of errors again. -->
-        {% if example.same-as %}
-            {% assign all-response-codes = site.data[page.product-type]response-codes[example.same-as]all | compact %}
+    <!-- If the example specifies a non-endpoint-specific file, use that instead.
+            For an example, look at the custom-email and hook notifications endpoints.
+            While they're both under /notifications, each one has its own set of errors.
+            This allows them to display only the ones that are relevant. -->
+        {% if example.error-file %}
+            {% assign all-response-codes = site.data.connect.response-codes[example.error-file]all | compact %}
 
         {% else %}
-            {% assign all-response-codes = site.data[page.product-type]response-codes[item.endpoint]all | compact %}
+            {% assign all-response-codes = site.data.connect.response-codes[item.endpoint]all | compact %}
         {% endif %}
             <td width="30%; fixed">
                 <strong>

@@ -10,7 +10,7 @@
 
 <!-- Otherwise, just list the common source attributes -->
 {% else %}
-    {% assign all-form-attributes = site.data.connect.common.all-sources.fields %}
+    {% assign all-form-attributes = all-source-attributes | sort:"name" %}
 {% endif %}
 
 {% assign all-saas-docs = site.saas-integrations | where:"name",form-property.docs-name %}
@@ -18,4 +18,18 @@
 
         {% for saas in this-saas %}
             {% assign doc-link = saas.url | prepend: site.baseurl %}
+            {% assign replication-frequency-value = saas.frequency | remove: " " | remove: "minutes" | remove: "hours" %}
+
+            <!-- We have to do some math because `frequency_in_minutes` is in minutes, and frequencies in the UI are shown in hours. -->
+                {% if replication-frequency-value == "30" %}
+                    {% assign replication-frequency = replication-frequency-value %}
+                {% else %}
+                    {% assign replication-frequency = replication-frequency-value | times: 60 %}
+                {% endif %}
+
+                {% if saas.cron-scheduling == true %}
+                    {% assign cron-scheduling = true %}
+                {% else %}
+                    {% assign cron-scheduling = false %}
+                {% endif %}
         {% endfor %}

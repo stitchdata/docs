@@ -14,7 +14,7 @@ key: "source-form-properties-aurora-object"
 # -------------------------- #
 
 title: "Amazon Aurora Source Form Property"
-api-type: "aurora"
+api-type: "platform.aurora"
 display-name: "Amazon Aurora"
 
 source-type: "database"
@@ -32,4 +32,5 @@ description: ""
 
 uses-common-fields: true
 uses-feature-fields: true
+uses-start-date: false
 ---

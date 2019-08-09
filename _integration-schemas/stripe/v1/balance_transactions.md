@@ -55,7 +55,7 @@ attributes:
   - name: "fee_details"
     type: "array"
     description: "Detailed breakdown of fees (in cents) paid for this transaction."
-    array-attributes:
+    subattributes:
       - name: "amount"
         type: "integer"
         description: "Amount of the fee, in cents."
@@ -97,7 +97,7 @@ attributes:
   - name: "sourced_transfers"
     type: "array"
     description: ""
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "anything"
         description: ""

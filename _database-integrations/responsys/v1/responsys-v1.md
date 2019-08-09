@@ -14,7 +14,6 @@
 
 title: Responsys
 permalink: /integrations/databases/responsys
-tags: [database_integrations]
 keywords: responsys, etl responsys, responsys etl
 layout: singer
 # input: false
@@ -36,6 +35,8 @@ status-url: "https://community.oracle.com/docs/DOC-1011262"
 
 # this-version: "1.0"
 
+hosting-type: "none"
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -49,8 +50,6 @@ tier: "Paid"
 port: 22
 db-type: "responsys"
 
-icon: /images/integrations/icons/responsys.svg
-
 ## Stitch features
 
 versions: "n/a"
@@ -60,6 +59,8 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -149,32 +150,30 @@ setup-steps:
       Stitch uses an SSH tunnel to securely connect to your {{ integration.display_name }} SFTP server. This means that to connect successfully, you'll need to add Stitch's Public Key to your server.
 
     substeps:
-      - title: "Retrieve the Stitch Public Key"
+      - title: "Retrieve your Stitch public key"
         anchor: "retrieve-stitch-public-key"
         content: |
           1. {{ app.menu-paths.add-integration | flatify }}
           2. Click the **{{ integration.display_name }}** icon.
-          3. The Stitch Public Key will be at the top of the page that opens:
+          3. The Stitch public key will be at the top of the page that opens:
 
              ![The Stitch Public Key in the {{ integration.display_name }} settings page]({{ site.baseurl }}/images/integrations/responsys-public-key.png)
 
       - title: "Determine your SFTP server hosting"
         anchor: "sftp-server-hosting"
         content: |
-          Next, you'll need to add the Public Key to your SFTP server. The steps for doing this depend on how your SFTP server is hosted:
+          Next, you'll need to add the public key to your SFTP server. The steps for doing this depend on how your SFTP server is hosted:
 
           {% capture oracle-hosted %}
-          Contact Oracle and provide them with the Public Key to complete this step.
+          Contact Oracle and provide them with the public key to complete this step.
 
           {% endcapture %}
           {% include layout/expandable-heading.html title="My server is hosted by Oracle. (This is the default)" content=oracle-hosted anchor="oracle-hosted" %}
 
           {% capture self-hosted %}
-          If your SFTP server is self-hosted, or not hosted by Oracle, you'll need to add the Public Key to the `authorized_keys` file. This will allow Stitch to conntect to the server using a trusted user.
+          If your SFTP server is self-hosted, or not hosted by Oracle, you'll need to add the public key to the `authorized_keys` file. This will allow Stitch to conntect to the server using a trusted user.
 
-          In this step, you'll create a dedicated SSH user for Stitch and then import the Stitch Public Key into the `authorized_keys` file.
-
-          {% include shared/create-linux-user.html no-notification=true %}
+          {% include shared/ssh/ssh-create-linux-user.html no-notification=true %}
 
           {% endcapture %}
           {% include layout/expandable-heading.html title="My server is self-hosted." content=self-hosted anchor="self-hosted" %}
@@ -217,45 +216,65 @@ setup-steps:
       {% endfor %}
       </table>
 
-  - title: "add integration"
+  - title: "Connect Stitch"
+    anchor: "add-stitch-data-source"
     content: |
-      The info you need to complete the remaining fields depends on how your SFTP server is hosted:
+      In this step, you'll complete the setup by entering the connection details and defining replication settings in Stitch:
 
-      {% capture fields-for-oracle-hosted %}
-      If your server is hosted by Oracle, you can find its connection details in the {{ integration.display_name }} app by navigating to **Data > Connect > Destination Connectivity**. If you have multiple file locations, click the one you want to connect to Stitch.
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
-      {% include layout/inline_image.html type="right" file="integrations/responsys-oracle-hosted-example.png" alt="Oracle-hosted SFTP server connection details" max-width="500px" %}
-      The image on the right shows an example of the connection details in {{ integration.display_name }}.
+    substeps:
+      - title: "Define the {{ integration.display_name }} connection details"
+        anchor: "define-connection-details"
+        content: |
+          The info you need to complete the remaining fields depends on how your SFTP server is hosted:
 
-      Fill in the remaining fields in Stitch as follows:
+          {% capture fields-for-oracle-hosted %}
+          If your server is hosted by Oracle, you can find its connection details in the {{ integration.display_name }} app by navigating to **Data > Connect > Destination Connectivity**. If you have multiple file locations, click the one you want to connect to Stitch.
 
-      - **Host**: In Stitch, enter the value from the {{ integration.display_name }} **Server** field. This will likely be `files.responsys.net`
-      - **Port**: Leave this as `22`.
-      - **Username**: In Stitch, enter the value from the {{ integration.display_name }} **User name** field. In the example, this is `demo_scp`
-      - **Path**: In Stitch, enter the value of the {{ integration.display_name }} **Directory path** field, or the file server path where completed {{ integration.display_name }} export files are stored. In the example, this is `download`
-      {% endcapture %}
-      {% include layout/expandable-heading.html title="My server is hosted by Oracle. (This is the default)" content=fields-for-oracle-hosted anchor="fields-for-oracle-hosted" %}
+          {% include layout/inline_image.html type="right" file="integrations/responsys-oracle-hosted-example.png" alt="Oracle-hosted SFTP server connection details" max-width="500px" %}
+          The image on the right shows an example of the connection details in {{ integration.display_name }}.
 
-      {% capture fields-for-self-hosted %}
-      If your server is hosted by Oracle, you can find its connection details in the {{ integration.display_name }} app by navigating to **Data > Connect > Destination Connectivity**. If you have multiple file locations, click the one you want to connect to Stitch.
+          Fill in the remaining fields in Stitch as follows:
 
-      {% include layout/inline_image.html type="right" file="integrations/responsys-self-hosted-example.png" alt="Self-hosted SFTP server connection details" max-width="500px" %}
-      The image on the right shows an example of the connection details in {{ integration.display_name }}.
+          - **Host**: In Stitch, enter the value from the {{ integration.display_name }} **Server** field. This will likely be `files.responsys.net`
+          - **Port**: Leave this as `22`.
+          - **Username**: In Stitch, enter the value from the {{ integration.display_name }} **User name** field. In the example, this is `demo_scp`
+          - **Path**: In Stitch, enter the value of the {{ integration.display_name }} **Directory path** field, or the file server path where completed {{ integration.display_name }} export files are stored. In the example, this is `download`
+          {% endcapture %}
+          {% include layout/expandable-heading.html title="My server is hosted by Oracle. (This is the default)" content=fields-for-oracle-hosted anchor="fields-for-oracle-hosted" %}
 
-      Fill in the remaining fields in Stitch as follows:
+          {% capture fields-for-self-hosted %}
+          If your server is hosted by Oracle, you can find its connection details in the {{ integration.display_name }} app by navigating to **Data > Connect > Destination Connectivity**. If you have multiple file locations, click the one you want to connect to Stitch.
 
-      - **Host**: Enter the host address (endpoint) used by the SFTP server.
-      - **Port**: Enter the SSH port used by the SFTP server. This is usually `22`.
-      - **Username**: Enter the name of the user you created in [Step 1.2](#sftp-server-hosting). In the example, this is `stitch_user`
-      - **Path**: Enter the file server path where completed {{ integration.display_name }} export files are stored.
-      {% endcapture %}
-      {% include layout/expandable-heading.html title="My server is self-hosted." content=fields-for-self-hosted anchor="fields-for-self-hosted" %}
+          {% include layout/inline_image.html type="right" file="integrations/responsys-self-hosted-example.png" alt="Self-hosted SFTP server connection details" max-width="500px" %}
+          The image on the right shows an example of the connection details in {{ integration.display_name }}.
 
-  - title: "historical sync"
+          Fill in the remaining fields in Stitch as follows:
 
-  - title: "replication frequency"
+          - **Host**: Enter the host address (endpoint) used by the SFTP server.
+          - **Port**: Enter the SSH port used by the SFTP server. This is usually `22`.
+          - **Username**: Enter the name of the user you created in [Step 1.2](#sftp-server-hosting). In the example, this is `stitch_user`
+          - **Path**: Enter the file server path where completed {{ integration.display_name }} export files are stored.
+          {% endcapture %}
+          {% include layout/expandable-heading.html title="My server is self-hosted." content=fields-for-self-hosted anchor="fields-for-self-hosted" %}
 
-  - title: "track data"
+      - title: "Define the historical sync"
+        anchor: "define-historical-sync"
+        content: |
+          {% include integrations/saas/setup/historical-sync.html %}
+
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
+
+  - title: "Select data to replicate"
+    anchor: "setting-data-to-replicate"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 
 
 # -------------------------- #

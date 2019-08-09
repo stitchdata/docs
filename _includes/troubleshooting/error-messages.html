@@ -82,15 +82,3 @@
 
 If the troubleshooting steps detailed above don’t resolve the issue or if the errors persist, we recommend checking [Stitch’s Status Page]({{ site.status }}) for reported service issues.
 {% endif %}
-
----
-
-## Contact Stitch support
-
-To help us troubleshoot the problem quickly, we ask that you provide us with the following:
-
-1. The exact error you’re receiving. Providing us with the text or a screenshot is ideal.
-2. The type of {{ feature }}. Ex: {{ wrong-type }}.
-{% if page.permalink contains "database" %}3. The display name of the database integration. This is the name of the integration as it appears on your Stitch dashboard page.{% endif %}
-{% if page.title contains "connection" %}4. Verification that Stitch’s IP addresses are whitelisted.{% endif %}
-5. Verification that the Stitch database user has the correct permissions for the type of {{ feature }} you’re connecting.

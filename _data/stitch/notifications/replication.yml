@@ -1,0 +1,194 @@
+# -------------------------------- #
+#  REPLICATION EMAIL NOTIFICATIONS #
+# -------------------------------- #
+
+description: "Notifications that are sent when Stitch encounters issues during the replication process."
+
+all:
+  - id: "integration-api-limit"
+  - id: "table-persistence-error"
+  - id: "db-replicator-absent-bookmark"
+  - id: "platform.exit_status"
+  - id: "loading-error"
+  - id: "jammed-read-head"
+  - id: "undeliverable-post-load"
+  - id: "loader-tunnel-error"
+
+
+# -------------------------- #
+#       WARNING LEVEL        #
+# -------------------------- #
+
+warning:
+# -------------------------- #
+#    MISSING DB BOOKMARK     #  
+# -------------------------- #
+  - id: "db-replicator-absent-bookmark"
+    name: "Missing or deleted database Replication Key"
+    email-delay: "20 minutes"
+    description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to detect the Replication Key for a selected database integration table."
+    contains-raw-errors: false
+    email-subject:
+      - "Database Integration Error"
+    content:
+      - "The name of the affected table"
+    potential-causes:
+      - "The Replication Key for the affected table is missing or deleted in the source"
+    app-category: "integration"
+    singer: false
+
+# ----------------------------- #
+#  UNDELIVERABLE POST-LOAD HOOK #
+# ----------------------------- #
+  - id: "undeliverable-post-load"
+    name: "Unable to deliver post-load hook"
+    email-delay: "None - sent immediately after last failed retry"
+    description: |
+      Sent when Stitch is unable to deliver a webhook notification to a [post-load webhook URL]({{ link.account.post-load-notifications | prepend: site.baseurl }}).
+    email-subject:
+      - "Unable to Deliver Post Load Notification"
+    contains-raw-errors: true
+    content:
+      - "A brief explanation of the issue"
+      - "The HTTP status code Stitch received"
+      - "The webhook URL Stitch is attempting to deliver to"
+    potential-causes:
+      - "Issues with the webhook service Stitch is attempting to deliver to"
+    app-category: "post-load-hooks"
+
+
+# ----------------------------
+
+# -------------------------- #
+#       CRITICAL LEVEL       #
+# -------------------------- #
+
+critical:
+# -------------------------- #
+#    CAN'T PERSIST TABLE     #  
+# -------------------------- #
+  - id: "table-persistence-error"
+    name: "Error persisting table data"
+    email-delay: "None"
+    description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to persist extracted data for a table to your destination."
+    email-subject:
+      - "Error persisting data for table <code>[table_name]</code>"
+    contains-raw-errors: false
+    content:
+      - "The name of the affected table"
+    potential-causes:
+      - "A record in the table exceeds Stitch's 4MB limit"
+    app-category: "persistence"
+    singer: false
+
+# -------------------------- #
+#         EXTRACTIONS        #
+# -------------------------- #
+  - id: "platform.exit_status"
+    name: "Extraction exit status"
+    email-delay: "60 minutes"
+    description: "**Applicable only to Singer-backed integrations.** Sent when Stitch encounters critical issues during the Extraction phase of the replication process."
+    email-subject: 
+      - "We're encountering some errors with your <code>[integration_display_name]</code> integration"
+    contains-raw-errors: true
+    content:
+      - "The name of the affected integration"
+      - "{{ site.data.stitch.notifications.common.content.raw-error-integration | flatify }}"
+    potential-causes:
+      - "Connection issues between Stitch and the integration"
+      - "Incorrect user credentials"
+      - "Insufficient user permissions"
+      - "Unsupported field or data type(s)"
+      - "Schema violations"
+      - "Incorrectly configured [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) (databases only)"
+    related-types:
+      - "platform.error"
+    app-category: "platform.exit_status"
+    singer: true
+
+# -------------------------- #
+#       LOADING ERRORS       #
+# -------------------------- #
+  - id: "loading-error"
+    name: "Data loading error"
+    email-delay: "2 hours"
+    description: "Sent when Stitch encounters issues loading data to the account's destination."
+    email-subject:
+      - "We're having trouble writing to your data warehouse"
+    contains-raw-errors: true
+    content:
+      - "A list of affected tables"
+      - "A brief explanation of the issue, if known"
+      - "{{ site.data.stitch.notifications.common.content.raw-error-destination | flatify }}"
+    potential-causes:
+      - "Connection issues between Stitch and the destination"
+      - "[Destination is out of memory]({{ link.troubleshooting.aws-io-errors | prepend: site.baseurl }})"
+      - "[Destination is out of disk space]({{ link.troubleshooting.dw-loading-errors | prepend: site.baseurl }})"
+      - "[Amazon Redshift view dependency issues]({{ link.troubleshooting.view-dependency-errors | prepend: site.baseurl }})"
+    related-types:
+      - "loader_warehouse_error"
+      - "warehouse_connection_failed"
+      - "warehouse_connection_authentication_failed"
+    app-category: "read_head"
+
+# -------------------------- #
+#   JAMMED READ HEAD ERRORS  #
+# -------------------------- #
+  - id: "jammed-read-head"
+    name: "Unable to load data"
+    email-delay: "2 hours"
+    description: "Sent when Stitch cannot load data into the account's destination because the destination doesn't support it."
+    email-subject:
+      - "We're unable to load some of your data"
+    contains-raw-errors: true
+    content:
+      - "A brief explanation of the issue"
+      - "{{ site.data.stitch.notifications.common.content.raw-error-destination | flatify }}"
+    potential-causes:
+      - "Stitch is attempting to load data that the destination doesn't support"
+    app-category: "read_head"
+
+
+# -------------------------- #
+#   JAMMED READ HEAD ERRORS  #
+# -------------------------- #
+  - id: "loader-tunnel-error"
+    name: "SSH tunnel connection error"
+    email-delay: "2 hours"
+    description: "**Applicable only when an SSH tunnel is being used to connect to the destination.** Sent when Stitch cannot load data into the account's destination because Stitch encountered an error creating an SSH tunnel."
+    email-subject:
+      - "Stitch cannot load data into your destination"
+    contains-raw-errors: false
+    content:
+      - "A list of affected tables"
+      - "A brief explanation of the issue"
+    potential-causes:
+      - "Incorrect SSH host, port, or username settings"
+      - "Incorrectly imported public key"
+      - "Failure to whitelist Stitch's IP addresses in the SSH server's firewall"
+    app-category: "read_head"
+
+
+# ----------------------------
+
+# -------------------------- #
+#         DELAY LEVEL        #
+# -------------------------- #
+
+delay:
+# -------------------------- #
+#       API RATE LIMIT       #  
+# -------------------------- #
+  - id: "integration-api-limit"
+    name: "SaaS integration API rate limit"
+    email-delay: "20 minutes"
+    description: "**Applicable only to non-Singer SaaS integrations.** Sent when an integration has insufficient API quota. This applies to integrations that use APIs that enforce API quotas - for example, Google Analytics. Replication will continue when additional quota becomes available."
+    email-subject:
+      - "Integration API Rate Limited"
+    contains-raw-errors: false
+    content:
+      - "A list of affected integrations"
+    potential-causes: 
+      - "Insufficient API quota"
+    app-category: "integration"
+    singer: false

@@ -1,12 +1,12 @@
 ---
 tap: "wootric"
-# version:
+# version: "1.0"
 
 name: "end_users"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/end_users.json
 description: |
-  The `end_users` table contains info about the end users associated with survey opportunities.
+  The `{{ table.name }}` table contains info about the end users associated with survey opportunities.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The end user ID."
+    foreign-key-id: "end-user-id"
 
   - name: "updated_at"
     type: "date-time"

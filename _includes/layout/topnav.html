@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="stitch-docs-navbar">
+<nav class="stitch-docs-navbar" data-swiftype-index='false'>
     <div class="nav-left">
         <svg version="1.1" id="stitch_logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 556.9 556.9" style="enable-background:new 0 0 556.9 556.9;" xml:space="preserve" height="38" width="38">
         <style type="text/css">
@@ -34,11 +34,12 @@
                     {% endif %}
                 {% endfor %}
             {% endfor %}
+            <li class="sign-up"><a href="https://stitchdata.com/signup">Sign up</a></li>
             <li>
                 <!--start search-->
                 <div id="search-demo-container">
                     <input type="text" id="search-input" placeholder="{{site.data.strings.search_placeholder_text}}">
-                    <ul id="results-container"></ul>
+                    <div class="img"><i class="fa fa-search"></i></div>
                 </div>
             </li>
         </ul>

@@ -1,20 +1,20 @@
 ---
 tap: "intercom"
-# version:
+# version: "15-10-2015"
 
 name: "users"
 doc-link: https://developers.intercom.io/docs/users
 description: |
-  The `users` table contains info about the users in your Intercom account.
+  The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
 
   #### Custom Attributes
 
-  If applicable, Stitch will replicate custom fields related to `users` in Intercom.
+  If applicable, Stitch will replicate custom fields related to `users` in {{ integration.display_name }}.
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: scrollOverAllUsers
-  doc-link: https://developers.intercom.com/reference#iterating-over-all-users
+  name: List Users
+  doc-link: https://developers.intercom.com/intercom-api-reference/reference#list-users
 
 attribution-window: true
 
@@ -61,7 +61,7 @@ attributes:
   - name: "avatar"
     type: "object"
     description: "Details about the avatar associated with the user."
-    object-attributes:
+    subattributes:
       - name: "image_url"
         type: "string"
         description: "The URL of the avatar image associated with the user."
@@ -77,7 +77,7 @@ attributes:
   - name: "location_data"
     type: "object"
     description: "Details about the user's location."
-    object-attributes:
+    subattributes:
       - name: "city_name"
         type: "string"
         description: "The name of the city associated with the user's location."
@@ -137,77 +137,95 @@ attributes:
   - name: "companies"
     type: "array"
     description: "Details about the companies the user is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The Intercom-defined company ID."
-        foreign-key-id: "company-id"
+    subattributes:
+      - name: "companies"
+        type: "array"
+        description: "Details about the company the user is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The Intercom-defined company ID."
+            foreign-key-id: "company-id"
 
-      - name: "company_id"
-        type: "string"
-        description: "The ID that you assigned to the company."
+          - name: "company_id"
+            type: "string"
+            description: "The ID that you assigned to the company."
 
-      - name: "name"
-        type: "string"
-        description: "The name of the company."
+          - name: "name"
+            type: "string"
+            description: "The name of the company."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `company`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `company`."
 
   - name: "social_profiles"
     type: "array"
     description: "Details about the social profiles the user is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The user's user ID on the social platform."
+    subattributes:
+      - name: "social_profiles"
+        type: "array"
+        description: "Details about the social profiles the user is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The user's user ID on the social platform."
 
-      - name: "name"
-        type: "string"
-        description: "The name of the social service. Ex: `facebook`"
+          - name: "name"
+            type: "string"
+            description: "The name of the social service. Ex: `facebook`"
 
-      - name: "url"
-        type: "string"
-        description: "The user's user homepage on the social platform."
+          - name: "url"
+            type: "string"
+            description: "The user's user homepage on the social platform."
 
-      - name: "username"
-        type: "string"
-        description: "The user's username on the social platform."
+          - name: "username"
+            type: "string"
+            description: "The user's username on the social platform."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `social_profile`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `social_profile`."
 
   - name: "segments"
     type: "array"
     description: "Details about the segments the user is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The segment ID."
-        foreign-key-id: "segment-id"
+    subattributes:
+      - name: "segments"
+        type: "array"
+        description: "Details about the segments the user is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            primary-key: true
+            description: "The segment ID."
+            foreign-key-id: "segment-id"
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `segment`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `segment`."
 
   - name: "tags"
     type: "array"
     description: "Details about the tags the user is associated with."
-    array-attributes:
-      - name: "id"
-        type: "string"
-        description: "The tag ID."
-        foreign-key-id: "tag-id"
+    subattributes:
+      - name: "tags"
+        type: "array"
+        description: "Details about the tags the user is associated with."
+        subattributes:
+          - name: "id"
+            type: "string"
+            description: "The tag ID."
+            foreign-key-id: "tag-id"
 
-      - name: "name"
-        type: "string"
-        description: "The name of the tag."
+          - name: "name"
+            type: "string"
+            description: "The name of the tag."
 
-      - name: "type"
-        type: "string"
-        description: "The value of this field will be `tag`."
+          - name: "type"
+            type: "string"
+            description: "The value of this field will be `tag`."
 
   - name: "type"
     type: "string"

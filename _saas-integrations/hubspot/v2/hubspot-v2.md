@@ -1,7 +1,6 @@
 ---
 title: HubSpot
 permalink: /integrations/saas/hubspot
-tags: [saas_integrations]
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
 layout: singer
@@ -12,36 +11,60 @@ layout: singer
 
 name: "hubspot"
 display_name: "HubSpot"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-hubspot
 
 this-version: "2.0"
+
+api: |
+  [{{ integration.display_name }} REST API](https://developers.hubspot.com/docs/overview){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 status: "Released"
-certified: true # Stitch-supported integration
+certified: true
 
 historical: "30 days"
 frequency: "30 minutes"
 tier: "Paid"
 status-url: https://status.hubspot.com/
-icon: /images/integrations/icons/hubspot.svg
 
 table-selection: true
 column-selection: true
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
-incompatible:
-  postgres: "sometimes"
-  reason: "Tables and columns created as a result of de-nesting nested data may have names that exceed PostgreSQL's limit of 63 characters for tables and 59 characters for columns. PostgreSQL data warehouses will reject these tables and columns, meaning Stitch will be unable to load them."
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: false
+  lots-of-full-table: false
+
+
+# -------------------------- #
+#      Incompatibilities     #
+# -------------------------- #
+
+## See _data/destinations/reference/incompatibilities.yml
+
+has-incompatibilities: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

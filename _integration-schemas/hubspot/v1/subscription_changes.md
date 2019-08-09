@@ -38,7 +38,7 @@ attributes:
   - name: "changes"
     type: "array"
     description: "Details about the subscription change event."
-    array-attributes:
+    subattributes:
       - name: "change"
         type: "string"
         description: "The action associated with the change. Ex: `SUBSCRIBED`"
@@ -66,7 +66,7 @@ attributes:
       - name: "causedByEvent"
         type: "object"
         description: "Details about the event that caused the change."
-        object-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             description: "The ID of the event that caused the change."

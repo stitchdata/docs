@@ -6,7 +6,7 @@ name: "revenueScheduleItem"
 doc-link: https://live-www.zuora.com/developer/api-reference/#tag/Revenue-Items
 #singer-schema: 
 description: |
-  The `{{ table.name }}` table contains information about revenue schedules. A [revenue schedule](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules) represents how revenue amounts from single charges are distributed over time and recognized in accounting periods.
+  The `{{ table.name }}` table contains information about revenue schedules. A [revenue schedule](https://knowledgecenter.zuora.com/CC_Finance/Revenue_Recognition/G_Revenue_Schedules){:target="new"} represents how revenue amounts from single charges are distributed over time and recognized in accounting periods.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -51,7 +51,7 @@ attributes:
 
   - name: "createdById"
     type: "string"
-    description: "The ID of the Zuora user who created the revenue schedule item."
+    description: "The ID of the {{ integration.display_name }} user who created the revenue schedule item."
 
   - name: "createdDate"
     type: "date-time"
@@ -74,11 +74,11 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "parentAccountId"
     type: "string"
-    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in {{ integration.display_name }}."
     foreign-key-id: "parent-account-id"
 
   - name: "productId"
@@ -143,5 +143,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the revenue schedule item."
+    description: "The ID of the {{ integration.display_name }} user who last updated the revenue schedule item."
 ---

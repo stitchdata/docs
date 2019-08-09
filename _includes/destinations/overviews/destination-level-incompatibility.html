@@ -1,0 +1,85 @@
+<!-- This file contains the table used in the Destination & Integation Compatibility doc. -->
+
+
+<!-- Refer to _data/destinations/reference/incompatibilities.yml for the list of currently known source:destination incompatibilities, and the reasons for them.
+
+	The content of this file is what gets listed in the table below. -->
+
+{% include misc/icons.html %}
+
+{% assign all-integrations = site.documents | where:"input",true | sort:"display_name" %}
+	{% assign integrations-with-incompatibilities = all-integrations | where:"has-incompatibilities",true %}
+
+{% assign destinations = site.destinations | where:"destination",true %}
+
+
+
+<p>For a comprehensive look at how destinations will load data - including what may cause data to be "rejected" - refer to the <a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">{{ destination.display_name }} Data loading guides</a>.</p>
+
+<table class="attribute-list">
+	{% for destination in destinations %}
+		<tr>
+			<td colspan="4" class="table-subheading">
+				<strong>{{ destination.display_name }}</strong> (<a href="{{ destination.url }}">link</a>)
+			</td>
+		</tr>
+
+		{% assign destination-incompatibilities = site.data.destinations.reference.incompatibilities[destination.type] | compact %}
+
+			{% assign incompatibility-list-size = destination-incompatibilities | size %}
+
+			{% case incompatibility-list-size %}
+				{% when 0 %}
+					<tr>
+						<td colspan="4">
+							No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td width="20%; fixed" align="right">
+							<strong>Integration</strong>
+						</td>
+						<td width="20%; fixed">
+							<strong>Integration version</strong>
+						</td>
+						<td>
+							<strong>Level</strong>
+						</td>
+						<td>
+							<strong>Reason</strong>
+						</td>
+					</tr>
+
+					{% for incompatibility in destination-incompatibilities %}
+						{% for integration in integrations-with-incompatibilities %}
+							{% if integration.name == incompatibility.integration %}
+								{% capture integration-name %}
+									<a href="{{ integration.url }}">{{ integration.display_name }}</a>
+								{% endcapture %}
+							{% endif %}
+						{% endfor %}
+						<tr>
+							<td width="20%; fixed" align="right">
+								<strong>{{ integration-name }}</strong>
+							</td>
+							<td width="20%; fixed">
+								{{ incompatibility.version | upcase }}
+							</td>
+							<td>
+								{% case incompatibility.level %}
+									{% when 'always' %}
+										{{ not-supported | replace:"TOOLTIP","This destination/integration combination is always incompatible." }} 
+
+									{% when 'sometimes' %}
+										{{ sometimes-supported | replace:"TOOLTIP","This destination/integration combination is sometimes incompatible." }}
+								{% endcase %}
+							</td>
+							<td>
+								{{ incompatibility.reason | flatify | markdownify }}
+							</td>
+						</tr>
+					{% endfor %}
+			{% endcase %}
+	{% endfor %}
+</table>

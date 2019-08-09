@@ -35,11 +35,11 @@ attributes:
   - name: "associations"
     type: "object"
     description: "IDs of the Vids, Companies, and Deals associated with the deal."
-    object-attributes:
+    subattributes:
       - name: "associatedVids"
         type: "array"
         description: "IDs of the Vids associated with the deal."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the Vid associated with the deal."
@@ -47,7 +47,7 @@ attributes:
       - name: "associatedCompanyIds"
         type: "array"
         description: "IDs of the companies associated with the deal."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the company associated with the deal."
@@ -55,7 +55,7 @@ attributes:
       - name: "associatedDealIds"
         type: "array"
         description: "IDs of the deals associated with the deal."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The ID of the deal associated with the deal. (How meta!)"
@@ -63,11 +63,11 @@ attributes:
   - name: "properties"
     type: "object"
     description: "Details about the properties set for the deal."
-    object-attributes:
+    subattributes:
       - name: "amount"
         type: "object"
         description: "Details about amounts set for the deal."
-        object-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: "The amount of the deal."
@@ -83,7 +83,7 @@ attributes:
       - name: "dealname"
         type: "object"
         description: "Details about the name of the property."
-        object-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The current value of the property."

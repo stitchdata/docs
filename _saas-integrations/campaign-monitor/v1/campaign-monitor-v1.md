@@ -5,8 +5,8 @@
 
 title: Campaign Monitor (v1.0)
 permalink: /integrations/saas/campaign-monitor
-tags: [saas_integrations]
 keywords: campaign monitor, integration, schema, etl campaign monitor, campaign monitor etl, campaign monitor schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Campaign Monitor integration."
 layout: singer
 # input: false
 
@@ -22,6 +22,9 @@ repo-url: https://github.com/singer-io/tap-campaign-monitor
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://www.campaignmonitor.com/api/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -33,19 +36,24 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.campaignmonitor.com/"
-icon: /images/integrations/icons/campaign-monitor.svg
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: false
 column-selection: false
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
 
-# setup-name: ""
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

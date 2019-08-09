@@ -1,7 +1,6 @@
 ---
 title: Intercom
 permalink: /integrations/saas/intercom
-tags: [saas_integrations]
 keywords: intercom, integration, schema, etl intercom, intercom etl, intercom schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Intercom integration."
 layout: singer
@@ -13,9 +12,10 @@ layout: singer
 name: "intercom"
 display_name: "Intercom"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.intercom.io/"
+
+api: |
+  [{{ integration.display_name }} REST API (V1.0)](https://developers.intercom.com/intercom-api-reference/v1.0/reference){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -27,14 +27,24 @@ certified: true
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/intercom.svg
 
 table-selection: false
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
+
 
 # -------------------------- #
 #      Querying Details      #
@@ -47,6 +57,14 @@ loading-reports: false
 
 replication-notes: true
 attribution-window: "30 days"
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

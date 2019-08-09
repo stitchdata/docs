@@ -1,5 +1,26 @@
+# -------------------------- #
+#       RANDOM STRINGS       #
+# -------------------------- #
 
+## A file of random strings that don't really fit
+## anywhere else. So... they go here.
 
 # placed here for translation purposes
 search_placeholder_text: What can we help you find?
 search_no_results_text: No results found.
+
+enterprise:
+  general: "available during the free trial or for customers on an Enterprise plan."
+
+  title:
+    is-an: " is an Enterprise feature"
+    are-an: " are an Enterprise feature"
+    multiple: " are Enterprise features"
+
+  copy:
+    is-an: |
+      {{ site.data.strings.enterprise.title.is-an | append: " that's " | append: site.data.strings.enterprise.general }}
+    are-an: |
+      {{ site.data.strings.enterprise.title.are-an | append: " that's " | append: site.data.strings.enterprise.general }}
+    multiple: |
+      {{ site.data.strings.enterprise.title.multiple | append: " that are " | append: site.data.strings.enterprise.general }}

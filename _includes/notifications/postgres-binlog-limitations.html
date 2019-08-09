@@ -1,7 +1,14 @@
 {% capture logical-replication-limitations %}
 Log-based Replication for {{ integration.display_name }}-based databases requires:
 
-1. **PostgreSQL databases running PostgreSQL versions 9.4.x or greater.** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
+{% case integration.name %}
+
+{% when 'aurora-postgresql-rds' %}
+1. **A PostgreSQL database running Aurora PostgreSQL 10.6 or greater**. This is required to use wal2json, the plugin Stitch uses to perform Log-based Incremental Replication. Amazon introduced support for wal2json in [version 10.6 of their Aurora PostgreSQL engine](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Replication.Logical.html#AuroraPostgreSQL.Replication.Logical.Configure){:target="new"}.
+
+{% else %}
+1. **A PostgreSQL database running PostgreSQL version 9.4.x or greater.** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
+{% endcase %}
 
 2. **A connection to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
 

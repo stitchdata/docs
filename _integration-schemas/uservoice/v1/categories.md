@@ -44,7 +44,7 @@ attributes:
   - name: "links"
     type: "object"
     description: "Details about the links associated with the category."
-    object-attributes: 
+    subattributes: 
       - name: "forum"
         type: "integer"
         description: "The ID of the forum associated with the category."

@@ -1,7 +1,6 @@
 ---
 title: Taboola (v1.0)
 permalink: /integrations/saas/taboola
-tags: [saas_integrations]
 keywords: taboola, taboola integration, schema, etl taboola, taboola etl, taboola schema
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
@@ -12,13 +11,15 @@ layout: singer
 
 name: "taboola"
 display_name: "Taboola"
-singer: true 
-author: "Fishtown Analytics"
-author-url: http://fishtownanalytics.com/
+
+singer: true
 repo-url: https://github.com/singer-io/tap-taboola
 status-url: https://twitter.com/taboola?lang=en
 
 # this-version: "1.0"
+
+api: |
+  [{{ integration.display_name }} Backstage API](https://github.com/taboola/Backstage-API){:target="new"}
 
 # -------------------------- #
 #     Integration Details    #
@@ -30,21 +31,30 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/taboola.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 requirements-list:
-  - item: "**Access to the Taboola API**."
+  - item: "**Access to the {{ integration.display_name }} API**."
   - item: |
       **The following API credentials:**
 
@@ -52,19 +62,18 @@ requirements-list:
       - Client ID
       - Client Secret
 
-requirements-info: "Reach out to your Taboola Account Manager for assistance. Once you receive this information, you can continue with the setup."
+requirements-info: "Reach out to your {{ integration.display_name }} Account Manager for assistance. Once you receive this information, you can continue with the setup."
 
 setup-steps:
   - title: "add integration"
     content: |
-      4. In the **Username** field, enter your Taboola username. This user must have access to the Taboola API.
-      5. In the **Password** field, enter your Taboola password.
-      6. In the **Account ID** field, enter your Taboola account ID.
-      7. In the **Client ID** field, enter your Taboola client ID.
-      8. In the **Client Secret** field, enter your Taboola client secret.
+      4. In the **Username** field, enter your {{ integration.display_name }} username. This user must have access to the {{ integration.display_name }} API.
+      5. In the **Password** field, enter your {{ integration.display_name }} password.
+      6. In the **Account ID** field, enter your {{ integration.display_name }} account ID.
+      7. In the **Client ID** field, enter your {{ integration.display_name }} client ID.
+      8. In the **Client Secret** field, enter your {{ integration.display_name }} client secret.
   - title: "historical sync"
   - title: "replication frequency"
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

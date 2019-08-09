@@ -1,11 +1,12 @@
 ---
 tap: "outbrain"
+# version: "1.0"
 
 name: "campaign_performance"
 doc-link: http://docs.amplifyv01.apiary.io/#reference/performance-reporting/campaigns
 singer-schema: https://github.com/singer-io/tap-outbrain/blob/master/tap_outbrain/schemas.py#L218
 description: |
-  The `campaign_performance` table contains performance metrics for your Outbrain campaigns.
+  The `{{ table.name }}` table contains performance metrics for your {{ integration.display_name }} campaigns.
 
 replication-method: "Key-based Incremental"
 api-method:

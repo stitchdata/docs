@@ -4,7 +4,12 @@
     {% when 'developer' %}
         {% include layout/sidebars/developer-sidebar.html %}
     {% when 'tutorial' %}
-        {% include layout/sidebars/tutorial-sidebar.html %}
+    <!-- This is temporary until the tutorial and on-page navigation is improved. -->
+        {% if page.use-tutorial-sidebar == false %}
+            {% include layout/sidebars/general-sidebar.html %}
+        {% else %}
+            {% include layout/sidebars/tutorial-sidebar.html %}
+        {% endif %}
     {% else %}
     	{% if page.sidebar == 'on-page' %}
     		{% include layout/sidebars/on-page-sidebar.html %}

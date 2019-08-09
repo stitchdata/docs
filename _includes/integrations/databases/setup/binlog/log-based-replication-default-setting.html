@@ -1,5 +1,30 @@
+{% case include.type %}
+
+{% when 'default-replication-method' %}
+In the **Default Replication Method** section, you'll select a default Replication Method for the integration.
+
+The method you select will be the default Replication Method for any table you set to replicate. You can change the Replication Method for individual tables in the {{ app.page-names.table-settings }} page for that table.
+
+Select a default Replication Method:
+
+{% if integration.log-based-replication-master-instance == true %}
+- **Log-based Incremental Replication** - Stitch will use Log-based Incremental Replication. Refer to the [Log-based Incremental documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info, examples, and limitations for this method. {% if integration.name == "oracle" %}**Note**: This method can only be used if you completed the [steps for setting up LogMiner](#enable-logminer).{% endif %}
+{% endif %}
+
+{% if integration.full-table-replication == true %}
+- **Full Table Replication** - Stitch will use Full Table Replication. Refer to the [Full Table documentation]({{ link.replication.full-table | prepend: site.baseurl }}) for more info, examples, and limitations for this method.
+{% endif %}
+
+{% if integration.key-based-incremental-replication == true %}
+**Note**: [Key-based Incremental documentation]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) is also available for this integration, but it must be set manually. This is due to Stitch requiring a Replication Key to be selected for every table set to replicate.
+{% endif %}
+
+
+
+{% else %}
 In the **Log-based Replication** section, you can set this as the integration's default Replication Method.
 
 When enabled, tables that are set to replicate will use [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) by default. If you don't want a table to use Log-based Incremental Replication, you can change it in the {{ app.page-names.table-settings }} page for that table.
 
 If this setting isn't enabled, you'll have to select a [Replication Method](#sync-data) for each table you set to replicate.
+{% endcase %}

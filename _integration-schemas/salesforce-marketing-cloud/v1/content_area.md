@@ -11,7 +11,7 @@
 tap: "salesforce-marketing-cloud"
 # version: "1.0"
 
-name: "table_name"
+name: "content_area"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/contentarea.htm
 singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/content_areas.py
 description: |
@@ -50,7 +50,7 @@ attributes:
   - name: "CategoryID"
     type: "integer"
     description: "The ID of the folder associated with the content area."
-    # foreign-key-id: "folder-id"
+    foreign-key-id: "folder-id"
 
   - name: "Cellpadding"
     type: "integer"

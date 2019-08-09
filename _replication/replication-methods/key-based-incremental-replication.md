@@ -36,7 +36,9 @@ sections:
   - title: "How {{ page.title }} works"
     anchor: "how-key-based-incremental-replication-works"
     content: |
-      When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) to identify new and updated data in a table for replication. A Replication Key is a `timestamp`, `date-time`, or `integer` column that exists in a source table.
+      When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) to identify new and updated data in a table for replication. A Replication Key is a `TIMESTAMP`, `DATE-TIME`, or `INTEGER` column that exists in a source table.
+
+      **Note**: In addition to the supported data types listed above, [Oracle]({{ site.baseurl }}/integrations/databases/oracle) and [Amazon Oracle RDS]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds) integrations also support using `NUMBER` columns as Replication Keys.
 
       {% capture replication-keys-note %}
       While this section touches on Replication Keys, a full walkthrough is outside the scope of this guide. Refer to the [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) documentation to learn about Replication Key requirements and how to select appropriate Replication Key columns.
@@ -154,14 +156,13 @@ sections:
   - title: "Enable {{ page.title }}"
     anchor: "enabling-key-based-replication"
     content: |
-      {{ page.title }} is available for use with any Stitch integration. Depending on the type of integration, enabling this Replication Method will vary:
+      {{ page.title }} is available for use with the majority of Stitch integrations. Depending on the type of integration, enabling this Replication Method will vary:
 
       - **Database integrations**: To use {{ page.title }}, a table must contain a column suitable for use as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). **Note**: For MongoDB integrations, there are additional considerations for Replication Keys. Refer to the [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) guide for more info.
 
       - **SaaS integrations**: With the exception of Salesforce, no configuration is required on your part. Replication Methods are pre-defined for every table set to replicate. Stitch will use {{ page.title }} whenever possible to ensure your data is replicated accurately and efficiently.
 
       - **Webhook integrations**: No configuration is required on your part. As webhook data is sent to Stitch in real-time, only new records are ever replicated from a webhook source. This can be thought of as using {{ page.title }} with a Replication Key of `created_at`.
-
 ---
 {% include misc/data-files.html %}
 {% include misc/icons.html %}

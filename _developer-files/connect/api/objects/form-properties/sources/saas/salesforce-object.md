@@ -14,7 +14,7 @@ key: "source-form-properties-salesforce-object"
 # -------------------------- #
 
 title: "Salesforce Source Form Property"
-api-type: "salesforce"
+api-type: "platform.salesforce"
 display-name: "Salesforce"
 
 source-type: "saas"
@@ -26,6 +26,8 @@ description: ""
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "api_type"

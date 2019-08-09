@@ -6,20 +6,16 @@ name: "opportunity"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_opportunity.htm
 singer-schema: 
 description: |
-  The `opportunity` table contains info about your opportunities, which are sales or pending deals.
-
-notes: 
+  The `{{ table.name }}` table contains info about your opportunities, which are sales or pending deals.
 
 replication-method: "Key-based Incremental"
-api-method:
-  name: 
-  doc-link: 
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The opportunity ID."
+    foreign-key-id: "opportunity-id"
 
   - name: "systemModStamp"
     type: "date-time"
@@ -29,9 +25,7 @@ attributes:
   - name: "accountId"
     type: "string"
     description: "The ID of the account associated with the opportunity."
-    # foreign-key:
-    #   - table: "account"
-    #     attribute: "id"
+    foreign-key-id: "account-id"
 
   - name: "amount"
     type: "number"
@@ -40,6 +34,7 @@ attributes:
   - name: "campaignId"
     type: "string"
     description: "The ID of a related campaign. **Only defined for organizations where the campaign feature is enabled.**"
+    # foreign-key-id: "campaign-id"
 
   - name: "closeDate"
     type: "date-time"
@@ -146,6 +141,7 @@ attributes:
   - name: "ownerId"
     type: "string"
     description: "The ID of the user who has been assigned to work the opportunity."
+    foreign-key-id: "user-id"
 
   - name: "pricebook2Id"
     type: "string"

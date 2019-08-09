@@ -41,7 +41,7 @@ attributes:
   - name: "BiddingScheme"
     type: "object"
     description: "The bid strategy type for how bids are managed."
-    object-attributes:
+    subattributes:
       - name: "Type"
         type: "string"
         description: |
@@ -82,11 +82,11 @@ attributes:
     type: "array"
     description: "Details about the forward compatibility settings for the campaign."
     doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/keyvaluepairofstringstring
-    array-attributes:
+    subattributes:
       - name: "keyValuePairOfStringString"
         type: "array"
         description: "Key and value pairs for the campaign's forward compatibility settings."
-        array-attributes:
+        subattributes:
           - name: "key"
             type: "string"
             description: "The name of the setting."
@@ -109,7 +109,7 @@ attributes:
       Details about the settings applied to the campaign.
 
       Only certain attributes are applicable to different campaign settings. This means that only certain columns will contain values based on the `Type` field.
-    array-attributes:
+    subattributes:
       - name: "Type"
         type: "string"
         description: |
@@ -150,7 +150,7 @@ attributes:
         type: "array"
         description: |
           **Applicable to Dynamic Search Ads campaigns,** or `Type: DynamicSearchAdsSetting`. Reserved by Microsoft.
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "integer"
             description: |

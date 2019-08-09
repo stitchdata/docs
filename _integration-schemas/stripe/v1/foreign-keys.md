@@ -50,6 +50,9 @@ foreign-keys:
       - table: "charges"
         subattribute: "source"
         join-on: "id"
+      - table: "customers"
+        subtable: "cards"
+        join-on: "id"
 
   - id: "charge-id"
     table: "charges"
@@ -167,15 +170,21 @@ foreign-keys:
       - table: "payouts"
         join-on: "id"  
 
-# We don't get this table now,
-# but maybe we will at some point
-
-  # - id: "product-id"
-  #   table: "products"
-  #   attribute: "product"
-  #   all-foreign-keys:
-  #     - table: "products"
-  #       join-on: "id"  
+  - id: "product-id"
+    table: "products"
+    attribute: "product"
+    all-foreign-keys:
+      - table: "invoice_items"
+        subattribute: "plan"
+      - table: "invoice_line_items"
+        subattribute: "plan"
+      - table: "plans"
+      - table: "products"
+        join-on: "id"
+      - table: "subscription_items"
+        subattribute: "plan"
+      - table: "subscriptions"
+        subattribute: "plan"
 
   - id: "subscription-item-id"
     table: "subscription_items"

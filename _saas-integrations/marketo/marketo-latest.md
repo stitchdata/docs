@@ -2,7 +2,6 @@
 title: Marketo (v2.0)
 permalink: /integrations/saas/marketo
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
-tags: [saas_integrations]
 summary: "Connection instructions and schema details for Stitch's Marketo integration."
 layout: singer
 
@@ -12,12 +11,14 @@ layout: singer
 
 name: "marketo"
 display_name: "Marketo"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-marketo
 
 this-version: "2.0"
+
+api: |
+  [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -29,16 +30,24 @@ certified: true
 historical: "1 year"
 frequency: "12 hours"
 tier: "Paid"
-
 status-url: http://status.marketo.com/
-icon: /images/integrations/icons/marketo.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: true
 column-selection: true
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -182,7 +191,6 @@ replication-sections:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/marketo
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -1,17 +1,33 @@
+# -------------------------- #
+#         Formatting         #
+# -------------------------- #
+
+# Used to create tooltips in copy. 'TOOLTIP' can be replaced with
+# a string or another variable (ex: site.data.tooltips.analysis-integration),
+# and 'DISPLAY-WORD' is the word used to create the link that users
+# over over to see the tooltip.
+
+word-format: |
+  <a href="#" data-toggle="tooltip" data-trigger="hover focus" data-original-title="TOOLTIP" data-html="true" aria-hidden="true">DISPLAY-WORD</a>
+
 
 # -------------------------- #
 #      General Tooltips      #
 # -------------------------- #
 
-analysis-integration: “Analysis integrations are third-party tools you can layer on top of your data warehouse to query, visualize, and otherwise explore your data.”
+analysis-integration: "Analysis integrations are third-party tools you can layer on top of your data warehouse to query, visualize, and otherwise explore your data."
 
 anchor-scheduling: "A type of replication scheduling where an integration's Replication Frequency is anchored to a time you select."
 
+advanced-scheduling: "A type of replication scheduling that allows you to specify granular start times for data extraction using cron expressions."
+
 attribution-window: "An attribution or conversion window is the amount of time for attributing results to ads, and the lookback period after those actions occur during which ad results are counted."
+
+attribution-window-replication: "Primarily used for ads, an attribution or conversion window is a period of time after an action that a conversion, like a purchase, is recorded. Data replicated in this manner to ensure accuracy, but this approach can lead to increased row usage."
 
 api-quota: "An API quota refers to the total number of API requests that can be made in a given period of time."
 
-api-rate-limit: "An API's rate limit refers to how often requests can be made in a given period of time. "
+api-rate-limit: "An API's rate limit refers to how often requests can be made in a given period of time."
 
 append-only: "Existing rows are never updated. When new or updated data is loaded, it will be appended to the end of the table as a new row."
 
@@ -25,15 +41,19 @@ connection-check: "A test performed by Stitch that checks the configuration of a
 
 database-integration: “Database integrations are just that - databases. This includes MySQL, PostgreSQL, MSSQL, and others.”
 
-destination: "Destination is the Stitch word for ‘data warehouse.’ A data warehouse is a central repository for data accumulated from a variety of sources."
+destination: "Destination is the Stitch word for 'data warehouse.' A data warehouse is a central repository for data accumulated from a variety of sources."
 
 extraction-logs: "Logs detailing the Extraction phase of the replication process for a given integration. Includes error info, should an error occur."
+
+historical-replication-job: "A Stitch replication job that replicates historical data."
 
 historical-sync: "Historical syncs are how far back from the Stitch connection date, by default, Stitch will fetch historical data."
 
 loading-reports: "Reports detailing the Loading phase of the replication process for a given integration. Includes the number of rows loaded for each table and error info, should an error occur."
 
 primary-key: "Primary Keys are used to identify unique rows within a table and ensure that only the most recently updated version of that record appears in your data warehouse."
+
+replication-job: "The three-step process by which Stitch replicates data. A replication job includes three distinct steps: Extraction, preparation, and loading."
 
 replication-frequency: "Replication Frequency refers to how often - based on the time of the last completed attempt - Stitch will attempt to replicate data from a data source."
 
@@ -49,7 +69,7 @@ source: "A database, API, or other data application that Stitch replicates data 
 
 stitch-client-account: "An individual account for the Stitch web application."
 
-structure-sync: "The first step in the replication process, this process will detect the tables and columns available in the source, along with any changes to the structure of those tables and columns."
+structure-sync: "The first step in the replication process, this process takes place during the Extraction phase of a replication job. A structure sync detects the tables and columns available in the source, along with any changes to the structure of those tables and columns."
 
 table-selection: "The ability to select individual tables for replication in the Stitch interface. If table selection is unavailable, all tables and all the columns they contain will be set to replicate by default."
 

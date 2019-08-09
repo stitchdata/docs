@@ -6,7 +6,7 @@ name: "bank_transactions"
 doc-link: &api-doc https://developer.xero.com/documentation/api/banktransactions
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/bank_transactions.json
 description: |
-  The `{{ table.name }}` table contains info about the bank transactions in your Xero account.
+  The `{{ table.name }}` table contains info about the bank transactions in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
@@ -28,7 +28,8 @@ attributes:
 
   - name: "Type"
     type: "string"
-    description: "The bank transaction type. Refer to [Xero's documentation](https://developer.xero.com/documentation/api/types#BankTransactionTypes) for possible transaction types."
+    description: |
+      The bank transaction type. Refer to [{{ integration.display_name }}'s documentation](https://developer.xero.com/documentation/api/types#BankTransactionTypes){:target="new"} for possible transaction types.
     doc-link: https://developer.xero.com/documentation/api/types#BankTransactionTypes
 
   - name: "Contact"
@@ -38,7 +39,7 @@ attributes:
   - name: "LineItems"
     type: "array"
     description: "Details about the line items in the bank transaction."
-    array-attributes:
+    subattributes:
       - name: "LineItemID"
         type: "string"
         description: "The ID of the line item."
@@ -80,18 +81,20 @@ attributes:
         description: "The discount rate of the line item, if applicable."
 
       - name: "Tracking"
-        type: ""
+        type: "array"
         description: |
           Details about the tracking categories applied to the line item, if applicable.
-
-          {{ integration.subsubtable-note | flatify | replace:"table_name","tracking_categories" }}
+        subattributes:
+          - description: |
+              This will contain the same attributes as the `tracking_categories` table. Refer to the [`tracking_categories`](#tracking_categories) table schema for details.
 
   - name: "BankAccount"
-    type: ""
+    type: "array"
     description: |
       Details about the bank account used in the bank transaction.
-
-      {{ integration.subtable-note | flatify | replace:"table_name","accounts" }}
+    subattributes:
+      - description: |
+          This will contain the same attributes as the `accounts` table. Refer to the [`accounts`](#accounts) table schema for details.
 
   - name: "IsReconciled"
     type: "boolean"

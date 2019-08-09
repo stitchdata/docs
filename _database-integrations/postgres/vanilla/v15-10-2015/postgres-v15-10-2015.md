@@ -1,7 +1,6 @@
 ---
 title: PostgreSQL (v15-10-2015)
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
-tags: [database_integrations]
 permalink: /integrations/databases/postgresql/v15-10-2015
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
 input: false
@@ -16,10 +15,13 @@ microsites:
 
 name: "postgres"
 display_name: "PostgreSQL"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 this-version: "15-10-2015"
+
+hosting-type: "generic"
+
+driver: |
+  [PostgreSQL JDBC 9.4.1208.jre7](https://jdbc.postgresql.org/documentation/94/index.html){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -32,7 +34,6 @@ frequency: "30 minutes"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/postgresql.svg
 
 ## Stitch features
 
@@ -43,8 +44,10 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: false
-loading-reports: false
+loading-reports: true
 
 table-selection: true
 column-selection: true
@@ -106,16 +109,20 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "whitelist stitch ips"
+  - title: "Configure database connection settings"
+    anchor: "connect-settings"
+    content: |
+      {% include integrations/templates/configure-connection-settings.html %}
 
-  - title: "retrieve public key"
+  - title: "Create a Stitch database user"
+    anchor: "create-a-database-user"
+    content: |
+      Next, you'll create a dedicated database user for Stitch. This will ensure Stitch is visible in any logs or audits, and allow you to maintain your privilege hierarchy.
 
-  - title: "create linux user"
-
-  - title: "create db user"
+      {% include integrations/templates/create-database-user-tabs.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
@@ -123,24 +130,32 @@ setup-steps:
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSH connection details"
         anchor: "ssh-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
-  - title: "replication frequency"
+      - title: "Create a replication schedule"
+        anchor: "create-replication-schedule"
+        content: |
+          {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
+
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% capture postgres-dw %}
-{% endcapture %}

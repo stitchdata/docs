@@ -9,10 +9,20 @@ The backup retention period setting defines the number of days for which automat
 4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
 
 {% else %}
+
+{% case include.starting-point %}
+{% when 'sign-in' %}
+1. Sign into your AWS account.
+2. Once you’re signed into the AWS console, click the **Services** menu located in the top-left corner of the page.
+3. Locate the **RDS** option. This should be in the **Database** section.
+4. From the RDS Dashboard, click **Databases** on the left side of the page. 
+
+{% else %}
 1. Navigate back to the **Databases** page by using the menu on the left side of the page.
+{% endcase %}
 2. Select the instance you're connecting to Stitch.
-3. Click **Instance actions > Modify**.
-4. Scroll down to the **Backup** section.
+3. Click the **Modify** button.
+4. On the **Modify DB Instance** page, scroll down to the **Backup** section.
 
 {% endcase %}
 
@@ -23,10 +33,8 @@ The backup retention period setting defines the number of days for which automat
 
 {% when 'reboot-the-instance' %}
  
-1. Scroll to the bottom of the page and click **Continue**.
-2. The next page will display a summary of the modifications made to the database.
-
-   In the **Scheduling of Modifications** section, select the **Apply Immediately** option.
+1. Scroll to the bottom of the **Databases** page and click **Continue**.
+2. The next page will display a summary of the modifications made to the database. In the **Scheduling of Modifications** section, select the **Apply Immediately** option.
 3. Click **Modify DB Instance** to apply the changes.
 4. Navigate to the Instance Details page and locate the **Parameter group**. Initially, the Parameter group should say `applying`.
 
@@ -50,7 +58,7 @@ Rebooting the instance will take a few minutes. When the status of the **paramet
             {% assign maximum-value = "2160 hours (90 days)" %}
     {% endcase %}
 
-In addition to the backup retention period, you also need to define the `binlog retention hours` setting. This parameter specifies the number of hours to the database server should retain binary logs.
+In addition to the [backup retention period](#define-backup-retention-period), you also need to define the `binlog retention hours` setting. This parameter specifies the number of hours to the database server should retain binary logs.
 
 To specify the number of hours, use the [`mysql.rds_set_configuration` procedure](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html){:target="new"} when logged into the {{ integration.display_name }} master instance.
 

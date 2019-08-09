@@ -22,8 +22,8 @@ description: |
 
   1. Create a status in JIRA that will be applied to issues you want to delete.
   2. **Before deleting the issue, apply the status**.
-  3. Delete the issue.
-  4. Allow Stitch to extract and load the updated data into your destination.
+  3. Allow Stitch to extract and load the updated data into your destination.
+  4. Delete the issue.
   5. After Stitch finishes loading the data, use the `fields__status__name` field in your queries to filter issues with the deleted status you applied in step 2. For example, the following query would return any issues that had been marked with a the deleted status:
 
      ```sql
@@ -93,7 +93,7 @@ attributes:
   - name: "names"
     type: "object"
     description: "The display names of the fields in the issue."
-    object-attributes:
+    subattributes:
       - name: "patternProperties"
         type: "string"
         description: ""
@@ -101,12 +101,12 @@ attributes:
   - name: "schema"
     type: "object"
     description: "The schema describing a field type."
-    object-attributes: *json-type-attributes
+    subattributes: *json-type-attributes
 
   - name: "editmeta"
     type: "object"
     description: "Details about how each issue field can be edited."
-    object-attributes:
+    subattributes:
       - name: "required"
         type: "boolean"
         description: "Indicates whether the field is required."
@@ -114,7 +114,7 @@ attributes:
       - name: "schema"
         type: "object"
         description: ""
-        object-attributes: *json-type-attributes
+        subattributes: *json-type-attributes
 
       - name: "name"
         type: "string"
@@ -135,7 +135,7 @@ attributes:
       - name: "operations"
         type: "array"
         description: "The list of operations that can be performed on the field."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The operation that can be performed on the field."
@@ -143,7 +143,7 @@ attributes:
       - name: "allowedValues"
         type: "array"
         description: "The list of values allowed in the field."
-        array-attributes:
+        subattributes:
           - name: "value"
             type: "string"
             description: "The value allowed in the field."
@@ -166,7 +166,7 @@ attributes:
       Details about the fields in the issue.
 
       **Note**: While only a handful of fields are listed here, Stitch will replicate and persist any fields returned by {{ integration.display_name }}'s API. This includes custom fields as well as standard issue fields such as `assignee` or `description`.
-    object-attributes:
+    subattributes:
       - name: "updated"
         type: "date-time"
         description: "The date and time the field was last updated."
@@ -182,7 +182,7 @@ attributes:
       - name: "attachment"
         type: "array"
         description: "Details about issue attachment."
-        array-attributes:
+        subattributes:
           - name: "id"
             type: "string"
             primary-key: true
@@ -207,7 +207,7 @@ attributes:
           - name: "author"
             type: "object"
             description: "Details about the attachment author."
-            object-attributes:
+            subattributes:
               - name: "accountId"
                 type: "string"
                 description: "The author's account ID."
@@ -219,7 +219,7 @@ attributes:
               - name: "avatarUrls"
                 type: "object"
                 description: "The URLs associated with the avatars used by the {{ attribute.name }}."
-                object-attributes:
+                subattributes:
                   - name: "16x16"
                     type: "string"
                     description: "The URL of the {{ attribute.name }}'s 16x16 avatar."

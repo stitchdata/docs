@@ -10,6 +10,9 @@ all-terms:
   - name: "Partner key"
     definition: |
       {{ site.data.connect.general.authentication.partner-key | flatify }}
+      
+  - name: "Partner"
+    definition: "An organization that utilizes Stitch Connect to programmatically create and/or manage Stitch client accounts on behalf of their users."
 
   - name: "Stitch client account"
     definition: |
@@ -42,6 +45,10 @@ all-terms:
   - name: "Connection check"
     definition: |
       {{ site.data.tooltips.connection-check }}
+
+  - name: "Replication job"
+    definition: |
+      {{ site.data.tooltips.replication-job }}
 
   - name: "Structure sync"
     definition: |

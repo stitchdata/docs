@@ -86,7 +86,7 @@ scenarios:
     summary: default    
     result: |
 
-      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent sync, detected `STRING` values. To accommodate data of varying types, Stitch will:
+      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate data of varying types, Stitch will:
 
       1. Store data for the original data type in the original column. In this example, only `BOOLEAN` values will be stored in `order_confirmed`.
 
@@ -183,7 +183,7 @@ scenarios:
       ```
       integer out of range for {{ destination.display_name }} on [INTEGER]
       ```
-    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s range of {{ destination.integer-limit }}."
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s range of {{ site.data.destinations.reference[destination.type]data-limit-info.integer-range }}."
 
 ## Column contains decimal data
   - id: decimal-storage
@@ -279,19 +279,19 @@ scenarios:
     summary: default    
     result: |
       1. Stitch will detect the new column during the integration's next structure sync.
-      2. The column will be automatically selected to sync.
-      3. In the data warehouse, the column will be appended to the end of the table.
+      2. The column will be automatically set to replicate..
+      3. In the destination, the column will be appended to the end of the table.
 
-      **If the table uses Incremental Replication**, only records with a Replication Key value greater than or equal to the last saved bookmark value will be selected for replication. 
+      **If the table uses Key-based Incremental or Log-based Incremental Replication**, only records with a Replication Key value greater than or equal to the last saved bookmark value will be selected for replication. 
 
-      This means that if values for the new column were backfilled in existing records, the only way to have Stitch sync these values is to either:
+      This means that if values for the new column were backfilled in existing records, the only way to have Stitch replicate these values is to either:
 
       - Update the Replication Key values for all records **in the source**, OR
       - Reset the integration's Replication Keys in Stitch
 
-      Note that records already in the data warehouse will not be updated with backfilled values due to the Append-Only nature of {{ destination.display_name }}. In this case, records will be appended to the end of the table as a new row.
+      **Note**: Records already in the destination will not be updated with backfilled values due to the Append-Only nature of {{ destination.display_name }}. In this case, records will be appended to the end of the table as a new row.
 
-      For example - these rows are replicated during the initial sync:
+      For example - these rows are replicated during the initial job:
 
       ```
       | updated_at [rep key] | name      | age | type     |
@@ -300,7 +300,7 @@ scenarios:
       | 2017-08-11 00:00:00  | Jake      | 6   | Dog      |
       ```
 
-      Before the next sync, a new column named `magic` is added in the source. Values for these records are backfilled in the source and as a result, their Replication Key values are updated. After the next sync, the table in the data warehouse would look like the following:
+      Before the next job, a new column named `magic` is added in the source. Values for these records are backfilled in the source and as a result, their Replication Key values are updated. After the next job, the table in the destination would look like the following:
 
       ```
       | updated_at [rep key] | name      | age | type     | magic |

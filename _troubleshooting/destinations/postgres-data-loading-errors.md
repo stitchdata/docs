@@ -45,7 +45,7 @@ Below is a list of the most common errors that Stitch will encounter when attemp
           Stitch is unable to create or load data into a schema in your data warehouse.
          </td>
          <td valign="top" markdown="span">
-          Verify that the Stitch database user has the required permissions, [as outlined here]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl | append: "#required-permissions" }}).
+          Verify that the Stitch database user has the required permissions, [as outlined here]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl | append: "#create-stitch-user" }}).
           </td>
       </tr>
       <tr>

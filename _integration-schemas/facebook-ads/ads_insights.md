@@ -8,14 +8,15 @@ singer-schema: https://github.com/singer-io/tap-facebook/blob/master/tap_faceboo
 description: |
   The `ads_insights` table contains entries for each campaign/set/ad combination for each day, along with detailed statistics.
 
-  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the option in the integration's settings is enabled.
+  **Note**: Data for deleted ads, adsets, and campaigns will not appear in this table even if the **Include data from deleted campaigns, ads, and adsets** option in the integration's settings is enabled.
 
-  #### Segmented ads_insights Data
+  #### Segmented insights data
 
   To analyze data that's been segmented by various characteristics, consider tracking some of the other `ads_insights` tables in this integration. The following tables contain the same fields as this one (`ads_insights`), but include additional dimensions to segment the data:
 
   - [`ads_insights_age_and_gender`](#ads_insights_age_and_gender) - Data segmented by age and gender
   - [`ads_insights_country`](#ads_insights_country) - Data segmented by country
+  - [`ads_insights_dma`](#ads_insights_dma) - Data segmented by DMA (Designated Market Area)
   - [`ads_insights_platform_and_device`](#ads_insights_platform_and_device) - Data segmented by platform and device
   - [`ads_insights_region`](#ads_insights_region) - Data segmented by region
 
@@ -71,7 +72,7 @@ attributes:
     type: "array"
     description: "The percentage of times people saw the ad and performed a link click."
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
-    array-attributes:
+    subattributes:
       - name: "action_target_id"
         type: "string"
         description: "The ID of the destination where people go after clicking on the ad. This could be your Facebook Page, an external URL for your conversion pixel, or an app configured with the Facebook SDK."
@@ -123,7 +124,7 @@ attributes:
     type: "array"
     description: "Details about the average cost of unique actions."
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: *action-type-value-description
@@ -150,7 +151,7 @@ attributes:
   - name: "relevance_score"
     type: "object"
     description: "Details about the relevance score of the ad."
-    object-attributes:
+    subattributes:
       - name: "status"
         type: "string"
         description: |
@@ -199,7 +200,7 @@ attributes:
       Details about the average cost of a relevant action.
 
     doc-link: https://developers.facebook.com/docs/marketing-api/reference/ads-action-stats/
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: *action-type-value-description

@@ -3,7 +3,6 @@ title: Autopilot
 permalink: /integrations/saas/autopilot
 keywords: autopilot, autopilot schema, autopilot data, etl autopilot, autopilot etl
 summary: "Connection instructions and schema details for Stitch's Autopilot integration."
-tags: [saas_integrations]
 layout: singer
 
 # -------------------------- #
@@ -12,32 +11,42 @@ layout: singer
 
 name: "autopilot"
 display_name: "Autopilot"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-autopilot
 
-# this-version: 
+api: |
+  [{{ integration.display_name }} REST API](https://autopilot.docs.apiary.io/#){:target="new"}
+
+# this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "60 minutes"
 tier: "Free"
 status-url: "http://status.autopilothq.com/"
-icon: /images/integrations/icons/autopilot.svg
 
 table-selection: false
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 # -------------------------- #
 #      Setup Instructions    #

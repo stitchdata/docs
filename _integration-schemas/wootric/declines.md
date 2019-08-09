@@ -1,12 +1,12 @@
 ---
 tap: "wootric"
-# version:
+# version: "1.0"
 
 name: "declines"
 doc-link: http://docs.wootric.com/api/#get-all-declines
 singer-schema: https://github.com/singer-io/tap-wootric/blob/master/tap_wootric/schemas/declines.json
 description: |
-  The `declines` table contains info about declines, or the instances where a user is presented with a survey opportunity and opts out.
+  The `{{ table.name }}` table contains info about declines, or the instances where a user is presented with a survey opportunity and opts out.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The decline ID."
+    # foreign-key-id: "decline-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -31,16 +32,10 @@ attributes:
   - name: "end_user_id"
     type: "integer"
     description: "The ID of the end user who declined the survey opportunity."
-    # foreign-keys:
-    #   - table: "end_users"
-    #     attribute: "id"
-    #   - table: "responses"
-    #     attribute: "end_user_id"
+    foreign-key-id: "end-user-id"
 
   - name: "survey_id"
     type: "integer"
     description: "The ID of the survey associated with the decline."
-    # foreign-keys:
-    #   - table: "responses"
-    #     attribute: "survey_id"
+    foreign-key-id: "survey-id"
 ---

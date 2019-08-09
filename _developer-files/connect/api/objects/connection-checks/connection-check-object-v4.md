@@ -13,13 +13,11 @@ order: 7
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Connection Check"
-description: |
-  {{ api.core-objects.connection-checks.description | flatify }}
-
-  
+title: "Connection Check"  
 endpoint-url: "/v4/{connection_type}/{connection_id}/last-connection-check"
 
+description: "{{ api.core-objects.connection-checks.description | flatify }}"
+intro-short: "Retrieve connection check results for a data source" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

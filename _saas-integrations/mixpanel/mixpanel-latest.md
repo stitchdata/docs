@@ -2,7 +2,6 @@
 title: Mixpanel
 permalink: /integrations/saas/mixpanel
 keywords: mixpanel, integration, schema, etl mixpanel, mixpanel etl, mixpanel schema
-tags: [saas_integrations]
 summary: "Connection instructions, replication info, and schema details for Stitch's Mixpanel integration."
 format: ## controls formatting options in template
   schema-list: true
@@ -15,9 +14,10 @@ format: ## controls formatting options in template
 
 name: "mixpanel"
 display_name: "Mixpanel"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://status.mixpanel.com/"
+
+api: |
+  [{{ integration.display_name }} Data Export API](https://mixpanel.com/help/reference/data-export-api#people-analytics){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -29,14 +29,23 @@ certified: true
 historical: "7 days"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/mixpanel.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: true
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
 
 # -------------------------- #
 #      Querying Details      #
@@ -48,12 +57,12 @@ loading-reports: false
 replication-notes: true
 
 # -------------------------- #
-#      Incompatiblities      #
+#      Feature Summary       #
 # -------------------------- #
 
-## incompatible:
-##  bigquery: "sometimes"
-##  reason: "Mixpanel sometimes sends records that contain multiple data types. BigQuery only allows `FLOAT` and `DOUBLE` data types in the same column; otherwise, the field will be rejected."
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

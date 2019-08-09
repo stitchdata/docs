@@ -1,6 +1,6 @@
 <!-- ACCOUNT & BILLING -->
 {% if page.permalink contains "account-security" %}
-<ul>
+<ul data-swiftype-index='false'>
 	<li>
 		<a href="{{ link.account.team-members | prepend: site.baseurl }}">Managing Team Members</a>
 	</li>
@@ -8,7 +8,7 @@
 		<a href="{{ link.billing.billing-faq | prepend: site.baseurl }}">Billing FAQ</a>
 	</li>
 	<li>
-		<a href="{{ link.billing.billing-guide | prepend: site.baseurl }}">Understanding & Reducing Your Usage</a>
+		<a href="{{ link.getting-started.row-usage | prepend: site.baseurl }}">Understanding & Reducing Your Usage</a>
 	</li>
 </ul>
 {% endif %}
@@ -17,7 +17,7 @@
 
 <!-- DESTINATIONS -->
 {% if page.permalink contains "destinations" %}
-<ul>
+<ul data-swiftype-index='false'>
 	<li>
 		<a href="{{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}">Choosing a Destination</a>
 	</li>
@@ -52,7 +52,7 @@
 
 <!-- All integrations -->
 {% if page.permalink contains "integrations" %}
-	<ul>
+	<ul data-swiftype-index='false'>
 		<li>
 			<a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">Destination & Integration Compatibility</a>
 		</li>
@@ -127,7 +127,7 @@
 
 <!-- REPLICATION -->
 {% if page.permalink contains "replication" %}
-<ul>
+<ul data-swiftype-index='false'>
 	<li>
 		<a href="{{ link.replication.syncing | prepend: site.baseurl }}">Syncing Data</a>
 	</li>
@@ -155,7 +155,7 @@
 
 <!-- DATA STRUCTURE -->
 {% if page.permalink contains "data-structure" %}
-<ul>
+<ul data-swiftype-index='false'>
 	<li>
 		<a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">Loading Data into Your Destination</a>
 	</li>

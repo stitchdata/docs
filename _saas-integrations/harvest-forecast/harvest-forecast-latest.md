@@ -7,6 +7,7 @@ title: Harvest Forecast (v1.0)
 permalink: /integrations/saas/harvest-forecast
 tags: [saas_integrations]
 keywords: harvest, forecast, integration, schema, etl harvest forecast, harvest forecast etl, harvest forecast schema
+summary: "Connection instructions, replication info, and schema details for Stitch's Harvest Forecast integration."
 layout: singer
 
 # -------------------------- #
@@ -19,6 +20,9 @@ singer: true
 repo-url: https://github.com/singer-io/tap-harvest-forecast
 
 # this-version: "1.0"
+
+api: |
+  [{{ integration.display_name }} Experimental API](https://help.getharvest.com/forecast/faqs/faq-list/api/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -33,12 +37,22 @@ tier: "Free"
 status-url: https://www.harveststatus.com/
 icon: /images/integrations/icons/harvest-forecast.svg
 
+anchor-scheduling: true
+cron-scheduling: false
+
 table-selection: false
 column-selection: false
 
 extraction-logs: true
 loading-reports: true
-anchor-scheduling: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

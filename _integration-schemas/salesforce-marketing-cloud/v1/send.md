@@ -11,7 +11,7 @@
 tap: "salesforce-marketing-cloud"
 # version: 
 
-name: "table_name"
+name: "send"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm
 singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/sends.py
 description: |
@@ -42,6 +42,7 @@ attributes:
   - name: "EmailID"
     type: "integer"
     description: "The ID of an email message associated with a send."
+    foreign-key-id: "email-id"
 
   - name: "EmailName"
     type: "string"

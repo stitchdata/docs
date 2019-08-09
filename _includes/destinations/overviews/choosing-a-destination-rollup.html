@@ -1,0 +1,282 @@
+<!-- This file is used to create the comparision tabs in the
+    Choosing a Stitch Destination guide. -->
+
+{% include misc/icons.html %}
+
+{% assign destinations = site.destinations | where:"destination",true %}
+
+{% assign destination-reference = site.data.destinations.reference %}
+
+<ul id="profileTabs" class="nav nav-tabs">
+    <li class="active">
+        <a href="#general" data-toggle="tab">
+            General</a>
+    </li>
+    <li>
+        <a href="#pricing-tab" data-toggle="tab">
+            Pricing</a>
+    </li>
+    <li>
+        <a href="#stitch-support" data-toggle="tab">
+            Stitch Support</a>
+    </li>
+    <li>
+        <a href="#object-limits" data-toggle="tab">
+            Object Limits</a>
+    </li>
+    <li>
+        <a href="#data-storage-limits" data-toggle="tab">
+            Data Storage</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="general">
+        <table class="attribute-list table-hover">
+            <tr>
+                <td class="attribute-name">
+                </td>
+                <td class="attribute-description">
+                    <strong>Release Status</strong>
+                </td>
+                <td class="attribute-description">
+                    <strong>Fully Managed?</strong><a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.fully-managed }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+            </tr>
+            {% for destination in destinations %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            <a href="{{ destination.url | prepend: site.baseurl }}">
+                                {{ destination.display_name }}
+                            </a>
+                        </strong>
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]stitch-details-info.release-status | default: "Released" }}
+                    </td>
+                    
+                    <td class="attribute-description">
+                        {% if destination-reference[destination.type]destination-details-info.fully-managed contains "true" %}
+                        Yes
+                        {% elsif destination-reference[destination.type]destination-details-info.fully-managed contains "false" %}
+                        No
+                        {% else %}
+                        {{ destination-reference[destination.type]destination-details-info.fully-managed | flatify | default: "Yes" }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="pricing-tab">
+        <p>For more details, see the <a href="#pricing">Pricing</a> section.</p>
+
+        <table class="attribute-list table-hover">
+            <tr>
+                <td class="attribute-name">
+                </td>
+                <td class="attribute-description">
+                    <strong>Pricing Model</strong>
+                </td>
+                <td class="attribute-description">
+                    <strong>Free Option?</strong>
+                </td>
+            </tr>
+            {% for destination in destinations %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            <a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a>
+                        </strong>
+                    </td>
+                    <td class="attribute-description">
+                        <a href="{{ site.data.destinations.resource-links[destination.type]pricing }}" target="new">
+                            {{ destination-reference[destination.type]destination-details-info.pricing-model | flatify | default: "Varies" }}
+                        </a>
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]destination-details-info.free-option | flatify | default: "Yes" }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="stitch-support">
+        <table class="attribute-list table-hover">
+            <tr>
+                <td class="attribute-name">
+                </td>
+                <td class="attribute-description">
+                    <strong>Supported Versions</strong>
+                </td>
+                <td class="attribute-description">
+                    <strong>Connection Methods</strong>
+                </td>
+                <td class="attribute-description">
+                    <strong>Incompatible Sources</strong>
+                </td>
+            </tr>
+            {% for destination in destinations %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]stitch-details-info.supported-versions | flatify | default: "n/a"}}
+                    </td>
+                    <td class="attribute-description">
+                        {% assign all-connection-methods ="ssl|ssh" | split: "|" %}
+
+                    <!-- This is really sloppy and will need to be rewritten at some point -->
+                        {% capture connection-methods %}
+                            {% for method in all-connection-methods %}
+                                {% if destination-reference[destination.type]stitch-details-info.connection-methods[method] contains "true" %}
+                                    {{ method | upcase | strip }} 
+                                {% elsif destination-reference[destination.type]stitch-details-info.connection-methods[method] contains "n/a" %}
+                                    n/a 
+                                {% endif %}
+                            {% endfor %}
+                        {% endcapture %}
+
+                        {% assign connection-methods-array = connection-methods | split: " " %}
+
+                        {% for method in connection-methods-array %}
+                            {% if connection-methods-array.size == 1 %}
+                                {{ method }}
+                            {% else %}
+                                {% if method == "n/a" %}
+                                    {% case forloop.last %}
+                                        {% when true %}
+                                        {% when false %}
+                                            {{ method }}
+                                    {% endcase %}
+                                {% else %}
+                                    {{ method }}{% unless forloop.last == true %}, {% endunless %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+
+                    </td>
+                    <td class="attribute-description">
+                        {% case destination.incompatible-with %}
+                            {% when 0 %}
+                                None
+                            {% else %}
+                                <strong>
+                                    <a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}#{{ destination.type }}">Yes</a>
+                                </strong>
+                        {% endcase %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="object-limits">
+        <table class="attribute-list table-hover">
+            <tr>
+                <td class="attribute-name">
+                </td>
+                <td class="attribute-description">
+                    <strong>Table Name<br>Length</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.table-name-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+                <td class="attribute-description">
+                    <strong>Column Name<br>Length</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.column-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+                <td class="attribute-description">
+                    <strong>Max Columns<br>Per Table</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.column-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+                <td class="attribute-description">
+                    <strong>Case<br>Type</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.case }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+                <td class="attribute-description">
+                    <strong>Reserved<br>Words</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.reserved-words }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+            </tr>
+            {% for destination in destinations %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]object-name-limit-info.tables | default: "n/a" | remove: " characters" }}
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]object-name-limit-info.columns | default: "n/a" | remove: " characters" }}
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]table-limit-info.max-columns-per-table | default: "n/a" | remove: " columns" }}
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]object-name-limit-info.case-sensitivity | default: "n/a" }}
+                    </td>
+                    <td class="attribute-description">
+                        {% if destination-reference[destination.type]reserved-words %}
+                            <a href="{{ destination-reference[destination.type]reserved-words }}" target="new">Full List</a>
+                        {% else %}
+                            None
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div role="tabpanel" class="tab-pane" id="data-storage-limits">
+        <p>For more details, see the <a href="#data-structure">Data Structure</a> section.</p>
+        
+        <table class="attribute-list table-hover">
+            <tr>
+                <td class="attribute-name">
+                </td>
+                <td class="attribute-description">
+                    <strong>Upsert support</strong><a data-toggle="tooltip" data-original-title="Indicates if the destination supports updating existing rows.">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+                <td class="attribute-description">
+                    <strong>Nested Structures</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.nested-structure-support }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+                <td class="attribute-description">
+                    <strong>Max VARCHAR Width</strong>
+                    <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.varchar-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                </td>
+            </tr>
+            {% for destination in destinations %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                    </td>
+                    <td class="attribute-description">
+                        {% if destination-reference[destination.type]replication-info.incremental-replication.upserts contains "true" %}
+                            <a data-toggle="tooltip" data-original-title="Existing rows can be updated with modified data.">Supported</a>
+                        {% else %}
+                            <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only }}">Unsupported</a>
+                        {% endif %}
+                    </td>
+                    <td class="attribute-description">
+                        {% if destination-reference[destination.type]replication-info.nested-structures.supported contains "false" %}
+                            <strong>
+                                <a href="#nested-data-structures">Unsupported</a>
+                            </strong>
+                            {% else %}
+                                Supported
+                        {% endif %}
+                    </td>
+                    <td class="attribute-description">
+                        {{ destination-reference[destination.type]data-limit-info.strings.max-width | default: "n/a" }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>

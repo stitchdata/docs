@@ -2,7 +2,6 @@
 title: AdRoll
 permalink: /integrations/saas/adroll
 keywords: adroll, integration, schema, etl adroll, adroll etl, adroll schema, ad roll
-tags: [saas_integrations]
 summary: "Connection instructions and schema details for Stitch's AdRoll integration."
 format: 
   schema-list: true
@@ -16,9 +15,10 @@ format:
 name: "adroll"
 display_name: "AdRoll"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://status.adroll.com/"
+
+api: |
+  [{{ integration.display_name }} CRUD API](https://developers.adroll.com/docs/crud-api/index.html){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,14 +30,24 @@ certified: true
 frequency: "30 minutes"
 historical: "1 year"
 tier: "Free"
-icon: /images/integrations/icons/adroll.svg
+
+anchor-scheduling: false
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

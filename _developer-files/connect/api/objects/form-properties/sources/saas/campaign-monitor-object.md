@@ -14,7 +14,7 @@ key: "source-form-properties-campaign-monitor-object"
 # -------------------------- #
 
 title: "Campaign Monitor Source Form Property"
-api-type: "campaign-monitor"
+api-type: "platform.campaign-monitor"
 display-name: "Campaign Monitor"
 
 source-type: "saas"
@@ -26,6 +26,8 @@ description: ""
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "client_id"

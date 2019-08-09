@@ -14,9 +14,10 @@ order: 4
 # -------------------------- #
 
 title: "Destination"
-description: "{{ api.core-objects.destinations.description }}"
 endpoint-url: "/destinations"
 
+description: "{{ api.core-objects.destinations.description }}"
+intro-short: "Create, update, and delete destinations" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

@@ -1,11 +1,12 @@
 ---
 tap: "sendgrid-core"
+version: "1.0"
 
 name: "lists_members"
 doc-link: 
 singer-schema: https://github.com/singer-io/tap-sendgrid/blob/master/tap_sendgrid/schemas/lists_members.json
 description: |
-  The `lists_members` table contains info about members of your lists.
+  The `{{ table.name }}` table contains info about members of your lists.
 
   #### List member custom fields
 
@@ -65,7 +66,7 @@ attributes:
   - name: "custom_fields"
     type: "array"
     description: "The custom fields associated with the list member."
-    array-attributes:
+    subattributes:
       - name: "[field_name]"
         type: "varies"
         description: |

@@ -7,14 +7,22 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
 
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-frontapp-object"
 
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
+
 title: "Front Source Form Property"
-api-type: "frontapp"
+api-type: "platform.frontapp"
 display-name: "Front"
 
 source-type: "saas"
@@ -22,6 +30,13 @@ docs-name: "frontapp"
 
 description: |
   **Note**: To use this integration, the user must have a [Premium or Enterprise {{ form-property.display-name }} plan](https://frontapp.com/pricing){:target="new"}. These plans include API access, which is required to use Stitch's {{ form-property.display-name }} integration.
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "incremental_range"

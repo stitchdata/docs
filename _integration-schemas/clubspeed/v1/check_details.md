@@ -7,7 +7,11 @@ singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubs
 description: |
   The `{{ table.name }}` table contains info about line items and quantity info attached to [`checks`](#checks).
 
+  {% capture replication-tip %}
   **Note**: This table uses `{{ replication-keys | strip }}` as the [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}). This means that check details will be selected for replication only when they are initially created. Any subsequent updates made to the check detail will not be detected, as the `{{ replication-keys | strip }}` value will not be updated. Refer to the [Key-based Incremental Replication documentation]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) for more info and examples.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=replication-tip %}
 
 replication-method: "Key-based Incremental"
 

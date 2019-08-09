@@ -63,7 +63,7 @@ attributes:
 
   - name: "comments"
     type: "string"
-    description: "Additional info related to the invoice that a Zuora user added to the invoice."
+    description: "Additional info related to the invoice that a {{ integration.display_name }} user added to the invoice."
 
   - name: "createdById"
     type: "string"
@@ -85,7 +85,7 @@ attributes:
   - name: "deleted"
     type: "boolean"
     description: |
-      **Only supported for the AQuA API.** If `true`, this record was deleted in Zuora.
+      **Only supported for the AQuA API.** If `true`, this record was deleted in {{ integration.display_name }}.
 
   - name: "dueDate"
     type: "date-time"
@@ -118,7 +118,7 @@ attributes:
 
   - name: "parentAccountId"
     type: "string"
-    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in Zuora."
+    description: "The ID of the parent customer account for this account. This field is used when customer hierarchy is enabled in {{ integration.display_name }}."
     foreign-key-id: "parent-account-id"
 
   - name: "paymentAmount"
@@ -190,5 +190,5 @@ attributes:
 
   - name: "updatedById"
     type: "string"
-    description: "The ID of the Zuora user who last updated the invoice."
+    description: "The ID of the {{ integration.display_name }} user who last updated the invoice."
 ---

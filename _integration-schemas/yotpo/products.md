@@ -6,7 +6,7 @@ name: "products"
 doc-link: https://apidocs.yotpo.com/reference#introduction-to-products
 singer-schema: https://github.com/singer-io/tap-yotpo/blob/master/tap_yotpo/schemas/products.json
 description: |
-  The `products` table contains data about products in your Yotpo account.
+  The `{{ table.name }}` table contains data about products in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
@@ -57,7 +57,7 @@ attributes:
   - name: "product_specs"
     type: "object"
     description: "Details about the product."
-    object-attributes: 
+    subattributes: 
       - name: "key"
         type: "string"
         description: "The product spec key."
@@ -69,7 +69,7 @@ attributes:
   - name: "category"
     type: "object"
     description: "Details about the categories the product is in."
-    object-attributes: 
+    subattributes: 
       - name: "id"
         type: "number"
         description: "The ID of the category the product is in."
@@ -82,7 +82,7 @@ attributes:
   - name: "images"
     type: "object"
     description: "Details about the images associated with the product."
-    object-attributes: 
+    subattributes: 
       - name: "original"
         type: "string"
         description: "The original image associated with the product."

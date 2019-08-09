@@ -10,6 +10,7 @@ foreign-keys:
       - table: "ads_insights"
       - table: "ads_insights_age_and_gender"
       - table: "ads_insights_country"
+      - table: "ads_insights_dma"
       - table: "ads_insights_platform_and_device"
       - table: "ads_insights_region"
 
@@ -31,10 +32,13 @@ foreign-keys:
     table: "adsets"
     all-foreign-keys:
       - table: "ads"
+      - table: "adsets"
+        join-on: "id"
       - table: "ads_insights"
       - table: "ads_insights"
       - table: "ads_insights_age_and_gender"
       - table: "ads_insights_country"
+      - table: "ads_insights_dma"
       - table: "ads_insights_platform_and_device"
       - table: "ads_insights_region"
 
@@ -54,10 +58,14 @@ foreign-keys:
     all-foreign-keys:
       - table: "ads"
         join-on: "id"
+      - table: "ads"
+        subtable: "targeting"
+        join-on: "id"
       - table: "ads_insights"
       - table: "ads_insights"
       - table: "ads_insights_age_and_gender"
       - table: "ads_insights_country"
+      - table: "ads_insights_dma"
       - table: "ads_insights_platform_and_device"
       - table: "ads_insights_region"
       - table: "campaigns"
@@ -75,6 +83,7 @@ foreign-keys:
       - table: "ads_insights"
       - table: "ads_insights_age_and_gender"
       - table: "ads_insights_country"
+      - table: "ads_insights_dma"
       - table: "ads_insights_platform_and_device"
       - table: "ads_insights_region"
 

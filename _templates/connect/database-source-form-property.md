@@ -24,14 +24,18 @@ key: "source-form-properties-[integration]-object"
 # -------------------------- #
 
 title: "[INTEGRATION] Source Form Property"
-api-type: ""
+api-type: "platform.[integration]"
 display-name: "[INTEGRATION]"
 
 source-type: "database"
 docs-name: ""
 db-type: ""
 
-description: ""
+property-description: ""
+## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
+## See the Heap object for an example
+
+description:""
 
 
 # -------------------------- #
@@ -39,8 +43,7 @@ description: ""
 # -------------------------- #
 
 # uses-common-fields: true/false
-# See these fields in _data/connect/common/all-sources.yml
-# May also include applicable fields in _data/connect/common/database-sources.yml
+uses-start-date: false
 
 # object-attributes:
 #   - name: ""

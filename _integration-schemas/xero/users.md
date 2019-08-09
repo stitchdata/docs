@@ -58,7 +58,7 @@ attributes:
   - name: "ValidationErrors"
     type: "array"
     description: "Details about the validation errors associated with the user, if any."
-    array-attributes:
+    subattributes:
       - name: "Message"
         type: "string"
         description: "The validation error message."

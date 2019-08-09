@@ -28,7 +28,7 @@
             </div>
 
             <div class="method-resource">
-                <h4 id="{{ object.title | downcase | replace: " ", "-" | append: "--object" }}">
+                <h4 id="{{ object.title | slugify | append: "--object" }}">
                     The {{ object.title }} Object
                 </h4>
             </div>
@@ -53,16 +53,16 @@
                         {% else %}
                             <li>
                         {% endif %}
-                            <a href="#{{ object.title | downcase | replace: " ", "-" | append: "--object--v" | append: version.number }}" data-toggle="tab">{{ version.number | prepend: "v" }}{% if version.number == object.latest-version %} (latest){% endif %}</a>
+                            <a href="#{{ object.title | slugify | append: "--object--v" | append: version.number }}" data-toggle="tab">{{ version.number | prepend: "v" }}{% if version.number == object.latest-version %} (latest){% endif %}</a>
                             </li>
                     {% endfor %}
                 </ul>
                 <div class="tab-content">
                     {% for version in object.versions %}
                         {% if forloop.first == true %}
-                            <div role="tabpanel" class="tab-pane active" id="{{ object.title | downcase | replace: " ", "-" | append: "--object--v" | append: version.number }}">
+                            <div role="tabpanel" class="tab-pane active" id="{{ object.title | slugify | append: "--object--v" | append: version.number }}">
                         {% else %}
-                            <div role="tabpanel" class="tab-pane" id="{{ object.title | downcase | replace: " ", "-" | append: "--object--v" | append: version.number }}">
+                            <div role="tabpanel" class="tab-pane" id="{{ object.title | slugify | append: "--object--v" | append: version.number }}">
                         {% endif %}
 
                             {% for version-object in this-objects-version-objects %}

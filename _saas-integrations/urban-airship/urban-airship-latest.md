@@ -1,7 +1,6 @@
 ---
 title: Urban Airship (v1.0)
 permalink: /integrations/saas/urban-airship
-tags: [saas_integrations]
 keywords: urban airship, integration, schema, etl urban airship, urban airship etl, urban airship schema
 summary: "Connection instructions and schema details for Stitch's Urban Airship integration."
 layout: singer
@@ -12,32 +11,43 @@ layout: singer
 
 name: "urban-airship"
 display_name: "Urban Airship"
+
 singer: true
-author: "Stitch"
-author-url: https://www.stitchdata.com
 repo-url: https://github.com/singer-io/tap-urban-airship
 status-url: https://twitter.com/urbanairship
 
 # this-version: "1.0"
+
+api: |
+  [Airship API version 3](https://docs.airship.com/api/ua/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
 status: "Released"
-certified: false # Community-supported integration
+certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/urban-airship.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -45,19 +55,19 @@ loading-reports: true
 
 requirements-list:
   - item: |
-      **To verify your Urban Airship API access.** Urban Airship limits API access based on their product plans, meaning some plans have access while others do not.
+      **To verify your {{ integration.display_name }} API access.** {{ integration.display_name }} limits API access based on their product plans, meaning some plans have access while others do not.
 
-      If you create an Urban Airship integration and Stitch displays a `401 Unauthorized` or `403 Forbidden` error, you may not have access to Urban Airship's API.
+      If you create an {{ integration.display_name }} integration and Stitch displays a `401 Unauthorized` or `403 Forbidden` error, you may not have access to {{ integration.display_name }}'s API.
 
-requirements-info: "We recommend reaching out to Urban Airship support to confirm your API access level before beginning the setup in Stitch."
+requirements-info: "We recommend reaching out to {{ integration.display_name }} support to confirm your API access level before beginning the setup in Stitch."
 
 setup-steps:
-  - title: "Retrieve Your Urban Airship App Credentials"
+  - title: "Retrieve your {{ integration.display_name }} app credentials"
     anchor: "retrieve-app-creds"
     content: |
       {% include note.html content="**Connect Multiple Urban Airship Apps**<br>If you want to connect multiple Urban Airship apps to Stitch, you will need to create a separate Urban Airship integration for each app. App credentials are app-specific, meaning only a single app can be connected per Stitch integration." %}
 
-      1. Sign into your Urban Airship account.
+      1. Sign into your {{ integration.display_name }} account.
       2. In the dashboard, open the app you want to connect to Stitch.
       3. If the Engage tab doesn't open, click **Engage** at the top to open it.
       4. Click the **gear icon** located near **Reports**, then select **APIs & Integrations**.
@@ -67,8 +77,8 @@ setup-steps:
 
   - title: "add integration"
     content: |
-      4. In the **App Key** field, paste your Urban Airship App Key.
-      5. In the **App Secret** field, paste your Urban Airship App Secret.
+      4. In the **App Key** field, paste your {{ integration.display_name }} App Key.
+      5. In the **App Secret** field, paste your {{ integration.display_name }} App Secret.
   - title: "historical sync"
   - title: "replication frequency"
 
@@ -78,7 +88,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/urban-airship
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

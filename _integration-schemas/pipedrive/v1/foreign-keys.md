@@ -1,0 +1,167 @@
+---
+tap-reference: "pipedrive"
+
+version: "1.0"
+
+foreign-keys:
+  - id: "activity-id"
+    attribute: "activity_id"
+    table: "activities"
+    all-foreign-keys:
+      - table: "activities"
+        join-on: "id"
+      - table: "deals"
+        join-on: "last_activity_id"
+      - table: "deals"
+        join-on: "next_activity_id"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "files"
+      - table: "organizations"
+        join-on: "last_activity_id"
+      - table: "organizations"
+        join-on: "next_activity_id"
+      - table: "persons"
+        join-on: "last_activity_id"
+      - table: "persons"
+        join-on: "next_activity_id"
+
+  - id: "activity-type-id"
+    attribute: "activity_type_id"
+    table: "activity_types"
+    all-foreign-keys:
+      - table: "activity_types"
+        join-on: "id"
+
+  - id: "currency-id"
+    attribute: "currency_id"
+    table: "currency"
+    all-foreign-keys:
+      - table: "currency"
+        join-on: "id"
+
+  - id: "deal-id"
+    attribute: "deal_id"
+    table: "deals"
+    all-foreign-keys:
+      - table: "deals"
+        join-on: "id"
+      - table: "deal_products"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "files"
+      - table: "notes"
+
+  - id: "deal-product-id"
+    attribute: "deal_product_id"
+    table: "deal_products"
+    all-foreign-keys:
+      - table: "deal_products"
+        join-on: "id"
+
+  - id: "filter-id"
+    attribute: "filter_id"
+    table: "filters"
+    all-foreign-keys:
+      - table: "filters"
+        join-on: "id"
+
+  - id: "pipeline-id"
+    attribute: "pipeline_id"
+    table: "pipelines"
+    all-foreign-keys:
+      - table: "deals"
+      - table: "delete_log"
+        join-on: "id"
+
+  - id: "note-id"
+    attribute: "note_id"
+    table: "notes"
+    all-foreign-keys:
+      - table: "files"
+      - table: "notes"
+        join-on: "id"
+
+  - id: "organization-id"
+    attribute: "org_id"
+    table: "organizations"
+    all-foreign-keys:
+      - table: "activities"
+      - table: "deals"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "files"
+      - table: "notes"
+      - table: "organizations"
+        join-on: "id"
+
+  - id: "person-id"
+    attribute: "person_id"
+    table: "persons"
+    all-foreign-keys:
+      - table: "activities"
+        subattribute: "participants"
+      - table: "activities"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "files"
+      - table: "notes"
+      - table: "persons"
+        join-on: "id"
+      - table: ""
+
+  - id: "pipeline-id"
+    attribute: "pipeline_id"
+    table: "pipelines"
+    all-foreign-keys:
+      - table: "deals"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "pipelines"
+        join-on: "id"
+      - table: "stages"
+
+  - id: "product-id"
+    attribute: "product_id"
+    table: "products"
+    all-foreign-keys:
+      - table: "deal_products"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "files"
+      - table: "products"
+        join-on: "id"
+
+  - id: "stage-id"
+    attribute: "stage_id"
+    table: "stages"
+    all-foreign-keys:
+      - table: "deals"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "stages"
+        join-on: "id"
+
+  - id: "user-id"
+    attribute: "user_id"
+    table: "users"
+    all-foreign-keys:
+      - table: "activities"
+        join-on: "assigned_to_user_id"
+      - table: "activities"
+        join-on: "created_by_user_id"
+      - table: "activities"
+      - table: "dealflow"
+      - table: "deals"
+        join-on: "creator_user_id"
+      - table: "deals"
+      - table: "delete_log"
+        join-on: "id"
+      - table: "files"
+      - table: "filters"
+      - table: "notes"
+        join-on: "last_update_user_id"
+      - table: "notes"
+      - table: "users"
+        join-on: "id"
+---

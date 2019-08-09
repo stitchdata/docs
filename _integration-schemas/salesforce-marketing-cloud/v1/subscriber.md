@@ -11,7 +11,7 @@
 tap: "salesforce-marketing-cloud"
 # version: 
 
-name: "table_name"
+name: "subscriber"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/subscriber.htm
 singer-schema: https://github.com/singer-io/tap-exacttarget/blob/master/tap_exacttarget/endpoints/subscribers.py
 description: |
@@ -38,7 +38,7 @@ attributes:
   - name: "Addresses"
     type: "array"
     description: "Indicates addresses belonging to a subscriber, used to create, retrieve, update or delete an email or SMS Address for a given subscriber."
-    array-attributes:
+    subattributes:
       - name: "Address"
         type: "string"
         description: ""
@@ -74,7 +74,7 @@ attributes:
   - name: "ListIDs"
     type: "array"
     description: "The IDs of the lists the subscriber is a part of."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The list ID."

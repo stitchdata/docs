@@ -16,22 +16,60 @@
 # -------------------------- #
 #       Getting Started      #
 # -------------------------- #
-getting-started: /getting-started
+getting-started:
+  category: /getting-started
 
+  basic-concepts: /getting-started/basic-concepts-system-overview
+  row-usage: /getting-started/understanding-stitch-usage
+  onboarding: /getting-started/set-up-stitch-data-pipeline
+  feature-overview: /getting-started/stitch-feature-overview
 
 # -------------------------- #
 #     Account & Billing      #
 # -------------------------- #
 account:
   account-settings: /account-security/managing-account-settings
+  email-password: /account-security/change-your-email-address-and-password
   team-members: /account-security/managing-team-members
-  security-faq: /account-security/stitch-security
+
+  manage-api-keys: /account-security/managing-stitch-api-keys
+  manage-partner-access: /account-security/managing-stitch-partner-account-access
+
+  notification-settings: /account-security/notifications
+  notification-reference: /account-security/notifications#notification-reference
+  customize-notifications: /account-security/notifications/extend-email-notifications
+  hipaa-notifications: /account-security/notifications/hipaa-compliant-notifications
+  post-load-notifications: /account-security/notifications/post-load-notifications
+
+  datadog-notifications: /account-security/notifications/integrate-notifications-with-datadog
+  pagerduty-notifications: /account-security/notifications/integrate-notifications-with-pagerduty
+  slack-notifications: /account-security/notifications/integrate-notifications-with-slack
+  
   hipaa-compliance: /assets/pdfs/operating-stitch-in-compliance-with-hipaa.pdf
   cancel-account: /account-security/cancelling-your-stitch-account
 
+  enterprise-features: /account-security/stitch-enterprise-features
+
 billing:
-  billing-guide: /account-security/understanding-stitch-billing-replicated-rows
   billing-faq: /account-security/billing-faq
+
+
+# -------------------------- #
+#          SECURITY          #
+# -------------------------- #
+## used as link.security.[id]
+
+security:
+  main: /security
+
+  faq: /account-security/security-faq
+
+  compliance: /account-security/compliance
+
+  encryption: /account-security/data-encryption
+  ssh-generic: /account-security/data-encryption/setting-up-ssh-tunnel-for-database-connection
+  ssh-amazon: /account-security/data-encryption/setting-up-ssh-tunnel-for-amazon-web-services
+  ssh-microsoft-azure: /account-security/data-encryption/setting-up-ssh-tunnel-for-microsoft-azure
 
 
 # -------------------------- #
@@ -64,24 +102,23 @@ destinations:
   setup:
     amazon-s3: /destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
 
-    bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
-
-    data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
-
     azure: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
-    azure-ssh: /destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel
-
+    
+    bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
+    
+    data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
+    
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
     panoply-ex: /destinations/panoply/connecting-an-existing-panoply-data-warehouse-to-stitch
 
     postgres: "/destinations/postgresql/#setup"
     postgres-rds: /destinations/postgresql/connecting-an-amazon-postgresql-rds-data-warehouse-to-stitch
+    aurora-postgres: /destinations/postgresql/connecting-an-amazon-aurora-postgresql-rds-data-warehouse-to-stitch
     heroku-postgres: /destinations/postgresql/connecting-a-heroku-postgres-data-warehouse-to-stitch
     self-hosted-postgres: /destinations/postgresql/connecting-a-self-hosted-postgresql-data-warehouse-to-stitch
     cloudsql-postgres: /destinations/postgresql/connecting-a-google-cloudsql-postgresql-data-warehouse
 
     redshift: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
-    redshift-ssh: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
 
     snowflake: /destinations/snowflake/connecting-a-snowflake-data-warehouse-to-stitch
 
@@ -103,8 +140,9 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
+    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
     stitch-schema: /data-structure/integration-schemas
-    sdc-columns: "/data-structure/integration-schemas#_sdc_columns"
+    sdc-columns: *system-data
     loading-data: /data-structure/loading-stitch-data-into-destinations
     structure-changes: /data-structure/table-structural-changes
     column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
@@ -127,6 +165,8 @@ integrations:
   webhooks: /integrations/webhooks
   stitch-incoming-webhooks: /integrations/webhooks/stitch-incoming-webhooks
 
+  other-data-sources: /integrations/connecting-other-data-sources-to-stitch
+
   ## Use a filter to replace INTEGRATION with the integration's name to
   ## create the URL.
   ## Ex: [link.integrations.saas-integration | prepend: site.baseurl | replace:"INTEGRATION","salesforce"]
@@ -148,10 +188,12 @@ replication:
   db-views: /replication/replicating-database-views
   supported-data-types: /replication/supported-data-types
 
-## Replication Frequency
+## Replication Scheduling
   rep-scheduling: /replication/replication-scheduling
-  rep-frequency: "/replication/replication-scheduling#replication-frequency"
-  anchor-scheduling: "/replication/replication-scheduling#anchor-scheduling"
+  rep-frequency: "/replication/replication-scheduling/replication-frequency"
+  anchor-scheduling: "/replication/replication-scheduling/anchor-scheduling"
+  advanced-scheduling: /replication/replication-scheduling/advanced-scheduling
+  table-scheduling: /replication/replication-scheduling/scheduling-for-tables
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
@@ -171,8 +213,11 @@ replication:
 ## Historical Data & Progress
   saas-historical: /replication/syncing-historical-saas-data-resetting-replication-keys
   rep-progress: /replication/monitoring-replication-progress
-  extraction-logs: /replication/integration-extraction-logs
   loading-reports: /replication/integration-loading-reports
+
+  extractions-tab: /replication/extractions
+  extraction-logs: /replication/extractions/integration-extraction-logs
+  start-stop-extraction: /replication/extractions/start-stop-extraction-jobs
 
 
 # -------------------------- #
@@ -193,6 +238,8 @@ connect:
     create-import-api-source: /developers/import-api/guides/create-import-api-integration-with-stitch-connect
     field-selection-compatibility-rules: /developers/stitch-connect/guides/field-selection-compatibility-rules
     select-streams-and-fields: /developers/stitch-connect/guides/select-streams-and-fields-with-connect-api
+    replication-scheduling-for-sources: /developers/stitch-connect/guides/replication-scheduling-for-sources
+    partner-authentication: /developers/stitch-connect/guides/stitch-partner-authentication-guide
 
 
 import-api:
@@ -208,6 +255,9 @@ import-api:
     troubleshooting-data: /developers/import-api/guides/troubleshooting-import-api-data
 
 
+webhooks:
+  post-load: /developers/webhooks/post-load-webhooks
+
 # -------------------------- #
 #       Troubleshooting      #
 # -------------------------- #
@@ -218,6 +268,7 @@ troubleshooting:
   known-issues: /troubleshooting/known-third-party-issues
   billing-issues: /troubleshooting/account
   third-party-downtime: /troubleshooting/third-party-integration-downtime
+  team-member-invites: /troubleshooting/account/team-member-invites
 
 ## Data Discrepancies 
   discrepancy-guide: /troubleshooting/data-discrepancy-troubleshooting-guide

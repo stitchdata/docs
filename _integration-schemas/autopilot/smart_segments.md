@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The ID of the segment."
+    foreign-key-id: "segment-id"
 
   - name: title
     type: "string"

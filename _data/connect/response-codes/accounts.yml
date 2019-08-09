@@ -29,3 +29,33 @@ all:
             "errors":{}
           }
           ```
+
+      - method: "post"
+        code: "BadRequest"
+        condition: "Missing or invalid `partner_id`."
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "code": "BadRequest",
+            "message": "Invalid form data.",
+            "errors": {
+              "partner_id": "required"
+            }
+          }
+          ```
+
+      - method: "post"
+        code: "BadRequest"
+        condition: "Missing or invalid `partner_secret`."
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "code": "BadRequest",
+            "message": "Invalid form data.",
+            "errors": {
+              "partner_secret": "required"
+            }
+          }
+          ```

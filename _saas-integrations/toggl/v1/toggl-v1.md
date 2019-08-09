@@ -14,8 +14,8 @@
 
 title: Toggl (v1.0)
 permalink: /integrations/saas/toggl
-tags: [saas_integrations]
 keywords: toggl, integration, schema, etl toggl, toggl etl, toggl schema
+summary: "Connections instructions, replication info, and schema details for Stitch's Toggl integration."
 layout: singer
 # input: false
 
@@ -32,6 +32,9 @@ repo-url: https://github.com/singer-io/tap-toggl
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API v8](https://github.com/toggl/toggl_api_docs/blob/master/toggl_api.md){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -43,16 +46,22 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
-icon: /images/integrations/icons/toggl.svg
-
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
 
-# setup-name: ""
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -68,7 +77,7 @@ setup-steps:
     anchor: "retrieve-toggl-api-token"
     content: |
       {% capture toggl-api-tokens %}
-      Your {{ integration.display_name }} API token is specific to you. When replicating data, Stitch will only be able to access the same data as you in Toggl.
+      Your {{ integration.display_name }} API token is specific to you. When replicating data, Stitch will only be able to access the same data as you in {{ integration.display_name }}.
 
       To replicate time entry data from multiple workspaces, you must be an Admin in the workspace you want to replicate data from. Verify that you have this permission in {{ integration.display_name }} before proceeding.
       {% endcapture %}

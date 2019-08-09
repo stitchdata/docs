@@ -1,28 +1,64 @@
 ---
 tap: "netsuite"
-# version: "10-15-2015"
+version: "1.0"
 
-name: "netsuite_nexus"
-doc-link: https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2016_1/script/record/nexus.html
+name: "Nexus"
+doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/nexus.html"
+singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Nexus.json"
 description: |
-  The `{{ table.name }}` table contains info about nexus tax items.
+  The `{{ table.name }}` table contains info about the tax jurisdictions - or nexus - in your {{ integration.display_name }} account. A nexus is a tax jurisdiction, usually defined at the country level. 
+
+  {{ integration.permission-for-table | flatify }}
+
+## Refer to _data/extraction/netsuite/netsuite-permissions.yml for permissions for this table/object.
+key: "nexus"
 
 replication-method: "Full Table"
-abstract: false
-
-permissions:
-  - name: "Tax Items"
-    level: "View"
-    location: "Lists"
 
 attributes:
   - name: "internalId"
-    type: "integer"
+    type: "string"
     primary-key: true
-    description: |
-      The record ID.
+    description: ""
+    # foreign-key-id: "nexus-id"
 
-  - name: "Additional fields"
-    description: |
-      For a list of available attributes, refer to [{{ integration.display_name }}'s documentation]({{ table.doc-link }}){:target="new"}. **Note**: You will need to log into your {{ integration.display_name }} account to view the documentation.
+  - name: "country"
+    type: "varies"
+    description: ""
+
+  - name: "description"
+    type: "string"
+    description: ""
+
+  - name: "externalId"
+    type: "string"
+    description: ""
+
+  - name: "isInactive"
+    type: "boolean, string"
+    description: ""
+
+  - name: "nullFieldList"
+    type: "varies"
+    description: ""
+
+  - name: "parentNexus"
+    type: "varies"
+    description: ""
+
+  - name: "state"
+    type: "varies"
+    description: ""
+
+  - name: "taxAgency"
+    type: "varies"
+    description: ""
+
+  - name: "taxAgencyPst"
+    type: "varies"
+    description: ""
+
+  - name: "taxCode"
+    type: "varies"
+    description: ""
 ---

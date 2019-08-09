@@ -6,7 +6,7 @@
 product-type: "connect"
 content-type: "api-object"
 endpoint: "source-types"
-order: 4
+order: 5
 
 
 # -------------------------- #
@@ -14,9 +14,10 @@ order: 4
 # -------------------------- #
 
 title: "Source Type"
-description: "{{ api.core-objects.source-types.description }}"
 endpoint-url: "/source-types"
 
+description: "{{ api.core-objects.source-types.description }}"
+intro-short: "Retrieve configuration info for data sources" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

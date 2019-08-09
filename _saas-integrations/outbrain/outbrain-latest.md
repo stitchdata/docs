@@ -1,7 +1,6 @@
 ---
 title: Outbrain (v1.0)
 permalink: /integrations/saas/outbrain
-tags: [saas_integrations]
 keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain schema
 summary: "Connection instructions and schema details for Stitch's Outbrain integration."
 layout: singer
@@ -12,12 +11,14 @@ layout: singer
 
 name: "outbrain"
 display_name: "Outbrain"
+
 singer: true
-author: "Fishtown Analytics"
-author-url: http://fishtownanalytics.com/
 repo-url: https://github.com/singer-io/tap-outbrain
 
 # this-version: "1.0"
+
+api: |
+  [{{ integration.display_name }} Amplify API](http://developer.outbrain.com/home-page/amplify-api/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -29,15 +30,23 @@ certified: false
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
-status-url: 
-icon: /images/integrations/icons/outbrain.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -64,7 +73,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/outbrain
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -5,8 +5,8 @@
 
 title: FullStory (v1.0)
 permalink: /integrations/saas/fullstory
-tags: [saas_integrations]
 keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstory schema
+summary: "Connection instructions, replication info, and schema details for Stitch's FullStory integration."
 layout: singer
 
 # -------------------------- #
@@ -20,6 +20,9 @@ repo-url: https://github.com/singer-io/tap-fullstory
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Data Export REST API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -31,14 +34,23 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://fullstory.statuspage.io/
-icon: /images/integrations/icons/fullstory.svg
 
 table-selection: false
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration relies on the Data Export pack add-on to replicate data through the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -46,9 +58,9 @@ loading-reports: true
 
 requirements-list:
   - item: |
-      **A FullStory account with the Data Export Pack add-on**. The [Data Export Pack](https://help.fullstory.com/technical-questions/data-export) is a paid add-on for FullStory accounts that enables you to export raw event data.
+      **A {{ integration.display_name }} account with the Data Export Pack add-on**. The [Data Export Pack](https://help.fullstory.com/technical-questions/data-export) is a paid add-on for {{ integration.display_name }} accounts that enables you to export raw event data.
 
-      This add-on is required to replicate data using FullStory's Data Export REST API.
+      This add-on is required to replicate data using {{ integration.display_name }}'s Data Export REST API.
 
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} API key"

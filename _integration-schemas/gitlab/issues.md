@@ -6,7 +6,7 @@ name: "issues"
 doc-link: https://gitlab.com/help/api/issues.md#list-project-issues
 singer-schema: https://github.com/singer-io/tap-gitlab/blob/master/tap_gitlab/schemas/issues.json
 description: |
-  The `issues` table contains info about issues contained within projects.
+  The `{{ table.name }}` table contains info about issues contained within projects.
 
 replication-method: "Key-based Incremental"
 api-method:
@@ -18,6 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The issue ID."
+    foreign-key-id: "issue-id"
 
   - name: "updated_at"
     type: "date-time"
@@ -27,10 +28,12 @@ attributes:
   - name: "project_id"
     type: "integer"
     description: "The ID of the project associated with the issue."
+    foreign-key-id: "project-id"
 
   - name: "milestone_id"
     type: "integer"
     description: "The ID of the milestone associated with the issue."
+    foreign-key-id: "milestone-id"
 
   - name: "author_id"
     type: "integer"
@@ -55,7 +58,7 @@ attributes:
   - name: "labels"
     type: "array"
     description: "A list of labels applied to the issue."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "string"
         description: "The name of the label."

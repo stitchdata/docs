@@ -99,15 +99,32 @@ cloudsql-postgresql:
     command: *select-systems-tables-sql
 
 
+# ---------------------------- #
+#   AMAZON AURORA POSTGRESQL   #
+# ---------------------------- #
+
+aurora-postgresql:
+  - copy: *sql-client-copy
+  - copy: *create-user-copy
+    command: *create-user-sql
+  - copy: *create-database-copy
+    command: *create-database-sql
+  - copy: *systems-tables-copy
+    command: *select-systems-tables-sql
+
+
 # -------------------------- #
 #            HEROKU          #
 # -------------------------- #
 
 heroku:
-  - copy: "Connect to your {{ page.display_name }} instance using a SQL client and the credentials you retrieved in Step 2."
-  - copy: "After connecting, you'll assign the `CREATE` permissions to the user. This allows Stitch to create integration schemas and tables in the specified database."
+  - copy: "Connect to your {{ page.display_name }} instance using a SQL client and the credentials you retrieved in Step 1."
+  - copy: |
+      After connecting, you'll assign the `CREATE` permissions to the user. This allows Stitch to create integration schemas and tables in the specified database.
+
+      Run the command below, replacing `<database_name>` with the database and `<heroku_database_user>` with the database name and username from the {{ destination.display_name }} database credentials page.
     command: |
-      {{ common.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","database_user" }}
+      {{ common.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","heroku_database_user" }}
 
 
 # -------------------------- #

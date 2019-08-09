@@ -14,7 +14,7 @@ key: "source-form-properties-cloudsql-mysql-object"
 # -------------------------- #
 
 title: "Google CloudSQL MySQL Source Form Property"
-api-type: "cloudsql"
+api-type: "platform.cloudsql"
 display-name: "Google CloudSQL MySQL"
 
 source-type: "database"
@@ -32,4 +32,5 @@ description: ""
 
 uses-common-fields: true
 uses-feature-fields: true
+uses-start-date: false
 ---

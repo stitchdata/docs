@@ -14,7 +14,7 @@ key: "source-form-properties-cloudsql-postgresql-object"
 # -------------------------- #
 
 title: "Google CloudSQL PostgreSQL Source Form Property"
-api-type: "cloudsql_pg"
+api-type: "platform.cloudsql_pg"
 display-name: "Google CloudSQL PostgreSQL"
 
 source-type: "database"
@@ -32,4 +32,5 @@ description: ""
 
 uses-common-fields: true
 uses-feature-fields: true
+uses-start-date: false
 ---

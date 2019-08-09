@@ -76,10 +76,11 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
-      - name: ""
-        type: ""
-        description: ""
+    anchor-id: 1
+    subattributes:
+      - name: "ANYTHING"
+        type: "ANYTHING"
+        description: "This info will vary."
 
   - name: "name"
     type: "string"
@@ -96,6 +97,7 @@ attributes:
   - name: "product"
     type: "string"
     description: "The product whose pricing this plan determines."
+    foreign-key-id: "product-id"
 
   - name: "statement_description"
     type: "string"
@@ -108,7 +110,7 @@ attributes:
   - name: "tiers"
     type: "array"
     description: "The pricing tiers associated with the plan."
-    array-attributes:
+    subattributes:
       - name: "value"
         type: "integer"
         description: "The pricing tier."

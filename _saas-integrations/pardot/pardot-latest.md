@@ -1,7 +1,6 @@
 ---
 title: Pardot
 permalink: /integrations/saas/pardot
-tags: [saas_integrations]
 keywords: pardot, pardot data, etl pardot, pardot etl, pardot schema
 summary: "Connection instructions and schema details for Stitch's Pardot integration."
 format: ## controls formatting options in template
@@ -15,10 +14,12 @@ format: ## controls formatting options in template
 
 name: "pardot"
 display_name: "Pardot"
+
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "http://trust.pardot.com/"
+
+api: |
+  [{{ integration.display_name }} API](http://developer.pardot.com/#official-pardot-api-documentation){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,14 +31,32 @@ certified: true
 historical: "28 days"
 frequency: "30 minutes"
 tier: "Paid"
-icon: /images/integrations/icons/pardot.svg
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: false
-loading-reports: false
+loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

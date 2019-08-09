@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The payout ID."
-    foreign-key-id: "payout-id"
+    #foreign-key-id: "payout-id"
   
   - name: "created"
     type: "date-time"
@@ -51,7 +51,7 @@ attributes:
     type: "object"
     description: "Details about the bank account the payout is being sent to."
     doc-link: "https://stripe.com/docs/api/customer_bank_accounts/object"
-    object-attributes:
+    subattributes:
       - name: "account_holder_name"
         type: "string"
         description: "The name of the person or business that owns the bank account."
@@ -89,7 +89,7 @@ attributes:
       - name: "metadata"
         type: "object"
         description: ""
-        object-attributes:
+        subattributes:
 
       - name: "name"
         type: "string"
@@ -152,10 +152,10 @@ attributes:
   - name: "metadata"
     type: "object"
     description: ""
-    object-attributes:
-      - name: ""
-        value: ""
-        description: ""
+    subattributes:
+      - name: "ANYTHING"
+        type: "ANYTHING"
+        description: "This info will vary."
 
   - name: "method"
     type: "string"
