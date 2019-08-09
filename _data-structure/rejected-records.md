@@ -23,9 +23,11 @@ weight: 5
 # -------------------------- #
 
 intro: |
+  {% include misc/data-files.html %}
+  
   From time to time, Stitch may run into problems when attempting to load data into your destination. For example: A table contains more columns than the destination's supported limit. 
 
-  On your end, this will usually look like you're missing data. When Stitch is unable to load data, however, the occurrence will be logged in a table named `{{ rejected-records.name }}`. Every integration schema created by Stitch will include this table as well as the other tables in the integration.
+  On your end, this will usually look like you're missing data. When Stitch is unable to load data, however, the occurrence will be logged in a table named `{{ stitch.system-tables.sdc-rejected.name }}`. Every integration schema created by Stitch will include this table as well as the other tables in the integration.
 
   This rejection log can be useful for investigating data discrepancies and troubleshooting errors surfaced during the data loading process.
 
@@ -56,13 +58,13 @@ sections:
 
       For a detailed rollup of how each destination handles data - including what situations will result in rejected records -  refer to the [Data Loading guide]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for the destination you’re using.
 
-  - title: "{{ rejected-records.name }} table schema"
+  - title: "{{ stitch.system-tables.sdc-rejected.name }} table schema"
     anchor: "rejected-records-table"
     summary: "The schema of the rejected records log table"
     content: |
-      In every integration schema created by Stitch is a table named `{{ rejected-records.name }}` which acts as a log for a particular integration's rejected records.
+      In every integration schema created by Stitch is a table named `{{ stitch.system-tables.sdc-rejected.name }}` which acts as a log for a particular integration's rejected records.
 
-      This table contains information about when and why a data rejection occurred. The `{{ rejected-records.name }}` table contains the following columns: 
+      This table contains information about when and why a data rejection occurred. The `{{ stitch.system-tables.sdc-rejected.name }}` table contains the following columns: 
 
       {% assign attribute-list=site.data.stitch.system-tables.sdc-rejected.attributes %}
 
