@@ -3,7 +3,7 @@
 # -------------------------- #
 
 name: "Import API"
-description: "The Stitch Import API enables you to push arbitrary data from a source into your destination. The Import API acts as a receiving point for data that is sent to Stitch. The Import API will 'listen' for new data, which is then processed by Stitch as it's received."
+description: "The Stitch Import API enables you to push arbitrary data from a source to Stitch. The Import API acts as a receiving point for data that is sent to Stitch. The Import API will 'listen' for new data, which is then processed by Stitch as it's received."
 icon: "/images/integrations/import-api.svg"
 
 base-url: "https://api.stitchdata.com"
@@ -21,55 +21,3 @@ error-message-text: "#error-message-text"
 
 versioning: "#versioning"
 terms: "#terminology"
-
-core-objects:
-  api-status:
-    name: "API Status"
-    url: "/v2/import/status"
-    anchor: "#get-status"
-    object-anchor: "#api-status--object"
-    object-description: "An object describing the status of the Import API at the time a request is sent."
-    short: "Determines if the Import API is operating correctly."
-    description: |
-      {{ site.data.import-api.api.core-objects.api-status.short }} This endpoint doesn't require any authentication.
-
-  validate:
-    name: "Validate"
-    url: "/v2/import/validate"
-    anchor: "#validate-request"
-    object-anchor: "#validate--object"
-    object-description: |
-      An object containing table information, your client ID, and data objects representing records to be validated without being persisted to Stitch. The Validate object is identical to the [Push object]({{ site.data.import-api.api.core-objects.push.object-anchor }}).
-    short: "Validates request credentials and batch data, but doesn't persist the data to Stitch."
-    description: |
-      {{ site.data.import-api.api.core-objects.validate.short }} This allows you to validate your API credentials and batch data during development.
-
-  push:
-    name: "Push"
-    url: "/v2/import/push"
-    anchor: "#push-data"
-    object-anchor: "#push--object"
-    object: "An object containing table information, your client ID, and data objects representing records to be pushed into a destination."
-    short: &push-short "Pushes data into a specified table in a destination."
-    description: *push-short
-
-
-data-structures:
-  batch-status:
-    title: "Batch Status"
-    section: "#batch-status-object"
-    short: "A Batch Status object provides information about the validation and acceptance status of a batch of data in a request body."
-    description: |
-       {{ site.data.import-api.api.data-structures.batch-status.short }} **Note**: This object is only returned if the request body adheres to the endpoint's requirements.
-
-  error:
-    title: "Error"
-    section: "#error-object"
-    description: |
-      An Error object provides information about the reason a request resulted in an error response from the Import API. 
-
-  error-reason:
-    title: "Error Reason"
-    section: "#error-reason-object"
-    description: |
-      Contained in an [Error]({{ site.data.import-api.api.data-structures.error.section }}) object, the Error Reason object contains additional details about the reason a request resulted in an error response.

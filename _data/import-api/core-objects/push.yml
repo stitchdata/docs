@@ -1,0 +1,16 @@
+# -------------------------- #
+#         PUSH OBJECT        #
+# -------------------------- #
+
+name: "Push"
+
+url: "/v2/import/push"
+
+anchor: "#push-data"
+
+object-anchor: "#push--object"
+object: "An object containing table information, your client ID, and data objects representing records to be pushed to Stitch."
+
+short: &push-short "Pushes data for a specified table or tables to Stitch."
+
+description: *push-short
