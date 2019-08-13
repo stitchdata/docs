@@ -20,9 +20,9 @@ short-url: |
   /v{{ object.version }}{{ object.endpoint-url | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ site.data.import-api.api.core-objects.api-status.short | flatify }}"
+short: "{{ site.data.import-api.core-objects.api-status.short | flatify }}"
 description: |
-  {{ site.data.import-api.api.core-objects.api-status.description | flatify | markdownify }}
+  {{ site.data.import-api.core-objects.api-status.description | flatify | markdownify }}
 
 authorization-required: false
 request-header-required: false
@@ -32,7 +32,7 @@ request-header-required: false
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a `200 OK` status and an [API status]({{ site.data.import-api.api.core-objects.api-status.object-anchor }}) object.
+  If successful, the API will return a `200 OK` status and an [API status]({{ site.data.import-api.core-objects.api-status.object-anchor }}) object.
 
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #

@@ -22,14 +22,14 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.push.short | flatify }}"
 description: |
-  {{ api.core-objects.push.description | flatify | markdownify }}
+  {{ site.data.import-api.core-objects.push.description | flatify | markdownify }}
 
   When data for a table is pushed for the first time, Stitch will create the table in the destination in the specified integration schema.
 
   During subsequent pushes, one of two things will happen depending on the destination being used:
 
   1. **If the destination supports upserts**, Stitch will perform an update operation on applicable existing rows to overwrite the data.
-  2. **If the destination doesn't support upserts**, Stitch will load the records in an append-only fashion.
+  2. **If the destination doesn't support upserts**, Stitch will load the records in an append-only fashion. This means that existing records in the destination table will not be updated, and all records in subsequent pushes will be appended to the end of the table.
 
   #### Structuring request body data {#push--structure-request-body-data}
 
@@ -63,13 +63,13 @@ arguments:
   - name: "table_name"
     type: "string"
     required: true
-    description: "{{ general.attributes.table-name }}"
+    description: "{{ general.attributes.table-name | flatify }}"
     example-value: "customers"
 
   - name: "sequence"
     type: "integer"
     required: true
-    description: "{{ general.attributes.sequence }}"
+    description: "{{ general.attributes.sequence | flatify }}"
     example-value: ""
 
   - name: "action"
@@ -81,7 +81,7 @@ arguments:
   - name: "key_names"
     type: "array"
     required: true
-    description: "{{ general.attributes.key-names }}"
+    description: "{{ general.attributes.key-names | flatify }}"
     example-value: "id"
 
   - name: "data"
@@ -97,7 +97,7 @@ arguments:
 returns: |
   {% assign response-codes = site.data.import-api.response-codes.general-codes.all-codes %}
 
-  If successful, the API will return a `2xx` status:
+  If successful, the API will return a `2xx` status and a [Batch Status object]({{ site.data.import-api.api.data-structures.batch-status.section }}):
 
   {% for response-code in response-codes %}
   {% if response-code.code == "201" or response-code.code == "202" %}

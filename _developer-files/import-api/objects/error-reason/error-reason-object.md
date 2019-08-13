@@ -13,7 +13,7 @@ key: "error-reason-object"
 # -------------------------- #
 
 title: "Error Reason"
-description: "{{ site.data.import-api.api.data-structures.error-reason.description | flatify }}"
+description: "{{ site.data.import-api.data-structures.error-reason.description | flatify }}"
 
 
 # -------------------------- #

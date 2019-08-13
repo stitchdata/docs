@@ -16,12 +16,29 @@ content-id: "import-api-access-tokens"
 layout: general
 sidebar: on-page
 
-icon: todo
+icon: lock
 order: 2
 
 summary: "A valid API access token is required to use Stitch's Import API. Use this guide manage your Import API access tokens in the Stitch web app."
 ## This is used only on the /import-api/guides page.
-description: "Manage your Stitch Import API access tokens."
+display-title: "Managing Import API Access Tokens"
+description: "Create and manage Import API access tokens."
+
+
+# -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+related:
+  - title: "Stitch Import API Quick Start"
+    link: "{{ link.import-api.guides.quick-start | prepend: site.baseurl }}"
+
+  - title: "Structuring Data for the Import API"
+    link: "{{ link.import-api.guides.structure-data | prepend: site.baseurl }}"
+
+  - title: "Import API reference"
+    link: "{{ link.import-api.api | prepend: site.baseurl }}"
+
 
 
 # -------------------------- #
@@ -49,7 +66,7 @@ sections:
     content: |
       API access tokens are specific to the Import API integration they are created for. This means that data successfully pushed using a given API access token will only ever be loaded into the schema or dataset created for that integration.
 
-      For example: You create an Import API integration named `Customer Records`, which has a corresponding destination schema named `customer_records`. Any [push requests]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.api.core-objects.push.anchor }}) made using the access token associated with the `Customer Records` integration will only affect the data in the `customer_records` schema.
+      For example: You create an Import API integration named `Customer Records`, which has a corresponding destination schema named `customer_records`. Any [push requests]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.push.anchor }}) made using the access token associated with the `Customer Records` integration will only affect the data in the `customer_records` schema.
 
       Each Import API integration is allowed a maximum of two active API access tokens at a time. This ensures that you can [rotate your API access tokens](#secure-your-api-access-tokens) when needed without interrupting replication.
 

@@ -15,7 +15,7 @@ order: 1
 # -------------------------- #
 
 title: "Push"
-description: "{{ api.core-objects.push.object | flatify }}"
+description: "{{ site.data.import-api.core-objects.push.object | flatify }}"
 endpoint-url: "/import/push"
 
 
@@ -36,7 +36,7 @@ available-methods:
   - id: "push-data"
     title: "Push data"
     method: "post"
-    short: "{{ api.core-objects.push.description | flatify }}"
+    short: "{{ site.data.import-api.core-objects.push.description | flatify }}"
 
 
 # -------------------------- #

@@ -13,7 +13,7 @@ sections:
       Every record in the request body must also contain your [Stitch client ID](#stitch-client-id):
 
       ```json
-      curl -X POST {{ site.data.import-api.api.base-url | append: site.data.import-api.api.core-objects.push.url }} \
+      curl -X POST {{ site.data.import-api.api.base-url | append: site.data.import-api.core-objects.push.url }} \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
         -d $

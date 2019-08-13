@@ -13,7 +13,7 @@ key: "batch-status-object"
 # -------------------------- #
 
 title: "Batch Status"
-description: "{{ site.data.import-api.api.data-structures.batch-status.description | flatify }}"
+description: "{{ site.data.import-api.data-structures.batch-status.description | flatify }}"
 has-multiple-versions: "false"
 
 
@@ -27,7 +27,7 @@ object-attributes:
     description: |
       The batch status. Possible values are:
 
-      - `OK` - Corresponds to a `201 Created` response code if using the [Push]({{ site.data.import-api.api.core-objects.push.anchor }}) endpoint, or a `200 OK` response code if using the [Validate]({{ site.data.import-api.api.core-objects.validate.anchor }}) endpoint
+      - `OK` - Corresponds to a `201 Created` response code if using the [Push]({{ site.data.import-api.core-objects.push.anchor }}) endpoint, or a `200 OK` response code if using the [Validate]({{ site.data.import-api.core-objects.validate.anchor }}) endpoint
       - `Accepted` - Corresponds to a `202 Accepted` response code
     value: |
       OK

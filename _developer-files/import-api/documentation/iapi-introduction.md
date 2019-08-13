@@ -23,8 +23,6 @@ sections:
       - Check the status of the Import API
       - Validate requests and batches without persisting them to Stitch
 
-      To determine if the Import API is a good fit for your use case, refer to the [TODO](todo) guide.
-
   - title: "Accessing the API"
     anchor: "access-the-api"
     content: |

@@ -15,7 +15,7 @@ order: 1
 # -------------------------- #
 
 title: "Validate"
-description: "{{ api.core-objects.validate.object-description | flatify }}"
+description: "{{ site.data.import-api.core-objects.validate.object-description | flatify }}"
 endpoint-url: "/import/validate"
 
 
@@ -36,7 +36,7 @@ available-methods:
   - id: "validate-request"
     title: "Validate request"
     method: "post"
-    short: "{{ api.core-objects.validate.description | flatify }}"
+    short: "{{ site.data.import-api.core-objects.validate.description | flatify }}"
 
 
 # -------------------------- #

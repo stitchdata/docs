@@ -13,7 +13,7 @@ key: "error-object"
 # -------------------------- #
 
 title: "Error"
-description: "{{ site.data.import-api.api.data-structures.error.description | flatify }}"
+description: "{{ site.data.import-api.data-structures.error.description | flatify }}"
 has-multiple-versions: "false"
 
 
@@ -46,9 +46,9 @@ object-attributes:
   - name: "errors"
     type: "array"
     sub-type: "error reason"
-    url: "{{ site.data.import-api.api.data-structures.error-reason.section }}"
+    url: "{{ site.data.import-api.data-structures.error-reason.section }}"
     description: |
-      An array of [error reason objects]({{ site.data.import-api.api.data-structures.error-reason.section }}) that describe the properties causing the error.
+      An array of [error reason objects]({{ site.data.import-api.data-structures.error-reason.section }}) that describe the properties causing the error.
 
 
 # -------------------------- #

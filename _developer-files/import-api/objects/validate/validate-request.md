@@ -22,9 +22,9 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.status.short | flatify }}"
 description: |
-  {{ api.core-objects.validate.description | flatify | markdownify }}
+  {{ site.data.import-api.core-objects.validate.description | flatify | markdownify }}
 
-  **Note**: Regardless of whether the Import API is functional, this endpoint will never return a `503 Service Unavailable` response. Use the [Status endpoint]({{ site.data.import-api.api.core-objects.status.anchor }}) to determine if the Import API is experiencing issues.
+  **Note**: Regardless of whether the Import API is functional, this endpoint will never return a `503 Service Unavailable` response. Use the [Status endpoint]({{ site.data.import-api.core-objects.api-status.anchor }}) to determine if the Import API is experiencing issues.
 
 
 request-body: |
@@ -125,5 +125,5 @@ examples:
 # This endpoint uses the same errors as the Push endpoint
 # The list of those errors live in _data/import-api/response-codes/push.yml
   - type: "Errors"
-    same-as: "push"
+    error-file: "push"
 ---

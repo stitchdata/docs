@@ -19,10 +19,10 @@
             While they're both under /notifications, each one has its own set of errors.
             This allows them to display only the ones that are relevant. -->
         {% if example.error-file %}
-            {% assign all-response-codes = site.data.connect.response-codes[example.error-file]all | compact %}
+            {% assign all-response-codes = site.data[page.product-type]response-codes[example.error-file]all | compact %}
 
         {% else %}
-            {% assign all-response-codes = site.data.connect.response-codes[item.endpoint]all | compact %}
+            {% assign all-response-codes = site.data[page.product-type]response-codes[item.endpoint]all | compact %}
         {% endif %}
             <td width="30%; fixed">
                 <strong>
@@ -60,7 +60,7 @@
 <!-- For the general response code documentation -->
     {% else %}
         {% assign general-response-codes = site.data[page.product-type].response-codes.general-codes.all-codes %}
-                <td width="20%; fixed">
+                <td width="25%; fixed">
                     <strong>
                         Text
                     </strong>
