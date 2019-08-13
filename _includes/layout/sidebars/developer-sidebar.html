@@ -29,11 +29,8 @@
                                 {{ category.title }} 
                         </a>
                     {% else %}
-                        {% if category.new-page == true %}
-                            <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title | flatify }}</a>
-                        {% else %}
-                            <a href="{{ category.url | flatify | prepend: page.permalink | prepend: site.baseurl }}">{{ category.title }}</a>
-                        {% endif %}
+                       <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title | flatify }}</a>
+                       
                     {% endif %}
             
                 {% if category.sections %}
@@ -86,7 +83,7 @@
                                 {% else %}
                                     {% for subsection in section.subsections %}
                                         <li>
-                                            <a href="{{ subsection.url | flatify | prepend: page.permalink | prepend: site.baseurl }}" class="api">
+                                            <a href="{{ subsection.url | flatify | prepend: site.baseurl }}" class="api">
                                                 {% if subsection.method %}
                                                     <span class="method {{ subsection.method }} method-bullet">{{ subsection.method | upcase | strip_newlines }}</span>
                                                 {% endif %}
@@ -100,7 +97,7 @@
                                 </li>
                         {% else %}
                             <li>
-                                <a href="{{ section.url | flatify | prepend: page.permalink | prepend: site.baseurl }}"
+                                <a href="{{ section.url | flatify | prepend: site.baseurl }}"
                                 {% if section.method %}
                                     class="api">
                                     <span class="method {{ section.method }} method-bullet">{{ section.method | upcase | strip_newlines }}</span>
