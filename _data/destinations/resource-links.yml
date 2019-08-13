@@ -36,6 +36,8 @@ bigquery:
   cost-control: https://cloud.google.com/bigquery/cost-controls
   enable-billing: https://support.google.com/cloud/answer/6288653?hl=en
 
+  reserved-words: https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical#reserved-keywords
+
 
 # -------------------------- #
 #          DATA.WORLD        #
@@ -60,6 +62,7 @@ microsoft-azure:
   pricing: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/gen2/
   price-calculator: "https://azure.microsoft.com/en-us/pricing/calculator/?service=sql-database"
   database-object-limits: "https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits#database-objects"
+  reserved-words: https://docs.microsoft.com/en-us/sql/t-sql/language-elements/reserved-keywords-transact-sql?view=sql-server-2017
 
 
 # -------------------------- #
@@ -73,6 +76,8 @@ panoply:
   documentation: http://panoply.io/documentation/
   status-url: "https://twitter.com/panoplyio?lang=en"
 
+  reserved-words: &redshift-keywords https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html
+
 
 # -------------------------- #
 #          POSTGRESQL        #
@@ -83,6 +88,8 @@ postgres:
   pricing: "/docs/destinations/postgresql#pricing"
   main-site: https://www.postgresql.org/about/
   documentation: https://www.postgresql.org
+
+  reserved-words: https://www.postgresql.org/docs/9.4/sql-keywords-appendix.html
 
   ## Google CloudSQL Postgres Links
   cloudsql-pricing: https://cloud.google.com/bigquery/pricing
@@ -99,6 +106,7 @@ redshift:
   status-url: https://status.aws.amazon.com/
   documentation: https://aws.amazon.com/documentation/redshift/
   redshift-vs-postgres: http://docs.aws.amazon.com/redshift/latest/dg/c_redshift-and-postgres-sql.html
+  reserved-words: *redshift-keywords
 
 
 # -------------------------- #
@@ -113,3 +121,4 @@ snowflake:
   contact-support: mailto:support@snowflake.net
   pricing: https://www.snowflake.net/product/pricing/
   pricing-guide: https://www.snowflake.net/pricing-page-registration-page/
+  reserved-words: https://docs.snowflake.net/manuals/sql-reference/reserved-keywords.html
