@@ -1,0 +1,55 @@
+# -------------------------------- #
+#  RESERVED WORDS FOR DESTINATIONS #
+# -------------------------------- #
+
+## The keywords listed here are reserved or limited.
+
+- name: "{{ system-column.prefix }}"
+  description: "Can't be used in table or column names."
+
+- name: "{{ system-column.rjm-prefix }}"
+  description: "Can't be used in table or column names."
+
+- name: "__bi"
+  description: &changed-types "Can't be used in column names; reserved by Stitch to accommodate changed data types."
+  applies-to: "redshift, panoply, postgres"
+
+- name: "__bo"
+  description: *changed-types
+  applies-to: "redshift, panoply, azure, postgres, bigquery, snowflake"
+
+- name: "__de"
+  description: *changed-types
+  applies-to: "redshift, panoply, azure, postgres, snowflake"
+
+- name: "__do"
+  description: *changed-types
+  applies-to: "redshift, panoply, postgres"
+
+- name: "__fl"
+  description: *changed-types
+  applies-to: "azure, bigquery, snowflake"
+
+- name: "__inst"
+  description: *changed-types
+  applies-to: "microsoft-azure"
+
+- name: "__it"
+  description: *changed-types
+  applies-to: "redshift, panoply, bigquery, postgres, snowflake"
+
+- name: "__nu"
+  description: *changed-types
+  applies-to: "bigquery"
+
+- name: "__st"
+  description: *changed-types
+  applies-to: "redshift, panoply, azure, postgres, bigquery, snowflake"
+
+- name: "__ti"
+  description: *changed-types
+  applies-to: "redshift, panoply, postgres, bigquery, snowflake"
+
+- name: "__va"
+  description: *changed-types
+  applies-to: "snowflake"
