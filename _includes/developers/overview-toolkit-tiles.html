@@ -53,7 +53,7 @@
 		            	<img src="{{ site.baseurl }}/images/icons/{{ item.icon }}.svg">
 		        {% endcase %}
             </a>
-                <strong>{{ item.title | flatify }}</strong><br>
+                <strong>{% if item.display-title %}{{ item.display-title | flatify }}{% else %}{{ item.title | flatify }}{% endif %}</strong><br>
                 {{ item.description | flatify | markdownify }}
 
                 {% unless page.content-type == 'overview' %}
