@@ -12,7 +12,7 @@ layout: general
 toc: true
 
 level: "guide"
-key: "reserved-words"
+key: "reserved-keywords"
 
 weight: 7
 
