@@ -13,8 +13,11 @@ attributes:
 
     **Note**: The number of characters in the table name should be within the destination's allowed limits or data will rejected.
 
+  table-version: |
+    An integer indicating the version of the table. This data will be stored in the destination table in the `{{ system-column.table-version }}` column.
+
   sequence: |
-    An integer that tells the Import API the order in which data points in the request body should be considered. This data will be stored in the destination table in the `{{ system-column.sequence }}` column.
+    An integer that tells the Import API the order in which data points in the request body should be considered for loading. This data will be stored in the destination table in the `{{ system-column.sequence }}` column.
 
   key-names: |
     An array of strings representing the Primary Key fields in the destination table. 
@@ -37,10 +40,15 @@ attributes:
 
 
 request-body-requirements:
-  - description: "Must contain all [required arguments](#push-data--arguments)."
-  - description: "Must contain a valid `client_id`. Each record in the request body must have the same `client_id`."
-  - description: "Must be valid JSON or Transit."
-  - description: "Must be an array (batch) of records. The root cannot be an object."
-  - description: "Must contain between 1 and 20,000 records."
-  - description: "Cannot exceed 4MB in size."
-  - description: "Each `data` object in the request body cannot exceed 10,000 individual data points."
+  common:
+    - "Must contain all [required arguments](#[NAME]-data--arguments)."
+    - "Cannot exceed 4MB in size."
+    - "Each `data` object in the request body must contain between 1 and 20,000 records."
+    - "Each `data` object in the request body cannot exceed 10,000 individual data points."
+
+  push:
+    - "Must contain a valid `client_id`. Each record in the request body must have the same `client_id`."
+    - "Must be an array (batch) of records. The root cannot be an object."
+
+  batch:
+    - "Must contain data only for a single table."
