@@ -35,11 +35,19 @@ description: |
 
   Refer to the [Structuring data for the Import API guide]({{ link.import-api.guides.structure-data | prepend: site.baseurl }}) for instructions and examples.
 
-request-body: |
-  The request body should provide an array (batch) of records to be inserted into the pipeline that adhere to the following:
 
-  {% for requirement in general.request-body-requirements %}
-  - {{ requirement.description | markdownify }}
+accepts-transit: true
+
+request-body: |
+  Additionally, the request body should provide an array (batch) of records to be inserted into the pipeline that adhere to the following:
+
+  {% assign common-request-requirements = site.data.import-api.general.request-body-requirements.common %}
+  {% assign push-request-requirements = site.data.import-api.general.request-body-requirements.push %}
+
+  {% assign all-request-requirements = push-request-requirements | concat: common-request-requirements %}
+
+  {% for requirement in all-request-requirements %}
+  - {{ requirement | flatify | markdownify | replace:"[NAME]","push" }}
   {% endfor %}
 
   
