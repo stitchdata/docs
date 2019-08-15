@@ -1,0 +1,16 @@
+# -------------------------- #
+#         PUSH OBJECT        #
+# -------------------------- #
+
+name: "Batch"
+
+url: "/v2/import/batch"
+
+anchor: "#batch-data"
+
+object-anchor: "#batch--object"
+object: "An object containing a table name, a table schema, and message objects representing records to be pushed to Stitch."
+
+short: &push-short "Pushes data for a specified table to Stitch."
+
+description: *push-short
