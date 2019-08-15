@@ -33,9 +33,14 @@ list:
       The request header must contain the following:
 
       - **Authorization**: Must specify Bearer Auth, e.g. `Bearer: <ACCESS_TOKEN>`
+
+      {% if endpoint.accepts-transit == true %}
       - **Content-Type**: Must specify one of the following:
          - `application/json` - If using JSON
          - `application/transit+json` - If using Transit
+      {% else %}
+      - **Content-Type**: Must specify JSON, e.g. `application/json`
+      {% endif %}
       
       {% endif %}
 
@@ -44,7 +49,7 @@ list:
   - id: "request-body"
     name: "Request Body"
     description: |
-      The request body must be valid JSON or Transit and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
+      The request body must be valid JSON {% unless endpoint.accepts-transit == false %}or Transit {% endunless%}and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
 
       {% if endpoint.request-body %}
       {{ endpoint.request-body | flatify }}
