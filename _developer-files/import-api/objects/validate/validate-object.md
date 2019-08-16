@@ -7,7 +7,7 @@ product-type: "import-api"
 content-type: "api-object"
 endpoint: "validate"
 version: "2"
-order: 1
+order: 3
 
 
 # -------------------------- #
@@ -34,7 +34,7 @@ versions:
 
 available-methods:
   - id: "validate-request"
-    title: "Validate request"
+    title: "Validate a push request"
     method: "post"
     short: "{{ site.data.import-api.core-objects.validate.description | flatify }}"
 

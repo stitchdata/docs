@@ -7,7 +7,7 @@ product-type: "import-api"
 content-type: "api-object"
 endpoint: "batch"
 version: "2"
-order: 1
+order: 2
 
 
 # -------------------------- #

@@ -142,7 +142,7 @@ examples:
                     {
                       "client_id": 7723,
                       "table_name": "customers",
-                      "sequence": 100,
+                      "sequence": 1565880017,
                       "key_names": [
                         "id"
                       ],
@@ -162,7 +162,7 @@ examples:
                     {
                       "client_id": 7723,
                       "table_name": "customers",
-                      "sequence": 106,
+                      "sequence": 1565880017,
                       "data": {
                         "id": 4,
                         "name": "Beamo"
@@ -175,7 +175,7 @@ examples:
                     {
                       "client_id": 7723,
                       "table_name": "customers",
-                      "sequence": 107,
+                      "sequence": 1565838645,
                       "key_names": [
                         "id"
                       ],
@@ -195,7 +195,7 @@ examples:
                     {
                       "client_id": 7723,
                       "table_name": "customers",
-                      "sequence": 106,
+                      "sequence": 1565880017,
                       "data": {
                         "id": 4,
                         "name": "Beamo"
@@ -208,7 +208,7 @@ examples:
                     {
                       "client_id": 7723,
                       "table_name": "orders",
-                      "sequence": 100,
+                      "sequence": 1565838645,
                       "key_names": [
                         "order_id"
                       ],

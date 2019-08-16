@@ -14,7 +14,7 @@ version: "2"
 #       METHOD DETAILS       #
 # -------------------------- #
 
-title: "Validate request"
+title: "Validate a push request"
 method: "post"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url | flatify }}
@@ -22,9 +22,11 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.status.short | flatify }}"
 description: |
-  {{ site.data.import-api.core-objects.validate.description | flatify | markdownify }}
+  {{ site.data.import-api.core-objects.validate.description | flatify | markdownify }} 
 
-  **Note**: Regardless of whether the Import API is functional, this endpoint will never return a `503 Service Unavailable` response. Use the [Status endpoint]({{ site.data.import-api.core-objects.api-status.anchor }}) to determine if the Import API is experiencing issues.
+  Regardless of whether the Import API is functional, this endpoint will never return a `503 Service Unavailable` response. Use the [Status endpoint]({{ site.data.import-api.core-objects.api-status.anchor }}) to determine if the Import API is experiencing issues.
+
+  **Note**: With the exception of not persisting data, this endpoint is functionally identical to the [Push endpoint]({{ site.data.import-api.core-objects.push.anchor }}). The Validate endpoint will not work if a request body intended for the [Batch endpoint]({{ site.data.import-api.core-objects.batch.anchor }}) is sent.
 
 
 request-body: |
