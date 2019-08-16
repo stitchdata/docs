@@ -22,6 +22,12 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.push.short | flatify }}"
 description: |
+  {% capture notice %}
+  We recommend using the [Create a batch]({{ site.data.import-api.core-objects.batch.anchor }}) endpoint instead. The Batch endpoint allows you to specify a schema and enforce data types, while this endpoint does not.
+  {% endcapture %}
+
+  {% include note.html first-line="**Need to enforce data types?**" content=notice %}
+
   {{ site.data.import-api.core-objects.push.description | flatify | markdownify }}
 
   When data for a table is pushed for the first time, Stitch will create the table in the destination in the specified integration schema.
