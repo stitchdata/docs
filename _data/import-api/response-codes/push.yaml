@@ -43,6 +43,19 @@ all:
           }
           ```
 
+      - method: "post"
+        condition: "Integration is paused or has been deleted"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Forbidden",
+            "errors": {
+              "error": "Connection is not active."
+            }
+          }
+          ```
+
   - code: "403"
     responses:
       - method: "post"
