@@ -14,10 +14,15 @@ layout: page
 {% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign docs = all-docs | where:"content-type",page.content-type | sort:"order" %}
 
+{% include misc/data-files.html %}
 
 {% for doc in docs %}
     {% if doc.title != "" %}
-        <h2 id="{{ doc.title | downcase | replace: " ", "-" | replace: ".", "-" }}">
+        {% if doc.anchor %}
+            <h2 id="{{ doc.anchor }}">
+        {% else %}
+            <h2 id="{{ doc.title | downcase | slugify }}">
+        {% endif %}
             {{ doc.title }}
         </h2>
     {% endif %}
@@ -74,5 +79,7 @@ layout: page
         {% include {{doc.include}} %}
     {% endif %}
 
-    <hr>
+    {% unless forloop.last == true %}
+        <hr>
+    {% endunless %}
 {% endfor %}
