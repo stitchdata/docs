@@ -12,7 +12,7 @@ sections:
 
       This API is a RESTful, method-oriented API that allows you to push data from a source (including those Stitch doesn't currently have an integration for) and send it to Stitch. Each endpoint uses standard HTTP verbs like GET and POST, and will return standard HTTP response codes to indicate request status or errors.
 
-      The API is built to accept JSON or Transit requests and to return JSON in all responses, including errors.
+      The API is built to accept JSON requests and to return JSON in all responses, including errors.
 
   - title: "API functionality"
     anchor: "api-funcitonality"
@@ -21,7 +21,7 @@ sections:
 
       - Push data from a source to Stitch
       - Check the status of the Import API
-      - Validate requests and batches without persisting them to Stitch
+      - Validate push requests and batches without persisting them to Stitch
 
   - title: "Accessing the API"
     anchor: "access-the-api"
