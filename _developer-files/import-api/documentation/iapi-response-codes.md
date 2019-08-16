@@ -2,6 +2,8 @@
 title: Response Codes
 product-type: "import-api"
 content-type: "api-doc"
+
+anchor: "all-response-codes"
 order: 4
 
 sections:
@@ -36,18 +38,18 @@ sections:
           }
           ```
 
-          In the Import API documentation, this is referred to as a [Batch Status object]({{ site.data.import-api.api.data-structures.batch-status.section }}).
+          In the Import API documentation, this is referred to as a [Batch Status object]({{ site.data.import-api.data-structures.batch-status.section }}).
 
 
       - title: "Error message formats"
         anchor: "error-message-formats"
         content: |
-          For error responses (codes in the `4xx` range), the API will return error messages in JSON format. In the Import API documentation, this is referred to as an [Error object]({{ site.data.import-api.api.data-structures.error.section }}).
+          For error responses (codes in the `4xx` range), the API will return error messages in JSON format. In the Import API documentation, this is referred to as an [Error object]({{ site.data.import-api.data-structures.error.section }}).
 
           Some error messages may be returned as strings:
 
           ```json
-          Method not allowed
+          Content-Type must be application/json
           ```
 
           While others may be JSON objects:
@@ -67,5 +69,5 @@ sections:
         content: |
           The text in error messages will vary by root cause and endpoint.
 
-          Each endpoint section contains a rollup of the errors specific to that endpoint. Refer to the documentation for the endpoint for specifics on errors, their possible causes, and the messages the API will return.
+          Each endpoint section contains a list of the errors specific to that endpoint. Refer to the documentation for the endpoint for specifics on errors, their possible causes, and the messages the API will return.
 ---

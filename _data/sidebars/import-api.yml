@@ -57,7 +57,19 @@ api:
         drop-down: false
 
       - title: "Response codes"
-        url: "{{ link.import-api.api }}#response-codes"
+        drop-down: true
+        sections:
+          - title: "Response codes"
+            url: "{{ link.import-api.api }}#all-response-codes"
+
+          - title: "Response message format"
+            url: "{{ link.import-api.api }}#response-error-message-formats"
+
+          - title: "Error message format"
+            url: "{{ link.import-api.api }}#error-message-formats"
+
+          - title: "Error message text"
+            url: "{{ link.import-api.api }}#error-message-text"
 
       - title: "Versioning"
         url: "{{ link.import-api.api }}#versioning"
