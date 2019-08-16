@@ -94,9 +94,11 @@ arguments:
 
   - name: "key_names"
     type: "array"
-    required: true
+    required: false
     description: |
-      An array of strings representing the Primary Key fields in the source table. **Note**: A value must be provided, but it may be an empty list to indicate that the source table doesn't have a Primary Key.
+      An array of strings representing the Primary Key fields in the source table. Stitch use these Primary Keys to de-dupe data during loading. If not provided, the table will be loaded in an append-only manner.
+
+      **Note**: If included, a value must be provided. However, it may be an empty list to indicate that the source table doesn't have a Primary Key.
 
       If fields are provided, they must adhere to the following:
 
@@ -254,9 +256,6 @@ examples:
                                 "has_magic":false
                              }
                           }
-                       ],
-                       "key_names":[
-
                        ]
                     }
 
