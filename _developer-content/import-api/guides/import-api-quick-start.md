@@ -27,11 +27,14 @@ description: "Generate your Import API credentials and push your first batch of 
 # -------------------------- #
 
 related:
-  - title: "Stitch Import API Access Tokens"
+  - title: "Stitch Import API access tokens"
     link: "{{ link.import-api.guides.access-tokens | prepend: site.baseurl }}"
 
-  - title: "Structuring Data for the Import API"
+  - title: "Structuring and typing data for the Import API"
     link: "{{ link.import-api.guides.structure-data | prepend: site.baseurl }}"
+
+  - title: "Sequencing data for the Import API"
+    link: "{{ link.import-api.guides.sequence-data | prepend: site.baseurl }}"
 
   - title: "Import API reference"
     link: "{{ link.import-api.api | prepend: site.baseurl }}"
@@ -65,22 +68,11 @@ steps:
   - title: "Obtain your API credentials"
     anchor: "obtain-api-credentials"
     content: |
-      The Import API uses your Stitch client ID and an API access token to authenticate requests. In this step, you'll retrieve your client ID, create an Import API integration in your Stitch account, and generate an API access token.
+      The Import API uses an API access token to authenticate requests. In this step, you'll create an Import API integration in your Stitch account and generate an API access token.
 
-    substeps:
-      - title: "Retrieve your Stitch client ID"
-        anchor: "retrieve-stitch-client-id"
-        content: |
-          Your Stitch client ID is the unique ID associated with your Stitch account. Your client ID must be provided for every record contained in a request body.
+      We're using the Stitch app to generate the access token, but you can also use the [Connect API if your Stitch account has access]({{ link.connect.guides.create-import-api-source | prepend: site.baseurl }}).
 
-          {{ site.data.import-api.general.attributes.client-id | remove: "The Stitch client ID associated with your Stitch account." }}
-
-      - title: "Generate an Import API access token"
-        anchor: "generate-import-api-access-token"
-        content: |
-          Next, you'll generate an Import API access token. We're using the Stitch app to generate the access token, but you can also use the [Connect API if your Stitch account has access]({{ link.connect.guides.create-import-api-source | prepend: site.baseurl }}).
-
-          {% include developers/import-api/obtaining-credentials.html type="generate-new-access-token" %}
+      {% include developers/import-api/obtaining-credentials.html type="generate-new-access-token" %}
 
   - title: "Check the status of the Import API"
     anchor: "check-import-api-status"
@@ -101,33 +93,12 @@ steps:
 
       If the Import API returns a `5xx` response, check the [Stitch Status page]({{ site.status }}){:target="new"} for reported outages and try again later.
 
-  - title: "Make a test API request"
-    anchor: "send-test-api-request"
-    content: |
-      In this step, you'll send a test request to the Import API using the [Validate request]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.validate.anchor }}) endpoint.
-
-      The Validate request endpoint allows you to validate your API access token and the data you want to send without it being persisted to Stitch. This is useful for testing during development.
-
-      In the example below, the request is sending a single record for a table named `customers`:
-
-      ```json
-      {{ site.data.import-api.code-examples.requests.validate-request | flatify | strip }}
-      ```
-
-      If your API credentials and the data in the request are both valid, the Import API will return a `200 OK` status and a [Batch Status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.data-structures.batch-status.section }}) object with a `Batch is valid!` message:
-
-      ```json
-      {{ site.data.import-api.code-examples.responses.validate-request | flatify | strip }}
-      ```
-
-      If an error is returned, refer to the [errors for the Validate request endpoint]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.validate.anchor | append: "--returns" }}) to identify and resolve the issue.
-
-  - title: "Push data to Stitch"
+  - title: "Push a batch of data to Stitch"
     anchor: "push-data-to-stitch"
     content: |
-      Once your test request is successful, you're ready to send data to Stitch.
+      To push data to Stitch, use the [Create a batch]({{ site.data.import-api.core-objects.batch.anchor | prepend: link.import-api.api | prepend: site.baseurl }}) endpoint. This endpoint uses a JSON schema to validate and type the data in the records sent to the Import API.
 
-      To push data to the Import API, use the [Push data]() endpoint. This endpoint is identical to the Validate request endpoint, but requests will be persisted to Stitch. Once the request is processed, data will be loaded into the destination connected to the account.
+      Once the request is processed, data will be loaded into the destination connected to your Stitch account.
 
       In the example below, the request will send a single record for the `customers` table to the Import API:
 
@@ -135,15 +106,19 @@ steps:
       {{ site.data.import-api.code-examples.requests.push-data | flatify }}
       ```
 
-      If successful, the Import API will return a `201 Created` or `202 Accepted` status and a [Batch Status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.data-structures.batch-status.section }}) object:
+      If successful, the Import API will return a `2xx` status and a [Batch Status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.data-structures.batch-status.section }}) object:
 
-      ```json
-      /* 201 Created */
-      {{ site.data.import-api.code-examples.responses.push-data.batch-created }}
+      {% assign response-codes = site.data.import-api.response-codes.general-codes.all-codes %}
 
-      /* 202 Accepted */
-      {{ site.data.import-api.code-examples.responses.push-data.batch-accepted }}
-      ```
+      {% for response-code in response-codes %}
+      {% if response-code.code == "201" or response-code.code == "202" %}
+      {% assign text = response-code.text | downcase %}
+      - `{{ response-code.code }}` - {{ response-code.description }}
+        ```json
+        {{ site.data.import-api.code-examples.responses[text] | strip }}
+        ```
+      {% endif %}
+      {% endfor %}
 
   - title: "Verify the data in the destination"
     anchor: "verify-data-destination"
@@ -178,5 +153,8 @@ steps:
       ---
 
 next-steps: |
-  Congratulations on pushing your first batch of data! Check out the other [Import API guides]({{ link.import-api.category | prepend: site.baseurl }}) to get started building your own project.
+  Congratulations on pushing your first batch of data! Next, we recommend checking out:
+
+  - [**Structuring data for the Import API**]({{ link.import-api.guides.structure-data | prepend: site.baseurl }}): Learn how to structure and type data in your Import API requests.
+  - [**Sequencing data for the Import API**]({{ link.import-api.guides.sequence-data | prepend: site.baseurl }}): Learn how the Import API considers data points for loading, which affects how data is updated in your destination.
 ---

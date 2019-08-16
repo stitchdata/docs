@@ -18,15 +18,15 @@ validate-request: |
   }
 
 
-push-data:
-  batch-created: |
-    {
-      "status": "OK",
-      "message": "Batch Accepted!"
-    }
 
-  batch-accepted: |
-    {
-      "status": "Accepted",
-      "message": "The batch is queued to be processed."
-    }
+created: |
+  {
+    "status": "OK",
+    "message": "Batch Accepted!"
+  }
+
+accepted: |
+  {
+    "status": "Accepted",
+    "message": "The batch is queued to be processed."
+  }
