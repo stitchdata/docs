@@ -1,3 +1,9 @@
+# -------------------------- #
+#   GENERAL RESPONSE CODES   #
+# -------------------------- #
+
+## The general response codes for the Import API.
+
 all-codes:
   - code: "200"
     text: "OK"
@@ -58,7 +64,7 @@ all-codes:
     description: |
       The content header of the request didn't specify a supported media type, or specified an unsupported media type.
 
-      The Import API supports JSON (`application/json`) and Transit (`application/transit+json`).
+      The Import API supports JSON (`application/json`) and Transit (`application/transit+json`). **Note**: Only the [Push]({{ site.data.import-api.core-objects.push.anchor }}) and [Validate push request]({{ site.data.import-api.core-objects.validate.anchor }}) endpoints accept Transit.
 
   - code: "422"
     text: "Unprocessable Entity"
