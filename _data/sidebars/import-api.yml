@@ -85,6 +85,17 @@ api:
                 method: "post"
                 url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.anchor }}"
 
+          - title: "Push a batch of data to Stitch"
+            expand-by-default: true
+            subsections:
+              - title: "Batch object"
+                method: "object"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.batch.object-anchor }}"
+
+              - title: "Create a batch"
+                method: "post"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.batch.anchor }}"
+
           - title: "Push data to Stitch"
             expand-by-default: true
             subsections:
@@ -110,6 +121,14 @@ api:
           - title: "Error object"
             method: "object"
             url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.error.section }}"
+
+          - title: "Message object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.message.section }}"
+
+          - title: "Schema object"
+            method: "object"
+            url: "{{ link.import-api.api }}{{ site.data.import-api.data-structures.schema.section }}"
 
       - title: "Resources"
         expand-by-default: false
