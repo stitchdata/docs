@@ -34,7 +34,7 @@ versions:
 
 available-methods:
   - id: "batch-data"
-    title: "Batch data"
+    title: "Create a batch"
     method: "post"
     short: "{{ site.data.import-api.core-objects.batch.description | flatify }}"
 

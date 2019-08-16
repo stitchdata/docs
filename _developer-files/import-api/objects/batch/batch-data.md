@@ -14,7 +14,7 @@ version: "2"
 #       METHOD DETAILS       #
 # -------------------------- #
 
-title: "Batch data"
+title: "Create a batch"
 method: "post"
 short-url: |
   /v{{ object.version }}{{ object.endpoint-url | flatify }}
@@ -33,7 +33,7 @@ description: |
 
      **Note**: Append-only loading will also occur if Primary Key fields aren't specified in the `key_names` property.
 
-  #### Structuring request body data {#push--structure-request-body-data}
+  #### Structuring request body data {#batch--structure-request-body-data}
 
   Refer to the [Structuring data for the Import API guide]({{ link.import-api.guides.structure-data | prepend: site.baseurl }}) for instructions and examples.
 
