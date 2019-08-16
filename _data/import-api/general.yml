@@ -19,6 +19,8 @@ attributes:
   sequence: |
     An integer that tells the Import API the order in which data points in the request body should be considered for loading. This data will be stored in the destination table in the `{{ system-column.sequence }}` column.
 
+    **Note**: This value cannot exceed the maximum of `9223372036854775807`.
+
   key-names: |
     An array of strings representing the Primary Key fields in the destination table. 
 
