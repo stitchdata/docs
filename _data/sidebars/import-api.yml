@@ -74,18 +74,7 @@ api:
                 method: "get"
                 url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.api-status.anchor }}"
 
-          - title: "Validate requests"
-            expand-by-default: true
-            subsections:
-              - title: "Validation object"
-                method: "object"
-                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.object-anchor }}"
-
-              - title: "Validate a request"
-                method: "post"
-                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.anchor }}"
-
-          - title: "Push a batch of data to Stitch"
+          - title: "Send a batch of data to Stitch"
             expand-by-default: true
             subsections:
               - title: "Batch object"
@@ -95,6 +84,17 @@ api:
               - title: "Create a batch"
                 method: "post"
                 url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.batch.anchor }}"
+
+          - title: "Validate push requests"
+            expand-by-default: true
+            subsections:
+              - title: "Validation object"
+                method: "object"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.object-anchor }}"
+
+              - title: "Validate a push request"
+                method: "post"
+                url: "{{ link.import-api.api }}{{ site.data.import-api.core-objects.validate.anchor }}"
 
           - title: "Push data to Stitch"
             expand-by-default: true
