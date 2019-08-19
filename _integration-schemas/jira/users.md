@@ -31,23 +31,6 @@ attributes:
     type: "boolean"
     description: "Indicates if the user is active."
 
-  - name: "applicationRoles"
-    type: "object"
-    description: "Application roles associated with the user."
-    subattributes:
-      - name: "items"
-        type: "array"
-        description: "A list of application roles associated with the user."
-        anchor-id: 1
-        subattributes:
-          - name: "name"
-            type: "string"
-            description: "The name of the application role."
-
-          - name: "self"
-            type: "string"
-            description: "The URL of the application role."
-
       - name: "max-results"
         type: "integer"
         description: ""
@@ -84,27 +67,6 @@ attributes:
     type: "string"
     description: "The user's email address. Depending on the user's privacy settings, this may be returned as null."
 
-  - name: "expand"
-    type: "string"
-    description: "Details of expands available for the user."
-
-  - name: "groups"
-    type: "object"
-    description: "Details about the groups the user is associated with."
-    subattributes:
-      - name: "items"
-        type: "array"
-        description: "The groups the user is associated with."
-        anchor-id: 2
-        subattributes:
-          - name: "name"
-            type: "string"
-            description: "The name of the group."
-
-          - name: "self"
-            type: "string"
-            description: "The URL for the group."
-
       - name: "max-results"
         type: "integer"
         description: ""
@@ -116,10 +78,6 @@ attributes:
   - name: "key"
     type: "string"
     description: "The key of the user."
-
-  - name: "locale"
-    type: "string"
-    description: "The locale of the user. Depending on the user's privacy setting, this may be returned as null."
 
   - name: "name"
     type: "string"
