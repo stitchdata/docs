@@ -34,7 +34,7 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2008R2 - 2017; 2008+ for Change Tracking"
+versions: "2012 - 2017; 2012+ for Change Tracking"
 ssh: true
 ssl: true
 
