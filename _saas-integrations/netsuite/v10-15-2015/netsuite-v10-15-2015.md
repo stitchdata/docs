@@ -33,7 +33,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 
 table-selection: true
 column-selection: false

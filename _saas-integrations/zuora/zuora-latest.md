@@ -29,7 +29,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 status-url: "http://trust.zuora.com/"
 
 table-selection: true

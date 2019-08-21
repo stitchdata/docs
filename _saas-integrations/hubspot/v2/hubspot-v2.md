@@ -29,7 +29,7 @@ certified: true
 
 historical: "30 days"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 status-url: https://status.hubspot.com/
 
 table-selection: true

@@ -40,10 +40,12 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free/Paid"
+tier: "Free/Standard/Enterprise"
 status-url: ""
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

@@ -30,7 +30,7 @@ certified: true
 
 frequency: "1 hour"
 historical: "1 year"
-tier: "Paid"
+tier: "Standard"
 whitelist-ips: true
 
 anchor-scheduling: true

@@ -34,7 +34,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 status-url: "http://status.close.io/"
 
 attribution-window: "24 hours"
