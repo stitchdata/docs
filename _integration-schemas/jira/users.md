@@ -30,7 +30,7 @@ attributes:
   - name: "active"
     type: "boolean"
     description: "Indicates if the user is active."
-
+    subattributes:
       - name: "max-results"
         type: "integer"
         description: ""
@@ -66,7 +66,7 @@ attributes:
   - name: "emailAddress"
     type: "string"
     description: "The user's email address. Depending on the user's privacy settings, this may be returned as null."
-
+    subattributes:
       - name: "max-results"
         type: "integer"
         description: ""
