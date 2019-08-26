@@ -53,7 +53,7 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "2008"
+log-based-replication-minimum-version: "2012"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
