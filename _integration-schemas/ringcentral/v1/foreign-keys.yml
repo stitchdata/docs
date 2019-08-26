@@ -1,0 +1,15 @@
+---
+tap-reference: "ringcentral"
+
+# version: "1.0"
+
+foreign-keys: 
+  - id: "contact-id"
+    attribute: "_contact_id"
+    table: "contacts"
+    all-foreign-keys:
+      - table: "contacts"
+        join-on: "id"
+      - table: "messages"
+        join-on: "_contact_id"
+---
