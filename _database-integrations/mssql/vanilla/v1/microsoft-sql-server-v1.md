@@ -34,7 +34,7 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2012 - 2017; 2012+ for Change Tracking"
+versions: "2012 through 2017"
 ssh: true
 ssl: true
 
@@ -72,10 +72,12 @@ view-replication: true
 
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+
+  - item: "**A database running {{ integration.display_name }} version {{ page.versions }}.** {{ integration.display_name }} 2012 is the miminum version that Stitch supports for this type of integration."
+
   - item: |
       **If using Log-based Incremental Replication**, you'll need:
 
-      - **A database running {{ integration.display_name }} {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of {{ integration.display_name }} don't include Change Tracking functionality which is required for Log-based Incremental Replication.
       - **The `ALTER DATABASE` privilege in {{ integration.display_name }}.** This is required to complete the setup for Log-based Incremental Replication.
   - item: |
       **A server that**:
