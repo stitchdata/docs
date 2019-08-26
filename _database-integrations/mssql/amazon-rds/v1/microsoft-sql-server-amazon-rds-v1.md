@@ -33,7 +33,7 @@ db-type: "mssql"
 
 # Stitch features
 
-versions: "2012 - 2017; 2012+ for Change Tracking"
+versions: "2012 through 2017"
 ssh: true
 ssl: true
 
@@ -53,7 +53,7 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "2008"
+log-based-replication-minimum-version: "2012"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -76,10 +76,12 @@ requirements-list:
         - Create/manage Security Groups, which is required to whitelist Stitch's IP addresses.
         - View database details, which is required for retrieving the database's connection details.
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+
+  - item: "**A database running {{ integration.display_name }} version {{ page.versions }}.** {{ integration.display_name }} 2012 is the miminum version that Stitch supports for this type of integration."
+
   - item: |
       **If using Log-based Incremental Replication**, you'll need:
 
-      - **A database running Microsoft SQL Server {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of Microsoft SQL Server don't include Change Tracking functionality which is required for Log-based Incremental Replication.
       - **The `ALTER DATABASE` privilege in Microsoft SQL Server.** This is required to complete the setup for Log-based Incremental Replication.
 
 ## Based on this AWS doc, enabling mixed mode auth shouldn't be necessary:
