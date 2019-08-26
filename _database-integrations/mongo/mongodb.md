@@ -26,7 +26,7 @@ status: "Released"
 certified: true
 
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 port: 27017
 db-type: "mongo"
 

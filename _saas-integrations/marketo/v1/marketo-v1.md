@@ -27,7 +27,7 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 status-url: http://status.marketo.com/
 
 table-selection: true

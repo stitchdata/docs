@@ -38,12 +38,12 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Paid"
+tier: "Standard"
 status-url: "https://status.recurly.com/"
 
 anchor-scheduling: true
