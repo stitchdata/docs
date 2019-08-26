@@ -22,7 +22,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The call log record ID."
 
   - name: "_contact_id"
     type: "integer"
@@ -30,55 +30,55 @@ attributes:
 
   - name: "action"
     type: "string"
-    description: ""
+    description: "The type of call operation."
 
   - name: "deleted"
     type: "anything"
-    description: ""
+    description: "Deleted calls. This value will return 'True' only if a call was deleted."
 
   - name: "direction"
     type: "string"
-    description: ""
+    description: "The call direction - inbound or outbound."
 
   - name: "duration"
     type: "integer"
-    description: ""
+    description: "The duration of the call recorded, in seconds."
 
   - name: "extension"
     type: "object"
-    description: ""
+    description: "The extension of the person a call was made on behalf of."
     subattributes:
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The internal ID of the caller extension."
 
       - name: "uri"
         type: "string"
-        description: ""
+        description: "The link to the extension."
 
   - name: "from"
     type: "object"
-    description: ""
+    description: "The caller."
     subattributes:
       - name: "location"
         type: "string"
-        description: ""
+        description: "The city of the caller's area code, if the phoneNumber field is not empty."
 
       - name: "name"
         type: "string"
-        description: ""
+        description: "The name of the caller."
 
       - name: "phoneNumber"
         type: "string"
-        description: ""
+        description: "The caller's phone number."
 
   - name: "message"
     type: "anything"
-    description: ""
+    description: "The linked voicemail/fax message."
 
   - name: "reason"
     type: "anything"
-    description: ""
+    description: "The reason of a call result."
 
   - name: "reasonDescription"
     type: "anything"
@@ -86,37 +86,37 @@ attributes:
 
   - name: "result"
     type: "string"
-    description: ""
+    description: "The status of the call operation."
 
   - name: "sessionId"
     type: "string"
-    description: ""
+    description: "The call session ID."
 
   - name: "startTime"
     type: "date-time"
-    description: ""
+    description: "The start datetime of a call. This value is in ISO 8601 format, including the timezone."
 
   - name: "to"
     type: "object"
-    description: ""
+    description: "The callee."
     subattributes:
       - name: "location"
         type: "string"
-        description: ""
+        description: "The city of the callee's area code, if the phoneNumber field is not empty."
 
       - name: "name"
         type: "string"
-        description: ""
+        description: "The name of the callee."
 
       - name: "phoneNumber"
         type: "string"
-        description: ""
+        description: "The callee's phone number."
 
   - name: "type"
     type: "string"
-    description: ""
+    description: "The call type - voice or fax."
 
   - name: "uri"
     type: "string"
-    description: ""
+    description: "The canonical URI of a call log record."
 ---

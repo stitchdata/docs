@@ -23,6 +23,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: ""
+    foreign-key-id: "contact-id"
 
   - name: "account"
     type: "object"
@@ -34,31 +35,31 @@ attributes:
 
   - name: "email"
     type: "string"
-    description: ""
+    description: "The contact's email address."
 
   - name: "extensionNumber"
     type: "integer"
-    description: ""
+    description: "The contact's phone number extension."
 
   - name: "firstName"
     type: "string"
-    description: ""
+    description: "The contact's first name."
 
   - name: "jobTitle"
     type: "string"
-    description: ""
+    description: "The contact's job title."
 
   - name: "lastName"
     type: "string"
-    description: ""
+    description: "The contact's last name."
 
   - name: "name"
     type: "string"
-    description: ""
+    description: "The contact's name, for non-user extensions."
 
   - name: "phoneNumbers"
     type: "array"
-    description: ""
+    description: "The contact's phone numbers."
     subattributes:
       - name: "phoneNumber"
         type: "string"
@@ -70,7 +71,7 @@ attributes:
 
       - name: "usageType"
         type: "string"
-        description: ""
+        description: "The phone number's category."
 
   - name: "status"
     type: "string"
