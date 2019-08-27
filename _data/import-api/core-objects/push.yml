@@ -14,3 +14,22 @@ object: "An object containing table information, your client ID, and data object
 short: &push-short "Pushes data for a specified table or tables to Stitch."
 
 description: *push-short
+
+# -------------------------- #
+#     ENDPOINT COMPARISON    #
+# -------------------------- #
+
+## Used to compare against the Batch endpoint.
+
+comparison:
+  requires-primary-keys:
+    support: |
+      {{ supported }} **Required**
+    note: "Defined using the `key_properties` property. Each record for the specified table must have a unique, non-null Primary Key value."
+  enforces-data-types:
+    support: false
+    note: |
+      Data types are assigned according to the value's JSON data type. No strict enforcement occurs. Refer to the [Push endpoint data typing section](#push-data-endpoint-data-typing) for more info.
+  accepts-multiple-tables:
+    support: true
+    note: "Requests may contain data for multiple tables."
