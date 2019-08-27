@@ -12,4 +12,17 @@ foreign-keys:
         join-on: "id"
       - table: "messages"
         join-on: "_contact_id"
+      - table: "call_log" 
+        join-on: "_contact_id" 
+      - table: "company_call_log" 
+        join-on: "_contact_id" 
+
+  - id: "session-id"
+    attribute: "sessionId"
+    table: ""  
+    all-foreign-keys:
+      - table: "call_log"   
+        join-on: "sessionId"
+      - table: "company_call_log"
+        join-on: "sessionId"  
 ---

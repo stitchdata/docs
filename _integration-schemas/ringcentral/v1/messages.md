@@ -7,7 +7,7 @@ name: "messages"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-ringcentral/blob/master/tap_ringcentral/schemas/messages.json"
 description: |
-  The `{{ table.name }}` contains info about 
+  The `{{ table.name }}` contains info about an extension mailbox's messages.
 
 replication-method: "Key-based Incremental"
 
@@ -43,7 +43,9 @@ attributes:
 
   - name: "conversationId"
     type: "anything"
+    primary-key: true
     description: "The conversation ID."
+
 
   - name: "coverIndex"
     type: "integer"

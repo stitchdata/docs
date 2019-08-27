@@ -27,6 +27,7 @@ attributes:
   - name: "_contact_id"
     type: "integer"
     description: ""
+    foreign-key-id: "contact-id"
 
   - name: "action"
     type: "string"
@@ -95,6 +96,7 @@ attributes:
   - name: "sessionId"
     type: "string"
     description: "The call session ID."
+    foreign-key-id: "session-id"
 
   - name: "startTime"
     type: "date-time"

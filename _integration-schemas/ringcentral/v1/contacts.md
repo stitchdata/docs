@@ -7,7 +7,7 @@ name: "contacts"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-ringcentral/blob/master/tap_ringcentral/schemas/contacts.json"
 description: |
-  The `{{ table.name }}` contains info about 
+  The `{{ table.name }}` contains info about corporate users of federated accounts.
 
 replication-method: "Key-based Incremental"
 
