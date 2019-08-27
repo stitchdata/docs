@@ -31,7 +31,7 @@ you'll also need to define its [Replication Method]({{ link.replication.rep-meth
 <!-- For Mongo! -->
 
 {% capture object-selection-action %}
-you'll also need to define its [Replication Key]({{ rep-key | prepend: site.baseurl }}). {% if integration.name == "mongodb" %}**Note**: Any table set to replicate will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). Stitch doesn't currently support other Replication Methods for {{ integration.display_name }} integrations.{% endif %}
+you'll also need to define its [Replication Key]({{ rep-key | prepend: site.baseurl }}). {% if integration.name == "mongodb" %}**Note**: Any table set to replicate will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). Stitch doesn't currently support other Replication Methods for this version (v{{ integration.this-version }}) of the {{ integration.display_name }} integration.{% endif %}
 {% endcapture %}
 {% endcase %}
 
@@ -57,7 +57,7 @@ You can select {{ object }}s {% unless integration.column-selection == false %}a
 3. {{ app.menu-paths.sync }}
 4. If there are child objects, they'll automatically display and you'll be prompted to select some.
 5. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
-{% if integration.name == "mongodb" %}
+{% if integration.name == "mongodb" and integration.define-replication-methods == false %}
 6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Key**.
 {% else %}
 {% if integration.key-based-incremental-replication == false %}
@@ -70,7 +70,7 @@ You can select {{ object }}s {% unless integration.column-selection == false %}a
    {% if integration.name == "mongodb" %}
    {% capture mongo-rep-key-notice %}
    **Missing Replication Key Fields**<br>
-   If you don't see the field you want to use in the Replication Key drop-down, verify that the field is both indexed and in the root of the document. Refer to the [Mongo Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) for more info.
+   Verify that the field is both indexed and in the root of the document if it's missing from the Replication Key dropdown. Refer to the [MongoDB Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) for more info.
    {% endcapture %}
 
    {% include tip.html content=mongo-rep-key-notice %}
