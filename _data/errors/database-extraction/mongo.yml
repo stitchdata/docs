@@ -1,0 +1,35 @@
+# -------------------------- #
+#  MongoDB Extraction Errors #
+# -------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a MongoDB-backed database.
+
+raw-error:
+  replication-key-type: &rep-key-type "[DATA_TYPE] is not a supported replication key type"
+
+  local-not-authorized: &local-not-authorized "not authorized on local to execute command { <COMMAND> }"
+
+# '[VALUE]' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+
+all:
+  - message: *rep-key-type
+    id: "unsupported-rep-key-type"
+    meaning: |
+      A Replication Key field contains an incompatible data type. [Stitch requires MongoDB Replication Keys](https://github.com/singer-io/tap-mongodb/blob/master/tap_mongodb/sync_strategies/common.py#L77){:target="new"} to be `DATE-TIME`, `INTEGER`, `TIMESTAMP`, or `ObjectId` fields.
+    fix-it: |
+      1. Select a different Replication Key for the collection, or
+      2. Convert the data to a supported Replication Key data type, if possible.
+
+  - message: *local-not-authorized
+    id: "local-not-authorized"
+    meaning: |
+      The Stitch MongoDB database user isn't authorized to execute commands on the `local` database. This is required to successfully replicate data.
+    fix-it: |
+      Grant the Stitch MongoDB database user `read` access to the `local` database using [`grantRolesToUser`](https://docs.mongodb.com/v4.0/reference/method/db.grantRolesToUser/){:target="new"}:
+
+      ```javascript
+      db.grantRolesToUser( "stitch", {role: "read", db: "local"} )
+      ```
+
+      **Note**: You need the [`grantRole` action](https://docs.mongodb.com/v4.0/reference/privilege-actions/#grantRole){:target="new"} on a database to perform `grantRolesToUser`.
