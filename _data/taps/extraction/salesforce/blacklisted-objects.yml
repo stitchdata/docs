@@ -6,6 +6,7 @@ list:
     reason: |
       The following objects require a querying strategy that Stitch doesn't currently support. [Read more here](https://github.com/singer-io/tap-salesforce/blob/master/Blacklisting.md#query-restricted-objects){:target="new"}.
     objects:
+      - name: "Announcement"
       - name: "CollaborationGroupRecord"
       - name: "ContentDocumentLink"
       - name: "ContentFolderMember"
@@ -20,6 +21,7 @@ list:
       - name: "RelationshipDomain"
       - name: "RelationshipInfo"
       - name: "SearchLayout"
+      - name: "SiteDetail"
       - name: "UserEntityAccess"
       - name: "UserFieldAccess"
       - name: "Vote"
