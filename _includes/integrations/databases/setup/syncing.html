@@ -53,17 +53,17 @@ For this reason, we recommend connecting only read replicas to Stitch to prevent
 You can select {{ object }}s {% unless integration.column-selection == false %}and {{ col }}s{% endunless %} by:
 
 1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables }} tab.
-2. Locate a {{ object }} you want to replicate.
-3. {{ app.menu-paths.sync }}
-4. If there are child objects, they'll automatically display and you'll be prompted to select some.
-5. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
+1. Locate a {{ object }} you want to replicate.
+1. {{ app.menu-paths.sync }}
+1. If there are child objects, they'll automatically display and you'll be prompted to select some.
+1. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
 {% if integration.name == "mongodb" and integration.define-replication-methods == false %}
-6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Key**.
+1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Key**.
 {% else %}
 {% if integration.key-based-incremental-replication == false %}
-6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %} or skip this step if you want to use the integration's default method{% endif %}.
+1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %} or skip this step if you want to use the integration's default method{% endif %}.
 {% else %}
-6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method** and, if using Key-based Incremental Replication, its **Replication Key**.
+1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method** and, if using Key-based Incremental Replication, its **Replication Key**.
 {% endif %}
 {% endif %}
 
@@ -74,8 +74,11 @@ You can select {{ object }}s {% unless integration.column-selection == false %}a
    {% endcapture %}
 
    {% include tip.html content=mongo-rep-key-notice %}
+{% if integration.column-selection == true %}
+1. **Optional**: Select or exclude fields by entering a projection query in the **Fields to Replicate** section. Refer to the [Selecting MongoDB Fields Using Projection Queries guide]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) for instructions and examples.
+{% endif %}
    {% endif %}
-7. Repeat this process for every {{ object }} you want to replicate.
+1. Repeat this process for every {{ object }} you want to replicate.
 {% if integration.singer == true %}
-8. {{ app.menu-paths.finalize-selections | flatify }}
+1. {{ app.menu-paths.finalize-selections | flatify }}
 {% endif %}
