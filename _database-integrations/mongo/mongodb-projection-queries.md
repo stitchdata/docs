@@ -2,7 +2,7 @@
 title: Selecting MongoDB Fields Using Projection Queries
 keywords: mongodb, mongo, whitelisting, blacklisting, field selection, column selection
 permalink: /integrations/databases/mongodb/field-selection-using-projection-queries
-summary: "Specify or restrict the data Stitch replicates for MongoDB collections using projection queries.."
+summary: "Specify or restrict the data Stitch replicates for MongoDB collections using projection queries."
 input: false
 
 layout: general
@@ -81,32 +81,53 @@ sections:
     anchor: "projection-query-stitch-requirements"
     summary: "The requirements for projection queries in Stitch"
     content: |
-      - Cannot exclude the `_id` field. (Equivalent to `{ _id: 0 }`) Stitch uses this field for replication.
-      - MongoDB doesn't support combining inclusion and exclusion statements in the same projection query, with the exception of the `_id` field.
-      - Limits on data embedded in arrays? https://docs.mongodb.com/v4.0/tutorial/project-fields-from-query-results/#project-specific-array-elements-in-the-returned-array
-      - Must be valid JSON? 
+      Projection queries are compatible with any of Stitch's Replication Methods, including Log-based Incremental.
+
+      Projection queries entered into Stitch must adhere to the following:
+
+      - **Cannot exclude the `_id` field.** This is equivalent to `{ "_id": 0 }`. Stitch uses this field for replication.
+      - **Cannot combine inclusion and exclusion statements.** This means that a projection query can't both include and exclude fields. For example: `{ "name": 0, "type": 1 }`
+      - **Must be valid JSON.** Projection queries must be valid JSON. Keys and string values must be enclosed in double quotes (`"`). You can use [JSONFormatter](https://jsonformatter.curiousconcept.com/){:target="new"} to validate the projection query before entering it into Stitch.
+
+      Projection queries that don't meet the above criteria will result in [errors during extraction](#error-troubleshooting).
 
   - title: "Defining a projection query in Stitch"
     anchor: "defining-projection-query-in-stitch"
     summary: "How to define a projection query in Stitch"
     content: |
-      When you set a collection to replicate in Stitch, you can define a projection query for the collection in the **Collection Settings** page.
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+    subsections:
+      - title: "Adding a new projection query"
+        anchor: "adding-new-projection-query"
+        content: |
+          When you set a collection to replicate in Stitch, you can define a projection query for the collection in the **Collection Settings** page.
 
-      1. In the MongoDB integration, click the **Collections to Replicate** tab.
-      2. Navigate to the desired collection.
-      3. Click the checkbox to the left of the collection to set it to replicate. This will also open the **Collection Details** page:
+          1. In the MongoDB integration, click the **Collections to Replicate** tab.
+          2. Navigate to the desired collection.
+          3. Click the checkbox to the left of the collection to set it to replicate. This will also open the **Collection Details** page:
 
-         ![The MongoDB Collection Details page in Stitch.]({{ site.baseurl }}/images/integrations/mongodb-collection-details.png)
-      4. Click the **View Collection Settings** button.
-      5. On the **Collection Settings** page, scroll down to the **Fields to Replicate** section.
-      6. Enter the projection query you want the collection to use in the **Projection query** field:
+             ![The MongoDB Collection Details page in Stitch.]({{ site.baseurl }}/images/integrations/mongodb-collection-details.png)
+          4. Click the **View Collection Settings** button.
+          5. On the **Collection Settings** page, scroll down to the **Fields to Replicate** section.
+          6. Enter the projection query you want the collection to use in the **Projection query** field:
 
-         ![The Projection query field in the Collection Settings page in Stitch.]({{ site.baseurl }}/images/integrations/mongodb-projection-queries.png)
+             ![The Projection query field in the Collection Settings page in Stitch.]({{ site.baseurl }}/images/integrations/mongodb-projection-queries.png)
 
-         **Note**: Projection queries include the `_id` field by default, so you don't need to specify it in your query.
-      7. Click {{ app.buttons.save-table-settings }} to save your changes.
+             **Note**: Projection queries include the `_id` field by default, so you don't need to specify it in your query.
+          7. Click {{ app.buttons.save-table-settings }} to save your changes.
 
-      Stitch will use the collection's projection query during the next scheduled replication job, even if a job is currently in progress.
+          Stitch will use the collection's projection query during the next scheduled replication job, even if a job is currently in progress.
+
+      - title: "Modifying an existing projection query"
+        anchor: "modifying-existing-projection-query"
+        content: |
+          To modify an existing projection query, follow the steps [in the previous section](#adding-new-projection-query), modifying the query as needed. When finished, click {{ app.buttons.save-table-settings }} to save your changes.
+
+          Stitch will use the collection's projection query during the next scheduled replication job, even if a job is currently in progress.
+
+          **Note**: Modifying a projection query won't trigger a full re-replication of a collection. If the collection uses a type of incremental replication, you'll need to [manually reset the collection]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) to backfill the values for any new fields.
 
   - title: "Example projection queries"
     anchor: "example-projection-queries"
@@ -165,23 +186,6 @@ sections:
           {% assign results = section.data | where:"is_active",true %}
           {% assign attributes = "name|is_active|details|acquaintances" | split:"|" %}
 
-          <table class="attribute-list" style="margin-top: 0px;">
-          <tr>
-          {% for attribute in attributes %}
-          <td><strong>{{ attribute }}</strong></td>
-          {% endfor %}
-          </tr>
-          {% for result in results %}
-          <tr>
-          {% for attribute in attributes %}
-          <td width="25%; fixed">
-          {{ result[attribute] | markdownify }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
-
       - title: "Return only specified fields"
         description: |
           Return only the specified fields (`name`, `is_active`) for documents in the `customers` collection. Fields are marked for inclusion by setting their value to `1` in the projection query.
@@ -198,23 +202,6 @@ sections:
         results: |
           {% assign results = section.data %}
           {% assign attributes = "name|is_active" | split:"|" %}
-
-          <table class="attribute-list" style="margin-top: 0px;">
-          <tr>
-          {% for attribute in attributes %}
-          <td><strong>{{ attribute }}</strong></td>
-          {% endfor %}
-          </tr>
-          {% for result in results %}
-          <tr>
-          {% for attribute in attributes %}
-          <td>
-          {{ result[attribute] }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
 
       - title: "Return only specified fields in matching documents"
         description: |
@@ -234,23 +221,6 @@ sections:
           {% assign results = section.data | where:"is_active",true %}
           {% assign attributes = "name|details" | split:"|" %}
 
-          <table class="attribute-list" style="margin-top: 0px;">
-          <tr>
-          {% for attribute in attributes %}
-          <td><strong>{{ attribute }}</strong></td>
-          {% endfor %}
-          </tr>
-          {% for result in results %}
-          <tr>
-          {% for attribute in attributes %}
-          <td>
-          {{ result[attribute] }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
-
       - title: "Return all except excluded fields"
         description: |
           Return all fields except those that are excluded. Fields are marked for exclusion by setting their value to `0` in the projection query.
@@ -265,23 +235,6 @@ sections:
         results: |
           {% assign results = section.data %}
           {% assign attributes = "name|acquaintances" | split:"|" %}
-
-          <table class="attribute-list" style="margin-top: 0px;">
-          <tr>
-          {% for attribute in attributes %}
-          <td><strong>{{ attribute }}</strong></td>
-          {% endfor %}
-          </tr>
-          {% for result in results %}
-          <tr>
-          {% for attribute in attributes %}
-          <td>
-          {{ result[attribute] | markdownify }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
 
       - title: "Return specified fields in an embedded document"
         description: |
@@ -307,22 +260,6 @@ sections:
           {% assign results = section.data %}
           {% assign attributes = "name|details" | split:"|" %}
 
-          <table class="attribute-list" style="margin-top: 0px;">
-          <tr>
-          {% for attribute in attributes %}
-          <td><strong>{{ attribute }}</strong></td>
-          {% endfor %}
-          </tr>
-          {% for result in results %}
-          <tr>
-          {% for attribute in attributes %}
-          <td>
-          {{ result[attribute] }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
 
       - title: "Return specified fields in an embedded document in an array"
         description: |
@@ -348,22 +285,6 @@ sections:
           {% assign results = section.data %}
           {% assign attributes = "name|acquaintances" | split:"|" %}
 
-          <table class="attribute-list" style="margin-top: 0px;">
-          <tr>
-          {% for attribute in attributes %}
-          <td><strong>{{ attribute }}</strong></td>
-          {% endfor %}
-          </tr>
-          {% for result in results %}
-          <tr>
-          {% for attribute in attributes %}
-          <td>
-          {{ result[attribute] | markdownify }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
     content: |
       In this section, we'll look at some example projection queries and their SQL equivalents.
 
@@ -413,7 +334,31 @@ sections:
       </td>
 
       <td>
+      {% case attribute %}
+      {% when 'results' %}
+
+      {{ example[attribute] | flatify }}
+
+      <table class="attribute-list" style="margin-top: 0px;">
+      <tr>
+      {% for attribute in attributes %}
+      <td><strong>{{ attribute }}</strong></td>
+      {% endfor %}
+      </tr>
+      {% for result in results %}
+      <tr>
+      {% for attribute in attributes %}
+      <td>
+      {{ result[attribute] | markdownify }}
+      </td>
+      {% endfor %}
+      </tr>
+      {% endfor %}
+      </table>
+
+      {% else %}
       {{ example[attribute] | flatify | markdownify }}
+      {% endcase %}
       </td>
 
       </tr>
@@ -422,11 +367,21 @@ sections:
       </table>
       {% endfor %}
 
+  - title: "Error troubleshooting"
+    anchor: "error-troubleshooting"
+    summary: "How to troubleshoot projection query errors"
+    content: |
+      If a collection's projection query doesn't meet [Stitch's requirements](#projection-query-stitch-requirements), a critical error will arise during Extraction. Extractions will not be successful until the issue is resolved.
+
+      For a list of possible errors and how to resolve them, refer to the [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | prepend: site.baseurl }}).
+
   - title: "Resources"
     anchor: "projection-query-resources"
     summary: "Additional resources for projection queries"
     content: |
       - [MongoDB projection query documentation]({{ site.data.taps.links.mongodb.projection-queries }}){:target="new"}
       - [MongoDB dot notation documentation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}
+      - [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | prepend: site.baseurl }})
 
+      ---
 ---
