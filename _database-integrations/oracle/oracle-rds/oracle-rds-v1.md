@@ -29,6 +29,7 @@ tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
 # this-version: "1.0"
+has-specific-data-types: true
 
 hosting-type: "amazon"
 
@@ -270,39 +271,11 @@ replication-sections:
 
       Refer to the [Log-based Incremental Replication documentation]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for a more detailed explanation, examples, and the limitations associated with this replication method.
 
-  - title: "Data typing and LogMiner (Log-based Incremental Replication)"
-    anchor: "data-typing-logminer-replication"
+  - title: "Data types"
+    anchor: "data-types"
     content: |
-      {{ integration.display_name }}'s LogMiner packages supports the data types listed in the table below. Refer to [{{ integration.display_name }}'s documentation]({{ site.data.taps.links[integration.name]logminer-supported-datatypes }}){:target="new"} for more info.
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1.0" version-column-headers=false %}
 
-      **Only columns with the data types listed below are able to be selected and replicated through Stitch**. Columns with data types not in this list will show as `UNSUPPORTED` in Stitch. For reference, you can view the code for data typing in Stitch's {{ integration.display_name }} integrations in the [Singer {{ integration.display_name }} GitHub repository](https://github.com/singer-io/tap-oracle/blob/master/tap_oracle/__init__.py){:target="new"}.
-
-      {% assign attributes="name|stored-as" | split:"|" %}
-
-      <table class="attribute-list">
-      <tr>
-      <td width="40%; fixed" align="right">
-      <strong>{{ integration.display_name }} data type</strong>
-      </td>
-      <td>
-      <strong>Stitch data type mapping</strong>
-      </td>
-      </tr>
-      {% for data-type in site.data.taps.extraction.data-types[integration.db-type]logminer.supported %}
-      <tr>
-      {% for attribute in attributes %}
-      {% assign attribute-number = forloop.index %}
-      {% if forloop.first == true %}
-      <td width="40%; fixed" align="right">
-      {% else %}
-      <td>
-      {% endif %}
-      {{ data-type[attribute] | upcase }}{% if attribute-number == 2 and data-type.formatted-as %} (formatted as {{ data-type.formatted-as | upcase }}){% endif %}
-      </td>
-      {% endfor %}
-      </tr>
-      {% endfor %}
-      </table>
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
