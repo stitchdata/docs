@@ -1,0 +1,51 @@
+---
+tap-reference: "ringcentral"
+
+# version: "1.0"
+
+foreign-keys: 
+  - id: "contact-id"
+    attribute: "_contact_id"
+    table: "contacts"
+    all-foreign-keys:
+      - table: "contacts"
+        join-on: "id"
+      - table: "messages"
+        join-on: "_contact_id"
+      - table: "call_log" 
+        join-on: "_contact_id" 
+      - table: "company_call_log" 
+        join-on: "_contact_id" 
+
+  - id: "session-id"
+    attribute: "sessionId"
+    table: ""  
+    all-foreign-keys:
+      - table: "call_log"   
+        join-on: "sessionId"
+      - table: "company_call_log"
+        join-on: "sessionId"  
+
+  - id: "message-id"
+    attribute: "id"
+    table: "messages"
+    all-foreign-keys:
+      - table: "company_call_log"
+        subattribute: "message"
+      - table: "messages"
+      - table: "company_call_log"
+        subattribute: "message"
+        join-on: "id"
+      - table: "call_log"
+        subattribute: "message"
+        join-on: "id"
+
+  - id: "conversation-id"
+    attribute: "conversationId"
+    table: ""
+    all-foreign-keys:
+      - table: "messages"
+      - table: "messages"
+        subattribute: "conversation"
+        join-on: "id"
+---
