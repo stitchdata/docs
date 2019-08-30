@@ -25,4 +25,27 @@ foreign-keys:
         join-on: "sessionId"
       - table: "company_call_log"
         join-on: "sessionId"  
+
+  - id: "message-id"
+    attribute: "id"
+    table: "messages"
+    all-foreign-keys:
+      - table: "company_call_log"
+        subattribute: "message"
+      - table: "messages"
+      - table: "company_call_log"
+        subattribute: "message"
+        join-on: "id"
+      - table: "call_log"
+        subattribute: "message"
+        join-on: "id"
+
+  - id: "conversation-id"
+    attribute: "conversationId"
+    table: ""
+    all-foreign-keys:
+      - table: "messages"
+      - table: "messages"
+        subattribute: "conversation"
+        join-on: "id"
 ---

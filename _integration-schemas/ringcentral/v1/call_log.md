@@ -80,6 +80,19 @@ attributes:
   - name: "message"
     type: "anything"
     description: "The linked voicemail/fax message."
+    subattributes:
+      - name: "id"
+        type: "string"
+        description: "The message ID."
+        foreign-key-id: "message-id"
+
+      - name: "type"
+        type: "string"
+        description: "The type of the message."
+
+      - name: "uri"
+        type: "string"
+        description: "Link to the message resource."
 
   - name: "reason"
     type: "anything"

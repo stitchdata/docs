@@ -9,10 +9,7 @@ singer-schema: "https://github.com/singer-io/tap-ringcentral/blob/master/tap_rin
 description: |
   The `{{ table.name }}` contains info about corporate users of federated accounts.
 
-replication-method: "Key-based Incremental"
-
-replication-key:
-  name: "dateFrom : dateTo"
+replication-method: "Full Table"
 
 api-method:
     name: "Get Corporate Directory Entry"
@@ -22,16 +19,16 @@ attributes:
   - name: "id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The contact ID."
     foreign-key-id: "contact-id"
 
   - name: "account"
     type: "object"
-    description: ""
+    description: "Details about the owning account."
     subattributes:
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The owning account ID."
 
   - name: "email"
     type: "string"
@@ -63,11 +60,11 @@ attributes:
     subattributes:
       - name: "phoneNumber"
         type: "string"
-        description: ""
+        description: "The phone number."
 
       - name: "type"
         type: "string"
-        description: ""
+        description: "The phone number type."
 
       - name: "usageType"
         type: "string"
@@ -75,9 +72,9 @@ attributes:
 
   - name: "status"
     type: "string"
-    description: ""
+    description: "The contact's status."
 
   - name: "type"
     type: "string"
-    description: ""
+    description: "The contact's type."
 ---

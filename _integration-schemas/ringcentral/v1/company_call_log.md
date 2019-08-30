@@ -26,7 +26,7 @@ attributes:
 
   - name: "_contact_id"
     type: "integer"
-    description: ""
+    description: "The contact ID."
     foreign-key-id: "contact-id"
 
   - name: "action"
@@ -63,7 +63,7 @@ attributes:
     subattributes:
       - name: "location"
         type: "string"
-        description: "The city of the caller's area code, if the phoneNumber field is not empty."
+        description: "The city of the caller's area code, if the `phoneNumber` field is not empty."
 
       - name: "name"
         type: "string"
@@ -76,10 +76,25 @@ attributes:
   - name: "message"
     type: "anything"
     description: "The linked voicemail/fax message."
+    subattributes:
+      - name: "id"
+        type: "string"
+        description: "The message ID."
+        foreign-key-id: "message-id"
+
+      - name: "type"
+        type: "string"
+        description: "The type of the message."
+
+      - name: "uri"
+        type: "string"
+        description: "Link to the message resource."
 
   - name: "reason"
     type: "anything"
-    description: "The reason of a call result."
+    description: |
+      The reason of a call result. Refer to [{{ integration.display_name }}'s documentation]({{ table.api-method.doc-link }}){:target="new"} for a list of possible values.
+    doc-link: "{{ table.api-method.doc-link }}"
 
   - name: "reasonDescription"
     type: "anything"
