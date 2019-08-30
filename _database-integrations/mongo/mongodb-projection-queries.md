@@ -67,14 +67,14 @@ sections:
     anchor: "what-are-projection-queries"
     summary: "What projection queries are"
     content: |
-      In MongoDB, the default for queries is to return all fields in matching documents. [Projection queries]({{ site.data.taps.links.mongodb.projection-queries }}){:target="new"} are used to specify or restrict the data returned in query results. By specifying a projection query, you can specify the fields you want to return or exclude, the conditions documents must meet to match, etc.
+      In MongoDB, the default for queries is to return all fields in matching documents. [Projection queries]({{ site.data.taps.links.mongodb.projection-queries }}){:target="new"} are used to specify or restrict the data returned in query results. By specifying a projection query, you can specify the fields you want to return or exclude.
 
-      For example: The default query behavior in MongoDB is similar to `SELECT *` in SQL. If you wanted to only return records where `name = 'Finn'`, you could specify this condition in a `WHERE` clause:
+      For example: The default query behavior in MongoDB is similar to `SELECT *` in SQL. If you wanted to only return a subset of fields, you'd specify them in the `SELECT` clause:
 
       ```sql
-      SELECT *
+      SELECT name,
+             is_active
         FROM customers
-       WHERE name = 'Finn'
       ```
 
   - title: "Projection query requirements for Stitch"
@@ -86,6 +86,7 @@ sections:
       Projection queries entered into Stitch must adhere to the following:
 
       - **Cannot exclude the `_id` field.** This is equivalent to `{ "_id": 0 }`. Stitch uses this field for replication.
+      - **Cannot specify conditional criteria.** In SQL, this is equivalent to specifying a `WHERE` clause. For example: `{ "is_active": true }` is equal to `WHERE is_active = true`. This type of projection query is not currently supported in Stitch.
       - **Cannot combine inclusion and exclusion statements.** This means that a projection query can't both include and exclude fields. For example: `{ "name": 0, "type": 1 }`
       - **Must be valid JSON.** Projection queries must be valid JSON. Keys and string values must be enclosed in double quotes (`"`). You can use [JSONFormatter](https://jsonformatter.curiousconcept.com/){:target="new"} to validate the projection query before entering it into Stitch.
 
@@ -169,22 +170,23 @@ sections:
           - name: Finn, type: nemesis
           - name: Bubblegum, type: nemesis
     examples:
-      - title: "Return all fields in matching documents"
-        description: |
-          Return all fields in documents in the `customers` collection where `is_active = true`.
-        projection-query: |
-          ```json
-          { "is_active": true }
-          ```
-        sql: |
-          ```sql
-          SELECT *
-            FROM customers
-           WHERE is_active = true
-           ```
-        results: |
-          {% assign results = section.data | where:"is_active",true %}
-          {% assign attributes = "name|is_active|details|acquaintances" | split:"|" %}
+      # Commenting out as we don't currently support conditional logic in projection queries
+      # - title: "Return all fields in matching documents"
+      #   description: |
+      #     Return all fields in documents in the `customers` collection where `is_active = true`.
+      #   projection-query: |
+      #     ```json
+      #     { "is_active": true }
+      #     ```
+      #   sql: |
+      #     ```sql
+      #     SELECT *
+      #       FROM customers
+      #      WHERE is_active = true
+      #      ```
+      #   results: |
+      #     {% assign results = section.data | where:"is_active",true %}
+      #     {% assign attributes = "name|is_active|details|acquaintances" | split:"|" %}
 
       - title: "Return only specified fields"
         description: |
@@ -198,28 +200,29 @@ sections:
           SELECT name,
                  is_active
             FROM customers
-            ```
+          ```
         results: |
           {% assign results = section.data %}
           {% assign attributes = "name|is_active" | split:"|" %}
 
-      - title: "Return only specified fields in matching documents"
-        description: |
-          Return only the specified fields (`name`, `details`) for documents in the `customers` collection where `is_active = true`.
-        projection-query: |
-          ```json
-          { "is_active": true }, { "name": 1, "details": 1 }
-          ```
-        sql: |
-          ```sql
-          SELECT name,
-                 details
-            FROM customers
-           WHERE is_active = true
-           ```
-        results: |
-          {% assign results = section.data | where:"is_active",true %}
-          {% assign attributes = "name|details" | split:"|" %}
+      # Commenting out as we don't currently support conditional logic in projection queries
+      # - title: "Return only specified fields in matching documents"
+      #   description: |
+      #     Return only the specified fields (`name`, `details`) for documents in the `customers` collection where `is_active = true`.
+      #   projection-query: |
+      #     ```json
+      #     { "is_active": true }, { "name": 1, "details": 1 }
+      #     ```
+      #   sql: |
+      #     ```sql
+      #     SELECT name,
+      #            details
+      #       FROM customers
+      #      WHERE is_active = true
+      #      ```
+      #   results: |
+      #     {% assign results = section.data | where:"is_active",true %}
+      #     {% assign attributes = "name|details" | split:"|" %}
 
       - title: "Return all except excluded fields"
         description: |
@@ -259,7 +262,6 @@ sections:
         results: |
           {% assign results = section.data %}
           {% assign attributes = "name|details" | split:"|" %}
-
 
       - title: "Return specified fields in an embedded document in an array"
         description: |
