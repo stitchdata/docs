@@ -39,23 +39,18 @@ status: "Open Beta"
 certified: false
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
-status-url: ""
+status-url: "https://status.ringcentral.com/"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false
-
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
+table-selection: true
+column-selection: true
 
 # -------------------------- #
 #      Incompatibilities     #
@@ -87,19 +82,24 @@ setup-steps:
         content: |
           In this step, you'll create a {{ integration.display_name }} developer application.
 
+          
           1. Navigate to the [{{ integration.display_name }} Developer Console](https://developers.ringcentral.com/my-account.html#/applications){:target="new"}.
           2. Create a free account, if you don't already have one.
           3. After you've created an account and logged in, click the **Create App** button.
+          {% include layout/image.html type="right" file="/integrations/ringcentral-app-settings.png" alt="RingCentral App Type & Platform window for creating a developer app." enlarge=true max-width="450" %}
+          {:start="4"}
           4. In the window that displays, enter a name and description for the app.
           5. In the **App Type & Platform** window, fill in the fields as follows:
              - **Application Type**: Select **Private**.
              - **Platform Type**: Select **Server-only (No UI)**.
           6. Click **Next**.
+          {% include layout/image.html type="right" file="/integrations/ringcentral-app-permissions.png" alt="RingCentral OAuth Settings window for creating a developer app." enlarge=true max-width="450" %}
+          {:start="7"}
           7. Next, you'll grant permissions to the app. In the **Permissions Needed** field, select the following:
              - **Read Accounts**
              - **Read Call Log**
              - **Read Messages**
-          8. Click **Create**. 
+          8. Click **Create**.
 
       - title: "Retrieve application credentials"
         anchor: "retrieve-application-credentials"
@@ -108,6 +108,8 @@ setup-steps:
 
           1. On the **Apps** page, click the developer application you created in the previous step.
           2. Click the **Credentials** option in the menu on the left side of the page.
+          {% include layout/image.html type="right" file="/integrations/ringcentral-app-credentials.png"  enlarge=true alt="RingCentral Application Credentials page with the Production Environment column highlighted." max-width="525" %}
+          {:start="3"}
           3. In the **Application Credentials** section, locate the following in the **Production Environment** column:
 
              - **API Server URL**
@@ -133,12 +135,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/ringcentral
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
