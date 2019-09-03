@@ -1,0 +1,14 @@
+
+<!-- Database user setup instructions for MongoDB Atlas. -->
+
+1. Sign into your [{{ integration.display_name }} account](https://cloud.mongodb.com/user){:target="new"}.
+2. Navigate to the project containing the cluster you want to connect to Stitch. You can do this using the **Context** menu in the top left corner of the page.
+3. Click **Database Access** in the **Security** section on the left side of the page.
+4. Click the **+ Add new user** button on the **Database Access** page.
+{% include layout/image.html type="right" file="/integrations/mongodb-atlas-add-user.png" alt="" max-width="400" %}
+{:start="5"}
+5. Fill in the fields as follows in the **Add New User** window that displays:
+   - **Username**: Enter `stitch`.
+   - **Password**: Enter a secure password for the Stitch user.
+   - **User Privileges**: Select `Only read any database`.
+6. Click **Add User** when finished.

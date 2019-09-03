@@ -3,7 +3,6 @@
 # -------------------------- #
 
 ## The permissions Stitch needs to connect to and replicate data from a MongoDB database.
-## The permissions are: listDatabases, listIndexes, COUNT, dbVersion
 
 
 # -------------------------- #
@@ -22,6 +21,17 @@ mongodb:
 
       Required to read from the [`local` database](https://docs.mongodb.com/v4.0/reference/local-database/){:target="new"}.
     doc-link: "https://docs.mongodb.com/v3.4/reference/built-in-roles/#read"
+
+
+# -------------------------- #
+#  MONGODB-ATLAS PRIVILEGES  #
+# -------------------------- #
+
+mongodb-atlas:
+  - name: "Only read any database"
+    reason: |
+      Required to read data from databases in the cluster. This is equivalent to the `readAnyDatabase` role.
+    doc-link: "https://docs.mongodb.com/v4.0/reference/built-in-roles/#readAnyDatabase"
 
 
 # -------------------------- #
