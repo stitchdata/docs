@@ -12,7 +12,7 @@ input: false
 name: "mongodb-atlas"
 display_name: "MongoDB Atlas"
 
-hosting-type: "generic"
+hosting-type: "mongodb-atlas"
 
 this-version: "1.0"
 
@@ -36,7 +36,7 @@ db-type: "mongo"
 ## Stitch features
 
 versions: "2.6 through 4.0"
-ssh: true
+ssh: false
 ssl: true
 
 ## General replication features
@@ -99,6 +99,8 @@ setup-steps:
   - title: "Configure database connection settings"
     anchor: "connect-settings"
     content: |
+      In this step, you'll configure your {{ integration.display_name }} cluster to allow traffic from Stitch to access it. This is accomplished by whitelisting Stitch's IP addresses in the cluster's IP address whitelist in {{ integration.display_name }}.
+
       {% include integrations/templates/configure-connection-settings.html %}
 
   - title: "Create a Stitch database user"
