@@ -19,6 +19,7 @@ this-version: "1.0"
 driver: |
   [PyMongo 3.8.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
 
+setup-name: "MongoDB"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -82,13 +83,10 @@ row-usage-hog-reasons:
 
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
-  # - item: |
-  #     **If using Log-based Incremental Replication, a user with the [Atlas admin]({{ site.data.taps.links.mongodb.atlas-admin }}){:target="new"} role.** This is required to configure the database to use OpLog.
   - item: |
       **A {{ integration.display_name }} database using a version between {{ integration.versions | replace:"through","and" }}.** While older versions may be connected to Stitch, we may not be able to provide support for issues that arise due to unsupported versions.
 
       We recommend always keeping your version current as a best-practice. If you encounter connection issues or other unexpected behavior, verify that your {{ integration.display_name }} version is one supported by Stitch.
-  # - item: "**If using SSL**, your server must require SSL connections. **Note**: SSL isn't required to connect a {{ integration.display_name }} database to Stitch."
 
 
 # -------------------------- #
@@ -111,31 +109,29 @@ setup-steps:
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
-      {% capture mongo-conn %}
-      Stitch uses a standalone server connection to connect to your MongoDB instance. What this means is that if you want Stitch to run on secondary instances, you have to give Stitch a host IP for one of your secondary instances.
-
-      **In the case of Mongos (sharded Mongo)**, Stitch will always attempt to run data sync queries on your secondaries by default and you can provide the host address for the master node.
-      {% endcapture %}
-
-      {% include note.html first-line="**Stitch and MongoDB connections**" content=mongo-conn %}
-
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
+      In this section:
+
+      {% for substep in step.substeps %}
+      - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
     substeps:
+      - title: "Locate the database connection details in Mongo Atlas"
+        anchor: "locate-database-connection-details"
+        content: |
+          {% include shared/connection-details/mongodb-atlas.html %}
+
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
 
-      - title: "Define the SSH connection details"
-        anchor: "ssh-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssh" %}
-
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include shared/database-connection-settings.html type="ssl" %}
+          Click the **{{ defaults.field-names.ssl }}** checkbox. {{ integration.display_name }} requires SSL to connect successfully.
 
       - title: "Define Log-based Replication setting"
         anchor: "define-log-based-replication-setting"
@@ -172,17 +168,17 @@ replication-sections:
       {% endif %}
       {% endfor %}
       
-  - title: "{{ integration.display_name }} Replication Keys"
+  - title: "{{ integration.setup-name }} Replication Keys"
     anchor: "mongo-replication-keys"
     content: |
-      Unlike Replication Keys for other database integrations, those for {{ integration.display_name }} have special considerations due to {{ integration.display_name }} functionality. For example: {{ integration.display_name }} allows multiple data types in a single field, which can cause records to be skipped during replication.
+      Unlike Replication Keys for other database integrations, those for {{ integration.setup-name }} have special considerations due to {{ integration.setup-name }} functionality. For example: {{ integration.setup-name }} allows multiple data types in a single field, which can cause records to be skipped during replication.
 
-      Refer to the [{{ integration.display_name }} Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
+      Refer to the [{{ integration.setup-name }} Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) before you define the Replication Keys for your {{ object }}s, as incorrectly defining Replication Keys can cause data discrepancies.
 
   - title: "Heavily nested data and destination column limits"
     anchor: "nested-data-replication-column-limits"
     content: |
-      {{ integration.display_name }} documents can contain heavily nested data, meaning an attribute can contain many other attributes.
+      {{ integration.setup-name }} documents can contain heavily nested data, meaning an attribute can contain many other attributes.
 
       If your destination doesn't natively support nested data structures, Stitch will de-nest them to load them into the destination. Depending on how deeply nested the data is and the per table column limit of the destination, Stitch may encounter issues when loading heavily nested data.
 
