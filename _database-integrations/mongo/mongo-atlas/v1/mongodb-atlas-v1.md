@@ -66,7 +66,7 @@ log-based-replication-read-replica: true
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: true
+view-replication: false
 
 ## Row usage details
 
@@ -75,6 +75,14 @@ row-usage-hog-reasons:
   data-structure: true
   data-volume: true
   lots-of-full-table: false
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }} driver.
 
 
 # -------------------------- #
@@ -197,23 +205,6 @@ has-incompatibilities: true
 {% include misc/data-files.html %}
 
 ## Troubleshooting
-
-### SSL Connection Errors {#ssl-connection-errors}
-
-{% assign ssl-error = site.data.errors.connection-checks.errors | where:"id","premature-file" %}
-
-{% for error in ssl-error %}
-```
-{{ error.message }}
-```
-
-{{ error.meaning }}
-
-{{ error.fix-it }}
-{% for listitem in error.fix-it-list %}
-- {{ listitem.item }}
-{% endfor %}
-{% endfor %}
 
 ### Fields Missing from Replication Key Menu
 
