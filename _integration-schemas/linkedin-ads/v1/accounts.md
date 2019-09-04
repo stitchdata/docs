@@ -1,15 +1,33 @@
 ---
 tap: "linkedin-ads"
-version: "0.x"
+version: "1.0"
+
 name: "accounts"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/accounts.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
+replication-key:
+  name: "last_modified_time"
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Ad Accounts"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts#search-for-accounts"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: "The internal account ID"
+    foreign-key-id: "account-id"
+  
+  - name: "last_modified_time"
+    type: "date-time"
+    description: ""
+    replication-key: true
+
   - name: "change_audit_stamps"
     type: "object"
     description: ""
@@ -28,48 +46,57 @@ attributes:
           - name: "time"
             type: "date-time"
             description: ""
+  
   - name: "created_time"
     type: "date-time"
     description: ""
+  
   - name: "currency"
     type: "string"
-    description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
-  - name: "last_modified_time"
-    type: "date-time"
-    description: ""
+    description: "The ISO 4217 currency code."
+
   - name: "name"
     type: "string"
-    description: ""
+    description: "The account label."
+  
   - name: "notified_on_campaign_optimization"
     type: "boolean"
-    description: ""
+    description: "Indicates if the campaign contact has been notified about an opportunity."
+  
   - name: "notified_on_creative_approval"
     type: "boolean"
-    description: ""
+    description: "Indicates if the creative contact has been notified of approval."
+  
   - name: "notified_on_creative_rejection"
     type: "boolean"
-    description: ""
+    description: "Indicates if the creative contact has been rejected."
+  
   - name: "notified_on_end_of_campaign"
     type: "boolean"
-    description: ""
+    description: "Indicates if the campaign contact has been notified about the end of a campaign."
+  
   - name: "reference"
     type: "string"
-    description: ""
+    description: "The entity on whose behalf the account advertises."
+  
   - name: "reference_organization_id"
     type: "integer"
     description: ""
+    foreign-key-id: "reference-organization-id"
+  
   - name: "reference_person_id"
     type: "string"
     description: ""
+    foreign-key-id: "reference-person-id"
+  
   - name: "serving_statuses"
     type: "null"
     description: ""
+  
   - name: "status"
     type: "string"
-    description: ""
+    description: "The account's active status."
+  
   - name: "total_budget"
     type: "object"
     description: ""
@@ -80,12 +107,15 @@ attributes:
       - name: "currency_code"
         type: "string"
         description: ""
+  
   - name: "total_budget_ends_at"
     type: "date-time"
     description: ""
+  
   - name: "type"
     type: "string"
-    description: ""
+    description: "The account type - business or enterprise."
+  
   - name: "version"
     type: "object"
     description: ""

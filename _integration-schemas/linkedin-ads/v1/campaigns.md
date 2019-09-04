@@ -1,39 +1,64 @@
 ---
 tap: "linkedin-ads"
-version: "0.x"
+version: "1.0"
+
 name: "campaigns"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/campaigns.json"
 description: ""
-replication-method: ""
+
+replication-method: "Key-based Incremental"
+
+
 api-method:
-    name: ""
-    doc-link: ""
+    name: "Create and Manage Campaigns"
+    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-campaigns#search-for-campaigns"
+
 attributes:
+  - name: "id"
+    type: "integer"
+    primary-key: true
+    description: ""
+    foreign-key-id: "campaign-id"
+  
+  - name: "last_modified_time"
+    type: "date-time"
+    description: "" 
+    replication-key: true
+
   - name: "account"
     type: "string"
-    description: ""
+    description: "URN identifying the advertising account associated with the campaign."
+  
   - name: "account_id"
     type: "integer"
     description: ""
+    foreign-key-id: "account-id"
+  
   - name: "associated_entity"
     type: "string"
-    description: ""
+    description: "An URN identifying the intended beneficiary of the advertising campaign such as a specific company or member."
+  
   - name: "associated_entity_organization_id"
     type: "integer"
     description: ""
+  
   - name: "associated_entity_person_id"
     type: "string"
     description: ""
+  
   - name: "audience_expansion_enabled"
     type: "boolean"
-    description: ""
+    description: "Enable Audience Expansion for the campaign provides query expansion for certain targeting criteria."
+  
   - name: "campaign_group"
     type: "string"
-    description: ""
+    description: "URN identifying the campaign group associated with the campaign. If campaign group is not specified, the campaign is assigned to account's default campaign group."
+  
   - name: "campaign_group_id"
     type: "integer"
     description: ""
+  
   - name: "change_audit_stamps"
     type: "object"
     description: ""
@@ -52,66 +77,72 @@ attributes:
           - name: "time"
             type: "date-time"
             description: ""
+  
   - name: "cost_type"
     type: "string"
-    description: ""
+    description: "The cost type - CPM, CPC, or CPV."
+  
   - name: "created_time"
     type: "date-time"
     description: ""
+  
   - name: "creative_selection"
     type: "string"
-    description: ""
+    description: "The creative selection - Round Robin or Optimized."
+  
   - name: "daily_budget"
     type: "object"
     description: ""
     subattributes:
       - name: "amount"
         type: "number"
-        description: ""
+        description: "Maximum amount to spend per day UTC. The amount of money as a real number string."
       - name: "currency_code"
         type: "string"
-        description: ""
-  - name: "id"
-    type: "integer"
-    description: ""
-  - name: "last_modified_time"
-    type: "date-time"
-    description: ""
+        description: "ISO currency code. The currency must match that of the parent account."
+  
   - name: "locale"
     type: "object"
     description: ""
     subattributes:
       - name: "country"
         type: "string"
-        description: ""
+        description: "Locale of the campaign. An uppercase two-letter country code as defined by ISO-3166."
       - name: "language"
         type: "string"
-        description: ""
+        description: "Locale of the campaign. A lowercase two-letter language code as defined by ISO-639."
+  
   - name: "name"
     type: "string"
-    description: ""
+    description: "The name of the campaign; primarily used to make it easier to reference a campaign and to recall its purpose."
+  
   - name: "offsite_delivery_enabled"
     type: "boolean"
     description: ""
+  
   - name: "optimization_target_type"
     type: "string"
     description: ""
+  
   - name: "run_schedule"
     type: "object"
     description: ""
     subattributes:
       - name: "end"
         type: "date-time"
-        description: ""
+        description: "Scheduled date range to stop  associated creatives. Represents the exclusive (strictly less than) value in which to end the range."
       - name: "start"
         type: "date-time"
-        description: ""
+        description: "Scheduled date range to run associated creatives."
+  
   - name: "serving_statuses"
     type: "null"
     description: ""
+  
   - name: "status"
     type: "string"
     description: ""
+  
   - name: "targeting"
     type: "object"
     description: ""
@@ -122,9 +153,10 @@ attributes:
       - name: "included_targeting_facets"
         type: "null"
         description: ""
+  
   - name: "targeting_criteria"
     type: "object"
-    description: ""
+    description: "Specifies targeting criteria that the member should match."
     subattributes:
       - name: "exclude"
         type: "null"
@@ -136,24 +168,27 @@ attributes:
           - name: "and"
             type: "null"
             description: ""
+  
   - name: "type"
     type: "string"
-    description: ""
+    description: "The type of campaign - Text Ad, Sponsored Updates, Sponsored InMails, or Dynamic."
+  
   - name: "unit_cost"
     type: "object"
-    description: ""
+    description: "Amount to bid per click, impression, or other event depending on the pricing model."
     subattributes:
       - name: "amount"
         type: "number"
-        description: ""
+        description: "The amount to bid to the associated account."
       - name: "currency_code"
         type: "string"
-        description: ""
+        description: "The ISO currency code to the associated account."
+  
   - name: "version"
     type: "object"
     description: ""
     subattributes:
       - name: "version_tag"
         type: "string"
-        description: ""
+        description: "Each entity has a version tag associated with it. The version tag is initiated to 1 when the entity is created. Each single update to the entity increases its version tag by 1."
 ---
