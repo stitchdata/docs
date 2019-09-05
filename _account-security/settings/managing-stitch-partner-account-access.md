@@ -8,7 +8,7 @@ layout: general
 toc: true
 
 type: "account-settings"
-weight: 4
+weight: 5
 
 intro: |
   {% capture notice %}
