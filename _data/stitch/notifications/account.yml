@@ -27,6 +27,7 @@ warning:
     email-subject:
       - "Approaching Row Limit"
     contains-raw-errors: false
+    opt-out: false
     content:
       - "The percent of the account's row limit that has been used"
     related-types:
@@ -45,6 +46,7 @@ warning:
     email-subject:
       - "Row Limit Reached"
     contains-raw-errors: false
+    opt-out: false
     app-category: "usage"
 
 # ----------------------------
@@ -64,6 +66,7 @@ critical:
     email-subject:
       - "Your free trial of Stitch has expired"
     contains-raw-errors: false
+    opt-out: false
     app-category: "plan"
 
 # -------------------------- #
@@ -76,6 +79,7 @@ critical:
     email-subject: 
       - "Integrations Paused due to Account Inactivity"
     contains-raw-errors: false
+    opt-out: false
 
 
 
