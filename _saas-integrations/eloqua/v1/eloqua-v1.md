@@ -31,6 +31,9 @@ repo-url: https://github.com/singer-io/tap-eloqua
 
 # this-version: "1.0"
 
+api: |
+  [Oracle {{ integration.display_name }} Marketing Cloud Service REST API](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/index.html){:target="new"} and [{{ integration.display_name }} bulk export API](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/Developers/BulkAPI/Tutorials/Export.htm){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -44,11 +47,23 @@ tier: "Free"
 status-url: "https://community.oracle.com/community/topliners/eloqua-system-status"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Replication](#replication) section for a list of objects and the API Stitch uses to extract data from them.
+
+  Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

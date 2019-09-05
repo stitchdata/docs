@@ -18,6 +18,9 @@ display_name: "Zendesk Chat"
 singer: false
 status-url: "https://status.zendesk.com/"
 
+api: |
+  [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -29,12 +32,23 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+anchor-scheduling: false
+cron-scheduling: false
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
 extraction-logs: false
 loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

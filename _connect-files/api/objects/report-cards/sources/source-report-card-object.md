@@ -19,6 +19,13 @@ object-attributes:
     type: "integer"
     description: "The index (in the `steps` array) of the current step needed to configure the data source."
 
+  - name: "details"
+    type: "object"
+    sub-type: "details"
+    url: "{{ api.data-structures.details.section }}"
+    description: |
+      {{ api.data-structures.details.short | flatify }}
+
   - name: "steps"
     type: "array"
     description: "A sequential list of [Connection Step objects]({{ api.data-structures.connection-steps.section }}) required to complete configuration for the connection type."
@@ -374,6 +381,7 @@ examples:
           "pricing_tier": "standard",
           "pipeline_state": "released",
           "default_scheduling_interval": 30,
+          "default_start_date": null,
           "protocol": "platform.mysql",
           "access": true
         }
@@ -522,6 +530,7 @@ examples:
           "pricing_tier": "premium",
           "pipeline_state": "released",
           "default_scheduling_interval": 30,
+          "default_start_date": "-30 days",
           "protocol": "platform.hubspot",
           "access": true
         }

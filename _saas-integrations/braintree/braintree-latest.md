@@ -13,7 +13,10 @@ name: "braintree"
 display_name: "Braintree"
 
 singer: true
-repo-url: https://github.com/singer-io/tap-braintree 
+repo-url: https://github.com/singer-io/tap-braintree
+
+api: |
+  [{{ integration.display_name }} API](https://developers.braintreepayments.com/start/overview){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -26,14 +29,24 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.braintreepayments.com/
-whitelist-ips: true ## if true, Stitch's IP addresses must be whitelisted to access this integration's data
+whitelist-ips: true
 
 table-selection: false
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

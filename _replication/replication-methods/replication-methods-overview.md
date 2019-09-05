@@ -35,7 +35,7 @@ sections:
         content: |
           {{ site.data.tooltips.log-based-incremental-rep }}
 
-          **Note**: This Replication Method is available only for MySQL and PostgreSQL-backed databases that support binary log replication, and requires manual intervention when table structures change. [Learn more about Log-based Incremental Replication here]({{ link.replication.log-based-incremental | prepend: site.baseurl }}).
+          **Note**: This Replication Method is available only for Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed databases that support binary log replication, and requires manual intervention when table structures change. [Learn more about Log-based Incremental Replication here]({{ link.replication.log-based-incremental | prepend: site.baseurl }}).
 
       - title: "Key-based Incremental Replication"
         anchor: "key-based-incremental-replication"

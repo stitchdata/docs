@@ -17,7 +17,10 @@ singer: false
 author: "Stitch"
 author-url: https://www.stitchdata.com
 
-# this-version: 
+# this-version: ""
+
+api: |
+  [Stitch Import API]({{ link.import-api.getting-started | prepend: site.baseurl }}){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -40,8 +43,18 @@ table-selection: false
 column-selection: false
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration uses the {{ integration.api | flatify }} to send data from {{ integration.display_name }} to Stitch.
+
 
 # -------------------------- #
 #      Setup Instructions    #

@@ -44,6 +44,13 @@ layout: page
     {% include important.html content=notice %}
 {% endif %}
 
+<!-- INTEGRATION FEATURE SUMMARY -->
+{% if integration.feature-summary %}
+    <h2 id="feature-summary">{{ integration.display_name }} integration summary</h2>
+
+    {{ integration.feature-summary | flatify | markdownify }}
+{% endif %}
+
 
 <!-- INTEGRATION SNAPSHOT -->
     {% if integration.snapshot-type %}

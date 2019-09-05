@@ -5,12 +5,19 @@ redirect_from: /account-security/stitch-security
 keywords: security, secure, data access, credentials, security protocol, breach, encryption, encrypted, store data, retain data, vpn, ssl, hipaa, pci
 
 summary: "We take securing your data seriously. Here's what we do to ensure that your private data stays private and our recommended best practices for protecting your data."
-type: "security"
-toc: true
+
 layout: faq
+toc: true
+
+type: "security"
 weight: 5
 
+enterprise: true
 enterprise-cta:
+  feature: "HIPAA and SOC2 compliance "
+  title: "{{ site.data.strings.enterprise.title.multiple | prepend: page.enterprise-cta.feature }}"
+
+enterprise-utm:
   hipaa-url: "?utm_medium=docs&utm_campaign=hipaa-compliance"
   reverse-ssh-url: "?utm_medium=docs&utm_campaign=reverse-ssh"
   soc2-url: "?utm_medium=docs&utm_campaign=soc2-compliance"
@@ -24,7 +31,7 @@ frequently-asked-questions:
         answer: |
           {% include misc/data-files.html %}
 
-          Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor. The audit report can be requested by contacting [Stitch Sales]({{ site.sales | append: page.enterprise-cta.soc2-url }}).
+          Stitch has been certified compliant with the SOC 2 security, availability, and confidentiality principles by an independent auditor. The audit report can be requested by contacting [Stitch Sales]({{ site.sales | append: page.enterprise-utm.soc2-url }}).
 
       - question: "Is Stitch PCI compliant?"
         anchor: "pci-compliant"
@@ -40,9 +47,9 @@ frequently-asked-questions:
 
           Stitch can replicate data in a HIPAA-compliant manner as part of an Enterprise plan.
 
-          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-cta.url }}).
+          To learn more replicating data subject to HIPAA compliance with Stitch, refer to the [Operating Stitch in Compliance with HIPAA]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) doc or contact the Stitch Sales team by using the [contact form on the Stitch website]({{ site.sales | append: page.enterprise-utm.url }}).
 
-          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-cta.hipaa-url }}) before replicating any sensitive data.
+          **Note**: There are requirements outside of Stitch configuration that must be completed to ensure compliance. Reach out to [Stitch Sales]({{ site.sales | append: page.enterprise-utm.hipaa-url }}) before replicating any sensitive data.
 
       - question: "Does Stitch comply with GDPR and EU privacy laws?"
         anchor: "eu-privacy-compliance"
@@ -95,7 +102,7 @@ frequently-asked-questions:
       - question: "Are VPN or reverse SSH tunnel connections supported?"
         anchor: "vpn-connection-support"
         answer: |
-          Additional connection options such as VPNs or reverse SSH tunnels may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales | append: page.enterprise-cta.reverse-ssh-url }}) for more info.
+          Additional connection options such as VPNs or reverse SSH tunnels may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales | append: page.enterprise-utm.reverse-ssh-url }}) for more info.
 
   - topic: "Data Access"
     anchor: "stitch-access"

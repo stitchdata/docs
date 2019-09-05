@@ -1,0 +1,93 @@
+# --------------------------------- #
+#        REPLICATION FREQUENCY      #
+# --------------------------------- #
+
+# Details about Replication Frequency,
+# including its availability in integrations, what it supports,
+# and examples of how it will schedule replication.
+
+# -------------------------- #
+#       GENERAL INFO         #
+# -------------------------- #
+
+name: "replication-frequency"
+display-name: "Replication Frequency"
+documentation: "{{ link.replication.rep-frequency | prepend: site.baseurl }}"
+
+description: "Replication Frequency is a type of replication scheduling that runs replication jobs based on a time interval you specify."
+
+integration-availability: "SaaS and database integrations"
+plan-availability: "All plans"
+
+# -------------------------- #
+#     SCHEDULING DETAILS     #
+# -------------------------- #
+
+# The level of control over scheduling the method offers
+level-of-control: "Least"
+
+# Whether the scheduling method supports selecting specific hours for extraction
+select-hours: false
+
+# Whether the scheduling method supports selecting specific days to run extraction jobs
+select-days: false
+
+
+# -------------------------- #
+#      EXAMPLE SCHEDULES     #
+# -------------------------- #
+
+examples:
+  - name: "six-hour"
+    description: |
+      In this example, we'll look at the potential schedule for an integration with a Replication Frequency of **{{ schedule-example.replication-frequency }}**.
+    replication-frequency: "6 hours"
+    schedule-summary: "every 6 hours"
+    jobs:
+      - number: 1
+        start-est: "09:00:00"
+        start-utc: "13:00:00"
+      - number: 2
+        start-est: "15:00:00"
+        start-utc: "19:00:00"
+      - number: 3
+        start-est: "21:00:00"
+        start-utc: "01:00:00"
+      - number: 4
+        start-est: "03:00:00"
+        start-utc: "07:00:00"
+      - number: 5
+        start-est: "09:00:00"
+        start-utc: "13:00:00"
+
+  - name: "long-running-skipped-job"
+    description: |
+      In this example, we'll look at how a job can be skipped due to a previously long-running job. This can occur when a job takes longer to run than the selected Replication Frequency.
+    replication-frequency: "1 hour"
+    schedule-summary: "every hour"
+    jobs:
+      - number: 1
+        start-est: "02:30:00"
+        start-utc: "18:30:00"
+        end-est: "03:25:00"
+        duration: "55 minutes"
+      - number: 2
+        start-est: "03:30:00"
+        start-utc: "19:30:00"
+        end-est: "04:38:00"
+        duration: "68 minutes"
+      - number: 3
+        start-est: "Job"
+        start-utc: "is"
+        end-est: "skipped"
+        duration: "-"
+      - number: 4
+        start-est: "5:30:00"
+        start-utc: "21:30:00"
+        end-est: "06:21:00"
+        duration: "51 minutes"
+      - number: 5
+        start-est: "06:30:00"
+        start-utc: "22:30:00"
+        end-est: "07:01:00"
+        duration: "31 minutes"

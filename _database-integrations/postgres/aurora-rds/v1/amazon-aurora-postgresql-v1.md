@@ -11,15 +11,18 @@ show-in-menus: true
 # -------------------------- #
 
 name: "aurora-postgresql-rds"
-display_name: "Aurora PostgreSQL RDS"
+display_name: "Amazon Aurora PostgreSQL RDS"
 singer: true
 
 tap-name: "Postgres"
 repo-url: https://github.com/singer-io/tap-postgres
 
-#this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "amazon"
+
+driver: |
+  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -29,7 +32,7 @@ status: "Released"
 certified: true
 setup-name: "PostgreSQL"
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"
@@ -43,6 +46,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

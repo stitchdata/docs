@@ -17,6 +17,9 @@ display_name: "AdRoll"
 singer: false
 status-url: "http://status.adroll.com/"
 
+api: |
+  [{{ integration.display_name }} CRUD API](https://developers.adroll.com/docs/crud-api/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -28,12 +31,23 @@ frequency: "30 minutes"
 historical: "1 year"
 tier: "Free"
 
+anchor-scheduling: false
+cron-scheduling: false
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
 extraction-logs: false
 loading-reports: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #     Integration Tables     #

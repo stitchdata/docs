@@ -118,7 +118,33 @@ all:
           }
           ```
 
-          May result from incorrect formatting, incorrect typing (all property values must be strings), or a property has a value that is an empty string.
+          May result from incorrect formatting, incorrect data typing, or a property has a value that is an empty string.
+
+      - method: "post, put"
+        condition: "Insufficient account access to cron scheduling feature"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "error":"AccessDenied",
+             "data":{  
+                "message":"access to cron_expression based scheduling is not permitted"
+             }
+          }
+          ```
+
+      - method: "post, put"
+        condition: "Cron expressions can't specify both a day-of-week and day-of-month"
+        version: "all"
+        response-body: |
+          ```json
+          {
+             "error":"InvalidCronExpression",
+             "data":{
+                "message":"cron_expression \"* * * * * *\" is invalid: Support for specifying both a day-of-week AND a day-of-month parameter is not implemented."
+             }
+          }
+          ```
 
 
     # -------------------------- #

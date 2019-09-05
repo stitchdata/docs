@@ -1,0 +1,184 @@
+# -------------------------- #
+#      POST-LOAD WEBHOOKS     #
+# -------------------------- #
+
+descriptions:
+  table-object: |
+    The `tables` object contains info about the table being loaded. This list will contain at least one object, but may contain more if there are subtables.
+
+  bookmark-metadata-object: |
+    If the table uses [Key-based]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Log-based Incremental Replication]({{ link.replication.log-based-incremental | prepend: site.baseurl }}), the `bookmark_metadata` array will contain info about the table's Replication Key.
+
+
+# -------------------------- #
+#     HEADER ATTRIBUTES      #
+# -------------------------- #
+
+request-headers:
+  - name: "method"
+    value: "POST"
+
+  - name: "Resource URL"
+    value: "https://your-webhook-service.com/webhook"
+
+  - name: "User-Agent"
+    value: "StitchLoadingWebhook"
+
+  - name: "Content-Type"
+    value: "application/json"
+
+
+# -------------------------- #
+#   REQUEST BODY ATTRIBUTES  #
+# -------------------------- #
+
+request-bodies:
+
+# -------------------------- #
+#     TOP-LEVEL ATTRIBUTES   #
+# -------------------------- #
+  top-level-attributes:
+    - name: "version"
+      type: "string"
+      description: "The version of the post-load webhook."
+
+    - name: "minimum_sdc_batched_at"
+      type: "timestamp"
+      description: |
+        {{ system-column.batched-at-description }}
+
+    - name: "integration_name"
+      type: "string"
+      description: "The name of the integration."
+
+    - name: "new_version"
+      type: "boolean"
+      description: "If `true`, the load resulted in a switch-view operation for the table."
+
+    - name: "source_root_table_name"
+      type: "string"
+      description: "The root name of the table in the data source."
+
+    - name: "destination_root_table_name"
+      type: "string"
+      description: "The root name of the table in the destination."
+
+    - name: "table_version"
+      type: "integer"
+      description: "The version of the table."
+
+    - name: "tables"
+      type: "array"
+      description: |
+        An array of [`table` objects](#post-load-webhook-table-object).
+
+# -------------------------- #
+#       TABLE ATTRIBUTES     #
+# -------------------------- #
+
+  table-attributes:
+    - name: "source_table_name"
+      type: "string"
+      description: |
+        The name of the table in the data source.
+
+        **Note**: If this is a subtable created from denesting an array, this value will be the array key. For example: If `orders.order_items`, this value would be `order_items`.
+
+    - name: "destination_table_name"
+      type: "string"
+      description: |
+        The name of the table in the destination.
+
+        **Note**: If this is a subtable created from denesting an array, this value will be the `source_root_table_name` appended with the `source_table_name`.
+
+        For example: If `orders.order_items`, this value would be `orders__order_items`.
+
+    - name: "max_time_extracted"
+      type: "timestamp"
+      description: |
+         A timestamp indicating the time that the last row was extracted for the table.
+
+    - name: "num_rows"
+      type: "integer"
+      description: |
+        The total number of rows that were successfully loaded into the destination for the table.
+
+        **Note**: If all rows for the table have been rejected, this value will be `0`.
+
+    - name: "num_rows_rejected"
+      type: "integer"
+      description: |
+        If rows were rejected, this value will indicate the total number of rows that were rejected for the table. Refer to the [Rejected records log guide]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for more info.
+
+    - name: "s3_objects"
+      type: "array of strings"
+      description: |
+        **Applicable only if using an Amazon S3 destination.** The table's corresponding Object Key in the S3 bucket. This is determined by [the **Object Key** setting]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#define-s3-object-key" }}) in the **Destination** page of Stitch.
+
+        For example: `stitch-s3-bucket/orders/0_1563294550038.jsonl`
+
+    - name: "bookmark_metadata"
+      type: "array"
+      description: |
+        An array of [`bookmark_metadata` objects](#post-load-webhook-bookmark-metadata-object).
+
+        **Note**: If all rows for the table have been rejected, this property will be `null`.
+
+
+# ----------------------------- #
+#  BOOKMARK METADATA ATTRIBUTES #
+# ----------------------------- #
+
+  bookmark-metadata-attributes:
+    - name: "key"
+      type: "string"
+      description: |
+        The name of the column the table uses as a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+
+    - name: "min_value"
+      type: "string"
+      description: "The minimum value of the Replication Key column that was extracted."
+
+    - name: "max_value"
+      type: "string"
+      description: "The maximum value of the Replication Key column that was extracted. Stitch will use this value during the next replication job to identify new and updated data."
+
+    # - name: "s3_objects"
+    #   type: "array"
+    #   description: |
+    #     todo
+    #   example-data:
+    #     switch-view:
+    #     no-switch-view:
+    #     all-rows-rejected: 
+
+  example-data:
+    no-nested-tables: |
+      {  
+         "version":"1.0",
+         "minimum_sdc_batched_at":"2019-07-15T14:45:08.026Z",
+         "integration_name":"shopify",
+         "new_version":false,
+         "source_root_table_name":"orders",
+         "destination_root_table_name":"orders",
+         "table_version":0,
+         "tables":[  
+            {  
+               "source_table_name":"orders",
+               "destination_table_name":"orders",
+               "num_rows":100,
+               "num_rows_rejected":11,
+               "s3_objects":[  
+                  "stitch-s3-bucket/orders/0_1563294550038.jsonl"
+               ],
+               "bookmark_metadata":[  
+                  {  
+                     "key":"updated_at",
+                     "max_value":"2018-12-31T00:00:00Z",
+                     "min_value":"2018-12-31T00:00:00Z"
+                  }
+               ],
+               "max_time_extracted":"2019-07-15T14:43:09.030Z"
+            }
+         ]
+      }

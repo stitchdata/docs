@@ -1,0 +1,52 @@
+# -------------------------- #
+#   ENTERPRISE PLAN DETAILS  #
+# -------------------------- #
+
+name: "Enterprise"
+
+trial-description: "During the Free Trial, you'll have access to all of Stitch's Free, Standard, and Enterprise integrations and unlimited rows for 14 days. The trial begins when you successfully connect and replicate data to a destination."
+
+paid: true
+legacy: false
+
+integrations: "all"
+total-integrations: "Unlimited"
+
+users: "Custom"
+rows: "billions"
+logs: "60 days"
+reports: "60 days"
+
+api-access: true
+customize-notifications: true
+post-load-notifications: true
+cron-scheduling: true
+
+# -------------------------- #
+#     ADDITIONAL FEATURES    #
+# -------------------------- #
+
+features:
+  - category: "Account"
+    guides:
+      - key: "manage-api-keys"
+        title: "Stitch API access"
+        summary: "With the Stitch API, you can programmatically control your Stitch account. This enables you to quickly create and configure integrations, select tables and columns for replication, connect Stitch with an external scheduler, and more."
+
+  - category: "Notifications"
+    guides:
+      - key: "customize-notifications"
+      - key: "hipaa-notifications"
+      - key: "post-load-notifications"
+
+  - category: "Integrations"
+    guides:
+      - key: "oracle-integration"
+
+  - category: "Replication"
+    guides:
+      - key: "advanced-scheduling"
+      - key: "extraction-logs"
+        summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.enterprise.logs }}** of Extraction Logs."
+      - key: "loading-reports"
+        summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.enterprise.reports }}** of Loading Reports."

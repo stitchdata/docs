@@ -32,6 +32,9 @@ repo-url: https://github.com/singer-io/tap-clubspeed
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://www.programmableweb.com/api/club-speed){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -44,11 +47,29 @@ frequency: "30 minutes"
 tier: "Free"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

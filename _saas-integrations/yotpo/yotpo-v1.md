@@ -23,6 +23,9 @@ repo-url: https://github.com/singer-io/tap-yotpo
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Core API](https://apidocs.yotpo.com/reference){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -36,6 +39,8 @@ tier: "Free"
 status-url: "http://status.yotpo.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -43,6 +48,14 @@ table-selection: true
 column-selection: false
 
 attribution-window: "30 days"
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

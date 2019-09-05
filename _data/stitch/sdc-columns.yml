@@ -4,9 +4,11 @@
 
 categories:
   - name: "all"
-    display-name: "All tables/integrations"
+    display-name: "All integration tables"
     description: |
       These columns are applicable to all tables and integration types. Unless noted, every column in this list will be present in every integration table created by Stitch.
+
+      **Note:** These columns aren't applicable to system tables.
 
   - name: "subtables"
     display-name: "Subtables"
@@ -50,7 +52,7 @@ current-columns:
 # EXTRACTED_AT
   extracted-at: &extracted-at "_sdc_extracted_at"
   extracted-at-description: &extracted-at-description |
-    Timestamp indicating when Stitch extracted the record from the source.
+    **Applicable only to certain Singer-backed integrations.** Timestamp indicating when Stitch extracted the record from the source.
 
 # RECEIVED_AT
   received-at: &received-at "_sdc_received_at"
@@ -75,16 +77,16 @@ current-columns:
 # SOURCE KEY
   source-key: &source-key "_sdc_source_key_"
   source-key-description: &source-key-description |
-    **Applicable only to subtables**, this column forms part of a composite Primary Key for the table. It contains the top level table's Primary Key and will also inherit the Primary Key's data type.
+    Forms part of a composite Primary Key for the table. It contains the top level table's Primary Key and will also inherit the Primary Key's data type.
 
-    For example: there is a top-level table (`orders`) with a Primary Key of `order_id` (`INTEGER`). If a subtable were created from `orders`, this column would be named `{{ system-column.source-key | append:"order_id" }}`, be typed as an `INTEGER`, and contain the same values.
+    For example: There is a top-level table (`orders`) with a Primary Key of `order_id` (`INTEGER`). If a subtable were created from `orders`, this column would be named `{{ system-column.source-key | append:"order_id" }}`, be typed as an `INTEGER`, and contain the same values.
 
 # LEVEL ID
   level-id: &level-id "_sdc_level_#_id"
   level-id-description: &level-id-description |
-    **Applicable only to subtables**, this column forms part of a composite Primary Key for the table and can be used to associate further nested records to the parent.
+    Forms part of a composite Primary Key for the table and can be used to associate further nested records to the parent.
 
-    Values in this column will auto-increment for each unique record in the table, beginning with 0. When used with the `{{ system-column.primary-key }}` column(s), a unique identifier for the row is created.
+    Values in this column will auto-increment for each unique record in the table, beginning with 0. When used with the `{{ system-column.source-key }}[name]` column(s), a unique identifier for the row is created.
 
     Depending on the level of nesting, there may be multiple `{{ system-column.level-id | remove: "_#" }}` columns in a subtable.
 
@@ -96,27 +98,27 @@ current-columns:
 # REPLICATION_ID
   replication-id: &replication-id "_sdc_replication_id"
   replication-id-description: &replication-id-description |
-    **Applicable only to database integrations**, this column contains an auto-generated ID that Stitch injects when a Primary Key isn't detected. Stitch will use this column to de-dupe data.
+    Contains an auto-generated ID that Stitch injects when a Primary Key isn't detected. Stitch will use this column to de-dupe data.
 
 # CUSTOMER ID
   customer-id: &customer-id "_sdc_customer_id"
   customer-id-description: &customer-id-description |
-    **Applicable only to Google AdWords integrations,** this column contains the AdWords Account ID the data in the row pertains to.
+    **Applicable only to Google Ads integrations,** this column contains the Ads Account ID the data in the row pertains to.
 
-    For example: the `ad_performance_report` table may contain data from several AdWords accounts. The value in the `_sdc_customer_id` column allows you to associate records with the correct AdWords account.
+    For example: The `ad_performance_report` table may contain data from several Ads accounts. The value in the `_sdc_customer_id` column allows you to associate records with the correct Ads account.
 
 # REPORT DATE TIME
   report-date-time: &report-date-time "_sdc_report_datetime"
   report-date-time-description: &report-date-time-description |
-    **Applicable only to Google AdWords and DoubleClick Campaign Manager inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
+    **Applicable only to Google Ads and Campaign Manager inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
 
   source-file: &source-file "_sdc_source_file"
   source-file-description: &source-file-description |
-    **Applicable only to Responsys integrations**, this column contains the file path on the SFTP server of the table's source file.
+    **Applicable only to Intacct and Responsys integrations**, this column contains the file path on the SFTP server of the table's source file.
 
   source-lineno: &source-lineno "_sdc_source_lineno"
   source-lineno-description: &source-lineno-description |
-    **Applicable only to Responsys integrations**, this column contains the row number for the record in the source file.
+    **Applicable only to Intacct and Responsys integrations**, this column contains the row number for the record in the source file.
 
 #------------------------------------#
 #           LIST OF COLUMNS          #
@@ -131,89 +133,86 @@ current-columns:
 
 # name: column name
 # type: column's data type
-# applicable-to: some columns are applicable only to certain types of tables or integrations. this indicates the applicable type of table or integration.
+# category: some columns are applicable only to certain types of tables or integrations. this indicates the applicable type of table or integration.
 # description: column description
 
-attributes:
+all:
   - name: *extracted-at
     type: "timestamp"
-    applicable-to: "all"
     description: *extracted-at-description
-    # data: "2016-07-14 19:56:38.58"
+    data: "2019-08-08 14:52:05.773+00"
 
   - name: *received-at
     type: "timestamp"
-    applicable-to: "all"
     description: *received-at-description
-    # data: "2016-07-14 19:56:38.58"
+    data: "2019-08-08 14:54:39.109+00"
 
   - name: *batched-at
     type: "timestamp"
-    applicable-to: "all"
     description: *batched-at-description
-    # data: "2016-07-14 20:01:25.439"
+    data: "2019-08-08 14:55:08.82+00"
 
   - name: *sequence
     type: "integer"
-    applicable-to: "all"
     description: *sequence-description
-    # data: "1468526197991"
+    data: "1565276078922000095"
 
   - name: *table-version
     type: "integer"
-    applicable-to: "all"
     description: *table-version-description
-    # data: "0"
-
-  - name: *source-key
-    type: "varies"
-    applicable-to: "subtables"
-    description: *source-key-description
-
-  - name: *level-id
-    type: "integer"
-    applicable-to: "subtables"
-    description: *level-id-description
-    # data: "0"
+    data: "0"
 
   - name: *primary-key
     type: "string"
-    applicable-to: "all"
     description: *primary-key-description
-    # data: "5d8b9a05-33cc-4d5f-8163-4474814b46c6"
+    data: "5d8b9a05-33cc-4d5f-8163-4474814b46c6"
 
+subtables:
+  - name: |
+      {{ system-column.source-key }}[name]
+    type: "varies"
+    description: *source-key-description
+    data: "885035841"
+
+  - name: *level-id
+    type: "integer"
+    description: *level-id-description
+    data: "0"
+
+databases:
   - name: *replication-id
     type: "string"
-    applicable-to: "databases"
+    applicable-to: "All database"
     description: *replication-id-description
-    # data: "87329b9c-c61f-4c45-847b-407ee8bab7bd"
+    data: "87329b9c-c61f-4c45-847b-407ee8bab7bd"
 
   - name: *source-file
     type: "string"
-    applicable-to: "databases"
+    applicable-to: "Intacct and Responsys"
     description: *source-file-description
-    # data: ""
+    data: "store/customers.csv"
 
   - name: *source-lineno
     type: "integer"
-    applicable-to: "databases"
+    applicable-to: "Intacct and Responsys"
     description: *source-lineno-description
-    # data: ""
+    data: "5"
 
   - name: *deleted-at
     type: "timestamp"
-    applicable-to: "databases"
+    applicable-to: "All database"
     description: *deleted-at-description
-    # data:
+    data: "2019-08-08 14:49:38.593+00"
 
+saas:
   - name: *customer-id
     type: "string"
-    applicable-to: "saas"
+    applicable-to: "Google Ads"
     description: *customer-id-description
-    # data: ""
+    data: "4224806558"
 
   - name: *report-date-time
     type: "date-time"
-    applicable-to: "saas"
+    applicable-to: "Google Ads and Campaign Manager"
     description: *report-date-time-description
-    # data: ""
+    data: "2019-08-08 14:49:38.593+00"

@@ -13,7 +13,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "aurora-rds"
-display_name: "Aurora MySQL RDS"
+display_name: "Amazon Aurora MySQL RDS"
 singer: true
 
 tap-name: "MySQL"
@@ -22,6 +22,9 @@ repo-url: https://github.com/singer-io/tap-mysql
 # this-version: "1.0"
 
 hosting-type: "amazon"
+
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -45,6 +48,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

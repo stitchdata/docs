@@ -18,6 +18,9 @@ status-url: https://twitter.com/taboola?lang=en
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Backstage API](https://github.com/taboola/Backstage-API){:target="new"}
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -29,12 +32,22 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+anchor-scheduling: true
+cron-scheduling: false
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

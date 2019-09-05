@@ -256,6 +256,7 @@ attributes:
       - name: "product"
         type: "string"
         description: "The product whose pricing this plan determines."
+        foreign-key-id: "product-id"
 
       - name: "tiers"
         type: "array"

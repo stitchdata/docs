@@ -16,21 +16,41 @@
 # -------------------------- #
 #       Getting Started      #
 # -------------------------- #
-getting-started: /getting-started
+getting-started:
+  category: /getting-started
 
+  basic-concepts: /getting-started/basic-concepts-system-overview
+  row-usage: /getting-started/understanding-stitch-usage
+  onboarding: /getting-started/set-up-stitch-data-pipeline
+  feature-overview: /getting-started/stitch-feature-overview
 
 # -------------------------- #
 #     Account & Billing      #
 # -------------------------- #
 account:
   account-settings: /account-security/managing-account-settings
+  email-password: /account-security/change-your-email-address-and-password
   team-members: /account-security/managing-team-members
+
+  manage-api-keys: /account-security/managing-stitch-api-keys
+  manage-partner-access: /account-security/managing-stitch-partner-account-access
+
+  notification-settings: /account-security/notifications
+  notification-reference: /account-security/notifications#notification-reference
+  customize-notifications: /account-security/notifications/extend-email-notifications
+  hipaa-notifications: /account-security/notifications/hipaa-compliant-notifications
+  post-load-notifications: /account-security/notifications/post-load-notifications
+
+  datadog-notifications: /account-security/notifications/integrate-notifications-with-datadog
+  pagerduty-notifications: /account-security/notifications/integrate-notifications-with-pagerduty
+  slack-notifications: /account-security/notifications/integrate-notifications-with-slack
   
   hipaa-compliance: /assets/pdfs/operating-stitch-in-compliance-with-hipaa.pdf
   cancel-account: /account-security/cancelling-your-stitch-account
 
+  enterprise-features: /account-security/stitch-enterprise-features
+
 billing:
-  billing-guide: /account-security/understanding-stitch-billing-replicated-rows
   billing-faq: /account-security/billing-faq
 
 
@@ -120,8 +140,9 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.storage.[id]
   storage:
+    system-tables-and-columns: &system-data /data-structure/system-tables-and-columns
     stitch-schema: /data-structure/integration-schemas
-    sdc-columns: "/data-structure/integration-schemas#sdc_columns"
+    sdc-columns: *system-data
     loading-data: /data-structure/loading-stitch-data-into-destinations
     structure-changes: /data-structure/table-structural-changes
     column-splitting: "/data-structure/table-structural-changes#columns-mixed-data-types"
@@ -131,6 +152,7 @@ destinations:
     redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
     bigquery-partitioning: /destinations/bigquery/apply-table-partitioning-clustering
     azure-primary-keys: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
+    reserved-keywords: /data-structure/reserved-keywords
 
 # -------------------------- #
 #         INTEGRATIONS       #
@@ -143,6 +165,8 @@ integrations:
   import-api: /integrations/import-api
   webhooks: /integrations/webhooks
   stitch-incoming-webhooks: /integrations/webhooks/stitch-incoming-webhooks
+
+  other-data-sources: /integrations/connecting-other-data-sources-to-stitch
 
   ## Use a filter to replace INTEGRATION with the integration's name to
   ## create the URL.
@@ -165,10 +189,12 @@ replication:
   db-views: /replication/replicating-database-views
   supported-data-types: /replication/supported-data-types
 
-## Replication Frequency
+## Replication Scheduling
   rep-scheduling: /replication/replication-scheduling
-  rep-frequency: "/replication/replication-scheduling#replication-frequency"
-  anchor-scheduling: "/replication/replication-scheduling#anchor-scheduling"
+  rep-frequency: "/replication/replication-scheduling/replication-frequency"
+  anchor-scheduling: "/replication/replication-scheduling/anchor-scheduling"
+  advanced-scheduling: /replication/replication-scheduling/advanced-scheduling
+  table-scheduling: /replication/replication-scheduling/scheduling-for-tables
 
 ## Replication Methods
   rep-methods: /replication/replication-methods
@@ -210,6 +236,8 @@ connect:
     create-configure-a-source: /stitch-connect/api#quick-start
     field-selection-compatibility-rules: /stitch-connect/guides/field-selection-compatibility-rules
     select-streams-and-fields: /stitch-connect/guides/select-streams-and-fields-with-connect-api
+    replication-scheduling-for-sources: /stitch-connect/guides/replication-scheduling-for-sources
+    partner-authentication: /stitch-connect/guides/stitch-partner-authentication-guide
 
 
 import-api:
@@ -221,6 +249,9 @@ import-api:
   return: /integrations/import-api#return-codes
 
 
+webhooks:
+  post-load: /developers/webhooks/post-load-webhooks
+
 # -------------------------- #
 #       Troubleshooting      #
 # -------------------------- #
@@ -231,6 +262,7 @@ troubleshooting:
   known-issues: /troubleshooting/known-third-party-issues
   billing-issues: /troubleshooting/account
   third-party-downtime: /troubleshooting/third-party-integration-downtime
+  team-member-invites: /troubleshooting/account/team-member-invites
 
 ## Data Discrepancies 
   discrepancy-guide: /troubleshooting/data-discrepancy-troubleshooting-guide

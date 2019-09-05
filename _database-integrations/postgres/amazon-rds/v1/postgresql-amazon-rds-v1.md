@@ -12,7 +12,7 @@ microsites:
 # -------------------------- #
 
 name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+display_name: "Amazon PostgreSQL RDS"
 
 singer: true
 tap-name: "Postgres"
@@ -22,6 +22,9 @@ hosting-type: "amazon"
 
 this-version: "1.0"
 
+driver: |
+  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -30,7 +33,7 @@ status: "Released"
 certified: true
 setup-name: "PostgreSQL"
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"
@@ -44,6 +47,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

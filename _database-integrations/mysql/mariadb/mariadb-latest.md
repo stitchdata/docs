@@ -19,6 +19,9 @@ hosting-type: "generic"
 
 # this-version: "1.0"
 
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -40,6 +43,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

@@ -18,6 +18,9 @@ repo-url: "https://github.com/singer-io/tap-zendesk"
 
 this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/support/introduction){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -27,14 +30,32 @@ certified: true
 
 historical: "1 year"
 frequency: "60 minutes"
-tier: "Paid"
+tier: "Standard"
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: true
 column-selection: true
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: true
+  data-volume: true
+  lots-of-full-table: false
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #

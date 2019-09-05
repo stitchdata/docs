@@ -93,7 +93,7 @@ To add a permission to the role:
         <p>In the table below are object-specific permissions and the tables they correspond to. The permissions for a given table must be granted to the Stitch role in order to access and replicate data for the table.</p>
         <p>The columns in the table are as follows:</p>
         <ul>
-            <li>{{ notice-icon | replace:"TOOLTIP","" }} - If present, the table corresponds to a feature or features that must be enabled in {{ integration.display_name }}. If the feature or features aren't enabled in your account, no data will be replicated for the table and the permission listed will not be available.</li>
+            <li>{{ notice-icon | replace:"TOOLTIP","" }} - If present, the table corresponds to a feature or features that must be enabled in {{ integration.display_name }}. If the feature or features aren't enabled in your account, the permission listed will not be available to grant and attempts to extract data for the corresponding table will result in permissions errors.</li>
             <li><strong>Table name</strong> - The name of the Stitch table.</li>
             <li><strong>Tab</strong> - The tab in the <strong>Create Role</strong> page that contains the permission.</li>
             <li><strong>Permission</strong> - The permission required to access and replicate data for the table.</li>

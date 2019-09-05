@@ -20,6 +20,9 @@ display_name: "QuickBooks"
 singer: false
 status-url: "http://status.developer.intuit.com/"
 
+api: |
+  [{{ integration.display_name }} Online API](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -29,14 +32,33 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: false
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data from a {{ integration.display_name }} Online instance using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
+  **Note**: Currently, replicating data from {{ integration.display_name }} Desktop apps isn't supported.
 
 # -------------------------- #
 #     Integration Tables     #

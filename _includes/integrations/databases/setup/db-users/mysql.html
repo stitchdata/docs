@@ -20,7 +20,7 @@
    **Note:** Column-level permissions are not supported for use with Log-based Incremental Replication. Restricting access to columns will cause replication issues.
 
 {% capture replication-privileges %}
-Additionally, if you want to use Log-based Replication, you'll also need to grant the Stitch user replication privileges:
+Additionally, if you want to use Log-based Incremental Replication, you'll also need to grant the Stitch user replication privileges:
 
 ```sql
 {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-replication-command | flatify | rstrip }}

@@ -31,22 +31,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="content-column">
         
         <div class="article">
-            {% unless page.title contains "Welcome" %}
-        <div class="breadbox">
-            <div class="breadcrumb-container" data-swiftype-index='false'>
-                <div id="breadcrumb-menu" class="menu-left">
-                    {% include layout/breadcrumbs.html %}
-                </div>
-
-                {% if page.this-version %}
-                    <div class="version-menu menu-right fouc">
-                        {% include integrations/templates/versioning/integration-version-menu.html %}
+          {% unless page.title contains "Welcome" %}
+            <div class="breadbox">
+                <div class="breadcrumb-container" data-swiftype-index='false'>
+                    <div id="breadcrumb-menu" class="menu-left">
+                        {% include layout/breadcrumbs.html %}
                     </div>
-                {% endif %}
+
+                    {% if page.this-version %}
+                        <div class="version-menu menu-right fouc">
+                            {% include integrations/templates/versioning/integration-version-menu.html %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-        </div>
-        {% endunless %}
-            {{content}}
+          {% endunless %}
+
+          {{content}}
         </div>
     </div>
 </div>

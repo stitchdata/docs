@@ -33,6 +33,9 @@ tap-name: "NetSuite"
 
 this-version: "1.0"
 
+api: |
+  {{ integration.display_name }} SuiteTalk API (v2017_2)
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -42,14 +45,32 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Paid"
+tier: "Standard"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: true
+  lots-of-full-table: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #

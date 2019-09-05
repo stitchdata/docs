@@ -32,6 +32,9 @@ repo-url: https://github.com/singer-io/tap-frontapp
 
 # this-version: "1.0"
 
+api: |
+  [Front API](https://dev.frontapp.com/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -45,6 +48,8 @@ tier: "Free"
 status-url: "https://www.frontstatus.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -55,6 +60,14 @@ column-selection: true
 # attribution-is-configurable: 
 
 # setup-name: ""
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

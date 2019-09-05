@@ -8,9 +8,18 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-frontapp-object"
+
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Front Source Form Property"
 api-type: "platform.frontapp"
@@ -21,6 +30,13 @@ docs-name: "frontapp"
 
 description: |
   **Note**: To use this integration, the user must have a [Premium or Enterprise {{ form-property.display-name }} plan](https://frontapp.com/pricing){:target="new"}. These plans include API access, which is required to use Stitch's {{ form-property.display-name }} integration.
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "incremental_range"

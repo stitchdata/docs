@@ -32,6 +32,9 @@ repo-url: https://github.com/singer-io/tap-revinate
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} Porter API](https://porter.revinate.com/documentation){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -44,6 +47,8 @@ frequency: "1 hour"
 tier: "Free"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -51,6 +56,14 @@ table-selection: false
 column-selection: false
 
 attribution-window: "1 week"
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

@@ -20,4 +20,11 @@ source-type: "saas"
 docs-name: "campaign-manager"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: false
 ---

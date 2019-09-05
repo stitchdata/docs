@@ -10,7 +10,7 @@ show-in-menus: true
 # -------------------------- #
 
 name: "cloudsql-mysql"
-display_name: "CloudSQL MySQL"
+display_name: "Google CloudSQL MySQL"
 singer: true
 
 repo-url: https://github.com/singer-io/tap-mysql
@@ -18,6 +18,9 @@ repo-url: https://github.com/singer-io/tap-mysql
 # this-version: "1.0"
 
 hosting-type: "google-cloudsql"
+
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -40,6 +43,8 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

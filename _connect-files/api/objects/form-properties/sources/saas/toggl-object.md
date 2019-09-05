@@ -34,7 +34,7 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-uses-common-fields: true
+uses-start-date: true
 
 object-attributes:
   - name: "api_token"

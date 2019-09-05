@@ -13,9 +13,10 @@ order: 9
 # -------------------------- #
 
 title: "Replication Job"
-description: "{{ api.core-objects.replication-jobs.description | flatify }}"
 endpoint-url: "/sources/{source_id}/sync"
 
+description: "{{ api.core-objects.replication-jobs.description | flatify }}"
+intro-short: "Start and stop replication jobs" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

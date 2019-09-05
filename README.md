@@ -8,7 +8,7 @@ Welcome to the Stitch Docs! This is the repository for [stitchdata.com/docs](htt
 
 The `master` branch is continuously deployed to production using [Netlify](http://netlify.com).
 
-**If you need support for Stitch**, contact Stitch Support by emailing **help@stitchdata.com** or [logging into your Stitch account](https://app.stitchdata.com/) and clicking the pink chat bubble in the bottom-right corner.
+**If you need support for Stitch**, contact Stitch Support by emailing **stitchsupport@talend.com** or [logging into your Stitch account](https://app.stitchdata.com/) and clicking the pink chat bubble in the bottom-right corner.
 
 ---
 

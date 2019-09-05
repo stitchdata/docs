@@ -13,11 +13,14 @@ microsites:
 # -------------------------- #
 
 name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+display_name: "Amazon PostgreSQL RDS"
 
 this-version: "15-10-2015"
 
 hosting-type: "amazon"
+
+driver: |
+  [PostgreSQL JDBC 9.4.1208.jre7](https://jdbc.postgresql.org/documentation/94/index.html){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -41,6 +44,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: false
 loading-reports: true
 

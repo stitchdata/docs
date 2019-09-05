@@ -32,6 +32,9 @@ repo-url: https://github.com/singer-io/tap-toggl
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API v8](https://github.com/toggl/toggl_api_docs/blob/master/toggl_api.md){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -44,11 +47,21 @@ frequency: "30 minutes"
 tier: "Free"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

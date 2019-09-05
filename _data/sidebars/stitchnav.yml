@@ -4,38 +4,106 @@ all-docs:
 - title: sidebar
   categories:
 
-  - title: Getting Started
-    url: "{{ link.getting-started }}"
-    drop-down: false
-
-  - title: Account & Security
+  - title: Getting started
     sections:
+      - title: "Basic concepts & system overview"
+        url: "{{ link.getting-started.basic-concepts }}"
 
-    - title: Your Stitch Account
-      url: /account-security/
+      - title: "Set up your Stitch data pipeline"
+        url: "{{ link.getting-started.onboarding }}"
 
-    - title: Account Settings
-      url: "{{ link.account.account-settings }}"
+      - title: "Understand your Stitch row usage"
+        url: "{{ link.getting-started.row-usage }}"
 
-    - title: Invite Your Team
-      url: "{{ link.account.team-members }}"
+      - title: "Connect other data sources"
+        url: "{{ link.integrations.other-data-sources }}"
+
+      - title: "All Getting started"
+        url: "{{ link.getting-started.category }}"
+
+  - title: Account & security
+    sections:
+    - title: Manage your account
+      subsections:
+        - title: "Change your email & password"
+          url: "{{ link.account.email-password }}"
+
+        - title: "Update company details"
+          url: "{{ link.account.account-settings }}#update-company-information"
+
+        - title: "Manage your API keys"
+          url: "{{ link.account.manage-api-keys }}"
+
+        - title: "Manage Stitch partner access"
+          url: "{{ link.account.manage-partner-access }}"
+
+        - title: Cancel your account
+          url: "{{ link.account.cancel-account }}"
+
+    - title: "Invite your team"
+      subsections:
+        - title: "Team member basics"
+          url: "{{ link.account.team-members }}#team-member-basics"
+
+        - title: "Add a team member"
+          url: "{{ link.account.team-members }}#invite-team-member"
+
+        - title: "Add a team member to multiple accounts"
+          url: "{{ link.account.team-members }}#add-to-multiple-accounts"
+
+        - title: "Deactivate a team member"
+          url: "{{ link.account.team-members }}#deactivate-team-member"
+
+    - title: Notifications
+      subsections:
+        - title: "Urgency levels"
+          url: "{{ link.account.notification-settings }}#notification-levels"
+
+        - title: "Categories"
+          url: "{{ link.account.notification-settings }}#notification-categories"
+
+        - title: "In-app"
+          url: "{{ link.account.notification-settings }}#in-app-notifications"
+
+        - title: "Email"
+          url: "{{ link.account.notification-settings }}#email-notifications"
+
+        - title: "Reference"
+          url: "{{ link.account.notification-settings }}#notification-reference"
+
+        - title: "Notification extensions"
+          url: "{{ link.account.customize-notifications }}"
+
+        - title: "Post-load notifications"
+          url: "{{ link.account.post-load-notifications }}"
+
+        - title: "HIPAA-compliance"
+          url: "{{ link.account.hipaa-notifications }}"
+
+        # - title: "Post-load Notifications"
+        #   url: "{{ link.account.post-load }}"
 
     - title: Billing
-      url: "{{ link.billing.billing-faq }}"
+      subsections:
+        - title: Understand your usage
+          url: "{{ link.getting-started.row-usage }}"
 
-    - title: Understand Your Usage
-      url: "{{ link.billing.billing-guide }}"
+        - title: "FAQ"
+          url: "{{ link.billing.billing-faq }}"
 
     - title: Security
       subsections:
-        - title: "Data Encryption"
+        - title: "Data encryption"
           url: "{{ link.security.encryption }}"
 
         - title: "FAQ"
           url: "{{ link.security.faq }}"
 
-    - title: Cancel Your Account
-      url: "{{ link.account.cancel-account }}"
+    - title: Enterprise
+      url: "{{ link.account.enterprise-features }}"
+
+    - title: All Account & Security
+      url: /account-security/
 
   - title: Destinations
     sections:
@@ -43,10 +111,10 @@ all-docs:
     - title: Overview
       url: "{{ link.destinations.main }}"
 
-    - title: "Choosing a Destination"
+    - title: "Choosing a destination"
       url: "{{ link.destinations.overviews.choose-destination }}"
 
-    - title: "Destination & Integration Compatibility"
+    - title: "Destination & integration compatibility"
       url: "{{ link.destinations.overviews.compatibility }}"
 
     - title: Amazon Redshift
@@ -60,7 +128,7 @@ all-docs:
         - title: "Replication"
           url: "{{ link.destinations.overviews.redshift }}#replication"
 
-        - title: "Encodings, SORT, and DIST Keys"
+        - title: "Encodings, SORT, and DIST keys"
           url: "{{ link.destinations.storage.redshift-encodings }}"
 
         - title: "Limitations"
@@ -82,9 +150,6 @@ all-docs:
 
         - title: "Limitations"
           url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
-
-        # - title: "Loading Notifications"
-        #   url: "{{ link.destinations.overviews.amazon-s3}}#webhook-loading-notifications"
 
     - title: "data world"
       subsections:
@@ -137,7 +202,7 @@ all-docs:
         - title: "Limitations"
           url: "{{ link.destinations.overviews.azure }}#limitations"
 
-        - title: "Primary Key Handling"
+        - title: "Primary Key handling"
           url: "{{ link.destinations.storage.azure-primary-keys }}"
 
     - title: Panoply
@@ -145,10 +210,10 @@ all-docs:
         - title: "Overview"
           url: "{{ link.destinations.overviews.panoply }}"
 
-        - title: "Connect an Existing Destination"
+        - title: "Connect an existing destination"
           url: "{{ link.destinations.setup.panoply-ex }}"
 
-        - title: "Connect a New Destination"
+        - title: "Connect a new destination"
           url: "{{ link.destinations.setup.panoply-new }}"
 
         - title: "Replication"
@@ -162,19 +227,19 @@ all-docs:
         - title: "Overview"
           url: "{{ link.destinations.overviews.postgres }}"
 
-        - title: "Connect an Amazon Aurora RDS Destination"
+        - title: "Connect an Amazon Aurora RDS destination"
           url: "{{ link.destinations.setup.aurora-postgres }}"
 
-        - title: "Connect an Amazon RDS Destination"
+        - title: "Connect an Amazon RDS destination"
           url: "{{ link.destinations.setup.postgres-rds }}"
 
-        - title: "Connect a Google CloudSQL Destination"
+        - title: "Connect a Google CloudSQL destination"
           url: "{{ link.destinations.setup.cloudsql-postgres }}"
 
-        - title: "Connect a Heroku Destination"
+        - title: "Connect a Heroku destination"
           url: "{{ link.destinations.setup.heroku-postgres }}"
 
-        - title: "Connect a Self-Hosted Destination"
+        - title: "Connect a self-hosted destination"
           url: "{{ link.destinations.setup.self-hosted-postgres }}"
 
         - title: "Replication"
@@ -197,59 +262,55 @@ all-docs:
         - title: "Limitations"
           url: "{{ link.destinations.overviews.snowflake }}#limitations"
 
-        - title: "Snowflake Pricing"
+        - title: "Snowflake pricing"
           url: "{{ link.destinations.overviews.snowflake }}#pricing"
 
     - title: Change Destinations
       url: "{{ link.destinations.switch-destinations }}"
 
-  - title: SaaS Integrations
-    type: "integration"
+  - title: Integrations
     sections:
-      - title: Certified Integrations
+      - title: SaaS
+        type: "saas-integrations"
+        filter: "input"
         subsections:
           - title: "Overview"
-            url: |
-              {{ link.integrations.saas | append: "#stitch-certified-integrations" }}
+            url: "{{ link.integrations.saas }}"
 
-      - title: Community Integrations
+      - title: Databases
+        type: "database-integrations"
+        filter: "show-in-menus"
         subsections:
-          - title: "Overview"
-            url: |
-              {{ link.integrations.saas | append: "#stitch-community-integrations" }}
+          - title: Overview
+            url: "{{ link.integrations.databases }}"
 
-      - title: All SaaS Integrations
-        url: "{{ link.integrations.saas }}"
+      - title: Webhooks
+        type: "webhook-integrations"
+        filter: "input"
+        subsections:
+          - title: Overview
+            url: "{{ link.integrations.webhooks }}"
 
-      - title: All Integrations
+      - title: All integrations
         url: "{{ link.integrations.main }}"
 
-  - title: Database Integrations
-    type: "integration"
-    sections:
-      - title: Overview
-        url: "{{ link.integrations.databases }}"
+      - title: "Connect other data sources"
+        url: "{{ link.integrations.other-data-sources }}"
 
-  - title: Webhook Integrations
-    type: "integration"
+  - title: Extracting data
     sections:
-      - title: Overview
-        url: "{{ link.integrations.webhooks }}"
-
-  - title: Extracting Data
-    sections:
-    - title: Replicate Data
+    - title: Replicate data
       subsections:
-        - title: Select Data to Replicate 
+        - title: Select data to replicate 
           url: /replication/syncing-data
 
-        - title: Replicate New & Additional Columns
+        - title: Replicate new & additional columns
           url: "{{ link.replication.syncing-new-columns }}"
 
-        - title: Database Views
+        - title: Database views
           url: "{{ link.replication.db-views }}"
 
-        - title: Historical SaaS Data
+        - title: Historical SaaS data
           url: "{{ link.replication.saas-historical }}"
 
     - title: Replication Keys
@@ -277,7 +338,7 @@ all-docs:
         - title: Full Table
           url: "{{ link.replication.full-table }}"
 
-    - title: Replication Scheduling
+    - title: Replication scheduling
       subsections:
         - title: "Overview"
           url: "{{ link.replication.rep-scheduling }}"
@@ -288,7 +349,10 @@ all-docs:
         - title: "Anchor Scheduling"
           url: "{{ link.replication.anchor-scheduling }}"
 
-    - title: Supported Data Types
+        - title: "Advanced Scheduling using Cron"
+          url: "{{ link.replication.advanced-scheduling }}"
+
+    - title: Supported data types
       url: "{{ link.replication.supported-data-types }}"
 
     - title: Deleted record handling
@@ -305,9 +369,9 @@ all-docs:
         - title: "Full Table"
           url: "{{ link.replication.deleted-records }}#full-table"
 
-    - title: Monitoring Progress
+    - title: Monitoring progress
       subsections:
-        - title: Progress Summary
+        - title: Progress summary
           url: "{{ link.replication.rep-progress }}"
 
         - title: Extraction Logs
@@ -316,62 +380,68 @@ all-docs:
         - title: Loading Reports
           url: "{{ link.replication.loading-reports }}"
 
-  - title: Loading Data
+  - title: Loading data
     sections:
     - title: Loading Reports
       url: "{{ link.replication.loading-reports }}"
 
-    - title: Integration Schemas
+    - title: Integration schemas
       subsections:
         - title: "Overview"
           url: "{{ link.destinations.storage.stitch-schema }}"
 
-        - title: "Schema Names"
+        - title: "Terminology"
+          url: "{{ link.destinations.storage.stitch-schema }}#schema-terminology"
+
+        - title: "Schema names"
           url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
 
-        - title: "Schema Composition"
+        - title: "Schema composition"
           url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
 
-        - title: "Table Schemas"
+        - title: "Table schemas"
           url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
 
-        - title: "_sdc Columns"
-          url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
+        - title: "System tables and columns"
+          url: "{{ link.destinations.storage.system-tables-and-columns }}"
 
-    - title: Loading Data into Destinations
+    - title: Loading data into destinations
       url: "{{ link.destinations.storage.loading-data }}"
 
-    - title: Nested Data & Row Counts
+    - title: Nested data & row counts
       url: "{{ link.destinations.storage.nested-structures }}"
 
-    - title: Table Schema Changes
+    - title: Table schema changes
       url: "{{ link.destinations.storage.structure-changes }}"
 
-    - title: Append-Only Tables
+    - title: Append-only tables
       url: "{{ link.replication.append-only-querying }}"
 
-    - title: "_sdc Columns"
-      url: "{{ link.destinations.storage.stitch-schema }}#_sdc-columns"
+    - title: "System tables and columns"
+      url: "{{ link.destinations.storage.system-tables-and-columns }}"
 
-    - title: Rejected Records
+    - title: "Reserved keywords"
+      url: "{{ link.destinations.storage.reserved-keywords }}"
+
+    - title: Rejected records
       url: "{{ link.destinations.storage.rejected-records }}"
 
-  - title: Analysis Integrations
+  - title: Analysis tools
     sections:
 
     - title: Analytics
-      url: /analysis-integrations#analytics-integrations
+      url: /analysis-tools#analytics
 
-    - title: SQL Editors
-      url: /analysis-integrations#sql-editors
+    - title: SQL editors
+      url: /analysis-tools#sql-editors
 
-    - title: Data Science
-      url: /analysis-integrations#data-science
+    - title: Data science
+      url: /analysis-tools#data-science
 
   - title: Troubleshooting
     sections:
 
-    - title: Account & Billing
+    - title: Account & billing
       url: /troubleshooting/account
 
     - title: Destinations
@@ -383,22 +453,25 @@ all-docs:
     - title: Replication
       url: /troubleshooting/replication
 
-    - title: Data Discrepancies
+    - title: Data discrepancies
       url: /troubleshooting/data-discrepancies
 
-    - title: Error Notifications
+    - title: Error notifications
       url: /troubleshooting/error-notifications
 
     - title: All Troubleshooting
       url: /troubleshooting/
 
-  - title: API & JavaScript Reference
+  - title: Developers
     sections:
-      - title: Connect API
-        url: "{{ link.connect.api }}"
-
-      - title: Connect JavaScript Client
-        url: "{{ link.connect.js }}"
+      - title: Stitch Connect
+        url: "{{ link.connect.overview }}"
 
       - title: Import API
         url: "{{ link.import-api.getting-started }}"
+
+      - title: Post-load webhooks
+        url: "{{ link.webhooks.post-load }}"
+
+      - title: Guides & resources
+        url: "{{ link.connect.guides.category }}"

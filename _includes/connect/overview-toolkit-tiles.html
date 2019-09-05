@@ -13,7 +13,7 @@
 
 <ul class="tiles">
     {% for item in items %}
-        <li class="lg-tile">
+        <li class="lg-tile" {% if page.content-type == "connect-overview" %}style="width: 45%"{% endif %}>
         	{% if item.doc-type %}
 	        	<div class="doc-type-flag {{ item.doc-type }}">
 		        	{{ item.doc-type | upcase }}

@@ -19,7 +19,10 @@ display_name: "Bronto"
 singer: true 
 repo-url: https://github.com/singer-io/tap-bronto
 
-# this-version: ""
+# this-version: "1.0"
+
+api: |
+  [{{ integration.display_name }} SOAP API](https://help.bronto.com/bmp/concept/c_api_soap_intro.html){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,8 +40,18 @@ table-selection: false
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

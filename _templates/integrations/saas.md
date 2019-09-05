@@ -12,9 +12,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SAAS-INTEGRATION ## Find/replace SAAS-INTEGRATION with the display name (ex: Intercom)
-permalink: /integrations/saas/saas-integration ## Find/replace saas-integration with the key name (ex: intercom)
-tags: [saas_integrations]
+title: SAAS-INTEGRATION
+permalink: /integrations/saas/saas-integration
 keywords: saas-integration, integration, schema, etl saas-integration, saas-integration etl, saas-integration schema
 layout: singer
 # input: false
@@ -41,11 +40,12 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free/Paid"
+tier: "Free/Standard/Enterprise"
 status-url: ""
-icon: /images/integrations/icons/saas-integration.svg
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

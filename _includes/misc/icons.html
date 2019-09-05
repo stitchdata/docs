@@ -4,7 +4,14 @@ To use, include this file and then use variables to print the icons.
 
 You can use a 'replace' filter to insert copy that will create a tooltip. 
 
-Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
+Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} 
+
+	Additionally, you can use HTML in tooltips.
+	If you include a link, remember to use apostrophes (') and not double quotes (")
+	Because it'll break the formatting. 
+
+	Ex: <a href='https://stitchdata.com'>Stitch</a> will work, but
+		<a href="https://stitchdata.com">Stitch</a> won't. -->
 
 
 <!-- Support icons -->
@@ -25,7 +32,7 @@ Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
 
 <!-- The color of this icon is Stitch grey (#999999) if used without a 'style' attribute -->
 {% capture not-applicable %}
-<i class="fa fa-circle-thin fa-lg" data-toggle="tooltip" aria-hidden="true" data-original-title="TOOLTIP"></i>
+<i class="far fa-circle fa-lg" data-toggle="tooltip" aria-hidden="true" data-original-title="TOOLTIP"></i>
 {% endcapture %}
 
 
@@ -47,4 +54,8 @@ Ex: {{ supported | replace:"TOOLTIP","This feature is supported." }} -->
 
 {% capture plus-icon %}
 <i class="fa fa-plus-square fa-lg" data-toggle="tooltip" data-trigger="hover focus" data-html="true" data-original-title="TOOLTIP" aria-hidden="true"></i>
+{% endcapture %}
+
+{% capture time-icon %}
+<i class="far fa-clock fa-lg" data-toggle="tooltip" data-trigger="hover focus" data-html="true" data-original-title="TOOLTIP" aria-hidden="true"></i>
 {% endcapture %}

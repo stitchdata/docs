@@ -46,7 +46,7 @@ certified: true
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Paid"
+tier: "Standard"
 port: 22
 db-type: "responsys"
 
@@ -59,6 +59,8 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 

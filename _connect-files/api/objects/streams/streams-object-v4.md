@@ -13,9 +13,10 @@ order: 8
 # -------------------------- #
 
 title: "Stream"
-description: "{{ api.core-objects.streams.description }}"
 endpoint-url: "/sources/{source_id}/streams"
 
+description: "{{ api.core-objects.streams.description }}"
+intro-short: "Select and configure streams and fields from data sources for replication" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

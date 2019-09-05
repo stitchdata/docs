@@ -25,6 +25,9 @@ repo-url: https://github.com/singer-io/tap-mysql
 
 hosting-type: "generic"
 
+driver: |
+  [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -32,7 +35,7 @@ hosting-type: "generic"
 status: "Released"
 certified: true
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 3306
 db-type: "mysql"
@@ -46,6 +49,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

@@ -238,7 +238,7 @@ In total, Stitch will count each of these rows (a total of 5) towards your row c
 
 Understanding how Stitch handles nested data structures will in turn give you a deeper understanding of how your data is structured once it gets to your data warehouse. While this knowledge will help comprehending the data's structure, what about applying it to how many rows you're using? How can you plan ahead?
 
-- **For starters**, check out the [Reducing Your Row Count]({{ link.billing.billing-guide | prepend: site.baseurl | append: "#reducing-your-usage" }}) guide for detailed tips and gotchas on how to keep your row count in line.
+- **For starters**, check out the [Reducing Your Row Count]({{ link.getting-started.row-usage | prepend: site.baseurl | append: "#reducing-your-usage" }}) guide for detailed tips and gotchas on how to keep your row count in line.
 - **Take some time to learn about how the data for your integrations is structured and how it's replicated.**
 
    Check out the [SaaS Schemas section]({{ site.baseurl }}/integrations/saas) for detailed info on Replication Methods and the tables you can expect to see for each integration. Every article links to that service's API documentation, which is the best way to learn about the data for that integration is structured.

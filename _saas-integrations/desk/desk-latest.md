@@ -1,7 +1,6 @@
 ---
 title: Desk
 permalink: /integrations/saas/desk
-tags: [saas_integrations]
 keywords: desk, desk data, desk schema, etl desk, desk etl
 summary: "Connection instructions and schema details for Stitch's Desk integration."
 format: ## controls formatting options in template
@@ -16,9 +15,10 @@ format: ## controls formatting options in template
 name: "desk"
 display_name: "Desk"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://statusgator.com/status/deskcom"
+
+api: |
+  [{{ integration.display_name }} API](http://dev.desk.com/API/using-the-api/#general){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -29,15 +29,31 @@ certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
-icon: /images/integrations/icons/desk.svg
+tier: "Standard"
+
+anchor-scheduling: true
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 # -------------------------- #
 #     Integration Tables     #

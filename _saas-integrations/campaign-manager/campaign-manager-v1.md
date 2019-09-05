@@ -26,6 +26,9 @@ repo-url: https://github.com/singer-io/tap-doubleclick-campaign-manager
 
 # this-version: "1.0"
 
+api: |
+  [DCM/DFA Reporting and Trafficking API](https://developers.google.com/doubleclick-advertisers/getting_started){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -39,6 +42,8 @@ tier: "Free"
 status-url: "https://ads.google.com/status#hl=en&v=status"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
@@ -47,6 +52,14 @@ column-selection: false
 
 # https://support.google.com/dcm/partner/answer/6110224?hl=en&ref_topic=4388017
 # Info about data freshness for metrics
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

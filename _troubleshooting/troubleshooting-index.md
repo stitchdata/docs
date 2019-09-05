@@ -1,9 +1,31 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Troubleshooting
 keywords: troubleshooting, integration, trouble, issue, help, error, errors
 permalink: /troubleshooting/
+
 toc: false
 feedback: false
+
+key: "troubleshooting"
+
+level: "category"
+
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "support"
+display-title: "Troubleshooting"
+display-summary: "Resolve issues and get your data flowing again."
+weight: 7
+
 ---
 {% include misc/data-files.html %}
 

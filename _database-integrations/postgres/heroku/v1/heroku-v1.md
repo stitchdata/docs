@@ -20,6 +20,9 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1.0"
 
+driver: |
+  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -27,7 +30,7 @@ this-version: "1.0"
 status: "Released"
 certified: true
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"
@@ -41,6 +44,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

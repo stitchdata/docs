@@ -26,6 +26,8 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   # - name: "aggregate_level"
   #   type: "PLACEHOLDER"

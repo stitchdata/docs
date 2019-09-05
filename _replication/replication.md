@@ -1,13 +1,28 @@
 ---
-title: Stitch Replication
+title: Extracting data
 permalink: /replication/
 keywords: 
-
-content-type: "category-page"
-
 summary: "Documentation and guides for configuring and managing data replication for your Stitch integrations."
+
 feedback: false
 toc: false
+
+content-type: "category-page"
+key: "replication"
+
+level: "category"
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "replication"
+display-title: "Extracting data"
+display-summary: "Get the data flowing with Stitch's simple, straightforward replication settings."
+weight: 5
+
 
 # --------------------------- #
 #          CATEGORIES         #
@@ -43,7 +58,7 @@ sections:
 {{ page.summary }}
 
 {% for section in page.sections %}
-- [**{{ section.name }}**](#{{ section.id }}) - {{ section.description }}
+- [**{{ section.name }}**](#{{ section.id | append: "-section" }}) - {{ section.description }}
 {% endfor %}
 
 ---
@@ -51,7 +66,7 @@ sections:
 {% for section in page.sections %}
 {% assign all-section-docs = site.replication | where:"content-type",section.id | sort:"weight" %}
 
-## {{ section.name }} {#{{ section.id }}}
+## {{ section.name }} {#{{ section.id | append: "-section" }}}
 
 {{ section.description }}
 

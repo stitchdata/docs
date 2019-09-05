@@ -2,6 +2,9 @@
 content-type: "api-terms"
 
 all-terms:
+  - name: "Partner"
+    definition: "An organization that utilizes Stitch Connect to programmatically create and/or manage Stitch client accounts on behalf of their users."
+
   - name: "Stitch client account"
     definition: |
       {{ site.data.tooltips.stitch-client-account }}

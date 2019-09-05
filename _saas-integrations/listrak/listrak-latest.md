@@ -18,7 +18,10 @@ display_name: "Listrak"
 singer: true 
 repo-url: https://github.com/singer-io/tap-listrak
 
-# this-version: ""
+# this-version: "1.0"
+
+api: |
+  [{{ integration.display_name }} SOAP API](https://webservices.listrak.com/SoapWSDL.aspx){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,8 +39,27 @@ table-selection: true
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

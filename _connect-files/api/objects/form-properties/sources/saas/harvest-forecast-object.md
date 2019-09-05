@@ -20,4 +20,10 @@ source-type: "saas"
 docs-name: "harvest-forecast"
 
 description: ""
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 ---
