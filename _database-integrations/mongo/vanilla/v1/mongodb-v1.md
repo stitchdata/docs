@@ -3,7 +3,7 @@ title: MongoDB (v1)
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
 permalink: /integrations/databases/mongodb/v1
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
-input: false
+input: true
 
 # -------------------------- #
 #     Integration Details    #
@@ -65,7 +65,7 @@ log-based-replication-read-replica: true
 key-based-incremental-replication: true
 full-table-replication: true
 
-view-replication: true
+view-replication: false
 
 ## Row usage details
 
@@ -77,23 +77,27 @@ row-usage-hog-reasons:
 
 
 # -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }} driver.
+
+
+# -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+  - item: |
+      **If using Log-based Incremental Replication**, the [`userAdmin`](https://docs.mongodb.com/v4.0/reference/built-in-roles/#userAdmin){:target="new"} or `userAdminAnyDatabase` role. This is required to configure the database server for OpLog.
   - item: "**A {{ integration.display_name }} server that uses Auth mode.** Auth mode requires every user who connects to Mongo to have a username and password. These credentials must be validated before the user will be granted access to the database."
   - item: |
       **A {{ integration.display_name }} database using a version between {{ integration.versions | replace:"through","and" }}.** While older versions may be connected to Stitch, we may not be able to provide support for issues that arise due to unsupported versions.
 
       We recommend always keeping your version current as a best-practice. If you encounter connection issues or other unexpected behavior, verify that your {{ integration.display_name }} version is one supported by Stitch.
-
-
-requirements-info: |
-  Additionally, note that:
-
-  - **If using SSL**, your server must require SSL connections. **Note**: SSL is **not** required to connect a {{ integration.display_name }} database to Stitch.
-  - **If connecting via Atlas**, Stitch can only connect to instances using a **paid Atlas plan** with a **dedicated cluster**. The Free Atlas plan and shared clusters utilize a setup that Stitch doesn't currently support.
+  - item: "**If using SSL**, your server must require SSL connections. **Note**: SSL isn't required to connect a {{ integration.display_name }} database to Stitch."
 
 
 # -------------------------- #
@@ -124,9 +128,25 @@ setup-steps:
       - [Step 3.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
     substeps:
-      - title: "todo"
-        anchor: "todo"
-        content: ""
+      - title: "Create a replica set"
+        anchor: "create-replica-set"
+        content: |
+          {% capture root-user %}
+          **Note**: This step requires [`root` user privileges]({{ site.data.taps.links.mongodb.root-user }}){:target="new"} in {{ integration.display_name }}.
+          {% endcapture %}
+          {% include note.html type="single-line" content=root-user %}
+
+          {% include integrations/databases/setup/binlog/mongodb-oplog.html type="edit-conf-file" %}
+
+      - title: "Initiate the replica set"
+        anchor: "initiate-replica-set"
+        content: |
+          {% include integrations/databases/setup/binlog/mongodb-oplog.html type="initiate-replica-set" %}
+
+      - title: "Verify OpLog setup and access"
+        anchor: "verify-oplog-setup-access"
+        content: |
+          {% include integrations/databases/setup/binlog/mongodb-oplog.html type="verify-oplog" %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
