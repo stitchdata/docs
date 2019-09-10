@@ -38,11 +38,9 @@ sections:
     content: |
       When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) to identify new and updated data in a table for replication. A Replication Key is a column that exists in a source table, and must be on of the following data types:
 
-      - `TIMESTAMP`
-      - `DATETIME`
-      - `INTEGER`
-      - `ObjectId` (MongoDB v1 only)
-      - `NUMBER` (Oracle only)
+      {% for data-type in site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
+      - {{ data-type }}
+      {% endfor %}
 
       {% capture replication-keys-note %}
       While this section touches on Replication Keys, a full walkthrough is outside the scope of this guide. Refer to the [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) documentation to learn about Replication Key requirements and how to select appropriate Replication Key columns.
