@@ -3,7 +3,8 @@ title: MongoDB Atlas (v1)
 keywords: mongodb, mongo, atlas, mongo atlas database integration, etl mongo, mongodb etl
 permalink: /integrations/databases/mongodb-atlas/v1
 summary: "Connect and replicate data from your MongoDB Atlas database using Stitch's MongoDB integration."
-input: false
+input: true
+show-in-menus: true
 
 # -------------------------- #
 #     Integration Details    #
