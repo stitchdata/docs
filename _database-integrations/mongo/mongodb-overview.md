@@ -10,7 +10,7 @@ show-in-menus: true
 has-versions: true
 has-specific-data-types: false
 
-db-type: "mongodb"
+db-type: "mongo"
 name: "mongodb"
 display_name: "MongoDB"
 
