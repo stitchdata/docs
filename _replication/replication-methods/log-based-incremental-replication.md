@@ -217,7 +217,7 @@ sections:
           Structural changes can include adding new columns, removing columns, changing a data type, etc. Resetting the table is required due to how messages in logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
-          {{ site.data.errors.database-extraction.mysql.raw-error.schema-violation | lstrip | rstrip }}
+          {{ site.data.errors.extraction.databases.mysql.raw-error.schema-violation | lstrip | rstrip }}
           ```
 
           For this reason, Stitch recommends using {{ page.title }} with tables that have structures that don't change frequently.
@@ -318,12 +318,12 @@ sections:
 
           - **For MySQL databases**:
             ```
-            {{ site.data.errors.database-extraction.mysql.raw-error.log-retention-purge | strip }}
+            {{ site.data.errors.extraction.databases.mysql.raw-error.log-retention-purge | strip }}
             ```
 
           - **For Oracle databases**:
             ```
-            {{ site.data.errors.database-extraction.oracle.raw-error.missing-logfile | strip }}
+            {{ site.data.errors.extraction.databases.oracle.raw-error.missing-logfile | strip }}
             ```
 
           To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.
