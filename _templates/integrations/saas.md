@@ -88,6 +88,7 @@ setup-steps:
       # starting with 4., add instructions for additional fields in UI
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
@@ -96,11 +97,12 @@ setup-steps:
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/saas-integration
 
+
+# Remove this if you don't need it:
 # schema-sections:
 #  - title: ""
 #    anchor: ""
 #    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

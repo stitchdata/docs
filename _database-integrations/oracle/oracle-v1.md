@@ -159,7 +159,7 @@ setup-steps:
 
           If the result to the query in [Step 3.1](#verify-current-archiving-mode) is `NOARCHIVELOG`, then you'll need to enable `ARCHIVELOG` mode. **Skip to [Step 3.3](#configure-rman-backups) if the result was `ARCHIVELOG`.**
 
-          1. Shut down the database instance. The database and any associated instances must be shut down before the datbase's archiving mode can be changed.
+          1. Shut down the database instance. The database and any associated instances must be shut down before the database's archiving mode can be changed.
 
              ```sql
              SHUTDOWN IMMEDIATE

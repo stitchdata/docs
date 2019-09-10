@@ -38,7 +38,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true 
 
 historical: "1 year"

@@ -23,7 +23,7 @@ short: "{{ api.core-objects.replication-jobs.post.description }}"
 description: |
   {{ api.core-objects.replication-jobs.post.description }} Manual replication jobs can be started for active and paused sources.
 
-  **Note**: Stitch allows only one replication job to run at a time. Attempting to start a job when another is in progress will return a status of `200 OK` and a single error object. See the **Responses** tab below for an example.
+  **Note**: Stitch allows only one replication job per source to run at a time. Attempting to start a job when another job for the same source is in progress will return a status of `200 OK` and a single error object. See the **Responses** tab below for an example.
 
 
 # -------------------------- #
@@ -47,7 +47,7 @@ arguments:
 returns: |
   If successful, the API will return a status of <code class="api success">200 OK</code> and single [Replication Job object]({{ api.core-objects.replication-jobs.object }}).
 
-  **Note**: Stitch allows only one replication job to run at a time. Attempting to start a job when another is in progress will return a status of `200 OK` and a single error object.
+  **Note**: Stitch allows only one replication job per source to run at a time. Attempting to start a job when another job for the same source is in progress will return a status of `200 OK` and a single error object.
 
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #
