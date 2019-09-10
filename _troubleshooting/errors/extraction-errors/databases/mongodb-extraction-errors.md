@@ -7,7 +7,13 @@ layout: general
 permalink: /troubleshooting/integrations/mongodb-database-extraction-errors
 
 summary: "When Stitch replicates data from a MongoDB-backed database, it will check for the required user permissions and database server settings. If permissions or server settings aren't properly defined, an error may arise. In this article are the errors you might see and how to resolve them."
+
 type: "database-integration, error"
+
+category: "extraction-errors"
+integration-type: "database"
+integration-display-name: "MongoDB"
+integration-db-type: "mongo"
 
 intro: |
   When Stitch replicates data from an MongoDB-backed database, it will check for the required user permissions and database server settings. If permissions or server settings aren't properly defined, you may receive an error during the Extraction phase of the replication process. These errors will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}).
