@@ -28,6 +28,7 @@ warning:
     email-delay: "20 minutes"
     description: "**Applicable only to non-Singer database integrations.** Sent when Stitch is unable to detect the Replication Key for a selected database integration table."
     contains-raw-errors: false
+    opt-out: true
     email-subject:
       - "Database Integration Error"
     content:
@@ -48,6 +49,7 @@ warning:
     email-subject:
       - "Unable to Deliver Post Load Notification"
     contains-raw-errors: true
+    opt-out: true
     content:
       - "A brief explanation of the issue"
       - "The HTTP status code Stitch received"
@@ -74,6 +76,7 @@ critical:
     email-subject:
       - "Error persisting data for table <code>[table_name]</code>"
     contains-raw-errors: false
+    opt-out: true
     content:
       - "The name of the affected table"
     potential-causes:
@@ -91,6 +94,7 @@ critical:
     email-subject: 
       - "We're encountering some errors with your <code>[integration_display_name]</code> integration"
     contains-raw-errors: true
+    opt-out: true
     content:
       - "The name of the affected integration"
       - "{{ site.data.stitch.notifications.common.content.raw-error-integration | flatify }}"
@@ -116,6 +120,7 @@ critical:
     email-subject:
       - "We're having trouble writing to your data warehouse"
     contains-raw-errors: true
+    opt-out: true
     content:
       - "A list of affected tables"
       - "A brief explanation of the issue, if known"
@@ -141,6 +146,7 @@ critical:
     email-subject:
       - "We're unable to load some of your data"
     contains-raw-errors: true
+    opt-out: true
     content:
       - "A brief explanation of the issue"
       - "{{ site.data.stitch.notifications.common.content.raw-error-destination | flatify }}"
@@ -159,6 +165,7 @@ critical:
     email-subject:
       - "Stitch cannot load data into your destination"
     contains-raw-errors: false
+    opt-out: true
     content:
       - "A list of affected tables"
       - "A brief explanation of the issue"
@@ -168,8 +175,6 @@ critical:
       - "Failure to whitelist Stitch's IP addresses in the SSH server's firewall"
     app-category: "read_head"
 
-
-# ----------------------------
 
 # -------------------------- #
 #         DELAY LEVEL        #
@@ -186,6 +191,7 @@ delay:
     email-subject:
       - "Integration API Rate Limited"
     contains-raw-errors: false
+    opt-out: true
     content:
       - "A list of affected integrations"
     potential-causes: 

@@ -94,7 +94,10 @@ sections:
 
           If your account also has the [custom email notification list feature]({{ link.account.customize-notifications | prepend: site.baseurl }}) enabled, email notifications will also be sent to the email addresses in this list that have an **Enabled** status.
 
-          **Note**: The only exception is the monthly billing invoice, which is sent only to the team member who originally entered the account's payment method details.
+          **Note**: The only exceptions are:
+
+          - **The monthly billing invoice**, which is sent only to the team member who originally entered the account's payment method details.
+          - **If the user opts out of replication error notifications**. [Users who opt out of replication error notifications]({{ link.account.manage-notification-settings | prepend: site.baseurl }}) will still receive general email notifications. Refer to the [notification reference](#notification-reference) for each individual notification's opt out status.
 
       - title: "Email notification from address"
         anchor: "notification-sent-from-address"
@@ -119,7 +122,7 @@ sections:
     content: |
       In this section is info about the email notifications Stitch will send to the users of your account. This includes a description of the issue triggering the notification, the email's subject, urgency level, send delay (if any), potential causes, and the content of the email notification.
 
-      {% assign attributes = "email-subject|category|level|email-delay|potential-causes|content" | split:"|" %}
+      {% assign attributes = "email-subject|category|level|opt-out|email-delay|potential-causes|content" | split:"|" %}
 
       {% for level in notification-levels.all %}
       - [{{ level.name | append: " level notifications" }}](#{{ level.id }}-notification-reference)
@@ -165,6 +168,22 @@ sections:
       </td>
       </tr>
 
+      {% elsif attribute == "opt-out" %}
+      <tr>
+      <td class="attribute-name">
+      <strong>Users can opt-out</strong> {{ info-icon | replace:"TOOLTIP","If Yes, this email notification will be suppressed when a user opts out of receiving error notifications about replication. If No, this email notification will always be sent." }}
+      </td>
+      <td>
+      {% case notification[attribute] %}
+        {% when true %}
+          Yes
+
+        {% when false %}
+          No
+      {% endcase %}
+      </td>
+      </tr>
+
       {% else %}
 
       {% if notification[attribute] %}
@@ -185,7 +204,7 @@ sections:
       {% else %}
       <ul>
       {% for item in notification[attribute] %}
-      <li>{{ item | flatify | markdownify }}</li>
+      <li style="margin-top: 0px;">{{ item | flatify | markdownify }}</li>
       {% endfor %}
       </ul>
       {% endcase %}
