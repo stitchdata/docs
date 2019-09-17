@@ -48,7 +48,7 @@ intro: |
 
   Post-load hooks allow you to configure a webhook that fires each time data is loaded into your destination.
 
-  Using post-load hooks, you can extend Stitch and automate dependent processes. For example: Trigger downstream processing in SQL, an Amazon Web Services Lambda function, Talend Pipeline Designer, or any other system that can be controlled with an HTTP request.
+  Using post-load hooks, you can extend Stitch and automate dependent processes. For example: Trigger downstream processing in SQL, an Amazon Web Services Lambda function, Talend Cloud jobs, or any other system that can be controlled with an HTTP request.
 
 
 # -------------------------- #
