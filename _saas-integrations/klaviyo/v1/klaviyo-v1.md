@@ -16,7 +16,7 @@ title: Klaviyo
 permalink: /integrations/saas/klaviyo
 keywords: klaviyo, integration, schema, etl klaviyo, klaviyo etl, klaviyo schema
 layout: singer
-# input: false
+# input: true
 
 # -------------------------- #
 #         Tap Details        #
@@ -40,8 +40,8 @@ certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Free/Paid"
-status-url: ""
+tier: "Free"
+status-url: "https://status.klaviyo.com/"
 
 anchor-scheduling: true
 cron-scheduling: false
