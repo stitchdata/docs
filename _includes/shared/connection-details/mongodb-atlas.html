@@ -1,0 +1,19 @@
+
+<!-- Locating connection instructions for Mongo-Atlas databases. -->
+
+1. In {{ integration.display_name }}, click **Clusters** under the **Atlas** section on the left side of the page.
+2. Locate the cluster you want to connect to Stitch.
+3. Click **Connect**. This will display a window with several connection options.
+   ![Connect with the Mongo Shell connection option in MongoDB Atlas]({{ site.baseurl }}/images/integrations/mongodb-atlas-connection-options.png)
+4. Click **Connect with the Mongo Shell**.
+5. Click **I have the Mongo Shell installed**.
+6. For **Select your Mongo Shell version**, select **3.4 or earlier**.
+7. Copy the **connection string**. It will look something like this:
+   ```shell
+   mongo "mongodb://test-shard-00-00-ddreq.mongodb.net:27017,test-shard-00-01-ddreq.mongodb.net:27017/test?replicaSet=test-shard-0" --ssl --authenticationDatabase admin --username <username> --password <password>
+   ```
+8. Locate the following in the connection string:
+
+   - **Host (Endpoint)**: This is the address of the instance you're connecting to Stitch. It will be formatted like this: `<some-address>.mongodb.net`. In this example, the host is `test-shard-00-00-ddreq.mongodb.net`.
+   - **Port**: This is the port used to connect to the database. It follows the host string, separated by a colon (`:`). The default is `{{ integration.port }}`, which is what this example is also using.
+   - **Replica set**: This is used to perform Log-based Incremental Replication. Locate `replicaSet` in the connection string - the value that follows is the name of the replica set. In this example, the replica set is `test-shard-0`.

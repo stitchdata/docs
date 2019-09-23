@@ -1,0 +1,102 @@
+<!-- This file contains the instructions for configuring OpLog/Log-based Incremental Replication
+		for traditional/vanilla MongoDB instances. -->
+
+
+{% case include.type %}
+
+
+<!-- EDIT THE MONGOD.CONF FILE -->
+{% when 'edit-conf-file' %}
+
+In this step, you'll edit the `/etc/mongod.conf` file to add a [replica set]({{ site.data.taps.links.mongodb.replica-set }}){:target="new"}. A replica set is a group of [`mongod`]({{ site.data.taps.links.mongodb.mongod }}){:target="new"}  processes that maintain the same dataset.
+
+1. Start the {{ integration.display_name }} instance:
+
+   ```shell
+   mongod --port 27017
+   ```
+
+2. Connect to the Mongo shell as a `root` user:
+
+   ```shell
+   mongo --port 27017
+   ```
+
+3. Navigate to the `/etc/mongod.conf` file.
+
+4. In `/etc/mongod.conf`, uncomment `replication` and specify a name for the replica set (`replSetName`). In this example, we're using `rs0` as the replica set name:
+
+   ```shell
+   replication:
+      replSetName: "rs0"
+	 ```
+
+	 **Note**: As `/etc/mongod.conf` is a protected file, you may need to assume `sudo` to edit it.
+
+5. Save the changes.
+
+
+
+<!-- INITIATE THE REPLICA SET -->
+{% when 'initiate-replica-set' %}
+
+Next, you'll restart the instance and initiate the replica set.
+
+1. Restart `mongod` with the configuration file:
+
+   ```shell
+   sudo mongod --auth --config /etc/mongod.conf
+   ```
+
+2. Connect to the Mongo shell as a `root` user, replacing `<root_username>` and `<password>` with the `root` user's username and password:
+
+   ```shell
+   mongo --port 27017 -u <root_username> -p <password> --authenticationDatabase admin
+   ```
+
+3. Initiate the replica set, replacing `<host_address>` with the IP address or endpoint used by the `mongod` instance:
+
+   ```shell
+   rs.initiate({_id: "rs0", members: [{_id: 0, host: "<host_address>:27017"}]})
+   ```
+
+If successful, you'll receive a response similar to the following:
+
+```json
+{ "ok" : 1 }
+```
+
+
+<!-- VERIFY OPLOG ACCESS -->
+{% when 'verify-oplog' %}
+
+Lastly, you'll verify that the Stitch user can read from the OpLog.
+
+1. Disconnect from the Mongo shell.
+
+2. Reconnect as the Stitch database user you created in [Step 2](##create-a-database-user). Replace `<stitch_username>` and `<password>` with the Stitch user's username and password, respectively:
+
+   ```shell
+   mongo --port 27017 -u <stitch_username> -p <password> --authenticationDatabase admin
+   ```
+
+3. Switch to the `local` database:
+
+   ```shell
+   use local
+   ```
+
+4. View OpLog rows:
+
+   ```shell
+   db.oplog.rs.find()
+   ```
+
+If successful, records from the OpLog similar to the following will be returned:
+
+```json
+{ "ts" : Timestamp(1524038245, 63), "t" : NumberLong(1), "h" : NumberLong("-596019791399272412"), "v" : 2, "op" : "i", "ns" : "stitchTest.customers", "ui"
+: UUID("0e623d9c-722c-41d5-a5e6-83947cc2466e"), "wall" : ISODate("2018-04-18T07:57:25.065Z"), "o" : { "_id" : 100, "name" : "Finn" } }
+```
+
+{% endcase %}

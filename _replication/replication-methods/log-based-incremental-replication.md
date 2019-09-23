@@ -46,6 +46,11 @@ feature-details:
     name: "Change Tracking"
     link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
 
+  - database: "MongoDB"
+    db-type: "mongo"
+    name: "OpLog"
+    link: "https://docs.mongodb.com/manual/core/replica-set-oplog/"
+
   - database: "MySQL"
     db-type: "mysql"
     name: "Binary log file position based replication, or binlog"
@@ -93,6 +98,7 @@ sections:
       - **Log position ID** - A unique identifier corresponding to the position of a log message in a log file. These values are incremental, increasing as log messages are generated.
 
          - In **Microsoft SQL Server**, this is called the **Change Tracking Version**. As [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/work-with-change-tracking-sql-server?view=sql-server-2017#version-numbers){:target="new"} notes, this concept is similar to `rowversion`.
+         - In **MongoDB**, this is a field in the database log named `ts`. The `ts` field is a combination of a timestamp and an ordinal (integer counter) value. For example: `"ts": Timestamp(1412180887, 1)` The timestamp is in seconds since the Unix epoch, and the ordinal is used to differentiate between entries that occured during the same second.
          - In **MySQL and PostgreSQL**, this is called a **Log Sequence Number (LSN)**.
          - In **Oracle**, this is called a **System Change Number (SCN)**.
       - **Replication job** - {{ site.data.tooltips.replication-job }}
@@ -209,9 +215,11 @@ sections:
           For example: If data in a table is modified using `ALTER`, the changes won't be written to the log or identified by Stitch.
 
 ## STRUCTURAL CHANGES
-      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, PostgreSQL, Oracle)"
         anchor: "limitation--structural-changes"
         content: |
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL**-backed database integrations." %}
+
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
           Structural changes can include adding new columns, removing columns, changing a data type, etc. Resetting the table is required due to how messages in logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
@@ -259,7 +267,7 @@ sections:
               1,Finn,human,2,Jake,dog,3,Bubblegum,princess
               ```
 
-              Stitch's MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
+              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
 
               If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper columns based on the ordinal set when compared to the expected schema that was previously detected.
 

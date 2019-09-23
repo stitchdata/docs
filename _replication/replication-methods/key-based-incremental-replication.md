@@ -36,9 +36,11 @@ sections:
   - title: "How {{ page.title }} works"
     anchor: "how-key-based-incremental-replication-works"
     content: |
-      When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) to identify new and updated data in a table for replication. A Replication Key is a `TIMESTAMP`, `DATE-TIME`, or `INTEGER` column that exists in a source table.
+      When using {{ page.title }}, Stitch uses a column called a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) to identify new and updated data in a table for replication. A Replication Key is a column that exists in a source table, and must be on of the following data types:
 
-      **Note**: In addition to the supported data types listed above, [Oracle]({{ site.baseurl }}/integrations/databases/oracle) and [Amazon Oracle RDS]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds) integrations also support using `NUMBER` columns as Replication Keys.
+      {% for data-type in site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
+      - {{ data-type }}
+      {% endfor %}
 
       {% capture replication-keys-note %}
       While this section touches on Replication Keys, a full walkthrough is outside the scope of this guide. Refer to the [Replication Keys]({{ link.replication.rep-keys | prepend: site.baseurl }}) documentation to learn about Replication Key requirements and how to select appropriate Replication Key columns.
