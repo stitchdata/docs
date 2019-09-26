@@ -90,6 +90,22 @@ attributes:
     foreign-key-id: "reference-person-id"
   
   - name: "serving_statuses"
+     type: "array"
+     description: "Details about the account's system serving statuses."
+     subattributes:
+       - name: "value"
+          type: "string"
+          description: |
+            The account's system serving status. If an account is eligible for serving, the value will be `RUNNABLE`.
+            
+            Other possible values that indicate why the account isn't servable:
+ 
+            - `STOPPED`
+            - `BILLING_HOLD`
+            - `ACCOUNT_TOTAL_BUDGET_HOLD`
+            - `ACCOUNT_END_DATE_HOLD`
+            - `RESTRICTED_HOLD`
+            - `INTERNAL_HOLD`
     type: "null"
     description: ""
   
