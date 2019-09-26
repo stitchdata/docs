@@ -74,7 +74,8 @@ setup-steps:
     anchor: "retrieve-account-ids"
     content: |
       1. Login to your LinkedIn account.
-      2. Open the “Work” dropdown section and select “Advertise” to access your Campaign Manager account ID.
+      2. Click the **Work** menu, then **Advertise**.
+      3. Locate the account IDs of the campaign accounts you want to replicate data from:
          ![Image description here]({{ site.baseurl }}/images/integrations/linkedin-ads-work-dropdown.png)
       3. Retrieve account IDs for the accounts you wish to replicate data from.
          ![Image description here]({{ site.baseurl }}/images/integrations/linkedin-ads-account-ids.png)
