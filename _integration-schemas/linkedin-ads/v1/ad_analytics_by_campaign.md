@@ -58,7 +58,7 @@ attributes:
  
   - name: "cost_in_local_currency"
     type: "number"
-    description: "The cost in the account's local currency based on the pivot and timeGranularity."
+    description: "The cost in the account's local currency based on the pivot and `timeGranularity`."
  
   - name: "cost_in_usd"
     type: "number"
