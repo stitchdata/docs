@@ -70,7 +70,7 @@ attributes:
   
   - name: "run_schedule"
     type: "object"
-    description: ""
+    description: "Details about the campaign group's run schedule."
     subattributes:
       - name: "end"
         type: "date-time"
