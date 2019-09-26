@@ -62,7 +62,7 @@ attributes:
   
   - name: "created_time"
     type: "date-time"
-    description: ""
+    description: "The time the campaign group was created."
   
   - name: "name"
     type: "string"
