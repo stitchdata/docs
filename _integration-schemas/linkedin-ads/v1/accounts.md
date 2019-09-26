@@ -20,7 +20,7 @@ attributes:
   - name: "id"
     type: "integer"
     primary-key: true
-    description: "The internal account ID"
+    description: "The internal account ID."
     foreign-key-id: "account-id"
   
   - name: "last_modified_time"
