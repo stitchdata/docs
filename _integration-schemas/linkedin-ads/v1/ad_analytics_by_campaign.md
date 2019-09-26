@@ -5,10 +5,10 @@ version: "1.0"
 name: "ad_analytics_by_campaign"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/ad_analytics_by_campaign.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains analytics data for ads, segmented by campaign.
 
 replication-method: "Key-based Incremental"
-
 
 api-method:
     name: "Ads Reporting"
@@ -19,7 +19,6 @@ attributes:
     type: "date-time"
     primary-key: true
     description: ""
-    foreign-key-id: "start-at"
 
   - name: "campaign_id"
     type: "integer"
