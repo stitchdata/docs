@@ -54,6 +54,8 @@ foreign-keys:
     all-foreign-keys:
       - table: "campaign_groups"
         join-on: "id"
+      - table: "campaigns"
+        join-on: "campaign_group_id"
        
   - id: "campaign-id"
     table: "campaigns"
@@ -82,18 +84,10 @@ foreign-keys:
       - table: "video_ads"
         join-on: "owner_organization_id"
 
-  - id: "start-at"
-    table: "ad_analytics_by_campaign"
-    attribute: "start_at"
-    all-foreign-keys:
-      - table: "ad_analytics_by_campaign"
-        join-on: "start_at"
-
   - id: "content-reference"
     table: "video_ads"
     attribute: "content_reference"
     all-foreign-keys:
       - table: "video_ads"
-        join-on: "content_reference"      
-                                           
+        join-on: "content_reference"                                  
 ---
