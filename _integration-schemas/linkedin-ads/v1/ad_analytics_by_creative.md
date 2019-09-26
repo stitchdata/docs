@@ -1,41 +1,40 @@
 ---
 tap: "linkedin-ads"
 version: "1.0"
+key: "ad-analytics-creative"
 
 name: "ad_analytics_by_creative"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/ad_analytics_by_creative.json"
-
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about ad analytics, segmented by creative.
 
 replication-method: "Key-based Incremental"
 
-
 api-method:
-    name: "Ads Reporting"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder"
+  name: "Analytics Finder; Creative"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder"
 
 attributes:
   - name: "creative_id"
     type: "integer"
     foreign-key: true
-    description: ""
+    description: "The creative ID."
     foreign-key-id: "creative-id"
 
   - name: "start_at"
     type: "date-time"
     primary-key: true
-    description: ""
-    foreign-key-id: "start-at"
+    description: "The start of the time range for the analytics."
 
   - name: "end_at"
     type: "date-time"
-    description: "" 
-    replication-key: true   
+    replication-key: true 
+    description: "The end of the time range for the analytics."
 
   - name: "action_clicks"
     type: "integer"
-    description: "The count of clicks on the 'action' button in Sponsored InMail."
+    description: "The count of clicks on the `action` button in Sponsored InMail."
   
   - name: "ad_unit_clicks"
     type: "integer"
@@ -67,7 +66,7 @@ attributes:
   
   - name: "date_range"
     type: "object"
-    description: "The date range of the report data point, specified in UTC. A start date is required."
+    description: "The date range of the report data point, specified in UTC."
     subattributes:
       - name: "end"
         type: "object"
@@ -174,11 +173,11 @@ attributes:
   
   - name: "video_completions"
     type: "integer"
-    description: "The count of video ads that played 97-100% of the video. This includes watches that skipped to this point if the serving location is ON_SITE."
+    description: "The count of video ads that played 97-100% of the video. This includes watches that skipped to this point if the serving location is `ON_SITE`."
   
   - name: "video_first_quartile_completions"
     type: "integer"
-    description: "The count of video ads that played through the first quartile of the video. This includes watches that skipped to this point if the serving location is ON_SITE."
+    description: "The count of video ads that played through the first quartile of the video. This includes watches that skipped to this point if the serving location is `ON_SITE`."
   
   - name: "video_midpoint_completions"
     type: "integer"
@@ -194,7 +193,7 @@ attributes:
   
   - name: "video_views"
     type: "integer"
-    description: "The count of video ads that played through the midpoint of the video. This includes watches that skipped to this point if the serving location is ON_SITE."
+    description: "The count of video ads that played through the midpoint of the video. This includes watches that skipped to this point if the serving location is `ON_SITE`."
   
   - name: "viral_clicks"
     type: "integer"
@@ -234,7 +233,7 @@ attributes:
   
   - name: "viral_landing_page_clicks"
     type: "integer"
-    description: "The count of clicks on viral impressions to take the user to the creative landing page - Sponsoerd Updates only."
+    description: "The count of clicks on viral impressions to take the user to the creative landing page - Sponsored Updates only."
   
   - name: "viral_likes"
     type: "integer"
@@ -274,7 +273,7 @@ attributes:
   
   - name: "viral_video_starts"
     type: "integer"
-    description: "The count of viral video ads that were started by users. Since viral videos are automatically played for ON_SITE, this will be the same as viralImpressions if the servingLocation is ON_SITE."
+    description: "The count of viral video ads that were started by users. Since viral videos are automatically played for `ON_SITE`, this will be the same as `viralImpressions` if the `servingLocation` is `ON_SITE`."
   
   - name: "viral_video_third_quartile_completions"
     type: "integer"

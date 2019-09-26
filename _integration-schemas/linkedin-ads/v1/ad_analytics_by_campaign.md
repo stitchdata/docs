@@ -1,6 +1,7 @@
 ---
 tap: "linkedin-ads"
 version: "1.0"
+key: "ad-analytics-campaign"
 
 name: "ad_analytics_by_campaign"
 doc-link: ""
@@ -11,29 +12,29 @@ description: |
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Ads Reporting"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder"
+  name: "Analytics Finder; Creative"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads-reporting/ads-reporting#analytics-finder"
 
 attributes:
-  - name: "start_at"
-    type: "date-time"
-    primary-key: true
-    description: ""
-
   - name: "campaign_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The campaign ID."
     foreign-key-id: "campaign-id"
+
+  - name: "start_at"
+    type: "date-time"
+    primary-key: true
+    description: "The start of the time range for the analytics."
 
   - name: "end_at"
     type: "date-time"
-    description: ""
-    replication-key: true    
+    replication-key: true 
+    description: "The end of the time range for the analytics."  
 
   - name: "action_clicks"
     type: "integer"
-    description: "The count of clicks on the 'action' button in Sponsored InMail."
+    description: "The count of clicks on the `action` button in Sponsored InMail."
  
   - name: "ad_unit_clicks"
     type: "integer"
@@ -116,7 +117,7 @@ attributes:
  
   - name: "impressions"
     type: "integer"
-    description: "This is the count of 'impressions' for Direct Ads and Sponsored Updates and 'sends' for InMails."
+    description: "This is the count of `impressions` for Direct Ads and Sponsored Updates and 'sends' for InMails."
  
   - name: "lead_generation_mail_contact_info_shares"
     type: "integer"
@@ -172,11 +173,11 @@ attributes:
  
   - name: "video_completions"
     type: "integer"
-    description: "The count of video ads that played 97-100% of the video. This includes watches that skipped to this point if the serving location is ON_SITE."
+    description: "The count of video ads that played 97-100% of the video. This includes watches that skipped to this point if the serving location is `ON_SITE`."
  
   - name: "video_first_quartile_completions"
     type: "integer"
-    description: "The count of video ads that played through the first quartile of the video. This includes watches that skipped to this point if the serving location is ON_SITE."
+    description: "The count of video ads that played through the first quartile of the video. This includes watches that skipped to this point if the serving location is `ON_SITE`."
  
   - name: "video_midpoint_completions"
     type: "integer"
@@ -192,7 +193,7 @@ attributes:
  
   - name: "video_views"
     type: "integer"
-    description: "The count of video ads that played through the midpoint of the video. This includes watches that skipped to this point if the serving location is ON_SITE."
+    description: "The count of video ads that played through the midpoint of the video. This includes watches that skipped to this point if the serving location is `ON_SITE`."
  
   - name: "viral_clicks"
     type: "integer"
@@ -232,7 +233,7 @@ attributes:
  
   - name: "viral_landing_page_clicks"
     type: "integer"
-    description: "The count of clicks on viral impressions to take the user to the creative landing page - Sponsoerd Updates only."
+    description: "The count of clicks on viral impressions to take the user to the creative landing page - Sponsored Updates only."
  
   - name: "viral_likes"
     type: "integer"
@@ -272,7 +273,7 @@ attributes:
  
   - name: "viral_video_starts"
     type: "integer"
-    description: "The count of viral video ads that were started by users. Since viral videos are automatically played for ON_SITE, this will be the same as viralImpressions if the servingLocation is ON_SITE."
+    description: "The count of viral video ads that were started by users. Since viral videos are automatically played for `ON_SITE`, this will be the same as `viralImpressions` if the servingLocation is `ON_SITE`."
  
   - name: "viral_video_third_quartile_completions"
     type: "integer"

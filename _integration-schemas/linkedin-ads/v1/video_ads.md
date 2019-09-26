@@ -1,34 +1,35 @@
 ---
 tap: "linkedin-ads"
 version: "1.0"
+key: "video-ad"
 
 name: "video_ads"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/video_ads.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the video ads in your {{ integration.display_name }} account.
 
 replication-method: "Key-based Incremental"
 
-
 api-method:
-    name: "Video Ads"
+    name: "Account Finder; Sponsored Contents"
     doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/advertising-targeting/create-and-manage-video#finders"
 
 attributes:
   - name: "content_reference"
     type: "string"
     primary-key: true
-    description: "The content URN. This supports 'UserGeneratedContentPostUrn'."
-    foreign-key-id: "content-reference"
+    description: "The content URN."
+    #foreign-key-id: "content-reference"
 
   - name: "last_modified_time"
     type: "date-time"
-    description: "The time the video ad was last modified."
     replication-key: true
+    description: "The time the video ad was last modified."
 
   - name: "account"
     type: "string"
-    description: "The create-only field to associate an adAccount."
+    description: "The ad account associated with the video ad."
   
   - name: "account_id"
     type: "integer"
@@ -68,18 +69,18 @@ attributes:
   
   - name: "name"
     type: "string"
-    description: "Name of the 'adDirectSponsoredContents'."
+    description: "Name of the `adDirectSponsoredContents`."
   
   - name: "owner"
     type: "string"
-    description: "The owner of the organization. This field can be experessed as a URN as well."
+    description: "The owner of the organization."
   
   - name: "owner_organization_id"
     type: "integer"
     description: ""
-    foreign-key-id: "owner-organization-id"
+    #foreign-key-id: "owner-organization-id"
   
   - name: "type"
     type: "string"
-    description: "The type of content - in this case, the only possible value will be 'video'."
+    description: "This will be `video`."
 ---

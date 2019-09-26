@@ -1,42 +1,41 @@
 ---
 tap: "linkedin-ads"
 version: "1.0"
+key: "account-user"
 
 name: "account_users"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/account_users.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about the users who have permissions to an ad account.
 
 replication-method: "Key-based Incremental"
 
-replication-key:
-  name: "last_modified_time"
-
 api-method:
-    name: "Ad Account Users"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users#find-ad-account-users-by-accounts"
+  name: "Find Ad Account Users by Accounts"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-account-users#find-ad-account-users-by-accounts"
 
 attributes:
   - name: "account_id"
     type: "integer"
     primary-key: true
-    description: ""
-    foreign-key-id: "account-id"
+    description: "The ID of the account associated with the user."
+    #foreign-key-id: "account-id"
 
   - name: "user_person_id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user's person ID."
     foreign-key-id: "user-id" 
   
   - name: "last_modified_time"
     type: "date-time"
     replication-key: true
-    description: ""
+    description: "The time the user was last modified."
 
   - name: "account"
     type: "string"
-    description: "The advertisering account's URN." 
+    description: "The advertising account's URN." 
 
   - name: "change_audit_stamps"
     type: "object"
@@ -59,19 +58,20 @@ attributes:
   
   - name: "created_time"
     type: "date-time"
-    description: ""
-  
-  - name: "last_modified_time"
-    type: "date-time"
-    description: ""
+    description: "The time the user was las modified."
   
   - name: "role"
     type: "string"
-    description: "The associate user's role in the account."
+    description: |
+      The user's role in the account. Possible values are:
+
+      - `VIEWER`
+      - `CREATIVE_MANAGER`
+      - `CAMPAIGN_MANAGER`
+      - `ACCOUNT_MANAGER`
+      - `ACCOUNT_BILLING_ADMIN`
   
   - name: "user"
     type: "string"
     description: "The associated user's URN."
-  
-  
 ---

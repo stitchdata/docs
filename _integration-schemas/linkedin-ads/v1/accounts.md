@@ -1,18 +1,19 @@
 ---
 tap: "linkedin-ads"
 version: "1.0"
+key: "account"
 
 name: "accounts"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/accounts.json"
 description: |
-  The `{{ table.name }}` table contains info about your {{ integration.display_name }} accounts.
+  The `{{ table.name }}` table contains info about your {{ integration.display_name }} ad accounts.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Ad Accounts"
-    doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts#search-for-accounts"
+  name: "Search for Accounts"
+  doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts#search-for-accounts"
 
 attributes:
   - name: "id"
@@ -23,8 +24,8 @@ attributes:
   
   - name: "last_modified_time"
     type: "date-time"
-    description: ""
     replication-key: true
+    description: "The time the account was last modified."
 
   - name: "change_audit_stamps"
     type: "object"
@@ -47,7 +48,7 @@ attributes:
   
   - name: "created_time"
     type: "date-time"
-    description: ""
+    description: "The time the account was created."
   
   - name: "currency"
     type: "string"
@@ -80,32 +81,30 @@ attributes:
   - name: "reference_organization_id"
     type: "integer"
     description: ""
-    foreign-key-id: "reference-organization-id"
+    #foreign-key-id: "reference-organization-id"
   
   - name: "reference_person_id"
     type: "string"
     description: ""
-    foreign-key-id: "reference-person-id"
+    #foreign-key-id: "reference-person-id"
   
   - name: "serving_statuses"
-     type: "array"
-     description: "Details about the account's system serving statuses."
-     subattributes:
-       - name: "value"
-          type: "string"
-          description: |
-            The account's system serving status. If an account is eligible for serving, the value will be `RUNNABLE`.
-            
-            Other possible values that indicate why the account isn't servable:
- 
-            - `STOPPED`
-            - `BILLING_HOLD`
-            - `ACCOUNT_TOTAL_BUDGET_HOLD`
-            - `ACCOUNT_END_DATE_HOLD`
-            - `RESTRICTED_HOLD`
-            - `INTERNAL_HOLD`
-    type: "null"
-    description: ""
+    type: "array"
+    description: "Details about the account's system serving statuses."
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: |
+          The account's system serving status. If an account is eligible for serving, the value will be `RUNNABLE`.
+          
+          Other possible values that indicate why the account isn't servable:
+
+          - `STOPPED`
+          - `BILLING_HOLD`
+          - `ACCOUNT_TOTAL_BUDGET_HOLD`
+          - `ACCOUNT_END_DATE_HOLD`
+          - `RESTRICTED_HOLD`
+          - `INTERNAL_HOLD`
   
   - name: "status"
     type: "string"
@@ -113,7 +112,7 @@ attributes:
   
   - name: "total_budget"
     type: "object"
-    description: ""
+    description: "Details about the account's budget."
     subattributes:
       - name: "amount"
         type: "number"
