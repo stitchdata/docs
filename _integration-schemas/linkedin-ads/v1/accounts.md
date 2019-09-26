@@ -10,9 +10,6 @@ description: |
 
 replication-method: "Key-based Incremental"
 
-replication-key:
-  name: "last_modified_time"
-
 api-method:
     name: "Ad Accounts"
     doc-link: "https://docs.microsoft.com/en-us/linkedin/marketing/integrations/ads/account-structure/create-and-manage-accounts#search-for-accounts"
