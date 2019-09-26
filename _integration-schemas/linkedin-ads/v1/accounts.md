@@ -5,7 +5,8 @@ version: "1.0"
 name: "accounts"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-linkedin-ads/blob/master/tap_linkedin_ads/schemas/accounts.json"
-description: ""
+description: |
+  The `{{ table.name }}` table contains info about your {{ integration.display_name }} accounts.
 
 replication-method: "Key-based Incremental"
 
