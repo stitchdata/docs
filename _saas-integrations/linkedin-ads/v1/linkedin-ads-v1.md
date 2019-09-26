@@ -13,8 +13,7 @@
 # -------------------------- #
 
 title: LinkedIn Ads (v1.0)
-permalink: /integrations/saas/linkedin-ads/v1
-tags: [saas_integrations]
+permalink: /integrations/saas/linkedin-ads
 keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl, linkedin ads schema, linkedin, 
 layout: singer
 input: true
@@ -53,48 +52,41 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 requirements-list:
-  - item: "**Access to a LinkedIn account**. This is necessary to login to the Campaign Manager account."
-  - item: "**Access to a LinkedIn Campaign Manager account**. Make sure you have access to use the Ad accounts you want to replicate data from. This is necesary to set up a connection to Stitch for integration."
-
-requirements-info:
+  - item: "**Access to a {{ integration.display_name }} account**. This is necessary to login to the Campaign Manager account."
+  - item: "**Access to a {{ integration.display_name }} Campaign Manager account**. Verify that you have access to use the Ad accounts you want to replicate data from. This is necessary to connect to Stitch."
 
 setup-steps:
-  - title: "Retreive your LinkedIn Ads Account IDs"
+  - title: "Retrieve your {{ integration.display_name }} Account IDs"
     anchor: "retrieve-account-ids"
     content: |
       1. Login to your LinkedIn account.
-      2. Click the **Work** menu, then **Advertise**.
-      3. Locate the account IDs of the campaign accounts you want to replicate data from:
-         ![Image description here]({{ site.baseurl }}/images/integrations/linkedin-ads-work-dropdown.png)
-      3. Retrieve account IDs for the accounts you wish to replicate data from.
-         ![Image description here]({{ site.baseurl }}/images/integrations/linkedin-ads-account-ids.png)
+      2. Click the **Work** menu, then **Advertise**:
+
+         ![The LinkedIn Work and Advertise menus, highlighted]({{ site.baseurl }}/images/integrations/linkedin-ads-work-dropdown.png){:style="max-width: 400px"}
+
+      3. In the Accounts table, locate the IDs for the accounts you want to replicate data from:
+
+         ![LinkedIn Ads account IDs highlighted in the Accounts table of the Campaign Manager page.]({{ site.baseurl }}/images/integrations/linkedin-ads-account-ids.png){:style="max-width: 500px"}
       
   - title: "add integration"
-  content: |
-    4. In the **Accounts** field, enter a comma-separated list of the account IDs of the campaign accounts you want to replicate data from. These will be the IDs you retrieved in [Step 1](#retrieve-account-ids).
-      # starting with 4., add instructions for additional fields in UI
+    content: |
+      4. In the **Accounts** field, enter a comma-separated list of the account IDs of the campaign accounts you want to replicate data from. These will be the account IDs you retrieved in [Step 1](#retrieve-account-ids). For example: `503123456, 503234567`, etc.
   - title: "historical sync"
   - title: "replication frequency"
+  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/linkedin-ads
-
-
+# Each table has a its own .md file in /_integration-schemas/linkedin-ads/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
