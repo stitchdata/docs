@@ -62,7 +62,7 @@ attributes:
  
   - name: "cost_in_usd"
     type: "number"
-    description: "The cost in USD based on the pivot and timeGranularity."
+    description: "The cost in USD based on the pivot and `timeGranularity`."
  
   - name: "date_range"
     type: "object"
