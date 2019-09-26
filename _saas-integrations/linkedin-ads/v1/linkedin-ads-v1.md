@@ -50,7 +50,7 @@ cron-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
+table-selection: true
 column-selection: true
 
 # attribution-window: "# days"
