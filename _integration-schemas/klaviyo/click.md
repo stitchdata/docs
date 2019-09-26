@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The click ID."
     foreign-key-id: "click-id"
   
   - name: "datetime"
