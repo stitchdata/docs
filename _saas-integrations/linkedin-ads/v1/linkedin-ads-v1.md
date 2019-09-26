@@ -45,7 +45,7 @@ tier: "Free"
 status-url: ""
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
