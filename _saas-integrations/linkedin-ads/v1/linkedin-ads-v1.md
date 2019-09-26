@@ -51,7 +51,7 @@ extraction-logs: true
 loading-reports: true
 
 table-selection: true/false
-column-selection: true/false
+column-selection: true
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
