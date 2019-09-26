@@ -25,7 +25,7 @@ attributes:
   
   - name: "last_modified_time"
     type: "date-time"
-    description: ""
+    description: "The time the campaign group was last modified."
     replication-key: true
 
   - name: "account"
