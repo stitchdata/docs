@@ -32,7 +32,7 @@ attributes:
   
   - name: "account_id"
     type: "integer"
-    description: ""
+    description: "The ID of the account associated with the video ad."
     foreign-key-id: "account-id"
   
   - name: "change_audit_stamps"
