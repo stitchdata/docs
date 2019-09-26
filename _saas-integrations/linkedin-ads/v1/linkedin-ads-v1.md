@@ -81,7 +81,8 @@ setup-steps:
          ![Image description here]({{ site.baseurl }}/images/integrations/linkedin-ads-account-ids.png)
       
   - title: "add integration"
-    # content: |
+  content: |
+    4. In the **Accounts** field, enter a comma-separated list of the account IDs of the campaign accounts you want to replicate data from. These will be the IDs you retrieved in [Step 1](#retrieve-account-ids).
       # starting with 4., add instructions for additional fields in UI
   - title: "historical sync"
   - title: "replication frequency"
