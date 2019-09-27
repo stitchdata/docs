@@ -5,7 +5,8 @@ version: "1.0"
 name: "lists"
 doc-link: ""
 singer-schema: "https://github.com/singer-io/tap-klaviyo/blob/master/tap_klaviyo/schemas/lists.json"
-description: ""
+description: |
+  The {{ table.name }} table contains info about the lists and segments in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
