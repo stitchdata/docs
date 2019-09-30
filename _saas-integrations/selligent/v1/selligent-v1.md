@@ -85,7 +85,9 @@ setup-steps:
       
       After you receive your API key, you can proceed with the setup in Stitch.
   - title: "add integration"
-    # content: |
+    content: |
+      4. In the **Base URL** field, enter the base URL for your {{ integration.display_name }} installation. It will be similar to `https://organization.some-host.com:443`
+      5. In the **API Key** field, paste the API key you obtained in [Step 1](#obtain-api-key).
       # starting with 4., add instructions for additional fields in UI
   - title: "historical sync"
   - title: "replication frequency"
