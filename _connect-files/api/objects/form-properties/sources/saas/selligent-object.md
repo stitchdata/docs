@@ -48,7 +48,7 @@ object-attributes:
   - name: "organization"
     type: "string"
     required: true
-    description: "The name of your organization in Selligent."
+    description: "The name of your organization in {{ form-property.display-name }}."
     value: "Organization"
 
   - name: "base_url"
