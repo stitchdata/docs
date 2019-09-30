@@ -81,7 +81,9 @@ setup-steps:
   - title: "Obtain {{ integration.display_name }} API Key"
     anchor: "API-Key"
     content: |
-      Contact your Selligent account manager to obtain the API key for your organization.
+      Contact your {{ integration.display_name }} account manager to obtain the API key for your organization.
+      
+      After you receive your API key, you can proceed with the setup in Stitch.
   - title: "add integration"
     # content: |
       # starting with 4., add instructions for additional fields in UI
