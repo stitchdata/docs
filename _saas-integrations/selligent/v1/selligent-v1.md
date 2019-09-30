@@ -79,7 +79,7 @@ requirements-info:
 
 setup-steps:
   - title: "Obtain {{ integration.display_name }} API Key"
-    anchor: "API-Key"
+    anchor: "obtain-api-key"
     content: |
       Contact your {{ integration.display_name }} account manager to obtain the API key for your organization.
       
