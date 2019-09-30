@@ -54,7 +54,7 @@ object-attributes:
   - name: "base_url"
     type: "string"
     required: true
-    description: "The base URL for your Selligent installation."
+    description: "The base URL for your {{ form-property.display-name }} installation."
     value: "https://organization.yourhost.com:443"
     
   - name: "api_key"
