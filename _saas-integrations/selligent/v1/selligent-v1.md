@@ -73,7 +73,7 @@ column-selection: false
 # -------------------------- #
 
 requirements-list:
-  - item: "**Personal Selligent API Key**. This is required to connect Selligent to Stitch."
+  - item: "**Personal {{ integration.display_name }} API Key**. This is required to connect {{ integration.display_name }} to Stitch."
 
 requirements-info:
 
