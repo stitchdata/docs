@@ -60,6 +60,6 @@ object-attributes:
   - name: "api_key"
     type: "string"
     required: true
-    description: "Your Selligent API key. Contact your Selligent account manager for assistance in generating your API key."
+    description: "Your {{ form-property.display-name }} API key. Contact your {{ form-property.display-name }} account manager for assistance in generating your API key."
     value: "<API_KEY>"    
 ---
