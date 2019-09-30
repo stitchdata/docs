@@ -22,7 +22,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The asset_id of this mailing."
-    foreign-key-id: "internal-id"
+    # foreign-key-id: "internal-id"
 
   - name: "modified_time"
     type: "string"
