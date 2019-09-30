@@ -78,7 +78,7 @@ requirements-list:
 requirements-info:
 
 setup-steps:
-  - title: "Obtain Selligent API Key"
+  - title: "Obtain {{ integration.display_name }} API Key"
     anchor: "API-Key"
     content: |
       Contact your Selligent account manager to obtain the API key for your organization.
