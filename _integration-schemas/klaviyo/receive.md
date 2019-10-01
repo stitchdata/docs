@@ -9,18 +9,18 @@ description: ""
 
 replication-method: "Key-based Incremental"
 
-replication key: "state"
+replication key: "since"
 
 api-method:
-    name: ""
+    name: "Metrics API"
     doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "receive-id"
+    description: "This is the receive ID."
+#    foreign-key-id: "receive-id"
   
   - name: "datetime"
     type: "string"

@@ -72,6 +72,20 @@ foreign-keys:
     table: "update_email_preferences"  
     all-foreign-keys:
       - table: "update_email_preferences"   
-        join-on: "update-email-id"            
+        join-on: "update-email-id"  
+
+  - id: "list-id"
+    attribute: "id"
+    table: "lists"
+    all-foreign-keys:
+      - tale: "lists"                
+        join-on: "id"
+
+  - id: "exclusion-id"
+    attribute: "email"
+    table: "global_exclusions"
+    all-foreign-keys:
+      - table: "global_exclusions"
+        join-on: "email"    
     
 ---

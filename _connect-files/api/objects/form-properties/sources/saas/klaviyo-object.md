@@ -42,10 +42,10 @@ description: ""
 
 uses-start-date: true
 
-# object-attributes:
-#   - name: ""
-#     type: ""
-#     required: true/false
-#     description: ""
-#     value: ""
+object-attributes:
+  - name: "api_key"
+    type: "string"
+    required: true
+    description: "This is your Klaviyo API Key. Log into your Klaviyo out to create a new API Key on the Settings page."
+    value: "<API-KEY>"
 ---

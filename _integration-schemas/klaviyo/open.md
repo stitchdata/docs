@@ -9,21 +9,18 @@ description: ""
 
 replication-method: "Key-based Incremental"
 
-replication key: "state"
-
-replication-key:
-  name: "since"
+replication key: "since"
 
 api-method:
-    name: ""
+    name: "Metrics API"
     doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "open-id"
+    description: "This is the open ID."
+#    foreign-key-id: "open-id"
   
   - name: "datetime"
     type: "string"

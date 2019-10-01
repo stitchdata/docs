@@ -9,18 +9,18 @@ description: ""
 
 replication-method: "Key-based Incremental"
 
-replication key: "state"
+replication key: "since"
 
 api-method:
-    name: ""
+    name: "Metrics API"
     doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "bounce-id"
+    description: "The bounce ID."
+#    foreign-key-id: "bounce-id"
 
   - name: "datetime"
     type: "string"

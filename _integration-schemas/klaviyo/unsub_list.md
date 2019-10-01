@@ -9,18 +9,18 @@ description: ""
 
 replication-method: "Key-based Incremental"
 
-replication key: "state"
+replication key: "since"
 
 api-method:
-    name: ""
+    name: "Metrics API"
     doc-link: "https://www.klaviyo.com/docs/api/metrics"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-    foreign-key-id: "sunsub-list-id"
+    description: "This is the unsubscribe list ID."
+#    foreign-key-id: "unsub-list-id"
   
   - name: "datetime"
     type: "string"
