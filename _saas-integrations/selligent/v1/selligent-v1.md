@@ -75,8 +75,6 @@ column-selection: false
 requirements-list:
   - item: "**Personal {{ integration.display_name }} API Key**. This is required to connect {{ integration.display_name }} to Stitch."
 
-requirements-info:
-
 setup-steps:
   - title: "Obtain {{ integration.display_name }} API Key"
     anchor: "obtain-api-key"
@@ -88,7 +86,7 @@ setup-steps:
     content: |
       4. In the **Base URL** field, enter the base URL for your {{ integration.display_name }} installation. It will be similar to `https://organization.some-host.com:443`
       5. In the **API Key** field, paste the API key you obtained in [Step 1](#obtain-api-key).
-      # starting with 4., add instructions for additional fields in UI
+
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
@@ -100,12 +98,6 @@ setup-steps:
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/selligent
 
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

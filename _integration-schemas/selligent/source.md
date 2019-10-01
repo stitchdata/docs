@@ -11,19 +11,12 @@ description: "This table contains source data."
 
 replication-method: "Full Table"
 
-replication-key:
-  name: ""
-
-api-method:
-  name: ""
-  doc-link: ""
-
 attributes:
   - name: "asset_id"
     type: "integer"
     primary-key: true
     description: ""
-    foreign-key-id: "source-id"
+#    foreign-key-id: "source-id"
 
   - name: "modified_time"
     type: "string"

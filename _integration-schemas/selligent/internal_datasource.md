@@ -10,13 +10,6 @@ description: "This table contains internal data source data."
 
 replication-method: "Full Table"
 
-replication-key:
-  name: ""
-
-api-method:
-  name: ""
-  doc-link: ""
-
 attributes:
   - name: "id"
     type: "integer"

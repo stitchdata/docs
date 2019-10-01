@@ -10,19 +10,12 @@ description: "This table contains campaign data."
 
 replication-method: "Full Table"
 
-replication-key:
-  name: ""
-
-api-method:
-  name: ""
-  doc-link: ""
-
 attributes:
   - name: "asset_id"
     type: "integer"
     primary-key: true
     description: ""
-    foreign-key-id: "campaign-id"
+#    foreign-key-id: "campaign-id"
 
   - name: "modified_time"
     type: "string"

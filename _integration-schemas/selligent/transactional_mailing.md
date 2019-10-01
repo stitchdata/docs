@@ -11,19 +11,12 @@ description: "This table contains transactional mailing data."
 
 replication-method: "Full Table"
 
-replication-key:
-  name: ""
-
-api-method:
-  name: ""
-  doc-link: ""
-
 attributes:
   - name: "id"
     type: "integer"
     primary-key: true 
     description: "The asset_id of this mailing."
-    foreign-key-id: "transactional-id"
+#    foreign-key-id: "transactional-id"
 
   - name: "modified_time"
     type: "string"
