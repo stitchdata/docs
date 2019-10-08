@@ -1,0 +1,467 @@
+## category-name:		## category name
+
+# - id:           ##
+#   summary: ""	## whatever the scenario is. 'default' will use what is in the scenarios.yml file.
+#   result: ""		## whatever the result is. 'default' will use what is in the scenarios.yml file.
+
+#   rejectable: 	## 'true' if this scenario can result in rejected data
+#   error:			## error message text goes here if this scenario will result in an error message
+#   troubleshooting: ""   ## if the user can troubleshoot the error, enter the steps here or link to help. 'default' will use what is in the scenarios.yml file.
+
+scenarios:
+# -------------------------------------------- #
+#                                              #
+#                  PRIMARY KEYS                #
+#                                              #
+# -------------------------------------------- #
+
+## Data arrives without a Primary Key:
+  - id: no-pk
+    summary: default  
+    result: &primary-keys Table is created. {{ destination.display_name }} doesn't use Primary Keys.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Data arrives with single Primary Key:
+  - id: single-pk
+    summary: default	
+    result: *primary-keys
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Data arrives with MULTIPLE Primary Keys:
+  - id: multiple-pks
+    summary: default  
+    result: *primary-keys
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Primary Key column is changed in the warehouse:
+  - id: pk-column-change
+    summary: default
+    result: "This scenario is unremarkable to {{ destination.display_name }}, as {{ destination.display_name }} doesn't use Primary Keys."
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Primary Key column is removed in the warehouse:
+  - id: remove-pk-column
+    summary: "The table's Primary Key comment is either removed or changed to be incorrectly formatted."
+    result: "No effect. Data will continue to load into the table."
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------------------------- #
+#                                              #
+#               REPLICATION KEYS               #
+#                                              #
+# -------------------------------------------- #
+
+## Replicaiton Key contains NULLs
+  - id: null-rep-keys
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------------------------- #
+#                                              #
+#                  DATA TYPES                  #
+#                                              #
+# -------------------------------------------- #
+
+## Column contains multiple data types
+  - id: mixed-data-types
+    summary: default    
+    result: |
+
+      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate data of varying types, Stitch will:
+
+      1. Store data for the original data type in the original column. In this example, only `BOOLEAN` values will be stored in `order_confirmed`.
+
+      2. Create additional columns to store the other data types - one for each data type detected - and append the data type to the column name. In this example, a `order_confirmed__st` column will be created to store `STRING` values.
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Table contains nested data
+  - id: nested-data-structures
+    summary: default
+    result: |
+      Nested data will be maintained.
+
+      If the data contains nested arrays, {{ destination.display_name }} will reject the data.
+
+    rejectable: true
+    error: |
+       ```
+       JSON table encountered too many errors, giving up. Rows: 1; errors: 1. JSON parsing error in row starting at position 0: . Nested arrays not allowed.
+       ```
+    troubleshooting: "If possible, remove the offending record from the source."
+
+# -------------------------- #
+#   DATA TYPES > VARCHARs    #
+# -------------------------- #
+
+## VARCHAR Storage
+  - id: varchar-storage
+    summary: default
+    result: "{{ destination.display_name }} will store all `VARCHAR` data as `TEXT`."
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## VARCHAR Widening
+  - id: varchar-widening
+    summary: default    
+    result: "No widening will occur. {{ destination.display_name }} will store all `VARCHAR` data as `TEXT`."
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# ## VARCHAR exceeds limit
+#   - id: varchar-max-size
+#     summary: default
+#     result: default
+
+#     rejectable: true
+#     error: |
+#       ```
+#       ```
+#     troubleshooting: none
+
+
+# -------------------------- #
+#  DATA TYPES > Dates & Time #
+# -------------------------- #
+
+## Column contains date data with timezone info
+  - id: date-with-timezone
+    summary: default
+    result: "{{ destination.display_name }} has no support for timezones."
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column contains timestamp data out of range
+  - id: timestamps-out-of-range
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      timestamp out of range for {{ destination.display_name }} on [TIMESTAMP]
+      ```
+    troubleshooting: default
+
+# -------------------------- #
+#    DATA TYPES > Numeric    #
+# -------------------------- #
+
+## Column contains integer data out of range
+  - id: integer-out-of-range
+    summary: default
+    result: "{{ destination.display_name }} will reject all the records in the entire batch."
+
+    rejectable: true
+    error: |
+      ```
+      integer out of range for {{ destination.display_name }} on [INTEGER]
+      ```
+    troubleshooting: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s range of {{ site.data.destinations.reference[destination.type]data-limit-info.integer-range }}."
+
+## Column contains decimal data
+  - id: decimal-storage
+    summary: default
+    result: |
+      Decimal values will be loaded to {{ destination.display_name }} as the data type [`NUMERIC`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type){:target="new"}.
+
+    rejectable: false
+    error: none
+    troubleshooting: default
+
+## Column contains decimal data out of range
+  - id: decimals-out-of-range
+    summary: default
+    result: |
+      {{ destination.display_name }} will accept the maximum supported range for the [`NUMERIC` data type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type){:target="new"}.  Decimals that exceed this range will be logged in the rejected records table.
+
+    rejectable: false
+    error: none
+    troubleshooting: default
+
+# -------------------------------------------- #
+#                                              #
+#                     TABLES                   #
+#                                              #
+# -------------------------------------------- #
+
+## Table name is too long
+  - id: table-name-limit
+    summary: default
+    result: |
+      {{ destination.display_name }} will reject all data for the table.
+
+    rejectable: true
+    error: |
+      ```
+      Table name [TABLE] is too long for {{ destination.display_name }}
+      ```
+    troubleshooting: default
+
+## Table contains too many columns
+  - id: column-table-limit
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      ERROR: too many columns 
+      ```
+    troubleshooting: default
+
+# -------------------------------------------- #
+#                                              #
+#                   COLUMNS                    #
+#                                              #
+# -------------------------------------------- #
+
+## Completely empty columns
+  - id: all-empty-column
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Only some columns are empty
+  - id: all-empty-columns
+    summary: default
+    result: "No table is created in {{ destination.display_name }}."
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# ## Backfill columns in an Incremental Table
+#   - id: backfill-incremental-table
+#     summary: default
+#     result: 
+
+#     rejectable: false
+#     error: none
+#     troubleshooting: none
+
+
+# -------------------------- #
+#     Add/Remove Columns     #
+# -------------------------- #
+
+# ## Add new column in SaaS integration/data source
+  - id: new-column-saas-source
+    summary: default    
+    result: |
+      1. Stitch will detect the new column during the integration's next structure sync.
+      2. The column will be automatically set to replicate..
+      3. In the destination, the column will be appended to the end of the table.
+
+      **If the table uses Key-based Incremental or Log-based Incremental Replication**, only records with a Replication Key value greater than or equal to the last saved bookmark value will be selected for replication. 
+
+      This means that if values for the new column were backfilled in existing records, the only way to have Stitch replicate these values is to either:
+
+      - Update the Replication Key values for all records **in the source**, OR
+      - Reset the integration's Replication Keys in Stitch
+
+      **Note**: Records already in the destination will not be updated with backfilled values due to the Append-Only nature of {{ destination.display_name }}. In this case, records will be appended to the end of the table as a new row.
+
+      For example - these rows are replicated during the initial job:
+
+      ```
+      | updated_at [rep key] | name      | age | type     |
+      |----------------------+-----------+-----+----------|
+      | 2017-08-11 00:00:00  | Finn      | 14  | Human    |
+      | 2017-08-11 00:00:00  | Jake      | 6   | Dog      |
+      ```
+
+      Before the next job, a new column named `magic` is added in the source. Values for these records are backfilled in the source and as a result, their Replication Key values are updated. After the next job, the table in the destination would look like the following:
+
+      ```
+      | updated_at [rep key] | name      | age | type     | magic |
+      |----------------------+-----------+-----+----------+-------|
+      | 2017-08-11 00:00:00  | Finn      | 14  | Human    |       |
+      | 2017-08-11 00:00:00  | Jake      | 6   | Dog      |       |
+      | 2017-08-13 00:13:00  | Finn      | 14  | Human    | false |
+      | 2017-08-13 00:13:00  | Jake      | 6   | Dog      | true  |
+      ```
+
+      Querying Append-Only tables requires a different strategy than you would normally use. For more info, check out the [Querying Append-Only Tables Guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Add column to Stitch-replicated table in warehouse
+  - id: add-column-warehouse
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column is removed from source
+  - id: removed-column-source
+    summary: default    
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Remove column from Stitch-replicated table in warehouse
+  - id: remove-column-warehouse
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+# -------------------------- #
+#        Column Names        #
+# -------------------------- #
+
+## Duplicate field names
+  - id: duplicate-field-names
+    summary: default
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      Field collision on [COLUMN_NAME]
+      ```
+    troubleshooting: default
+
+## Column names contain MiXeDCaSe
+  - id: mixed-case-column-name
+    summary: default
+    result: |
+      {{ destination.display_name }} will convert letters to lowercase. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `CuStOmErId`      | `customerid`             |
+      | `customerID`      | `customerid`             |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column names contain spaces
+  - id: column-name-spaces
+    summary: default
+    result: |
+      {{ destination.display_name }} will convert spaces to undersocres. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `customer id`     | `customer_id`            |
+      | `CUSTOMER ID`     | `customer_id`            |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column name contains unsupported special characters
+  - id: column-name-special-char
+    summary: default
+    result: |
+      {{ destination.display_name }} will convert special characters to underscores. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `customer!id`     |  | `customer_id`             |
+      | `!CUSTOMERID`     |  | `_customerid`             |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column name begins with a non-letter character
+  - id: column-name-starts-non-letter
+    summary: default
+    result: |
+      {{ destination.display_name }} will remove all leading non-letter characters with the exception of leading underscores. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `123customerid`   |  | `_customerid`            |
+      | `_customerid`     |  | `_customerid`            |
+      | `_987CUSTOMERID`  |  | `_987CUSTOMERID`         |
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Column name is too long
+  - id: column-name-limit
+    summary: default    
+    result: default
+
+    rejectable: true
+    error: |
+      ```
+      Column name [COLUMN] is too long for {{ destination.display_name }}
+      ```
+    troubleshooting: default
+
+# -------------------------------------------- #
+#                                              #
+#              WAREHOUSE CHANGES               #
+#                                              #
+# -------------------------------------------- #
+
+## Customer applies indexes to Stitch-generated columns
+  - id: apply-indices
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Customer applies SORT / DIST Keys to Stitch-generated columns
+  - id: sort-dist-keys
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none
+
+## Customer switches to a new destination of the same type
+  - id: switch-destination-same-type
+    summary: default
+    result: default
+
+    rejectable: false
+    error: none
+    troubleshooting: none

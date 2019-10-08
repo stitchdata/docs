@@ -5,6 +5,8 @@
 ## This file contains info about the privileges and setup steps
 ## required to create a Stitch database user for a BigQuery destination.
 
+## NOTE: These permissions apply to all versions of the BigQuery destination.
+
 defaults:
   names:
     bigquery-admin: &bigquery-admin-name "BigQuery Admin (roles/bigquery.admin)"
