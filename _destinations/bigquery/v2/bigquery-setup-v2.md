@@ -13,12 +13,14 @@
 # -------------------------- #
 
 title: Connecting a Google BigQuery (v2) Destination to Stitch
-permalink: /destinations/bigquery/connecting-google-bigquery-to-stitch
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 summary: "Connect a Google BigQuery database to your Stitch account as a destination."
 
+permalink:  /destinations/google-bigquery/connecting-google-bigquery-to-stitch
+redirect_from: /destinations/bigquery/connecting-google-bigquery-to-stitch
+
 content-type: "destination-setup"
-order: 2
+order: 1
 
 toc: true
 layout: tutorial
@@ -43,11 +45,14 @@ this-version: "2.0"
 
 requirements:
   - item: |
-      **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
+      **An existing Google Cloud Platform (GCP) project with the following setup:**
+
+      - **Enabled billing for the GCP project**. The project must have [billing enabled and an attached credit card]({{ site.data.destinations.resource-links[destination.type]enable-billing }}). This is required for Stitch to successfully load data.
+
+      - **An existing Google {{ destination.display_name }} instance in the GCP project.** Stitch will not create an instance for you.
+
   - item: |
-      **Admin permissions for {{ destination.display_name }} and Google Cloud Storage (GCS)**. This includes the {{ destination.display_name }} Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into {{ destination.display_name }}.
-  - item: |
-      **Access to a project where [billing is enabled]({{ site.data.destinations.resource-links[destination.type]enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using {{ destination.display_name }}'s free trial, billing must still be enabled for Stitch to load data.
+      **Permissions in the GCP project that allow you to create Identity Access Management (IAM) service accounts.** Stitch uses a service account during the replication process to load data into {{ destination.display_name }}. Refer to [Google's documentation]({{ site.data.destinations.resource-links.bigquery.service-accounts }}){:target="new"} for more info about service accounts and the permissions required to create them.
 
 
 # -------------------------- #
@@ -55,65 +60,98 @@ requirements:
 # -------------------------- #
 
 steps:
-  - title: "Create a GCP account"
-    anchor: "create-gcp-account"
+  - title: "Create a GCP IAM service account"
+    anchor: "create-gcp-iam-service-account"
     content: |
-      [Sign up here]({{ site.data.destinations.resource-links[destination.type]sign-up }}){:target="new"} to get started.
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}]({{ substep.anchor }})
+      {% endfor %}
 
-  - title: "Create a GCP project and enable billing"
-    anchor: "create-gcp-project-enable-billing"
+    substeps:
+      - title: "Define the service account details"
+        anchor: "define-service-account-details"
+        content: |
+          1. Navigate to the [IAM Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts){:target="new"} in the GCP console.
+          2. Select the project you want to use by using the project dropdown menu, located near the top left corner of the page:
+
+             [todo-image]
+          3. Click **+ Create Service Account**.
+          4. On the **Service account details** page, fill in the field as follows:
+             - **Service account name**: Enter a name for the service account. For example: `Stitch`
+             - **Serivce account description**: Enter a description for the service account. For example: `Used to load Stitch data into BigQuery`
+          5. Click **Create**.
+
+      - title: "Assign BigQuery permissions"
+        anchor: "assign-bigquery-permissions"
+        content: |
+          Next, you'll assign the {{ destination.display_name }} Admin role to the service account. This is required to successfully load data into {{ destination.display_name }}.
+
+          1. On the **Service account permissions** page, click the **Role** field.
+          2. In the window that displays, type `bigquery` into the filter/search field.
+          3. Select **BigQuery Admin**.
+          4. Click **Continue**.
+
+      - title: "Create a JSON project key"
+        anchor: "create-json-project-key"
+        content: |
+          The last step is to create and download a JSON project key. The project key file contains information about the project, which Stitch will use to complete the setup.
+
+          1. On the **Grant users access to this service account** page, scroll to the **Create key** section.
+          2. Click **+ Create Key**.
+          3. When prompted, click the **JSON** option.
+          4. Click **Create**.
+          5. Save the JSON project key file to your computer. The file will be downloaded to the location you specify (if prompted), or the default download location defined for the web browser you're currently using.
+
+  - title: "Connect Stitch"
+    anchor: "connect-stitch"
     content: |
-      Next, create a new GCP project to house your {{ destination.display_name }} destination by following [these instructions]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="new"}.
+      To complete the setup, you'll upload the GCP project key file to Stitch and define settings for your {{ destination.display_name }} destination:
 
-      **Be sure to enable billing for the account and attach a credit card, even if you're using the free trial option.** If billing isn't enabled, Stitch will encounter issues when loading data into your data warehouse.
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}]({{ substep.anchor }})
+      {% endfor %}
 
-  - title: "Grant user permissions"
-    anchor: "grant-user-permissions"
-    content: |
-      {% include note.html type="single-line" content="**Note**: Granting permissions to a user in Google Cloud Platform requires the `resourcemanager.projects.setIamPolicy` privilege." %}
-      
-      {% include layout/inline_image.html type="right" file="destinations/bigquery-dashboard-project-info.png" alt="The project Info box on the GCP Platform Dashboard page." max-width="300px" %}After the project has been created, open the project in the GCP console. You can do this by either:
+    substeps:
+      - title: "Upload the JSON project key file"
+        anchor: "upload-json-project-key-file"
+        content: |
+          1. Click the {{ app.menu-paths.destination-settings }}.
+          2. Click the **{{ destination.display_name }}** icon.
+          3. Scroll to the **Your service account** section.
+          4. In the **Your Key File** field, click the [todo- upload icon] and locate the JSON project key file you created in [Step 1.3](#create-json-project-key).
+          
+          Once uploaded, the **BigQuery Project Name** field will automatically populate with the name of the GCP project in the JSON project key file.
 
-      - Clicking **Go to project settings** in the **Project Info** box on the dashboard page, as seen to the right.
+      - title: "Select a Google Storage Location"
+        anchor: "select-gcp-storage-location"
+        content: |
+          Next, you'll select the region used by your Google Cloud Storage (GCS) [todo]. This setting determines the region of the internal [Google Storage Bucket](https://cloud.google.com/storage/docs/key-terms#buckets){:target="new"} Stitch uses during the replication process.
 
-      - Toggling between Projects by clicking the drop-down menu next to the Google Cloud Platform logo in the upper-left corner.
+          Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to [todo]() for the list of regions this version of the {{ destination.display_name }} destination supports.
 
-      Then, follow the instructions in the tab below. **Note**: Even if the user has Owner permissions, the permissions outlined below must still be granted to the user. Stitch will encounter loading errors otherwise.
+          **Note**: Changing this setting will result in replication issues if data migration isn't completed correctly. Refer to [todo]() for more info.
 
-      {% include destinations/templates/destination-user-setup.html %}
+      - title: "Define loading behavior"
+        anchor: "define-loading-behavior"
+        content: |
+          {% capture loading-setting-note %}
+          **Note**: The Loading behavior setting can't be changed after the destination is created. To change {{ destination.display_name }} loading behavior, you'll need to [delete and re-create the destination]({{ link.destinations.switch-destinations | prepend: site.baseurl }}).
+          {% endcapture %}
 
-  - title: "Authenticate with Google"
-    anchor: "authenticate-with-google"
-    content: |
-      Next, you'll complete Google's authorization process and grant Stitch access to the {{ destination.display_name }} project you created in [Step 2](#create-gcp-project-enable-billing).
+          {% include note.html type="single-line" content=loading-setting-note %}
 
-      1. Sign into your Stitch account, if you haven't already.
-      2. Click the {{ app.menu-paths.destination-settings }}, then the **{{ destination.display_name }}** icon.
-      3. Click **Sign in with Google.**
-      4. If you aren't already signed into your Google account, you'll be prompted for your credentials. **Sign in as the same user you granted {{ destination.display_name }} and Storage Admin permissions to in [Step 3](#grant-user-permissions).**
-      5. After you sign in, you'll see a list of the permissions requested by Stitch:
-         - **Read/Write Access to Google Cloud Storage** - Stitch requires Read/Write access to create and use a GCS bucket to load replicated data into BigQuery.
-         - **Full Access to BigQuery** - Stitch requires full access to be able to create datasets and load data into BigQuery.
-         - **Read-Only Access to Projects** - Stitch requires read-only access to projects to allow you to select a project to use during the BigQuery setup process.
-         - **Basic Profile Information** - Stitch uses your basic profile info to retrieve your user ID.
-         - **Offline Access** - To continuously load data, Stitch requires offline access. This allows the authorization token generated during setup process to be used for more than an hour after the initial authentication takes place.
-      6. To grant access, click the **Authorize** button.
+          The last step is to define how Stitch will handle changes to existing records in your {{ destination.display_name }} destination:
 
-  - title: "Select a Google Cloud Project and Storage Location"
-    anchor: "select-gcp-project-storage-location"
-    content: |
-      After you sign into Google and grant Stitch access, you'll be redirected back to Stitch. The last step is to select the select a project and define a storage location for your destination.
+          - **Upsert**: Existing rows will be updated with the most recent version of the record from the source. With this option, only the most recent version of a record will exist in {{ destination.display_name }}. 
 
-      Fill in the fields as follows:
-     
-      1. From the **Google Cloud Project** dropdown, select the project you created in [Step 2](#create-gcp-project-enable-billing).
+          - **Append**: Existing rows aren't updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ destination.display_name }}, capturing how a record changed over time.
 
-      2. From the **Google Cloud Storage Location**, select the location where data should be stored:
+          Refer to [todo]() for more info and examples.
 
-         {% for region in site.data.destinations.reference.bigquery.region-list %}
-         - {{ region.name | markdownify }}
-         {% endfor %}
-      3. Click **Finish Setup**.
+      - title: "Save the destination"
+        anchor: "save-destination"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = page %}
