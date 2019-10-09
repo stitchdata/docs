@@ -13,12 +13,14 @@
 # -------------------------- #
 
 title: Connecting a Google BigQuery (v1) Destination to Stitch
-permalink: /destinations/bigquery/connecting-google-bigquery-to-stitch
+permalink: /destinations/google-bigquery/v1/connecting-google-bigquery-to-stitch
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 summary: "Connect a Google BigQuery database to your Stitch account as a destination."
 
 content-type: "destination-setup"
-order: 1
+key: "bigquery-setup"
+
+order: 2
 
 toc: true
 layout: tutorial
@@ -111,7 +113,7 @@ steps:
 
       2. From the **Google Cloud Storage Location**, select the location where data should be stored:
 
-         {% for region in site.data.destinations.reference.bigquery.region-list %}
+         {% for region in site.data.destinations.reference.bigquery.v1.region-list %}
          - {{ region.name | markdownify }}
          {% endfor %}
       3. Click **Finish Setup**.
