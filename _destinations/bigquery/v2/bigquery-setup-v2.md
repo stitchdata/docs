@@ -76,20 +76,22 @@ steps:
           1. Navigate to the [IAM Service Accounts page](https://console.cloud.google.com/iam-admin/serviceaccounts){:target="new"} in the GCP console.
           2. Select the project you want to use by using the project dropdown menu, located near the top left corner of the page:
 
-             [todo-image]
+             ![Highlighted project selection menu in the Google Cloud Platform console]({{ site.baseurl }}/images/destinations/bigquery-gcp-project-menu.png){:style="max-width: 450px;"}
           3. Click **+ Create Service Account**.
           4. On the **Service account details** page, fill in the field as follows:
              - **Service account name**: Enter a name for the service account. For example: `Stitch`
-             - **Serivce account description**: Enter a description for the service account. For example: `Used to load Stitch data into BigQuery`
+             - **Serivce account description**: Enter a description for the service account. For example: `Loading Stitch data`
           5. Click **Create**.
 
-      - title: "Assign BigQuery permissions"
-        anchor: "assign-bigquery-permissions"
+      - title: "Assign BigQuery Admin permissions"
+        anchor: "assign-bigquery-admin-permissions"
         content: |
           Next, you'll assign the {{ destination.display_name }} Admin role to the service account. This is required to successfully load data into {{ destination.display_name }}.
 
           1. On the **Service account permissions** page, click the **Role** field.
-          2. In the window that displays, type `bigquery` into the filter/search field.
+          2. In the window that displays, type `bigquery` into the filter/search field:
+             ![The service account role field with BigQuery Admin selected]({{ site.baseurl }}/images/destinations/bigquery-service-account-role.png){:style="max-width: 450px;"}
+
           3. Select **BigQuery Admin**.
           4. Click **Continue**.
 
@@ -98,6 +100,7 @@ steps:
         content: |
           The last step is to create and download a JSON project key. The project key file contains information about the project, which Stitch will use to complete the setup.
 
+          ![]({{ site.baseurl }}/images/destinations/bigquery-create-project-key-file.png){:style="max-width: 350px; margin-left: 15px;" align="right"}
           1. On the **Grant users access to this service account** page, scroll to the **Create key** section.
           2. Click **+ Create Key**.
           3. When prompted, click the **JSON** option.
@@ -119,7 +122,7 @@ steps:
         content: |
           1. Click the {{ app.menu-paths.destination-settings }}.
           2. Click the **{{ destination.display_name }}** icon.
-          3. Scroll to the **Your service account** section.
+          3. On the page that opens, scroll to the **Your service account** section.
           4. In the **Your Key File** field, click the [todo- upload icon] and locate the JSON project key file you created in [Step 1.3](#create-json-project-key).
           
           Once uploaded, the **BigQuery Project Name** field will automatically populate with the name of the GCP project in the JSON project key file.
@@ -148,7 +151,7 @@ steps:
 
           - **Append**: Existing rows aren't updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ destination.display_name }}, capturing how a record changed over time.
 
-          Refer to [todo]() for more info and examples.
+          [todo - add sentence about costs?] Refer to [todo]() for more info and examples.
 
       - title: "Save the destination"
         anchor: "save-destination"
