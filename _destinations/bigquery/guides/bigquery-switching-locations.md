@@ -4,7 +4,9 @@
 # -------------------------- #
 
 title: Change the Location of a Google BigQuery Destination
-permalink: /destinations/bigquery/changing-google-bigquery-destination-data-locations
+permalink: /destinations/google-bigquery/changing-google-bigquery-destination-data-locations
+redirect_from: /destinations/bigquery/changing-google-bigquery-destination-data-locations
+
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 
 summary: "Change the location of your Google BigQuery destination."

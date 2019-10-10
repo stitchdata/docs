@@ -103,7 +103,7 @@ steps:
           ![]({{ site.baseurl }}/images/destinations/bigquery-create-project-key-file.png){:style="max-width: 350px; margin-left: 15px;" align="right"}
           1. On the **Grant users access to this service account** page, scroll to the **Create key** section.
           2. Click **+ Create Key**.
-          3. When prompted, click the **JSON** option.
+          3. When prompted, select the **JSON** option.
           4. Click **Create**.
           5. Save the JSON project key file to your computer. The file will be downloaded to the location you specify (if prompted), or the default download location defined for the web browser you're currently using.
 
@@ -132,7 +132,7 @@ steps:
         content: |
           Next, you'll select the region used by your Google Cloud Storage (GCS) [todo]. This setting determines the region of the internal [Google Storage Bucket](https://cloud.google.com/storage/docs/key-terms#buckets){:target="new"} Stitch uses during the replication process.
 
-          Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to [todo]() for the list of regions this version of the {{ destination.display_name }} destination supports.
+          Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to [[todo]]() for the list of regions this version of the {{ destination.display_name }} destination supports.
 
           **Note**: Changing this setting will result in replication issues if data migration isn't completed correctly. Refer to [todo]() for more info.
 
@@ -151,7 +151,7 @@ steps:
 
           - **Append**: Existing rows aren't updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ destination.display_name }}, capturing how a record changed over time.
 
-          [todo - add sentence about costs?] Refer to [todo]() for more info and examples.
+          [todo - add sentence about costs?] Refer to [[todo]]() for more info and examples.
 
       - title: "Save the destination"
         anchor: "save-destination"
