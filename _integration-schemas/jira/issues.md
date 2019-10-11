@@ -22,8 +22,8 @@ description: |
 
   1. Create a status in JIRA that will be applied to issues you want to delete.
   2. **Before deleting the issue, apply the status**.
-  3. Delete the issue.
-  4. Allow Stitch to extract and load the updated data into your destination.
+  3. Allow Stitch to extract and load the updated data into your destination.
+  4. Delete the issue.
   5. After Stitch finishes loading the data, use the `fields__status__name` field in your queries to filter issues with the deleted status you applied in step 2. For example, the following query would return any issues that had been marked with a the deleted status:
 
      ```sql

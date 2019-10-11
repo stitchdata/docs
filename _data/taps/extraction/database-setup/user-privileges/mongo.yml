@@ -1,0 +1,73 @@
+# -------------------------- #
+#  Database User Privileges  #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from a MongoDB database.
+
+
+# -------------------------- #
+#     MONGODB PRIVILEGES     #
+# -------------------------- #
+
+mongodb:
+  - name: "readAnyDatabase"
+    reason: |
+      Required to read data from databases in the cluster.
+    doc-link: "https://docs.mongodb.com/v3.4/reference/built-in-roles/#readAnyDatabase"
+
+  - name: "read"
+    reason: |
+      **Note**: You only need to explicitly grant this role if you're using {{ integration.display_name }} version 3.4 or greater.
+
+      Required to read from the [`local` database](https://docs.mongodb.com/v4.0/reference/local-database/){:target="new"}.
+    doc-link: "https://docs.mongodb.com/v3.4/reference/built-in-roles/#read"
+
+
+# -------------------------- #
+#  MONGODB-ATLAS PRIVILEGES  #
+# -------------------------- #
+
+mongodb-atlas:
+  - name: "Only read any database"
+    reason: |
+      Required to read data from databases in the cluster. This is equivalent to the `readAnyDatabase` role.
+    doc-link: "https://docs.mongodb.com/v4.0/reference/built-in-roles/#readAnyDatabase"
+
+
+# -------------------------- #
+#      MONGODB COMMANDS      #
+# -------------------------- #
+
+switch-database:
+  mongo "mongodb://<username>@<database-host>:<port>/?authSource=admin"
+
+
+create-user-v2: |
+  use admin
+  db.addUser(
+    {
+      user: "stitch",
+      pwd: "<password>",
+      roles: ["readAnyDatabase"]
+    }
+  )
+
+create-user-v3-2: |
+  use admin
+  db.createUser(
+    {
+      user: "stitch",
+      pwd: "<password>",
+      roles: ["readAnyDatabase"]
+    }
+  )
+
+create-user-v3-4: |
+  use admin
+  db.createUser(
+    {
+      user: "stitch",
+      pwd: "<password>",
+      roles: ["readAnyDatabase", {role: "read", db: "local"} ]
+    }
+  )

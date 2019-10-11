@@ -22,6 +22,9 @@ repo-url: https://github.com/singer-io/tap-campaign-monitor
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://www.campaignmonitor.com/api/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -35,11 +38,21 @@ tier: "Free"
 status-url: "https://status.campaignmonitor.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: false
 column-selection: false
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #

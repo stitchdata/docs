@@ -21,6 +21,9 @@ repo-url: https://github.com/singer-io/tap-github
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} REST API v3](https://developer.github.com/v3/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -37,8 +40,18 @@ table-selection: true
 column-selection: true
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

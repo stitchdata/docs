@@ -17,11 +17,14 @@ repo-url: https://github.com/singer-io/tap-wootric
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://docs.wootric.com/api/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Coming Soon"
+status: "Deprecated"
 certified: false
 
 historical: "1 year"
@@ -29,12 +32,22 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: 
 
+anchor-scheduling: true
+cron-scheduling: false
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: true
 extraction-logs: true
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

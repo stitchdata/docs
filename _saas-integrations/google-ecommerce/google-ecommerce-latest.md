@@ -1,7 +1,6 @@
 ---
 title: Google ECommerce
 permalink: /integrations/saas/google-ecommerce
-tags: [saas_integrations]
 keywords: google ecommerce, integration, schema, etl google ecommerce, google ecommerce etl, google ecommerce schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google ECommerce integration."
 format: ## controls formatting options in template
@@ -16,9 +15,10 @@ format: ## controls formatting options in template
 name: "google-ecommerce"
 display_name: "Google ECommerce"
 singer: false
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
+
+api: |
+  [Google Analytics Reporting API v4](https://developers.google.com/analytics/devguides/reporting/core/v4/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -30,14 +30,24 @@ certified: true
 historical: "15 days"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/google-ecommerce.svg
+
+anchor-scheduling: false
+cron-scheduling: false
 
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
 extraction-logs: false
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
+
 
 # -------------------------- #
 #      Querying Details      #
@@ -50,6 +60,14 @@ loading-reports: true
 
 replication-notes: true
 attribution-window: "15 days"
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 # -------------------------- #
 #     Integration Tables     #

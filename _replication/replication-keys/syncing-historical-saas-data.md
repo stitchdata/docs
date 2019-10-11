@@ -135,7 +135,7 @@ To use a custom start date during the initial setup:
 3. Scroll down to the **Sync Historical Data** section.
 4. In the **Start Date** section, click the **Change Date** link.
 5. Define the new starting date using the drop-down.
-6. Click the **Reset Date** button.
-7. When prompted, click **OK** to confirm and proceed with changing the starting date.
+6. Click the **Update Settings** button.
+7. When prompted, click **OK** to confirm the change.
 
 If successful, a confirmation message will display indicating the replication job has been queued. After a structure sync is performed, Stitch will begin replicating data according to the integration's [Replication Schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}).

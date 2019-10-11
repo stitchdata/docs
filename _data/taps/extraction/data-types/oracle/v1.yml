@@ -1,0 +1,145 @@
+# ----------------------------------- #
+#   ORACLE V1 SUPPORTED DATA TYPES    #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to Oracle VERSION 1.
+
+# Source: https://github.com/singer-io/tap-postgres/blob/master/tap_postgres/__init__.py#L63
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## Oracle has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/oracle/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+adt:
+  stitch-type: "unsupported"
+
+array:
+  stitch-type: "array"
+  tooltip: |
+    ARRAYs are supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+bigint:
+  stitch-type: "integer"
+
+binary_double:
+  stitch-type: "float"
+  doc-link: &float-doc-link "https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1834"
+
+binary_float:
+  stitch-type: "float"
+  doc-link: *float-doc-link
+
+bit:
+  stitch-type: "not applicable"
+  tooltip: &not-applicable "This data type isn't applicable to {{ page.display_name }}."
+
+blob:
+  stitch-type: "unsupported"
+
+boolean:
+  stitch-type: "boolean"
+  doc-link: "https://docs.oracle.com/cd/B28359_01/appdev.111/b28370/datatypes.htm#i45907"
+
+char:
+  stitch-type: "string"
+  doc-link: "https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1821"
+
+clob:
+  stitch-type: "unsupported"
+
+collection:
+  stitch-type: "unsupported"
+
+date:
+  stitch-type: "string"
+  format: "date-time"
+  doc-link: "https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT413"
+      
+decimal:
+  stitch-type: "number"
+  doc-link: &number-doc-link "https://docs.oracle.com/cd/B28359_01/appdev.111/b28370/datatypes.htm#CJAEAEJG"
+
+double:
+  stitch-type: "number"
+  doc-link: *number-doc-link
+
+float:
+  stitch-type: "float"
+  doc-link: *number-doc-link
+      
+integer:
+  stitch-type: "integer"
+  doc-link: *number-doc-link
+
+longvarchar:
+  stitch-type: "not applicable"
+  tooltip: *not-applicable
+
+longnvarchar:
+  stitch-type: "not applicable"
+  tooltip: *not-applicable
+
+long:
+  stitch-type: "unsupported"
+
+long raw:
+  stitch-type: "unsupported"
+
+nchar:
+  stitch-type: "string"
+  doc-link: "https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1828"
+
+nclob:
+  stitch-type: "unsupported"
+
+numeric:
+  stitch-type: "integer or decimal"
+  tooltip: |
+    In {{ page.display_name }}, this is <strong>number</strong>: <strong>(*,0)</strong> is stored as <strong>integer</strong> and <strong>(*,*)</strong> is stored as <strong>decimal</strong>.
+      
+nvarchar:
+  stitch-type: "string"
+
+nvarchar2:
+  stitch-type: "string"
+  doc-link: "https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1825"
+
+real:
+  stitch-type: "number"
+  doc-link: *number-doc-link
+
+smallint:
+  stitch-type: "integer"
+  doc-link: *number-doc-link
+
+time:
+  stitch-type: "not applicable"
+  tooltip: *not-applicable
+
+timestamp:
+  stitch-type: "string"
+  format: "date-time"
+  tooltip: "Applicable to <strong>timestamps with time zone</strong> and <strong>timestamps with local time zone</strong>."
+
+tinyint:
+  stitch-type: "not applicable"
+  tooltip: *not-applicable
+
+varchar:
+  stitch-type: "string"
+  doc-link: &varchar-doc-link "https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1822"
+  tooltip: "This data type is synonymous with <strong>varchar2</strong>."
+
+varchar2:
+  stitch-type: "string"
+  doc-link: *varchar-doc-link
+  tooltip: "This data type is synonymous with <strong>varchar</strong>."

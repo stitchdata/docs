@@ -45,6 +45,17 @@ common:
       {% else %} The only available replication scheduling method is the Replication Frequency setting.
       {% endif %}
 
+  - display_name: "Advanced Scheduling"
+    name: "cron-scheduling"
+    category: "replication-settings"
+    doc-link: "{{ link.replication.advanced-scheduling | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.advanced-scheduling }}"
+    type: "boolean"
+
+    unsupported-tooltip: |
+      Advanced Scheduling is not supported for this integration.
+      {% if include.feature-type == "webhook" %} Webhook replication is continuous.{% endif %}
+
   - display_name: "Table-level Reset"
     name: "table-level-reset"
     category: "replication-settings"

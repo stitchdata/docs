@@ -1,0 +1,33 @@
+<!-- This file contains the logic for pulling the correct integrations/destinations
+	for different types of SSH instructions. This is necessary because the instructions
+	vary depending on where the database is hosted. -->
+
+
+<!-- The logic varies depending on the connection type: integration or destination. -->
+{% case include.connection-type %}
+
+<!-- INTEGRATIONS -->
+	{% when 'integration' %}
+		{% assign all-database-integrations = site.database-integrations | where:"input",true %}
+			{% assign all-ssh-database-integrations = all-database-integrations | where:"ssh",true %}
+				{% assign ssh-database-integrations = all-ssh-database-integrations | where:"hosting-type",page.hosting-type | sort: "title" %}
+
+{% capture integration-list %}
+{% for database-integration in ssh-database-integrations %}
+- [{% if page.hosting-type == "generic" %}Self-hosted {% endif %}{{ database-integration.title | remove: " (v1.0)" }}]({{ database-integration.url | prepend: site.baseurl }})
+{% endfor %}
+{% endcapture %}
+
+
+<!-- DESTINATIONS -->
+	{% when 'destination' %}
+		{% assign all-destinations = site.destinations | where:"ssh",true %}
+			{% assign ssh-destinations = all-destinations | where:"hosting-type",page.hosting-type | sort: "title" %}
+
+{% capture destination-list %}
+{% for destination in ssh-destinations %}
+- [{{ destination.title | remove: "Connecting an " | remove: "Connecting a " | remove: " Destination to Stitch" }}]({{ destination.url | prepend: site.baseurl }})
+{% endfor %}
+{% endcapture %}
+
+{% endcase %}

@@ -1,0 +1,57 @@
+
+# --------------------------------- #
+#  DESTINATION EMAIL NOTIFICATIONS  #
+# --------------------------------- #
+
+description: "Notifications that are sent when Stitch encounters an issue with your destination."
+
+all:
+  - id: "vacuum"
+  - id: "no-schema-rights"
+
+# -------------------------- #
+#       WARNING LEVEL        #
+# -------------------------- #
+
+warning:
+# -------------------------- #
+#        VACUUM ERRORS       #
+# -------------------------- #
+  - id: "vacuum"
+    name: "Amazon Redshift VACUUM"
+    email-delay: "10 days"
+    description: "**Applicable only to Amazon Redshift destinations.** Sent when Stitch hasn't successfully performed a `VACUUM` operation on tables in your Amazon Redshift destination."
+    email-subject:
+      - "We’ve been unable to VACUUM for awhile"
+    contains-raw-errors: false
+    opt-out: true
+    content:
+      - "A list of affected tables"
+    potential-causes:
+      - "Stitch has not successfully performed a VACUUM operation in more than 10 days."
+    app-category: "loader_warehouse_error"
+
+# ----------------------------
+
+# -------------------------- #
+#       CRITICAL LEVEL       #
+# -------------------------- #
+
+critical:
+# -------------------------- #
+#   INSUFFICIENT PRIVILEGES  #
+# -------------------------- #
+  - id: "no-schema-rights"
+    name: "Data warehouse error"
+    email-delay: "None"
+    description: "Sent when Stitch can't load data into the account's destination due to insufficient database user privileges."
+    email-subject:
+      - "Data Warehouse Error"
+    contains-raw-errors: false
+    opt-out: true
+    content:
+      - "The name of the affected database"
+    potential-causes:
+      - "Insufficient database user privileges"
+      - "For Redshift and PostgreSQL destinations, the user lacks the <code>GRANT CREATE ON DATABASE</code> privilege"
+    app-category: "connection"

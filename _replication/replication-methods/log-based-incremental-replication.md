@@ -1,7 +1,7 @@
 ---
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
-keywords: replicate, replication, replication method, stitch replicates data
+keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database repli8cation
 tags: [replication]
 layout: general
 
@@ -40,9 +40,45 @@ example-table:
 #       CONTENT SECTIONS      #
 # --------------------------- #
 
+feature-details:
+  - database: "Microsoft SQL Server"
+    db-type: "mssql"
+    name: "Change Tracking"
+    link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
+
+  - database: "MongoDB"
+    db-type: "mongo"
+    name: "OpLog"
+    link: "https://docs.mongodb.com/manual/core/replica-set-oplog/"
+
+  - database: "MySQL"
+    db-type: "mysql"
+    name: "Binary log file position based replication, or binlog"
+    link: "https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html"
+
+  - database: "Oracle"
+    db-type: "oracle"
+    name: "LogMiner"
+    link: "https://docs.oracle.com/cd/B19306_01/server.102/b14215/logminer.htm"
+
+  - database: "PostgreSQL"
+    db-type: "postgres"
+    name: "Logical replication"
+    link: "https://www.postgresql.org/docs/10/logical-replication.html"
+
+supported-database-list: |
+  {%- for feature in page.feature-details -%}
+  {% if forloop.last == true %}{{ feature.database | prepend: "and " | append: "-backed" }}
+  {% else %}{{ feature.database | append: ", " }}{% endif %}
+  {%- endfor -%}
+
 sections:
   - content: |
-      {% include note.html type="single-line" content="**Note**: Log-based Replication is available only for MySQL, Oracle, and PostgreSQL-backed databases that support binary log replication." %}
+      {% capture notice %}
+      **Note**: Log-based Incremental Replication is available only for {{ page.supported-database-list | flatify | strip }} databases that support log-based replication.
+      {% endcapture %}
+
+      {% include note.html type="single-line" content=notice %}
 
       {{ site.data.tooltips.log-based-incremental-rep }} A log file is a record of events that occur within a database.
 
@@ -61,10 +97,19 @@ sections:
       - **Log message** - A single change made to a database. For example: An `UPDATE` to a record.
       - **Log position ID** - A unique identifier corresponding to the position of a log message in a log file. These values are incremental, increasing as log messages are generated.
 
+         - In **Microsoft SQL Server**, this is called the **Change Tracking Version**. As [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/work-with-change-tracking-sql-server?view=sql-server-2017#version-numbers){:target="new"} notes, this concept is similar to `rowversion`.
+         - In **MongoDB**, this is a field in the database log named `ts`. The `ts` field is a combination of a timestamp and an ordinal (integer counter) value. For example: `"ts": Timestamp(1412180887, 1)` The timestamp is in seconds since the Unix epoch, and the ordinal is used to differentiate between entries that occured during the same second.
          - In **MySQL and PostgreSQL**, this is called a **Log Sequence Number (LSN)**.
          - In **Oracle**, this is called a **System Change Number (SCN)**.
       - **Replication job** - {{ site.data.tooltips.replication-job }}
       - **Historical replication job** - {{ site.data.tooltips.historical-replication-job }}
+
+      In addition to these general terms, each database refers to its log replication feature by a different name. Stitch uses the following database features to perform Log-based Incremental Replication:
+
+      {% for feature in page.feature-details %}
+      - **{{ feature.database }}**: [{{ feature.name }}]({{ feature.link }}){:target="new"}
+      {% endfor %}
+
 
   - title: "How {{ page.title }} works"
     anchor: "how-log-based-incremental-replication-works"
@@ -112,11 +157,11 @@ sections:
     content: |
       {{ page.title }} may be a good fit if:
 
-      1. The database is a MySQL, Oracle, or PostgreSQL-backed database [that supports {{ page.title }}](#limitation-1--availability). 
-      2. Data is contained in a table, [not a view](#limitation-6--views-are-unsupported).
-      3. Modifications to records are made only using [supported event types](#limitation-2--database-event-types).
-      4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation-4--structural-changes) below for more info.
-      5. You're aware that, for PostgreSQL, only [master instances](#limitation-7--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation-6--disk-space-usage-postgresql).
+      1. The database is a {{ page.supported-database-list | flatify | strip }} database [that supports {{ page.title }}](#limitation--availability). 
+      2. Data is contained in a table, [not a view](#limitation--views-are-unsupported).
+      3. Modifications to records are made only using [supported event types](#limitation--database-event-types).
+      4. The structure of the table changes infrequently, if at all. Refer to the [Limitations section](#limitation--structural-changes) below for more info.
+      5. You're aware that, for PostgreSQL, only [master instances](#limitation--only-supports-master-instances-postgresql) support {{ page.title }} and that retaining [binary log files will increase the database's disk space usage](#limitation--disk-space-usage-postgresql).
 
       If {{ page.title }} isn't appropriate, [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) may be a suitable alternative.
 
@@ -128,19 +173,18 @@ sections:
       The limitations of {{ page.title }} are:
 
       {% for subsection in section.subsections %}
-      - [{{ subsection.title | remove: "Limitation " | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
+      - [{{ subsection.title | remove: "Limitation " | flatify | remove: ": " | remove:"1" | remove: "2" | remove: "3" | remove: "4" | remove: "5" | remove: "6" | remove: "7" | remove: "8" }}](#{{ subsection.anchor }})
       {% endfor %}
-
 
 ## SUPPORTED DATABASES
     subsections:
-      - title: "Limitation 1: Only available for certain MySQL, Oracle, and PostgreSQL databases"
-        anchor: "limitation-1--availability"
+      - title: "Limitation {{ forloop.index }}: Only available for certain databases"
+        anchor: "limitation--availability"
         content: |
           {% include misc/icons.html %}
-          {{ page.title }} is available only for certain MySQL, Oracle, and PostgreSQL-backed databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
+          {{ page.title }} is available only for certain {{ page.supported-database-list | flatify | strip }} databases. While the original implementations of these databases support {{ page.title }} some cloud versions may not.
 
-          In the table below are the MySQL, Oracle, and PostgreSQL databases Stitch supports and whether {{ page.title }} can be used in Stitch.
+          In the table below are the databases Stitch supports and whether {{ page.title }} can be used in Stitch for each one.
 
           - {{ supported | replace:"TOOLTIP","Supported" }} indicates that if the database/instance type meets the **Minimum version** requirement, {{ page.title }} can be used in Stitch.
 
@@ -152,93 +196,11 @@ sections:
 
               **Note**: If public-facing information about the lack of support is available, a link to it will display next to the {{ not-supported | replace:"TOOLTIP","Not supported" }} icon.
 
-          {% assign binlog-databases = "mysql|oracle|postgres" | split:"|" %}
-          {% assign binlog-support = "log-based-replication-master-instance|log-based-replication-read-replica|log-based-replication-minimum-version" | split:"|" %}
-          {% assign all-databases = site.database-integrations | where:"input",true %}
-
-          {% for binlog-database in binlog-databases %}
-          {% assign databases = all-databases | where:"db-type",binlog-database | sort: "title" %}
-
-          #### Support for {{ binlog-database | replace:"mysql","MySQL" | replace:"postgres","PostgreSQL" | replace: "oracle","Oracle" }} databases
-
-          <table class="attribute-list">
-          <tr>
-          <td width="35%; fixed" align="right">
-          </td>
-          {% for support-type in binlog-support %}
-          <td class="attribute-description">
-          <strong>{{ support-type | remove:"log-based-" | replace:"-"," " | capitalize }}</strong>
-          {% if support-type == "log-based-replication-minimum-version" %}
-          {{ info-icon | replace:"TOOLTIP","The minimum database version required to use Log-based Incremental Replication." }}
-          {% endif %}
-          </td>
-          {% endfor %}
-          </tr>
-          {% for database in databases %}
-          <tr>
-          <td width="35%; fixed" align="right">
-          <a href="{{ database.url | prepend: site.baseurl }}">{{ database.title }}</a>
-          </td>
-          {% for support-type in binlog-support %}
-          <td class="attribute-description">
-          {% case support-type %}
-          {% when 'log-based-replication-minimum-version' %}
-
-          {% case database.log-based-replication-minimum-version %}
-          {% when 'n/a' %}
-          {{ not-applicable | replace:"TOOLTIP","Not applicable" }}
-          {% else %}
-          {{ database[support-type] }}
-          {% endcase %}
-
-          {% else %}
-
-          {% case database[support-type] %}
-          {% when true %}
-          {{ supported | replace:"TOOLTIP","Log-based Incremental Replication is supported." }}
-
-          {% when false %}
-          {% if database.log-based-replication-read-replica-reason or database.log-based-replication-master-instance-reason %}
-
-          {% if database.log-based-replication-read-replica-reason %}
-          {% assign reason = database.log-based-replication-read-replica-reason %}
-          {% endif %}
-
-          {% if database.log-based-replication-master-instance-reason %}
-          {% assign reason = database.log-based-replication-master-instance-reason %}
-          {% endif %}
-
-          {{ not-supported | replace:"TOOLTIP",reason }}
-          {% else %}
-          {{ not-supported | replace:"TOOLTIP","Log-based Incremental Replication is not supported." }}
-          {% endif %}
-
-          {% if database.log-based-replication-read-replica-doc-link or database.log-based-replication-master-instance-doc-link %}
-
-          {% if database.log-based-replication-read-replica-doc-link %}
-          {% assign doc-link = database.log-based-replication-read-replica-doc-link %}
-          {% endif %}
-
-          {% if database.log-based-replication-master-instance-doc-link %}
-          {% assign doc-link = database.log-based-replication-master-instance-doc-link %}
-          {% endif %}
-
-           (<a href="{{ doc-link | flatify }}">link</a>)
-          {% endif %}
-          {% endcase %}
-
-          {% endcase %}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
-          {% endfor %}
-
+          {% include replication/log-based-replication-database-support.html %}
 
 ## SUPPORTED EVENT TYPES
-      - title: "Limitation 2: Only works with specific database event types"
-        anchor: "limitation-2--database-event-types"
+      - title: "Limitation {{ forloop.index }}: Only works with specific database event types"
+        anchor: "limitation--database-event-types"
         content: |
           {{ page.title }} reads data from a database's log and then replicates the changes. In order to replicate data, the event that caused a change to the data must be written to the log.
 
@@ -252,17 +214,18 @@ sections:
 
           For example: If data in a table is modified using `ALTER`, the changes won't be written to the log or identified by Stitch.
 
-
 ## STRUCTURAL CHANGES
-      - title: "Limitation 3: Structural changes require manual intervention"
-        anchor: "limitation-3--structural-changes"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, PostgreSQL, Oracle)"
+        anchor: "limitation--structural-changes"
         content: |
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL**-backed database integrations." %}
+
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
           Structural changes can include adding new columns, removing columns, changing a data type, etc. Resetting the table is required due to how messages in logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
-          {{ site.data.errors.database-extraction.mysql.raw-error.schema-violation | lstrip | rstrip }}
+          {{ site.data.errors.extraction.databases.mysql.raw-error.schema-violation | lstrip | rstrip }}
           ```
 
           For this reason, Stitch recommends using {{ page.title }} with tables that have structures that don't change frequently.
@@ -304,7 +267,7 @@ sections:
               1,Finn,human,2,Jake,dog,3,Bubblegum,princess
               ```
 
-              Stitch's MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
+              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
 
               If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper columns based on the ordinal set when compared to the expected schema that was previously detected.
 
@@ -342,18 +305,18 @@ sections:
               Where Stitch previously detected three columns, the log messages now contain data for four columns. Because the log messages don't contain field information and are read in order, Stitch would be unable to determine what column the `15`, `9`, and `19` values are for.
 
 ## VIEWS
-      - title: "Limitation 4: Cannot be used with views"
-        anchor: "limitation-4--views-are-unsupported"
+      - title: "Limitation {{ forloop.index }}: Cannot be used with views"
+        anchor: "limitation--views-are-unsupported"
         content: |
           {{ page.title }} can't be used with database views, as modifications to views are not written to log files.
 
           Stitch recommends using [Key-based Incremental Replication]({{ link.replication.key-based-rep | prepend: site.baseurl }}) instead, where possible.
 
 ## MYSQL/ORACLE RETENTION PERIOD
-      - title: "Limitation 5: Logs can age out and stop replication (MySQL and Oracle)"
-        anchor: "limitation-5--log-retention"
+      - title: "Limitation {{ forloop.index }}: Logs can age out and stop replication (Microsoft SQL Server, MySQL, and Oracle)"
+        anchor: "limitation--log-retention"
         content: |
-          {% include note.html type="single-line" content="This section is applicable only to **MySQL** and **Oracle**-backed database integrations." %}
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL,** and **Oracle**-backed database integrations." %}
 
           Log files, by default, are not stored indefinitely on a database server. The amount of time a log file is stored depends on the database's log retention settings.
 
@@ -363,12 +326,12 @@ sections:
 
           - **For MySQL databases**:
             ```
-            {{ site.data.errors.database-extraction.mysql.raw-error.log-retention-purge | strip }}
+            {{ site.data.errors.extraction.databases.mysql.raw-error.log-retention-purge | strip }}
             ```
 
           - **For Oracle databases**:
             ```
-            {{ site.data.errors.database-extraction.oracle.raw-error.missing-logfile | strip }}
+            {{ site.data.errors.extraction.databases.oracle.raw-error.missing-logfile | strip }}
             ```
 
           To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.
@@ -378,16 +341,16 @@ sections:
           1. **The log file is purged before historical replication completes**. This is because the maximum [log position ID](#log-based-incremental-replication-terminology) is saved at the start of [historical replication jobs](#log-based-incremental-replication-terminology), so Stitch knows where to begin reading from the database logs after historical data is replicated.
           2. **The log retention settings are set to too short of a time period**. Stitch recommends a minimum of **3 days**, but **7 days** is preferred to account for resolving potential issues without losing logs.
 
+             - **For Microsoft SQL Server databases**, this is the `CHANGE_RETENTION` setting.
              - **For MysQL databases**, these are the `expire_logs_days` or `binlog_expire_logs_seconds` settings.
              - **For Oracle databases**:
                 - **For self-hosted Oracle databases**, this is the [RMAN retention policy setting]({{ site.baseurl }}/integrations/databases/oracle#configure-rman-backups).
                 - **For Oracle-RDS databases**, these are the [AWS automated backup]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#enable-aws-automated-backups) and [`archivelog retention hours`]({{ site.baseurl }}/integrations/databases/amazon-oracle-rds#define-archivelog-retention-hours) settings.
           3. **Any critical error that prevents Stitch from replicating data**, such as a connection issue that prevents Stitch from connecting to the database or a [schema violation](#limitation-3--structural-changes). If the error persists past the log retention period, the log will be purged before Stitch can read it.
 
-
 ## POSTGRES INCREASE DISK SPACE
-      - title: "Limitation 6: Will increase source disk space usage (PostgreSQL)"
-        anchor: "limitation-6--disk-space-usage-postgresql"
+      - title: "Limitation {{ forloop.index }}: Will increase source disk space usage (PostgreSQL)"
+        anchor: "limitation--disk-space-usage-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-backed database integrations." %}
 
@@ -405,10 +368,9 @@ sections:
 
           **Note**: If you decide to permanently disable Log-based Incremental Replication for your PostgreSQL database, remove the replication slot to prevent further unnecessary disk space consumption.
 
-
 ## POSTGRES MASTER INSTANCE
-      - title: "Limitation 7: Can only be used with a master instance (PostgreSQL)"
-        anchor: "limitation-7--only-supports-master-instances-postgresql"
+      - title: "Limitation {{ forloop.index }}: Can only be used with a master instance (PostgreSQL)"
+        anchor: "limitation--only-supports-master-instances-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
           
@@ -418,10 +380,9 @@ sections:
 
           Otherwise, we recommend monitoring the instance's disk space usage during the first few replication jobs to minimize any negative impact on your database's performance.
 
-
 ## MULTIPLE CONNECTIONS TO REPLICATION SLOT
-      - title: "Limitation 8: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
-        anchor: "limitation-8--replication-slot-data-loss-postgresql"
+      - title: "Limitation {{ forloop.index }}: Multiple connections to a replication slot can cause data loss in Stitch (PostgreSQL)"
+        anchor: "limitation--replication-slot-data-loss-postgresql"
         content: |
           {% include note.html type="single-line" content="This section is applicable only to **PostgreSQL**-based database integrations." %}
 

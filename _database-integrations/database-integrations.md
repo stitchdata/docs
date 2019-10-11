@@ -9,6 +9,17 @@ toc: false
 input: false
 feedback: false
 
+table-selection: true
+
+display_name: "Any database"
+name: "any-database"
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: true
+  lots-of-full-table: false
+
 sections:
   - content: |
       With Stitch, you can consolidate data from a variety of databases into [a single destination]({{ site.baseurl }}/destinations).
@@ -16,11 +27,9 @@ sections:
   - title: "Database connection methods"
     anchor: "database-connection-methods"
     content: |
-      To connect a database integration to Stitch, you'll need to create a database user for us and grant the appropriate permissions. Note that we will only ever read your data.
-
       The security and privacy of your data is of the utmost importance to us. To ensure your data stays private, we recommend using an SSH or SSL connection to connect your database and encrypt your data in transit.
 
-      For more info on our security policies and recommended best practices, check out the [Security FAQ]({{ link.account.security-faq | prepend: site.baseurl }}).
+      For more info on our security policies and recommended best practices, check out the [Security FAQ]({{ link.security.faq | prepend: site.baseurl }}).
     subsections:
       - title: "SSH and SSL connection support"
         anchor: "ssh-ssl-connection-support"

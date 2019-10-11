@@ -8,9 +8,17 @@
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 
+# -------------------------- #
+#        CONTENT TYPE        #
+# -------------------------- #
+
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-typeform-object"
+
+# -------------------------- #
+#        OBJECT INFO         #
+# -------------------------- #
 
 title: "Typeform Source Form Property"
 api-type: "platform.typeform"
@@ -20,6 +28,13 @@ source-type: "saas"
 docs-name: "typeform"
 
 description: ""
+
+
+# -------------------------- #
+#      OBJECT ATTRIBUTES     #
+# -------------------------- #
+
+uses-start-date: true
 
 object-attributes:
   - name: "forms"

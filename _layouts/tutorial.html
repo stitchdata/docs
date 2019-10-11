@@ -41,12 +41,14 @@ layout: page
 
 <!-- TUTORIAL STEPS -->
     {% for step in page.steps %}
-    	{% capture step-number %}
-            {{ forloop.index }}
-        {% endcapture %}
+        {% unless step.no-number == true %}
+        	{% capture step-number %}
+                {{ forloop.index }}
+            {% endcapture %}
+        {% endunless %}
 
         {% if step.title %}
-            <h2 id="{{ step.anchor }}">Step {{ step-number | strip }}: {{ step.title | flatify }}</h2>
+            <h2 id="{{ step.anchor }}">{% unless step.no-number == true %}Step {{ step-number | strip }}: {% endunless %}{{ step.title | flatify }}</h2>
         {% endif %}
 
             {{ step.content | flatify | markdownify }}
@@ -54,26 +56,32 @@ layout: page
     <!-- If a step has substeps -->
         {% if step.substeps %}
             {% for substep in step.substeps %}
-            	{% capture substep-number %}
-                    {{ forloop.index }}
-                {% endcapture %}
+                {% unless substep.no-number == true %}
+                	{% capture substep-number %}
+                        {{ forloop.index }}
+                    {% endcapture %}
+                {% endunless %}
 
                 {% if substep.title %}
-                    <h3 id="{{ substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}: {{ substep.title | flatify }}</h3>
+                    <h3 id="{{ substep.anchor | flatify }}">{% unless substep.no-number == true %}Step {{ step-number | strip }}.{{ substep-number | strip }}: {% endunless %}{{ substep.title | flatify }}</h3>
                 {% endif %}
 
                 {{ substep.content | flatify | markdownify }}
 
             <!-- If a substep has its own substeps -->
                 {% if substep.sub-substeps %}
-                    {% for sub-substep in step.sub-substeps %}
-                    	{% capture sub-substep-number %}
-    		                {{ forloop.index }}
-    		            {% endcapture %}
+                    {% for sub-substep in substep.sub-substeps %}
+                        {% unless sub-substep.no-number == true %}
+                        	{% capture sub-substep-number %}
+        		                {{ forloop.index }}
+        		            {% endcapture %}
+                        {% endunless %}
 
 
                         {% if sub-substep.title %}
-                            <h4 id="{{ sub-substep.anchor | flatify }}">Step {{ step-number | strip }}.{{ substep-number | strip }}.{{ sub-substep-number | strip }}: {{ sub-substep.title | flatify }}</h4>
+                            <h4 id="{{ sub-substep.anchor | flatify }}">
+                            {% unless sub-substep.no-number == true %}
+                                Step {{ step-number | strip }}.{{ substep-number | strip }}.{{ sub-substep-number | strip }}: {% endunless %}{{ sub-substep.title | flatify }}</h4>
                         {% endif %}
 
                         {{ sub-substep.content | flatify | markdownify }}
@@ -83,7 +91,9 @@ layout: page
             {% endfor %}
         {% endif %}
 
-        <hr>
+        {% unless forloop.last == true %}
+            <hr>
+        {% endunless %}
     {% endfor %}
 
 

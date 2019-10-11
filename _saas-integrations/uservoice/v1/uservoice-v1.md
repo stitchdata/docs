@@ -21,6 +21,9 @@ repo-url: https://github.com/singer-io/tap-uservoice
 
 # this-version: "1.0"
 
+api: |
+  [{{ integration.display_name }} API](https://developer.uservoice.com/docs/api/v2/getting-started/){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -35,6 +38,14 @@ status-url: https://status.uservoice.com/
 
 table-selection: true
 column-selection: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

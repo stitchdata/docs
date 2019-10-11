@@ -40,7 +40,7 @@ status: "Released"
 certified: true/false
 
 frequency: "30 minutes"
-tier: "Free/Paid/Enterprise"
+tier: "Free/Standard/Enterprise"
 port: ## Database's default port - ex: 3306
 db-type: "" 	## mysql,postgres,mongo,mssql
 

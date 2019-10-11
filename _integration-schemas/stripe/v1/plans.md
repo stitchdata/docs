@@ -97,6 +97,7 @@ attributes:
   - name: "product"
     type: "string"
     description: "The product whose pricing this plan determines."
+    foreign-key-id: "product-id"
 
   - name: "statement_description"
     type: "string"

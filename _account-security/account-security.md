@@ -1,54 +1,55 @@
 ---
+# -------------------------- #
+#          PAGE INFO         #
+# -------------------------- #
+
 title: Account & Security
 permalink: /account-security/
 keywords: billing, plan, change plan, cancel, cancel account, delete, remove
-summary: "Resources for everything account-related: managing billing details, inviting team members, security info, and more."
+summary: "Resources for everything account-related: Managing billing details, inviting team members, security info, and more."
 feedback: false
+
+key: "account-security"
+
+level: "category"
+
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "user-profile"
+display-title: "Your Stitch account"
+display-summary: "Manage your account and learn about Stitch's security practices."
+weight: 2
+
 ---
 {% include misc/data-files.html %}
 
 {{ page.summary }}
 
----
+{% assign sections = "account-settings|team-members|notifications|billing|security" | split:"|" %}
 
-## Getting Started
-
-{% assign getting-started = site.account-security | where:"permalink","/getting-started/" %}
-
-{% for page in getting-started %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+{% for section in sections %}
+- [{{ section | capitalize | replace:"-"," " }}](#{{ section | slugify | append: "-category" }})
 {% endfor %}
 
 ---
 
-{% assign account-docs = site.account-security | where:"type","account" | sort:"weight" %}
+{% for section in sections %}
 
-## Managing Your Account
+## {{ section | capitalize | replace:"-"," " }} {#{{ section | slugify | append: "-category" }}}
 
-{% for page in account-docs %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
+{% assign pages = site.account-security | where_exp:"page","page.type contains section" | sort:"weight" %}
+
+{% for page in pages %}
+<span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>
 {{ page.summary }}
 {% endfor %}
 
+{% unless forloop.last == true %}
 ---
-
-{% assign billing-docs = site.account-security | where:"type","billing" | sort:"weight" %}
-
-## Stitch Billing
-
-{% for page in billing-docs %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
-{% endfor %}
-
----
-
-{% assign security-docs = site.account-security | where:"type","security" | sort:"weight" %}
-
-## Security
-
-{% for page in security-docs %}
-### [{{ page.title }}]({{ page.url | prepend: site.baseurl }})
-{{ page.summary }}
+{% endunless %}
 {% endfor %}

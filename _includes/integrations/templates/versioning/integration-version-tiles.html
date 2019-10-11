@@ -1,14 +1,23 @@
 
 {% include integrations/templates/versioning/version-logic.html %}
 
+<!-- Gets the non-Singer version to be used in the copy -->
+{% for version in released-versions %}
+    {% if version.number != latest-version %}
+        {% capture old-version %}
+            {{ version.number }}
+        {% endcapture %}
+    {% endif %}
+{% endfor %}
+
 <p>To identify the version of the {{ integration.display_name }} integration you're using:</p>
 <ol>
     <li><a href="{{ site.sign-in }}" target="new">Sign into your Stitch account</a>.</li>
-    <li>On the {{ app.page-names.dashboard }}, click the {{ integration.display_name }} you want to check.</li>
+    <li>On the {{ app.page-names.dashboard }}, click the {{ integration.display_name }} integration you want to check.</li>
     <li>Click the <strong>Extraction Logs</strong> tab:</li>
     <ul>
-        <li>If you see a list of extraction logs, the integration's version is <strong>{{ latest-version }}</strong>.</li>
-        <li>If you see <strong>No logs available for this integration yet.</strong>, the integration's version is <strong>15-10-2015</strong>.</li>
+        <li>If you see a list of extraction logs, the integration's version is <strong>{{ latest-version | prepend: "v" }}</strong>.</li>
+        <li>If you see <strong>No logs available for this integration yet.</strong>, the integration's version is <strong>{{ old-version | strip | prepend: "v" }}</strong>.</li>
     </ul>
 </ol>
 

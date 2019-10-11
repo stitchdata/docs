@@ -1,18 +1,40 @@
 # ---------------------------- #
-#      SNOWFLAKE DESTINATION   #
+#     SNOWFLAKE DESTINATION    #
 # ---------------------------- #
 
-## This file contains the properties required to successfully set up
-## an Snowflake destination in Stitch.
+## This file contains the names and descriptions of fields in the 
+## Destination Settings page for a Redshift-backed destination.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+field-names:
+  warehouse: &warehouse "Warehouse"
+  role: &role "Role"
+
+descriptions:
+  warehouse: &warehouse-description |
+    Enter the name of the {{ destination.display_name }} warehouse that you created for Stitch in [Step 1](#create-data-warehouse).
+  role: &role-description |
+    **Optional**: Enter the name of the role the Stitch database user should use.
+
+
+# -------------------------- #
+#           FIELDS           #
+# -------------------------- #
 
 snowflake:
-  - field: *host
-    copy: "Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`"
-  - field: *username
-    copy: *username-copy
-  - field: *password
-    copy: *password-copy
-  - field: *database
-    copy: *database-copy
-  - field: "Warehouse"
-    copy: "Enter the name of the {{ destination.display_name }} warehouse that you created for Stitch."
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`. **Note**: Entering the `http://` or `https://` portion of the URL will prevent a successful connection.
+  - name: "{{ defaults.field-names.username }}"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+  - name: "{{ defaults.field-names.password }}"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+  - name: "{{ defaults.field-names.database }}"
+    copy: "Enter the name of the database you created for Stitch in [Step 2.1](##create-snowflake-database)."
+  - name: *warehouse
+    copy: *warehouse-description
+  - name: *role
+    copy: *role-description

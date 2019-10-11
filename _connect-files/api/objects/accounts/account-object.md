@@ -13,9 +13,10 @@ order: 1
 # -------------------------- #
 
 title: "Account"
-description: "{{ api.core-objects.accounts.description }}"
 endpoint-url: "/accounts"
 
+description: "{{ api.core-objects.accounts.description }}"
+intro-short: "Create Stitch client accounts (Partners only)" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #

@@ -3,7 +3,7 @@ title: Amazon PostgreSQL RDS
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 tags: [database_integrations]
 permalink: /integrations/databases/amazon-rds-postgresql
-summary: "Connect and replicate data from your Amazon RDS database using Stitch's RDS integration."
+summary: "Connect and replicate data from your Amazon PostgreSQL RDS database using Stitch's PostgreSQL integration."
 layout: general
 input: false
 
@@ -12,7 +12,7 @@ has-versions: true
 
 db-type: "postgres"
 name: "postgresql-rds"
-display_name: "PostgreSQL RDS"
+display_name: "Amazon PostgreSQL RDS"
 
 sections:
   - title: "Identify your version"
@@ -24,19 +24,24 @@ sections:
     anchor: "version-history"
     content: |
       {% include integrations/templates/versioning/integration-history-and-changelog.html %}
-  - title: "Version features"
+
+  - title: "{{ integration.display_name }} version features"
     anchor: "version-features"
     content: |
-      {% include notifications/postgres-binlog-limitations.html %}
-
       In this section:
 
-      - [Supported features](#supported-features)
-      - [Supported data types](#supported-data-types)
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary }}](#{{ subsection.summary | slugify }})
+      {% endfor %}
     subsections:
-      - content: |
+      - summary: "Supported features"
+        content: |
           {% include integrations/templates/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
-      - content: |
-          {% include replication/templates/data-types/integration-specific-data-types.html %}
+      
+      - title: "Data types"
+        anchor: "data-types"
+        summary: "Data types"
+        content: |
+          {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
 ---
 {% include misc/data-files.html %}

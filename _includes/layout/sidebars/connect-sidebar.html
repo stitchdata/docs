@@ -14,7 +14,7 @@
 
 {% assign all-form-properties = site.connect-files | where: "content-type","api-form" %}
 
-<div class="menu-list">
+<div class="menu-list" data-swiftype-index='false'>
 
 <ul id="mysidebar" class="nav">
     <!-- Stitch status widget -->
@@ -28,8 +28,8 @@
             {% for category in doc.categories %}
                 <li>
                     {% if category.sections %}
-                        <a data-toggle="collapse" href="#{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}" 
-                           aria-expanded="{{ category.expand-by-default }}" aria-controls="{{ category.title | downcase | replace: " ", "-" | replace: ".", "-" | remove:"&" }}">
+                        <a data-toggle="collapse" href="#{{ category.title | slugify }}" 
+                           aria-expanded="{{ category.expand-by-default }}" aria-controls="{{ category.title | slugify }}">
                                 {{ category.title }} 
                         </a>
                     {% else %}
@@ -43,16 +43,16 @@
                 {% if category.sections %}
                     {% case category.expand-by-default %}
                         {% when true %}
-                            <ul class="collapse in" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                            <ul class="collapse in" id="{{ category.title | slugify }}">
                         {% else %}
-                            <ul class="collapse" id="{{ category.title | downcase | replace: " ", "-" | remove:"&" }}">
+                            <ul class="collapse" id="{{ category.title | slugify }}">
                         {% endcase %}
 
                     {% for section in category.sections %}
                         {% if section.subsections %}
                             <li class="subfolders">
-                                <a data-toggle="collapse" href="#{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
-                                aria-expanded="{{ section.expand-by-default }}" aria-controls="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}"
+                                <a data-toggle="collapse" href="#{{ section.title | slugify }}"
+                                aria-expanded="{{ section.expand-by-default }}" aria-controls="{{ section.title | slugify }}"
                                 {% if section.method %}
                                  class="api"
                                 {% endif %}>
@@ -64,9 +64,9 @@
 
                             {% case section.expand-by-default %}
                                 {% when true %}
-                                    <ul class="collapse in" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    <ul class="collapse in" id="{{ section.title | slugify }}">
                                 {% else %}
-                                    <ul class="collapse" id="{{ section.title | downcase | replace: " ", "-" | remove:"&" }}">
+                                    <ul class="collapse" id="{{ section.title | slugify }}">
                                 {% endcase %}
 
                             {% case section.title %}

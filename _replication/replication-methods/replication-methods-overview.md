@@ -35,7 +35,7 @@ sections:
         content: |
           {{ site.data.tooltips.log-based-incremental-rep }}
 
-          **Note**: This Replication Method is available only for MySQL and PostgreSQL-backed databases that support binary log replication, and requires manual intervention when table structures change. [Learn more about Log-based Incremental Replication here]({{ link.replication.log-based-incremental | prepend: site.baseurl }}).
+          **Note**: This Replication Method is available only for Microsoft SQL Server, MySQL, Oracle, and PostgreSQL-backed databases that support binary log replication, and requires manual intervention when table structures change. [Learn more about Log-based Incremental Replication here]({{ link.replication.log-based-incremental | prepend: site.baseurl }}).
 
       - title: "Key-based Incremental Replication"
         anchor: "key-based-incremental-replication"
@@ -106,9 +106,7 @@ sections:
     content: |
       How Replication Methods are defined depends on the type of integration being used:
 
-      - **Database integrations**: Replication Methods are defined by you when tables are set to replicate. The exception to this is MongoDB, which only supports Key-based Incremental Replication.
-
-         A table's Replication Method can be changed at any time in the {{ app.page-names.table-settings }} page.
+      - **Database integrations**: Replication Methods are defined by you when tables are set to replicate. A table's Replication Method can be changed at any time in the {{ app.page-names.table-settings }} page.
 
       - **SaaS integrations**: With the exception of Salesforce, Stitch pre-defines the Replication Methods used for every table set to replicate.
 

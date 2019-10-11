@@ -21,6 +21,9 @@ repo-url: https://github.com/singer-io/tap-bing-ads
 
 this-version: "2.0"
 
+api: |
+  [{{ integration.display_name }} v.12 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-12){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -38,9 +41,18 @@ table-selection: true
 column-selection: true
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
 
 # -------------------------- #
 #        API Details         #
@@ -49,6 +61,14 @@ loading-reports: true
 enforces-api-limits: true
 
 attribution-window: "30 days"
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #

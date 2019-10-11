@@ -2,7 +2,7 @@
 # LOG-BASED INCREMENTAL REPLICATION #
 # --------------------------------- #
 
-# Details about Full Table Replication,
+# Details about Log-based Incremental Replication,
 # including its availability in integrations, what it supports,
 # and examples of how it will replicate data.
 
@@ -16,7 +16,7 @@ documentation: "{{ link.replication.log-based-incremental | prepend: site.baseur
 
 description: "{{ site.data.tooltips.log-based-incremental-rep }}"
 availability: |
-  [Select MySQL and PostgreSQL-backed database integrations]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-1--availability" }})
+  [Select Microsoft SQL Server, MongoDB, MySQL, Oracle, and PostgreSQL-backed database integrations]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-1--availability" }})
 
 
 # -------------------------- #
@@ -30,9 +30,9 @@ structural-changes: |
   [Require manual intervention]({{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation-4--structural-changes" }})
 
 configuration-requirements: |
-  A MySQL or PostgreSQL-backed database that:
+  A Microsoft SQL Server, MongoDB, MySQL, Oracle, or PostgreSQL-backed database that:
 
-  1. Supports binary (MySQL) or logical (PostgreSQL) replication
+  1. Supports database log replication
   2. Can be configured to use Stitch's required database settings
 
 other: |

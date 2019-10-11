@@ -11,6 +11,7 @@
 tap: "integration_name"
 # version: 
 
+key: ""
 name: "table_name"
 doc-link: 
 singer-schema: 
@@ -19,6 +20,8 @@ description: |
 
 replication-method: "Key-based Incremental / Full Table"
 
+## Used when the Replication Key is *not* an actual column,
+## but an API query parameter, etc.
 replication-key:
   name: ""
 

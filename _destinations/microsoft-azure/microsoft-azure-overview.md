@@ -2,9 +2,8 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
-title: Microsoft Azure Destination
+title: Microsoft Azure SQL Data Warehouse Destination
 permalink: /destinations/microsoft-azure-sql-data-warehouse/
-layout: destination
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: &summary |
   Microsft Azure SQL Data Warehouse is a fast, fully-managed, petabyte-scale data warehouse. It's ideal for batch-based data warehouse workloads, and designed with a decoupled storage and compute model that allows it to scale quickly and be maintained in a cost-effective way.
@@ -42,6 +41,14 @@ port: 1433
 # -------------------------- #
 
 intro: |
+  {% capture setup-notice %}
+  Stitch's {{ destination.display_name }} destination only works with Microsoft's [Azure SQL Data Warehouse product](https://azure.microsoft.com/en-us/services/sql-data-warehouse/){:target="new"}.
+
+  Stitch doesn't currently support using Azure SQL Server or Azure SQL Database as a destination.
+  {% endcapture %}
+
+  {% include note.html first-line="**Stitch only supports connecting to Azure SQL Data Warehouse instances**" content=setup-notice %}
+
   {{ destination.summary | flatify }}
 
 sections:

@@ -1,35 +1,59 @@
-{% include important.html first-line="**Verify your Mongo version**" content="This section is written for Mongo versions 3.0+ and may differ for other versions. You should verify your version and refer to the Mongo documentation for your version before continuing." %}
 
-To successfully connect and replicate your Mongo data, Stitch requires the ability to:
+#### Step {{ step-number | strip }}.1: Connect to your database {#connect-to-database}
 
-- Run the `listDatabases` command. This permission is required so Stitch can detect the databases available for replication.
-- Run the `listIndexes` command. Because Stitch will only display indexed fields as Replication Key options, this permission is required to identify fields that can be used as Replication Keys.
-- `COUNT` and query on all the databases you want to replicate data from. These permissions are requird to replicate your data.
-- Run the `dbVersion` command. While this isn’t mandatory, it’s beneficial for Stitch to have access to the information this command yields to troubleshoot any connection or replication issues that may arise.
+1. Connect to your {{ integration.display_name }} server.
+2. Navigate to the authentication database. In this example, we're using `admin`:
+   
+   ```shell
+   {{ site.data.taps.extraction.database-setup.user-privileges.mongo.switch-database | strip }}
+   ```
 
-You can assign a role to the Stitch user if you like, as long as the role has the necessary permissions to perform the actions listed above.
+   Replace `<username>`, `<database-host>`, and `<port>` with your {{ integration.display_name }} username, database host address, and the port used by the database, respectively.
 
-{% capture atlas-databases %}
-Stitch's {{ integration.display_name }} integration is designed to use a user authentication method that requires Mongo database users to be validated against their authentication database. [Read more about Mongo authentication here](https://docs.mongodb.com/manual/core/security-users/#authenticate-a-user).
+   **Note**: If you're connecting an Atlas-based instance, the authentication database will always be `admin`.
 
-Currently, Stitch's {{ integration.display_name }} integration currently assumes the database entered in the Integration Settings page is the authentication database. Due to {{ integration.display_name }}'s authentication process and Stitch's current functionality, the database entered into Stitch in the next step must be the user's authentication database.
+#### Step {{ step-number | strip }}.2: Create the Stitch user
 
-For Atlas-based instances, the Stitch user must be able to perform the actions listed above on the `admin` database and the other databases you want to query, if any. This is due to the design of Stitch's integration and Mongo's authentication requirements.
+Next, you'll create the Stitch user, set a password, and assign roles. This guide uses the built-in [`readAnyDatabase` role](https://docs.mongodb.com/v4.0/reference/built-in-roles/#readAnyDatabase){:target="new"}, but you can use or create another role as long as it assigns the same privileges.
+
+Select the version your {{ integration.display_name }} database is using to view the correct command to create the Stitch database user.
+
+{% capture mongo-create-user-below-v3 %}
+Create the user, using the `addUser` command for {{ integration.display_name }} versions 2.4 through 2.6. Replace `<password>` with a password:
+
+```javascript
+{{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v2 | strip }}
+```
 {% endcapture %}
 
-{% include note.html first-line="**Atlas MongoDB authentication**" content=atlas-databases %}
+{% include layout/expandable-heading.html title="I'm using a MongoDB version between 2.4 and 2.6." content=mongo-create-user-below-v3  anchor="mongo-create-user-below-v3" %}
 
-When connecting to multiple databases, you can add the user by logging into Mongo as an admin user and running the following command. This example uses `createUser`, but older versions may use `addUser`. [Documentation for `addUser` can be found here](https://docs.mongodb.com/v2.4/reference/method/db.addUser/#db.addUser).
 
-Replace `[authentication_database]` with the name of database where the user is authenticated, or created:
+{% capture mongo-create-user-v3-v3-2 %}
+Create the user, using the `createUser` command for {{ integration.display_name }} versions 3.0 through 3.2. Replace `<password>` with a password:
 
-```java
-use [authentication_database]
-db.createUser( {  user: "[stitch_username]",
-                  pwd: "[secure password here]",
-                  roles: ["roles here", "if you want them"]
-               }
-             )
+```javascript
+{{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v3-2 | strip }}
 ```
+{% endcapture %}
 
-**Note**: For Atlas-based instances, the `authentication_database` will be `admin`.
+{% include layout/expandable-heading.html title="I'm using a MongoDB version between 3.0 and 3.2." content=mongo-create-user-v3-v3-2  anchor="mongo-create-user-v3-v3-2" %}
+
+
+{% capture mongo-create-user-v3-4 %}
+[For versions 3.4 and above](https://docs.mongodb.com/v3.4/reference/built-in-roles/#readAnyDatabase){:target="new"}, the `readAnyDatabase` role doesn't include the `local` database. Create the user, granting the additional `read` role on the `local` database:
+
+```javascript
+{{ site.data.taps.extraction.database-setup.user-privileges.mongo.create-user-v3-4 | strip }}
+```
+{% endcapture %}
+
+{% capture 3-4-title %}
+{% if integration.versions contains "4.0" %}
+I'm using a MongoDB version between 3.4 and 4.0.
+{% else %}
+I'm using MongoDB version 3.4.
+{% endif %}
+{% endcapture %}
+
+{% include layout/expandable-heading.html title=3-4-title content=mongo-create-user-v3-4  anchor="mongo-create-user-v3-4" %}

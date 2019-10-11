@@ -29,10 +29,16 @@ backing it (integration.db-type). -->
 {% endif %}
 
 
+<!-- Get the correct versions 
 
+    If the include has a specific version parameter, only get the version being requested-->
+{% if include.this-version %}
+    {% assign released-versions = site.data.taps.versions.[integration_name].released-versions | where:"number",include.this-version %}
 
-<!-- Lists all released veresions -->
+<!-- Otherwise, get the full list of released versions. -->
+{% else %}
     {% assign released-versions = site.data.taps.versions.[integration_name].released-versions %}
+{% endif %}
 
 <!-- Pulls the latest version number for the integration -->
     {% assign latest-version = site.data.taps.versions.[integration_name].latest-version %}

@@ -6,34 +6,31 @@
 
 {% case include.content %}
 
-    <!-- When the form propertiy is a source, run this -->
+    <!-- When the form property is a source, run this -->
     {% when 'source' %}
         <!-- There are two types of form properties: databases and SaaS applications.
                 Each one is a little different, so we need to run logic specific to
                 each type.  -->
+
+        <!-- This checks if the form property uses start_date and,
+            if so, creates an array with the property in it. We have to do this
+            because not every source uses this. -->
+        {% if form-property.uses-start-date == true %}
+            {% assign start-date = site.data.connect.common.all-sources.start-date %}
+        {% else %}
+            {% assign start-date = null | compact %}
+        {% endif %}
+
+        <!-- Get the common fields -->
+            {% assign all-source-attributes = site.data.connect.common.all-sources.fields | concat: start-date %}
             
         {% case form-property.source-type %}
             <!-- When the source form property is for a database, run this -->
             {% when 'database' %}
-
-            <!-- Filesystems like Amazon S3 CSV and Responsys allow the user to set a start date, so we need to get
-                all the common fields *and* the start_date field, which isn't typical for database sources -->
-                {% if form-property.is-filesystem %}
-                    {% assign all-source-attributes = site.data.connect.common.all-sources.fields | concat: site.data.connect.common.all-sources.start-date %}
-                {% else %}
-
-            <!-- If the database isn't a file system, only get what's in this list -->
-                    {% assign all-source-attributes = site.data.connect.common.all-sources.fields %}
-                {% endif %}
-
                 {% include connect/api-form-property-source-database-fields.html %}
 
             <!-- When the source form property is for a SaaS source, run this -->
             {% when 'saas' %}
-
-            <!-- Get the start_date field and the other common fields -->
-                {% assign all-source-attributes = site.data.connect.common.all-sources.fields | concat: site.data.connect.common.all-sources.start-date %}
-
                 {% include connect/api-form-property-source-saas-fields.html %}
         {% endcase %}
 

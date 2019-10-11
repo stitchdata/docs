@@ -51,8 +51,7 @@ stitch-details:
         name: "Setup documentation"
         description-full: |
           {% assign all-destination-setup-guides = site.destinations | where:"content-type","destination-setup" %}
-            {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"title" %}
-
+            {% assign destination-setup-guides = all-destination-setup-guides | where:"type",destination.type | sort:"order" %}
             {% for setup-guide in destination-setup-guides %}
             - [{{ setup-guide.title | remove: " to Stitch" }}]({{ setup-guide.url | prepend: site.baseurl }})
             {% endfor %}
@@ -132,7 +131,6 @@ replication:
 #         Limitations        #
 # -------------------------- #
 
-
 # -------------------------- #
 #      Object name limits    #
 # -------------------------- #
@@ -145,7 +143,16 @@ object-name-limits:
       - id: "case-sensitivity"
         name: "Case sensitivity"
         description: |
-          Indicates TODO
+          Indicates whether the destination is case sensitive or insensitive.
+
+      - id: "reserved-keywords"
+        name: "Reserved keywords"
+        description: |
+          Words and symbols reserved by the destination for use in object names.
+        value: |
+          Object names must observe the [reserved keywords in {{ destination.display_name }}'s documentation]({{ site.data.destinations.resource-links[destination.type]reserved-words }}){:target="new"} and [Stitch's set of reserved keywords]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl }}).
+
+          Tables and columns with names that contain reserved keywords may be logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
 
       - id: "table-name-length"
         name: "Table name length"

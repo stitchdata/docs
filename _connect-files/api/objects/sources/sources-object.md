@@ -13,9 +13,10 @@ order: 6
 # -------------------------- #
 
 title: "Source"
-description: "{{ api.core-objects.sources.description }}"
 endpoint-url: "/sources"
 
+description: "{{ api.core-objects.sources.description }}"
+intro-short: "Create, update, pause, unpause, and delete data sources" # Used in the API functionality section of the docs
 
 # -------------------------- #
 #        VERSION INFO        #
@@ -41,6 +42,16 @@ available-methods:
     title: "Update a source"
     method: "put"
     short: "{{ api.core-objects.sources.update.description | flatify }}"
+
+  - id: "pause-a-source"
+    title: "Pause a source"
+    method: "put"
+    short: "{{ api.core-objects.sources.pause.description | flatify }}"
+
+  - id: "unpause-a-source"
+    title: "Unpause a source"
+    method: "put"
+    short: "{{ api.core-objects.sources.unpause.description | flatify }}"
 
   - id: "retrieve-a-source"
     title: "Retrieve a source"
@@ -85,13 +96,16 @@ object-attributes:
 
   - name: "paused_at"
     type: "timestamp"
-    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be null."
+    description: "If the connection was paused by the user, the time the pause began. Otherwise, or if the connection is active, this will be `null."
 
   - name: "properties"
     type: "object"
-    sub-type: "properties"
-    url: "{{ api.data-structures.properties.section }}"
-    description: "{{ connect.common.attributes.properties | flatify }}"
+    sub-type: " source form properties"
+    url: "{{ api.form-properties.source-forms.section }}"
+    description: |
+      Parameters for connecting to the source, excluding any sensitive credentials. The parameters must adhere to the `type` of source.
+
+      **Note**: When included in responses, this object will contain the current values for the source's form properties. If an optional property (`is_required: false`) has not been provided, it will not be present in this object.
 
   - name: "report_card"
     type: "object"

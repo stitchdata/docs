@@ -42,25 +42,25 @@ all-permissions:
 # -------------------------- #
 
 create-role: &create-role-sql |
-  CREATE ROLE [stitch_role] COMMENT = 'Role for Stitch access';
+  CREATE ROLE <stitch_role> COMMENT = 'Role for Stitch access';
 
 grant-role: &grant-role-sql |
-  GRANT ROLE [stitch_role] to role SYSADMIN;
+  GRANT ROLE <stitch_role> to role SYSADMIN;
 
 grant-warehouse: &grant-warehouse-sql |
-  GRANT ALL ON WAREHOUSE [warehouse] TO ROLE [stitch_role];
+  GRANT ALL ON WAREHOUSE <stitch_warehouse> TO ROLE <stitch_role>;
 
 grant-database: &grant-database-sql |
-  GRANT ALL ON DATABASE [stitch_database] TO ROLE [stitch_role];
+  GRANT ALL ON DATABASE <stitch_database> TO ROLE <stitch_role>;
 
 create-grant-user: &create-grant-user-sql |
-  CREATE USER [stitch_user]
-     PASSWORD='[password]'
+  CREATE USER <stitch_user>
+     PASSWORD='<password>'
      COMMENT='User for Stitch database user'
-     DEFAULT_ROLE='[stitch_role]'
-     DEFAULT_WAREHOUSE='[warehouse]';
+     DEFAULT_ROLE='<stitch_role>'
+     DEFAULT_WAREHOUSE='<stitch_warehouse>';
 
-  GRANT ROLE [stitch_role] TO USER [stitch_user];
+  GRANT ROLE <stitch_role> TO USER <stitch_user>;
 
 # -------------------------- #
 #   STEPS FOR CREATING USER  #
@@ -74,7 +74,7 @@ all-steps:
     command: *create-role-sql
 
   - copy: |
-      **Optional**: If you've created a hierarchy that assigns all custom roles to the `SYSADMIN` role, grant the `stitch_role` [to the  `SYSADMIN` role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#role-hierarchy-and-privilege-inheritance){:target="_blank"}:
+      **Optional**: If you've created a hierarchy that assigns all custom roles to the `SYSADMIN` role, grant the `<stitch_role>` [to the  `SYSADMIN` role](https://docs.snowflake.net/manuals/user-guide/security-access-control.html#role-hierarchy-and-privilege-inheritance){:target="_blank"}:
     command: *grant-role-sql
 
   - copy: |

@@ -26,13 +26,15 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
+uses-start-date: true
+
 object-attributes:
   - name: "subdomain"
     type: "string"
     required: true
     description: |
-      The prefix of the Zendesk subdomain Stitch should replicate data from.
+      The prefix of the {{ form-property.display-name }} subdomain Stitch should replicate data from.
 
-      For example: If the address is `stitchdata.zendesk.com`, only `stitchdata` would be entered as the value.
-    value: "<YOUR_ZENDESK_SUBDOMAIN>"
+      For example: If the address is `stitchdata.{{ form-property.display-name | downcase }}.com`, only `stitchdata` would be entered as the value.
+    value: "<YOUR_{{ form-property.display-name | upcase }}_SUBDOMAIN>"
 ---

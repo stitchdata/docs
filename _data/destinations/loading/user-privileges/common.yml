@@ -34,15 +34,15 @@ postgresql:
 
   sql-commands:
     create-user: |
-      CREATE USER <stitch_username> WITH PASSWORD '<password>';
+      CREATE USER stitch WITH PASSWORD '<password>';
 
     create-database: |
-      GRANT CREATE ON DATABASE <database_name> TO <stitch_username>
+      GRANT CREATE ON DATABASE <database_name> TO stitch
 
     select-systems-tables: |
-      GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO <stitch_username>
+      GRANT SELECT ON ALL TABLES IN SCHEMA information_schema TO stitch
 
-      GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO <stitch_username>
+      GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog TO stitch
 
 # -------------------------- #
 #   STEPS FOR CREATING USER  #
@@ -52,10 +52,10 @@ postgresql:
 
   setup-steps:
     create-user: |
-      After connecting, run this command to create the user:
+      After connecting, run this command to create a user named `stitch`. Replace `<password>` with a secure password:
 
     create-database: |
-      Next, you'll assign the `CREATE` permissions to the user. For `<database_name>`, enter the name of the database where all Stitch-replicated data should be loaded.
+      Next, you'll assign the `CREATE` permissions to the Stitch user. For `<database_name>`, enter the name of the database where all Stitch-replicated data should be loaded.
 
       **Note**: This must be a pre-existing database.
 

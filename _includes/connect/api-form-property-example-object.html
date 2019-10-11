@@ -1,7 +1,7 @@
 <!-- This is the formatting for the object code examples in the Connect API docs -->
 
 <h5 id="{{ form-property.key | append: "-example-usage" }}">
-	Example Object
+  Example Object
 </h5>
 
 {% case include.content %}
@@ -32,8 +32,8 @@
  "type":"{{ form-property.api-type }}",
  "properties":{
    {% for attribute in all-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify }}"
-   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify }}",
+   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}",
    {% endif %}
    {%- endfor -%}
   }
@@ -48,7 +48,6 @@
 <!-- This gets the last item in the list for the source,
       which is then used in the next block to make sure there
       isn't an ending comma in the JSON.
-
       TL:DR; Filtering doesn't actually eliminate the total number
       of items in an array, it only displays the selected things.
       So if you're doing "forloop.last" and filtering, it probably won't

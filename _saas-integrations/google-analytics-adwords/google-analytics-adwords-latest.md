@@ -12,12 +12,12 @@ layout: singer
 
 name: "google-analytics-adwords"
 display_name: "Google Analytics (AdWords)"
-setup-name: "Google Analytics" ## Used in cases where there isn't a dedicated integration
-author: "Stitch"
-author-url: https://www.stitchdata.com
-status-url: "https://www.google.com/appsstatus#hl=en&v=status"
+setup-name: "Google Analytics"
 
 this-version: "05-12-2017"
+
+api: |
+  [Google Analytics Reporting API v4](https://developers.google.com/analytics/devguides/reporting/core/v4/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -35,8 +35,18 @@ table-selection: false
 column-selection: false
 
 anchor-scheduling: false
+cron-scheduling: false
+
 extraction-logs: false
 loading-reports: true
+
+## Row usage details
+
+row-usage-hog: true
+row-usage-hog-reasons:
+  data-structure: false
+  data-volume: false
+  lots-of-full-table: false
 
 # -------------------------- #
 #      Querying Details      #
@@ -50,12 +60,13 @@ loading-reports: true
 attribution-window: "15 days"
 
 # -------------------------- #
-#           Notices          #
+#      Feature Summary       #
 # -------------------------- #
 
-notice: |
-  
-  This guide describes how to replicate Google AdWords data using Stitch's Google Analytics integration. Additionally, this approach replaces the [deprecated 15-10-2015 version of Stitch's {{ integration.display_name }} integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}-v15-10-2015).
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
+  **Note**: This guide describes how to replicate Google AdWords data using Stitch's Google Analytics integration. Additionally, this approach replaces the [deprecated 15-10-2015 version of Stitch's {{ integration.display_name }} integration]({{ site.baseurl }}/integrations/saas/{{ integration.name }}-v15-10-2015).
 
   As this approach uses the Analytics API, there may be some differences in the data when compared between AdWords and Analytics. You can find out more about these differences in [Google's documentation](https://support.google.com/analytics/answer/1034383?hl=en).
 

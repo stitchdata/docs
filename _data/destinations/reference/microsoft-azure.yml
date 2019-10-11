@@ -158,8 +158,8 @@ reserved-words: "https://docs.microsoft.com/en-us/sql/t-sql/language-elements/re
 # This allows forloops to be used to display the data all at once instead of 
 # Calling each thing individually.
 
-# Note that anything preceeded by an asterisk is a reference. This means that
-# to change its value, you need to find the corresponding anchor (preceeded by an
+# Note that anything preceded by an asterisk is a reference. This means that
+# to change its value, you need to find the corresponding anchor (preceded by an
 # ampersand) in the section up there ^.
 
 # For example: To change the value of *pricing-tier, you'd look for &pricing-tier
@@ -189,7 +189,7 @@ attributes:
     categories: "stitch-details"
     value: *connection-methods-ssh
     description: |
-      Refer to [these instructions]({{ link.destinations.setup.azure-ssh | prepend: site.baseurl }}) for connecting via SSH.
+      Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for {{ destination.display_name }}]({{ link.security.ssh-microsoft-azure | prepend: site.baseurl }}).
 
   - id: "vpn-connections"
     categories: "stitch-details"
@@ -249,6 +249,10 @@ attributes:
       This means that {{ destination.display_name }} destinations treat upper- and lowercase characters as the same. For example: `CUSTOMERID` and `customerid` are equal in {{ destination.display_name }}.
 
       When column names are loaded into {{ destination.display_name }}, any uppercase characters will be forced into lowercase. This means that `Id` and `id` will canonicalize to the same name, which can lead to object collision errors. Refer to the [Column naming section of this guide](#column-naming) for examples.
+
+  - id: "reserved-keywords"
+    categories: "object-name-limits"
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
 
   - id: "table-name-length"
     categories: "object-name-limits"

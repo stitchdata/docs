@@ -18,7 +18,7 @@ name: "amplitude"
 display_name: "Amplitude"
 
 singer: true 
-tap-name: "amplitude"
+tap-name: "Amplitude"
 repo-url: https://github.com/singer-io/tap-amplitude
 
 # this-version: "1.0"
@@ -36,11 +36,23 @@ tier: "Free"
 status-url: "https://status.amplitude.com/"
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
 column-selection: true
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration relies on the {{ integration.display_name }} [Query product add-on](#setup-requirements), which utilizes a Snowflake database to store data.
+
+  {{ integration.display_name }} integrations can replicate event and merged user ID data. Refer to the [Schema](#schema) section for more info.
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -87,8 +99,6 @@ schema-sections:
       You can identify which tables are for a specific project by comparing the ID in the table name to the projects in your {{ integration.display_name }} account. You can access this page in your {{ integration.display_name }} account by clicking the **User menu (top right corner) > Settings > Projects**.
 
       ![Highlighted project ID field in the Amplitude UI]({{ site.baseurl }}/images/integrations/amplitude-project-id.png)
-
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

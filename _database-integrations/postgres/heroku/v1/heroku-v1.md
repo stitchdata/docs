@@ -1,7 +1,6 @@
 ---
 title: Heroku (v1.0)
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
-tags: [database_integrations]
 permalink: /integrations/databases/heroku/v1
 summary: "Connect and replicate data from your Heroku database using Stitch's Heroku integration."
 microsites:
@@ -21,6 +20,9 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 this-version: "1.0"
 
+driver: |
+  [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -28,11 +30,10 @@ this-version: "1.0"
 status: "Released"
 certified: true
 
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 port: 5432
 db-type: "postgres"
-icon: /images/integrations/icons/heroku.svg
 
 ## Stitch features
 
@@ -43,6 +44,8 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 
@@ -78,53 +81,39 @@ notice-copy: |
 
   This article describes how to connect {{ integration.display_name }} **as an input data source.**
 
-  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a Self-Hosted {{ integration.display_name }} Destination guide]({{ link.destinations.setup.heroku-postgres | prepend: site.baseurl }}).
+  If you want to connect a {{ integration.display_name }} instance as a **destination**, refer to the [Connecting a {{ integration.display_name }} Destination guide]({{ link.destinations.setup.heroku-postgres | prepend: site.baseurl }}).
 
 setup-steps:
-  - title: "Retrieve Your Postgres Credentials from Heroku"
+  - title: "Locate the database connection details in {{ integration.display_name }}"
     anchor: "retrieve-postgres-credentials"
     content: |
-      1. Log into your Heroku account.
-      2. On the dashboard page, click the app that contains the database you want to connect to Stitch. This will open the app's Overview page.
-      3. On this page, locate the **Installed add-ons** section.
-      4. Click the database you want to connect to Stitch. This will open the database's Overview page.
-      5. On this page, click the **Settings** tab.
-      6. In the **Database Credentials** section, click the **View Credentials** button to display the connection details. You'll need the following to complete the setup:
-         - Host
-         - Database
-         - User
-         - Port
-         - Password
-
-      Leave this page open for now - you'll need it in the next step to complete the setup.
+      {% include shared/connection-details/heroku.html %}
 
   - title: "Connect Stitch"
-    anchor: "#connect-stitch"
+    anchor: "connect-stitch"
     content: |
       In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
 
     substeps:
-      - title: "Define the database connection details"
+      - title: "Define the database connection details in Stitch"
         anchor: "define-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="general" %}
-
-      - title: "Define the SSH connection details"
-        anchor: "ssh-connection-details"
-        content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssh" %}
+          {% include shared/database-connection-settings.html type="general" %}
 
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
-          {% include integrations/databases/setup/database-integration-settings.html type="ssl" %}
+          {% include shared/database-connection-settings.html type="ssl" %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "sync data"
+  - title: "Select data to replicate"
+    anchor: "sync-data"
+    content: |
+      {% include integrations/databases/setup/syncing.html %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

@@ -71,8 +71,8 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" 
            -H "Content-Type: application/json"
            -d "{
-                   "type":"platform.hubspot",
-                   "display_name":"HubSpot",
+                   "type":"platform.shopify",
+                   "display_name":"Shopify",
                    "properties":{
                       "start_date":"2017-01-01T00:00:00Z",
                       "frequency_in_minutes":"30"
@@ -81,62 +81,117 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      HTTP/1.1 200 OK
-      Content-Type: application/json;charset=ISO-8859-1
-
       {
          "properties":{
+            "anchor_time":"2019-01-30T18:16:37.205Z",
+            "cron_expression":null,
             "frequency_in_minutes":"30",
             "image_version":"1.latest",
+            "product":"pipeline",
+            "shop":"stitchdatawearhouse",
             "start_date":"2017-01-01T00:00:00Z"
          },
-         "updated_at":"2018-02-06T16:25:06Z",
-         "check_job_name":null,
-         "name":"hubspot",
-         "type":"platform.hubspot",
+         "updated_at":"2019-05-28T13:52:23Z",
+         "schedule":null,
+         "name":"shopify",
+         "type":"platform.shopify",
          "deleted_at":null,
          "system_paused_at":null,
-         "stitch_client_id":<ACCOUNT_ID>,
+         "stitch_client_id":116078,
          "paused_at":null,
-         "id":<SOURCE_ID>,
-         "display_name":"HubSpot",
-         "created_at":"2018-02-06T16:25:06Z",
+         "id":86741,
+         "display_name":"Shopify",
+         "created_at":"2019-01-10T19:38:18Z",
          "report_card":{
-            "type":"platform.hubspot",
-            "current_step":2,
+            "type":"platform.shopify",
+            "current_step":1,
+            "current_step_type":"fully_configured",
             "steps":[
                {
                   "type":"form",
                   "properties":[
                      {
-                        "name":"image_version",
-                        "is_required":true,
-                        "provided":true,
+                        "name":"anchor_time",
+                        "is_required":false,
                         "is_credential":false,
-                        "system_provided":true,
-                        "json_schema":null
+                        "system_provided":false,
+                        "property_type":"user_provided",
+                        "json_schema":{
+                           "type":"string",
+                           "format":"date-time"
+                        },
+                        "provided":true,
+                        "tap_mutable":false
+                     },
+                     {
+                        "name":"cron_expression",
+                        "is_required":false,
+                        "is_credential":false,
+                        "system_provided":false,
+                        "property_type":"user_provided",
+                        "json_schema":null,
+                        "provided":false,
+                        "tap_mutable":false
+                     },
+                     {
+                        "name":"date_window_size",
+                        "is_required":false,
+                        "is_credential":false,
+                        "system_provided":false,
+                        "property_type":"user_provided",
+                        "json_schema":{
+                           "type":"integer"
+                        },
+                        "provided":false,
+                        "tap_mutable":false
                      },
                      {
                         "name":"frequency_in_minutes",
-                        "is_required":true,
-                        "provided":true,
+                        "is_required":false,
                         "is_credential":false,
                         "system_provided":false,
+                        "property_type":"user_provided",
                         "json_schema":{
                            "type":"string",
-                           "pattern":"^\\d+$"
-                        }
+                           "pattern":"^1$|^30$|^60$|^360$|^720$|^1440$"
+                        },
+                        "provided":true,
+                        "tap_mutable":false
+                     },
+                     {
+                        "name":"image_version",
+                        "is_required":true,
+                        "is_credential":false,
+                        "system_provided":true,
+                        "property_type":"read_only",
+                        "json_schema":null,
+                        "provided":true,
+                        "tap_mutable":false
+                     },
+                     {
+                        "name":"shop",
+                        "is_required":true,
+                        "is_credential":false,
+                        "system_provided":false,
+                        "property_type":"user_provided",
+                        "json_schema":{
+                           "type":"string"
+                        },
+                        "provided":true,
+                        "tap_mutable":false
                      },
                      {
                         "name":"start_date",
                         "is_required":true,
-                        "provided":true,
                         "is_credential":false,
                         "system_provided":false,
+                        "property_type":"user_provided",
                         "json_schema":{
                            "type":"string",
                            "pattern":"^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$"
-                        }
+                        },
+                        "provided":true,
+                        "tap_mutable":false
                      }
                   ]
                },
@@ -144,59 +199,36 @@ examples:
                   "type":"oauth",
                   "properties":[
                      {
-                        "name":"client_id",
+                        "name":"api_key",
                         "is_required":true,
-                        "provided":false,
                         "is_credential":true,
                         "system_provided":true,
+                        "property_type":"system_provided_by_default",
                         "json_schema":{
                            "type":"string"
-                        }
-                     },
-                     {
-                        "name":"client_secret",
-                        "is_required":true,
+                        },
                         "provided":false,
-                        "is_credential":true,
-                        "system_provided":true,
-                        "json_schema":{
-                           "type":"string"
-                        }
-                     },
-                     {
-                        "name":"redirect_uri",
-                        "is_required":true,
-                        "provided":false,
-                        "is_credential":true,
-                        "system_provided":true,
-                        "json_schema":{
-                           "type":"string",
-                           "format":"uri"
-                        }
-                     },
-                     {
-                        "name":"refresh_token",
-                        "is_required":true,
-                        "provided":false,
-                        "is_credential":true,
-                        "system_provided":true,
-                        "json_schema":{
-                           "type":"string"
-                        }
+                        "tap_mutable":false
                      }
                   ]
                },
                {
                   "type":"discover_schema",
-                  "properties":[ ]
+                  "properties":[
+
+                  ]
                },
                {
                   "type":"field_selection",
-                  "properties":[ ]
+                  "properties":[
+
+                  ]
                },
                {
                   "type":"fully_configured",
-                  "properties":[ ]
+                  "properties":[
+
+                  ]
                }
             ]
          }

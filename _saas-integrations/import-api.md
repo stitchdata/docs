@@ -83,7 +83,7 @@ In short, unless you want complete control over data replication, it’s usually
 
 ## Security
 
-Data submitted to the {{ integration.display_name }} is handled according to [Stitch's security standards]({{ link.account.security-faq | prepend: site.baseurl }}).
+Data submitted to the {{ integration.display_name }} is handled according to [Stitch's security standards]({{ link.security.faq | prepend: site.baseurl }}).
 
 ---
 
@@ -91,7 +91,7 @@ Data submitted to the {{ integration.display_name }} is handled according to [St
 
 To use the {{ integration.display_name }}:
 
-1. **You must have a Stitch account**. The {{ integration.display_name }} integration is available to all Stitch users, whether you’re on a Free or Paid tier.
+1. **You must have a Stitch account**. The {{ integration.display_name }} integration is available to all Stitch users, whether you’re on a Free or Standard Plan.
 2. **You'll need a bit of technical know-how**. Anyone comfortable writing and maintaining a small Ruby or PHP script should be more than qualified.
 
 ### Request Requirements

@@ -1,0 +1,25 @@
+# ------------------------------- #
+#  MICROSOFT SQL SERVER SETTINGS  #
+# ------------------------------- #
+
+## The required server settings for a Microsoft SQL Server database, and their required values.
+
+get-compatibility-level: |
+  SELECT compatibility_level
+  FROM sys.databases WHERE name = '<database_name>';
+  GO
+
+set-compatibility-level: |
+  ALTER DATABASE <database_name>
+  SET COMPATIBILITY_LEVEL = 100;
+  GO
+
+enable-change-tracking-for-database: |
+  ALTER DATABASE <database_name>  
+  SET CHANGE_TRACKING = ON  
+  (CHANGE_RETENTION = 3 DAYS, AUTO_CLEANUP = ON) 
+
+enable-change-tracking-for-table: |
+  ALTER TABLE <schema_name>.<table_name>  
+  ENABLE CHANGE_TRACKING  
+  WITH (TRACK_COLUMNS_UPDATED = ON)

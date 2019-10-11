@@ -1,0 +1,113 @@
+# ------------------------------------------- #
+#  POSTGRESQL 15-10-2015 SUPPORTED DATA TYPES #
+# ------------------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to PostgreSQL VERSION 1.
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## PostgreSQL has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/postgres/specific.yml
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+array:
+  stitch-type: "string"
+
+bigint:
+  stitch-type: "integer"
+
+bit:
+  stitch-type: "boolean"
+
+boolean:
+  stitch-type: "boolean"
+
+char:
+  stitch-type: "string"
+
+cidr:
+  stitch-type: "unsupported"
+
+citext:
+  stitch-type: "unsupported"
+      
+date:
+  stitch-type: "string"
+  format: "date-time"
+      
+decimal:
+  stitch-type: "number"
+
+double:
+  stitch-type: "number"
+
+float:
+  stitch-type: "number"  
+
+hstore:
+  stitch-type: "string"
+
+inet:
+  stitch-type: "string"
+
+ip:
+  stitch-type: "unsupported"
+      
+integer:
+  stitch-type: "integer"
+
+json:
+  stitch-type: "string"
+
+jsonb:
+  stitch-type: "string"
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "string"
+
+macaddr:
+  stitch-type: "unsupported"
+
+money:
+  stitch-type: "unsupported"
+
+nchar:
+  stitch-type: "string"
+
+numeric:
+  stitch-type: "number"
+      
+nvarchar:
+  stitch-type: "string"
+
+real:
+  stitch-type: "number"
+
+smallint:
+  stitch-type: "integer"
+
+time:
+  stitch-type: "string"
+  format: "date-time"
+
+timestamp:
+  stitch-type: "string"
+  format: "date-time"
+
+tinyint:
+  stitch-type: "integer"
+
+uuid:
+  stitch-type: "string"
+
+varchar:
+  stitch-type: "string"

@@ -4,13 +4,12 @@
 # -------------------------- #
 
 title: NetSuite (v10-15-2015)
-permalink: /integrations/saas/netsuite-suitetalk
-redirect_from: /integrations/saas/netsuite
+permalink: /integrations/saas/netsuite-suitetalk/v10-15-2015
 
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 summary: "Connection instructions and schema details for Stitch's NetSuite integration."
 layout: singer
-#input: false
+input: false
 
 # -------------------------- #
 #     Integration Details    #
@@ -22,23 +21,36 @@ singer: false
 
 this-version: "10-15-2015"
 
+api: |
+  {{ integration.display_name }} SuiteTalk API (v2015_1)
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 
 table-selection: true
 column-selection: false
 
 anchor-scheduling: true
+cron-scheduling: false
+
 extraction-logs: false
 loading-reports: true
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Setup Instructions    #
