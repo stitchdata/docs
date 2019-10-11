@@ -11,7 +11,7 @@
 {% highlight json %}
 {
  "type":"{{ form-property.api-type }}",
- "connection":{
+ "properties":{
    {% for attribute in all-form-attributes %}
    {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute.value | flatify | append: "  " }}
    {%- else -%}"{{ attribute.name }}":{{ attribute.value | rstrip | flatify | append: "," }}
