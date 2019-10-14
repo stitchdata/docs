@@ -33,6 +33,7 @@ object-attributes:
   - name: "role"
     type: "string"
     required: false
+    read-only: false
     description: "The role to use."
     value: |
       "<OPTIONAL_ROLE>"
@@ -40,6 +41,7 @@ object-attributes:
   - name: "warehouse"
     type: "string"
     required: true
+    read-only: false
     description: "The name of the Snowflake warehouse Stitch will connect to."
     value: |
       "<WAREHOUSE>"

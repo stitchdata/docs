@@ -37,6 +37,7 @@ object-attributes:
   - name: "cloud_storage_location"
     type: "string"
     required: true
+    read-only: false
     description: |
       The Google Cloud Storage (GCS) region to be used during the replication process. This setting determines the region of the internal GCS storage bucket Stitch will use to load data into {{ form-property.display-name }}.
 
@@ -51,6 +52,7 @@ object-attributes:
   - name: "loading_mode"
     type: "string"
     required: true
+    read-only: false
     description: |
       Determines how Stitch handles changes to existing records when loading data into {{ form-property.display-name }}. **Note**: This value cannot be modified after the destination is created.
 
@@ -67,6 +69,7 @@ object-attributes:
   - name: "service_account_credentials"
     type: "object"
     required: true
+    read-only: false
     description: |
       Details and credentials for the Google Cloud Platform (GCP) IAM service account Stitch will use to load data into {{ form-property.display-name }} from Google Cloud Storage (GCS).
 
@@ -89,6 +92,7 @@ object-attributes:
       - name: "type"
         type: "string"
         required: true
+        read-only: false
         description: "This will be `service_account`."
         value: |
           "service_account"
@@ -96,13 +100,15 @@ object-attributes:
       - name: "project_id"
         type: "string"
         required: true
+        read-only: false
         description: "The ID of the project associated with the service account."
         value: |
-          "<YOUR_PROJECT_ID>"
+          "<PROJECT_ID>"
 
       - name: "private_key_id"
         type: "string"
         required: true
+        read-only: false
         description: "The ID of the private key."
         value: |
           "23sdiljasd29023908sdjlasdjasdf12be"
@@ -110,6 +116,7 @@ object-attributes:
       - name: "private_key"
         type: "string"
         required: true
+        read-only: false
         description: "The private key for the service account."
         value: |
           "-----BEGIN PRIVATE KEY-----<PRIVATE_KEY>-----END PRIVATE KEY-----"
@@ -117,6 +124,7 @@ object-attributes:
       - name: "client_email"
         type: "string"
         required: true
+        read-only: false
         description: "The service account email address."
         value: |
           "<EMAIL>@<PROJECT_ID>.iam.gserviceaccount.com"
@@ -124,6 +132,7 @@ object-attributes:
       - name: "client_id"
         type: "string"
         required: true
+        read-only: false
         description: "The client ID."
         value: |
           "<CLIENT_ID>"
@@ -131,6 +140,7 @@ object-attributes:
       - name: "auth_uri"
         type: "string"
         required: true
+        read-only: false
         description: "The auth URL for the service account."
         value: |
           "https://accounts.google.com/o/oauth2/auth"
@@ -138,6 +148,7 @@ object-attributes:
       - name: "token_uri"
         type: "string"
         required: true
+        read-only: false
         description: "The token URL for the service account."
         value: |
           "https://accounts.google.com/o/oauth2/token"
@@ -145,6 +156,7 @@ object-attributes:
       - name: "auth_provider_x509_cert_url"
         type: "string"
         required: true
+        read-only: false
         description: "The auth provider x509 cert URL for the service account."
         value: |
           "https://www.googleapis.com/oauth2/v1/certs"
@@ -152,7 +164,17 @@ object-attributes:
       - name: "client_x509_cert_url"
         type: "string"
         required: true
+        read-only: false
         description: "The client x509 cert URL for the service account."
         value: |
           "https://www.googleapis.com/robot/v1/metadata/x509/<SERVICE_ACCOUNT_EMAIL>"
+
+  - name: "project_id"
+    type: "string"
+    required: true
+    read-only: true
+    description: |
+      The ID of the project associated with the service account.
+    value: |
+      "<READ_ONLY_PROJECT_ID>"
 ---

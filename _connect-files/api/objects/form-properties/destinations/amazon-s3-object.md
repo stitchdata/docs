@@ -37,6 +37,7 @@ object-attributes:
   - name: "s3_bucket"
     type: "string"
     required: true
+    read-only: false
     description: "The name of the {{ form-property.display-name }} bucket Stitch will write to."
     value: |
       "com-stitch-s3-bucket"
@@ -44,9 +45,8 @@ object-attributes:
   - name: "sentinel_key"
     type: "string"
     required: false
+    read-only: true
     description: |
-      **Note**: This should not be submitted when creating a destination. This value will be returned as part of successfully creating an {{ form-property.display-name }} destination.
-
       The sentinel key is the name the challenge file in the bucket must have. The challenge file is a blank file that Stitch uses to test the permissions for the bucket. This file must remain in the bucket even after the inital setup is complete.
 
       Refer to our [Amazon S3 documentation]({{ link.destinations.setup.amazon-s3 | prepend: site.baseurl | append: "#verify-bucket-access" }}) for additional details.
@@ -56,6 +56,7 @@ object-attributes:
   - name: "output_file_format"
     type: "string"
     required: true
+    read-only: false
     description: |
       Defines the type of file Stitch will write to the bucket. Possible values are:
 
@@ -69,6 +70,7 @@ object-attributes:
   - name: "csv_delimiter"
     type: "string"
     required: false
+    read-only: false
     description: |
       Defines the delimiter used if `output_file_format` is `csv`.  Possible values are:
 
@@ -79,8 +81,9 @@ object-attributes:
       "|"
 
   - name: "csv_force_quote"
-    type: "boolean"
+    type: "string"
     required: false
+    read-only: false
     description: |
       If `true`, Stitch will place all elements of key-value pairs in quotes when `output_file_format` is `csv`.
 
@@ -90,6 +93,7 @@ object-attributes:
   - name: "s3_key_format_string"
     type: "string"
     required: true
+    read-only: false
     description: |
       Defines the naming convention Stitch should use when creating Object Keys. Object Keys are used to name tables when Stitch writes to the bucket.
 
