@@ -18,14 +18,23 @@
 		            </strong><br>
 		            {{ attribute.type | upcase }}<br>
 
-		            {% case attribute.required %}
-		                {% when true %}
-		                    <font color="#cc3399">REQUIRED</font>
-		                {% else %}
-		                    OPTIONAL
-		            {% endcase %}
+		            {% if attribute.read-only == true %}
+		            	<font color="#999999">READ-ONLY</font>
+
+		            {% else %}
+		            	{% case attribute.required %}
+			                {% when true %}
+			                    <font color="#cc3399">REQUIRED</font>
+			                {% else %}
+			                    OPTIONAL
+			            {% endcase %}
+		            {% endif %}
 		        </td>
 		        <td>
+		        	{% if attribute.read-only == true %}
+		        		<p><strong>Note:</strong> This is a read-only property. Including it in <code>POST</code> or <code>PUT</code> requests will result in <code>InvalidProperties</code> errors.</p>
+		        	{% endif %}
+
 		            {{ attribute.description | flatify | markdownify }}
 
 		            {% if attribute.subattributes %}
@@ -41,14 +50,24 @@
 							            </strong><br>
 							            {{ subattribute.type | upcase }}<br>
 
-							            {% case subattribute.required %}
-							                {% when true %}
-							                    <font color="#cc3399">REQUIRED</font>
-							                {% else %}
-							                    OPTIONAL
-							            {% endcase %}
+							            {% if subattribute.read-only == true %}
+							            	<font color="#999999">READ-ONLY</font>
+
+							            {% else %}
+
+								            {% case subattribute.required %}
+								                {% when true %}
+								                    <font color="#cc3399">REQUIRED</font>
+								                {% else %}
+								                    OPTIONAL
+								            {% endcase %}
+								        {% endif %}
 							        </td>
 							        <td>
+							        	{% if subattribute.read-only == true %}
+							        		<p><strong>Note:</strong> This is a read-only property. Including it in <code>POST</code> or <code>PUT</code> requests will result in <code>InvalidProperties</code> errors.</p>
+							        	{% endif %}
+
 							            {{ subattribute.description | flatify | markdownify }}
 							        </td>
 							    </tr>
@@ -74,14 +93,23 @@
                     </strong><br>
                     {{ attribute.type | upcase }}<br>
 
-                    {% case attribute.required %}
-                        {% when true %}
-                            <font color="#cc3399">REQUIRED</font>
-                        {% else %}
-                            OPTIONAL
-                    {% endcase %}
+                    {% if attribute.read-only == true %}
+		            	<font color="#999999">READ-ONLY</font>
+		            {% else %}
+
+	                    {% case attribute.required %}
+	                        {% when true %}
+	                            <font color="#cc3399">REQUIRED</font>
+	                        {% else %}
+	                            OPTIONAL
+	                    {% endcase %}
+	                {% endif %}
                 </td>
                 <td>
+                	{% if attribute.read-only == true %}
+		        		<p><strong>Note:</strong> This is a read-only property. Including it in <code>POST</code> or <code>PUT</code> requests will result in <code>InvalidProperties</code> errors.</p>
+		        	{% endif %}
+		        	
                     {{ attribute.description | flatify | markdownify }}
                 </td>
             </tr>
