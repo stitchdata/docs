@@ -51,6 +51,9 @@ stitch-details-info:
   connection-methods:
     ssl: &connection-methods-ssl |
       true
+    ## Indicates whether SSL can be configured via the API
+    connect-ssl: |
+      false
     ssh: &connection-methods-ssh |
       true
     vpn: &connection-methods-vpn |
