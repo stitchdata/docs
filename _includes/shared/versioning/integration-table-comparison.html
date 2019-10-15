@@ -1,11 +1,11 @@
-
+<!-- WORK IN PROGRESS, DO NOT USE -->
 
 <!-- Used to generate the "Supported/Unsupported" icons -->
 {% include misc/icons.html %}
 {% include misc/data-files.html %}
 
 <!-- The logic for pulling version info is in this include -->
-    {% include integrations/templates/versioning/version-logic.html %}
+    {% include shared/versioning/integration-version-logic.html %}
 
 <!-- Get all of the files in _integration-schemas for the integration -->
     {% assign all-table-versions = site.integration-schemas | where:"tap",integration.name | sort:"name" %}
