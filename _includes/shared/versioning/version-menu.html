@@ -1,0 +1,110 @@
+
+<!-- The logic for pulling version info is in this include -->
+
+{% if page.permalink contains "destinations" %}
+    {% include shared/versioning/destination-version-logic.html %}
+    {% assign connection = destination %}
+
+{% else %}
+    {% include shared/versioning/integration-version-logic.html %}
+    {% assign connection = integration %}
+{% endif %}
+
+
+
+<!-- VERSION SELECTION MENU -->
+
+<!-- This code includes some CSS classes specific to category pages -->
+{% if include.menu-type == "category-page" %}
+<div class="version-toggle">
+    <div class="btn-group">
+        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+            SELECT VERSION <span class="caret"></span>
+        </button>
+        <ol class="dropdown-menu">
+            {% if connection.has-versions %}
+                <li class="category-version-toggle">
+                    <a href="{{ connection.url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
+                </li>
+            {% endif %}
+            {% for version in released-versions %}
+                {% for doc in all-versioned-docs %}
+                    {% if version.number == doc.this-version %}
+                        <li class="category-version-toggle">
+                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
+                            {% if version.number == latest-version %}
+                             (latest)
+                            {% else %}
+                                {% case version.status %}
+                                    {% when 'Closed Beta' %}
+                                     (closed beta)
+                                    {% when 'Open Beta' %}
+                                     (beta)
+                                    {% when 'Deprecated' or 'Sunset' %}
+                                     (deprecated)
+                                {% endcase %}
+                            {% endif %}
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+
+{% else %}
+
+<!-- Otherwise, this version will run & display in the breadbox at the top of the article container. -->
+<div class="version-toggle">
+    <div class="btn-group">
+        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+            {{ page.this-version | prepend: "version " | upcase }} <span class="caret"></span>
+        </button>
+        <ol class="dropdown-menu">
+            {% for version in released-versions %}
+                {% if version.number == page.this-version %}
+                    <li class="active">
+                        version {{ version.number }}
+
+                        {% if version.number == latest-version and version.status == "Released" %}
+                         (latest)
+                        {% else %}
+                            {% case version.status %}
+                                {% when 'Closed Beta' %}
+                                 (closed beta)
+                                {% when 'Open Beta' %}
+                                 (beta)
+                                {% when 'Deprecated' or 'Sunset' %}
+                                 (deprecated)
+                            {% endcase %}
+                        {% endif %}
+                        <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                    </li>
+                {% else %}
+                    {% for doc in all-versioned-docs %}
+                        {% if version.number == doc.this-version %}
+                            <li>
+                                <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
+                                {% if version.number == latest-version and version.status == "Released" %}
+                                 (latest)
+                                {% else %}
+                                    {% case version.status %}
+                                        {% when 'Closed Beta' %}
+                                         (closed beta)
+                                        {% when 'Open Beta' %}
+                                         (beta)
+                                        {% when 'Deprecated' or 'Sunset' %}
+                                         (deprecated)
+                                    {% endcase %}
+                                {% endif %}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endif %}

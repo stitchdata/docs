@@ -25,7 +25,7 @@ sections:
                     <strong>{{ integration.display_name| remove:"(latest)" | prepend: "Amazon "}}</strong><br>
 
                     {% if integration.has-versions %}
-                        {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
+                        {% include shared/versioning/version-menu.html menu-type="category-page" %}
 
                     {% else %}
                         <a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a> 
