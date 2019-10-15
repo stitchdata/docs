@@ -36,7 +36,7 @@ sections:
     subsections:
       - summary: "Supported features"
         content: |
-          {% include integrations/templates/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
+          {% include shared/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
       
       - title: "Data types"
         anchor: "data-types"
