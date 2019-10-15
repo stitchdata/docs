@@ -1,4 +1,4 @@
-<!-- This file is an overview table of an integration's version
+<!-- This file is an overview table of an connection's version
 release and deprecation dates -->
 
 <!-- Used to generate the "Unsupported" icons -->
@@ -6,7 +6,13 @@ release and deprecation dates -->
 {% include misc/data-files.html %}
 
 <!-- The logic for pulling version info is in this include -->
-    {% include integrations/templates/versioning/version-logic.html %}
+{% if page.permalink contains "destinations" %}
+    {% include shared/versioning/destination-version-logic.html %}
+
+{% else %}
+    {% include shared/versioning/integration-version-logic.html %}
+
+{% endif %}
 
 <table class="attribute-list">
     <tr>
@@ -18,6 +24,9 @@ release and deprecation dates -->
         </td>
         <td>
             <strong>Deprecation date</strong>
+        </td>
+        <td>
+            <strong>End of life (Sunset)</strong>
         </td>
     </tr>
     {% for version in released-versions %}
@@ -36,11 +45,10 @@ release and deprecation dates -->
                     </td>
 
                     <td class="attribute-description">
-                        {% if version.deprecation-date %}
-                            {{ version.deprecation-date }}
-                        {% else %}
-                            n/a
-                        {% endif %}
+                        {{ version.deprecation-date }}
+                    </td>
+                    <td>
+                        {{ version.sunset-date }}
                     </td>
                 </tr>
             {% endif %}
