@@ -4,7 +4,7 @@ deprecation and major version releases. -->
 
 <!-- Uses the naming logic in the version logic file to assign the correct
 integration_name value so the correct changelog is pulled -->
-    {% include integrations/templates/versioning/version-logic.html %}
+    {% include shared/versioning/integration-version-logic.html %}
 
 <!-- Get the tap name -->
     {% assign tap-name = site.data.taps.versions[integration_name]tap-name %}
