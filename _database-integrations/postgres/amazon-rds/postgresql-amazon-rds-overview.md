@@ -18,7 +18,7 @@ sections:
   - title: "Identify your version"
     anchor: "identify-your-version"
     content: |
-      {% include integrations/templates/versioning/integration-version-tiles.html %}
+      {% include shared/versioning/integration-version-tiles.html %}
 
   - title: "Version history"
     anchor: "version-history"

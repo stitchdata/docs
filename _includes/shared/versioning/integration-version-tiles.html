@@ -1,5 +1,7 @@
+<!-- Tiles that display on integration category pages
+    for integrations that have multiple versions. -->
 
-{% include integrations/templates/versioning/version-logic.html %}
+{% include shared/versioning/integration-version-logic.html %}
 
 <!-- Gets the non-Singer version to be used in the copy -->
 {% for version in released-versions %}
