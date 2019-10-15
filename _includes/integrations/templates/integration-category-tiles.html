@@ -88,7 +88,7 @@
 
         <!-- If the integration is versioned, or has an overview page and has-versions == true -->
             {% if integration.this-version or integration.has-versions == true %}
-                {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
+                {% include shared/versioning/version-menu.html menu-type="category-page" %}
 
             {% else %}
                 <a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>

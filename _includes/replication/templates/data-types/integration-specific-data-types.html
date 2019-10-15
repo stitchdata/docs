@@ -9,11 +9,11 @@
     all the other versions. If the page has a 'this-version' property,
     we'll only get the version for the page. -->
     {% if include.version %}
-        {% include integrations/templates/versioning/version-logic.html this-version=include.version %}
+        {% include shared/versioning/integration-version-logic.html this-version=include.version %}
 
 <!-- Otherwise, we'll get all the released versions for the integration. -->
     {% else %}
-        {% include integrations/templates/versioning/version-logic.html %}
+        {% include shared/versioning/integration-version-logic.html %}
     {% endif %}
 
 
