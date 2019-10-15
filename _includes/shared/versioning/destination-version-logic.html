@@ -1,0 +1,48 @@
+
+<!-- If this is being used on a dedicated integration  page, use the variables that already exist in the page's Frontmatter.  -->
+
+<!-- For category pages (ex: all SaaS integrations) check the page layout and use the variables passed through the forloop. -->
+
+{% assign destination = page %}
+
+<!-- Database integrations are "branded", meaning that any specific 
+integration backed by a particular database type will all share the same
+versioning info. The logic below makes it so that each specific integration
+(ex: RDS) doesn't need its own version file - it just uses the DB 
+backing it (integration.db-type). -->
+
+{% if page.db-type %}
+    {% assign page_name = page.db-type %}
+{% else %}
+    {% assign page_name = page.name %}
+{% endif %}
+
+{% assign display_name = page.display_name %}
+
+
+<!-- Get the correct versions 
+
+    If the include has a specific version parameter, only get the version being requested-->
+{% if include.this-version %}
+    {% assign released-versions = site.data.destinations.versions.[page_name].released-versions | where:"number",include.this-version %}
+
+<!-- Otherwise, get the full list of released versions. -->
+{% else %}
+    {% assign released-versions = site.data.destinations.versions[page_name]released-versions %}
+{% endif %}
+
+<!-- Pulls the latest version number for the integration -->
+    {% assign latest-version = site.data.destinations.versions.[page_name].latest-version %}
+
+<!-- Last, pulls all docs that contain the integration's name in the `name:` Frontmatter variable. -->
+
+{% if page.key %}
+    {% assign doc_name = page.key %}
+
+    {% assign all-versioned-docs = site.documents | where:"key",page.key %}
+
+{% else %}
+    {% assign doc_name = page.name %}
+
+    {% assign all-versioned-docs = site.documents | where:"name",page.name %}
+{% endif %}
