@@ -25,13 +25,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 frequency: "30 minutes"
 historical: "1 year"
 tier: "Standard"
-icon: /images/integrations/icons/salesforce.svg
 
 table-selection: true
 column-selection: true

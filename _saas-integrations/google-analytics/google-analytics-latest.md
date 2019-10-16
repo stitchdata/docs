@@ -19,6 +19,9 @@ microsites:
 
 name: "google-analytics"
 display_name: "Google Analytics"
+
+this-version: "14-09-2016"
+
 singer: false
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
@@ -29,13 +32,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "30 days"
 frequency: "6 hours"
 tier: "Free"
-icon: /images/integrations/icons/google-analytics.svg
 
 table-selection: false
 column-selection: false

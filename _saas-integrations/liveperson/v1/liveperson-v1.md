@@ -29,7 +29,7 @@ singer: true
 tap-name: "LivePerson"
 repo-url: https://github.com/singer-io/tap-liveperson
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Data Access API](https://developers.liveperson.com/data-access-api-overview.html){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"

@@ -2,18 +2,20 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
-title: Google BigQuery Destination
-permalink: /destinations/google-bigquery/
-redirect_from: /destinations/bigquery/
+title: Google BigQuery v1 Destination Reference
+permalink: /destinations/google-bigquery/reference/v1
 
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
 
 content-type: "destination-overview"
+key: "bigquery-reference"
 
 toc: true
 layout: general
 destination: true
+
+this-version: "1.0"
 
 
 # -------------------------- #
@@ -21,7 +23,8 @@ destination: true
 # -------------------------- #
 
 display_name: "BigQuery"
-type: "bigquery"
+type: &name "bigquery"
+name: *name
 description: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
 
 

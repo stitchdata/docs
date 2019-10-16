@@ -29,7 +29,7 @@ singer: true
 tap-name: "Help Scout"
 repo-url: https://github.com/singer-io/tap-helpscout
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Mailbox API 2.0](https://developer.helpscout.com/mailbox-api/){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"

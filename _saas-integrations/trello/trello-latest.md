@@ -18,6 +18,8 @@ display_name: "Trello"
 singer: false
 status-url: "http://www.trellostatus.com/"
 
+this-version: "15-12-2015"
+
 api: |
   [{{ integration.display_name }} REST API](https://developers.trello.com/reference){:target="new"}
 
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

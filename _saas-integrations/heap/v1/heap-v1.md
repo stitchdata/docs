@@ -30,20 +30,18 @@ singer: true
 tap-name: "Heap"
 repo-url: https://github.com/singer-io/tap-heap
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.heapanalytics.com/"
-icon: /images/integrations/icons/heap.svg
 
 anchor-scheduling: true
 cron-scheduling: false

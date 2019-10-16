@@ -22,7 +22,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false # Community-supported integration
 
 historical: "1 year"

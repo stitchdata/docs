@@ -17,6 +17,8 @@ display_name: "Desk"
 singer: false
 status-url: "https://statusgator.com/status/deskcom"
 
+this-version: "15-10-2015"
+
 api: |
   [{{ integration.display_name }} API](http://dev.desk.com/API/using-the-api/#general){:target="new"}
 
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

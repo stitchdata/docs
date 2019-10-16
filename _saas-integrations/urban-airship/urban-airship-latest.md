@@ -16,7 +16,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-urban-airship
 status-url: https://twitter.com/urbanairship
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [Airship API version 3](https://docs.airship.com/api/ua/){:target="new"}
@@ -25,7 +25,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

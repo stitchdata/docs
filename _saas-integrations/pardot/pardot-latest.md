@@ -18,6 +18,8 @@ display_name: "Pardot"
 singer: false
 status-url: "http://trust.pardot.com/"
 
+this-version: "15-10-2015"
+
 api: |
   [{{ integration.display_name }} API](http://developer.pardot.com/#official-pardot-api-documentation){:target="new"}
 
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "28 days"

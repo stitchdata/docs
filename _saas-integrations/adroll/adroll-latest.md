@@ -17,6 +17,8 @@ display_name: "AdRoll"
 singer: false
 status-url: "http://status.adroll.com/"
 
+this-version: "1.0"
+
 api: |
   [{{ integration.display_name }} CRUD API](https://developers.adroll.com/docs/crud-api/index.html){:target="new"}
 
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "30 minutes"

@@ -19,7 +19,7 @@ display_name: "SendGrid Core"
 singer: true 
 repo-url: https://github.com/singer-io/tap-sendgrid
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [SendGrid v3 API](https://sendgrid.com/docs/API_Reference/api_v3.html){:target="new"}
@@ -28,7 +28,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

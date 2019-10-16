@@ -16,6 +16,8 @@ name: "mixpanel"
 display_name: "Mixpanel"
 status-url: "https://status.mixpanel.com/"
 
+this-version: "23-12-2015"
+
 api: |
   [{{ integration.display_name }} Data Export API](https://mixpanel.com/help/reference/data-export-api#people-analytics){:target="new"}
 
@@ -23,7 +25,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "7 days"

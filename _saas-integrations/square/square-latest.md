@@ -18,6 +18,8 @@ display_name: "Square"
 singer: false
 status-url: "http://issquareup.com/"
 
+this-version: "04-05-2016"
+
 api: |
   [{{ integration.display_name }} Connect v1 API](https://developer.squareup.com/docs/api/connect/v1#navsection-v1endpoints){:target="new"}
 
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

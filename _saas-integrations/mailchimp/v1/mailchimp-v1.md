@@ -29,7 +29,7 @@ singer: true
 tap-name: "MailChimp"
 repo-url: https://github.com/singer-io/tap-mailchimp
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API 3.0](https://developer.mailchimp.com/documentation/mailchimp/reference/overview/){:target="new"}
@@ -38,7 +38,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: true 
 
 historical: "1 year"

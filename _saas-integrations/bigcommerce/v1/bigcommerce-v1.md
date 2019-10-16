@@ -33,13 +33,12 @@ repo-url: https://github.com/singer-io/tap-bigcommerce
 api: |
   [{{ integration.display_name }} REST API](https://developer.bigcommerce.com/){:target="new"}
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"

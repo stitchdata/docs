@@ -24,7 +24,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: false
 
 historical: "1 year"

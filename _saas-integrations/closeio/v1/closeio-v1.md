@@ -29,15 +29,12 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Standard"
 status-url: "http://status.close.io/"
-
-attribution-window: "24 hours"
 
 anchor-scheduling: true
 cron-scheduling: false
@@ -47,6 +44,8 @@ loading-reports: true
 
 table-selection: false
 column-selection: false
+
+attribution-window: "24 hours"
 
 # -------------------------- #
 #      Feature Summary       #

@@ -14,7 +14,7 @@ display_name: "Facebook Ads"
 singer: true
 repo-url: https://github.com/singer-io/tap-facebook
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis){:target="new"}
@@ -23,7 +23,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true # Stitch-supported integration
 
 historical: "1 year"

@@ -14,6 +14,8 @@ display_name: "Intercom"
 singer: false
 status-url: "https://status.intercom.io/"
 
+this-version: "02-02-2016"
+
 api: |
   [{{ integration.display_name }} REST API (V1.0)](https://developers.intercom.com/intercom-api-reference/v1.0/reference){:target="new"}
 
@@ -21,7 +23,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

@@ -18,7 +18,7 @@ display_name: "Listrak"
 singer: true 
 repo-url: https://github.com/singer-io/tap-listrak
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} SOAP API](https://webservices.listrak.com/SoapWSDL.aspx){:target="new"}
@@ -27,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

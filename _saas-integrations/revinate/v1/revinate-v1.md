@@ -30,7 +30,7 @@ singer: true
 tap-name: "Revinate"
 repo-url: https://github.com/singer-io/tap-revinate
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Porter API](https://porter.revinate.com/documentation){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"

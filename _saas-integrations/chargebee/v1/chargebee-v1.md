@@ -29,7 +29,7 @@ singer: true
 tap-name: "Chargebee"
 repo-url: https://github.com/singer-io/tap-chargebee
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API](https://apidocs.chargebee.com/docs/api){:target="new"}
@@ -38,7 +38,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"

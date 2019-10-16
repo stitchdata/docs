@@ -15,7 +15,7 @@ display_name: "Shippo"
 singer: true
 repo-url: https://github.com/singer-io/tap-shippo
 
-# this-version: "1.0"
+this-version: "1.0"
 # api-version: 2016-10-25
 
 api: |
@@ -25,7 +25,6 @@ api: |
 #     Integration Details    #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

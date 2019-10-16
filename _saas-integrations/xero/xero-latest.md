@@ -25,13 +25,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
-icon: /images/integrations/icons/xero.svg
 
 table-selection: true
 column-selection: true

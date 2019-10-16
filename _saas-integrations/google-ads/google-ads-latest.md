@@ -24,7 +24,7 @@ singer: true
 tap-name: "Google AdWords"
 repo-url: https://github.com/singer-io/tap-adwords
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target="new"}
@@ -35,7 +35,6 @@ api: |
 
 api-version: "v201809"
 
-status: "Released"
 certified: true
 
 historical: "30 days"

@@ -30,7 +30,7 @@ singer: true
 tap-name: "FrontApp"
 repo-url: https://github.com/singer-io/tap-frontapp
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [Front API](https://dev.frontapp.com/){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"

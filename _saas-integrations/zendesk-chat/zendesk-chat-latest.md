@@ -18,6 +18,8 @@ display_name: "Zendesk Chat"
 singer: false
 status-url: "https://status.zendesk.com/"
 
+this-version: "1.0"
+
 api: |
   [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}
 
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta"
 certified: false
 
 historical: "1 year"

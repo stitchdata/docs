@@ -29,7 +29,7 @@ singer: true
 tap-name: "Asana"
 repo-url: https://github.com/singer-io/tap-asana
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API](https://asana.com/developers/documentation/examples-tutorials/overview){:target="new"}
@@ -38,7 +38,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"

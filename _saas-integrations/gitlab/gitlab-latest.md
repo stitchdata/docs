@@ -15,7 +15,7 @@ display_name: "GitLab"
 singer: true
 repo-url: https://github.com/singer-io/tap-gitlab
 
-# this-version:"1.0"
+this-version: "1.0"
 
 api: |
   [GitLab REST API](https://docs.gitlab.com/ee/api/README.html){:target="new"}
@@ -24,7 +24,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false # Community-supported integration
 
 historical: "1 year"

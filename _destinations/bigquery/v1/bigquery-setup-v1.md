@@ -33,7 +33,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "BigQuery"
-type: "bigquery"
+type: &name "bigquery"
+name: *name
 
 ssh: false
 ssl: false

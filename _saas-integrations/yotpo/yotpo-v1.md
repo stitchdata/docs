@@ -21,7 +21,7 @@ singer: true
 tap-name: "Yotpo"
 repo-url: https://github.com/singer-io/tap-yotpo
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Core API](https://apidocs.yotpo.com/reference){:target="new"}
@@ -30,7 +30,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

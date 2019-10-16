@@ -17,6 +17,8 @@ display_name: "Google ECommerce"
 singer: false
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
+this-version: "15-10-2015"
+
 api: |
   [Google Analytics Reporting API v4](https://developers.google.com/analytics/devguides/reporting/core/v4/){:target="new"}
 
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "15 days"

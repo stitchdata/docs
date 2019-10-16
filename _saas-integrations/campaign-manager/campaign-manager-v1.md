@@ -24,7 +24,7 @@ singer: true
 tap-name: "Campaign Manager"
 repo-url: https://github.com/singer-io/tap-doubleclick-campaign-manager
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [DCM/DFA Reporting and Trafficking API](https://developers.google.com/doubleclick-advertisers/getting_started){:target="new"}
@@ -33,7 +33,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

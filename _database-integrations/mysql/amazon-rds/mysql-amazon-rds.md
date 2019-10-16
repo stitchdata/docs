@@ -12,7 +12,7 @@ show-in-menus: true
 name: "mysql-rds"
 display_name: "Amazon MySQL RDS"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "amazon"
 

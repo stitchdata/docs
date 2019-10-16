@@ -31,7 +31,7 @@ tap-name: "Exact Target"
 repo-url: https://github.com/singer-io/tap-exacttarget
 status-url: "https://status.salesforce.com/"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} SOAP Web Service API](https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/web_service_guide.htm){:target="new"}
@@ -40,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"

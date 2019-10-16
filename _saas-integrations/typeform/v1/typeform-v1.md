@@ -30,7 +30,7 @@ singer: true
 tap-name: "Typeform"
 repo-url: https://github.com/singer-io/tap-typeform
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Responses API](https://developer.typeform.com/responses/){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"

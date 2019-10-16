@@ -28,7 +28,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-# this-version: "1.0"
+this-version: "1.0"
 has-specific-data-types: true
 
 hosting-type: "amazon"

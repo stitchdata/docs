@@ -17,7 +17,7 @@ repo-url: https://github.com/singer-io/tap-mysql
 
 hosting-type: "generic"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 driver: |
   [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}

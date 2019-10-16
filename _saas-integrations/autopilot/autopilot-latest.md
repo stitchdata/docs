@@ -18,13 +18,12 @@ repo-url: https://github.com/singer-io/tap-autopilot
 api: |
   [{{ integration.display_name }} REST API](https://autopilot.docs.apiary.io/#){:target="new"}
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

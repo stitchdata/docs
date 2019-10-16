@@ -19,7 +19,7 @@ display_name: "GitHub"
 singer: true
 repo-url: https://github.com/singer-io/tap-github
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} REST API v3](https://developer.github.com/v3/){:target="new"}
@@ -28,7 +28,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

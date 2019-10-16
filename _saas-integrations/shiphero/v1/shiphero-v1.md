@@ -30,7 +30,7 @@ singer: true
 tap-name: "ShipHero"
 repo-url: https://github.com/singer-io/tap-shiphero
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API (v1.2)](https://shipheropublic.docs.apiary.io/#reference){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"

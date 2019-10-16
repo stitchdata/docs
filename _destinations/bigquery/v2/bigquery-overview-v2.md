@@ -2,12 +2,13 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
-title: Google BigQuery Destination
-permalink: /destinations/google-bigquery/
+title: Google BigQuery v2 Destination Reference
+permalink: /destinations/google-bigquery/reference/v2
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
 
 content-type: "destination-overview"
+key: "bigquery-reference"
 
 toc: true
 layout: general
@@ -21,7 +22,8 @@ this-version: "2.0"
 # -------------------------- #
 
 display_name: "BigQuery"
-type: "bigquery"
+type: &name "bigquery"
+name: *name
 description: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
 
 
@@ -63,6 +65,25 @@ sections:
     anchor: "replication"
     content: |
       {% include destinations/overviews/destination-reference-table.html list="replication" %}
+    subsections:
+      - title: "Replication process overview"
+        anchor: "process"
+        content: |
+          ![todo]({{ site.baseurl }}/images/destinations/bigquery-replication-process.png)
+
+      - title: "Loading behavior"
+        anchor: "loading-behavior"
+        content: |
+          How data is loaded into {{ destination.display_name }} depends on the **Loading behavior** setting you define during destination setup:
+
+          - **Upsert**: Existing rows are updated in tables with defined Primary Keys. A single version of a row will exist in the table.
+
+          - **Append-Only**: Existing rows aren't updated. Multiple versions of a row can exist in a table, creating a log of how a row changed over time.
+
+             Because of this loading strategy, querying may require a different strategy than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
+
+          **Note**: Loading behavior can impact your {{ destination.display_name }} costs. Refer to the [TODO](todo) guide for more info.
+
 
   - title: "Limitations"
     anchor: "limitations"

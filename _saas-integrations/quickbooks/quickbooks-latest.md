@@ -20,6 +20,8 @@ display_name: "QuickBooks"
 singer: false
 status-url: "http://status.developer.intuit.com/"
 
+this-version: "21-12-2015"
+
 api: |
   [{{ integration.display_name }} Online API](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account){:target="new"}
 
@@ -27,7 +29,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

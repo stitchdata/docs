@@ -30,7 +30,7 @@ singer: true
 tap-name: "Toggl"
 repo-url: https://github.com/singer-io/tap-toggl
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API v8](https://github.com/toggl/toggl_api_docs/blob/master/toggl_api.md){:target="new"}
@@ -39,7 +39,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"

@@ -17,7 +17,7 @@ singer: false
 author: "Stitch"
 author-url: https://www.stitchdata.com
 
-# this-version: ""
+this-version: ""
 
 api: |
   [Stitch Import API]({{ link.import-api.getting-started | prepend: site.baseurl }}){:target="new"}
