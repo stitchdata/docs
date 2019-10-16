@@ -10,17 +10,17 @@ description: "This table contains information about Centers."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Centres"
-    doc-link: "https://api.mambu.com/?shell#centres"
+  name: "Centres"
+  doc-link: "https://api.mambu.com/?shell#centres"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
     description: "The unique center ID."
-#    foreign-key-id: "center-id"
+#   foreign-key-id: "center-id"
 
-- name: "last_modified_date"
+  - name: "last_modified_date"
     type: "date-time"
     description: "The last date and time that the center was modified."
     replication-key: true
