@@ -22,7 +22,7 @@ attributes:
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The date and time the loan account was last modified."
     replication-key: true
 
   - name: "account_arrears_settings"
