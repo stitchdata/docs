@@ -17,7 +17,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The unique encoded key of the deposit transaction."
 #    foreign-key-id: "deposit-transaction-encoded-key"  
 
   - name: "creation_date"
