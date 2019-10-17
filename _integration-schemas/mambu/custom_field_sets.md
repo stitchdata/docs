@@ -20,6 +20,7 @@ attributes:
     type: "string"
     primary-key: true
     description: ""
+    foreign-key-id: "custom-field-set-id"
 
   - name: "created_date"
     type: "date-time"
