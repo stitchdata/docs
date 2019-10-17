@@ -17,7 +17,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The group ID."
 #    foreign-key-id: "group-id"
 
   - name: "last_modified_date"
