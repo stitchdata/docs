@@ -10,7 +10,7 @@ description: "This table contains information about deposit products."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "DepositProduct"
+  name: "Get deposit products"
     doc-link: "https://api.mambu.com/?shell#tocsdepositproduct"
 
 attributes:
