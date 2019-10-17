@@ -5,7 +5,7 @@ version: "1.0"
 name: "deposit_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json"
-description: "This table contains information about Deposit Products"
+description: "This table contains information about deposit products."
 
 replication-method: "Key-based Incremental"
 
