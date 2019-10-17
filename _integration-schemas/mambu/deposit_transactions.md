@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Search deposit transactions"
-    doc-link: "https://api.mambu.com/?shell#tocsdeposittransaction"
+  doc-link: "https://api.mambu.com/?http#deposittransactions-search"
 
 attributes:
   - name: "encoded_key"
