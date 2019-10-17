@@ -3,21 +3,24 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Bing Ads (v2.0)
-permalink: /integrations/saas/bing-ads
-keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema
-summary: "Connection instructions, replication info, and schema details for Stitch's Bing Ads integration."
+title: Microsoft Advertising (Bing Ads) (v2)
+permalink: /integrations/saas/microsoft-advertising
+redirect_from: /integrations/saas/bing-ads
+
+keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema, microsoft advertising
+summary: "Connection instructions, replication info, and schema details for Stitch's Microsoft Advertising (Bing Ads) integration."
 layout: singer
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "bing-ads"
-display_name: "Bing Ads"
+name: "bing-ads" # renamed on 10/17/2019
+display_name: "Microsoft Advertising"
 
 singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
+tap-name: "Bing Ads"
 
 this-version: "2.0"
 
@@ -76,9 +79,9 @@ feature-summary: |
 
 requirements-list:
   - item: |
-      **To pause all ad-blocking software currently in use.** Because Bing Ads authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
+      **To pause all ad-blocking software currently in use.** Because {{ integration.display_name }} authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
   - item: |
-      **To have Viewer permissions to the profiles you want to connect.** These read-only permissions will ensure Stitch can read data from the profiles you select for replication. [Read more about Bing Ads user permissions here](https://help.bingads.microsoft.com/#apex/3/en/52037/3/en-US/#ext:none).
+      **To have Viewer permissions to the profiles you want to connect.** These read-only permissions will ensure Stitch can read data from the profiles you select for replication. [Read more about {{ integration.display_name }} user permissions here](https://help.bingads.microsoft.com/#apex/3/en/52037/3/en-US/#ext:none){:target="new"}.
 
 setup-steps:
   - title: "add integration"
@@ -95,9 +98,9 @@ setup-steps:
     content: |
       {% include layout/inline_image.html type="right" file="integrations/bing-ads-select-accounts.png" alt="Selecting Bing Ads accounts." max-width="400px" %}
 
-      1. Next, you’ll be prompted to log into your Bing account and to approve Stitch’s access to your {{ integration.display_name }} data.
+      1. Next, you’ll be prompted to log into your Microsoft account and to approve Stitch’s access to your {{ integration.display_name }}/Bing Ads data.
       2. Click **Authorize** to continue.
-      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} account(s) you want to connect to Stitch.
+      3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }}/Bing Ads account(s) you want to connect to Stitch.
 
          If you don't see the account(s) you want to connect, verify that you have completed the [setup requirements](#setup-requirements).
       4. When selecting accounts, keep the following in mind:
@@ -117,7 +120,7 @@ replication-sections:
   - title: "Report retention periods and historical data"
     anchor: "retention-period-historical-data"
     content: |
-      {{ integration.display_name }} retains reporting data for specified periods of time. Depending on the type of report, the retention period can vary. For the majority of reports, however, Bing Ads will retain data for **36 months** from the current date.
+      {{ integration.display_name }} retains reporting data for specified periods of time. Depending on the type of report, the retention period can vary. For the majority of reports, however, {{ integration.display_name }} will retain data for **36 months** from the current date.
 
       This retention period can impact the historical data Stitch can replicate from {{ integration.display_name }}. If you select a **Start Date** further in the past than the retention period allows, a message similar to the following will surface in the integration's [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) during the extraction phase:
 
@@ -127,7 +130,7 @@ replication-sections:
 
       When this occurs, Stitch will move the **Start Date** up a month until extraction succeeds. For example: If `01/09/2015` is found to be outside of the retention period, Stitch will move the date range up to `01/10/2015`, then `01/11/2015`, and so on until extraction is successful. This will all occur in the same extraction job.
 
-      For more info on Bing Ads retention periods, refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/report-data-retention-time-periods?view=bingads-12){:target="_blank"}.
+      Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/bingads/guides/report-data-retention-time-periods?view=bingads-12){:target="_blank"} for more info about retention periods.
 
   - title: "Table types and replication"
     anchor: "table-types-and-replication"
