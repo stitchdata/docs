@@ -17,7 +17,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The loan account ID."
 #    foreign-key-id: "loan-account-id"
 
   - name: "last_modified_date"
