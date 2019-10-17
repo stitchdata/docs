@@ -11,7 +11,9 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Credit Arrangements"
-    doc-link: "https://api.mambu.com/?shell#creditarrangements"
+api-method:
+  name: "Get all credit arrangements"
+  doc-link: "https://api.mambu.com/?http#creditarrangements-getall"
 
 attributes:
   - name: "id"
