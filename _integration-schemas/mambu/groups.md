@@ -10,7 +10,7 @@ description: "This table contains information about Groups."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Groups"
+    name: "Get all groups"
     doc-link: "https://api.mambu.com/?shell#groups-getall"
 
 attributes:
