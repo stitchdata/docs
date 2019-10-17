@@ -22,7 +22,7 @@ attributes:
 
   - name: "creation_date"
     type: "date-time"
-    description: ""
+    description: "The date when the deposit transaction was created."
     replication-key: true
 
   - name: "account_balances"
