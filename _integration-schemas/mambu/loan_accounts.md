@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Get all loan accounts"
-    doc-link: "https://api.mambu.com/?shell#tocsloanaccount"
+  doc-link: "https://api.mambu.com/?http#loanaccounts-getall"
 
 attributes:
   - name: "id"
