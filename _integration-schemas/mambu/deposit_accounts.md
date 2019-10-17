@@ -24,7 +24,7 @@ attributes:
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The date and time the deposit account was last modified."
     replication-key: true
 
   - name: "account_holder_key"
