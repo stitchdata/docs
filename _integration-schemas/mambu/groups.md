@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Get all groups"
-    doc-link: "https://api.mambu.com/?shell#groups-getall"
+  doc-link: "https://api.mambu.com/?http#groups-getall"
 
 attributes:
   - name: "id"
