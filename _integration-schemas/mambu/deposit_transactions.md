@@ -10,7 +10,7 @@ description: "This table contains information about Deposit Transactions."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "DepositTransaction"
+  name: "Search deposit transactions"
     doc-link: "https://api.mambu.com/?shell#tocsdeposittransaction"
 
 attributes:
