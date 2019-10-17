@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Get deposit products"
-    doc-link: "https://api.mambu.com/?shell#tocsdepositproduct"
+  doc-link: "https://support.mambu.com/docs/savings-products-api#get-savings-products"
 
 attributes:
   - name: "id"
