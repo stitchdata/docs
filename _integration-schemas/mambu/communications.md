@@ -11,7 +11,9 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Communications"
-    doc-link: "https://api.mambu.com/?shell#communications"
+api-method:
+  name: "Search all communications"
+  doc-link: "https://api.mambu.com/?http#communications-search"
 
 attributes:
   - name: "encoded_key"
