@@ -10,7 +10,7 @@ description: "This table contains information about Loan Accounts."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "LoanAccount"
+  name: "Get all loan accounts"
     doc-link: "https://api.mambu.com/?shell#tocsloanaccount"
 
 attributes:
