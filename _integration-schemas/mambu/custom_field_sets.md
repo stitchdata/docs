@@ -11,7 +11,9 @@ replication-method: "Full Table"
 
 api-method:
     name: "Custom Field Sets"
-    doc-link: "https://api.mambu.com/?shell#customfieldsets"
+api-method:
+  name: "Get custom field sets"
+  doc-link: "https://support.mambu.com/docs/custom-fields-api#get-custom-field-sets"
 
 attributes:
   - name: "id"
