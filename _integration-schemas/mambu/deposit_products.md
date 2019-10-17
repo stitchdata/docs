@@ -17,7 +17,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The deposit product ID."
 #    foreign-key-id: "deposit-product-id"
 
   - name: "last_modified_date"
