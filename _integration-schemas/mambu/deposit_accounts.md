@@ -19,7 +19,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The deposit account ID."
 #    foreign-key-id: "deposit-account-id"
 
   - name: "last_modified_date"
