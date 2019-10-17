@@ -104,5 +104,5 @@ attributes:
 
   - name: "sub_state"
     type: "string"
-    description: "The substate of the credit agrrangment. This will either be Withdrawn or Rejected when the state of the arrangement is Closed."
+    description: "The substate of the credit arrangement. This will either be `Withdrawn` or `Rejected` when the `state` of the arrangement is `Closed`."
 ---
