@@ -11,7 +11,9 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "DepositAccount"
-    doc-link: "https://api.mambu.com/#tocsdepositaccount"
+api-method:
+  name: "Get all deposit accounts"
+  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
 
 attributes:
   - name: "id"
