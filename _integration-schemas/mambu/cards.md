@@ -13,7 +13,7 @@ description: |
 replication-method: "Full Table"
 
 api-method:
-    name: "Cards"
+  name: "Get all cards"
     doc-link: "https://api.mambu.com/?shell#cards"
 
 attributes:
