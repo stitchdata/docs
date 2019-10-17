@@ -94,7 +94,13 @@ attributes:
 
   - name: "state"
     type: "string"
-    description: "The state of the credit agrrangement - Pending Approval, Approved, Active or Closed."
+    description: |
+      The state of the credit arrangement. Possible values are:
+      
+      - `Pending Approval`
+      - `Approved`
+      - `Active`
+      - `Closed`
 
   - name: "sub_state"
     type: "string"
