@@ -10,7 +10,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Get all users"
-    doc-link: "https://api.mambu.com/?shell#tocsuser"
+  doc-link: "https://api.mambu.com/?http#users-getall"
 
 attributes:
   - name: "id"
