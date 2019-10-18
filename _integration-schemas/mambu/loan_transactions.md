@@ -17,7 +17,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The unique encoded key of the loan transaction."
     foreign-key-id: "loan-transaction-encoded-key"
 
   - name: "account_balances"
