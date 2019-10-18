@@ -10,19 +10,19 @@ description: "This table contains information about Loan Accounts."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "LoanAccount"
-    doc-link: "https://api.mambu.com/?shell#tocsloanaccount"
+  name: "Get all loan accounts"
+  doc-link: "https://api.mambu.com/?http#loanaccounts-getall"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The loan account ID."
 #    foreign-key-id: "loan-account-id"
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The date and time the loan account was last modified."
     replication-key: true
 
   - name: "account_arrears_settings"

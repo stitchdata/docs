@@ -5,19 +5,19 @@ version: "1.0"
 name: "deposit_products"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/deposit_products.json"
-description: "This table contains information about Deposit Products"
+description: "This table contains information about deposit products."
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "DepositProduct"
-    doc-link: "https://api.mambu.com/?shell#tocsdepositproduct"
+  name: "Get deposit products"
+  doc-link: "https://support.mambu.com/docs/savings-products-api#get-savings-products"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The deposit product ID."
 #    foreign-key-id: "deposit-product-id"
 
   - name: "last_modified_date"

@@ -10,22 +10,21 @@ description: "This table contains information about Deposit Accounts."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "DepositAccount"
-    doc-link: "https://api.mambu.com/#tocsdepositaccount"
+  name: "Get all deposit accounts"
+  doc-link: "https://api.mambu.com/?http#depositaccounts-getall"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-
-#    foreign-key-id: "deposit-account-id"
+    description: "The deposit account ID."
+#   foreign-key-id: "deposit-account-id"
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
     replication-key: true
-
+    description: "The date and time the deposit account was last modified."
+    
   - name: "account_holder_key"
     type: "string"
     description: "The encoded key of the client or group."

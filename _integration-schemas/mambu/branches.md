@@ -11,7 +11,9 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Branches"
-    doc-link: "https://api.mambu.com/?shell#branches"
+api-method:
+  name: "Get all branches"
+  doc-link: "https://api.mambu.com/?http#branches-getall"
 
 attributes:
   - name: "id"

@@ -49,7 +49,7 @@ object-attributes:
     type: "string"
     required: true
     description: "The subdomain of the {{ form-property.display-name }} account."
-    value: "stich.mambu.com"
+    value: "stitch.mambu.com"
 
   - name: "username"
     type: "string"

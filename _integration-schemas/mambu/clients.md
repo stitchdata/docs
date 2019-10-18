@@ -11,7 +11,9 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Clients"
-    doc-link: "https://api.mambu.com/?shell#clients"
+api-method:
+  name: "Get all clients"
+  doc-link: "https://api.mambu.com/?http#clients-getall"
 
 attributes:
   - name: "id"

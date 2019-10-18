@@ -10,8 +10,8 @@ description: "This table contains information about Credit Arrangements."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Credit Arrangements"
-    doc-link: "https://api.mambu.com/?shell#creditarrangements"
+  name: "Get all credit arrangements"
+  doc-link: "https://api.mambu.com/?http#creditarrangements-getall"
 
 attributes:
   - name: "id"
@@ -39,7 +39,7 @@ attributes:
 
   - name: "consumed_credit_amount"
     type: "number"
-    description: "The amount of credit used. This is the difference taken from the amount and availible credit amount."
+    description: "The amount of credit used. This is the difference taken from the amount and available credit amount."
 
   - name: "creation_date"
     type: "date-time"
@@ -95,9 +95,15 @@ attributes:
 
   - name: "state"
     type: "string"
-    description: "The state of the credit arrangement - Pending Approval, Approved, Active or Closed."
+    description: |
+      The state of the credit arrangement. Possible values are:
+      
+      - `Pending Approval`
+      - `Approved`
+      - `Active`
+      - `Closed`
 
   - name: "sub_state"
     type: "string"
-    description: "The substate of the credit arrangement. This will either be Withdrawn or Rejected when the state of the arrangement is Closed."
+    description: "The substate of the credit arrangement. This will either be `Withdrawn` or `Rejected` when the `state` of the arrangement is `Closed`."
 ---

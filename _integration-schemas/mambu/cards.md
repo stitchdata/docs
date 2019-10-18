@@ -5,13 +5,16 @@ version: "1.0"
 name: "cards"
 doc-link: "https://api.mambu.com/?shell#welcome"
 singer-schema: "https://github.com/singer-io/tap-mambu/blob/master/tap_mambu/schemas/cards.json"
-description: "This table contains information about Cards."
+description: |
+  This table contains information about cards.
+  
+  **Note**: To replicate this table, the [`deposit_accounts`](#deposit_accounts) table must also be set to replicate.
 
 replication-method: "Full Table"
 
 api-method:
-    name: "Cards"
-    doc-link: "https://api.mambu.com/?shell#cards"
+  name: "Get all cards"
+    doc-link: "https://api.mambu.com/?http#depositaccounts-getallcards"
 
 attributes:
   - name: "deposit_id"

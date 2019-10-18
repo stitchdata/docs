@@ -10,19 +10,19 @@ description: "This table contains information about Deposit Transactions."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "DepositTransaction"
-    doc-link: "https://api.mambu.com/?shell#tocsdeposittransaction"
+  name: "Search deposit transactions"
+  doc-link: "https://api.mambu.com/?http#deposittransactions-search"
 
 attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The unique encoded key of the deposit transaction."
 #    foreign-key-id: "deposit-transaction-encoded-key"  
 
   - name: "creation_date"
     type: "date-time"
-    description: ""
+    description: "The date when the deposit transaction was created."
     replication-key: true
 
   - name: "account_balances"

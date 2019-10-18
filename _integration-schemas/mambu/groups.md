@@ -10,19 +10,19 @@ description: "This table contains information about Groups."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Groups"
-    doc-link: "https://api.mambu.com/?shell#groups-getall"
+    name: "Get all groups"
+  doc-link: "https://api.mambu.com/?http#groups-getall"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The group ID."
 #    foreign-key-id: "group-id"
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The date and time the group was last modified."
     replication-key: true
 
   - name: "addresses"
