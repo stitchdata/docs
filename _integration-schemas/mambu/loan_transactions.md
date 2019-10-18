@@ -19,11 +19,11 @@ attributes:
     primary-key: true
     description: "The unique encoded key of the loan transaction."
     foreign-key-id: "loan-transaction-encoded-key"
-
+  
   - name: "creation_date"
     type: "date-time"
-    replication-key: true
     description: ""
+    replication-key: true
 
   - name: "account_balances"
     type: "object"

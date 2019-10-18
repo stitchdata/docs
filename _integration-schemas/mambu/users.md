@@ -21,8 +21,8 @@ attributes:
 
   - name: "last_modified_date"
     type: "date-time"
-    replication-key: true
     description: ""
+    replication-key: true
 
   - name: "access"
     type: "object"
