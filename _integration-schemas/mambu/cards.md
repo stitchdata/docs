@@ -14,7 +14,7 @@ replication-method: "Full Table"
 
 api-method:
   name: "Get all cards"
-    doc-link: "https://api.mambu.com/?http#depositaccounts-getallcards"
+  doc-link: "https://api.mambu.com/?http#depositaccounts-getallcards"
 
 attributes:
   - name: "deposit_id"
