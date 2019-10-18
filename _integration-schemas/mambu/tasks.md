@@ -10,7 +10,7 @@ description: "This table contains information about Tasks."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Get all tasks"
+  name: "Get all tasks"
   doc-link: "https://api.mambu.com/?http#tasks-getall"
 
 attributes:

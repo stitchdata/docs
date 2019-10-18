@@ -19,6 +19,11 @@ attributes:
     description: "The user ID."
 #    foreign-key-id: "user-id"
 
+  - name: "last_modified_date"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "access"
     type: "object"
     description: ""
@@ -122,10 +127,6 @@ attributes:
     description: ""
 
   - name: "last_logged_in_date"
-    type: "date-time"
-    description: ""
-
-  - name: "last_modified_date"
     type: "date-time"
     description: ""
 

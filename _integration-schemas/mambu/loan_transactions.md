@@ -20,6 +20,11 @@ attributes:
     description: "The unique encoded key of the loan transaction."
     foreign-key-id: "loan-transaction-encoded-key"
 
+  - name: "creation_date"
+    type: "date-time"
+    replication-key: true
+    description: ""
+
   - name: "account_balances"
     type: "object"
     description: ""
@@ -109,10 +114,6 @@ attributes:
     type: "string"
     description: ""
     foreign-key-id: "center-encoded-key"
-
-  - name: "creation_date"
-    type: "date-time"
-    description: ""
 
   - name: "custom_field_sets"
     type: "array"
