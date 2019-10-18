@@ -17,7 +17,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The task ID."
 #    foreign-key-id: "task-id"
 
   - name: "last_modified_date"
