@@ -39,7 +39,7 @@ status: "Open Beta"
 certified: false 
 
 historical: "1 year"
-frequency: "one hour"
+frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.mambu.com/"
 
