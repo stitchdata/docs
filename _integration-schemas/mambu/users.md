@@ -26,39 +26,60 @@ attributes:
       - name: "administrator_access"
         type: "boolean"
         description: ""
+
       - name: "api_access"
         type: "boolean"
         description: ""
+
       - name: "can_manage_all_branches"
         type: "boolean"
         description: ""
+
       - name: "can_manage_entities_assigned_to_other_officers"
         type: "string"
         description: ""
+
       - name: "credit_officer_access"
         type: "boolean"
         description: ""
+
       - name: "mambu_access"
         type: "boolean"
         description: ""
+
       - name: "managed_branches"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "branch_key"
+            type: "string"
+            description: ""
+            foreign-key-id: "branch-encoded-key"
+
       - name: "permissions"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "value"
+            type: "boolean"
+            description: ""
+
       - name: "support_access"
         type: "boolean"
         description: ""
+
       - name: "teller_access"
         type: "boolean"
         description: ""
+
   - name: "assigned_branch_key"
     type: "string"
     description: ""
+
   - name: "creation_date"
     type: "date-time"
     description: ""
+
   - name: "custom_field_sets"
     type: "array"
     description: ""
@@ -67,6 +88,7 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "custom-field-set-id"
+
       - name: "custom_field_values"
         type: "array"
         description: ""
@@ -78,15 +100,19 @@ attributes:
           - name: "custom_field_value"
             type: "string"
             description: ""
+
   - name: "email"
     type: "string"
     description: ""
+
   - name: "encoded_key"
     type: "string"
     description: ""
+
   - name: "first_name"
     type: "string"
     description: ""
+
   - name: "home_phone"
     type: "string"
     description: ""
@@ -94,30 +120,39 @@ attributes:
   - name: "language"
     type: "string"
     description: ""
+
   - name: "last_logged_in_date"
     type: "date-time"
     description: ""
+
   - name: "last_modified_date"
     type: "date-time"
     description: ""
+
   - name: "last_name"
     type: "string"
     description: ""
+
   - name: "mobile_phone"
     type: "string"
     description: ""
+
   - name: "notes"
     type: "string"
     description: ""
+
   - name: "title"
     type: "string"
     description: ""
+
   - name: "two_factor_authentication"
     type: "boolean"
     description: ""
+
   - name: "user_state"
     type: "string"
     description: ""
+
   - name: "username"
     type: "string"
     description: ""

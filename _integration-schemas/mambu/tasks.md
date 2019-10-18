@@ -29,16 +29,20 @@ attributes:
     type: "string"
     description: ""
     foreign-key-id: "user-encoded-key"
+
   - name: "created_by_full_name"
     type: "string"
     description: ""
+
   - name: "created_by_user_key"
     type: "string"
     description: ""
     foreign-key-id: "user-encoded-key"
+
   - name: "creation_date"
     type: "date-time"
     description: ""
+
   - name: "custom_field_sets"
     type: "array"
     description: ""
@@ -47,6 +51,7 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "custom-field-set-id"
+
       - name: "custom_field_values"
         type: "array"
         description: ""
@@ -58,26 +63,31 @@ attributes:
           - name: "custom_field_value"
             type: "string"
             description: ""
+
   - name: "description"
     type: "string"
     description: ""
+
   - name: "due_date"
     type: "date"
     description: ""
+
   - name: "encoded_key"
     type: "string"
     description: ""
 
-  
   - name: "state"
     type: "string"
     description: ""
+
   - name: "task_link"
     type: "string"
     description: ""
+
   - name: "task_link_type"
     type: "string"
     description: ""
+
   - name: "title"
     type: "string"
     description: ""

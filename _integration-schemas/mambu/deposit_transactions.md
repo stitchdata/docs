@@ -32,9 +32,11 @@ attributes:
       - name: "total_balance"
         type: "number"
         description: ""
+
   - name: "adjustment_transaction_key"
     type: "string"
     description: ""
+
   - name: "affected_amounts"
     type: "object"
     description: ""
@@ -42,36 +44,47 @@ attributes:
       - name: "fees_amount"
         type: "number"
         description: ""
+
       - name: "fraction_amount"
         type: "number"
         description: ""
+
       - name: "funds_amount"
         type: "number"
         description: ""
+
       - name: "interest_amount"
         type: "number"
         description: ""
+
       - name: "overdraft_amount"
         type: "number"
         description: ""
+
       - name: "overdraft_fees_amount"
         type: "number"
         description: ""
+
       - name: "overdraft_interest_amount"
         type: "number"
         description: ""
+
       - name: "technical_overdraft_amount"
         type: "number"
         description: ""
+
       - name: "technical_overdraft_interest_amount"
         type: "number"
         description: ""
+
   - name: "amount"
     type: "number"
     description: ""
+
   - name: "booking_date"
     type: "date-time"
     description: ""
+
   - name: "branch_key"
     type: "string"
     description: ""
@@ -84,9 +97,11 @@ attributes:
       - name: "advice"
         type: "boolean"
         description: ""
+
       - name: "amount"
         type: "number"
         description: ""
+
       - name: "card_acceptor"
         type: "object"
         description: ""
@@ -94,39 +109,51 @@ attributes:
           - name: "city"
             type: "string"
             description: ""
+
           - name: "country"
             type: "string"
             description: ""
+
           - name: "mcc"
             type: "integer"
             description: ""
+
           - name: "name"
             type: "string"
             description: ""
+
           - name: "state"
             type: "string"
             description: ""
+
           - name: "zip"
             type: "string"
             description: ""
+
       - name: "card_token"
         type: "string"
         description: ""
+
       - name: "currency_code"
         type: "string"
         description: ""
+
       - name: "encoded_key"
         type: "string"
         description: ""
+
       - name: "external_authorization_reference_id"
         type: "string"
         description: ""
+
       - name: "external_reference_id"
         type: "string"
         description: ""
+
       - name: "user_transaction_time"
         type: "string"
         description: ""
+
   - name: "centre_key"
     type: "string"
     description: ""
@@ -135,19 +162,41 @@ attributes:
   - name: "currency_code"
     type: "string"
     description: ""
+
   - name: "custom_field_sets"
-    type: "null"
+    type: "array"
     description: ""
+    subattributes:
+      - name: "custom_field_set_id"
+        type: "string"
+        description: ""
+        foreign-key-id: "custom-field-set-id"
+
+      - name: "custom_field_values"
+        type: "array"
+        description: ""
+        subattributes:
+          - name: "custom_field_id"
+            type: "string"
+            description: ""
+            foreign-key-id: "custom-field-id"
+
+          - name: "custom_field_value"
+            type: "string"
+            description: ""
 
   - name: "external_id"
     type: "string"
     description: ""
+
   - name: "fees"
     type: "null"
     description: ""
+
   - name: "id"
     type: "string"
     description: ""
+
   - name: "linked_loan_transaction_key"
     type: "string"
     description: ""
@@ -156,15 +205,19 @@ attributes:
   - name: "migration_event_key"
     type: "string"
     description: ""
+
   - name: "notes"
     type: "string"
     description: ""
+
   - name: "original_transaction_key"
     type: "string"
     description: ""
+
   - name: "parent_account_key"
     type: "string"
     description: ""
+
   - name: "taxes"
     type: "object"
     description: ""
@@ -172,6 +225,7 @@ attributes:
       - name: "tax_rate"
         type: "number"
         description: ""
+
   - name: "terms"
     type: "object"
     description: ""
@@ -183,6 +237,7 @@ attributes:
           - name: "interest_rate"
             type: "number"
             description: ""
+
       - name: "overdraft_interest_settings"
         type: "object"
         description: ""
@@ -190,9 +245,11 @@ attributes:
           - name: "index_interest_rate"
             type: "number"
             description: ""
+
           - name: "interest_rate"
             type: "number"
             description: ""
+
       - name: "overdraft_settings"
         type: "object"
         description: ""
@@ -200,9 +257,11 @@ attributes:
           - name: "overdraft_limit"
             type: "number"
             description: ""
+
   - name: "till_key"
     type: "string"
     description: ""
+
   - name: "transaction_details"
     type: "object"
     description: ""
@@ -210,9 +269,11 @@ attributes:
       - name: "transaction_channel_id"
         type: "string"
         description: ""
+
       - name: "transaction_channel_key"
         type: "string"
         description: ""
+
   - name: "transfer_details"
     type: "object"
     description: ""
@@ -221,12 +282,15 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "linked-deposit-transaction-key"
+
       - name: "linked_loan_transaction_key"
         type: "string"
         description: ""
+
   - name: "type"
     type: "string"
     description: ""
+
   - name: "user_key"
     type: "string"
     description: ""

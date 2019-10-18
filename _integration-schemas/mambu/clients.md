@@ -36,33 +36,43 @@ attributes:
       - name: "country"
         type: "string"
         description: ""
+
       - name: "parent_key"
         type: "string"
         description: ""
+
       - name: "city"
         type: "string"
         description: ""
+
       - name: "latitude"
         type: "number"
         description: ""
+
       - name: "postcode"
         type: "string"
         description: ""
+
       - name: "index_in_list"
         type: "integer"
         description: ""
+
       - name: "encoded_key"
         type: "string"
         description: ""
+
       - name: "region"
         type: "string"
         description: ""
+
       - name: "line2"
         type: "string"
         description: ""
+
       - name: "line1"
         type: "string"
         description: ""
+
       - name: "longitude"
         type: "number"
         description: ""
@@ -74,7 +84,7 @@ attributes:
   - name: "assigned_centre_key"
     type: "string"
     description: "Ended key of the center that the client is assigned to."
-    foreign-key-id: "client-encoded-key"
+    foreign-key-id: "centre-encoded-key"
 
   - name: "assigned_user_key"
     type: "string"
@@ -148,24 +158,31 @@ attributes:
       - name: "identification_document_template_key"
         type: "string"
         description: ""
+
       - name: "issuing_authority"
         type: "string"
         description: ""
+
       - name: "client_key"
         type: "string"
         description: ""
+
       - name: "document_type"
         type: "string"
         description: ""
+
       - name: "index_in_list"
         type: "integer"
         description: ""
+
       - name: "valid_until"
         type: "string"
         description: ""
+
       - name: "encoded_key"
         type: "string"
         description: ""
+
       - name: "document_id"
         type: "string"
         description: ""              
@@ -192,7 +209,7 @@ attributes:
 
   - name: "preferred_language"
     type: "string"
-    description: "The client's preferred language selection in Mambu."
+    description: "The client's preferred language selection in {{ integration.display_name }}."
 
   - name: "profile_picture_key"
     type: "string"

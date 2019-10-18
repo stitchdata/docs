@@ -32,37 +32,47 @@ attributes:
       - name: "country"
         type: "string"
         description: ""
+
       - name: "parent_key"
         type: "string"
         description: ""
+
       - name: "city"
         type: "string"
         description: ""
+
       - name: "latitude"
         type: "number"
         description: ""
+
       - name: "postcode"
         type: "string"
         description: ""
+
       - name: "index_in_list"
         type: "integer"
         description: ""
+
       - name: "encoded_key"
         type: "string"
         description: ""
+
       - name: "region"
         type: "string"
         description: ""
+
       - name: "line2"
         type: "string"
         description: ""
+
       - name: "line1"
         type: "string"
         description: ""
+
       - name: "longitude"
         type: "number"
-        description: ""    
-
+        description: ""
+    
   - name: "branch_holidays"
     type: "array"
     description: "A list of branch holidays."
@@ -70,19 +80,23 @@ attributes:
       - name: "name"
         type: "string"
         description: ""
+
       - name: "date"
         type: "string"
         description: ""
+
       - name: "encoded_key"
         type: "string"
         description: ""
+
       - name: "is_anually_recurring"
         type: "boolean"
         description: ""
+
       - name: "creation_date"
         type: "string"
-        description: ""        
-
+        description: ""
+        
   - name: "creation_date"
     type: "date-time"
     description: "The branch creation date."
@@ -95,17 +109,20 @@ attributes:
         type: "string"
         foreign-key-id: "custom-field-set-id"
         description: ""
+
       - name: "custom_field_values"
         type: "array"
         description: ""
+
         subattributes:
           - name: "custom_field_id"
             type: "string"
             foreign-key-id: "custom-field-id"
             description: ""
+
           - name: "custom_field_value"
             type: "string"
-            description: ""    
+            description: ""
 
   - name: "email_address"
     type: "string"
@@ -114,6 +131,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: "The entity's encoded key. This value is generated and globally unique."
+    foreign-key-id: "branch-encoded-key"
 
   - name: "name"
     type: "string"

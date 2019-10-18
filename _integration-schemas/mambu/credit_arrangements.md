@@ -53,6 +53,7 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "custom-field-set-id"
+
       - name: "custom_field_values"
         type: "array"
         description: ""
@@ -61,6 +62,7 @@ attributes:
             type: "string"
             description: ""
             foreign-key-id: "custom-field-id"
+
           - name: "custom_field_value"
             type: "string"
             description: ""
@@ -68,6 +70,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: "The encoded key of the credit arrangement. This value is auto-generated and unique."
+    foreign-key-id: "credit-arrangement-encoded-key"
 
   - name: "expire_date"
     type: "date-time"
@@ -92,9 +95,9 @@ attributes:
 
   - name: "state"
     type: "string"
-    description: "The state of the credit agrrangement - Pending Approval, Approved, Active or Closed."
+    description: "The state of the credit arrangement - Pending Approval, Approved, Active or Closed."
 
   - name: "sub_state"
     type: "string"
-    description: "The substate of the credit agrrangment. This will either be Withdrawn or Rejected when the state of the arrangement is Closed."
+    description: "The substate of the credit arrangement. This will either be Withdrawn or Rejected when the state of the arrangement is Closed."
 ---

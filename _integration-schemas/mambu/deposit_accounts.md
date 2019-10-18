@@ -18,6 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: ""
+
 #    foreign-key-id: "deposit-account-id"
 
   - name: "last_modified_date"
@@ -27,8 +28,8 @@ attributes:
 
   - name: "account_holder_key"
     type: "string"
-    description: "The encodedKey of the client or group."
-    foreign-key-id: "client-encoded-key"
+    description: "The encoded key of the client or group."
+    # foreign-key-id: "client-encoded-key"
 
   - name: "account_holder_type"
     type: "string"
@@ -49,9 +50,11 @@ attributes:
       - name: "interest_accrued"
         type: "number"
         description: "The amount of interest that has been accrued in the account."
+
       - name: "overdraft_interest_accrued"
         type: "number"
         description: "The amount of overdraft interest that has been accrued in the account."
+
       - name: "technical_overdraft_interest_accrued"
         type: "number"
         description: "The amount of technical overdraft interest that has been accrued in the account."
@@ -71,30 +74,39 @@ attributes:
       - name: "available_balance"
         type: "number"
         description: "The current available balance for deposit transactions."
+
       - name: "fees_due"
         type: "number"
         description: "How much in fees is due to be paid on this account."
+
       - name: "hold_balance"
         type: "number"
         description: "The sum of all the authorization hold amounts on this account."
+
       - name: "locked_balance"
         type: "number"
         description: "No operation can modify the balance of the account and get it lower than this locked balance."
+
       - name: "overdraft_amount"
         type: "number"
         description: "How much money has been taken out in overdraft."
+
       - name: "overdraft_interest_due"
         type: "number"
         description: "How much interest is due to be paid on this account as a result of the authorized overdraft."
+
       - name: "technical_overdraft_amount"
         type: "number"
         description: "How much money has been taken out as unplanned overdraft."
+
       - name: "technical_overdraft_interest_due"
         type: "number"
         description: "How much interest is due to be paid on this account as a result of the technical overdraft."
+
       - name: "total_balance"
         type: "number"
         description: "The current balance of the account."
+        
   - name: "closed_date"
     type: "date-time"
     description: "The date this deposit account was closed."
@@ -120,6 +132,7 @@ attributes:
         type: "string"
         description: ""
         foreign-key-id: "custom-field-set-id"
+
       - name: "custom_field_values"
         type: "array"
         description: ""
@@ -128,6 +141,7 @@ attributes:
             type: "string"
             description: ""
             foreign-key-id: "custom-field-id"
+
           - name: "custom_field_value"
             type: "string"
             description: ""
@@ -147,9 +161,11 @@ attributes:
           - name: "interest_payment_dates"
             type: "null"
             description: ""
+
           - name: "interest_payment_point"
             type: "string"
             description: ""
+
       - name: "interest_rate_settings"
         type: "object"
         description: ""
@@ -157,21 +173,27 @@ attributes:
           - name: "encoded_key"
             type: "string"
             description: ""
+
           - name: "interest_charge_frequency"
             type: "string"
             description: ""
+
           - name: "interest_charge_frequency_count"
             type: "integer"
             description: ""
+
           - name: "interest_rate"
             type: "number"
             description: ""
+
           - name: "interest_rate_terms"
             type: "string"
             description: ""
+
           - name: "interest_rate_tiers"
             type: "null"
             description: ""
+
   - name: "internal_controls"
     type: "object"
     description: ""
@@ -179,45 +201,59 @@ attributes:
       - name: "max_withdrawal_amount"
         type: "number"
         description: ""
+
       - name: "recommended_deposit_amount"
         type: "number"
         description: ""
+
       - name: "target_amount"
         type: "number"
         description: ""
+
   - name: "last_account_appraisal_date"
     type: "date-time"
     description: ""
+
   - name: "last_interest_calculation_date"
     type: "date-time"
     description: ""
+
   - name: "last_interest_stored_date"
     type: "date-time"
     description: ""
+
   - name: "last_overdraft_interest_review_date"
     type: "date-time"
     description: ""
+
   - name: "last_sent_to_arrears_date"
     type: "date-time"
     description: ""
+
   - name: "linked_settlement_account_keys"
     type: "null"
     description: ""
+
   - name: "locked_date"
     type: "date-time"
     description: ""
+
   - name: "maturity_date"
     type: "date-time"
     description: ""
+
   - name: "migration_event_key"
     type: "string"
     description: ""
+
   - name: "name"
     type: "string"
     description: ""
+
   - name: "notes"
     type: "string"
     description: ""
+
   - name: "overdraft_interest_settings"
     type: "object"
     description: ""
@@ -229,33 +265,43 @@ attributes:
           - name: "encoded_key"
             type: "string"
             description: ""
+
           - name: "interest_charge_frequency"
             type: "string"
             description: ""
+
           - name: "interest_charge_frequency_count"
             type: "integer"
             description: ""
+
           - name: "interest_rate"
             type: "number"
             description: ""
+
           - name: "interest_rate_review_count"
             type: "integer"
             description: ""
+
           - name: "interest_rate_review_unit"
             type: "string"
             description: ""
+
           - name: "interest_rate_source"
             type: "string"
             description: ""
+
           - name: "interest_rate_terms"
             type: "string"
             description: ""
+
           - name: "interest_rate_tiers"
             type: "null"
             description: ""
+
           - name: "interest_spread"
             type: "number"
             description: ""
+
   - name: "overdraft_settings"
     type: "object"
     description: ""
@@ -263,16 +309,20 @@ attributes:
       - name: "allowed_overdraft"
         type: "boolean"
         description: ""
+
       - name: "overdraft_expiry_date"
         type: "date-time"
         description: ""
+
       - name: "overdraft_limit"
         type: "number"
         description: ""
+
   - name: "product_type_key"
     type: "string"
     description: ""
-    foreign-key-id: "product-type-key"
+    # foreign-key-id: "product-type-key"
+
   - name: "withholding_tax_source_key"
     type: "string"
     description: ""

@@ -19,6 +19,7 @@ attributes:
     primary-key: true
     description: "The deposit ID."
     foreign-key-id: "deposit-id"
+
   - name: "reference_token"
     type: "string"
     primary-key: true

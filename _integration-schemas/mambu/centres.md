@@ -32,36 +32,46 @@ attributes:
       - name: "country"
         type: "string"
         description: ""
+
       - name: "parent_key"
         type: "string"
         description: ""
+
       - name: "city"
         type: "string"
         description: ""
+
       - name: "latitude"
         type: "number"
         description: ""
+
       - name: "postcode"
         type: "string"
         description: ""
+
       - name: "index_in_list"
         type: "integer"
         description: ""
+
       - name: "encoded_key"
         type: "string"
         description: ""
+
       - name: "region"
         type: "string"
         description: ""
+
       - name: "line2"
         type: "string"
         description: ""
+
       - name: "line1"
         type: "string"
         description: ""
+
       - name: "longitude"
         type: "number"
-        description: ""    
+        description: ""  
 
   - name: "assigned_branch_key"
     type: "string"
@@ -95,6 +105,7 @@ attributes:
   - name: "encoded_key"
     type: "string"
     description: "The encoded key of the entity. This value is generated and globally unique."
+    foreign-key-id: "centre-encoded-key"
 
   - name: "meeting_day"
     type: "string"
