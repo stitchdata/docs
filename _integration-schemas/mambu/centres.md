@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
   name: "Get all centres"
-  doc-link: "https://api.mambu.com/?shell#centres"
+  doc-link: "https://api.mambu.com/?http#centres-getall"
 
 attributes:
   - name: "id"
