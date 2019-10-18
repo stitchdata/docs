@@ -10,7 +10,7 @@ description: "This table contains information about Loan Products."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "LoanProduct"
+    name: "Get all loan products"
   doc-link: "https://support.mambu.com/docs/loan-products-api#get-loan-products"
 
 attributes:
