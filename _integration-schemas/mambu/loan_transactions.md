@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Loan Transactions"
-    doc-link: "https://api.mambu.com/?shell#loantransactions-search"
+  doc-link: "https://api.mambu.com/?http#loantransactions-getall"
 
 attributes:
   - name: "encoded_key"
