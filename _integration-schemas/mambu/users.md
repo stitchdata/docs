@@ -16,7 +16,7 @@ attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user ID."
 #    foreign-key-id: "user-id"
 
   - name: "access"
