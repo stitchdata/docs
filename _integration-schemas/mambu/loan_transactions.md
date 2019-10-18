@@ -10,7 +10,7 @@ description: "This table contains information about Loan Transactions."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Loan Transactions"
+  name: "Get all loan transactions"
   doc-link: "https://api.mambu.com/?http#loantransactions-getall"
 
 attributes:
