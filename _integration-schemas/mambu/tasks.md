@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Get all tasks"
-    doc-link: "https://api.mambu.com/?shell#tocstask"
+  doc-link: "https://api.mambu.com/?http#tasks-getall"
 
 attributes:
   - name: "id"
