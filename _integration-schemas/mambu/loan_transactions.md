@@ -10,14 +10,14 @@ description: "This table contains information about Loan Transactions."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Loan Transactions"
-    doc-link: "https://api.mambu.com/?shell#loantransactions-search"
+  name: "Get all loan transactions"
+  doc-link: "https://api.mambu.com/?http#loantransactions-getall"
 
 attributes:
   - name: "encoded_key"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The unique encoded key of the loan transaction."
     foreign-key-id: "loan-transaction-encoded-key"
 
   - name: "account_balances"

@@ -10,20 +10,19 @@ description: "This table contains information about Loan Products."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "LoanProduct"
-    doc-link: "https://api.mambu.com/?shell#tocsloanproduct"
+  name: "Get all loan products"
+  doc-link: "https://support.mambu.com/docs/loan-products-api#get-loan-products"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
-
-#    foreign-key-id: "loan-product-id"
+    description: "The loan product ID."
+#   foreign-key-id: "loan-product-id"
   
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The date and time the loan product was last modified."
     replication-key: true
 
   - name: "account_initial_state"

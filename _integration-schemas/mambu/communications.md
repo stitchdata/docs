@@ -10,8 +10,6 @@ description: "This table contains information about Communications."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Communications"
-api-method:
   name: "Search all communications"
   doc-link: "https://api.mambu.com/?http#communications-search"
 

@@ -10,19 +10,19 @@ description: "This table contains information about Tasks."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Task"
-    doc-link: "https://api.mambu.com/?shell#tocstask"
+    name: "Get all tasks"
+  doc-link: "https://api.mambu.com/?http#tasks-getall"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The task ID."
 #    foreign-key-id: "task-id"
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The date and time the task was last modified."
     replication-key: true
 
   - name: "assigned_user_key"

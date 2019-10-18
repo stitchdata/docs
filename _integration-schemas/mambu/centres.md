@@ -10,8 +10,8 @@ description: "This table contains information about Centers."
 replication-method: "Key-based Incremental"
 
 api-method:
-  name: "Centres"
-  doc-link: "https://api.mambu.com/?shell#centres"
+  name: "Get all centres"
+  doc-link: "https://api.mambu.com/?http#centres-getall"
 
 attributes:
   - name: "id"

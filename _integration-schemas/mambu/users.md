@@ -9,14 +9,14 @@ description: "This table contains information about Users."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "User"
-    doc-link: "https://api.mambu.com/?shell#tocsuser"
+  name: "Get all users"
+  doc-link: "https://api.mambu.com/?http#users-getall"
 
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: ""
+    description: "The user ID."
 #    foreign-key-id: "user-id"
 
   - name: "access"

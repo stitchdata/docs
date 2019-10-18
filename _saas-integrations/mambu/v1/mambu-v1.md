@@ -39,7 +39,7 @@ status: "Open Beta"
 certified: false 
 
 historical: "1 year"
-frequency: "one hour"
+frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.mambu.com/"
 
@@ -85,7 +85,7 @@ setup-steps:
       [Add content]
   - title: "add integration"
     # content: |
-      # starting with 4., add instructions for additional fields in UI
+      5. [instructions about subdomain field here]
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
