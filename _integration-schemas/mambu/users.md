@@ -9,7 +9,7 @@ description: "This table contains information about Users."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "User"
+  name: "Get all users"
     doc-link: "https://api.mambu.com/?shell#tocsuser"
 
 attributes:
