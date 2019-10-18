@@ -26,7 +26,7 @@ name: "mambu"
 display_name: "Mambu"
 
 singer: true 
-tap-name: "mambu"
+tap-name: "Mambu"
 repo-url: https://github.com/singer-io/tap-mambu
 
 # this-version: "1.0"
@@ -52,10 +52,6 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
 
 # -------------------------- #
 #      Incompatibilities     #
@@ -73,19 +69,12 @@ column-selection: true
 # -------------------------- #
 
 requirements-list:
-  - item: "**API Access Enabled Account**. The {{ integration.display_name }} integration requires an account login with API Access. In {{ integration.display_name }}'s system API access can be granted to any existing user. Although, {{ integration.display_name }} suggests a new user be created just for APIs."
-  - item: "**Subdomain**. This is required to link the {{ integration.display_name }} client account to Stitch."
-
-requirements-info:
+  - item: "**A {{ integration.display_name }} account with API access**. The {{ integration.display_name }} integration requires an account login with API access. In {{ integration.display_name }}'s app, API access can be granted to any existing user."
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
   - title: "add integration"
-    # content: |
-      5. [instructions about subdomain field here]
+    content: |
+      5. In the **Subdomain** field, enter your {{ integration.display_name }} subdomain. For example: If the subdomain were `stitch.{{ integration.name }}.com`, only `stitch` would be entered into this field.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
@@ -96,13 +85,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/mambu
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
