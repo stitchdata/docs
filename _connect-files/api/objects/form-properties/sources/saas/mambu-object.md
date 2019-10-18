@@ -26,11 +26,7 @@ api-type: "platform.mambu"
 display-name: "Mambu"
 
 source-type: "saas"
-docs-name: "mambu" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
-
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
+docs-name: "mambu"
 
 
 # -------------------------- #
@@ -43,7 +39,6 @@ uses-start-date: true
 # The following attributes are considered common,
 # and therefore don't need to be listed:
 # anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
-
 object-attributes:
   - name: "subdomain"
     type: "string"
