@@ -11,7 +11,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "LoanProduct"
-    doc-link: "https://api.mambu.com/?shell#tocsloanproduct"
+  doc-link: "https://support.mambu.com/docs/loan-products-api#get-loan-products"
 
 attributes:
   - name: "id"
