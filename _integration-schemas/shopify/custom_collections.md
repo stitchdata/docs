@@ -46,7 +46,7 @@ attributes:
   - name: "image"
     type: "object"
     description: "Details about images associated with the custom collection."
-    object-properties:
+    subattributes:
       - name: "alt"
         type: "string"
         description: "Alternative text that describes the collection image."
