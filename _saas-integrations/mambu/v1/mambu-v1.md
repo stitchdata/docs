@@ -85,7 +85,7 @@ setup-steps:
       [Add content]
   - title: "add integration"
     # content: |
-      # starting with 4., add instructions for additional fields in UI
+      5. [instructions about subdomain field here]
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
