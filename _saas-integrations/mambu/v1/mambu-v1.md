@@ -52,11 +52,6 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
 # -------------------------- #
 #      Incompatibilities     #
 # -------------------------- #
@@ -79,10 +74,6 @@ requirements-list:
 requirements-info:
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
   - title: "add integration"
     # content: |
       5. [instructions about subdomain field here]
@@ -98,11 +89,6 @@ setup-steps:
 # Each table has a its own .md file in /_integration-schemas/mambu
 
 
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
