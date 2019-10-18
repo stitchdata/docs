@@ -43,6 +43,7 @@ attributes:
       - name: "custom_field_set_id"
         type: "string"
         description: ""
+        foreign-key-id: "custom-field-set-id"
       - name: "custom_field_values"
         type: "array"
         description: ""
