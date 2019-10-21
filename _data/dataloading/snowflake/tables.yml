@@ -1,0 +1,37 @@
+# -------------------------------------------- #
+#                                              #
+#                     TABLES                   #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/tables.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/snowflake.yml
+
+## Only some columns are empty
+- id: some-empty-columns
+  rejectable: false
+  # if: uses default
+  then: 
+    v1: &some-empty-columns "{{ site.data.dataloading.scenarios.tables.some-empty-columns.then | flatify }}"
+
+
+## Completely empty columns
+- id: all-empty-columns
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &all-empty-columns "No table is created in {{ destination.display_name }}. At least one column must have a non-`NULL` value for Stitch to create a table in {{ destination.display_name }}."
+
+
+## Table contains too many columns
+- id: column-table-limit
+  rejectable: true
+  # if: uses default
+  then:
+    v1: &column-table-limit "{{ site.data.dataloading.scenarios.tables.column-table-limit.then | flatify }}"
+  error:
+    v1: &column-table-limit-error "{{ site.data.errors.loading.common.too-many-columns }}"
+  fix-it:
+    v1: &column-table-limit-fix-it "{{ site.data.dataloading.scenarios.tables.column-table-limit.fix-it | flatify }}"
