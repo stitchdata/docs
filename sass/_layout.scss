@@ -1,308 +1,305 @@
 /* Top nav */
 .stitch-docs-navbar {
-	position: fixed;
-	left: 0;
-	top: 0;
-	background: $protocol-black;
-	width: 100%;
-	padding: 1em 4em;
-	height: 4.5em;
-	display: flex;
-	box-sizing: border-box;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	min-width: 1200px;
-	z-index: 5;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: $protocol-black;
+  width: 100%;
+  padding: 1em 4em;
+  height: 4.5em;
+  display: flex;
+  box-sizing: border-box;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 5;
 
-	.nav-left {
-		display: flex;
-		flex: 1;
-	}
+  .nav-left {
+    display: flex;
+    flex: 1;
+  }
 
-	.nav-right {
-		display: flex;
-		justify-content: flex-end;
-		flex: 4;
+  .nav-right {
+    display: flex;
+    justify-content: flex-end;
+    flex: 4;
 
-		li {
-			display: inline-block;
-			margin-left: 25px;
-			vertical-align: middle;
-			line-height: 1rem;
+    li {
+      display: inline-block;
+      margin-left: 25px;
+      vertical-align: middle;
+      line-height: 1rem;
 
-			a {
-				color: $white;
+      a {
+        color: $white;
 
-				&:hover {
-					color: $gray-3;
-					text-decoration: none;
-				}
-			}
-			&.sign-up {
-				a {
-					color: $stitch-yellow;
-					font-weight: bold;
-				}
-			}
-		}
-	}
+        &:hover {
+          color: $gray-3;
+          text-decoration: none;
+        }
+      }
+      &.sign-up {
+        a {
+          color: $stitch-yellow;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 
-	#stitch_logomark {
-		display: inline-block;
-		float: left;
-		vertical-align: middle;
-	}
+  #stitch_logomark {
+    display: inline-block;
+    float: left;
+    vertical-align: middle;
+  }
 
-	.navbar-brand {
-		color: $white;
-		padding: 0;
-		display: inline-block;
-		margin: 0.5em 0;
-		float: left;
-		vertical-align: middle;
-		margin-left: 10px;
-	}
+  .navbar-brand {
+    color: $white;
+    padding: 0;
+    display: inline-block;
+    margin: 0.5em 0;
+    float: left;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 
-	#search-demo-container {
-		position: relative;
-	}
+  #search-demo-container {
+    position: relative;
+  }
 
-	#search-input {
-		margin: 0;
-		margin-top: 2px;
-		display: inline-block;
-		vertical-align: middle;
-		width: 250px;
-		border-radius: 2px;
-		padding-left: 35px;
-		height: inherit;
-		background: #ffffff;
-	}
+  #search-input {
+    margin: 0;
+    margin-top: 2px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 250px;
+    border-radius: 2px;
+    padding-left: 35px;
+    height: inherit;
+    background: #ffffff;
+  }
 
-	.img {
-		height: 20px;
-		width: 20px;
-		position: absolute;
-		left: 10px;
-		top: 10px;
-		font-size: 1.2rem;
-		color: $gray-3;
-	}
+  .img {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.2rem;
+    color: $gray-3;
+  }
 }
 
 body {
-	padding-top: 4.5em;
+  padding-top: 4.5em;
 }
-
 
 /* Page layout -- columns */
 
 #main {
-	position: absolute;
-	width: 100%;
-	top: 4.5em;
+  position: absolute;
+  width: 100%;
+  top: 4.5em;
 
-	.sidebar-column {
-		position: fixed;
-		width: 375px;
-		padding: 3rem 4rem 4rem 4rem;
-		background: $gray-1;
-		overflow-y: auto;
-		overflow-x: hidden;
-		height: calc(100vh - 4.5em);
+  .sidebar-column {
+    position: fixed;
+    width: 375px;
+    padding: 3rem 4rem 4rem 4rem;
+    background: $gray-1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - 4.5em);
 
-	  #mysidebar {
-			/* top level list items */
-			min-width: 300px;
+    #mysidebar {
+      /* top level list items */
+      min-width: 300px;
 
-			li {
-				a {
-					color: $protocol-black;
-				}
+      li {
+        a {
+          color: $protocol-black;
+        }
 
-				ul {
-					list-style: none;
-					padding-left: 30px;
+        ul {
+          list-style: none;
+          padding-left: 30px;
 
-					li {
-						a {
-							color: $protocol-black;
-							font-size: 0.85rem;
-							margin: 0.75em 0;
-							display: block;
-							max-width: 254px;
+          li {
+            a {
+              color: $protocol-black;
+              font-size: 0.85rem;
+              margin: 0.75em 0;
+              display: block;
+              max-width: 254px;
 
-							&:hover {
-								color: $gray-3;
-								text-decoration: none;
-							}
+              &:hover {
+                color: $gray-3;
+                text-decoration: none;
+              }
 
-							span {
-								color: $protocol-black;
-							}
-						}
+              span {
+                color: $protocol-black;
+              }
+            }
 
-						.api {
-							margin: 1.1em 0em 1.25em 0em;
-						}
-					}
-				}
-			}
-		}
-	}
+            .api {
+              margin: 1.1em 0em 1.25em 0em;
+            }
+          }
+        }
+      }
+    }
+  }
 
-	.content-column {
-		position: absolute;
-		left: 375px;
-		padding: 2em 4em;
+  .content-column {
+    position: absolute;
+    left: 375px;
+    padding: 2em 4em;
 
-		.article {
-			max-width: 52em;
-			margin-top: 6rem;
-		}
+    .article {
+      max-width: 52em;
+      margin-top: 6rem;
+    }
 
-		.breadbox {
-			position: fixed;
-			top: 68px;
-			background: #FFFFFF;
-			width: 52em;
-			max-width: 100%;
-			min-height: 6.35em;
-			z-index: 2;
+    .breadbox {
+      position: fixed;
+      top: 68px;
+      background: #ffffff;
+      width: 52em;
+      max-width: 100%;
+      min-height: 6.35em;
+      z-index: 2;
 
-			.breadcrumb-container {
-				width: 100%;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				border-bottom: 2px solid $stitch-yellow;
-				padding-bottom: 0.5em;
-				margin-bottom: 0.5em;
+      .breadcrumb-container {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid $stitch-yellow;
+        padding-bottom: 0.5em;
+        margin-bottom: 0.5em;
 
-				.dropdown-menu {
-					li {
-						a,
-						&.active {
-							padding: .5em;
-						}
+        .dropdown-menu {
+          li {
+            a,
+            &.active {
+              padding: 0.5em;
+            }
 
-						a:hover {
-							color: $white;
-						}
-					}
-				}
+            a:hover {
+              color: $white;
+            }
+          }
+        }
 
-				a {
-					color: $protocol-black;
+        a {
+          color: $protocol-black;
 
-					&:hover {
-						color: $gray-3;
-						text-decoration: none;
-					}
-				}
+          &:hover {
+            color: $gray-3;
+            text-decoration: none;
+          }
+        }
 
-				.menu-left,
-				.menu-right {
-					display: inline-block;
-					vertical-align: bottom;
-				}
+        .menu-left,
+        .menu-right {
+          display: inline-block;
+          vertical-align: bottom;
+        }
 
-				.menu-left {
-					font-size: 0.8rem;
-					letter-spacing: 0.3px;
-					width: calc(100% - 12em);
-					line-height: 1.4;
+        .menu-left {
+          font-size: 0.8rem;
+          letter-spacing: 0.3px;
+          width: calc(100% - 12em);
+          line-height: 1.4;
+        }
 
-				}
+        .menu-right {
+          padding-bottom: 0.25em;
 
-				.menu-right {
-					padding-bottom: 0.25em;
+          .btn {
+            width: 10em;
+            min-width: fit-content;
+          }
+        }
 
-					.btn {
-						width: 10em;
-						min-width: fit-content;
-					}
-				}
-
-				.breadbox {
-					max-width: 52em;
-				}
-			}
-		}
-	}
+        .breadbox {
+          max-width: 52em;
+        }
+      }
+    }
+  }
 }
 
 .columns {
-	list-style-type: none;
-	list-style-position: inside;//this is important addition
-	columns: 2;
-	-webkit-columns: 2;
-	-moz-columns: 2;
+  list-style-type: none;
+  list-style-position: inside; //this is important addition
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
 
-	@media screen and (max-width: 1100px) {
-		columns: 1;
-		-webkit-columns: 1;
-		-moz-columns: 1;
-	}
+  @media screen and (max-width: 1100px) {
+    columns: 1;
+    -webkit-columns: 1;
+    -moz-columns: 1;
+  }
 
-	&.more {
-		li {
-			&:last-of-type {
-				a {
-					border: 1px solid #999999;
-					border-radius: 0;
-					margin-bottom: 1rem;
-					border: 3px solid $stitch-yellow;
-					color: $protocol-black;
-					display: inline-block;
-					padding: 5px 20px;
-					margin-bottom: 0;
-					font-size: 14px;
-					font-weight: bold;
-					line-height: 1.428571429;
-					text-align: center;
-					vertical-align: middle;
-					cursor: pointer;
-					white-space: nowrap;
-					margin-top: 0.5rem;
-					text-transform: uppercase;
+  &.more {
+    li {
+      &:last-of-type {
+        a {
+          border: 1px solid #999999;
+          border-radius: 0;
+          margin-bottom: 1rem;
+          border: 3px solid $stitch-yellow;
+          color: $protocol-black;
+          display: inline-block;
+          padding: 5px 20px;
+          margin-bottom: 0;
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 1.428571429;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          white-space: nowrap;
+          margin-top: 0.5rem;
+          text-transform: uppercase;
 
-					&:hover {
-						background: $stitch-yellow;
-						text-decoration: none;
-					}
-					&:focus {
-						text-decoration: none;
-						background: $stitch-yellow;
-					}
-				}
-			}
-		}
-	}
+          &:hover {
+            background: $stitch-yellow;
+            text-decoration: none;
+          }
+          &:focus {
+            text-decoration: none;
+            background: $stitch-yellow;
+          }
+        }
+      }
+    }
+  }
 }
 
 footer {
-	text-align: left;
-	color: $gray-3;
-	margin: 2em 0;
-	line-height: 1.6em;
+  text-align: left;
+  color: $gray-3;
+  margin: 2em 0;
+  line-height: 1.6em;
 
-	.site-generation {
-		float: left;
-	}
+  .site-generation {
+    float: left;
+  }
 
-	.links {
-		float: right;
-		p {
-			font-weight: 600;
-			text-align: right;
-			margin-bottom: 0px;
-		}
+  .links {
+    float: right;
+    p {
+      font-weight: 600;
+      text-align: right;
+      margin-bottom: 0px;
+    }
 
-		ul {
-			list-style: none;
-			padding: 0px;
-			text-align: right;
-		}
-	}
+    ul {
+      list-style: none;
+      padding: 0px;
+      text-align: right;
+    }
+  }
 }

@@ -21,6 +21,12 @@ $( document ).ready(function() {
      */
     anchors.add('h2,h3,h4,h5');
 
+    $('.mobile-close-out').click( function() {
+      $(".mobile-dropdown").toggleClass("show");
+  } );
+  $('.mobile-nav-icon').click( function() {
+    $(".mobile-dropdown").toggleClass("show");
+} );
 });
 
 // needed for nav tabs on pages. See Formatting > Nav tabs for more details.
