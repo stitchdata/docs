@@ -30,14 +30,12 @@ intro: |
 sections:
   - title: "Applicable destination types"
     anchor: "applicable-destination-types"
-    summary: ""
+    summary: "The destinations this guide is applicable to"
     content: |
-      This guide is applicable to the following variations of the {{ destination.display_name }} destination:
+      This guide is applicable to the all variations of the {{ page.display_name }} destination, including:
 
       {% assign setup-destinations = site.destinations | where:"content-type","destination-setup" %}
       {% assign postgres-destinations = setup-destinations | where:"type","postgres" | sort:"title" %}
-
-      Connecting an Amazon Aurora PostgreSQL-RDS Destination to Stitch
 
       {% for destination in postgres-destinations %}
       - [{{ destination.title | remove: "Connecting an " | remove: "Connecting a " | remove: " Destination to Stitch" }}]({{ destination.url | prepend: site.baseurl }})
