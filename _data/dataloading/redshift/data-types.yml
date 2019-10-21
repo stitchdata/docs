@@ -1,0 +1,161 @@
+# -------------------------------------------- #
+#                                              #
+#                  DATA TYPES                  #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/redshift.yml
+
+## Column contains multiple data types
+- id: mixed-data-types
+  rejectable: false
+  data-type: "all"
+  # if: uses default
+  then:
+    v1: &mixed-data-types |
+      To accommodate data of varying types, Stitch will create multiple columns to ensure data is loaded with the correct type. In the destination, this will look like the column has been "split". 
+
+      For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate data of varying types, Stitch will:
+
+      1. Re-name the original column. The new name will be the column name and a suffix indicating the data type Stitch detected first. In this example, the new column name would be `order_confirmed__bl`, `__bl` indicating `BOOLEAN`.
+
+      2. Store data for the first-detected data type in the re-named column. In this example, all `BOOLEAN` data will be stored in `order_confirmed__bl`.
+
+      3. Create additional columns to store other data types, one for each data type detected. Suffixes indicating the data type will be appended to the column names. In this example, `STRING` data will be stored in `order_confirmed__st`.
+
+      Refer to [TODO]() for more info and examples.
+  
+
+## Table contains nested data
+- id: nested-data-structures
+  rejectable: false
+  data-type: "all"
+  # if: uses default
+  then:
+    v1: |
+      To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively.
+
+      For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+
+
+# -------------------------- #
+#   DATA TYPES > VARCHARs    #
+# -------------------------- #
+
+## VARCHAR Storage
+- id: varchar-storage
+  rejectable: false
+  data-type: "string"
+  # if: uses default
+  then:
+    v1: &varchar-storage |
+      {{ destination.display_name }} will type the column as `VARCHAR(n)`, where `n` is the width of the widest record in the column.
+
+      For example: During the initial replication job, data in a `VARCHAR` column is found to have a width greater than `128`. {{ destination.display_name }} will create type this column as `VARCHAR(256)` to accommodate the data.
+
+
+## VARCHAR Widening
+- id: varchar-widening
+  rejectable: false
+  data-type: "string"
+  # if: uses default  
+  then:
+    v1: &varchar-widening |
+      {{ destination.display_name }} will widen the column to accommodate the width of the largest record up to the limit of `{{ destination-reference.data-limit-info.strings.max-width }}`.
+
+      For example: during the initial replication job, a `VARCHAR` column is created and typed as `VARCHAR(128)`.
+
+      During a subsequent job, Stitch identifies data for this column that exceeds the current size maximum of `128` but is less than `256`.
+
+      To accommodate the data, the column will become `VARCHAR(256)`.
+
+- id: "varchar-max-width"
+  rejectable: false
+  data-type: "string"
+  if: "VARCHAR data is loaded that exceeds {{ destination.display_name }}'s supported limit."
+  then:
+    v1: &varchar-max-width |
+      {{ destination.display_name }} will truncate the data to the maximum width of `{{ destination-reference.data-limit-info.strings.max-width }}`.
+
+
+# -------------------------- #
+#  DATA TYPES > Dates & Time #
+# -------------------------- #
+
+## Column contains date data with timezone info
+- id: date-with-timezone
+  rejectable: false
+  data-type: "date-timestamp"
+  # if: uses default
+  then:
+    v1: &date-with-timezone |
+      {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`.  In {{ destination.display_name }}, `TIMESTAMP WITHOUT TIME ZONE` data is stored without timezone information and expressed as UTC.
+
+      For more info on this data type, refer to [Amazon's Datetime Type documentation](http://docs.aws.amazon.com/redshift/latest/dg/r_Datetime_types.html#r_Datetime_types-timestamp){:target="new"}.
+
+
+## Column contains timestamp data out of range
+- id: timestamps-out-of-range
+  rejectable: true
+  data-type: "date-timestamp"
+  # if: uses default
+  then:
+    v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
+  error:
+    v1: &timestamps-out-of-range-error "{{ site.data.errors.loading.common.timestamp-out-of-range | flatify }}"
+  fix-it: 
+    v1: &timestamps-out-of-range-fix-it |
+      {{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify | replace:"Up","up" }}
+
+
+# -------------------------- #
+#    DATA TYPES > Numeric    #
+# -------------------------- #
+
+## Column contains integer data
+# - id: integer-storage
+#   rejectable: false
+#   data-type: "integer"
+#   # if: uses default
+#   then:
+#     v1: |
+#       TODO: {{ destination.display_name }} will store integer data using the `INTEGER` and `BIGINT` data types, depending on the data's values.
+
+
+## Column contains integer data out of range
+- id: integer-out-of-range
+  rejectable: true
+  data-type: "integer"
+  # if: uses default
+  then:
+    v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
+  error:
+    v1: &integer-out-of-range-error "{{ site.data.errors.loading.common.integer-out-of-range | flatify }}"
+  fix-it:
+    v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
+
+
+# ## Column contains decimal data
+# - id: decimal-storage
+#   rejectable: false
+#   data-type: "decimal"
+#   # if: uses default
+#   then:
+#     v1: &decimal-storage |
+#       {{ destination.display_name }} will store decimal data as `DECIMAL(38,6)`.
+
+
+## Column contains decimal data out of range
+- id: decimals-out-of-range
+  rejectable: true
+  data-type: "decimal"
+  # if: uses default
+  then:
+    v1: &decimals-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
+  error:
+    v1: &decimals-out-of-range-error "{{ site.data.errors.loading.common.decimal-out-of-range | flatify }}"
+  fix-it: 
+    v1: &decimals-out-of-range-fix-it "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimal data."
