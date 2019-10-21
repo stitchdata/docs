@@ -1,0 +1,68 @@
+# -------------------------------------------- #
+#                                              #
+#                 OBJECT NAMES                 #
+#                                              #
+# -------------------------------------------- #
+
+description: |
+  Scenarios involving object identifiers in the destination, including naming limitations and transformations.
+
+
+## Table name is too long
+table-name-limit: 
+  heading: "a table name exceeds the destination's maximum length?"
+  anchor: "table-name-limit"
+  if: "A table name contains more characters than allowed by {{ destination.display_name }}."
+  then: "{{ destination.display_name }} will reject all data for the table."
+  fix-it: |
+    If possible, change the table name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination-reference.object-name-limit-info.tables }}.
+
+## Column names contain MiXeDCaSe
+mixed-case-column-name:
+  heading: "a column name is mixed-case?"
+  anchor: "mixed-case-column-name"
+  if: "A column is replicated that has a mixed-case name."
+  # then: 
+
+## Column names contain spaces
+column-name-spaces:
+  heading: "a column name contains spaces?"
+  anchor: "column-name-with-spaces"
+  if: "A column is replicated that has a name with spaces."
+  # then:
+
+## Column name contains unsupported special characters
+column-name-special-char:
+  heading: "a column name contains special characters?"
+  anchor: "column-name-special-char"
+  if: "A column is replicated with a name that contains unsupported special characters."
+  then: "{{ destination.display_name }} will remove special characters."
+
+## Column name begins with a non-letter character
+column-name-starts-non-letter:
+  heading: "a column name begins with a non-letter?"
+  anchor: "column-name-starts-non-letter"
+  if: "A column is replicated with a name that begins with a non-letter."
+  then: "This scenario is unremarkable to {{ destination.display_name }}."
+
+## Duplicate field names
+duplicate-field-names:
+  heading: "two column names canonicalize to the same name?"
+  anchor: "duplicate-field-names"
+  if: |
+    Two columns are replicated that canonicalize to the same name.
+  then: |
+    For example: a table containing both `CustomerId` and `customerid` columns.
+
+    {{ destination.display_name }} will reject the records and create a log for the rejected records in the `_sdc_rejected` table in that integration's schema.
+  fix-it: |
+    If possible, re-name one of the columns in the source so that both column names will be unique when replicated to {{ destination.display_name }}.
+
+## Column name is too long
+column-name-limit: 
+  heading: "a column name exceeds the destination's maximum length?"
+  anchor: "column-name-limit"
+  if: "A column name contains more characters than allowed by {{ destination.display_name }}."
+  then: "{{ destination.display_name }} will reject columns with names that exceed the column character limit. Other columns in the table will persist to {{ destination.display_name }}."
+  fix-it: |
+    If possible, change the column name in the source to be less than {{ destination.display_name }}'s character limit of {{ site.data.destinations.reference[destination.type]object-name-limit-info.columns }} characters.

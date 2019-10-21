@@ -4,10 +4,14 @@
 #                                              #
 # -------------------------------------------- #
 
+description: |
+  Scenarios involving modifications made to the destination, such as the application of workload/performance management features or user privilege changes.
+
 ## Customer applies indexes to Stitch-generated columns
 apply-indices:
   heading: "indices are applied to Stitch-generated columns in the destination?"
   anchor: "apply-indices"
+  
   if: "Indices are applied to Stitch-generated columns in the destination."
   then: "Stitch will respect the index application."
 
@@ -15,15 +19,17 @@ apply-indices:
 sort-dist-keys:
   heading: "SORT and/or DISTRIBUTION Keys are applied to Stitch-generated columns in the destination?"
   anchor: "sort-dist-keys"
-  default-copy: "SORT and/or DISTRIBUTION Keys are applied to Stitch-generated columns in the destination."
-  default-result: "This is not applicable to {{ destination.display_name }}."
+
+  if: "SORT and/or DISTRIBUTION Keys are applied to Stitch-generated columns in the destination."
+  then: "This is not applicable to {{ destination.display_name }}."
 
 ## Customer switches to a new destination of the same type
 switch-destination-same-type:
   heading: "I switch to a different destination of the same type?"
   anchor: "switch-destination-same-type"
-  default-copy: "You switch to a different destination of the same type."
-  default-result: |
+
+  if: "You switch to a different destination of the same type."
+  then: |
     This means the destination type is still {{ destination.display_name }}, Stitch may just be connected a different database in {{ destination.display_name }}.
 
     - **For tables using Key-based or Log-based Incremental Replication**, replication will continue using the Replication's Key last saved maximum value. To re-replicate historical data, resetting Replication Keys is required.
@@ -34,14 +40,16 @@ switch-destination-same-type:
 revoke-stitch-schema-table-permissions:
   heading: "I revoke Stitch's permissions to my destination?"
   anchor: "revoke-stitch-schema-table-permissions"
-  default-copy: "You revoke Stitch's schema and/or table permissions to {{ destination.display_name }}."
-  default-result: "Data will fail to load and you will be notified."
-  default-troubleshooting: "Verify and, if necessary, re-grant the Stitch user's permissions."
+
+  if: "You revoke Stitch's schema and/or table permissions to {{ destination.display_name }}."
+  then: "Data will fail to load and you will be notified."
+  fix-it: "Verify and, if necessary, re-grant the Stitch user's permissions."
 
 ## Customer revokes Stitch's warehouse access
 revoke-stitch-warehouse-access:
   heading: "I revoke Stitch's access to my destination?"
   anchor: "revoke-stitch-warehouse-access"
-  default-copy: "You revoke Stitch's access to {{ destination.display_name }} entirely."
-  default-result: "Data will fail to load and you will be notified."
-  default-troubleshooting: "Re-authorize Stitch's access to {{ destination.display_name }} by ensuring the Stitch user's credentials are correct and the required permissions are granted."
+
+  if: "You revoke Stitch's access to {{ destination.display_name }} entirely."
+  then: "Data will fail to load and you will be notified."
+  fix-it: "Re-authorize Stitch's access to {{ destination.display_name }} by ensuring the Stitch user's credentials are correct and the required permissions are granted."
