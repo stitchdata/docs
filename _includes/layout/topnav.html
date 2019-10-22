@@ -15,6 +15,8 @@
             <span class="projectTitle"> {{site.topnav_title}}</span>
         </a>
     </div>
+    <div class="mobile-nav-icon"></div>
+    <div id="close" class="mobile-close-out hide"></div>
     <div class="nav-right">
         <ul class="stitch-nav">
             <!-- entries without drop-downs appear here -->
@@ -45,39 +47,6 @@
             </li>
         </ul>
     </div>
-    <div class="mobile-nav-icon"></div>
-    <div class="mobile-dropdown">
-      <div id="close" class="mobile-close-out"></div>
 
-          <ul>
 
-              <!-- entries without drop-downs appear here -->
-              {% for entry in site.data.topnav.topnav %}
-                  {% for item in entry.items %}
-                      {% if item.external_url %}
-
-                          <li>
-                              <a href="{{item.external_url}}" target="_blank">{{item.title}}</a>
-                          </li>
-                      {% elsif page.url contains item.url %}
-                          <li class="active">
-                              <a href="{{ site.baseurl }}{{item.url}}">{{item.title}}</a>
-                          </li>
-                      {% else %}
-                          <li>
-                              <a href="{{ site.baseurl }}{{ item.url }}">{{item.title}}</a>
-                          </li>
-                      {% endif %}
-                  {% endfor %}
-              {% endfor %}
-              <li class="sign-up"><a href="https://stitchdata.com/signup">Sign up</a></li>
-              <li>
-                  <!--start search-->
-                  <div id="search-demo-container">
-                      <input type="text" id="search-input" placeholder="{{site.data.strings.search_placeholder_text}}">
-                      <div class="img"><i class="fa fa-search"></i></div>
-                  </div>
-              </li>
-          </ul>
-      </div>
 </nav>
