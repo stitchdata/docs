@@ -22,6 +22,16 @@ $( document ).ready(function() {
     anchors.add('h2,h3,h4,h5');
 
 //***MOBILE Menu view//***MOBILE Menu view//***MOBILE Menu view
+$(document).mouseup(function(e)
+{
+    var container = $(".sidebar-column");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("sidebar-column-show");
+    }
+});
     $('.mobile-nav-icon').click( function() {
       $(".nav-right").toggleClass("mobile-show");
       $(".nav-right").toggleClass("show");
