@@ -1282,7 +1282,7 @@ hr.footer-cta {
   /* line 48, ../sass/_mobile.scss */
   #main .sidebar-button {
     position: fixed;
-    height: 30px;
+    height: 40px;
     width: 30px;
     z-index: 4;
     margin-top: 5px;
@@ -1294,8 +1294,9 @@ hr.footer-cta {
     cursor: pointer;
     left: 0;
     top: 90px;
+    border-radius: 0 5px 5px 0;
   }
-  /* line 63, ../sass/_mobile.scss */
+  /* line 64, ../sass/_mobile.scss */
   #main .sidebar-column-show {
     margin-left: 0;
     width: 375px;
@@ -1304,10 +1305,10 @@ hr.footer-cta {
     box-shadow: 2px 0px 5px rgba(30, 30, 30, 0.2);
     position: fixed;
   }
-  /* line 70, ../sass/_mobile.scss */
+  /* line 71, ../sass/_mobile.scss */
   #main .sidebar-column-show .sidebar-button {
     position: absolute;
-    height: 30px;
+    height: 40px;
     width: 30px;
     z-index: 4;
     margin-top: 0;
@@ -1319,22 +1320,23 @@ hr.footer-cta {
     cursor: pointer;
     left: 375px;
     top: 30px;
+    border-radius: 0 5px 5px 0;
   }
-  /* line 86, ../sass/_mobile.scss */
+  /* line 88, ../sass/_mobile.scss */
   #main .content-column {
     position: static;
     padding: 1em;
   }
-  /* line 90, ../sass/_mobile.scss */
+  /* line 92, ../sass/_mobile.scss */
   #main .content-column .article {
     max-width: 100%;
   }
-  /* line 93, ../sass/_mobile.scss */
+  /* line 95, ../sass/_mobile.scss */
   #main ul.tiles li {
     min-height: 255px;
   }
 
-  /* line 97, ../sass/_mobile.scss */
+  /* line 99, ../sass/_mobile.scss */
   .stitch-docs-navbar {
     position: fixed;
     left: 0;
@@ -1351,11 +1353,11 @@ hr.footer-cta {
   }
 }
 @media only screen and (max-width: 900px) {
-  /* line 114, ../sass/_mobile.scss */
+  /* line 116, ../sass/_mobile.scss */
   .stitch-docs-navbar .nav-right {
     display: none;
   }
-  /* line 117, ../sass/_mobile.scss */
+  /* line 119, ../sass/_mobile.scss */
   .stitch-docs-navbar .mobile-nav-icon {
     position: absolute;
     height: 4.5em;
@@ -1364,7 +1366,7 @@ hr.footer-cta {
     right: 1em;
     cursor: pointer;
   }
-  /* line 124, ../sass/_mobile.scss */
+  /* line 126, ../sass/_mobile.scss */
   .stitch-docs-navbar .mobile-nav-icon:before {
     content: " ";
     position: absolute;
@@ -1376,12 +1378,12 @@ hr.footer-cta {
     left: 1.25em;
   }
 }
-/* line 137, ../sass/_mobile.scss */
+/* line 139, ../sass/_mobile.scss */
 .show {
   display: block;
 }
 
-/* line 140, ../sass/_mobile.scss */
+/* line 142, ../sass/_mobile.scss */
 .hide {
   display: none;
 }
