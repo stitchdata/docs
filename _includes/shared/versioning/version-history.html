@@ -6,13 +6,18 @@ release and deprecation dates -->
 {% include misc/data-files.html %}
 
 <!-- The logic for pulling version info is in this include -->
-{% if page.permalink contains "destinations" %}
-    {% include shared/versioning/destination-version-logic.html %}
+{% case page.connection-type %}
+    {% when 'destination' %}
+        {% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination"  %}
 
-{% else %}
-    {% include shared/versioning/integration-version-logic.html %}
+    {% when 'integration' %}
+        {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" %}
 
-{% endif %}
+{% endcase %}
+
+<p>
+    All versions for Stitch's {{ page.display_name }} {{ page.connection-type }}, including release and deprecation dates.
+</p>
 
 <table class="attribute-list">
     <tr>

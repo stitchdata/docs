@@ -25,7 +25,7 @@ sections:
   - title: "{{ integration.display_name }} version history"
     anchor: "version-history"
     content: |
-      {% include shared/versioning/history-and-changelog.html %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"
