@@ -4,36 +4,9 @@ layout: page
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-{% assign released-versions = site.data.taps.versions[integration.name].released-versions %}
-{% assign latest-version = site.data.taps.versions[integration.name].latest-version %}
+<!-- SUPPORT AND SINGER NOTICE-->
+    {% include notifications/status-support/connection-notices.html %}
 
-<!-- SUPPORT AND SINGER NOTICE
-    This won't display for Stitch Certified integrations where
-    the version has been officially deprecated (both removed from
-    the product AND support is discontinued) 
-
-    Instead, users will see the DEPRECATION NOTICE below, where
-    they'll be prompted to upgrade to the newest version of the integration -->
-
-    {% if integration.this-version %}
-        {% for version in released-versions %}
-            {% if version.number == integration.this-version %}
-                {% case version.deprecated %}
-                    {% when true %}
-                        {% include notifications/integration-deprecation-notice.html %}
-                    {% when false %}
-                        {% include notifications/support-beta-singer-notice.html %}
-                {% endcase %}
-            {% endif %}
-        {% endfor %}
-
-        {% else %}
-            {% include notifications/support-beta-singer-notice.html %}
-    {% endif %}
-
-<!-- DEPRECATION NOTICE 
-    This only displays for integrations where version.deprecated == true -->
-    
 
 <!-- INTEGRATION-SPECIFIC NOTICES -->
 {% if integration.notice %}
@@ -110,7 +83,7 @@ layout: page
 <!-- SCHEMA DETAILS START -->
 <h2 id="schema">{{ integration.display_name }} table schemas</h2>
 
-<!-- Displays an info box if there are multiple versions of an integration currenly available -->
+<!-- Displays an info box if there are multiple versions of an integration currently available -->
 
 {% if integration.this-version %}
 {% assign integration = page %}
@@ -120,7 +93,7 @@ Schemas and naming conventions can change from version to version, so we recomme
 The schema and info displayed below is for **version {{ integration.this-version }}** of this integration.
 
 {% if integration.this-version == latest-version %}
-  This is the latest version of the {{ integration.display_name }} integraiton.
+  This is the latest version of the {{ integration.display_name }} integration.
 {% endif %}
 {% endcapture %}
 
