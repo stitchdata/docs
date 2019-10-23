@@ -9,6 +9,8 @@ keywords: github, integration, schema, etl github, github etl, github schema
 summary: "Connection instructions, replication info, and schema details for Stitch's GitHub integration."
 layout: singer
 
+key: "github-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

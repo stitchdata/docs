@@ -19,6 +19,8 @@ summary: "Connections instructions, replication info, and schema details for Sti
 layout: singer
 # input: false
 
+key: "typeform-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

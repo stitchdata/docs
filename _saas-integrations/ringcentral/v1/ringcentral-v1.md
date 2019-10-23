@@ -18,6 +18,8 @@ keywords: ringcentral, integration, schema, etl ringcentral, ringcentral etl, ri
 layout: singer
 # input: false
 
+key: "ringcentral-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

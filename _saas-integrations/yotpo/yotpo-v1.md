@@ -10,6 +10,8 @@ summary: "Connections instructions, replication info, and schema details for Sti
 layout: singer
 input: true
 
+key: "yotpo-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

@@ -18,6 +18,8 @@ keywords: helpscout, integration, schema, etl helpscout, helpscout etl, helpscou
 layout: singer
 # input: false
 
+key: "helpscout-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

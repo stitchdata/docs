@@ -9,6 +9,8 @@ keywords: google adwords, google ads, google adwords data, etl google adwords, g
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads integration."
 layout: singer
 
+key: "google-ads-setup"
+
 microsites:
   - title: "{{ page.display_name }} to BigQuery"
     url: "http://adwords.tobigquery.com/"

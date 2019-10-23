@@ -18,6 +18,8 @@ keywords: onfleet, integration, schema, etl onfleet, onfleet etl, onfleet schema
 layout: singer
 # input: false
 
+key: "onfleet-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

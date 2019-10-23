@@ -21,6 +21,8 @@ keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite sc
 layout: singer
 # input: false
 
+key: "netsuite-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

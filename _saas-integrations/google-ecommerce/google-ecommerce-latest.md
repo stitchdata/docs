@@ -8,6 +8,8 @@ format: ## controls formatting options in template
   table-desc: true
   list: expand
 
+key: "google-ecommerce-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

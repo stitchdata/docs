@@ -5,6 +5,8 @@ keywords: urban airship, integration, schema, etl urban airship, urban airship e
 summary: "Connection instructions and schema details for Stitch's Urban Airship integration."
 layout: singer
 
+key: "urban-airship-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

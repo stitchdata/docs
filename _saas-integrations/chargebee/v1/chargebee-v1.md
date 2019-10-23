@@ -18,6 +18,8 @@ keywords: chargebee, integration, schema, etl chargebee, chargebee etl, chargebe
 layout: singer
 # input: false
 
+key: "chargebee-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

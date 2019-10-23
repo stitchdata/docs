@@ -18,6 +18,8 @@ keywords: codat, integration, schema, etl codat, codat etl, codat schema
 layout: singer
 # input: false
 
+key: "codat-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

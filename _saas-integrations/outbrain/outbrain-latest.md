@@ -5,6 +5,8 @@ keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain sc
 summary: "Connection instructions and schema details for Stitch's Outbrain integration."
 layout: singer
 
+key: "outbrain-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

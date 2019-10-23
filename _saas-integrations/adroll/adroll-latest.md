@@ -8,6 +8,8 @@ format:
   table-desc: true
   list: expand
 
+key: "adroll-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

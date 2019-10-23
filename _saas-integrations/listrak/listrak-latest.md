@@ -9,6 +9,8 @@ keywords: listrak, integration, schema, etl listrak, listrak etl, listrak schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Listrak integration."
 layout: singer
 
+key: "listrak-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

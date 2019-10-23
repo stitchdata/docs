@@ -19,6 +19,8 @@ summary: "Connections instructions, replication info, and schema details for Sti
 layout: singer
 # input: false
 
+key: "shiphero-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

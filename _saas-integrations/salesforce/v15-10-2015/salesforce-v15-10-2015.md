@@ -8,6 +8,8 @@ layout: singer
 input: false
 old-schema-template: true
 
+key: "salesforce-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

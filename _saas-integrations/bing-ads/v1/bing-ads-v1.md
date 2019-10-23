@@ -10,6 +10,8 @@ keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads sc
 layout: singer
 input: false
 
+key: "bing-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

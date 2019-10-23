@@ -5,6 +5,8 @@ keywords: autopilot, autopilot schema, autopilot data, etl autopilot, autopilot 
 summary: "Connection instructions and schema details for Stitch's Autopilot integration."
 layout: singer
 
+key: "autopilot-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

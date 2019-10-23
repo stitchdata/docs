@@ -10,6 +10,8 @@ keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Close.io integration."
 layout: singer
 
+key: "closeio-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

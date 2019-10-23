@@ -5,6 +5,8 @@ keywords: wootric, integration, schema, etl wootric, wootric etl, wootric schema
 summary: "Connection instructions and schema details for Stitch's Wootric integration."
 layout: singer
 
+key: "wootric-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

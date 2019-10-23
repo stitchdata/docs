@@ -5,6 +5,8 @@ keywords: referral saasquatch, integration, schema, etl referral saasquatch, ref
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
 layout: singer
 
+key: "referral-saasquatch-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

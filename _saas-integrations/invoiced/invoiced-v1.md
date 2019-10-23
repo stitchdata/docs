@@ -18,6 +18,8 @@ keywords: invoiced, integration, schema, etl invoiced, invoiced etl, invoiced sc
 layout: singer
 # input: false
 
+key: "invoiced-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

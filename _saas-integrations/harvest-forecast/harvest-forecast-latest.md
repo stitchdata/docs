@@ -10,6 +10,8 @@ keywords: harvest, forecast, integration, schema, etl harvest forecast, harvest 
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest Forecast integration."
 layout: singer
 
+key: "harvest-forecast-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

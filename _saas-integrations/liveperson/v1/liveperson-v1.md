@@ -18,6 +18,8 @@ keywords: liveperson, integration, schema, etl liveperson, liveperson etl, livep
 layout: singer
 # input: false
 
+key: "liveperson-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

@@ -9,6 +9,8 @@ keywords: uservoice, integration, schema, etl uservoice, uservoice etl, uservoic
 summary: "Connections instructions, replication info, and schema details for Stitch's UserVoice integration."
 layout: singer
 
+key: "uservoice-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

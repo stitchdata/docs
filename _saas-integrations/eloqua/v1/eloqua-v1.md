@@ -18,6 +18,8 @@ keywords: eloqua, integration, schema, etl eloqua, eloqua etl, eloqua schema
 layout: singer
 # input: false
 
+key: "eloqua-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

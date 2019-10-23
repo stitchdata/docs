@@ -9,6 +9,8 @@ keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstor
 summary: "Connection instructions, replication info, and schema details for Stitch's FullStory integration."
 layout: singer
 
+key: "fullstory-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

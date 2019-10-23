@@ -10,6 +10,8 @@ format: ## controls formatting options in template
   table-desc: true
   list: expand
 
+key: "quickbooks-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

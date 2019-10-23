@@ -9,6 +9,8 @@ keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads sc
 summary: "Connection instructions, replication info, and schema details for Stitch's Bing Ads integration."
 layout: singer
 
+key: "bing-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
