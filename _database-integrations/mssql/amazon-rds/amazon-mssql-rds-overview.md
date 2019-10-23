@@ -6,8 +6,11 @@ summary: "Connect and replicate data from your Amazon Microsoft SQL Server RDS d
 layout: general
 input: false
 
+key: "amazon-mssql-rds-integration"
+
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
 
 hosting-type: "amazon"
 

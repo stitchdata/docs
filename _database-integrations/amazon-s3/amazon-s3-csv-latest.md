@@ -11,6 +11,8 @@ snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
 
+key: "amazon-s3-csv-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

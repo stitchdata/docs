@@ -6,8 +6,12 @@ summary: "Connect and replicate data from your Microsoft SQL Server database usi
 layout: general
 input: false
 
+key: "mssql-integration"
+
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
+
 has-specific-data-types: true
 
 hosting-type: "generic"

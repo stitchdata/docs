@@ -21,6 +21,8 @@ snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
 
+key: "responsys-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

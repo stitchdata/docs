@@ -5,6 +5,8 @@ permalink: /integrations/databases/mariadb
 summary: "Connect and replicate data from your MariaDB database using Stitch's MariaDB integration."
 show-in-menus: true
 
+key: "mariadb-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

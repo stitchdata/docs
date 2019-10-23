@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your MongoDB Atlas database using Stit
 input: true
 show-in-menus: true
 
+key: "mongodb-atlas-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

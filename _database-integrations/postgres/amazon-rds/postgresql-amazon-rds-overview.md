@@ -7,8 +7,11 @@ summary: "Connect and replicate data from your Amazon PostgreSQL RDS database us
 layout: general
 input: false
 
+key: "postgresql-rds-integration"
+
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
 
 db-type: "postgres"
 name: "postgresql-rds"

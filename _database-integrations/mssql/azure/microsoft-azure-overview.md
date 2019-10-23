@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your Microsoft Azure SQL Database usin
 layout: general
 input: false
 
+key: "microsoft-azure-integration"
+
 show-in-menus: true
 has-versions: true
 

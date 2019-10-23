@@ -10,6 +10,7 @@ microsites:
     url: "http://mysql.topostgres.com/"
 
 show-in-menus: true
+key: "mysql-integration"
 
 # -------------------------- #
 #         Tap Details        #

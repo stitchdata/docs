@@ -6,12 +6,16 @@ summary: "Connect and replicate data from your PostgreSQL database using Stitch'
 layout: general
 input: false
 
+key: "postgres-integration"
+
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostgres.com/"
 
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
+
 has-specific-data-types: true
 
 db-type: "postgres"
