@@ -1,6 +1,6 @@
 ---
-title: Amazon Redshift Data Loading Behavior
-permalink: /replication/loading/amazon-redshift/
+title: Amazon Redshift Data Loading Reference
+permalink: /replication/loading/reference/amazon-redshift/
 redirect_from:
   - /data-structure/redshift-data-loading-behavior
   - /data-structure/panoply-data-loading-behavior
@@ -8,6 +8,9 @@ redirect_from:
 layout: general
 keywords: redshift, redshift data warehouse, redshift data warehouse, redshift etl, etl to redshift
 summary: "Learn how Stitch will load data from your integrations into Stitch's Amazon Redshift destination."
+
+content-type: "loading-reference"
+key: "redshift-loading-reference"
 
 display_name: "Amazon Redshift"
 type: "redshift"

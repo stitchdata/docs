@@ -1,18 +1,19 @@
 ---
-title: Snowflake Data Loading Reference
-permalink: /replication/loading/reference/snowflake/
-
-redirect_from: /data-structure/snowflake-data-loading-behavior
+title: Panoply Data Loading Reference
+permalink: /replication/loading/reference/panoply/
+redirect_from:
+  - /data-structure/panoply-data-loading-behavior
 
 layout: general
-keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowflake etl, etl to snowflake
-summary: "Learn how Stitch will load data from your integrations into Stitch's Snowflake destination."
+keywords: panoply, panoply data warehouse, panoply data warehouse, panoply etl, etl to panoply
+summary: "Learn how Stitch will load data from your integrations into Stitch's Panoply destination."
 
 content-type: "loading-reference"
-key: "snowflake-loading-reference"
+key: "panoply-loading-reference"
 
-display_name: "Snowflake"
-type: "snowflake"
+display_name: "Panoply"
+type: "redshift"
+branded: true
 
 this-version: "1.0"
 
@@ -25,10 +26,10 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.reference.snowflake %}
+  {% assign destination-reference = site.data.destinations.reference.panoply %}
 
-## The data & copy for Snowflake scenarios live here: _data/dataloading/snowflake
-## The error messages for Snowflake live here: _data/errors/loading/snowflake.yml
+## The data & copy for Amazon Redshift scenarios live here: _data/dataloading/redshift
+## The error messages for Amazon Redshift live here: _data/errors/loading/redshift.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 sections:

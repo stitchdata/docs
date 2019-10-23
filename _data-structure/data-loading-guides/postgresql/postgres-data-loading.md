@@ -1,11 +1,14 @@
 ---
-title: PostgreSQL Data Loading Behavior
-permalink: /replication/loading/postgresql/
+title: PostgreSQL Data Loading Reference
+permalink: /replication/loading/reference/postgresql/
 redirect_from: /data-structure/postgresql-data-loading-behavior
 
 layout: general
 keywords: postgres, postgres data warehouse, postgres data warehouse, postgres etl, etl to postgres
 summary: "Learn how Stitch will load data from your integrations into Stitch's PostgreSQL destination."
+
+content-type: "loading-reference"
+key: "postgresql-loading-reference"
 
 display_name: "PostgreSQL"
 type: "postgres"
