@@ -87,14 +87,13 @@
             </strong><br>
 
         <!-- If the integration is versioned, or has an overview page and has-versions == true -->
-            {% if integration.this-version or integration.has-versions == true %}
-                {% include shared/versioning/version-menu.html menu-type="category-page" %}
+            {% include shared/versioning/version-menu.html connection-type="integration" menu-type="category-page" item-name="integration" %}
 
-            {% else %}
+            {% if total-versions <= 1 %}
                 <a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a>
                     {% if integration.permalink contains "databases" or 
                           integration.permalink contains "webhooks" or
-                          integration.replication-notes == true %}
+                          integration.replication-sections %}
                         | <a href="{{ integration.url | prepend: site.baseurl | append: "#replication" }}">Replication</a>
                     {% endif %}
 
