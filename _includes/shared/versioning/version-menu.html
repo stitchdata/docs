@@ -10,62 +10,66 @@
 
 {% endcase %}
 
+    {% assign total-versions = released-versions | size %}
+
 
 <!-- VERSION SELECTION MENU -->
 
-<div class="version-toggle">
-    <div class="btn-group">
-        <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
-            {% if include.menu-type == "category-page" %}
-                SELECT VERSION 
-            {% else %}
-                {{ [include.item-name]this-version | prepend: "version " | upcase }}
-            {% endif %}
-            <span class="caret"></span>
-        </button>
-
-        <ol class="dropdown-menu">
-            {% if [include.item-name]show-in-version-menu == true %}
-                <li class="category-version-toggle">
-                    <a href="{{ [include.item-name]url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
-                </li>
-            {% endif %}
-
-            {% for version in released-versions %}
-                {% if version.number == [include.item-name]this-version %}
-                    <li class="active">
-                        version {{ version.number }}
-
-                        {% if version.number == latest-version and version.status == "released" %}
-                         (latest)
-                        {% else %}
-                            {% unless version.status == "released" %}
-                                ({{ version.status }})
-                            {% endunless %}
-                        {% endif %}
-
-                        <i class="fa fa-check fa-1" aria-hidden="true"></i>
-                    </li>
+{% if total-versions > 1 %}
+    <div class="version-toggle">
+        <div class="btn-group">
+            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                {% if include.menu-type == "category-page" %}
+                    SELECT VERSION 
                 {% else %}
-                    {% for doc in all-versioned-docs %}
-                        {% if version.number == doc.this-version %}
-                            {% if include.menu-type == "category-page" %}
-                                <li class="category-version-toggle">
-                            {% else %}
-                                <li>
-                            {% endif %}
-                                <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
-                                    {% if version.number == latest-version and version.status == "released" %}
-                                        (latest)
-                                    {% else %}
-                                        ({{ version.status }})
-                                    {% endif %}
-                                </a>
-                            </li>
-                        {% endif %}
-                    {% endfor %}
+                    {{ [include.item-name]this-version | prepend: "version " | upcase }}
                 {% endif %}
-            {% endfor %}
-        </ol>
+                <span class="caret"></span>
+            </button>
+
+            <ol class="dropdown-menu">
+                {% if [include.item-name]show-in-version-menu == true %}
+                    <li class="category-version-toggle">
+                        <a href="{{ [include.item-name]url | prepend: site.baseurl }}"><strong>Compare versions</strong></a>
+                    </li>
+                {% endif %}
+
+                {% for version in released-versions %}
+                    {% if version.number == [include.item-name]this-version and [include.item-name]url == page.url %}
+                        <li class="active">
+                            version {{ version.number }}
+
+                            {% if version.number == latest-version and version.status == "released" %}
+                             (latest)
+                            {% else %}
+                                {% unless version.status == "released" %}
+                                    ({{ version.status }})
+                                {% endunless %}
+                            {% endif %}
+
+                            <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                        </li>
+                    {% else %}
+                        {% for doc in all-versioned-docs %}
+                            {% if version.number == doc.this-version %}
+                                {% if include.menu-type == "category-page" %}
+                                    <li class="category-version-toggle">
+                                {% else %}
+                                    <li>
+                                {% endif %}
+                                    <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}
+                                        {% if version.number == latest-version and version.status == "released" %}
+                                            (latest)
+                                        {% else %}
+                                            ({{ version.status }})
+                                        {% endif %}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        </div>
     </div>
-</div>
+{% endif %}
