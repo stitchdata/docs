@@ -11,9 +11,9 @@
 {% else %}
 
 <!-- Get the ID of the backing integration - used to pull version info -->
-	{% if [include.item-type]db-type %}
-	<!-- For databases, a single type can back several integrations.
-		Ex: MySQL backs Magento, MariaDB, etc. -->
+	{% if [include.item-name]db-type %}
+<!-- For databases, a single type can back several integrations.
+Ex: MySQL backs Magento, MariaDB, etc. -->
 	    {% assign page_name = [include.item-name]db-type %}
 	{% else %}
 	    {% assign page_name = [include.item-name]name %}
@@ -27,8 +27,7 @@
 
 
 <!-- Get the correct versions 
-
-    If the include has a specific version parameter, only get the version being requested-->
+If the include has a specific version parameter, only get the version being requested-->
 {% if include.version %}
     {% assign released-versions = site.data.taps.versions.[page_name].released-versions | where:"number",include.this-version %}
 
@@ -49,5 +48,5 @@
 
 <!-- Last, pulls all docs that that match the given key  -->
 	{% assign all-versioned-docs = site.documents | where:"key",[include.item-name]key %}
-	<!-- Get the doc that is the latest version based on the given key. -->
+<!-- Get the doc that is the latest version based on the given key. -->
 		{% assign latest-version-doc = all-versioned-docs | where:"this-version",latest-version | first %}
