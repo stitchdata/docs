@@ -3,6 +3,7 @@ title: Trello
 permalink: /integrations/saas/trello
 keywords: trello, integration, schema, etl trello, trello etl, trello schema
 summary: "Connection instructions and schema details for Stitch's Trello integration."
+layout: singer
 format: ## controls formatting options in template
   schema-list: true
   table-desc: true
@@ -229,41 +230,34 @@ tables:
       - name: User ID (<code>id</code>)
       - name: fullname
       - name: username
----
-{% assign integration = page %}
-{% include misc/data-files.html %}
 
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
 
-
-{% contentfor setup %}
-Connecting your Trello data to Stitch is a four-step process:
-
-1. [Retrieve your Developer API Keys from Trello](#retrieve-trello-api-keys)
-2. [Add Trello as a Stitch data source](#add-stitch-data-source)
-3. [Define the Historical Sync](#define-historical-sync)
-4. [Define the Replication Frequency](#define-rep-frequency)
-
+requirements-info: |
 {% capture access %}
-Stitch will only have access to the boards that the user who creates the integration has access to. If a board is private and the user isn't a member, Stitch will be unable to access it. Before beginning the setup process, verify that the user setting up the integration has access to all the boards you want to replicate.
+  Stitch will only have access to the boards that the user who creates the integration has access to. If a board is private and the user isn't a member, Stitch will be unable to access it. Before beginning the setup process, verify that the user setting up the integration has access to all the boards you want to replicate.
 
-You can use [Trello's Developer Sandbox](https://developers.trello.com/sandbox) - no coding knowledge needed - to check your access by simply entering your API Key (see below) and authenticating. Select the **Get Boards** option and click **Execute** to see a JSON list of the boards the user has access to.
+  You can use [Trello's Developer Sandbox](https://developers.trello.com/sandbox) - no coding knowledge needed - to check your access by simply entering your API Key (see below) and authenticating. Select the **Get Boards** option and click **Execute** to see a JSON list of the boards the user has access to.
 {% endcapture %}
 {% include important.html first-line="**Accessing Trello data**" content=access %}
 
-### Retrieving Your Developer API Keys from Trello {#retrieve-trello-api-keys}
+setup-steps:
+  - title: "Retrieving Your Developer API Keys from Trello"
+    anchor: "retrieve-trello-api-keys"
+    content: |
+      1. Sign into your Trello account.
+      2. Go to the [Trello Developer API Keys page](https://trello.com/app-key/).
+      3. Locate the **Key** and **Secret** fields. 
 
-1. Sign into your Trello account.
-2. Go to the [Trello Developer API Keys page](https://trello.com/app-key/).
-3. Locate the **Key** and **Secret** fields. 
-
-Leave this page open for now - you'll need it to complete the setup in Stitch.
-
-{% include integrations/shared-setup/connection-setup.html %}
-4. Enter your Trello API Key and Secret into their respective fields.
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}
+      Leave this page open for now - you'll need it to complete the setup in Stitch.
+  - title: "add integration"
+     content: |
+      4. Enter your Trello API Key and Secret into their respective fields.
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "track data"
+---
+{% assign integration = page %}
+{% include misc/data-files.html %}

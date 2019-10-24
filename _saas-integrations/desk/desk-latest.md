@@ -3,6 +3,7 @@ title: Desk
 permalink: /integrations/saas/desk
 keywords: desk, desk data, desk schema, etl desk, desk etl
 summary: "Connection instructions and schema details for Stitch's Desk integration."
+layout: singer
 format: ## controls formatting options in template
   schema-list: true
   table-desc: true
@@ -179,50 +180,43 @@ tables:
       - name: Group ID (<code>id</code>)
       - name: User ID (<code>user_id</code>)
       - name: Group Name
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+setup-steps:
+  - title: "Adding Stitch as an App in Your Desk Account"
+    anchor: "add-stitch-app-to-desk"
+    content: |
+      1. Sign into your Desk account.
+      2. Navigate to the **Admin panel** by clicking the link in the upper left section of the Agent interface.
+      3. In the Admin panel, click the **Settings** option in the menu at the top of the window. 
+      4. When the Settings page displays, click the **API** option in the menu that appears on the left side of the window.
+      5. Click the **+Add API Application** button.
+      6. After clicking the button, a window will display. This is where the initial parameters for the API application are set. Complete the fields as follows:
+        - **Name:** Stitch
+        - **Website URL:** http://www.stitchdata.com
+        - **Callback URL:** http://www.stitchdata.com
+        - **Support URL:** http://docs.stitchdata.com
+      7. When finished, click the **Add** button.
+  - title: "Retrieving Your Desk Key & Secret"
+    anchor: "retrieve-desk-key-secret"
+    content: |
+      1. After the URL parameters have been successfully submitted, a screen detailing the parameters, Key, and Secret will display.
+      2. Copy the **Key and Secret** into a text file - you'll need easy access to them to complete the setup.
+  - title: "Retrieving Your Desk Token & Token Secret"
+    anchor: ""
+    content: |
+      1. Click the **Your Access Token** link on the right side of the **API Application** page. A window containing your Token and Token Secret will display.
+      2. Copy the **Token and Token Secret** into the text file that contains your Key and Secret. Be careful not to mix up the Secret and Token Secret or you'll encounter errors when saving the integration in Stitch.        
+  - title: "add integration"
+    content: |
+      4. In the **Site URL** field, enter your Desk.com website address. For example: `https://stitch.desk.com`
+      5. Enter your **Key, Secret, Token, and Token Secret** into their respective fields.
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "track data"
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% contentfor setup %}
-Connecting your Desk data to Stitch is a six-step process:
-
-1. [Add Stitch as an app in your Desk account](#add-stitch-app-to-desk)
-2. [Retrieve your Desk Key and Secret](#retrieve-desk-key-secret)
-3. [Retrieve your Desk Token and Token Secret](#retrieve-desk-token-secret)
-4. [Add Desk as a Stitch data source](#add-stitch-data-source)
-5. [Define the Historical Sync](#define-historical-sync)
-6. [Define the Replication Frequency](#define-rep-frequency)
-
-### Adding Stitch as an App in Your Desk Account {#add-stitch-app-to-desk}
-
-1. Sign into your Desk account.
-2. Navigate to the **Admin panel** by clicking the link in the upper left section of the Agent interface.
-3. In the Admin panel, click the **Settings** option in the menu at the top of the window. 
-4. When the Settings page displays, click the **API** option in the menu that appears on the left side of the window.
-5. Click the **+Add API Application** button.
-6. After clicking the button, a window will display. This is where the initial parameters for the API application are set. Complete the fields as follows:
-  - **Name:** Stitch
-  - **Website URL:** http://www.stitchdata.com
-  - **Callback URL:** http://www.stitchdata.com
-  - **Support URL:** http://docs.stitchdata.com
-7. When finished, click the **Add** button.
-
-### Retrieving Your Desk Key & Secret {#retrieve-desk-key-secret}
-
-1. After the URL parameters have been successfully submitted, a screen detailing the parameters, Key, and Secret will display.
-2. Copy the **Key and Secret** into a text file - you'll need easy access to them to complete the setup.
-
-### Retrieving Your Desk Token & Token Secret {#retrieve-desk-token-secret}
-1. Click the **Your Access Token** link on the right side of the **API Application** page. A window containing your Token and Token Secret will display.
-2. Copy the **Token and Token Secret** into the text file that contains your Key and Secret. Be careful not to mix up the Secret and Token Secret or you'll encounter errors when saving the integration in Stitch.
-
-{% include integrations/shared-setup/connection-setup.html %}
-4. In the **Site URL** field, enter your Desk.com website address. For example: `https://stitch.desk.com`
-5. Enter your **Key, Secret, Token, and Token Secret** into their respective fields.
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}

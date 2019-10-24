@@ -3,6 +3,7 @@ title: Google ECommerce
 permalink: /integrations/saas/google-ecommerce
 keywords: google ecommerce, integration, schema, etl google ecommerce, google ecommerce etl, google ecommerce schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google ECommerce integration."
+layout: singer
 format: ## controls formatting options in template
   schema-list: false
   table-desc: true
@@ -97,58 +98,57 @@ tables:
       - name: <strong><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=traffic_sources&jump=ga_source" target="new">source</a></strong> - This column contains the name of the order source. (<a href="https://support.google.com/analytics/answer/1033867?hl=en" target="new">utm_source</a>)
       - name: <strong>transactionid</strong> - This column contains the order ID, which you can use to join the referral data back to your orders data. You can refer to <a href="https://support.google.com/analytics/answer/1009612?hl=en" target="new">Google’s documentation</a> if you need some background on tracking setup and management.
       - name: <strong>transactions</strong> - This column contains the total number of transactions.
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+requirements-list:
+  - item: "**The user creating the integration has at least [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495?hl=en) and that there's data in the account.** If the profile you use to connect doesn’t have these permissions (or there’s no data in the account), you’ll receive an error message like this:
+
+   > “Something went wrong. None of the Google Analytics profiles associated with the credentials you’ve supplied contain data that Stitch can access. Please make sure that the credentials you’ve supplied have appropriate access.”"
+  - item: "**All ad-blocking software you are currently using is paused**. Because Google authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup."
+  - item: "**Your account has the [Enable ECommerce](https://support.google.com/analytics/answer/1009612?hl=en) setting turned on.** If you have ECommerce data in your accuont, this setting is already enabled and you can move on."
+
+requirements-info:
+
+setup-steps:
+  - title: "add integration"
+    # content: |
+      # starting with 4., add instructions for additional fields in UI
+  - title: "Authorizing Stitch & Selecting a Google Analytics Profile"
+    anchor: "auth-select-ga-profile"
+    content: |
+      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google ECommerce data. **Note that we will only ever read your data.**
+      2. Click **Allow** to continue.
+      3. After your credentials are validated, you’ll be prompted to select the Google Analytics profile you want to connect to Stitch:
+
+         ![Selecting a Google Analytics profile.]({{site.baseurl}}/images/integrations/ga-select-profiles.png)
+
+         **Remember: profiles need to have Read & Analyze permissions to be detected by Stitch.** If you don’t see the profile you want in this list, we recommend that you double-check the permission settings.
+      4. When finished, click **Continue** to save the integration and complete the setup.
+  - title: "replication frequency"
+  - title: "track data"
+
+# -------------------------- #
+#        Schema Notes        #
+# -------------------------- #
+
+# Looking for the table schemas & info?
+# Each table has a its own .md file in /_integration-schemas/saas-integration
+
+
+# Remove this if you don't need it:
+# schema-sections:
+  - title: "Schema Notes"
+    anchor: "schema-notes"
+    content: |
+      After the first successful sync of your Google ECommerce data, you'll see a single table in your data warehouse. The table follows this naming convention:
+
+      `ecommerce[GA profile id]_integration version`
+
+      Here's an example: `ecommerce123456789_v2`. In this case, the profile ID is `123456789` and the version of the ECommerce integration is `2`.
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% contentfor setup %}
-Connecting your Google ECcommerce data to Stitch is a three-step process:
-
-1. [Add Google ECcommerce as a Stitch data source](#add-stitch-data-source)
-3. [Authorize Stitch & select a Google Analytics profile](#auth-select-ga-profile)
-4. [Define the Replication Frequency](#define-rep-frequency)
-
-### Prerequisites
-Before you get started, you should verify that:
-
-1. **The user creating the integration has at least [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495?hl=en) and that there's data in the account.** If the profile you use to connect doesn’t have these permissions (or there’s no data in the account), you’ll receive an error message like this:
-
-   > “Something went wrong. None of the Google Analytics profiles associated with the credentials you’ve supplied contain data that Stitch can access. Please make sure that the credentials you’ve supplied have appropriate access.”
-
-2. **All ad-blocking software you are currently using is paused**. Because Google authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
-3. **Your account has the [Enable ECommerce](https://support.google.com/analytics/answer/1009612?hl=en) setting turned on.** If you have ECommerce data in your accuont, this setting is already enabled and you can move on.
-
-{% include integrations/shared-setup/connection-setup.html %}
-
-### Authorizing Stitch & Selecting a Google Analytics Profile {#auth-select-ga-profile}
-1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google ECommerce data. **Note that we will only ever read your data.**
-2. Click **Allow** to continue.
-3. After your credentials are validated, you’ll be prompted to select the Google Analytics profile you want to connect to Stitch:
-
-   ![Selecting a Google Analytics profile.]({{site.baseurl}}/images/integrations/ga-select-profiles.png)
-
-   **Remember: profiles need to have Read & Analyze permissions to be detected by Stitch.** If you don’t see the profile you want in this list, we recommend that you double-check the permission settings.
-4. When finished, click **Continue** to save the integration and complete the setup.
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication-notes %}
-{% include integrations/saas/attribution-windows.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor schema-notes %}
-After the first successful sync of your Google ECommerce data, you'll see a single table in your data warehouse. The table follows this naming convention:
-
-`ecommerce[GA profile id]_integration version`
-
-Here's an example: `ecommerce123456789_v2`. In this case, the profile ID is `123456789` and the version of the ECommerce integration is `2`.
-
-In the section below, you'll find a list of the attributes in this table, a brief description, and links to Google's more in-depth documentation.
-{% endcontentfor %}

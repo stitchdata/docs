@@ -3,6 +3,7 @@ title: Mixpanel
 permalink: /integrations/saas/mixpanel
 keywords: mixpanel, integration, schema, etl mixpanel, mixpanel etl, mixpanel schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Mixpanel integration."
+layout: singer
 format: ## controls formatting options in template
   schema-list: true
   table-desc: true
@@ -131,59 +132,50 @@ tables:
       - name: analysis__starting_amount
       - name: analysis__steps
       - name: analysis__worst
----
-{% assign integration = page %}
-{% include misc/data-files.html %}
 
-{% capture sync-limit %}
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
 
-{% capture sync-limit-copy %}
-Mixpanel limits the queryable time range for some of its endpoints to either **60 or 90 days** [to prevent poor loading times for their customers](https://mixpanel.com/help/questions/articles/why-do-the-dates-switch-and-show-only-two-or-three-months-of-data-at-a-time-in-certain-reports). We've found if the **Start Date** is greater than this, some historical replication may not complete successfully.
+requirements-list:
+  - item: ""
+  - item: ""
 
-If you notice issues with the historical replication of a Mixpanel integration, check that the **Start Date** is set to **no more than 60 days in the past**. Changing this setting can sometimes resolve the issue.
-{% endcapture %}
+requirements-info:
 
-{% include important.html first-line="**Historical replication and Mixpanel limitations**" content=sync-limit-copy %}
-{% endcapture %}
+setup-steps:
+  - title: "Retrieve Your Mixpanel API Credentials"
+    anchor: "retrieve-mixpanel-api-creds"
+    content: |
+      1. Sign into your Mixpanel account.
+      2. Click **Account**, which is located in the upper right portion of the screen.
+      3. In the modal that displays, click **Projects**. 
 
-{% contentfor setup %}
-Connecting your Mixpanel data to Stitch is a five-step process:
-
-1. [Retrieve your Mixpanel API credentials](#retrieve-mixpanel-api-creds)
-2. [Add Mixpanel as a Stitch data source](#add-stitch-data-source)
-3. [Define the Historical Sync](#define-historical-sync)
-4. [Define the Replication Frequency](#define-rep-frequency)
-5. [Select tables to sync](#syncing-data)
-
-### Retrieve Your Mixpanel API Credentials {#retrieve-mixpanel-api-creds}
-
-1. Sign into your Mixpanel account.
-2. Click **Account**, which is located in the upper right portion of the screen.
-3. In the modal that displays, click **Projects**. 
-
-   Note that this window is different than the Project Settings window, which is accessed using the gear icon in the lower left corner. **The window you need is accessed only by clicking Account > Projects**.
-4. Your API credentials will display:
+         Note that this window is different than the Project Settings window, which is accessed using the gear icon in the lower left corner. **The window you need is accessed only by clicking Account > Projects**.
+      4. Your API credentials will display:
 
    ![Mixpanel API credentials.]({{ site.baseurl}}/images/integrations/mixpanel-api-creds.png)
 
 Leave this page open - you'll need it to complete the setup in Stitch.
+  - title: "add integration"
+    content: |
+      4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "track data"
 
-{% include integrations/shared-setup/connection-setup.html %}
-4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
+# -------------------------- #
+#      Replication Info      #
+# -------------------------- #
 
-{% include integrations/saas/setup/historical-sync.html step-content=sync-limit %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/saas/setup/saas-syncing.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor replication-notes %}
-Because of how Mixpanel's API is designed, two of the three tables in our Mixpanel integration - the `mixpanel_export` and `mixpanel_funnels` tables - **can only be queried by day.** This means that every time Stitch runs a replication job for a Mixpanel integration, **the past day's worth of data will be replicated for each of these tables.**
+replication-sections:
+  - title: "Replication Notes"
+    anchor: "replication-notes"
+    content: |
+      Because of how Mixpanel's API is designed, two of the three tables in our Mixpanel integration - the `mixpanel_export` and `mixpanel_funnels` tables - **can only be queried by day.** This means that every time Stitch runs a replication job for a Mixpanel integration, **the past day's worth of data will be replicated for each of these tables.**
 
 To prevent the re-replication of data that will count against your row count, we recommend setting the Replication Frequency to something less frequent.
-{% endcontentfor %}
+
+---
+{% assign integration = page %}
+{% include misc/data-files.html %}
