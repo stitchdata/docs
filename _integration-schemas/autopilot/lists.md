@@ -1,6 +1,6 @@
 ---
 tap: "autopilot"
-# version: 
+version: 
 
 name: "lists"
 doc-link: http://docs.autopilot.apiary.io/#reference/api-methods/lists/get-list-of-lists

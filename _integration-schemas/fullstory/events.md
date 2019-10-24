@@ -1,6 +1,6 @@
 ---
 tap: "fullstory"
-# version:
+version:
 
 name: "events"
 doc-link: https://help.fullstory.com/technical-questions/data-export#data-export-contents

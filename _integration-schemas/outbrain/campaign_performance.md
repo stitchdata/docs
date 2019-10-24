@@ -1,6 +1,6 @@
 ---
 tap: "outbrain"
-# version: "1.0"
+version: "1.0"
 
 name: "campaign_performance"
 doc-link: http://docs.amplifyv01.apiary.io/#reference/performance-reporting/campaigns
