@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version:
+version:
 
 name: "groups"
 doc-link: https://developers.freshdesk.com/api/#groups
