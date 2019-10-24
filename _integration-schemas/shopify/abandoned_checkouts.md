@@ -36,7 +36,7 @@ attributes:
   - name: "billing_address"
     type: "object"
     description: "The customer's billing address details."
-    object-properties:
+    subattributes:
       - name: "address1"
         type: "string"
         description: "The street address of the billing address."
@@ -131,7 +131,7 @@ attributes:
   - name: "customer"
     type: "object"
     description: "Details about the customer associated with the abandoned checkout."
-    object-properties:
+    subattributes:
       - name: "id"
         type: "integer"
         primary-key: true
@@ -154,7 +154,7 @@ attributes:
       - name: "default_address"
         type: "object"
         description: "Details about the customer's default address."
-        object-properties:
+        subattributes:
           - name: "address1"
             type: "string"
             description: "The street address of the customer's address."
@@ -361,7 +361,7 @@ attributes:
       - name: "destination_location"
         type: "object"
         description: "Details about the line item's destination location."
-        object-properties: &address-fields
+        subattributes: &address-fields
           - name: "address1"
             type: "string"
             description: "The street address."
@@ -402,7 +402,7 @@ attributes:
 
       - name: "discount_allocations"
         type: "array"
-        description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular appliction."
+        description: "An ordered list of amounts allocated by discount applications. Each discount allocation is associated to a particular application."
         subattributes:
           - name: "amount"
             type: "number"
@@ -455,7 +455,7 @@ attributes:
       - name: "origin_location"
         type: "object"
         description: "Details about the line item's origin location."
-        object-properties: *address-fields
+        subattributes: *address-fields
 
       - name: "origin_location_id"
         type: "integer"
@@ -594,7 +594,7 @@ attributes:
   - name: "shipping_address"
     type: "object"
     description: "Details about the shipping address associated with the checkout."
-    object-properties:
+    subattributes:
       - name: "address1"
         type: "string"
         description: "The street address of the shipping address."
