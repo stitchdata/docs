@@ -6,6 +6,8 @@ summary: "Connection instructions and schema details for Stitch's AdRoll integra
 layout: singer
 old-schema-template: true
 
+key: "adroll-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

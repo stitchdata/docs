@@ -7,8 +7,11 @@ summary: "Connect and replicate data from your Google CloudSQL PostgreSQL databa
 layout: general
 input: false
 
+key: "cloudsql-postgres-integration"
+
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
 
 db-type: "postgres"
 name: "cloudsql-postgres"
@@ -23,7 +26,7 @@ sections:
   - title: "Version history"
     anchor: "version-history"
     content: |
-      {% include shared/versioning/history-and-changelog.html %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

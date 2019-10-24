@@ -18,6 +18,8 @@ keywords: mailchimp, integration, schema, etl mailchimp, mailchimp etl, mailchim
 layout: singer
 # input: false
 
+key: "mailchimp-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

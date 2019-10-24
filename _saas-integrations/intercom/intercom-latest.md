@@ -5,6 +5,8 @@ keywords: intercom, integration, schema, etl intercom, intercom etl, intercom sc
 summary: "Connection instructions, replication info, and schema details for Stitch's Intercom integration."
 layout: singer
 
+key: "intercom-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

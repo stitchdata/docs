@@ -5,6 +5,8 @@ keywords: google ecommerce, integration, schema, etl google ecommerce, google ec
 summary: "Connection instructions, replication info, and schema details for Stitch's Google ECommerce integration."
 layout: singer
 
+key: "google-ecommerce-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

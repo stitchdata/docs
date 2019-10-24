@@ -9,6 +9,8 @@ keywords: bronto, integration, schema, etl bronto, bronto etl, bronto schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Bronto integration."
 layout: singer
 
+key: "bronto-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

@@ -5,6 +5,8 @@ permalink: /integrations/databases/magento
 summary: "Connect and replicate data from your Magento database using Stitch's Magento integration."
 show-in-menus: true
 
+key: "magento-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

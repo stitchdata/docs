@@ -5,6 +5,7 @@ keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
 layout: singer
 input: false
+key: "hubspot-setup"
 
 # -------------------------- #
 #         Tap Details        #

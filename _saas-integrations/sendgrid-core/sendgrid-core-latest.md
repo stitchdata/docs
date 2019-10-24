@@ -9,6 +9,8 @@ keywords: sendgrid, integration, schema, etl sendgrid, sendgrid etl, sendgrid sc
 summary: "Connections instructions, replication info, and schema details for Stitch's SendGrid Core integration."
 layout: singer
 
+key: "sendgrid-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

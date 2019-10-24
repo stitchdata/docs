@@ -6,6 +6,8 @@ summary: "Connection instructions and schema details for Stitch's Desk integrati
 layout: singer
 old-schema-template: true
 
+key: "desk-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

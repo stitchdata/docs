@@ -6,6 +6,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 old-schema-template: true
 
+key: "mixpanel-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

@@ -8,6 +8,8 @@ summary: "Connection instructions and schema details for Stitch's QuickBooks int
 layout: singer
 old-schema-template: true
 
+key: "quickbooks-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

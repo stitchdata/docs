@@ -9,6 +9,8 @@ keywords: appsflyer, integration, schema, etl appsflyer, appsflyer etl, appsflye
 summary: "Connection instructions, replication info, and schema details for Stitch's AppsFlyer integration."
 layout: singer
 
+key: "appsflyer-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

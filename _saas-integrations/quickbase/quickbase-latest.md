@@ -9,6 +9,8 @@ keywords: quick-base, integration, schema, etl quick-base, quick-base etl, quick
 layout: singer
 old-schema-template: true
 
+key: "quick-base-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

@@ -1,0 +1,71 @@
+# -------------------------------------------- #
+#                                              #
+#         PRIMARY KEYS SCENARIOS               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/primary-keys.yml
+   ## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+
+## Error data lives here: _data/errors/loading/redshift.yml
+
+## Data arrives without a Primary Key:
+- id: no-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      - **Initial job**: Table is created without Primary Key and no `NOT NULL` columns.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Data arrives with single Primary Key:
+- id: single-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      - **Initial job:** Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
+
+         **Note**: Incorrectly altering or removing a table's Primary Key comment will result in issues with replication.
+
+      - **Subsequent jobs:** If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each sync.
+
+
+## Data arrives with MULTIPLE Primary Keys:
+- id: multiple-pks
+  rejectable: false
+  # if: uses default 
+  then:
+    v1: |
+      - **Initial job**: Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
+
+         **Note**: Incorrectly altering or removing a table's Primary Key comment will result in issues with replication.
+
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key columns and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Primary Key column is changed in the warehouse:
+- id: pk-column-change
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
+
+      If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Primary Key column is removed in the warehouse:
+- id: remove-pk-column
+  rejectable: false
+  # if: uses default
+  then:
+    v1: "Data will continue to be loaded into the table in an Append-Only fashion."

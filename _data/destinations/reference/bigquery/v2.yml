@@ -125,14 +125,14 @@ table-limit-info:
 data-limit-info:
   max-record-size: &max-record-size "4 MB"
 
+  integer-range: &integer-range "-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807"
+
   date-and-time:
     timezone-support: &timezone-support |
       false
 
     date-range: &date-range "0001-01-01 to 9999-12-31"
     timestamp-range: &timestamp-range "0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999 UTC"
-
-  integer-range: &integer-range "-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807"
 
   decimal:
     precision: &decimal-precision "Up to 38 digits of precision"

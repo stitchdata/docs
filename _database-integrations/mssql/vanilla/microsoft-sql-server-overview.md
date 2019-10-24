@@ -6,8 +6,12 @@ summary: "Connect and replicate data from your Microsoft SQL Server database usi
 layout: general
 input: false
 
+key: "mssql-integration"
+
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
+
 has-specific-data-types: true
 
 hosting-type: "generic"
@@ -25,7 +29,7 @@ sections:
   - title: "{{ integration.display_name }} version history"
     anchor: "version-history"
     content: |
-      {% include shared/versioning/history-and-changelog.html %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

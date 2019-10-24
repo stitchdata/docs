@@ -8,6 +8,8 @@ microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"
 
+key: "postgres-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

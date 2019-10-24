@@ -5,6 +5,8 @@ keywords: freshdesk, integration, schema, etl freshdesk, freshdesk etl, freshdes
 summary: "Connection instructions and schema details for Stitch's Freshdesk integration."
 layout: singer
 
+key: "freshdesk-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

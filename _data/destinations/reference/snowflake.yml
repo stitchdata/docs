@@ -213,7 +213,7 @@ attributes:
     description: |
       {{ destination.display_name }} destinations natively support Primary Keys.
 
-      Stitch requires Primary Keys to de-dupe data during Incremental Replication. Primary Key columns are created using [Primary Key constraints](https://docs.snowflake.net/manuals/sql-reference/constraints-overview.html){:target="new"}, which requires that values be both unique and not null.
+      Stitch requires Primary Keys to de-dupe data during Incremental Replication. Primary Key columns are created using [Primary Key constraints]({{ site.data.destinations.resource-links.snowflake.column-constraints }}){:target="new"}, which requires that values be both unique and not null.
 
   - id: "multiple-data-types"
     categories: "replication"
@@ -231,7 +231,7 @@ attributes:
     description: |
       {{ destination.display_name }} destinations natively support nested data structures.
 
-      When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a [`VARIANT` column](https://docs.snowflake.net/manuals/sql-reference/data-types-semistructured.html#variant){:target="new"}.. This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
+      When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a [`VARIANT` column]({{ site.data.destinations.resource-links.snowflake.variant-type }}){:target="new"}. This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
 
       You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. More info can be found in [{{ destination.display_name }}'s documentation](https://docs.snowflake.net/manuals/sql-reference/functions-semistructured.html){:target="new"}.
 
@@ -282,7 +282,7 @@ attributes:
     description: |
       {{ destination.display_name }} will store the data as `TIMESTAMP WITH TIMEZONE`, or `timestamp_tz` and adjust to show as UTC.
 
-      More info about timestamp data types can be found in [Snowflake's documentation](https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html){:target="new"}.
+      More info about timestamp data types can be found in [Snowflake's documentation]({{ site.data.destinations.resource-links.snowflake.datetime-type }}){:target="new"}.
 
   # - id: "date-and-time-date-range"
   #   categories: "data-limits"

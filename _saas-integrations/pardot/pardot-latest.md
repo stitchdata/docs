@@ -6,6 +6,8 @@ summary: "Connection instructions and schema details for Stitch's Pardot integra
 layout: singer
 old-schema-template: true
 
+key: "pardot-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

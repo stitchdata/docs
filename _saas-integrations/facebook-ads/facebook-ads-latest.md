@@ -5,6 +5,8 @@ keywords: facebook ads, integration, schema, etl facebook ads, facebook ads etl
 summary: "Connection instructions, replication info, and schema details for Stitch's Facebook Ads integration."
 layout: singer
 
+key: "facebook-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

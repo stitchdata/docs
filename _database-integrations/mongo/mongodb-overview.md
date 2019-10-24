@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your MongoDB database using Stitch's M
 layout: general
 input: false
 
+key: "mongodb-integration"
+
 show-in-menus: true
 has-versions: true
 has-specific-data-types: false
@@ -23,7 +25,7 @@ sections:
   - title: "{{ integration.display_name }} version history"
     anchor: "version-history"
     content: |
-      {% include shared/versioning/history-and-changelog.html %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

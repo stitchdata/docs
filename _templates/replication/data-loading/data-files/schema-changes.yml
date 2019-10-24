@@ -1,0 +1,68 @@
+# -------------------------------------------- #
+#                                              #
+#                SCHEMA CHANGES                #
+#                                              #
+# -------------------------------------------- #
+
+
+## Scenario data lives here: _data/dataloading/scenarios/schema-changes.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/bigquery.yml
+
+# ## Add new column in integration/data source
+- id: new-column-source
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      If the column has at least one non-`NULL` value in the source, the column will be created and appended to the end of the table in {{ destination.display_name }}.
+
+      **Note**: If the table using either Key- or Log-based Incremental Replication, backfilled values for the column will only be replicated if:
+
+      1. The records' Replication Key values are greater than or equal to the last saved maximum Replication Key value for the table, or
+      2. The table is reset and a historical re-replication is queued.
+    v2: |
+      If the column has at least one non-`NULL` value in the source, the column will be created and appended to the end of the table in {{ destination.display_name }}.
+
+      **Note**: If the table using either Key- or Log-based Incremental Replication, backfilled values for the column will only be replicated if:
+
+      1. The records' Replication Key values are greater than or equal to the last saved maximum Replication Key value for the table, or
+      2. The table is reset and a historical re-replication is queued.
+
+      Additionally, how records with new column values are loaded depends on the selected loading behavior:
+
+      - **Upsert**: Existing records will be updated with the new column's values, if the table has a defined Primary Key column. If the table uses either Key- or Log-based Incremental Replication, you may need to reset the table to backfill historical values for previously replicated records.
+
+         If the table doesn't have a Primary Key, data will be loaded in an Append-Only manner.
+
+      - **Append-Only**: Existing records will not be updated with the new column's values. Instead, records with new column values will be appended to the end of the table.
+
+      Refer to [TODO]({{ link.replication.syncing-new-columns | prepend: site.baseurl | append: "#syncing-additional-columns-on-already-syncing-tables" }}) for more info and examples.
+
+
+## Add column to Stitch-replicated table in warehouse
+- id: add-column-warehouse
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &add-column-warehouse "{{ site.data.dataloading.scenarios.schema-changes.add-column-warehouse.then | flatify }}"
+    v2: *add-column-warehouse
+
+
+## Column is removed from source
+- id: removed-column-source
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &removed-column-source "{{ site.data.dataloading.scenarios.schema-changes.removed-column-source.then | flatify }}"
+    v2: *removed-column-source
+
+
+## Remove column from Stitch-replicated table in warehouse
+- id: remove-column-warehouse
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &remove-column-warehouse "{{ site.data.dataloading.scenarios.schema-changes.remove-column-warehouse.then | flatify }}"
+    v2: *remove-column-warehouse

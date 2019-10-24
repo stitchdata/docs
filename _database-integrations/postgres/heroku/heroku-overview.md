@@ -7,12 +7,15 @@ summary: "Connect and replicate data from your Heroku PostgreSQL database using 
 layout: general
 input: false
 
+key: "heroku-integration"
+
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostgres.com/"
 
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
 
 db-type: "postgres"
 name: "heroku"
@@ -27,7 +30,7 @@ sections:
   - title: "{{ integration.display_name }} version history"
     anchor: "version-history"
     content: |
-      {% include shared/versioning/history-and-changelog.html %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

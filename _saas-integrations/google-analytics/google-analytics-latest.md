@@ -5,6 +5,8 @@ keywords: google analytics, ga, ga schema, etl google analytics, google analytic
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Analytics integration."
 layout: singer
 
+key: "google-analytics-setup"
+
 microsites:
   - title: "{{ page.display_name }} to BigQuery"
     url: "http://googleanalytics.tobigquery.com/"

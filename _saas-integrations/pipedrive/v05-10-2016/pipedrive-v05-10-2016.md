@@ -7,6 +7,8 @@ layout: singer
 input: false
 old-schema-template: true
 
+key: "pipedrive-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

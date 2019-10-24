@@ -8,6 +8,8 @@ microsites:
     url: "http://mysql.topostgres.com/"
 show-in-menus: true
 
+key: "aurora-rds-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

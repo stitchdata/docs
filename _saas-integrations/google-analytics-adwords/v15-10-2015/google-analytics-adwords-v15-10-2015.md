@@ -12,6 +12,9 @@ summary: |
 
   This integration has been deprecated.
 layout: singer
+
+key: "google-analytics-adwords-setup"
+
 input: false ## Removes integration from displaying on category pages
 
 # -------------------------- #

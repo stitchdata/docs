@@ -1,0 +1,110 @@
+# -------------------------------------------- #
+#                                              #
+#                     TABLES                   #
+#                                              #
+# -------------------------------------------- #
+
+description: |
+  Scenarios involving table creation and modification in the destination.
+
+## Table contains too many columns
+column-table-limit: 
+  heading: "a table contains more columns than the destination allows?"
+  if: "A table arrives with more columns than {{ destination.display_name }} allows."
+  then: "{{ destination.display_name }} will reject all data for the table."
+  fix-it: "If possible, deselect some columns to allow Stitch to load data into {{ destination.display_name }} for the table. {{ destination.display_name }} has a limit of {{ destination-reference.table-limit-info.max-columns-per-table }} columns per table."
+
+# -------------------------------------------- #
+#                                              #
+#                   COLUMNS                    #
+#                                              #
+# -------------------------------------------- #
+
+## A column is entirely NULL
+all-empty-column:
+  heading: "a column in the source only contains NULLs?"
+  if: "A column contains only `NULL` values."
+  then: |
+    Only columns that are populated in at least one record will be created in {{ destination.display_name }}.
+# todo: fix this? It's breaking the page formatting for some reason?
+# For example: On the left is a table as it exists in the source; on the right is the table in {{ destination.display_name }} as replicated by Stitch:
+
+# | SOURCE |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | FIRST JOB |                      |
+# | id     | updated_at [rep-key] | confirmed | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | id         | updated_at [rep-key] |
+# |--------|----------------------|-----------|------------------------------------------|------------------------------------------|------------|----------------------|
+# | 1      | 2017-06-01           |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 1          | 2017-06-01           |
+
+# Prior to the next job, a new record is added to the table with a populated value in the `confirmed` column. Because the `confirmed` column contains at least one value, Stitch will create this column in {{ destination.display_name }}:
+
+# | SOURCE |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | SECOND JOB |                      |           |
+# | id     | updated_at [rep-key] | confirmed | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | id          | updated_at [rep-key] | confirmed | 
+# |--------|----------------------|-----------|------------------------------------------|------------------------------------------|-------------|----------------------|-----------|
+# | 1      | 2017-06-01           |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 1           | 2017-06-01           |           |
+# | 2      | 2017-06-02           | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 2           | 2017-06-02           | true      |
+
+# **Note** In this example, `confirmed` is `NULL` for record 1 in {{ destination.display_name }}. If record 1's `confirmed` value is ever updated, its Replication Key value must also change to ensure Stitch detects the changes.
+
+
+## A table is entirely NULL
+all-empty-columns:
+  heading: "a table contains entirely NULL columns?"
+  if: "A table contains entirely `NULL` columns."
+  then: |
+    [CONFIRM/TODO]:
+    - **During the initial job**, the table will be created with only Stitch's `_sdc` columns.
+    - **During subsequent job**, only columns that are populated in at least one record will be created in {{ destination.display_name }}.
+
+some-empty-columns:
+  heading: ""
+  if: ""
+  then: "TODO"
+
+## Backfill columns in an Incremental Table
+backfill-incremental-table:
+  heading: "I backfill values in a table using Incremental Replication?"
+  if: "Columns in a table using Incremental Replication are backfilled."
+  then: |
+    **Note**: While this example is typical of Key-based Incremental Replication, it is also true for tables using Log-based Incremental Replication. In the latter scenario, think of the `updated_at` column as a log position, which is what Stitch uses as a Replication Key when reading from database logs.
+
+    If the Replication Key used by the table is updated to a value greater than or equal to the last recorded maximum value, the backfilled records will be selected for replication.
+
+    Consider the example below. On the left is a table as it exists in the source; on the right is the table in {{ destination.display_name }} as replicated by Stitch:
+
+    | SOURCE |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | FIRST JOB |                      |
+    | id     | updated_at [rep-key] | confirmed | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | id         | updated_at [rep-key] | confirmed |
+    |--------|----------------------|-----------|------------------------------------------|------------------------------------------|------------|----------------------|-----------|
+    | 1      |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 1          |                      |           |
+    | 2      |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 2          |                      |           |
+    | 3      | 2017-06-01           | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 3          | 2017-06-01           | true      |
+
+    A new record is added in the source with a populated Replication Key value. Stitch replicates record 4 and saves `2017-06-02` as the Replication Key value:
+
+    | SOURCE |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | SECOND JOB |                      |           |
+    | id     | updated_at [rep-key] | confirmed | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | id          | updated_at [rep-key] | confirmed |
+    |--------|----------------------|-----------|------------------------------------------|------------------------------------------|-------------|----------------------|-----------|
+    | 1      |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 1           |                      |           |
+    | 2      |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 2           |                      |           |
+    | 3      | 2017-06-01           | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 3           | 2017-06-01           | true      |
+    | 4      | 2017-06-02           | false     | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 4           | 2017-06-02           | false     |
+
+    Before the next job, the `confirmed` column is backfilled for records 1 and 2. However, because the Replication Key for record 1 is still `NULL`, only record 2 will be replicated:
+
+    | SOURCE |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | THIRD JOB  |                      |           |
+    | id     | updated_at [rep-key] | confirmed | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | id          | updated_at [rep-key] | confirmed |
+    |--------|----------------------|-----------|------------------------------------------|------------------------------------------|-------------|----------------------|-----------|
+    | 1      |                      | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 1           |                      |           |
+    | 2      | 2017-06-03           | false     | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 2           | 2017-06-03           | false     |
+    | 3      | 2017-06-01           | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 3           | 2017-06-01           | true      |
+    | 4      | 2017-06-02           | false     | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 4           | 2017-06-02           | false     |
+
+    For record 1's `confirmed` value to be reflected in {{ destination.display_name }}, its Replication Key in the source must be populated with a value that is greater than or equal to the last maximum saved value. In this example, that's `2017-06-03`:
+
+    | SOURCE |                      |           | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | THIRD JOB  |                      |           |
+    | id     | updated_at [rep-key] | confirmed | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | id          | updated_at [rep-key] | confirmed |
+    |--------|----------------------|-----------|------------------------------------------|------------------------------------------|-------------|----------------------|-----------|
+    | 1      | 2017-06-03           | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 1           | 2017-06-03           | true      |
+    | 2      | 2017-06-03           | false     | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 2           | 2017-06-03           | false     |
+    | 3      | 2017-06-01           | true      | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 3           | 2017-06-01           | true      |
+    | 4      | 2017-06-02           | false     | {::nomarkdown}<td bgcolor="#1e2023">{:/} | {::nomarkdown}<td bgcolor="#1e2023">{:/} | 4           | 2017-06-02           | false     |
+
+    If there are a large number of backfilled records in a source table, resetting the table's Replication Keys or temporarily using Full Table Replication may be required to replicate the backfilled values.

@@ -5,6 +5,8 @@ permalink: /integrations/databases/google-cloudsql-mysql
 summary: "Connect and replicate data from your Google CloudSQL MySQL database using Stitch's Google CloudSQL MySQL integration."
 show-in-menus: true
 
+key: "cloudsql-mysql-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

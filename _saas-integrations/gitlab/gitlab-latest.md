@@ -5,6 +5,8 @@ keywords: gitlab, integration, schema, etl gitlab, gitlab etl, gitlab schema
 summary: "Connection instructions and schema details for Stitch's GitLab integration."
 layout: singer
 
+key: "gitlab-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

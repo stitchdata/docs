@@ -1,0 +1,119 @@
+# -------------------------------------------- #
+#                                              #
+#                 OBJECT NAMES                 #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/snowflake.yml
+
+
+## Table name is too long
+- id: table-name-limit
+  rejectable: true
+  # # if: uses default
+  then:
+    v1: &table-name-limit |
+      {{ destination.display_name }} will reject all data for the table.
+    v2: *table-name-limit
+  error:
+    v1: &table-name-limit-error "{{ site.data.errors.loading.snowflake.table-name-limit | flatify }}"
+    v2: *table-name-limit-error
+  fix-it:
+    v1: &table-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.table-name-limit.fix-it | flatify }}"
+    v2: *table-name-limit-fix-it
+
+
+## Column name is too long
+- id: column-name-limit
+  rejectable: true
+  # # if: uses default
+  then:
+    v1: &column-name-limit "{{ site.data.dataloading.scenarios.object-names.column-name-limit.then | flatify }}"
+    v2: *column-name-limit
+  error:
+    v1: &column-name-limit-error "{{ site.data.errors.loading.snowflake.column-name-limit | flatify }}"
+    v2: *column-name-limit-error
+  fix-it:
+    v1: &column-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.column-name-limit.fix-it | flatify }}"
+    v2: *column-name-limit-fix-it
+
+
+## Duplicate field names
+- id: duplicate-field-names
+  rejectable: true
+  # if: uses default
+  then:
+    v1: &duplicate-field-names "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.then | flatify }}"
+    v2: *duplicate-field-names
+  error:
+    v1: &duplicate-field-names-error "{{ site.data.errors.loading.snowflake.field-name-collision | flatify }}"
+    v2: *duplicate-field-names-error
+  fix-it:
+    v1: &duplicate-field-names-fix-it "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.fix-it | flatify }}"
+    v2: *duplicate-field-names-fix-it
+
+
+## Column names contain MiXeDCaSe
+- id: mixed-case-column-name
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &mixed-case-column-name |
+      {{ destination.display_name }} will convert letters to uppercase. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `CuStOmErId`      | `CUSTOMERID`             |
+      | `customerID`      | `CUSTOMERID`             |
+      | `customerid`      | `CUSTOMERID`             |
+    v2: *mixed-case-column-name
+
+
+## Column names contain spaces
+- id: column-name-spaces
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-spaces |
+      {{ destination.display_name }} will remove spaces. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `customer id`     | `CUSTOMERID`            |
+      | `CUSTOMER ID`     | `CUSTOMERID`            |
+    v2: *column-name-spaces
+
+
+## Column name contains unsupported special characters
+- id: column-name-special-char
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-special-char |
+      {{ destination.display_name }} will will remove all non-word characters, including leading underscores. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `_customer!id`    |  | `CUSTOMERID`             |
+      | `!CUSTOMERID`     |  | `CUSTOMERID`             |
+      | `CUSTOMER!ID`     |  | `CUSTOMERID`             |
+    v2: *column-name-special-char
+
+
+## Column name begins with a non-letter character
+- id: column-name-starts-non-letter
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-starts-non-letter |
+      {{ destination.display_name }} will remove all leading non-letter characters. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `123customerid`   |  | `CUSTOMERID`            |
+      | `_customerid`     |  | `CUSTOMERID`            |
+      | `_987CUSTOMERID`  |  | `CUSTOMERID`            |
+    v2: *column-name-starts-non-letter

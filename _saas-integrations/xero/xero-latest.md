@@ -5,6 +5,8 @@ keywords: xero, integration, schema, etl xero, xero etl, xero schema
 summary: "Connection instructions and schema details for Stitch's Xero integration."
 layout: singer
 
+key: "xero-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

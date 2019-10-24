@@ -1,0 +1,25 @@
+# -------------------------------------------- #
+#                                              #
+#              WAREHOUSE CHANGES               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/warehouse-changes.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/snowflake.yml
+
+## Customer applies indexes to Stitch-generated columns
+- id: apply-indices
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &apply-indices "Not applicable - indices are not supported by {{ destination.display_name }}."
+
+
+## Customer switches to a new destination of the same type
+- id: switch-destination-same-type
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &switch-destination-same-type "{{ site.data.dataloading.scenarios.warehouse-changes.switch-destination-same-type.then | flatify }}"

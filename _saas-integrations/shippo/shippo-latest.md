@@ -5,6 +5,8 @@ keywords: shippo, integration, schema, etl shippo, shippo etl, shippo schema
 summary: "Connection instructions and schema details for Stitch's Shippo integration."
 layout: singer
 
+key: "shippo-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

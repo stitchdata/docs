@@ -5,6 +5,8 @@ keywords: taboola, taboola integration, schema, etl taboola, taboola etl, tabool
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
 
+key: "taboola-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

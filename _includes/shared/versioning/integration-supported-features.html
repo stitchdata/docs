@@ -8,7 +8,7 @@
 {% include misc/data-files.html %}
 
 <!-- The logic for pulling version info is in this include -->
-    {% include shared/versioning/integration-version-logic.html %}
+    {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="page" %}
 
 
 <!-- List of common features. This is applicable to
@@ -64,15 +64,12 @@
         <td class="table-subheading">
         </td>
         {% for version in released-versions %}
-            {% for doc in all-versioned-docs %}
-                {% if version.number == doc.this-version %}
-                    <td class="table-subheading">
-                        <strong>{{ display_name }}<br>
-                        <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
-                        {% if version.number == latest-version %} (latest){% endif %}
-                    </td>
-                {% endif %}
-            {% endfor %}
+            {% assign this-version-guide = all-versioned-docs | where:"this-version",version.number | first %}
+            <td class="table-subheading">
+                <strong>{{ display_name }}<br>
+                <a href="{{ this-version-guide.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                {% if version.number == latest-version %} (latest){% endif %}
+            </td>
         {% endfor %}
     </tr>
 
@@ -114,7 +111,7 @@
                                     {% when false %}
                                         {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
                                     {% else %}
-                                        {{ doc[feature.name] }}
+                                        {{ doc[feature.name] | flatify }}
                                 {% endcase %}
                             </td>
                         {% endif %}
@@ -129,7 +126,7 @@
 
 
 
-<!-- The table for integration snapshots, which display on dedicated integration documentaiton. -->
+<!-- The table for integration snapshots, which display on dedicated integration documentation. -->
 
 {% when 'integration-snapshot' %}
 
@@ -180,7 +177,11 @@
             <!-- Each item gets its own case handling, because Jekyll wigs out  -->
                         {% case attribute.type %}
                             {% when 'string' %}
-                                {{ integration[attribute.name] | markdownify | rstrip | lstrip }}
+                                {% if attribute.name == "status" %}
+                                    {{ this-version.status | flatify | capitalize | strip }}
+                                {% else %}
+                                    {{ integration[attribute.name] | markdownify | rstrip | lstrip }}
+                                {% endif %}
 
                 <!-- Boolean items -->
                             {% when 'boolean' %}

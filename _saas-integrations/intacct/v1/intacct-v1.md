@@ -19,6 +19,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+key: "intacct-setup"
+
 no-schema: true
 
 # -------------------------- #

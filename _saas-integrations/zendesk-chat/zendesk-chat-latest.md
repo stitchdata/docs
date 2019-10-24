@@ -6,6 +6,8 @@ summary: "Connection instructions and schema details for Stitch's Zendesk Chat i
 layout: singer
 old-schema-template: true
 
+key: "zendesk-chat-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

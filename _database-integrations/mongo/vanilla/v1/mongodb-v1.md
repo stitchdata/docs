@@ -5,6 +5,8 @@ permalink: /integrations/databases/mongodb/v1
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
 input: false
 
+key: "mongodb-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

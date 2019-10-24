@@ -18,6 +18,8 @@ keywords: recurly, integration, schema, etl recurly, recurly etl, recurly schema
 layout: singer
 input: false
 
+key: "recurly-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

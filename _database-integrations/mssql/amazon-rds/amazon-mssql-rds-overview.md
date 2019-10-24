@@ -6,8 +6,11 @@ summary: "Connect and replicate data from your Amazon Microsoft SQL Server RDS d
 layout: general
 input: false
 
+key: "amazon-mssql-rds-integration"
+
 show-in-menus: true
 has-versions: true
+show-in-version-menu: true
 
 hosting-type: "amazon"
 
@@ -24,7 +27,7 @@ sections:
   - title: "{{ integration.display_name }} version history"
     anchor: "version-history"
     content: |
-      {% include shared/versioning/history-and-changelog.html %}
+      {% include shared/versioning/version-history.html %}
 
   - title: "{{ integration.display_name }} version features"
     anchor: "version-features"

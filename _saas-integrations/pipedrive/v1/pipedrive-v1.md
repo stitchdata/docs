@@ -18,6 +18,8 @@ keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedriv
 layout: singer
 # input: false
 
+key: "pipedrive-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

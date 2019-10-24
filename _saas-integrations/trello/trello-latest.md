@@ -6,6 +6,8 @@ summary: "Connection instructions and schema details for Stitch's Trello integra
 layout: singer
 old-schema-template: true
 
+key: "trello-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

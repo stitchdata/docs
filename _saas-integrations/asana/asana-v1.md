@@ -18,6 +18,8 @@ keywords: asana, integration, schema, etl asana, asana etl, asana schema
 layout: singer
 # input: false
 
+key: "asana-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

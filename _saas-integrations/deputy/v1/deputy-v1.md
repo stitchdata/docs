@@ -18,6 +18,8 @@ keywords: deputy, integration, schema, etl deputy, deputy etl, deputy schema
 layout: singer
 # input: false
 
+key: "deputy-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
