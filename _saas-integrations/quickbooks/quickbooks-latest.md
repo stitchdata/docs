@@ -6,10 +6,7 @@ redirect_from: /saas-integrations/quickbooks/quickbooks-latest.html
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema, intuit
 summary: "Connection instructions and schema details for Stitch's QuickBooks integration."
 layout: singer
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+old-schema-template: true
 
 # -------------------------- #
 #     Integration Details    #
@@ -867,29 +864,23 @@ tables:
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-info: "**Note**: Stitch only integrates with online {{ integration.display_name }}. {{ integration.display_name }} for Desktop is not currently supported."
+requirements-list:
+  - item: "**An online {{ integration.display_name }} instance.** Support for replicating data from desktop {{ integration.display_name }} instances isn't currently supported."
 
 setup-steps:
-  - title: ""
-    anchor: ""
-    content: |
-      [Add content]
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorizing Stitch to Access QuickBooks"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
     anchor: "authorize-stitch"
     content: |
-      Lastly, you'll be directed to QuickBooks' website to complete the setup.
+      Lastly, you'll be directed to {{ integration.display_name }}' website to complete the setup.
 
-      1. If you're not already signed into your QuickBooks account, enter your credentials and click **Login**.
-      2. A screen asking for authorization to QuickBooks will display. **Note that Stitch will only ever read your data.**
+      1. If you're not already signed into your {{ integration.display_name }} account, enter your credentials and click **Login**.
+      2. A screen asking for authorization to {{ integration.display_name }} will display. **Note that Stitch will only ever read your data.**
       3. Click **Authorize.**
       4. After the authorization process successfully completes, you'll be redirected back to Stitch.
       5. Click {{ app.buttons.finish-int-setup }}.
-  - title: "track data"
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

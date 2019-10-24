@@ -4,10 +4,6 @@ permalink: /integrations/saas/google-ecommerce
 keywords: google ecommerce, integration, schema, etl google ecommerce, google ecommerce etl, google ecommerce schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google ECommerce integration."
 layout: singer
-format: ## controls formatting options in template
-  schema-list: false
-  table-desc: true
-  list: expand
 
 # -------------------------- #
 #     Integration Details    #
@@ -33,7 +29,7 @@ historical: "15 days"
 frequency: "30 minutes"
 tier: "Free"
 
-anchor-scheduling: false
+anchor-scheduling: true
 cron-scheduling: false
 
 table-selection: false
@@ -71,84 +67,61 @@ attribution-window: "15 days"
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-# -------------------------- #
-#     Integration Tables     #
-# -------------------------- #
-
-tables:
-## ECommerce Table
-  - name: "ecommerce123456789_v2"
-    doc-link: 
-    description: "your Google ECommerce data."
-    notes:
-    replication-method: "Key-based Incremental"
-    attribution-window: true
-    primary-key: "id"
-    nested-structures: false
-    attribute-notes: This table will contain the following attributes. For more info, click the links to check out Google's documentation.
-    attributes:
-      - name: ID (<code>id</code>) - This column is a unique identifier generated during replication.
-      - name: <strong>accountid</strong> - This column contains the account ID associated with your Google Analytics ECommerce account.
-      - name: <strong><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=traffic_sources&jump=ga_campaign" target="new">campaign</a></strong> - This column contains the campaign name (<a href="https://support.google.com/analytics/answer/1033867?hl=en">utm_campaign</a>)
-      - name: <strong><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=traffic_sources&jump=ga_keyword" target="new">keyword</a></strong> - This column contains the keyword description (<a href="https://support.google.com/analytics/answer/1033867?hl=en" target="new">utm_term</a>)
-      - name: <strong><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=traffic_sources&jump=ga_medium" target="new">medium</a></strong> - This column contains the medium name (<a href="https://support.google.com/analytics/answer/1033867?hl=en" target="new">utm_medium</a>)
-      - name: <strong>profileid</strong> - This column contains your Google Analytics profile ID.
-      - name: <strong>profilename</strong> - This column contains your Google Analytics profile name.
-      - name: <strong><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=traffic_sources&jump=ga_socialnetwork" target="new">socialnetwork</a></strong> - This column contains the name of the social network (e.g. Facebook, YouTube, etc.)
-      - name: <strong><a href="https://developers.google.com/analytics/devguides/reporting/core/dimsmets#view=detail&group=traffic_sources&jump=ga_source" target="new">source</a></strong> - This column contains the name of the order source. (<a href="https://support.google.com/analytics/answer/1033867?hl=en" target="new">utm_source</a>)
-      - name: <strong>transactionid</strong> - This column contains the order ID, which you can use to join the referral data back to your orders data. You can refer to <a href="https://support.google.com/analytics/answer/1009612?hl=en" target="new">Google’s documentation</a> if you need some background on tracking setup and management.
-      - name: <strong>transactions</strong> - This column contains the total number of transactions.
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 requirements-list:
-  - item: "**The user creating the integration has at least [Read & Analyze permissions](https://support.google.com/analytics/answer/2884495?hl=en) and that there's data in the account.** If the profile you use to connect doesn’t have these permissions (or there’s no data in the account), you’ll receive an error message like this:
+  - item: |
+      **At least Read & Analyze permissions in the account you want to connect to Stitch**. [See Google's documentation for more info](https://support.google.com/analytics/answer/2884495?hl=en){:target="new"}.
 
-   > “Something went wrong. None of the Google Analytics profiles associated with the credentials you’ve supplied contain data that Stitch can access. Please make sure that the credentials you’ve supplied have appropriate access.”"
-  - item: "**All ad-blocking software you are currently using is paused**. Because Google authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup."
-  - item: "**Your account has the [Enable ECommerce](https://support.google.com/analytics/answer/1009612?hl=en) setting turned on.** If you have ECommerce data in your accuont, this setting is already enabled and you can move on."
+  - item: "**To have recent data in the account you want to connect to Stitch.** Verify that there is data from the past 30 days in the account before continuing."
 
-requirements-info:
+  - item: "**To pause all ad-blocking software**. Because Google authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup."
+
+  - item: |
+      **To enable the [Enable ECommerce](https://support.google.com/analytics/answer/1009612?hl=en){:target="new"} setting in your Google Analytics account.** If you have ECommerce data in your account, this setting is already enabled and you can move on.
+
 
 setup-steps:
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
-  - title: "Authorizing Stitch & Selecting a Google Analytics Profile"
+  - title: "Authorize Stitch and select a Google Analytics profile"
     anchor: "auth-select-ga-profile"
     content: |
-      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your Google ECommerce data. **Note that we will only ever read your data.**
+      1. Next, you’ll be prompted to log into your Google account and to approve Stitch’s access to your {{ integration.display_name }} data. **Note that we will only ever read your data.**
       2. Click **Allow** to continue.
       3. After your credentials are validated, you’ll be prompted to select the Google Analytics profile you want to connect to Stitch:
 
          ![Selecting a Google Analytics profile.]({{site.baseurl}}/images/integrations/ga-select-profiles.png)
 
-         **Remember: profiles need to have Read & Analyze permissions to be detected by Stitch.** If you don’t see the profile you want in this list, we recommend that you double-check the permission settings.
+         **Remember:** Profiles need to have Read & Analyze permissions to be detected by Stitch. If you don’t see the profile you want in this list, we recommend that you double-check the permission settings.
       4. When finished, click **Continue** to save the integration and complete the setup.
   - title: "replication frequency"
-  - title: "track data"
+
+
+# -------------------------- #
+#     Replication Notes      #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      {% include integrations/saas/attribution-windows.html %}
 
 # -------------------------- #
 #        Schema Notes        #
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/saas-integration
+# Each table has a its own .md file in /_integration-schemas/google-ecommerce
 
-
-# Remove this if you don't need it:
-# schema-sections:
-  - title: "Schema Notes"
-    anchor: "schema-notes"
-    content: |
-      After the first successful sync of your Google ECommerce data, you'll see a single table in your data warehouse. The table follows this naming convention:
+schema-sections:
+  - content: |
+      After the first successful sync of your {{ integration.display_name }} data, you'll see a single table in your data warehouse. The table follows this naming convention:
 
       `ecommerce[GA profile id]_integration version`
 
-      Here's an example: `ecommerce123456789_v2`. In this case, the profile ID is `123456789` and the version of the ECommerce integration is `2`.
-
+      For example: `ecommerce123456789_v2`. In this case, the profile ID is `123456789` and the version of the ECommerce integration is `2`.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

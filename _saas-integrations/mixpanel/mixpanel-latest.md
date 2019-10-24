@@ -4,10 +4,7 @@ permalink: /integrations/saas/mixpanel
 keywords: mixpanel, integration, schema, etl mixpanel, mixpanel etl, mixpanel schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Mixpanel integration."
 layout: singer
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+old-schema-template: true
 
 # -------------------------- #
 #     Integration Details    #
@@ -56,7 +53,6 @@ row-usage-hog-reasons:
 ## 2 out of 3 of Mixpanel's tables can only be
 ## queried by day. Details are in the Replication section, below.
 
-replication-notes: true
 
 # -------------------------- #
 #      Feature Summary       #
@@ -133,30 +129,25 @@ tables:
       - name: analysis__steps
       - name: analysis__worst
 
+
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
-  - title: "Retrieve Your Mixpanel API Credentials"
+  - title: "Retrieve your {{ integration.display_name }} API credentials"
     anchor: "retrieve-mixpanel-api-creds"
     content: |
-      1. Sign into your Mixpanel account.
+      1. Sign into your {{ integration.display_name }} account.
       2. Click **Account**, which is located in the upper right portion of the screen.
       3. In the modal that displays, click **Projects**. 
 
-         Note that this window is different than the Project Settings window, which is accessed using the gear icon in the lower left corner. **The window you need is accessed only by clicking Account > Projects**.
+         **Note**: This window is different than the Project Settings window, which is accessed using the gear icon in the lower left corner. **The window you need can be accessed only by clicking Account > Projects**.
       4. Your API credentials will display:
 
-   ![Mixpanel API credentials.]({{ site.baseurl}}/images/integrations/mixpanel-api-creds.png)
+         ![Mixpanel API credentials.]({{ site.baseurl}}/images/integrations/mixpanel-api-creds.png)
 
-Leave this page open - you'll need it to complete the setup in Stitch.
+         Leave this page open - you'll need it to complete the setup in Stitch.
   - title: "add integration"
     content: |
       4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
@@ -169,13 +160,12 @@ Leave this page open - you'll need it to complete the setup in Stitch.
 # -------------------------- #
 
 replication-sections:
-  - title: "Replication Notes"
-    anchor: "replication-notes"
-    content: |
-      Because of how Mixpanel's API is designed, two of the three tables in our Mixpanel integration - the `mixpanel_export` and `mixpanel_funnels` tables - **can only be queried by day.** This means that every time Stitch runs a replication job for a Mixpanel integration, **the past day's worth of data will be replicated for each of these tables.**
+  - content: |
+      Because of how Mixpanel's API is designed, two of the three tables in the {{ integration.display_name }} integration - the `mixpanel_export` and `mixpanel_funnels` tables - can only be queried by day. 
 
-To prevent the re-replication of data that will count against your row count, we recommend setting the Replication Frequency to something less frequent.
+      This means that every time Stitch runs a replication job for a Mixpanel integration, the past day's worth of data will be replicated for each of these tables.
 
+      To prevent the re-replication of data that will count against your row count, we recommend setting the Replication Frequency to something less frequent.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

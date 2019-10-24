@@ -1,13 +1,10 @@
 ---
-title: AdRoll
+title: AdRoll (v1)
 permalink: /integrations/saas/adroll
 keywords: adroll, integration, schema, etl adroll, adroll etl, adroll schema, ad roll
 summary: "Connection instructions and schema details for Stitch's AdRoll integration."
 layout: singer
-format: 
-  schema-list: true
-  table-desc: true
-  list: expand
+old-schema-template: true
 
 # -------------------------- #
 #     Integration Details    #
@@ -59,7 +56,7 @@ tables:
 ## Ad Groups
   - name: "adroll_ad_groups"
     doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_adgroups
-    description: "info about the adgroups contained within the campaigns of your AdRoll account."
+    description: "info about the adgroups contained within the campaigns of your {{ integration.display_name }} account."
     notes: 
     replication-method: "Full Table"
     primary-key: "eid"
@@ -166,7 +163,7 @@ tables:
 ## Advertisables
   - name: "adroll_advertisables"
     doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get
-    description: "about the advertisables (typically the parent object for a brand) in your AdRoll account."
+    description: "about the advertisables (typically the parent object for a brand) in your {{ integration.display_name }} account."
     notes: 
     replication-method: "Full Table"
     primary-key: "eid"
@@ -265,18 +262,17 @@ tables:
 # -------------------------- #
 
 setup-steps:
-  - title: "Create an AdRoll User for Stitch"
+  - title: "Create an {{ integration.display_name }} User for Stitch"
     anchor: "create-adroll-user"
     content: |
-      While you can use your own credentials to connect AdRoll to Stitch, we recommend creating a separate user for us. This will make it easier for you to manage users and audit events in your AdRoll account.
+      While you can use your own credentials to connect {{ integration.display_name }} to Stitch, we recommend creating a separate user for us. This will make it easier for you to manage users and audit events in your {{ integration.display_name }} account.
 
-      **We require a General User role** - which is the default - to be able to replicate your AdRoll data. Note that Stitch does not need billing access. If you need help creating an AdRoll user, you can find instructions here in AdRoll’s support docs.
+      **We require a General User role** - which is the default - to be able to replicate your {{ integration.display_name }} data. Note that Stitch does not need billing access. If you need help creating an {{ integration.display_name }} user, you can find instructions here in {{ integration.display_name }}’s support docs.
   - title: "add integration"
     content: |
-      4. Enter the email address and username for the Stitch AdRoll user.
+      4. Enter the email address and username for the Stitch {{ integration.display_name }} user.
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data"
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
