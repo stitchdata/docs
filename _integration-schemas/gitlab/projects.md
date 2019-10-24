@@ -1,6 +1,6 @@
 ---
 tap: "gitlab"
-# version: ""
+version: "1.0"
 
 name: "projects"
 doc-link: https://gitlab.com/help/api/projects.md#list-all-projects

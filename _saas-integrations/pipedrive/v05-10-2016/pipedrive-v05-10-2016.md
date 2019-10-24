@@ -3,11 +3,9 @@ title: Pipedrive (v05-10-2016)
 permalink: /integrations/saas/pipedrive/v05-10-2016
 keywords: pipedrive, integration, schema, etl pipedrive, pipedrive etl, pipedrive schema
 summary: "Connection instructions and schema details for Stitch's Pipedrive integration."
+layout: singer
 input: false
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+old-schema-template: true
 
 key: "pipedrive-setup"
 
@@ -516,61 +514,60 @@ tables:
       - name: phone
       - name: role_id
       - name: timezone_name
+
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+setup-steps:
+  - title: "Create a Stitch {{ integration.display_name }} user"
+    anchor: "create-stitch-pipedrive-user"
+    content: |
+      To ensure Stitch can access and replicate all your data, the {{ integration.display_name }} credentials you use to connect to Stitch need **Admin permissions**. We recommend that you [create a separate {{ integration.display_name }} Admin user for Stitch](http://support.pipedrive.com/hc/en-us/articles/207319685-How-to-add-edit-remove-a-user){:target="new"}, but this isn’t mandatory to use the integration. Creating a user for us simply makes our activity easier to distinguish in logs and audits.
+
+      If you don’t want to create a user for us, ensure that the credentials you use to connect to Stitch have Admin permissions. If the API token associated with a non-Admin user is used to set up the integration, Stitch may be unable to access and replicate all of your data.
+
+      **Note**: Users in {{ integration.display_name }} are counted at the account level, not the company level. If you want to create a user for us and are concerned about the cost of your {{ integration.display_name }} subscription, don’t worry - you won’t be charged twice.
+
+      {% capture multiple-companies %}
+      If you want to connect more than one {{ integration.display_name }} company to Stitch, you’ll have to repeat the entire process in this guide for **each** company you want to add. Essentially, you’ll have to create a separate {{ integration.display_name }} integration for each company.
+
+      Our {{ integration.display_name }} integration uses an API Token to authenticate. **{{ integration.display_name }} API tokens are unique not only at the user level, but the company level as well**. This means that a user’s API Token will vary from company to company, even if everything is housed in the same {{ integration.display_name }} account.
+      {% endcapture %}
+
+      {% include note.html first-line="**Connect multiple Pipedrive companies**" content=multiple-companies %}
+  
+  - title: "Retrieve your {{ integration.display_name }} API token"    
+    anchor: "retrieve-api-token"
+    content: |
+      1. If you created a {{ integration.display_name }} user for Stitch, sign into {{ integration.display_name }} as the Stitch user.
+
+         If you didn’t, sign into {{ integration.display_name }} as an Admin user.
+      2. Click the **user menu** (where your avatar is) in the top right corner of the screen.
+      3. Click **Settings**.
+      4. In the settings menu, click **API**.
+      5. The user’s API Token will display.
+
+      Leave this page open for now - you'll need it to complete the setup in Stitch.
+  
+  - title: "add integration"
+    content: |
+      4. Paste the {{ integration.display_name }} API Token into the **API Token** field.
+  
+  - title: "historical sync"
+  - title: "replication frequency"
+
+
+# -------------------------- #
+#       Schema Details       #
+# -------------------------- #
+
+schema-sections:
+  - content: |
+      Want to check out what your data looks like in {{ integration.display_name }}'s API? If you still have your API Token handy, you can enter it on {{ integration.display_name }}'s website to interact directly with the API and see your data in raw JSON format.
+
+      In the **Attributes** section for each table is a link to {{ integration.display_name }}'s documentation for that endpoint. Use those links to interact with {{ integration.display_name }}'s API.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-
-{% contentfor setup %}
-Connecting your Pipedrive data to Stitch is a five-step process:
-
-1. [Create a Stitch Pipedrive user](#create-stitch-pipedrive-user)
-2. [Retrieve your Pipedrive API token](#retrieve-pipedrive-api-token)
-3. [Add Pipedrive as a Stitch data source](#add-stitch-data-source)
-4. [Define the Historical Sync](#define-historical-sync)
-5. [Define the Replication Frequency](#define-rep-frequency)
-
-### Creating a Stitch Pipedrive User {#create-stitch-pipedrive-user}
-
-To ensure Stitch can access and replicate all your data, the Pipedrive credentials you use to connect to Stitch need **Admin permissions**. We recommend that you [create a separate Pipedrive Admin user for Stitch](http://support.pipedrive.com/hc/en-us/articles/207319685-How-to-add-edit-remove-a-user), but this isn’t mandatory to use the integration. Creating a user for us simply makes our activity easier to distinguish in logs and audits.
-
-**If you don’t want to create a user for us**, simply ensure that the credentials you use to connect to Stitch have Admin permissions. If the API token associated with a non-Admin user is used to set up the integration, Stitch may be unable to access and replicate all of your data.
-
-Note that users are counted at the account-level in Pipedrive, not the company level. If you want to create a user for us and are concerned about the cost of your Pipedrive subscription, don’t worry - you won’t be charged twice.
-
-#### Connecting Multiple Pipedrive Companies
-
-If you want to connect more than one Pipedrive company to Stitch, you’ll have to repeat the entire process in this article for **each** company you want to add. Essentially, you’ll have to create a separate Pipedrive integration for each company.
-
-Our Pipedrive integration uses an API Token to authenticate. **Pipedrive API tokens are unique not only at the user level, but the company level as well**. This means that a user’s API Token will vary from company to company, even if everything is housed in the same Pipedrive account.
-
-### Retrieving Your Pipedrive API Token {#retrieve-pipedrive-api-token}
-
-1. If you created a Pipedrive user for Stitch, sign into Pipedrive as the Stitch user.
-
-   If you didn’t, sign into Pipedrive as an Admin user.
-2. Click the **user menu** (where your avatar is) in the top right corner of the screen.
-3. Click **Settings**.
-4. In the settings menu, click **API**.
-5. The user’s API Token will display.
-
-Leave this page open for now - you'll need it to complete the setup in Stitch.
-
-{% include integrations/shared-setup/connection-setup.html %}
-4. Paste the Pipedrive API Token into the **API Token** field.
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}
-
-
-
-{% contentfor schema-notes %}
-Want to check out what your data looks like in Pipedrive's API? If you still have your API Token handy, you can enter it on Pipedrive’s website to interact directly with the API and see your data in raw JSON format.
-
-In the **Attributes** section for each table is a link to Pipedrive's documentation for that endpoint. Use those links to interact with Pipedrive's API.
-{% endcontentfor %}

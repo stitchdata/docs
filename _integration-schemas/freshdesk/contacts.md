@@ -5,7 +5,7 @@
 # We can uncomment this when/if it's addressed.
 
 # tap: "freshdesk"
-# version:
+version:
 
 name: "contacts"
 doc-link: https://developers.freshdesk.com/api/#contacts

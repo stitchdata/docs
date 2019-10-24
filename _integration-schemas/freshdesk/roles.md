@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version:
+version:
 
 name: "roles"
 doc-link: https://developers.freshdesk.com/api/#roles

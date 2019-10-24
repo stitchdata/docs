@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version:
+version:
 
 name: "companies"
 doc-link: https://developers.freshdesk.com/api/#companies

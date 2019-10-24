@@ -1,6 +1,6 @@
 ---
 tap: "wootric"
-# version: "1.0"
+version: "1.0"
 
 name: "responses"
 doc-link: http://docs.wootric.com/api/#get-all-responses
