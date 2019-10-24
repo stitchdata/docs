@@ -3,10 +3,11 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Bing Ads (v1.0)
-permalink: /integrations/saas/bing-ads/v1
-tags: [saas_integrations]
-keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema
+title: Microsoft Advertising (v2) (formerly Bing Ads)
+permalink: /integrations/saas/microsoft-advertising/v1
+redirect_from: /integrations/saas/bing-ads/v1
+
+keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads schema, microsoft advertising
 layout: singer
 input: false
 
@@ -17,10 +18,11 @@ key: "bing-ads-setup"
 # -------------------------- #
 
 name: "bing-ads"
-display_name: "Bing Ads"
+display_name: "Microsoft Advertising"
 
 singer: true 
 repo-url: https://github.com/singer-io/tap-bing-ads
+tap-name: "Bing Ads"
 
 this-version: "1.0"
 
@@ -60,20 +62,20 @@ attribution-window: "30 days"
 
 requirements-list:
   - item: |
-      **To pause all ad-blocking software currently in use.** Because Bing Ads authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
+      **To pause all ad-blocking software currently in use.** Because {{ integration.display_name }} authentication uses pop ups, you may encounter issues if ad blockers aren't disabled during the setup.
   - item: |
-      **To have Viewer permissions to the profiles you want to connect.** These read-only permissions will ensure Stitch can read data from the profiles you select for replication. [Read more about Bing Ads user permissions here](https://help.bingads.microsoft.com/#apex/3/en/52037/3/en-US/#ext:none).
+      **To have Viewer permissions to the profiles you want to connect.** These read-only permissions will ensure Stitch can read data from the profiles you select for replication. [Read more about Bing Ads user permissions here](https://help.bingads.microsoft.com/#apex/3/en/52037/3/en-US/#ext:none){:target="new"}.
 
 setup-steps:
   - title: "add integration"
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "Authorize Stitch & Select {{ integration.display_name }} Accounts"
+  - title: "Authorize Stitch and select {{ integration.display_name }} accounts"
     anchor: "auth-select-profiles"
     content: |
       {% include layout/inline_image.html type="right" file="integrations/bing-ads-select-accounts.png" alt="Selecting Bing Ads accounts." max-width="400px" %}
 
-      1. Next, you’ll be prompted to log into your Bing account and to approve Stitch’s access to your {{ integration.display_name }} data.
+      1. Next, you’ll be prompted to log into your Microsoft account and to approve Stitch’s access to your {{ integration.display_name }} data.
       2. Click **Authorize** to continue.
       3. After your credentials are validated, you’ll be prompted to select the {{ integration.display_name }} account(s) you want to connect to Stitch.
 
