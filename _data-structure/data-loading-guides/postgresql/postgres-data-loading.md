@@ -45,49 +45,49 @@ sections:
       {% endfor %}
 
   - title: "Primary Key scenarios"
-    anchor: "primary-keys"
+    anchor: "primary-key-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.primary-keys.description }}
     content: |
       {% include data-structure/data-loading-tabs.html category="primary-keys"%}
 
   - title: "Replication Key scenarios"
-    anchor: "replication-keys"
+    anchor: "replication-key-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.replication-keys.description }}
     content: |
       {% include data-structure/data-loading-tabs.html category="replication-keys" %}
 
   - title: "Object naming scenarios"
-    anchor: "object-names"
+    anchor: "object-name-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.object-names.description }}
     content: |
       {% include data-structure/data-loading-tabs.html category="object-names" %}
 
   - title: "Table scenarios"
-    anchor: "tables"
+    anchor: "table-name-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.tables.description }}
     content: |
       {% include data-structure/data-loading-tabs.html category="tables" %}
 
   - title: "Data typing scenarios"
-    anchor: "data-typing"
+    anchor: "data-typing-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.data-types.description }}
     content: |
       {% include data-structure/data-loading-tabs.html category="data-types" %}
 
   - title: "Schema change scenarios"
-    anchor: "schema-changes"
+    anchor: "schema-change-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.schema-changes.description }}
     content: |
       {% include data-structure/data-loading-tabs.html category="schema-changes" %}
 
   - title: "Destination changes"
-    anchor: "destination-changes"
+    anchor: "destination-change-scenarios"
     summary: |
       {{ site.data.dataloading.scenarios.warehouse-changes.description }}
     content: |
