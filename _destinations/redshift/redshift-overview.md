@@ -9,6 +9,7 @@ keywords: redshift, amazon redshift, redshift data warehouse, redshift etl, etl 
 summary: "Amazon Redshift is a fully managed, cloud-based data warehouse. As Redshift is built for online analytic processing and business intelligence applications, it excels at executing large-scale analytical queries. For this reason, it exhibits far better performance than traditional, row-based relational databases like MySQL and PostgreSQL."
 
 content-type: "destination-overview"
+key: "redshift-reference"
 
 toc: true
 layout: general
@@ -19,10 +20,11 @@ destination: true
 #    Destination Details     #
 # -------------------------- #
 
-display_name: "Redshift"
+display_name: "Amazon Redshift"
 type: "redshift"
 port: 5439
 
+this-version: "2.0"
 
 # -------------------------- #
 #           Support          #

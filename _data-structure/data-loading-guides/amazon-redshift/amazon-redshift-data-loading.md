@@ -1,9 +1,7 @@
 ---
 title: Amazon Redshift Data Loading Reference
 permalink: /replication/loading/reference/amazon-redshift/
-redirect_from:
-  - /data-structure/redshift-data-loading-behavior
-  - /data-structure/panoply-data-loading-behavior
+redirect_from: /data-structure/redshift-data-loading-behavior
 
 layout: general
 keywords: redshift, redshift data warehouse, redshift data warehouse, redshift etl, etl to redshift
@@ -15,7 +13,7 @@ key: "redshift-loading-reference"
 display_name: "Amazon Redshift"
 type: "redshift"
 
-this-version: "1.0"
+this-version: "2.0"
 
 intro: |
   {{ page.summary }}

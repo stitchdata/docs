@@ -1,20 +1,40 @@
-{% assign destinations = site.destinations | where:"destination",true %}
+<!-- This creates tiles that display all destinations. Used
+	on the destination category and Choosing a Destination pages. -->
+
+
+{% assign destinations = site.destinations | where:"content-type","destination-overview" | sort: "display_name" %}
 
 <ul class="tiles">
 {% for destination in destinations %}
+	{% include shared/versioning/destination-version-logic.html item-name="destination" %}
+
+	{% if destination.this-version == latest-version %}
+
 	<li>
-		<a href="{{ destination.url | prepend: site.baseurl }}">
+		{% if total-versions > 1 %}
 			<img src="{{ site.baseurl }}/images/destinations/icons/{{ destination.type }}.svg" alt="{{ destination.display_name }}">
-		</a>
-		<strong>{{ destination.display_name }}</strong><br>
-		<a href="{{ destination.url | prepend: site.baseurl }}">Overview</a> | 
-		<a href="{{ destination.url | prepend: site.baseurl | append: "#setup" }}">Setup</a><br>
-    {% case destination.data-loading %}
-        {% when false %}
-            <br>
-        {% else %}
-    		<a href="{{ link.destinations.storage.loading-data | prepend: site.baseurl }}">Data Loading</a>
-    {% endcase %}
+
+			<strong>{{ destination.display_name }}</strong><br>
+
+			{% include shared/versioning/version-menu.html connection-type="destination" menu-type="category-page" item-name="destination" %}
+		{% else %}
+			<a href="{{ destination.url | prepend: site.baseurl }}">
+				<img src="{{ site.baseurl }}/images/destinations/icons/{{ destination.type }}.svg" alt="{{ destination.display_name }}">
+			</a>
+
+			<strong>{{ destination.display_name }}</strong><br>
+
+			<a href="{{ destination.url | prepend: site.baseurl }}">Overview</a> | 
+
+			<a href="{{ destination.url | prepend: site.baseurl | append: "#setup" }}">Setup</a><br>
+
+			{% assign all-data-loading-guides = site.data-structure | where:"content-type","loading-reference" %}
+				{% assign destination-loading-guide = all-data-loading-guides | where:"display_name",destination.display_name | first %}
+					{% if destination-loading-guide.this-version == destination.this-version %}
+						<a href="{{ destination-loading-guide.url | prepend: site.baseurl }}">Loading reference</a>
+					{% endif %}
+		{% endif %}
 	</li>
+	{% endif %}
 {% endfor %}
 </ul>

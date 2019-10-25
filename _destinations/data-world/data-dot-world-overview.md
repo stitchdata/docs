@@ -8,12 +8,12 @@ keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to 
 summary: &summary "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
 
 content-type: "destination-overview"
+key: "data-world-reference"
 
 toc: true
 layout: general
 destination: true
 data-loading: false
-
 
 # -------------------------- #
 #    Destination Details     #
@@ -22,6 +22,8 @@ data-loading: false
 display_name: "data.world"
 type: "data-world"
 db-type: "s3"
+
+this-version: "1.0"
 
 ## Resource links can be found in _data/destinations/links.yml
 

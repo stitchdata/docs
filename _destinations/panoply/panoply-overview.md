@@ -10,6 +10,7 @@ keywords: panoply, panoply.io, panoply data warehouse, panoply etl, etl to panop
 summary: "Panoply is a fully managed data warehouse service that will spin up a Redshift instance in just a few clicks. With Panoply, you can use your favorite analysis, SQL, and visualization tools just like you would if you were creating a Redshift data warehouse on your own."
 
 content-type: "destination-overview"
+key: "panoply-reference"
 
 toc: true
 layout: general
@@ -24,6 +25,7 @@ display_name: "Panoply"
 type: "panoply"
 port: 5439
 
+this-version: "2.0"
 
 # -------------------------- #
 #           Support          #

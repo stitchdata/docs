@@ -8,6 +8,7 @@ keywords: postgres, postgresql, postgres data warehouse, postgres etl, etl to po
 summary: "An open-source relational database, PostgreSQL is a powerful and well-known system that has received recognition from both its users and the industry at large. Unlike some other database systems, PostgreSQL is completely customizable and yours to do with as you please (assuming, of course, that your instance is self-hosted)."
 
 content-type: "destination-overview"
+key: "postgresql-reference"
 
 toc: true
 layout: general
@@ -22,6 +23,7 @@ display_name: "PostgreSQL"
 type: "postgres"
 port: 5432
 
+this-version: "1.0"
 
 # -------------------------- #
 #           Support          #

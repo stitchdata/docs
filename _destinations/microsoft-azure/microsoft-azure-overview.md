@@ -9,6 +9,7 @@ summary: &summary |
   Microsft Azure SQL Data Warehouse is a fast, fully-managed, petabyte-scale data warehouse. It's ideal for batch-based data warehouse workloads, and designed with a decoupled storage and compute model that allows it to scale quickly and be maintained in a cost-effective way.
 
 content-type: "destination-overview"
+key: "microsoft-azure-reference"
 
 toc: true
 layout: general
@@ -20,11 +21,12 @@ data-loading: false
 #    Destination Details     #
 # -------------------------- #
 
-display_name: "Azure SQL Data Warehouse"
+display_name: "Microsoft Azure SQL Data Warehouse"
 type: "microsoft-azure"
 db-type: "mssql"
 port: 1433
 
+this-version: "1.0"
 
 # -------------------------- #
 #           Support          #

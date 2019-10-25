@@ -1,8 +1,7 @@
 ---
 title: Panoply Data Loading Reference
 permalink: /replication/loading/reference/panoply/
-redirect_from:
-  - /data-structure/panoply-data-loading-behavior
+redirect_from: /data-structure/panoply-data-loading-behavior
 
 layout: general
 keywords: panoply, panoply data warehouse, panoply data warehouse, panoply etl, etl to panoply
@@ -15,7 +14,7 @@ display_name: "Panoply"
 type: "redshift"
 branded: true
 
-this-version: "1.0"
+this-version: "2.0"
 
 intro: |
   {{ page.summary }}

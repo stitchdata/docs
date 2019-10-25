@@ -18,7 +18,7 @@ toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 
-display_name: "BigQuery"
+display_name: "Google BigQuery"
 type: "bigquery"
 
 

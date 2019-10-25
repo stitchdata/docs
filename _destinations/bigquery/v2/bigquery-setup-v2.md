@@ -33,7 +33,7 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "BigQuery"
+display_name: "Google BigQuery"
 type: "bigquery"
 
 ssh: false

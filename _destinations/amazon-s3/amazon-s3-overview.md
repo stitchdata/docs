@@ -9,12 +9,12 @@ keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to 
 summary: &summary "Amazon S3 is a simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
 
 content-type: "destination-overview"
+key: "amazon-s3-reference"
 
 toc: true
 layout: general
 destination: true
 data-loading: false
-
 
 enterprise-cta:
   title: "Need loading notifications?"
@@ -30,6 +30,7 @@ enterprise-cta:
 display_name: "Amazon S3"
 type: "amazon-s3"
 
+this-version: "1.0"
 
 # -------------------------- #
 #           Support          #

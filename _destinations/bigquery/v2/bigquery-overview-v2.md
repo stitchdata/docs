@@ -21,7 +21,7 @@ this-version: "2.0"
 #    Destination Details     #
 # -------------------------- #
 
-display_name: "BigQuery"
+display_name: "Google BigQuery"
 type: &name "bigquery"
 name: *name
 description: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."

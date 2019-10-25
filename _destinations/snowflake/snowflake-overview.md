@@ -10,6 +10,7 @@ keywords: snowflake, snowflake destination, snowflake data warehouse, snowflake 
 summary: "Snowflake is a SQL data warehouse built from the ground up for the cloud, designed with a patented new architecture to handle today’s and tomorrow’s data and analytics."
 
 content-type: "destination-overview"
+key: "snowflake-reference"
 
 toc: true
 layout: general
@@ -19,10 +20,12 @@ destination: true
 # -------------------------- #
 #    Destination Details     #
 # -------------------------- #
+
 display_name: "Snowflake"
 type: "snowflake"
 port: 443
 
+this-version: "1.0"
 
 # -------------------------- #
 #           Support          #
