@@ -1,0 +1,43 @@
+# ------------------------------- #
+#  FILE SYSTEM FILE REQUIREMENTS  #
+# ------------------------------- #
+
+## This file contains info about what Stitch supports for
+## files replicated through a file system-based integration.
+
+## Ex: Amazon S3 CSV, SFTP, etc.
+
+file-types: &file-types |
+  - CSV (`.csv`)
+  - Text (`.txt`)
+
+compression-types: &compression-types "None"
+
+delimiters: &delimiters |
+  - Comma (`,`)
+  - Tab (`/t`)
+  - Pipe (`|`)
+
+encodings: &encodings |
+  UTF-8
+
+
+
+attributes:
+  - name: "File types"
+    description: |
+      Stitch supports the following file types:
+
+      {{ site.data.taps.extraction.file-systems.file-requirements.file-types }}
+
+  - name: "Compression types"
+    description: *compression-types
+
+  - name: "Delimiters"
+    description: |
+      Stitch supports the following delimiters:
+
+      {{ site.data.taps.extraction.file-systems.file-requirements.delimiters }}
+
+  - name: "Encodings"
+    description: *encodings
