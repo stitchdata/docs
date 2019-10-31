@@ -1,0 +1,31 @@
+# ------------------------------------------ #
+#     SFTP INTEGRATION SETTINGS FIELDS       #
+# ------------------------------------------ #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each SFTP-backed database integration.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+sftp:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      {{ defaults.field-copy.host | flatify }}
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: |
+      Enter the port used by the {{ integration.display_name }} server.
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: |
+      Enter the username of the {{ integration.display_name }} user you want to log in as.
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: |
+      Enter the password of the {{ integration.display_name }} user.
