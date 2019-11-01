@@ -25,6 +25,8 @@ status-url: "https://status.aws.amazon.com/"
 
 # this-version: "1.0"
 
+file-system: true
+db-type: "s3"
 driver: |
   [Boto 3 1.9.57](https://boto3.amazonaws.com/v1/documentation/api/1.9.57/index.html){:target="new"}
 
@@ -39,7 +41,6 @@ setup-name: "Amazon S3"
 frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
-db-type: "s3"
 
 ## Stitch features
 
@@ -86,24 +87,15 @@ requirements-list:
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: |
       **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
+
+# File requirements are in: _data/taps/extraction/file-systems/file-requirements.yml
   - item: |
       **Files that adhere to Stitch's file requirements**. Stitch supports the following:
 
-      <table class="attribute-list">
-      {% for requirement in site.data.taps.extraction.file-systems.file-requirements.attributes %}
-      <tr>
-      <td class="attribute-name">
-      <strong>{{ requirement.name }}</strong>
-      </td>
-      <td>
-      {{ requirement.description | flatify | markdownify }}
-      </td>
-      </tr>
-      {% endfor %}
-      </table>
+      {{ site.data.taps.extraction.file-systems.file-requirements.support-table | flatify }}
 
   - item: |
-      **Files with the same header row, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header rows are used to determine a table's schema.  For the best results, each file should have the same header row values.
+      **Files with the same header row values, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header fields are used to determine a table's schema. For the best results, each file should have the same header fields.
 
       **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
 
