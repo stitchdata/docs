@@ -35,7 +35,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "mariadb"
 versions: "n/a"
 ssh: true
 ssl: true

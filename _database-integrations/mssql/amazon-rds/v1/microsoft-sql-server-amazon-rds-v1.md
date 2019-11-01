@@ -32,7 +32,7 @@ port: 1433
 db-type: "mssql"
 
 # Stitch features
-
+api-type: "mssql"
 versions: "2012 through 2017"
 ssh: true
 ssl: true

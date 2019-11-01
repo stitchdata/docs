@@ -42,7 +42,7 @@ tier: "Free"
 db-type: "s3"
 
 ## Stitch features
-
+api-type: "s3-csv"
 versions: "n/a"
 ssh: false
 ssl: false

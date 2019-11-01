@@ -36,7 +36,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-
+api-type: "cloudsql_pg"
 versions: "9.3+"
 ssh: false
 ssl: false

@@ -36,7 +36,7 @@ port: 27017
 db-type: "mongo"
 
 ## Stitch features
-
+api-type: "mongodb"
 versions: "2.6 through 4.0"
 ssh: false
 ssl: true
