@@ -93,13 +93,11 @@ customers\.csv
 
 <!-- SEARCH DIRECTORY -->
 {% when 'define-search-directory' %}
-{% include note.html type="single-line" content="**Note**: This step is optional." %}
+{% include note.html type="single-line" content="**This step is optional.** However, limiting the search to a single location can potentially reduce extraction time, especially if the server contains a large number of files." %}
 
 The **Directory** field limits the location of the file search Stitch performs during replication jobs. When defined, Stitch will only search for files in this location and select those that match the [search pattern](#define-search-pattern).
 
 To define a specific location in the {{ include.location }}, enter the directory path into the **Directory** field. For example: `data-exports/lists`. **Note**: This field is not a regular expression.
-
-While using this field is optional, limiting the search to a single location can potentially reduce extraction time.
 
 
 <!-- DEFINE TABLE NAME -->
