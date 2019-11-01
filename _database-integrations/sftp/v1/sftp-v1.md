@@ -21,8 +21,12 @@ display_name: "SFTP"
 singer: true
 repo-url: "https://github.com/singer-io/tap-sftp"
 
+hosting-type: "none"
+
 # this-version: "1.0"
 
+file-system: true
+db-type: "sftp"
 driver: |
   [todo](){:target="new"}
 
@@ -37,7 +41,6 @@ setup-name: "SFTP"
 frequency: "1 hour"
 historical: "1 year"
 tier: "Free"
-db-type: "sftp"
 
 ## Stitch features
 
@@ -79,21 +82,17 @@ view-replication: false
 # -------------------------- #
 
 requirements-list:
+# File requirements are in: _data/taps/extraction/file-systems/file-requirements.yml
+
   - item: |
       **Files that adhere to Stitch's file requirements**. Stitch supports the following:
 
-      <table class="attribute-list">
-      {% for requirement in site.data.taps.extraction.file-systems.file-requirements.attributes %}
-      <tr>
-      <td class="attribute-name">
-      <strong>{{ requirement.name }}</strong>
-      </td>
-      <td>
-      {{ requirement.description | flatify | markdownify }}
-      </td>
-      </tr>
-      {% endfor %}
-      </table>
+      {{ site.data.taps.extraction.file-systems.file-requirements.support-table | flatify }}
+
+  - item: |
+      **Files with the same header fields, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header fields are used to determine a table's schema. For the best results, each file should have the same header fields.
+
+      **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
 
 
 # -------------------------- #
@@ -101,11 +100,37 @@ requirements-list:
 # -------------------------- #
 
 setup-steps:
-  - title: "TODO- SSH key"
-    anchor: "add-ssh-key"
+  - title: "Whitelist Stitch's IP addresses"
+    anchor: "whitelist-stitch-ips"
     content: |
-      TODO - SSH KEY
-      
+      {% include note.html type="single-line" content="**Note**: This step is required only if your server is behind a firewall that restricts access based on IP addresses." %}
+
+      {% include shared/whitelisting-ips/generic.html %}
+
+  - title: "Configure SSH for the SFTP server"
+    anchor: "configure-ssh-for-server"
+    content: |
+      To use SFTP, you'll need to configure SSH via key-pair authentication. This allows Stitch to use an SSH tunnel to securely connect to your {{ integration.display_name }} SFTP server.
+
+      If key-pair authentication isn't configured, Stitch can still connect using username/password auth. **Note**: This step is required if key-pairs are required to log into the {{ integration.display_name }} server. Alternatively, you can provide a password to use username/password authentication.
+
+    substeps:
+      - title: "Retrieve your Stitch public key"
+        anchor: "retrieve-your-public-key"
+        content: |
+          1. {{ app.menu-paths.add-integration | flatify }}
+          2. Click the **{{ integration.display_name }}** icon.
+          3. The Stitch public key will be at the top of the page that opens.
+
+          Keep this page handy - you'll need it in the next step.
+
+      - title: "Add the public key to authorized_keys"
+        anchor: "add-public-key-to-authorized-keys"
+        content: |
+          Next, you’ll add the public key to the connecting {{ integration.display_name }} user's `authorized_keys` file on your server. This will allow Stitch to authenticate via a public key and connect to the server.
+
+          {% include shared/ssh/ssh-create-linux-user.html no-notification=true include-create-user-steps=false %}
+
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |

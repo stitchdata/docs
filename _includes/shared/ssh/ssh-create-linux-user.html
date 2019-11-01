@@ -10,6 +10,7 @@ Next, you'll create a Stitch user on the SSH server. This will allow Stitch to a
 
 1. Open a new terminal window and log into your SSH server.
 
+{% unless include.include-create-user-steps == false %}
 2. Create a group named `stitch`:
 
    ```shell
@@ -27,8 +28,9 @@ Next, you'll create a Stitch user on the SSH server. This will allow Stitch to a
    ```shell
    sudo su - stitch
    ```
+{% endunless %}
 
-5. Create the `.ssh` directory:
+5. Create the `.ssh` directory{% if include.include-create-user-steps == false %} , if it doesn't already exist for the user you used to log in{% endif %}:
 
    ```shell
    mkdir ~/.ssh
