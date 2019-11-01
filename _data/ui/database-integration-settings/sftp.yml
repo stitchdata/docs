@@ -16,16 +16,18 @@ sftp:
 
   - name: "{{ defaults.field-names.host }}"
     copy: |
-      {{ defaults.field-copy.host | flatify }}
+      {{ defaults.field-copy.host | replace: "instance","server" | replace:"dbname","server" | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
     copy: |
-      Enter the port used by the {{ integration.display_name }} server.
+      Enter the port used by the {{ integration.display_name }} server. The default is `22`.
 
   - name: "{{ defaults.field-names.username }}"
     copy: |
-      Enter the username of the {{ integration.display_name }} user you want to log in as.
+      Enter the username of the {{ integration.display_name }} user. This should be the same user that added the public key to `authorized_keys` in [Step 2.2](#add-public-key-to-authorized-keys).
 
   - name: "{{ defaults.field-names.password }}"
     copy: |
-      Enter the password of the {{ integration.display_name }} user.
+      **Note**: If you [configured SSH for the {{ integration.display_name }} server](#configure-ssh-for-server), you don't need to enter a password.
+
+            Otherwise, enter the password of the {{ integration.display_name }} user.
