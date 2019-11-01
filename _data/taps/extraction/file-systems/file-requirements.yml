@@ -10,6 +10,7 @@
 file-types: &file-types |
   - CSV (`.csv`)
   - Text (`.txt`)
+  - gzip (`.gz`)
 
 compression-types: &compression-types "None"
 
@@ -25,19 +26,48 @@ encodings: &encodings |
 
 attributes:
   - name: "File types"
-    description: |
-      Stitch supports the following file types:
-
-      {{ site.data.taps.extraction.file-systems.file-requirements.file-types }}
+    all: |
+      - CSV (`.csv`)
+      - Text (`.txt`)
 
   - name: "Compression types"
-    description: *compression-types
+    amazon-s3-csv: "None"
+    sftp: |
+      These files must be correctly compressed or errors will surface during Extraction.
+
+      - gzip compressed archive (`.gz`)
+      - zip compressed archive (`.zip`)
 
   - name: "Delimiters"
-    description: |
-      Stitch supports the following delimiters:
+    all: *delimiters
 
-      {{ site.data.taps.extraction.file-systems.file-requirements.delimiters }}
+  - name: "Character encoding"
+    all: *encodings
 
-  - name: "Encodings"
-    description: *encodings
+
+# ------------------------------- #
+#          SUPPORT TABLE          #
+# ------------------------------- #
+
+## Re-usable code for displaying file requirements for
+## and an integration.
+
+support-table: |
+  {% assign integration-name = integration.name %}
+
+  <table class="attribute-list">
+  {% for requirement in site.data.taps.extraction.file-systems.file-requirements.attributes %}
+  <tr>
+  <td class="attribute-name">
+  <strong>{{ requirement.name }}</strong>
+  </td>
+  <td>
+  {% if requirement[integration-name] %}
+  {{ requirement[integration-name] | flatify | markdownify }}
+  {% else %}
+  {{ requirement.all | flatify | markdownify }}
+  {% endif %}
+  </td>
+  </tr>
+  {% endfor %}
+  </table>
