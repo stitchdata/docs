@@ -24,7 +24,7 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 singer: true
 certified: true
 
