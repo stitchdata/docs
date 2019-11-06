@@ -49,7 +49,7 @@ intro: |
   }
   ```
 
-  In this guide, we'll how this data will be loaded into Google BigQuery, including:
+  In this guide, we'll cover how this data will be loaded into Google BigQuery, including:
   
   {% for section in page.sections %}
   - [{{ section.summary }}](#{{ section.anchor }})
