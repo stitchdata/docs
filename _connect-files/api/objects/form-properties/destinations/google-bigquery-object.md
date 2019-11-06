@@ -58,7 +58,7 @@ object-attributes:
 
       Accepted values are:
 
-      - `UPSERT`: Existing rows will be updated with the most recent version of the record from the source. With this option, only the most recent version of a record will exist in {{ form-property.display-name }}.
+      - `UPSERT`: Existing rows for which a Primary Key exists will be updated with the most recent version of the record from the source. With this option, only the most recent version of a record will exist in {{ form-property.display-name }}.
 
       - `APPEND_ONLY`: Existing rows aren’t updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ form-property.display-name }}, capturing how a record changed over time.
 
