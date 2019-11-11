@@ -5,25 +5,27 @@
 	margin-bottom: 1rem;
 	line-height: 1.4;
 	padding: 10px 20px;
-	font-weight: 600;
-	text-transform: uppercase;
+	border-radius: 2em;
+	font-weight: bold;
 
 	-webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
     -webkit-font-smoothing: antialiased;
 
-	&:hover {
-		background: $stitch-yellow;
-		border: 2px solid $stitch-yellow;
+	&:hover,
+	&:active,
+	&:focus {
+		background: $lochmara;
+		border: 2px solid $lochmara;
 		text-decoration: none !important;
 		cursor: pointer;
 	}
 
 	&--yellow {
-		border: 2px solid $stitch-yellow;
-		background: $stitch-yellow;
-		color: $protocol-black;
+		border: 2px solid $lochmara;
+		background: $lochmara;
+		color: $white;
 	}
 }
 
@@ -492,8 +494,8 @@ pre {
 
 /* SYSTEM STATUS */
 $red: $magenta-relay;
-$orange: #e67e22;
-$yellow: $stitch-yellow;
+$orange: $jaffa;
+$yellow: $lightning;
 $green: $green-junction;
 
 .status-page {
@@ -516,7 +518,7 @@ $green: $green-junction;
 		color: $gray-3;
 
 		&:hover {
-			color: #cccccc;
+			color: #gray-4;
 			text-decoration: none;
 		}
 	}
@@ -652,6 +654,42 @@ ul.tiles {
 	}
 }
 
+ul.category-tiles {
+	list-style: none;
+	text-align: center;
+	margin: 1rem 0;
+	padding: 0;
+
+	li {
+		width: 48%;
+		display: inline-block;
+		vertical-align: top;
+		min-height: 200px;
+		padding: 10px;
+
+		a {
+			display: block;
+			color: $black;
+			border: 1px solid $gallery;
+			padding: 20px 10px 10px;
+			min-height: 200px;
+			font-weight: 400;
+
+			strong {
+				font-weight: 700;
+			}
+
+			&:hover {
+				box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25) !important;
+			}
+		}
+
+		img {
+			border: 0;
+		}
+	}
+}
+
 blockquote {
 	border-left: 3px solid #ED4040;
 	margin: 1rem 0;
@@ -762,7 +800,7 @@ hr.footer-cta {
 
 .footer-signup-cta {
 	margin-top: 30px;
-	background-color: #F4F4F4;
+	background-color: $background-blue;
 	padding: 40px 20px;
 
 	.wrapper {
@@ -788,10 +826,12 @@ hr.footer-cta {
 		display: block;
 		margin-bottom: 0;
 
-		&:hover {
-			color: $stitch-yellow;
-			background: $protocol-black;
-			border-color: $protocol-black;
+		&:hover,
+		&:active,
+		&:focus {
+			color: $white;
+			background: $black;
+			border-color: $black;
 		}
 	}
 }

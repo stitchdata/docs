@@ -1,40 +1,67 @@
 //----------------------------------
-// Main Color Palette
+// Reassigned Color Palette - Stitch
 //----------------------------------
 
 // Primary - Brand
-$stitch-yellow:                                   #FFCC00;
-$protocol-black:                                  #1E2023;
+$stitch-yellow:                                   #0675c1;				// lochmara
+$protocol-black:                                  #202020;				// black
 $white:                                           #FFFFFF;
 
 // Secondary - Brand
-$blue-channel:                                    #3399CC;
-$bit-blue:                                        #41C0FF;
-$magenta-relay:                                   #CC3399;
-$green-junction:                                  #66CC66;
-$frequency-red:                                   #ED4040;
+$blue-channel:                                    #0675c1;				// lochmara
+$bit-blue:                                        #66bdff;              // scooter
+$magenta-relay:                                   #82bd41;				// rio-grande
+$green-junction:                                  #82bd41;				// rio-grande
+$frequency-red:                                   #E96065;              // chestnut-rose
 
-$gray-signal:                                     #F9F9F9;
-$gray-stream:                                     #EAEAEA;
-$gray-byte:                                       #999999;
-$gray-batch:                                      #666666;
-$gray-border:									  #D2D2D2;
+$gray-signal:                                     #f2f2f2;              // concrete
+$gray-stream:                                     #EAEAEA;              // gallery
+$gray-byte:                                       #969696;              // gray
+$gray-batch:                                      #555555;              // dove
+$gray-border:									  #c6c6c6;              // silver
 $black:                                           #000000;
-$light-blue:                                      #DFF5FF;
+$light-blue:                                      #66bdff;              // scooter
 
 $transparent:                                     rgba(255,255,255,0);
+
+//----------------------------------
+// Main Color Palette - Talend
+//----------------------------------
+
+
+$lochmara:                                        #0675c1;
+$rio-grande:                                      #82bd41;
+$scooter:                                         #66bdff;
+$chestnut-rose:                                   #E96065;
+$jaffa:                                           #EA8330;
+$lightning:                                       #f3c446;
+
+$wild-sand:                                       #F6F6F6;
+$concrete:                                        #F2f2f2;
+$gallery:										  #EAEAEA;
+$alto:                                            #D5D5D5;
+$silver:                                          #C6C6C6;
+$silver-chalice:                                  #ABABAB;
+$gray:                                            #969696;
+$dark-silver:                                     #888888;
+$dove:                                            #555555;
+
+$background-blue:                                 #eff2f7;
+$background-green:                                #e7f0f4;
+
 
 //----------------------------------
 // Functional Colors
 //----------------------------------
 
-$gray-1:                                          $gray-signal;
-$gray-2:                                          $gray-stream;
-$gray-3:                                          $gray-byte;
-$gray-4:                                          $gray-batch;
-$gray-5:										  $gray-border;
+$gray-1:                                          $concrete;
+$gray-2:                                          $gallery;
+$gray-3:                                          $gray;
+$gray-4:                                          $silver-chalice;
+$gray-5:										  $dark-silver;
 
-$fira:                                            "fira-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$main-font:                                       'PT Sans', sans-serif;
+$fira:                                            'PT Sans', sans-serif;
 
 //----------------------------------
 // Widths
