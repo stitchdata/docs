@@ -11,7 +11,7 @@
 
 port: 443
 
-fully-managed: "true"
+fully-managed: true
 
 free-option: "No"
 
@@ -41,3 +41,11 @@ case-sensitivity: "Insensitive"
 table-name-length: "255 characters"
 
 column-name-length: "251 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  todo

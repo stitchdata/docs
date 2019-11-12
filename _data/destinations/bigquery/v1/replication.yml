@@ -5,26 +5,31 @@
 ## Details about replication/loading for
 ## Stitch's Google BigQuery (v1) destination.
 
-configurable-loading-behavior:  "false"
 
-upsert-support: "false"
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
 
-append-support: "true"
+primary-key-support: false
 
-primary-key-support: "false"
+nested-structure-support: true
 
-nested-structure-support: "true"
+rename-original-column-in-split:  false
 
-rename-original-column-in-split:  "false"
 
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+loading-behavior-types:
+  - "Append-Only"
+
+loading-behavior-description: |
+  TODO
 
 all:
-  - id: "max-record-size"
-    important: true
-    value: "{{ site.data.destinations.reference.common.max-record-size }}"
-    description: |
-      Records that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
-
   - id: "incremental-replication-upserts"
     value:
       v1: *upserts-v1
@@ -39,34 +44,3 @@ all:
         More info and examples can be found in [our Replication Method documentation]({{ link.replication.append-only | prepend: site.baseurl }}) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
       v2: |
         TODO
-
-  - id: "primary-keys"
-    value:
-      v1: *primary-keys-v1
-      v2: *primary-keys-v2
-    important: true
-    description:
-      v1: |
-        {{ destination.display_name }} destinations do not have native support for Primary Keys.
-      v2: |
-        TODO
-
-  - id: "mixed-data-types"
-    value: *mixed-data-type-support
-    important: true
-    description: |
-      {{ destination.display_name }} destinations do not support multiple data types in a single column.
-
-      To accommodate this scenario, Stitch will create additional columns for each data type. Refer to the [Table structural changes guide]({{ link.destinations.storage.structure-changes | prepend: site.baseurl }}) for examples and more info.
-
-  - id: "nested-data-structures"
-    value: *nested-structure-support
-    important: true
-    description: |
-      {{ destination.display_name }} destinations natively support nested data structures.
-
-      More info and examples can be found in [{{ destination.display_name }}'s documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/arrays#querying-nested-arrays){:target="new"}.
-
-  - id: "incompatible-sources"
-    important: true
-    ## The value and description for this live in _data/destinations/reference/defaults.yml

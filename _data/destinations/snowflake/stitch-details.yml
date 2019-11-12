@@ -5,50 +5,37 @@
 # Details about Stitch's implementation &
 # requirements for Snowflake destinations.
 
-pricing-tier: "standard"
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
 supported-versions: "n/a"
-available-in-connect: "true"
 
-# Connection methods
-
-ssl: "true"
-connect-ssl: "false" ## Indicates whether SSL can be configured via the API
-ssh: "false"
-vpn: "false"
-
-workload-performance-management: "true"
+available-in-connect: true
 
 
-list:
-  - id: "release-status"
-    categories: "stitch-details"
-    value: *release-status 
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
 
-  - id: "pricing-tier"
-    categories: "stitch-details"
-    value: *pricing-tier
+ssl: true
 
-  - id: "supported-versions"
-    categories: "stitch-details"
-    value: *supported-versions
+connect-ssl: false ## Indicates whether SSL can be configured via the API
 
-  - id: "ssl-connections"
-    categories: "stitch-details"
-    value: *connection-methods-ssl
-    description: |
-      Stitch will attempt to use SSL to connect by default. No additional configuration is needed on your part.
+ssh: false
 
-  - id: "ssh-connections"
-    categories: "stitch-details"
-    value: *connection-methods-ssh
-    description: |
-      Stitch does not support using SSH tunnels to connect to {{ destination.display_name }} destinations.
+vpn: false
 
-  - id: "vpn-connections"
-    categories: "stitch-details"
-    value: *connection-methods-vpn
 
-  - id: "all-setup-instructions"
-    categories: "stitch-details"
-    description: |
-      {{ default.description-full | flatify | markdownify }}
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: true
+workload-performance-management-description: |
+  todo

@@ -5,11 +5,10 @@
 ## Details about replication/loading for
 ## Stitch's Google BigQuery (v2) destination.
 
-configurable-loading-behavior: true
 
-upsert-support: true
-
-append-support: true
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
 
 primary-key-support: true
 
@@ -18,8 +17,29 @@ nested-structure-support: true
 rename-original-column-in-split:  false
 
 
-all:
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
 
+configurable-loading-behavior: true
+
+loading-behavior-types:
+  - "Upsert"
+  - "Append-Only"
+
+loading-behavior-description: |
+  Loading behavior can be configured for {{ destination.display_name }} destinations.
+
+  The following loading behavior types are supported for {{ destination.display_name }} destinations:
+
+    {% for loading-behavior-type in destination-data.loading-behavior-types %}
+    - {{ loading-behavior-type }}
+    {% endfor %}
+
+    Refer to the [Loading behavior](#loading-behavior) section for more info.
+
+
+all:
   - id: "incremental-replication-upserts"
     value:
       v1: *upserts-v1
@@ -34,11 +54,3 @@ all:
         More info and examples can be found in [our Replication Method documentation]({{ link.replication.append-only | prepend: site.baseurl }}) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
       v2: |
         TODO
-
-  - id: "mixed-data-types"
-    value: *mixed-data-type-support
-    important: true
-    description: |
-      {{ destination.display_name }} destinations do not support multiple data types in a single column.
-
-      To accommodate this scenario, Stitch will create additional columns for each data type. Refer to the [Table structural changes guide]({{ link.destinations.storage.structure-changes | prepend: site.baseurl }}) for examples and more info.

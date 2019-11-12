@@ -4,10 +4,43 @@
 
 ## Details about the destination provider.
 
-fully-managed: "false"
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+fully-managed: false
 
 free-option: "Yes (trial)"
 
 pricing-model: "Storage"
 
 pricing-details: "{{ destination.display_name }} pricing is based on two factors: The amount of data stored in and location (region) of your {{ destination.display_name }} bucket."
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "None"
+
+max-tables-per-database: "None"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "n/a"
+
+table-name-length: "1,024 bytes"
+
+column-name-length: "n/a"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  TODO

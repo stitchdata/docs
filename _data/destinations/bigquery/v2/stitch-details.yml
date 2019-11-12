@@ -5,6 +5,11 @@
 # Details about Stitch's implementation &
 # requirements for Google BigQuery (v2) destinations.
 
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
 pricing-tier: "Standard"
 
 # stitch-plan-availability: "all"
@@ -13,7 +18,10 @@ supported-versions: "n/a"
 
 available-in-connect: true
 
-# Connection methods
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
 
 ssl: true
 
@@ -23,27 +31,10 @@ ssh: false
 
 vpn: false
 
-# Loading behavior
 
-configurable-loading-behavior: true
-
-loading-behavior-types:
-  - "Upsert"
-  - "Append-Only"
-
-loading-behavior-description: |
-  Loading behavior can be configured for {{ destination.display_name }} destinations.
-
-  The following loading behavior types are supported for {{ destination.display_name }} destinations:
-
-    {% for loading-behavior-type in destination-data.loading-behavior-types %}
-    - {{ loading-behavior-type }}
-    {% endfor %}
-
-    Refer to the [Loading behavior](#loading-behavior) section for more info.
-
-
-# Performance management details
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
 
 workload-performance-management: true
 workload-performance-management-description: |

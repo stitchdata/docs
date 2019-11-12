@@ -5,59 +5,40 @@
 # Details about Stitch's implementation &
 # requirements for Amazon Redshift destinations.
 
-pricing-tier: "standard"
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
 supported-versions: "n/a"
-available-in-connect: "true"
 
-# Connection methods
+available-in-connect: true
 
-ssl: "true"
-connect-ssl: "false" ## Indicates whether SSL can be configured via the API
-ssh: "true"
-vpn: "false"
 
-workload-performance-management: "true"
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
 
-list:
-  - id: "release-status"
-    categories: "stitch-details"
-    value: *release-status
+ssl: true
 
-  - id: "pricing-tier"
-    categories: "stitch-details"
-    value: *pricing-tier
+connect-ssl: false ## Indicates whether SSL can be configured via the API
 
-  - id: "supported-versions"
-    categories: "stitch-details"
-    value: *supported-versions
+ssh: true
 
-  - id: "ssl-connections"
-    categories: "stitch-details"
-    value: *connection-methods-ssl
-    description: |
-      Stitch will attempt to use SSL to connect by default. No additional configuration is needed on your part.
+vpn: false
 
-  - id: "ssh-connections"
-    categories: "stitch-details"
-    value: *connection-methods-ssh
-    description: |
-      Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for Redshift]({{ link.security.ssh-amazon | prepend: site.baseurl }}).
 
-  - id: "vpn-connections"
-    categories: "stitch-details"
-    value: *connection-methods-vpn
-    description: |
-      Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
 
-  - id: "all-setup-instructions"
-    categories: "stitch-details"
-    description: |
-      {{ default.description-full | flatify | markdownify }}
+workload-performance-management: true
 
-  - id: "workload-performance-management"
-    categories: "stitch-details"
-    value: *workload-performance-management
-    description: |
-      To improve your query performance, you can apply encodings, SORT, and DIST keys to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
+workload-performance-management-description: |
+  To improve your query performance, you can apply encodings, SORT, and DIST keys to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
 
-      Refer to the [Encodings, SORT, and DIST Keys guide]({{ link.destinations.storage.redshift-encodings | prepend: site.baseurl }}) for application instructions.
+  Refer to the [Encodings, SORT, and DIST Keys guide]({{ link.destinations.storage.redshift-encodings | prepend: site.baseurl }}) for application instructions.
