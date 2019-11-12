@@ -4,7 +4,8 @@
 # -------------------------- #
 
 title: Stitch and Destination Reserved Keywords
-permalink: /data-structure/reserved-keywords
+permalink: /replication/loading/reserved-keywords
+redirect_from: /data-structure/reserved-keywords
 keywords: keywords, reserved words, reserved keywords
 summary: "A reference of Stitch and destination-reserved keywords."
 
@@ -95,8 +96,8 @@ sections:
 
       ### {{ destination.display_name }} reserved keywords {#{{ destination.type }}-reserved-keywords}
 
-      {% if site.data.destinations.resource-links[destination.type]reserved-words %}
-      Refer to [{{ destination.title | remove: " Destination" }}'s documentation]({{ site.data.destinations.resource-links[destination.type]reserved-words }}){:target="new"} for the full list of keywords reserved by {{ destination.display_name }}.
+      {% if site.data.destinations[destination.type]resource-links.reserved-words %}
+      Refer to [{{ destination.title | remove: " Destination" }}'s documentation]({{ site.data.destinations[destination.type]resource-links.reserved-words }}){:target="new"} for the full list of keywords reserved by {{ destination.display_name }}.
       {% endif %}
 
       <table class="attribute-list">
