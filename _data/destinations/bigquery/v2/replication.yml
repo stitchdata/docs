@@ -1,0 +1,44 @@
+# ------------------------------------------ #
+#   GOOGLE BIGQUERY (V2) REPLICATION DETAILS #
+# ------------------------------------------ #
+
+## Details about replication/loading for
+## Stitch's Google BigQuery (v2) destination.
+
+configurable-loading-behavior: true
+
+upsert-support: true
+
+append-support: true
+
+primary-key-support: true
+
+nested-structure-support: true
+
+rename-original-column-in-split:  false
+
+
+all:
+
+  - id: "incremental-replication-upserts"
+    value:
+      v1: *upserts-v1
+      v2: *upserts-v2
+    important: true
+    description:
+      v1: |
+        {{ destination.display_name }} destinations do not currently support upserts, or updating existing rows.
+
+        When Stitch loads data into {{ destination.display_name }} destinations, it will load it in an append-only fashion. This means that new records and updates to existing records are appended to the end of tables as new rows. Existing records are never updated.
+
+        More info and examples can be found in [our Replication Method documentation]({{ link.replication.append-only | prepend: site.baseurl }}) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
+      v2: |
+        TODO
+
+  - id: "mixed-data-types"
+    value: *mixed-data-type-support
+    important: true
+    description: |
+      {{ destination.display_name }} destinations do not support multiple data types in a single column.
+
+      To accommodate this scenario, Stitch will create additional columns for each data type. Refer to the [Table structural changes guide]({{ link.destinations.storage.structure-changes | prepend: site.baseurl }}) for examples and more info.
