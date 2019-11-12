@@ -1,0 +1,184 @@
+# -------------------------- #
+#        Stitch details      #
+# -------------------------- #
+
+stitch-details:
+  - "release-status"
+  - "stitch-plan-availability"
+  - "supported-versions"
+  - "available-in-connect"
+  - "ssh"
+  - "ssl"
+  - "vpn"
+  - "loading-behavior"
+
+stitch-details-description: "High-level details about Stitch's implementation of {{ destination.display_name }}, such as supported connection methods, availability on Stitch plans, etc."
+
+release-status: 
+  tooltip: "The destination's release status in Stitch."
+  default: |
+    {% assign this-version = site.data.destinations[destination.type]versions.released-versions | where:"number",destination.this-version | first %}
+
+    {{ this-version.status | capitalize }}
+
+stitch-plan-availability:
+  tooltip: "Indicates the availability of the destination on Stitch plans."
+  default: "All Stitch plans"
+
+pricing-tier: 
+  tooltip: "The type of Stitch plan required to use the destination."
+  additional-info: |
+    {% case destination-data[reference-item] %}
+    {% when 'Standard' %}
+    All Stitch plans
+    {% when 'Enterprise' %}
+    Stitch Enterprise plans
+    {% endcase %}
+
+supported-versions:
+  tooltip: "The database versions supported for use with Stitch."
+
+available-in-connect:
+  title: "Connect API availability"
+  tooltip: "Indicates if {{ destination.display_name }} destinations are available in Stitch's Connect API."
+  supported: |
+    This version of the {{ destination.display_name }} destination can be created and managed using Stitch's Connect API. [Learn more]({{ link.connect.api | prepend: site.baseurl | append:"#destination-form-properties" }}).
+
+ssh:
+  title: "SSH connections" 
+  tooltip: "Indicates if SSH connections are supported for the destination."
+  supported: "Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations."
+  not-supported: "Stitch does not support using SSH tunnels to connect to {{ destination.display_name }} destinations."
+
+ssl:
+  title: "SSL connections" 
+  tooltip: "Indicates if SSL connections are supported for the destination."
+  supported: "Stitch will attempt to use SSL to connect by default. No additional configuration is needed."
+  not-supported: "Stitch does not support using SSL to connect to {{ destination.display_name }} destinations."
+
+vpn:
+  title: "VPN connections" 
+  tooltip: "Indicates if VPN connections are supported for the destination."
+  not-supported: |
+    Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+
+loading-behavior:
+  tooltip: "The types of loading behavior available for the destination."
+  default: |
+    {{ destination-data.loading-behavior-description | flatify }}
+
+supported-regions:
+  title: "Supported GCS regions"
+  tooltip: "The Google Cloud Storage (GCS) regions Stitch currently supports."
+
+workload-performance-management:
+  title: "Workload and performance management"
+  tooltip: "Indicates if workload and performance management tools are supported by the destination."
+
+incompatible-sources:
+  tooltip: "{{ site.data.tooltips.integration-incompatibilities }}"
+  code: |
+    [ TODO: Make this work for versions ]
+    {% assign destination-incompatibilities = site.data.destinations[destination.type]incompatibilities | compact %}
+              
+    {% assign incompatibility-list-size = destination-incompatibilities | size %}
+
+    {% case incompatibility-list-size %}
+    {% when 0 %}
+    **No reported incompatibilities**
+
+    No integration compatibility issues have been reported for {{ destination.display_name }}.
+    {% else %}
+    **Has possible incompatibilities**
+
+    Incompatibilities may exist with the following integrations:
+
+    {% for incompatibility in destination-incompatibilities %}
+
+    {% for integration in integrations-with-incompatibilities %}
+    {% if integration.name == incompatibility.integration %}
+    {% capture integration-name %}
+    [{{ integration.display_name }}]({{ integration.url }})
+    {% endcapture %}
+    {% endif %}
+    {% endfor %}
+
+    - {{ integration-name }}
+    {% endfor %}
+
+    Refer to the [Destination and integration compatibility guide]({{ link.destinations.overviews.compatibility | prepend: site.baseurl | append: "#incompatible-integrations-by-destination-type" }}) for more info.
+    {% endcase %}
+
+
+# -------------------------- #
+#     Destination details    #
+# -------------------------- #
+
+destination-details:
+  - "max-record-size"
+  - "table-name-length"
+  - "column-name-length"
+  - "max-table-size"
+  - "max-tables-per-database"
+  - "case-sensitivity"
+  - "reserved-keywords"
+
+destination-details-description: |
+  Details about the destination, including object names, table and column limits, reserved keywords, etc.
+
+  **Note**: Exceeding the limits noted below will result in loading errors or rejected data.
+
+max-record-size:
+  title: "Maximum record size"
+  tooltip: "The maximum size a single record can be to be loaded successfully into the destination."
+  default: "4MB"
+
+table-name-length:
+  tooltip: "{{ site.data.tooltips.table-name-limit }}"
+
+column-name-length:
+  tooltip: "{{ site.data.tooltips.column-name-limit }}"
+
+max-columns-per-table:
+  title: "Maximum columns per table"
+  tooltip: "The maximum number of columns per table that the destination allows."
+
+max-table-size:
+  title: "Maximum table size"
+  tooltip: "The maximum size a single table in the destination can be."
+  default: "None"
+
+max-tables-per-database:
+  title: "Maximum tables per database"
+  tooltip: "The maximum number of tables allowed per database in the destination."
+
+case-sensitivity:
+  tooltip: "Indicates whether the destination is case sensitive or insensitive."
+
+reserved-keywords:
+  tooltip: "Words and symbols reserved by the destination for use in object names."
+  default: |
+    Refer to the [Reserved keywords documentation]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append:"#" | append:destination.type | append:"-reserved-keywords" }}).
+
+
+# -------------------------- #
+#     Replication details    #
+# -------------------------- #
+
+replication-details-description: "Details about Stitch and replication for {{ destination.display_name }} destinations."
+
+# items:
+#   - id: "incremental-replication-upserts"
+#     name: "Incremental Replication - Upserts"
+#     description: |
+#       Indicates if upserts are supported for Incremental Replication. Upserts are used to update existing rows.
+
+#   - id: "incremental-replication-append"
+#     name: "Incremental Replication - Append"
+#     description: |
+#       Indicates if Append-Only is supported for Incremental Replication. Append-Only will not update existing rows; new records and updates to existing records are appended to the end of tables as new rows.
+
+#   - id: "primary-keys"
+#     name: "Primary Keys"
+#     description: |
+#       Indicates how Primary Keys are handled in the destination.
