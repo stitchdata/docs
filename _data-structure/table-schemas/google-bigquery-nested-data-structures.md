@@ -16,7 +16,7 @@ this-version: "2.0"
 intro: |
   {% include misc/data-files.html %}
 
-  Google BigQuery supports nested records within tables, [whether it's a single record or repeated values]({{ site.data.destinations.resource-links.bigquery.nested-repeated }}){:target="new"}.
+  Google BigQuery supports nested records within tables, [whether it's a single record or repeated values]({{ site.data.destinations.bigquery.resource-links.nested-record }}){:target="new"}.
 
   Unlike the conventional method to [denormalization](https://en.wikipedia.org/wiki/Denormalization){:target="new"}, in Google BigQuery records are expressed using nested and repeated fields.
 
@@ -177,7 +177,7 @@ sections:
 
       {{ page.data-display-table | flatify }}
 
-      To query nested data using the [standard SQL syntax]({{ site.data.destinations.resource-links.bigquery.standard-sql-syntax }}){:target="new"}, you can use dot notation to indicate the field(s) you want to reference. For example: The sample query below will return the `id`, `name`, and `details.type` fields:
+      To query nested data using the [standard SQL syntax]({{ site.data.destinations.bigquery.resource-links.standard-sql-syntax }}){:target="new"}, you can use dot notation to indicate the field(s) you want to reference. For example: The sample query below will return the `id`, `name`, and `details.type` fields:
 
       ```sql
       SELECT id,
@@ -198,7 +198,7 @@ sections:
     content: |
       A nested record is also called an `array` in JSON. An array is surrounded by square brackets (`[ ]`) and contains an ordered list of values. Values can be strings, numbers, booleans, objects, nulls, or more arrays.
 
-      When records containing arrays are loaded into Google BigQuery, the array is loaded using the `RECORD` type and a mode of [`REPEATED`]({{ site.data.destinations.resource-links.bigquery.nested-record }}){:target="new"}. By using the `REPEATED` mode to store nested records, Stitch can avoid repeating data or creating additional subtables. This functionality removes the need for joins when analyzing data, making raw data easier to read and faster to compute.
+      When records containing arrays are loaded into Google BigQuery, the array is loaded using the `RECORD` type and a mode of [`REPEATED`]({{ site.data.destinations.bigquery.resource-links.nested-record }}){:target="new"}. By using the `REPEATED` mode to store nested records, Stitch can avoid repeating data or creating additional subtables. This functionality removes the need for joins when analyzing data, making raw data easier to read and faster to compute.
 
       For items in the array, Stitch will handle each item like an object field. Items will be loaded using the `RECORD` type, a mode of `NULLABLE`, and a field name of `value`.
 
@@ -208,7 +208,7 @@ sections:
       - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
 
-      Refer to [Google's documentation]({{ site.data.destinations.resource-links.bigquery.query-nested-records }}){:target="new"} for more info on querying nested records.
+      Refer to [Google's documentation]({{ site.data.destinations.bigquery.resource-links.query-nested-records }}){:target="new"} for more info on querying nested records.
 
     subsections:
       - title: "Array of strings or numbers"
@@ -580,6 +580,6 @@ sections:
     anchor: "resources"
     summary: "Some additional resources"
     content: |
-      - [Querying nested records (Google documentation)]({{ site.data.destinations.resource-links.bigquery.query-nested-records }}){:target="new"}
-      - [Nested and repeated records (Google documentation)]({{ site.data.destinations.resource-links.bigquery.nested-record }}){:target="new"}
+      - [Querying nested records (Google documentation)]({{ site.data.destinations.bigquery.resource-links.query-nested-records }}){:target="new"}
+      - [Nested and repeated records (Google documentation)]({{ site.data.destinations.bigquery.resource-links.nested-record }}){:target="new"}
 ---
