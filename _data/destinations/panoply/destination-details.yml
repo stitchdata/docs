@@ -1,0 +1,41 @@
+# --------------------------------------- #
+#       PANOPLY DESTINATION DETAILS       #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+port: 5439
+
+fully-managed: "true"
+
+free-option: "Yes (trial)"
+
+pricing-model: "Monthly"
+
+pricing-details: |
+  Panoply charges based on the amount of data stored and offers several plan options for your needs. [Refer to their pricing page for more information]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"}.
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "1,600"
+
+max-tables-per-database: "100,000"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "127 characters"
+
+column-name-length: "115 characters"

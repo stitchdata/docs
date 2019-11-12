@@ -1,0 +1,42 @@
+# --------------------------------------- #
+#     POSTGRESQL DESTINATION DETAILS      #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+port: 5432
+
+fully-managed: |
+  Depends {{ info-icon | replace:"TOOLTIP","Heroku instances include maintenance; Amazon RDS & self-hosted instances do not." }}
+
+free-option: |
+  Depends {{ info-icon | replace:"TOOLTIP","Free options vary by provider." }}
+
+pricing-model: "Varies"
+
+pricing-details: "The software for hosting your own PostgreSQL instance is open-source, meaning it's free. Heroku and Amazon RDS have a variety of plans to choose from."
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "250-1,600"
+
+max-tables-per-database: "100,000"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Sensitive"
+
+table-name-length: "63 characters"
+
+column-name-length: "59 characters"

@@ -1,0 +1,16 @@
+# ------------------------------------------ #
+#  POSTGRESQL DESTINATION INCOMPATIBILITIES  #
+# ------------------------------------------ #
+
+## This file contains a list of sources that may
+## be incompatible with Stitch's PostgreSQL destination.
+
+- integration: "hubspot"
+  integration-version: "any"
+  level: "sometimes"
+  reason: &postgres-denesting "Tables and columns created as a result of [the de-nesting Stitch performs on nested structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) may have names that exceed PostgreSQL's limit of 63 characters for tables and 59 characters for columns. PostgreSQL destinations will reject these tables and columns, meaning Stitch will be unable to load them."
+
+- integration: "stripe"
+  integration-version: "any"
+  level: "sometimes"
+  reason: *postgres-denesting

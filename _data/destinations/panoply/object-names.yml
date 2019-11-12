@@ -1,0 +1,35 @@
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+object-name-limit-info:
+  rename-original-column-in-split: true
+  case-sensitivity: &case-sensitivity "Insensitive"
+  tables: &table-name-length "127 characters"
+  columns: &column-name-length "115 characters"
+
+list:
+  - id: "case-sensitivity"
+    categories: "object-name-limits"
+    value: *case-sensitivity
+    important: true
+    description: |
+      This means that {{ destination.display_name }} destinations treat upper- and lowercase characters as the same. For example: `CUSTOMERID` and `customerid` are equal in {{ destination.display_name }}.
+
+      When column names are loaded into {{ destination.display_name }}, any uppercase characters will be forced into lowercase. This means that `Id` and `id` will canonicalize to the same name, which can lead to object collision errors. Refer to the [Column naming section of this guide](#column-naming) for examples.
+
+  - id: "reserved-keywords"
+    categories: "object-name-limits"
+    ## The value and description for this live in _data/destinations/reference/defaults.yml
+
+  - id: "table-name-length"
+    categories: "object-name-limits"
+    value: *table-name-length
+    description: |
+      Tables with names that exceed this limit will be rejected. Rejected tables are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      
+  - id: "column-name-length"
+    categories: "object-name-limits"
+    value: *column-name-length
+    description: |
+      Columns with names that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).

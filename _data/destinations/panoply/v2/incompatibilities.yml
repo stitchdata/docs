@@ -1,0 +1,13 @@
+# ----------------------------------------------- #
+#     PANOPLY.IO DESTINATION INCOMPATIBILITIES    #
+# ----------------------------------------------- #
+
+## This file contains a list of sources that may
+## be incompatible with Stitch's Panoply destination.
+
+## NOTE: This will be identical to the incompatibilities for Amazon Redshift.
+
+- integration: "mongodb"
+  integration-version: "any"
+  level: "sometimes"
+  reason: "As a result of [the de-nesting Stitch performs on nested structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}), deeply nested data in MongoDB may result in tables that exceed Panoply (Amazon Redshift's) 1,600 column limit."

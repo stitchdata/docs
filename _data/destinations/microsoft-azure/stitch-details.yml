@@ -1,0 +1,54 @@
+# --------------------------------------- #
+# AZURE SQL DW DESTINATION STITCH DETAILS #
+# --------------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for Microsoft Azure SQL Data Warehouse destinations.
+
+pricing-tier: "standard"
+supported-versions: "n/a"
+available-in-connect: "true"
+
+# Connection methods
+
+ssl: "true"
+connect-ssl: "false" ## Indicates whether SSL can be configured via the API
+ssh: "true"
+vpn: "false"
+
+workload-performance-management: "false"
+
+list:
+  - id: "release-status"
+    categories: "stitch-details"
+    value: *release-status 
+    
+  - id: "pricing-tier"
+    categories: "stitch-details"
+    value: *pricing-tier
+
+  - id: "supported-versions"
+    categories: "stitch-details"
+    value: *supported-versions
+    description: |
+      Currently, Stitch supports all versions of {{ destination.display_name }}.
+
+  - id: "ssl-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssl
+    # description:
+
+  - id: "ssh-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssh
+    description: |
+      Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations. [Refer to these instructions to set up an SSH tunnel for {{ destination.display_name }}]({{ link.security.ssh-microsoft-azure | prepend: site.baseurl }}).
+
+  - id: "vpn-connections"
+    categories: "stitch-details"
+    value: *connection-methods-vpn
+
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}

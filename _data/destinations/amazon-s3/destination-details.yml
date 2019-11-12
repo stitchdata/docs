@@ -1,0 +1,13 @@
+# --------------------------------------- #
+#      AMAZON S3 DESTINATION DETAILS      #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+fully-managed: "false"
+
+free-option: "Yes (trial)"
+
+pricing-model: "Storage"
+
+pricing-details: "{{ destination.display_name }} pricing is based on two factors: The amount of data stored in and location (region) of your {{ destination.display_name }} bucket."

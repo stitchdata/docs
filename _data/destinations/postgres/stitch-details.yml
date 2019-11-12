@@ -1,0 +1,60 @@
+# ------------------------------------ #
+# POSGRESQL DESTINATION STITCH DETAILS #
+# ------------------------------------ #
+
+# Details about Stitch's implementation &
+# requirements for PostgreSQL destinations.
+
+pricing-tier: "standard"
+supported-versions: "9.3 or higher"
+available-in-connect: "true"
+
+# Connection methods
+
+ssl: "true"
+connect-ssl: "true" ## Indicates whether SSL can be configured via the API
+ssh: "true"
+vpn: "false"
+
+workload-performance-management: "true"
+
+
+list:
+  - id: "release-status"
+    categories: "stitch-details"
+    value: *release-status 
+    
+  - id: "pricing-tier"
+    categories: "stitch-details"
+    value: *pricing-tier
+
+  - id: "supported-versions"
+    categories: "stitch-details"
+    value: *supported-versions
+    description: |
+      {{ destination.display_name }} destinations must be running version 9.3 or newer.
+
+  - id: "ssl-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssl
+    description: |
+      Stitch will attempt to use SSL to connect by default. No additional configuration is needed on your part.
+
+  - id: "ssh-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssh
+    description: |
+      Stitch supports using SSH tunnels to connect to the following {{ destination.display_name }}-backed destinations:
+
+      - [Amazon Aurora {{ destination.display_name }}-RDS]({{ link.security.ssh-amazon | prepend: site.baseurl }})
+      - [Amazon {{ destination.display_name }}-RDS]({{ link.security.ssh-amazon | prepend: site.baseurl }})
+      - [Self-hosted {{ destination.display_name }}]({{ link.security.ssh-generic | prepend: site.baseurl }})
+
+  - id: "vpn-connections"
+    categories: "stitch-details"
+    value: *connection-methods-vpn
+
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}

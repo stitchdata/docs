@@ -1,0 +1,144 @@
+# ------------------------------------------ #
+#  PostgreSQL (DESTINATION) User Privileges  #
+# -------------------------------------------#
+
+## This file contains info about the privileges and setup steps
+## required to create a Stitch database user for a PostgreSQL destination.
+
+## This file includes info about the permissions required, the
+## commands to grant those permissions, and the descriptions that
+## go along with each step of the user creation process.
+
+defaults:
+  doc-links:
+    create-database: &create-doc-link "https://www.postgresql.org/docs/10/sql-grant.html"
+
+  names:
+    create-database: &create-name "CREATE ON DATABASE"
+    object-ownership: &object-ownership ""
+    select-information-schema: &select-information-schema-name "SELECT ON ALL TABLES IN information_schema"
+    select-pg-catalog-schema: &select-pg-catalog-schema-name "SELECT ON ALL TABLES IN pg_catalog"
+
+  reasons:
+    create: &create-reason |
+      {{ common.postgresql.create-database-reason | flatify }}
+
+    object-ownership:
+
+    select: &select-reason |
+      {{ common.postgresql.select-systems-tables-reason | flatify }}
+      
+
+# -------------------------- #
+#    POSTGRESQL PRIVILEGES   #
+# -------------------------- #
+
+all-permissions:
+  - name: *create-name
+    reason: *create-reason
+    doc-link: *create-doc-link
+
+  - name: *select-information-schema-name
+    reason: *select-reason
+    schema: "information_schema"
+
+  - name: *select-pg-catalog-schema-name
+    reason: *select-reason
+    schema: "pg_catalog"
+
+
+# -------------------------- #
+#         SQL COMMANDS       #
+# -------------------------- #
+
+create-user: &create-user-sql |
+  {{ common.postgresql.sql-commands.create-user | flatify }}
+
+create-database: &create-database-sql |
+  {{ common.postgresql.sql-commands.create-database | flatify }}
+
+select-systems-tables: &select-systems-tables-sql |
+  {{ common.postgresql.sql-commands.select-systems-tables | flatify }}
+
+
+# ------------------------------ #
+#   STEPS FOR CREATING THE USER  #
+# ------------------------------ #
+
+## The individual steps for creating a PostgreSQL user for Stitch.
+
+
+# -------------------------- #
+#          POSTGRESQL        #
+# -------------------------- #
+
+postgresql:
+  - copy: &sql-client-copy "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
+  - copy: &create-user-copy |
+      {{ common.postgresql.setup-steps.create-user | flatify }}
+    command: *create-user-sql
+  - copy: &create-database-copy |
+      {{ common.postgresql.setup-steps.create-database | flatify }}
+    command: *create-database-sql
+  - copy: &systems-tables-copy |
+      {{ common.postgresql.setup-steps.systems-tables | flatify }}
+    command: *select-systems-tables-sql
+
+
+# ---------------------------- #
+#  GOOGLE CLOUDSQL POSTGRESQL  #
+# ---------------------------- #
+
+cloudsql-postgresql:
+  - copy: *sql-client-copy
+  - copy: *create-user-copy
+    command: *create-user-sql
+  - copy: *create-database-copy
+    command: *create-database-sql
+  - copy: *systems-tables-copy
+    command: *select-systems-tables-sql
+
+
+# ---------------------------- #
+#   AMAZON AURORA POSTGRESQL   #
+# ---------------------------- #
+
+aurora-postgresql:
+  - copy: *sql-client-copy
+  - copy: *create-user-copy
+    command: *create-user-sql
+  - copy: *create-database-copy
+    command: *create-database-sql
+  - copy: *systems-tables-copy
+    command: *select-systems-tables-sql
+
+
+# -------------------------- #
+#            HEROKU          #
+# -------------------------- #
+
+heroku:
+  - copy: "Connect to your {{ page.display_name }} instance using a SQL client and the credentials you retrieved in Step 1."
+  - copy: |
+      After connecting, you'll assign the `CREATE` permissions to the user. This allows Stitch to create integration schemas and tables in the specified database.
+
+      Run the command below, replacing `<database_name>` with the database and `<heroku_database_user>` with the database name and username from the {{ destination.display_name }} database credentials page.
+    command: |
+      {{ common.postgresql.sql-commands.create-database | flatify | replace: "stitch_username","heroku_database_user" }}
+
+
+# -------------------------- #
+#       POSTGRESQL-RDS       #
+# -------------------------- #
+
+postgres-rds:
+  - copy: *sql-client-copy
+  - copy: *create-user-copy
+    command: *create-user-sql
+  - copy: *create-database-copy
+    command: *create-database-sql
+  - copy: |
+      {{ common.postgresql.setup-steps.systems-tables | flatify }}
+
+      **Note**: You must have access to the `information_schema` and `pg_catalog` schemas to grant access to the Stitch user.
+    command: *select-systems-tables-sql

@@ -1,0 +1,43 @@
+# --------------------------------------- #
+#      SNOWFLAKE DESTINATION DETAILS      #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+port: 443
+
+fully-managed: "true"
+
+free-option: "No"
+
+pricing-model: "Usage"
+
+pricing-details: |
+  {{ destination.display_name }} pricing is based on two factors: The volume or data stored in your {{ destination.display_name }} destination and the amount of compute usage (the time the server runs) in seconds. 
+
+  {{ destination.display_name }} offers two types of plans, each with varying levels of access and features. There are On Demand plans which are commitment-free and usage-based. The alternative is a Capacity option, which guarantees secure price discounts. [Learn more about {{ destination.display_name }} plans and pricing here]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"}.
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "None"
+
+max-tables-per-database: "100,000"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "255 characters"
+
+column-name-length: "251 characters"

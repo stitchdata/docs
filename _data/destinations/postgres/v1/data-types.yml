@@ -1,0 +1,164 @@
+# ---------------------------- #
+#    POSTGRESQL DATA TYPING    #
+# ---------------------------- #
+
+## Details about data typing for PostgreSQL destinations.
+## Includes:
+##  - Stitch types mapped to PostgreSQL-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by PostgreSQL
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/stitch/data-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/common.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint:
+  destination-type: "bigint"
+  suffix: "bi"
+  doc-link: &integer-doc "https://www.postgresql.org/docs/9.4/datatype-numeric.html#DATATYPE-INT"
+  range: "-9223372036854775808 to 9223372036854775807"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "boolean"
+  suffix: "bo"
+  doc-link: "https://www.postgresql.org/docs/9.4/datatype-boolean.html"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "timestamp"
+  suffix: "ti"
+  description: "Stored in UTC"
+  doc-link: "https://www.postgresql.org/docs/9.4/datatype-datetime.html"
+  range: "4713 BC to 294276 AD"
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &double
+  destination-type: "double precision"
+  suffix: "do"
+  doc-link: "https://www.postgresql.org/docs/9.4/datatype-numeric.html#DATATYPE-FLOAT"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *double
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer:
+  destination-type: "integer"
+  suffix: "it"
+  doc-link: *integer-doc
+  range: "-2147483648 to +2147483647"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "decimal"
+  suffix: "de"
+  # description: ""
+  doc-link: "https://www.postgresql.org/docs/9.4/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL"
+  range: "Up to 131,072 digits before the decimal; up to 16,383 digits after"
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "text"
+  suffix: "st"
+  description: "No maximum length. No widening will occur if the string length changes."
+  doc-link: "https://www.postgresql.org/docs/9.4/datatype-character.html"
+
+
+list:
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      Records that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "date-and-time-timezone-support"
+    categories: "data-limits"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the value in UTC as `TIMESTAMP WITHOUT TIMEZONE`.
+
+      More info about timestamp data types can be found in [PostgreSQL's documentation](https://www.postgresql.org/docs/10/static/datatype-datetime.html){:target="new"}.
+
+  - id: "date-and-time-date-range"
+    categories: "data-limits"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in [PostgreSQL's documentation](https://www.postgresql.org/docs/10/static/datatype-datetime.html){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    categories: "data-limits"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [PostgreSQL's documentation](https://www.postgresql.org/docs/10/static/datatype-datetime.html){:target="new"}.
+
+  - id: "integer-range"
+    categories: "data-limits"
+    value: *integer-range
+    description: |
+      Integer values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-range"
+    categories: "data-limits"
+    value: *decimal-range
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about decimal data types can be found in [PostgreSQL's documentation](https://www.postgresql.org/docs/10/static/datatype-numeric.html){:target="new"}.
+
+  - id: "strings-max-width"
+    categories: "data-limits"
+    value: *strings-max-width
+    important: true
+    description: |
+      {{ destination.display_name }} stores all `VARCHAR/TEXT` data as `TEXT`, which can store strings with unlimited lengths.
+
+      While there aren't any size limits on string data, the record as a whole must still be less than 4 MB or it will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).

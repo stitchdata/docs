@@ -1,0 +1,21 @@
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+object-name-limit-info:
+  case-sensitivity: &case-sensitivity "n/a"
+  tables: &table-name-length "1,024 bytes"
+  columns: &column-name-length "n/a"
+
+list:
+  - id: "case-sensitivity"
+    categories: "object-name-limits"
+    value: *case-sensitivity
+
+  - id: "table-name-length"
+    categories: "object-name-limits"
+    value: *table-name-length
+      
+  - id: "column-name-length"
+    categories: "object-name-limits"
+    value: *column-name-length

@@ -1,0 +1,61 @@
+# --------------------------------------- #
+#      SNOWFLAKE REPLICATION DETAILS      #
+# --------------------------------------- #
+
+## Details about replication/loading for
+## Stitch's Snowflake destination.
+
+configurable-loading-behavior:  "false"
+
+upsert-support: "true"
+
+append-support: "false"
+
+primary-key-support: "true"
+
+nested-structure-support: "true"
+
+rename-original-column-in-split:  "false"
+
+
+
+list:
+  - id: "incremental-replication-upserts"
+    categories: "replication"
+    value: *incremental-rep-upserts
+    description: |
+      Using a table's Primary Keys, Stitch will perform an update operation on existing rows to overwrite the data.
+
+  - id: "primary-keys"
+    categories: "replication"
+    value: *primary-key-support
+    important: true
+    description: |
+      {{ destination.display_name }} destinations natively support Primary Keys.
+
+      Stitch requires Primary Keys to de-dupe data during Incremental Replication. Primary Key columns are created using [Primary Key constraints]({{ site.data.destinations.snowflake.resource-links.column-constraints }}){:target="new"}, which requires that values be both unique and not null.
+
+  - id: "multiple-data-types"
+    categories: "replication"
+    value: *multiple-data-type-support
+    important: true
+    description: |
+      {{ destination.display_name }} destinations do not support multiple data types in a single column.
+
+      To accommodate this scenario, Stitch will create additional columns for each data type. Refer to the [Table structural changes guide]({{ link.destinations.storage.structure-changes | prepend: site.baseurl }}) for examples and more info.
+
+  - id: "nested-data-structures"
+    categories: "replication"
+    value: *nested-structure-support
+    important: true
+    description: |
+      {{ destination.display_name }} destinations natively support nested data structures.
+
+      When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a [`VARIANT` column]({{ site.data.destinations.snowflake.resource-links.variant-type }}){:target="new"}. This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
+
+      You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. More info can be found in [{{ destination.display_name }}'s documentation](https://docs.snowflake.net/manuals/sql-reference/functions-semistructured.html){:target="new"}.
+
+  - id: "incompatible-sources"
+    categories: "replication"
+    important: true
+    ## The value and description for this live in _data/destinations/reference/defaults.yml

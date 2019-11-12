@@ -1,0 +1,47 @@
+# --------------------------------------- #
+#    AZURE SQL DW DESTINATION DETAILS     #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+port: 1433
+
+fully-managed: "true"
+
+free-option: "Yes (plan and trial)"
+
+pricing-model: "Usage"
+
+pricing-details: |
+  {{ destination.display_name }} bases their pricing on your compute and storage usage. Compute usage is charged using an hourly rate, meaning you'll only be billed for the hours your data warehouse is active. Compute usage is billed in one hour increments.
+
+  Storage charges include the size of your primary database and seven days of incremental snapshots. Microsoft Azure rounds charges to the nearest terabyte (TB). For example: If the data warehouse is 1.5 TB and you have 100 GB of snapshots, your bill will be for 2 TB of data.
+
+  Refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-azure.resource-links.pricing }}){:target="new"} for more info and examples.
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "1,024"
+
+max-tables-per-database: "10,000"
+
+max-table-size: "60 TB compressed on disk"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "112 characters"
+
+column-name-length: "128 characters"
