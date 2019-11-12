@@ -10,21 +10,23 @@
 
     If the include has a specific version parameter, only get the version being requested-->
 {% if include.this-version %}
-    {% assign released-versions = site.data.destinations.versions.[page_name].released-versions | where:"number",include.this-version %}
+    {% assign released-versions = site.data.destinations[page_name]versions.released-versions | where:"number",include.this-version %}
 
 <!-- Otherwise, get the full list of released versions. -->
 {% else %}
-    {% assign released-versions = site.data.destinations.versions[page_name]released-versions %}
+    {% assign released-versions = site.data.destinations[page_name]versions.released-versions %}
 
     {% assign total-versions = released-versions | size %}
 {% endif %}
 
-<!-- Pulls the latest version number for the destination -->
-    {% assign latest-version = site.data.destinations.versions.[page_name].latest-version %}
 
+	{% assign this-version = released-versions | where:"number",page.this-version | first %}
+
+
+<!-- Pulls the latest version number for the destination -->
+    {% assign latest-version = site.data.destinations[page_name]versions.latest-version %}
 
 <!-- Last, pulls all docs that that match the given key  -->
-
     {% assign all-versioned-docs = site.documents | where:"key",[include.item-name]key %}
 
     <!-- Get the doc that is the latest version based on the given key. -->
