@@ -162,7 +162,7 @@ sections:
 
           {% case parameter.required %}
           {% when true %}
-          <font color="#cc3399">REQUIRED</font>
+          <font color="#E96065">REQUIRED</font>
           {% else %}
           OPTIONAL
           {% endcase %}

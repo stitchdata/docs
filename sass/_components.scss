@@ -53,11 +53,16 @@
 
 		a:hover {
 			color: $white;
+			background-color: $lochmara;
 		}
 	}
 }
 
 /* Controls the z-index of the version toggle */
+
+.version-toggle {
+	margin-top: 5px;
+}
 
 .btn-group > .btn:hover, .btn-group-vertical > 
 .btn:hover, .btn-group > 
@@ -166,7 +171,7 @@ table > tfoot > tr > td {
 }
 
 td.table-subheading {
-	background-color: #E2E2E2;
+	background-color: $gray-2;
 }
 
 table.table-snapshot > thead > tr > th,
@@ -189,6 +194,9 @@ table {
 			&:last-of-type {
 				border-right: 1px solid $gray-2;
 			}
+			p {
+				margin-bottom: 0 !important;
+			}
 		}
 	}
 	thead {
@@ -208,6 +216,7 @@ table {
 		padding: 0.5rem;
 		padding-top: 7px;
 		margin-top: 0;
+		font-size: 1.75rem;
 	}
 }
 
@@ -287,14 +296,14 @@ table.attribute-list {
 }
 
 table > thead > tr > th {
-	background-color: $gray-2;
+	background-color: #f2f2f2;
 	color: $protocol-black;
 	border-bottom: 1px solid #dddddd;
 }
 
 table > tbody > tr:nth-of-type(odd),
 .dataTable > tbody > tr:nth-of-type(odd) {
-	background-color: $gray-1;
+	background-color: #F6F6F6;
 }
 
 table.table-snapshot > tbody > tr:nth-of-type(odd) {
@@ -374,8 +383,7 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 		}
 
 		&:before {
-			font-family: FontAwesome;
-			content: "\f107";
+			content: "⌄";
 			color: $blue-channel;
 			margin-right: 8px;
 			font-weight: bold;
@@ -463,23 +471,31 @@ a[data-toggle="tooltip"] {
 	border-radius: 0;
 	padding: 1.5em 2em;
 	background: #ffffff;
-	border: 3px solid $stitch-yellow;
+	border: 3px solid $scooter;
 	color: $protocol-black;
 	border: 0;
 
+	p:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.fa, .fas, i {
+		margin-right: 5px;
+	}
+
 	&.alert-info,
 	&.alert-success {
-		background: $gray-2;
-		color: $gray-4;
+		background: $background-green;
+		color: $dove;
 
 		a {
-			color: $gray-4;
+			color: $dove;
 			text-decroation: underline;
 		}
 	}
 
 	&.alert-warning {
-		border: 3px solid $stitch-yellow;
+		border: 3px solid $scooter;
 		color: $protocol-black;
 		background: #ffffff;
 	}
@@ -493,7 +509,7 @@ pre {
 }
 
 /* SYSTEM STATUS */
-$red: $magenta-relay;
+$red: $chestnut-rose;
 $orange: $jaffa;
 $yellow: $lightning;
 $green: $green-junction;
@@ -617,18 +633,26 @@ ul.tiles {
 	li {
 		display: inline-block;
 		vertical-align: top;
-		width: 30%;
+		width: 45%;
 		margin: 10px !important;
 		border: 1px solid $gray-2;
 		padding: 15px;
 		min-height: 170px;
 
+		@media (min-width: $desktop-breakpoint) {
+			width: 30%;
+		}
+
 		img {
 			display: block;
 			margin: 1em auto;
 			max-height: 50px;
-			max-width: 160px;
+			max-width: 100%;
 			border: 0px;
+
+			@media (min-width: $desktop-breakpoint) {
+				max-width: 160px;
+			}
 		}
 	}
 
@@ -646,7 +670,7 @@ ul.tiles {
 		display: list-item;
 		vertical-align: middle;
 		width: auto;
-		min-height: auto;
+		min-height: auto !important;
 		padding: 0px;
 		font-size: 14px;
 		text-align: left;
@@ -800,8 +824,9 @@ hr.footer-cta {
 
 .footer-signup-cta {
 	margin-top: 30px;
-	background-color: $background-blue;
+	background: linear-gradient(135deg, rgba(35,114,136,1) 0%, rgba(24,26,40,1) 100%);
 	padding: 40px 20px;
+	color: $white;
 
 	.wrapper {
 		width: auto;
@@ -825,13 +850,16 @@ hr.footer-cta {
 		padding: 15px 30px;  /* make the standard button a little bigger */
 		display: block;
 		margin-bottom: 0;
+		background-color: $scooter;
+		border-color: $scooter;
+		color: $black;
 
 		&:hover,
 		&:active,
 		&:focus {
-			color: $white;
-			background: $black;
-			border-color: $black;
+			background-color: $scooter;
+			border-color: $scooter;
+			color: $black;
 		}
 	}
 }
