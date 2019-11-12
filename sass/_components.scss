@@ -843,12 +843,29 @@ hr.footer-cta {
 	background: linear-gradient(135deg, rgba(35,114,136,1) 0%, rgba(24,26,40,1) 100%);
 	padding: 40px 20px;
 	color: $white;
+	position: relative;
+	font-weight: bold;
+	z-index: 1;
+	height: 9rem;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-top: 9rem solid #103252;
+		border-right: 9rem solid transparent;
+		z-index: -1;
+	}
 
 	.wrapper {
 		width: auto;
 		margin: 0 auto;
 		display: flex;
 		justify-content: center;
+		z-index: 2;
 
 		div {
 			padding: 0 10px;

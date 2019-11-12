@@ -1296,26 +1296,43 @@ hr.footer-cta {
   background: linear-gradient(135deg, #237288 0%, #181a28 100%);
   padding: 40px 20px;
   color: #FFFFFF;
+  position: relative;
+  font-weight: bold;
+  z-index: 1;
+  height: 9rem;
 }
-/* line 847, ../sass/_components.scss */
+/* line 851, ../sass/_components.scss */
+.footer-signup-cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 9rem solid #103252;
+  border-right: 9rem solid transparent;
+  z-index: -1;
+}
+/* line 863, ../sass/_components.scss */
 .footer-signup-cta .wrapper {
   width: auto;
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  z-index: 2;
 }
-/* line 853, ../sass/_components.scss */
+/* line 870, ../sass/_components.scss */
 .footer-signup-cta .wrapper div {
   padding: 0 10px;
 }
-/* line 858, ../sass/_components.scss */
+/* line 875, ../sass/_components.scss */
 .footer-signup-cta p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0;
   margin-top: 15px;
 }
-/* line 865, ../sass/_components.scss */
+/* line 882, ../sass/_components.scss */
 .footer-signup-cta .btn-default {
   padding: 15px 30px;
   /* make the standard button a little bigger */
@@ -1325,7 +1342,7 @@ hr.footer-cta {
   border-color: #66bdff;
   color: #000000;
 }
-/* line 873, ../sass/_components.scss */
+/* line 890, ../sass/_components.scss */
 .footer-signup-cta .btn-default:hover, .footer-signup-cta .btn-default:active, .footer-signup-cta .btn-default:focus {
   background-color: #66bdff;
   border-color: #66bdff;
