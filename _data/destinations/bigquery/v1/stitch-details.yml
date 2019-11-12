@@ -1,0 +1,74 @@
+# --------------------------------- #
+# GOOGLE BIGQUERY V1 STITCH DETAILS #
+# --------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for Google BigQuery (v1) destinations.
+
+pricing-tier: "standard"
+supported-versions: "n/a"
+available-in-connect: "false"
+
+# Connection methods
+
+ssl: "true"
+connect-ssl: "false" ## Indicates whether SSL can be configured via the API
+ssh: "false"
+vpn: "false"
+
+workload-performance-management: "true"
+
+
+all:
+  - id: "release-status"
+    categories: "stitch-details"
+    value:
+      v1: |
+        {% assign v1 = site.data.destinations.bigquery.versions.released-versions | where:"number","1.0" | first %}
+        {{ v1.status }}
+      v2: |
+        {% assign v2 = site.data.destinations.bigquery.versions.released-versions | where:"number","2.0" | first %}
+        {{ v2.status }}
+
+  - id: "pricing-tier"
+    categories: "stitch-details"
+    value: *pricing-tier
+
+  - id: "supported-versions"
+    categories: "stitch-details"
+    value: *supported-versions
+
+  - id: "supported-regions"
+    categories: "stitch-details"
+    value: "Stitch supports the following Google Storage Location regions:"
+    description: |
+      {{ site.data.destinations.reference.bigquery.stitch-details-info.supported-regions | flatify }}
+
+  - id: "ssl-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssl
+    description: |
+      Stitch will attempt to use SSL to connect by default. No additional configuration is needed.
+
+  - id: "ssh-connections"
+    categories: "stitch-details"
+    value: *connection-methods-ssh
+    description: |
+      Stitch does not support using SSH tunnels to connect to {{ destination.display_name }} destinations.
+
+  - id: "vpn-connections"
+    categories: "stitch-details"
+    value: *connection-methods-vpn
+
+  - id: "all-setup-instructions"
+    categories: "stitch-details"
+    description: |
+      {{ default.description-full | flatify | markdownify }}
+
+  - id: "workload-performance-management"
+    categories: "stitch-details"
+    value: *workload-performance-management
+    description: |
+      To improve your query performance, you can apply partitioning and/or clustering to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
+
+      Refer to the [Table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for application instructions.
