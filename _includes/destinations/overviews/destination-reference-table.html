@@ -1,123 +1,99 @@
 {% include misc/icons.html %}
 
-<!-- Note to self: Jekyll will apparently throw a fit if:
-     1. There's a reference in a YAML file (ex: *something)
-     2. The anchor for the reference isn't 'split', meaning it is all on one line:
 
-          - name: &thing "Thing"
+<!-- Get the version and create a variable that matches the 
+     file path in _data. So, `v1` versus just `1`-->
+     {% assign version = destination.this-version | prepend: "v" %}
 
-          vs
+<!-- Get the list of category items in:
+     _data/destinations/common/reference-data.yml -->
+     {% if destination[include.category] %}
+          {% assign reference-category-items = site.data.destinations.common.reference-data[include.category] | concat: destination[include.category] %}
+     {% else %}
+          {% assign reference-category-items = site.data.destinations.common.reference-data[include.category] %}
+     {% endif %}
 
-          - name: &thing |
-              Thing 
-
-     3. When calling the variable, `flatify` is applied:
-
-          {{ site.data.file.name | flatify }}
-
-     This will make Jekyll throw a Liquid Exception: undefined method `split' for false:FalseClass error.
-
-     Splitting anchors onto new lines seems to get around this. IDK. -->
-
-
-<!-- Destination info -->
-
-{% assign destination-info = site.data.destinations.reference[page.type].attributes | where_exp:"info","info.categories contains include.list" %}
-
-<!-- Used to get incompatible sources -->
-     {% assign all-integrations = site.documents | where:"input",true | sort:"display_name" %}
-
-          {% assign integrations-with-incompatibilities = all-integrations | where:"has-incompatibilities",true %}
-
-
-<!-- Reference lists and defaults -->
-     {% assign reference-categories = site.data.destinations.reference.defaults %}
-          
-     {% assign reference-defaults = site.data.destinations.reference.defaults[include.list] %}
-
-{% for reference-category in reference-defaults %}
-{{ reference-category.description | flatify | markdownify  }}
-
-{% case include.list %}
-     {% when 'column-naming' %}
-     {% assign column-name = "_!CuStOmEr# ID" %}
-
-<table class="attribute-list">
-     <tr>
-          <td>
-          </td>
-          <td class="attribute-description">
-               <strong>Source column name</strong>
-          </td>
-          <td class="attribute-description">
-               <strong>Destination column name</strong>
-          </td>
-     </tr>
-     {% for default in reference-category.items %}
-          {% for info in destination-info %}
-               {% if default.id == info.id %}
-                    <tr>
-                         <td align="right" width="40%; fixed">
-                              <strong>{{ default.name }}</strong>
-
-                              {% if default.description %}
-                                   <a href="" data-toggle="tooltip" data-original-title="{{ default.description | flatify }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
-                              {% endif %}
-                         </td>
-                         <td class="attribute-description">
-                              {{ info.example | flatify }}
-                         </td>
-                         <td class="attribute-description">
-                              {{ info.value | flatify }}
-                         </td>
-                    </tr>
-               {% endif %}
-          {% endfor %}
-     {% endfor %}
-</table>
-
+<!-- If a versioned file exists in the destination's folder,
+     use that. 
+     EX: _data/destinations/bigquery/v1/data-types.yml-->
+     {% if site.data.destinations[destination.type][version][include.category] %}
+          {% assign destination-data = site.data.destinations[destination.type][version][include.category] %}
      {% else %}
 
+<!-- Otherwise, use the non-versioned file in the root of the
+     destination's folder. 
+     EX: _data/destinations/bigquery/destination-details.yml -->
+          {% assign destination-data = site.data.destinations[destination.type][include.category] %}
+     {% endif %}
+
+
+{% assign category-description = include.category | append:"-description" %}
+
+{{ site.data.destinations.common.reference-data[category-description] | flatify }}
+
 <table class="attribute-list">
-     {% for default in reference-category.items %}
-          {% for info in destination-info %}
-               {% if default.id == info.id %}
-                    <tr>
-                         <td align="right" width="40%; fixed">
-                              <strong>{{ default.name }}</strong>
+     {% for reference-item in reference-category-items %}
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    {% if site.data.destinations.common.reference-data[reference-item]title %}
+                         {{ site.data.destinations.common.reference-data[reference-item]title }}
+                    {% else %}
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         {{ reference-item | replace:"-"," " | capitalize }}
+                    {% endif %}
 
-                              {% if default.description %}
-                                   <a href="" data-toggle="tooltip" data-original-title="{{ default.description | flatify }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                    <a href="" data-toggle="tooltip" data-original-title="{{ site.data.destinations.common.reference-data[reference-item]tooltip | flatify }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    {% case destination-data[reference-item] %}
+                         {% when true %}
+                              <strong>
+                                   Supported {{ supported | replace: "TOOLTIP","Supported" }}
+                              </strong>
+
+                         <!-- If there's a supported value in the reference-data
+                              file, display it. -->
+                              {% if site.data.destinations.common.reference-data[reference-item]supported %}
+                                   {{ site.data.destinations.common.reference-data[reference-item]supported | flatify | markdownify }}
                               {% endif %}
-                         </td>
-                         <td class="attribute-description">
-                              {% if default.value %}
-                                   {{ default.value | flatify | markdownify }}
 
-                              {% else %}
-                                   <p>{% if info.value contains "true" %}
-                                        <strong>Supported {{ supported | replace: "TOOLTIP","Supported" }}</strong>
-                                   {% elsif info.value contains "false" %}
-                                        <strong>Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}</strong>
-                                   {% elsif info.value contains "n/a" %}
-                                        <strong>Not applicable {{ not-applicable | replace: "TOOLTIP","Not applicable" }}</strong>
-                                   {% elsif info.value contains "Depends" %}
-                                        <strong>Depends {{ sometimes-supported | replace:"TOOLTIP","Sometimes supported" }}</strong>
-                                   {% else %}
-                                        <strong>{{ info.value | flatify }}</strong>
-                                   {% endif %}</p>
+                         {% when false %}
+                              <strong>
+                                   Unsupported {{ not-supported | replace: "TOOLTIP","Not supported" }}
+                              </strong>
 
-                                   {% if info.description %}
-                                        {{ info.description | flatify | markdownify }}
-                                   {% endif %}
-
+                         <!-- If there's a not-supported value in the
+                              reference-data file, display it. -->
+                              {% if site.data.destinations.common.reference-data[reference-item]not-supported %}
+                                   {{ site.data.destinations.common.reference-data[reference-item]not-supported | flatify | markdownify }}
                               {% endif %}
-                         </td>
-                    </tr>
-               {% endif %}
-          {% endfor %}
+
+                         {% when 'n/a' %}
+                              <p>Not applicable</p>
+
+                         {% else %}
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              {{ destination-data[reference-item] | default: site.data.destinations.common.reference-data[reference-item]default | flatify | markdownify }}
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              {% if site.data.destinations.common.reference-data[reference-item]additional-info %}
+                                   {{ site.data.destinations.common.reference-data[reference-item]additional-info | flatify | markdownify }}
+                              {% endif %}
+                    {% endcase %}
+               </td>
+          </tr>
      {% endfor %}
 </table>
-{% endcase %}
-
-{% endfor %}
