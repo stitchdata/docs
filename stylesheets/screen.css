@@ -183,13 +183,14 @@ body {
 #main .content-column .breadbox {
   position: fixed;
   top: 68px;
-  background: #ffffff;
+  background: white;
+  background: linear-gradient(180deg, white 0%, white 90%, rgba(255, 255, 255, 0) 100%);
   width: 52em;
   max-width: 100%;
   min-height: 6.35em;
   z-index: 2;
 }
-/* line 186, ../sass/_layout.scss */
+/* line 187, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container {
   width: 100%;
   position: absolute;
@@ -200,56 +201,56 @@ body {
   margin-bottom: 0.5em;
   font-weight: 700;
 }
-/* line 199, ../sass/_layout.scss */
+/* line 200, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .dropdown-menu li a, #main .content-column .breadbox .breadcrumb-container .dropdown-menu li.active {
   padding: 0.5em;
   color: #202020;
 }
-/* line 205, ../sass/_layout.scss */
+/* line 206, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .dropdown-menu li a:hover {
   color: #FFFFFF;
 }
-/* line 211, ../sass/_layout.scss */
+/* line 212, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container strong {
   color: #0675c1;
 }
-/* line 215, ../sass/_layout.scss */
+/* line 216, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container a {
   color: #202020;
 }
-/* line 218, ../sass/_layout.scss */
+/* line 219, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container a:hover {
   color: #888888;
   text-decoration: none;
 }
-/* line 224, ../sass/_layout.scss */
+/* line 225, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-left,
 #main .content-column .breadbox .breadcrumb-container .menu-right {
   display: inline-block;
   vertical-align: bottom;
 }
-/* line 230, ../sass/_layout.scss */
+/* line 231, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-left {
   font-size: 0.8rem;
   letter-spacing: 0.3px;
   width: calc(100% - 12em);
   line-height: 1.4;
 }
-/* line 237, ../sass/_layout.scss */
+/* line 238, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-right {
   padding-bottom: 0.25em;
 }
-/* line 240, ../sass/_layout.scss */
+/* line 241, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-right .btn {
   width: 10em;
   min-width: fit-content;
 }
-/* line 246, ../sass/_layout.scss */
+/* line 247, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .breadbox {
   max-width: 52em;
 }
 
-/* line 254, ../sass/_layout.scss */
+/* line 255, ../sass/_layout.scss */
 .columns {
   list-style-type: none;
   list-style-position: inside;
@@ -258,14 +259,14 @@ body {
   -moz-columns: 2;
 }
 @media screen and (max-width: 1100px) {
-  /* line 254, ../sass/_layout.scss */
+  /* line 255, ../sass/_layout.scss */
   .columns {
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
   }
 }
-/* line 270, ../sass/_layout.scss */
+/* line 271, ../sass/_layout.scss */
 .columns.more li:last-of-type a {
   border: 1px solid #999999;
   border-radius: 0;
@@ -285,39 +286,39 @@ body {
   margin-top: 0.5rem;
   text-transform: uppercase;
 }
-/* line 289, ../sass/_layout.scss */
+/* line 290, ../sass/_layout.scss */
 .columns.more li:last-of-type a:hover {
   background: #0675c1;
   text-decoration: none;
 }
-/* line 293, ../sass/_layout.scss */
+/* line 294, ../sass/_layout.scss */
 .columns.more li:last-of-type a:focus {
   text-decoration: none;
   background: #0675c1;
 }
 
-/* line 303, ../sass/_layout.scss */
+/* line 304, ../sass/_layout.scss */
 footer {
   text-align: left;
   color: #969696;
   margin: 2em 0;
   line-height: 1.6em;
 }
-/* line 309, ../sass/_layout.scss */
+/* line 310, ../sass/_layout.scss */
 footer .site-generation {
   float: left;
 }
-/* line 313, ../sass/_layout.scss */
+/* line 314, ../sass/_layout.scss */
 footer .links {
   float: right;
 }
-/* line 315, ../sass/_layout.scss */
+/* line 316, ../sass/_layout.scss */
 footer .links p {
   font-weight: 600;
   text-align: right;
   margin-bottom: 0px;
 }
-/* line 321, ../sass/_layout.scss */
+/* line 322, ../sass/_layout.scss */
 footer .links ul {
   list-style: none;
   padding: 0px;
