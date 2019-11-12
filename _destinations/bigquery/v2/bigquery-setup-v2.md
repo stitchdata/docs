@@ -39,7 +39,7 @@ type: "bigquery"
 ssh: false
 ssl: false
 
-this-version: "2.0"
+this-version: "2"
 
 # -------------------------- #
 #        Requirements        #
@@ -49,12 +49,12 @@ requirements:
   - item: |
       **An existing Google Cloud Platform (GCP) project with the following setup:**
 
-      - **Enabled billing for the GCP project**. The project must have [billing enabled and an attached credit card]({{ site.data.destinations.resource-links[destination.type]enable-billing }}). This is required for Stitch to successfully load data.
+      - **Enabled billing for the GCP project**. The project must have [billing enabled and an attached credit card]({{ site.data.destinations.bigquery.resource-links.enable-billing }}). This is required for Stitch to successfully load data.
 
       - **An existing Google {{ destination.display_name }} instance in the GCP project.** Stitch will not create an instance for you.
 
   - item: |
-      **Permissions in the GCP project that allow you to create Identity Access Management (IAM) service accounts.** Stitch uses a service account during the replication process to load data into {{ destination.display_name }}. Refer to [Google's documentation]({{ site.data.destinations.resource-links.bigquery.service-accounts }}){:target="new"} for more info about service accounts and the permissions required to create them.
+      **Permissions in the GCP project that allow you to create Identity Access Management (IAM) service accounts.** Stitch uses a service account during the replication process to load data into {{ destination.display_name }}. Refer to [Google's documentation]({{ site.data.destinations.bigquery.resource-links.service-accounts }}){:target="new"} for more info about service accounts and the permissions required to create them.
 
 
 # -------------------------- #
@@ -113,7 +113,7 @@ steps:
       To complete the setup, you'll upload the GCP project key file to Stitch and define settings for your {{ destination.display_name }} destination:
 
       {% for substep in step.substeps %}
-      - [Step 2.{{ forloop.index }}: {{ substep.title }}]({{ substep.anchor }})
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
@@ -123,8 +123,8 @@ steps:
           1. Click the {{ app.menu-paths.destination-settings }}.
           2. Click the **{{ destination.display_name }}** icon.
           3. On the page that opens, scroll to the **Your service account** section.
-          4. In the **Your Key File** field, click the [todo- upload icon] and locate the JSON project key file you created in [Step 1.3](#create-json-project-key).
-          
+          4. In the **Your Key File** field, click the <img src="{{ site.baseurl }}/images/icons/upload-file.svg" alt="File upload icon" style="border: 0px;"> icon and locate the JSON project key file you created in [Step 1.3](#create-json-project-key).
+
           Once uploaded, the **BigQuery Project Name** field will automatically populate with the name of the GCP project in the JSON project key file.
 
       - title: "Select a Google Storage Location"
@@ -132,7 +132,7 @@ steps:
         content: |
           Next, you'll select the region used by your Google Cloud Storage (GCS) [todo]. This setting determines the region of the internal [Google Storage Bucket](https://cloud.google.com/storage/docs/key-terms#buckets){:target="new"} Stitch uses during the replication process.
 
-          Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to [[todo]]() for the list of regions this version of the {{ destination.display_name }} destination supports.
+          Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to the [{{ destination.display_name }} v2 reference]({{ link.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }}) for the list of regions this version of the {{ destination.display_name }} destination supports.
 
           **Note**: Changing this setting will result in replication issues if data migration isn't completed correctly. Refer to [todo]() for more info.
 

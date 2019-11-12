@@ -62,7 +62,7 @@ sections:
     anchor: "google-cloud-storage-costs"
     summary: "Stitch's impact on Google Cloud Storage costs"
     versions:
-      - number: "1.0"
+      - number: "1"
         display-name: "v1 (Append-Only)"
         copy: |
           **Minimal cost to you**
@@ -72,7 +72,7 @@ sections:
           As a result, there will be minimal costs for the [Class A and B API calls](https://cloud.google.com/storage/pricing){:target="new"} Stitch makes during the replication process.
 
           Files placed in GCS are deleted immediately after data is loaded into BigQuery, so storage costs for the GCS bucket should be minimal.
-      - number: "2.0"
+      - number: "2"
         display-name: "v2 (Upsert and Append-Only)"
         copy: |
           **No cost to you**
@@ -87,7 +87,7 @@ sections:
 
       {{ page.version-table | replace: "LEVEL","section" | flatify }}
 
-      Refer to [Google's documentation]({{ site.data.destinations.resource-links[destination.type]storage-pricing }}){:target="new"} for more info on Google's Cloud Storage pricing model.
+      Refer to [Google's documentation]({{ site.data.destinations.bigquery.resource-links.storage-pricing }}){:target="new"} for more info on Google's Cloud Storage pricing model.
 
   - title: "BigQuery costs"
     anchor: "bigquery-costs"
@@ -99,7 +99,7 @@ sections:
       - [{{ subsection.title }}](#{{ subsection.anchor }}), which is {{ subsection.summary }}
       {% endfor %}
 
-      Refer to [Google's BigQuery pricing documentation]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"} for more info.
+      Refer to [Google's BigQuery pricing documentation]({{ site.data.destinations.bigquery.resource-links.pricing }}){:target="new"} for more info.
 
       **Note**: The following sections only cover the specific ways Stitch can impact BigQuery costs.
 
@@ -108,7 +108,7 @@ sections:
         anchor: "bigquery-storage-pricing"
         summary: "based on the amount of data stored in BigQuery"
         versions:
-          - number: "1.0"
+          - number: "1"
             display-name: "v1 (Append-Only)"
             copy: |
               Loading behavior is predefined; all data is loaded in an Append-Only manner. 
@@ -117,7 +117,7 @@ sections:
 
               Tables size will increase after every replication job, and increase storage costs as a result.
               
-          - number: "2.0"
+          - number: "2"
             display-name: "v2 (Upsert and Append-Only)"
             copy: |
               Loading behavior is defined by you during destination setup:
@@ -143,23 +143,23 @@ sections:
         anchor: "bigquery-query-pricing"
         summary: "based on the amount of data processed by each executed query"
         versions:
-          - number: "1.0"
+          - number: "1"
             display-name: "v1 (Append-Only)"
             copy: |
               **No cost to you**
 
               The method Stitch uses to load data in an Append-Only manner is considered free under BigQuery's pricing model.
 
-          - number: "2.0"
+          - number: "2"
             display-name: "v2 (Upsert and Append-Only)"
             copy: |
               **The cost to you will vary**
 
               Query costs for loading data depend on the loading behavior you select during destination setup:
 
-              - **Upsert**: **Costs associated with using the [BigQuery Data Manipulation Language (DML) function]({{ site.data.destinations.resource-links.bigquery.dml }}){:target="new"}**. Google charges for queries based on the number of bytes processed, or bytes read. Additionally, Google imposes [a minimum processing requirement]({{ site.data.destinations.resource-links.bigquery.on-demand-pricing }}){:target="new"} of 10MB per table referenced by the query, and with a minimum 10MB data processed per query.
+              - **Upsert**: **Costs associated with using the [BigQuery Data Manipulation Language (DML) function]({{ site.data.destinations.bigquery.resource-links.dml }}){:target="new"}**. Google charges for queries based on the number of bytes processed, or bytes read. Additionally, Google imposes [a minimum processing requirement]({{ site.data.destinations.bigquery.resource-links.on-demand-pricing }}){:target="new"} of 10MB per table referenced by the query, and with a minimum 10MB data processed per query.
 
-                 **Note**: As of {{ page.date | date: '%B %d, %Y' }}, this information is correct. Refer to [Google's pricing documentation]({{ site.data.destinations.resource-links.bigquery.dml-pricing }}){:target="new"} for the most up-to-date information, and [let us know]({{ site.github_issues }}){:target="new"} if something is outdated.
+                 **Note**: As of {{ page.date | date: '%B %d, %Y' }}, this information is correct. Refer to [Google's pricing documentation]({{ site.data.destinations.bigquery.resource-links.dml-pricing }}){:target="new"} for the most up-to-date information, and [let us know]({{ site.github_issues }}){:target="new"} if something is outdated.
 
               - **Append-Only**: **No cost to you**. The method Stitch uses to load data in an Append-Only manner is considered free under BigQuery's pricing model.
         content: |
@@ -169,7 +169,7 @@ sections:
 
           {{ page.version-table | replace: "LEVEL","subsection" | flatify }}
 
-          Refer to [Google's documentation]({{ site.data.destinations.resource-links.bigquery.on-demand-pricing }}){:target="new"}  for more info on BigQuery query pricing.
+          Refer to [Google's documentation]({{ site.data.destinations.bigquery.resource-links.on-demand-pricing }}){:target="new"}  for more info on BigQuery query pricing.
 
   - title: "Cost considerations and management tools"
     anchor: "cost-considerations-management-tools"
@@ -181,7 +181,7 @@ sections:
 
       Additionally, Google provides tools in the GCP console that allow you to monitor and manage your costs:
 
-      - [Billing Reports and Cost Trends]({{ site.data.destinations.resource-links.bigquery.billing-reports }}){:target="new"}
+      - [Billing Reports and Cost Trends]({{ site.data.destinations.bigquery.resource-links.billing-reports }}){:target="new"}
       - [Tutorial: BigQuery cost reporting dashboard in DataStudio](https://cloud.google.com/blog/products/data-analytics/taking-a-practical-approach-to-bigquery-cost-monitoring){:target="new"}
 ---
 {% include misc/data-files.html %}
