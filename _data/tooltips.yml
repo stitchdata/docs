@@ -93,6 +93,19 @@ key-based-incremental-rep: "Key-based Incremental Replication is a replication m
 
 log-based-incremental-rep: "Log-based Incremental Replication is a replication method in which Stitch identifies modifications to records - including inserts, updates, and deletes - using a database's binary log files."
 
+
+
+# -------------------------- #
+#    REPLICATION PROCESS     #
+# -------------------------- #
+
+extract: "During this phase, data is extracted from an integration using the replication settings you define."
+
+prepare: "During this phase, the extracted data is buffered in Stitch’s durable, highly available internal data pipeline and readied for loading."
+
+load: "During this phase, the prepared data is transformed to be compatible with the destination, and then loaded."
+
+
 # -------------------------- #
 #      Used in Layouts       #
 # -------------------------- #
