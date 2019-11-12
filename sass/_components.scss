@@ -122,6 +122,21 @@
 
 		li {
 			margin: 0.5em 1em;
+
+			a {
+				&:before {
+					font-family: FontAwesome;
+					content: "\f13a";
+					margin-right: 10px;
+					color: $lochmara;
+				}
+
+				&:hover {
+					&:before {
+						color: $black;
+					}
+				}
+			}
 		}
 	}
 }
@@ -383,7 +398,8 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 		}
 
 		&:before {
-			content: "⌄";
+			font-family: FontAwesome;
+			content: "\f107";
 			color: $blue-channel;
 			margin-right: 8px;
 			font-weight: bold;
