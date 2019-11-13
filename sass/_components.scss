@@ -653,7 +653,17 @@ ul.tiles {
 		margin: 10px !important;
 		border: 1px solid $gray-2;
 		padding: 15px;
-		min-height: 170px;
+		min-height: 190px;
+		line-height: 1.2em;
+
+		strong {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.links {
+			margin-top: 15px;
+		}
 
 		@media (min-width: $desktop-breakpoint) {
 			width: 30%;
@@ -691,6 +701,10 @@ ul.tiles {
 		font-size: 14px;
 		text-align: left;
 		margin: 0px !important;
+
+		strong {
+			margin-bottom: 0;
+		}
 	}
 }
 
