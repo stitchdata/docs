@@ -23,9 +23,8 @@ destination: true
 
 display_name: "Panoply"
 type: "panoply"
-port: 5439
 
-this-version: "2.0"
+this-version: "2"
 
 # -------------------------- #
 #           Support          #

@@ -39,7 +39,7 @@ name: *name
 ssh: false
 ssl: false
 
-this-version: "1.0"
+this-version: "1"
 
 
 # -------------------------- #
@@ -48,11 +48,11 @@ this-version: "1.0"
 
 requirements:
   - item: |
-      **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
+      **A user with full access to an existing [Google Cloud Platform (GCP) project within {{ destination.display_name }}]({{ site.data.destinations[destination.type]resource-links.setup-project }}){:target="_blank"}**. Stitch won't be able to create one for you.
   - item: |
       **Admin permissions for {{ destination.display_name }} and Google Cloud Storage (GCS)**. This includes the {{ destination.display_name }} Admin and Storage Admin permissions. Stitch requires these permissions to [create and use a GCS bucket](https://cloud.google.com/storage/docs/access-control/bucket-level-iam){:target="_blank"} to load replicated data into {{ destination.display_name }}.
   - item: |
-      **Access to a project where [billing is enabled]({{ site.data.destinations.resource-links[destination.type]enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using {{ destination.display_name }}'s free trial, billing must still be enabled for Stitch to load data.
+      **Access to a project where [billing is enabled]({{ site.data.destinations[destination.type]resource-links.enable-billing }}){:target="_blank"} and a credit card is attached**. Even if you're using {{ destination.display_name }}'s free trial, billing must still be enabled for Stitch to load data.
 
 
 # -------------------------- #
@@ -63,12 +63,12 @@ steps:
   - title: "Create a GCP account"
     anchor: "create-gcp-account"
     content: |
-      [Sign up here]({{ site.data.destinations.resource-links[destination.type]sign-up }}){:target="new"} to get started.
+      [Sign up here]({{ site.data.destinations[destination.type]resource-links.sign-up }}){:target="new"} to get started.
 
   - title: "Create a GCP project and enable billing"
     anchor: "create-gcp-project-enable-billing"
     content: |
-      Next, create a new GCP project to house your {{ destination.display_name }} destination by following [these instructions]({{ site.data.destinations.resource-links[destination.type]setup-project }}){:target="new"}.
+      Next, create a new GCP project to house your {{ destination.display_name }} destination by following [these instructions]({{ site.data.destinations[destination.type]resource-links.setup-project }}){:target="new"}.
 
       **Be sure to enable billing for the account and attach a credit card, even if you're using the free trial option.** If billing isn't enabled, Stitch will encounter issues when loading data into your data warehouse.
 

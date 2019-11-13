@@ -22,9 +22,8 @@ destination: true
 
 display_name: "Amazon Redshift"
 type: "redshift"
-port: 5439
 
-this-version: "2.0"
+this-version: "2"
 
 # -------------------------- #
 #           Support          #
@@ -47,7 +46,7 @@ sections:
   - title: "Pricing"
     anchor: "pricing"
     content: |
-      Currently, {{ destination.display_name}} pricing is based on an hourly rate that varies depending on the type and number of nodes in a cluster. Check out Amazon's [pricing page]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"} for an in-depth look at their current plan offerings.
+      Currently, {{ destination.display_name}} pricing is based on an hourly rate that varies depending on the type and number of nodes in a cluster. Check out Amazon's [pricing page]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"} for an in-depth look at their current plan offerings.
 
       **So, what's a node?** A node is a single computer that participates in a cluster. Your {{ destination.display_name }} cluster can have one to many nodes; the more nodes, the more data it can store and the faster it can process queries. Amazon currently offers four different types of nodes, each of which has its own CPU, RAM, storage capacity, and storage drive type.
 

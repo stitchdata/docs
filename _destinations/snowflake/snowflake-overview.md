@@ -23,9 +23,8 @@ destination: true
 
 display_name: "Snowflake"
 type: "snowflake"
-port: 443
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #           Support          #
@@ -79,6 +78,8 @@ sections:
     anchor: "replication"
     content: |
       {% include destinations/overviews/destination-reference-table.html list="replication" %}
+
+      {% include replication/templates/data-types/destination-data-types.html display-intro=true %}
 
   - title: "Limitations"
     anchor: "limitations"

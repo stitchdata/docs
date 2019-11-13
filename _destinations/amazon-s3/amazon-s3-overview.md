@@ -30,7 +30,7 @@ enterprise-cta:
 display_name: "Amazon S3"
 type: "amazon-s3"
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #           Support          #
@@ -54,7 +54,7 @@ sections:
     content: |
       {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify }}
 
-      To learn more about pricing, refer to Amazon's S3 [pricing page]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"}. **Note**: Remember to select the correct region to view accurate pricing.
+      To learn more about pricing, refer to Amazon's S3 [pricing page]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"}. **Note**: Remember to select the correct region to view accurate pricing.
 
   - title: "Setup info"
     anchor: "stitch-details-setup-info"

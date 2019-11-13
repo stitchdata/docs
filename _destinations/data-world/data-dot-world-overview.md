@@ -5,7 +5,7 @@
 title: data.world Destination
 permalink: /destinations/data-world
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
-summary: &summary "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
+summary: "Data.world helps you host and share your data, collaborate with your team, and capture context and conclusions as you work."
 
 content-type: "destination-overview"
 key: "data-world-reference"
@@ -23,7 +23,7 @@ display_name: "data.world"
 type: "data-world"
 db-type: "s3"
 
-this-version: "1.0"
+this-version: "1"
 
 ## Resource links can be found in _data/destinations/links.yml
 
@@ -43,7 +43,7 @@ sections:
 
       While Stitch is compatible with all of {{ destination.display_name }} plans, keep in mind that the number of private projects/datasets and the size maximum of those projects varies by plan.
 
-      For more information on {{ destination.display_name }}'s plans, refer to their [pricing page]({{ site.data.destinations.resource-links[destination.type]pricing }}){:target="new"}.
+      For more information on {{ destination.display_name }}'s plans, refer to their [pricing page]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"}.
 
   - title: "Setup"
     anchor: "setup"

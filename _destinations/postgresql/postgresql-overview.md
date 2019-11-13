@@ -21,9 +21,8 @@ destination: true
 
 display_name: "PostgreSQL"
 type: "postgres"
-port: 5432
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #           Support          #
@@ -42,7 +41,7 @@ this-version: "1.0"
 intro: |
   {{ destination.summary | flatify | markdownify }}
 
-  For a more in-depth look at {{ destination.display_name }}, [click here]({{ site.data.destinations.resource-links[destination.type]main-site }}).
+  For a more in-depth look at {{ destination.display_name }}, [click here]({{ site.data.destinations.postgres.resource-links.main-site }}).
   
 sections:
   - title: "Pricing"
@@ -52,10 +51,10 @@ sections:
 
       - **Self-hosted:** {{ destination.display_name }} is open-source, meaning you don't need to pay an upfront cost to obtain the necessary software. You may, however, have hosting and maintenance costs associated with the server housing the instance. You may have to do a little bit of internal number crunching to figure out these potential costs. 
       - **Heroku:** Heroku has a [variety of plans to choose from](https://www.heroku.com/pricing), and [a guide to help you select the right plan](https://devcenter.heroku.com/articles/heroku-postgres-plans) for you or your company.
-      - **Amazon Aurora and RDS:** Amazon offers [a variety of plans](https://aws.amazon.com/rds/postgresql/pricing/) for both on-demand instances and Multi-AZ Deployment. To get an estimate of what your monthly bill might look like, check out their [monthly calculator]({{ site.data.destinations.resource-links[destination.type]aws-calculator }}).
-      - **Google CloudSQL PostgreSQL:** Unlike many other cloud-based data warehouse solutions, [Google's pricing model]({{ site.data.destinations.resource-links[destination.type]cloudsql-pricing }}) is based on **usage** and not a fixed-rate. This means that your bill can vary over time. 
+      - **Amazon Aurora and RDS:** Amazon offers [a variety of plans](https://aws.amazon.com/rds/postgresql/pricing/) for both on-demand instances and Multi-AZ Deployment. To get an estimate of what your monthly bill might look like, check out their [monthly calculator]({{ site.data.destinations[destination.type]resource-links.aws-calculator }}).
+      - **Google CloudSQL PostgreSQL:** Unlike many other cloud-based data warehouse solutions, [Google's pricing model]({{ site.data.destinations.postgres.resource-links.cloudsql-pricing }}) is based on **usage** and not a fixed-rate. This means that your bill can vary over time. 
 
-         Before fully committing yourself to using Google CloudSQL PostgreSQL as your data warehouse, we recommend familiarizing yourself with Google's pricing model and [using their pricing calculator to estimate your potential costs]({{ site.data.destinations.resource-links[destination.type]price-calculator }}).
+         Before fully committing yourself to using Google CloudSQL PostgreSQL as your data warehouse, we recommend familiarizing yourself with Google's pricing model and [using their pricing calculator to estimate your potential costs]({{ site.data.destinations.postgres.resource-links.price-calculator }}).
 
   - title: "Setup"
     anchor: "stitch-details-setup-info"
