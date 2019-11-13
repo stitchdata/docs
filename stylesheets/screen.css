@@ -177,15 +177,13 @@ body {
   position: absolute;
   left: 375px;
   padding: 2em 4em;
-  padding-left: 30px;
-  bordder: 1px solid red;
 }
-/* line 178, ../sass/_layout.scss */
+/* line 176, ../sass/_layout.scss */
 #main .content-column .article {
   max-width: 52em;
   margin-top: 6rem;
 }
-/* line 183, ../sass/_layout.scss */
+/* line 181, ../sass/_layout.scss */
 #main .content-column .breadbox {
   position: fixed;
   top: 68px;
@@ -195,7 +193,7 @@ body {
   z-index: 2;
   width: 100%;
 }
-/* line 192, ../sass/_layout.scss */
+/* line 190, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container {
   width: 100%;
   position: absolute;
@@ -206,52 +204,52 @@ body {
   margin-bottom: 0.5em;
   font-weight: 700;
 }
-/* line 205, ../sass/_layout.scss */
+/* line 203, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .dropdown-menu li a, #main .content-column .breadbox .breadcrumb-container .dropdown-menu li.active {
   padding: 0.5em;
   color: #202020;
 }
-/* line 211, ../sass/_layout.scss */
+/* line 209, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .dropdown-menu li a:hover {
   color: #FFFFFF;
 }
-/* line 217, ../sass/_layout.scss */
+/* line 215, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container strong {
   color: #0675c1;
 }
-/* line 221, ../sass/_layout.scss */
+/* line 219, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container a {
   color: #202020;
 }
-/* line 224, ../sass/_layout.scss */
+/* line 222, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container a:hover {
   color: #888888;
   text-decoration: none;
 }
-/* line 230, ../sass/_layout.scss */
+/* line 228, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-left,
 #main .content-column .breadbox .breadcrumb-container .menu-right {
   display: inline-block;
   vertical-align: bottom;
 }
-/* line 236, ../sass/_layout.scss */
+/* line 234, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-left {
   font-size: 0.8rem;
   letter-spacing: 0.3px;
   width: calc(100% - 12em);
   line-height: 1.4;
 }
-/* line 243, ../sass/_layout.scss */
+/* line 241, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-right {
   padding-bottom: 0.25em;
 }
-/* line 246, ../sass/_layout.scss */
+/* line 244, ../sass/_layout.scss */
 #main .content-column .breadbox .breadcrumb-container .menu-right .btn {
   width: 10em;
   min-width: fit-content;
 }
 
-/* line 256, ../sass/_layout.scss */
+/* line 254, ../sass/_layout.scss */
 .columns {
   list-style-type: none;
   list-style-position: inside;
@@ -260,14 +258,14 @@ body {
   -moz-columns: 2;
 }
 @media screen and (max-width: 1100px) {
-  /* line 256, ../sass/_layout.scss */
+  /* line 254, ../sass/_layout.scss */
   .columns {
     columns: 1;
     -webkit-columns: 1;
     -moz-columns: 1;
   }
 }
-/* line 272, ../sass/_layout.scss */
+/* line 270, ../sass/_layout.scss */
 .columns.more li:last-of-type a {
   border: 1px solid #999999;
   border-radius: 0;
@@ -287,39 +285,39 @@ body {
   margin-top: 0.5rem;
   text-transform: uppercase;
 }
-/* line 291, ../sass/_layout.scss */
+/* line 289, ../sass/_layout.scss */
 .columns.more li:last-of-type a:hover {
   background: #0675c1;
   text-decoration: none;
 }
-/* line 295, ../sass/_layout.scss */
+/* line 293, ../sass/_layout.scss */
 .columns.more li:last-of-type a:focus {
   text-decoration: none;
   background: #0675c1;
 }
 
-/* line 305, ../sass/_layout.scss */
+/* line 303, ../sass/_layout.scss */
 footer {
   text-align: left;
   color: #969696;
   margin: 2em 0;
   line-height: 1.6em;
 }
-/* line 311, ../sass/_layout.scss */
+/* line 309, ../sass/_layout.scss */
 footer .site-generation {
   float: left;
 }
-/* line 315, ../sass/_layout.scss */
+/* line 313, ../sass/_layout.scss */
 footer .links {
   float: right;
 }
-/* line 317, ../sass/_layout.scss */
+/* line 315, ../sass/_layout.scss */
 footer .links p {
   font-weight: 600;
   text-align: right;
   margin-bottom: 0px;
 }
-/* line 323, ../sass/_layout.scss */
+/* line 321, ../sass/_layout.scss */
 footer .links ul {
   list-style: none;
   padding: 0px;
@@ -1085,7 +1083,7 @@ ul.tiles {
 ul.tiles li {
   display: inline-block;
   vertical-align: top;
-  width: 45%;
+  width: calc(45% - 10px);
   margin: 10px !important;
   border: 1px solid #EAEAEA;
   padding: 15px;
@@ -1474,7 +1472,7 @@ hr.footer-cta {
   /* line 100, ../sass/_mobile.scss */
   #main .content-column {
     position: static;
-    padding-left: 30px;
+    padding: 1em 1em 1em 30px;
   }
   /* line 104, ../sass/_mobile.scss */
   #main .content-column .article {
