@@ -23,6 +23,10 @@
     justify-content: flex-end;
     flex: 4;
 
+    ul {
+      padding-inline-start: 0;
+    }
+
     li {
       display: inline-block;
       margin-left: 25px;
@@ -168,6 +172,8 @@ body {
     position: absolute;
     left: 375px;
     padding: 2em 4em;
+    padding-left: 30px;
+    bordder: 1px solid red;
 
     .article {
       max-width: 52em;
@@ -179,10 +185,9 @@ body {
       top: 68px;
       background: rgb(255,255,255);
       background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
-      width: 52em;
-      max-width: 100%;
       min-height: 6.35em;
       z-index: 2;
+      width: 100%;
 
       .breadcrumb-container {
         width: 100%;
@@ -242,10 +247,6 @@ body {
             width: 10em;
             min-width: fit-content;
           }
-        }
-
-        .breadbox {
-          max-width: 52em;
         }
       }
     }

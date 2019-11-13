@@ -1,5 +1,15 @@
 //mobile
 
+@media only screen and (max-width: 1150px) {
+  .stitch-docs-navbar {
+    padding: 1em;
+
+    #search-input {
+      max-width: 220px;
+    }
+  }
+}
+
 .mobile-close-out {
   position: absolute;
   background-image: url(../images/account-security/close-out.svg);
@@ -89,10 +99,17 @@
     }
     .content-column {
       position: static;
-      padding: 1em;
+      padding-left: 30px;
     }
     .content-column .article {
       max-width: 100%;
+    }
+
+    .content-column {
+      .breadbox {
+        width: 100%;
+        margin-left: 15px;
+      }
     }
     ul.tiles li {
       min-height: 255px;
@@ -113,7 +130,7 @@
     z-index: 5;
   }
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .stitch-docs-navbar {
     .nav-right {
       display: none;
