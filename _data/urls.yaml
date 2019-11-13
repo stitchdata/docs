@@ -92,6 +92,8 @@ destinations:
     amazon-s3: /destinations/amazon-s3/
     redshift: /destinations/redshift/
     bigquery: /destinations/google-bigquery/
+    bigquery-v1: /destinations/google-bigquery/reference/v1
+    bigquery-v2: /destinations/google-bigquery/reference/v2
     bigquery-pricing: /destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs
     data-world: /destinations/data-world/
     azure: /destinations/microsoft-azure-sql-data-warehouse/
@@ -154,7 +156,11 @@ destinations:
     redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
     bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
     primary-key-system-table: /replication/loading/primary-keys-system-table
-    reserved-keywords: /data-structure/reserved-keywords
+    reserved-keywords: /replication/loading/reserved-keywords
+
+    loading-behavior: /replication/loading/understanding-loading-behavior
+
+    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
 
 # -------------------------- #
 #         INTEGRATIONS       #
