@@ -17,7 +17,6 @@ nested-structure-support: false
 rename-original-column-in-split:  true
 
 
-
 # ------------------------------ #
 #       LOADING BEHAVIOR         #
 # ------------------------------ #
@@ -28,17 +27,10 @@ loading-behavior-types:
   - "Upsert"
 
 loading-behavior-description: |
-  TODO
+  The following loading behavior types are supported for {{ destination.display_name }} destinations:
 
+  {% for loading-behavior-type in site.data.destinations.redshift.v2.replication.loading-behavior-types %}
+  - {{ loading-behavior-type }}
+  {% endfor %}
 
-
-# - id: "primary-keys"
-#   categories: "replication"
-#   value: *primary-key-support
-#   important: true
-#   description: |
-#     {{ destination.display_name }} destinations do not have native support for Primary Keys.
-
-#     As Stitch requires Primary Keys to de-dupe data during Incremental Replication, Primary Keys for tables are retained using [table comments](https://docs.aws.amazon.com/redshift/latest/dg/r_COMMENT.html){:target="new"}.
-
-#     **Removing or incorrectly altering table comments can lead to replication issues.**
+  Refer to the [Loading behavior](#loading-behavior) section for more info.
