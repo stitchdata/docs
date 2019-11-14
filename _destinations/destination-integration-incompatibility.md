@@ -4,12 +4,14 @@ keywords: destinations, integrations, incompatible, mixed data types, multiple d
 permalink: /destinations/destination-integration-compatibility
 summary: "Verify your integrations' compatibility with your data warehouse."
 
+destination: false
 content-type: "destination-general"
+type: "all"
+key: "source-destination-compatibility"
 
 toc: true
 layout: general
-type: "all"
-destination: false
+
 
 intro: |
   When selecting a destination, it's important to first verify that all the data sources you want to connect to Stitch will be compatible. 

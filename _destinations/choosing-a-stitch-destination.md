@@ -3,11 +3,11 @@ title: Choosing a Destination
 permalink: /destinations/choosing-a-stitch-destination
 
 redirect_from: /destinations/choosing-a-destination
-tags: [destinations]
 keywords: destination, destinations, data warehouse, data warehouses, warehouse, stitch etl, etl, compare destinations, choose destination, select destination
 summary: "If you're new to data warehousing or want to see how Stitch's destination offerings compare to each other, look no further. This guide will help you choose the best Stitch destination for your data warehousing needs."
 
 content-type: "destination-general"
+key: "choose-a-destination"
 
 toc: true
 layout: general
@@ -17,13 +17,12 @@ destination: false
 sections:
   - content: |
       {% capture data-strategy%}
-      **Not sure where to start?**<br>
       If you're feeling overwhelmed or you're unsure of what to look for, don't worry. For a primer on data warehouses and setting the data strategy for your organization, check out our [Data Strategy Guide]({{ site.data-strategy }}).
       {% endcapture %}
 
-      {% include tip.html content=data-strategy %}
+      {% include note.html first-line="**Not sure where to start?**" content=data-strategy %}
 
-      When Stitch replicates your data, we'll load it into the destination - or data warehouse - of your choosing. A data warehouse is a central repository of integrated data from disparate sources.
+      When Stitch replicates your data, we'll load it into the destination of your choosing.
 
       **As Stitch currently only allows you to connect one destination to your account**, we recommend asking yourself the questions below before making your selection. By fully assessing each choice first, you'll decrease the likelihood of needing to switch destinations or re-replicate all of your data at a later date.
 

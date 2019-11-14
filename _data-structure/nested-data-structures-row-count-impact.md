@@ -7,6 +7,8 @@ keywords: redshift, amazon redshift, redshift data warehouse, redshift etl, etl 
 summary: "MongoDB and many SaaS integrations use nested structures, which means each attribute (or column) in a table could have its own set of attributes. Depending on the type of destination you're using, Stitch may deconstruct these nested structures into separate tables."
 toc: true
 weight: 4
+
+key: "de-nesting-json"
 ---
 {% include misc/data-files.html %}
 
