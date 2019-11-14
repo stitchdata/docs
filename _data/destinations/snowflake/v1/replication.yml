@@ -28,26 +28,10 @@ loading-behavior-types:
   - "Upsert"
 
 loading-behavior-description: |
-  todo
+  The following loading behavior types are supported for {{ destination.display_name }} destinations:
 
+  {% for loading-behavior-type in site.data.destinations.microsoft-azure.v1.replication.loading-behavior-types %}
+  - {{ loading-behavior-type }}
+  {% endfor %}
 
-
-# - id: "primary-keys"
-#   categories: "replication"
-#   value: *primary-key-support
-#   important: true
-#   description: |
-#     {{ destination.display_name }} destinations natively support Primary Keys.
-
-#     Stitch requires Primary Keys to de-dupe data during Incremental Replication. Primary Key columns are created using [Primary Key constraints]({{ site.data.destinations.snowflake.resource-links.column-constraints }}){:target="new"}, which requires that values be both unique and not null.
-
-# - id: "nested-data-structures"
-#   categories: "replication"
-#   value: *nested-structure-support
-#   important: true
-#   description: |
-#     {{ destination.display_name }} destinations natively support nested data structures.
-
-#     When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a [`VARIANT` column]({{ site.data.destinations.snowflake.resource-links.variant-type }}){:target="new"}. This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
-
-#     You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. More info can be found in [{{ destination.display_name }}'s documentation](https://docs.snowflake.net/manuals/sql-reference/functions-semistructured.html){:target="new"}.
+  Refer to the [Loading behavior](#loading-behavior) section for more info.

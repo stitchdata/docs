@@ -185,7 +185,9 @@ sections:
       - title: "JSON structures"
         anchor: "transformations--json-structures"
         content: |
-          {{ destination.display_name }} destinations don't have native support for nested data structures. To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+          When Stitch replicates source data containing objects or arrays, Stitch will load the data intact into a [`VARIANT` column]({{ site.data.destinations.snowflake.resource-links.variant-type }}){:target="new"}. This is a {{ destination.display_name }} data type that can contain semi-structured data like JSON arrays and objects.
+
+          You can then use {{ destination.display_name }}'s functions for semi-structured data to parse the data. Refer to [{{ destination.display_name }}'s documentation](https://docs.snowflake.net/manuals/sql-reference/functions-semistructured.html){:target="new"} for more info.
 
       - title: "Column names"
         anchor: "transformations--column-naming"
