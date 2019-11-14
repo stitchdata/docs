@@ -3,42 +3,40 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amazon S3 CSV
-keywords: amazon-s3-csv, database integration, etl amazon-s3-csv, amazon-s3-csv etl
-permalink: /integrations/databases/amazon-s3-csv
-summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
+title: SFTP
+keywords: sftp, database integration, etl sftp, sftp etl
+permalink: /integrations/databases/sftp
+summary: "Connect and replicate data from files on your SFTP server using Stitch's SFTP integration."
 snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
-
-key: "amazon-s3-csv-integration"
 
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
 
-name: "amazon-s3-csv"
-display_name: "Amazon S3 CSV"
-setup-name: "S3 CSV"
+name: "sftp"
+display_name: "SFTP"
 
 singer: true
-repo-url: "https://github.com/singer-io/tap-s3-csv"
-status-url: "https://status.aws.amazon.com/"
+repo-url: "https://github.com/singer-io/tap-sftp"
 
-this-version: "1.0"
+hosting-type: "none"
+
+# this-version: "1.0"
 
 file-system: true
-db-type: "s3"
-driver: |
-  [Boto 3 1.9.57](https://boto3.amazonaws.com/v1/documentation/api/1.9.57/index.html){:target="new"}
+db-type: "sftp"
+# driver: |
+#   [](){:target="new"}
 
 # -------------------------- #
 #       Stitch Supports      #
 # -------------------------- #
 
-status: "Released"
+status: "Open Beta"
 certified: true
-setup-name: "Amazon S3"
+setup-name: "SFTP"
 
 frequency: "1 hour"
 historical: "1 year"
@@ -47,13 +45,13 @@ tier: "Free"
 ## Stitch features
 
 versions: "n/a"
-ssh: false
+ssh: true
 ssl: false
 
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -79,35 +77,54 @@ full-table-replication: false
 view-replication: false
 
 
-
 # -------------------------- #
 #      Setup Requirements    #
 # -------------------------- #
 
 requirements-list:
-  - item: |
-      **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
-
-  - item: |
-      **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
-
 # File requirements are in: _data/taps/extraction/file-systems/file-requirements.yml
+
   - item: |
       **Files that adhere to Stitch's file requirements**:
 
       {{ site.data.taps.extraction.file-systems.file-requirements.support-table | flatify }}
-
 
 # -------------------------- #
 #     Setup Instructions     #
 # -------------------------- #
 
 setup-steps:
-  - title: "Retrieve your Amazon Web Services account ID"
-    anchor: "retrieve-aws-account-id"
+  - title: "Whitelist Stitch's IP addresses"
+    anchor: "whitelist-stitch-ips"
     content: |
-      {% include integrations/shared-setup/aws-s3-iam-setup.html type="retrieve-account-id" %}
-      
+      {% include note.html type="single-line" content="**Note**: This step is required only if your server is behind a firewall that restricts access based on IP addresses." %}
+
+      {% include shared/whitelisting-ips/generic.html %}
+
+  - title: "Configure SSH for the SFTP server"
+    anchor: "configure-ssh-for-server"
+    content: |
+      To use SFTP, you'll need to configure SSH via key-pair authentication. This allows Stitch to use an SSH tunnel to securely connect to your {{ integration.display_name }} SFTP server.
+
+      If key-pair authentication isn't configured, Stitch can still connect using username/password auth. **Note**: This step is required if key-pairs are required to log into the {{ integration.display_name }} server. Alternatively, you can provide a password to use username/password authentication.
+
+    substeps:
+      - title: "Retrieve your Stitch public key"
+        anchor: "retrieve-your-public-key"
+        content: |
+          1. {{ app.menu-paths.add-integration | flatify }}
+          2. Click the **{{ integration.display_name }}** icon.
+          3. The Stitch public key will be at the top of the page that opens.
+
+          Keep this page handy - you'll need it in the next step.
+
+      - title: "Add the public key to authorized_keys"
+        anchor: "add-public-key-to-authorized-keys"
+        content: |
+          Next, you’ll add the public key to the connecting {{ integration.display_name }} user's `authorized_keys` file on your server. This will allow Stitch to authenticate via a public key and connect to the server.
+
+          {% include shared/ssh/ssh-create-linux-user.html no-notification=true include-create-user-steps=false %}
+
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
@@ -116,7 +133,7 @@ setup-steps:
   - title: "Configure tables"
     anchor: "configure-tables"
     content: |
-      Next, you'll indicate which CSV file(s) you want to include for replication. You can include a single CSV file, or map several CSV files to a table. Refer to the [Setup requirements section](#setup-requirements) for info about what Stitch supports for {{ integration.display_name }} files.
+      Next, you'll indicate which file(s) you want to include for replication. You can include a single file, or map several files to a table. Refer to the [Setup requirements section](#setup-requirements) for info about what Stitch supports for {{ integration.display_name }} files.
 
       In the following sections, we'll walk you through how to configure a table in Stitch:
 
@@ -128,7 +145,7 @@ setup-steps:
       - title: "Define the table's search settings"
         anchor: "define-table-search-settings"
         content: |
-          In this step, you'll tell Stitch which files in your S3 bucket you want to replicate data from. To do this, you'll use the **Search Pattern** and **Directory** fields.
+          In this step, you'll tell Stitch which files on your {{ integration.display_name }} server you want to replicate data from. To do this, you'll use the **Search Pattern** and **Directory** fields.
 
         sub-substeps:
           - title: "Define the Search Pattern"
@@ -139,7 +156,7 @@ setup-steps:
           - title: "Limit file search to a specific directory"
             anchor: "limit-search-to-directory"
             content: |
-              {% include integrations/shared-setup/configure-table-settings-file-server.html type="define-search-directory" location="S3 bucket" %}
+              {% include integrations/shared-setup/configure-table-settings-file-server.html type="define-search-directory" location="SFTP server" %}
 
       - title: "Define the table's name"
         anchor: "define-table-name"
@@ -171,27 +188,6 @@ setup-steps:
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "Grant access to your bucket using AWS IAM"
-    anchor: "grant-access-bucket-iam"
-    content: |
-      {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
-
-    substeps:
-      - title: "Create an IAM policy"
-        anchor: "create-iam-policy"
-        content: |
-          {% include integrations/shared-setup/aws-s3-iam-setup.html type="create-iam-policy" %}
-          
-      - title: "Create an IAM role for Stitch"
-        anchor: "create-stitch-iam-role"
-        content: |
-          {% include integrations/shared-setup/aws-s3-iam-setup.html type="create-stitch-iam-role" %}
-
-      - title: "Check and save the connection in Stitch"
-        anchor: "check-save-stitch-connection"
-        content: |
-          {% include integrations/shared-setup/aws-s3-iam-setup.html type="check-and-save" %}
-
   - title: "Select data to replicate"
     anchor: "setting-data-to-replicate"
     content: |
@@ -214,7 +210,7 @@ replication-sections:
 
   - title: "Extraction"
     anchor: "extraction-details"
-    summary: "Details about Extraction, including object and data type discovery and selecting data for replication"
+    summary: "Details about object and data type discovery and selecting data for replication"
     content: |
       For every table set to replicate, Stitch will perform the following during Extraction:
 
@@ -261,18 +257,18 @@ replication-sections:
                 header-row: "id,name,has_magic,active"
                 included-in-discovery: "<strong>false</strong>"
             content: |
-              At the start of each replication job, Stitch will analyze the header rows in the first five files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
+              At the start of each replication job, Stitch will analyze the header rows in the five most recently modified files returned by the table's [search pattern](#define-table-search-pattern). The header rows in these files are used to determine the table's schema.
 
-              For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the header row in an included file changes after the fifth file, Stitch will not detect the difference.
+              For this reason, the structure of files replicated using {{ integration.display_name }} should be the same for every file included in a table's configuration. If the header row in an included file changes after the fifth most recently modified file, Stitch will not detect the difference.
 
-              For example: Based on the files in the table below, the table created from these files would have `id`, `name`, and `active` columns. The `has_magic` column in the `customers-001.csv` file will not be detected, as it's not in the first five files.
+              For example: Based on the files in the table below, the table created from these files would have `id`, `name`, and `active` columns. The `has_magic` column in the `customers-001.csv` file will not be detected, as it's not in the five most recently modified files.
 
               {% assign columns = "included-in-discovery|file-name|header-row" | split:"|" %}
 
               <table class="attribute-list">
               <tr>
               <td>
-              <strong>Return order</strong>
+              <strong>Updated</strong>
               </td>
               {% for column in columns %}
               <td>
@@ -284,7 +280,7 @@ replication-sections:
               {% for file in sub-subsection.example %}
               <tr>
               <td>
-              {{ forloop.index }}
+              {{ forloop.index }} {% if forloop.first == true %}(most recent){% endif %}
               </td>
               {% for column in columns %}
               <td>

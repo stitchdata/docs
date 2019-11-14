@@ -28,7 +28,7 @@ setup-name: "MongoDB"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 singer: true
 certified: true
 

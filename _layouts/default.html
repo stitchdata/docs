@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     {% include_cached layout/head.html title=page.title %}
-    
+
   <!-- Initializes tooltips -->
     <script>
       $(function () {
@@ -26,10 +26,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Page Content -->
 <div id="main">
     <div class="sidebar-column">
+      <div class="sidebar-button"></div>
         {% include layout/sidebar.html %}
     </div>
     <div class="content-column">
-        
+
         <div class="article">
           {% unless page.title contains "Welcome" %}
             <div class="breadbox">
@@ -83,7 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
   e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
   })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-  
+
   _st('install','SAg6gNWby6H1xYzjhfzB','2.0.0');
 </script>
 

@@ -21,7 +21,40 @@ $( document ).ready(function() {
      */
     anchors.add('h2,h3,h4,h5');
 
+//***MOBILE Menu view//***MOBILE Menu view//***MOBILE Menu view
+$(document).mouseup(function(e)
+{
+    var container = $(".sidebar-column");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0)
+    {
+        container.removeClass("sidebar-column-show");
+    }
 });
+    $('.mobile-nav-icon').click( function() {
+      $(".nav-right").toggleClass("mobile-show");
+      $(".nav-right").toggleClass("show");
+      $('.mobile-close-out').removeClass("hide");
+      $(".mobile-nav-icon").addClass("hide");
+  } );
+  });
+
+    $('.mobile-close-out').click( function() {
+      $(".nav-right").toggleClass("mobile-show");
+      $(".nav-right").toggleClass("show");
+      $(".mobile-nav-icon").addClass("show");
+      $(".mobile-close-out").addClass("hide");
+  } );
+
+  $('.sidebar-button').click( function() {
+    $(".sidebar-column").toggleClass("sidebar-column-show");
+  } );
+
+
+  //***END MOBILE Menu view//***END MOBILE Menu view//***END MOBILE Menu view
+
+
 
 // needed for nav tabs on pages. See Formatting > Nav tabs for more details.
 // script from http://stackoverflow.com/questions/10523433/how-do-i-keep-the-current-tab-active-with-twitter-bootstrap-after-a-page-reload

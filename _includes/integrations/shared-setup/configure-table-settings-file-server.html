@@ -1,0 +1,152 @@
+<!-- This file contains the sections & content used to 
+	configure table settings for file system-based integrations.
+	EX: Amazon S3, SFTP, etc. -->
+
+{% case include.type %}
+
+<!-- DEFINE SEARCH PATTERN -->
+{% when 'define-search-pattern' %}
+The **Search Pattern** field defines the search criteria Stitch should use for selecting and replicating files. This field accepts regular expressions, which can be used to include a single file or multiple files. 
+
+When creating a search pattern, keep the following in mind:
+
+- **If including multiple files for a single table,** each file should have the same header row values.
+- **Special characters such as periods (`.`) have special meaning in regular expressions.** To match exactly, they'll need to be escaped. For example: `.\`
+- **Stitch uses Python for regular expressions, which may vary in syntax from other varieties.** Try using [PyRegex](http://www.pyregex.com/){:target="new"} to test your expressions before saving the integration in Stitch.
+- **Search patterns should account for how data in files is updated.** Consider these examples:
+
+<table class="attribute-list">
+<tr>
+<td align="right" width="18%; fixed">
+<strong>Scenario</strong>
+</td>
+<td width="42%; fixed">
+	Single file, periodically updated
+</td>
+<td width="42%; fixed">
+	Multiple files, generated daily
+</td>
+</tr>
+
+<tr>
+<td align="right" width="18%; fixed">
+<strong>How updates are made</strong>
+</td>
+<td width="42%; fixed">
+	A single CSV file is periodically updated with new and updated customer data.
+</td>
+<td width="42%; fixed">
+	A new CSV file is created every day that contains new and updated customer data. Old files are never updated after they're created.
+</td>
+</tr>
+
+<tr>
+<td align="right" width="18%; fixed">
+<strong>File name</strong>
+</td>
+<td width="42%; fixed">
+	<code>customers.csv</code>
+</td>
+<td width="42%; fixed">
+	<code>customers-[STRING].csv</code>, where <code>[STRING]</code> is a unique, random string
+</td>
+</tr>
+
+<tr>
+<td align="right" width="18%; fixed">
+<strong>Search pattern</strong>
+</td>
+<td width="42%; fixed">
+	<p>Because there will only ever be one file, you could enter the exact name of the file in your S3 bucket:</p>
+
+{% highlight shell %}
+customers\.csv
+{% endhighlight %}
+</td>
+<td width="42%; fixed">
+	<p>To ensure new and updated files are identified, you'd want to enter a search pattern that would match all files beginning with <code>customers</code>, regardless of the string in the file name:</p>
+
+{% highlight shell %}
+(customers-).*\.csv
+{% endhighlight %}
+</td>
+</tr>
+
+<tr>
+<td align="right" width="18%; fixed">
+<strong>Matches</strong>
+</td>
+<td width="42%; fixed">
+	<code>customer.csv</code>, exactly
+</td>
+<td width="42%; fixed">
+	<ul>
+	<li style="margin-top: 0px;"><code>customers-reQDSwNG6U.csv</code></li>
+    <li><code>customers-xaPTXfN4tD.csv</code></li>
+    <li><code>customers-MBJMhCbNCp.csv</code></li>
+    <li>etc.</li>
+	</ul>
+</td>
+</tr>
+</table>
+
+
+<!-- SEARCH DIRECTORY -->
+{% when 'define-search-directory' %}
+{% include note.html type="single-line" content="**This step is optional.** However, limiting the search to a single location can potentially reduce extraction time, especially if the server contains a large number of files." %}
+
+The **Directory** field limits the location of the file search Stitch performs during replication jobs. When defined, Stitch will only search for files in this location and select those that match the [search pattern](#define-search-pattern).
+
+To define a specific location in the {{ include.location }}, enter the directory path into the **Directory** field. For example: `data-exports/lists`. **Note**: This field is not a regular expression.
+
+
+<!-- DEFINE TABLE NAME -->
+{% when 'define-table-name' %}
+In the **Table Name** field, enter a name for the table. Keep in mind that each destination has its own rules for how tables can be named. For example: Amazon Redshift table names can't exceed {{ site.data.destinations.reference.redshift.object-name-limit-info.tables }}.
+
+If the table name exceeds the destination's character limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Refer to the [documentation for your destination]({{ link.destinations.overview | prepend: site.baseurl }}) for more info about table naming rules.
+
+
+
+<!-- DEFINE TABLE PRIMARY KEY -->
+{% when 'define-primary-key' %}
+{% include note.html type="single-line" content="**This step is optional**. However, data will be loaded into the table in an Append-Only manner if left undefined. This means that existing rows in the destination won't be updated, but will be appended to the end of the table. Refer to the [Loading section](#loading-details) for more info and examples." %}
+
+In the **Primary Key** field, enter one or more header fields (separated by commas) Stitch can use to identify unique rows. For example:
+
+```
+account_id,date
+```
+
+
+
+<!-- SPECIFY DATETIME FIELDS -->
+{% when 'specify-datetime-fields' %}
+{% include note.html type="single-line" content="**This step is optional**. However, if columns are not specified and values cannot be parsed as dates, Stitch will load them as nullable strings. Refer to the [Determining data types section](#determining-data-types) for more info." %}
+
+In the **Specify datetime fields** field, enter one or more header fields (separated by commas) that should appear in the destination table as `datetime` fields instead of strings. For example:
+
+```
+created_at,updated_at
+```
+
+
+
+<!-- CONFIGURE ADDITIONAL TABLES -->
+{% when 'configure-additional-tables' %}
+If you want to add another table, click the **Configure another table?** link below the **Specify datetime fields** field. Otherwise, move onto the [Sync historical data](#define-historical-sync) section.
+
+Stitch doesn't enforce a limit on the number of tables that you can configure for a single integration.
+
+
+
+<!-- DEFINE HISTORICAL SYNC -->
+{% when 'define-historical-sync' %}
+For example: You've added a `customers.*\csv` search pattern and set the integration's historical **Start Date** to 1 year.
+
+- **During the initial replication job**, Stitch will fully replicate the contents of all files that match the search pattern that have been modified in the past year.
+
+- **During subsequent replication jobs**, Stitch will only replicate the files that have been modified since the last job ran.
+
+As files included in a replication job are replicated in full during each job, how data is added to updated files can impact your row count. Refer to the [Data replication section](extraction--data-replication) for more info on initial and subsequent replication jobs.
+{% endcase %}
