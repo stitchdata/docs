@@ -25,6 +25,15 @@ encodings: &encodings |
 
 
 attributes:
+  - name: "First-row header"
+    all: |
+      1. **Every file must have a first-row header containing column names.** Stitch assumes that the first row in any file is a header row, and will present these values as columns available for selection.
+
+         **Note**: If you are an Enterprise customer, have a signed BAA with Stitch, and are replicating data subject to HIPAA, **header rows must not contain any PHI**. [Learn more]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) about this integration's configuration requirements for replicating HIPAA data.
+
+      2. **Files with the same first-row header values, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header row values are used to determine a table's schema. For the best results, each file should have the same header row values.
+
+         **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
   - name: "File types"
     all: |
       - CSV (`.csv`)
@@ -35,7 +44,7 @@ attributes:
     sftp: |
       These files must be correctly compressed or errors will surface during Extraction.
 
-      - gzip compressed archive (`.gz`)
+      - gzip compressed files (`.gz`)
       - zip compressed archive (`.zip`)
 
   - name: "Delimiters"

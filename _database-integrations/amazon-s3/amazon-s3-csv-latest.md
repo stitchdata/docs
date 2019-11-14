@@ -85,19 +85,15 @@ view-replication: false
 requirements-list:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
+
   - item: |
       **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your S3 bucket.
 
 # File requirements are in: _data/taps/extraction/file-systems/file-requirements.yml
   - item: |
-      **Files that adhere to Stitch's file requirements**. Stitch supports the following:
+      **Files that adhere to Stitch's file requirements**:
 
       {{ site.data.taps.extraction.file-systems.file-requirements.support-table | flatify }}
-
-  - item: |
-      **Files with the same header row values, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header fields are used to determine a table's schema. For the best results, each file should have the same header fields.
-
-      **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
 
 
 # -------------------------- #
