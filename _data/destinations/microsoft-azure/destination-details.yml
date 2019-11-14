@@ -26,6 +26,8 @@ pricing-details: |
 
   Refer to [Microsoft's documentation]({{ site.data.destinations.microsoft-azure.resource-links.pricing }}){:target="new"} for more info and examples.
 
+max-record-size: "1MB"
+max-record-size-additional-info: "This limit is imposed by PolyBase, which is required to load data into {{ destination.display_name }} destinations."
 
 # -------------------------- #
 #         Table limits       #
@@ -47,3 +49,26 @@ case-sensitivity: "Insensitive"
 table-name-length: "112 characters"
 
 column-name-length: "128 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  TODO:
+  - Must be less than the maximum length of {{ site.data.destinations.microsoft-azure.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#microsoft-azure-reserved-keywords" }})
+
+column-name-transformations:
+  - transformation: "Convert spaces to underscores"
+    source-column: "<code>customer id</code>"
+    destination-column: &customerid2 "<code>customer_id</code>"
+
+  - transformation: "Convert special characters to underscores"
+    source-column: "<code>customer#id</code> or <code>!CuStOMerID</code>"
+    destination-column: "<code>customer_id</code> and <code>_CuStOMerID</code>"
+
+  - transformation: "Convert leading numbers to underscores"
+    source-column: "<code>4customerid</code>"
+    destination-column: "<code>_customerid</code>"

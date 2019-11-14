@@ -25,3 +25,12 @@ configurable-loading-behavior: false
 
 loading-behavior-types:
   - "Upsert"
+
+loading-behavior-description: |
+  The following loading behavior types are supported for {{ destination.display_name }} destinations:
+
+  {% for loading-behavior-type in site.data.destinations.microsoft-azure.v1.replication.loading-behavior-types %}
+  - {{ loading-behavior-type }}
+  {% endfor %}
+
+  Refer to the [Loading behavior](#loading-behavior) section for more info.
