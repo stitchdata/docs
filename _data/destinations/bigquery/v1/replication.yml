@@ -27,20 +27,4 @@ loading-behavior-types:
   - "Append-Only"
 
 loading-behavior-description: |
-  TODO
-
-all:
-  - id: "incremental-replication-upserts"
-    value:
-      v1: *upserts-v1
-      v2: *upserts-v2
-    important: true
-    description:
-      v1: |
-        {{ destination.display_name }} destinations do not currently support upserts, or updating existing rows.
-
-        When Stitch loads data into {{ destination.display_name }} destinations, it will load it in an append-only fashion. This means that new records and updates to existing records are appended to the end of tables as new rows. Existing records are never updated.
-
-        More info and examples can be found in [our Replication Method documentation]({{ link.replication.append-only | prepend: site.baseurl }}) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
-      v2: |
-        TODO
+  All data will be loaded in an Append-Only fashion. Refer to the [Loading behavior](#loading-behavior) section for more info.

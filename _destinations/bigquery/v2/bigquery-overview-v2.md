@@ -5,7 +5,7 @@
 title: Google BigQuery v2 Destination Reference
 permalink: /destinations/google-bigquery/reference/v2
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
-summary: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
+summary: "Reference documentation for version 2 of Stitch's Google BigQuery destination, including info about Stitch features, replication, and transformations."
 
 destination: true
 content-type: "destination-overview"
@@ -14,8 +14,6 @@ key: "bigquery-reference"
 layout: general
 sidebar: on-page
 toc: false
-
-this-version: "2"
 
 
 # -------------------------- #
@@ -35,7 +33,7 @@ related:
   - title: "Stitch impact on {{ page.display_name }} costs"
     link: "{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}"
 
-  - title: "TODO: All {{ page.display_name }}"
+  - title: "TODO: All {{ page.display_name }} docs"
     link: ""
 
 
@@ -43,10 +41,11 @@ related:
 #    Destination Details     #
 # -------------------------- #
 
+this-version: "2"
+
 display_name: "Google BigQuery"
 type: &name "bigquery"
 name: *name
-description: "Google BigQuery is a fully managed, cloud-based big data analytics web service for processing very large read-only data sets. BigQuery was designed for analyzing data on the order of billions of rows, using a SQL-like syntax."
 
 
 # -------------------------- #
@@ -67,7 +66,7 @@ description: "Google BigQuery is a fully managed, cloud-based big data analytics
 # -------------------------- #
 
 intro: |
-  {{ destination.description }}
+  {{ site.data.destinations.bigquery.destination-details.description | flatify }}
 
   For more information, check out [Google's {{ destination.display_name }} overview]({{ site.data.destinations.bigquery.resource-links.what-is-bq }}){:target="new"}.
 
@@ -126,17 +125,12 @@ sections:
           - title: "Step 1: Data extraction"
             anchor: "replication--data-extraction"
             content: |
-              Stitch requests and extracts data from a data source. Refer to the [System overview guide]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--extraction" }}) for a more detailed explanation of the Extraction phase.
+              {% include replication/replication-process-phases.html phase="data-extraction" %}
 
           - title: "Step 2: Stitch's internal pipeline"
             anchor: "replication--stitch-internal-pipeline"
             content: |
-              The data extracted from sources is processed by Stitch. Stitch's internal pipeline includes the **Prepare** and **Load** phases of the replication process:
-
-              - **Prepare**: {{ site.data.tooltips.prepare }}
-              - **Load**: {{ site.data.tooltips.load }} Refer to the [Transformations](#transformations) section for more info about the transformations Stitch performs for {{ destination.display_name }} destinations.
-
-              Refer to the [System overview guide]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--preparing" }}) for a more detailed explanation of these phases.
+              {% include replication/replication-process-phases.html phase="internal-pipeline" %}
 
           - title: "Step 3: Google Cloud Storage bucket"
             anchor: "replication--gcs-bucket"
@@ -194,6 +188,16 @@ sections:
       {% endfor %}
 
     subsections:
+      - title: "System tables and columns"
+        anchor: "transformations--system-tables-columns"
+        content: |
+          Stitch will create the following tables in each integration's dataset:
+
+          - [{{ stitch.system-tables.sdc-primary-keys.name }}]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }})
+          - [{{ stitch.system-tables.sdc-rejected.name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }})
+
+          Additionally, Stitch will insert [system columns]({{ link.destinations.storage.system-tables-and-columns | prepend: site.baseurl }}) (prepended with `{{ system-column.prefix }}`) into each table.
+
       - title: "Data typing"
         anchor: "transformations--data-typing"
         content: |
@@ -210,22 +214,6 @@ sections:
 
       - title: "Column names"
         anchor: "transformations--column-naming"
-        table:
-          - transformation: "Convert uppercase and mixed case to lowercase"
-            source-column: "<code>CUSTOMERID</code> or <code>cUsTomErId</code>"
-            destination-column: &customerid "<code>customerid</code>"
-
-          - transformation: "Convert spaces to underscores"
-            source-column: "<code>customer id</code>"
-            destination-column: &customerid2 "<code>customer_id</code>"
-
-          - transformation: "Convert special characters to underscores"
-            source-column: "<code>customer#id</code>"
-            destination-column: *customerid2
-
-          - transformation: "Remove leading non-letter characters, except for leading underscores"
-            source-column: "<code>4customerid</code> or <code>!customerid</code>"
-            destination-column: *customerid
         content: |
           Column names in {{ destination.display_name }}:
 
@@ -233,30 +221,7 @@ sections:
 
           Stitch will perform the following transformations to ensure column names [adhere to the rules imposed by {{ destination.display_name }}](https://cloud.google.com/bigquery/docs/schemas#column_names){:target="new"}:
 
-          {% assign attributes = "transformation|source-column|destination-column" | split:"|" %}
-
-          <table class="attribute-list">
-          <tr>
-          {% for attribute in attributes %}
-          {% if forloop.first == true %}
-          <td width="40%; fixed">
-          {% else %}
-          <td width="30%; fixed">
-          {% endif %}
-          <strong>{{ attribute | replace:"-"," " | capitalize }}</strong>
-          </td>
-          {% endfor %}
-          </tr>
-          {% for item in subsection.table %}
-          <tr>
-          {% for attribute in attributes %}
-          <td>
-          {{ item[attribute] }}
-          </td>
-          {% endfor %}
-          </tr>
-          {% endfor %}
-          </table>
+          {% include destinations/templates/destination-column-name-transformations.html %}
 
       - title: "Timezones"
         anchor: "transformations--timezones"
