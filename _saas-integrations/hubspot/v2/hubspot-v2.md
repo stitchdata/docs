@@ -55,7 +55,8 @@ row-usage-hog-reasons:
 #      Incompatibilities     #
 # -------------------------- #
 
-## See _data/destinations/reference/incompatibilities.yml
+## See the incompatibilities.yml files
+## in _data/destinations for details.
 
 has-incompatibilities: true
 

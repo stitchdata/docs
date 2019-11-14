@@ -130,6 +130,11 @@ sections:
 
           The dataset schema will contain the attributes you set to replicate in Stitch along with a few `_sdc` columns.
 
+      - title: "Incompatible sources"
+        anchor: "replication--incompatible-sources"
+        content: |
+          {% include shared/incompatibilities/destination-version-incompatibilities.html %}
+
   - title: "Transformations"
     anchor: "transformations"
     content: |

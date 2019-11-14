@@ -8,7 +8,11 @@
 ## NOTE: This will be identical to the incompatibilities for Panoply.
 
 - integration: "mongodb"
-  integration-version: "any"
-  destination-version: "any"
+  version: "any"
   level: "sometimes"
-  reason: "As a result of [the de-nesting Stitch performs on nested structures]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}), deeply nested data in MongoDB may result in tables that exceed Amazon Redshift's 1,600 column limit."
+  reason: &json-column-limit "Flattening nested JSON structures may result in tables with columns that exceed {{ destination.display_name }}'s {{ site.data.destinations[destination.type]destination-details.max-columns-per-table }} column limit. [Learn more]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }})."
+
+- integration: "mongodb-atlas"
+  version: "1.0"
+  level: "sometimes"
+  reason: *json-column-limit

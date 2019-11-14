@@ -161,7 +161,7 @@ sections:
       - title: "Incompatible sources"
         anchor: "replication--incompatible-sources"
         content: |
-          TODO
+          {% include shared/incompatibilities/destination-version-incompatibilities.html %}
 
   - title: "Transformations"
     anchor: "transformations"

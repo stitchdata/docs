@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 title: Panoply.io Destination Reference
-permalink: /destinations/panoply/v1/reference
+permalink: /destinations/panoply/v2/reference
 keywords: panoply, panoply.io, panoply data warehouse, panoply etl, etl to panoply
 summary: "Reference documentation for Stitch's Panoply.io destination, including info about Stitch features, replication, and transformations."
 
@@ -156,7 +156,7 @@ sections:
       - title: "Incompatible sources"
         anchor: "replication--incompatible-sources"
         content: |
-          TODO
+          {% include shared/incompatibilities/destination-version-incompatibilities.html %}
 
   - title: "Transformations"
     anchor: "transformations"

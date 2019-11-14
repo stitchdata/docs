@@ -1,6 +1,5 @@
 ---
 title: Destination & Integration Compatibility
-tags: [destinations]
 keywords: destinations, integrations, incompatible, mixed data types, multiple data types, compatibility, compatible
 permalink: /destinations/destination-integration-compatibility
 summary: "Verify your integrations' compatibility with your data warehouse."
@@ -26,7 +25,6 @@ sections:
 
       The matrices below use the following icons to indicate the degree of incompatibility for an integration/destination combo:
 
-      - {{ supported | replace:"TOOLTIP","" }} indicates that, as far as we know, this combo is **always** compatible.
       - {{ sometimes-supported | replace:"TOOLTIP","" }} indicates that this combo is **sometimes** compatible - there may be compatibility issues, but they're infrequent or parts of the integration may still be usable.
       - {{ not-supported | replace:"TOOLTIP","" }} indicates that this combo is **never** compatible. It's unlikely that Stitch will be able to load data from this integration into the given destination.
 
@@ -35,6 +33,8 @@ sections:
     content: |
       Below you'll find a list of integrations that may have full or partial incompatibility with any of Stitch's destination offerings.
 
-      {% include destinations/overviews/destination-level-incompatibility.html %}
+      Refer to the [Destination data loading guides]({{ link.destinations.storage.loading-data | prepend: site.baseurl }}) for a comprehensive look at how destinations will load data, including what may cause data to be rejected.
+
+      {% include shared/incompatibilities/all-destination-incompatibility.html %}
 ---
 {% include misc/data-files.html %}

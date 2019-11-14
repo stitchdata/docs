@@ -60,13 +60,16 @@ row-usage-hog-reasons:
   data-volume: false
   lots-of-full-table: false
 
+
 # -------------------------- #
-#      Incompatiblities      #
+#      Incompatibilities     #
 # -------------------------- #
 
-## See _data/destinations/reference/incompatibilities.yml
+## See the incompatibilities.yml files
+## in _data/destinations for details.
 
 has-incompatibilities: true
+
 
 # -------------------------- #
 #      Feature Summary       #

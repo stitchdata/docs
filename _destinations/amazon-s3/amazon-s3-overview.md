@@ -244,6 +244,11 @@ sections:
               </div>
               </div>
 
+      - title: "Incompatible sources"
+        anchor: "replication--incompatible-sources"
+        content: |
+          {% include shared/incompatibilities/destination-version-incompatibilities.html %}
+
   - title: "Transformations"
     anchor: "transformations"
     content: |
