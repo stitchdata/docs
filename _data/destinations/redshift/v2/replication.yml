@@ -14,8 +14,7 @@ primary-key-support: false
 
 nested-structure-support: false
 
-rename-original-column-in-split:  true
-
+rename-original-column-in-split: true
 
 
 # ------------------------------ #
@@ -28,4 +27,10 @@ loading-behavior-types:
   - "Upsert"
 
 loading-behavior-description: |
-  TODO
+  The following loading behavior types are supported for {{ destination.display_name }} destinations:
+
+  {% for loading-behavior-type in site.data.destinations.microsoft-azure.v1.replication.loading-behavior-types %}
+  - {{ loading-behavior-type }}
+  {% endfor %}
+
+  Refer to the [Loading behavior](#loading-behavior) section for more info.
