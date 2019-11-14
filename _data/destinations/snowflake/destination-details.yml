@@ -50,4 +50,24 @@ column-name-length: "251 characters"
 # -------------------------- #
 
 column-name-rules: |
-  todo
+  - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
+  - Must begin with a letter or underscore
+  - Must be less than the maximum length of {{ site.data.destinations.snowflake.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#snowflake-reserved-keywords" }})
+
+column-name-transformations:
+  - transformation: "Convert lowercase and mixed case to uppercase"
+    source-column: "<code>CuStOmErId</code> or <code>customerid</code>"
+    destination-column: "<code>CUSTOMERID</code>"
+
+  - transformation: "Remove spaces"
+    source-column: "<code>CUSTOMER ID</code>"
+    destination-column: "<code>CUSTOMERID</code>"
+
+  - transformation: "Remove special characters"
+    source-column: "<code>CUSTOMER#ID</code> or <code>!CUSTOMERID</code>"
+    destination-column: "<code>CUSTOMERID</code> and <code>CUSTOMERID</code>"
+
+  - transformation: "Remove non-letter leading characters"
+    source-column: "<code>4CUSTOMERID</code> or <code>_CUSTOMERID</code>"
+    destination-column: "<code>CUSTOMERID</code>"
