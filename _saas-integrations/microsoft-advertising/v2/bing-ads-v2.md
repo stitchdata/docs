@@ -24,7 +24,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
 tap-name: "Bing Ads"
 
-this-version: "2.0"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} v.12 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-12){:target="new"}
@@ -49,6 +49,10 @@ cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true
+
+append-only-integration: false
+append-only-tables: true
+append-only-tables-description: "All Report tables"
 
 ## Row usage details
 

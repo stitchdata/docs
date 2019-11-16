@@ -26,7 +26,7 @@ singer: true
 tap-name: "Google AdWords"
 repo-url: https://github.com/singer-io/tap-adwords
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target="new"}
@@ -53,6 +53,11 @@ cron-scheduling: false
 extraction-logs: true
 loading-reports: true
 
+append-only-integration: false
+append-only-tables: true
+append-only-tables-description: "All Report tables"
+
+
 ## Row usage details
 
 row-usage-hog: true
@@ -71,7 +76,6 @@ row-usage-hog-reasons:
 ## account for any updates to existing records made during 
 ## this time.
 
-replication-notes: true
 attribution-window: "30 days"
 
 # -------------------------- #

@@ -90,12 +90,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/campaign-monitor
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
