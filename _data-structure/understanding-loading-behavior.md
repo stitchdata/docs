@@ -1,15 +1,15 @@
 ---
 title: Understanding Loading Behavior
 permalink: /replication/loading/understanding-loading-behavior
-keywords:
+keywords: loading behavior, loading, append, append-only, upsert, insert. truncate
 summary: "Learn about the methods Stitch uses to load data into your destination and what the impact will be on your destination tables."
 
 layout: general
 toc: true
 
-content-type: ""
+content-type: "guide"
 key: "understanding-loading-behavior"
-order: 
+order: 1
 
 intro: |
   {{ page.summary }}
@@ -32,17 +32,16 @@ sections:
       {% endfor %}
 
     subsections:
+# This data is kept in _data/tooltips.yml
       - title: "Upsert"
         anchor: "loading-behavior-types--upsert"
         content: |
-          When data is loaded using the Upsert behavior, existing rows are updated in tables with defined Primary Keys. Stitch will de-dupe records based on Primary Keys before loading them, meaning that only one version of a record will exist in the table at any given time. 
+          {{ site.data.tooltips.upsert }}
 
       - title: "Append-Only"
         anchor: "loading-behavior-types--append-only"
         content: |
-          When data is loaded using the Append-Only behavior, records are appended to the end of the table as new rows. Existing rows in the table aren't updated even if the source has defined Primary Keys. Multiple versions of a row can exist in a table, creating a log of how a record has changed over time.
-
-          todo-SF and database integration exception?
+          {{ site.data.tooltips.append-only }}
 
   - title: "Determining loading behavior"
     anchor: "loading-behavior-determined"
@@ -64,6 +63,8 @@ sections:
           2. The data has defined Primary Keys in the source **and** destination, **and**
           3. The integration or table is not pre-configured to use Append-Only loading
 
+          **Note**: This is applicable to all [Replication Methods]({{ link.replication.rep-methods | prepend: site.baseurl }}).
+
       - title: "Append-Only loading"
         anchor: "append-only-conditions"
         content: |
@@ -73,17 +74,18 @@ sections:
           - The data doesn't have defined Primary Keys in the source **or** destination, **or**
           - The integration or table is pre-configured to use Append-Only loading
 
-          **Note**: The only exception to this is database and SF integrations, where the table is truncated in the destination before new data is loaded.
-
   - title: "Examples"
     anchor: "examples"
     summary: "Examples of each loading behavior type"
     content: |
-      todo
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
     subsections:
       - title: "Upsert loading example"
         anchor: "example--upsert-loading"
+        summary: "Upsert loading"
         content: |
           In this example:
 
@@ -93,47 +95,34 @@ sections:
 
           {% include layout/image.html enlarge=true file="/replication/upsert-loading-example.png" alt="Click to enlarge: Upsert loading example" %}
 
-      - title: "Append-Only examples"
+      - title: "Append-Only example"
         anchor: "example--append-only-loading"
+        summary: "Append-Only examples"
         content: |
-          {% for sub-subsection in subsection.sub-subsections %}
-          - [{{ sub-subsection.title }}](#{{ sub-subsection.anchor }})
-          {% endfor %}
+          This example is applicable **any** of the following are true:
 
-        sub-subsections:
-          - title: "General todo"
-            anchor: "example--append-only--general"
-            content: |
-              This example is applicable **any** of the following are true:
+          - The destination only supports **or** is configured to use Append-Only loading, **or**
+          - The integration or table being loaded is pre-configured to use Append-Only loading, **or**
+          - The source data has defined Primary Keys, but the table in the destination doesn't. For example: Primary Key table comments are removed from a table in Amazon Redshift.
 
-              - The destination only supports **or** is configured to use Append-Only loading, **or**
-              - The integration or table being loaded is pre-configured to use Append-Only loading, **or**
-              - The source data has defined Primary Keys, but the table in the destination doesn't. For example: Primary Key table comments are removed from a table in Amazon Redshift.
+          {% include layout/image.html enlarge=true file="/replication/append-only-loading.png" alt="Click to enlarge: Append-Only loading example" %}
 
-          - title: "No Primary Keys defined in the source"
-            anchor: "example--append-only--no-primary-keys"
-            content: |
-              This example is applicable when the source data doesn't have a defined Primary Key.
+      - title: "Append-Only loading, no defined source Primary keys"
+        anchor: "example--append-only--no-primary-keys"
+        content: |
+          This example is applicable when the source data doesn't have a defined Primary Key.
 
-              When source data that doesn't have a Primary Key is replicated, Stitch appends an `{{ system-column.primary-key }}` to the data to function as a Primary Key.
+          When source data that doesn't have a Primary Key is replicated, Stitch appends an `{{ system-column.primary-key }}` to the data to function as a Primary Key. Data will be loaded using Append-Only loading, regardless of what loading behavior the destination supports or is configured to use.
 
-              {% include layout/image.html enlarge=true file="/replication/append-only-no-primary-key.png" alt="Click to enlarge: Append-Only loading as a result of no defined Primary Keys" %}
-
-          - title: "Full Table Replication, Append-Only destination"
-            anchor: "example--append-only--full-table-replication-append-only-destination"
-            content: |
-              This example is applicable when **both** of the following conditions are true:
-
-              1. The destination only supports or is configured to use Append-Only loading, **and**
-              2. The source table is using Full Table Replication
-
-              {% include layout/image.html enlarge=true file="/replication/append-only-full-table-rep.png" alt="Click to enlarge: Append-Only loading with Full Table Replication" %}
+          {% include layout/image.html enlarge=true file="/replication/append-only-no-primary-key.png" alt="Click to enlarge: Append-Only loading as a result of no defined Primary Keys" %}
 
   - title: "Reference"
     anchor: "reference"
-    summary: "TODO"
+    summary: "References lists for destinations, integrations, and loading behavior"
     content: |
-      todo
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
     subsections:
       - title: "Destinations and default loading behavior"
@@ -183,7 +172,7 @@ sections:
           {% endfor %}
           </table>
 
-      - title: "Append-Only integrations"
+      - title: "Append-Only integrations and tables"
         anchor: "reference--append-only-integrations"
         content: |
           {% assign all-integrations = site.documents | where:"input",true %}
