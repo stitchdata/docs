@@ -10,7 +10,8 @@ stitch-details:
   - "ssh"
   - "ssl"
   - "vpn"
-  - "loading-behavior"
+  - "default-loading-behavior"
+  - "nested-structure-support"
 
 stitch-details-description: "High-level details about Stitch's implementation of {{ destination.display_name }}, such as supported connection methods, availability on Stitch plans, etc."
 
@@ -43,6 +44,8 @@ available-in-connect:
   tooltip: "Indicates if {{ destination.display_name }} destinations are available in Stitch's Connect API."
   supported: |
     This version of the {{ destination.display_name }} destination can be created and managed using Stitch's Connect API. [Learn more]({{ link.connect.api | prepend: site.baseurl | append:"#destination-form-properties" }}).
+  not-supported: |
+    This version of the {{ destination.display_name }} destination is not currently available in Stitch's Connect API.
 
 ssh:
   title: "SSH connections" 
@@ -62,10 +65,34 @@ vpn:
   not-supported: |
     Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
 
-loading-behavior:
-  tooltip: "The types of loading behavior available for the destination."
+default-loading-behavior:
+  tooltip: "The default loading behavior used by the destination."
+# `destination-replication` is equal to _data/destinations/<type>/<version>/replication.yml
   default: |
-    {{ destination-data.loading-behavior-description | flatify }}
+    **{{ destination-replication.default-loading-behavior }}**<br>
+    {%- case destination-replication.default-loading-behavior -%}
+    {% when 'Upsert' %}
+    **Note**: Append-Only loading will be used if all conditions for Upsert are not met. [Learn more]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
+    {% when 'Append-Only' %}
+    **Note**: Existing rows will not be updated in the destination. [Learn more]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
+    {% when 'Selected by you' %}
+    Default loading behavior (Upsert or Append-Only) is defined by you. [Learn more](#loading-behavior).
+    {% endcase %}
+
+nested-structure-support:
+  title: "Nested structure support"
+  tooltip: "Indicates how nested data structures are handled by the destination."
+# `destination-replication` is equal to _data/destinations/<type>/<version>/replication.yml
+  default: |
+    {%- case destination-replication.nested-structure-support -%}
+    {%- when true -%}
+    **Supported** {{ supported | replace:"TOOLTIP","Supported" }}<br>{{ destination-replication.nested-structure-support-description | flatify | strip }} [Learn more](#transformations--json-structures).
+    {%- when false -%}
+    **Unsupported** {{ not-supported | replace:"TOOLTIP","Unupported" }}<br>{{ destination-replication.nested-structure-support-description | flatify | strip }} [Learn more](#transformations--json-structures).
+    {%- else -%}
+    {{ destination-replication.nested-structure-support | flatify }}
+    {%- endcase -%}
+
 
 supported-regions:
   title: "Supported GCS regions"
@@ -74,40 +101,6 @@ supported-regions:
 workload-performance-management:
   title: "Workload and performance management"
   tooltip: "Indicates if workload and performance management tools are supported by the destination."
-
-incompatible-sources:
-  tooltip: "{{ site.data.tooltips.integration-incompatibilities }}"
-  code: |
-    [ TODO: Make this work for versions ]
-    {% assign destination-incompatibilities = site.data.destinations[destination.type]incompatibilities | compact %}
-              
-    {% assign incompatibility-list-size = destination-incompatibilities | size %}
-
-    {% case incompatibility-list-size %}
-    {% when 0 %}
-    **No reported incompatibilities**
-
-    No integration compatibility issues have been reported for {{ destination.display_name }}.
-    {% else %}
-    **Has possible incompatibilities**
-
-    Incompatibilities may exist with the following integrations:
-
-    {% for incompatibility in destination-incompatibilities %}
-
-    {% for integration in integrations-with-incompatibilities %}
-    {% if integration.name == incompatibility.integration %}
-    {% capture integration-name %}
-    [{{ integration.display_name }}]({{ integration.url }})
-    {% endcapture %}
-    {% endif %}
-    {% endfor %}
-
-    - {{ integration-name }}
-    {% endfor %}
-
-    Refer to the [Destination and integration compatibility guide]({{ link.destinations.overviews.compatibility | prepend: site.baseurl | append: "#incompatible-integrations-by-destination-type" }}) for more info.
-    {% endcase %}
 
 
 # -------------------------- #
@@ -132,6 +125,7 @@ max-record-size:
   title: "Maximum record size"
   tooltip: "The maximum size a single record can be to be loaded successfully into the destination."
   default: "4MB"
+  additional-info: "{{ destination-data.max-record-size-additional-info | flatify }}"
 
 table-name-length:
   tooltip: "{{ site.data.tooltips.table-name-limit }}"
