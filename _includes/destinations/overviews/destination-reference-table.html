@@ -26,6 +26,10 @@
           {% assign destination-data = site.data.destinations[destination.type][include.category] %}
      {% endif %}
 
+<!-- Get the replication file for the destination. These will always
+     be by version, since it can vary. -->
+     {% assign destination-replication = site.data.destinations[destination.type][version]replication %}
+
 
 {% assign category-description = include.category | append:"-description" %}
 
