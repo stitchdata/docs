@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 title: Google BigQuery v2 Destination Reference
-permalink: /destinations/google-bigquery/reference/v2
+permalink: /destinations/google-bigquery/v2/reference/
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Reference documentation for version 2 of Stitch's Google BigQuery destination, including info about Stitch features, replication, and transformations."
 
@@ -24,8 +24,8 @@ related:
   - title: "Connect a {{ page.display_name }} v2 destination"
     link: "{{ link.destinations.setup.bigquery | prepend: site.baseurl }}"
 
-  - title: "TODO: Understanding loading behavior"
-    link: "TODO"
+  - title: "Understanding loading behavior"
+    link: "{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}"
 
   - title: "Loading nested structures in {{ page.display_name }}"
     link: "{{ link.destinations.storage.bigquery-nested-structures | prepend: site.baseurl }}"
@@ -160,11 +160,11 @@ sections:
 
           - **Append-Only**: Existing rows aren't updated. Multiple versions of a row can exist in a table, creating a log of how a row changed over time.
 
-             Because of this loading strategy, querying may require a different strategy than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
+             Because of this loading strategy, [querying may require a different strategy]({{ link.replication.append-only | prepend: site.baseurl }}) than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time.
+
+          Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info.
 
           **Note**: Loading behavior can impact your [{{ destination.display_name }} costs]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl | append:"#bigquery-query-pricing" }}).
-
-          [TODO - Add link to loading behavior guide]
 
       - title: "Primary Keys"
         anchor: "replication--primary-keys"
@@ -198,12 +198,11 @@ sections:
 
           Additionally, Stitch will insert [system columns]({{ link.destinations.storage.system-tables-and-columns | prepend: site.baseurl }}) (prepended with `{{ system-column.prefix }}`) into each table.
 
+# Refer to the [Data typing documentation]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#data-typing" }}) for more info.
       - title: "Data typing"
         anchor: "transformations--data-typing"
         content: |
           Stitch converts data types only where needed to ensure the data is accepted by {{ destination.display_name }}. In the table below are the data types Stitch supports for {{ destination.display_name }} destinations, and the Stitch types they map to.
-
-          Refer to the [Data typing documentation]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#data-typing" }}) for more info.
 
           {% include replication/templates/data-types/destination-data-types.html display-intro=true %}
 

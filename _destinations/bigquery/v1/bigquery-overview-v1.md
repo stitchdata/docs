@@ -27,8 +27,8 @@ related:
   - title: "Connect a {{ page.display_name }} v1 destination"
     link: "{{ link.destinations.setup.bigquery-v1 | prepend: site.baseurl }}"
 
-  - title: "TODO: Understanding loading behavior"
-    link: "TODO"
+  - title: "Understanding loading behavior"
+    link: "{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}"
 
   - title: "Stitch impact on {{ page.display_name }} costs"
     link: "{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}"
@@ -122,11 +122,9 @@ sections:
 
           In Append-Only replication, existing rows aren't updated. Multiple versions of a row can exist in a table, creating a log of how a row changed over time. **Note**: While this may look like a discrepancy, it is intended functionality for {{ destination.display_name }} {{ destination.this-version | prepend: "v" }} destinations.
 
-          Because of this loading strategy, querying may require a different strategy than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
+          Because of this loading strategy, querying may require [a different strategy than usual]({{ link.replication.append-only | prepend: site.baseurl }}). Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time.
 
-          More info and examples can be found in the [Replication Method documentation]({{ link.replication.append-only | prepend: site.baseurl }}) and [Append-Only querying guide]({{ link.replication.append-only-querying | prepend: site.baseurl }}).
-
-          [TODO - Add link to loading behavior guide]
+          Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
       - title: "Primary Keys"
         anchor: "replication--primary-keys"
@@ -155,14 +153,18 @@ sections:
 
           Additionally, Stitch will insert [system columns]({{ link.destinations.storage.system-tables-and-columns | prepend: site.baseurl }}) (prepended with `{{ system-column.prefix }}`) into each table.
 
+# Refer to the [Data typing documentation]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#data-typing" }}) for more info.
       - title: "Data typing"
         anchor: "transformations--data-typing"
         content: |
           Stitch converts data types only where needed to ensure the data is accepted by {{ destination.display_name }}. In the table below are the data types Stitch supports for {{ destination.display_name }} destinations, and the Stitch types they map to.
 
-          Refer to the [Data typing documentation]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#data-typing" }}) for more info.
-
           {% include replication/templates/data-types/destination-data-types.html display-intro=true %}
+
+      - title: "JSON structures"
+        anchor: "transformations--json-structures"
+        content: |
+          {{ destination.display_name }} supports nested records within tables, whether it's a single record or repeated values. This means that when nested data structures are loaded into {{ destination.display_name }}, they will be maintained.
 
       - title: "Column names"
         anchor: "transformations--column-naming"

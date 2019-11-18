@@ -140,11 +140,12 @@ sections:
       - title: "Loading behavior"
         anchor: "loading-behavior"
         content: |
-          When data is loaded into {{ destination.display_name }}, Stitch will upsert the data. This means that existing rows are updated in tables with [defined Primary Keys](#replication--primary-keys). A single version of a row will exist in the table.
+          {% assign version = destination.this-version | prepend: "v" %} 
+          By default, Stitch will use **{{ site.data.destinations[destination.type][version]replication.default-loading-behavior }} loading** when loading data into {{ destination.display_name }}.
 
-          If a table doesn't have defined Primary Keys, data will be loaded in an Append-Only fashion. New rows and modifications to existing rows will be appended at the end of the table. Multiple versions of a row can exist in a table, creating a log of how a row changed over time.
+          If the conditions for Upsert loading aren't met, data will be loaded using Append-Only loading.
 
-          [TODO - Add link to loading behavior guide]
+          Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
       - title: "Primary Keys"
         anchor: "replication--primary-keys"
@@ -173,12 +174,11 @@ sections:
 
           Additionally, Stitch will insert [system columns]({{ link.destinations.storage.system-tables-and-columns | prepend: site.baseurl }}) (prepended with `{{ system-column.prefix }}`) into each table.
 
+# Refer to the [Data typing documentation]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#data-typing" }}) for more info.
       - title: "Data typing"
         anchor: "transformations--data-typing"
         content: |
           Stitch converts data types only where needed to ensure the data is accepted by {{ destination.display_name }}. In the table below are the data types Stitch supports for {{ destination.display_name }} destinations, and the Stitch types they map to.
-
-          Refer to the [Data typing documentation]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#data-typing" }}) for more info.
 
           {% include replication/templates/data-types/destination-data-types.html display-intro=true %}
 
