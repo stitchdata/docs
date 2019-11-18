@@ -12,13 +12,12 @@
 
 primary-key-support: false
 
-nested-structure-support: |
+nested-structure-support: "Depends on data storage format (CSV or JSON)"
+nested-structure-support-description: |
   Depending on the data storage format you select, nested data structures may be kept intact or flattened into relational objects:
 
-  - **CSV**: To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Loading behavior](#loading-behavior) section below or the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+  - **CSV**: Nested data structures will be flattened into relational objects.
   - **JSON**: Nested data will be kept intact.
-
-  Refer to the [Loading behavior](#loading-behavior) section for more info and examples of how data will be stored in each format.
 
 # rename-original-column-in-split:  "false"
 

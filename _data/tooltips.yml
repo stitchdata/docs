@@ -29,7 +29,7 @@ api-quota: "An API quota refers to the total number of API requests that can be 
 
 api-rate-limit: "An API's rate limit refers to how often requests can be made in a given period of time."
 
-append-only: "Existing rows are never updated. When new or updated data is loaded, it will be appended to the end of the table as a new row."
+append-only: "When data is loaded using the Append-Only behavior, records are appended to the end of the table as new rows. Existing rows in the table aren't updated even if the source has defined Primary Keys. Multiple versions of a row can exist in a table, creating a log of how a record has changed over time."
 
 certified-integration: "Certified integrations will receive commercial support, which is a guarantee that Stitch will fix bugs and adapt to new versions of third-party APIs."
 
@@ -75,9 +75,10 @@ table-selection: "The ability to select individual tables for replication in the
 
 updated-at-rep: "Updated or Modified At is a type of Incremental Replication that uses datetime or timestamp columns to detect new and updated data."
 
-upsert: "An action that updates an existing row in a data warehouse table with new or modified data."
+upsert: "When data is loaded using the Upsert behavior, existing rows are updated in tables with defined Primary Keys. Stitch will de-dupe records based on Primary Keys before loading them, meaning that only one version of a record will exist in the table at any given time."
 
 whitelisting-feature: "Whitelisting is a feature that allows you to select specific tables and columns for replication."
+
 
 # -------------------------- #
 #     Replication Methods    #
