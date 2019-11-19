@@ -1,0 +1,87 @@
+# -------------------------- #
+#    INTEGRATION FEATURES    #
+# -------------------------- #
+
+## This file contains a list of the different features an integration might support.
+## Different integration types (ex: database vs. SaaS) can support different things.
+
+## Variable reference:
+
+## display_name: The name of the feature as it should display in the docs
+##
+##         name: The feature ID, or key. This should match whatever the 
+##               variable is in the integration docs. Ex: ssh is in the database integration docs
+##               to indicate if SSH tunnels are supported.
+## 
+##     category: The category the feature is a part of. Ex: Replication.
+##
+##     doc-link: If applicable, the URL or /_data/urls.yml [link.[thing].[thing]] 
+##               value of the documentation page for the feature. Note: If 
+##               using urls.yml, the "prepend: site.baseurl" filter must be included.
+##
+##      tooltip: If applicable, the tooltip that describes the feature. Tooltip
+##               copy lives in _data/tooltips.yml.
+
+
+# -------------------------- #
+#       COMMON FEATURES      #
+# -------------------------- #
+
+common:
+# ------------------------------ #
+#      REPLICATION SETTINGS      #
+# ------------------------------ #
+
+  - display_name: "Anchor Scheduling"
+    name: "anchor-scheduling"
+    category: "replication-settings"
+    doc-link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
+    tooltip: "{{ site.data.tooltips.anchor-scheduling }}"
+    type: "boolean"
+
+    unsupported-tooltip: |
+      Anchor Scheduling is not supported for this integration.
+      {% if include.feature-type == "webhook" %} Webhook replication is continuous.
+      {% else %} The only available replication scheduling method is the Replication Frequency setting.
+      {% endif %}
+
+
+
+# ------------------------------ #
+#          TRANSPARENCY          #
+# ------------------------------ #
+
+
+
+
+# ------------------------------ #
+#          DATA SELECTION        #
+# ------------------------------ #
+
+
+
+
+
+
+  # ------------------------------ #
+  #       CONNECTION METHODS       #
+  # ------------------------------ #
+
+connection-methods:
+  - display_name: "SSH Connections"
+    id: "ssh"
+    category: "connection-methods"
+    tooltip: "{{ site.data.tooltips.ssh }}"
+    type: "boolean"
+
+  - display_name: "SSL Connections"
+    id: "ssl"
+    category: "connection-methods"
+    tooltip: "{{ site.data.tooltips.ssl }}"
+    type: "boolean"
+
+  - display_name: "VPN Connections"
+    id: "vpn"
+    category: "connection-methods"
+    tooltip: "{{ site.data.tooltips.vpn }}"
+    type: "boolean"

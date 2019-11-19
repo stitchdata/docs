@@ -1,4 +1,63 @@
 # -------------------------- #
+#  Feature comparison lists  #
+# -------------------------- #
+
+feature-comparisons:
+  categories:
+    - id: "stitch-details"
+    - id: "connection-methods"
+    - id: "replication-loading"
+      name: "Replication and loading"
+    - id: "additional-features"
+
+  stitch-details:
+    - id: "release-status"
+      default: |
+        {% assign clean-version = version | remove:"v" %}
+        {% assign this-version = released-versions | where:"number",clean-version | first %}
+        {{ this-version.status | capitalize }}
+    - id: "release-date"
+      default: |
+        {% assign clean-version = version | remove:"v" %}
+        {% assign this-version = released-versions | where:"number",clean-version | first %}
+        {{ this-version.date-released }}
+    - id: "stitch-plan-availability"
+      file: "stitch-details"
+      default: "All Stitch plans"
+    - id: "available-in-connect"
+      file: "stitch-details"
+
+  connection-methods:
+    - id: "ssh"
+      file: "stitch-details"
+    - id: "ssl"
+      file: "stitch-details"
+    - id: "vpn"
+      file: "stitch-details"
+
+  replication-loading:
+    - id: "default-loading-behavior"
+      file: "replication"
+    - id: "nested-structure-support"
+      file: "replication"
+    - id: "incompatible-sources"
+      default: |
+        {% if site.data.destinations[destination.type][version]incompatibilities %}
+        [See list]({{ link.destinations.overviews.compatibility | prepend: site.baseurl }}).
+        {% else %}
+        None
+        {% endif %}
+      file: "replication"
+
+  additional-features:
+    - id: "supported-regions"
+      destinations: "bigquery"
+      file: "stitch-details"
+    - id: "workload-performance-management"
+      file: "stitch-details"
+
+
+# -------------------------- #
 #        Stitch details      #
 # -------------------------- #
 
@@ -12,6 +71,7 @@ stitch-details:
   - "vpn"
   - "default-loading-behavior"
   - "nested-structure-support"
+
 
 stitch-details-description: "High-level details about Stitch's implementation of {{ destination.display_name }}, such as supported connection methods, availability on Stitch plans, etc."
 

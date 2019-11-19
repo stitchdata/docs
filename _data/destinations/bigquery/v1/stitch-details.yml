@@ -41,3 +41,12 @@ workload-performance-management-description: |
   To improve your query performance, you can apply partitioning and/or clustering to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
 
   Refer to the [Table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for application instructions.
+
+
+# ------------------------------ #
+#     SUPPORTED GCS REGIONS      #
+# ------------------------------ #
+
+supported-regions: |
+  {% assign supported-regions = site.data.destinations.bigquery.v1.supported-regions %}
+  {{ supported-regions | size }} total. [Full list]({{ link.destinations.overviews.bigquery-v1 | prepend: site.baseurl | append: "#supported-gcs-regions" }}).
