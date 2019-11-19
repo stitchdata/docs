@@ -1,6 +1,6 @@
 ---
 title: Amazon Redshift Data Loading Reference
-permalink: /replication/loading/reference/amazon-redshift/
+permalink: /replication/reference/amazon-redshift/
 redirect_from: /data-structure/redshift-data-loading-behavior
 
 layout: general

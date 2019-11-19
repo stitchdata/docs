@@ -1,6 +1,6 @@
 ---
 title: Google BigQuery Loading Reference
-permalink: /replication/loading/reference/google-bigquery
+permalink: /replication/reference/google-bigquery
 
 redirect_from: /data-structure/bigquery-data-loading-behavior
 layout: general

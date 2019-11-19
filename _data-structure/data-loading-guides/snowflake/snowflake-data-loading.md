@@ -1,6 +1,6 @@
 ---
 title: Snowflake Data Loading Reference
-permalink: /replication/loading/reference/snowflake/
+permalink: /replication/reference/snowflake/
 
 redirect_from: /data-structure/snowflake-data-loading-behavior
 

@@ -1,6 +1,6 @@
 ---
 title: Google BigQuery (v1) Data Loading Reference
-permalink: /replication/loading/reference/google-bigquery/v1/
+permalink: /replication/reference/google-bigquery/v1/
 
 layout: general
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
@@ -15,7 +15,7 @@ this-version: "1"
 
 intro: |
   {% capture version-notice %}
-  **Note**: This guide is specific to **version 1** of the Google BigQuery destination. For info about data loading for version 2, refer to [version 2 of this guide]({{ link.destinations.loading.bigquery | prepend: site.baseurl | append: "/v2/" }}).
+  **Note**: This guide is specific to **version 1** of the Google BigQuery destination. For info about data loading for version 2, refer to [version 2 of this guide]({{ link.destinations.loading.bigquery-v2 | prepend: site.baseurl }}).
   {% endcapture %}
 
   {% include note.html type="single-line" content=version-notice %}

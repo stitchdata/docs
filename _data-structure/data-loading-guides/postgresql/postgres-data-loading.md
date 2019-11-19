@@ -1,6 +1,6 @@
 ---
 title: PostgreSQL Data Loading Reference
-permalink: /replication/loading/reference/postgresql/
+permalink: /replication/reference/postgresql/
 redirect_from: /data-structure/postgresql-data-loading-behavior
 
 layout: general

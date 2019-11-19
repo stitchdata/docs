@@ -1,6 +1,6 @@
 ---
 title: Google BigQuery (v2) Data Loading Reference
-permalink: /replication/loading/reference/google-bigquery/v2/
+permalink: /replication/reference/google-bigquery
 redirect_from: /data-structure/bigquery-data-loading-behavior
 
 layout: general
@@ -18,7 +18,7 @@ this-version: "2"
 intro: |
   {{ page_name }}
   {% capture version-notice %}
-  **Note**: This guide is specific to **version 2** of the Google BigQuery destination. For info about data loading for version 1, refer to [version 1 of this guide]({{ link.destinations.loading.bigquery | prepend: site.baseurl | append: "/v1/" }}).
+  **Note**: This guide is specific to **version 2** of the Google BigQuery destination. For info about data loading for version 1, refer to [version 1 of this guide]({{ link.destinations.loading.bigquery-v1 | prepend: site.baseurl }}).
   {% endcapture %}
 
   {% include note.html type="single-line" content=version-notice %}

@@ -1,6 +1,6 @@
 ---
 title: Destination Data Loading Reference Guides
-permalink: /replication/loading/reference
+permalink: /replication/reference
 redirect_from: /data-structure/loading-stitch-data-into-destinations
 
 layout: general

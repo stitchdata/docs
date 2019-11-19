@@ -1,6 +1,6 @@
 ---
 title: Panoply Data Loading Reference
-permalink: /replication/loading/reference/panoply/
+permalink: /replication/reference/panoply/
 redirect_from: /data-structure/panoply-data-loading-behavior
 
 layout: general
