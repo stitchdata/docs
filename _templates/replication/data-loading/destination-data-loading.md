@@ -22,7 +22,7 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.reference.destination-type.[version] %}
+  {% assign destination-reference = site.data.destinations.destination-type[version] %}
 
 ## The data & copy for DESTINATION scenarios live here: _data/dataloading/destination-type
 ## The error messages for DESTINATION live here: _data/errors/loading/destination-type.yml
