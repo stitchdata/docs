@@ -43,8 +43,8 @@ object-attributes:
 
       Accepted values are:
 
-      {% for region in site.data.destinations.reference.bigquery.v2.region-list %}
-      - {{ region.name | replace_regex: "^[^(]*","" | remove: "(" | remove: ")" | markdownify }}
+      {% for region in site.data.destinations.bigquery.v2.supported-regions %}
+      - `{{ region.name }}`
       {% endfor %}
     value: |
       "US"
@@ -62,7 +62,7 @@ object-attributes:
 
       - `APPEND_ONLY`: Existing rows aren’t updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ form-property.display-name }}, capturing how a record changed over time.
 
-      Refer to the [todo documentation]() for more info and examples.
+      Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
     value: |
       "UPSERT"
 
@@ -73,7 +73,7 @@ object-attributes:
     description: |
       Details and credentials for the Google Cloud Platform (GCP) IAM service account Stitch will use to load data into {{ form-property.display-name }} from Google Cloud Storage (GCS).
 
-      This data is generated when a [JSON project key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys){:target="new"} is created for the service account using the GCP Console. Refer to [todo]() for more info and instructions.
+      This data is generated when a [JSON project key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys){:target="new"} is created for the service account using the GCP Console. Refer to [setup guide for {{ form-property.display-name }} destinations]({{ link.destinations.setup.bigquery-v2 | prepend: site.baseurl }}) for more info and instructions.
     value: |
       {
            "type": "service_account",
