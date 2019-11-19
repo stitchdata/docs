@@ -12,8 +12,6 @@ key: "de-nesting-json"
 ---
 {% include misc/data-files.html %}
 
-{% assign destinations-without-nesting = site.destinations | where:"nested-structure-support",false %}
-
 {%- capture destinations-with-no-nested-support -%}
 {%- for destination in destinations-without-nesting -%}
 {%- case forloop.last -%}
@@ -26,7 +24,12 @@ key: "de-nesting-json"
 {%- endcapture -%}
 
 {% capture callout %}
-- **Destinations**: This article is applicable only to **{{ destinations-with-no-nested-support | strip }}** destinations, as they do not natively support nested data structures.
+- **Destinations**: This article is applicable only to the following destinations, as they do not natively support nested data structures:
+  - Amazon Redshift
+  - Amazon S3 (CSV)
+  - Microsoft Azure SQL Data Warehouse
+  - Panoply
+  - PostgreSQL
 - **PostgreSQL `ARRAY` & `JSON` datatypes:** The info in this article is not applicable to PostgreSQL `ARRAY` and `JSON` data types. These data types will be stored as strings in your data warehouse, whether it's PostgreSQL, Panoply, or Redshift.{% endcapture %}
 
 {% include important.html first-line="**Not applicable to all destinations and data types**" content=callout %}
