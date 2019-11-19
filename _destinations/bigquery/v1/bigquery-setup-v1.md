@@ -115,8 +115,8 @@ steps:
 
       2. From the **Google Cloud Storage Location**, select the location where data should be stored:
 
-         {% for region in site.data.destinations.reference.bigquery.v1.region-list %}
-         - {{ region.name | markdownify }}
+         {% for region in site.data.destinations.bigquery.v1.supported-regions %}
+         - `{{ region.name }}`
          {% endfor %}
       3. Click **Finish Setup**.
 ---
