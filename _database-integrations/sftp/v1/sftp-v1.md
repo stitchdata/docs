@@ -23,7 +23,7 @@ repo-url: "https://github.com/singer-io/tap-sftp"
 
 hosting-type: "none"
 
-# this-version: "1.0"
+this-version: "1"
 
 file-system: true
 db-type: "sftp"
@@ -59,6 +59,9 @@ loading-reports: true
 table-selection: true
 column-selection: true
 table-level-reset: false
+
+append-only-tables: true
+append-only-tables-description: "Unless Primary Keys are defined for the table, Append-Only loading will be used."
 
 ## Replication methods
 

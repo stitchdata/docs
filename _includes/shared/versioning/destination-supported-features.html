@@ -1,0 +1,79 @@
+<!-- This file contains the logic and display code for destination version comparisons. -->
+
+
+<!-- Used to generate the Supported/Unsupported icons -->
+{% include misc/icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+{% include shared/versioning/destination-version-logic.html item-name="page" %}
+
+<!-- Assign the destination's data file path. -->
+    {% assign destination-data = site.data.destinations[page.type] %}
+
+<!-- List of feature categories. -->
+    {% assign reference-data = site.data.destinations.common.reference-data %}
+    {% assign feature-categories = reference-data.feature-comparisons.categories %}
+
+<!-- Used to get the right number of columns to span in the table. -->
+    {% assign total-cells = total-versions | plus: 1 %}
+
+<table class="attribute-list">
+    <tr>
+        <td class="table-subheading">
+        </td>
+        {% for released-version in released-versions %}
+        <td class="table-subheading">
+            <strong>{{ destination.display_name }} {{ released-version.number | prepend: "v" }}</strong>
+        </td>
+        {% endfor %}
+    </tr>
+    {% for category in feature-categories %}
+        <tr>
+            <td colspan="{{ total-cells }}" class="table-subheading">
+                <strong>
+                    {% if category.name %}
+                        {{ category.name | upcase }}
+                    {% else %}
+                        {{ category.id | replace:"-"," " | upcase }}
+                    {% endif %}
+                </strong>
+            </td>
+        </tr>
+
+        {% for feature in reference-data.feature-comparisons[category.id] %}
+            <tr>
+                <td width="38%; fixed" align="right">
+                    <strong>
+                        {% if reference-data[feature.id]title %}
+                            {{ reference-data[feature.id]title }}
+                        {% else %}
+                            {{ feature.id | replace:"-"," " | capitalize }}
+                        {% endif %}
+                    </strong>
+                </td>
+                {% for released-version in released-versions %}
+                    {% assign version = released-version.number | prepend: "v" %}
+                    <td>
+                        {% if destination-data[version][feature.file] %}
+                            {% case destination-data[version][feature.file][feature.id] %}
+                                {% when true %}
+                                    {{ supported | replace:"TOOLTIP","This feature is supported for this version of the integration." }} Supported
+                                {% when false %}
+                                    {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
+                                {% else %}
+                                    {{ destination-data[version][feature.file][feature.id] | default: feature.default | flatify | markdownify }}
+                            {% endcase %}
+                        {% else %}
+                            {% if destination-data[feature.file][feature.id] %}
+                                {{ destination-data[feature.file][feature.id] | flatify | markdownify }}
+                            {% else %}
+                                {{ feature.default | flatify }}
+                            {% endif %}
+                        {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+</table>

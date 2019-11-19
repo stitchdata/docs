@@ -21,6 +21,8 @@ snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
 
+key: "responsys-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -33,7 +35,7 @@ tap-name: "Responsys"
 repo-url: https://github.com/singer-io/tap-responsys
 status-url: "https://community.oracle.com/docs/DOC-1011262"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "none"
 
@@ -41,7 +43,6 @@ hosting-type: "none"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: true 
 
 historical: "1 year"

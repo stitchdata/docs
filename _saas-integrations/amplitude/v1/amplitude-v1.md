@@ -10,6 +10,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+key: "amplitude-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -21,13 +23,12 @@ singer: true
 tap-name: "Amplitude"
 repo-url: https://github.com/singer-io/tap-amplitude
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "n/a"

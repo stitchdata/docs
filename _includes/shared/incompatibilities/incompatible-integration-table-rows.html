@@ -1,0 +1,66 @@
+<!-- This creates table rows that list out integrations
+	that are incompatible with a given destination. -->
+
+<!-- Get all the integrations that have `has-incompatibilities: true` -->
+	{% assign all-integrations-with-incompatibilities = site.documents | where:"has-incompatibilities",true %}
+
+<!-- Of those that have incompatibilities, only get the versions that are actually live. -->
+	{% assign integrations-with-incompatibilities = all-integrations-with-incompatibilities | where:"input",true | sort:"display_name" %}
+
+<!-- Create a list of values to use as columns in the table. -->
+	{% assign table-attributes = "integration|version|level|reason" | split:"|" %}
+
+<tr>
+	{% for attribute in table-attributes %}
+		{% if forloop.first == true %}
+			<td width="20%; fixed" align="right">
+		{% else %}
+			{% if forloop.index == 2 %}
+				<td width="12%; fixed">
+			{% else %}
+				<td>
+			{% endif %}
+		{% endif %}
+				<strong>{{ attribute | replace:"-"," " | capitalize }}</strong>
+			</td>
+	{% endfor %}
+</tr>
+
+{% for incompatible-integration in site.data.destinations[destination.type][version]incompatibilities %}
+	{% assign this-integration = integrations-with-incompatibilities | where:"name",incompatible-integration.integration | first %}
+<tr>
+	{% for attribute in table-attributes %}
+		{% if forloop.first == true %}
+			<td width="20%; fixed" align="right">
+		{% else %}
+			<td>
+		{% endif %}
+
+		{% case attribute %}
+			{% when 'integration' %}
+				{% assign this-integration = integrations-with-incompatibilities | where:"name",incompatible-integration.integration | first %}
+
+				{{ this-integration.display_name }}
+
+			{% when 'version' %}
+				{% case incompatible-integration.version %}
+					{% when 'any' %}
+						{{ incompatible-integration[attribute] | upcase }}
+					{% else %}
+						{{ incompatible-integration[attribute] | remove: ".0" | prepend: "v" }}
+				{% endcase %}
+			{% when 'level' %}
+				{% case incompatible-integration.level %}
+					{% when 'always' %}
+						{{ not-supported | replace:"TOOLTIP","This destination/integration combination is always incompatible." }} 
+
+					{% when 'sometimes' %}
+						{{ sometimes-supported | replace:"TOOLTIP","This destination/integration combination is sometimes incompatible." }}
+				{% endcase %}
+			{% else %}
+				{{ incompatible-integration[attribute] | flatify | markdownify }}
+		{% endcase %}
+		</td>
+	{% endfor %}
+</tr>
+{% endfor %}

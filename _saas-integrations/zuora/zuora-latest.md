@@ -5,6 +5,8 @@ keywords: zuora, integration, schema, etl zuora, zuora etl, zuora schema
 summary: "Connection instructions and schema details for Stitch's Zuora integration."
 layout: singer
 
+key: "zuora-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

@@ -36,8 +36,8 @@
 			Otherwise it's a nightmare to keep typing out -->
 		{% assign destination-connection-support = site.data.destinations.reference[form-property.docs-name]stitch-details-info.connection-methods %}
 
-	<!-- Check for SSL support -->
-		{% if destination-connection-support.ssl contains "true" %}
+	<!-- Check for SSL support in the API -->
+		{% if destination-connection-support.connect-ssl contains "true" %}
 			{% assign ssl-fields = connect-destination-attributes.ssl %}
 		{% else %}
 			{% assign ssl-fields = null | compact %}

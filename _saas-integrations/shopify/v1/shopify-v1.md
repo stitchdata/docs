@@ -5,6 +5,8 @@ keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
 
+key: "shopify-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

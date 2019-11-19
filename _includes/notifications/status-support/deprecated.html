@@ -1,0 +1,32 @@
+<!-- This displays deprecation info if the connection version
+	has a 'deprecated' status.
+
+	TODO: Add info about last-connection-date back in -->
+
+
+<div class="alert alert-warning" role="alert">
+	<i class="fa fa-exclamation-circle"></i>
+	<strong>{{ page.display_name }} (v{{ page.this-version | remove: ".0" }}) deprecation</strong>
+
+    {% if this-version.deprecation-date == "" %}
+    	<p>
+    		A newer version of {{ page.display_name }} is available in Stitch. This version will still continue to function, but may be deprecated at a future date.
+    	</p>
+    	
+    {% else %}
+    	<p>
+    		This version of {{ page.display_name }} will be deprecated on <strong>{{ this-version.deprecation-date }}</strong>{% if connection-is-certified == true %} and no longer be formally supported by the Stitch Support Team{% endif %}.
+    	</p>
+    {% endif %}
+
+    <p>
+    	<a href="{{ latest-version-doc.url | prepend: site.baseurl }}">
+	    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
+	    	{% if page.connection-type == "integration" %}
+	    		continue replicating data.
+	    	{% else %}
+	    		take advantage of the new enhancements.
+	    	{% endif %}
+	    </a>
+    </p>
+</div>

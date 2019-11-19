@@ -1,6 +1,6 @@
 ---
 tap: "outbrain"
-# version: "1.0"
+version: "1.0"
 
 name: "campaigns"
 doc-link: http://docs.amplifyv01.apiary.io/#reference/campaigns

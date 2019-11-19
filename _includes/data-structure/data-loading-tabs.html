@@ -1,130 +1,101 @@
 {% include misc/data-files.html %}
-{% assign default = site.data.dataloading.scenarios %}
-{% assign data-loading = site.data.dataloading.[page.type].scenarios %}
-{% assign category = include.category %}
 
-<!-- <div class="btn-group">
-	<button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
-		What Happens When:<span class="caret"></span>
-	</button>
-	<ol class="dropdown-menu">
-		{% for scenario in data-loading %}
-			{% if default[scenario.id].categories contains category or scenario.categories contains category %}
-				<li>
-					{% if scenario.heading %}
-						<a href="#{{ scenario.anchor }}">{{ scenario.heading }}</a>
-					{% else %}
-						<a href="#{{ default[scenario.id].anchor }}">{{ default[scenario.id].heading }}</a>
-					{% endif %}
-				</li>
-			{% endif %}
-		{% endfor %}
-	</ol>
-</div> -->
+{% assign destination = page %}
+
+<!-- Get a clean version of the this-version variable. -->
+	{% assign clean-version = destination.this-version | prepend: "v" | remove: ".0" %}
+
+<!-- Assign a shortened variable to the default scenario data files. -->
+	{% assign default-scenario = site.data.dataloading.scenarios[include.category] %}
+
+<!-- Assign a variable to the list of scenarios for the destination -->
+	{% assign destination-scenarios = site.data.dataloading.[destination.type][include.category] %}
+
+<!-- The description of the scenario category. -->
+{{ default-scenario.description | flatify | markdownify }}
 
 
+{% for scenario in destination-scenarios %}
 <div class="panel-group" id="accordion">
-{% for scenario in data-loading %}
-{% if default[scenario.id].categories contains category or scenario.categories contains category %}
-    <!-- Panel Start -->
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ scenario.id }}_{{ category }}">
-                	{% if scenario.summary == "default" %}
-					{{ default[scenario.id].default-copy | flatify | remove: "`" }} 
+                <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ scenario.id }}-{{ include.category }}">
 
-				{% else %}
-					{{ scenario.summary | flatify | remove: "`" }}
-				{% endif %}
-
+                <!-- If the scenario doesn't have an `if` property, use the default in _data/dataloading/scenarios/<CATEGORY>/<SCENARIO.ID>, or the `if` property for the
+                scenario default. -->
+                	{{ scenario.if | default: default-scenario[scenario.id]if | flatify | remove: "`" }}
                 </a>
             </h4>
         </div>
-        <div id="{{ scenario.id }}_{{ category }}" class="panel-collapse collapse noCrossRef">
-        <div class="panel-body">
-	
-<!-- 	{% if scenario.heading %}
-		<h3 id="{{ scenario.anchor }}">{{ scenario.heading }}</h3>
-	{% else %}
-		<h3 id="{{ default[scenario.id].anchor }}">{{ default[scenario.id].heading }}</h3>
-	{% endif %}
- -->
-	<table width="100%">
-		<tr>
-			<td width="5%; fixed">
-				<strong>IF</strong>
-			</td>
-			<td>
-			{% if scenario.summary == "default" %}
-				{{ default[scenario.id].default-copy | flatify | markdownify }}
 
-				{% else %}
-					{{ scenario.summary | flatify | markdownify }}
-				{% endif %}
-			</td>
-		</tr>
+        <div id="{{ scenario.id }}-{{ include.category }}" class="panel-collapse collapse noCrossRef">
+        	<div class="panel-body">
+        		<table class="attribute-list">
+        			<tr>
+        				<td width="10%; fixed" align="right">
+        					<strong>IF</strong>
+        				</td>
+        				<td>
+        					{{ scenario.if | default: default-scenario[scenario.id]if | flatify | markdownify }}
+        				</td>
+        			</tr>
+        			<tr>
+        				<td width="10%; fixed" align="right">
+        					<strong>THEN</strong>
+        				</td>
+        				<td>
+        					{{ scenario.then[clean-version] | flatify | markdownify }}
+        				</td>
+        			</tr>
+        			{% if scenario.error[clean-version] or scenario.rejectable == true %}
+	        			<tr>
+	        				<td width="10%; fixed" align="right">
+	        					<strong>AND</strong>
+	        				</td>
+	        				<td>
+	        					{% if scenario.error[clean-version] %}
+	        						<p>
+	        							The following error will display in the <strong>Notifications</strong> tab in Stitch:
+	        						</p>
+<!-- Jekyll is dumb and this has to be flush-left
+	or the spacing will look off. -->
+{% highlight shell %}
+{{ scenario.error[clean-version] | flatify | strip }}
+{% endhighlight %}
 
-		<tr>
-			<td width="5%; fixed">
-				<strong>THEN</strong>
-			</td>
-			<td>
-				{% if scenario.result == "default" %}
-					{{ default[scenario.id].default-result | flatify | markdownify }}
+	        					{% endif %}
+	        					
+	        					{% if scenario.rejectable == true %}
+									<p>
+										Rejected records will be logged in the <code>_sdc_rejected</code> table of the integration's schema. <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}">Learn more</a>.
+									</p>
+								{% endif %}
+	        				</td>
+	        			</tr>
+        			{% endif %}
 
-				{% else %}
-					{{ scenario.result | flatify | markdownify }}
-				{% endif %}
-				{% if scenario.rejectable == true %}
-					<p>Rejected records are logged in the <code>_sdc_rejected</code> table of the integration's schema. <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}">Learn more</a>.</p>
-				{% endif %}
-			</td>
-		</tr>
+        			{% if scenario.fix-it[clean-version] %}
+        				<tr>
+        					<td width="10%; fixed" align="right">
+        						<strong>FIX IT</strong>
+        					</td>
+        					<td>
+        						{{ scenario.fix-it[clean-version] | flatify | markdownify }}
 
-	{% if scenario.error != "none" or scenario.rejectable == true %}
-		<tr>
-			<td width="5%; fixed">
-				<strong>AND</strong>
-			</td>
-			<td>
-				{% if scenario.rejectable == true %}
-				{% endif %}
-
-				{% if scenario.error != "none" %}
-					<p>{{ destination.display_name }} will surface the following error:</p>
-
-					{{ scenario.error | flatify | markdownify }}
-				{% endif %}
-			</td>
-		</tr>
-		{% if scenario.troubleshooting != "none" %}
-			<tr>
-				<td width="5%; fixed">
-					<strong>FIX IT</strong>
-				</td>
-				<td>
-					{% if scenario.troubleshooting == "default" %}
-						{{ default[scenario.id].default-troubleshooting | flatify | markdownify }}
-
-					{% else %}
-						{{ scenario.troubleshooting | flatify | markdownify }}
-					{% endif %}
-					{% if scenario.rejectable == true %}
-					<p>Use the <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"><code>_sdc_rejected</code> table</a> to identify the root of the issue.</p>
-				{% endif %}
-				</td>
-			</tr>
-	{% endif %}
-	{% endif %}
-	
-	</table>
-			</div>
+        						{% if scenario.rejectable == true %}
+									<p>
+										Use the <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}"><code>_sdc_rejected</code> table</a> to identify the root of the issue.
+									</p>
+								{% endif %}
+        					</td>
+        				</tr>
+        			{% endif %}
+        		</table>
+        	</div>
         </div>
     </div>
-	<!-- End category conditional -->
-	{% endif %}
-
-<!-- End forloop -->
-{% endfor %}
 </div>
+{% endfor %}
+
+<a href="#">Back to top</a>

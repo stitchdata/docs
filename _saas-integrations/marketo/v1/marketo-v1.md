@@ -6,6 +6,8 @@ summary: "Connection instructions and schema details for Stitch's Marketo integr
 layout: singer
 input: false
 
+key: "marketo-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -22,7 +24,6 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 historical: "1 year"

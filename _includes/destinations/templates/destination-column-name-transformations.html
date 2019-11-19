@@ -1,0 +1,32 @@
+<!-- This file is used to create a table containing the column
+     name transformations for a specific destination type. -->
+
+{% assign transformation-examples = site.data.destinations[destination.type]destination-details.column-name-transformations %}
+
+{% assign attributes = "transformation|source-column|destination-column" | split:"|" %}
+
+
+<table class="attribute-list">
+     <tr>
+          {% for attribute in attributes %}
+               {% if forloop.first == true %}
+                    <td width="40%; fixed">
+               {% else %}
+                    <td width="30%; fixed">
+               {% endif %}
+                    <strong>
+                         {{ attribute | replace:"-"," " | capitalize }}
+                    </strong>
+               </td>
+          {% endfor %}
+     </tr>
+     {% for item in transformation-examples %}
+          <tr>
+               {% for attribute in attributes %}
+                    <td>
+                         {{ item[attribute] }}
+                    </td>
+               {% endfor %}
+          </tr>
+     {% endfor %}
+</table>

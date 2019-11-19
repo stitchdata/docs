@@ -4,11 +4,11 @@ layout: page
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-<!-- Support, beta, and Singer notice -->
-{% include notifications/support-beta-singer-notice.html %}
+<!-- SUPPORT AND SINGER NOTICE-->
+    
 
 <!-- integration snapshot -->
-{% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type="webhook" %}
+{% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="webhook" %}
 
 <!-- intro -->
 {% ifhascontent intro %}

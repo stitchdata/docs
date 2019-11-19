@@ -11,6 +11,8 @@ snapshot-type: "databases"
 show-in-menus: true
 no-schema: true
 
+key: "amazon-s3-csv-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -23,7 +25,7 @@ singer: true
 repo-url: "https://github.com/singer-io/tap-s3-csv"
 status-url: "https://status.aws.amazon.com/"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 file-system: true
 db-type: "s3"
@@ -59,6 +61,9 @@ loading-reports: true
 table-selection: true
 column-selection: true
 table-level-reset: false
+
+append-only-tables: true
+append-only-tables-description: "Unless Primary Keys are defined for the table, Append-Only loading will be used."
 
 ## Replication methods
 

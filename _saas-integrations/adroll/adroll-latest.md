@@ -1,12 +1,12 @@
 ---
-title: AdRoll
+title: AdRoll (v1)
 permalink: /integrations/saas/adroll
 keywords: adroll, integration, schema, etl adroll, adroll etl, adroll schema, ad roll
 summary: "Connection instructions and schema details for Stitch's AdRoll integration."
-format: 
-  schema-list: true
-  table-desc: true
-  list: expand
+layout: singer
+old-schema-template: true
+
+key: "adroll-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -17,6 +17,8 @@ display_name: "AdRoll"
 singer: false
 status-url: "http://status.adroll.com/"
 
+this-version: "1.0"
+
 api: |
   [{{ integration.display_name }} CRUD API](https://developers.adroll.com/docs/crud-api/index.html){:target="new"}
 
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "30 minutes"
@@ -57,7 +58,7 @@ tables:
 ## Ad Groups
   - name: "adroll_ad_groups"
     doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get_adgroups
-    description: "info about the adgroups contained within the campaigns of your AdRoll account."
+    description: "info about the adgroups contained within the campaigns of your {{ integration.display_name }} account."
     notes: 
     replication-method: "Full Table"
     primary-key: "eid"
@@ -164,7 +165,7 @@ tables:
 ## Advertisables
   - name: "adroll_advertisables"
     doc-link: https://developers.adroll.com/docs/crud-api/reference.html#get--api-v1-advertisable-get
-    description: "about the advertisables (typically the parent object for a brand) in your AdRoll account."
+    description: "about the advertisables (typically the parent object for a brand) in your {{ integration.display_name }} account."
     notes: 
     replication-method: "Full Table"
     primary-key: "eid"
@@ -257,30 +258,23 @@ tables:
       - name: conversion_value
       - name: group
       - name: mobile
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+setup-steps:
+  - title: "Create an {{ integration.display_name }} User for Stitch"
+    anchor: "create-adroll-user"
+    content: |
+      While you can use your own credentials to connect {{ integration.display_name }} to Stitch, we recommend creating a separate user for us. This will make it easier for you to manage users and audit events in your {{ integration.display_name }} account.
+
+      **We require a General User role** - which is the default - to be able to replicate your {{ integration.display_name }} data. Note that Stitch does not need billing access. If you need help creating an {{ integration.display_name }} user, you can find instructions here in {{ integration.display_name }}’s support docs.
+  - title: "add integration"
+    content: |
+      4. Enter the email address and username for the Stitch {{ integration.display_name }} user.
+  - title: "historical sync"
+  - title: "replication frequency"
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% contentfor setup %}
-Connecting your AdRoll data to Stitch is a four-step process:
-
-1. [Create an AdRoll user for Stitch](#create-adroll-user-for-stitch)
-2. [Add AdRoll as a Stitch data source](#add-stitch-data-source)
-3. [Define the Historical Sync](#define-historical-sync)
-4. [Define the Replication Frequency](#define-rep-frequency)
-
-### Create an AdRoll User for Stitch {#create-adroll-user-for-stitch}
-
-While you can use your own credentials to connect AdRoll to Stitch, we recommend creating a separate user for us. This will make it easier for you to manage users and audit events in your AdRoll account.
-
-**We require a General User role** - which is the default - to be able to replicate your AdRoll data. Note that Stitch does not need billing access. If you need help creating an AdRoll user, you can find instructions here in AdRoll’s support docs.
-
-{% include integrations/shared-setup/connection-setup.html %}
-4. Enter the email address and username for the Stitch AdRoll user.
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}

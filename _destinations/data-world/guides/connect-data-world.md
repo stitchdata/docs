@@ -41,7 +41,7 @@ ssl: true
 
 intro: |
   {% capture account-management %}
-  **data.world account management**: Stitch is not involved with the management of {{ destination.display_name }} destinations. If you have billing questions or need help regarding your {{ destination.display_name }} destination, [reach out to {{ destination.display_name }}]({{ site.data.destinations.resource-links[destination.type]documentation }}){:target="new"}.
+  **data.world account management**: Stitch is not involved with the management of {{ destination.display_name }} destinations. If you have billing questions or need help regarding your {{ destination.display_name }} destination, [reach out to {{ destination.display_name }}]({{ site.data.destinations[destination.type]resource-links.documentation }}){:target="new"}.
   {% endcapture %}
 
   {% include note.html type="single-line" content=account-management %}

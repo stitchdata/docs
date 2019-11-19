@@ -1,7 +1,7 @@
 ---
 tap-reference: "shippo"
 
-# version: "1.0"
+version: "1.0"
 
 foreign-keys: 
   - id: "address-id"

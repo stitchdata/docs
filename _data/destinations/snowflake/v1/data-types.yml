@@ -1,0 +1,182 @@
+# ---------------------------- #
+#    SNOWFLAKE DATA TYPING     #
+# ---------------------------- #
+
+## Details about data typing for Snowflake destinations.
+## Includes:
+##  - Stitch types mapped to Snowflake-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by Snowflake
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/stitch/data-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/common.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+specific:
+  - "variant"
+
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint: &integer
+  destination-type: "number"
+  suffix: "it"
+  description: "Stored as `NUMBER(38,0)`"
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#int-integer-bigint-smallint-tinyint-byteint"
+  range: "Limited to 38 digits of scale"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "boolean"
+  suffix: "bo"
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-logical.html#boolean"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "timestamp_tz"
+  suffix: "ti"
+  description: "Stored in UTC as `TIMESTAMP_TZ(9)`"
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html#timestamp-ltz-timestamp-ntz-timestamp-tz"
+  # range: ""
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &float
+  destination-type: "float"
+  suffix: "fl"
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#float-float4-float8"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *float
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer: *integer
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "decimal"
+  suffix: "de"
+  # description: ""
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#decimal-numeric"
+  # range: ""
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "varchar"
+  suffix: "st"
+  description: |
+    Stored as `VARCHAR(16777216)`, which is the maximum length supported by {{ destination.display_name }}. No widening will occur if the string length changes.
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-text.html#varchar"
+
+
+# ---------------------------- #
+#           VARIANT            #
+# ---------------------------- #
+
+variant:
+  destination-type: "variant"
+  suffix: "va"
+  description: "Used to store nested JSON structures (objects and arrays)."
+  doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-semistructured.html#variant"
+
+list:
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      Records that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "date-and-time-timezone-support"
+    categories: "data-limits"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the data as `TIMESTAMP WITH TIMEZONE`, or `timestamp_tz` and adjust to show as UTC.
+
+      More info about timestamp data types can be found in [Snowflake's documentation]({{ site.data.destinations.snowflake.resource-links.datetime-type }}){:target="new"}.
+
+  # - id: "date-and-time-date-range"
+  #   categories: "data-limits"
+  #   value: *date-range
+  #   description: |
+  #     Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  #     More info about {{ destination.display_name }} date data types can be found in [Snowflake's documentation](){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    categories: "data-limits"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [Amazon's documentation](https://docs.snowflake.net/manuals/sql-reference/data-types-datetime.html){:target="new"}.
+
+  - id: "integer-range"
+    categories: "data-limits"
+    value: *integer-range
+    description: |
+      {{ destination.display_name }} will store integer data as `DECIMAL(38,0)`. {{ destination.display_name }} considers integer data types to be synonymous with `NUMBER`, and as a result, Stitch will load them as such.
+
+      Integer values that exceed the limit noted above will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-precision"
+    categories: "data-limits"
+    value: *decimal-precision
+    description: |
+      {{ destination.display_name }} will store decimal data as `DECIMAL(38,6)`.
+
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  # - id: "decimal-scale"
+  #   categories: "data-limits"
+  #   value: *decimal-scale
+  #   description: |
+  #     {{ destination.display_name }} will store decimal data as `DECIMAL(38,6)`.
+
+  #     Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "strings-max-width"
+    categories: "data-limits"
+    value: *strings-max-width
+    important: true
+    description: |
+      **Note**: While {{ destination.display_name }}'s limit is 16 MB, Stitch imposes a record limit of 4 MB. The record as a whole must be less than 4 MB or it will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).

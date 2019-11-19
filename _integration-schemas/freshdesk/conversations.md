@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version:
+version:
 
 name: "conversations"
 doc-link: https://developers.freshdesk.com/api/#conversations

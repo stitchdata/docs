@@ -19,6 +19,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+key: "clubspeed-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -30,7 +32,7 @@ singer: true
 tap-name: "Club Speed"
 repo-url: https://github.com/singer-io/tap-clubspeed
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API](https://www.programmableweb.com/api/club-speed){:target="new"}
@@ -39,7 +41,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"

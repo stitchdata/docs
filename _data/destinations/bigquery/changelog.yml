@@ -1,0 +1,27 @@
+# ---------------------------------------- #
+#  GOOGLE BIGQUERY DESTINATION CHANGELOG   #
+# ---------------------------------------- #
+
+
+- date: "November 19, 2019"
+  version: "2"
+  type: "version-beta"
+  summary: "Version 2 release"
+  content: |
+    Notable changes from v1 include:
+
+    - **Upsert support.** Updates can now be made to existing rows in {{ destination.display_name }}.
+    - **Configurable loading behavior**. You can now define the loading behavior for {{ destination.display_name }} destinations: Upsert or Append-Only. [Learn more]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
+    - **Authentication via Service Accounts.** This version of {{ destination.display_name }} uses a GCP IAM service account to authenticate, instead of OAuth. This disassociates the account used to connect to {{ destination.display_name }} from an individual user.
+    - **No more Google Cloud Storage (GCS) requirements.** Stitch now uses an internal GCS bucket for loading, removing the need for you to maintain a bucket for Stitch.
+    - **API availability.** {{ destination.display_name }} destinations can now be configured and managed via the [Connect API]({{ link.connect.api | prepend: site.baseurl }}).
+    - **Expanded GCS region support.** Stitch now supports additional GCS regions. [Learn more]({{ link.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }}).
+
+    **Note**: This version is not backwards-compatible. While it's similar to v1, you should expect to spend some time refactoring your analyses after migrating.
+
+- date: "November 3, 2016"
+  version: "1"
+  type: "new-version"
+  summary: "Version 1 release"
+  content: |
+    Check out the [{{ destination.display_name }} v1 overview]({{ link.destinations.overviews.bigquery-v1 | prepend: site.baseurl }}) for more info, or [set up the destination]({{ link.destinations.setup.bigquery-v1 | prepend: site.baseurl }}).

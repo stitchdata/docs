@@ -9,6 +9,8 @@ keywords: quick-base, integration, schema, etl quick-base, quick-base etl, quick
 layout: singer
 old-schema-template: true
 
+key: "quick-base-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -19,7 +21,7 @@ display_name: "Quick Base"
 singer: true
 repo-url: https://github.com/singer-io/tap-quickbase
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} HTTP API](https://help.quickbase.com/api-guide/intro.html){:target="new"}
@@ -28,7 +30,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -113,6 +114,11 @@ feature-summary: |
 setup-steps:
   - title: "Retrieve your {{ integration.display_name }} URL and app ID"
     anchor: "retrieve-url-app-id"
+    content: |
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
+
     substeps:
       - title: "Retrieve your {{ integration.display_name }} URL"
         anchor: "retrieve-quick-base-url"
@@ -128,7 +134,7 @@ setup-steps:
       - title: "Retrieve your {{ integration.display_name }} app ID"
         anchor: "retrieve-quick-base-app-id"
         content: |
-          Next, you need to retrieve the ID of the {{ integration.display_name }} app you want to replicate data from.
+          Next, you'll retrieve the ID of the {{ integration.display_name }} app you want to replicate data from.
 
           In {{ integration.display_name }}, click the desired app in the **My Apps** section.
 
@@ -139,7 +145,6 @@ setup-steps:
   - title: "Create a {{ integration.display_name }} user token"
     anchor: "create-quick-base-user-token"
     content: |
-
       {% capture user-tokens %}
       {{ integration.display_name }} user tokens are linked to the user who creates them. This means that Stitch will only be able to access the same data in {{ integration.display_name }} as the user who creates the token.
 
@@ -161,9 +166,9 @@ setup-steps:
       The token will display in the **Token** field of the **My User Tokens** page. Keep this page open for now - you'll need it to complete the next step.
   - title: "add integration"
     content: |
-      4. In the **Quick Base API URL** field, enter the {{ integration.display_name }} URL you retrieved in Step 1. For example: `https://stitchdata.quickbase.com/db/`
-      5. In the **Quick Base APP ID** field, enter the {{ integration.display_name }} app ID you retrieved in Step 1. For example: `bngf9ix7e`
-      6. In the **Quick Base User Token** field, paste the user token you created in Step 2.
+      4. In the **{{ integration.display_name }} API URL** field, enter the {{ integration.display_name }} URL you retrieved in Step 1. For example: `https://stitchdata.quickbase.com/db/`
+      5. In the **{{ integration.display_name }} APP ID** field, enter the {{ integration.display_name }} app ID you retrieved in Step 1. For example: `bngf9ix7e`
+      6. In the **{{ integration.display_name }} User Token** field, paste the user token you created in Step 2.
   - title: "historical sync"
   - title: "replication frequency"
 
@@ -203,8 +208,9 @@ schema-sections:
       {% endfor %}
       </table>
 
-      #### Attribute names {#table-attribute-names}
-
+  - title: "Table attribute names"
+    anchor: "table-attribute-names"
+    content: |
       Some destinations restrict the use of special characters and spaces in column names. While {{ integration.display_name }} doesn't restrict the use of these characters in their app, attempting to load column names as-is from {{ integration.display_name }} may cause issues.
 
       To prevent loading issues, Stitch's {{ integration.display_name }} will perform the following on column names:

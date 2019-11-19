@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your Amazon RDS databases using Stitch
 layout: general
 input: false
 
+key: "amazon-rds-integration"
+
 toc: false
 feedback: false
 
@@ -25,7 +27,7 @@ sections:
                     <strong>{{ integration.display_name| remove:"(latest)" | prepend: "Amazon "}}</strong><br>
 
                     {% if integration.has-versions %}
-                        {% include integrations/templates/versioning/integration-version-menu.html menu-type="category-page" %}
+                        {% include shared/versioning/version-menu.html connection-type="integration" menu-type="category-page" item-name="integration" %}
 
                     {% else %}
                         <a href="{{ integration.url | prepend: site.baseurl | append: "#setup" }}">Setup</a> 

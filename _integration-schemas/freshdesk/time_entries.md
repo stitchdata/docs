@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version:
+version:
 
 name: "time_entries"
 doc-link: https://developers.freshdesk.com/api/#time-entries
