@@ -17,14 +17,6 @@
     v1: &apply-indices "{{ site.data.dataloading.scenarios.warehouse-changes.apply-indices.then | flatify }}"
 
 
-## Customer applies SORT / DIST Keys to Stitch-generated columns
-- id: sort-dist-keys
-  rejectable: false
-  # if: uses default
-  then:
-    v1: &sort-dist-keys "{{ site.data.dataloading.scenarios.warehouse-changes.sort-dist-keys.then | flatify }}"
-
-
 ## Customer switches to a new destination of the same type
 - id: switch-destination-same-type
   rejectable: false

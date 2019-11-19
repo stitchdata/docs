@@ -17,19 +17,10 @@
     v1: &apply-indices "{{ site.data.dataloading.scenarios.warehouse-changes.apply-indices.then | flatify }}"
     v2: *apply-indices
 
-## Customer applies SORT / DIST Keys to Stitch-generated columns
-- id: sort-dist-keys
-  rejectable: false
-  # if: uses default
-  then:
-    v1: &sort-dist-keys "{{ site.data.dataloading.scenarios.warehouse-changes.sort-dist-keys.then | flatify }}"
-    v2: *sort-dist-keys
-
-
 ## Customer applies partitioning to Stitch-generated tables
 - id: table-partitioning
   rejectable: false
-  if: "Paritioning is applied to Stitch-generated tables in the destination."
+  if: "Partitioning is applied to Stitch-generated tables in the destination."
   then:
     v1: &table-partitioning |
       Stitch will respect the partitioning application. Refer to the [Apply table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for more info and instructions.

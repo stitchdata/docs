@@ -23,9 +23,6 @@
       1. Store data for the original data type in the original column. In this example, only `BOOLEAN` values will be stored in `order_confirmed`. The name of the original column will not change.
 
       2. Create additional columns to store the other data types - one for each data type detected - and append the data type to the column name. In this example, a `order_confirmed__st` column will be created to store `STRING` values.
-
-      Refer to [TODO]() for more info and examples.
-    v2: *mixed-data-types
   
 
 ## Table contains nested data
@@ -36,9 +33,7 @@
   then:
   # Data below is pulled from _data/destinations/reference/snowflake.yml
     v1: |
-      {% assign snowflake-nested-data = destination-reference.attributes | where:"id","nested-data-structures" | first %}
-
-      {{ snowflake-nested-data.description | flatify }}
+      {{ destination-reference.v1.replication.nested-structure-support-description }}
 
 
 # -------------------------- #
@@ -52,7 +47,7 @@
   # if: uses default
   then:
     v1: &varchar-storage |
-      {{ destination.display_name }} will default to using the maximum length: `{{ destination-reference.data-limit-info.strings.max-width }}`
+      {{ destination.display_name }} will default to using the maximum length: `VARCHAR(16777216)`
 
       **Note**: `VARCHAR` columns only consume storage for the actual amount of stored data. This means that for a 1-character string in a `{{ destination-reference.data-limit-info.strings.max-width }}` column, the storage used is equivalent to one character.
 
@@ -67,11 +62,7 @@
   then:
   # Data in snowflake-varchar-widening is pulled from _data/destinations/reference/snowflake.yml
     v1: &varchar-widening |
-      No widening will occur, as {{ destination.display_name }} defaults to storing `VARCHAR` data using the maximum length of `{{ destination-reference.data-limit-info.strings.max-width }}`.
-
-      {% assign snowflake-varchar-widening = destination-reference.attributes | where:"id","strings-max-width" | first %}
-
-      {{ snowflake-varchar-widening.description | flatify }}
+      No widening will occur, as {{ destination.display_name }} defaults to storing `VARCHAR` data using the maximum length of `VARCHAR(16777216)`.
 
 
 # -------------------------- #
@@ -85,9 +76,7 @@
   # if: uses default
   then:
     v1: &date-with-timezone |
-      {% assign snowflake-timezones = destination-reference.attributes | where:"id","date-and-time-timezone-support" | first %}
-
-      {{ snowflake-timezones.description | flatify }}
+      Data will be {{ destination-reference.v1.data-types.date.description | replace:"Stored","stored" }}.
 
 
 ## Column contains timestamp data out of range
@@ -98,7 +87,7 @@
   then:
     v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
   error:
-    v1: &timestamps-out-of-range-error "{{ site.data.errors.loading.common.timestamp-out-of-range | flatify }}"
+    v1: &timestamps-out-of-range-error "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range | flatify }}"
   fix-it: 
     v1: &timestamps-out-of-range-fix-it |
       {{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify | replace:"Up","up" }}
@@ -126,7 +115,7 @@
   then:
     v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
   error:
-    v1: &integer-out-of-range-error "{{ site.data.errors.loading.common.integer-out-of-range | flatify }}"
+    v1: &integer-out-of-range-error "{{ site.data.destinations.common.loading-errors.integer-out-of-range | flatify }}"
   fix-it:
     v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
 
@@ -149,6 +138,6 @@
   then:
     v1: &decimals-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
   error:
-    v1: &decimals-out-of-range-error "{{ site.data.errors.loading.common.decimal-out-of-range | flatify }}"
+    v1: &decimals-out-of-range-error "{{ site.data.destinations.common.loading-errors.decimal-out-of-range | flatify }}"
   fix-it: 
     v1: &decimals-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"

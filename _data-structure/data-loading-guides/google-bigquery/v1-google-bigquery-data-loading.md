@@ -11,7 +11,7 @@ key: "bigquery-loading-reference"
 display_name: "BigQuery"
 type: "bigquery"
 
-this-version: "1.0"
+this-version: "1"
 
 intro: |
   {% capture version-notice %}
@@ -28,7 +28,7 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.reference.bigquery.v2 %}
+  {% assign destination-reference = site.data.destinations.bigquery %}
 
 ## The data & copy for BigQuery scenarios live here: _data/dataloading/bigquery
 ## The error messages for BigQuery live here: _data/errors/loading/bigquery.yml

@@ -15,7 +15,7 @@
   rejectable: false
   # if: uses default
   then:
-    v1: |
+    v2: |
       - **Initial job**: Table is created without Primary Key and no `NOT NULL` columns.
       - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
 
@@ -27,7 +27,7 @@
   rejectable: false
   # if: uses default
   then:
-    v1: |
+    v2: |
       - **Initial job:** Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
 
          **Note**: Incorrectly altering or removing a table's Primary Key comment will result in issues with replication.
@@ -42,7 +42,7 @@
   rejectable: false
   # if: uses default 
   then:
-    v1: |
+    v2: |
       - **Initial job**: Table is created without Primary Key and no `NOT NULL` columns. Primary Key info is stored as a comment on the table.
 
          **Note**: Incorrectly altering or removing a table's Primary Key comment will result in issues with replication.
@@ -57,7 +57,7 @@
   rejectable: false
   # if: uses default
   then:
-    v1: |
+    v2: |
       If using Key-based Incremental or Log-based Incremental Replication, data will be added to the table in an Append-Only fashion.
 
       If using Full Table Replication, the table will be overwritten in its entirety during each job.
@@ -68,4 +68,4 @@
   rejectable: false
   # if: uses default
   then:
-    v1: "Data will continue to be loaded into the table in an Append-Only fashion."
+    v2: "Data will continue to be loaded into the table in an Append-Only fashion."

@@ -18,7 +18,7 @@
     v1: &table-name-limit |
       {{ destination.display_name }} will reject all data for the table.
   error:
-    v1: &table-name-limit-error "{{ site.data.errors.loading.common.table-name-limit | flatify }}"
+    v1: &table-name-limit-error "{{ site.data.destinations.common.loading-errors.table-name-limit | flatify }}"
   fix-it:
     v1: &table-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.table-name-limit.fix-it | flatify }}"
 
@@ -30,7 +30,7 @@
   then:
     v1: &column-name-limit "{{ site.data.dataloading.scenarios.object-names.column-name-limit.then | flatify }}"
   error:
-    v1: &column-name-limit-error "{{ site.data.errors.loading.common.column-name-limit | flatify }}"
+    v1: &column-name-limit-error "{{ site.data.destinations.common.loading-errors.column-name-limit | flatify }}"
   fix-it:
     v1: &column-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.column-name-limit.fix-it | flatify }}"
 
@@ -42,7 +42,7 @@
   then:
     v1: &duplicate-field-names "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.then | flatify }}"
   error:
-    v1: &duplicate-field-names-error "{{ site.data.errors.loading.common.field-name-collision | flatify }}"
+    v1: &duplicate-field-names-error "{{ site.data.destinations.common.loading-errors.field-name-collision | flatify }}"
   fix-it:
     v1: &duplicate-field-names-fix-it "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.fix-it | flatify }}"
 

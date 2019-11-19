@@ -13,7 +13,7 @@ key: "postgresql-loading-reference"
 display_name: "PostgreSQL"
 type: "postgres"
 
-this-version: "1.0"
+this-version: "1"
 
 intro: |
   {{ page.summary }}
@@ -24,7 +24,7 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.reference.postgres %}
+  {% assign destination-reference = site.data.destinations.postgres %}
 
 ## The data & copy for PostgreSQL scenarios live here: _data/dataloading/postgres
 ## The error messages for PostgreSQL live here: _data/errors/loading/postgres.yml

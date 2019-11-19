@@ -38,14 +38,12 @@
       Nested data will be maintained.
 
       If the data contains nested arrays, {{ destination.display_name }} will reject the data.
-    v2: "TODO"
+    v2: |
+      Nested records and objects are maintained. Refer to the [Nested data structures in {{ destination.display_name }} guide]({{ link.destinations.storage.bigquery-nested-structures | prepend: site.baseurl }}) for more info and examples.
   error:
     v1: &nested-data-structures-error "JSON table encountered too many errors, giving up. Rows: 1; errors: 1. JSON parsing error in row starting at position 0: . Nested arrays not allowed."
-    v2: |
-      todo
   fix-it: 
     v1: "If possible, remove the offending record from the source."
-    v2: todo
 
 
 # -------------------------- #
@@ -82,7 +80,7 @@
   data-type: "date-timestamp"
   # if: uses default
   then:
-    v1: &date-with-timezone "TODO: {{ destination.display_name }} has no support for timezones."
+    v1: &date-with-timezone "{{ destination.display_name }} has no support for timezones."
     v2: *date-with-timezone
 
 
@@ -95,7 +93,7 @@
     v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
     v2: *timestamps-out-of-range
   error:
-    v1: &timestamps-out-of-range-error "{{ site.data.errors.loading.bigquery.timestamp-out-of-range | flatify }}"
+    v1: &timestamps-out-of-range-error "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range | flatify }}"
     v2: *timestamps-out-of-range-error
   fix-it: 
     v1: &timestamps-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify }}"
@@ -107,13 +105,13 @@
 # -------------------------- #
 
 ## Column contains decimal data
-- id: integer-storage
-  rejectable: false
-  data-type: "integer"
-  # if: uses default
-  then:
-    v1: "TODO"
-    v2: "TODO"
+# - id: integer-storage
+#   rejectable: false
+#   data-type: "integer"
+#   # if: uses default
+#   then:
+#     v1: "TODO"
+#     v2: "TODO"
 
 
 ## Column contains integer data out of range
@@ -125,7 +123,7 @@
     v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
     v2: *integer-out-of-range
   error:
-    v1: &integer-out-of-range-error "{{ site.data.errors.loading.bigquery.integer-out-of-range | flatify }}"
+    v1: &integer-out-of-range-error "{{ site.data.destinations.common.loading-errors.integer-out-of-range | flatify }}"
     v2: *integer-out-of-range-error
   fix-it:
     v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
@@ -153,7 +151,7 @@
       {{ destination.display_name }} will reject the records that fall outside the supported maximum range for the [`NUMERIC` data type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type){:target="new"}.
     v2: *decimals-out-of-range
   error:
-    v1: &decimals-out-of-range-error "{{ site.data.errors.loading.bigquery.numeric-out-of-range | flatify }}"
+    v1: &decimals-out-of-range-error "{{ site.data.destinations.common.loading-errors.decimal-out-of-range | flatify }}"
     v2: *decimals-out-of-range-error
   fix-it: 
     v1: &decimals-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"

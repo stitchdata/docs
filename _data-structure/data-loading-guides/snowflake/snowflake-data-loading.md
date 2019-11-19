@@ -14,7 +14,7 @@ key: "snowflake-loading-reference"
 display_name: "Snowflake"
 type: "snowflake"
 
-this-version: "1.0"
+this-version: "1"
 
 intro: |
   {{ page.summary }}
@@ -25,7 +25,7 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.reference.snowflake %}
+  {% assign destination-reference = site.data.destinations.snowflake %}
 
 ## The data & copy for Snowflake scenarios live here: _data/dataloading/snowflake
 ## The error messages for Snowflake live here: _data/errors/loading/snowflake.yml

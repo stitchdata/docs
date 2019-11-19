@@ -10,6 +10,8 @@ table-name-limit: &table-name-limit "Table name [TABLE] is too long for {{ desti
 
 column-name-limit: &column-name-limit "Column name [COLUMN] is too long for {{ destination.display_name }}"
 
+too-many-columns: &too-many-columns "ERROR: too many columns"
+
 field-name-collision: &field-name-collision "Field collision on [COLUMN_NAME]"
 
 schema-table-permission-denied: &schema-table-permission-denied "ERROR: permission denied for relation [SCHEMA/TABLE]"

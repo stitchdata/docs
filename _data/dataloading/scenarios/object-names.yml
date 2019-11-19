@@ -15,7 +15,7 @@ table-name-limit:
   if: "A table name contains more characters than allowed by {{ destination.display_name }}."
   then: "{{ destination.display_name }} will reject all data for the table."
   fix-it: |
-    If possible, change the table name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination-reference.object-name-limit-info.tables }}.
+    If possible, change the table name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination-reference.destination-details.table-name-length }}.
 
 ## Column names contain MiXeDCaSe
 mixed-case-column-name:
@@ -65,4 +65,4 @@ column-name-limit:
   if: "A column name contains more characters than allowed by {{ destination.display_name }}."
   then: "{{ destination.display_name }} will reject columns with names that exceed the column character limit. Other columns in the table will persist to {{ destination.display_name }}."
   fix-it: |
-    If possible, change the column name in the source to be less than {{ destination.display_name }}'s character limit of {{ site.data.destinations.reference[destination.type]object-name-limit-info.columns }} characters.
+    If possible, change the column name in the source to be less than {{ destination.display_name }}'s character limit of {{ destination-reference.destination-details.column-name-length }}.

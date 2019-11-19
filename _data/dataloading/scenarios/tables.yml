@@ -54,11 +54,6 @@ all-empty-columns:
     - **During the initial job**, the table will be created with only Stitch's `_sdc` columns.
     - **During subsequent job**, only columns that are populated in at least one record will be created in {{ destination.display_name }}.
 
-some-empty-columns:
-  heading: ""
-  if: ""
-  then: "TODO"
-
 ## Backfill columns in an Incremental Table
 backfill-incremental-table:
   heading: "I backfill values in a table using Incremental Replication?"

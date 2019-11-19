@@ -25,8 +25,6 @@
       2. Store data for the first-detected data type in the re-named column. In this example, all `BOOLEAN` data will be stored in `order_confirmed__bl`.
 
       3. Create additional columns to store other data types, one for each data type detected. Suffixes indicating the data type will be appended to the column names. In this example, `STRING` data will be stored in `order_confirmed__st`.
-
-      Refer to [TODO]() for more info and examples.
   
 
 ## Table contains nested data
@@ -51,11 +49,8 @@
   data-type: "string"
   # if: uses default
   then:
-  # Data in postgres-varchar-storage is pulled from _data/destinations/reference/postgres.yml
     v1: &varchar-storage |
-      {% assign postgres-varchar-storage = destination-reference.attributes | where:"id","strings-max-width" | first %}
-
-      {{ postgres-varchar-storage.description | flatify }}
+      Stitch will store all `VARCHAR/TEXT` data as `TEXT`.
 
 
 ## VARCHAR Widening
@@ -90,7 +85,7 @@
   then:
     v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
   error:
-    v1: &timestamps-out-of-range-error "{{ site.data.errors.loading.common.timestamp-out-of-range | flatify }}"
+    v1: &timestamps-out-of-range-error "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range | flatify }}"
   fix-it: 
     v1: &timestamps-out-of-range-fix-it |
       {{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify | replace:"Up","up" }}
@@ -118,7 +113,7 @@
   then:
     v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
   error:
-    v1: &integer-out-of-range-error "{{ site.data.errors.loading.common.integer-out-of-range | flatify }}"
+    v1: &integer-out-of-range-error "{{ site.data.destinations.common.loading-errors.integer-out-of-range | flatify }}"
   fix-it:
     v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
 
@@ -141,6 +136,6 @@
   then:
     v1: &decimals-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
   error:
-    v1: &decimals-out-of-range-error "{{ site.data.errors.loading.common.decimal-out-of-range | flatify }}"
+    v1: &decimals-out-of-range-error "{{ site.data.destinations.common.loading-errors.decimal-out-of-range | flatify }}"
   fix-it: 
     v1: &decimals-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"

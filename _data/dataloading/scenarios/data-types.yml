@@ -100,7 +100,7 @@ timestamps-out-of-range:
   anchor: "timestamps-out-of-range"
   if: "A column contains timestamp data that is outside {{ destination.display_name }}'s supported range."
   then: "{{ destination.display_name }} will reject the records that fall outside the supported range."
-  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s timestamp range of {{ destination-reference.data-limit-info.date-and-time.timestamp-range }}."
+  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s timestamp range."
 
 # -------------------------- #
 #    DATA TYPES > Numeric    #
@@ -118,7 +118,7 @@ integer-out-of-range:
   anchor: "integer-out-of-range"
   if: "A column contains integer data that is outside {{ destination.display_name }}'s supported range."
   then: "{{ destination.display_name }} will reject the records that fall outside the supported range."
-  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination-reference.data-limit-info.integer-range }}."
+  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for integers."
 
 ## Column contains decimal data
 decimal-storage:
@@ -132,4 +132,4 @@ decimals-out-of-range:
   anchor: "decimals-out-of-range"
   if: "A column contains decimal data that is outside {{ destination.display_name }}'s supported range."
   then: "{{ destination.display_name }} will reject the records that fall outside the supported range."
-  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit of {{ destination-reference.data-limit-info.decimal.precision }}."
+  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimals."

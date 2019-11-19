@@ -38,7 +38,7 @@
 
       - **Append-Only**: Existing records will not be updated with the new column's values. Instead, records with new column values will be appended to the end of the table.
 
-      Refer to [TODO]({{ link.replication.syncing-new-columns | prepend: site.baseurl | append: "#syncing-additional-columns-on-already-syncing-tables" }}) for more info and examples.
+      Refer to the [Understanding loading guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
 
 ## Add column to Stitch-replicated table in warehouse

@@ -17,9 +17,11 @@
   then:
     v1: &primary-keys-v1 "Table is created. This version of the {{ destination.display_name }} destination doesn't use Primary Keys."
     v2: &primary-keys |
-      Table is created with an `{{ system-column.primary-key }}` column as the Primary Key. **[CONFIRM]**: Data for the table will be loaded in an Append-Only manner, regardless of the loading behavior selected for the destination.
+      Table is created with an `{{ system-column.primary-key }}` column as the Primary Key. Data for the table will be loaded in an Append-Only manner, regardless of the loading behavior selected for the destination.
 
       The Primary Key information for the table is stored in the `{{ stitch.system-tables.sdc-primary-keys.name }}` table in the integration's schema.
+
+      Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
 
 ## Data arrives with single Primary Key:
@@ -56,7 +58,7 @@
       If Primary Key columns are changed, Stitch will stop processing data for the table.
   error:
     # v1: none
-    v2: &pk-change-error "{{ site.data.errors.loading.bigquery.primary-key-change }}"
+    v2: &pk-change-error "{{ site.data.destinations.bigquery.loading-errors.primary-key-change }}"
   fix-it: 
     # v1: none
     v2: &reinstate-pks |

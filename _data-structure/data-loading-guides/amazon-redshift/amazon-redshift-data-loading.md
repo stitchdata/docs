@@ -13,7 +13,7 @@ key: "redshift-loading-reference"
 display_name: "Amazon Redshift"
 type: "redshift"
 
-this-version: "2.0"
+this-version: "2"
 
 intro: |
   {{ page.summary }}
@@ -24,7 +24,7 @@ intro: |
   - [{{ section.summary | flatify | remove: "Scenarios involving " | remove: "." | | capitalize | strip }}](#{{ section.anchor }})
   {% endfor %}
   
-  {% assign destination-reference = site.data.destinations.reference.redshift %}
+  {% assign destination-reference = site.data.destinations.redshift %}
 
 ## The data & copy for Amazon Redshift scenarios live here: _data/dataloading/redshift
 ## The error messages for Amazon Redshift live here: _data/errors/loading/redshift.yml

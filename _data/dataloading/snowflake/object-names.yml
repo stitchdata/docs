@@ -19,7 +19,7 @@
       {{ destination.display_name }} will reject all data for the table.
     v2: *table-name-limit
   error:
-    v1: &table-name-limit-error "{{ site.data.errors.loading.snowflake.table-name-limit | flatify }}"
+    v1: &table-name-limit-error "{{ site.data.destinations.common.loading-errors.table-name-limit | flatify }}"
     v2: *table-name-limit-error
   fix-it:
     v1: &table-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.table-name-limit.fix-it | flatify }}"
@@ -34,7 +34,7 @@
     v1: &column-name-limit "{{ site.data.dataloading.scenarios.object-names.column-name-limit.then | flatify }}"
     v2: *column-name-limit
   error:
-    v1: &column-name-limit-error "{{ site.data.errors.loading.snowflake.column-name-limit | flatify }}"
+    v1: &column-name-limit-error "{{ site.data.destinations.common.loading-errors.column-name-limit | flatify }}"
     v2: *column-name-limit-error
   fix-it:
     v1: &column-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.column-name-limit.fix-it | flatify }}"
@@ -49,7 +49,7 @@
     v1: &duplicate-field-names "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.then | flatify }}"
     v2: *duplicate-field-names
   error:
-    v1: &duplicate-field-names-error "{{ site.data.errors.loading.snowflake.field-name-collision | flatify }}"
+    v1: &duplicate-field-names-error "{{ site.data.destinations.common.loading-errors.field-name-collision | flatify }}"
     v2: *duplicate-field-names-error
   fix-it:
     v1: &duplicate-field-names-fix-it "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.fix-it | flatify }}"

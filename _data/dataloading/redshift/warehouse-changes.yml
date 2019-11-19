@@ -14,7 +14,7 @@
   rejectable: false
   # if: uses default
   then:
-    v1: &apply-indices "{{ site.data.dataloading.scenarios.warehouse-changes.apply-indices.then | flatify }}"
+    v2: &apply-indices "{{ site.data.dataloading.scenarios.warehouse-changes.apply-indices.then | flatify }}"
 
 
 ## Customer applies SORT / DIST Keys to Stitch-generated columns
@@ -22,8 +22,7 @@
   rejectable: false
   # if: uses default
   then:
-    v1: &sort-dist-keys "{{ site.data.dataloading.scenarios.warehouse-changes.sort-dist-keys.then | flatify }}"
-
+    v2: "Stitch will respect the application when loading data."
 
 
 ## Customer switches to a new destination of the same type
@@ -31,4 +30,4 @@
   rejectable: false
   # if: uses default
   then:
-    v1: &switch-destination-same-type "{{ site.data.dataloading.scenarios.warehouse-changes.switch-destination-same-type.then | flatify }}"
+    v2: &switch-destination-same-type "{{ site.data.dataloading.scenarios.warehouse-changes.switch-destination-same-type.then | flatify }}"

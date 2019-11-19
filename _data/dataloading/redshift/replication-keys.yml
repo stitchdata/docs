@@ -14,5 +14,5 @@
   rejectable: false
   # if: uses default
   then:
-    v1: &rep-keys "{{ site.data.dataloading.scenarios.replication-keys.null-rep-keys.then | flatify }}"
+    v2: &rep-keys "{{ site.data.dataloading.scenarios.replication-keys.null-rep-keys.then | flatify }}"
     v2: *rep-keys
