@@ -18,6 +18,7 @@ permalink: /destinations/microsoft-azure-sql-data-warehouse
 keywords: azure, azure sql data warehouse
 summary: "Documentation for Stitch's Microsoft Azure SQL Data Warehouse destination."
 
+destination: true
 content-type: "destination-category"
 key: "microsoft-azure-category"
 
@@ -33,6 +34,7 @@ layout: general
 display_name: "Microsoft Azure SQL Data Warehouse"
 type: "microsoft-azure"
 
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #

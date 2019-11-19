@@ -8,7 +8,6 @@ permalink: /destinations/snowflake/reference
 keywords: snowflake, snowflake destination, snowflake data warehouse, snowflake etl, etl to snowflake
 summary: "Reference documentation for Stitch's Snowflake destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "snowflake-reference"
 

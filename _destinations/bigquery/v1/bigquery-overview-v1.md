@@ -8,7 +8,6 @@ permalink: /destinations/google-bigquery/v1/reference/
 keywords: bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Reference documentation for version 1 of Stitch's Google BigQuery destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "bigquery-reference"
 

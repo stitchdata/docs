@@ -18,6 +18,7 @@ permalink: /destinations/data-world
 keywords: data.world, data world, data.world destination
 summary: "Documentation for Stitch's data.world destination."
 
+destination: true
 content-type: "destination-category"
 key: "data-world-category"
 
@@ -33,6 +34,7 @@ layout: general
 display_name: "data.world"
 type: "data-world"
 
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #

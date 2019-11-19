@@ -7,7 +7,6 @@ permalink: /destinations/panoply/reference
 keywords: panoply, panoply.io, panoply data warehouse, panoply etl, etl to panoply
 summary: "Reference documentation for Stitch's Panoply.io destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "panoply-reference"
 

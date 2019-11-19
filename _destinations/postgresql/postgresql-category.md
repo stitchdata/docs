@@ -18,6 +18,7 @@ permalink: /destinations/postgresql
 keywords: postgresql, postgres, heroku-postgres destination, amazon rds postgresql destination
 summary: "Documentation for Stitch's PostgreSQL destination."
 
+destination: true
 content-type: "destination-category"
 key: "postgresql-category"
 
@@ -33,6 +34,7 @@ layout: general
 display_name: "PostgreSQL"
 type: "postgres"
 
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #

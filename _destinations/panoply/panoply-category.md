@@ -15,9 +15,10 @@
 title: Panoply Destination Documentation
 permalink: /destinations/panoply
 
-keywords: 
-summary: "TODO"
+keywords: panoply, destination, panoply.io
+summary: "Documentation for Stitch's Panoply destination."
 
+destination: true
 content-type: "destination-category"
 key: "panoply-category"
 
@@ -32,6 +33,8 @@ layout: general
 
 display_name: "Panoply"
 type: "panoply"
+
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #

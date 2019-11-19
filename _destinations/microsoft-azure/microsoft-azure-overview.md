@@ -7,7 +7,6 @@ permalink: /destinations/microsoft-azure-sql-data-warehouse/reference
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: "Reference documentation for Stitch's Microsoft Azure SQL Data Warehouse destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "microsoft-azure-reference"
 
@@ -217,8 +216,6 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          [TODO]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#timezones" }})
-
           {{ destination.display_name }} will store the value in UTC with the specified offset.
 
   - title: "Compare destinations"

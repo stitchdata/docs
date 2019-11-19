@@ -36,7 +36,7 @@ layout: general
 display_name: "Amazon Redshift"
 type: "redshift"
 
-# this-version: "2"
+this-version: "2"
 
 
 # -------------------------- #

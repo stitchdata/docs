@@ -2,13 +2,14 @@
 title: Google BigQuery (v1) Data Loading Reference
 permalink: /replication/reference/google-bigquery/v1/
 
-layout: general
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery
 summary: "Learn how Stitch will load data from your integrations into version 2 of Stitch's Google BigQuery destination."
 
+layout: general
+content-type: "loading-reference"
 key: "bigquery-loading-reference"
 
-display_name: "BigQuery"
+display_name: "Google BigQuery"
 type: "bigquery"
 
 this-version: "1"

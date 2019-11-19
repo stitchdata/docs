@@ -18,6 +18,7 @@ permalink: /destinations/snowflake
 keywords: snowflake, snowflake destination
 summary: "Documentation for Stitch's Snowflake destination."
 
+destination: true
 content-type: "destination-category"
 key: "snowflake-category"
 
@@ -32,6 +33,8 @@ layout: general
 
 display_name: "Snowflake"
 type: "snowflake"
+
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #

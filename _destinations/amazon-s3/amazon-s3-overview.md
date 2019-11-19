@@ -4,11 +4,10 @@
 # -------------------------- #
 
 title: Amazon S3 Destination Reference
-permalink: /destinations/amazon-s3/v1/reference
+permalink: /destinations/amazon-s3/reference
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3
 summary: "Reference documentation for Stitch's Amazon S3 destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "amazon-s3-reference"
 

@@ -18,6 +18,7 @@ summary: "Documentation for version 2 of Stitch's Google BigQuery destination."
 
 permalink:  /destinations/google-bigquery/v2
 
+destination: true
 content-type: "destination-category"
 key: "bigquery-version-category"
 

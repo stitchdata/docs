@@ -7,7 +7,6 @@ permalink: /destinations/data-world/reference
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
 summary: "Reference documentation for Stitch's data.world destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "data-world-reference"
 

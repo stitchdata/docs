@@ -7,7 +7,6 @@ permalink: /destinations/postgresql/reference
 keywords: postgres, postgresql, postgres data warehouse, postgres etl, etl to postgres, postgresql data warehouse, etl to postgresql
 summary: "Reference documentation for Stitch's PostgreSQL destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "postgresql-reference"
 

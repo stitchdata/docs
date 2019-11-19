@@ -18,6 +18,7 @@ permalink:  /destinations/amazon-s3
 keywords: 
 summary: "Documentation for Stitch's Amazon S3 destination."
 
+destination: true
 content-type: "destination-category"
 key: "amazon-s3-category"
 
@@ -33,6 +34,7 @@ layout: general
 display_name: "Amazon S3"
 type: "amazon-s3"
 
+this-version: "1"
 
 # -------------------------- #
 #          Sections          #
