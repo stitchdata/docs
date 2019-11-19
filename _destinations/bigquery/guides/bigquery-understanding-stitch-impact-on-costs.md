@@ -138,8 +138,6 @@ sections:
 
           {{ page.version-table | replace: "LEVEL","subsection" | flatify }}
 
-          [todo- something about staging tables?]
-
       - title: "Query pricing"
         anchor: "bigquery-query-pricing"
         summary: "based on the amount of data processed by each executed query"

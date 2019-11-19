@@ -130,11 +130,11 @@ steps:
       - title: "Select a Google Storage Location"
         anchor: "select-gcp-storage-location"
         content: |
-          Next, you'll select the region used by your Google Cloud Storage (GCS) [todo]. This setting determines the region of the internal [Google Storage Bucket](https://cloud.google.com/storage/docs/key-terms#buckets){:target="new"} Stitch uses during the replication process.
+          Next, you'll select the region used by your Google Cloud Storage (GCS) instance. This setting determines the region of the internal [Google Storage Bucket](https://cloud.google.com/storage/docs/key-terms#buckets){:target="new"} Stitch uses during the replication process.
 
           Using the **Google Cloud Storage Location** dropdown, select your GCS region. Refer to the [{{ destination.display_name }} v2 reference]({{ link.destinations.overviews.bigquery-v2 | prepend: site.baseurl | append: "#supported-gcs-regions" }}) for the list of regions this version of the {{ destination.display_name }} destination supports.
 
-          **Note**: Changing this setting will result in replication issues if data migration isn't completed correctly. Refer to [todo]() for more info.
+          **Note**: Changing this setting will result in replication issues if data migration isn't completed correctly.
 
       - title: "Define loading behavior"
         anchor: "define-loading-behavior"
@@ -151,7 +151,7 @@ steps:
 
           - **Append**: Existing rows aren't updated. Newer versions of existing records are added as new rows to the end of tables. With this option, many versions of the record will exist in {{ destination.display_name }}, capturing how a record changed over time.
 
-          [todo - add sentence about costs?] Refer to [[todo]]() for more info and examples.
+          **Note**: This setting may impact your {{ destination.display_name }} costs. [Learn more]({{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}).
 
       - title: "Save the destination"
         anchor: "save-destination"

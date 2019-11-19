@@ -203,8 +203,6 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          [TODO]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#timezones" }})
-
           {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
 
   - title: "Compare destinations"

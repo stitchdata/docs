@@ -180,8 +180,6 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          [TODO]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#timezones" }})
-
           {{ destination.display_name }} will store the value in UTC as `TIMESTAMP`.
 
           More info about timestamp data types can be found in [BigQuery's documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type){:target="new"}.

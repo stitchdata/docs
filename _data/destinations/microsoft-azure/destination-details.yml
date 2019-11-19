@@ -56,7 +56,6 @@ column-name-length: "128 characters"
 # -------------------------- #
 
 column-name-rules: |
-  TODO:
   - Must be less than the maximum length of {{ site.data.destinations.microsoft-azure.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
   - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#microsoft-azure-reserved-keywords" }})
 

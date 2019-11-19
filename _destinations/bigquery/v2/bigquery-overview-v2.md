@@ -119,7 +119,7 @@ sections:
       - title: "Replication process overview"
         anchor: "replication-process"
         content: |
-          ![todo]({{ site.baseurl }}/images/destinations/bigquery-replication-process.png)
+          ![Overview of the replication process for BigQuery v2 destinations]({{ site.baseurl }}/images/destinations/bigquery-replication-process.png)
 
         sub-subsections:
           - title: "Step 1: Data extraction"
@@ -225,8 +225,6 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          [TODO]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#timezones" }})
-
           {{ destination.display_name }} will store the value in UTC as `TIMESTAMP`.
 
           More info about timestamp data types can be found in [BigQuery's documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type){:target="new"}.
