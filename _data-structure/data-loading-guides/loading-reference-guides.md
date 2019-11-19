@@ -4,7 +4,7 @@ permalink: /replication/loading/reference
 redirect_from: /data-structure/loading-stitch-data-into-destinations
 
 layout: general
-toc: true
+toc: false
 feedback: false
 
 keywords: loading behavior, loading, how data is loaded, data structure
