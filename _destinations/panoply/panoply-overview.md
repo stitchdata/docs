@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 title: Panoply.io Destination Reference
-permalink: /destinations/panoply/v2/reference
+permalink: /destinations/panoply/reference
 keywords: panoply, panoply.io, panoply data warehouse, panoply etl, etl to panoply
 summary: "Reference documentation for Stitch's Panoply.io destination, including info about Stitch features, replication, and transformations."
 
@@ -28,10 +28,11 @@ related:
     link: "{{ link.destinations.setup.panoply-ex | prepend: site.baseurl }}"
 
   - title: "Loading nested structures in {{ page.display_name }}"
-    link: "{{ link.destinations.storage.bigquery-nested-structures | prepend: site.baseurl }}"
+    link: "{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}"
 
-  - title: "TODO: All {{ page.display_name }} docs"
-    link: ""
+  - title: "All {{ page.display_name }} docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

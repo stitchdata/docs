@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Snowflake Destination Reference
-permalink: /destinations/snowflake/v1/reference
+permalink: /destinations/snowflake/reference
 keywords: snowflake, snowflake destination, snowflake data warehouse, snowflake etl, etl to snowflake
 summary: "Reference documentation for Stitch's Snowflake destination, including info about Stitch features, replication, and transformations."
 
@@ -28,8 +28,9 @@ related:
   - title: "Loading nested structures in {{ page.display_name }}"
     link: ""
 
-  - title: "TODO: All {{ page.display_name }} docs"
-    link: ""
+  - title: "All {{ page.display_name }} docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

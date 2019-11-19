@@ -28,7 +28,8 @@ related:
     link: "{{ link.destinations.setup.amazon-s3 | prepend: site.baseurl }}"
 
   - title: "All {{ page.display_name }} docs"
-    link: "{{ site.baseurl }}/destinations/amazon-s3"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

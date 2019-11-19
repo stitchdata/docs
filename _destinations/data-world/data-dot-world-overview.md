@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 title: data.world Destination
-permalink: /destinations/data-world/v1/reference
+permalink: /destinations/data-world/reference
 keywords: amazon-s3, amazon-s3, amazon-s3 data warehouse, amazon-s3 etl, etl to amazon-s3, data.world, data.world etl, data.world data warehouse, etl to data.world
 summary: "Reference documentation for Stitch's data.world destination, including info about Stitch features, replication, and transformations."
 
@@ -28,6 +28,10 @@ related:
 
   - title: "Official {{ page.display_name }} documentation"
     link: "{{ site.data.destinations.data-world.resource-links.documentation }}"
+
+  - title: "All {{ page.display_name }} docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

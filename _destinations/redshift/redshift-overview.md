@@ -4,7 +4,7 @@
 # -------------------------- #
 
 title: Amazon Redshift Destination
-permalink: /destinations/amazon-redshift/v2/reference
+permalink: /destinations/amazon-redshift/reference
 keywords: redshift, amazon redshift, redshift data warehouse, redshift etl, etl to redshift
 summary: "Reference documentation for Stitch's Amazon Redshift destination, including info about Stitch features, replication, and transformations."
 
@@ -28,8 +28,9 @@ related:
   - title: "Loading nested structures in {{ page.display_name }}"
     link: "{{ link.destinations.storage.bigquery-nested-structures | prepend: site.baseurl }}"
 
-  - title: "TODO: All {{ page.display_name }} docs"
-    link: ""
+  - title: "All {{ page.display_name }} docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

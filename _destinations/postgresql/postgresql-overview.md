@@ -2,8 +2,8 @@
 # -------------------------- #
 #        Page Controls       #
 # -------------------------- #
-title: PostgreSQL Destination
-permalink: /destinations/postgresql/v1/reference
+title: PostgreSQL Destination Reference
+permalink: /destinations/postgresql/reference
 keywords: postgres, postgresql, postgres data warehouse, postgres etl, etl to postgres, postgresql data warehouse, etl to postgresql
 summary: "Reference documentation for Stitch's PostgreSQL destination, including info about Stitch features, replication, and transformations."
 
@@ -14,6 +14,16 @@ key: "postgresql-reference"
 layout: general
 sidebar: on-page
 toc: false
+
+
+# -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+related:
+  - title: "All {{ page.display_name }} docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

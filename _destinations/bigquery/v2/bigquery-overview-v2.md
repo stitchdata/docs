@@ -22,7 +22,7 @@ toc: false
 
 related:
   - title: "Connect a {{ page.display_name }} v2 destination"
-    link: "{{ link.destinations.setup.bigquery | prepend: site.baseurl }}"
+    link: "{{ link.destinations.setup.bigquery-v2 | prepend: site.baseurl }}"
 
   - title: "Understanding loading behavior"
     link: "{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}"
@@ -33,8 +33,9 @@ related:
   - title: "Stitch impact on {{ page.display_name }} costs"
     link: "{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}"
 
-  - title: "TODO: All {{ page.display_name }} docs"
-    link: ""
+  - title: "All {{ page.display_name }} v2 docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

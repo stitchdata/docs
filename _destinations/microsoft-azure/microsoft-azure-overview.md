@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 title: Microsoft Azure SQL Data Warehouse Destination Reference
-permalink: /destinations/microsoft-azure-sql-data-warehouse/v1/reference
+permalink: /destinations/microsoft-azure-sql-data-warehouse/reference
 keywords: microsoft azure, microsoft azure, microsoft azure data warehouse, microsoft azure etl, etl to microsoft azure
 summary: "Reference documentation for Stitch's Microsoft Azure SQL Data Warehouse destination, including info about Stitch features, replication, and transformations."
 
@@ -30,7 +30,8 @@ related:
     link: "{{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}"
 
   - title: "All {{ page.display_name }} docs"
-    link: "{{ site.baseurl }}/destinations/microsoft-azure-sql-data-warehouse"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #

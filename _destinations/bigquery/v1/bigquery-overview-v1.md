@@ -33,8 +33,9 @@ related:
   - title: "Stitch impact on {{ page.display_name }} costs"
     link: "{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}"
 
-  - title: "TODO: All {{ page.display_name }}"
-    link: ""
+  - title: "All {{ page.display_name }} v1 docs"
+    link: |
+      {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
 
 
 # -------------------------- #
