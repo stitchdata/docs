@@ -6,12 +6,12 @@ layout: general
 toc: true
 feedback: false
 
-keywords: TODO
-summary: "todo"
+keywords: google bigquery, bigquery, destination, nested data structures, repeated records, arrays
+summary: "Understand how Stitch loads nested data structures in version 2 of the Google BigQuery destination."
 
 key: "bigquery-nested-data"
 
-this-version: "2.0"
+this-version: "2"
 
 intro: |
   {% include misc/data-files.html %}
@@ -496,8 +496,6 @@ sections:
           And the data in the table would be similar to the following:
 
           {{ page.data-display-table | flatify }}
-
-          [TODO- ADD LINK TO DATA TYPING/COLUMN SPLIT DOCS]
 
       - title: "Array of nested arrays"
         anchor: "array--nested-arrays"

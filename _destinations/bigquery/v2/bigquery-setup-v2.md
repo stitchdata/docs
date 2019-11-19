@@ -16,7 +16,7 @@ title: Connecting a Google BigQuery (v2) Destination to Stitch
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 summary: "Connect a Google BigQuery database to your Stitch account as a destination."
 
-permalink:  /destinations/google-bigquery/connecting-google-bigquery-to-stitch
+permalink:  /destinations/google-bigquery/v2/connecting-google-bigquery-to-stitch
 redirect_from: /destinations/bigquery/connecting-google-bigquery-to-stitch
 
 content-type: "destination-setup"

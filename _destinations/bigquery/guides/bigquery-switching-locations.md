@@ -3,14 +3,17 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Change the Location of a Google BigQuery Destination
-permalink: /destinations/google-bigquery/changing-google-bigquery-destination-data-locations
-redirect_from: /destinations/bigquery/changing-google-bigquery-destination-data-locations
+title: Changing the Location of a Google BigQuery (v1) Destination
+permalink: /destinations/google-bigquery/v1/changing-data-locations
+redirect_from: 
+  - /destinations/bigquery/changing-google-bigquery-destination-data-locations
+  - /destinations/google-bigquery/changing-google-bigquery-destination-data-locations
 
 keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, bigquery etl, etl to bigquery, bigquery destination
 
 summary: "Change the location of your Google BigQuery destination."
 
+key: "switch-bigquery-location"
 content-type: "destination-setup"
 order: 2
 
@@ -27,7 +30,7 @@ type: "bigquery"
 # -------------------------- #
 
 intro: |
-  {% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery | prepend: site.baseurl }}).
+  {% capture only-for-existing-destinations %}This guide is only for changing **existing** {{ destination.display_name }} v1 destinations, or those already connected to Stitch. To connect a new {{ destination.display_name }} destination, [refer to these instructions]({{ link.destinations.setup.bigquery-v1 | prepend: site.baseurl }}).
   {% endcapture %}
 
   {% include important.html type="single-line" content=only-for-existing-destinations %}

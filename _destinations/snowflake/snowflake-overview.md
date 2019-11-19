@@ -25,9 +25,6 @@ related:
   - title: "Connect a {{ page.display_name }} destination"
     link: "{{ link.destinations.setup.snowflake | prepend: site.baseurl }}"
 
-  - title: "Loading nested structures in {{ page.display_name }}"
-    link: ""
-
   - title: "All {{ page.display_name }} docs"
     link: |
       {{ page.permalink | prepend: site.baseurl | remove: "/reference" }}
@@ -204,8 +201,6 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          [TODO]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#timezones" }})
-
           {{ destination.display_name }} will store the value as `TIMESTAMP_TZ(9)` and express it as UTC.
 
   - title: "Compare destinations"

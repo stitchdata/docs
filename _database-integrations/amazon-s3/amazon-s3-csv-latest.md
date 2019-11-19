@@ -62,6 +62,9 @@ table-selection: true
 column-selection: true
 table-level-reset: false
 
+append-only-tables: true
+append-only-tables-description: "Unless Primary Keys are defined for the table, Append-Only loading will be used."
+
 ## Replication methods
 
 define-replication-methods: false
