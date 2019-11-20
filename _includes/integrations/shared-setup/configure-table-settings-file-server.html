@@ -102,7 +102,7 @@ To define a specific location in the {{ include.location }}, enter the directory
 
 <!-- DEFINE TABLE NAME -->
 {% when 'define-table-name' %}
-In the **Table Name** field, enter a name for the table. Keep in mind that each destination has its own rules for how tables can be named. For example: Amazon Redshift table names can't exceed {{ site.data.destinations.reference.redshift.object-name-limit-info.tables }}.
+In the **Table Name** field, enter a name for the table. Keep in mind that each destination has its own rules for how tables can be named. For example: Amazon Redshift table names can't exceed {{ site.data.destinations.redshift.destination-details.table-name-length }}.
 
 If the table name exceeds the destination's character limit, the [destination will reject the table entirely]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}). Refer to the [documentation for your destination]({{ link.destinations.overview | prepend: site.baseurl }}) for more info about table naming rules.
 

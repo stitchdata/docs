@@ -83,7 +83,7 @@ sections:
       - title: "Amazon S3 pricing"
         anchor: "pricing"
         content: |
-          {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify }}
+          {{ site.data.destinations.amazon-s3.destination-details.pricing-details | flatify }}
 
           To learn more about pricing, refer to Amazon's S3 [pricing page]({{ site.data.destinations[destination.type]resource-links.pricing }}){:target="new"}. **Note**: Remember to select the correct region to view accurate pricing.
 

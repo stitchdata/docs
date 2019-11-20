@@ -198,4 +198,4 @@ all:
     value: *string-max-width
     important: true
     description: |
-      While there aren't any size limits on string data, the record as a whole must still be less than {{ site.data.destinations.reference.common.max-record-size }} or it will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+      While there aren't any size limits on string data, the record as a whole must still be less than {{ site.data.destinations.common.replication.max-record-size }} or it will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).

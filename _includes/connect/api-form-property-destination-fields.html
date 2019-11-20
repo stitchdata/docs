@@ -14,37 +14,44 @@
 		{% assign common-destination-attributes = null | compact %}
 	{% endif %}
 
+<!-- Get the latest version of the destination. -->
+	{% assign destination-latest-version = site.data.destinations[form-property.docs-name]versions.latest-version %}
+		{% assign version = destination-latest-version | prepend: "v" %}
 
 <!-- Get the corresponding doc for this destination
 	It'll be used to see if the destination supports certain features,
 	which will determine which fields display in its form property -->
 
 	{% assign all-destination-docs = site.destinations | where:"type",form-property.docs-name %}
-		{% assign this-destination = all-destination-docs | where:"destination",true %}
+		{% assign all-this-destination = all-destination-docs | where:"destination",true %}
+			{% assign this-destination = all-this-destination | where:"this-version",destination-latest-version | first %}
 
 		<!-- Get the destination's port and the link to its documentation -->
-			{% for destination in this-destination %}
-				{% assign port = destination.port %}
-				{% assign doc-link = destination.url | prepend: site.baseurl %}
-			{% endfor %}
+			{% assign port = site.data.destinations[form-property.docs-name]destination-details.port %}
+			{% assign doc-link = this-destination.url | prepend: site.baseurl %}
 
 
 <!-- Get support info for SSL and SSH connections,
 	using the corresponding doc for the destination -->
 
-	<!-- Create a variable that links to _data/destinations/reference/[destination-name].yml
+	<!-- Create a variable that links to the destination's stitch-details.yml file.
 			Otherwise it's a nightmare to keep typing out -->
-		{% assign destination-connection-support = site.data.destinations.reference[form-property.docs-name]stitch-details-info.connection-methods %}
+
+		{% if site.data.destinations[form-property.docs-name][version]stitch-details %}
+			{% assign destination-connection-support = site.data.destinations[form-property.docs-name][version]stitch-details %}
+		{% else %}
+			{% assign destination-connection-support = site.data.destinations[form-property.docs-name]stitch-details %}
+		{% endif %}
 
 	<!-- Check for SSL support in the API -->
-		{% if destination-connection-support.connect-ssl contains "true" %}
+		{% if destination-connection-support.connect-ssl == true %}
 			{% assign ssl-fields = connect-destination-attributes.ssl %}
 		{% else %}
 			{% assign ssl-fields = null | compact %}
 		{% endif %}
 
 	<!-- Check for SSH support -->
-		{% if destination-connection-support.ssh contains "true" %}
+		{% if destination-connection-support.ssh == true %}
 			{% assign ssh-fields = connect-destination-attributes.ssh %}
 		{% else %}
 			{% assign ssh-fields = null | compact %}
