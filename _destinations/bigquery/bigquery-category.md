@@ -54,6 +54,8 @@ sections:
       {% endfor %}
       </ul>
 
+      **Interested in migrating from v1 to v2?** [Here's how]({{ link.destinations.setup.bigquery-v1-migration | prepend: site.baseurl }}). 
+
   - title: "Version history and changelog"
     anchor: "version-history-comparison"
     content: |

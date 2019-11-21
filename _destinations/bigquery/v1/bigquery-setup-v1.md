@@ -43,6 +43,21 @@ this-version: "1"
 
 
 # -------------------------- #
+#        Introduction        #
+# -------------------------- #
+
+intro: |
+  {% capture version-notice %}
+  This guide is applicable to v1 of Stitch's {{ destination.display_name }} destination.
+
+  - To connect a new v2 destination, [use these instructions]({{ link.destinations.setup.bigquery-v2 | prepend: site.baseurl }})
+  - To migrate from v1 to v2, [use these instructions]({{ link.destinations.setup.bigquery-v1-migration | prepend: site.baseurl }})
+  {% endcapture %}
+
+  {% include note.html first-line="**New version available!**" content=version-notice %}
+
+
+# -------------------------- #
 #        Requirements        #
 # -------------------------- #
 

@@ -1,0 +1,33 @@
+<!-- This file contains the steps for switching
+	to a new destination. -->
+
+{% case include.type %}
+
+
+<!-- SELECT HISTORICAL DATA SETTING -->
+{% when 'select-historical-data-setting' %}
+{% assign page-settings = site.data.ui.change-destinations-page %}
+
+1. From the {{ app.page-names.dashboard }}, click the {{ app.menu-paths.destination-settings }}.
+2. At the bottom of the page, click the {{ app.buttons.change-destination }} button.
+3. In the **Historical Data** section, select how you want data to be replicated to the new destination:
+   {% for field in page-settings.default-historical-data %}
+   - {{ field.field }}: {{ field.copy | flatify }}
+   {% endfor %}
+4. Click **Continue**.
+
+
+<!-- DELETE CURRENT DESTINATION -->
+{% when 'delete-current-destination' %}
+After clicking **Continue**, you'll be prompted to confirm the removal of the current destination's settings.
+
+To continue with the switch, click **OK** to delete the current destination settings.
+
+**Note**: This will not delete data in the destination itself - it only clears this destination's settings from Stitch.
+
+
+<!-- UNPAUSE INTEGRATIONS -->
+{% when 'unpause-integrations' %}
+After you've successfully connected the new destination, un-pause your integrations. Your data will begin replicating according to the [historical data option](#select-historical-data-setting) you previously selected.
+
+{% endcase %}

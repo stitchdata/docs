@@ -8,7 +8,6 @@ permalink: /destinations/amazon-redshift/reference
 keywords: redshift, amazon redshift, redshift data warehouse, redshift etl, etl to redshift
 summary: "Reference documentation for Stitch's Amazon Redshift destination, including info about Stitch features, replication, and transformations."
 
-destination: true
 content-type: "destination-overview"
 key: "redshift-reference"
 
