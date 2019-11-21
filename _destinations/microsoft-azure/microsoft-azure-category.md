@@ -42,7 +42,7 @@ this-version: "1"
 
 sections:
   - title: "Getting started"
-    anchor: "getting-started"
+    anchor: "get-started"
     content: |
       {% assign all-destination-setup-guides = site.documents | where:"content-type","destination-setup" %}
       {% assign destination-setup-guides = all-destination-setup-guides | where:"type",page.type | sort:"title" %}

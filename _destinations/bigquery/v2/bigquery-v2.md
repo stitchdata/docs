@@ -43,18 +43,13 @@ this-version: "2"
 
 sections:
   - title: "Getting started"
-    anchor: "getting-started"
+    anchor: "get-started"
+    guides:
+      - key: "bigquery-setup"
+        version: "2"
+      - key: "bigquery-v1-migration"
     content: |
-      {% assign all-destination-setup-guides = site.documents | where:"content-type","destination-setup" %}
-      {% assign versioned-setup-guides = all-destination-setup-guides | where:"this-version",page.this-version %}
-      {% assign destination-setup-guides = versioned-setup-guides | where:"type",page.type | sort:"title" %}
-
-      {% for guide in destination-setup-guides %}
-      <span class="h4">
-      [{{ guide.title }}]({{ guide.url | prepend: site.baseurl }})
-      </span>
-      {{ guide.summary | markdownify }}
-      {% endfor %}
+      {% include layout/category-sections.html %}
 
   - title: "Using {{ page.display_name }}"
     anchor: "using-destination"
@@ -64,18 +59,13 @@ sections:
       - key: "bigquery-nested-data"
       - key: "append-only-querying"
     content: |
-      {% for guide in section.guides %}
-      {% assign this-guide = site.documents | where:"key",guide.key | first %}
-      <span class="h4">
-      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
-      </span>
-      {{ this-guide.summary | flatify }}
-      {% endfor %}
+      {% include layout/category-sections.html %}
 
   - title: "Reference"
     anchor: "reference-guides"
     guides:
-      - key: "dedicated-overview"
+      - key: "bigquery-reference"
+        version: "2"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
       - key: "reserved-keywords"
@@ -83,24 +73,5 @@ sections:
 #   - loading-errors
 #   - connection-errors
     content: |
-      {% for guide in section.guides %}
-      {% if guide.key == "dedicated-overview" %}
-        {% assign all-destination-overviews = site.documents | where:"content-type","destination-overview" %}
-
-          {% assign all-this-destinations-overviews = all-destination-overviews | where:"type",page.type %}
-            {% if page.this-version %}
-              {% assign this-guide = all-this-destinations-overviews | where:"this-version",page.this-version | first %}
-            {% else %}
-              {% assign this-guide = all-this-destinations-overviews | first %}
-            {% endif %}
-
-      {% else %}
-        {% assign this-guide = site.documents | where:"key",guide.key | first %}
-      {% endif %}
-
-      <span class="h4">
-      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
-      </span>
-      {{ this-guide.summary | flatify }}
-      {% endfor %}
+      {% include layout/category-sections.html %}
 ---
