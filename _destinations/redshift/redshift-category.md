@@ -20,6 +20,7 @@ redirect_from:
 keywords: amazon redshift, redshift
 summary: "Documentation for Stitch's Amazon Redshift destination."
 
+destination: true
 content-type: "destination-category"
 key: "redshift-category"
 
@@ -45,7 +46,7 @@ this-version: "2"
 
 sections:
   - title: "Getting started"
-    anchor: "getting-started"
+    anchor: "get-started"
     content: |
       {% assign all-destination-setup-guides = site.documents | where:"content-type","destination-setup" %}
       {% assign destination-setup-guides = all-destination-setup-guides | where:"type",page.type | sort:"title" %}
