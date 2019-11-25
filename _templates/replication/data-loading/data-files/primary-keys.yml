@@ -8,18 +8,14 @@
    ## NOTE: If something is commented out and marked as 'uses default',
    ## That means the copy for that thing lives in the file mentioned above.
 
-## Error data lives here: _data/errors/loading/bigquery.yml
+## Error data lives here: _data/destinations/common/loading-errors.yml
 
 ## Data arrives without a Primary Key:
 - id: no-pk
   rejectable: false
   # if: uses default
   then:
-    v1: &primary-keys-v1 "Table is created. This version of the {{ destination.display_name }} destination doesn't use Primary Keys."
-    v2: &primary-keys |
-      Table is created with an `{{ system-column.primary-key }}` column as the Primary Key. **[CONFIRM]**: Data for the table will be loaded in an Append-Only manner, regardless of the loading behavior selected for the destination.
-
-      The Primary Key information for the table is stored in the `{{ stitch.system-tables.sdc-primary-keys.name }}` table in the integration's schema.
+    v1: &primary-keys ""
 
 
 ## Data arrives with single Primary Key:
@@ -27,11 +23,7 @@
   rejectable: false
   # if: uses default
   then:
-    v1: *primary-keys-v1
-    v2: |
-      Table is created.
-
-      The Primary Key information for the table is stored in the `{{ stitch.system-tables.sdc-primary-keys.name }}` table in the integration's schema.
+    v1: *primary-keys
 
 
 ## Data arrives with MULTIPLE Primary Keys:
@@ -39,8 +31,7 @@
   rejectable: false
   # if: uses default 
   then:
-    v1: *primary-keys-v1
-    v2: *primary-keys
+    v1: *primary-keys
 
 
 ## Primary Key column is changed in the warehouse:
@@ -48,19 +39,11 @@
   rejectable: false
   # if: uses default
   then:
-    v1: "This scenario is unremarkable to this version of the {{ destination.display_name }} destination, as Primary Keys aren't used."
-
-    v2: &pk-change |
-      Changing a table's Primary Key(s) is not permitted in {{ destination.display_name }}. This includes changing the Primary Key(s) in the source, or adding a Primary Key to a table that didn't previously have one.
-
-      If Primary Key columns are changed, Stitch will stop processing data for the table.
+    v1: ""
   error:
-    # v1: none
-    v2: &pk-change-error "{{ site.data.errors.loading.bigquery.primary-key-change }}"
+    v1: ""
   fix-it: 
-    # v1: none
-    v2: &reinstate-pks |
-      Re-instate the table's Primary Key(s) to allow Stitch to continue processing data for the table.
+    v1: ""
 
 
 ## Primary Key column is removed in the warehouse:
@@ -69,13 +52,7 @@
   # if: uses default
   then:
     v1: "No effect. Data will continue to load into the table."
-    v2: |
-      Changing a table's Primary Key(s) is not permitted in {{ destination.display_name }}.
-
-      If Primary Key columns are changed, Stitch will stop processing data for the table.
   error:
-    # v1: 
-    v2: *pk-change-error
+    v1: ""
   fix-it:
-    # v1: none
-    v2: *reinstate-pks
+    v1: ""

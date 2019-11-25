@@ -17,6 +17,8 @@ permalink: /integrations/databases/amazon-oracle-rds
 summary: "Connect and replicate data from your Amazon Oracle RDS database using Stitch's Oracle integration."
 show-in-menus: true
 
+key: "amazon-oracle-rds-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

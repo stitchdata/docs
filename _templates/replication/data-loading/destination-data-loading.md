@@ -9,8 +9,9 @@ summary: "Learn how Stitch will load data from your integrations into Stitch's D
 display_name: "DESTINATION"
 type: "destination-type"
 
-this-version: "x.0"
+this-version: ""
 
+## REMOVE THE VERSION NOTICE IF NOT NEEDED.
 intro: |
   {% include note.html type="single-line" content=version-notice %}
 
@@ -25,7 +26,7 @@ intro: |
   {% assign destination-reference = site.data.destinations.destination-type[version] %}
 
 ## The data & copy for DESTINATION scenarios live here: _data/dataloading/destination-type
-## The error messages for DESTINATION live here: _data/errors/loading/destination-type.yml
+## The error messages for DESTINATION live here: _data/destination-type/loading-errors.yml
 ## The data & copy for 'default' scenarios live here: _data/dataloading/scenarios
 
 sections:

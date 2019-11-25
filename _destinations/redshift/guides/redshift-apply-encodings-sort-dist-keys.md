@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Applying Encodings, SORT, & DIST Keys in  Amazon Redshift
+title: Applying Encodings, SORT, & DIST Keys in Amazon Redshift
 
 permalink: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
 redirect_from: /destinations/redshift/apply-encodings-sort-dist-keys-redshift

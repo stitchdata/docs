@@ -7,7 +7,7 @@
 ## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
 ## NOTE: If something is commented out and marked as 'uses default',
    ## That means the copy for that thing lives in the file mentioned above.
-## Error data lives here: _data/errors/loading/bigquery.yml
+## Error data lives here: _data/destinations/common/loading-errors.yml
 
 
 ## Table name is too long
@@ -17,13 +17,10 @@
   then:
     v1: &table-name-limit |
       {{ destination.display_name }} will reject all data for the table.
-    v2: *table-name-limit
   error:
-    v1: &table-name-limit-error "{{ site.data.errors.loading.bigquery.table-name-limit | flatify }}"
-    v2: *table-name-limit-error
+    v1: &table-name-limit-error "{{ site.data.destinations.common.loading-errors.table-name-limit | flatify }}"
   fix-it:
     v1: &table-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.table-name-limit.fix-it | flatify }}"
-    v2: *table-name-limit-fix-it
 
 
 ## Column name is too long
@@ -32,13 +29,10 @@
   # # if: uses default
   then:
     v1: &column-name-limit "{{ site.data.dataloading.scenarios.object-names.column-name-limit.then | flatify }}"
-    v2: *column-name-limit
   error:
-    v1: &column-name-limit-error "{{ site.data.errors.loading.bigquery.column-name-limit | flatify }}"
-    v2: *column-name-limit-error
+    v1: &column-name-limit-error "{{ site.data.destinations.common.loading-errors.column-name-limit | flatify }}"
   fix-it:
     v1: &column-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.column-name-limit.fix-it | flatify }}"
-    v2: *column-name-limit-fix-it
 
 
 ## Duplicate field names
@@ -47,13 +41,10 @@
   # if: uses default
   then:
     v1: &duplicate-field-names "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.then | flatify }}"
-    v2: *duplicate-field-names
   error:
-    v1: &duplicate-field-names-error "{{ site.data.errors.loading.bigquery.field-name-collision | flatify }}"
-    v2: *duplicate-field-names-error
+    v1: &duplicate-field-names-error "{{ site.data.destinations.common.loading-errors.field-name-collision | flatify }}"
   fix-it:
     v1: &duplicate-field-names-fix-it "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.fix-it | flatify }}"
-    v2: *duplicate-field-names-fix-it
 
 
 ## Column names contain MiXeDCaSe
@@ -68,7 +59,6 @@
       |-------------------+--------------------------|
       | `CuStOmErId`      | `customerid`             |
       | `customerID`      | `customerid`             |
-    v2: *mixed-case-column-name
 
 
 ## Column names contain spaces
@@ -83,7 +73,6 @@
       |-------------------+--------------------------|
       | `customer id`     | `customer_id`            |
       | `CUSTOMER ID`     | `customer_id`            |
-    v2: *column-name-spaces
 
 
 ## Column name contains unsupported special characters
@@ -98,7 +87,6 @@
       |-------------------+--+--------------------------|
       | `customer!id`     |  | `customer_id`             |
       | `!CUSTOMERID`     |  | `_customerid`             |
-    v2: *column-name-special-char
 
 
 ## Column name begins with a non-letter character
@@ -114,4 +102,3 @@
       | `123customerid`   |  | `_customerid`            |
       | `_customerid`     |  | `_customerid`            |
       | `_987CUSTOMERID`  |  | `_987CUSTOMERID`         |
-    v2: *column-name-starts-non-letter

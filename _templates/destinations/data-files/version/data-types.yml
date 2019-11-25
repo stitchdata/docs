@@ -10,13 +10,19 @@
 
 
 ## NOTE: Relevant files:
-##  - Stitch data types: _data/stitch/data-types.yml
-##  - All supported source types: _data/taps/extraction/data-types/common.yml
+##  - Stitch data types: _data/taps/extraction/data-types/stitch-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/source-types.yml
 
 
 # ---------------------------- #
 #       DATA TYPE MAPPING      #
 # ---------------------------- #
+
+## Data types specific to DESTINATION destinations:
+## REMOVE IF NOT NEEDED.
+specific:
+  - name: ""
+  - name: ""
 
 # ---------------------------- #
 #           BIGINT             #

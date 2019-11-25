@@ -7,7 +7,7 @@
 ## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
 ## NOTE: If something is commented out and marked as 'uses default',
    ## That means the copy for that thing lives in the file mentioned above.
-## Error data lives here: _data/errors/loading/bigquery.yml
+## Error data lives here: _data/destinations/common/loading-errors.yml
 
 ## Column contains multiple data types
 - id: mixed-data-types
@@ -25,7 +25,6 @@
       2. Create additional columns to store the other data types - one for each data type detected - and append the data type to the column name. In this example, a `order_confirmed__st` column will be created to store `STRING` values.
 
       Refer to [TODO]() for more info and examples.
-    v2: *mixed-data-types
   
 
 ## Table contains nested data
@@ -38,14 +37,10 @@
       Nested data will be maintained.
 
       If the data contains nested arrays, {{ destination.display_name }} will reject the data.
-    v2: "TODO"
   error:
     v1: &nested-data-structures-error "JSON table encountered too many errors, giving up. Rows: 1; errors: 1. JSON parsing error in row starting at position 0: . Nested arrays not allowed."
-    v2: |
-      todo
   fix-it: 
     v1: "If possible, remove the offending record from the source."
-    v2: todo
 
 
 # -------------------------- #
@@ -59,7 +54,6 @@
   # if: uses default
   then:
     v1: &varchar-storage "{{ destination.display_name }} will store all `VARCHAR` data as `STRING`."
-    v2: *varchar-storage
 
 
 ## VARCHAR Widening
@@ -69,7 +63,6 @@
   # if: uses default  
   then:
     v1: &varchar-widening "No widening will occur. {{ destination.display_name }} will store all `VARCHAR` data as `STRING`."
-    v2: *varchar-widening
 
 
 # -------------------------- #
@@ -82,8 +75,7 @@
   data-type: "date-timestamp"
   # if: uses default
   then:
-    v1: &date-with-timezone "TODO: {{ destination.display_name }} has no support for timezones."
-    v2: *date-with-timezone
+    v1: &date-with-timezone "{{ destination.display_name }} has no support for timezones."
 
 
 ## Column contains timestamp data out of range
@@ -93,13 +85,10 @@
   # if: uses default
   then:
     v1: &timestamps-out-of-range "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.then | flatify }}"
-    v2: *timestamps-out-of-range
   error:
-    v1: &timestamps-out-of-range-error "{{ site.data.errors.loading.bigquery.timestamp-out-of-range | flatify }}"
-    v2: *timestamps-out-of-range-error
+    v1: &timestamps-out-of-range-error "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range | flatify }}"
   fix-it: 
     v1: &timestamps-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify }}"
-    v2: *timestamps-out-of-range-fix-it
 
 
 # -------------------------- #
@@ -123,13 +112,10 @@
   # if: uses default
   then:
     v1: &integer-out-of-range "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.then | flatify }}"
-    v2: *integer-out-of-range
   error:
-    v1: &integer-out-of-range-error "{{ site.data.errors.loading.bigquery.integer-out-of-range | flatify }}"
-    v2: *integer-out-of-range-error
+    v1: &integer-out-of-range-error "{{ site.data.destinations.common.loading-errors.integer-out-of-range | flatify }}"
   fix-it:
     v1: &integer-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
-    v2: *integer-out-of-range-fix-it
 
 
 ## Column contains decimal data
@@ -139,7 +125,7 @@
   # if: uses default
   then:
     v1: &decimal-storage |
-      Decimal values will be loaded to {{ destination.display_name }} as the data type [`NUMERIC`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type){:target="new"}.
+      Decimal values will be loaded to {{ destination.display_name }} as the data type [`TYPE`](){:target="new"}.
     v2: *decimal-storage
 
 
@@ -150,11 +136,8 @@
   # if: uses default
   then:
     v1: &decimals-out-of-range |
-      {{ destination.display_name }} will reject the records that fall outside the supported maximum range for the [`NUMERIC` data type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type){:target="new"}.
-    v2: *decimals-out-of-range
+      {{ destination.display_name }} will reject the records that fall outside the supported maximum range for the [`TYPE` data type](){:target="new"}.
   error:
-    v1: &decimals-out-of-range-error "{{ site.data.errors.loading.bigquery.numeric-out-of-range | flatify }}"
-    v2: *decimals-out-of-range-error
+    v1: &decimals-out-of-range-error "{{ site.data.destinations.common.loading-errors.numeric-out-of-range | flatify }}"
   fix-it: 
     v1: &decimals-out-of-range-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"
-    v2: *decimals-out-of-range-fix-it

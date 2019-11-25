@@ -7,7 +7,7 @@
 ## Scenario data lives here: _data/dataloading/scenarios/tables.yml
 ## NOTE: If something is commented out and marked as 'uses default',
    ## That means the copy for that thing lives in the file mentioned above.
-## Error data lives here: _data/errors/loading/bigquery.yml
+## Error data lives here: _data/destinations/common/loading-errors.yml
 
 ## Only some columns are empty
 - id: some-empty-columns
@@ -15,7 +15,6 @@
   # if: uses default
   then: 
     v1: &some-empty-columns "{{ site.data.dataloading.scenarios.tables.some-empty-columns.then | flatify }}"
-    v2: *some-empty-columns
 
 
 ## Completely empty columns
@@ -24,7 +23,6 @@
   # if: uses default
   then:
     v1: &all-empty-columns "No table is created in {{ destination.display_name }}. At least one column must have a non-`NULL` value for Stitch to create a table in {{ destination.display_name }}."
-    v2: *all-empty-columns
 
 
 ## Table contains too many columns
@@ -33,10 +31,7 @@
   # if: uses default
   then:
     v1: &column-table-limit "{{ site.data.dataloading.scenarios.tables.column-table-limit.then | flatify }}"
-    v2: *column-table-limit
   error:
-    v1: &column-table-limit-error "{{ site.data.errors.loading.bigquery.too-many-columns }}"
-    v2: *column-table-limit-error
+    v1: &column-table-limit-error "{{ site.data.destinations.common.loading-errors.too-many-columns }}"
   fix-it:
     v1: &column-table-limit-fix-it "{{ site.data.dataloading.scenarios.tables.column-table-limit.fix-it | flatify }}"
-    v2: *column-table-limit-fix-it
