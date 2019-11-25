@@ -33,20 +33,42 @@ features:
         title: "Stitch API access"
         summary: "With the Stitch API, you can programmatically control your Stitch account. This enables you to quickly create and configure integrations, select tables and columns for replication, connect Stitch with an external scheduler, and more."
 
+  - category: "Security"
+    guides:
+      - key: "data-encryption-overview"
+        title: "Advanced connectivity"
+        summary: "Aside from SSL and SSH, additional connection options such as reverse SSH, VPN, and Amazon Web Services Private Link, are available as part of an Enterprise plan."
+
+
+  - category: "Destinations"
+    guides:
+      - title: "Multiple destinations"
+        summary: |
+          Configure Stitch to route different data sources to different destinations based on your needs. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+        free-trial-available: false
+
   - category: "Notifications"
     guides:
       - key: "customize-notifications"
+        title: "Extend notifications"
       - key: "hipaa-notifications"
+        title: "HIPAA-compliant notifications"
       - key: "post-load-notifications"
+        title: "Post-load webhooks"
 
   - category: "Integrations"
     guides:
-      - key: "oracle-setup"
+      - key: "oracle-integration"
+        summary: |
+          {% assign oracle-rds-guide = site.database-integrations | where:"key","amazon-oracle-rds-integration" | first %}
+          {{ enterprise-doc.summary }} This is applicable to any Oracle-based database, including [Amazon Oracle RDS]({{ oracle-rds-guide.url | prepend: site.baseurl }}).
 
   - category: "Replication"
     guides:
       - key: "advanced-scheduling"
       - key: "extraction-logs"
+        title: "Extended Extraction Log retention"
         summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.enterprise.logs }}** of Extraction Logs."
       - key: "loading-reports"
+        title: "Extended Loading Report retention"
         summary: "{{ enterprise-doc.summary }} Stitch Enterprise gives you access to **{{ site.data.stitch.subscription-plans.enterprise.reports }}** of Loading Reports."
