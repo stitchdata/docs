@@ -10,8 +10,8 @@ description: "This table contains information about the forcasts."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "Time Machine Request"
-    doc-link: "https://darksky.net/dev/docs#time-machine-request"
+  name: "Time Machine Request"
+  doc-link: "https://darksky.net/dev/docs#time-machine-request"
 
 attributes:
   - name: "forecast_date"
@@ -37,112 +37,160 @@ attributes:
       - name: "apparent_temperature_high"
         type: "number"
         description: "The daytime high apparent temperature."
+
       - name: "apparent_temperature_high_time"
         type: "date-time"
         description: "The UNIX time representing when the daytime high apparent temperature occurs."
+
       - name: "apparent_temperature_low"
         type: "number"
         description: "The overnight low apparent temperature."
+
       - name: "apparent_temperature_low_time"
         type: "date-time"
         description: "The UNIX time representing when the overnight low apparent temperature occurs."
+
       - name: "apparent_temperature_max"
         type: "number"
         description: "The maximum apparent temperature during a given date."
+
       - name: "apparent_temperature_max_time"
         type: "date-time"
         description: "The UNIX time representing when the maximum apparent temperature during a given date occurs."
+
       - name: "apparent_temperature_min"
         type: "number"
         description: "The minimum apparent temperature during a given date."
+
       - name: "apparent_temperature_min_time"
         type: "date-time"
         description: "The UNIX time representing when the minimum apparent temperature during a given date occurs."
-      - name: "cloud_cover"
+
+      - &cloud-cover
+        name: "cloud_cover"
         type: "number"
         description: "The percentage of sky occluded by clouds, between 0 and 1, inclusive."
-      - name: "dew_point"
+      - &dew-point
+        name: "dew_point"
         type: "number"
         description: "The dew point in degrees Fahrenheit."
-      - name: "humidity"
+
+      - &humidity
+        name: "humidity"
         type: "number"
         description: "The relative humidity, between 0 and 1, inclusive."
-      - name: "icon"
+
+      - &icon
+        name: "icon"
         type: "string"
         description: "A machine-readable text summary of this data point, suitable for selecting an icon for display. If defined, this property will have one of the following values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night."
+
       - name: "moon_phase"
         type: "number"
         description: "The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon."
+
       - name: "precip_accumululation"
         type: "number"
         description: "The amount of snowfall accumulation expected to occur - over the hour or day, respectively - in inches. If no snowfall is expected, this property will not be defined."
-      - name: "precip_intensity"
+
+      - &precip-intensity
+        name: "precip_intensity"
         type: "number"
         description: "The intensity, in inches of liquid water per hour, of precipitation occurring at the given time. This value is conditional on probability."
+
       - name: "precip_intensity_max"
         type: "number"
         description: ""
+
       - name: "precip_intensity_max_time"
         type: "date-time"
         description: "The maximum value of `precipIntensity` during a given day."
-      - name: "precip_probability"
+
+      - &precip-probability
+        name: "precip_probability"
         type: "number"
         description: "The probability of precipitation occurring, between 0 and 1, inclusive."
-      - name: "precip_type"
+
+      - &precip-type
+        name: "precip_type"
         type: "string"
         description: "The type of precipitation occurring at the given time. If defined, this property will have one of the following values: rain, snow, or sleet."
-      - name: "pressure"
+
+      - &pressure
+        name: "pressure"
         type: "number"
         description: "The sea-level air pressure in millibars."
+
       - name: "summary"
         type: "string"
         description: "A human-readable text summary of this data point."
+
       - name: "sunrise_time"
         type: "date-time"
         description: "The UNIX time of when the sun will rise during a given day."
+
       - name: "sunset_time"
         type: "date-time"
         description: "The UNIX time of when the sun will set during a given day."
+
       - name: "temperature_high"
         type: "number"
         description: "The daytime high temperature."
+
       - name: "temperature_high_time"
         type: "date-time"
         description: "The UNIX time representing when the daytime high temperature occurs."
+
       - name: "temperature_low"
         type: "number"
         description: "The overnight low temperature."
+
       - name: "temperature_low_time"
         type: "date-time"
         description: "The UNIX time representing when the overnight low temperature occurs."
+
       - name: "temperature_max"
         type: "number"
         description: "The maximum temperature during a given date."
+
       - name: "temperature_max_time"
         type: "date-time"
         description: "The UNIX time representing when the maximum temperature during a given date occurs."
+
       - name: "temperature_min"
         type: "number"
         description: "The minimum temperature during a given date."
+
       - name: "temperature_min_time"
         type: "date-time"
         description: "The UNIX time representing when the minimum temperature during a given date occurs."
-      - name: "time"
+
+      - &time
+        name: "time"
         type: "date-time"
         description: "The UNIX time at which this data point begins."
-      - name: "uv_index"
+
+      - &uv-index
+        name: "uv_index"
         type: "integer"
         description: "The UV index."
+
       - name: "uv_index_time"
         type: "date-time"
         description: "The UNIX time of when the maximum `uvIndex` occurs during a given day."
-      - name: "visibility"
+
+      - &visibility
+        name: "visibility"
         type: "number"
         description: "The average visibility in miles, capped at 10 miles."
-      - name: "wind_bearing"
+
+      - &wind-bearing
+        name: "wind_bearing"
         type: "integer"
         description: "The direction that the wind is coming from in degrees, with true north at 0° and progressing clockwise."
-      - name: "wind_speed"
+
+      - &wind-speed
+        name: "wind_speed"
         type: "number"
         description: "The wind speed in miles per hour."
   
@@ -172,63 +220,56 @@ attributes:
         type: "array"
         description: "The weather conditions at the requested location over time."
         subattributes:
-          - name: "time"
-            type: "string"
-            description:
-          - name: "summary"
-            type: "string"
-            description:
-          - name: "icon"
-            type: "string"
-            description:
-          - name: "precip_intensity"
-            type: "number"
-            description:
-          - name: "precip_probability"
-            type: "number"
-            description: 
-          - name: "precip_type"
-            type: "string"
-            description:  
-          - name: "temperature"
-            type: "number"
-            description:
           - name: "apparent_temperature"
             type: "string"
-            description:
-          - name: "dew_point"
-            type: "number"
-            description:
-          - name: "humidity"
-            type: "number"
-            description:
-          - name: "pressure"
-            type: "number"  
-            description:
-          - name: "wind_speed"
-            type: "number"
-            description:  
-          - name: "wind_gust"
-            type: "number"
-            description: 
-          - name: "wind_bearing"
-            type: "number"
-            description: 
-          - name: "cloud_cover"
-            type: "number"
-            description: 
-          - name: "uv_index"
-            type: "integer"
-            description:  
-          - name: "visibility"
-            type: "number"
-            description: 
+            description: "The apparent (or 'feels like') temperature in degrees Fahrenheit."
+
+          - *cloud-cover
+
+          - *dew-point
+
+          - *humidity
+
+          - *icon
+
+          - *precip-intensity
+
+          - *precip-probability
+            
+          - *precip-type
+
+          - *pressure
+
           - name: "ozone"
             type: "number"
-            description:                         
+            description: "The columnar density of total atmospheric ozone at the given time in Dobson units."
+
+          - name: "summary"
+            type: "string"
+            description: "A human-readable text summary of this data point."
+
+          - name: "temperature"
+            type: "number"
+            description: "The air temperature in degrees Fahrenheit."
+
+          - *time
+
+          - *uv-index
+
+          - *visibility
+
+          - *wind-bearing
+
+          - name: "wind_gust"
+            type: "number"
+            description: "The wind gust speed in miles per hour."
+
+          - *wind-speed
+
       - name: "icon"
         type: "string"
         description: "A machine-readable text summary of this data block."
+
       - name: "summary"
         type: "string"
         description: "A human-readable summary of this data block."
