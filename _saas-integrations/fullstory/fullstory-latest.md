@@ -9,6 +9,8 @@ keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstor
 summary: "Connection instructions, replication info, and schema details for Stitch's FullStory integration."
 layout: singer
 
+key: "fullstory-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -18,7 +20,7 @@ display_name: "FullStory"
 singer: true 
 repo-url: https://github.com/singer-io/tap-fullstory
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Data Export REST API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
@@ -27,7 +29,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

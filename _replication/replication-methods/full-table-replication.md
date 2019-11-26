@@ -141,9 +141,9 @@ sections:
       - title: "Limitation 3: Unavailable for some integrations"
         anchor: "limitation-3--unavailable-integrations"
         content: |
-          Currently, {{ page.title }} is unavailable for MongoDB integrations. MongoDB only supports [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}).
+          Currently, {{ page.title }} is unavailable for version v11-01-2016 of Stitch's MongoDB integration. This version of MongoDB only supports [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}).
 
-          {{ page.title }} is supported for all other database and SaaS integrations.
+          {{ page.title }} is supported for all other versions of Stitch's database and SaaS integrations.
 ---
 {% include misc/data-files.html %}
 {% include misc/icons.html %}

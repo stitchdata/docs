@@ -8,6 +8,8 @@ microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"
 
+key: "postgres-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -30,7 +32,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "1 hour"

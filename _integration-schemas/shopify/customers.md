@@ -123,7 +123,7 @@ attributes:
   - name: "default_address"
     type: "object"
     description: "Details about the default address for the customer."
-    object-properties: *address-fields
+    subattributes: *address-fields
 
   - name: "email"
     type: "string"
@@ -148,7 +148,7 @@ attributes:
 
   - name: "multipass_identifier"
     type: "string"
-    description: "The ID of the cu stomer's Multipass login."
+    description: "The ID of the customer's Multipass login."
 
   - name: "note"
     type: "string"

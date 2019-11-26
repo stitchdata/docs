@@ -1,0 +1,38 @@
+<!-- This displays the type of support the integration has: Certified or Community.
+    It uses the `certified` property in an integration's Frontmatter. -->
+
+
+<!-- If the integration has a tap-name property, use it. This is for
+    integrations that have a tap of a different name backing them.
+    Ex: MySQL backs Magento, MariaDB, etc. -->
+    {% if integration.tap-name %}
+        {% assign integration-name = integration.tap-name %}
+    {% else %}
+        {% assign integration-name = integration.display_name %}
+    {% endif %}
+
+<div class="alert alert-info" role="alert">
+    <i class="fa fa-life-ring"></i>
+    {% if integration.certified == true %}
+        <strong>
+            {{ integration.display_name }} is supported by Stitch
+        </strong><br>
+
+        {% if integration.singer == true %}
+            This integration is powered by <a href="{{ site.singer }}" target="new">Singer's</a> {{ integration-name }} tap and certified by Stitch. {% if integration.repo-url %}<a href="{{ integration.repo-url }}" target="new">Check out and contribute to the repo on GitHub</a>.{% endif %}<br><br>
+
+        {% else %}
+            This integration is certified by Stitch. 
+        {% endif %}
+
+        For support, contact <a href="mailto: {{ site.support }}">Stitch support</a>.
+
+    {% else %}
+        <strong>
+            {{ integration.display_name }} is supported by the Singer community
+        </strong><br>
+
+        This integration is powered by <a href="{{ site.singer }}" target="new">Singer's</a> {{ integration-name }} tap. For support, <a href="{{ integration.repo-url }}" target="new">visit the GitHub repo</a> or <a href="{{ site.singer-slack }}" target="new">join the Singer Slack</a>.
+
+    {% endif %}
+</div>

@@ -197,7 +197,7 @@ attributes:
   - name: "customer"
     type: "object"
     description: "Details about the customer associated with the abandoned checkout."
-    object-properties:
+    subattributes:
       - name: "accepts_marketing"
         type: "boolean"
         description: "Indicates the customer has consented to receive marketing material via email."
@@ -214,7 +214,7 @@ attributes:
       - name: "default_address"
         type: "object"
         description: "Details about the customer's default address."
-        object-properties:
+        subattributes:
           - name: "address1"
             type: "string"
             description: "The street address of the customer's address."
@@ -1027,7 +1027,7 @@ attributes:
   - name: "payment_details"
     type: "object"
     description: "Details about the payment used for the order."
-    object-properties:
+    subattributes:
       - name: "avs_result_code"
         type: "string"
         description: |

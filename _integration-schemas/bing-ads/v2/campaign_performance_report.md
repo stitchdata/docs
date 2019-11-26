@@ -24,7 +24,9 @@ description: |
   - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
   - `Status` is now `CampaignStatus`
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+append-only-loading: true
+
 attribution-window: true
 
 attributes:

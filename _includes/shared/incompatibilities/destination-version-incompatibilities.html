@@ -1,0 +1,33 @@
+<!-- This file is used to generate content about incompatible sources,
+	if any, for a given destination. -->
+
+
+{% assign version = destination.this-version | prepend: "v" %}
+
+
+<!-- If the destination version has an incompatibilities file, 
+	display a table containing a list of the integrations in its file. -->
+{% if site.data.destinations[destination.type][version]incompatibilities %}
+<p>
+	The {{ destination.display_name }} destination has reported incompatibilities with some of Stitch's integrations. Refer to the table below for more info.
+</p>
+
+<table class="attribute-list">
+	{% include shared/incompatibilities/incompatible-integration-table-rows.html %}
+</table>
+
+
+<!-- If the destination doesn't have an incompatibilities file,
+	display this copy instead. -->
+{% else %}
+<p>
+	No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.
+</p>
+{% endif %}
+
+
+<!-- Display a link to the dedicated compatibility doc,
+	regardless of whether there's an incompatibilities file or not. -->
+<p>
+	See all <a href="{{ link.destinations.overviews.compatibility | prepend: site.baseurl }}">destination and integration incompatibilities.</a>
+</p>

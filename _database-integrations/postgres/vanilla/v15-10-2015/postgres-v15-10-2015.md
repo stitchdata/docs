@@ -5,6 +5,8 @@ permalink: /integrations/databases/postgresql/v15-10-2015
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
 input: false
 
+key: "postgres-integration"
+
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"

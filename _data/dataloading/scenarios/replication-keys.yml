@@ -1,0 +1,17 @@
+# -------------------------------------------- #
+#                                              #
+#               REPLICATION KEYS               #
+#                                              #
+# -------------------------------------------- #
+
+description: |
+  Scenarios involving Replication Keys and how data is loaded as a result.
+
+## Replication Key contains NULLs
+null-rep-keys:
+  heading: "a Replication Key column contains NULLs?"
+  anchor: "null-rep-keys"
+  if: "A table using Key-based Incremental Replication is replicated where the Replication Key column contains `NULL` values."
+  then: |
+    - **During the initial job**, the table will be created and all rows will be replicated.
+    - **During subsequent jobs**, only rows with populated Replication Keys will be replicated and persisted to {{ destination.display_name }}.

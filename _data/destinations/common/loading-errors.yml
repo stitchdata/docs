@@ -1,0 +1,24 @@
+firewall: &firewall "Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections."
+
+timestamp-out-of-range: &timestamp-out-of-range "timestamp out of range for {{ destination.display_name }} on [TIMESTAMP]"
+
+integer-out-of-range: &integer-out-of-range "integer out of range for {{ destination.display_name }} on [INTEGER]"
+
+decimal-out-of-range: &decimal-out-of-range "decimal out of range for {{ destination.display_name }} on [DECIMAL]"
+
+table-name-limit: &table-name-limit "Table name [TABLE] is too long for {{ destination.display_name }}"
+
+column-name-limit: &column-name-limit "Column name [COLUMN] is too long for {{ destination.display_name }}"
+
+too-many-columns: &too-many-columns "ERROR: too many columns"
+
+field-name-collision: &field-name-collision "Field collision on [COLUMN_NAME]"
+
+schema-table-permission-denied: &schema-table-permission-denied "ERROR: permission denied for relation [SCHEMA/TABLE]"
+
+reserved-datatype-suffix: &reserved-datatype-suffix "column names from client should not include reserved datatype suffix on [COLUMN_NAME]"
+
+max-record-size: ""
+# Can't accept a record larger than 3999998 bytes
+
+# A single record is larger than the Stitch API limit of 4 Mb

@@ -24,6 +24,7 @@ warning:
     email-subject:
       - "We’ve been unable to VACUUM for awhile"
     contains-raw-errors: false
+    opt-out: true
     content:
       - "A list of affected tables"
     potential-causes:
@@ -47,6 +48,7 @@ critical:
     email-subject:
       - "Data Warehouse Error"
     contains-raw-errors: false
+    opt-out: true
     content:
       - "The name of the affected database"
     potential-causes:

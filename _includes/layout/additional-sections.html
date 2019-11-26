@@ -1,0 +1,41 @@
+{% assign all-sections = include.section-type | append:"-sections" %}
+
+<h2 id="{{ include.section-type }}">{{ page.display_name }} {{ include.section-type }}</h2>
+
+{% for section in page[all-sections] %}
+    {% if section.title == "attribution window" %}
+        <h3 id="{{ integration.display_name |  downcase }}-attribution-windows">{{ integration.display_name }} Replication and Attribution Windows</h3>
+
+        {% capture attribution-window %}
+        {% include integrations/saas/attribution-windows.html %}
+        {% endcapture %}
+
+        {{ attribution-window | markdownify }}
+
+    {% else %}
+
+        {% if section.title %}
+            <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
+        {% endif %}
+
+        {{ section.content | flatify | markdownify }}
+
+        {% if section.subsections %}
+            {% for subsection in section.subsections %}
+                <h4 id="{{ subsection.anchor }}">{{ subsection.title | flatify }}</h4>
+
+                {{ subsection.content | flatify | markdownify }}
+
+                {% if subsection.sub-subsections %}
+                    {% for sub-subsection in subsection.sub-subsections %}
+                        <h5 id="{{ sub-subsection.anchor }}">{{ sub-subsection.title | flatify }}</h5>
+
+                        {{ sub-subsection.content | flatify | markdownify }}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+<hr>

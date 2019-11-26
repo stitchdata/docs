@@ -29,11 +29,6 @@ attributes:
       **Note**: When a contact is merged into another contact, the parent contact is updated with the child contact's vid added to its `merged-vids` list.  The child contact is not updated, however, so to fully account for merged contacts, canonical-vids that appear in the `merged-vids` list should be filtered out.
     foreign-key-id: "contact-id"
 
-  - name: "versionTimestamp"
-    type: "string"
-    replication-key: true
-    description: "A Unix timestamp in milliseconds of when the contact or its properties was last updated."
-
   - name: "vid"
     type: "integer"
     description: "The internal ID of the contact."

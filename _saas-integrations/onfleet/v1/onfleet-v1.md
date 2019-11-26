@@ -18,6 +18,8 @@ keywords: onfleet, integration, schema, etl onfleet, onfleet etl, onfleet schema
 layout: singer
 # input: false
 
+key: "onfleet-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "Onfleet"
 repo-url: https://github.com/singer-io/tap-onfleet
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} REST API](http://docs.onfleet.com/docs){:target="new"}
@@ -38,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"

@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version:
+version:
 
 name: "satisfaction_ratings"
 doc-link: https://developers.freshdesk.com/api/#satisfaction-ratings

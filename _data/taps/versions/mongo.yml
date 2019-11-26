@@ -1,0 +1,56 @@
+# -------------------------- #
+#      MONGODB VERSIONS      #
+# -------------------------- #
+
+latest-version: "1.0"
+
+tap-name: "MongoDB"
+
+released-versions:
+  - number: "1.0"
+    status: "beta"
+    date-released: "November 4, 2019"
+    # date-last-connection:
+    deprecation-date: ""
+    sunset-date: ""
+
+  - number: "11-01-2016"
+    status: "deprecated"
+    date-released: "January 11, 2016"
+    date-last-connection: "November 4, 2019"
+    deprecation-date: "To be determined"
+
+
+# -------------------------- #
+#     MONGODB CHANGELOG      #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/shared/versioning/changelog.html
+
+changelog-entries:
+  # - date: "November 4, 2019"
+  #   version: "11-01-2016"
+  #   type: "version-deprecation"
+
+  - date: "November 4, 2019"
+    version: "1.0"
+    type: "new-version"
+    content: |
+      Highlights include:
+
+      - Support for {{ page.display_name }} versions 2.6 through 4.0
+      - Support for configuring Replication Methods
+      - Support for OpLog (Log-based Incremental) replication and Full Table Replication
+      - Support for field selection using [projection queries]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }})
+      - Table-level resets
+      - Support for [Anchor]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}) and [Advanced Scheduling]({{ link.replication.advanced-scheduling | prepend: site.baseurl }})
+      - Support for [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}) and [on-demand Extraction]({{ link.replication.start-stop-extraction | prepend: site.baseurl }})

@@ -1,0 +1,32 @@
+# ------------------------------------------ #
+#       DATA.WORLD REPLICATION DETAILS       #
+# ------------------------------------------ #
+
+## Details about replication/loading for
+## Stitch's data.world destination.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+primary-key-support: true
+
+nested-structure-support: true
+
+rename-original-column-in-split: false
+
+
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+default-loading-behavior: "Upsert"
+
+loading-behavior-types:
+  - "Upsert"
+
+loading-behavior-description: |
+  Refer to the [Loading behavior](#loading-behavior) section for details.

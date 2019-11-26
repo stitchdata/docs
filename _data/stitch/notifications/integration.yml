@@ -33,6 +33,7 @@ critical:
     email-subject: 
       - "Integration Error"
     contains-raw-errors: true
+    opt-out: true
     content:
       - "The name of the affected integration"
       - "An explanation of the issue, if known"
@@ -54,6 +55,7 @@ critical:
     email-subject:
       - "Database Integration Error"
     contains-raw-errors: false
+    opt-out: true
     content:
       - "The name of the affected integration"
       - "A brief explanation of the issue, if known"

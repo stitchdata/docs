@@ -11,29 +11,112 @@
 ## NOTE: 'defaults' is a variable assigned to this file: 
 ## /_data/ui/database-integration-settings/default-fields.yml
 
+field-names:
+  schema-names-tables: &schema-names-tables-name "Include MongoDB database names in destination tables"
+
+descriptions:
+  schema-names-tables: &schema-names-tables-description |
+    Checking this setting will include database names from the source database in the destination table name - for example: `<source_database_name>__<collection_name>`.
+
+          Stitch loads all selected replicated collections to a single schema, preserving only the collection name. If two collection canonicalize to the same name - even if they're in different source databases - name collision errors can arise. Checking this setting can prevent these issues. 
+
+          **Note**: This setting can not be changed after the integration is saved. Additionally, this setting may create table names that exceed your destination's limits. For more info, refer to the [Database Integration Table Name Collisions guide]({{ link.troubleshooting.database-table-name-collisions | prepend: site.baseurl }}).
+
 # -------------------------- #
 #        VANILLA MONGO       #
 # -------------------------- #
 
 mongodb:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
   - name: "{{ defaults.field-names.database }}"
+    version: "11-01-2016"
     copy: |
       Enter the name of the {{ integration.display_name }} database where the Stitch user is to be authenticated. Stitch will 'find' all the databases you gave the Stitch user access to - this is needed only to complete the connection.
 
             **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.
+
+  - name: "Authentication Database"
+    version: "1.0"
+    copy: |
+      Enter the name of the Stitch user's [authentication database](https://docs.mongodb.com/v3.4/core/security-users/#user-authentication-database){:target="new"}. This is the name of the database where the Stitch user was initially created.
+
+            **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.
+
+  - name: "Replica Set"
+    version: "1.0"
+    copy: |
+      **Optional.** The name of the replica set to be used for Log-based Incremental Replication.
+
+  - name: *schema-names-tables-name
+    version: "1.0"
+    copy: *schema-names-tables-description
+
+
+# -------------------------- #
+#       MONGODB ATLAS       #
+# -------------------------- #
+
+mongodb-atlas:
+  - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    version: "all"
+    copy: |
+      Paste the **Host (Endpoint)** you retrieved in the previous step ([3.1](#locate-database-connection-details)). This should be similar to `<some-address>.mongodb.net`.
+
+  - name: "{{ defaults.field-names.port }}"
+    version: "all"
+    copy: |
+      Paste the **Port** you retrieved in the previous step ([3.1](#locate-database-connection-details)). The default is `{{ integration.port }}`.
+
+  - name: "{{ defaults.field-names.username }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.username | flatify }}"
+
+  - name: "{{ defaults.field-names.password }}"
+    version: "all"
+    copy: "{{ defaults.field-copy.password | flatify }}"
+
+  - name: "{{ defaults.field-names.database }}"
+    version: "11-01-2016"
+    copy: |
+      Enter the name of the {{ integration.display_name }} database where the Stitch user is to be authenticated. Stitch will 'find' all the databases you gave the Stitch user access to - this is needed only to complete the connection.
+
+            **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.
+
+  - name: "Authentication Database"
+    version: "1.0"
+    copy: |
+      This must be `admin`. This is the name of the Stitch user's [authentication database](https://docs.mongodb.com/v3.4/core/security-users/#user-authentication-database){:target="new"}. This is the name of the database where the [Stitch database user was initially created](#create-database-user).
+
+  - name: "Replica Set"
+    version: "1.0"
+    copy: |
+      **Optional.** The name of the replica set you retrieved in the previous step ([3.1](#locate-database-connection-details)) to be used for Log-based Incremental Replication.
+
+  - name: *schema-names-tables-name
+    version: "1.0"
+    copy: *schema-names-tables-description

@@ -7,6 +7,8 @@ microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostgres.com/"
 
+key: "heroku-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

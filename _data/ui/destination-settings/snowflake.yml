@@ -27,9 +27,7 @@ descriptions:
 snowflake:
   - name: "{{ defaults.field-names.host }}"
     copy: |
-      Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`
-
-      **Note**: Entering the `http:// or `https://` portion of the URL will prevent a successful connection.
+      Enter the URL of your {{ destination.display_name }} account. For example: `stitch.snowflakecomputing.com`. **Note**: Entering the `http://` or `https://` portion of the URL will prevent a successful connection.
   - name: "{{ defaults.field-names.username }}"
     copy: "{{ defaults.field-copy.username | flatify }}"
   - name: "{{ defaults.field-names.password }}"

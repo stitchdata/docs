@@ -9,11 +9,11 @@
 
 
 <!-- Get the common fields for destinations -->
-	{% assign common = site.data.destinations.loading.user-privileges.common %}
+	{% assign common = site.data.destinations.common.user-privileges. %}
 
 
 <!-- Get the list of privileges required for the database, based on its type -->
-	{% assign destination-user-setup = site.data.destinations.loading.user-privileges[destination.type] %}
+	{% assign destination-user-setup = site.data.destinations[destination.type]user-privileges %}
 
 	{% assign required-privileges = destination-user-setup.all-permissions %}
 

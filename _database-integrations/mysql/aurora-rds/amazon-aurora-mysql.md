@@ -8,6 +8,8 @@ microsites:
     url: "http://mysql.topostgres.com/"
 show-in-menus: true
 
+key: "aurora-rds-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -19,7 +21,7 @@ singer: true
 tap-name: "MySQL"
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "amazon"
 

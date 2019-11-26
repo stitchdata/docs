@@ -41,7 +41,7 @@ arguments:
     type: "string"
     description: "The email address of the user signing up for a Stitch client account. Upon successful account creation, Stitch will send an email to this address with instructions for completing the setup."
     example-value: |
-      "help@stitchdata.com"
+      "stitch@stitchdata.com"
 
   - name: "first_name"
     required: true
