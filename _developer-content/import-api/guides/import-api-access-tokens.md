@@ -33,8 +33,11 @@ related:
   - title: "Stitch Import API Quick Start"
     link: "{{ link.import-api.guides.quick-start | prepend: site.baseurl }}"
 
-  - title: "Structuring Data for the Import API"
+  - title: "Structuring and typing data for the Import API"
     link: "{{ link.import-api.guides.structure-data | prepend: site.baseurl }}"
+
+  - title: "Sequencing data for the Import API"
+    link: "{{ link.import-api.guides.sequence-data | prepend: site.baseurl }}"
 
   - title: "Import API reference"
     link: "{{ link.import-api.api | prepend: site.baseurl }}"
