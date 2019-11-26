@@ -15,12 +15,13 @@ content-id: "sequence-data"
 layout: general
 sidebar: on-page
 
-icon: todo
+icon: replication
 order: 4
 
-summary: ""
+summary: "Learn how to sequence data for the Import API."
 ## This is used only on the /import-api/guides page.
-description: ""
+display-title: "Sequencing Data for the Import API"
+description: "Learn how to sequence data for the Import API."
 
 
 # -------------------------- #
@@ -51,4 +52,8 @@ sections:
          For example: if the resolution is measured in milliseconds, records with identical key values cannot be sent during the same millisecond.
       2. **Are the records coming from multiple sources?**
          If records from multiple sources will be sent to the Import API, the time clocks of these sources must be synchronized. This is especially important if different sources are pushing rows to the same table.
+
+      You'll want to track the largest sequence being submitted for each table, as this should be tracked per table over time for the integration, not per session / post.
+
+      That depends on which destination you've connected to Stitch. If you're using a destination warehouse that supports incremental replication upserts and the primary key values for records are defined in your script, then Stitch would be able to use that information to de-duplicate records during loading based on the Primary Key value.
 ---
