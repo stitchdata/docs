@@ -29,7 +29,8 @@ object-attributes:
 
   - name: "sequence"
     type: "integer"
-    description: "{{ general.attributes.sequence | flatify }}"
+    description: |
+      {{ general.attributes.sequence | flatify }}
     value: "1550702340229"
 
   - name: "data"
@@ -47,7 +48,7 @@ examples:
   - code: |
       {
         "action": "upsert",
-        "sequence": 1550702340229,
+        "sequence": 1574796577000,
         "data": {
           "id": 1,
           "name": "Finn",
