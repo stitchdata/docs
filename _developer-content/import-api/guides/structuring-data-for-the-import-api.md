@@ -5,6 +5,7 @@
 
 title: Structuring Data for the Stitch Import API
 permalink: /developers/import-api/guides/structure-data-for-the-import-api
+summary: &summary "Best practices and tips for structuring data in Import API requests."
 
 doc-type: "concept"
 
@@ -12,16 +13,39 @@ product-type: "import-api"
 content-type: "guide"
 content-id: "structure-data"
 
+key: "import-api-structure-data"
+
 layout: general
 sidebar: on-page
 
 icon: json
 order: 3
 
-summary: "Best practices and tips for structuring data in Import API requests."
+
+# -------------------------- #
+#      GUIDE PAGE INFO       #
+# -------------------------- #
+
 ## This is used only on the /import-api/guides page.
-display-title: "Structuring and Typing Import API Data"
-description: "Best practices for structuring and typing data in Import API requests."
+
+display-title: "Structuring and typing Import API data"
+description: *summary
+
+
+# -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+related:
+  - title: "Import API reference"
+    link: "{{ link.import-api.api | prepend: site.baseurl }}"
+
+  - title: "Sequencing data for the Import API"
+    link: "{{ link.import-api.guides.sequence-data | prepend: site.baseurl }}"
+
+  - title: "Understanding loading behavior"
+    link: "{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}"
+
 
 
 # -------------------------- #
@@ -55,7 +79,7 @@ sections:
 
       {% assign endpoint = site.data.import-api.core-objects %}
       {% assign types = "batch|push" | split:"|" %}
-      {% assign comparison-attributes = "accepts-multiple-tables|enforces-data-types|requires-primary-keys" | split:"|" %}
+      {% assign comparison-attributes = "accepts-multiple-records|accepts-multiple-tables|enforces-data-types|requires-primary-keys" | split:"|" %}
 
       <table>
       <tr>
@@ -85,9 +109,9 @@ sections:
       <td>
       {% case endpoint[type]comparison[attribute]support %}
       {% when true %}
-      <p><strong>{{ supported }} Supported</strong></p>
+      <p><strong>{{ supported | replace:"TOOLTIP","Supported" }} Supported</strong></p>
       {% when false %}
-      <p><strong>{{ not-supported }} Unsupported</strong></p>
+      <p><strong>{{ not-supported | replace:"TOOLTIP","Not supported"}} Unsupported</strong></p>
       {% else %}
       {{ endpoint[type]comparison[attribute]support | flatify | markdownify }}
       {% endcase %}
@@ -122,15 +146,17 @@ sections:
         content: |
           We recommend using the Batch endpoint to send data to the Import API. As such, this section only contains the request body requirements for the Batch endpoint.
 
-          Request bodies must be valid JSON and adhere to the following: 
+          Request bodies sent to the Batch endpoint must be valid JSON and adhere to the following: 
 
           {% assign common-request-requirements = site.data.import-api.general.request-body-requirements.common %}
           {% assign batch-request-requirements = site.data.import-api.general.request-body-requirements.batch %}
 
           {% assign all-request-requirements = batch-request-requirements | concat: common-request-requirements %}
 
+          {% assign batch-requirements = link.import-api.api | prepend: site.baseurl | append: "#batch-data--arguments" %}
+
           {% for requirement in all-request-requirements %}
-          - {{ requirement | flatify | markdownify | replace:"[NAME]","batch" }}
+          - {{ requirement | replace:"#[NAME]-data--arguments",batch-requirements | flatify | markdownify }}
           {% endfor %}
       
   - title: "Defining tables and Primary Keys"
@@ -161,7 +187,7 @@ sections:
 
           - **For tables with Primary Keys**, Stitch will use Primary Key columns to de-dupe data during the Loading phase of the replication process. This ensures that only the most recent version of a record is loaded into the destination.
 
-          - **If a table doesn't have a Primary Key, or if the destination is append-only**, records will be appended to the end of the table as new rows. Existing rows will not be updated.
+          - **If a table doesn't have a Primary Key, or if the destination only supports Append-Only loading**, records will be appended to the end of the table as new rows. Existing rows will not be updated. Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
           A table's Primary Keys are defined using the `key_names` property in the [Batch endpoint]({{ site.data.import-api.core-objects.batch.anchor | prepend: link.import-api.api | prepend: site.baseurl }}). For example:
 
