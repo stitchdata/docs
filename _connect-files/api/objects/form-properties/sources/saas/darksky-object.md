@@ -48,7 +48,10 @@ object-attributes:
   - name: "language"
     type: "string"
     required: true
-    description: "The language."
+    description: |
+      The language that `summary` attributes in the `forecast` table should be returned in. For example: If set to `en`, `summary` data will be returned in English.
+      
+      Refer to [{{ form-property.display-name }}'s documentation](https://darksky.net/dev/docs#time-machine-request){:target="new"} for a list of accepted values.
     value: "en"
 
   - name: "location_list"
