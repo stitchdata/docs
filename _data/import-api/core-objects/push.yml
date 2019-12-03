@@ -24,12 +24,18 @@ description: *push-short
 comparison:
   requires-primary-keys:
     support: |
-      {{ supported }} **Required**
+      {{ supported | replace:"TOOLTIP","Required" }} **Required**
     note: "Defined using the `key_properties` property. Each record for the specified table must have a unique, non-null Primary Key value."
+
   enforces-data-types:
     support: false
     note: |
       Data types are assigned according to the value's JSON data type. No strict enforcement occurs. Refer to the [Push endpoint data typing section](#push-data-endpoint-data-typing) for more info.
+
   accepts-multiple-tables:
     support: true
     note: "Requests may contain data for multiple tables."
+
+  accepts-multiple-records:
+    support: true
+    note: "Requests may contain multiple records, whether destined for the same table or different tables."
