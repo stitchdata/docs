@@ -26,12 +26,12 @@ description: |
 
   When data for a table is pushed for the first time, Stitch will create the table in the destination in the specified integration schema.
 
-  During subsequent pushes, one of two things will happen depending on the destination being used:
+  How data is loaded during subsequent pushes depends on:
 
-  1. **If the destination supports upserts**, Stitch will perform an update operation on applicable existing rows to overwrite the data.
-  2. **If the destination doesn't support upserts**, Stitch will load the records in an append-only fashion. This means that existing records in the destination table will not be updated, and all records in subsequent pushes will be appended to the end of the table.
+  1. **The loading behavior types used by the destination**. Stitch supports <a href="#" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.upsert }}">Upsert</a> and <a href="#" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only }}">Append-Only</a> loading.
+  2. **Whether the `key_names` property specifies Primary Key fields.** If Primary Keys aren't specified, data will be loaded using Append-Only loading.
 
-     **Note**: Append-only loading will also occur if Primary Key fields aren't specified in the `key_names` property.
+  Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
   #### Structuring request body data {#batch--structure-request-body-data}
 
@@ -40,14 +40,11 @@ description: |
 accepts-transit: false
 
 request-body: |
-  The request body should also adhere to the following:
+  The request body must also comply with the following:
 
-  {% assign common-request-requirements = site.data.import-api.general.request-body-requirements.common %}
-  {% assign batch-request-requirements = site.data.import-api.general.request-body-requirements.batch %}
+  {% assign request-requirements = general.request-body-requirements.common | concat: general.request-body-requirements.batch %}
 
-  {% assign all-request-requirements = batch-request-requirements | concat: common-request-requirements %}
-
-  {% for requirement in all-request-requirements %}
+  {% for requirement in request-requirements %}
   - {{ requirement | flatify | markdownify | replace:"[NAME]","batch" }}
   {% endfor %}
 
@@ -63,7 +60,8 @@ arguments:
   - name: "table_name"
     type: "string"
     required: true
-    description: "{{ general.attributes.table-name | flatify }}"
+    description: |
+      {{ general.attributes.table-name | remove: "A single request can push data to multiple tables." }}
     example-value: "customers"
 
   # - name: "table_version"
@@ -264,11 +262,11 @@ examples:
     subexamples:
       - type: "201 Created"
         code: |
-          {{ site.data.import-api.code-examples.responses.push-data.batch-created }}
+          {{ site.data.import-api.code-examples.responses.batch-created }}
 
       - type: "202 Accepted"
         code: |
-          {{ site.data.import-api.code-examples.responses.push-data.batch-accepted }}
+          {{ site.data.import-api.code-examples.responses.batch-accepted }}
 
   - type: "Errors"
 ---

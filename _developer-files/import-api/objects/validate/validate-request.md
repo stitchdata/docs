@@ -22,18 +22,19 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.status.short | flatify }}"
 description: |
+  **Note**: With the exception of not persisting data, this endpoint is functionally identical to the [Push endpoint]({{ site.data.import-api.core-objects.push.anchor }}). The Validate endpoint will not work if a request body intended for the [Batch endpoint]({{ site.data.import-api.core-objects.batch.anchor }}) is sent.
+
   {{ site.data.import-api.core-objects.validate.description | flatify | markdownify }} 
 
   Regardless of whether the Import API is functional, this endpoint will never return a `503 Service Unavailable` response. Use the [Status endpoint]({{ site.data.import-api.core-objects.api-status.anchor }}) to determine if the Import API is experiencing issues.
 
-  **Note**: With the exception of not persisting data, this endpoint is functionally identical to the [Push endpoint]({{ site.data.import-api.core-objects.push.anchor }}). The Validate endpoint will not work if a request body intended for the [Batch endpoint]({{ site.data.import-api.core-objects.batch.anchor }}) is sent.
-
-
 request-body: |
-  The request body should provide an array (batch) of records to be inserted into the pipeline that adhere to the following:
+  The request body should provide an array (batch) of records to be inserted into the pipeline that comply with the following:
 
-  {% for requirement in general.request-body-requirements %}
-  - {{ requirement.description | markdownify }}
+  {% assign request-body-requirements = general.request-body-requirements.common | concat: general.request-body-requirements.push %}
+
+  {% for requirement in request-body-requirements %}
+  - {{ requirement | markdownify }}
   {% endfor %}
 
 
@@ -89,7 +90,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a `200 OK` status and a [Batch Status object]({{ site.data.import-api.api.data-structures.batch-status.section }}).
+  If successful, the API will return a `200 OK` status and a [Batch Status object]({{ site.data.import-api.data-structures.batch-status.section }}).
 
 
 # ------------------------------ #
@@ -107,7 +108,7 @@ examples:
                   {
                     "client_id": 7723,
                     "table_name": "customers",
-                    "sequence": 100,
+                    "sequence": 1565881320,
                     "key_names": [
                       "id"
                     ],

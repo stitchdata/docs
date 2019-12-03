@@ -49,7 +49,8 @@ available-methods:
 object-attributes:
   - name: "table_name"
     type: "string"
-    description: "{{ general.attributes.table-name }}"
+    description: |
+      {{ general.attributes.table-name | remove: "A single request can push data to multiple tables." }}
     value: "customers"
 
   # - name: "table_version"
@@ -79,7 +80,7 @@ object-attributes:
     description: |
       An array of strings representing the Primary Key fields in the source table. **Note**: A value must be provided, but it may be an empty list to indicate that the source table doesn't have a Primary Key.
 
-      If fields are provided, they must adhere to the following:
+      If fields are provided, they must comply with the following:
 
       1. Each field in the list must be the name of a top-level property defined in the [Schema object]({{ site.data.import-api.data-structures.schema.section }}). Primary Key fields cannot be contained in an object or an array.
       2. Fields in the list may not be `null` in the source.

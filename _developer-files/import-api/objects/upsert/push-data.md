@@ -47,10 +47,7 @@ accepts-transit: true
 request-body: |
   Additionally, the request body should provide an array (batch) of records to be inserted into the pipeline that adhere to the following:
 
-  {% assign common-request-requirements = site.data.import-api.general.request-body-requirements.common %}
-  {% assign push-request-requirements = site.data.import-api.general.request-body-requirements.push %}
-
-  {% assign all-request-requirements = push-request-requirements | concat: common-request-requirements %}
+  {% assign all-request-requirements = general.request-body-requirements.common | concat: general.request-body-requirements.push %}
 
   {% for requirement in all-request-requirements %}
   - {{ requirement | flatify | markdownify | replace:"[NAME]","push" }}
@@ -143,13 +140,13 @@ examples:
                       "client_id": 7723,
                       "table_name": "customers",
                       "sequence": 1565880017,
-                      "key_names": [
-                        "id"
-                      ],
                       "data": {
                         "id": 1,
                         "name": "Finn"
                       },
+                      "key_names": [
+                        "id"
+                      ],
                       "action": "upsert"
                     }
                   ]'
@@ -165,7 +162,7 @@ examples:
                       "sequence": 1565880017,
                       "data": {
                         "id": 4,
-                        "name": "Beamo"
+                        "name": "BMO"
                       },
                       "key_names": [
                         "id"
@@ -176,13 +173,13 @@ examples:
                       "client_id": 7723,
                       "table_name": "customers",
                       "sequence": 1565838645,
-                      "key_names": [
-                        "id"
-                      ],
                       "data": {
                         "id": 5,
                         "name": "Ice King"
                       },
+                      "key_names": [
+                        "id"
+                      ],
                       "action": "upsert"
                     }
                   ]'
@@ -198,7 +195,7 @@ examples:
                       "sequence": 1565880017,
                       "data": {
                         "id": 4,
-                        "name": "Beamo"
+                        "name": "BMO"
                       },
                       "key_names": [
                         "id"
@@ -209,13 +206,13 @@ examples:
                       "client_id": 7723,
                       "table_name": "orders",
                       "sequence": 1565838645,
-                      "key_names": [
-                        "order_id"
-                      ],
                       "data": {
                         "order_id": 561,
                         "customer_id": 4
                       },
+                      "key_names": [
+                        "order_id"
+                      ],
                       "action": "upsert"
                     }
                   ]'
@@ -227,11 +224,11 @@ examples:
     subexamples:
       - type: "201 Created"
         code: |
-          {{ site.data.import-api.code-examples.responses.push-data.batch-created }}
+          {{ site.data.import-api.code-examples.responses.batch-created }}
 
       - type: "202 Accepted"
         code: |
-          {{ site.data.import-api.code-examples.responses.push-data.batch-accepted }}
+          {{ site.data.import-api.code-examples.responses.batch-accepted }}
 
   - type: "Errors"
 ---
