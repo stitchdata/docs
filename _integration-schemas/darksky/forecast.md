@@ -100,7 +100,7 @@ attributes:
 
       - name: "precip_intensity_max"
         type: "number"
-        description: ""
+        description: "The maximum value of `precip_intensity` during a given day."
 
       - name: "precip_intensity_max_time"
         type: "date-time"
