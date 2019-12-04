@@ -24,7 +24,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
 tap-name: "Bing Ads"
 
-this-version: "2"
+this-version: "2.0"
 
 api: |
   [{{ integration.display_name }} v.12 API](https://docs.microsoft.com/en-us/advertising/guides/?view=bingads-12){:target="new"}
