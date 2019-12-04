@@ -48,8 +48,11 @@ object-attributes:
   - name: "language"
     type: "string"
     required: true
-    description: "The language to be returned, most likely as a two-letter value. Ex: `en` for English, `es` for Spanish, and `ar` for Arabic."
-    value: "xx"
+    description: |
+      The language that `summary` attributes in the `forecast` table should be returned in. For example: If set to `en`, `summary` data will be returned in English.
+      
+      Refer to [{{ form-property.display-name }}'s documentation](https://darksky.net/dev/docs#time-machine-request){:target="new"} for a list of accepted values.
+    value: "en"
 
   - name: "location_list"
     type: "string"
@@ -68,4 +71,3 @@ object-attributes:
     required: true
     description: "The requested unit of measurement for weather conditions to be returned. Ex: `us` for Imperial Units, and `si` for International System of Units. The default value is `auto`, which will return the measurement system of the requested locations."
     value: "xx"      
----
