@@ -48,14 +48,14 @@ object-attributes:
   - name: "language"
     type: "string"
     required: true
-    description: "The language."
-    value: "en"
+    description: "The language to be returned, most likely as a two-letter value. Ex: `en` for English, `es` for Spanish, and `ar` for Arabic."
+    value: "xx"
 
   - name: "location_list"
     type: "string"
     required: true
-    description: "The longitude and latitude of the location the app was used."
-    value: "00.000000, -000.000000"
+    description: "The longitude and latitude of the locations to be returned. The locations must be semi-colon deliniated. Ex: `<latitude>,<longitude>` is an accepted value for a single location, and `<latitude>,<longitude>;<latitude>,<longitude>; ... etc` is accepted for multiple locations."
+    value: "00.000000,-000.000000"
     
   - name: "secret_key"
     type: "string"
@@ -66,6 +66,6 @@ object-attributes:
   - name: "units"
     type: "string"
     required: true
-    description: "The unit of measurement."
-    value: "us"      
+    description: "The requested unit of measurement for weather conditions to be returned. Ex: `us` for Imperial Units, and `si` for International System of Units. The default value is `auto`, which will return the measurement system of the requested locations."
+    value: "xx"      
 ---

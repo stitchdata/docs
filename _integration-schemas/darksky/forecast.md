@@ -17,7 +17,7 @@ attributes:
   - name: "forecast_date"
     type: "date-time"
     primary-key: true
-    description: ""
+    description: "The date and local time based on the requested latitude and longitude."
     replication-key: true
 
   - name: "latitude"
@@ -70,6 +70,7 @@ attributes:
         name: "cloud_cover"
         type: "number"
         description: "The percentage of sky occluded by clouds, between 0 and 1, inclusive."
+      
       - &dew-point
         name: "dew_point"
         type: "number"
@@ -83,11 +84,23 @@ attributes:
       - &icon
         name: "icon"
         type: "string"
-        description: "A machine-readable text summary of this data point, suitable for selecting an icon for display. If defined, this property will have one of the following values: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night."
+        description: |
+          A machine-readable text summary of this data point, suitable for selecting an icon for display. Possible values are: 
+
+          - `clear-day`
+          - `clear-night`
+          - `rain`
+          - `snow`
+          - `sleet`
+          - `wind`
+          - `fog`
+          - `cloudy`
+          - `partly-cloudy-day`
+          - `partly-cloudy-night`
 
       - name: "moon_phase"
         type: "number"
-        description: "The fractional part of the lunation number during the given day: a value of 0 corresponds to a new moon, 0.25 to a first quarter moon, 0.5 to a full moon, and 0.75 to a last quarter moon."
+        description: "The fractional part of the lunation number during the given day: a value of `0` corresponds to a new moon, `0.25` to a first quarter moon, `0.5` to a full moon, and `0.75` to a last quarter moon."
 
       - name: "precip_accumululation"
         type: "number"
@@ -104,7 +117,7 @@ attributes:
 
       - name: "precip_intensity_max_time"
         type: "date-time"
-        description: "The maximum value of `precipIntensity` during a given day."
+        description: "The maximum value of `precip_intensity` during a given day."
 
       - &precip-probability
         name: "precip_probability"
@@ -114,7 +127,7 @@ attributes:
       - &precip-type
         name: "precip_type"
         type: "string"
-        description: "The type of precipitation occurring at the given time. If defined, this property will have one of the following values: rain, snow, or sleet."
+        description: "The type of precipitation occurring at the given time. If defined, this property will have one of the following values: `rain`, `snow`, or `sleet`."
 
       - &pressure
         name: "pressure"
@@ -177,7 +190,7 @@ attributes:
 
       - name: "uv_index_time"
         type: "date-time"
-        description: "The UNIX time of when the maximum `uvIndex` occurs during a given day."
+        description: "The UNIX time of when the maximum `uv_index` occurs during a given day."
 
       - &visibility
         name: "visibility"

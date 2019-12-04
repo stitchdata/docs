@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Dark Sky
+title: Darksky
 permalink: /integrations/saas/darksky
 keywords: darksky, integration, schema, etl darksky, darksky etl, darksky schema
 layout: singer
@@ -23,7 +23,7 @@ layout: singer
 # -------------------------- #
 
 name: "darksky"
-display_name: "Dark Sky"
+display_name: "Darksky"
 
 singer: true 
 tap-name: "darksky"
@@ -39,12 +39,12 @@ status: "Open Beta"
 certified: false
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
-status-url: "https://status.darksky.net/"
+status-url: https://status.darksky.net/
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -72,26 +72,23 @@ column-selection: false
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: "**Language**. The language will be a two-letter value. Example: 'en' for English, 'es' for Spanish, and 'ar' for Arabic."
-  - item: "**Location List**. The lattitude and longitude of the locations that weather data should be returned for."
-  - item: "**Secret Key**. The secret key grants Stitch access to the API. The key can be created on your Dark Sky API account home page at: https://darksky.net/dev/account"
-  - item: "**Units**. This is the measurement system that the weather data will be returned. Example: 'us' for Imperial Units, and 'si' for International System of Units."
-
-requirements-info: "To find the list of available languages and units, visit the Dark Sky Forecast Request docs at https://darksky.net/dev/docs#forecast-request"
+requirements-info: |
+  To find the list of available languages and units, please visit the [Dark Sky Forecast Request docs](https://darksky.net/dev/docs#forecast-request)
 
 setup-steps:
-  - title: "Get Secret Key"
+  - title: "Retrieve Your {{ integration.display_name }} Secret Key"
     anchor: "secret-key"
     content: |
-      1. Log into your Dark Sky API account.
+      1. Log into your {{ integration.display_name }} API account [here](https://darksky.net/dev/).
       2. On your account home page, your Secret Key is available at the top of the page. You will use this Secret Key to add your integration.
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
+    content: |
+      4. In the **Language** field, enter the language code. Ex: 'en' for English, 'es' for Spanish, and 'fr' for French. For a full list of available language codes, check the `Request Parameters` section of the [Dark Sky API documentation](https://darksky.net/dev/docs#forecast-request)
+      5. In the **Location List** field, enter the latitude and longitude of the the locations to be returned for weather forecast information. The locations must be semi-colon deliniated. Ex: `<latitude>,<longitude>` is an accepted value for a single location, and `<latitude>,<longitude>;<latitude>,<longitude>; ... etc` is accepted for multiple locations.
+      6. In the **Secret Key** field, paste your {{ integration.display_name }} secret key that you retrieved in [Step 1](#secret-key). 
+      7. In the **Units** field, enter the measurement system to be returned for weather forecast information. Ex: 'us' for Imperial Units, and 'si' for International System of Units. For a full list of available measurement systems, check the `Request Parameters` section of the [Dark Sky API documentation](https://darksky.net/dev/docs#forecast-request)
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data"
 
 # -------------------------- #
 #     Integration Tables     #
