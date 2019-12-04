@@ -1,6 +1,6 @@
 ---
 tap: "urban-airship"
-version:
+version: "1.0"
 
 name: "named_users"
 doc-link: http://docs.urbanairship.com/api/ua.html#named-users

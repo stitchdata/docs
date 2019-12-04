@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Key-based Incremental"
 api-method:
-  name: retrieveCampaignsWithPerformanceStatisticsForAMarketer
+  name: "Retrieve campaigns with performance statistics for a marketer"
   doc-link: http://docs.amplifyv01.apiary.io/#reference/performance-reporting/campaigns/retrieve-campaigns-with-performance-statistics-for-a-marketer
 
 attributes:
