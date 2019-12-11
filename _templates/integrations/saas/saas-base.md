@@ -18,6 +18,9 @@ keywords: saas-integration, integration, schema, etl saas-integration, saas-inte
 layout: singer
 # input: false
 
+key: "saas-integration-setup"
+
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -25,26 +28,30 @@ layout: singer
 name: "saas-integration"
 display_name: "SAAS-INTEGRATION"
 
-singer: true 
+singer: true
+status-url: ""
+
 tap-name: ""
 repo-url: https://github.com/singer-io/tap-saas-integration
 
-# this-version: ""
+this-version: ""
+
+api: |
+  [](){:target="new"}
+
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Closed Beta/Open Beta/Released/Deprecated"
 certified: true 
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free/Standard/Enterprise"
-status-url: ""
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -56,6 +63,15 @@ column-selection: true/false
 # attribution-is-configurable: 
 
 # setup-name: ""
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+
 
 # -------------------------- #
 #      Incompatibilities     #
@@ -85,10 +101,12 @@ setup-steps:
       [Add content]
   - title: "add integration"
     # content: |
-      # starting with 4., add instructions for additional fields in UI
+      # starting with 4., add instructions for additional fields in UI. EX:
+      # 4. In the [FIELD_NAME] field, [instructions]
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data"
+  - title: "track data" ## remove this if the integration doesn't support at least table selection
+
 
 # -------------------------- #
 #     Integration Tables     #
