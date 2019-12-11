@@ -377,7 +377,7 @@ attributes:
 
   - name: "other_contacts"
     type: "object"
-    description: "Customer contacts where they contact type is other than primary."
+    description: "Customer contacts where the contact type is other than primary."
     subattributes:
       - name: "type"
         type: "integer"
