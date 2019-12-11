@@ -21,7 +21,7 @@ attributes:
     
   - name: "company_info"
     type: "object"
-    description: "When identifying an existing contact, the lookup order is: 1) id, 2) code if no other fields present, 3) all fields (except id). If contact_id is not specified and other fields do not match an existing contact for the relevant customer, a new contact is created."
+    description: "When identifying an existing contact, the lookup order is: 1) id, 2) code if no other fields present, 3) all fields (except `id`). If `contact_id` is not specified and other fields do not match an existing contact for the relevant customer, a new contact is created."
     subattributes:
       - name: "address1"
         type: "string"
