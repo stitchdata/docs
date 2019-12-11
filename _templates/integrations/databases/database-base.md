@@ -17,6 +17,8 @@ keywords: database_integration, database integration, etl database_integration, 
 permalink: /integrations/databases/database_integration
 summary: "Connect and replicate data from your DATABASE-INTEGRATION database using Stitch's DATABASE-INTEGRATION integration."
 
+show-in-menus: true
+key: "database_integration-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -29,20 +31,32 @@ singer: true
 tap-name: ""
 repo-url: ""
 
-# this-version: ""
+this-version: ""
+
+hosting-type: "" ## amazon, microsoft, google, etc.
+
+driver: |
+  [](){:target="new"}
+
+
+# -------------------------- #
+#      Feature Summary       #
+# -------------------------- #
+
+feature-summary: |
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.driver | flatify | strip }}. [TODO]
 
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true/false
 
 frequency: "30 minutes"
 tier: "Free/Standard/Enterprise"
 port: ## Database's default port - ex: 3306
-db-type: "" 	## mysql,postgres,mongo,mssql
+db-type: ""
 
 ## Stitch features
 
@@ -53,6 +67,8 @@ ssl: true/false
 ## General replication features
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 
