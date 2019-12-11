@@ -9,7 +9,7 @@
 
 
 tap: "integration_name"
-# version: 
+version: ""
 
 key: ""
 name: "table_name"
