@@ -86,7 +86,7 @@ log-based-replication-read-replica: true/false
 
 ## Other Replication Methods
 
-key-based-incremental-replication: 
+key-based-incremental-replication: true/false
 full-table-replication: true/false
 
 view-replication: true/false
