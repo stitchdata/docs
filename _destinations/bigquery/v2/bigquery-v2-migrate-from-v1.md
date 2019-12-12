@@ -82,7 +82,7 @@ steps:
       In this step, you'll delete the current {{ destination.display_name }} v1 destination configuration in Stitch:
 
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}]({{ substep.anchor }})
+      - [Step 1.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
       {% endfor %}
     substeps:
       - title: "Select a historical data setting"
@@ -116,14 +116,14 @@ steps:
       Next, you'll configure the new {{ destination.display_name }} v2 destination in Stitch:
 
       {% for substep in step.substeps %}
-      - [Step 3.{{ forloop.index }}: {{ substep.title }}]({{ substep.anchor }})
+      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
     substeps:
       - title: "Create a GCP IAM service account"
         anchor: "create-gcp-iam-service-account"
         content: |
           {% for sub-substep in substep.sub-substeps %}
-          - [Step 3.1.{{ forloop.index }}: {{ sub-substep.title }}]({{ sub-substep.anchor }})
+          - [Step 3.1.{{ forloop.index }}: {{ sub-substep.title }}](#{{ sub-substep.anchor }})
           {% endfor %}
         sub-substeps:
           - title: "Define the service account details"
@@ -147,7 +147,7 @@ steps:
           To complete the setup, you'll upload the GCP project key file to Stitch and define settings for your {{ destination.display_name }} destination:
 
           {% for sub-substep in substep.sub-substeps %}
-          - [Step 3.2.{{ forloop.index }}: {{ sub-substep.title }}]({{ sub-substep.anchor }})
+          - [Step 3.2.{{ forloop.index }}: {{ sub-substep.title }}](#{{ sub-substep.anchor }})
           {% endfor %}
         sub-substeps:
           - title: "Upload the JSON project key file to Stitch"
