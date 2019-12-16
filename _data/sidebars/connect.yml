@@ -320,38 +320,38 @@ js:
         url: *connect
 
       - title: "Introduction"
-        url: "{{ js.introduction }}"
+        url: "{{ link.connect.js }}{{ js.introduction }}"
 
       - title: "Versioning"
-        url: "{{ js.versioning }}"
+        url: "{{ link.connect.js }}{{ js.versioning }}"
 
       - title: "Installation"
-        url: "{{ js.installation }}"
+        url: "{{ link.connect.js }}{{ js.installation }}"
 
       - title: "Error codes"
-        url: "{{ js.error-codes }}"
+        url: "{{ link.connect.js }}{{ js.error-codes }}"
 
       - title: "Functions"
         sections:
           - title: "addSource"
             method: "function"
-            url: "{{ js.create-a-source.section }}"
+            url: "{{ link.connect.js }}{{ js.create-a-source.section }}"
 
           - title: "authorizeSource"
             method: "function"
-            url: "{{ js.authorize-a-source.section }}"
+            url: "{{ link.connect.js }}{{ js.authorize-a-source.section }}"
 
           - title: "displayDiscovery"
             method: "function"
-            url: "{{ js.source-discovery.section }}"
+            url: "{{ link.connect.js }}{{ js.source-discovery.section }}"
 
           - title: "selectStreamsForSource"
             method: "function"
-            url: "{{ js.select-streams.section }}"
+            url: "{{ link.connect.js }}{{ js.select-streams.section }}"
 
           - title: "editSource"
             method: "function"
-            url: "{{ js.edit-source.section }}"
+            url: "{{ link.connect.js }}{{ js.edit-source.section }}"
 
       - title: "API reference"
         new-page: true
