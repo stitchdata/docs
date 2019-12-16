@@ -5,6 +5,7 @@
     {% if page.product-type == "connect" %}
         {% assign api = site.data.connect.api %}
         {% assign js = site.data.connect.js-client %}
+        {% assign all-docs = site.developer-files | where:"product-type","connect" %}
         {% assign all-form-properties = all-docs | where: "content-type","api-form" %}
     {% endif %}
 
@@ -63,12 +64,12 @@
                                 {% endcase %}
 
                             {% case section.title %}
-                                {% when 'Source Forms' or 'Destination Forms' %}
-                                    {% if section.title == "Source Forms" %}
-                                        {% assign form-properties = all-form-properties | where: "form-type", "source" | sort: "display-name" %}
+                                {% when 'Source forms' or 'Destination forms' %}
+                                    {% if section.title == "Source forms" %}
+                                        {% assign form-properties = all-form-properties | where: "form-type","source" | sort: "display-name" %}
 
-                                    {% elsif section.title == "Destination Forms" %}
-                                        {% assign form-properties = all-form-properties | where: "form-type", "destination" | sort: "display-name" %}
+                                    {% elsif section.title == "Destination forms" %}
+                                        {% assign form-properties = all-form-properties | where: "form-type","destination" | sort: "display-name" %}
                                     {% endif %}
                                     
                                     {% for form-property in form-properties %}

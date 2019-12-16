@@ -17,11 +17,11 @@ sections:
       We built the API to accept and return [JSON](http://json.org) in all responses, including [errors]({{ api.error-message-formats }}).
 
   - title: "API functionality"
-    anchor: "api-funcitonality"
+    anchor: "api-functionality"
     content: |
       Using the API, you can:
 
-      {% assign api-objects = site.connect-files | where:"content-type","api-object" | sort:"order" %}
+      {% assign api-objects = site.developer-files | where:"content-type","api-object" | sort:"order" %}
 
       {% for object in api-objects %}
       {% if object.intro-short %}

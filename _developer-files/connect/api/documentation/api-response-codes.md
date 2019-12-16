@@ -1,5 +1,5 @@
 ---
-title: Response Codes
+title: Response codes
 product-type: "connect"
 content-type: "api-doc"
 order: 4

@@ -1,5 +1,5 @@
 ---
-title: Quick Start
+title: Quick start
 product-type: "connect"
 content-type: "api-doc"
 order: 2
