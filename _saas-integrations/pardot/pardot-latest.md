@@ -3,10 +3,10 @@ title: Pardot
 permalink: /integrations/saas/pardot
 keywords: pardot, pardot data, etl pardot, pardot etl, pardot schema
 summary: "Connection instructions and schema details for Stitch's Pardot integration."
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+layout: singer
+old-schema-template: true
+
+key: "pardot-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -18,6 +18,8 @@ display_name: "Pardot"
 singer: false
 status-url: "http://trust.pardot.com/"
 
+this-version: "15-10-2015"
+
 api: |
   [{{ integration.display_name }} API](http://developer.pardot.com/#official-pardot-api-documentation){:target="new"}
 
@@ -25,12 +27,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "28 days"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: false
@@ -274,47 +275,42 @@ tables:
       - name: file_id
       - name: campaign
       - name: created_at
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+setup-steps:
+  - title: "Whitelist Stitch's IP addresses"
+    anchor: "whitelist-stitch-ips"
+    content: |
+      {% include note.html type="single-line" content="This step is necessary only if IP-based security is enabled for your Pardot account. If your Pardot account doesn't have IP-based security enabled, [skip to the next step](#retrieve-pardot-api-user-key)." %}
+
+      If your {{ integration.display_name }} account allows access from certain IP addresses, you'll need to whitelist the Stitch's IP addresses for the connection to be successful.
+
+      **Note**: Admin permissions in {{ integration.display_name }} are required to add and manage whitelisted IP addresses. [Refer to {{ integration.display_name }}'s documentation for more info](https://help.salesforce.com/articleView?id=pardot_admin_ip_manage_whitelisted.htm&type=5){:target="new"}.
+
+      Sign into your {{ integration.display_name }} account and whitelist all of the following IP addresses:
+
+      {% for ip-address in ip-addresses %}
+      - {{ ip-address.ip }}
+      {% endfor %}
+
+  - title: "Retrieve your {{ integration.display_name }} API user key"
+    anchor: "retrieve-pardot-api-user-key"
+    content: |
+      1. Sign into your {{ integration.display_name }} account, if you aren't already.
+      2. Hover over the **User** menu - it's where your email address is displayed, in the upper right-hand corner of the screen.
+      3. In the dropdown menu that displays, click the **Settings** option. Your user information will display.
+      4. Locate the **API User Key** field.
+
+      Leave this page open for now - you'll need it to complete the setup in Stitch.
+  
+  - title: "add integration"
+    content: |
+      4. In the **{{ integration.display_name }} User Key** field, paste your API User Key.
+  - title: "historical sync"
+  - title: "replication frequency"
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-{% contentfor setup %}
-Connecting your Pardot data to Stitch is a three-step process:
-
-1. [Retrieve your Pardot API User Key](#retrieve-pardot-api-user-key)
-2. [Whitelist Stitch's IP Addresses](#whitelist-stitch-ips)`*`
-2. [Add Pardot as a Stitch data source](#add-stitch-data-source)
-3. [Define the Replication Frequency](#define-rep-frequency)
-
-`*` This step is necessary only if IP-based security is enabled for your Pardot account.
-
-### Retrieve Your Pardot API User Key {#retrieve-pardot-api-user-key}
-
-1. Sign into your Pardot account.
-2. Hover over the **User** menu - it's where your email address is displayed, in the upper right-hand corner of the screen.
-3. In the dropdown menu that displays, click the **Settings** option. Your user information will display.
-4. Locate the **API User Key** field.
-
-Leave this page open for now - you'll need it to complete the setup in Stitch.
-
-### Whitelist Stitch's IP Addresses {#whitelist-stitch-ips}
-
-{% include note.html type="single-line" content="If your Pardot account doesn't have IP-based security enabled, skip this step." %}
-
-If your Pardot account allows access from certain IP addresses, you'll need to whitelist the Stitch's IP addresses for the connection to be successful.
-
-**Note**: Admin permissions in Pardot are required to add and manage whitelisted IP addresses. [Refer to Pardot's documentation for more info](https://help.salesforce.com/articleView?id=pardot_admin_ip_manage_whitelisted.htm&type=5).
-
-Whitelist all of the following IP addresses in Pardot:
-
-{% for ip-address in ip-addresses %}
-- {{ ip-address.ip }}
-{% endfor %}
-
-{% include integrations/shared-setup/connection-setup.html %}
-4. In the **Pardot User Key** field, paste your API User Key.
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}

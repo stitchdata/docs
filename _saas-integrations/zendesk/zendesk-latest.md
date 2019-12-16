@@ -5,6 +5,8 @@ keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Zendesk Support integration."
 layout: singer
 
+key: "zendesk-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -25,12 +27,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
 frequency: "60 minutes"
-tier: "Paid"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: false

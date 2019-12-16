@@ -8,6 +8,8 @@ layout: singer
 input: false
 old-schema-template: true
 
+key: "salesforce-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -25,13 +27,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 frequency: "30 minutes"
 historical: "1 year"
-tier: "Paid"
-icon: /images/integrations/icons/salesforce.svg
+tier: "Standard"
 
 table-selection: true
 column-selection: true

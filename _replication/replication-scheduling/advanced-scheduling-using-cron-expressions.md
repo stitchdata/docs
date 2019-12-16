@@ -20,8 +20,6 @@ enterprise-cta:
     **Advanced replication scheduling is only available on an Enterprise plan**. Cron scheduling allows you to fine-tune an integration's replication schedule, ensuring you have the data you need when you need it. [Contact Stitch Sales for more info]({{ site.sales | append: page.enterprise-cta.url }}){:target="new"}.
 
 intro: |
-  {% include enterprise-cta.html %}
-
   {{ page.summary }}
 
   **Note**: All replication scheduling methods (Replication Frequency, Anchor Scheduling, and Advanced Scheduling) define when data extractions begin. They do not control how long a replication job runs or when data is loaded into a destination.

@@ -106,9 +106,7 @@ sections:
     content: |
       How Replication Methods are defined depends on the type of integration being used:
 
-      - **Database integrations**: Replication Methods are defined by you when tables are set to replicate. The exception to this is MongoDB, which only supports Key-based Incremental Replication.
-
-         A table's Replication Method can be changed at any time in the {{ app.page-names.table-settings }} page.
+      - **Database integrations**: Replication Methods are defined by you when tables are set to replicate. A table's Replication Method can be changed at any time in the {{ app.page-names.table-settings }} page.
 
       - **SaaS integrations**: With the exception of Salesforce, Stitch pre-defines the Replication Methods used for every table set to replicate.
 

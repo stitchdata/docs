@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your Amazon Microsoft SQL Server RDS u
 show-in-menus: false
 input: false
 
+key: "amazon-mssql-rds-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -23,7 +25,7 @@ driver: "6.2.2.jre7"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+status: "Deprecated"
 certified: true
 setup-name: "Microsoft SQL Server"
 

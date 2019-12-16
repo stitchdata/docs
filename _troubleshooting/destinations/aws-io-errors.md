@@ -7,6 +7,8 @@ tags: [troubleshooting_destinations, troubleshooting_errors]
 summary: "While typically transient, I/O errors arise from connection issues between Stitch and your data warehouse. If persistent, these errors may be indicative of a larger issue."
 type: "redshift-destination, error"
 promote: "false"
+
+key: "aws-redshift-io-error"
 ---
 {% include misc/data-files.html %}
 

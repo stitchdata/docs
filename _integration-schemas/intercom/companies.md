@@ -1,6 +1,6 @@
 ---
 tap: "intercom"
-# version: "15-10-2015"
+version: "02-02-2016"
 
 name: "companies"
 doc-link: https://developers.intercom.com/reference#companies

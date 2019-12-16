@@ -144,6 +144,7 @@ defaults:
       type: database-integrations
     values:
       layout: database
+      connection-type: "integration"
       enterprise: false
       toc: true
       sidebar: stitchnav
@@ -161,6 +162,7 @@ defaults:
       type: destinations
     values:
       layout: general
+      connection-type: "destination"
       enterprise: false
       toc: true
       sidebar: stitchnav
@@ -199,6 +201,7 @@ defaults:
       type: saas-integrations
     values:
       layout: saas
+      connection-type: "integration"
       enterprise: false
       toc: true
       sidebar: stitchnav
@@ -258,7 +261,7 @@ partners: https://www.stitchdata.com/partners/
 resources: https://www.stitchdata.com/resources/
 data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeline
 
-support: help@stitchdata.com
+support: stitchsupport@talend.com
 sales: https://www.stitchdata.com/contact/
 sign-in: https://app.stitchdata.com
 

@@ -11,6 +11,8 @@ summary: "Connection instructions and schema details for Stitch's NetSuite integ
 layout: singer
 input: false
 
+key: "netsuite-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -28,12 +30,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 
 table-selection: true
 column-selection: false

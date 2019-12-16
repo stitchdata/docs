@@ -5,6 +5,8 @@ keywords: freshdesk, integration, schema, etl freshdesk, freshdesk etl, freshdes
 summary: "Connection instructions and schema details for Stitch's Freshdesk integration."
 layout: singer
 
+key: "freshdesk-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -15,7 +17,7 @@ display_name: "Freshdesk"
 singer: true
 repo-url: https://github.com/singer-io/tap-freshdesk
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} REST API](https://developer.freshdesk.com/api/){:target="new"}
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false # Community-supported integration
 
 historical: "1 year"

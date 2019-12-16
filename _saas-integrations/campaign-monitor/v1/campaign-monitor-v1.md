@@ -10,6 +10,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 # input: false
 
+key: "campaign-monitor-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -20,7 +22,7 @@ display_name: "Campaign Monitor"
 singer: true 
 repo-url: https://github.com/singer-io/tap-campaign-monitor
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API](https://www.campaignmonitor.com/api/){:target="new"}
@@ -29,7 +31,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -89,12 +90,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/campaign-monitor
-
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
-
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

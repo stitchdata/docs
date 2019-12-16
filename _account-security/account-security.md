@@ -33,16 +33,16 @@ weight: 2
 {% assign sections = "account-settings|team-members|notifications|billing|security" | split:"|" %}
 
 {% for section in sections %}
-- [{{ section | capitalize | replace:"-"," " }}](#{{ section | slugify }})
+- [{{ section | capitalize | replace:"-"," " }}](#{{ section | slugify | append: "-category" }})
 {% endfor %}
 
 ---
 
 {% for section in sections %}
 
-## {{ section | capitalize | replace:"-"," " }}
+## {{ section | capitalize | replace:"-"," " }} {#{{ section | slugify | append: "-category" }}}
 
-{% assign pages = site.account-security | where:"type",section | sort:"weight" %}
+{% assign pages = site.account-security | where_exp:"page","page.type contains section" | sort:"weight" %}
 
 {% for page in pages %}
 <span class="h3"><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title | replace:"stitch","Stitch" | replace:"faq","FAQ" | replace:"api","API" }}</a></span>

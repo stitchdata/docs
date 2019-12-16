@@ -29,9 +29,9 @@ later on in the template.
             <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
             <ul>
                 {% case integration.tier %}
-                    {% when 'Paid' %}
+                    {% when 'Standard' %}
                         <li>
-                            <strong>A paid Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a paid plan is selected after the trial ends.
+                            <strong>A Standard or higher Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a Standard plan or higher is selected after the trial ends.
                         </li>
                     {% when 'Enterprise' %}
                         <li>

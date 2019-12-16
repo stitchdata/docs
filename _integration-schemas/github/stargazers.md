@@ -1,6 +1,6 @@
 ---
 tap: "github"
-# version: ""
+version: "1.0"
 
 name: "stargazers"
 doc-link: https://developer.github.com/v3/activity/starring/

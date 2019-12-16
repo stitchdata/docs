@@ -22,7 +22,11 @@ db-type: "s3-csv"
 
 is-filesystem: true
 
-description: ""
+property-description: |
+  CSV files in an Amazon S3 bucket
+
+description: |
+  Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append:"#setup-requirements" }}) for requirements for CSV files.
 
 
 # -------------------------- #
@@ -69,12 +73,14 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      A series of properties defining the CSV files to be tracked as tables. For every table configuration, this property will contain a JSON object with the following properties. Every property should be a string.
+      A series of properties defining the CSV files to be tracked as tables. For every table configuration, this property will contain a JSON object with the following properties. **Note**: Every property should be an escaped string.
+
+      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append:"#setup-requirements" }}) for requirements for CSV files.
 
       - **search_pattern** - The search criteria Stitch should use when selecting CSV files for extraction. This can be the name of a single file or a regular expression. For example: `customers.csv` or `*\.csv`
       - **search_prefix** - The directory path Stitch should limit the file search to. For example: `exports/data`
       - **table_name** - The name of the table as it should appear in the destination. For example: `customers`
-      - **key_properties** - A comma-separated list of header fields in the CSV Stitch can use to uniquely identify records. For example: `_id,date`
+      - **key_properties** - A comma-separated list of header fields in the CSV files Stitch can use to uniquely identify records. For example: `_id,date`
 
          **Note**: If undefined, data will be loaded to the table in an append-only fashion. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#primary-keys-append-only" }}) for more info.
       - **date_overrides** - A comma-separated list of header fields in the CSV that should be typed as `datetime` fields in the destination. For example: `updated_at,created_at`
@@ -87,5 +93,5 @@ object-attributes:
          - `\t` - Tab
 
     value: |
-      [{"search_pattern":"customers.csv","search_prefix":"exports/files","table_name":"customers","key_properties":"id","date_overrides":"created_at","delimiter":","},{"search_pattern":"orders.csv","search_prefix":"exports/files","table_name":"orders","key_properties":"id","date_overrides":"updated_at","delimiter":","}]
+      [{\"search_pattern\":\"customers.csv\",\"search_prefix\":\"exports\/files\",\"table_name\":\"customers\",\"key_properties\":\"id\",\"date_overrides\":\"created_at\",\"delimiter\":\",\"},{\"search_pattern\":\"orders.csv\",\"search_prefix\":\"exports\/files\",\"table_name\":\"orders\",\"key_properties\":\"id\",\"date_overrides\":\"updated_at\",\"delimiter\":\",\"}]
 ---

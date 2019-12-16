@@ -5,6 +5,7 @@ keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
 layout: singer
 input: false
+key: "hubspot-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -25,12 +26,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 historical: "30 days"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 status-url: https://status.hubspot.com/
 
 table-selection: true

@@ -307,7 +307,6 @@ attributes:
   - name: "lock_data"
     type: "object"
     description: ""
-    object-properties: 
 
   - name: "order_date"
     type: "date-time"

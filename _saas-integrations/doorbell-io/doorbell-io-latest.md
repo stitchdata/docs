@@ -3,9 +3,10 @@ title: Doorbell.io
 permalink: /integrations/saas/doorbell-io
 keywords: doorbell.io, doorbell.io schema, doorbell.io data, etl doorbell.io, doorbell.io etl
 summary: "Connection instructions and schema details for Stitch's Doorbell.io integration."
-tags: [saas_integrations]
 layout: singer
 no-schema: true ## Prevents the Singer Table Schema include from running
+
+key: "doorbell-io-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -17,7 +18,7 @@ singer: false
 author: "Stitch"
 author-url: https://www.stitchdata.com
 
-# this-version: ""
+this-version: ""
 
 api: |
   [Stitch Import API]({{ link.import-api.getting-started | prepend: site.baseurl }}){:target="new"}

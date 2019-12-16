@@ -9,7 +9,7 @@ toc: true
 
 key: "manage-api-keys"
 type: "account-settings"
-weight: 3
+weight: 4
 
 enterprise: true
 enterprise-cta:

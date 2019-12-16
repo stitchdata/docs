@@ -4,17 +4,21 @@
 # -------------------------- #
 
 title: Apply table partitioning and clustering in BigQuery
-permalink: /destinations/bigquery/apply-table-partitioning-clustering
+permalink: /destinations/google-bigquery/apply-table-partitioning-clustering
+redirect_from: /destinations/bigquery/apply-table-partitioning-clustering
+
 keywords: bigquery, google bigquery, partition, partitioning, cluster, clustering, indexes
 
 summary: "Want to improve your BigQuery performance and query costs? In this article, we’ll walk you through how to use table partitioning and clustering to streamline query processing in your BigQuery destination."
 
 content-type: "destination-general"
+key: "bigquery-partitioning"
+type: "bigquery"
 
 toc: true
 layout: tutorial
 use-tutorial-sidebar: false
-type: "bigquery"
+
 
 
 # -------------------------- #

@@ -1,0 +1,168 @@
+# -------------------------------- #
+#  RESERVED WORDS FOR DESTINATIONS #
+# -------------------------------- #
+
+## This file contains the reserved keywords for Stitch
+## and its destinations.
+
+## The COMMON list (below) contains keywords that are shared
+## between at least two destinations. The anchors are then
+## referenced in the individual list for each destination,
+## if it's applicable.
+
+common:
+  - &sdc-prefix
+    name: "{{ system-column.prefix }}"
+    type: "stitch"
+    description: "Can't be used as a prefix in table or column names."
+
+  - &rjm-prefix
+    name: "{{ system-column.rjm-prefix }}"
+    type: "stitch"
+    description: "Can't be used as a prefix in table or column names."
+
+  - &bigint-suffix
+    name: "__bi"
+    type: "stitch"
+    description: &changed-types "Can't be used as a suffix in column names; reserved by Stitch to accommodate changed data types."
+
+  - &boolean-suffix
+    name: "__bo"
+    type: "stitch"
+    description: *changed-types
+
+  - &decimal-suffix
+    name: "__de"
+    type: "stitch"
+    description: *changed-types
+
+  - &double-suffix
+    name: "__do"
+    type: "stitch"
+    description: *changed-types
+
+  - &float-suffix
+    name: "__fl"
+    type: "stitch"
+    description: *changed-types
+
+  - &integer-suffix
+    name: "__it"
+    type: "stitch"
+    description: *changed-types
+
+  - &string-suffix
+    name: "__st"
+    type: "stitch"
+    description: *changed-types
+
+  - &timestamp-suffix
+    name: "__ti"
+    type: "stitch"
+    description: *changed-types
+
+
+# -------------------------------- #
+#         GOOGLE BIGQUERY          #
+# -------------------------------- #
+  
+bigquery:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *float-suffix
+  - *integer-suffix
+  - name: "__nu" # For the NUMERIC data type
+    type: "stitch"
+    description: *changed-types
+  - *string-suffix
+  - *timestamp-suffix
+
+  - name: "_table_"
+    type: "destination"
+    description: &bigquery-prefix "Can't be used as a prefix in column names."
+
+  - name: "_file_"
+    type: "destination"
+    description: *bigquery-prefix
+
+  - name: "_partition_"
+    type: "destination"
+    description: *bigquery-prefix
+
+  - name: "_row_timestamp"
+    type: "destination"
+    description: *bigquery-prefix
+
+
+# ----------------------------------- #
+# MICROSOFT AZURE SQL DATA WAREHOUSE  #
+# ----------------------------------- #
+
+microsoft-azure:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *float-suffix
+  - name: "__inst" # For the DATETIME data type
+    type: "stitch"
+    description: *changed-types
+  - *string-suffix
+
+
+# -------------------------------- #
+#         AMAZON REDSHIFT          #
+# -------------------------------- #
+
+redshift: &redshift-keywords
+  - *sdc-prefix
+  - *rjm-prefix
+  - *bigint-suffix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *double-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *timestamp-suffix
+
+
+# -------------------------------- #
+#           PANOPLY.IO             #
+# -------------------------------- #
+
+panoply: *redshift-keywords
+
+
+# -------------------------------- #
+#            POSTGRESQL            #
+# -------------------------------- #
+
+postgres:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *bigint-suffix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *double-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *timestamp-suffix
+
+
+# -------------------------------- #
+#             SNOWFLAKE            #
+# -------------------------------- #
+
+snowflake:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - *decimal-suffix
+  - *float-suffix
+  - *integer-suffix
+  - *string-suffix
+  - *timestamp-suffix
+  - name: "__va" # For the VARIANT data type
+    type: "stitch"
+    description: *changed-types

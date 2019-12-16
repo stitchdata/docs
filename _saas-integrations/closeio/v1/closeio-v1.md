@@ -10,6 +10,8 @@ keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Close.io integration."
 layout: singer
 
+key: "closeio-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,15 +31,12 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
 frequency: "30 minutes"
-tier: "Paid"
+tier: "Standard"
 status-url: "http://status.close.io/"
-
-attribution-window: "24 hours"
 
 anchor-scheduling: true
 cron-scheduling: false
@@ -47,6 +46,8 @@ loading-reports: true
 
 table-selection: false
 column-selection: false
+
+attribution-window: "24 hours"
 
 # -------------------------- #
 #      Feature Summary       #

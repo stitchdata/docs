@@ -12,9 +12,22 @@
 </ul>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="create-user-instrstructions">
+    <!-- Use the database's `name` value if the include has an override-setup property. 
+            In some cases, the instructions for different flavors are totally different
+            from service to service. This allows for an override. -->
+            
+        {% if include.override-user-setup %}
+        {% capture setup-instructions %}
+        {% include integrations/databases/setup/db-users/{{ integration.name }}.html %}
+        {% endcapture %}
+
+        {% else %}
+
         {% capture setup-instructions %}
         {% include integrations/databases/setup/db-users/{{ integration.db-type }}.html %}
         {% endcapture %}
+        
+        {% endif %}
 
         {{ setup-instructions | flatify | markdownify }}
 

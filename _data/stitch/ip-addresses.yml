@@ -3,8 +3,16 @@
 # -------------------------- #
 ## These must be whitelisted for Stitch to either
 ## replicate or write data
+
 stitch-app:
   - ip: "52.23.137.21/32"
   - ip: "52.204.223.208/32"
   - ip: "52.204.228.32/32"
   - ip: "52.204.230.227/32"
+
+## Singer Taps that have whitelist restriction features
+## must have these IP addresses whitelisted to replicate
+## data. Ex: Marketo
+singer:
+  - ip: "34.194.200.23"
+  - ip: "34.198.232.34"

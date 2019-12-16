@@ -1,0 +1,51 @@
+<!-- This file is an overview table of an connection's version
+release and deprecation dates -->
+
+<!-- Used to generate the "Unsupported" icons -->
+{% include misc/icons.html %}
+{% include misc/data-files.html %}
+
+<!-- The logic for pulling version info is in this include -->
+{% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination"  %}
+
+<p>
+    All versions for Stitch's {{ page.display_name }} {{ page.connection-type }}, including release and deprecation dates.
+</p>
+
+<table class="attribute-list">
+    <tr>
+        <td class="attribute-name">
+            <strong>Version</strong>
+        </td>
+        <td>
+            <strong>Release date</strong>
+        </td>
+        <td>
+            <strong>Deprecation date</strong>
+        </td>
+        <td>
+            <strong>End of life (Sunset)</strong>
+        </td>
+    </tr>
+    {% for version in released-versions %}
+        <tr>
+            <td class="attribute-name">
+                <strong>
+                    version {{ version.number | prepend: "v" }}
+                </strong>
+                {% if version.number == latest-version %} (latest){% endif %}
+            </td>
+
+            <td class="attribute-description">
+                {{ version.date-released }}
+            </td>
+
+            <td class="attribute-description">
+                {{ version.deprecation-date }}
+            </td>
+            <td>
+                {{ version.sunset-date }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>

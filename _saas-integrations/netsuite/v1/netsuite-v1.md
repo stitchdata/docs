@@ -21,6 +21,8 @@ keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite sc
 layout: singer
 # input: false
 
+key: "netsuite-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -40,12 +42,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Paid"
+tier: "Standard"
 
 anchor-scheduling: true
 cron-scheduling: false

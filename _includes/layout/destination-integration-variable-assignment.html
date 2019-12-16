@@ -7,9 +7,6 @@
     {% if page.permalink contains "destinations" %}
         {% assign destination = page %}
 
-        {% if site.data.destinations.reference[destination.type]stitch-details-info.release-status contains "Beta" %}
-		    {% include notifications/destination-beta-notice.html %}
-		{% endif %}
     {% elsif page.permalink contains "integrations" %}
         {% assign integration = page %}
     {% endif %}

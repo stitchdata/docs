@@ -5,6 +5,8 @@ keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 summary: "Connection instructions and schema details for Stitch's Marketo integration."
 layout: singer
 
+key: "marketo-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,7 +31,7 @@ certified: true
 
 historical: "1 year"
 frequency: "12 hours"
-tier: "Paid"
+tier: "Standard"
 status-url: http://status.marketo.com/
 
 anchor-scheduling: true

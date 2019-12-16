@@ -3,11 +3,11 @@ title: Choosing a Destination
 permalink: /destinations/choosing-a-stitch-destination
 
 redirect_from: /destinations/choosing-a-destination
-tags: [destinations]
 keywords: destination, destinations, data warehouse, data warehouses, warehouse, stitch etl, etl, compare destinations, choose destination, select destination
 summary: "If you're new to data warehousing or want to see how Stitch's destination offerings compare to each other, look no further. This guide will help you choose the best Stitch destination for your data warehousing needs."
 
 content-type: "destination-general"
+key: "choose-a-destination"
 
 toc: true
 layout: general
@@ -17,13 +17,12 @@ destination: false
 sections:
   - content: |
       {% capture data-strategy%}
-      **Not sure where to start?**<br>
       If you're feeling overwhelmed or you're unsure of what to look for, don't worry. For a primer on data warehouses and setting the data strategy for your organization, check out our [Data Strategy Guide]({{ site.data-strategy }}).
       {% endcapture %}
 
-      {% include tip.html content=data-strategy %}
+      {% include note.html first-line="**Not sure where to start?**" content=data-strategy %}
 
-      When Stitch replicates your data, we'll load it into the destination - or data warehouse - of your choosing. A data warehouse is a central repository of integrated data from disparate sources.
+      When Stitch replicates your data, we'll load it into the destination of your choosing.
 
       **As Stitch currently only allows you to connect one destination to your account**, we recommend asking yourself the questions below before making your selection. By fully assessing each choice first, you'll decrease the likelihood of needing to switch destinations or re-replicate all of your data at a later date.
 
@@ -48,112 +47,216 @@ sections:
 
       **Note**: If you decide to [switch destinations]({{ link.destinations.overviews.switch-destination | prepend: site.baseurl }}) later, you'll need to queue a full re-replication of your data to ensure historical data is present in the new destination.
 
-  - title: "Are your data sources compatible with your destination?"
+  - title: "Destination and data source compatibility"
     anchor: "integration--destination-compatibility"
+    summary: "Are your data sources compatible with your destination?"
     content: |
       Some integrations may be partially or fully incompatible with some of the destinations offered by Stitch. For example: Some destinations don't support storing multiple data types in the same column. If a SaaS integration sends over a column with mixed data types, some destinations may "reject" the data.
 
       For integrations that allow you to control how data is structured, you may be able to fix the problem at the source and successfully replicate the data. If this is not possible, however, Stitch may never be able to successfully replicate the incompatible data.
 
-      [**Check Integration & Destination Compatibility**]({{ link.destinations.overviews.compatibility | prepend: site.baseurl }})
+      Refer to the [Integration and destination compatibility reference]({{ link.destinations.overviews.compatibility | prepend: site.baseurl }}) for more info.
 
-  - title: "Will the structure of the data suit your needs?"
-    anchor: "data-structure"
+  - title: "Replication, transformations, and data structure"
+    anchor: "replication-transformations"
+    summary: "Will the structure of the data suit your needs?"
     content: |
-      While the majority of your data will look the same across our destinations, there are some key differences you should be aware of.
+      While the majority of your data will look the same across our destinations, there are some key differences you should be aware of:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary }}](#{{ subsection.anchor }})
+      {% endfor %}
     subsections:
+      - title: "Loading behavior and updates to existing records"
+        anchor: "incremental-and-append-only-replication"
+        summary: "How updates to existing records are handled"
+        content: |
+          Loading behavior determines how data is loaded into your destination. Specifically, how updates are made to existing rows in the destination.
+
+          Stitch supports two loading behavior types:
+
+          - **Upsert**: {{ site.data.tooltips.upsert }}
+          - **Append-Only**: {{ site.data.tooltips.append-only }}
+
+          The table below lists the default loading behavior for each destination and whether it can be configured.
+
+          {% include misc/icons.html %}
+
+          **Note**: If a destination supports and is configured to use Upsert loading, Stitch will attempt to use Upsert loading before Append-Only. All [other conditions for Upsert loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}#upsert-loading-conditions) must also be met.
+
+          Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples of each loading bheavior type.
+
+          {% assign attributes = "Destination|Version|Default loading behavior|Loading behavior is configurable?" | split:"|" %}
+
+          {% assign destinations = site.destinations | where:"destination",true | sort:"display_name" %}
+
+          <table class="attribute-list">
+          <tr>
+          {% for attribute in attributes %}
+          {% if forloop.first == true %}
+          <td align="right">
+          {% else %}
+          <td>
+          {% endif %}
+          <strong>{{ attribute }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          {% for destination in destinations %}
+          {% assign version = destination.this-version | prepend: "v" %}
+          <tr>
+          <td align="right">
+          {{ destination.display_name }}
+          </td>
+          <td width="15%; fixed">
+          {{ version }}
+          </td>
+          <td width="20%; fixed">
+          {{ site.data.destinations[destination.type][version]replication.default-loading-behavior }}
+          </td>
+          <td width="25%; fixed">
+          {% case site.data.destinations[destination.type][version]replication.configurable-loading-behavior %}
+          {% when true %}
+          {{ supported | replace:"TOOLTIP","Loading behavior is configurable for this destination and version." }}
+          {% when false %}
+          {{ not-supported | replace:"TOOLTIP","Loading behavior is not configurable for this destination and version." }}
+          {% endcase %}
+          </td>
+          </tr>
+          {% endfor %}
+          </table>
+
       - title: "Nested data structures"
         anchor: "nested-data-structures"
+        summary: "How destinations handle nested data structures"
         content: |
           Some destinations don't natively support nested structures, meaning that before Stitch can load replicated data, these structures must be "de-nested". During this process, Stitch will flatten nested structures into relational tables and subtables. As a result of creating subtables, a higher number of rows will be used.
 
           If a destination does natively support nested structures, no de-nesting will occur and Stitch will store the records intact.
 
-          Check out the [Handling of Nested Data & Row Count Impact]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for an in-depth look at what we mean by nested records, how Stitch handles nested data, and what those records will look like in your data warehouse.
+          Check out the [Handling of Nested Data & Row Count Impact guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for an in-depth look at what we mean by nested records, how Stitch handles nested data, and what those records will look like in your data warehouse.
+
+          {% assign attributes = "Destination|Version|Support|Notes" | split:"|" %}
 
           <table class="attribute-list">
-              <tr>
-                  <td>
-                      <strong>
-                          Supports Nested Structures
-                      </strong>
-                  </td>
-                  <td>
-                      <strong>
-                          No Nested Structure Support
-                      </strong>
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <ul>
-                                <li>Amazon S3 (JSON)</li>
-                                <li>data.world</li>
-                          {% for destination in destinations %}
-                            {% if site.data.destinations.reference[destination.type]replication-info.nested-structures.supported contains "true" %}
-                                  <li>{{ destination.display_name }}</li>
-                              {% endif %}
-                          {% endfor %}
-                      </ul>
-                  </td>
-                  <td>
-                      <ul>
-                              <li>Amazon S3 (CSV)</li>
-                          {% for destination in destinations %}
-                              {% if site.data.destinations.reference[destination.type]replication-info.nested-structures.supported contains "false" %}
-                                  <li>{{ destination.display_name }}</li>
-                              {% endif %}
-                          {% endfor %}
-                      </ul>
-                  </td>
-              </tr>
+          <tr>
+          {% for attribute in attributes %}
+          {% if forloop.first == true %}
+          <td width="30%; fixed" align="right">
+          {% else %}
+          <td>
+          {% endif %}
+          <strong>{{ attribute }}</strong>
+          </td>
+          {% endfor %}
+          </tr>
+          {% for destination in destinations %}
+          {% assign version = destination.this-version | prepend: "v" %}
+          {% assign destination-replication = site.data.destinations[destination.type][version]replication %}
+          <tr>
+          <td align="right">
+          {{ destination.display_name }}
+          </td>
+          <td width="12%; fixed">
+          {{ version }}
+          </td>
+          <td>
+          {% case destination-replication.nested-structure-support %}
+          {% when true %}
+          {{ supported | replace:"TOOLTIP","Nested data structures are natively supported." }}
+          {% when false %}
+          {{ not-supported | replace:"TOOLTIP","Nested data structures aren't natively supported." }}
+          {% else %}
+          {{ not-applicable | replace:"TOOLTIP","See Notes column for more info." }}
+          {% endcase %}
+          </td>
+          <td>
+          {{ destination-replication.nested-structure-support-description | flatify | markdownify }}
+          </td>
+          </tr>
+          {% endfor %}
           </table>
 
-      - title: "Updates to existing records"
-        anchor: "incremental-and-append-only-replication"
-        content: |
-          While all destinations support loading incrementally replicated data, how that data is stored in your destination will vary by destination.
-
-          Unlike other destinations, **BigQuery** and **Amazon S3** store data in an <a href="#" data-toggle="tooltip" data-original-title="{{site.data.tooltips.append-only-rep}}">Append-Only</a> manner. This means that existing rows are never updated in the destination, but appended to the end of the table. In the case of **Amazon S3**, [during each load a new file (CSV or JSON) will be created and added to the bucket]({{ link.destinations.overviews.amazon-s3 | prepend: site.baseurl | append: "#loading" }}). 
-
-          This means that there can be many different rows in a table with the same Primary Key, each representing what the data was at that moment in time. These are not duplicate rows - they're "snapshots" of the record at different points.
-
-          For more info, check out [this detailed explanation on Append-Only Replication]({{ link.replication.append-only | prepend: site.baseurl }}) or [our recommendations for querying append-only tables]({{ link.replication.append-only | prepend: site.baseurl }}).
-
-          ### Redshift vs. PostgreSQL
-
-          If you've worked with PostgreSQL in the past and are considering Redshift as your data warehouse, you should note that Redshift [implements some Postgres features differently](http://docs.aws.amazon.com/redshift/latest/dg/c_redshift-sql-implementated-differently.html){:target="_blank"}. In addition, some [features](http://docs.aws.amazon.com/redshift/latest/dg/c_unsupported-postgresql-features.html){:target="_blank"}, [data types](http://docs.aws.amazon.com/redshift/latest/dg/c_unsupported-postgresql-datatypes.html){:target="_blank"}, and [functions](http://docs.aws.amazon.com/redshift/latest/dg/c_unsupported-postgresql-functions.html){:target="_blank"} aren't supported at all.
-
-  - title: "What type of maintenance do you need?"
+  - title: "Maintenance and support"
     anchor: "setup--maintenance"
+    summary: "What type of maintenance do you need?"
     content: |
       With the exception of a self-hosted PostgreSQL instance, all the destinations offered by Stitch are cloud-hosted databases, meaning you won't have to factor in server maintenance when making a decision.
-    subsections:
-      - title: "Fully-managed solutions"
-        anchor: "fully-managed-solutions"
-        content: |
-          **Amazon Aurora PostgreSQL RDS**, [**Azure SQL Data Warehouse**](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/service-maintenance){:target="new"}, [**BigQuery**](https://cloud.google.com/solutions/bigquery-data-warehouse#maintenance){:target="new"}, [**Heroku**](https://devcenter.heroku.com/articles/platform-updates-maintenance-and-notifications){:target="new"}, **Panoply**, and **Snowflake** are fully-managed solutions that include routine maintenance and upgrades in their plans.
 
-      - title: "DIY solutions"
-        anchor: "diy-solutions"
-        content: |
-          **Redshift, Amazon PostgreSQL-RDS**, and **self-hosted Postgres instances** will require you to perform and schedule maintenance tasks on your own. Spinning up a Redshift and Amazon PostgreSQL-RDS instance will require technical knowledge and familiarity with the Amazon Web Services (AWS) console.
+      In the table below are:
 
-  - title: "What's the destination's pricing structure?"
+      - **Fully-managed destinations** that include routine maintenance and upgrades in their plans
+      - **DIY destinations** that will require you to perform and schedule maintenance tasks on your own
+
+      <table class="attribute-list">
+      <tr>
+      <td width="50%; fixed">
+      <strong>Fully-managed destinations</strong>
+      </td>
+      <td>
+      <strong>DIY destinations</strong>
+      </td>
+      </tr>
+      <tr>
+      <td>
+      <ul>
+      {% for destination in destinations %}
+      {% if site.data.destinations[destination.type]destination-details.fully-managed == true %}
+      <li>{{ destination.display_name }}</li>
+      {% endif %}
+      {% endfor %}
+      <li>PostgreSQL (Heroku, Amazon RDS, Amazon Aurora)</li>
+      </ul>
+      </td>
+      <td>
+      <ul>
+      {% for destination in destinations %}
+      {% if site.data.destinations[destination.type]destination-details.fully-managed == false %}
+      <li>{{ destination.display_name }}</li>
+      {% endif %}
+      {% endfor %}
+      <li>PostgreSQL (self-hosted)</li>
+      </ul>
+      </td>
+      </tr>
+      </table>
+
+  - title: "Destination pricing models"
     anchor: "pricing"
+    summary: "What's the destination's pricing structure?"
     content: |
       Every destination offered by Stitch has its own pricing structure. Some providers charge by overall usage, others by an hourly rate or the amount of stored data. Depending on your needs, some pricing structures may fit better into your budget.
 
       In the next section, you'll find each destination's pricing structure, including a link to detailed price info and whether a free option (trial or plan) is available. Here are a few things to keep in mind:
 
+      {% assign attributes = "Destination|Version|Pricing model|Notes" | split:"|" %}
+
       <table class="attribute-list">
+      <tr>
+      {% for attribute in attributes %}
+      {% if forloop.first == true %}
+      <td width="30%; fixed" align="right">
+      {% else %}
+      <td>
+      {% endif %}
+      <strong>{{ attribute }}</strong>
+      </td>
+      {% endfor %}
+      </tr>
       {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
       <tr>
       <td class="attribute-name">
       <strong>{{ destination.display_name }}</strong>
       </td>
+      <td>
+      {{ version }}
+      </td>
+      <td>
+      {{ site.data.destinations[destination.type]destination-details.pricing-model | flatify | markdownify }}
+      </td>
       <td class="attribute-description">
-      {{ site.data.destinations.reference[destination.type]destination-details-info.pricing-details | flatify | markdownify }}
+      {{ site.data.destinations[destination.type]destination-details.pricing-details | flatify | markdownify }}
       {% if destination.type == "bigquery" %}
       To learn more about how Stitch may impact your BigQuery costs, <a href="{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}">click here</a>.
       {% endif %}

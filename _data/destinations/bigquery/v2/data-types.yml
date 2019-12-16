@@ -1,0 +1,200 @@
+# ------------------------------- #
+#  GOOGLE BIGQUERY V2 DATA TYPING #
+# ------------------------------- #
+
+## Details about data typing for Google BigQuery (v2) destinations.
+## Includes:
+##  - Stitch types mapped to BigQuery-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by BigQuery
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/stitch/data-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/common.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+## Data types specific to BigQuery destinations:
+specific:
+  - name: "array"
+  - name: "record"
+
+
+# ---------------------------- #
+#           ARRAY              #
+# ---------------------------- #
+
+## Stitch types and their BigQuery-specific mappings & suffixes
+array:
+  destination-type: "array"
+  suffix: "ar"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#array-type"
+
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint: &integer
+  destination-type: "integer"
+  suffix: "it"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#integer-type"
+  range: "-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807"
+  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "boolean"
+  suffix: "bo"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#boolean-type"
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "timestamp"
+  suffix: "ti"
+  description: "Stored in UTC"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type"
+  range: "0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999 UTC"
+  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range "0001-01-01 to 9999-12-31"
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double: &float
+  destination-type: "float"
+  suffix: "fl"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#floating-point-type"
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float: *float
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer: *integer
+
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number:
+  destination-type: "numeric"
+  suffix: "nu"
+  description: "Up to 38 digits of precision and 9 digits of scale"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type"
+  range: "-99999999999999999999999999999.999999999 to 99999999999999999999999999999.999999999"
+  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+
+
+# ---------------------------- #
+#           RECORD             #
+# ---------------------------- #
+
+record:
+  destination-type: "record"
+  suffix: "re"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct-type"
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "string"
+  suffix: "st"
+  description: "No maximum width"
+  doc-link: "https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#string-type"
+
+
+all:
+# -------------------------- #
+#       DATE AND TIME        #
+# -------------------------- #
+
+  - id: "date-and-time-timezone-support"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the value in UTC as `TIMESTAMP`.
+
+      More info about timestamp data types can be found in [BigQuery's documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type){:target="new"}.
+
+  - id: "date-and-time-date-range"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in [BigQuery's documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#date-type){:target="new"}.
+    error: &date-timestamp-error "{{ site.data.destinations.bigquery.loading-errors.timestamp-out-of-range | flatify }}"
+    fix-it: &date-timestamp-fix-it "{{ site.data.dataloading.scenarios.data-types.timestamps-out-of-range.fix-it | flatify }}"
+
+  - id: "date-and-time-timestamp-range"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in [BigQuery's documentation](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type){:target="new"}.
+    error: *date-timestamp-error
+    fix-it: *date-timestamp-fix-it
+
+
+# -------------------------- #
+#         NUMERIC            #
+# -------------------------- #
+
+  - id: "integer-range"
+    value: *integer-range
+    description: |
+      Integer values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+    error: "{{ site.data.destinations.bigquery.loading-errors.integer-out-of-range | flatify }}"
+    fix-it: "{{ site.data.dataloading.scenarios.data-types.integer-out-of-range.fix-it | flatify }}"
+
+  - id: "decimal-range"
+    value: *decimal-range
+    description: |
+      Decimal values will be loaded to {{ destination.display_name }} as the data type [`NUMERIC`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type){:target="new"}.
+
+      Values that fall outside the supported maximum range for the `NUMERIC` data type will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+    error: &decimal-error "{{ site.data.destinations.bigquery.loading-errors.numeric-out-of-range | flatify }}"
+    fix-it: &decimal-fix-it "{{ site.data.dataloading.scenarios.data-types.decimals-out-of-range.fix-it | flatify }}"
+
+
+# -------------------------- #
+#         STRINGS            #
+# -------------------------- #
+
+  - id: "string-storage"
+    value: *string-storage
+    description: |
+      `VARCHAR` values will be loaded to {{ destination.display_name }} as the [`STRING`](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#string-type){:target="new"} data type.
+
+      No widening will occur if the width of the `VARCHAR` data increases.
+
+  - id: "string-max-width"
+    value: *string-max-width
+    important: true
+    description: |
+      While there aren't any size limits on string data, the record as a whole must still be less than {{ site.data.destinations.common.replication.max-record-size }} or it will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).

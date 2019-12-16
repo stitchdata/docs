@@ -12,6 +12,9 @@ summary: |
 
   This integration has been deprecated.
 layout: singer
+
+key: "google-analytics-adwords-setup"
+
 input: false ## Removes integration from displaying on category pages
 
 # -------------------------- #
@@ -20,8 +23,7 @@ input: false ## Removes integration from displaying on category pages
 
 name: "google-analytics-adwords"
 display_name: "Google Analytics (AdWords)"
-author: "Stitch"
-author-url: https://www.stitchdata.com
+
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
 this-version: "15-10-2015"
@@ -30,13 +32,11 @@ this-version: "15-10-2015"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 historical: "15 days"
 frequency: "30 minutes"
 tier: "Free"
-icon: /images/integrations/icons/google-adwords-old.svg
 
 table-selection: false
 column-selection: false

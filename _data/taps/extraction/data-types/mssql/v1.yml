@@ -40,6 +40,14 @@ date:
   stitch-type: "string"
   format: "date-time"
   doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/date-transact-sql?view=sql-server-2017"
+
+datetime2:
+  stitch-type: "string"
+  format: "date-time"
+
+datetimeoffset:
+  stitch-type: "string"
+  format: "date-time"
       
 decimal:
   stitch-type: "number"
@@ -83,6 +91,10 @@ rowversion:
   doc-link: &rowversion-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017"
   tooltip: |
     An auto-generated, auto-incremented, unique binary hex string used to version-stamp rows. This is synonymous with <strong>timestamp</strong>. <a href='https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017' target='new'>Learn more</a>.
+
+smalldatetime:
+  stitch-type: "string"
+  format: "date-time"
 
 smallint:
   stitch-type: "integer"

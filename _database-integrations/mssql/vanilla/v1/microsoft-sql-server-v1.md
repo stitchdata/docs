@@ -5,7 +5,8 @@ permalink: /integrations/databases/microsoft-sql-server/v1
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's Microsoft SQL Server integration."
 show-in-menus: false
 
-hosting-type: "generic"
+key: "mssql-integration"
+
 
 # -------------------------- #
 #     Integration Details    #
@@ -24,7 +25,7 @@ driver: "7.2.1.jre8"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true
 
 frequency: "30 minutes"
@@ -34,7 +35,7 @@ db-type: "mssql"
 
 ## Stitch features
 
-versions: "2008R2 - 2017; 2008+ for Change Tracking"
+versions: "2012 through 2017"
 ssh: true
 ssl: true
 
@@ -54,7 +55,7 @@ table-level-reset: true
 
 define-replication-methods: true
 
-log-based-replication-minimum-version: "2008"
+log-based-replication-minimum-version: "2012"
 log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
@@ -72,10 +73,12 @@ view-replication: true
 
 requirements-list:
   - item: "**Privileges in {{ integration.display_name }} that allow you to create/manage users.** This is required to create the Stitch database user."
+
+  - item: "**A database running {{ integration.display_name }} version {{ page.versions }}.** {{ integration.display_name }} 2012 is the miminum version that Stitch supports for this type of integration."
+
   - item: |
       **If using Log-based Incremental Replication**, you'll need:
 
-      - **A database running {{ integration.display_name }} {{ page.log-based-replication-minimum-version }} or higher.** Earlier versions of {{ integration.display_name }} don't include Change Tracking functionality which is required for Log-based Incremental Replication.
       - **The `ALTER DATABASE` privilege in {{ integration.display_name }}.** This is required to complete the setup for Log-based Incremental Replication.
   - item: |
       **A server that**:

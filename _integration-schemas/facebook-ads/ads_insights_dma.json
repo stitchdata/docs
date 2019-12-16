@@ -1,6 +1,6 @@
 ---
 tap: "facebook-ads"
-version: 1.0
+version: "1.0"
 
 name: "ads_insights_dma"
 doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/
@@ -34,6 +34,11 @@ attributes:
     description: "The ID of the campaign. Campaigns contain ad sets and ads."
     foreign-key-id: "campaign-id"
 
+  - name: "dma"
+    type: "string"
+    primary-key: true
+    description: "The DMA by which the data is segmented."
+
   - name: "date_start"
     type: "date-time"
     primary-key: true
@@ -43,11 +48,6 @@ attributes:
   - name: "date_stop"
     type: "date-time"
     description: "The end date of the ad."
-
-  - name: "dma"
-    type: "string"
-    primary-key: true
-    description: "The DMA by which the data is segmented."
 
   - name: "ad_name"
     type: "integer"

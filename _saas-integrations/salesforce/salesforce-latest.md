@@ -5,6 +5,8 @@ keywords: salesforce, integration, schema, etl salesforce, salesforce etl, sales
 summary: "Connections instructions, replication info, and schema details for Stitch's Salesforce integration."
 layout: singer
 
+key: "salesforce-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -25,12 +27,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "1 hour"
 historical: "1 year"
-tier: "Paid"
+tier: "Standard"
 whitelist-ips: true
 
 anchor-scheduling: true

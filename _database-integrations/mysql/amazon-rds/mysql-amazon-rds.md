@@ -5,6 +5,8 @@ permalink: /integrations/databases/amazon-rds-mysql
 summary: "Connect and replicate data from your Amazon RDS MySQL using Stitch's MySQL integration."
 show-in-menus: true
 
+key: "mysql-rds-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -12,7 +14,7 @@ show-in-menus: true
 name: "mysql-rds"
 display_name: "Amazon MySQL RDS"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "amazon"
 

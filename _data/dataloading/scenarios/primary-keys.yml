@@ -1,0 +1,40 @@
+# -------------------------------------------- #
+#                                              #
+#                  PRIMARY KEYS                #
+#                                              #
+# -------------------------------------------- #
+
+description: |
+  Scenarios involving Primary Key columns.
+
+## Data arrives without a Primary Key:
+no-pk: 
+  heading: "I track a table without a Primary Key?"
+  anchor: "no-primary-key"
+  if: "A table without a Primary Key is replicated."
+
+## Data arrives with a single Primary Key:
+single-pk:
+  heading: "I track a table with a single Primary Key?"
+  anchor: "single-primary-key"
+  if: "A table with a single Primary Key is replicated."
+
+## Data arrives with multiple Primary Keys:
+multiple-pks:
+  heading: "I track a table with multiple Primary Keys?"
+  anchor: "multiple-primary-keys"
+  if: "A table with multiple Primary Keys is replicated."
+
+## Primary Key column is changed in the warehouse
+pk-column-change:
+  heading: "I change the Primary Key column(s) in the destination?"
+  anchor: "pk-column-change"
+  if: "The table's Primary Key(s) is/are changed."
+
+## Customer removes Primary Keys in the destination
+remove-pk-column:
+  heading: "I remove the Primary Key columns for a table in the destination?"
+  anchor: "remove-pk-column"
+  if: "You remove the Primary Key column(s) for a table in {{ destination.display_name }}."
+  then: "Data will be added to the table in an Append-Only fashion. This can result in duplicate records in the table."
+  fix-it: ""

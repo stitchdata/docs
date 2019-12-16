@@ -8,6 +8,7 @@ summary: "If you've received a 'Dependent Views' error for your Redshift or Pano
 type: "redshift-destination, error, replication"
 promote: "false"
 
+key: "redshift-view-dependencies"
 
 solutions-pros-cons:
   - option: "Late Binding Views"

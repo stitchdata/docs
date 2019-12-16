@@ -5,6 +5,8 @@ keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harves
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
 layout: singer
 
+key: "harvest-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -23,7 +25,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

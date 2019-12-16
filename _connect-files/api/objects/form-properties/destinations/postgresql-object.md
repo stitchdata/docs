@@ -33,6 +33,7 @@ object-attributes:
   - name: "sslrootcert"
     type: "string"
     required: false
+    read-only: false
     description: |
       **Optional**: The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certificate verifies against the certificate provided.
 

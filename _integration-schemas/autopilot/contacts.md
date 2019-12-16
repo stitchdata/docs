@@ -1,5 +1,6 @@
 ---
 tap: "autopilot"
+version: "1.0"
 
 name: "contacts"
 doc-link: http://docs.autopilot.apiary.io/#reference/api-methods/get-all-contacts

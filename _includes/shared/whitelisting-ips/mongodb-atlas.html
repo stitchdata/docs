@@ -1,0 +1,20 @@
+
+<!-- Instructions for whitelisting IP addresses in MongoDB Atlas. -->
+
+{% include note.html type="single-line" content="**Note**: This guide assumes your current IP address has already been whitelisted and can access your MongoDB Atlas cluster. If you haven't done this, you can add your own IP to the cluster whitelist while performing the steps in this section." %}
+
+1. In {{ integration.display_name }}, navigate to the project containing the cluster you want to connect to Stitch. You can do this using the **Context** menu in the top left corner of the page.
+2. Click **Network Access** in the **Security** section on the left side of the page.
+3. Click **+ Add IP address** on the **Network Access** page.
+{% include layout/image.html type="right" file="/shared/whitelisting-ips/mongodb-atlas-whitelist-entry.png" alt="Add Whitelist Entry window for whitelisting IP addresses in MongoDB Atlas" max-width="400" %}
+{:start="4"}
+4. Fill in the fields in the **Add Whitelist Entry** window as follows:
+   - **Whitelist Entry**: Paste one of the following IP addresses:
+      {% for ip-address in ip-addresses %}
+      - {{ ip-address.ip }}
+      {% endfor %}
+   - **Comment**: Enter `Stitch`.
+5. Click **Confirm**.
+6. Repeat steps 3-5 until all of Stitch's IP addresses have been added:
+
+![List of whitelisted IP addresses in the Network Access page of MongoDB Atlas]({{ site.baseurl }}/images/shared/whitelisting-ips/mongodb-atlas-network-access.png)

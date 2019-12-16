@@ -1,0 +1,102 @@
+# --------------------------------- #
+#   [INTEGRATION] V[VERSION] SUPPORTED DATA TYPES   #
+# --------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to [INTEGRATION] VERSION [version].
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## Remove this entire section if there aren't any data types
+## specific to this integration.
+## Ex: Microsoft SQL Server (MSSQL) has specific data types.
+
+## [INTEGRATION] has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/[db-type]/specific.yml
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+bigint:
+  stitch-type: ""
+  doc-link: ""
+
+bit:
+  stitch-type: ""
+  doc-link: ""
+
+boolean:
+  stitch-type: ""
+
+char:
+  stitch-type: ""
+  doc-link: ""
+      
+date:
+  stitch-type: "string"
+  format: "date-time"
+  doc-link: ""
+      
+decimal:
+  stitch-type: ""
+  doc-link: ""
+
+double:
+  stitch-type: ""
+
+float:
+  stitch-type: ""  
+  doc-link: ""
+      
+integer:
+  stitch-type: ""
+  doc-link: "" 
+
+longvarchar:
+  stitch-type: ""
+
+longnvarchar:
+  stitch-type: ""
+
+nchar:
+  stitch-type: ""
+  doc-link: ""
+
+numeric:
+  stitch-type: ""
+  doc-link: ""
+      
+nvarchar:
+  stitch-type: ""
+  doc-link: ""
+
+real:
+  stitch-type: ""
+  doc-link: ""
+
+smallint:
+  stitch-type: ""
+  doc-link: ""    
+
+time:
+  stitch-type: "string"
+  format: "date-time"
+  doc-link: ""
+
+timestamp:
+  stitch-type: ""
+  doc-link: ""
+
+tinyint:
+  stitch-type: ""
+  doc-link: ""
+
+varchar:
+  stitch-type: ""
+  doc-link: ""
+
+varbinary:
+  stitch-type: ""

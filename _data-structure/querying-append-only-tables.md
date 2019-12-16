@@ -6,6 +6,9 @@ keywords: bigquery, google bigquery data warehouse, bigquery data warehouse, big
 summary: "In this article, we'll cover how append-only replication works and how to account for it in your queries."
 weight: 4.0
 toc: true
+
+key: "append-only-querying"
+
 destination: "BigQuery"
 ---
 {% include misc/data-files.html %}

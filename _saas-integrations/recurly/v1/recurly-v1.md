@@ -18,6 +18,8 @@ keywords: recurly, integration, schema, etl recurly, recurly etl, recurly schema
 layout: singer
 input: false
 
+key: "recurly-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -38,12 +40,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
-tier: "Paid"
+tier: "Standard"
 status-url: "https://status.recurly.com/"
 
 anchor-scheduling: true

@@ -6,16 +6,19 @@ latest-version: "1.0"
 
 released-versions:
   - number: "1.0"
+    status: "released"
     date-released: "December 1, 2018"
     # date-last-connection:
-    deprecated: false
-    deprecation-date: "n/a"
+    deprecation-date: ""
+    sunset-date: ""
 
   - number: "27-02-2015"
+    status: "sunset"
     date-released: "February 27, 2015"
     date-last-connection: "December 10, 2018"
-    deprecated: true
-    deprecation-date: "n/a"
+    deprecation-date: "January 14, 2019"
+    sunset-date: "April 15, 2019"
+
 
 # -------------------------- #
 #      STRIPE CHANGELOG      #
@@ -30,7 +33,7 @@ released-versions:
 
 # Depending on the entry type, some initial copy and a pre-defined
 # Summary heading might display. See:
-# _includes/integrations/templates/versioning/integration-changelog.html
+# _includes/shared/versioning/changelog.html
 
 changelog-entries:
   - date: "December 10, 2018"

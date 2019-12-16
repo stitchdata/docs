@@ -9,6 +9,8 @@ keywords: bronto, integration, schema, etl bronto, bronto etl, bronto schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Bronto integration."
 layout: singer
 
+key: "bronto-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -19,7 +21,7 @@ display_name: "Bronto"
 singer: true 
 repo-url: https://github.com/singer-io/tap-bronto
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} SOAP API](https://help.bronto.com/bmp/concept/c_api_soap_intro.html){:target="new"}
@@ -28,13 +30,11 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
-status-url: 
 
 table-selection: false
 column-selection: false

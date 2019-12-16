@@ -1,0 +1,12 @@
+cannot-create-schema: &cannot-create-schema "Encountered error while attempting to create new schema."
+# Verify that the Stitch database user has the required permissions, [as outlined here]({{ link.destinations.setup.self-hosted-postgres | prepend: site.baseurl | append: "#create-stitch-user" }}).
+
+database-is-full: &database-is-full "ERROR: could not write block 3440 of temporary file: No space left on device"
+# Add additional space to make your Postgres database larger, OR</li>
+      # <li>Remove tables and/or data from the existing instance to free up disk space.
+
+no-space-on-device: &no-space-on-device |
+  ERROR: could not extend file "base/16389/t2_285302": No space left on device
+  Hint: Check free disk space.
+  Where: COPY staging_0_[FILE_NAME], line [LINE_NUMBER]
+# Same as above.

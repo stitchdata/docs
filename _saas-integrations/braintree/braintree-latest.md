@@ -5,6 +5,8 @@ keywords: braintree, integration, schema, etl braintree, braintree etl, braintre
 summary: "Connection instructions, replication info, and schema details for Stitch's Braintree integration."
 layout: singer
 
+key: "braintree-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -22,7 +24,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false # Community-supported integration
 
 historical: "1 year"

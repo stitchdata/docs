@@ -124,7 +124,7 @@ sections:
 
           Every integration schema will contain an `{{ stitch.system-tables.sdc-rejected.name }}` table, which serves as the integration's log for data loading issues. Refer to the [{{ rejected-records.name }} guide]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}) for more info.
 
-          If using a [Microsoft Azure SQL Data Warehouse destination]({{ link.destinations.overviews.azure | prepend: site.baseurl }}), every integration schema will also contain a table named `{{ stitch.system-tables.sdc-primary-keys.name }}`. This table contains the Primary Keys for the tables in the integration schema. Refer to the [{{ primary-keys-table.name }} guide]({{ link.destinations.storage.azure-primary-keys | prepend: site.baseurl }}) for more info.
+          If using a [Google BigQuery]({{ link.destinations.overviews.bigquery | prepend: site.baseurl }}) or [Microsoft Azure SQL Data Warehouse destination]({{ link.destinations.overviews.azure | prepend: site.baseurl }}), every integration schema will also contain a table named `{{ stitch.system-tables.sdc-primary-keys.name }}`. This table contains the Primary Keys for the tables in the integration schema. Refer to the [Primary Keys system table documentation]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}) for more info.
 
   - title: "Integration table schemas"
     anchor: "integration-table-schemas"

@@ -1,0 +1,49 @@
+# --------------------------------------- #
+#      AMAZON S3 DESTINATION DETAILS      #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: "Amazon S3 is a simple, reliable, and cost-effective object store that provides nearly endless capacity to safely store data in the cloud. Its flexibility allows users the ability to not only persist data ranging from bytes to petabytes, but also consume it via a myriad of tools like Amazon Athena and Qubole."
+
+fully-managed: false
+
+free-option: "Yes (trial)"
+
+pricing-model: "Storage"
+
+pricing-details: "{{ destination.display_name }} pricing is based on two factors: The amount of data stored in and location (region) of your {{ destination.display_name }} bucket."
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "None"
+
+max-tables-per-database: "None"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "n/a"
+
+table-name-length: "1,024 bytes"
+
+column-name-length: "None"
+
+reserved-keywords: "None"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+# column-name-rules: ""
