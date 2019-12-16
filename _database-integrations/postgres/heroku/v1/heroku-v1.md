@@ -112,6 +112,11 @@ setup-steps:
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
 
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
+
   - title: "Select data to replicate"
     anchor: "sync-data"
     content: |

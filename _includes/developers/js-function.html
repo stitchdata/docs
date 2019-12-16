@@ -1,0 +1,63 @@
+<!-- This is for displaying Javascript reference content. -->
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+    {% assign functions = all-docs | where:"content-type","stitch-js-function" | sort:"order" %}
+
+{% for function in functions %}
+<!-- This ensures that example tabs from _includes/connect/api-examples.html will display correctly  -->
+    {% assign has-multiple-versions = "false" %}
+
+    <div class="api-js-heading">
+        <div class="method function">
+            FUNCTION
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ function.key }}">
+                {{ function.definition }}
+            </h4>
+        </div>
+    </div>
+
+    <p>{{ function.description | flatify | markdownify }}</p>
+
+    {% if function.options %}
+
+        <h5 id="{{ function.key | append: "--arguments" }}">
+            Arguments
+        </h5>
+
+        <p>
+            The <code>{{ function.definition | remove: "(options)" }}</code> function expects an <code>options</code> object as the only argument. This object must contain all parameters marked as <font color="#cc3399">REQUIRED</font>:
+        </p>
+
+        <table class="attribute-list">
+            {% for option in function.options %}
+                <tr>
+                    <td class="attribute-name">
+                        <strong>
+                            {{ option.name }}
+                        </strong><br>
+                            {{ option.type | upcase }}<br>
+                        {% case option.required %}
+                            {% when true %}
+                                <font color="#cc3399">REQUIRED</font>
+                            {% else %}
+                                OPTIONAL
+                            {% endcase %}
+                    </td>
+                    <td>
+                        {{ option.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <h4 id="{{ function.key | append: "-example-usage" }}">
+        Example Usage
+    </h4>
+
+    {% include developers/api-examples.html type="function" %}
+
+{% endfor %}

@@ -132,13 +132,34 @@ hr,
 
 /* TABLE STYLES */
 table {
-	font-size: 0.9rem;
+	font-size: 15px;
 	max-width: calc(100% - 2px);
 	border: 1px solid $gray-2;
 	background-color: $white;
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin-bottom: 1.7rem;
+	margin-top: 30px;
+	width: 100%;
+	tr {
+		td {
+			code {
+					font-size: 15px;
+				}
+		}
+/*		td.description {
+						code {
+							color: $magenta-relay;
+			}
+		}*/
+		td.attribute-name {
+							text-align: right;
+							width: 30%;
+							p {
+								margin: 0;
+							}
+		}
+	}
 }
 
 table.related-articles {
@@ -229,7 +250,7 @@ table.method-rollup {
 		td.delete,
 		td.function {
 			font-weight: 600;
-			width: 10%;
+			width: 12%;
 		}
 	}
 }
@@ -666,7 +687,7 @@ blockquote {
 
 /* CONTENT TYPE FLAGS */
 
-.doc-type-flag {
+.div-flag {
 	float: left;
 	margin-left: -15px;
 	margin-top: -15px;
@@ -689,6 +710,10 @@ blockquote {
 
 .troubleshooting {
 	background-color: $frequency-red;
+}
+
+.sdk, .library, .wrapper {
+	background-color: $stitch-yellow;
 }
 
 

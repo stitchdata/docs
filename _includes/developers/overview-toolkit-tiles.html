@@ -1,0 +1,64 @@
+{% include misc/data-files.html %}
+
+{% case page.content-type %}
+	{% when 'overview' %}
+        {% if include.list-type %}
+            {% assign items = site.data.[page.product-type][include.list-type]all | sort:"title" %}
+                {% assign flag = true %}
+
+        {% else %}
+    		{% assign items = page.toolkit %}
+        {% endif %}
+
+	{% when 'guide' %}
+		{% assign all-product-docs = site.developer-content | where:"product-type",page.product-type %}
+            {% assign all-guides = all-product-docs | where:"content-type",page.content-type %}
+    			{% assign items = all-guides | where_exp:"item","item.content-id != page.content-id" | sort: "order" %}
+                
+                {% assign flag = true %}
+
+{% endcase %}
+
+
+
+<ul class="tiles">
+    {% for item in items %}
+        <li class="lg-tile">
+        	{% if flag == true %}
+                {% if item.doc-type %}
+                    {% assign type = item.doc-type %}
+                {% endif %}
+                {% if item.resource-type %}
+                    {% assign type = item.resource-type %}
+                {% endif %}
+	        	<div class="div-flag {{ type }}">
+		        	{{ type | upcase }}
+		        </div>
+    		{% endif %}
+        	
+            {% if item.external %}
+                <a href="{{ item.url | flatify }}" target="new">
+            {% else %}
+                <a href="{{ item.url | prepend: site.baseurl | flatify }}">
+            {% endif %}
+
+            	{% case page.content-type %}
+            		{% when 'overview' %}
+                        {% if include.list-type %}
+                            <img src="{{ site.baseurl }}/images/developers/icons/{{ item.language }}.svg">
+                        {% else %}
+    		                <img src="{{ item.icon | prepend: site.baseurl | flatify }}">
+                        {% endif %}
+		            {% when 'guide' %}
+		            	<img src="{{ site.baseurl }}/images/icons/{{ item.icon }}.svg">
+		        {% endcase %}
+            </a>
+                <strong>{% if item.display-title %}{{ item.display-title | flatify }}{% else %}{{ item.title | flatify }}{% endif %}</strong><br>
+                {{ item.description | flatify | markdownify }}
+
+                {% unless page.content-type == 'overview' %}
+                	<a href="{{ item.url | prepend: site.baseurl | flatify }}">Read more</a>
+                {% endunless %}
+        </li>
+    {% endfor %}
+</ul>
