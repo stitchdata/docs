@@ -1,5 +1,5 @@
 ---
-title: Error Codes
+title: Error codes
 product-type: "connect"
 content-type: "js-doc"
 order: 4

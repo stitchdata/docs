@@ -14,7 +14,7 @@ sections:
         - Select streams (tables) to replicate for an existing source
         - Edit an existing source
 
-  - title: "Data Sources and Connection Steps"
+  - title: "Data sources and connection steps"
     anchor: "data-sources-connection-steps"
     content: |
       Stitch data sources require a unique sequence of [connection steps]({{ api.section | flatify | prepend: site.baseurl | append: api.data-structures.connection-steps.section }}) specific to the source `type` to be fully configured. 
