@@ -10,7 +10,7 @@ description: "This table contains information about stock details."
 replication-method: "Full Table"
 
 api-method:
-    name: "3PL Central REL documentation"
+    name: "Get stock details"
     doc-link: "http://api.3plcentral.com/rels/inventory/stockdetails"
 
 attributes:
@@ -86,7 +86,8 @@ attributes:
             subattributes:
               - name: "id"
                 type: "integer"
-                description: ""
+                description: "The facility ID."
+                foreign-key-id: "facility-id"
               - name: "name"
                 type: "string"
                 description: ""

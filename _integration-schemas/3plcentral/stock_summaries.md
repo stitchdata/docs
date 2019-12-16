@@ -10,20 +10,20 @@ description: "This table contains information about stock summaries."
 replication-method: "Full Table"
 
 api-method:
-    name: "3PL Central REL documentaion"
+    name: "Get stock summaries"
     doc-link: "http://api.3plcentral.com/rels/inventory/stocksummaries"
 
 attributes:
   - name: "facility_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The facility ID."
     foreign-key-id: "facility-id"
 
   - name: "item_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The item ID."
     foreign-key-id: "item-id"
 
   - name: "allocated"

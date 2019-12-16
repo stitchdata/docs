@@ -10,19 +10,19 @@ description: "This table contains information about orders."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "3PL Central REL documentaion"
+    name: "Get orders"
     doc-link: "http://api.3plcentral.com/rels/orders/orders"
 
 attributes:
   - name: "order_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The order ID."
     foreign-key-id: "order-id"
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The time the order was last modified."
     replication-key: true  
 
   - name: "add_freight_to_cod"
@@ -65,7 +65,8 @@ attributes:
                 description: ""
               - name: "id"
                 type: "integer"
-                description: ""
+                description: "The customer ID."
+                foreign-key-id: "customer-id"
               - name: "name"
                 type: "string"
                 description: ""
@@ -164,14 +165,14 @@ attributes:
 
   - name: "customer_identifier"
     type: "object"
-    description: ""
+    description: "Details about the customer associated with the order."
     subattributes:
       - name: "external_id"
         type: "string"
         description: ""
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The customer ID"
         foreign-key-id: "customer-id"
       - name: "name"
         type: "string"
@@ -214,7 +215,7 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The facility ID."
         foreign-key-id: "facility-id"
       - name: "name"
         type: "string"
@@ -506,7 +507,8 @@ attributes:
                     description: ""
                   - name: "id"
                     type: "integer"
-                    description: ""
+                    description: "The customer ID."
+                    foreign-key-id: "customer-id"
                   - name: "name"
                     type: "string"
                     description: ""

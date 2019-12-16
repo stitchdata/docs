@@ -5,37 +5,37 @@ version: "1.0"
 name: "locations"
 doc-link: "http://api.3plcentral.com/rels/"
 singer-schema: "https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/locations.json"
-description: "This table contains information about locations."
+description: "This table contains information about inventory facility locations."
 
 replication-method: "Full Table"
 
 api-method:
-    name: "3PL Central REL documentaion"
+    name: "Get inventory locations"
     doc-link: "http://api.3plcentral.com/rels/inventory/locations"
 
 attributes:
   - name: "location_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The location ID."
     foreign-key-id: "location-id"
 
   - name: "facility_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The facility ID."
     foreign-key-id: "facility-id"
       
   - name: "customer_identifier"
     type: "object"
-    description: ""
+    description: "Details about the customer associated with the location."
     subattributes:
       - name: "external_id"
         type: "string"
         description: ""
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The customer ID"
         foreign-key-id: "customer-id"
       - name: "name"
         type: "string"
@@ -83,7 +83,8 @@ attributes:
                 subattributes:
                   - name: "id"
                     type: "integer"
-                    description: ""
+                    description: "The facility ID."
+                    foreign-key-id: "facility-id"
                   - name: "name"
                     type: "string"
                     description: ""
@@ -103,7 +104,8 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The location ID."
+        foreign-key-id: "location-id"
       - name: "name_key"
         type: "object"
         description: ""
@@ -114,7 +116,8 @@ attributes:
             subattributes:
               - name: "id"
                 type: "integer"
-                description: ""
+                description: "The facility ID."
+                foreign-key-id: "facility-id"
               - name: "name"
                 type: "string"
                 description: ""

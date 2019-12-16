@@ -83,7 +83,7 @@ attributes:
 
   - name: "creation_date"
     type: "date-time"
-    description: ""
+    description: "The date the customer was created."
 
   - name: "deactivated"
     type: "boolean"
@@ -102,7 +102,8 @@ attributes:
         description: ""
       - name: "id"
         type: "integer"
-        description: ""   
+        description: "The facility ID."
+        foreign-key-id: "facility-id"   
 
   - name: "groups"
     type: "string"
@@ -240,7 +241,11 @@ attributes:
             description: ""
           - name: "receive_against_asns"
             type: "integer"
-            description: "This value can be one of three options: 0 - Disabled, 1 - Enabled, 2 - Blind."
+            description: &receiving-values |
+              Possible values are: 
+              - `0` - Disabled
+              - `1` - Enabled
+              - `2` - Blind
           - name: "require_scac_for_asn"
             type: "boolean"
             description: ""
@@ -249,13 +254,17 @@ attributes:
             description: ""
           - name: "track_location"
             type: "integer"
-            description: "This value can be one of three options: 0 - Disallow, 1 - Allow, 2 - Require."
+            description: &track-values |
+              Possible vlaues are:
+              - `0` - Disallow
+              - `1` - Allow
+              - `2` - Require
           - name: "track_pallets"
             type: "integer"
-            description: "This value can be one of three options: 0 - Disallow, 1 - Allow, 2 - Require."
+            description: *track-values
           - name: "track_supplier"
             type: "integer"
-            description: "This value can be one of three options: 0 - Disallow, 1 - Allow, 2 - Require."
+            description: *track-values
       - name: "saved_elements"
         type: "object"
         description: ""
@@ -299,7 +308,11 @@ attributes:
             description: ""
           - name: "fulfillment_invoicing"
             type: "integer"
-            description: "This value can be one of three options: 0 - Disabled, 1 - Enabled, 2 - Prepoulated."
+            description: &fulfillment-values |
+              Possible values are:
+              - `0` - Disabled
+              - `1` - Enabled
+              - `2` - Prepoulated
           - name: "next_master_bol_id"
             type: "integer"
             description: ""
@@ -317,7 +330,12 @@ attributes:
             description: ""
           - name: "prepopulate_carrier_info"
             type: "integer"
-            description: "This value can be one of four options: 0 - Off, 1 - On, 2 - PrepaidOnly, 3 - ThirdPartyOnly."
+            description: &prepopulate-carrier-values |
+              Possible values are:
+              - `0` - Off
+              - `1` - On
+              - `2` - PrepaidOnly
+              - `3` - ThirdPartyOnly
           - name: "require_tracking_number"
             type: "boolean"
             description: ""
@@ -373,7 +391,12 @@ attributes:
             description: ""
           - name: "transaction_confirm_invoice_create_default"
             type: "integer"
-            description: "This value can be one of four options: 0 - Off, 1 - On, 2 - ReceiversOnly, 3 - OrdersOnly."
+            description: &transaction-confirm-values |
+              Possible values are:
+              - `0` - Off
+              - `1` - On
+              - `2` - ReceiversOnly
+              - `3` - OrdersOnly
 
   - name: "other_contacts"
     type: "object"
@@ -381,7 +404,12 @@ attributes:
     subattributes:
       - name: "type"
         type: "integer"
-        description: "The customer contact type. 2 - Invoicing, 3 - Additional, 4 - For753, 5 - SmallParcelReturnLabel."
+        description: &contact-type-values |
+          The customer contact type. Possible values are:
+          - `2` - Invoicing
+          - `3` - Additional
+          - `4` - For753
+          - `5` - SmallParcelReturnLabel
       - name: "address1"
         type: "string"
         description: ""
@@ -478,7 +506,8 @@ attributes:
     subattributes:
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The facility ID."
+        foreign-key-id: "facility-id"
       - name: "name"
         type: "string"
         description: ""

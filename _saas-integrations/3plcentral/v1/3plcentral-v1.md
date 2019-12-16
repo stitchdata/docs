@@ -26,31 +26,30 @@ name: "3plcentral"
 display_name: "3PL Central"
 
 singer: true 
-tap-name: ""
+tap-name: "3PL Central"
 repo-url: https://github.com/singer-io/tap-3plcentral
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
-certified: true 
+certified: false
 
 historical: "1 year"
-frequency: "30 minutes"
+frequency: "1 hour"
 tier: "Free"
 status-url: ""
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
 
 table-selection: true
-column-selection: false
+column-selection: true
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -72,25 +71,22 @@ column-selection: false
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: "**Base Url**. API URL to which /endpoints are appended. Example: 'http://secure-wms.com' "
-  - item: "**Client ID**. A secure OAuth 2.0 identifier for each application/client."
-  - item: "**Client Secret**. A secure OAuth 2.0 secret key for application/client authentication."
-  - item: "**Customer ID**. Integer ID number for the customer organization."
-  - item: "**Facility ID**. Integer ID number for the warehouse facility."
-  - item: "**TPL Key**. A warehouse-specific 3PL key."
-  - item: "**User Login**. Interger ID number for the user."
-
-requirements-info:
-
 setup-steps:
-  - title: "Gather Requirements"
-    anchor: "gather-requirements"
+  - title: "Request API Credentials from {{ integration.display_name }}"
+    anchor: "request-api"
     content: |
-      Log into your 3PL Central account and contact your account manager to collect the information needed from the requirements list.
+      1. Log into your {{ integration.display_name }} account and request the following information from your account manager:
+      - **Base URL**. The API URL to which endpoints are appended.
+      - **Client ID**. Your secure OAuth 2.0 identifier.
+      - **Client Secret**. Your secure OAuth 2.0 secret key.
+      - **Customer ID**. The integer ID number for your customer organization.
+      - **Facility ID**. The integer ID number for your warehouse facility.
+      - **TPL Key**. Your warehouse-specific {{ integration.display_name }} key.
+      - **User Login**. The interger ID number for your user account.
+      2. Keep this information available so you can add the integration in the next step.
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI
+    content: |
+      4. Enter the information you requested from [Step 1](#request-api).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"

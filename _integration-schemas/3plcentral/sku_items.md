@@ -10,19 +10,19 @@ description: "This table contains information about SKU items."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "3PL Central REL documentaion"
+    name: "Get SKU items."
     doc-link: "http://api.3plcentral.com/rels/customers/items"
 
 attributes:
   - name: "item_id"
     type: "integer"
     primary-key: true
-    description: ""
+    description: "The item ID."
     foreign-key-id: "item-id"
 
   - name: "last_modified_date"
     type: "date-time"
-    description: ""
+    description: "The time the item was last modified."
     replication-key: true  
 
   - name: "account_ref"
@@ -67,7 +67,8 @@ attributes:
         description: ""
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The customer ID."
+        foreign-key-id: "customer-id"
       - name: "name"
         type: "string"
         description: ""
@@ -182,7 +183,8 @@ attributes:
                     subattributes:
                       - name: "id"
                         type: "integer"
-                        description: ""
+                        description: "The facility ID."
+                        foreign-key-id: "facility-id"
                       - name: "name"
                         type: "string"
                         description: ""

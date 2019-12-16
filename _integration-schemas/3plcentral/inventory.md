@@ -5,12 +5,12 @@ version: "1.0"
 name: "inventory"
 doc-link: "http://api.3plcentral.com/rels/"
 singer-schema: "https://github.com/singer-io/tap-3plcentral/blob/master/tap_3plcentral/schemas/inventory.json"
-description: "This table contains information about inventory."
+description: "This table contains information about inventory resources."
 
 replication-method: "Full Table"
 
 api-method:
-    name: "3PL Central REL documentaion"
+    name: "Get inventory"
     doc-link: "http://api.3plcentral.com/rels/inventory/inventory"
 
 attributes:
@@ -30,16 +30,15 @@ attributes:
 
   - name: "customer_identifier"
     type: "object"
-    description: ""
-    foreign-key-id: "customer-id"
-
+    description: "Details about the customer associated with the inventory record"
     subattributes:
       - name: "external_d"
         type: "string"
         description: ""
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The customer ID."
+        foreign-key-id: "customer-id"
       - name: "name"
         type: "string"
         description: ""
@@ -50,11 +49,11 @@ attributes:
 
   - name: "facility_identifier"
     type: "object"
-    description: ""
+    description: "The facility identifier."
     subattributes:
       - name: "id"
         type: "integer"
-        description: ""
+        description: "The facility ID."
         foreign-key-id: "facility-id"
       - name: "name"
         type: "string"
