@@ -23,6 +23,11 @@ full-url: |
 short: "{{ api.core-objects.accounts.create.short }}"
 description: "{{ api.core-objects.accounts.create.description | flatify | markdownify }}"
 
+## This endpoint uses partner credentials for authorization
+## No access token is required.
+## Notes are in _includes/developers/api-resource-list.html
+access-token-required: false
+
 
 # -------------------------- #
 #       METHOD ARGUMENTS     #
