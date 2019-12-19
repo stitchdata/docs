@@ -64,7 +64,7 @@ arguments:
   - name: "sequence"
     type: "integer"
     required: true
-    description: "{{ general.attributes.sequence }}"
+    description: "{{ general.attributes.sequence | flatify }}"
     example-value: ""
 
   - name: "action"
