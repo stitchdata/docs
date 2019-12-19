@@ -4,13 +4,17 @@
 # -------------------------- #
 
 title: Stitch Partner API Authentication Guide
+permalink: /developers/stitch-connect/guides/stitch-partner-authentication-guide
+redirect_from: /stitch-connect/guides/stitch-partner-authentication-guide
+
 doc-type: "tutorial"
-content-type: "connect-guide"
+
+product-type: "connect"
+content-type: "guide"
 content-id: "partner-authentication"
 layout: general
 sidebar: on-page
 
-permalink: /stitch-connect/guides/stitch-partner-authentication-guide
 icon: lock
 order: 1
 
@@ -150,7 +154,9 @@ sections:
 
           While only your `partner_id` is required, the URL may also include the following parameters:
 
-          {% assign auth = site.connect-files | where:"content-type","api-url-parms" %}
+          {% assign all-connect = site.developer-files | where:"product-type","connect" %}
+
+          {% assign auth = all-connect | where:"content-type","api-url-parms" %}
 
           <table class="attribute-list">
           {% for item in auth %}

@@ -6,7 +6,7 @@ parameters:
   - name: "client_id"
     required: true
     description: |
-      Your API client ID. This is the `partner_id` that is obtained when your [API access request]({{ api.access-api }}) is approved.
+      Your API client ID. This is the `partner_id` that is obtained when your API access request is approved.
 
   - name: "redirect_uri"
     required: false
