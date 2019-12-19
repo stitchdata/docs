@@ -21,9 +21,9 @@
 
 
 
-<ul class="tiles">
+<ul class="tiles two-columns">
     {% for item in items %}
-        <li class="lg-tile">
+        <li>
         	{% if flag == true %}
                 {% if item.doc-type %}
                     {% assign type = item.doc-type %}

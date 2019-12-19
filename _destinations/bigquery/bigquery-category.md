@@ -42,9 +42,9 @@ sections:
 
       {% assign destinations = site.destinations | where:"key","bigquery-version-category" | sort:"this-version" | reverse %}
 
-      <ul class="tiles">
+      <ul class="tiles two-columns">
       {% for destination in destinations %}
-        <li style="width: 45%">
+        <li>
           <a href="{{ site.baseurl | append: destination.url }}">
             <img src="{{ site.baseurl }}/images/destinations/icons/{{ destination.type }}.svg" style="max-height: 60px;" alt="{{ destination.display_name }} v{{ destination.this-version }} logo">
           </a>

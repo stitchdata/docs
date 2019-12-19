@@ -17,7 +17,7 @@ sections:
 
         Stitch supports connecting to the following Amazon Relational Database System (RDS) databases as data sources:
 
-        <ul class="tiles">
+        <ul class="tiles two-columns">
             {% for integration in all-databases %}
                 {% if integration.show-in-menus == true %}
                 <li>
