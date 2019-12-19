@@ -115,7 +115,7 @@ arguments:
 returns: |
   {% assign response-codes = site.data.import-api.response-codes.general-codes.all-codes %}
 
-  If successful, the API will return a `2xx` status and a [Batch Status object]({{ site.data.import-api.data-structures.batch-status.section }}):
+  If successful, the API will return a `2xx` status and a [Batch status object]({{ site.data.import-api.data-structures.batch-status.section }}):
 
   {% for response-code in response-codes %}
   {% if response-code.code == "201" or response-code.code == "202" %}

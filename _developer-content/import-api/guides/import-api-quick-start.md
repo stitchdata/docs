@@ -112,10 +112,9 @@ steps:
 
       {% for response-code in response-codes %}
       {% if response-code.code == "201" or response-code.code == "202" %}
-      {% assign text = response-code.text | downcase %}
       - `{{ response-code.code }}` - {{ response-code.description }}
         ```json
-        {{ site.data.import-api.code-examples.responses[text] | strip }}
+        {{ response-code.example | flatify | strip }}
         ```
       {% endif %}
       {% endfor %}

@@ -14,11 +14,15 @@ all-codes:
     text: "Created"
     error: false
     description: "The request was accepted and will be processed later. New data will be added once the request is processed."
+    example: |
+      {{ site.data.import-api.code-examples.responses.batch-created }}
 
   - code: "202"
     text: "Accepted"
     error: false
     description: "The request was accepted, but cannot currently be processed due to an internal error. Data will be automatically re-processed."
+    example: |
+      {{ site.data.import-api.code-examples.responses.batch-accepted }}
 
   - code: "400"
     text: "Bad Request"
