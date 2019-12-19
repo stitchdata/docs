@@ -17,7 +17,7 @@
 
         <div class="method-resource">
             <h4 id="{{ structure.key }}">
-                The {{ structure.title }} Object
+                The {{ structure.title }} object
             </h4>
         </div>
     </div>
@@ -48,7 +48,7 @@
 
     {% if structure.examples %}
         <h4 id="{{ structure.key | append: "-example-usage" }}">
-            Example Object
+            Example object
         </h4>
 
         {% include developers/api-examples.html type="data-structure" %}
@@ -69,7 +69,7 @@
 
                         <div class="method-resource">
                             <h4 id="{{ sub-structure.key }}">
-                                The {{ sub-structure.title }} Object
+                                The {{ sub-structure.title }} object
                             </h4>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
 
                     {% if sub-structure.examples %}
                         <h4 id="{{ sub-structure.key | append: "-example-usage" }}">
-                            Example Object
+                            Example object
                         </h4>
 
                         {% include developers/api-examples.html type="data-sub-structure" %}
