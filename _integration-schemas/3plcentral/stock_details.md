@@ -48,6 +48,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "sku"
         type: "string"
         description: ""
@@ -64,6 +65,7 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "item-id"
+
       - name: "sku"
         type: "string"
         description: ""
@@ -76,6 +78,7 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "location-id"
+
       - name: "name_key"
         type: "object"
         description: ""
@@ -83,14 +86,16 @@ attributes:
           - name: "facility_identifier"
             type: "object"
             description: ""
-            subattributes:
+            subattributes: &facility-identifier
               - name: "id"
                 type: "integer"
                 description: "The facility ID."
                 foreign-key-id: "facility-id"
+
               - name: "name"
                 type: "string"
                 description: ""
+
           - name: "name"
             type: "string"
             description: ""
@@ -110,20 +115,19 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+        foreign-key-id: "pallet-id"
+
       - name: "name_key"
         type: "object"
         description: ""
-        subattributes:
+        anchor-id: 1
+        subattributes: 
           - name: "facility_identifier"
             type: "object"
             description: ""
-            subattributes:
-              - name: "id"
-                type: "integer"
-                description: ""
-              - name: "name"
-                type: "string"
-                description: ""
+            anchor-id: 1
+            subattributes: *facility-identifier
+
           - name: "name"
             type: "string"
             description: ""
@@ -173,6 +177,7 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "supplier-id"
+
       - name: "name"
         type: "string"
         description: ""

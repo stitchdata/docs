@@ -33,10 +33,12 @@ attributes:
       - name: "external_id"
         type: "string"
         description: ""
+
       - name: "id"
         type: "integer"
         description: "The customer ID"
         foreign-key-id: "customer-id"
+
       - name: "name"
         type: "string"
         description: ""
@@ -52,6 +54,7 @@ attributes:
       - name: "expiration_date"
         type: "date-time"
         description: ""
+
       - name: "item_identifier"
         type: "object"
         description: ""
@@ -60,12 +63,15 @@ attributes:
             type: "integer"
             description: ""
             foreign-key-id: "item-id"
+
           - name: "sku"
             type: "string"
             description: ""
+
       - name: "lot_number"
         type: "string"
         description: ""
+
       - name: "pallet_identifier"
         type: "object"
         description: ""
@@ -73,6 +79,8 @@ attributes:
           - name: "id"
             type: "integer"
             description: ""
+            foreign-key-id: "pallet-id"
+
           - name: "name_key"
             type: "object"
             description: ""
@@ -80,20 +88,24 @@ attributes:
               - name: "facility_identifier"
                 type: "object"
                 description: ""
-                subattributes:
+                subattributes: &facility-identifier
                   - name: "id"
                     type: "integer"
                     description: "The facility ID."
                     foreign-key-id: "facility-id"
+
                   - name: "name"
                     type: "string"
                     description: ""
+
               - name: "name"
                 type: "string"
                 description: ""
+
       - name: "qualifier"
         type: "string"
         description: ""
+
       - name: "serial_number"
         type: "string"
         description: ""
@@ -106,21 +118,18 @@ attributes:
         type: "integer"
         description: "The location ID."
         foreign-key-id: "location-id"
+
       - name: "name_key"
         type: "object"
         description: ""
+        anchor-id: 2
         subattributes:
           - name: "facility_identifier"
             type: "object"
             description: ""
-            subattributes:
-              - name: "id"
-                type: "integer"
-                description: "The facility ID."
-                foreign-key-id: "facility-id"
-              - name: "name"
-                type: "string"
-                description: ""
+            anchor-id: 2
+            subattributes: *facility-identifier
+
           - name: "name"
             type: "string"
             description: ""
@@ -132,6 +141,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""

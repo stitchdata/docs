@@ -30,15 +30,17 @@ attributes:
 
   - name: "customer_identifier"
     type: "object"
-    description: "Details about the customer associated with the inventory record"
+    description: "Details about the customer associated with the inventory record."
     subattributes:
       - name: "external_d"
         type: "string"
         description: ""
+
       - name: "id"
         type: "integer"
         description: "The customer ID."
         foreign-key-id: "customer-id"
+
       - name: "name"
         type: "string"
         description: ""
@@ -50,11 +52,12 @@ attributes:
   - name: "facility_identifier"
     type: "object"
     description: "The facility identifier."
-    subattributes:
+    subattributes: &facility-identifier
       - name: "id"
         type: "integer"
         description: "The facility ID."
         foreign-key-id: "facility-id"
+
       - name: "name"
         type: "string"
         description: ""
@@ -66,6 +69,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+        
       - name: "name"
         type: "string"
         description: ""
@@ -86,6 +90,7 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "item-identifier"
+
       - name: "sku"
         type: "string"
         description: ""
@@ -98,20 +103,18 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "location-id"
+
       - name: "name_key"
         type: "object"
         description: ""
+        anchor-id: 1
         subattributes:
           - name: "facility_identifier"
             type: "object"
             description: ""
-            subattributes:
-              - name: "id"
-                type: "integer"
-                description: ""
-              - name: "name"
-                type: "string"
-                description: ""
+            anchor-id: 1
+            subattributes: *facility-identifier
+
           - name: "name"
             type: "string"
             description: ""
@@ -147,6 +150,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+        
       - name: "name"
         type: "string"
         description: ""
@@ -158,21 +162,19 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
-        foreign-key-id: "pallet-id"  
+        foreign-key-id: "pallet-id"
+
       - name: "name_key"
         type: "object"
         description: ""
+        anchor-id: 2
         subattributes:
           - name: "facility_identifier"
             type: "object"
             description: ""
-            subattributes:
-              - name: "id"
-                type: "integer"
-                description: ""
-              - name: "name"
-                type: "string"
-                description: ""
+            anchor-id: 2
+            subattributes: *facility-identifier
+
           - name: "name"
             type: "string"
             description: ""
@@ -196,6 +198,7 @@ attributes:
   - name: "receiver_id"
     type: "integer"
     description: ""
+    foreign-key-id: "receiver-id"
 
   - name: "secondary_available_qty"
     type: "number"
@@ -220,6 +223,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
@@ -236,6 +240,7 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "supplier-id"
+
       - name: "name"
         type: "string"
         description: ""
@@ -243,18 +248,23 @@ attributes:
   - name: "weight_imperial"
     type: "number"
     description: ""
+
   - name: "weight_imperial_available"
     type: "number"
     description: ""
+
   - name: "weight_imperial_on_hand"
     type: "number"
     description: ""
+
   - name: "weight_metric"
     type: "number"
     description: ""
+
   - name: "weight_metric_available"
     type: "number"
     description: ""
+
   - name: "weight_metric_on_hand"
     type: "number"
     description: ""

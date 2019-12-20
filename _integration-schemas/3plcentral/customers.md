@@ -10,7 +10,7 @@ description: "This table contains information about customers."
 replication-method: "Full Table"
 
 api-method:
-    name: "REL documentation"
+    name: "Get customers"
     doc-link: "http://api.3plcentral.com/rels/customers/customers"
 attributes:
   - name: "customer_id"
@@ -21,7 +21,16 @@ attributes:
     
   - name: "company_info"
     type: "object"
-    description: "When identifying an existing contact, the lookup order is: 1) id, 2) code if no other fields present, 3) all fields (except `id`). If `contact_id` is not specified and other fields do not match an existing contact for the relevant customer, a new contact is created."
+    description: |
+      Details about the company associated with the customer.
+
+      When identifying an existing contact, the lookup order is: 
+
+      1. `id`
+      2. `code`, if no other fields are present
+      3. All fields except `id`
+
+      If `contact_id` is not specified and other fields do not match an existing contact for the relevant customer, a new contact is created.
     subattributes:
       - name: "address1"
         type: "string"
@@ -33,7 +42,12 @@ attributes:
       - &address_status
         name: "address_status"
         type: "integer"
-        description: "The confirmation status. 0 - Unconfirmed, 1 - Confirmed, 2 - UserAccepted."
+        description: |
+          The confirmation status. Possible values are: 
+
+          - `0` - Unconfirmed
+          - `1` - Confirmed
+          - `2` - UserAccepted
       
       - name: "city"
         type: "string"
@@ -100,6 +114,7 @@ attributes:
       - name: "name"
         type: "string"
         description: ""
+
       - name: "id"
         type: "integer"
         description: "The facility ID."
@@ -111,7 +126,7 @@ attributes:
 
   - name: "options"
     type: "object"
-    description: "The customer preferences."
+    description: "The customer's preferences."
     subattributes:
       - name: "alerts"
         type: "object"
@@ -256,9 +271,11 @@ attributes:
             type: "integer"
             description: &track-values |
               Possible vlaues are:
+
               - `0` - Disallow
               - `1` - Allow
               - `2` - Require
+
           - name: "track_pallets"
             type: "integer"
             description: *track-values
@@ -332,10 +349,12 @@ attributes:
             type: "integer"
             description: &prepopulate-carrier-values |
               Possible values are:
+
               - `0` - Off
               - `1` - On
               - `2` - PrepaidOnly
               - `3` - ThirdPartyOnly
+
           - name: "require_tracking_number"
             type: "boolean"
             description: ""
@@ -393,6 +412,7 @@ attributes:
             type: "integer"
             description: &transaction-confirm-values |
               Possible values are:
+
               - `0` - Off
               - `1` - On
               - `2` - ReceiversOnly
@@ -406,10 +426,12 @@ attributes:
         type: "integer"
         description: &contact-type-values |
           The customer contact type. Possible values are:
+
           - `2` - Invoicing
           - `3` - Additional
           - `4` - For753
           - `5` - SmallParcelReturnLabel
+
       - name: "address1"
         type: "string"
         description: ""
@@ -508,6 +530,7 @@ attributes:
         type: "integer"
         description: "The facility ID."
         foreign-key-id: "facility-id"
+
       - name: "name"
         type: "string"
         description: ""

@@ -42,6 +42,7 @@ attributes:
         type: "integer"
         description: ""
         foreign-key-id: "item-identifier"
+
       - name: "sku"
         type: "string"
         description: ""

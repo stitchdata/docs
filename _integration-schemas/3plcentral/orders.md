@@ -18,7 +18,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The order ID."
-    foreign-key-id: "order-id"
+    #foreign-key-id: "order-id"
 
   - name: "last_modified_date"
     type: "date-time"
@@ -59,17 +59,20 @@ attributes:
           - name: "customer_identifier"
             type: "object"
             description: ""
-            subattributes:
+            subattributes: &customer-identifier
               - name: "external_id"
                 type: "string"
                 description: ""
+
               - name: "id"
                 type: "integer"
                 description: "The customer ID."
                 foreign-key-id: "customer-id"
+
               - name: "name"
                 type: "string"
                 description: ""
+
           - name: "name"
             type: "string"
             description: ""
@@ -77,61 +80,79 @@ attributes:
   - name: "bill_to"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &bill-to
       - name: "address1"
         type: "string"
         description: ""
+        
       - name: "address2"
         type: "string"
         description: ""
+
       - name: "address_status"
         type: "string"
         description: ""
+
       - name: "city"
         type: "string"
         description: ""
+
       - name: "code"
         type: "string"
         description: ""
+
       - name: "company_name"
         type: "string"
         description: ""
+
       - name: "contact_id"
         type: "integer"
         description: ""
+
       - name: "country"
         type: "string"
         description: ""
+
       - name: "dept"
         type: "string"
         description: ""
+
       - name: "email_address"
         type: "string"
         description: ""
+
       - name: "fax"
         type: "string"
         description: ""
+
       - name: "is_quick_lookup"
         type: "boolean"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
+
       - name: "phone_number"
         type: "string"
         description: ""
+
       - name: "retailer_id"
         type: "integer"
         description: ""
+
       - name: "same_as"
         type: "integer"
         description: ""
+
       - name: "state"
         type: "string"
         description: ""
+
       - name: "title"
         type: "string"
         description: ""
+
       - name: "zip"
         type: "string"
         description: ""
@@ -141,8 +162,52 @@ attributes:
     description: ""
     subattributes:
       - name: "billing_charges"
-        type: "null"
+        type: "array"
         description: ""
+        subattributes:
+          - name: "charge_label"
+            type: "string"
+            description: ""
+
+          - name: "charge_per_unit"
+            type: "number"
+            description: ""
+
+          - name: "gl_acct_num"
+            type: "string"
+            description: ""
+
+          - name: "num_units"
+            type: "number"
+            description: ""
+
+          - name: "pt_ar_acct"
+            type: "string"
+            description: ""
+
+          - name: "pt_item"
+            type: "string"
+            description: ""
+
+          - name: "pt_item_description"
+            type: "string"
+            description: ""
+
+          - name: "sku"
+            type: "string"
+            description: ""
+
+          - name: "system_generated"
+            type: "boolean"
+            description: ""
+
+          - name: "unit_description"
+            type: "string"
+            description: ""
+
+          - name: "warehouse_transaction_price_calc_id"
+            type: "integer"
+            description: ""
 
   - name: "billing_code"
     type: "string"
@@ -155,6 +220,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
@@ -166,17 +232,7 @@ attributes:
   - name: "customer_identifier"
     type: "object"
     description: "Details about the customer associated with the order."
-    subattributes:
-      - name: "external_id"
-        type: "string"
-        description: ""
-      - name: "id"
-        type: "integer"
-        description: "The customer ID"
-        foreign-key-id: "customer-id"
-      - name: "name"
-        type: "string"
-        description: ""
+    subattributes: *customer-identifier
 
   - name: "defer_notification"
     type: "boolean"
@@ -197,6 +253,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
@@ -212,11 +269,12 @@ attributes:
   - name: "facility_identifier"
     type: "object"
     description: ""
-    subattributes:
+    subattributes: &facility-identifier
       - name: "id"
         type: "integer"
         description: "The facility ID."
         foreign-key-id: "facility-id"
+
       - name: "name"
         type: "string"
         description: ""
@@ -228,15 +286,19 @@ attributes:
       - name: "fulfill_inv_amount"
         type: "number"
         description: ""
+
       - name: "fulfill_inv_discount_code"
         type: "string"
         description: ""
+
       - name: "fulfill_inv_message"
         type: "string"
         description: ""
+
       - name: "fulfill_inv_shipping_and_handling"
         type: "number"
         description: ""
+
       - name: "fulfill_inv_tax"
         type: "number"
         description: ""
@@ -252,6 +314,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
@@ -283,6 +346,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
@@ -494,39 +558,38 @@ attributes:
           - name: "id"
             type: "integer"
             description: ""
+
           - name: "name_key"
             type: "object"
             description: ""
+            anchor-id: 1
             subattributes:
               - name: "customer_identifier"
                 type: "object"
                 description: ""
-                subattributes:
-                  - name: "external_id"
-                    type: "string"
-                    description: ""
-                  - name: "id"
-                    type: "integer"
-                    description: "The customer ID."
-                    foreign-key-id: "customer-id"
-                  - name: "name"
-                    type: "string"
-                    description: ""
+                anchor-id: 1
+                subattributes: *customer-identifier
+
               - name: "name"
                 type: "string"
                 description: ""
+
               - name: "number"
                 type: "string"
                 description: ""
+
       - name: "same_as"
         type: "integer"
         description: ""
+
       - name: "state"
         type: "string"
         description: ""
+
       - name: "title"
         type: "string"
         description: ""
+
       - name: "zip"
         type: "string"
         description: ""
@@ -538,64 +601,7 @@ attributes:
   - name: "sold_to"
     type: "object"
     description: ""
-    subattributes:
-      - name: "address1"
-        type: "string"
-        description: ""
-      - name: "address2"
-        type: "string"
-        description: ""
-      - name: "address_status"
-        type: "string"
-        description: ""
-      - name: "city"
-        type: "string"
-        description: ""
-      - name: "code"
-        type: "string"
-        description: ""
-      - name: "company_name"
-        type: "string"
-        description: ""
-      - name: "contact_id"
-        type: "integer"
-        description: ""
-      - name: "country"
-        type: "string"
-        description: ""
-      - name: "dept"
-        type: "string"
-        description: ""
-      - name: "email_address"
-        type: "string"
-        description: ""
-      - name: "fax"
-        type: "string"
-        description: ""
-      - name: "is_quick_lookup"
-        type: "boolean"
-        description: ""
-      - name: "name"
-        type: "string"
-        description: ""
-      - name: "phone_number"
-        type: "string"
-        description: ""
-      - name: "retailer_id"
-        type: "integer"
-        description: ""
-      - name: "same_as"
-        type: "integer"
-        description: ""
-      - name: "state"
-        type: "string"
-        description: ""
-      - name: "title"
-        type: "string"
-        description: ""
-      - name: "zip"
-        type: "string"
-        description: ""
+    subattributes: *bill-to
 
   - name: "status"
     type: "integer"
@@ -620,6 +626,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: ""
+
       - name: "name"
         type: "string"
         description: ""
