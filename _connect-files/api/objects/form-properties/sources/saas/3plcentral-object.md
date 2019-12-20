@@ -28,9 +28,8 @@ display-name: "3PL Central"
 source-type: "saas"
 docs-name: "3plcentral"
 
-#property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
+description: |
+  The credentials required to configure a {{ form-property.display-name }} source must be requested from a {{ form-property.display-name }} account manager. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link }}) for more info.
 
 
 # -------------------------- #
@@ -48,42 +47,42 @@ object-attributes:
   - name: "base_url"
     type: "string"
     required: true
-    description: "API URL to which /endpoints are appended."
+    description: "The API URL to which /endpoints are appended."
     value: "https://secure-wms.com"
 
   - name: "client_id"
     type: "string"
     required: true
-    description: "A secure OAuth 2.0 identifier for each application/client."
-    value: "OAUTH_CLIENT_ID"
+    description: "The secure OAuth 2.0 identifier for the {{ form-property.display-name }} application/client."
+    value: "<OAUTH_CLIENT_ID>"
     
   - name: "client_secret"
     type: "string"
     required: true
-    description: "A secure OAuth 2.0 secret key for application/client authentication."
-    value: "OAUTH_CLIENT_SECRET"
+    description: "The secure OAuth 2.0 secret key for the {{ form-property.display-name }} application/client authentication."
+    value: "<OAUTH_CLIENT_SECRET>"
     
   - name: "customer_id"
     type: "string"
     required: true
-    description: "Integer ID number for the customer organization"
-    value: "CUSTOMER_INTEGER_ID"
+    description: "The ID for the {{ form-property.display-name }} customer organization."
+    value: "<CUSTOMER_INTEGER_ID>"
     
   - name: "facility_id"
     type: "string"
     required: true
-    description: "Integer ID number for the warehouse facility."
-    value: "FACILITY_INTEGER_ID"
+    description: "The ID for the {{ form-property.display-name }} warehouse facility."
+    value: "<FACILITY_INTEGER_ID>"
     
   - name: "tpl_key"
     type: "string"
     required: true
-    description: "A warehouse-specific 3PL key."
-    value: "WH_SPECIFIC_3PL_KEY"
+    description: "A {{ form-property.display-name }} warehouse-specific 3PL key."
+    value: "<WH_SPECIFIC_3PL_KEY>"
     
   - name: "user_login_id"
     type: "string"
     required: true
-    description: "Integer ID number for the user."
-    value: "USER_INTEGER_ID"            
+    description: "The ID for the {{ form-property.display-name }} user."
+    value: "<USER_INTEGER_ID>"
 ---
