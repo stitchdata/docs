@@ -51,42 +51,29 @@ loading-reports: true
 table-selection: true
 column-selection: true
 
-# attribution-window: "# days"
-# attribution-is-configurable: 
-
-# setup-name: ""
-
-# -------------------------- #
-#      Incompatibilities     #
-# -------------------------- #
-
-## uncomment section below if integration is compatible with any Stitch destinations
-## if incompatible with multiple destinations, create a section for each destination
-
-## incompatible:
-  ## [redshift]: "always,sometimes,never"
-  ## reason: "copy" 
 
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
 
 setup-steps:
-  - title: "Request API Credentials from {{ integration.display_name }}"
+  - title: "Request API credentials from {{ integration.display_name }}"
     anchor: "request-api"
     content: |
       1. Log into your {{ integration.display_name }} account and request the following information from your account manager:
-      - **Base URL**. The API URL to which endpoints are appended.
-      - **Client ID**. Your secure OAuth 2.0 identifier.
-      - **Client Secret**. Your secure OAuth 2.0 secret key.
-      - **Customer ID**. The integer ID number for your customer organization.
-      - **Facility ID**. The integer ID number for your warehouse facility.
-      - **TPL Key**. Your warehouse-specific {{ integration.display_name }} key.
-      - **User Login**. The interger ID number for your user account.
+      - **Base URL**: The API URL to which endpoints are appended.
+      - **Client ID**: Your secure OAuth 2.0 identifier.
+      - **Client Secret**: Your secure OAuth 2.0 secret key.
+      - **Customer ID**: The integer ID number for your customer organization.
+      - **Facility ID**: The integer ID number for your warehouse facility.
+      - **TPL Key**: Your warehouse-specific {{ integration.display_name }} key.
+      - **User Login**: The interger ID number for your user account.
+      
       2. Keep this information available so you can add the integration in the next step.
+
   - title: "add integration"
     content: |
-      4. Enter the information you requested from [Step 1](#request-api).
+      4. Enter the information you requested from [Step 1](#request-api) into the corresponding fields in Stitch.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
@@ -97,13 +84,6 @@ setup-steps:
 
 # Looking for the table schemas & info?
 # Each table has a its own .md file in /_integration-schemas/3plcentral
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
