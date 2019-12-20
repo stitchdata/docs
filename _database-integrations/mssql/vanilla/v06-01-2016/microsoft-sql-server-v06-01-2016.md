@@ -6,7 +6,7 @@ summary: "Connect and replicate data from your Microsoft SQL Server database usi
 show-in-menus: false
 input: false
 
-hosting-type: "generic"
+key: "mssql-integration"
 
 # -------------------------- #
 #     Integration Details    #

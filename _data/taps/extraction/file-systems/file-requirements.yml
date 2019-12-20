@@ -1,0 +1,82 @@
+# ------------------------------- #
+#  FILE SYSTEM FILE REQUIREMENTS  #
+# ------------------------------- #
+
+## This file contains info about what Stitch supports for
+## files replicated through a file system-based integration.
+
+## Ex: Amazon S3 CSV, SFTP, etc.
+
+file-types: &file-types |
+  - CSV (`.csv`)
+  - Text (`.txt`)
+  - gzip (`.gz`)
+
+compression-types: &compression-types "None"
+
+delimiters: &delimiters |
+  - Comma (`,`)
+  - Tab (`/t`)
+  - Pipe (`|`)
+
+encodings: &encodings |
+  UTF-8
+
+
+
+attributes:
+  - name: "First-row header"
+    all: |
+      1. **Every file must have a first-row header containing column names.** Stitch assumes that the first row in any file is a header row, and will present these values as columns available for selection.
+
+         **Note**: If you are an Enterprise customer, have a signed BAA with Stitch, and are replicating data subject to HIPAA, **header rows must not contain any PHI**. [Learn more]({{ link.account.hipaa-compliance | prepend: site.baseurl }}) about this integration's configuration requirements for replicating HIPAA data.
+
+      2. **Files with the same first-row header values, if including multiple files in a table.** Stitch's {{ integration.display_name }} integration allows you to map several files to a single destination table. Header row values are used to determine a table's schema. For the best results, each file should have the same header row values.
+
+         **Note**: This is not the same as configuring multiple tables. See the [Search pattern](#define-table-search-pattern-and-name) section for examples.
+  - name: "File types"
+    all: |
+      - CSV (`.csv`)
+      - Text (`.txt`)
+
+  - name: "Compression types"
+    amazon-s3-csv: "None"
+    sftp: |
+      These files must be correctly compressed or errors will surface during Extraction.
+
+      - gzip compressed files (`.gz`)
+      - zip compressed archive (`.zip`)
+
+  - name: "Delimiters"
+    all: *delimiters
+
+  - name: "Character encoding"
+    all: *encodings
+
+
+# ------------------------------- #
+#          SUPPORT TABLE          #
+# ------------------------------- #
+
+## Re-usable code for displaying file requirements for
+## and an integration.
+
+support-table: |
+  {% assign integration-name = integration.name %}
+
+  <table class="attribute-list">
+  {% for requirement in site.data.taps.extraction.file-systems.file-requirements.attributes %}
+  <tr>
+  <td class="attribute-name">
+  <strong>{{ requirement.name }}</strong>
+  </td>
+  <td>
+  {% if requirement[integration-name] %}
+  {{ requirement[integration-name] | flatify | markdownify }}
+  {% else %}
+  {{ requirement.all | flatify | markdownify }}
+  {% endif %}
+  </td>
+  </tr>
+  {% endfor %}
+  </table>

@@ -1,0 +1,59 @@
+# ----------------------------------- #
+#  BigQuery User Privileges and Setup #
+# ----------------------------------- #
+
+## This file contains info about the privileges and setup steps
+## required to create a Stitch database user for a BigQuery destination.
+
+## NOTE: These permissions apply to all versions of the BigQuery destination.
+
+defaults:
+  names:
+    bigquery-admin: &bigquery-admin-name "BigQuery Admin (roles/bigquery.admin)"
+    storage-admin: &storage-admin-name "Storage Admin (roles/storage.admin)"
+
+  doc-links:
+    bigquery-admin: &bigquery-admin-doc-link "https://cloud.google.com/iam/docs/understanding-roles#bigquery_roles"
+    storage-admin: &storage-admin-doc-link "https://cloud.google.com/iam/docs/understanding-roles#cloud_storage_roles"
+
+  reasons:
+    bigquery-admin: &bigquery-admin-reason 
+      Required to create the necessary objects in a BigQuery project to load and store your data.
+
+    storage-admin: &storage-admin-reason
+      Required to access and create objects in a Google Cloud Storage (GCS) bucket. Stitch uses a GCS bucket to temporarily store data before loading it into a dataset in your BigQuery project.
+
+
+# -------------------------- #
+#    BIGQUERY PRIVILEGES     #
+# -------------------------- #
+
+all-permissions:
+  - name: *bigquery-admin-name
+    reason: *bigquery-admin-reason
+    doc-link: *bigquery-admin-doc-link
+
+  - name: *storage-admin-name
+    reason: *storage-admin-reason
+    doc-link: *storage-admin-doc-link
+
+
+# -------------------------- #
+#   STEPS FOR CREATING USER  #
+# -------------------------- #
+
+## The individual steps for creating a BigQuery user for Stitch.
+
+all-steps:
+  - copy: |
+      {% include layout/inline_image.html type="right" file="destinations/bigquery-permissions.png" alt="Assigning BigQuery Admin and Storage Admin permissions to a GCP user." max-width="400px" %}
+
+      In the page that displays, click the **IAM** option in the menu on the left side of the page. This will display a page of all the members that have access to the project.
+  - copy: "In the list, locate the user you want to use to connect {{ page.display_name }} to Stitch."
+  - copy: "Click the **pencil icon** in the row for the user. This will open the **Edit Permissions** modal."
+  - copy: "If the user already has a role assigned, click **+ Add Another Role**."
+  - copy: "Click the **Role** field."
+  - copy: "In the search box, type `bigquery admin` and click the **BigQuery Admin** result."
+  - copy: "Click **+ Add Another Role** and click the **Role** field again."
+  - copy: "In the search box, type `storage admin` and click the **Storage Admin** result."
+  - copy: "Click **Save.**"

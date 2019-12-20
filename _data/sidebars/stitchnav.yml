@@ -113,166 +113,193 @@ all-docs:
 
   - title: Destinations
     sections:
-
     - title: Overview
       url: "{{ link.destinations.main }}"
 
-    - title: "Choosing a destination"
-      url: "{{ link.destinations.overviews.choose-destination }}"
-
-    - title: "Destination & integration compatibility"
-      url: "{{ link.destinations.overviews.compatibility }}"
-
     - title: Amazon Redshift
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.redshift }}"
+      url: "/destinations/amazon-redshift"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.redshift }}"
 
-        - title: "Connect to Stitch"
-          url: "{{ link.destinations.setup.redshift }}"
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.redshift }}"
 
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.redshift }}#replication"
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.redshift }}#replication"
 
-        - title: "Encodings, SORT, and DIST keys"
-          url: "{{ link.destinations.storage.redshift-encodings }}"
+      #   - title: "Encodings, SORT, and DIST keys"
+      #     url: "{{ link.destinations.storage.redshift-encodings }}"
 
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.redshift }}#limitations"
+      #   - title: "Limitations"
+      #     url: "{{ link.destinations.overviews.redshift }}#limitations"
 
     - title: "Amazon S3"
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.amazon-s3 }}"
+      url: "/destinations/amazon-s3"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.amazon-s3 }}"
 
-        - title: "Connect to Stitch"
-          url: "{{ link.destinations.setup.amazon-s3 }}"
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.amazon-s3 }}"
 
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.amazon-s3 }}#replication"
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.amazon-s3 }}#replication"
 
-        - title: "Schema"
-          url: "{{ link.destinations.overviews.amazon-s3 }}#schema"
+      #   - title: "Schema"
+      #     url: "{{ link.destinations.overviews.amazon-s3 }}#schema"
 
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
+      #   - title: "Limitations"
+      #     url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
 
     - title: "data world"
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.data-world }}"
+      url: "/destinations/data-world"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.data-world }}"
 
-        - title: "Connect to Stitch"
-          url: "{{ link.destinations.setup.data-world }}"
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.data-world }}"
 
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.data-world }}#replication"
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.data-world }}#replication"
 
-        - title: "Schema"
-          url: "{{ link.destinations.overviews.data-world }}#schema"
+      #   - title: "Schema"
+      #     url: "{{ link.destinations.overviews.data-world }}#schema"
 
     - title: Google BigQuery
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.bigquery }}"
+      url: "/destinations/google-bigquery/v1"
+      # subsections:
+      #   - title: "All BigQuery guides"
+      #     url: ""
 
-        - title: "Connect to Stitch"
-          url: "{{ link.destinations.setup.bigquery }}"
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.bigquery-v1 }}"
 
-        - title: "Change BigQuery Location"
-          url: "{{ link.destinations.overviews.switch-bigquery-destination }}"
+      #   - title: "Stitch impact on BigQuery costs"
+      #     url: "{{ link.destinations.overviews.bigquery-pricing }}"
 
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.bigquery }}#replication"
+      #   - title: "Change BigQuery location"
+      #     url: "{{ link.destinations.overviews.switch-bigquery-destination }}"
 
-        - title: "Table Partitioning and Clustering"
-          url: "{{ link.destinations.storage.bigquery-partitioning }}"
+      #   - title: "Table partitioning and clustering"
+      #     url: "{{ link.destinations.storage.bigquery-partitioning }}"
 
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.bigquery }}#limitations"
+      #   - title: "Reference"
+      #     url: "{{ link.destinations.overviews.bigquery-v1 }}"
 
-        - title: "Stitch Impact on BigQuery Costs"
-          url: "{{ link.destinations.overviews.bigquery-pricing }}"
+    - title: Google BigQuery v2
+      url: "/destinations/google-bigquery/v2"
+      # subsections:
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.bigquery-v2 }}"
+
+      #   - title: "Stitch impact on BigQuery costs"
+      #     url: "{{ link.destinations.overviews.bigquery-pricing }}"
+
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.bigquery }}#replication-details"
+
+      #   - title: "Transformations"
+      #     url: "{{ link.destinations.overviews.bigquery }}#transformations"
+
+      #   - title: "Primary Key handling"
+      #     url: "{{ link.destinations.storage.primary-key-system-table }}"
+
+      #   - title: "Reference"
+      #     url: "{{ link.destinations.overviews.bigquery-v2 }}"
 
     - title: "Microsoft Azure SQL Data Warehouse"
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.azure }}"
+      url: "/destinations/microsoft-azure-sql-data-warehouse"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.azure }}"
 
-        - title: "Connect to Stitch"
-          url: "{{ link.destinations.setup.azure }}"
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.azure }}"
 
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.azure }}#replication"
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.azure }}#replication"
 
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.azure }}#limitations"
+      #   - title: "Limitations"
+      #     url: "{{ link.destinations.overviews.azure }}#limitations"
 
-        - title: "Primary Key handling"
-          url: "{{ link.destinations.storage.azure-primary-keys }}"
+      #   - title: "Primary Key handling"
+      #     url: "{{ link.destinations.storage.primary-key-system-table }}"
 
     - title: Panoply
+      url: "/destinations/panoply"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.panoply }}"
+
+      #   - title: "Connect an existing destination"
+      #     url: "{{ link.destinations.setup.panoply-ex }}"
+
+      #   - title: "Connect a new destination"
+      #     url: "{{ link.destinations.setup.panoply-new }}"
+
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.panoply }}#replication"
+
+      #   - title: "Limitations"
+      #     url: "{{ link.destinations.overviews.panoply }}#limitations"
+
+    - title: PostgreSQL
+      url: "/destinations/postgresql"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.postgres }}"
+
+      #   - title: "Connect an Amazon Aurora RDS destination"
+      #     url: "{{ link.destinations.setup.aurora-postgres }}"
+
+      #   - title: "Connect an Amazon RDS destination"
+      #     url: "{{ link.destinations.setup.postgres-rds }}"
+
+      #   - title: "Connect a Google CloudSQL destination"
+      #     url: "{{ link.destinations.setup.cloudsql-postgres }}"
+
+      #   - title: "Connect a Heroku destination"
+      #     url: "{{ link.destinations.setup.heroku-postgres }}"
+
+      #   - title: "Connect a self-hosted destination"
+      #     url: "{{ link.destinations.setup.self-hosted-postgres }}"
+
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.postgres }}#replication"
+
+      #   - title: "Limitations"
+      #     url: "{{ link.destinations.overviews.postgres }}#limitations"
+
+    - title: Snowflake
+      url: "/destinations/snowflake"
+      # subsections:
+      #   - title: "Overview"
+      #     url: "{{ link.destinations.overviews.snowflake }}"
+
+      #   - title: "Connect to Stitch"
+      #     url: "{{ link.destinations.setup.snowflake }}"
+
+      #   - title: "Replication"
+      #     url: "{{ link.destinations.overviews.snowflake }}#replication"
+
+      #   - title: "Limitations"
+      #     url: "{{ link.destinations.overviews.snowflake }}#limitations"
+
+      #   - title: "Snowflake pricing"
+      #     url: "{{ link.destinations.overviews.snowflake }}#pricing"
+
+    - title: "Guides"
       subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.panoply }}"
+        - title: "Choosing a destination"
+          url: "{{ link.destinations.overviews.choose-destination }}"
 
-        - title: "Connect an existing destination"
-          url: "{{ link.destinations.setup.panoply-ex }}"
+        - title: "Destination & integration compatibility"
+          url: "{{ link.destinations.overviews.compatibility }}"
 
-        - title: "Connect a new destination"
-          url: "{{ link.destinations.setup.panoply-new }}"
-
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.panoply }}#replication"
-
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.panoply }}#limitations"
-
-    - title: PostgreSQL 
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.postgres }}"
-
-        - title: "Connect an Amazon Aurora RDS destination"
-          url: "{{ link.destinations.setup.aurora-postgres }}"
-
-        - title: "Connect an Amazon RDS destination"
-          url: "{{ link.destinations.setup.postgres-rds }}"
-
-        - title: "Connect a Google CloudSQL destination"
-          url: "{{ link.destinations.setup.cloudsql-postgres }}"
-
-        - title: "Connect a Heroku destination"
-          url: "{{ link.destinations.setup.heroku-postgres }}"
-
-        - title: "Connect a self-hosted destination"
-          url: "{{ link.destinations.setup.self-hosted-postgres }}"
-
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.postgres }}#replication"
-
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.postgres }}#limitations"
-
-    - title: Snowflake  
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.overviews.snowflake }}"
-
-        - title: "Connect to Stitch"
-          url: "{{ link.destinations.setup.snowflake }}"
-
-        - title: "Replication"
-          url: "{{ link.destinations.overviews.snowflake }}#replication"
-
-        - title: "Limitations"
-          url: "{{ link.destinations.overviews.snowflake }}#limitations"
-
-        - title: "Snowflake pricing"
-          url: "{{ link.destinations.overviews.snowflake }}#pricing"
-
-    - title: Change Destinations
-      url: "{{ link.destinations.switch-destinations }}"
+        - title: Change Destinations
+          url: "{{ link.destinations.switch-destinations }}"
 
   - title: Integrations
     sections:
@@ -388,53 +415,87 @@ all-docs:
 
   - title: Loading data
     sections:
-    - title: Loading Reports
-      url: "{{ link.replication.loading-reports }}"
+      - title: "Understanding loading behavior"
+        url: "{{ link.destinations.storage.loading-behavior }}"
 
-    - title: Integration schemas
-      subsections:
-        - title: "Overview"
-          url: "{{ link.destinations.storage.stitch-schema }}"
+      - title: Understanding schema structure
+        subsections:
+          - title: "Overview"
+            url: "{{ link.destinations.storage.stitch-schema }}"
 
-        - title: "Terminology"
-          url: "{{ link.destinations.storage.stitch-schema }}#schema-terminology"
+          - title: "Terminology"
+            url: "{{ link.destinations.storage.stitch-schema }}#schema-terminology"
 
-        - title: "Schema names"
-          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
+          - title: "Schema names"
+            url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-names"
 
-        - title: "Schema composition"
-          url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
+          - title: "Schema composition"
+            url: "{{ link.destinations.storage.stitch-schema }}#integration-schema-composition"
 
-        - title: "Table schemas"
-          url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
+          - title: "Table schemas"
+            url: "{{ link.destinations.storage.stitch-schema }}#integration-table-schemas"
 
-        - title: "System tables and columns"
-          url: "{{ link.destinations.storage.system-tables-and-columns }}"
+          - title: "System tables and columns"
+            url: "{{ link.destinations.storage.system-tables-and-columns }}"
 
-    - title: Loading data into destinations
-      url: "{{ link.destinations.storage.loading-data }}"
+      - title: "Handling nested data structures"
+        subsections:
+          - title: "Google BigQuery destinations"
+            url: "{{ link.destinations.storage.bigquery-nested-structures }}"
 
-    - title: Nested data & row counts
-      url: "{{ link.destinations.storage.nested-structures }}"
+          - title: "Non-BigQuery destinations"
+            url: "{{ link.destinations.storage.nested-structures }}"
 
-    - title: Table schema changes
-      url: "{{ link.destinations.storage.structure-changes }}"
+      - title: Loading behavior guides
+        subsections:
+          - title: "Amazon Redshift"
+            url: "{{ link.destinations.loading.redshift }}"
 
-    - title: Append-only tables
-      url: "{{ link.replication.append-only-querying }}"
+          - title: "Google BigQuery"
+            url: "{{ link.destinations.loading.bigquery-v1 }}"
 
-    - title: "System tables and columns"
-      url: "{{ link.destinations.storage.system-tables-and-columns }}"
+          - title: "Google BigQuery v2"
+            url: "{{ link.destinations.loading.bigquery-v2 }}"
 
-    - title: "Reserved keywords"
-      url: "{{ link.destinations.storage.reserved-keywords }}"
+          - title: "Panoply"
+            url: "{{ link.destinations.loading.panoply }}"
 
-    - title: Rejected records
-      url: "{{ link.destinations.storage.rejected-records }}"
+          - title: "PostgreSQL"
+            url: "{{ link.destinations.loading.postgres }}"
+
+          - title: "Snowflake"
+            url: "{{ link.destinations.loading.snowflake }}"
+
+          - title: "All guides"
+            url: "{{ link.destinations.loading.overview }}"
+
+      - title: Monitoring loading
+        url: "{{ link.replication.loading-reports }}"
+
+      - title: "Guides"
+        subsections:
+          - title: "Understanding loading behavior"
+            url: "{{ link.destinations.storage.loading-behavior }}"
+      
+          - title: Querying append-only tables
+            url: "{{ link.replication.append-only-querying }}"
+
+          - title: Resolving record rejections
+            url: "{{ link.destinations.storage.rejected-records }}"
+
+      - title: "References"
+        subsections:
+          - title: "Loading behavior types"
+            url: "{{ link.destinations.storage.loading-behavior }}"
+
+          - title: "Reserved keywords"
+            url: "{{ link.destinations.storage.reserved-keywords }}"
+
+          - title: "System tables and columns"
+            url: "{{ link.destinations.storage.system-tables-and-columns }}"    
 
   - title: Analysis tools
     sections:
-
     - title: Analytics
       url: /analysis-tools#analytics
 
@@ -446,7 +507,6 @@ all-docs:
 
   - title: Troubleshooting
     sections:
-
     - title: Account & billing
       url: /troubleshooting/account
 

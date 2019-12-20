@@ -1,0 +1,46 @@
+# -------------------------------------------- #
+#                                              #
+#              WAREHOUSE CHANGES               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/warehouse-changes.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/bigquery.yml
+
+## Customer applies indexes to Stitch-generated columns
+- id: apply-indices
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &apply-indices "{{ site.data.dataloading.scenarios.warehouse-changes.apply-indices.then | flatify }}"
+    v2: *apply-indices
+
+## Customer applies partitioning to Stitch-generated tables
+- id: table-partitioning
+  rejectable: false
+  if: "Partitioning is applied to Stitch-generated tables in the destination."
+  then:
+    v1: &table-partitioning |
+      Stitch will respect the partitioning application. Refer to the [Apply table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for more info and instructions.
+    v2: *table-partitioning
+
+
+## Customer applies clustering to Stitch-generated tables
+- id: table-clustering
+  rejectable: false
+  if: "Clustering is applied to Stitch-generated tables in the destination."
+  then:
+    v1: &table-partitioning |
+      Stitch will respect the cluster application. Refer to the [Apply table partitioning and clustering guide]({{ link.destinations.storage.bigquery-partitioning | prepend: site.baseurl }}) for more info and instructions.
+    v2: *table-partitioning
+
+
+## Customer switches to a new destination of the same type
+- id: switch-destination-same-type
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &switch-destination-same-type "{{ site.data.dataloading.scenarios.warehouse-changes.switch-destination-same-type.then | flatify }}"
+    v2: *switch-destination-same-type

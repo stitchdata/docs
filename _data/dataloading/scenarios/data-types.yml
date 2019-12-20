@@ -1,0 +1,135 @@
+# -------------------------------------------- #
+#                                              #
+#                  DATA TYPES                  #
+#                                              #
+# -------------------------------------------- #
+
+description: |
+  Scenarios involving various data types, including how data is typed and structured in the destination.
+
+## Column contains multiple data types
+mixed-data-types:
+  heading: "a column contains multiple data types?"
+  anchor: "multiple-data-types"
+  if: "Stitch detects multiple data types for a single column."
+  then: |
+    To accommodate data of varying types, Stitch will create multiple columns to ensure data is loaded with the correct type. In the destination, this will look like the column has been "split". 
+    
+    For example: Stitch first detected that `order_confirmed` contained `BOOLEAN` data, but during a subsequent job, detected `STRING` values. To accommodate the data, Stitch will:
+
+    1. Rename the original column by appending the first-detected data type to the column name.  Ex: `order_confirmed__bl`
+    2. Store data for the first-detected data type in the renamed column. In this example, only `BOOLEAN` values will be stored in `order_confirmed__bl`
+    3. Create additional columns to store the other data types - one for each data type detected - and append the data type to the column name. In this example, a `order_confirmed__st` column will be created to store `STRING` values.
+
+nested-data-structures:
+  heading: "a table contains nested data structures?"
+  anchor: "nested-data-structures"
+  if: "Data is replicated to {{ destination.display_name }} that is nested, containing many top-level properties and potentially nested sub-properties."
+  then: |
+    The core object - or the top-level properties - will be split into columns in a table.
+
+    Any properties contained within a nested array - or sub-properties - will be "flattened" into subtables.
+
+    For example: below is the raw JSON data for an `orders` table:
+
+    ```
+    {
+      "order_id":"1234",                  // order_id and customer_id are top-level properties
+      "customer_id":"100",
+      "line_items":[                      // start of nested data (array)
+          {
+              "product_id":"5008798",     // sub-property
+              "price":"5.99"              // sub-property
+          }
+        ]
+    }
+    ```
+
+    Because there is a nested array in the JSON data, two tables will be created: one named `orders` containing the top-level properties, and another sub-table named `orders___line_items` that contains the sub-properties.
+
+    A tutorial on how Stitch de-nests and stores these types of records can be found in the [Nested JSON Structures & Row Count Impact Guide]({{ link.storage.nested-structures | prepend: site.baseurl }}).
+
+# -------------------------- #
+#   DATA TYPES > VARCHARs    #
+# -------------------------- #
+
+## VARCHAR Storage
+varchar-storage:
+  heading: "a VARCHAR column is replicated?"
+  anchor: "varchar-storage"
+  if: "A `VARCHAR` column is replicated to {{ destination.display_name }}."
+
+## VARCHAR widening
+varchar-widening:
+  heading: "a VARCHAR column increases in size?"
+  anchor: "varchar-widening"
+  if: "`VARCHAR` data is loaded that exceeds the current maximum size for the column."
+
+## VARCHAR exceeds limit
+varchar-max-size:
+  heading: "a VARCHAR column exceeds the size maximum?"
+  anchor: "varchar-max-size"
+  if: "A `VARCHAR` column is replicated with data that exceeds {{ destination.display_name }}'s size limit of `{{ destination-reference.data-limit-info.strings.max-width }}`."
+  then: "Stitch will stop processing data for the table."
+
+# -------------------------- #
+#  DATA TYPES > Dates & Time #
+# -------------------------- #
+
+## Column contains timestamp data
+timestamp-storage:
+  heading: "a column contains timestamp data?"
+  anchor: "timestamp-storage"
+  if: "A column contains timestamp data."
+
+date-with-timezone:
+  heading: "a column contains date data with timezone info?"
+  anchor: "date-with-timezone"
+  if: "A column containing date data with timezone info is replicated to {{ destination.display_name }}."
+  then:
+
+## Column contains timestamp data without timezone info
+date-no-timezone:
+  heading: "a column contains date data without timezone info?"
+  anchor: "date-no-timezone"
+  if: "A column contains timestamp data without timezone info."
+
+## Column contains timestamp data out of range
+timestamps-out-of-range:
+  heading: "timestamp data is outside of the range supported by the destination?"
+  anchor: "timestamps-out-of-range"
+  if: "A column contains timestamp data that is outside {{ destination.display_name }}'s supported range."
+  then: "{{ destination.display_name }} will reject the records that fall outside the supported range."
+  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s timestamp range."
+
+# -------------------------- #
+#    DATA TYPES > Numeric    #
+# -------------------------- #
+
+## Column contains integer data
+integer-storage:
+  heading: "a column contains integer data?"
+  anchor: "integer-storage"
+  if: "A column contains integer data."
+
+## Column contains integer data out of range
+integer-out-of-range:
+  heading: "integer data is outside of the range supported by the destination?"
+  anchor: "integer-out-of-range"
+  if: "A column contains integer data that is outside {{ destination.display_name }}'s supported range."
+  then: "{{ destination.display_name }} will reject the records that fall outside the supported range."
+  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for integers."
+
+## Column contains decimal data
+decimal-storage:
+  heading: "a column contains decimal data?"
+  anchor: "decimal-storage"
+  if: "A column contains decimal data."
+
+## Column contains decimal data out of range
+decimals-out-of-range:
+  heading: "decimal data is outside of the range supported by the destination?"
+  anchor: "decimals-out-of-range"
+  if: "A column contains decimal data that is outside {{ destination.display_name }}'s supported range."
+  then: "{{ destination.display_name }} will reject the records that fall outside the supported range."
+  fix-it: "To resolve the error, offending values in the source must be changed to be within {{ destination.display_name }}'s limit for decimals."

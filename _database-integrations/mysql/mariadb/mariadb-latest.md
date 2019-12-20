@@ -5,6 +5,8 @@ permalink: /integrations/databases/mariadb
 summary: "Connect and replicate data from your MariaDB database using Stitch's MariaDB integration."
 show-in-menus: true
 
+key: "mariadb-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -17,7 +19,7 @@ repo-url: https://github.com/singer-io/tap-mysql
 
 hosting-type: "generic"
 
-# this-version: "1.0"
+this-version: "1.0"
 
 driver: |
   [PyMySQL 0.7.11](https://pymysql.readthedocs.io/en/latest/){:target="new"}

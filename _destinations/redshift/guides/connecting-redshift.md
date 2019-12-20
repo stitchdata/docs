@@ -13,8 +13,10 @@
 # -------------------------- #
 
 title: Connecting an Amazon Redshift Destination to Stitch
-permalink: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
-redirect_from: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+permalink: /destinations/amazon-redshift/connecting-redshift-data-warehouse-to-stitch
+redirect_from: 
+  - /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+  - /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
 
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
 

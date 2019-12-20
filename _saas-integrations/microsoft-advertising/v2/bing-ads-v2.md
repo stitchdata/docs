@@ -11,6 +11,8 @@ keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads sc
 summary: "Connection instructions, replication info, and schema details for Stitch's Microsoft Advertising (Bing Ads) integration."
 layout: singer
 
+key: "bing-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -31,7 +33,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -48,6 +49,10 @@ cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true
+
+append-only-integration: false
+append-only-tables: true
+append-only-tables-description: "All Report tables"
 
 ## Row usage details
 

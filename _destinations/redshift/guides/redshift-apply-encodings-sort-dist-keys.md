@@ -3,16 +3,19 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Applying Encodings, SORT, & DIST Keys in Redshift
-permalink: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
+title: Applying Encodings, SORT, & DIST Keys in Amazon Redshift
+
+permalink: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
+redirect_from: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
+
 keywords: redshift, amazon redshift, redshift data warehouse, sort keys, dist keys, encodings, SORT, DIST, indexes
 summary: "Want to improve your query performance? In this article, we’ll walk you through how to use encoding, Sort, and Distribution Keys to streamline query processing in your Amazon Redshift data warehouse."
 
 content-type: "destination-general"
-
-toc: true
+key: "redshift-encodings"
 type: "redshift"
 
+toc: true
 layout: tutorial
 use-tutorial-sidebar: false
 

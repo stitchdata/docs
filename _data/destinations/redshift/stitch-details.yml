@@ -1,0 +1,44 @@
+# ------------------------------ #
+# AMAZON REDSHIFT STITCH DETAILS #
+# ------------------------------ #
+
+# Details about Stitch's implementation &
+# requirements for Amazon Redshift destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
+supported-versions: "n/a"
+
+available-in-connect: true
+
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: false ## Indicates whether SSL can be configured via the API
+
+ssh: true
+
+vpn: false
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: true
+
+workload-performance-management-description: |
+  To improve your query performance, you can apply encodings, SORT, and DIST keys to Stitch-created tables in your {{ destination.display_name }} destination. Your settings will remain intact even when new data is loaded.
+
+  Refer to the [Encodings, SORT, and DIST Keys guide]({{ link.destinations.storage.redshift-encodings | prepend: site.baseurl }}) for application instructions.

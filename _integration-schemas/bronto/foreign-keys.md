@@ -1,7 +1,7 @@
 ---
 tap-reference: "bronto"
 
-# version: "1.0"
+version: "1.0"
 
 foreign-keys:
   - id: "contact-id"

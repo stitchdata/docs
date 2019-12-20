@@ -1,0 +1,105 @@
+# -------------------------------------------- #
+#                                              #
+#                 OBJECT NAMES                 #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/data-types.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/errors/loading/postgres.yml
+
+
+## Table name is too long
+- id: table-name-limit
+  rejectable: true
+  # # if: uses default
+  then:
+    v1: &table-name-limit |
+      {{ destination.display_name }} will reject all data for the table.
+  error:
+    v1: &table-name-limit-error "{{ site.data.destinations.common.loading-errors.table-name-limit | flatify }}"
+  fix-it:
+    v1: &table-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.table-name-limit.fix-it | flatify }}"
+
+
+## Column name is too long
+- id: column-name-limit
+  rejectable: true
+  # # if: uses default
+  then:
+    v1: &column-name-limit "{{ site.data.dataloading.scenarios.object-names.column-name-limit.then | flatify }}"
+  error:
+    v1: &column-name-limit-error "{{ site.data.destinations.common.loading-errors.column-name-limit | flatify }}"
+  fix-it:
+    v1: &column-name-limit-fix-it "{{ site.data.dataloading.scenarios.object-names.column-name-limit.fix-it | flatify }}"
+
+
+## Duplicate field names
+- id: duplicate-field-names
+  rejectable: true
+  # if: uses default
+  then:
+    v1: &duplicate-field-names "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.then | flatify }}"
+  error:
+    v1: &duplicate-field-names-error "{{ site.data.destinations.common.loading-errors.field-name-collision | flatify }}"
+  fix-it:
+    v1: &duplicate-field-names-fix-it "{{ site.data.dataloading.scenarios.object-names.duplicate-field-names.fix-it | flatify }}"
+
+
+## Column names contain MiXeDCaSe
+- id: mixed-case-column-name
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &mixed-case-column-name |
+      {{ destination.display_name }} will maintain the case. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `CuStOmErId`      | `CuStOmErId`             |
+      | `customerID`      | `customerID`             |
+
+
+## Column names contain spaces
+- id: column-name-spaces
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-spaces |
+      {{ destination.display_name }} will maintain the spaces. For example:
+
+      | Columns in Source | Columns in {{ destination.display_name }} |
+      |-------------------+--------------------------|
+      | `customer id`     | `customer id`            |
+      | `CUSTOMER ID`     | `CUSTOMER ID`            |
+
+
+## Column name contains unsupported special characters
+- id: column-name-special-char
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-special-char |
+      {{ destination.display_name }} will remove the unsupported characters. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `!customerid`     |  | `customerid`             |
+      | `customer!id`     |  | `customerid`             |
+      | `CUSTOMER! ID`    |  | `CUSTOMER ID`            |
+
+
+## Column name begins with a non-letter character
+- id: column-name-starts-non-letter
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &column-name-starts-non-letter |
+      {{ destination.display_name }} will remove all leading non-letter characters with the exception of leading underscores. For example:
+
+      | Columns in Source |  | Columns in {{ destination.display_name }} |
+      |-------------------+--+--------------------------|
+      | `123customerid`   |  | `customerid`             |
+      | `_customerid`     |  | `_customerid`            |
+      | `_987CUSTOMERID`  |  | `_987CUSTOMERID`         |
