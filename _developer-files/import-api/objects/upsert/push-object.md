@@ -15,6 +15,15 @@ order: 4
 # -------------------------- #
 
 title: "Push"
+summary: |
+  {{ site.data.import-api.core-objects.push.object | flatify }}
+
+  {% capture endpoint-notice %}
+  **Note**: This endpoint and the Batch endpoint have some key differences, even though both endpoints will send data to Stitch. Refer to the [Structuring data for the Import API guide]({{ link.import-api.guides.structure-data | prepend: site.baseurl | append: "#endpoints" }}) for a comparison of both endpoints.
+  {% endcapture %}
+
+  {% include note.html type="single-line" content=endpoint-notice %}
+
 description: "{{ site.data.import-api.core-objects.push.object | flatify }}"
 endpoint-url: "/import/push"
 

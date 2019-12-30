@@ -1,5 +1,5 @@
 ---
-title: Endpoints
+title: Methods
 product-type: "import-api"
 content-type: "api-doc"
 order: 6
