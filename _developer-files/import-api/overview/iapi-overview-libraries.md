@@ -9,7 +9,7 @@ sections:
   - content: |
       Below are some of the community-supported libraries and resources for the Stitch Import API.
 
-      If you need help using these resources, we recommend creating an issue on the GitHub repository (linked below) or asking the [Stitch Community]({{ site.community }}){:target="new"}.
+      If you need help using these resources, we recommend creating an issue on the GitHub repository (linked below) or asking the [Stitch Community]({{ site.community }}){:target="new"}. **Note**: Stitch Support doesn't provide assistance for these resources.
 
       **Created your own library or have an example you want to share?** [Let us know](mailto:{{ site.support }}) and we'll add it to the list.
 

@@ -55,11 +55,12 @@ sections:
       </td>
       <td width="50%; fixed">
       <ul>
+      <li>Retrieving API access tokens</li>
       <li>Writing scripts</li>
       <li>Data typing in requests</li>
       <li>Troubleshooting scripts or API requests</li>
       <li>Troubleshooting open source scripts that use the Import API, e.g. <a href="{{ site.data.import-api.resources.google-sheets.url }}" target="new">Google Sheets</a></li>
-      <li>Retrieving API access tokens</li>
+      <li>Troubleshooting or using <a href="{{ link.import-api.overview | prepend: site.baseurl | append: "#libraries-and-resources" }}">open source libraries</a> for the Import API</li>
       </ul>
       </td>
       </tr>
