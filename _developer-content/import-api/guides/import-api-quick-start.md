@@ -4,20 +4,28 @@
 # -------------------------- #
 
 title: Stitch Import API Quick Start
+permalink: /developers/import-api/guides/quick-start
+summary: "Stitch's Import API allows you to push arbitrary data from a source to your Stitch account. Generate your API credentials and push your first batch of data with this guide."
+
 doc-type: "tutorial"
 
 product-type: "import-api"
 content-type: "guide"
 content-id: "stitch-import-api-quick-start"
+
+key: "import-api-quick-start"
+
 layout: tutorial
 
-permalink: /developers/import-api/guides/quick-start
+
+# -------------------------- #
+#      GUIDE PAGE INFO       #
+# -------------------------- #
+
+## This is used only on the /import-api/guides page.
 icon: file
 order: 1
 
-summary: "Stitch's Import API allows you to push arbitrary data from a source to your Stitch account. Generate your API credentials and push your first batch of data with this guide."
-
-## This is used only on the /import-api/guides page.
 display-title: "Import API Quick Start"
 description: "Generate your Import API credentials and push your first batch of data."
 

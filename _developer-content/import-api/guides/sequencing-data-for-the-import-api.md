@@ -18,15 +18,14 @@ key: "import-api-sequence-data"
 layout: general
 sidebar: on-page
 
-icon: replication
-order: 4
-
 
 # -------------------------- #
 #      GUIDE PAGE INFO       #
 # -------------------------- #
 
 ## This is used only on the /import-api/guides page.
+icon: replication
+order: 4
 
 display-title: "Sequencing data for the Import API"
 description: *summary

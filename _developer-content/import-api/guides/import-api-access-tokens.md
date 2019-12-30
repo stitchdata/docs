@@ -6,6 +6,7 @@
 title: Stitch Import API Access Tokens
 permalink: /developers/import-api/guides/import-api-access-tokens
 redirect_from: /integrations/import-api/revoking-an-api-access-token
+summary: "Learn to create and manage Import API access tokens in the Stitch web app."
 
 doc-type: "concept"
 
@@ -19,7 +20,11 @@ sidebar: on-page
 icon: lock
 order: 2
 
-summary: "A valid API access token is required to use Stitch's Import API. Use this guide manage your Import API access tokens in the Stitch web app."
+
+# -------------------------- #
+#      GUIDE PAGE INFO       #
+# -------------------------- #
+
 ## This is used only on the /import-api/guides page.
 display-title: "Managing Import API Access Tokens"
 description: "Create and manage Import API access tokens."

@@ -4,19 +4,27 @@
 # -------------------------- #
 
 title: Create and configure an Import API source with Stitch Connect
-doc-type: "tutorial"
+permalink: /developers/stitch-connect/guides/create-import-api-integration-with-stitch-connect
+summary: "Using the Stitch Connect API, create a new Import API integration and generate an access token. You'll also learn how to push data to the Import API after the source has been configured."
 
 product-type: "connect"
 content-type: "guide"
 content-id: "create-import-api-source"
+
+key: "import-api-connect"
+
 layout: tutorial
 
-permalink: /developers/stitch-connect/guides/create-import-api-integration-with-stitch-connect
-icon: 
+
+# -------------------------- #
+#      GUIDE PAGE INFO       #
+# -------------------------- #
+
+## This is used only on the /stitch-connect/guides page.
+doc-type: "tutorial"
+icon: source
 order: 5
 
-summary: "Using the Stitch Connect API, create a new Import API integration and generate an access token. You'll also learn how to push data to the Import API after the source has been configured."
-## This is used only on the /stitch-connect/guides page.
 description: "Create an Import API integration using the Stitch Connect API."
 
 

@@ -18,15 +18,14 @@ key: "import-api-structure-data"
 layout: general
 sidebar: on-page
 
-icon: json
-order: 3
-
 
 # -------------------------- #
 #      GUIDE PAGE INFO       #
 # -------------------------- #
 
 ## This is used only on the /import-api/guides page.
+icon: json
+order: 3
 
 display-title: "Structuring and typing Import API data"
 description: *summary

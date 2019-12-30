@@ -7,23 +7,27 @@ title: Stitch Partner API Authentication Guide
 permalink: /developers/stitch-connect/guides/stitch-partner-authentication-guide
 redirect_from: /stitch-connect/guides/stitch-partner-authentication-guide
 
-doc-type: "tutorial"
+summary: "As an API client, you'll need to obtain an API access token before you can make API requests on behalf of a user's Stitch client account. In this guide, we'll cover the available methods for obtaining an access token and authenticating to the API."
 
 product-type: "connect"
 content-type: "guide"
 content-id: "partner-authentication"
+
+key: "connect-partner-auth"
+
 layout: general
 sidebar: on-page
 
-icon: lock
-order: 1
 
-toc: false
-summary: false
-feedback: false
+# -------------------------- #
+#      GUIDE PAGE INFO       #
+# -------------------------- #
 
-summary: "As an API client, you'll need to obtain an API access token before you can make API requests on behalf of a user's Stitch client account. In this guide, we'll cover the available methods for obtaining an access token and authenticating to the API."
 ## This is used only on the /stitch-connect/guides page.
+doc-type: "tutorial"
+icon: lock
+order: 2
+
 description: "Learn about the API authentication methods available to Stitch Partners."
 
 

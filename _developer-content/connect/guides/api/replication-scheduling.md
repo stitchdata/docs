@@ -3,24 +3,31 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Replication Scheduling for Sources Using the API
-doc-type: "concept"
-content-type: "connect-guide"
+title: Replication Scheduling for Sources Using the Connect API
+permalink: /developers/stitch-connect/guides/replication-scheduling-for-sources
+redirect_from: /stitch-connect/guides/replication-scheduling-for-sources
+summary: "Stitch supports three replication scheduling methods: Replication Frequency, Anchor Scheduling, and Advanced Scheduling. Learn about each scheduling type and how to use them in the Connect API."
+
+product-type: "connect"
+content-type: "guide"
 content-id: "replication-scheduling-for-sources"
+
+key: "connect-scheduling"
+
 layout: general
 sidebar: on-page
 
-permalink: /stitch-connect/guides/replication-scheduling-for-sources
+
+# -------------------------- #
+#      GUIDE PAGE INFO       #
+# -------------------------- #
+
+## This is used only on the /stitch-connect/guides page.
+doc-type: "concept"
 icon: clock
 order: 4
 
-toc: false
-summary: false
-feedback: false
-
-summary: "Stitch supports three replication scheduling methods: Replication Frequency, Anchor Scheduling, and Advanced Scheduling. Learn about each scheduling type and how to use them in the Connect API."
-## This is used only on the /stitch-connect/guides page.
-description: "Learn how to use each of Stitch's replication scheduling methods via the API."
+description: "Learn how to use each of Stitch's replication scheduling methods via the Connect API."
 
 
 # -------------------------- #
@@ -34,7 +41,7 @@ related:
   - title: "Anchor Scheduling"
     link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
 
-  - title: "Advanced Scheduling using cron"
+  - title: "Advanced Scheduling using Cron"
     link: "{{ link.replication.advanced-scheduling | prepend: site.baseurl }}"
 
   - title: "Connect API reference"
