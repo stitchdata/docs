@@ -23,8 +23,17 @@
         {% endcase %}
     </h3>
 
+    {% if object.summary %}
+        {{ object.summary | flatify | markdownify }}
+    {% endif %}
+
 <!-- The display logic for displaying the list of resources for a given object type -->
-    {% include developers/api-endpoint-rollup.html type="endpoint" %}
+
+    <h4 id="{{ object.endpoint | append: "--endpoint-list" }}">
+        Endpoints
+    </h4>
+
+        {% include developers/api-endpoint-rollup.html type="endpoint" %}
 
 
 <!-- The display of the object's attributes -->
