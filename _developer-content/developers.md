@@ -8,6 +8,21 @@ layout: developer
 product-type: "all-developer"
 content-type: "overview"
 
+level: "category"
+
+
+# -------------------------- #
+#       HOME PAGE DATA       #
+# -------------------------- #
+
+## Used to display info on the home page as a category tile
+
+icon: "extensibility"
+display-title: "Developers"
+display-summary: "Programmatically interact with Stitch and simplify your workflows."
+weight: 9
+
+
 dev-categories:
   - title: "Import API"
     description: |
