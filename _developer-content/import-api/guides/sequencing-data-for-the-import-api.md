@@ -81,9 +81,9 @@ sections:
       - title: "Sequencing and Replication Keys"
         anchor: "sequence-replication-keys"
         content: |
-          Think of `sequence` like a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}).
+          Think of `sequence` like a [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}), but on a record-by-record basis.
 
-          For the Import API, it functions similarly to an `updated_at` property: Only records that have a `sequence` value greater than **[TODO- Confirm that this has to be greater than the saved sequence value for the TABLE and not the record. Pretty sure this is the case, but it should be confirmed.]**
+          For the Import API, sequence functions similarly to an `updated_at` property: Only records that have a `sequence` value greater than an existing record with the same Primary Key will be replicated and loaded.
 
           For example: The record below has a `sequence` value of `1574800199000`:
 
@@ -105,7 +105,40 @@ sections:
       - title: "Record sequencing, Primary Keys, and loading"
         anchor: "record-sequencing-primary-keys"
         content: |
-          TODO - Content about Primary Keys and de-duping.
+          {% capture append-only-notice %}
+          **Note**: This section only applies if the destination isn't configured to use Append-Only loading.
+
+          If the destination uses or only supports Append-Only loading, data will not be de-duplicated using Primary Keys. The version of the record with the greatest sequence value will be loaded, but it will be appended to the destination table as a new row. This means that a table can contain several versions of a single record, showing how it has changed over time.
+
+          Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info.
+          {% endcapture %}
+
+          {% include note.html content=append-only-notice %}
+
+          Every record sent to the Import API must have a `sequence` property. If Primary Keys are defined for the table records are sent to, Stitch will use the provided `sequence` value and the record's Primary Key to de-duplicate data. This process ensures that only the most recent version of a record is loaded into a destination.
+
+          For example: Below is a single request containing two data points, both for the same record (`id: 2`). Only data point 1 would be loaded into the destination, as it has a greater `sequence` value than data point 2:
+
+          ```json
+          {
+             "action":"upsert",           /* Data point 1 */
+             "sequence":1574807445000,    /* 11/26/2019 10:30:45 PM */
+             "data":{
+                "id":2,
+                "name":"Jake",
+                "has_magic":false
+             }
+          },
+          {
+             "action":"upsert",           /* Data point 2 */
+             "sequence":1574807395000,    /* 11/26/2019 10:29:55 PM */
+             "data":{
+                "id":2,
+                "name":"Jake",
+                "has_magic":true
+             }
+          }
+          ```
 
   - title: "Defining record sequences"
     anchor: "define-record-sequences"
@@ -123,81 +156,77 @@ sections:
 
           A simple solution is just to use the current timestamp, but before doing so, consider the following:
 
-          - **How frequently are the records being updated?** Records that are updated every few milliseconds can result in failure if records with identical key values are pushed simultaneously. This means that records with the same Primary Key values cannot be sent during the same clock resolution.
+          - **How frequently are the records being updated?** If records with identical Primary Key values are updated every few milliseconds and pushed simultaneously, the correct version of a record may not be loaded successfully. This means that records with the same Primary Key values can't be sent during the same clock resolution.
 
              For example: If the resolution is measured in milliseconds, records with identical Primary Key values cannot be sent during the same millisecond.
 
           - **Are records being pushed from multiple sources?** If so, the time clocks of these sources must be synchronized. This is especially important if different sources are pushing records to the same table.
 
-      - title: "Tracking a table's maximum sequence"
-        anchor: "track-table-maximum-sequence"
+      - title: "Tracking a record's maximum sequence"
+        anchor: "track-record-maximum-sequence"
         content: |
-          In addition to generating sequence values for records, you'll also need to track the maximum sequence value for each table being pushed to the Import API. Sequence values need to continually increase or records in the destination won't be updated with new data.
+          In addition to generating sequence values for records, you'll also need to track the maximum sequence value for each record being pushed to the Import API. Sequence values need to continually increase or records in the destination won't be updated with new data.
 
-          **Note**: A table's maximum sequence value must be tracked over time, and not for each session or request.
-
-  - title: "Examples"
+  - title: "Example request"
     anchor: "examples"
-    summary: "Some example scenarios"
+    summary: "An example request"
     content: |
-      {% include note.html type="single-line" content="**Note**: All example requests are using the Batch endpoint." %}
+      {% include note.html type="single-line" content="**Note**: This example request uses the Batch endpoint." %}
 
-    subsections:
-      - title: "TODO"
-        anchor: "todo"
-        content: |
-          This request contains three data points: One for record `id: 1`, and two for `id: 2`.
+      This request contains three data points: One for record `id: 1`, and two for `id: 2`.
 
-          If these data points were received in this order, only data points 1 and 2 would continue to Stitch. Data point 3 would not, as its `sequence` value is less than the `sequence` value for data point 2.
+      If these data points were received in this order, only data points 1 and 2 would continue to Stitch.
 
-          ```json
-          {
-             "table_name":"customers",
-                "messages":[
-                {
-                   "action":"upsert",           /* Data point 1 */
-                   "sequence":1574807356000,    /* 11/26/2019 10:29:16 PM */
-                   "data":{
-                      "id":1,
-                      "name":"Finn",
-                      "has_magic":false
-                   }
-                },
-                {
-                   "action":"upsert",           /* Data point 2 */
-                   "sequence":1574807445000,    /* 11/26/2019 10:30:45 PM */
-                   "data":{
-                      "id":2,
-                      "name":"Jake",
-                      "has_magic":false
-                   }
-                },
-                {
-                   "action":"upsert",           /* Data point 3 */
-                   "sequence":1574807395000,    /* 11/26/2019 10:29:55 PM */
-                   "data":{
-                      "id":2,
-                      "name":"Jake",
-                      "has_magic":true
-                   }
-                }
-             ],
-             "key_names":[
-                "id"
-             ],
-             "schema":{
-                "properties":{
-                   "id":{
-                      "type":"integer"
-                   },
-                   "name":{
-                      "type":"string"
-                   },
-                   "has_magic":{
-                      "type":"boolean"
-                   }
-                }
-             }
-          }
-          ```
+      Data point 3 would not, as its `sequence` value is less than the `sequence` value for data point 2, which also has a Primary Key value of `id: 2`.
+
+      ```json
+      {
+         "table_name":"customers",
+            "messages":[
+            {
+               "action":"upsert",           /* Data point 1 */
+               "sequence":1574807356000,    /* 11/26/2019 10:29:16 PM */
+               "data":{
+                  "id":1,
+                  "name":"Finn",
+                  "has_magic":false
+               }
+            },
+            {
+               "action":"upsert",           /* Data point 2 */
+               "sequence":1574807445000,    /* 11/26/2019 10:30:45 PM */
+               "data":{
+                  "id":2,
+                  "name":"Jake",
+                  "has_magic":false
+               }
+            },
+            {
+               "action":"upsert",           /* Data point 3 */
+               "sequence":1574807395000,    /* 11/26/2019 10:29:55 PM */
+               "data":{
+                  "id":2,
+                  "name":"Jake",
+                  "has_magic":true
+               }
+            }
+         ],
+         "key_names":[
+            "id"
+         ],
+         "schema":{
+            "properties":{
+               "id":{
+                  "type":"integer"
+               },
+               "name":{
+                  "type":"string"
+               },
+               "has_magic":{
+                  "type":"boolean"
+               }
+            }
+         }
+      }
+      ```
 ---
