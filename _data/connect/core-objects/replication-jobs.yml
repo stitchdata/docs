@@ -6,7 +6,7 @@ title: "Replication jobs"
 section: "#replication-jobs"
 object: "#replication-job--object"
 base: "/v4/sources/{source_id}/sync"
-description: "todo."
+description: "An object representing a replication job. A replication job consists of three phases: Extraction, Preparation, and Loading."
 
 post:
   name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
