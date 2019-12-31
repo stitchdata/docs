@@ -32,7 +32,7 @@ loading-behavior-types:
 loading-behavior-description: |
   The following loading behavior types are supported for {{ destination.display_name }} destinations:
 
-  {% for loading-behavior-type in site.data.destinations.redshift.v2.replication.loading-behavior-types %}
+  {% for loading-behavior-type in site.data.destinations.panoply.v2.replication.loading-behavior-types %}
   - {{ loading-behavior-type }}
   {% endfor %}
 
