@@ -1,8 +1,8 @@
 ---
-title: Quick start
-product-type: "connect"
-content-type: "api-doc"
-order: 2
+# title: Quick start
+# product-type: "connect"
+# content-type: "api-doc"
+# order: 2
 
 sections:
   - title: "Obtain an access token"
