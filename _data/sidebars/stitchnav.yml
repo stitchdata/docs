@@ -529,15 +529,5 @@ all-docs:
       url: /troubleshooting/
 
   - title: Developers
-    sections:
-      - title: Stitch Connect
-        url: "{{ link.connect.overview }}"
-
-      - title: Import API
-        url: "{{ link.import-api.overview }}"
-
-      - title: Post-load webhooks
-        url: "{{ link.webhooks.post-load }}"
-
-      - title: Guides & resources
-        url: "{{ link.connect.guides.category }}"
+    drop-down: false
+    url: "{{ link.developers }}"
