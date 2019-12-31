@@ -1,0 +1,16 @@
+# -------------------------- #
+#     API STATUS OBJECT      #
+# -------------------------- #
+
+name: "API Status"
+
+url: "/v2/import/status"
+anchor: "#get-status"
+
+object-anchor: "#api-status--object"
+object-description: "An object describing the status of the Import API at the time a request is sent."
+
+short: "Determines if the Import API is operating correctly."
+
+description: |
+  {{ site.data.import-api.core-objects.api-status.short }} This endpoint doesn't require any authentication.

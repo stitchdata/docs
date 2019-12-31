@@ -37,6 +37,7 @@ this-version: "1.0"
 api: |
   [{{ integration.display_name }} API](https://www.programmableweb.com/api/club-speed){:target="new"}
 
+
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
@@ -48,8 +49,6 @@ frequency: "30 minutes"
 tier: "Free"
 
 anchor-scheduling: true
-cron-scheduling: false
-
 extraction-logs: true
 loading-reports: true
 

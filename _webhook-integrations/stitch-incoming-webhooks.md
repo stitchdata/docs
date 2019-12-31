@@ -6,6 +6,8 @@ tags: [stitch_webhooks]
 keywords: incoming webhooks, etl webhooks, incoming webhooks etl, incoming webhooks schema, stitch webhooks, webhooks
 summary: "Stitch’s Incoming Webhooks integration provides a simple and flexible method to integrate dozens of webhook APIs with Stitch. This guide will walk you through how to set up a generic Incoming Webhook integration, how replication works, and what data you can expect to see."
 
+key: "incoming-webhooks-reference"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

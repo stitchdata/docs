@@ -1,0 +1,75 @@
+<!-- This file contains the logic for displaying form property documentation. 
+    Ex: destination and source form properties. -->
+
+{% include misc/data-files.html %}
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+    {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
+
+
+<!-- Display of correct copy for note about REQUIRED attributes -->
+{% case include.content %}
+    {% when 'destination' %}
+        {% assign form-properties = all-docs | where:"form-type","destination" | sort:"title" %}
+
+{% capture required-note %}
+**Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided in the `properties` argument for [Creating a Destination]({{ api.core-objects.destinations.create.anchor }}).
+{% endcapture %}
+
+    {% else %}
+        {% assign form-properties = all-docs | where:"form-type","source" | sort:"title" %}
+
+{% capture required-note %}
+**Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided before the source can be considered <code>fully_configured</code>.
+{% endcapture %}
+{% endcase %}
+<!-- End it -->
+
+
+{% for form-property in form-properties %}
+
+<!-- The logic for getting a form property's applicable fields -->
+    {% include developers/api-form-property-fields-logic.html %}
+
+    <div class="api-js-heading">
+        <div class="method object">
+            OBJECT 
+        </div>
+
+        <div class="method-resource">
+            <h4 id="{{ form-property.key }}">
+                The {{ form-property.title }} object
+            </h4>
+        </div>
+    </div>
+
+<!-- property-description is a Frontmatter variable located in _connect-files/documentation/api-form-properties.html
+
+It's a block of Liquid code that checks a form property's type and then outputs
+the correct description for it. -->
+    {{ doc.property-description | replace: "VARIABLE","form-property" | flatify | markdownify }}
+
+<!-- The description found in the form property's file. Additional details about setup, etc. -->
+    {{ form-property.description | flatify | markdownify }}
+
+    {{ required-note | markdownify }}
+
+
+<!-- The table listing of the form property's attributes -->
+    {% include developers/api-form-property-field-table.html %}
+
+
+<!-- The example JSON object of the form property -->
+    {% include developers/api-form-property-example-object.html %}
+
+
+    {% case include.content %}
+        {% when 'destination' %}
+            <hr>
+        {% else %}
+            {% unless forloop.last == true %}
+                <hr>
+            {% endunless %}
+    {% endcase %}
+
+{% endfor %}

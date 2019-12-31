@@ -1,0 +1,269 @@
+# -------------------------- #
+#    PUSH ENDPOINT ERRORS    #
+# -------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "Request body is not an array"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "message": "An array of records is expected"
+          }
+          ```
+
+      - method: "post"
+        condition: "Request body is malformed"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "message": "Malformed json in the body!",
+            "error": "Unexpected character (']' (code 93)): expected a value\n at [Source: java.io.StringReader@796a657e; line: 16, column: 2]",
+            "input": null
+          }
+          ```
+
+  - code: "401"
+    responses:
+      - method: "post"
+        condition: "`client_id` missing from request body"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Not Authenticated.",
+            "errors": null
+          }
+          ```
+
+      - method: "post"
+        condition: "Integration is paused or has been deleted"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Forbidden",
+            "errors": {
+              "error": "Connection is not active."
+            }
+          }
+          ```
+
+  - code: "403"
+    responses:
+      - method: "post"
+        condition: "`client_id` and access token mismatch"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Forbidden",
+            "errors": {
+              "error": "Access token is not associated with this client."
+            }
+          }
+          ```
+
+  - code: "405"
+    responses:
+      - method: "post"
+        condition: "Unsupported method"
+        version: "all"
+        response-body: |
+          `Method not allowed.`
+
+  - code: "413"
+    responses:
+      - method: "post"
+        condition: "Request body exceeds 4MB"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "message": "Request rejected: request size (<BYTE>s bytes) exceeds the maximum"
+          }
+          ```
+
+  - code: "415"
+    responses:
+      - method: "post"
+        condition: "Unsupported content type"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "message": "Unsupported content-type application/<TYPE>. Please send application/json or application/transit+json"
+          }
+          ```
+
+  - code: "422"
+    responses:
+      - method: "post"
+        condition: "Multiple client IDs in request"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": "The batch contains data points for multiple clients. Only client_id <CLIENT_ID> is allowed"
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "Required argument is missing or blank"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "<REQUIRED_ARGUMENT_NAME>": {
+                  "table_name": [
+                    "can't be blank"
+                  ]
+                }
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "Required argument is incorrectly typed"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": {
+                  "sequence": [
+                    "should be an integer",
+                    "should be a number"
+                  ]
+                }
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "`data` must be typed as an object"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": {
+                  "data": [
+                    "data must be an object"
+                  ]
+                }
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "`data` must include fields in `key_names`"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": {
+                  "data": [
+                    "data must include keys"
+                  ]
+                }
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "Key values in `data` cannot be null"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": {
+                  "data": [
+                    "keys cannot not be null in data"
+                  ]
+                }
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "Key names not provided"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": {
+                  "key_names": [
+                    "can't be blank"
+                  ],
+                  "key_properties": [
+                    "unknown key"
+                  ]
+                }
+              }
+            ]
+          }
+          ```
+
+      - method: "post"
+        condition: "String values in key fields cannot exceed 1,024 characters"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "error": "Request cannot be processed; see errors.",
+            "errors": [
+              {
+                "reason": {
+                  "data": [
+                    "String keys cannot be longer than 1024 characters"
+                  ]
+                }
+              }
+            ]
+          }
+          ```

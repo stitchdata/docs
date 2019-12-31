@@ -2,7 +2,7 @@
 # and what the user should expect as a response from the API.
 
 list:
-  - name: "Request Method"
+  - name: "Request method"
     description: |
       {{ endpoint.method | upcase }}
 
@@ -10,23 +10,37 @@ list:
     description: |
       {{ endpoint.short-url | flatify }}
 
+## Some endpoints don't use the access token -
+## The logic in the description will check the value
+## of the `access-token-required` property and display
+## the right copy. 
   - name: "Authorization"
-    description: "Required. The request header must contain **Authorization** and your access token."
+    description: |
+      {% if endpoint.access-token-required == false %}
+      Required. The request body must contain your partner credentials (`partner_id`, `partner_secret`).
 
-  - name: "Request Header"
+      {% else %}
+      Required. The request header must contain **Authorization** and your access token.
+      
+      {% endif %}
+
+## Same logic as above ^
+  - name: "Request header"
     description: |
       The request header must contain the following:
 
+      {% if endpoint.access-token-required != false %}
       - **Authorization**: Must specify Bearer Auth, e.g. `Bearer: <ACCESS_TOKEN>`
+      {% endif %}
       - **Content-Type**: Must specify JSON, e.g. `application/json`
 
       See the **Request** tab below for an example request.
 
-  - name: "Request Body"
+  - name: "Request body"
     description: |
       The request body must be valid JSON and contain the [required arguments]({{ page.permalink | prepend: site.baseurl }}{{ endpoint.key | append: "--arguments" | prepend: "#" }}).
 
-  - name: "Response Format"
+  - name: "Response format"
     description: "Whether the request succeeds or fails, the API will return JSON."
 
   - name: "Errors"

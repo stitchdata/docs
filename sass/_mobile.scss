@@ -94,9 +94,10 @@
     .content-column .article {
       max-width: 100%;
     }
-    ul.tiles li {
-      min-height: 255px;
+    .two-columns, .three-columns {
+      grid-template-columns: repeat(1, 1fr);
     }
+
   }
   .stitch-docs-navbar {
     position: fixed;
