@@ -1265,11 +1265,9 @@ blockquote p {
   background-color: #E96065;
 }
 
-/* line 821, ../sass/_components.scss */
-.sdk, .library, .wrapper {
-  background-color: #0675c1;
-}
-
+/*.sdk, .library, .wrapper {
+	background-color: $stitch-yellow;
+}*/
 /* line 825, ../sass/_components.scss */
 .enterprise {
   background-color: #82bd41;
@@ -1284,43 +1282,44 @@ blockquote p {
 }
 /* line 838, ../sass/_components.scss */
 .api-js-heading div.method {
+  color: #ffffff;
   padding: 20px 30px 13px 30px;
   float: left;
   margin-right: 20px;
   font-weight: 600;
 }
 
-/* line 846, ../sass/_components.scss */
+/* line 847, ../sass/_components.scss */
 .object {
   background-color: #66bdff;
 }
 
-/* line 850, ../sass/_components.scss */
+/* line 851, ../sass/_components.scss */
 .post {
   background-color: #82bd41;
 }
 
-/* line 854, ../sass/_components.scss */
+/* line 855, ../sass/_components.scss */
 .put {
   background-color: #66bdff;
 }
 
-/* line 858, ../sass/_components.scss */
+/* line 859, ../sass/_components.scss */
 .get {
   background-color: #0675c1;
 }
 
-/* line 862, ../sass/_components.scss */
+/* line 863, ../sass/_components.scss */
 .function {
   background-color: #0675c1;
 }
 
-/* line 866, ../sass/_components.scss */
+/* line 867, ../sass/_components.scss */
 .delete {
   background-color: #E96065;
 }
 
-/* line 870, ../sass/_components.scss */
+/* line 871, ../sass/_components.scss */
 .method-bullet {
   padding: 3px 5px 3px 5px;
   margin-top: -3px;
@@ -1329,29 +1328,29 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 878, ../sass/_components.scss */
+/* line 879, ../sass/_components.scss */
 .method-function {
   padding: 1.5em;
   line-height: 1em;
 }
 
-/* line 883, ../sass/_components.scss */
+/* line 884, ../sass/_components.scss */
 .method-resource {
   padding: 0px;
 }
-/* line 886, ../sass/_components.scss */
+/* line 887, ../sass/_components.scss */
 .method-resource h4 {
   margin-bottom: 1em;
   line-height: 1em;
 }
 
 /* Footer CTA */
-/* line 894, ../sass/_components.scss */
+/* line 895, ../sass/_components.scss */
 hr.footer-cta {
   margin: 3em 0 0;
 }
 
-/* line 898, ../sass/_components.scss */
+/* line 899, ../sass/_components.scss */
 .footer-signup-cta {
   margin-top: 30px;
   background: linear-gradient(135deg, #237288 0%, #181a28 100%);
@@ -1362,7 +1361,7 @@ hr.footer-cta {
   z-index: 1;
   height: 9rem;
 }
-/* line 908, ../sass/_components.scss */
+/* line 909, ../sass/_components.scss */
 .footer-signup-cta:before {
   content: "";
   position: absolute;
@@ -1374,7 +1373,7 @@ hr.footer-cta {
   border-right: 9rem solid transparent;
   z-index: -1;
 }
-/* line 920, ../sass/_components.scss */
+/* line 921, ../sass/_components.scss */
 .footer-signup-cta .wrapper {
   width: auto;
   margin: 0 auto;
@@ -1382,18 +1381,18 @@ hr.footer-cta {
   justify-content: center;
   z-index: 2;
 }
-/* line 927, ../sass/_components.scss */
+/* line 928, ../sass/_components.scss */
 .footer-signup-cta .wrapper div {
   padding: 0 10px;
 }
-/* line 932, ../sass/_components.scss */
+/* line 933, ../sass/_components.scss */
 .footer-signup-cta p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0;
   margin-top: 15px;
 }
-/* line 939, ../sass/_components.scss */
+/* line 940, ../sass/_components.scss */
 .footer-signup-cta .btn-default {
   padding: 15px 30px;
   /* make the standard button a little bigger */
@@ -1403,7 +1402,7 @@ hr.footer-cta {
   border-color: #66bdff;
   color: #000000;
 }
-/* line 947, ../sass/_components.scss */
+/* line 948, ../sass/_components.scss */
 .footer-signup-cta .btn-default:hover, .footer-signup-cta .btn-default:active, .footer-signup-cta .btn-default:focus {
   background-color: #66bdff;
   border-color: #66bdff;
