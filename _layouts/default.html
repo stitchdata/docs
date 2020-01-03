@@ -41,7 +41,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     {% if page.this-version %}
                         <div class="version-menu menu-right fouc">
-                            {% include integrations/templates/versioning/integration-version-menu.html %}
+                            {% include shared/versioning/version-menu.html item-name="page" connection-type=page.connection-type %}
                         </div>
                     {% endif %}
                 </div>

@@ -8,16 +8,18 @@ tap-name: "PostgreSQL"
 
 released-versions:
   - number: "1.0"
+    status: "released"
     date-released: "July 31, 2018"
     # date-last-connection:
-    deprecated: false
-    deprecation-date: "n/a"
+    deprecation-date: ""
+    sunset-date: ""
 
   - number: "15-10-2015"
+    status: "deprecated"
     date-released: "October 15, 2015"
     date-last-connection: "July 30, 2018"
-    deprecated: true
-    deprecation-date: "To be determined"
+    deprecation-date: "September 6, 2019"
+    sunset-date: "December 1, 2019"
 
 # -------------------------- #
 #     POSTGRES CHANGELOG     #
@@ -32,7 +34,7 @@ released-versions:
 
 # Depending on the entry type, some initial copy and a pre-defined
 # Summary heading might display. See:
-# _includes/integrations/templates/versioning/integration-changelog.html
+# _includes/shared/versioning/changelog.html
 
 changelog-entries:
   # - date: "July 28, 2018"

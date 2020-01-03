@@ -107,8 +107,9 @@
         margin-left: 15px;
       }
     }
-    ul.tiles li {
-      min-height: 255px;
+
+    .two-columns, .three-columns {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
   .stitch-docs-navbar {

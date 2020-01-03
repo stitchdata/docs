@@ -18,6 +18,8 @@ keywords: chargebee, integration, schema, etl chargebee, chargebee etl, chargebe
 layout: singer
 # input: false
 
+key: "chargebee-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "Chargebee"
 repo-url: https://github.com/singer-io/tap-chargebee
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} API](https://apidocs.chargebee.com/docs/api){:target="new"}
@@ -38,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"

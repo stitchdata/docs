@@ -1,0 +1,28 @@
+<!-- This displays sunset info if the connection version
+	has a 'sunset' status. 
+
+	NOTE: This content requires a non-NULL `sunset-date` property in the
+		connection's version file. -->
+
+
+<div class="alert alert-warning" role="alert">
+	<i class="fa fa-exclamation-circle"></i>
+	<strong>
+		{{ page.display_name }} (v{{ page.this-version | remove: ".0" }}) end of life
+	</strong>
+
+	<p>
+		This version of {{ page.display_name }} reached end of life on <strong>{{ this-version.sunset-date }}</strong> and is no longer functioning. 
+	</p>
+
+    <p>
+    	<a href="{{ latest-version-doc.url | prepend: site.baseurl }}">
+	    	Upgrade to the latest version (v{{ latest-version | remove: ".0" }}) to 
+	    	{% if page.connection-type == "integration" %}
+	    		continue replicating data.
+	    	{% else %}
+	    		take advantage of the new enhancements.
+	    	{% endif %}
+	    </a>
+    </p>
+</div>

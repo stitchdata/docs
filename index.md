@@ -13,14 +13,14 @@ summary: "Guides and resources for setting up and managing your Stitch data pipe
 
 {% assign categories = site.documents | where:"level","category" | sort:"weight" %}
 
-<ul class="category-tiles">
+<ul class="tiles two-columns link-tiles">
 {% for category in categories %}
 	<li>
 		<a href="{{ site.baseurl | append: category.url }}">
-			<img src="{{ site.baseurl }}/images/icons/{{ category.icon }}.svg" style="max-height: 60px;" alt="TODO">
-			<strong>{{ category.display-title }}</strong><br>
+			<img src="{{ site.baseurl }}/images/icons/{{ category.icon }}.svg" style="max-height: 60px;" alt="{{ category.display-title }}">
+			<strong>{{ category.display-title }}</strong>
 			{{ category.display-summary | flatify }}
 		</a>
 	</li>
-{% endfor %}
+{% endfor %} 
 </ul>

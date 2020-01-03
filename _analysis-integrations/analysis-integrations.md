@@ -268,7 +268,7 @@ sections:
 
       As a bonus, some tools - like Mode - also include a built-in SQL querying tool.
 
-      <ul class="tiles">
+      <ul class="tiles three-columns">
       {% assign analytics = page.analytics | sort:"name" %}
       {% for tool in analytics %}
           <li>

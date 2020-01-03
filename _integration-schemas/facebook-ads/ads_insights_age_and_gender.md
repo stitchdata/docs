@@ -1,6 +1,6 @@
 ---
 tap: "facebook-ads"
-version: 1.0
+version: "1.0"
 
 name: "ads_insights_age_and_gender"
 doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/

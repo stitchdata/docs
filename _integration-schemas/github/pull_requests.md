@@ -1,6 +1,6 @@
 ---
 tap: "github"
-# version: ""
+version: "1.0"
 
 name: "pull_requests"
 doc-link: https://developer.github.com/v3/pulls/

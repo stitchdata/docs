@@ -1,7 +1,6 @@
 ---
 tap: "shippo"
 version: "1.0"
-# version:
 
 name: "refunds"
 doc-link: https://goshippo.com/docs/reference#refunds

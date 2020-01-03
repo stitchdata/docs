@@ -1,6 +1,6 @@
 ---
 tap: "autopilot"
-# version: 
+version: "1.0"
 
 name: "lists_contacts"
 doc-link: http://docs.autopilot.apiary.io/#reference/api-methods/get-contacts-on-list/get-contacts-on-list

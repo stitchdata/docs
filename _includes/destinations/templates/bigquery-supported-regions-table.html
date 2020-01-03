@@ -1,0 +1,67 @@
+<!-- This file contains the logic and formatting for displaying
+    a list of supported dataset regions for Google BigQuery destinations. -->
+
+<!-- Get the version and create a variable that matches the 
+     file path in _data. So, `v1` versus just `1`-->
+     {% assign version = destination.this-version | prepend: "v" %}
+
+<!-- Get the list of supported regions for this version
+    of the BigQuery destination.
+    EX: _data/destinations/bigquery/v<version>/supported-regions.yml -->
+    {% assign supported-regions-by-version = site.data.destinations.bigquery[version]supported-regions %}
+
+<!-- Table attributes, used as column/row headings -->
+  {% assign categories = "Americas|Europe|Asia Pacific" | split:"|" %}
+  {% assign attributes = "description|name" | split:"|" %}
+
+
+<table class="attribute-list">
+    <tr>
+        <td>
+        </td>
+        {% for attribute in attributes %}
+            <td>
+                <strong>{{ attribute | prepend: "Region " }}</strong>
+            </td>
+        {% endfor %}
+    </tr>
+    {% for category in categories %}
+
+    <!-- Get the regions that are in this category -->
+        {% assign category-supported-regions = supported-regions-by-version | where:"category",category | sort:"description" %}
+            {% for region in category-supported-regions %}
+                {% if forloop.first == true %}
+                    <tr>
+                        <td rowspan="{{ category-supported-regions | size }}">
+                            <strong>
+                                {{ category }}
+                            </strong>
+                        </td>
+                        {% for attribute in attributes %}
+                            <td>
+                                {% case attribute %}
+                                {% when 'name' %}
+                                    <code>{{ region[attribute] }}</code>
+                                {% else %}
+                                    {{ region[attribute] }}
+                                {% endcase %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for attribute in attributes %}
+                            <td>
+                                {% case attribute %}
+                                {% when 'name' %}
+                                    <code>{{ region[attribute] }}</code>
+                                {% else %}
+                                    {{ region[attribute] }}
+                                {% endcase %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+    {% endfor %}
+</table>

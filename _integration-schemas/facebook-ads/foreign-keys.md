@@ -1,6 +1,8 @@
 ---
 tap-reference: "facebook-ads"
 
+version: "1.0"
+
 foreign-keys:
   - id: "account-id"
     attribute: "account_id"

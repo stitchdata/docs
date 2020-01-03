@@ -9,6 +9,8 @@ microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
 
+key: "jira-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -28,7 +30,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"

@@ -1,6 +1,6 @@
 ---
 tap: "amplitude"
-# version: "1.0"
+version: "1.0"
 
 name: "events_[project_id]"
 doc-link: https://amplitude.zendesk.com/hc/en-us/articles/115001902492-Query-Snowflake#column-schema

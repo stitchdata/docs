@@ -1,0 +1,57 @@
+# ---------------------------- #
+#  APPEND-ONLY TABLE EXAMPLE   #
+# ---------------------------- #
+
+# NOTE: The `primary-key` attribute is only applicable if
+# a table doesn't have a defined Primary Key in the source.
+# This is equivalent to the _sdc_primary_key column Stitch
+# will add when there is no identifiable PK.
+
+# Otherwise, for this data, the PK will be `id`
+
+# The `job` attribute indicates the replication job that
+# loaded the record. This is used to demonstrate how
+# Append-Only tables will look in the destination after
+# multiple jobs.
+
+- id: 1
+  name: "Finn"
+  type: "human"
+  magic: false
+  __sdc_primary_key: "b6c0fd8c-7dec-4e34-be93-2b774fde32cc"
+  job: 1
+
+- id: 2
+  name: "Jake"
+  type: "dog"
+  magic: true
+  __sdc_primary_key: "4b5c413c-1adf-4720-8ccc-48579d6b4e58"
+  job: 1
+
+- id: 1
+  name: "Finn"
+  type: "human"
+  magic: false
+  __sdc_primary_key: "0acd439b-cefe-436c-b8ba-285bd956057b"
+  job: 2
+
+- id: 2
+  name: "Jake"
+  type: "dog"
+  magic: true
+  __sdc_primary_key: "7e9fa5cf-1739-45a2-9a89-caa6f393efc9"
+  job: 2
+
+- id: 3
+  name: "Beamo"
+  type: "robot"
+  magic: true
+  __sdc_primary_key: "634d6945-1762-4049-b997-cd9240d4592b"
+  job: 2
+
+- id: 4
+  name: "Bubblegum"
+  type: "princess"
+  magic: true
+  __sdc_primary_key: "c5fb32b8-a16d-455d-96c9-b62fff22fe4b"
+  job: 2

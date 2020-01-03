@@ -1,0 +1,222 @@
+# -------------------------- #
+#  Feature comparison lists  #
+# -------------------------- #
+
+feature-comparisons:
+  categories:
+    - id: "stitch-details"
+    - id: "connection-methods"
+    - id: "replication-loading"
+      name: "Replication and loading"
+    - id: "additional-features"
+
+  stitch-details:
+    - id: "release-status"
+      default: |
+        {% assign clean-version = version | remove:"v" %}
+        {% assign this-version = released-versions | where:"number",clean-version | first %}
+        {{ this-version.status | capitalize }}
+    - id: "release-date"
+      default: |
+        {% assign clean-version = version | remove:"v" %}
+        {% assign this-version = released-versions | where:"number",clean-version | first %}
+        {{ this-version.date-released }}
+    - id: "stitch-plan-availability"
+      file: "stitch-details"
+      default: "All Stitch plans"
+    - id: "available-in-connect"
+      file: "stitch-details"
+
+  connection-methods:
+    - id: "ssh"
+      file: "stitch-details"
+    - id: "ssl"
+      file: "stitch-details"
+    - id: "vpn"
+      file: "stitch-details"
+
+  replication-loading:
+    - id: "default-loading-behavior"
+      file: "replication"
+    - id: "nested-structure-support"
+      file: "replication"
+    - id: "incompatible-sources"
+      default: |
+        {% if site.data.destinations[destination.type][version]incompatibilities %}
+        [See list]({{ link.destinations.overviews.compatibility | prepend: site.baseurl }}).
+        {% else %}
+        None
+        {% endif %}
+      file: "replication"
+
+  additional-features:
+    - id: "supported-regions"
+      destinations: "bigquery"
+      file: "stitch-details"
+    - id: "workload-performance-management"
+      file: "stitch-details"
+
+
+# -------------------------- #
+#        Stitch details      #
+# -------------------------- #
+
+stitch-details:
+  - "release-status"
+  - "stitch-plan-availability"
+  - "supported-versions"
+  - "available-in-connect"
+  - "ssh"
+  - "ssl"
+  - "vpn"
+  - "default-loading-behavior"
+  - "nested-structure-support"
+
+
+stitch-details-description: "High-level details about Stitch's implementation of {{ destination.display_name }}, such as supported connection methods, availability on Stitch plans, etc."
+
+release-status: 
+  tooltip: "The destination's release status in Stitch."
+  default: |
+    {% assign this-version = site.data.destinations[destination.type]versions.released-versions | where:"number",destination.this-version | first %}
+
+    {{ this-version.status | capitalize }}
+
+stitch-plan-availability:
+  tooltip: "Indicates the availability of the destination on Stitch plans."
+  default: "All Stitch plans"
+
+pricing-tier: 
+  tooltip: "The type of Stitch plan required to use the destination."
+  additional-info: |
+    {% case destination-data[reference-item] %}
+    {% when 'Standard' %}
+    All Stitch plans
+    {% when 'Enterprise' %}
+    Stitch Enterprise plans
+    {% endcase %}
+
+supported-versions:
+  tooltip: "The database versions supported for use with Stitch."
+
+available-in-connect:
+  title: "Connect API availability"
+  tooltip: "Indicates if {{ destination.display_name }} destinations are available in Stitch's Connect API."
+  supported: |
+    This version of the {{ destination.display_name }} destination can be created and managed using Stitch's Connect API. [Learn more]({{ link.connect.api | prepend: site.baseurl | append:"#destination-form-properties" }}).
+  not-supported: |
+    This version of the {{ destination.display_name }} destination is not currently available in Stitch's Connect API.
+
+ssh:
+  title: "SSH connections" 
+  tooltip: "Indicates if SSH connections are supported for the destination."
+  supported: "Stitch supports using SSH tunnels to connect to {{ destination.display_name }} destinations."
+  not-supported: "Stitch does not support using SSH tunnels to connect to {{ destination.display_name }} destinations."
+
+ssl:
+  title: "SSL connections" 
+  tooltip: "Indicates if SSL connections are supported for the destination."
+  supported: "Stitch will attempt to use SSL to connect by default. No additional configuration is needed."
+  not-supported: "Stitch does not support using SSL to connect to {{ destination.display_name }} destinations."
+
+vpn:
+  title: "VPN connections" 
+  tooltip: "Indicates if VPN connections are supported for the destination."
+  not-supported: |
+    Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact [Stitch Sales]({{ site.sales }}){:target="new"} for more info.
+
+default-loading-behavior:
+  tooltip: "The default loading behavior used by the destination."
+# `destination-replication` is equal to _data/destinations/<type>/<version>/replication.yml
+  default: |
+    **{{ destination-replication.default-loading-behavior }}**<br>
+    {%- case destination-replication.default-loading-behavior -%}
+    {% when 'Upsert' %}
+    **Note**: Append-Only loading will be used if all conditions for Upsert are not met. [Learn more]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
+    {% when 'Append-Only' %}
+    **Note**: Existing rows will not be updated in the destination. [Learn more]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
+    {% when 'Selected by you' %}
+    Default loading behavior (Upsert or Append-Only) is defined by you. [Learn more](#loading-behavior).
+    {% endcase %}
+
+nested-structure-support:
+  title: "Nested structure support"
+  tooltip: "Indicates how nested data structures are handled by the destination."
+# `destination-replication` is equal to _data/destinations/<type>/<version>/replication.yml
+  default: |
+    {%- case destination-replication.nested-structure-support -%}
+    {%- when true -%}
+    **Supported** {{ supported | replace:"TOOLTIP","Supported" }}<br>{{ destination-replication.nested-structure-support-description | flatify | strip }} [Learn more](#transformations--json-structures).
+    {%- when false -%}
+    **Unsupported** {{ not-supported | replace:"TOOLTIP","Unupported" }}<br>{{ destination-replication.nested-structure-support-description | flatify | strip }} [Learn more](#transformations--json-structures).
+    {%- else -%}
+    {{ destination-replication.nested-structure-support | flatify }}
+    {%- endcase -%}
+
+
+supported-regions:
+  title: "Supported GCS regions"
+  tooltip: "The Google Cloud Storage (GCS) regions Stitch currently supports."
+
+workload-performance-management:
+  title: "Workload and performance management"
+  tooltip: "Indicates if workload and performance management tools are supported by the destination."
+
+
+# -------------------------- #
+#     Destination details    #
+# -------------------------- #
+
+destination-details:
+  - "max-record-size"
+  - "table-name-length"
+  - "column-name-length"
+  - "max-table-size"
+  - "max-tables-per-database"
+  - "case-sensitivity"
+  - "reserved-keywords"
+
+destination-details-description: |
+  Details about the destination, including object names, table and column limits, reserved keywords, etc.
+
+  **Note**: Exceeding the limits noted below will result in loading errors or rejected data.
+
+max-record-size:
+  title: "Maximum record size"
+  tooltip: "The maximum size a single record can be to be loaded successfully into the destination."
+  default: "4MB"
+  additional-info: "{{ destination-data.max-record-size-additional-info | flatify }}"
+
+table-name-length:
+  tooltip: "{{ site.data.tooltips.table-name-limit }}"
+
+column-name-length:
+  tooltip: "{{ site.data.tooltips.column-name-limit }}"
+
+max-columns-per-table:
+  title: "Maximum columns per table"
+  tooltip: "The maximum number of columns per table that the destination allows."
+
+max-table-size:
+  title: "Maximum table size"
+  tooltip: "The maximum size a single table in the destination can be."
+  default: "None"
+
+max-tables-per-database:
+  title: "Maximum tables per database"
+  tooltip: "The maximum number of tables allowed per database in the destination."
+
+case-sensitivity:
+  tooltip: "Indicates whether the destination is case sensitive or insensitive."
+
+reserved-keywords:
+  tooltip: "Words and symbols reserved by the destination for use in object names."
+  default: |
+    Refer to the [Reserved keywords documentation]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append:"#" | append:destination.type | append:"-reserved-keywords" }}).
+
+
+# -------------------------- #
+#     Replication details    #
+# -------------------------- #
+
+replication-details-description: "Details about Stitch and replication for {{ destination.display_name }} destinations."

@@ -429,7 +429,7 @@ attributes:
 
   - name: "discount_codes"
     type: "array"
-    description: "The discount codees applied to the checkout."
+    description: "The discount codes applied to the checkout."
     subattributes:
       - name: "amount"
         type: "number"

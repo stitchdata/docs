@@ -1,0 +1,40 @@
+# ------------------------------------ #
+# POSGRESQL DESTINATION STITCH DETAILS #
+# ------------------------------------ #
+
+# Details about Stitch's implementation &
+# requirements for PostgreSQL destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
+supported-versions: "9.3 or higher"
+
+available-in-connect: true
+
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: true ## Indicates whether SSL can be configured via the API
+
+ssh: true
+
+vpn: false
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: true
+workload-performance-management-description: ""

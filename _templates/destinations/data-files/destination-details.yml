@@ -1,0 +1,68 @@
+# --------------------------------------- #
+#   GOOGLE BIGQUERY DESTINATION DETAILS   #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: ""
+
+fully-managed: true/false
+
+free-option: ""
+
+pricing-model: ""
+
+pricing-details: ""
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: ""
+
+max-tables-per-database: ""
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Sensitive/Insensitive"
+
+table-name-length: " characters"
+
+column-name-length: " characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
+  - Must begin with a letter or an underscore
+  - Must be less than the maximum length of {{ site.data.destinations.destination-type.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#destination-type-reserved-keywords" }})
+
+column-name-transformations:
+  - transformation: "Convert uppercase and mixed case to lowercase"
+    source-column: "<code>CUSTOMERID</code> or <code>cUsTomErId</code>"
+    destination-column: &customerid "<code>customerid</code>"
+
+  - transformation: "Convert spaces to underscores"
+    source-column: "<code>customer id</code>"
+    destination-column: &customerid2 "<code>customer_id</code>"
+
+  - transformation: "Convert special characters to underscores"
+    source-column: "<code>customer#id</code> or <code>!customerid</code>"
+    destination-column: "<code>customer_id</code> and <code>_customerid</code>"
+
+  - transformation: "Convert leading numbers to underscores"
+    source-column: "<code>4customerid</code>"
+    destination-column: "<code>_customerid</code>"

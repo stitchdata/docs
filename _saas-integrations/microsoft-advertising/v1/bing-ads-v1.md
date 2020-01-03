@@ -11,6 +11,8 @@ keywords: bing ads, integration, schema, etl bing ads, bing ads etl, bing ads sc
 layout: singer
 input: false
 
+key: "bing-ads-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -28,7 +30,6 @@ this-version: "1.0"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 historical: "1 year"

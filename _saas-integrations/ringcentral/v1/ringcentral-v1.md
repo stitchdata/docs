@@ -18,6 +18,8 @@ keywords: ringcentral, integration, schema, etl ringcentral, ringcentral etl, ri
 layout: singer
 # input: false
 
+key: "ringcentral-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,13 +31,12 @@ singer: true
 tap-name: "RingCentral"
 repo-url: https://github.com/singer-io/tap-ringcentral
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false
 
 historical: "1 year"

@@ -5,14 +5,13 @@
 {% case include.type %}
 {% when 'single-line' %}
 <div markdown="span" class="alert alert-warning" role="alert">
-    {{ alert-icon | append: "**Important:** " | strip }}
-    {{ include.content }}
+    {{ alert-icon | append: "**Important**: " | strip }}
+    {{ include.content | strip }}
 </div>
 
 {% else %}
 
 <div class="alert alert-warning" role="alert">
-    {% if include.first-line %}{{ include.first-line | prepend: "**Important:** " | prepend: alert-icon | markdownify | strip }}{% endif %}
-    {{ include.content | markdownify }}
+    {% if include.first-line %}{{ include.first-line | prepend: "**Important:** " | prepend: alert-icon | markdownify | strip }}{% endif %}{{ include.content | markdownify }}
 </div>
 {% endcase %}

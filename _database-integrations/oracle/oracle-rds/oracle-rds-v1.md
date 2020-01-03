@@ -17,6 +17,8 @@ permalink: /integrations/databases/amazon-oracle-rds
 summary: "Connect and replicate data from your Amazon Oracle RDS database using Stitch's Oracle integration."
 show-in-menus: true
 
+key: "amazon-oracle-rds-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -28,7 +30,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-# this-version: "1.0"
+this-version: "1.0"
 has-specific-data-types: true
 
 hosting-type: "amazon"
@@ -263,7 +265,7 @@ replication-sections:
       {% endfor %}
 
   - title: "Overview of Log-based Incremental Replication using LogMiner"
-    anchor: "logminer-replication-overview"
+    anchor: "logminer-replication-integration"
     content: |
       Stitch uses {{ integration.display_name }}'s [LogMiner package]({{ site.data.taps.links[integration.name]logminer }}){:target="new"} to replicate data incrementally. This means that when Log-based Incremental is selected as the Replication Method for a table, Stitch will only replicate new or updated data for the table during each replication job.
 

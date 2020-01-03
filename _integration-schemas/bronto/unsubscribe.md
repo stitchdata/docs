@@ -1,6 +1,6 @@
 ---
 tap: "bronto"
-# version: ""
+version: "1.0"
 
 name: "unsubscribe"
 doc-link: http://dev.bronto.com/api/soap/objects/general/unsubscribeobject/

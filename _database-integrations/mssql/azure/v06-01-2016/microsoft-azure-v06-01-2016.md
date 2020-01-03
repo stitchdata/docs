@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your Microsoft Azure database using St
 show-in-menus: false
 input: false
 
+key: "microsoft-azure-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
