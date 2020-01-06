@@ -13,14 +13,14 @@
         {% assign form-properties = all-docs | where:"form-type","destination" | sort:"title" %}
 
 {% capture required-note %}
-**Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided in the `properties` argument for [Creating a Destination]({{ api.core-objects.destinations.create.anchor }}).
+**Note**: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided in the `properties` argument for [Creating a Destination]({{ api.core-objects.destinations.create.anchor }}).
 {% endcapture %}
 
     {% else %}
         {% assign form-properties = all-docs | where:"form-type","source" | sort:"title" %}
 
 {% capture required-note %}
-**Note**: Attributes marked as <font color="#cc3399">REQUIRED</font> must be provided before the source can be considered <code>fully_configured</code>.
+**Note**: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided before the source can be considered <code>fully_configured</code>.
 {% endcapture %}
 {% endcase %}
 <!-- End it -->

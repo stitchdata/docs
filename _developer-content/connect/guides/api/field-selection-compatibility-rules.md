@@ -157,7 +157,7 @@ sections:
             <td width="30%; fixed" align="right">
             <strong>{{ field.name }}</strong><br>
             {{ field.type | upcase }}<br>
-            {% if field.modifiable == false %}<font color="#cc3399">READ-ONLY</font>{% endif %}
+            {% if field.modifiable == false %}<font color="#E96065">READ-ONLY</font>{% endif %}
             </td>
             <td class="attribute-description">
             {{ field.description | flatify | markdownify }}

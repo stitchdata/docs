@@ -1,0 +1,64 @@
+<!-- This file contains the code for displaying the applicable fields
+		for form properties.
+
+	The logic for getting these fields lives in:
+		_includes/connect/api-form-property-[type]-fields.html -->
+
+
+<!-- For destination and database form properties -->
+{% if form-property.form-type == "destination"
+   or form-property.source-type == "database" %}
+
+	<table class="attribute-list">
+	    {% for attribute in all-form-attributes %}
+		    <tr>
+		        <td class="attribute-name">
+		            <strong>
+		                {{ attribute.name | flatify }}
+		            </strong><br>
+		            {{ attribute.type | upcase }}<br>
+
+		            {% case attribute.required %}
+		                {% when true %}
+		                    <font color="#E96065">REQUIRED</font>
+		                {% else %}
+		                    OPTIONAL
+		            {% endcase %}
+		        </td>
+		        <td>
+		            {{ attribute.description | flatify | markdownify }}
+		        </td>
+		    </tr>
+		{% endfor %}
+	</table>
+
+<!-- For SaaS form properties -->
+{% elsif form-property.source-type == "saas" %}
+	{% assign api-type-clean = form-property.api-type | remove: "platform." %}
+
+	<table class="attribute-list">
+    	{% for attribute in all-form-attributes %}
+            {% unless attribute.exclude contains api-type-clean %}
+            <tr>
+                <td class="attribute-name">
+                    <strong>
+                        {{ attribute.name | flatify }}
+                    </strong><br>
+                    {{ attribute.type | upcase }}<br>
+
+                    {% case attribute.required %}
+                        {% when true %}
+                            <font color="#E96065">REQUIRED</font>
+                        {% else %}
+                            OPTIONAL
+                    {% endcase %}
+                </td>
+                <td>
+                    {{ attribute.description | flatify | markdownify }}
+                </td>
+            </tr>
+            {% endunless %}
+    	{% endfor %}
+    </table>
+
+{% endif %}
