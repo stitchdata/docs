@@ -134,7 +134,7 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/mysql-server-id.html %}
 
-      - title: "Define the binlong retention setting"
+      - title: "Define the binlog retention setting"
         anchor: "define-binlog-retention-setting"
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="binlog-retention-hours" %}
