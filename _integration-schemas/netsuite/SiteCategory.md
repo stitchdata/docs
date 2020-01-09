@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "SiteCategory"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/sitecategory.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/SiteCategory.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/SiteCategory.json"
 description: |
   The `{{ table.name }}` table contains info about the categories used to organize your website.
 

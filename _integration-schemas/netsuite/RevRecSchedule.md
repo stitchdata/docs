@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "RevRecSchedule"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/revrecschedule.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/RevRecSchedule.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/RevRecSchedule.json"
 description: |
   The `{{ table.name }}` table contains info about the revenue recognition schedules in your {{ integration.display_name }} account. A revenue recognition schedule indicates the posting periods in which revenue should be recognized, and the amount to be recognized in each period, for an item sale.
 
