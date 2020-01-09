@@ -160,7 +160,7 @@ sections:
 
           - **Append-Only**: Existing rows aren't updated. Multiple versions of a row can exist in a table, creating a log of how a row changed over time.
 
-             Because of this loading strategy, [querying may require a different strategy]({{ link.replication.append-only | prepend: site.baseurl }}) than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time.
+             Because of this loading strategy, [querying may require a different strategy]({{ link.replication.append-only-querying | prepend: site.baseurl }}) than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time.
 
           Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info.
 
