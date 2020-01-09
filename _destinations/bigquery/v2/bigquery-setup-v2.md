@@ -79,7 +79,7 @@ steps:
     anchor: "create-gcp-iam-service-account"
     content: |
       {% for substep in step.substeps %}
-      - [Step 1.{{ forloop.index }}: {{ substep.title }}]({{ substep.anchor }})
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
