@@ -10,6 +10,8 @@ keywords: harvest, forecast, integration, schema, etl harvest forecast, harvest 
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest Forecast integration."
 layout: singer
 
+key: "harvest-forecast-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -19,7 +21,7 @@ display_name: "Harvest Forecast"
 singer: true 
 repo-url: https://github.com/singer-io/tap-harvest-forecast
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Experimental API](https://help.getharvest.com/forecast/faqs/faq-list/api/){:target="new"}
@@ -28,14 +30,12 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
 frequency: "60 minutes"
 tier: "Free"
 status-url: https://www.harveststatus.com/
-icon: /images/integrations/icons/harvest-forecast.svg
 
 anchor-scheduling: true
 cron-scheduling: false

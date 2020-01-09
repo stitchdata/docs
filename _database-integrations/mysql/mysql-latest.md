@@ -10,6 +10,7 @@ microsites:
     url: "http://mysql.topostgres.com/"
 
 show-in-menus: true
+key: "mysql-integration"
 
 # -------------------------- #
 #         Tap Details        #
@@ -21,7 +22,7 @@ display_name: "MySQL"
 singer: true
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "generic"
 

@@ -105,7 +105,7 @@ all:
     fix-it: |
       1. Verify the current RMAN retention window length.
       2. [Increase the RMAN retention window]({{ site.baseurl }}/integrations/databases/oracle#configure-rman-backups). For example: Increase the window from 2 days to 7.
-      3. Perform an integration level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
+      3. Perform an integration level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-integration }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
 
   # - message: ""
   #   id: ""

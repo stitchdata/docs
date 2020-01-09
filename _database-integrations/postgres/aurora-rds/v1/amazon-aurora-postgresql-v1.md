@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your Amazon Aurora PostgreSQL RDS data
 input: true
 show-in-menus: true
 
+key: "aurora-postgresql-rds-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

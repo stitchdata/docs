@@ -1,6 +1,6 @@
 ---
 tap: "fullstory"
-# version:
+version: "1.0"
 
 name: "events"
 doc-link: https://help.fullstory.com/technical-questions/data-export#data-export-contents
@@ -8,7 +8,9 @@ singer-schema: https://github.com/singer-io/tap-fullstory/blob/master/tap_fullst
 description: |
   The `events` table contains raw data about the events that occurred on your site, which are recorded using the {{ integration.display_name }} JavaScript library.
 
-replication-method: "Append-Only (Key-based Incremental)"
+  **Note**: Records for this table are loaded using [Append-Only loading](#data-loading-append-only). Loading will be append-only even if the destination you're using supports Upsert loading.
+
+replication-method: "Key-based Incremental"
 
 attributes:
   - name: "{{ system-column.primary-key }}"

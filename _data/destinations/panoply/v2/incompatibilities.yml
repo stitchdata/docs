@@ -1,0 +1,18 @@
+# ----------------------------------------------- #
+#     PANOPLY.IO DESTINATION INCOMPATIBILITIES    #
+# ----------------------------------------------- #
+
+## This file contains a list of sources that may
+## be incompatible with Stitch's Panoply destination.
+
+## NOTE: This will be identical to the incompatibilities for Amazon Redshift.
+
+- integration: "mongodb"
+  version: "any"
+  level: "sometimes"
+  reason: &json-column-limit "Flattening nested JSON structures may result in tables with columns that exceed {{ destination.display_name }}'s {{ site.data.destinations[destination.type]destination-details.max-columns-per-table }} column limit. [Learn more]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }})."
+
+- integration: "mongodb-atlas"
+  version: "1.0"
+  level: "sometimes"
+  reason: *json-column-limit

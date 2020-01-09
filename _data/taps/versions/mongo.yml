@@ -8,16 +8,19 @@ tap-name: "MongoDB"
 
 released-versions:
   - number: "1.0"
-    date-released: "TBD"
+    status: "released"
+    date-released: "November 4, 2019"
     # date-last-connection:
-    deprecated: false
-    deprecation-date: "n/a"
+    deprecation-date: ""
+    sunset-date: ""
 
   - number: "11-01-2016"
+    status: "deprecated"
     date-released: "January 11, 2016"
-    # date-last-connection: ""
-    deprecated: false
-    deprecation-date: "To be determined"
+    date-last-connection: "November 4, 2019"
+    deprecation-date: "November 21, 2019"
+    sunset-date: "February 2, 2020"
+
 
 # -------------------------- #
 #     MONGODB CHANGELOG      #
@@ -32,14 +35,14 @@ released-versions:
 
 # Depending on the entry type, some initial copy and a pre-defined
 # Summary heading might display. See:
-# _includes/integrations/templates/versioning/integration-changelog.html
+# _includes/shared/versioning/changelog.html
 
 changelog-entries:
-  # - date: "July 28, 2018"
-  #   version: "15-10-2015"
+  # - date: "November 4, 2019"
+  #   version: "11-01-2016"
   #   type: "version-deprecation"
 
-  - date: "TBD"
+  - date: "November 4, 2019"
     version: "1.0"
     type: "new-version"
     content: |

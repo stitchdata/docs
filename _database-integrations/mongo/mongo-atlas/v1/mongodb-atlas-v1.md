@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your MongoDB Atlas database using Stit
 input: true
 show-in-menus: true
 
+key: "mongodb-atlas-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -26,7 +28,7 @@ setup-name: "MongoDB"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 singer: true
 certified: true
 
@@ -76,6 +78,16 @@ row-usage-hog-reasons:
   data-structure: true
   data-volume: true
   lots-of-full-table: false
+
+
+# -------------------------- #
+#      Incompatibilities     #
+# -------------------------- #
+
+## See the incompatibilities.yml files
+## in _data/destinations for details.
+
+has-incompatibilities: true
 
 
 # -------------------------- #
@@ -192,15 +204,6 @@ replication-sections:
       If your destination doesn't natively support nested data structures, Stitch will de-nest them to load them into the destination. Depending on how deeply nested the data is and the per table column limit of the destination, Stitch may encounter issues when loading heavily nested data.
 
       Refer to the [Nested Data Structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info and examples.
-
-
-# -------------------------- #
-#      Incompatiblities      #
-# -------------------------- #
-
-## See _data/destinations/reference/incompatibilities.yml
-
-has-incompatibilities: true
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}

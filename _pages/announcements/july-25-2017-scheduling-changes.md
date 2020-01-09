@@ -56,13 +56,13 @@ To avoid inflating your row counts as a result of the potential increase in repl
 
 ---
 
-## Affected Integrations {#affected-integrations}
+## Affected integrations {#affected-integrations}
 
 On {{ page.rollout-date }}, the following integrations will be switched over to the new scheduling mechanism:
 
 {% assign scheduling-integrations = site.saas-integrations | where:"singer",false %}
 
-<ul class="tiles">
+<ul class="tiles three-columns">
 {% for integration in scheduling-integrations %}
 	<li>
 		<a href="{{ integration.url | prepend: site.baseurl }}">

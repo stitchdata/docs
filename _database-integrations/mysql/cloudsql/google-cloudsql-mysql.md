@@ -5,6 +5,8 @@ permalink: /integrations/databases/google-cloudsql-mysql
 summary: "Connect and replicate data from your Google CloudSQL MySQL database using Stitch's Google CloudSQL MySQL integration."
 show-in-menus: true
 
+key: "cloudsql-mysql-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -15,7 +17,7 @@ singer: true
 
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "google-cloudsql"
 
@@ -166,6 +168,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

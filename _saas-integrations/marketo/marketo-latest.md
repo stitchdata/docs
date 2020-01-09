@@ -5,6 +5,8 @@ keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 summary: "Connection instructions and schema details for Stitch's Marketo integration."
 layout: singer
 
+key: "marketo-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #

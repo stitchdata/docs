@@ -3,7 +3,7 @@ tap: "netsuite"
 version: "1.0"
 
 name: "Transaction"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Transaction.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Transaction.json"
 description: |
   The `{{ table.name }}` table contains info about transactions.
 

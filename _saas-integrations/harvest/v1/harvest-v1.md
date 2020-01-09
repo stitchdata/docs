@@ -6,6 +6,8 @@ summary: "Connection instructions, replication info, and schema details for Stit
 layout: singer
 input: false
 
+key: "harvest-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: false
 
 historical: "1 year"

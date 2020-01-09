@@ -13,15 +13,17 @@
             <!-- TOP-LEVEL ITEMS -->
 
             {% for category in doc.categories %}
-                {% if  category.drop-down == false %}
-                    <li>
-                        <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
-                {% else %}
+                {% if category.drop-down == false %}
                     {% if category.title == "Developers" %}
                         <li>
                             <hr style="margin: 0px; display: inline-block">
                         </li>
                     {% endif %}
+
+                    <li>
+                        <a href="{{ category.url | flatify | prepend: site.baseurl }}">{{ category.title }}</a>
+                {% else %}
+                    
                 <li>
                     <a data-toggle="collapse" 
                     href="#{{ category.title | slugify }}" 

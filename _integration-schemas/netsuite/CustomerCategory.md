@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "CustomerCategory"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customercategory.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CustomerCategory.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CustomerCategory.json"
 description: |
   The `{{ table.name }}` table contains info about the types of customers in your {{ integration.display_name }} account.
 

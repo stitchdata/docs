@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "ItemDemandPlan"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemdemandplan.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ItemDemandPlan.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ItemDemandPlan.json"
 description: |
   The `{{ table.name }}` table contains info about item demand plans in your {{ integration.display_name }} account. An item demand plan transaction stores the quantity expected to be needed, during specified time periods, for an item.
 

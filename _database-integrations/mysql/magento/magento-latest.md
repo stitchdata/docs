@@ -5,6 +5,8 @@ permalink: /integrations/databases/magento
 summary: "Connect and replicate data from your Magento database using Stitch's Magento integration."
 show-in-menus: true
 
+key: "magento-integration"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -16,7 +18,7 @@ setup-name: "MySQL"
 singer: true
 repo-url: https://github.com/singer-io/tap-mysql
 
-# this-version: "1.0"
+this-version: "1.0"
 
 hosting-type: "generic"
 

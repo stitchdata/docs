@@ -9,7 +9,7 @@
 
 
 tap: "salesforce-marketing-cloud"
-# version: 
+version: "1.0"
 
 name: "send"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/send.htm

@@ -24,7 +24,9 @@ description: |
   - `Status` is now `CampaignStatus`
   - `SidebarBid` is now `FirstPageBid`
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+append-only-loading: true
+
 attribution-window: true
 
 attributes:

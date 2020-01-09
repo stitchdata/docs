@@ -1,0 +1,117 @@
+# -------------------------- #
+#    IMPORT API RESOURCES    #
+# -------------------------- #
+
+## This file lists the various resources other people have
+## built for using the Stitch Import API.
+
+transit:
+  url: "https://github.com/cognitect/transit-format"
+  description: ""
+
+jsonschema:
+  docs: "https://python-jsonschema.readthedocs.io/en/v2.6.0/validate/"
+
+all:
+# -------------------------- #
+#          CLOJURE           #
+# -------------------------- #
+
+  - id: "clojure"
+    display-name: "Clojure"
+    resources:
+      - title: "Clojure Stitch Client"
+        author: |
+          [Stitch]({{ site.home }}){:target="new"}
+        type: "client"
+        description: "A Stitch Import API client library for Clojure."
+        url: "https://github.com/stitchdata/clojure-stitch-client"
+
+
+# -------------------------- #
+#            JAVA            #
+# -------------------------- #
+
+  - id: "java"
+    display-name: "Java"
+    resources:
+      - title: "Java Stitch Client"
+        author: |
+          [Stitch]({{ site.home }}){:target="new"}
+        type: "client"
+        description: "A Stitch Import API client library for Java."
+        url: "https://github.com/stitchdata/java-stitch-client"
+
+
+# -------------------------- #
+#           OTHER            #
+# -------------------------- #
+
+  - id: "other"
+    display-name: "Other"
+    resources:
+      - title: "Rust interface for the Stitch Import API"
+        author: |
+          [Steve Cirner](https://github.com/scirner22){:target="new"}
+        type: "interface"
+        description: "A Rust interface for pushing data to the Import API."
+        url: "https://github.com/scirner22/stitch-rs"
+
+
+# -------------------------- #
+#            PHP             #
+# -------------------------- #
+
+  - id: "php"
+    display-name: "PHP"
+    resources:
+      - title: "Stitch Import API PHP SDK"
+        author: |
+          [Sam Minnée](https://github.com/sminnee){:target="new"}
+        type: "sdk"
+        description: "A PHP SDK for the Stitch Import API."
+        url: "https://github.com/sminnee/stitchdata-php"
+
+      - title: "PHP Stitch Client"
+        author: |
+          [Michael Johansen](https://github.com/mijohansen){:target="new"}
+        type: "library"
+        description: "A Stitch Import API client for PHP."
+        url: "https://github.com/mijohansen/php-stitch-client"
+
+
+# -------------------------- #
+#           PYTHON           #
+# -------------------------- #
+
+  - id: "python"
+    display-name: "Python"
+    resources:
+      - title: "Python Stitch Client"
+        author: |
+          [Stitch]({{ site.home }}){:target="new"}
+        type: "library"
+        description: "A Stitch Import API client library for Python."
+        url: "https://github.com/stitchdata/python-stitch-client"
+
+
+# -------------------------- #
+#            RUBY            #
+# -------------------------- #
+
+  - id: "ruby"
+    display-name: "Ruby"
+    resources:
+      - title: "Mini Stitch Ruby Wrapper"
+        author: |
+          [AnyRoad](https://www.anyroad.com/){:target="new"}
+        type: "wrapper"
+        description: "A Ruby wrapper for the Stitch Import API."
+        url: "https://github.com/anyroadcom/mini_stitch"
+
+      - title: "Stitch Import API Ruby Wrapper"
+        author: |
+          [Tailor Brands](https://www.tailorbrands.com/){:target="new"}
+        type: "wrapper"
+        description: "A Ruby wrapper for the Stitch Import API."
+        url: "https://github.com/TailorBrands/stitch_data"

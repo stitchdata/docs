@@ -5,6 +5,8 @@ keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain sc
 summary: "Connection instructions and schema details for Stitch's Outbrain integration."
 layout: singer
 
+key: "outbrain-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -15,7 +17,7 @@ display_name: "Outbrain"
 singer: true
 repo-url: https://github.com/singer-io/tap-outbrain
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Amplify API](http://developer.outbrain.com/home-page/amplify-api/){:target="new"}
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

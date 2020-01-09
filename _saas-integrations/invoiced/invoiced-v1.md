@@ -18,6 +18,8 @@ keywords: invoiced, integration, schema, etl invoiced, invoiced etl, invoiced sc
 layout: singer
 # input: false
 
+key: "invoiced-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "Invoiced"
 repo-url: https://github.com/singer-io/tap-invoiced
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} REST API](https://invoiced.com/docs/api/){:target="new"}
@@ -38,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"

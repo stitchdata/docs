@@ -1,0 +1,106 @@
+<!-- This file is table that acts as a changelog
+for the destination. Includes notices for version
+deprecation and major version releases. -->
+
+<!-- Uses the naming logic in the version logic file to assign the correct
+page_name value so the correct changelog is pulled -->
+    {% include shared/versioning/destination-version-logic.html connection-type="destination" item-name="destination"  %}
+
+<!-- Get the destination name -->
+    {% assign connection-name = site.data.destinations[page.type]versions %}
+
+<!-- Get the changelog for the integration -->
+    {% assign changelog = site.data.destinations[page.type]changelog %}
+
+<table class="attribute-list table-hover">
+    <tr>
+        <td align="right" width="25%; fixed">
+            <strong>Date</strong>
+        </td>
+        <td align="right" width="13%; fixed">
+            <strong>Version</strong>
+        </td>
+        <td class="attribute-description">
+            <strong>Release notes</strong>
+        </td>
+    </tr>
+
+    {% for entry in changelog %}
+
+    <!-- Version deprecation entries -->
+        {% if entry.type == 'version-deprecation' %}
+            {% for version in released-versions %}
+
+            <!-- Get the release date for the latest version of the integration -->
+                {% if version.number == latest-version %}
+                    {% capture latest-version-release-date %}
+                        {{ version.date-released }}
+                    {% endcapture %}
+                {% endif %}
+
+            <!-- For the version in the entry -->
+                {% if version.number == entry.version %}
+
+                <!-- Get the version's deprecation date -->
+                    {% capture version-deprecation-date %}
+                        {{ version.deprecation-date }}
+                    {% endcapture %}
+
+                <!-- Get the version's release date -->
+                    {% capture version-release-date %}
+                        {{ version.date-released }}
+                    {% endcapture %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+    <!-- End the deprecation stuff -->
+        <tr>
+            <td align="right" width="25%; fixed">
+                <strong>{{ entry.date }}</strong>
+            </td>
+            <td align="right">
+                {% if entry.version %}
+                    {{ entry.version | prepend: "v" }}
+                {% endif %}
+            </td>
+            <td class="attribute-description">
+                {% case entry.type %}
+
+                <!-- For new major version announcements -->
+                    {% when 'new-version' %}
+                        <p>
+                            <strong>New version ({{ entry.version | prepend: "v" }})</strong>
+                        </p>
+
+                        <p>A new version of Stitch's {{ destination.display_name }} destination has been released.</p>
+
+                <!-- For versions moving into beta -->
+                    {% when 'version-beta' %}
+                        <p>
+                            <strong>New version ({{ entry.version | prepend: "v" }}) in beta</strong>
+                        </p>
+
+                        <p>A new version of Stitch's {{ destination.display_name }} destination has been into beta.</p>
+
+                <!-- For version deprecation entries -->
+                    {% when 'version-deprecation' %}
+                        <p>
+                            <strong>Version {{ entry.version }} deprecation date</strong>
+                        </p>
+
+                        <p>Version {{ entry.version }} of Stitch's {{ destination.display_name }} destination will be deprecated on <strong>{{ version-deprecation-date }}</strong> and no longer be formally supported by the Stitch Support Team.</p>
+
+                        <p><strong>Connections created from {{ version-release-date }} to {{ latest-version-release-date }} use this version.</strong> Upgrade to the <strong>latest version ({{ latest-version }})</strong> to take advantage of the new enhancements.</p>
+
+                    {% else %}
+                        <p>
+                            <strong>{{ entry.summary }}</strong>
+                        </p>
+                {% endcase %}
+
+                {{ entry.content | flatify | markdownify }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>

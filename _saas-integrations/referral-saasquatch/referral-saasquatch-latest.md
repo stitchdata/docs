@@ -5,6 +5,8 @@ keywords: referral saasquatch, integration, schema, etl referral saasquatch, ref
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
 layout: singer
 
+key: "referral-saasquatch-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -15,7 +17,7 @@ display_name: "Referral SaaSquatch"
 singer: true
 repo-url: https://github.com/singer-io/tap-referral-saasquatch
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} REST API](https://docs.referralsaasquatch.com/api/){:target="new"}
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

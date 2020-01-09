@@ -87,17 +87,21 @@ destinations:
     choose-destination: /destinations/choosing-a-stitch-destination
     compatibility: /destinations/destination-integration-compatibility
     switch-destination: /destinations/switching-destinations
-    switch-bigquery-destination: /destinations/bigquery/changing-google-bigquery-destination-data-locations
+    switch-bigquery-destination: /destinations/google-bigquery/v1/changing-data-locations
 
     amazon-s3: /destinations/amazon-s3/
-    redshift: /destinations/redshift/
-    bigquery: /destinations/bigquery/
-    bigquery-pricing: /destinations/bigquery/understanding-stitch-impact-on-bigquery-costs
-    data-world: /destinations/data-world/
-    azure: /destinations/microsoft-azure-sql-data-warehouse/
-    postgres: /destinations/postgresql/
-    panoply: /destinations/panoply/
-    snowflake: /destinations/snowflake/
+    redshift: /destinations/amazon-redshift/reference
+    
+    bigquery: /destinations/google-bigquery/
+    bigquery-v1: /destinations/google-bigquery/v1/reference
+    bigquery-v2: /destinations/google-bigquery/v2/reference
+    bigquery-pricing: /destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs
+    
+    data-world: /destinations/data-world/reference
+    azure: /destinations/microsoft-azure-sql-data-warehouse/reference
+    postgres: /destinations/postgresql/reference
+    panoply: /destinations/panoply/reference
+    snowflake: /destinations/snowflake/reference
 
 ## Setup Guides
 ## used as link.destinations.setup.[id]
@@ -106,7 +110,9 @@ destinations:
 
     azure: /destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch
     
-    bigquery: /destinations/bigquery/connecting-google-bigquery-to-stitch
+    bigquery-v1: /destinations/google-bigquery/v1/connecting-google-bigquery-to-stitch
+    bigquery-v2: /destinations/google-bigquery/v2/connecting-google-bigquery-to-stitch
+    bigquery-v1-migration: /destinations/google-bigquery/v2/migrating-from-google-bigquery-v1
     
     data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
     
@@ -130,12 +136,14 @@ destinations:
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
-    overview: /data-structure/loading-stitch-data-into-destinations
-    bigquery: /data-structure/bigquery-data-loading-behavior
-    panoply: /data-structure/panoply-data-loading-behavior
-    postgres: /data-structure/postgresql-data-loading-behavior
-    redshift: /data-structure/redshift-data-loading-behavior
-    snowflake: /data-structure/snowflake-data-loading-behavior
+    overview: /replication/reference
+    bigquery: /replication/reference/google-bigquery
+    bigquery-v1: /replication/reference/google-bigquery/v1
+    bigquery-v2: /replication/reference/google-bigquery
+    panoply: /replication/reference/panoply
+    postgres: /replication/reference/postgresql
+    redshift: /replication/reference/amazon-redshift
+    snowflake: /replication/reference/snowflake
 
 # -------------------------- #
 #        Data Storage        #
@@ -151,10 +159,14 @@ destinations:
     varchar-widening: "/data-structure/table-structural-changes#widening-varchar-columns"
     nested-structures: /data-structure/nested-data-structures-row-count-impact
     rejected-records: /data-structure/identifying-rejected-records
-    redshift-encodings: /destinations/redshift/apply-encodings-sort-dist-keys-redshift
-    bigquery-partitioning: /destinations/bigquery/apply-table-partitioning-clustering
-    azure-primary-keys: /destinations/microsoft-azure-sql-data-warehouse/primary-key-handling
-    reserved-keywords: /data-structure/reserved-keywords
+    redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
+    bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
+    primary-key-system-table: /replication/loading/primary-keys-system-table
+    reserved-keywords: /replication/loading/reserved-keywords
+
+    loading-behavior: /replication/loading/understanding-loading-behavior
+
+    bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
 
 # -------------------------- #
 #         INTEGRATIONS       #
@@ -226,31 +238,39 @@ replication:
 
 
 # -------------------------- #
-#             API            #
+#         DEVELOPERS         #
 # -------------------------- #
-## used as link.import-api.[id]
+
+developers: /developers
 
 connect:
-  overview: /stitch-connect
-  api: /stitch-connect/api
-  js: /stitch-connect/javascript-client
+  overview: /developers/stitch-connect
+  api: /developers/stitch-connect/api
+  js: /developers/stitch-connect/javascript-client
 
   guides:
-    category: /stitch-connect/guides
-    create-configure-a-source: /stitch-connect/api#quick-start
-    field-selection-compatibility-rules: /stitch-connect/guides/field-selection-compatibility-rules
-    select-streams-and-fields: /stitch-connect/guides/select-streams-and-fields-with-connect-api
-    replication-scheduling-for-sources: /stitch-connect/guides/replication-scheduling-for-sources
-    partner-authentication: /stitch-connect/guides/stitch-partner-authentication-guide
+    category: /developers/stitch-connect/guides
+    api-credentials: /developers/stitch-connect/guides/connect-api-credentials
+
+    create-configure-a-source: /developers/stitch-connect/api#quick-start
+    create-import-api-source: /developers/stitch-connect/guides/create-import-api-integration-with-stitch-connect
+    field-selection-compatibility-rules: /developers/stitch-connect/guides/field-selection-compatibility-rules
+    select-streams-and-fields: /developers/stitch-connect/guides/select-streams-and-fields-with-connect-api
+    replication-scheduling-for-sources: /developers/stitch-connect/guides/replication-scheduling-for-sources
+    partner-authentication: /developers/stitch-connect/guides/stitch-partner-authentication-guide
 
 
 import-api:
-  getting-started: /integrations/import-api
-  faq: /integrations/import-api/faq
-  auth: /integrations/import-api#auth
-  revoke: /integrations/import-api#revoke-api-access-token
-  methods: /integrations/import-api#methods
-  return: /integrations/import-api#return-codes
+  overview: /developers/import-api/
+  api: /developers/import-api/api
+
+  guides:
+    category: /developers/import-api/guides
+    quick-start: /developers/import-api/guides/quick-start
+    access-tokens: /developers/import-api/guides/import-api-access-tokens
+    structure-data: /developers/import-api/guides/structure-data-for-the-import-api
+    sequence-data: /developers/import-api/guides/sequencing-data-for-the-import-api
+    troubleshooting-data: /developers/import-api/guides/troubleshooting-import-api-data
 
 
 webhooks:

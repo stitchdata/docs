@@ -1,0 +1,58 @@
+# -------------------------------------------- #
+#                                              #
+#         PRIMARY KEYS SCENARIOS               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/primary-keys.yml
+   ## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+
+## Error data lives here: _data/destinations/common/loading-errors.yml
+
+## Data arrives without a Primary Key:
+- id: no-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &primary-keys ""
+
+
+## Data arrives with single Primary Key:
+- id: single-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: *primary-keys
+
+
+## Data arrives with MULTIPLE Primary Keys:
+- id: multiple-pks
+  rejectable: false
+  # if: uses default 
+  then:
+    v1: *primary-keys
+
+
+## Primary Key column is changed in the warehouse:
+- id: pk-column-change
+  rejectable: false
+  # if: uses default
+  then:
+    v1: ""
+  error:
+    v1: ""
+  fix-it: 
+    v1: ""
+
+
+## Primary Key column is removed in the warehouse:
+- id: remove-pk-column
+  rejectable: false
+  # if: uses default
+  then:
+    v1: "No effect. Data will continue to load into the table."
+  error:
+    v1: ""
+  fix-it:
+    v1: ""

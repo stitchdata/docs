@@ -5,6 +5,8 @@ permalink: /integrations/databases/microsoft-azure/v1
 summary: "Connect and replicate data from your Microsoft Azure SQL database using Stitch's Microsoft Azure integration."
 show-in-menus: false
 
+key: "microsoft-azure-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #

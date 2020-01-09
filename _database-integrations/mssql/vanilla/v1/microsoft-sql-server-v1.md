@@ -5,7 +5,8 @@ permalink: /integrations/databases/microsoft-sql-server/v1
 summary: "Connect and replicate data from your Microsoft SQL Server database using Stitch's Microsoft SQL Server integration."
 show-in-menus: false
 
-hosting-type: "generic"
+key: "mssql-integration"
+
 
 # -------------------------- #
 #     Integration Details    #

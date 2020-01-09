@@ -1,0 +1,93 @@
+
+<!-- This file contains the logic and formatting for displaying
+	a table of supported data types for a given destination. -->
+
+{% include misc/data-files.html %}
+{% include misc/icons.html %}
+
+{% assign version = destination.this-version | prepend: "v" %}
+
+{% assign destination-types = site.data.destinations[destination.type][version]data-types %}
+
+{% if destination-data-types.specific %}
+	{% assign data-types = site.data.taps.extraction.data-types.stitch-types | concat: destination-data-types.specific | sort: "name" %}
+{% else %}
+	{% assign data-types = site.data.taps.extraction.data-types.stitch-types | sort: "name" %}
+{% endif %}
+
+
+
+{% if include.display-intro == true %}
+<ul>
+	<li>
+		<strong>Stitch type:</strong> The Stitch data type the source type was mapped to. During the Extraction and Preparing phases, Stitch identifies the data type in the source and then maps it to a common Stitch data type.
+	</li>
+	<li>
+		<strong>Destination type:</strong> The destination-compatible data type the Stitch type maps to. This is the data type Stitch will use to store data in {{ destination.display_name }}.
+	</li>
+	<li>
+		<strong>Notes:</strong> Details about the data type and/or its allowed values in the destination, if available. If a range is available, values that exceed the noted range will be <a href="{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}">rejected by {{ destination.display_name }}</a>.
+	</li>
+</ul>
+{% endif %}
+
+{% assign attributes = "stitch-type|destination-type|notes" | split:"|" %}
+
+<table class="attribute-list">
+	<tr>
+		{% for attribute in attributes %}
+			{% if forloop.index == 1 or forloop.index == 2 %}
+			<td width="20%; fixed">
+			{% else %}
+			<td>
+				{% endif %}
+				<strong>{{ attribute | replace:"-"," " | capitalize }}</strong>
+			</td>
+		{% endfor %}
+	</tr>
+	{% for data-type in data-types %}
+		<tr>
+			<td>
+				{{ data-type.name | upcase }}
+			</td>
+			{% for attribute in attributes %}
+				{% unless attribute == "stitch-type" %}
+					<td>
+					{% if attribute == "destination-type" %}
+						<a href="{{ destination-types[data-type.name]doc-link }}" target="blank">
+							{{ destination-types[data-type.name][attribute] | upcase }}
+						</a>
+					{% elsif attribute == "notes" %}
+						{% if destination-types[data-type.name]description or destination-types[data-type.name]range %}
+							<ul>
+								{% if destination-types[data-type.name]description %}
+									<li style="margin-top: 0px;">
+										{{ destination-types[data-type.name]description | flatify | prepend:"**Description**: " | markdownify  }}
+									</li>
+								{% endif %}
+
+								{% if destination-types[data-type.name]range %}
+{% capture tooltip-copy %}
+Values that exceed this range will be rejected by the destination and logged in the <strong>_sdc_rejected</strong> table. <a href='{{ link.destinations.storage.rejected-records | prepend: site.baseurl }}'>Learn more</a>.
+{% endcapture %}
+
+{% capture label-and-tooltip %}
+**Range {{ notice-icon | remove:"-lg" | replace:"TOOLTIP",tooltip-copy }}:**
+{% endcapture %}
+
+									<li style="margin-top: 0px;">
+										{{ destination-types[data-type.name]range | prepend: label-and-tooltip | flatify | markdownify }}
+									</li>
+								{% endif %}
+							</ul>
+						{% endif %}
+					{% else %}
+						{{ destination-types[data-type.name][attribute] | flatify }}
+					{% endif %}
+						
+					</td>
+				{% endunless %}
+			{% endfor %}
+		</tr>
+	{% endfor %}
+</table>

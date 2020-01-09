@@ -1,0 +1,22 @@
+{% case include.phase %}
+
+{% when 'data-extraction' %}
+Stitch requests and extracts data from a data source. Refer to the [System overview guide]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--extraction" }}) for a more detailed explanation of the Extraction phase.
+
+
+{% when 'internal-pipeline' %}
+The data extracted from sources is processed by Stitch. Stitch's internal pipeline includes the **Prepare** and **Load** phases of the replication process:
+
+- **Prepare**: {{ site.data.tooltips.prepare }}
+- **Load**: {{ site.data.tooltips.load }} Refer to the [Transformations](#transformations) section for more info about the transformations Stitch performs for {{ destination.display_name }} destinations.
+
+Refer to the [System overview guide]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--preparing" }}) for a more detailed explanation of these phases.
+
+
+{% when 'preparation' %}
+
+
+{% when 'loading' %}
+
+
+{% endcase %}

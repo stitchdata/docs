@@ -1,0 +1,53 @@
+<!-- This file contains the table used in the Destination & Integration Compatibility doc.
+
+	Every destination version that has reported incompatibilities will have
+	an incompatibilities.yml file in its data folder.
+
+	For example: _data/destinations/redshift/v2/incompatibilities.yml
+
+	The content of the incompatibility files is what gets listed in the table below. -->
+
+{% include misc/icons.html %}
+
+<!-- Get all destinations -->
+	{% assign destinations = site.destinations | where:"destination",true %}
+
+
+<table class="attribute-list">
+	{% for destination in destinations %}
+		{% include shared/versioning/destination-version-logic.html item-name="destination" %}
+		<tr>
+			<td colspan="4" class="table-subheading">
+				<strong>
+					{{ destination.display_name }}
+				<!-- If a destination has more than 1 version, include the version number. -->
+					{% if total-versions > 1 %}v{{ destination.this-version }}{% endif %}
+				</strong> 
+
+				(<a href="{{ destination.url }}">link</a>)
+			</td>
+		</tr>
+
+		{% assign version = destination.this-version | prepend: "v" %}
+
+		{% if site.data.destinations[destination.type][version]incompatibilities %}
+	
+	<!-- Destination versions will only have an incompatibilities file if there are
+		reported incompatibilities. If there are any, do this: -->
+			{% include shared/incompatibilities/incompatible-integration-table-rows.html %}
+
+	<!-- If the destination doesn't have any reported incompatibilities,
+		display this instead. -->
+		{% else %}
+			<tr>
+				<td colspan="4">
+					{% if total-versions > 1 %}
+						No compatibility issues have been discovered between this version ({{ destination.this-version | prepend: "v" }}) of the {{ destination.display_name }} destination and Stitch's integration offerings.
+					{% else %}
+						No compatibility issues have been discovered between {{ destination.display_name }} and Stitch's integration offerings.
+					{% endif %}
+				</td>
+			</tr>
+		{% endif %}
+	{% endfor %}
+</table>

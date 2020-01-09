@@ -1,6 +1,13 @@
+# -------------------------- #
+#      COMMON ATTRIBUTES     #
+# -------------------------- #
+
 common:
   attributes:
-  ## Stitch JavaScript Client
+# -------------------------- #
+#      JAVASCRIPT CLIENT     #
+# -------------------------- #
+
     default-streams: |
       Sets the default selections for the data structures (tables) to be replicated during the source integration setup. Should be an object of the form `{"table_name": true}`. For example:
 
@@ -26,10 +33,13 @@ common:
 
       The ephemeral token expires one hour after generation. When specified as an argument in a Connect JavaScript function, the ephemeral token is exchanged for a session token, creating a temporary Stitch session for the user. The session expires once terminated or 12 hours after its creation.
 
-  ## Databases & Destinations
+# -------------------------- #
+#  DATABASES & DESTINATIONS  #
+# -------------------------- #
 
     destination-type: |
-      {% assign all-form-properties = site.connect-files | where:"content-type","api-form" %}
+      {% assign all-connect-docs = site.developer-files | where:"product-type","connect" %}
+      {% assign all-form-properties = all-connect-docs | where:"content-type","api-form" %}
       {% assign destination-forms = all-form-properties | where:"form-type","destination" | sort:"api-type" %}
 
       The destination type. Must be one of: 
@@ -38,7 +48,11 @@ common:
       - `{{ destination-form.api-type }}`
       {% endfor %}
 
-  ## Integrations
+
+# -------------------------- #
+#        INTEGRATIONS        #
+# -------------------------- #
+
     display-name: "A descriptive name for the source. This will be used to dynamically generate the name corresponding to the schema name or dataset name that the data from this source will be loaded into."
 
     name: |
@@ -57,3 +71,23 @@ common:
   # Ex: {{ connect.common.attributes.type-argument | replace: "[TYPE]","destination" | replace: "[TYPE-1]","s3" | replace: "[TYPE-2]","redshift" }}
     type-argument: |
       A path parameter indicating the `type` of [TYPE] to retrieve, such as `[TYPE-1]` or `[TYPE-2]`.
+
+
+# -------------------------- #
+#  AUTHENTICATION ATTRIBUTES #
+# -------------------------- #
+
+authentication:
+  partner-id: |
+    The unique ID for your partner application, obtained after an [interest form]({{ site.data.connect.api.interest-form }}){:target="new"} is submitted to and approved by Stitch.
+
+  partner-key: |
+    The key associated with your partner application, obtained after an [interest form]({{ site.data.connect.api.interest-form }}){:target="new"} is submitted to and approved by Stitch.
+
+  client-account-access-token: |
+    An API access token associated with a single Stitch client account. This token must be passed into the header of every request made to the API for the Stitch client account.
+
+  ephemeral-token: |
+    {{ site.data.connect.general.common.attributes.ephemeral-token | flatify }}
+
+    Ephemeral tokens expire one hour after generation. When specified as an argument in a Connect JavaScript function, the ephemeral token is exchanged for a session token, creating a temporary Stitch session for the user. The session expires once terminated or 12 hours after its creation.

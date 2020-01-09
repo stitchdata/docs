@@ -5,10 +5,10 @@ redirect_from: /saas-integrations/quickbooks/quickbooks-latest.html
 
 keywords: quickbooks, integration, schema, etl quickbooks, quickbooks etl, quickbooks schema, intuit
 summary: "Connection instructions and schema details for Stitch's QuickBooks integration."
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+layout: singer
+old-schema-template: true
+
+key: "quickbooks-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -20,6 +20,8 @@ display_name: "QuickBooks"
 singer: false
 status-url: "http://status.developer.intuit.com/"
 
+this-version: "21-12-2015"
+
 api: |
   [{{ integration.display_name }} Online API](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/most-commonly-used/account){:target="new"}
 
@@ -27,7 +29,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -860,37 +861,28 @@ tables:
       - name: synctoken
       - name: metadata__createtime
       - name: metadata__lastupdatedtime
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+requirements-list:
+  - item: "**An online {{ integration.display_name }} instance.** Support for replicating data from desktop {{ integration.display_name }} instances isn't currently supported."
+
+setup-steps:
+  - title: "add integration"
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "Authorize Stitch to access {{ integration.display_name }}"
+    anchor: "authorize-stitch"
+    content: |
+      Lastly, you'll be directed to {{ integration.display_name }}' website to complete the setup.
+
+      1. If you're not already signed into your {{ integration.display_name }} account, enter your credentials and click **Login**.
+      2. A screen asking for authorization to {{ integration.display_name }} will display. **Note that Stitch will only ever read your data.**
+      3. Click **Authorize.**
+      4. After the authorization process successfully completes, you'll be redirected back to Stitch.
+      5. Click {{ app.buttons.finish-int-setup }}.
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-
-{% contentfor setup %}
-Connecting your [QuickBooks data](https://quickbooks.intuit.com/cloud-accounting-software/){:target="new"}* to Stitch is a four-step process:
-
-**Note**: Stitch only integrates with online {{ integration.display_name }}. {{ integration.display_name }} for Desktop is not currently supported.
-
-1. [Add QuickBooks as a Stitch data source](#add-stitch-data-source)
-2. [Define the Historical Sync](#define-historical-sync)
-3. [Define the Replication Frequency](#define-rep-frequency)
-4. [Authorize Stitch to access QuickBooks](#authorize-stitch)
-
-{% include integrations/shared-setup/connection-setup.html %}
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-### Authorizing Stitch to Access QuickBooks {#authorize-stitch}
-
-Lastly, you'll be directed to QuickBooks' website to complete the setup.
-
-1. If you're not already signed into your QuickBooks account, enter your credentials and click **Login**.
-2. A screen asking for authorization to QuickBooks will display. **Note that Stitch will only ever read your data.**
-3. Click **Authorize.**
-4. After the authorization process successfully completes, you'll be redirected back to Stitch.
-5. Click {{ app.buttons.finish-int-setup }}.
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}

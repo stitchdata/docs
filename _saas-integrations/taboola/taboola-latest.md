@@ -5,6 +5,8 @@ keywords: taboola, taboola integration, schema, etl taboola, taboola etl, tabool
 summary: "Connection instructions and schema details for Stitch's Taboola integration."
 layout: singer
 
+key: "taboola-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -16,7 +18,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-taboola
 status-url: https://twitter.com/taboola?lang=en
 
-# this-version: "1.0"
+this-version: "1.0"
 
 api: |
   [{{ integration.display_name }} Backstage API](https://github.com/taboola/Backstage-API){:target="new"}
@@ -25,7 +27,6 @@ api: |
 #     Integration Details    #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"

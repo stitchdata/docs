@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Job"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/job.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Job.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Job.json"
 description: |
   The `{{ table.name }}` table contains info about the projects in your {{ integration.display_name }} account.
 

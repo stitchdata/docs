@@ -1,0 +1,68 @@
+# --------------------------------------- #
+#   GOOGLE BIGQUERY DESTINATION DETAILS   #
+# --------------------------------------- #
+
+## Details about the destination provider.
+
+
+# -------------------------- #
+#       General/Pricing      #
+# -------------------------- #
+
+description: "Google BigQuery is a fully managed, fast, low cost analytics data warehouse. BigQuery is pay-as-you-go, making it cost-effective for all volumes of data. Its serverless architecture makes powerful analytical and business intelligence queries available via SQL to companies of all types."
+
+fully-managed: true
+
+free-option: "No"
+
+pricing-model: "Usage"
+
+pricing-details: "{{ destination.display_name }} 's pricing isn't based on a fixed rate, meaning your bill can vary over time."
+
+
+# -------------------------- #
+#         Table limits       #
+# -------------------------- #
+
+max-columns-per-table: "10,000"
+
+max-tables-per-database: "None"
+
+
+# -------------------------- #
+#      Object name limits    #
+# -------------------------- #
+
+case-sensitivity: "Insensitive"
+
+table-name-length: "1,024 characters"
+
+column-name-length: "128 characters"
+
+
+# -------------------------- #
+#     Column naming rules    #
+# -------------------------- #
+
+column-name-rules: |
+  - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
+  - Must begin with a letter or an underscore
+  - Must be less than the maximum length of {{ site.data.destinations.bigquery.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#bigquery-reserved-keywords" }})
+
+column-name-transformations:
+  - transformation: "Convert uppercase and mixed case to lowercase"
+    source-column: "<code>CUSTOMERID</code> or <code>cUsTomErId</code>"
+    destination-column: &customerid "<code>customerid</code>"
+
+  - transformation: "Convert spaces to underscores"
+    source-column: "<code>customer id</code>"
+    destination-column: &customerid2 "<code>customer_id</code>"
+
+  - transformation: "Convert special characters to underscores"
+    source-column: "<code>customer#id</code> or <code>!customerid</code>"
+    destination-column: "<code>customer_id</code> and <code>_customerid</code>"
+
+  - transformation: "Convert leading numbers to underscores"
+    source-column: "<code>4customerid</code>"
+    destination-column: "<code>_customerid</code>"

@@ -1,0 +1,74 @@
+# --------------------------------- #
+# GOOGLE BIGQUERY SUPPORTED REGIONS #
+# --------------------------------- #
+
+## The Google Cloud Storage (GCS) locations
+## Stitch supports for version 2 of the Google BigQuery destination.
+
+- category: &americas "Americas"
+  name: "US"
+  description: "United States"
+
+- category: &europe "Europe"
+  name: "EU"
+  description: "European Union"
+
+- category: *americas
+  name: "us-west2"
+  description: "Los Angeles"
+
+- category: *americas 
+  name: "northamerica-northeast1"
+  description: "Montréal"
+
+- category: *americas
+  name: "us-east4"
+  description: "Northern Virginia"
+
+- category: *americas
+  name: "southamerica-east1"
+  description: "São Paulo"
+
+- category: *europe
+  name: "europe-north1"
+  description: "Finland"
+
+- category: *europe
+  name: "europe-west2"
+  description: "London"
+
+- category: *europe
+  name: "europe-west3"
+  description: "Frankfurt"
+
+- category: *europe
+  name: "europe-west6"
+  description: "Zürich"
+
+- category: &asia-pacific "Asia Pacific"
+  name: "asia-east2"
+  description: "Hong Kong"
+
+- category: *asia-pacific
+  name: "asia-south1"
+  description: "Mumbai"
+
+- category: *asia-pacific
+  name: "asia-northeast2"
+  description: "Osaka"
+
+- category: *asia-pacific
+  name: "asia-east1"
+  description: "Taiwan"
+
+- category: *asia-pacific
+  name: "asia-northeast1"
+  description: "Tokyo"
+
+- category: *asia-pacific
+  name: "asia-southeast1"
+  description: "Singapore"
+
+- category: *asia-pacific
+  name: "australia-southeast1"
+  description: "Sydney"
