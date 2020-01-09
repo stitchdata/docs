@@ -78,10 +78,6 @@ attributes:
     type: "date-time"
     description: "The campaign's start time."
 
-  - name: "end_time"
-    type: "date-time"
-    description: "The campaign's end time."
-
   - name: "ads"
     type: "array"
     description: "The IDs of the ads associated with the campaign."
