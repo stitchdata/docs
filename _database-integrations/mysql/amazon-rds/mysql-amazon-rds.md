@@ -118,7 +118,7 @@ setup-steps:
 
           Skipping this step or disabling automatic backups will cause replication issues in Stitch.
 
-          Refer to the **Transaction Size** section of [Amazon's Importing Data into a MySQL DB Instance](https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.Other.html){:target="new"} documentation for more info.
+          Refer to the **Transaction Size** section of [Amazon's Importing Data into a MySQL DB Instance](https://docs.aws.amazon.com/en_us/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.Other.html){:target="new"} documentation for more info.
           {% endcapture %}
           {% include note.html type="single-line" content=mysql-rds-backup-requirement %}
 
