@@ -15,7 +15,9 @@ In the event that our webhook service experiences downtime, you may notice some 
 
 ### Method
 
-This version of Stitch's {{ integration.display_name }} integration uses **Append-Only** Replication. {{ site.data.tooltips.append-only-rep }} Data stored this way can provide insights and historical details about how those rows have changed over time.
+This version of Stitch's {{ integration.display_name }} integration loads data in an Append-Only fashion. {{ site.data.tooltips.append-only }} Data stored this way can provide insights and historical details about how those rows have changed over time.
+
+Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
 ### Query for the latest data
 

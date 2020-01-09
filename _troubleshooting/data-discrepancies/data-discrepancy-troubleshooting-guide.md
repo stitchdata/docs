@@ -179,12 +179,12 @@ If the table in question is set to use Key-based Incremental Replication, keep i
 1. Stitch won't capture [hard deletes]({{ link.replication.key-based-incremental | prepend: site.baseurl | append: "#limitation-2--hard-deletes-unsupported" }}).
 2. Replication Key columns with `NULL` values are only replicated during an integration's initial replication job.
 3. Records that are updated over time should use a modification timestamp to ensure updates are captured.
-4. [Mongo Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) have additional considerations. For example: Multiple data types in the Replication Key column can lead to missing data.
-5. BigQuery destinations only support [**Append-Only Incremental Replication**]({{ link.replication.rep-methods | prepend: site.baseurl | append:"#append-only-incremental-replication" }}). What looks like duplicate data may actually be updated records being appended to a table.
+4. [MongoDB Replication Keys]({{ link.replication.mongo-rep-keys | prepend: site.baseurl }}) have additional considerations. For example: Multiple data types in the Replication Key column can lead to missing data.
+5. Append-Only destinations. What looks like duplicate data may actually be updated records being appended to a table. Refer to the [Understanding loading behavior guide]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}) for more info and examples.
 
 ---
 
-## Contacting Support
+## Contacting support
 
 If the discrepancy can’t be explained by any of the points above, reach out to support. Depending on the type of discrepancy, we'll ask you to provide us some information that will help us investigate.
 

@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Item"
 doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Item.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Item.json"
 description: |
   The `{{ table.name }}` table contains info about items.
 

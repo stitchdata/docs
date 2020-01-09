@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Term"
 doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Term.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Term.json"
 description: |
   The `{{ table.name }}` table contains info about the terms in your {{ integration.display_name }} account. Terms are used to specify when payment is due on customer invoices.
 

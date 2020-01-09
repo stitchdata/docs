@@ -149,7 +149,7 @@ all:
 
       It can also be caused by binary log files being purged before historical replication completes or critical errors that prevent Stitch from replicating data. When this occurs, it means Stitch was unable to proceed to the binary log file before the retention period passed and the log was purged.
     fix-it: |
-      To resolve the error, you'll need to perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
+      To resolve the error, you'll need to perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-integration }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
 
       To prevent this error in the future, verify your server's log retention settings and update them if needed. Stitch recommends a minimum of 3 days, but 7 days is preferred. This ensures that you have time to resolve any issues that arise before logs age out and are purged.
 
@@ -168,7 +168,7 @@ all:
 
       Typically this will be an issue only if the server uses a very small [`max_binlog_size`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_max_binlog_size){:target="new"} value.
     fix-it: |
-      Perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-rep-keys }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
+      Perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-integration }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
 
       We also recommend checking the value of the `max_binlog_size` server parameter and increasing it if it's too small. By default, this is set to MySQL's maximum of 1 GB (1073741824 bytes).
 

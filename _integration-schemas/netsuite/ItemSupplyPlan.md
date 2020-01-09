@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "ItemSupplyPlan"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/itemsupplyplan.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ItemSupplyPlan.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ItemSupplyPlan.json"
 description: |
   The `{{ table.name }}` table contains info about the item supply plans in your {{ integration.display_name }} account. An item supply plan lists the purchase orders or work orders required to ensure that item quantity meets expected demand.
 
