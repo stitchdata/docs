@@ -30,7 +30,7 @@ Next, Stitch will display a **Grant Access to Your Bucket** page. This page cont
 
 For more info about the top-level permissions the Stitch IAM policy grants, click the link below.
 
-{% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges.amazon-s3-csv.user-privileges %}
+{% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges.[integration.name].user-privileges %}
 
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
@@ -48,9 +48,11 @@ For more info about the top-level permissions the Stitch IAM policy grants, clic
                       <td class="attribute-name">
                           <strong>Permission Name</strong>
                       </td>
+                      {% if integration.name == "amazon-s3-csv" %}
                       <td class="attribute-description">
                           <strong>Operation</strong>
                       </td>
+                      {% endif %}
                       <td class="attribute-description">
                           <strong>Operation Description</strong>
                       </td>
@@ -59,6 +61,7 @@ For more info about the top-level permissions the Stitch IAM policy grants, clic
                   {% for permission in integration-permissions %}
 
                   <!-- Capture the # of objects in the array & use it as the table's rowspan -->
+                  {% if integration.name == "amazon-s3-csv" %}
                       {% for operation in permission.operations %}
                           {%- capture rowspan -%}
                               {{ forloop.length }}
@@ -90,6 +93,17 @@ For more info about the top-level permissions the Stitch IAM policy grants, clic
                                   </tr>
                           {% endcase %}
                       {% endfor %}
+
+                    {% else %}
+                      <tr>
+                        <td class="attribute-name">
+                                  <strong>{{ permission.name }}</strong>
+                              </td>
+                        <td class="attribute-description">
+                                  {{ permission.reason | flatify }}
+                              </td>      
+                      </tr>
+                  {% endif %}
                   {% endfor %}
               </table>
           </div>

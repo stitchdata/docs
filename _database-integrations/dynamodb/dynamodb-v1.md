@@ -24,7 +24,7 @@ key: "amazon-dynamodb-integration"
 #     Integration Details    #
 # -------------------------- #
 
-name: "amazon_dynamodb"
+name: "dynamodb"
 display_name: "Amazon DynamoDB"
 
 singer: true
@@ -124,7 +124,7 @@ setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
-      {% include shared/database-connection-settings.html type="general" %}
+ #     {% include shared/database-connection-settings.html type="general" %}
 
 
   - title: "Define the historical sync"
@@ -173,10 +173,24 @@ replication-sections:
     anchor: "log-based-incremental-replication"
     summary: "Details about Log-based Incremental Replication via DynamoDB streams."
     content: |
-      This integration supports Full Table and Log-based replication. Log-based replication is done through DynamoDB streams, not Amazon Kinesis streams. In order to use streams, they must be enabled on the tables created in DynamoDB. When in your AWS account, go to the `manage streams` section and choose `New Image` or `New and old images`. If one of these aren't selected, the integration will fail during sync. This is handled on a table-by-table basis, so you must enable streams on each.
- 
-      In AWS, streams are only retained for 24 hours, so when setting up a log-based replication, be sure to set the replication frequency to a time less than 24 hours. If not, you will be at risk of your data aging out.
+      Stitch's DynamoDB integration uses [DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html) to perform Log-based Incremental Replication. To use Log-based Incremental Replication, streams must be enabled on every table in DynamoDB you want to replicate using this Replication Method. 
 
+      Refer to [Amazon's documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html#Streams.Enabling) for instructions on enabling streams for DynamoDB tables. The **Manage Stream** options must be one of the following, or replication will be unsuccessful:
+
+        - `New Image`
+        - `New and old images`
+ 
+      Note: DynamoDB streams are purged after 24 hours. To ensure you don't lose data, set the integration's Replication Frequency to an interval less than 24 hours (ex: 12 hours).
+
+  - title: "Full Table Replication"
+    anchor: "full-table-replication"
+    summary: "Details about Full Table Replication Eventually Consistent Reads."
+    content: |
+      To perform Full Table Replications with Stitch's DynamoDB integration, Stitch uses scans to go through tables, rather than queries, so that no user action is required. 
+
+      Stitch's DynamoDB integration will only use eventually consistent reads from your selected DynamoDB tables. What this means for you is that you will not see all of your recent data right away, but it will eventually catch up and return the latest records. For more information on Amazon's DynamoDB Read Consistency, please click [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html).
+
+      {% include note.html type="single-line" content="**Note**: DynamoDB streams are purged after 24 hours. To ensure you don't lose data, set the integration's Replication Frequency to an interval less than 24 hours (ex: 12 hours)." %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
