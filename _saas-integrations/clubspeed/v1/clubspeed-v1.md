@@ -49,6 +49,8 @@ frequency: "30 minutes"
 tier: "Free"
 
 anchor-scheduling: true
+cron-scheduling: true
+
 extraction-logs: true
 loading-reports: true
 

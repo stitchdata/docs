@@ -33,11 +33,11 @@ tier: "Free"
 auth: "oauth"
 status-url: "https://developers.facebook.com/status/"
 
-table-selection: true
-column-selection: true
-
 anchor-scheduling: true
 cron-scheduling: false
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

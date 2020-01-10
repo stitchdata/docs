@@ -48,7 +48,7 @@ tier: "Free"
 status-url: "https://www.sageintacct.com/system-status"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

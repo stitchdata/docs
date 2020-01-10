@@ -44,11 +44,11 @@ frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
-
-anchor-scheduling: true
-cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true

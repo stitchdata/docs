@@ -36,11 +36,11 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: 
 
-table-selection: true
-column-selection: false
-
 anchor-scheduling: true
 cron-scheduling: false
+
+table-selection: true
+column-selection: false
 
 extraction-logs: true
 loading-reports: true

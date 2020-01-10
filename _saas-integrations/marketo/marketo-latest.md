@@ -26,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -35,7 +34,7 @@ tier: "Standard"
 status-url: http://status.marketo.com/
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: true
 column-selection: true

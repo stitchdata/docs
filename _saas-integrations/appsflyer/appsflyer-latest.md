@@ -38,10 +38,10 @@ status-url: http://status.appsflyer.com/
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
-cron-scheduling: false
+anchor-scheduling: true
+cron-scheduling: true
 
-extraction-logs: false
+extraction-logs: true
 loading-reports: true
 
 

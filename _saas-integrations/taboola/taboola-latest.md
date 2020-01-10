@@ -34,7 +34,7 @@ frequency: "30 minutes"
 tier: "Free"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: false
 column-selection: false

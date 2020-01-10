@@ -49,7 +49,7 @@ tier: "Free"
 status-url: "https://status.typeform.com/"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

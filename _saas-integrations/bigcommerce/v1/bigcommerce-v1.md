@@ -49,7 +49,7 @@ tier: "Free"
 status-url: "https://status.bigcommerce.com/"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

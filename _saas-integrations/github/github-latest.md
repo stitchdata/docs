@@ -37,11 +37,11 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://status.github.com/messages
 
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
-
-anchor-scheduling: true
-cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true

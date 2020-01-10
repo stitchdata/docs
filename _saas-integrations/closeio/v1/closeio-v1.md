@@ -39,7 +39,7 @@ tier: "Standard"
 status-url: "http://status.close.io/"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

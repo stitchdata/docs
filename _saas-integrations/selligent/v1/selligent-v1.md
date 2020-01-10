@@ -29,13 +29,12 @@ singer: true
 tap-name: "Selligent"
 repo-url: https://github.com/singer-io/tap-selligent
 
-# this-version: "1.0"
+this-version: "1.0"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"
@@ -44,7 +43,7 @@ tier: "Free"
 status-url: ""
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

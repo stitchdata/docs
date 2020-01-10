@@ -33,11 +33,11 @@ frequency: "30 minutes"
 tier: "Standard"
 status-url: "http://trust.zuora.com/"
 
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
-
-anchor-scheduling: true
-cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true

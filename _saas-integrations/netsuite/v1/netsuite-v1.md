@@ -49,7 +49,7 @@ frequency: "1 hour"
 tier: "Standard"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

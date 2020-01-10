@@ -33,11 +33,11 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.gitlab.com/
 
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: false
 column-selection: false
-
-anchor-scheduling: true
-cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true

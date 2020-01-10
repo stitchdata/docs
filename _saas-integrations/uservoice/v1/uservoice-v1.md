@@ -37,8 +37,14 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://status.uservoice.com/
 
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
+
+extraction-logs: true
+loading-reports: true
 
 # -------------------------- #
 #      Feature Summary       #

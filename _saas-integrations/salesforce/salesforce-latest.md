@@ -35,7 +35,7 @@ tier: "Standard"
 whitelist-ips: true
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: true
 column-selection: true

@@ -34,7 +34,7 @@ frequency: "60 minutes"
 tier: "Standard"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: true
 column-selection: true

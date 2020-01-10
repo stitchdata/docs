@@ -34,7 +34,7 @@ tier: "Free"
 status-url: https://twitter.com/getSaasquatch
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: false
 column-selection: false

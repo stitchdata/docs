@@ -36,11 +36,11 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
-
-anchor-scheduling: true
-cron-scheduling: false
 
 extraction-logs: true
 loading-reports: true

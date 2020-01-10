@@ -48,7 +48,7 @@ tier: "Free"
 status-url: "https://trust.asana.com/"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
