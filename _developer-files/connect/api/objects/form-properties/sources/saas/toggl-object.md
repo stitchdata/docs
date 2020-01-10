@@ -4,7 +4,7 @@
 # -------------------------- #
 
 ## NEED HELP USING THIS TEMPLATE? SEE:
-## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
+## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/source-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 # -------------------------- #
@@ -41,7 +41,7 @@ object-attributes:
   - name: "api_token"
     type: "string"
     required: true
-    description: "The user's {{ form-property.display-name }} API token. For more info and instructions on retrieving this credential, refer to our [{{ form-property.display-name }} setup documentation]({{ doc-link }})."
+    description: "Your {{ form-property.display-name }} API token. For more info and instructions on retrieving this credential, refer to our [{{ form-property.display-name }} setup documentation]({{ doc-link }})."
     value: "<API_TOKEN>"
 
   - name: "detailed_report_trailing_days"
