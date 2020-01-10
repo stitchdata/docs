@@ -26,9 +26,17 @@ Next, Stitch will display a **Grant Access to Your Bucket** page. This page cont
 
 <!-- CREATING THE IAM POLICY -->
 {% when 'create-iam-policy' %}
+{% if integration.name == "amazon-s3-csv" %}
 [An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to bucket resources. The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
 
 For more info about the top-level permissions the Stitch IAM policy grants, click the link below.
+
+{% else %}
+[An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to {{ integration.display_name }} resources.
+
+For more info about the permissions the auto-generated policy Stitch IAM policy grants, click the link below.
+
+{% endif %}
 
 {% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges.[integration.name].user-privileges %}
 
@@ -37,16 +45,16 @@ For more info about the top-level permissions the Stitch IAM policy grants, clic
 
       <div class="panel-heading">
           <h4 class="panel-title">
-              <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ integration.display_name }} Bucket Permissions</a>
+              <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-iam-policy-permissions">{{ integration.display_name }} permissions</a>
           </h4>
       </div>
 
-      <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
+      <div id="collapse-iam-policy-permissions" class="panel-collapse collapse noCrossRef">
           <div class="panel-body">
               <table class="attribute-list table-hover">
                   <tr>
                       <td class="attribute-name">
-                          <strong>Permission Name</strong>
+                          <strong>Permission name</strong>
                       </td>
                       {% if integration.name == "amazon-s3-csv" %}
                       <td class="attribute-description">
@@ -54,7 +62,7 @@ For more info about the top-level permissions the Stitch IAM policy grants, clic
                       </td>
                       {% endif %}
                       <td class="attribute-description">
-                          <strong>Operation Description</strong>
+                          <strong>Description</strong>
                       </td>
                   </tr>
 
@@ -121,7 +129,7 @@ To create the IAM policy:
 6. Select everything currently in the text field and delete it.
 7. In the text field, paste the Stitch IAM policy.
 8. Click **Review policy**.
-9. On the **Review Policy** page, give the policy a name. For example: `stitch_s3`
+9. On the **Review Policy** page, give the policy a name. For example: `stitch_{{ integration.name | replace:"-","_" }}`
 10. Click **Create policy**.
 
 
