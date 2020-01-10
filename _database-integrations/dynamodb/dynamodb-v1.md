@@ -117,7 +117,7 @@ setup-steps:
   - title: "Add {{ integration.display_name }} as a Stitch data source"
     anchor: "add-stitch-data-source"
     content: |
- #     {% include shared/database-connection-settings.html type="general" %}
+      {% include shared/database-connection-settings.html type="general" %}
 
   - title: "Create a replication schedule"
     anchor: "create-replication-schedule"
