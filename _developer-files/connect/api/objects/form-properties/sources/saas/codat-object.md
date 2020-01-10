@@ -27,8 +27,9 @@ api-type: "platform.codat"
 display-name: "Codat"
 
 source-type: "saas"
-docs-name: "codat" 
+docs-name: "codat"
 
+description: ""
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
@@ -41,15 +42,13 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The API key for the {{ form-property.display-name }} account Stitch should replicate data from. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-codat-api-key" }}) for instructions for retrieving this credential.
-    value: "<API_KEY>"
+      Your {{ form-property.display-name }} API key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | prepend: site.baseurl }}) for instructions on retrieving this credential.
+    value: "<{{ form-property.display-name | upcase }}_API_KEY>"
 
   - name: "uat_urls"
     type: "string"
-    required: true
+    required: false
     description: |
-      Indicates if the source is a UAT (sandbox) environment in {{ form-property.display-name }}. Accepted values are `true` and `false`.
-
-      **Note**: This property should be `true` only if the source is a UAT (sandbox) environment. Setting this as `true` when the instance isn't a sandbox will prevent a successful connection in Stitch.
-    value: "false"
+      Indicates whether the instance being connected is a UAT (sandbox) instance or not.
+    value: ""
 ---

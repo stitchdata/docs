@@ -41,7 +41,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The API key for the {{ form-property.display-name }} account Stitch should replicate data from. Refer to the [{{ form-property.display-name }} documentation](#retrieve-api-credentials) for instructions on retrieving this credential.
+      The API key for the {{ form-property.display-name }} account Stitch should replicate data from. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link }}#retrieve-api-credentials) for instructions on retrieving this credential.
     value: "<API_KEY>"
 
   - name: "domain"
