@@ -1,6 +1,13 @@
 <!-- This file includes the content for setting up S3-based integrations
 					that use IAM access to connect. -->
 
+{% if integration.name == "amazon-s3-csv" %}
+{% assign page-name = "Grant Access to Your Bucket" %}
+
+{% else %}
+{% assign page-name = "Configure Your DynamoDB Integration" %}
+
+{% endif %}
 {% case include.type %}
 
 <!-- RETRIEVING AWS ACCOUNT ID -->
@@ -19,7 +26,7 @@ Keep this handy - you'll need it to complete the next step.
 {% when 'aws-iam-access-intro' %}
 {% include note.html type="single-line" content="**Note**: To complete this step, you must have permissions in AWS Identity Access Management (IAM) that allow you to create/modify IAM policies and roles." %}
 
-Next, Stitch will display a **Grant Access to Your Bucket** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
+Next, Stitch will display a **{{page-name}}** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
 
 **Note**: Saving the integration before you've completed the steps below will result in connection errors.
 
@@ -142,23 +149,24 @@ To complete this step, you need the following AWS IAM permissions: `CreateRole` 
 
 If you're creating multiple {{ integration.display_name }} integrations, you'll need to complete this step for each integration you're connecting.
 
-The **Role Name** Stitch uses to connect to the Amazon S3 bucket is unique to the integration. Attempting to re-use a role for multiple integrations will cause connection errors.
+The **Role Name** Stitch uses to connect to the Amazon resource is unique to the integration. Attempting to re-use a role for multiple integrations will cause connection errors.
 {% endcapture %}
 
 {% include note.html first-line="**Required permissions**" content=iam-role-notice %}
 
 In this step, you'll create an IAM role for Stitch and apply the IAM policy from the previous step. This will ensure that Stitch is visible in any logs and audits.
 
-To create the role, you'll need the **Account ID**, **External ID**, and **Role Name** values provided on the Stitch **Grant Access to Your Bucket** page.
 
+
+To create the role, you'll need the **Account ID**, **External ID**, and **Role Name** values provided on the Stitch **{{page-name}}** page.
 
 1. In AWS, navigate to the [IAM Roles](https://console.aws.amazon.com/iam/home#/roles){:target="new"} page.
 2. Click **Create Role**.
 3. On the **Create Role** page:
    1. In the **Select type of trusted entity** section, click the **Another AWS account** option.
-   2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page.
+   2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **{{page-name}}** page.
    3. In the **Options** section, check the **Require external ID** box.
-   4. In the **External ID** field that displays, paste the External ID from the Stitch **Grant Access to Your Bucket** page:
+   4. In the **External ID** field that displays, paste the External ID from the Stitch **{{page-name}}** page:
       ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/aws-account-external-ids.png)
    5. Click **Next: Permissions**.
 4. On the **Attach permissions** page:
@@ -167,7 +175,7 @@ To create the role, you'll need the **Account ID**, **External ID**, and **Role 
    3. Click **Next: Tags**.
 5. If you want to enter any tags, do so on the **Add tags** page. Otherwise, click **Next: Review**.
 5. On the **Review** page:
-   1. In the **Role name** field, paste the Role Name from the Stitch **Grant Access to Your Bucket** page:
+   1. In the **Role name** field, paste the Role Name from the Stitch **{{page-name}}** page:
       ![Role name field mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/aws-role-name.png)
 
       **Remember**: Role names are unique to the Stitch {{ integration.display_name }} integration they're created for. Attempting to use the same role for multiple integrations will cause connection errors.

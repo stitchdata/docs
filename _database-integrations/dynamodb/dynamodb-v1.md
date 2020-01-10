@@ -101,14 +101,7 @@ requirements-list:
   - item: |
       **An Amazon Web Services (AWS) account.** Signing up is free - [click here](https://aws.amazon.com){:target="new"} or go to `https://aws.amazon.com` to create an account if you don't have one already.
   - item: |
-      **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to your DynamoDB bucket.
-
-# File requirements are in: _data/taps/extraction/file-systems/file-requirements.yml
-  - item: |
-      **Files that adhere to Stitch's file requirements**:
-
-      {{ site.data.taps.extraction.file-systems.file-requirements.support-table | flatify }}
-
+      **Permissions in AWS Identity Access Management (IAM) that allow you to create policies, create roles, and attach policies to roles**. This is required to grant Stitch authorization to {{ integration.display_name }}.
 
 
 # -------------------------- #
@@ -126,18 +119,12 @@ setup-steps:
     content: |
  #     {% include shared/database-connection-settings.html type="general" %}
 
-
-  - title: "Define the historical sync"
-    anchor: "define-historical-sync"
-    content: |
-      {% include integrations/shared-setup/configure-table-settings-file-server.html type="define-historical-sync" %}
-
   - title: "Create a replication schedule"
     anchor: "create-replication-schedule"
     content: |
       {% include integrations/shared-setup/replication-frequency.html %}
 
-  - title: "Grant access to your bucket using AWS IAM"
+  - title: "Grant access to {{ integration.display_name }} using AWS IAM"
     anchor: "grant-access-bucket-iam"
     content: |
       {% include integrations/shared-setup/aws-s3-iam-setup.html type="aws-iam-access-intro" %}
@@ -180,7 +167,7 @@ replication-sections:
         - `New Image`
         - `New and old images`
  
-      Note: DynamoDB streams are purged after 24 hours. To ensure you don't lose data, set the integration's Replication Frequency to an interval less than 24 hours (ex: 12 hours).
+      {% include note.html type="single-line" content="**Note**: DynamoDB streams are purged after 24 hours. To ensure you don't lose data, set the integration's Replication Frequency to an interval less than 24 hours (ex: 12 hours)." %}
 
   - title: "Full Table Replication"
     anchor: "full-table-replication"
@@ -190,7 +177,7 @@ replication-sections:
 
       Stitch's DynamoDB integration will only use eventually consistent reads from your selected DynamoDB tables. What this means for you is that you will not see all of your recent data right away, but it will eventually catch up and return the latest records. For more information on Amazon's DynamoDB Read Consistency, please click [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html).
 
-      {% include note.html type="single-line" content="**Note**: DynamoDB streams are purged after 24 hours. To ensure you don't lose data, set the integration's Replication Frequency to an interval less than 24 hours (ex: 12 hours)." %}
+      
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
