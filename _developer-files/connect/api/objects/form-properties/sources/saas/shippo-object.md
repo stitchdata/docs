@@ -15,21 +15,19 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-closeio-object"
+key: "source-form-properties-shippo-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Close.io Source Form Property"
-api-type: "platform.closeio"
-display-name: "Close.io"
+title: "Shippo Source Form Property"
+api-type: "platform.shippo"
+display-name: "Shippo"
 
 source-type: "saas"
-docs-name: "closeio"
-
-description: ""
+docs-name: "shippo"
 
 
 # -------------------------- #
@@ -39,10 +37,10 @@ description: ""
 uses-start-date: true
 
 object-attributes:
-  - name: "api_key"
+  - name: "token"
     type: "string"
     required: true
     description: |
-      Your {{ form-property.display_name }} API key. API keys can be generated in {{ form-property.display_name }} by navigating to **Settings > Your API Keys**.
-    value: "<API_KEY>"
+      Your {{ form-property.display-name }} API token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-api-creds" }}) for instructions on retrieving this credential.
+    value: "<API_TOKEN>"
 ---

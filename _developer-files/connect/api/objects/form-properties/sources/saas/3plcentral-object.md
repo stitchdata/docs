@@ -39,11 +39,6 @@ description: |
 
 uses-start-date: true
 
-# Only source-specific attributes need to be listed here.
-# The following attributes are considered common,
-# and therefore don't need to be listed:
-# anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
-
 object-attributes:
   - name: "base_url"
     type: "string"

@@ -14,7 +14,7 @@ key: "source-form-properties-mysql-object"
 # -------------------------- #
 
 title: "MySQL Source Form Property"
-api-type: "mysql"
+api-type: "platform.mysql"
 display-name: "MySQL"
 
 source-type: "database"

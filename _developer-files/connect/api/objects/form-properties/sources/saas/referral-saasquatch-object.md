@@ -15,21 +15,19 @@
 product-type: "connect"
 content-type: "api-form"
 form-type: "source"
-key: "source-form-properties-closeio-object"
+key: "source-form-properties-referral-saasquatch-object"
 
 
 # -------------------------- #
 #        OBJECT INFO         #
 # -------------------------- #
 
-title: "Close.io Source Form Property"
-api-type: "platform.closeio"
-display-name: "Close.io"
+title: "Referral SaaSquatch Source Form Property"
+api-type: "platform.referral-saasquatch"
+display-name: "Referral SaaSquatch"
 
 source-type: "saas"
-docs-name: "closeio"
-
-description: ""
+docs-name: "referral-saasquatch"
 
 
 # -------------------------- #
@@ -43,6 +41,12 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Your {{ form-property.display_name }} API key. API keys can be generated in {{ form-property.display_name }} by navigating to **Settings > Your API Keys**.
+      Your {{ form-property.display-name }} API key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-api-credentials" }}) for instructions on retrieving this credential.
     value: "<API_KEY>"
+
+  - name: "tenant_alias"
+    type: "string"
+    required: true
+    description: "Your {{ form-property.display-name }} tenant alias."
+    value: "<TENANT_ALIAS>"
 ---

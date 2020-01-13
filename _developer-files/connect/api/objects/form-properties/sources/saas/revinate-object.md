@@ -23,7 +23,7 @@ key: "source-form-properties-revinate-object"
 # -------------------------- #
 
 title: "Revinate Source Form Property"
-api-type: "revinate"
+api-type: "platform.revinate"
 display-name: "Revinate"
 
 source-type: "saas"
