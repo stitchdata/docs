@@ -18,6 +18,7 @@ keywords: snowflake, snowflake data warehouse, snowflake data warehouse, snowfla
 summary: "Connect a Snowflake database to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "snowflake-destination-setup"
 order: 1
 
 toc: true
@@ -34,6 +35,8 @@ type: "snowflake"
 
 ssh: false
 ssl: true
+
+this-version: "1"
 
 
 # -------------------------- #

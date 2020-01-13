@@ -18,6 +18,7 @@ keywords: postgresql data warehouse, postgresql data warehouse, etl to postgres,
 summary: "Connect an Amazon Aurora PostgreSQL RDS database to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "aurora-postgres-destination-setup"
 order: 2
 
 toc: true
@@ -29,7 +30,7 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Aurora PostgreSQL"
+display_name: "Amazon Aurora PostgreSQL"
 type: "postgres"
 setup-name: "PostgreSQL"
 
@@ -38,6 +39,10 @@ hosting-type: "amazon"
 ssh: true
 ssl: true
 port: 5432
+
+api-type: "postgres"
+
+this-version: "1"
 
 
 # -------------------------- #

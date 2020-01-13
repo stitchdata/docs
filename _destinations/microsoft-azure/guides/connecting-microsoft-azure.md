@@ -20,6 +20,7 @@ keywords: microsoft azure sql data warehouse, microsoft azure data warehouse, mi
 summary: "Connect a Microsoft Azure SQL Data Warehouse database to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "azure-sql-dw-destination-setup"
 order: 1
 
 toc: true
@@ -40,6 +41,7 @@ ssh: true
 ssl: true
 port: 1433
 
+this-version: "1"
 
 # -------------------------- #
 #        Introduction        #

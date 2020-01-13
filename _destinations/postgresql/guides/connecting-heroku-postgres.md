@@ -18,6 +18,7 @@ keywords: postgres data warehouse, postgresql data warehouse, etl to postgres, p
 summary: "Connect a Heroku-PostgreSQL destination to your Stitch account."
 
 content-type: "destination-setup"
+key: "heroku-postgres-destination-setup"
 order: 4
 
 toc: true
@@ -35,6 +36,11 @@ setup-name: "PostgreSQL"
 
 ssh: false
 ssl: true
+
+api-type: "postgres"
+
+this-version: "1"
+
 
 # -------------------------- #
 #        Requirements        #

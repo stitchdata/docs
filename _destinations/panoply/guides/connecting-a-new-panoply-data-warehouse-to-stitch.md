@@ -18,6 +18,7 @@ keywords: panoply, panoply.io, panoply data warehouse, panoply.io data warehouse
 summary: "Spin up and connect a new Panoply destination to Stitch."
 
 content-type: "destination-setup"
+key: "panoply-destination-setup"
 order: 1
 
 layout: tutorial
@@ -33,6 +34,8 @@ type: "panoply"
 
 ssh: false
 ssl: false
+
+this-version: "2"
 
 
 # -------------------------- #

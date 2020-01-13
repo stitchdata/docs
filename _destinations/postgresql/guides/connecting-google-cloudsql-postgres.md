@@ -21,6 +21,7 @@ redirect_from: /destinations/postgresq/connecting-a-google-cloudsql-postgresql-d
 summary: "Connect a Google CloudSQL PostgreSQL database to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "cloudsql-postgres-destination-setup"
 order: 3
 
 toc: true
@@ -32,7 +33,7 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "CloudSQL PostgreSQL"
+display_name: "Google CloudSQL PostgreSQL"
 type: "postgres"
 setup-name: "PostgreSQL"
 
@@ -42,6 +43,9 @@ ssh: false
 ssl: false
 port: 5432
 
+this-version: "1"
+
+api-type: "postgres"
 
 # -------------------------- #
 #        Introduction        #
