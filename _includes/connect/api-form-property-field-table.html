@@ -5,78 +5,60 @@
 		_includes/connect/api-form-property-[type]-fields.html -->
 
 
-<table class="attribute-list">
-    {% for attribute in all-form-attributes %}
-	    <tr>
-	        <td class="attribute-name">
-	            <strong>
-	                {{ attribute.name | flatify }}
-	            </strong><br>
-	            {{ attribute.type | upcase }}<br>
+<!-- For destination and database form properties -->
+{% if form-property.form-type == "destination"
+   or form-property.source-type == "database" %}
 
-	            {% if attribute.internal == true %}
-	            	<font color="#999999">INTERNAL</font>
+	<table class="attribute-list">
+	    {% for attribute in all-form-attributes %}
+		    <tr>
+		        <td class="attribute-name">
+		            <strong>
+		                {{ attribute.name | flatify }}
+		            </strong><br>
+		            {{ attribute.type | upcase }}<br>
 
-	            {% else %}
+		            {% case attribute.required %}
+		                {% when true %}
+		                    <font color="#E96065">REQUIRED</font>
+		                {% else %}
+		                    OPTIONAL
+		            {% endcase %}
+		        </td>
+		        <td>
+		            {{ attribute.description | flatify | markdownify }}
+		        </td>
+		    </tr>
+		{% endfor %}
+	</table>
 
-		            {% if attribute.read-only == true %}
-		            	<font color="#999999">READ-ONLY</font>
+<!-- For SaaS form properties -->
+{% elsif form-property.source-type == "saas" %}
+	{% assign api-type-clean = form-property.api-type | remove: "platform." %}
 
-		            {% else %}
-		            	{% case attribute.required %}
-			                {% when true %}
-			                    <font color="#cc3399">REQUIRED</font>
-			                {% else %}
-			                    OPTIONAL
-			            {% endcase %}
-		            {% endif %}
-		        {% endif %}
-	        </td>
-	        <td>
-	        	{% if attribute.read-only == true %}
-	        		<p><strong>Note:</strong> This is a read-only property and will be returned when the {{ form-property.display-name }} object is successfully created. Including it in <code>POST</code> or <code>PUT</code> requests will result in <code>InvalidProperties</code> errors.</p>
-	        	{% endif %}
+	<table class="attribute-list">
+    	{% for attribute in all-form-attributes %}
+            {% unless attribute.exclude contains api-type-clean %}
+            <tr>
+                <td class="attribute-name">
+                    <strong>
+                        {{ attribute.name | flatify }}
+                    </strong><br>
+                    {{ attribute.type | upcase }}<br>
 
-	            {{ attribute.description | flatify | markdownify }}
+                    {% case attribute.required %}
+                        {% when true %}
+                            <font color="#E96065">REQUIRED</font>
+                        {% else %}
+                            OPTIONAL
+                    {% endcase %}
+                </td>
+                <td>
+                    {{ attribute.description | flatify | markdownify }}
+                </td>
+            </tr>
+            {% endunless %}
+    	{% endfor %}
+    </table>
 
-	            {% if attribute.subattributes %}
-
-	            	<p>Contains the following properties:</p>
-	            	
-		            <table class="attribute-list">
-					    {% for subattribute in attribute.subattributes %}
-						    <tr>
-						        <td class="attribute-name">
-						            <strong>
-						                {{ subattribute.name | flatify }}
-						            </strong><br>
-						            {{ subattribute.type | upcase }}<br>
-
-						            {% if subattribute.read-only == true %}
-						            	<font color="#999999">READ-ONLY</font>
-
-						            {% else %}
-
-							            {% case subattribute.required %}
-							                {% when true %}
-							                    <font color="#cc3399">REQUIRED</font>
-							                {% else %}
-							                    OPTIONAL
-							            {% endcase %}
-							        {% endif %}
-						        </td>
-						        <td>
-						        	{% if subattribute.read-only == true %}
-						        		<p><strong>Note:</strong> This is a read-only property. Including it in <code>POST</code> or <code>PUT</code> requests will result in <code>InvalidProperties</code> errors.</p>
-						        	{% endif %}
-
-						            {{ subattribute.description | flatify | markdownify }}
-						        </td>
-						    </tr>
-						{% endfor %}
-					</table>
-				{% endif %}
-	        </td>
-	    </tr>
-	{% endfor %}
-</table>
+{% endif %}

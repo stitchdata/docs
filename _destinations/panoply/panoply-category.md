@@ -34,7 +34,7 @@ layout: general
 display_name: "Panoply"
 type: "panoply"
 
-this-version: "1"
+this-version: "2"
 
 # -------------------------- #
 #          Sections          #

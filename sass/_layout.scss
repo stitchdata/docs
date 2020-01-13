@@ -3,7 +3,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background: $protocol-black;
+  background: linear-gradient(135deg, rgba(35,114,136,1) 0%, rgba(24,26,40,1) 100%); // dark green to dark blue
   width: 100%;
   padding: 1em 4em;
   height: 4.5em;
@@ -23,6 +23,10 @@
     justify-content: flex-end;
     flex: 4;
 
+    ul {
+      padding-inline-start: 0;
+    }
+
     li {
       display: inline-block;
       margin-left: 25px;
@@ -33,23 +37,24 @@
         color: $white;
 
         &:hover {
-          color: $gray-3;
+          opacity: 0.8;
           text-decoration: none;
         }
       }
       &.sign-up {
         a {
-          color: $stitch-yellow;
+          color: $scooter;
           font-weight: bold;
         }
       }
     }
   }
 
-  #stitch_logomark {
+  svg {
     display: inline-block;
     float: left;
     vertical-align: middle;
+    height: 38px;
   }
 
   .navbar-brand {
@@ -116,22 +121,35 @@ body {
       li {
         a {
           color: $protocol-black;
+          background: $gray-1;
+          font-weight: 400;
+
+          &:hover {
+            background: $gray-2;
+          }
+        }
+
+        &:hover {
+          background: gray-1;
         }
 
         ul {
           list-style: none;
           padding-left: 30px;
+          background: $gray-1;
 
           li {
             a {
               color: $protocol-black;
               font-size: 0.85rem;
-              margin: 0.75em 0;
+              margin: 0.5em 0;
+              padding: 2px 5px;
               display: block;
               max-width: 254px;
+              font-weight: 400;
 
               &:hover {
-                color: $gray-3;
+                color: $lochmara;
                 text-decoration: none;
               }
 
@@ -162,26 +180,30 @@ body {
     .breadbox {
       position: fixed;
       top: 68px;
-      background: #ffffff;
-      width: 52em;
-      max-width: 100%;
+      background: rgb(255,255,255);
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 90%, rgba(255,255,255,0) 100%);
       min-height: 6.35em;
       z-index: 2;
+      width: 52em;
+      max-width: 100%;
 
       .breadcrumb-container {
         width: 100%;
         position: absolute;
         bottom: 0;
         left: 0;
-        border-bottom: 2px solid $stitch-yellow;
+        border-bottom: 2px solid $lochmara;
         padding-bottom: 0.5em;
         margin-bottom: 0.5em;
+        font-weight: 700;
 
         .dropdown-menu {
           li {
+
             a,
             &.active {
               padding: 0.5em;
+              color: $protocol-black;
             }
 
             a:hover {
@@ -190,11 +212,15 @@ body {
           }
         }
 
+        strong {
+          color: $lochmara;
+        }
+
         a {
           color: $protocol-black;
 
           &:hover {
-            color: $gray-3;
+            color: $gray-5;
             text-decoration: none;
           }
         }
@@ -219,10 +245,6 @@ body {
             width: 10em;
             min-width: fit-content;
           }
-        }
-
-        .breadbox {
-          max-width: 52em;
         }
       }
     }

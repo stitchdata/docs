@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Deleted"
 doc-link: "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Deleted.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Deleted.json"
 description: |
   The `{{ table.name }}` table contains info about deleted records.
 

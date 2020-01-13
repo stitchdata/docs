@@ -1,0 +1,100 @@
+<!-- This file is used to create the summary tables that list
+        all resources of a given type. For example: A list of all
+        endpoints, or all form properties, etc. -->
+
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+
+{% case include.type %}
+    {% when 'endpoint' %}
+        {% assign object-methods = object.available-methods %}
+
+        {% assign item = object-method %}
+        {% assign items = object-methods %}
+
+    {% when 'data-structure' %}
+        {% assign item = structure %}
+        {% assign items = data-structures | sort:"title" %}
+
+    {% when 'form-property' %}
+        {% case include.subtype %}
+            {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
+
+            {% when 'destination' %}
+                {% assign form-properties = all-docs | where:"form-type","destination" | sort: "title" %}
+
+            {% when 'source' %}
+                {% assign form-properties = all-docs | where:"form-type","source" | sort: "title" %}
+
+            {% else %}
+                {% assign form-properties = all-docs | where:"content-type","api-form" | sort: "title" %}
+        {% endcase %}
+
+            {% assign item = form-property %}
+            {% assign items = form-properties %}
+
+{% endcase %}
+
+<table class="method-rollup">
+<!--     {% if include.type == "endpoint" %}
+        <tr>
+            <td class="object" align="center">
+                OBJECT
+            </td>
+            <td width="25%; fixed" align="center">
+                <strong>
+                    <a href="#{{ object.title | slugify | append: "--object" }}">
+                    {{ object.title | append: " object" }}
+                    </a>
+                </strong>
+            </td>
+            <td>
+                {{ object.description | flatify | markdownify }}
+            </td>
+        </tr>
+    {% endif %} -->
+
+    {% for item in items %}
+        <tr>
+            {% case include.type %}
+                {% when 'endpoint' %}
+                    <td class="{{ item.method }}" align="center">
+                        {{ item.method | flatify | upcase }}
+                    </td>
+                    <td align="center">
+                        <strong>
+                            <a href="#{{ item.id }}">{{ item.title }}</a>
+                        </strong>
+                    </td>
+                    <td>
+                        {{ item.short | flatify | markdownify }}
+                    </td>
+
+                {% else %}
+                    <td class="object" align="center">
+                        OBJECT
+                    </td>
+                    <td align="center" width="25%; fixed">
+                        <strong>
+                            <a href="#{{ item.key }}">{{ item.title }}</a>
+                        </strong>
+                    </td>
+                    <td>
+                        {% if include.type == "form-property" %}
+
+                        <!-- property-description is a Frontmatter variable located in _connect-files/documentation/api-form-properties.html
+
+                        It's a block of Liquid code that checks a form property's type and then outputs
+                            the correct description for it. -->
+                            
+                            {{ doc.property-description | replace: "VARIABLE","item" | flatify | markdownify }}
+                        {% else %}
+                            {{ item.description | flatify | markdownify }}
+                        {% endif %}
+                    </td>
+            {% endcase %}
+        </tr>
+    {% endfor %}
+</table>
+
+<hr>

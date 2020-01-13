@@ -3,7 +3,7 @@
 
 {% assign destinations = site.destinations | where:"destination",true | sort: "display_name" %}
 
-<ul class="tiles">
+<ul class="tiles three-columns">
 {% for destination in destinations %}
 	{% include shared/versioning/destination-version-logic.html item-name="destination" %}
 

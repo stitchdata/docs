@@ -1,0 +1,44 @@
+# -------------------------- #
+#        BATCH OBJECT        #
+# -------------------------- #
+
+name: "Batch"
+
+url: &url "/v2/import/batch"
+
+anchor: "#batch-data"
+
+object-anchor: "#batch--object"
+object: "An object containing a table name, a table schema, and message objects representing records to be pushed to Stitch."
+
+short: &push-short "Pushes data for a specified table to Stitch."
+
+description: *push-short
+
+# -------------------------- #
+#     ENDPOINT COMPARISON    #
+# -------------------------- #
+
+## Used to compare against the Push endpoint.
+
+comparison:
+  requires-primary-keys:
+    support: |
+      {{ sometimes-supported | replace:"TOOLTIP","Optional" }} **Optional**
+    note: |
+      Defined using the `key_names` property. If provided, each record for the specified table must have a unique, non-null Primary Key value.
+
+      **Note**: Tables without Primary Keys will be loaded using [Append-Only loading]({{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}).
+
+  enforces-data-types:
+    support: true
+    note: |
+      Enforced using JSON schema. Records that violate the schema will result in a `400` response and an error. Refer to the [Batch endpoint data typing section](#batch-data-endpoint-data-typing) for more info.
+      
+  accepts-multiple-tables:
+    support: false
+    note: "Requests may only contain data for a single table at a time. Data for multiple tables must be sent via a request for each table."
+
+  accepts-multiple-records:
+    support: true
+    note: "Requests may contain multiple records, as long as all records have the same structure and are destined for the same table."

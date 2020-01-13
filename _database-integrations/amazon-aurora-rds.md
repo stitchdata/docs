@@ -17,7 +17,7 @@ sections:
 
       Stitch supports connecting to both MySQL and PostgreSQL-backed Amazon Aurora databases as data sources:
 
-      <ul class="tiles">
+      <ul class="tiles two-columns">
           {% for integration in all-databases %}
               {% if integration.show-in-menus == true %}
               <li>

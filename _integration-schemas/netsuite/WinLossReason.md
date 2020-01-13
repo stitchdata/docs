@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "WinLossReason"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/winlossreason.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/WinLossReason.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/WinLossReason.json"
 description: |
   The `{{ table.name }}` table contains info about the win/loss reasons in your {{ integration.display_name }} account.
 
