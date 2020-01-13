@@ -153,7 +153,7 @@ SELECT *
 
 In this query:
 
-1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/){:target="new"} to create a 'window' of data for each {% case integration.name %}{% when 'google-adwords' %}`{{ replication-key }}` and `{{ customerid }}` combination{% when 'campaign-manager' %} combination of Dimensions{% else %} `{{ replication-key }}`{% endcase %},
+1. [A subquery first uses a window function](https://chartio.com/resources/tutorials/using-window-functions/){:target="new"} to create a 'window' of data for each {% case integration.name %}{% when 'google-ads' %}`{{ replication-key }}` and `{{ customerid }}` combination{% when 'campaign-manager' %} combination of Dimensions{% else %} `{{ replication-key }}`{% endcase %},
 2. The values of the `{{ system-column.report-date-time }}` column are ranked within each window partition, and
 3. Then, in the outer query, only the rows with `{{ system-column.report-date-time }}` values ranked as `1` - which is equal to the maximum timestamp - are returned. 
 
