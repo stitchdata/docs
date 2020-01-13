@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Revinate
+title: Revinate (v1)
 permalink: /integrations/saas/revinate
 keywords: revinate, integration, schema, etl revinate, revinate etl, revinate schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Revinate integration."
@@ -32,7 +32,7 @@ singer: true
 tap-name: "Revinate"
 repo-url: https://github.com/singer-io/tap-revinate
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Porter API](https://porter.revinate.com/documentation){:target="new"}
@@ -46,6 +46,8 @@ certified: false
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
+
+api-type: "platform.revinate"
 
 anchor-scheduling: true
 cron-scheduling: true

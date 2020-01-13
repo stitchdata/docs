@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Bronto (v1.0)
+title: Bronto (v1)
 permalink: /integrations/saas/bronto
 keywords: bronto, integration, schema, etl bronto, bronto etl, bronto schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Bronto integration."
@@ -21,7 +21,7 @@ display_name: "Bronto"
 singer: true 
 repo-url: https://github.com/singer-io/tap-bronto
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} SOAP API](https://help.bronto.com/bmp/concept/c_api_soap_intro.html){:target="new"}
@@ -36,11 +36,13 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 
-table-selection: false
-column-selection: false
+api-type: "platform.bronto"
 
 anchor-scheduling: true
 cron-scheduling: true
+
+table-selection: false
+column-selection: false
 
 extraction-logs: true
 loading-reports: true

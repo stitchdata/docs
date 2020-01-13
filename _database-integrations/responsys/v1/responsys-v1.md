@@ -52,7 +52,7 @@ port: 22
 db-type: "responsys"
 
 ## Stitch features
-api-type: "responsys"
+api-type: "platform.responsys"
 versions: "n/a"
 ssh: true
 ssl: false

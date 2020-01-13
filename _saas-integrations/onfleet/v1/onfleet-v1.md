@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Onfleet
+title: Onfleet (v1)
 permalink: /integrations/saas/onfleet
 keywords: onfleet, integration, schema, etl onfleet, onfleet etl, onfleet schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "Onfleet"
 repo-url: https://github.com/singer-io/tap-onfleet
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](http://docs.onfleet.com/docs){:target="new"}
@@ -46,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "http://status.onfleet.com/"
+
+api-type: "platform.onfleet"
 
 anchor-scheduling: true
 cron-scheduling: true

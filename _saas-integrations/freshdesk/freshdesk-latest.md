@@ -1,5 +1,5 @@
 ---
-title: Freshdesk (v1.0)
+title: Freshdesk (v1)
 permalink: /integrations/saas/freshdesk
 keywords: freshdesk, integration, schema, etl freshdesk, freshdesk etl, freshdesk schema
 summary: "Connection instructions and schema details for Stitch's Freshdesk integration."
@@ -17,7 +17,7 @@ display_name: "Freshdesk"
 singer: true
 repo-url: https://github.com/singer-io/tap-freshdesk
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://developer.freshdesk.com/api/){:target="new"}
@@ -33,6 +33,8 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: http://updates.freshdesk.com/
+
+api-type: "platform.freshdesk"
 
 table-selection: false
 column-selection: false

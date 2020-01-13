@@ -37,7 +37,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-api-type: "cloudsql"
+api-type: "platform.cloudsql"
 versions: "n/a"
 ssh: false
 ssl: false

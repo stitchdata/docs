@@ -35,7 +35,7 @@ repo-url: https://github.com/singer-io/tap-bigcommerce
 api: |
   [{{ integration.display_name }} REST API](https://developer.bigcommerce.com/){:target="new"}
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -47,6 +47,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.bigcommerce.com/"
+
+api-type: "platform.bigcommerce"
 
 anchor-scheduling: true
 cron-scheduling: true

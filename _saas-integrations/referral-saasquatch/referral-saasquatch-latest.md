@@ -1,5 +1,5 @@
 ---
-title: Referral SaaSquatch (v1.0)
+title: Referral SaaSquatch (v1)
 permalink: /integrations/saas/referral-saasquatch
 keywords: referral saasquatch, integration, schema, etl referral saasquatch, referral saasquatch etl, referral saasquatch schema
 summary: "Connection instructions and schema details for Stitch's Referral SaaSquatch integration."
@@ -17,7 +17,7 @@ display_name: "Referral SaaSquatch"
 singer: true
 repo-url: https://github.com/singer-io/tap-referral-saasquatch
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://docs.referralsaasquatch.com/api/){:target="new"}
@@ -32,6 +32,8 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: https://twitter.com/getSaasquatch
+
+api-type: "platform.referral-saasquatch"
 
 anchor-scheduling: true
 cron-scheduling: true

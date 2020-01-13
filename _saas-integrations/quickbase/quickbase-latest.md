@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Quick Base (v1.0)
+title: Quick Base (v1)
 permalink: /integrations/saas/quick-base
 keywords: quick-base, integration, schema, etl quick-base, quick-base etl, quick-base schema
 layout: singer
@@ -21,7 +21,7 @@ display_name: "Quick Base"
 singer: true
 repo-url: https://github.com/singer-io/tap-quickbase
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} HTTP API](https://help.quickbase.com/api-guide/intro.html){:target="new"}
@@ -36,6 +36,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: https://service.quickbase.com/#!/
+
+api-type: "platform.quickbase"
 
 anchor-scheduling: true
 cron-scheduling: true

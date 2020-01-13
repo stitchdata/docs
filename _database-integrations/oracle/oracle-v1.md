@@ -56,7 +56,7 @@ port: 1521
 db-type: "oracle"
 
 ## Stitch features
-api-type: "oracle"
+api-type: "platform.oracle"
 versions: "n/a"
 ssh: true
 ssl: true

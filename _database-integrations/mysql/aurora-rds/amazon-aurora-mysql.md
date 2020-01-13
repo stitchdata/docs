@@ -42,7 +42,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-api-type: "aurora"
+api-type: "platform.aurora"
 versions: "n/a"
 ssh: true
 ssl: true

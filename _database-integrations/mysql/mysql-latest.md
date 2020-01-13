@@ -42,7 +42,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-api-type: "mysql"
+api-type: "platform.mysql"
 versions: "n/a"
 ssh: true
 ssl: true

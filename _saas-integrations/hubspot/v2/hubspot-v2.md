@@ -1,5 +1,5 @@
 ---
-title: HubSpot
+title: HubSpot (v2)
 permalink: /integrations/saas/hubspot
 keywords: hubspot, integration, schema, etl hubspot, hubspot etl
 summary: "Connection instructions and schema details for Stitch's HubSpot integration."
@@ -17,7 +17,7 @@ display_name: "HubSpot"
 singer: true
 repo-url: https://github.com/singer-io/tap-hubspot
 
-this-version: "2.0"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} REST API](https://developers.hubspot.com/docs/overview){:target="new"}
@@ -32,6 +32,8 @@ historical: "30 days"
 frequency: "30 minutes"
 tier: "Standard"
 status-url: https://status.hubspot.com/
+
+api-type: "platform.hubspot"
 
 anchor-scheduling: true
 cron-scheduling: true

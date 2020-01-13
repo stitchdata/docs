@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Invoiced
+title: Invoiced (v1)
 permalink: /integrations/saas/invoiced
 keywords: invoiced, integration, schema, etl invoiced, invoiced etl, invoiced schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "Invoiced"
 repo-url: https://github.com/singer-io/tap-invoiced
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://invoiced.com/docs/api/){:target="new"}
@@ -46,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://www.invoicedstatus.com/"
+
+api-type: "platform.invoiced"
 
 anchor-scheduling: true
 cron-scheduling: true

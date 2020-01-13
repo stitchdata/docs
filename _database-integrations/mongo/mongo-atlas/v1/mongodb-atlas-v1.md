@@ -28,7 +28,6 @@ setup-name: "MongoDB"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 singer: true
 certified: true
 
@@ -38,7 +37,7 @@ port: 27017
 db-type: "mongo"
 
 ## Stitch features
-api-type: "mongodb"
+api-type: "platform.mongodb"
 versions: "2.6 through 4.0"
 ssh: false
 ssl: true

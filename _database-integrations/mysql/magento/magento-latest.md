@@ -29,7 +29,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "30 minutes"
@@ -38,7 +37,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-api-type: "mysql"
+api-type: "platform.mysql"
 versions: "n/a"
 ssh: true
 ssl: false

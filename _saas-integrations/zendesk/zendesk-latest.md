@@ -1,5 +1,5 @@
 ---
-title: Zendesk Support (v1.0)
+title: Zendesk Support (v1)
 permalink: /integrations/saas/zendesk
 keywords: zendesk, integration, schema, etl zendesk, zendesk etl, zendesk schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Zendesk Support integration."
@@ -18,7 +18,7 @@ singer: true
 status-url: "https://status.zendesk.com/"
 repo-url: "https://github.com/singer-io/tap-zendesk"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/support/introduction){:target="new"}
@@ -32,6 +32,8 @@ certified: true
 historical: "1 year"
 frequency: "60 minutes"
 tier: "Standard"
+
+api-type: "platform.zendesk"
 
 anchor-scheduling: true
 cron-scheduling: true

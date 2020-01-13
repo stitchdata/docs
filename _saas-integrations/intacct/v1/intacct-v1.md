@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Intacct (v1.0)
+title: Intacct (v1)
 permalink: /integrations/saas/intacct
 keywords: intacct, integration, schema, etl intacct, intacct etl, intacct schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Intacct integration."
@@ -34,7 +34,7 @@ singer: true
 tap-name: "Intacct"
 repo-url: https://github.com/singer-io/tap-intacct
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -46,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://www.sageintacct.com/system-status"
+
+api-type: "platform.intacct"
 
 anchor-scheduling: true
 cron-scheduling: true

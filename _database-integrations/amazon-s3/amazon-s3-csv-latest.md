@@ -45,7 +45,7 @@ historical: "1 year"
 tier: "Free"
 
 ## Stitch features
-api-type: "s3-csv"
+api-type: "platform.s3-csv"
 versions: "n/a"
 ssh: false
 ssl: false

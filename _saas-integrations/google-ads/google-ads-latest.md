@@ -44,6 +44,8 @@ frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
+api-type: "platform.adwords"
+
 anchor-scheduling: true
 cron-scheduling: true
 

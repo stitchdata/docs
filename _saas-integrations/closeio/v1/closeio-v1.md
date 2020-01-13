@@ -3,9 +3,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Close.io (v1.0)
+title: Close.io (v1)
 permalink: /integrations/saas/closeio
-tags: [saas_integrations]
 keywords: closeio, integration, schema, etl closeio, closeio etl, closeio schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Close.io integration."
 layout: singer
@@ -21,7 +20,7 @@ display_name: "Close.io"
 singer: true
 repo-url: https://github.com/singer-io/tap-closeio
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API](https://developer.close.com/){:target="new"}
@@ -37,6 +36,8 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Standard"
 status-url: "http://status.close.io/"
+
+api-type: "platform.closeio"
 
 anchor-scheduling: true
 cron-scheduling: true

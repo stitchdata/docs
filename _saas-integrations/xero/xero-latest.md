@@ -1,5 +1,5 @@
 ---
-title: Xero (v1.0)
+title: Xero (v1)
 permalink: /integrations/saas/xero
 keywords: xero, integration, schema, etl xero, xero etl, xero schema
 summary: "Connection instructions and schema details for Stitch's Xero integration."
@@ -18,7 +18,7 @@ singer: true
 status-url: "https://status.xero.com"
 repo-url: "https://github.com/singer-io/tap-xero"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Accounting API](https://developer.xero.com/documentation/api/api-overview){:target="new"}
@@ -32,6 +32,8 @@ certified: true
 historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
+
+api-type: "platform.xero"
 
 anchor-scheduling: true
 cron-scheduling: true

@@ -1,5 +1,5 @@
 ---
-title: Marketo (v2.0)
+title: Marketo (v2)
 permalink: /integrations/saas/marketo
 keywords: marketo, integration, schema, etl marketo, marketo etl, marketo schema
 summary: "Connection instructions and schema details for Stitch's Marketo integration."
@@ -17,7 +17,7 @@ display_name: "Marketo"
 singer: true
 repo-url: https://github.com/singer-io/tap-marketo
 
-this-version: "2.0"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"}
@@ -32,6 +32,8 @@ historical: "1 year"
 frequency: "12 hours"
 tier: "Standard"
 status-url: http://status.marketo.com/
+
+api-type: "platform.marketobulk"
 
 anchor-scheduling: true
 cron-scheduling: true

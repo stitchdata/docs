@@ -29,7 +29,7 @@ singer: true
 tap-name: "3PL Central"
 repo-url: https://github.com/singer-io/tap-3plcentral
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -41,6 +41,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: ""
+
+api-type: "platform.3plcentral"
 
 anchor-scheduling: true
 cron-scheduling: true

@@ -23,7 +23,7 @@ singer: true
 tap-name: "Amplitude"
 repo-url: https://github.com/singer-io/tap-amplitude
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -35,6 +35,8 @@ historical: "n/a"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.amplitude.com/"
+
+api-type: "platform.amplitude"
 
 anchor-scheduling: true
 cron-scheduling: true

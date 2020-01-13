@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Campaign Monitor (v1.0)
+title: Campaign Monitor (v1)
 permalink: /integrations/saas/campaign-monitor
 keywords: campaign monitor, integration, schema, etl campaign monitor, campaign monitor etl, campaign monitor schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Campaign Monitor integration."
@@ -22,7 +22,7 @@ display_name: "Campaign Monitor"
 singer: true 
 repo-url: https://github.com/singer-io/tap-campaign-monitor
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://www.campaignmonitor.com/api/){:target="new"}
@@ -37,6 +37,8 @@ historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.campaignmonitor.com/"
+
+api-type: "platform.campaign-monitor"
 
 anchor-scheduling: true
 cron-scheduling: true

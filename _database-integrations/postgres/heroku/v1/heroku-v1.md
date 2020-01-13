@@ -38,7 +38,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-api-type: "heroku_pg"
+api-type: "platform.heroku_pg"
 versions: "9.3+"
 ssh: false
 ssl: true

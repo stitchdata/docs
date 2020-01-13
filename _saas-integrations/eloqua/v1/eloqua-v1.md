@@ -31,7 +31,7 @@ singer: true
 tap-name: "Eloqua"
 repo-url: https://github.com/singer-io/tap-eloqua
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [Oracle {{ integration.display_name }} Marketing Cloud Service REST API](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAC/index.html){:target="new"} and [{{ integration.display_name }} bulk export API](https://docs.oracle.com/cloud/latest/marketingcs_gs/OMCAB/Developers/BulkAPI/Tutorials/Export.htm){:target="new"}
@@ -46,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://community.oracle.com/community/topliners/eloqua-system-status"
+
+api-type: "platform.facebook"
 
 anchor-scheduling: true
 cron-scheduling: true

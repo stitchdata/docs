@@ -40,7 +40,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-api-type: "postgres"
+api-type: "platform.postgres"
 versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true

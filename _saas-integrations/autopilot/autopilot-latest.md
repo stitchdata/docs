@@ -20,7 +20,7 @@ repo-url: https://github.com/singer-io/tap-autopilot
 api: |
   [{{ integration.display_name }} REST API](https://autopilot.docs.apiary.io/#){:target="new"}
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -33,11 +33,13 @@ frequency: "60 minutes"
 tier: "Free"
 status-url: "http://status.autopilothq.com/"
 
-table-selection: false
-column-selection: false
+api-type: "platform.autopilot"
 
 anchor-scheduling: true
 cron-scheduling: true
+
+table-selection: false
+column-selection: false
 
 extraction-logs: true
 loading-reports: true

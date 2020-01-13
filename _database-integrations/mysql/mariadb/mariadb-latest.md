@@ -28,7 +28,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "30 minutes"
@@ -37,7 +36,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-api-type: "mariadb"
+api-type: "platform.mariadb"
 versions: "n/a"
 ssh: true
 ssl: true

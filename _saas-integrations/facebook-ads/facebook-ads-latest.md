@@ -1,5 +1,5 @@
 ---
-title: Facebook Ads (v1.0)
+title: Facebook Ads (v1)
 permalink: /integrations/saas/facebook-ads
 keywords: facebook ads, integration, schema, etl facebook ads, facebook ads etl
 summary: "Connection instructions, replication info, and schema details for Stitch's Facebook Ads integration."
@@ -16,7 +16,7 @@ display_name: "Facebook Ads"
 singer: true
 repo-url: https://github.com/singer-io/tap-facebook
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [Facebook Marketing API](https://developers.facebook.com/docs/marketing-apis){:target="new"}
@@ -32,6 +32,8 @@ frequency: "30 minutes"
 tier: "Free"
 auth: "oauth"
 status-url: "https://developers.facebook.com/status/"
+
+api-type: "platform.facebook"
 
 anchor-scheduling: true
 cron-scheduling: false
