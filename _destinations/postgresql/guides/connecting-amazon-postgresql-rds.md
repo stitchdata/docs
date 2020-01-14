@@ -31,6 +31,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Amazon PostgreSQL RDS"
+name: "postgres-rds"
+
 type: "postgres"
 setup-name: "PostgreSQL"
 

@@ -31,6 +31,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "data.world"
+name: "data-world"
+
 type: "data-world"
 
 ssh: false

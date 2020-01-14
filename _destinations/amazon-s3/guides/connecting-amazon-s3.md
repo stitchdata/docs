@@ -31,8 +31,10 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "amazon-s3"
 display_name: "Amazon S3"
+name: "amazon-s3"
+
+type: "amazon-s3"
 
 ssh: false
 ssl: false

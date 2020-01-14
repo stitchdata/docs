@@ -30,8 +30,10 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "postgres"
 display_name: "PostgreSQL"
+name: "postgres"
+
+type: "postgres"
 
 hosting-type: "generic"
 

@@ -31,6 +31,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Amazon Aurora PostgreSQL"
+name: "aurora-postgres"
+
 type: "postgres"
 setup-name: "PostgreSQL"
 

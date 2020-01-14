@@ -32,8 +32,10 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "microsoft-azure"
 display_name: "Microsoft Azure SQL Data Warehouse"
+name: "microsoft-azure"
+
+type: "microsoft-azure"
 
 hosting-type: "microsoft-azure"
 

@@ -31,6 +31,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Heroku"
+name: "heroku"
+
 type: "postgres"
 setup-name: "PostgreSQL"
 

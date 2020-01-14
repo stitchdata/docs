@@ -26,7 +26,7 @@ ssl:
 #          Postgres          #
 # -------------------------- #
 
-postgresql:
+postgres:
   - name: "{{ defaults.field-names.host }}"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
@@ -121,7 +121,7 @@ postgres-rds:
 #    Aurora Postgres-RDS     #
 # -------------------------- #
 
-aurora-postgresql:
+aurora-postgres:
   - name: "{{ defaults.field-names.host }}"
     copy: "{{ defaults.field-copy.host-rds | flatify }}"
 
@@ -142,7 +142,7 @@ aurora-postgresql:
 #     CloudSQL Postgres      #
 # -------------------------- #
 
-cloudsql-postgresql:
+cloudsql-postgres:
   - name: "{{ defaults.field-names.host }}"
     copy: |
       {{ defaults.field-copy.host-cloudsql | flatify | replace: "[STEP]","the previous step" }}

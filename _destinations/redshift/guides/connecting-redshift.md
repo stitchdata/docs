@@ -36,6 +36,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Amazon Redshift"
+name: "redshift"
+
 type: "redshift"
 
 hosting-type: "amazon"

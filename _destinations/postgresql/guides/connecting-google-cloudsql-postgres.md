@@ -34,6 +34,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Google CloudSQL PostgreSQL"
+name: "cloudsql-postgres"
+
 type: "postgres"
 setup-name: "PostgreSQL"
 

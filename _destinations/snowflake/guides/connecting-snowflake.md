@@ -31,6 +31,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Snowflake"
+name: "snowflake"
+
 type: "snowflake"
 
 ssh: false
