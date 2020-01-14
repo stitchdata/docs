@@ -3,9 +3,9 @@
 #          PAGE INFO         #
 # -------------------------- #
 
-title: Stitch Connect Source and Destination Reference
+title: Destination and Source API Availability Reference
 permalink: /developers/stitch-connect/guides/source-destination-reference
-summary: ""
+summary: "Current API availability for Stitch's destinations and sources."
 
 product-type: "connect"
 content-type: "guide"
