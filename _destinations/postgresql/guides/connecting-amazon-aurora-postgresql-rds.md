@@ -92,8 +92,7 @@ steps:
 
       In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
 
-      {% assign clean-database-name = page.display_name | downcase | replace:" ","-" %}
-      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"

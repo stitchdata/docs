@@ -75,8 +75,7 @@ steps:
     content: |
       Stitch requires `CREATE` permissions to create integration schemas and tables in your destination and load data. [By default](https://devcenter.heroku.com/articles/heroku-postgresql-credentials#the-default-credential){:target="new"}, {{ page.display_name }} credentials don't include `CREATE` permissions, so you'll need to grant them to the database user before continuing.
 
-      {% assign clean-database-name = page.display_name | downcase %}
-      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"

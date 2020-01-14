@@ -74,7 +74,7 @@ select-systems-tables: &select-systems-tables-sql |
 
 ## The individual steps for creating a Redshift user for Stitch.
 
-all-steps:
+redshift:
   - copy: "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
   - copy: |
       {{ common.postgresql.setup-steps.create-user | flatify }}

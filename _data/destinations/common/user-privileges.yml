@@ -22,7 +22,7 @@ postgresql:
   select-systems-tables-reason: |
     Required to select rows from tables in the `{{ privilege.schema }}` schema. Prior to loading data, Stitch will use the data in this schema to verify the existence and structure of integration schemas and tables.
 
-    {% if page.display_name == "Heroku" %}For {{ page.display_name }} destinations, access to the `{{ privilege.schema }}` is granted by default to the main database user.{% endif %}
+    {% if page.name == "heroku" %}For {{ page.display_name }} destinations, access to the `{{ privilege.schema }}` is granted by default to the main database user.{% endif %}
 
     **Note**: Stitch will only ever read data from systems tables.
 

@@ -94,8 +94,7 @@ steps:
 
       Configuring the second part of the access control settings requires creating a database user for Stitch. This guide will use the psql method to create the user, which requires the use of a SQL client.
 
-      {% assign clean-database-name = page.display_name | downcase | replace:" ","-" %}
-      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
