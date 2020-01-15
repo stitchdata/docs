@@ -1,5 +1,5 @@
 ---
-title: Shippo (v1.0)
+title: Shippo (v1)
 permalink: /integrations/saas/shippo
 keywords: shippo, integration, schema, etl shippo, shippo etl, shippo schema
 summary: "Connection instructions and schema details for Stitch's Shippo integration."
@@ -17,7 +17,7 @@ display_name: "Shippo"
 singer: true
 repo-url: https://github.com/singer-io/tap-shippo
 
-this-version: "1.0"
+this-version: "1"
 # api-version: 2016-10-25
 
 api: |
@@ -34,13 +34,15 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.goshippo.com/
 
+api-type: "platform.shippo"
+
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
-cron-scheduling: false
-
-extraction-logs: false
+extraction-logs: true
 loading-reports: true
 
 # -------------------------- #

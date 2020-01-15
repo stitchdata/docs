@@ -11,7 +11,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amazon Oracle RDS
+title: Amazon Oracle RDS (v1)
 keywords: oracle, oracle rds, database integration, etl oracle, oracle etl
 permalink: /integrations/databases/amazon-oracle-rds
 summary: "Connect and replicate data from your Amazon Oracle RDS database using Stitch's Oracle integration."
@@ -30,7 +30,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-this-version: "1.0"
+this-version: "1"
 has-specific-data-types: true
 
 hosting-type: "amazon"
@@ -42,7 +42,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 enterprise: true
@@ -59,7 +58,7 @@ port: 1521
 db-type: "oracle"
 
 ## Stitch features
-
+api-type: "platform.oracle"
 versions: "n/a"
 ssh: true
 ssl: true
@@ -67,7 +66,7 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

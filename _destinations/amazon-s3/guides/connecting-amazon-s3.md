@@ -19,6 +19,7 @@ keywords: amazon s3 data warehouse, amazon s3 data warehouse, etl to amazon s3, 
 summary: "Connect an Amazon S3 bucket to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "amazon-s3-destination-setup"
 order: 1
 
 toc: true
@@ -30,12 +31,15 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "amazon-s3"
 display_name: "Amazon S3"
+name: "amazon-s3"
+
+type: "amazon-s3"
 
 ssh: false
 ssl: false
 
+this-version: "1"
 
 # -------------------------- #
 #        Requirements        #

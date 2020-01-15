@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/mailjet
 redirect_from: /integrations/saas/mailjet
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [stitch_webhooks]
 keywords: mailjet, integration, schema, etl mailjet, mailjet etl, mailjet schema, stitch webhooks
 summary: "Connect your Mailjet data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -14,8 +13,6 @@ summary: "Connect your Mailjet data to Stitch using Stitch's Incoming Webhooks i
 
 name: "mailjet"
 display_name: "Mailjet"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,6 +34,9 @@ icon: /images/integrations/icons/mailjet.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

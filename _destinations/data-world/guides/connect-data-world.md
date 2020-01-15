@@ -18,6 +18,7 @@ keywords: data-world, data-world, data-world data warehouse, etl to s3, s3 etl, 
 summary: "Connect a data.world account to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "data-world-destination-setup"
 order: 1
 
 toc: true
@@ -30,10 +31,14 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "data.world"
+name: "data-world"
+
 type: "data-world"
 
 ssh: false
 ssl: true
+
+this-version: "1"
 
 # -------------------------- #
 #        Introduction        #

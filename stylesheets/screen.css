@@ -659,19 +659,15 @@ table tr td pre {
 table tr td:last-of-type {
   border-right: 1px solid #EAEAEA;
 }
-/* line 233, ../sass/_components.scss */
-table tr td p {
-  margin-bottom: 0 !important;
-}
-/* line 239, ../sass/_components.scss */
+/* line 236, ../sass/_components.scss */
 table thead tr {
   border: 1px solid #dddddd;
 }
-/* line 242, ../sass/_components.scss */
+/* line 239, ../sass/_components.scss */
 table thead tr th:last-of-type {
   border-right: 1px solid #dddddd;
 }
-/* line 249, ../sass/_components.scss */
+/* line 246, ../sass/_components.scss */
 table .h2 {
   margin-bottom: 0;
   margin-top: 0;
@@ -682,21 +678,21 @@ table .h2 {
 }
 
 /* Used in API & JavaScript documentation */
-/* line 261, ../sass/_components.scss */
+/* line 258, ../sass/_components.scss */
 table.method-rollup {
   margin-top: 30px;
   width: 100%;
   font-size: 15px;
 }
-/* line 266, ../sass/_components.scss */
+/* line 263, ../sass/_components.scss */
 table.method-rollup tr td {
   vertical-align: middle;
 }
-/* line 268, ../sass/_components.scss */
+/* line 265, ../sass/_components.scss */
 table.method-rollup tr td p {
   margin: 0;
 }
-/* line 272, ../sass/_components.scss */
+/* line 269, ../sass/_components.scss */
 table.method-rollup tr td.object,
 table.method-rollup tr td.post,
 table.method-rollup tr td.put,
@@ -708,28 +704,28 @@ table.method-rollup tr td.function {
 }
 
 /* Used in Integration Schema documentation */
-/* line 289, ../sass/_components.scss */
+/* line 286, ../sass/_components.scss */
 table.table-snapshot tr td:last-of-type {
   border-right: 0px;
 }
-/* line 295, ../sass/_components.scss */
+/* line 292, ../sass/_components.scss */
 table.table-snapshot thead tr {
   border: 0px;
 }
-/* line 298, ../sass/_components.scss */
+/* line 295, ../sass/_components.scss */
 table.table-snapshot thead tr th:last-of-type {
   border-right: 0px;
 }
 
 /* Used in Integration Schema, API, JS, etc. docs - anywhere */
 /* that contains a list of attributes */
-/* line 309, ../sass/_components.scss */
+/* line 306, ../sass/_components.scss */
 table.attribute-list {
   width: 100%;
   margin-top: 30px;
   font-size: 15px;
 }
-/* line 313, ../sass/_components.scss */
+/* line 310, ../sass/_components.scss */
 table.attribute-list tr {
   /*		td.description {
   						code {
@@ -737,9 +733,13 @@ table.attribute-list tr {
   			}
   		}*/
 }
-/* line 315, ../sass/_components.scss */
+/* line 312, ../sass/_components.scss */
 table.attribute-list tr td code {
   font-size: 15px;
+}
+/* line 315, ../sass/_components.scss */
+table.attribute-list tr td p {
+  margin: 0 0 1rem;
 }
 /* line 324, ../sass/_components.scss */
 table.attribute-list tr td.attribute-name {

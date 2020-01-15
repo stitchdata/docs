@@ -43,7 +43,7 @@ historical: "1 year"
 tier: "Free"
 
 ## Stitch features
-
+api-type: "platform.sftp"
 versions: "n/a"
 ssh: true
 ssl: false

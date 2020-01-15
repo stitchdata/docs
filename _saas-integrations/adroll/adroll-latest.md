@@ -17,7 +17,7 @@ display_name: "AdRoll"
 singer: false
 status-url: "http://status.adroll.com/"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} CRUD API](https://developers.adroll.com/docs/crud-api/index.html){:target="new"}

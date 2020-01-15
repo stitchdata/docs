@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Responsys
+title: Responsys (v1)
 permalink: /integrations/databases/responsys
 keywords: responsys, etl responsys, responsys etl
 layout: singer
@@ -35,7 +35,7 @@ tap-name: "Responsys"
 repo-url: https://github.com/singer-io/tap-responsys
 status-url: "https://community.oracle.com/docs/DOC-1011262"
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "none"
 
@@ -52,7 +52,7 @@ port: 22
 db-type: "responsys"
 
 ## Stitch features
-
+api-type: "platform.responsys"
 versions: "n/a"
 ssh: true
 ssl: false
@@ -60,7 +60,7 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite (v1.0)
+title: NetSuite (v1)
 permalink: /integrations/saas/netsuite-suitetalk
 redirect_from: 
   - /integrations/saas/netsuite
@@ -33,7 +33,7 @@ display_name: "NetSuite"
 singer: true
 tap-name: "NetSuite"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   {{ integration.display_name }} SuiteTalk API (v2017_2)
@@ -48,8 +48,10 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 
+api-type: "platform.netsuite"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

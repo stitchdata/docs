@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Help Scout
+title: Help Scout (v1)
 permalink: /integrations/saas/helpscout
 keywords: helpscout, integration, schema, etl helpscout, helpscout etl, helpscout schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "Help Scout"
 repo-url: https://github.com/singer-io/tap-helpscout
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Mailbox API 2.0](https://developer.helpscout.com/mailbox-api/){:target="new"}
@@ -47,6 +47,8 @@ historical: "1 year"
 frequency: "60 minutes"
 tier: "Free"
 status-url: "https://status.helpscout.com/"
+
+api-type: "platform.helpscout"
 
 anchor-scheduling: true
 cron-scheduling: false

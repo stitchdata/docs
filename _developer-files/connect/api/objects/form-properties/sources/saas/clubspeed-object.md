@@ -14,6 +14,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
+product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-clubspeed-object"
@@ -24,7 +25,7 @@ key: "source-form-properties-clubspeed-object"
 # -------------------------- #
 
 title: "Club Speed Source Form Property"
-api-type: "clubspeed"
+api-type: "platform.clubspeed"
 display-name: "Club Speed"
 
 source-type: "saas"
@@ -37,22 +38,20 @@ description: ""
 #      OBJECT ATTRIBUTES     #
 # -------------------------- #
 
-# uses-common-fields: true/false
-# See these fields in _data/connect/common/all-sources.yml
-# May also include applicable fields in _data/connect/common/all-sources.yml
+uses-start-date: true
 
 object-attributes:
   - name: "private_key"
     type: "string"
     required: true
-    description: "The user's {{ form-property.display-name }} private API key. The user will need to contact [{{ form-property.display-name }} support](mailto: support@clubspeed.com) to obtain this credential."
+    description: "Your {{ form-property.display-name }} private API key. You will need to contact [{{ form-property.display-name }} support](mailto: support@clubspeed.com) to obtain this credential."
     value: "<PRIVATE_API_KEY>"
 
   - name: "subdomain"
     type: "string"
     required: true
     description: |
-      The user's {{ form-property.display-name }} subdomain.
+      Your {{ form-property.display-name }} subdomain.
 
       **For example:** If the full URL is `stitchdata.clubspeedtiming.com`, only `stitchdata` should be entered.
     value: "<SUBDOMAIN>"    

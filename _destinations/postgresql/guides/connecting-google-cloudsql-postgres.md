@@ -21,6 +21,7 @@ redirect_from: /destinations/postgresq/connecting-a-google-cloudsql-postgresql-d
 summary: "Connect a Google CloudSQL PostgreSQL database to your Stitch account as a destination."
 
 content-type: "destination-setup"
+key: "cloudsql-postgres-destination-setup"
 order: 3
 
 toc: true
@@ -32,7 +33,9 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "CloudSQL PostgreSQL"
+display_name: "Google CloudSQL PostgreSQL"
+name: "cloudsql-postgres"
+
 type: "postgres"
 setup-name: "PostgreSQL"
 
@@ -42,6 +45,9 @@ ssh: false
 ssl: false
 port: 5432
 
+this-version: "1"
+
+api-type: "postgres"
 
 # -------------------------- #
 #        Introduction        #
@@ -88,8 +94,7 @@ steps:
 
       Configuring the second part of the access control settings requires creating a database user for Stitch. This guide will use the psql method to create the user, which requires the use of a SQL client.
 
-      {% assign clean-database-name = page.display_name | downcase | replace:" ","-" %}
-      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"

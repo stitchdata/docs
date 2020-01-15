@@ -1,5 +1,4 @@
 ---
----
 # -------------------------- #
 #     USING THIS TEMPLATE    #
 # -------------------------- #
@@ -44,6 +43,6 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The user's {{ form-property.display_name }} API key. API keys can be generated in {{ form-property.display_name }} by navigating to **Settings > Your API Keys**.
+      Your {{ form-property.display_name }} API key. API keys can be generated in {{ form-property.display_name }} by navigating to **Settings > Your API Keys**.
     value: "<API_KEY>"
 ---

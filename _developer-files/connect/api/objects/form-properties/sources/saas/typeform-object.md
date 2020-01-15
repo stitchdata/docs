@@ -3,8 +3,8 @@
 #     USING THIS TEMPLATE    #
 # -------------------------- #
 
- ## NEED HELP USING THIS TEMPLATE? SEE:
-## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
+## NEED HELP USING THIS TEMPLATE? SEE:
+## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/source-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 # -------------------------- #
@@ -41,7 +41,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The {{ form-property.display-name }} form ID(s) the user wants Stitch to replicate. If replicating multiple forms, enter the IDs as a comma-separated list. For example: `"<FORM_ID_1>, <FORM_ID_2>"`
+      The {{ form-property.display-name }} form ID(s) Stitch should replicate. If replicating multiple forms, enter the IDs as a comma-separated list. For example: `"<FORM_ID_1>, <FORM_ID_2>"`
        Refer to our [{{ form-property.display-name }} documentation]({{ doc-link | append:"#retrieve-typeform-form-ids" }}) for instructions on retrieving form IDs.
     value: "<FORM_ID_1>, <FORM_ID_2>"
 
@@ -58,6 +58,6 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The user's {{ form-property.display-name }} API token. Refer to our [{{ form-property.display-name }} documentation]({{ doc-link | append: "#generate-typeform-api-token" }}) for instructions on generating the token.
+      Your {{ form-property.display-name }} API token. Refer to our [{{ form-property.display-name }} documentation]({{ doc-link | append: "#generate-typeform-api-token" }}) for instructions on generating the token.
     value: "<{{ form-property.display-name | upcase }}_API_TOKEN>"
 ---

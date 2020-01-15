@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/mandrill
 redirect_from: /integrations/saas/mandrill
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [stitch_webhooks]
 keywords: mandrill, integration, schema, etl mandrill, mandrill etl, mandrill schema, webhook, webhooks, stitch webhooks, incoming webhook
 summary: "Connect your Mandrill data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -15,8 +14,6 @@ summary: "Connect your Mandrill data to Stitch using Stitch's Incoming Webhooks 
 
 name: "mandrill"
 display_name: "Mandrill"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -40,6 +37,9 @@ setup-name: "Incoming Webhooks"
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

@@ -21,12 +21,12 @@ defaults:
 
   reasons:
     create: &create-reason |
-      {{ common.postgresql.create-database-reason | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.create-database-reason | flatify }}
 
     object-ownership:
 
     select: &select-reason |
-      {{ common.postgresql.select-systems-tables-reason | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.select-systems-tables-reason | flatify }}
       
 
 # -------------------------- #
@@ -52,13 +52,13 @@ all-permissions:
 # -------------------------- #
 
 create-user: &create-user-sql |
-  {{ common.postgresql.sql-commands.create-user | flatify }}
+  {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.create-user | flatify }}
 
 create-database: &create-database-sql |
-  {{ common.postgresql.sql-commands.create-database | flatify }}
+  {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.create-database | flatify }}
 
 select-systems-tables: &select-systems-tables-sql |
-  {{ common.postgresql.sql-commands.select-systems-tables | flatify }}
+  {{ site.data.destinations.common.user-privileges.postgresql.sql-commands.select-systems-tables | flatify }}
 
 
 # ------------------------------ #
@@ -72,16 +72,16 @@ select-systems-tables: &select-systems-tables-sql |
 #          POSTGRESQL        #
 # -------------------------- #
 
-postgresql:
+postgres:
   - copy: &sql-client-copy "If you haven't already, connect to your {{ page.display_name }} instance using your SQL client."
   - copy: &create-user-copy |
-      {{ common.postgresql.setup-steps.create-user | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.create-user | flatify }}
     command: *create-user-sql
   - copy: &create-database-copy |
-      {{ common.postgresql.setup-steps.create-database | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.create-database | flatify }}
     command: *create-database-sql
   - copy: &systems-tables-copy |
-      {{ common.postgresql.setup-steps.systems-tables | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.systems-tables | flatify }}
     command: *select-systems-tables-sql
 
 
@@ -89,7 +89,7 @@ postgresql:
 #  GOOGLE CLOUDSQL POSTGRESQL  #
 # ---------------------------- #
 
-cloudsql-postgresql:
+cloudsql-postgres:
   - copy: *sql-client-copy
   - copy: *create-user-copy
     command: *create-user-sql
@@ -103,7 +103,7 @@ cloudsql-postgresql:
 #   AMAZON AURORA POSTGRESQL   #
 # ---------------------------- #
 
-aurora-postgresql:
+aurora-postgres:
   - copy: *sql-client-copy
   - copy: *create-user-copy
     command: *create-user-sql
@@ -138,7 +138,7 @@ postgres-rds:
   - copy: *create-database-copy
     command: *create-database-sql
   - copy: |
-      {{ common.postgresql.setup-steps.systems-tables | flatify }}
+      {{ site.data.destinations.common.user-privileges.postgresql.setup-steps.systems-tables | flatify }}
 
       **Note**: You must have access to the `information_schema` and `pg_catalog` schemas to grant access to the Stitch user.
     command: *select-systems-tables-sql

@@ -7,7 +7,7 @@
 
 ## Variable reference:
 
-## display_name: The name of the feature as it should display in the docs
+## display-name: The name of the feature as it should display in the docs
 ##
 ##         name: The feature ID, or key. This should match whatever the 
 ##               variable is in the integration docs. Ex: ssh is in the database integration docs
@@ -23,135 +23,265 @@
 ##               copy lives in _data/tooltips.yml.
 
 
+supported-icon: &supported-icon |
+  {{ supported | replace:"TOOLTIP","This feature is supported for this version of the integration." }} Supported
+
+boolean-field-value-logic: &boolean-field-value-logic |
+  {% case integration[attribute.name] %}
+  {% when true %}
+  {{ site.data.taps.features.supported-icon | flatify }}
+  {% when false %}
+  {{ site.data.taps.features.unsupported-icon | flatify }}
+  {% endcase %}
+
+unsupported-icon: &unsupported-icon |
+  {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
+
+unsupported-tooltip-logic: &unsupported-tooltip-logic |
+  {% case integration[attribute.name] %}
+  {% when true %}
+  {{ site.data.taps.features.supported-icon | flatify }}
+  {% else %}
+  {{ not-supported | replace:"TOOLTIP",attribute.unsupported-tooltip[include.feature-type] }} Unsupported
+  {% endcase %}
+
 # -------------------------- #
-#       COMMON FEATURES      #
+#      COMMON ATTRIBUTES     #
 # -------------------------- #
 
-common:
+release-status: &release-status
+  display-name: "Release status"
+  name: "status"
+  field-value: |
+    {% if include.feature-type == "webhooks" %}
+    {{ integration.status }}
+
+    {% else %}
+    {% case include.type %}
+    {% when 'integration-snapshot' %}
+    {% assign version-variable = this-version %}
+
+    {% when 'version-comparison' %}
+    {% assign version-variable = version %}
+    {% endcase %}
+
+    {% assign version-status = version-variable.status | capitalize %}
+
+    {% case version-variable.status %}
+    {% when 'released' %}
+    {% assign version-date = version-variable.date-released | prepend: " on " %}
+    {% when 'deprecated' %}
+    {% assign version-date = version-variable.deprecation-date | prepend: " on "  %}
+    {% when 'sunset' %}
+    {% assign version-date = version-variable.sunset-date | prepend: " on " %}
+    {% endcase %}
+
+    {{ version-status | append: version-date }}
+    {% endif %}
+
+support-level: &support-level
+  display-name: "Supported by"
+  name: "certified"
+  tooltip: "{{ site.data.tooltips.supported-by }}"
+  field-value: |
+    {% case integration.certified %}
+    {% when true %}
+    [Stitch](mailto:{{ site.support }})
+    {% when false %}
+    [Singer Community]({{ site.singer }}){:target="new"}
+    {% endcase %}
+    
+stitch-plan: &stitch-plan
+  display-name: "Stitch plan"
+  name: "tier"
+  tooltip: "{{ site.data.tooltips.integration-availability }}"
+  field-value: "{{ integration.tier }}"
+
+supported-versions: &supported-versions
+  display-name: "Supported versions"
+  name: "versions"
+  tooltip: "{{ site.data.tooltips.supported-by }}"
+  field-value: "{{ integration.versions }}"
+
+
+# -------------------------- #
+#      SINGER INTEGRATIONS   #
+# -------------------------- #
+## Attributes specific to Singer integrations.
+
+singer: &singer
+  display-name: "Singer GitHub repository"
+  name: "repo-url"
+  field-value: |
+    {% if integration.singer == true %}
+    {% if integration.tap-name %}
+    [{{ integration.tap-name | slugify | prepend: "singer-io/tap-" }}]({{ integration.repo-url }}){:target="new"}
+    {% else %}
+    [{{ integration.display-name | slugify | prepend: "singer-io/tap-" }}]({{ integration.repo-url }}){:target="new"}
+    {% endif %}
+
+    {% else %}
+    Not applicable
+    {% endif %}
+
+
+# ------------------------------ #
+#          API FEATURES          #
+# ------------------------------ #
+
+api-availability: &api-availability
+  display-name: "API availability"
+  name: "api-type"
+  doc-link: "{{ link.connect.guides.connection-reference | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.available-in-connect }}"
+  field-value: |
+    {% if integration.this-version == latest-version and integration.api-type %}
+    {{ supported | replace:"TOOLTIP","This version of the integration is available via the API." }} Available
+    {% else %}
+    {{ not-supported | replace:"TOOLTIP","This version of the integration isn't available via the API." }} Not available
+    {% endif %}
+
 # ------------------------------ #
 #      REPLICATION SETTINGS      #
 # ------------------------------ #
 
-  - display_name: "Anchor Scheduling"
-    name: "anchor-scheduling"
-    category: "replication-settings"
-    doc-link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
-    tooltip: "{{ site.data.tooltips.anchor-scheduling }}"
-    type: "boolean"
+anchor-scheduling: &anchor-scheduling
+  display-name: "Anchor Scheduling"
+  name: "anchor-scheduling"
+  doc-link: "{{ link.replication.anchor-scheduling | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.anchor-scheduling }}"
+  unsupported-tooltip:
+    databases: &general-anchor-unsupported "Anchor Scheduling is not supported for this integration. The only available replication scheduling method is the Replication Frequency setting."
+    saas: *general-anchor-unsupported
+    webhooks: "Anchor Scheduling is not supported for this integration. Webhook replication is continuous."
+  field-value: *unsupported-tooltip-logic
 
-    unsupported-tooltip: |
-      Anchor Scheduling is not supported for this integration.
-      {% if include.feature-type == "webhook" %} Webhook replication is continuous.
-      {% else %} The only available replication scheduling method is the Replication Frequency setting.
-      {% endif %}
+advanced-scheduling: &advanced-scheduling
+  display-name: "Advanced Scheduling"
+  name: "cron-scheduling"
+  doc-link: "{{ link.replication.advanced-scheduling | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.advanced-scheduling }}"
+  unsupported-tooltip:
+    databases: &general-cron-unsupported "Advanced Scheduling is not supported for this integration."
+    saas: *general-cron-unsupported
+    webhooks: "Advanced Scheduling is not supported for this integration. Webhook replication is continuous."
+  field-value: *unsupported-tooltip-logic
 
-  - display_name: "Advanced Scheduling"
-    name: "cron-scheduling"
-    category: "replication-settings"
-    doc-link: "{{ link.replication.advanced-scheduling | prepend: site.baseurl }}"
-    tooltip: "{{ site.data.tooltips.advanced-scheduling }}"
-    type: "boolean"
+table-level-reset: &table-level-reset
+  display-name: "Table-level reset"
+  name: "table-level-reset"
+  # doc-link: "{{ link.replication.rep-keys | prepend: site.baseurl }}"
+  tooltip: "Indicates if data can be reset at the table level. If unsupported, data can only be reset at the integration level."
+  unsupported-tooltip:
+    databases: &general-table-reset-unsupported "Table-level resets are not supported for this integration. Resets are only supported at the integration level."
+    saas: *general-table-reset-unsupported
+    webhooks: "Table-level resets aren't supported for this integration. Webhook data can't be reset in Stitch, as replication is continuous. If the webhook provider supports replaying data, data may be able to be re-replicated in Stitch."
+  field-value: *unsupported-tooltip-logic
 
-    unsupported-tooltip: |
-      Advanced Scheduling is not supported for this integration.
-      {% if include.feature-type == "webhook" %} Webhook replication is continuous.{% endif %}
+define-replication-methods: &define-replication-methods
+  display-name: "Configurable Replication Methods"
+  name: "define-replication-methods"
+  doc-link: "{{ link.replication.rep-methods | prepend: site.baseurl }}"
+  tooltip: "Indicates if Replication Methods can be defined by you for tables in the integration."
+  unsupported-tooltip:
+    databases: &general-config-rep-unsupported "Configurable Replication Methods are not supported for this integration. Stitch will use pre-defined replication methods for tables you set to replicate."
+    saas: *general-config-rep-unsupported
+    webhooks: "Configurable Replication Methods are not supported for this integration. Data will be replicated incrementally."
+  field-value: *unsupported-tooltip-logic
 
-  - display_name: "Table-level Reset"
-    name: "table-level-reset"
-    category: "replication-settings"
-    # doc-link: "{{ link.replication.rep-keys | prepend: site.baseurl }}"
-    tooltip: "Indicates if data can be reset at the table level. If unsupported, data can only be reset at the integration level."
-    type: "boolean"
+log-based-replication: &log-based-replication
+  display-name: "Log-based Replication"
+  name: "log-based-replication-master-instance"
+  doc-link: "{{ link.replication.log-based-incremental | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.log-based-incremental-rep }}"
+  field-value: *boolean-field-value-logic
 
-    unsupported-tooltip: |
-      Table-level resets are not supported for this integration.
-      {% if include.feature-type == "webhook" %}
-      Webhook data cannot be reset in Stitch, as replication is continuous. If the webhook provider supports replaying data, data may be able to be re-replicated in Stitch.
-      {% else %}
-      Resets are only supported at the integration level.
-      {% endif %}
+key-based-incremental-replication: &key-based-incremental-replication
+  display-name: "Key-based Replication"
+  name: "key-based-incremental-replication"
+  doc-link: "{{ link.replication.key-based-incremental | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.key-based-incremental-rep }}"
+  field-value: *boolean-field-value-logic
 
-  - display_name: "Configurable Replication Methods"
-    name: "define-replication-methods"
-    category: "replication-settings"
-    doc-link: "{{ link.replication.rep-methods | prepend: site.baseurl }}"
-    tooltip: "Indicates if Replication Methods can be defined by you for tables in the integration."
-    type: "boolean"
-
-    unsupported-tooltip: |
-      Configurable Replication Methods are not supported for this integration.
-      {% if include.feature-type == "webhook" %}
-       Data will be replicated incrementally.
-      {% else %}
-       Stitch will use pre-defined replication methods for tables you set to replicate.
-      {% endif %}
-
-# ------------------------------ #
-#          TRANSPARENCY          #
-# ------------------------------ #
-
-  - display_name: "Extraction Logs"
-    name: "extraction-logs"
-    category: "transparency"
-    doc-link: "{{ link.replication.extraction-logs | prepend: site.baseurl }}"
-    tooltip: "{{ site.data.tooltips.extraction-logs }}"
-    type: "boolean"
-
-
-  - display_name: "Loading Reports"
-    name: "loading-reports"
-    category: "transparency"
-    doc-link: "{{ link.replication.loading-reports | prepend: site.baseurl }}"
-    tooltip: "{{ site.data.tooltips.loading-reports }}"
-    type: "boolean"
+full-table-replication: &full-table-replication
+  display-name: "Full Table Replication"
+  name: "full-table-replication"
+  doc-link: "{{ link.replication.full-table | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.full-table-rep }}"
+  field-value: *boolean-field-value-logic
 
 
 # ------------------------------ #
 #          DATA SELECTION        #
 # ------------------------------ #
 
-  - display_name: "Table Selection"
-    name: "table-selection"
-    category: "data-selection"
-    tooltip: "{{ site.data.tooltips.table-selection }}"
-    type: "boolean"
+table-selection: &table-selection
+  display-name: "Table selection"
+  name: "table-selection"
+  tooltip: "{{ site.data.tooltips.table-selection }}"
+  type: "boolean"
+  unsupported-tooltip:
+    databases: &table-selection-unsupported Table selection is not supported for this integration. All available table and fields will be automatically selected for replication.
+    saas: *table-selection-unsupported
+    webhooks: *table-selection-unsupported
+  field-value: *unsupported-tooltip-logic
 
-    unsupported-tooltip: "Table selection is not supported for this integration. All available table and fields will be automatically selected for replication."
+column-selection: &column-selection
+  display-name: "Column selection"
+  name: "column-selection"
+  tooltip: "{{ site.data.tooltips.column-selection }}"
+  type: "boolean"
+  unsupported-tooltip:
+    databases: &column-selection-unsupported "Column selection is not supported for this integration. All available columns in tables set to replicate will be selected."
+    saas: *column-selection-unsupported
+    webhooks: *column-selection-unsupported
+  field-value: *unsupported-tooltip-logic
 
-  - display_name: "Column Selection"
-    name: "column-selection"
-    category: "data-selection"
-    tooltip: "{{ site.data.tooltips.column-selection }}"
-    type: "boolean"
-
-    unsupported-tooltip: "Column selection is not supported for this integration. All available columns in tables set to replicate will be selected."
-
-
-# ------------------------------ #
-#   SAAS INTEGRATION FEATURES #
-# ------------------------------ #
-
-saas:
-  all:
-
-  categories: &shared-categories
-    - name: "data-selection"
-      snapshot-order: 2
-    - name: "replication-settings"
-      snapshot-order: 3
-    - name: "transparency"
-      snapshot-order: 4
-
+view-replication: &view-replication
+  display-name: "View replication"
+  name: "view-replication"
+  doc-link: "{{ link.replication.db-views | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.db-views }}"
+  field-value: *boolean-field-value-logic
 
 
 # ------------------------------ #
-#  WEBHOOK INTEGRATION FEATURES  #
+#       CONNECTION METHODS       #
 # ------------------------------ #
 
-webhook:
-  all:
+ssh: &ssh
+  display-name: "SSH connections"
+  name: "ssh"
+  category: "connection-methods"
+  tooltip: "{{ site.data.tooltips.ssh }}"
+  field-value: *boolean-field-value-logic
 
-  categories: *shared-categories
+ssl: &ssl
+  display-name: "SSL connections"
+  name: "ssl"
+  category: "connection-methods"
+  tooltip: "{{ site.data.tooltips.ssl }}"
+  field-value: *boolean-field-value-logic
+
+
+# ------------------------------ #
+#          TRANSPARENCY          #
+# ------------------------------ #
+
+extraction-logs: &extraction-logs
+  display-name: "Extraction Logs"
+  name: "extraction-logs"
+  doc-link: "{{ link.replication.extraction-logs | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.extraction-logs }}"
+  field-value: *boolean-field-value-logic
+
+loading-reports: &loading-reports
+  display-name: "Loading Reports"
+  name: "loading-reports"
+  category: "transparency"
+  doc-link: "{{ link.replication.loading-reports | prepend: site.baseurl }}"
+  tooltip: "{{ site.data.tooltips.loading-reports }}"
+  field-value: *boolean-field-value-logic
 
 
 # ------------------------------ #
@@ -159,67 +289,64 @@ webhook:
 # ------------------------------ #
 
 databases:
-  all:
-  # ------------------------------ #
-  #      REPLICATION METHODS       #
-  # ------------------------------ #
+  - name: "Stitch"
+    attributes:
+      - *release-status
+      - *support-level
+      - *stitch-plan
+      - *supported-versions
+      - *api-availability
+      - *singer
+  - name: "Connection methods"
+    attributes:
+      - *ssh
+      - *ssl
+  - name: "Replication settings"
+    attributes: &replication-setting-category-attributes
+      - *anchor-scheduling
+      - *advanced-scheduling
+      - *table-level-reset
+      - *define-replication-methods
+  - name: "Replication Methods"
+    attributes:
+      - *log-based-replication
+      - *key-based-incremental-replication
+      - *full-table-replication
+  - name: "Data selection"
+    attributes:
+      - *table-selection
+      - *column-selection
+      - *view-replication
+  - name: "Transparency"
+    attributes: &transparency-category-attributes
+      - *extraction-logs
+      - *loading-reports
 
-    - display_name: "Log-based Replication"
-      name: "log-based-replication-master-instance"
-      category: "replication-methods"
-      doc-link: "{{ link.replication.log-based-incremental | prepend: site.baseurl }}"
-      tooltip: "{{ site.data.tooltips.log-based-incremental-rep }}"
-      type: "boolean"
 
-    - display_name: "Key-based Replication"
-      name: "key-based-incremental-replication"
-      category: "replication-methods"
-      doc-link: "{{ link.replication.key-based-incremental | prepend: site.baseurl }}"
-      tooltip: "{{ site.data.tooltips.key-based-incremental-rep }}"
-      type: "boolean"
+# ------------------------------ #
+#    SAAS INTEGRATION FEATURES   #
+# ------------------------------ #
 
-    - display_name: "Full Table Replication"
-      name: "full-table-replication"
-      category: "replication-methods"
-      doc-link: "{{ link.replication.full-table | prepend: site.baseurl }}"
-      tooltip: "{{ site.data.tooltips.full-table-rep }}"
-      type: "boolean"
+saas: &saas-integration-categories
+  - name: "Stitch"
+    attributes:
+      - *release-status
+      - *support-level
+      - *stitch-plan
+      - *api-availability
+      - *singer
+  - name: "Replication settings"
+    attributes: *replication-setting-category-attributes
+  - name: "Data selection"
+    attributes:
+      - *table-selection
+      - *column-selection
+  - name: "Transparency"
+    attributes: *transparency-category-attributes
 
-  # ------------------------------ #
-  #          VIEW SUPPORT          #
-  # ------------------------------ #
 
-    - display_name: "View Replication"
-      name: "view-replication"
-      category: "data-selection"
-      doc-link: "{{ link.replication.db-views | prepend: site.baseurl }}"
-      tooltip: "{{ site.data.tooltips.db-views }}"
-      type: "boolean"
+# ------------------------------ #
+#  WEBHOOK INTEGRATION FEATURES  #
+# ------------------------------ #
 
-  # ------------------------------ #
-  #       CONNECTION METHODS       #
-  # ------------------------------ #
-
-    - display_name: "SSH Connections"
-      name: "ssh"
-      category: "connection-methods"
-      tooltip: "{{ site.data.tooltips.ssh }}"
-      type: "boolean"
-
-    - display_name: "SSL Connections"
-      name: "ssl"
-      category: "connection-methods"
-      tooltip: "{{ site.data.tooltips.ssl }}"
-      type: "boolean"
-
-  categories:
-    - name: "connection-methods"
-      snapshot-order: 2
-    - name: "replication-settings"
-      snapshot-order: 3
-    - name: "replication-methods"
-      snapshot-order: 4
-    - name: "data-selection"
-      snapshot-order: 5
-    - name: "transparency"
-      snapshot-order: 6
+webhooks: *saas-integration-categories

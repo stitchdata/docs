@@ -4,7 +4,7 @@
 # -------------------------- #
 
 ## NEED HELP USING THIS TEMPLATE? SEE:
-## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/destination-form-property/
+## https://docs-about-stitch-docs.netlify.com/reference/connect-templates/source-form-property/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
 

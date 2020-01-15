@@ -10,61 +10,19 @@
 <!-- The logic for pulling version info is in this include -->
     {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="page" %}
 
-
-<!-- List of common features. This is applicable to
-    both integration snapshots and version comparisons. -->
-    {% assign common-features = site.data.taps.features.common %}
-
-<!-- If the include passes a feature type, use it to retrieve only the features for that integration type -->
-    {% if include.feature-type %}
-        {% assign feature-categories = site.data.taps.features[include.feature-type]categories | sort:"snapshot-order" %}
-
-        {% assign integration-features = site.data.taps.features[include.feature-type]all | compact %}
-
-<!-- Join the common and integration features together -->
-        {% assign features = common-features | concat:integration-features %}
-
-<!-- Otherwise, just reassign the common features -->
-    {% else %}
-        {% assign features = common-features %}
-    {% endif %}
-
-
-
-<!-- For integration snapshots. The logic is identical, it just pulls additional
-    data from _data/taps/snapshot-attributes.yml and concats it to the `features` array. -->
-    {% if include.type == 'integration-snapshot' %}
-        {% assign common-attributes = site.data.taps.snapshot-attributes.common %}
-
-        {% assign snapshot-categories = site.data.taps.snapshot-attributes.categories | concat:feature-categories | sort:"snapshot-order" %}
-
-        {% assign integration-attributes = site.data.taps.snapshot-attributes[include.feature-type] | compact %}
-
-        <!-- For Singer integrations, get the list of Singer-specific attributes -->
-        <!-- The repo URL attribute will only display if the page has it defined.
-            This is because some tap repos are private, so including a link would cause a 404 -->
-            {% if integration.singer == true and integration.repo-url %}
-                {% assign singer-attributes = site.data.taps.snapshot-attributes.singer %}
-
-                {% assign all-attributes = common-attributes | concat:integration-attributes | concat: singer-attributes %}
-            {% else %}
-                {% assign all-attributes = common-attributes | concat:integration-attributes %}
-            {% endif %}
-
-            {% assign snapshot-attributes = all-attributes | concat:features %}
-    {% endif %}
-
+<!-- Get the list of categories/features for the feature type: databases, saas, or webhooks -->
+    {% assign snapshot-categories = site.data.taps.features[include.feature-type] %}
 
 {% case include.type %}
 {% when 'version-comparison' %}
-<h3 id="supported-features">{{ display_name }} supported features</h3>
+<h3 id="supported-features">{{ display_name }} version comparison</h3>
 
 <table class="attribute-list">
     <tr>
         <td class="table-subheading">
         </td>
         {% for version in released-versions %}
-            {% assign this-version-guide = all-versioned-docs | where:"this-version",version.number | first %}
+            {% assign this-version = all-versioned-docs | where:"this-version",version.number | first %}
             <td class="table-subheading">
                 <strong>{{ display_name }}<br>
                 <a href="{{ this-version-guide.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
@@ -73,96 +31,21 @@
         {% endfor %}
     </tr>
 
-    {% for category in feature-categories %}
-        {% assign features-in-category = features | where:"category",category.name %}
+    {% for category in snapshot-categories %}
         <tr>
             <td colspan="3" class="table-subheading">
                 <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
             </td>
         </tr>
 
-        {% for feature in features-in-category %}
+        {% for attribute in category.attributes %}
             <tr>
                 <td width="38%; fixed" align="right">
                     <strong>
-                        {% if feature.doc-link %}
-                            <a href="{{ feature.doc-link | flatify }}">{{ feature.display_name }}</a>
-                        {% else %}
-                            {{ feature.display_name }}
-                        {% endif %}
-
-                        {% if feature.tooltip %}
-                            {% capture clean-tooltip %}
-                                {{ feature.tooltip | flatify }}
-                            {% endcapture %}
-
-                            {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
-                        {% endif %}
-                    </strong>
-                </td>
-            <!-- Feature value columns -->
-                {% for version in released-versions %}
-                    {% for doc in all-versioned-docs %}
-                        {% if version.number == doc.this-version %}
-                            <td>
-                                {% case doc[feature.name] %}
-                                    {% when true %}
-                                        {{ supported | replace:"TOOLTIP","This feature is supported for this version of the integration." }} Supported
-                                    {% when false %}
-                                        {{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported
-                                    {% else %}
-                                        {{ doc[feature.name] | flatify }}
-                                {% endcase %}
-                            </td>
-                        {% endif %}
-                    {% endfor %}
-                {% endfor %}
-            <!-- End feature value columns loop -->
-            </tr>
-        {% endfor %}
-        <!-- End category loop -->
-    {% endfor %}
-</table>
-
-
-
-<!-- The table for integration snapshots, which display on dedicated integration documentation. -->
-
-{% when 'integration-snapshot' %}
-
-<h2 id="{{ integration.name }}-feature-snapshot">{{ integration.display_name }} feature snapshot</h2>
-
-    <p>A high-level look at Stitch's {{ integration.display_name }}{% if integration.this-version %} ({{ integration.this-version | prepend: "v" }}){% endif %} integration, including release status, useful links, and the features supported in Stitch.</p>
-
-<table class="attribute-list">
-    {% for category in snapshot-categories %}
-        {% assign attributes-in-category = snapshot-attributes | where:"category",category.name %}
-
-        {% assign total-attribute-count = attributes-in-category | size %}
-            {% assign attribute-count = total-attribute-count | modulo: 2 %}
-
-            <tr>
-                <td colspan="4" class="table-subheading">
-                    <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
-                </td>
-            </tr>
-            {% for attribute in attributes-in-category %}
-
-        <!-- Get the index of the attribute in the category array, then divide it by 2 
-            and get the remainder. If there's an odd number of attributes in the array, 
-            the last attribute has a row to itself and uses a column span to keep the
-            strucutre of the table. -->
-            {% assign attribute-number = forloop.index | modulo: 2 %}
-
-                {% if attribute-number == 1 %}
-                    <tr>
-                {% endif %}
-
-                    <td width="27%; fixed" align="right">
                         {% if attribute.doc-link %}
-                            <strong><a href="{{ attribute.doc-link | flatify }}">{{ attribute.display_name }}</a></strong>
+                            <a href="{{ attribute.doc-link | flatify }}">{{ attribute.display-name }}</a>
                         {% else %}
-                            <strong>{{ attribute.display_name }}</strong>
+                            {{ attribute.display-name }}
                         {% endif %}
 
                         {% if attribute.tooltip %}
@@ -172,61 +55,79 @@
 
                             {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
                         {% endif %}
-                    </td>
-                    <td width="23%; fixed" {% if forloop.last == true and attribute-number == 1 %}colspan="3"{% endif %}>
-            <!-- Each item gets its own case handling, because Jekyll wigs out  -->
-                        {% case attribute.type %}
-                            {% when 'string' %}
-                                {% if attribute.name == "status" %}
-                                    {{ this-version.status | flatify | capitalize | strip }}
-                                {% else %}
-                                    {{ integration[attribute.name] | markdownify | rstrip | lstrip }}
-                                {% endif %}
-
-                <!-- Boolean items -->
-                            {% when 'boolean' %}
-                    <!-- Supported items -->
-                                {% if integration[attribute.name] == true %}
-                                    {% if attribute.truthy %}
-                                        {{ attribute.truthy | flatify | markdownify | rstrip | lstrip }}
-                                    {% else %}
-                                        <p>{{ supported | replace:"TOOLTIP","This feature is supported for this version of the integration." }} Supported</p>
-                                    {% endif %}
-                    <!-- Unsupported items -->
-                                {% else %}
-                                    {% if attribute.falsy %}
-                                        {{ attribute.falsy | flatify | markdownify | rstrip | lstrip }}
-                                    {% else %}
-                        <!-- Tooltips for unsupported items -->
-                                        {% if attribute.unsupported-tooltip %}
-                                            {% capture clean-tooltip %}
-                                                {{ attribute.unsupported-tooltip | flatify }}
-                                            {% endcapture %}
-                                            <p>{{ not-supported | replace:"TOOLTIP",clean-tooltip }} Unsupported</p>
-                                        {% else %}
-                                            <p>{{ not-supported | replace:"TOOLTIP","This feature is not supported for this version of the integration." }} Unsupported</p>
-                                        {% endif %}
-                                    {% endif %}
-                                {% endif %}
-
-
-                            {% when 'link' %}
-                                <p>
-                                    <a href="{{ integration[attribute.name] }}">{{ attribute.link | flatify }}</a>
-                                </p>
-                        {% endcase %}
-                    </td>
-
-                {% case attribute-number %}
-                    {% when 0 %}
-                        </tr>
-                    {% when 1 %}
-                        {% if forloop.last == true %}
-                            </tr>
+                    </strong>
+                </td>
+                <!-- Feature value columns -->
+                {% for version in released-versions %}
+                    {% for integration in all-versioned-docs %}
+                        {% if version.number == integration.this-version %}
+                            <td>
+                                {{ attribute.field-value | flatify | markdownify }}
+                            </td>
                         {% endif %}
-                    {% endcase %}
-            {% endfor %}
-
+                    {% endfor %}
+                {% endfor %}
+            <!-- End feature value columns loop -->
+            </tr>
+        {% endfor %}
     {% endfor %}
 </table>
+
+{% when 'integration-snapshot' %}
+<h2 id="{{ integration.name }}-feature-snapshot">{{ integration.display_name }} feature snapshot</h2>
+
+    <p>A high-level look at Stitch's {{ integration.display_name }}{% if integration.this-version %} ({{ integration.this-version | prepend: "v" }}){% endif %} integration, including release status, useful links, and the features supported in Stitch.</p>
+
+<table class="attribute-list">
+    {% for category in snapshot-categories %}
+
+        {% assign total-attribute-count = category.attributes | size %}
+            {% assign attribute-count = total-attribute-count | modulo: 2 %}
+
+        <tr>
+            <td colspan="4" class="table-subheading">
+                <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
+            </td>
+        </tr>
+        {% for attribute in category.attributes %}
+            <!-- Get the index of the attribute in the attributes array, then divide it by 2 
+            and get the remainder. If there's an odd number of attributes in the array, 
+            the last attribute has a row to itself and uses a column span to keep the
+            structure of the table. -->
+
+            {% assign attribute-number = forloop.index | modulo: 2 %}
+
+            {% if attribute-number == 1 %}
+                <tr>
+            {% endif %}
+                <td width="27%; fixed" align="right">
+                    {% if attribute.doc-link %}
+                        <strong><a href="{{ attribute.doc-link | flatify }}">{{ attribute.display-name }}</a></strong>
+                    {% else %}
+                        <strong>{{ attribute.display-name }}</strong>
+                    {% endif %}
+
+                    {% if attribute.tooltip %}
+                        {% capture clean-tooltip %}
+                            {{ attribute.tooltip | flatify }}
+                        {% endcapture %}
+
+                        {{ info-icon | replace:"TOOLTIP",clean-tooltip }}
+                    {% endif %}
+                </td>
+                <td width="23%; fixed" {% if forloop.last == true and attribute-number == 1 %}colspan="3"{% endif %}>
+                    {{ attribute.field-value | flatify | markdownify }}
+                </td>
+            {% case attribute-number %}
+                {% when 0 %}
+                    </tr>
+                {% when 1 %}
+                    {% if forloop.last == true %}
+                        </tr>
+                    {% endif %}
+            {% endcase %}
+        {% endfor %}
+    {% endfor %}
+</table>
+
 {% endcase %}

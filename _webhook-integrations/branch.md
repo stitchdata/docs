@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/branch
 redirect_from: /integrations/saas/branch
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [stitch_webhooks]
 keywords: branch, integration, schema, etl branch, branch etl, branch schema, stitch webhooks
 summary: "Connect your Branch data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -14,14 +13,12 @@ summary: "Connect your Branch data to Stitch using Stitch's Incoming Webhooks in
 
 name: "branch"
 display_name: "Branch"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
+status: "Released"
 certified: true
 
 type: "Webhook"
@@ -37,6 +34,9 @@ icon: /images/integrations/icons/branch.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

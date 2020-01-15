@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: ShipHero (v1.0)
+title: ShipHero (v1)
 permalink: /integrations/saas/shiphero
 keywords: shiphero, integration, schema, etl shiphero, shiphero etl, shiphero schema
 summary: "Connections instructions, replication info, and schema details for Stitch's ShipHero integration."
@@ -32,7 +32,7 @@ singer: true
 tap-name: "ShipHero"
 repo-url: https://github.com/singer-io/tap-shiphero
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API (v1.2)](https://shipheropublic.docs.apiary.io/#reference){:target="new"}
@@ -48,8 +48,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.shiphero.com/"
 
+api-type: "platform.shiphero"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

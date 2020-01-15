@@ -24,7 +24,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-bing-ads
 tap-name: "Bing Ads"
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #

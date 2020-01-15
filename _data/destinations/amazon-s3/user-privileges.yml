@@ -63,7 +63,7 @@ all-permissions:
 
 ## The individual steps for granting access to S3 for Stitch.
 
-all-steps:
+amazon-s3:
   - copy: |
       {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="400px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
 

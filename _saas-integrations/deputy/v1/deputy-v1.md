@@ -31,7 +31,7 @@ singer: true
 tap-name: "Deputy"
 repo-url: https://github.com/singer-io/tap-deputy
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://www.deputy.com/api-doc/API/Getting_Started){:target="new"}
@@ -46,6 +46,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.deputy.com/"
+
+api-type: "platform.deputy"
 
 anchor-scheduling: true
 cron-scheduling: true

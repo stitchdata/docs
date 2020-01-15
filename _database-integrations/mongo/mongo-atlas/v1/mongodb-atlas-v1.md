@@ -17,7 +17,7 @@ display_name: "MongoDB Atlas"
 
 hosting-type: "mongodb-atlas"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [PyMongo 3.8.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
@@ -28,7 +28,6 @@ setup-name: "MongoDB"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 singer: true
 certified: true
 
@@ -38,7 +37,7 @@ port: 27017
 db-type: "mongo"
 
 ## Stitch features
-
+api-type: "platform.mongodb"
 versions: "2.6 through 4.0"
 ssh: false
 ssl: true
