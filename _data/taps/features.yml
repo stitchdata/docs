@@ -53,6 +53,10 @@ release-status: &release-status
   display-name: "Release status"
   name: "status"
   field-value: |
+    {% if include.feature-type == "webhooks" %}
+    {{ integration.status }}
+
+    {% else %}
     {% case include.type %}
     {% when 'integration-snapshot' %}
     {% assign version-variable = this-version %}
@@ -73,6 +77,7 @@ release-status: &release-status
     {% endcase %}
 
     {{ version-status | append: version-date }}
+    {% endif %}
 
 support-level: &support-level
   display-name: "Supported by"
