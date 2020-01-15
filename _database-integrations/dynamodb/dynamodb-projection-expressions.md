@@ -1,23 +1,23 @@
 ---
-title: Selecting MongoDB Fields Using Projection Queries
+title: Selecting Amazon DynamoDB Fields Using Projection Queries
 keywords: mongodb, mongo, whitelisting, blacklisting, field selection, column selection
-permalink: /integrations/databases/mongodb/field-selection-using-projection-queries
-summary: "Specify or restrict the data Stitch replicates for MongoDB collections using projection queries."
+permalink: /integrations/databases/amazon-dynamodb/field-selection-using-projection-queries
+summary: "Specify or restrict the data Stitch replicates for Amazon DynamoDB collections using projection queries."
 input: false
 
 layout: general
 toc: false
-key: "mongodb-projection-queries"
+key: "dynamodb-projection-queries"
 
-display_name: "MongoDB"
-name: "mongodb"
+display_name: "DynamoDB"
+name: "dynamodb"
 
 this-version: "1.0"
 
 intro: |
   {% include misc/data-files.html %}
 
-  In Stitch's MongoDB integration, projection queries serve as a method for selecting individual fields for replication. This is equivalent to [column selection]({{ link.replication.syncing | prepend: site.baseurl }}) in other integrations.
+  In Stitch's Amazon DynamoDB integration, projection queries serve as a method for selecting individual fields for replication. This is equivalent to [column selection]({{ link.replication.syncing | prepend: site.baseurl }}) in other integrations.
 
   By specifying a projection query, you can replicate only the data you need for each collection in your MongoDB integration.
 
@@ -33,7 +33,6 @@ sections:
     summary: "What versions of the MongoDB integration this feature is available for"
     content: |
       {% include shared/integrations/projection-column-selection.html type="feature-availability" %}
-      
 
   - title: "What are projection queries?"
     anchor: "what-are-projection-queries"
@@ -48,11 +47,6 @@ sections:
       Projection queries are compatible with any of Stitch's Replication Methods, including Log-based Incremental.
 
       Projection queries entered into Stitch must adhere to the following:
-
-      - **Cannot exclude the `_id` field.** This is equivalent to `{ "_id": 0 }`. Stitch uses this field for replication.
-      - **Cannot specify conditional criteria.** In SQL, this is equivalent to specifying a `WHERE` clause. For example: `{ "is_active": true }` is equal to `WHERE is_active = true`. This type of projection query is not currently supported in Stitch.
-      - **Cannot combine inclusion and exclusion statements.** This means that a projection query can't both include and exclude fields. For example: `{ "name": 0, "type": 1 }`
-      - **Must be valid JSON.** Projection queries must be valid JSON. Keys and string values must be enclosed in double quotes (`"`). You can use [JSONFormatter](https://jsonformatter.curiousconcept.com/){:target="new"} to validate the projection query before entering it into Stitch.
 
       Projection queries that don't meet the above criteria will result in [errors during extraction](#error-troubleshooting).
 
@@ -69,7 +63,6 @@ sections:
         content: |
           {% include shared/integrations/projection-column-selection.html type="adding-new-projection-query" %}
 
-
       - title: "Modifying an existing projection query"
         anchor: "modifying-existing-projection-query"
         content: |
@@ -84,61 +77,43 @@ sections:
         details: |
           age: 15, type: human
         acquaintances: |
-          - name: Jake, type: best_friend
-          - name: Ice King, type: nemesis
+          - Jake
+          - Ice King
       - name: "Jake"
         is_active: true
         details: |
           age: 6, type: dog
         acquaintances: |
-          - name: Finn, type: best_friend
-          - name: Lady, type: spouse
+          - Finn
+          - Lady
       - name: "Bubblegum"
         is_active: false
         details: |
           age: 16, type: princess
         acquaintances: |
-          - name: Finn, type: friend
-          - name: Bubblegum, type: best_friend
+          - Finn
+          - Bubblegum
       - name: "Lady"
         is_active: true
         details: |
           age: 50, type: unicorn
         acquaintances: |
-          - name: Jake, type: spouse
-          - name: Finn, type: friend
+          - Jake
+          - Finn
       - name: "Ice King"
         is_active: false
         details: |
           age: 900, type: king
         acquaintances: |
-          - name: Finn, type: nemesis
-          - name: Bubblegum, type: nemesis
+          - Finn
+          - Bubblegum
     examples:
-      # Commenting out as we don't currently support conditional logic in projection queries
-      # - title: "Return all fields in matching documents"
-      #   description: |
-      #     Return all fields in documents in the `customers` collection where `is_active = true`.
-      #   projection-query: |
-      #     ```json
-      #     { "is_active": true }
-      #     ```
-      #   sql: |
-      #     ```sql
-      #     SELECT *
-      #       FROM customers
-      #      WHERE is_active = true
-      #      ```
-      #   results: |
-      #     {% assign results = section.data | where:"is_active",true %}
-      #     {% assign attributes = "name|is_active|details|acquaintances" | split:"|" %}
-
       - title: "Return only specified fields"
         description: |
-          Return only the specified fields (`name`, `is_active`) for documents in the `customers` collection. Fields are marked for inclusion by setting their value to `1` in the projection query.
+          Return only the specified fields (`name`, `is_active`) in the `customers` table. If including multiple fields, separate them with a comma.
         projection-query: |
           ```json
-          { "name": 1, "is_active": 1 }
+          "name, is_active"
           ```
         sql: |
           ```sql
@@ -150,57 +125,23 @@ sections:
           {% assign results = section.data %}
           {% assign attributes = "name|is_active" | split:"|" %}
 
-      # Commenting out as we don't currently support conditional logic in projection queries
-      # - title: "Return only specified fields in matching documents"
-      #   description: |
-      #     Return only the specified fields (`name`, `details`) for documents in the `customers` collection where `is_active = true`.
-      #   projection-query: |
-      #     ```json
-      #     { "is_active": true }, { "name": 1, "details": 1 }
-      #     ```
-      #   sql: |
-      #     ```sql
-      #     SELECT name,
-      #            details
-      #       FROM customers
-      #      WHERE is_active = true
-      #      ```
-      #   results: |
-      #     {% assign results = section.data | where:"is_active",true %}
-      #     {% assign attributes = "name|details" | split:"|" %}
-
-      - title: "Return all except excluded fields"
+      - title: "Return specified fields in a map element"
         description: |
-          Return all fields except those that are excluded. Fields are marked for exclusion by setting their value to `0` in the projection query.
+          Using TODO: [dot notation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}, return specified fields in a map element. This is formatted as `"<map_element_name>.<field>"`
 
-          **Note**: The `_id` field cannot be excluded in projection queries added in Stitch, as Stitch requires it for replication.
+          In this example, the expression would return the top-level `name` field and `age` and `type` fields from the `details` map.
 
-          In this example, the query would return only the `name` and `acquaintances` fields.
+          Refer to TODO: [{{ page.display_name }}'s documentation](TODO){:target="new"} for more examples of dot notation for map elements.
         projection-query: |
           ```json
-          { "is_active": 0, "details": 0 }
-          ```
-        results: |
-          {% assign results = section.data %}
-          {% assign attributes = "name|acquaintances" | split:"|" %}
-
-      - title: "Return specified fields in an embedded document"
-        description: |
-          Using [dot notation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}, return specified fields in an embedded document. This is formatted as `"<embedded_document_name>.<field>"`
-
-          In this example, the query would return the `name` and `name` and `type` fields from the `details` document.
-
-          Refer to [MongoDB's documentation](https://docs.mongodb.com/v4.0/core/document/#embedded-documents){:target="new"} for more examples of dot notation for embedded documents.
-        projection-query: |
-          ```json
-          { "name": 1, "details.name": 1, "details.type": 1 }
+          "name", details.age, details.type"
           ```
         sql: |
           In destinations - like Snowflake - that also use dot notation to query nested data, the query might look like this:
 
           ```sql
           SELECT name,
-                 "details.name",
+                 "details.age",
                  "details.type"
             FROM customers
            ```
@@ -208,16 +149,16 @@ sections:
           {% assign results = section.data %}
           {% assign attributes = "name|details" | split:"|" %}
 
-      - title: "Return specified fields in an embedded document in an array"
+      - title: "Return specified fields in a map element in a list"
         description: |
-          Using [dot notation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}, return specified fields in an embedded document contained in an array. This is formatted as `"<embedded_document_name>.<field>"`
+          Using [dot notation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}, return specified list items in a list element. This is formatted as `"list_name[n]"`
 
-          In this example, the query would return the `name` and `name` and `type` fields from the documents in the `acquaintances` array.
+          In this example, the query would return the  top-level `name` field and selected element from the `acquaintances` list.
 
           Refer to [MongoDB's documentation](https://docs.mongodb.com/v4.0/core/document/#arrays){:target="new"} for more examples of dot notation for embedded documents and arrays.
         projection-query: |
           ```json
-          { "name": 1, "acquaintances.name": 1, "acquaintances.type": 1 }
+          "name, acquaintances[1]"
           ```
         sql: |
           In destinations - like Snowflake - that also use dot notation to query nested data, the query might look like this:
@@ -231,7 +172,6 @@ sections:
         results: |
           {% assign results = section.data %}
           {% assign attributes = "name|acquaintances" | split:"|" %}
-
     content: |
       In this section, we'll look at some example projection queries and their SQL equivalents.
 
