@@ -25,6 +25,8 @@ short: |
 description: |
   {{ api.core-objects.destination-types.get.description | flatify }}
 
+  Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#destinations-api-availability" }}) for info on the destinations that are available in the API.
+
 
 # -------------------------- #
 #       METHOD ARGUMENTS     #

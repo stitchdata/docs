@@ -21,7 +21,10 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.list.short }}"
-description: "{{ api.core-objects.source-types.list.description | flatify }}"
+description: |
+  {{ api.core-objects.source-types.list.description | flatify }}
+
+  Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for info on the sources that are available in the API.
 
 
 # -------------------------- #
