@@ -1,6 +1,6 @@
 ---
 tap: "marketo"
-version: "2.0"
+version: "2"
 
 name: "leads"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Leads/getLeadsByFilterUsingGET

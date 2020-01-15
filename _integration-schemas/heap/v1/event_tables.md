@@ -9,7 +9,7 @@
 
 
 tap: "heap"
-version: "1.0" 
+version: "1" 
 
 name: "[event_type]"
 doc-link: https://docs.heapanalytics.com/docs/heap-sql-retroactive-s3-specification

@@ -1,6 +1,6 @@
 ---
 tap: "typeform"
-version: "1.0"
+version: "1"
 
 name: "landings"
 doc-link: "https://developer.typeform.com/responses/reference/retrieve-responses"

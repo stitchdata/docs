@@ -1,6 +1,6 @@
 ---
 tap: "xero"
-version: "1.0"
+version: "1"
 
 name: "branding_themes"
 doc-link: &api-doc https://developer.xero.com/documentation/api/branding-themes

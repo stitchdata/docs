@@ -1,6 +1,6 @@
 ---
 tap: "invoiced"
-version: "1.0"
+version: "1"
 
 name: "subscriptions"
 doc-link: ""

@@ -1,6 +1,6 @@
 ---
 tap: "pipedrive"
-version: "1.0"
+version: "1"
 key: "organization"
 
 name: "organizations"

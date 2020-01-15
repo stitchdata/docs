@@ -1,6 +1,6 @@
 ---
 tap: "facebook-ads"
-version: "1.0"
+version: "1"
 
 name: "adcreative"
 doc-link: https://developers.facebook.com/docs/reference/ads-api/adcreative/

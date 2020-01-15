@@ -1,6 +1,6 @@
 ---
 tap: "recurly"
-version: "1.0"
+version: "1"
 
 name: "invoices"
 key: "invoice"

@@ -1,6 +1,6 @@
 ---
 tap: "ringcentral"
-version: "1.0"
+version: "1"
 key: ""
 
 name: "company_call_log"

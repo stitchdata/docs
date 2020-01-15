@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-version: "1.0"
+version: "1"
 
 name: "accounts"
 doc-link: https://docs.microsoft.com/en-us/bingads/customer-management-service/account

@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "2.0"
+version: "2"
 
 name: "estimate_messages"
 doc-link: https://help.getharvest.com/api-v2/estimates-api/estimates/estimate-messages/

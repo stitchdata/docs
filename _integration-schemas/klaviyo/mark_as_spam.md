@@ -1,6 +1,6 @@
 ---
 tap: "klaviyo"
-version: "1.0"
+version: "1"
 
 name: "mark_as_spam"
 doc-link: ""

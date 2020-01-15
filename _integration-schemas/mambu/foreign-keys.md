@@ -9,7 +9,7 @@
 
 tap-reference: "mambu"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "branch-encoded-key"

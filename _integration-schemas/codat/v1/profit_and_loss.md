@@ -1,6 +1,6 @@
 ---
 tap: "codat"
-version: "1.0"
+version: "1"
 key: "profit-and-loss"
 
 name: "profit_and_loss"

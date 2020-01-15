@@ -1,6 +1,6 @@
 ---
 tap: "github"
-version: "1.0"
+version: "1"
 
 name: "collaborators"
 doc-link: https://developer.github.com/v3/repos/collaborators/

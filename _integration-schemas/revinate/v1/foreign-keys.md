@@ -1,7 +1,7 @@
 ---
 tap-reference: "revinate"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "hotel-id"

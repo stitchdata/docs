@@ -1,6 +1,6 @@
 ---
 tap: "salesforce"
-version: "1.0"
+version: "1"
 
 name: "lead"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_lead.htm

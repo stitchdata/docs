@@ -1,6 +1,6 @@
 ---
 tap: "helpscout"
-version: "1.0"
+version: "1"
 
 key: "mailbox-folder"
 name: "mailbox_folders"

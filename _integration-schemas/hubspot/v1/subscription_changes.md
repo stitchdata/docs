@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "1"
 
 name: "subscription_changes"
 doc-link: https://developers.hubspot.com/docs/methods/timeline/timeline-overview

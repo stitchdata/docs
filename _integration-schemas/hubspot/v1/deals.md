@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "1"
 
 name: "deals"
 doc-link: https://developers.hubspot.com/docs/methods/deals/deals_overview

@@ -1,6 +1,6 @@
 ---
 tap: "zendesk"
-version: "1.0"
+version: "1"
 
 name: "satisfaction_ratings"
 doc-link: https://developer.zendesk.com/rest_api/docs/support/satisfaction_ratings

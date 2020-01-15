@@ -1,6 +1,6 @@
 ---
 tap: "uservoice"
-version: "1.0"
+version: "1"
 
 name: "categories"
 doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/categories

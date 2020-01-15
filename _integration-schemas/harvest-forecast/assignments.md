@@ -1,6 +1,6 @@
 ---
 tap: "harvest-forecast"
-version: "1.0"
+version: "1"
 
 name: "assignments"
 doc-link:

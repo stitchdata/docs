@@ -1,7 +1,7 @@
 ---
 tap-reference: "chargebee"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "addon-id"

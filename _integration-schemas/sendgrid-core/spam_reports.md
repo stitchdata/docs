@@ -1,6 +1,6 @@
 ---
 tap: "sendgrid-core"
-version: "1.0"
+version: "1"
 
 name: "spam_reports"
 doc-link: 

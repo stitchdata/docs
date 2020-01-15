@@ -1,6 +1,6 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "Deleted"
 doc-link: "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_N3497592.html"
