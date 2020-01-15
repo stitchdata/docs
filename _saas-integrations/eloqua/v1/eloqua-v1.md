@@ -47,7 +47,7 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://community.oracle.com/community/topliners/eloqua-system-status"
 
-api-type: "platform.facebook"
+api-type: "platform.eloqua"
 
 anchor-scheduling: true
 cron-scheduling: true
