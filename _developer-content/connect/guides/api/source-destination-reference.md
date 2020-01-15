@@ -14,7 +14,7 @@ content-id: &key "connect-connection-reference"
 key: "connect-connection-reference"
 
 layout: general
-sidebar: api
+sidebar: on-page
 
 
 # -------------------------- #
@@ -27,6 +27,21 @@ icon: source
 order: 10
 
 description: "Current API availability for Stitch's destinations and sources."
+
+
+# -------------------------- #
+#   RELATED SIDEBAR LINKS    #
+# -------------------------- #
+
+related:
+  - title: "All integrations"
+    link: "{{ site.baseurl }}/integrations"
+    
+  - title: "Connect API reference"
+    link: "{{ link.connect.api | prepend: site.baseurl }}"
+
+  - title: "All Connect guides"
+    link: "{{ link.connect.guides.category | prepend: site.baseurl }}"
 
 
 # -------------------------- #
