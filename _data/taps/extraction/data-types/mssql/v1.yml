@@ -70,6 +70,10 @@ longvarchar:
 longnvarchar:
   stitch-type: "string"
 
+money:
+  stitch-type: "integer"
+  doc-link: &money-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/money-and-smallmoney-transact-sql?view=sql-server-ver15"  
+
 nchar:
   stitch-type: "string"
   doc-link: &nchar-doc-link "https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql?view=sql-server-2017"
@@ -98,7 +102,11 @@ smalldatetime:
 
 smallint:
   stitch-type: "integer"
-  doc-link: *int-doc-link     
+  doc-link: *int-doc-link    
+
+smallmoney:
+  stitch-type: "integer"
+  doc-link: *money-doc-link   
 
 time:
   stitch-type: "string"
