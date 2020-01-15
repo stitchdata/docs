@@ -1,0 +1,40 @@
+<!-- This file contains the logic that's used get a form property's attributes
+        and display them in a table and in the example object section. -->
+
+<!-- Destination and source form properties are a little different,
+        so we need to run logic specific to each type -->
+
+{% case include.content %}
+
+    <!-- When the form property is a source, run this -->
+    {% when 'source' %}
+        <!-- There are two types of form properties: databases and SaaS applications.
+                Each one is a little different, so we need to run logic specific to
+                each type.  -->
+
+        <!-- This checks if the form property uses start_date and,
+            if so, creates an array with the property in it. We have to do this
+            because not every source uses this. -->
+        {% if form-property.uses-start-date == true %}
+            {% assign start-date = site.data.connect.common.all-sources.start-date %}
+        {% else %}
+            {% assign start-date = null | compact %}
+        {% endif %}
+
+        <!-- Get the common fields -->
+            {% assign all-source-attributes = site.data.connect.common.all-sources.fields | concat: start-date %}
+            
+        {% case form-property.source-type %}
+            <!-- When the source form property is for a database, run this -->
+            {% when 'database' %}
+                {% include developers/api-form-property-source-database-fields.html %}
+
+            <!-- When the source form property is for a SaaS source, run this -->
+            {% when 'saas' %}
+                {% include developers/api-form-property-source-saas-fields.html %}
+        {% endcase %}
+
+    <!-- When the form property is a destination, run this -->
+    {% when 'destination' %}
+        {% include developers/api-form-property-destination-fields.html %}
+{% endcase %}

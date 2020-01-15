@@ -80,9 +80,9 @@ collections:
    output: true
   analysis-integrations:
    output: true
-  connect-content:
+  developer-content:
    output: true
-  connect-files:
+  developer-files:
    output: false
   data-structure:
    output: true
@@ -168,6 +168,17 @@ defaults:
       sidebar: stitchnav
       display-summary: "false"
 
+## Developer content
+  - scope:
+      type: developer-content
+    values:
+      layout: developer
+      display-summary: "false"
+      toc: false
+      feedback: false
+      summary: false
+
+## Developers
   - scope:
       type: developers
     values:
@@ -263,6 +274,7 @@ data-strategy: https://stitchdata.com/resources/guide/why-you-need-a-data-pipeli
 
 support: stitchsupport@talend.com
 sales: https://www.stitchdata.com/contact/
+community: https://community.stitchdata.com/
 sign-in: https://app.stitchdata.com
 
 ## Singer links

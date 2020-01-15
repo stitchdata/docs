@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "1.0"
+version: "1"
 
 name: "campaigns"
 doc-link: https://developers.google.com/adwords/api/docs/reference/v201806/CampaignService.Campaign

@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "ManufacturingOperationTask"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/manufacturingoperationtask.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ManufacturingOperationTask.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/ManufacturingOperationTask.json"
 description: |
   The `{{ table.name }}` table contains info about manufacturing operation tasks in your {{ integration.display_name }} account.
 

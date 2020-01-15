@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Nexus"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/nexus.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Nexus.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Nexus.json"
 description: |
   The `{{ table.name }}` table contains info about the tax jurisdictions - or nexus - in your {{ integration.display_name }} account. A nexus is a tax jurisdiction, usually defined at the country level. 
 

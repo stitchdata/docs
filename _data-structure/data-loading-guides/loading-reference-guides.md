@@ -25,7 +25,7 @@ sections:
     content: |
       {% assign data-loading-guides = site.data-structure | where:"content-type","loading-reference" | sort: "display_name" %}
 
-      <ul class="tiles">
+      <ul class="tiles three-columns">
       {% for guide in data-loading-guides %}
 
       {% if guide.branded == true %}

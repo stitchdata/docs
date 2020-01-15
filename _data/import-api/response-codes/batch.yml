@@ -1,0 +1,143 @@
+# -------------------------- #
+#    BATCH ENDPOINT ERRORS   #
+# -------------------------- #
+
+all:
+  - code: "400"
+    responses:
+      - method: "post"
+        condition: "Request body is missing required arguments"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Request failed validation:#: required key [<ARGUMENT_NAME>] not found"
+          }
+          ```
+
+      - method: "post"
+        condition: "Request body contains an illegal argument"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Request failed validation:#: extraneous key [<ARGUMENT_NAME>] is not permitted"
+          }
+          ```
+
+      - method: "post"
+        condition: "Required argument is incorrectly typed"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Request failed validation:#/<ARGUMENT_NAME>: expected type: <CORRECT_TYPE>, found: <TYPE>"
+          }
+          ```
+
+      - method: "post"
+        condition: "Record in Message object doesn't conform to the Schema"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Record 0 did not conform to schema: #/<FIELD_NAME>: expected: <DATA_TYPE>, found: <DATA_TYPE>"
+          }
+          ```
+
+      - method: "post"
+        condition: "`key_names` are provided, but a record has a missing or `null` key value"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Record is missing key property <KEY_NAME>"
+          }
+          ```
+
+      - method: "post"
+        condition: |
+          Invalid [JSON data type](https://json-schema.org/understanding-json-schema/reference/type.html){:target="new"} in Schema object
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Invalid JSON schema: unknown type: [<TYPE>]"
+          }
+          ```
+
+      - method: "post"
+        condition: "Required argument missing from the Message object"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Request failed validation:#/messages/0: #: 0 subschemas matched instead of one #/messages/0: 2 schema violations found #/messages/0: required key [<ARGUMENT_NAME>] not found #/messages/0: extraneous key [data] is not permitted #/messages/0: required key [ARGUMENT_NAME] not found"
+          }
+          ```
+
+      - method: "post"
+        condition: "Value of the `sequence` argument exceeds allowed maximum value"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Request failed validation:#: sequence can not be above 9223372036854775807"
+          }
+          ```
+
+      - method: "post"
+        condition: "The Schema object must be an object, not an array"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Request failed validation:#/schema: expected type: JSONObject, found: JSONArray"
+          }
+          ```
+
+  - code: "401"
+    responses:
+      - method: "post"
+        condition: "Access token is missing or invalid"
+        version: "all"
+        response-body: |
+          ```json
+          {  
+             "message":"Not Authorized"
+          }
+          ```
+
+      - method: "post"
+        condition: "Integration is paused or has been deleted"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "error": "Forbidden",
+            "errors": {
+              "error": "Connection is not active."
+            }
+          }
+          ```
+
+  - code: "413"
+    responses:
+      - method: "post"
+        condition: "Request body exceeds 4MB"
+        version: "all"
+        response-body: |
+          ```json
+          {
+            "status": "ERROR",
+            "message": "Request rejected: request size (<BYTE>s bytes) exceeds the maximum"
+          }
+          ```
+
+  - code: "415"
+    responses:
+      - method: "post"
+        condition: "Unsupported content type"
+        version: "all"
+        response-body: |
+          `Content-Type must be application/json`

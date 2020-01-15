@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Location"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/location.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Location.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Location.json"
 description: |
   The `{{ table.name }}` table contains info about locations.
 

@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "1.0"
+version: "1"
 
 name: "call_metrics_call_details_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/call-metrics-call-details-report

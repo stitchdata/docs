@@ -32,7 +32,7 @@
 	</li>
 	{% if page.type == "bigquery" %}
 		<li>
-			<a href="{{  link.replication.append-only | prepend: site.baseurl }}">BigQuery & Append-Only Replication</a>
+			<a href="{{  link.destinations.storage.loading-behavior | prepend: site.baseurl }}">Understanding Loading Behavior</a>
 		</li>
 		<li>
 			<a href="{{ link.destinations.overviews.bigquery-pricing | prepend: site.baseurl }}">Stitch's Impact on BigQuery Costs</a>
@@ -66,7 +66,7 @@
 <!-- Webhook Integrations -->
 {% if page.permalink contains "webhooks" %}
 		<li>
-			<a href="{{ link.replication.rep-methods | prepend: site.baseurl | append:"#append-only-incremental-replication"}}">Append-Only Replication
+			<a href="{{ link.destinations.storage.loading-behavior | prepend: site.baseurl }}">Append-Only Loading
 		</li>
 		<li>
 			<a href="{{ link.replication.append-only-querying | prepend: site.baseurl }}">Querying Append-Only Tables</a>

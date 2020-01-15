@@ -23,7 +23,7 @@
       1. The records' Replication Key values are greater than or equal to the last saved maximum Replication Key value for the table, or
       2. The table is reset and a historical re-replication is queued.
 
-      Refer to [TODO]({{ link.replication.syncing-new-columns | prepend: site.baseurl | append: "#syncing-additional-columns-on-already-syncing-tables" }}) for more info and examples.
+      Refer to [Tracking new columns in an already replicating table guide]({{ link.replication.syncing-new-columns | prepend: site.baseurl | append: "#syncing-additional-columns-on-already-syncing-tables" }}) for more info and examples.
 
 ## Add column to Stitch-replicated table in warehouse
 - id: add-column-warehouse

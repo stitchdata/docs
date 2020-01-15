@@ -1,0 +1,43 @@
+<!-- This is the formatting for the object code examples in the Connect API docs -->
+
+<h5 id="{{ form-property.key | append: "-example-usage" }}">
+  Example object
+</h5>
+
+{% case include.content %}
+
+<!-- Destination form property example -->
+{% when 'destination' %}
+{% highlight json %}
+{
+ "type":"{{ form-property.api-type }}",
+ "properties":{
+   {% for attribute in all-form-attributes %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute.value | flatify | append: "  " }}
+   {%- else -%}"{{ attribute.name }}":{{ attribute.value | rstrip | flatify | append: "," }}
+   {% endif %}
+   {%- endfor -%}
+  }
+}
+{% endhighlight %}
+
+
+<!-- Source forms get their own formatting because the properties are all strings,
+    meaning they'll always be quoted ("thing": "thing"). Destinations are actually
+    typed. -->
+{% when 'source' %}
+
+{% highlight json %}
+{
+ "type":"{{ form-property.api-type }}",
+ "properties":{
+   {% for attribute in all-form-attributes %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}"
+   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}",
+   {% endif %}
+   {%- endfor -%}
+  }
+}
+{% endhighlight %}
+
+{% endcase %}

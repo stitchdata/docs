@@ -4,7 +4,7 @@ version: "1.0"
 
 name: "Customer"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/customer.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Customer.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Customer.json"
 description: |
   The `{{ table.name }}` table contains info about customers.
 

@@ -203,7 +203,6 @@ setup-steps:
         anchor: "ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
-
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
@@ -220,6 +219,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"
