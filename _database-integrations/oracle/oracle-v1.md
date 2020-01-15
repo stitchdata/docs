@@ -11,7 +11,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Oracle
+title: Oracle (v1)
 keywords: oracle, database integration, etl oracle, oracle etl
 permalink: /integrations/databases/oracle
 summary: "Connect and replicate data from your Oracle database using Stitch's Oracle integration."
@@ -30,7 +30,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-this-version: "1.0"
+this-version: "1"
 has-specific-data-types: true
 
 hosting-type: "generic"
@@ -306,7 +306,7 @@ replication-sections:
   - content: |
       {% for section in integration.replication-sections %}
       {% if section.title %}
-      - [{{ section.title }}]({{ section.anchor }})
+      - [{{ section.title }}](#{{ section.anchor }})
       {% endif %}
       {% endfor %}
 

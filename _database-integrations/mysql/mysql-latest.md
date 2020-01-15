@@ -1,5 +1,5 @@
 ---
-title: MySQL
+title: MySQL (v1)
 keywords: mysql, database integration, etl mysql, mysql etl
 permalink: /integrations/databases/mysql
 summary: "Connect and replicate data from your MySQL database using Stitch's MySQL integration."
@@ -22,7 +22,7 @@ display_name: "MySQL"
 singer: true
 repo-url: https://github.com/singer-io/tap-mysql
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "generic"
 

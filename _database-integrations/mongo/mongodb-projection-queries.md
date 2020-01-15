@@ -9,7 +9,7 @@ layout: general
 toc: false
 key: "mongodb-projection-queries"
 
-this-version: "1.0"
+this-version: "1"
 
 intro: |
   {% include misc/data-files.html %}

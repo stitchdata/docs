@@ -16,7 +16,7 @@ display_name: "MongoDB"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [PyMongo 3.8.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}

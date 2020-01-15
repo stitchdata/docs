@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL (v1.0)
+title: PostgreSQL (v1)
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
 permalink: /integrations/databases/postgresql/v1
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
@@ -23,7 +23,7 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}

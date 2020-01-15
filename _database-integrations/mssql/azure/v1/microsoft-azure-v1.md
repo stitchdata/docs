@@ -16,7 +16,7 @@ display_name: "Microsoft Azure SQL Database"
 
 hosting-type: "microsoft-azure"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: "7.2.1.jre8"
 

@@ -1,5 +1,5 @@
 ---
-title: Magento
+title: Magento (v1)
 keywords: magento, database integration, etl magento, magento etl
 permalink: /integrations/databases/magento
 summary: "Connect and replicate data from your Magento database using Stitch's Magento integration."
@@ -18,7 +18,7 @@ setup-name: "MySQL"
 singer: true
 repo-url: https://github.com/singer-io/tap-mysql
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "generic"
 

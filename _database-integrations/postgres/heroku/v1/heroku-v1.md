@@ -1,5 +1,5 @@
 ---
-title: Heroku (v1.0)
+title: Heroku (v1)
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
 permalink: /integrations/databases/heroku/v1
 summary: "Connect and replicate data from your Heroku database using Stitch's Heroku integration."
@@ -20,7 +20,7 @@ singer: true
 tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}

@@ -1,5 +1,5 @@
 ---
-title: Google CloudSQL PostgreSQL (v1.0)
+title: Google CloudSQL PostgreSQL (v1)
 keywords: postgresql, postgres, google cloudsql postgres, google cloudsql postgresql, database integration, etl postgres, etl cloudsql, cloudsql etl, postgres etl, postgresql etl, etl
 tags: [database_integrations]
 permalink: /integrations/databases/google-cloudsql-postgresql/v1
@@ -18,7 +18,7 @@ singer: true
 tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "google-cloudsql"
 
