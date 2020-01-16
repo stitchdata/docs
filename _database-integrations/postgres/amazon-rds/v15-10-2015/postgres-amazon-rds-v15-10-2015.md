@@ -28,7 +28,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 setup-name: "PostgreSQL"
 

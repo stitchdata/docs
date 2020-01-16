@@ -34,7 +34,6 @@ db-type: "sftp"
 #       Stitch Supports      #
 # -------------------------- #
 
-status: "Open Beta"
 certified: true
 setup-name: "SFTP"
 

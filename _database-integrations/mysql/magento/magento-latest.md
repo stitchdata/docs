@@ -30,6 +30,8 @@ driver: |
 # -------------------------- #
 
 certified: true
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 
 frequency: "30 minutes"
 tier: "Free"

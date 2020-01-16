@@ -32,7 +32,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 setup-name: "Amazon Aurora"
 

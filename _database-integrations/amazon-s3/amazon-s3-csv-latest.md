@@ -36,7 +36,6 @@ driver: |
 #       Stitch Supports      #
 # -------------------------- #
 
-status: "Released"
 certified: true
 setup-name: "Amazon S3"
 

@@ -26,6 +26,8 @@ driver: |
 # -------------------------- #
 
 certified: true
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 setup-name: "MySQL"
 
 frequency: "30 minutes"

@@ -25,7 +25,8 @@ driver: "7.2.1.jre8"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mssql
 certified: true
 
 frequency: "30 minutes"

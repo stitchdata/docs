@@ -114,12 +114,7 @@ singer: &singer
   name: "repo-url"
   field-value: |
     {% if integration.singer == true %}
-    {% if integration.tap-name %}
-    [{{ integration.tap-name | slugify | prepend: "singer-io/tap-" }}]({{ integration.repo-url }}){:target="new"}
-    {% else %}
-    [{{ integration.display-name | slugify | prepend: "singer-io/tap-" }}]({{ integration.repo-url }}){:target="new"}
-    {% endif %}
-
+    [{{ integration.repo-url | remove:"https://github.com/" }}]({{ integration.repo-url }}){:target="new"}
     {% else %}
     Not applicable
     {% endif %}

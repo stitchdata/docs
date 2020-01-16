@@ -27,6 +27,7 @@ driver: |
 # -------------------------- #
 
 singer: true
+repo-url: "https://github.com/singer-io/tap-mongodb"
 certified: true
 
 frequency: "30 minutes"

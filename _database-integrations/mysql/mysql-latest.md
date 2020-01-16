@@ -33,7 +33,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 
 frequency: "1 hour"
