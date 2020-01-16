@@ -1,24 +1,15 @@
-# --------------------------------- #
+# -------------------------------------- #
 #   DYNAMODB SERVER-SPECIFIC DATA TYPES  #
-# --------------------------------- #
+# -------------------------------------- #
 
-- name: "string"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/binary-and-varbinary-transact-sql?view=sql-server-2017"
+- name: "byte"
+  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
 
-- name: "rowversion"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/rowversion-transact-sql?view=sql-server-2017"
+- name: "calendar"
+  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
 
-- name: "uniqueidentifier"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/uniqueidentifier-transact-sql?view=sql-server-2017"
+- name: "long"
+  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"
 
-- name: "varbinary"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/binary-and-varbinary-transact-sql?view=sql-server-2017"
-
-- name: "datetime2"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetime2-transact-sql?view=sql-server-2017"
-
-- name: "smalldatetime"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/smalldatetime-transact-sql?view=sql-server-2017"
-
-- name: "datetimeoffset"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017"
+- name: "bigdecimal"
+  doc-link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html"

@@ -1,8 +1,8 @@
 ---
 title: Selecting Amazon DynamoDB Fields Using Projection Queries
-keywords: mongodb, mongo, whitelisting, blacklisting, field selection, column selection
+keywords: dynamodb, amazon dynamodb, whitelisting, blacklisting, field selection, column selection
 permalink: /integrations/databases/amazon-dynamodb/field-selection-using-projection-queries
-summary: "Specify or restrict the data Stitch replicates for Amazon DynamoDB collections using projection queries."
+summary: "Specify or restrict the data Stitch replicates for Amazon DynamoDB tables using projection expressions."
 input: false
 
 layout: general
@@ -17,58 +17,58 @@ this-version: "1.0"
 intro: |
   {% include misc/data-files.html %}
 
-  In Stitch's Amazon DynamoDB integration, projection queries serve as a method for selecting individual fields for replication. This is equivalent to [column selection]({{ link.replication.syncing | prepend: site.baseurl }}) in other integrations.
+  In Stitch's Amazon DynamoDB integration, projection expressions serve as a method for selecting individual fields for replication. This is equivalent to [column selection]({{ link.replication.syncing | prepend: site.baseurl }}) in other integrations.
 
-  By specifying a projection query, you can replicate only the data you need for each collection in your MongoDB integration.
+  By specifying a projection expression, you can replicate only the data you need for each table in your DynamoDB integration.
 
   In this guide, we'll cover:
 
   {% for section in page.sections %}
-  - [{{ section.summary }}](#{{ section.anchor }})
+  - [{{ section.summary | flatify }}](#{{ section.anchor }})
   {% endfor %}
 
 sections:
   - title: "Feature availability"
     anchor: "feature-availability"
-    summary: "What versions of the MongoDB integration this feature is available for"
+    summary: "What versions of the {{ page.display_name }} integration this feature is available for"
     content: |
       {% include shared/integrations/projection-column-selection.html type="feature-availability" %}
 
-  - title: "What are projection queries?"
+  - title: "What are projection expressions?"
     anchor: "what-are-projection-queries"
-    summary: "What projection queries are"
+    summary: "What projection expressions are"
     content: |
       {% include shared/integrations/projection-column-selection.html type="what-are-projection-queries" %}
 
-  - title: "Projection query requirements for Stitch"
+  - title: "Projection expression requirements for Stitch"
     anchor: "projection-query-stitch-requirements"
-    summary: "The requirements for projection queries in Stitch"
+    summary: "The requirements for projection expressions in Stitch"
     content: |
-      Projection queries are compatible with any of Stitch's Replication Methods, including Log-based Incremental.
+      Projection expressions are compatible with any of Stitch's Replication Methods, including Log-based Incremental.
 
-      Projection queries entered into Stitch must adhere to the following:
+      Projection expressions entered into Stitch must include the table's hash key. They cannot include condition expressions.
 
-      Projection queries that don't meet the above criteria will result in [errors during extraction](#error-troubleshooting).
+      Projection expressions that don't meet the above criteria will result in [errors during extraction](#error-troubleshooting).
 
-  - title: "Defining a projection query in Stitch"
+  - title: "Defining a projection expression in Stitch"
     anchor: "defining-projection-query-in-stitch"
-    summary: "How to define a projection query in Stitch"
+    summary: "How to define a projection expression in Stitch"
     content: |
       {% for subsection in section.subsections %}
       - [{{ subsection.title }}](#{{ subsection.anchor }})
       {% endfor %}
     subsections:
-      - title: "Adding a new projection query"
+      - title: "Adding a new projection expression"
         anchor: "adding-new-projection-query"
         content: |
           {% include shared/integrations/projection-column-selection.html type="adding-new-projection-query" %}
 
-      - title: "Modifying an existing projection query"
+      - title: "Modifying an existing projection expression"
         anchor: "modifying-existing-projection-query"
         content: |
           {% include shared/integrations/projection-column-selection.html type="modifying-existing-projection-query" %}
 
-  - title: "Example projection queries"
+  - title: "Example projection expressions"
     anchor: "example-projection-queries"
     summary: "Some example projection queries"
     data:
@@ -79,12 +79,16 @@ sections:
         acquaintances: |
           - Jake
           - Ice King
+        acquaintances-list: |
+          - Ice King
       - name: "Jake"
         is_active: true
         details: |
           age: 6, type: dog
         acquaintances: |
           - Finn
+          - Lady
+        acquaintances-list: |
           - Lady
       - name: "Bubblegum"
         is_active: false
@@ -93,6 +97,8 @@ sections:
         acquaintances: |
           - Finn
           - Bubblegum
+        acquaintances-list: |
+          - Bubblegum
       - name: "Lady"
         is_active: true
         details: |
@@ -100,12 +106,16 @@ sections:
         acquaintances: |
           - Jake
           - Finn
+        acquaintances-list: |
+          - Finn
       - name: "Ice King"
         is_active: false
         details: |
           age: 900, type: king
         acquaintances: |
           - Finn
+          - Bubblegum
+        acquaintances-list: |
           - Bubblegum
     examples:
       - title: "Return only specified fields"
@@ -127,14 +137,14 @@ sections:
 
       - title: "Return specified fields in a map element"
         description: |
-          Using TODO: [dot notation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}, return specified fields in a map element. This is formatted as `"<map_element_name>.<field>"`
+          Using [dot notation]({{ site.data.taps.links.dynamodb.accessing-elements  }}){:target="new"}, return specified fields in a map element. This is formatted as `"<map_element_name>.<field>"`
 
           In this example, the expression would return the top-level `name` field and `age` and `type` fields from the `details` map.
 
-          Refer to TODO: [{{ page.display_name }}'s documentation](TODO){:target="new"} for more examples of dot notation for map elements.
+          Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expressions-attributes }}){:target="new"} for more examples of dot notation for map elements.
         projection-query: |
           ```json
-          "name", details.age, details.type"
+          "name, details.age, details.type"
           ```
         sql: |
           In destinations - like Snowflake - that also use dot notation to query nested data, the query might look like this:
@@ -149,40 +159,31 @@ sections:
           {% assign results = section.data %}
           {% assign attributes = "name|details" | split:"|" %}
 
-      - title: "Return specified fields in a map element in a list"
+      - title: "Return specified fields in a list element"
         description: |
-          Using [dot notation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}, return specified list items in a list element. This is formatted as `"list_name[n]"`
+          To access an element in a list, use [the dereference operator]({{ site.data.taps.links.dynamodb.accessing-elements }}){:target="new"} (`[n]`), where `n` is the number of the element in the list. This is formatted as `"<list_element_name>[n]"`
 
-          In this example, the query would return the  top-level `name` field and selected element from the `acquaintances` list.
+          In this example, the expression would return the top-level `name` field and second element from the `acquaintances` list.
 
-          Refer to [MongoDB's documentation](https://docs.mongodb.com/v4.0/core/document/#arrays){:target="new"} for more examples of dot notation for embedded documents and arrays.
+          Refer to [{{ page.display_name }}'s documentation]({{ site.data.taps.links.dynamodb.expressions-attributes }}){:target="new"} for more examples of accessing fields in lists.
         projection-query: |
           ```json
           "name, acquaintances[1]"
           ```
-        sql: |
-          In destinations - like Snowflake - that also use dot notation to query nested data, the query might look like this:
-
-          ```sql
-          SELECT name,
-                 "acquaintances.name",
-                 "acquaintances.type"
-            FROM customers
-           ```
         results: |
           {% assign results = section.data %}
-          {% assign attributes = "name|acquaintances" | split:"|" %}
+          {% assign attributes = "name|acquaintances-list" | split:"|" %}
     content: |
-      In this section, we'll look at some example projection queries and their SQL equivalents.
+      In this section, we'll look at some example projection expressions and their SQL equivalents.
 
-      - [Example collection data](#example-collection-data)
+      - [Example table data](#example-table-data)
       {% for example in section.examples %}
       - [{{ example.title }}](#{{ example.title | slugify }})
       {% endfor %}
 
-      ### Example collection data {#example-collection-data}
+      ### Example table data {#example-table-data}
 
-      The examples use data from a collection named `customers`, which contains the following documents:
+      The examples use data from a table named `customers`, which contains the following documents:
 
       {% assign results = section.data %}
       {% assign headings = "name (string)|is_active (boolean)|details (object)|acquaintances (array)" | split:"|" %}
@@ -229,7 +230,7 @@ sections:
       <table class="attribute-list" style="margin-top: 0px;">
       <tr>
       {% for attribute in attributes %}
-      <td><strong>{{ attribute }}</strong></td>
+      <td><strong>{{ attribute | remove: "-list" }}</strong></td>
       {% endfor %}
       </tr>
       {% for result in results %}
@@ -256,19 +257,15 @@ sections:
 
   - title: "Error troubleshooting"
     anchor: "error-troubleshooting"
-    summary: "How to troubleshoot projection query errors"
+    summary: "How to troubleshoot projection expression errors"
     content: |
-      If a collection's projection query doesn't meet [Stitch's requirements](#projection-query-stitch-requirements), a critical error will arise during Extraction. Extractions will not be successful until the issue is resolved.
-
-      For a list of possible errors and how to resolve them, refer to the [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | prepend: site.baseurl }}).
+      If a table's projection expression doesn't meet [Stitch's requirements](#projection-query-stitch-requirements), a critical error will arise during Extraction. Extractions will not be successful until the issue is resolved.
 
   - title: "Resources"
     anchor: "projection-query-resources"
     summary: "Additional resources for projection queries"
     content: |
-      - [MongoDB projection query documentation]({{ site.data.taps.links.mongodb.projection-queries }}){:target="new"}
-      - [MongoDB dot notation documentation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}
-      - [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | prepend: site.baseurl }})
+      - [{{ page.display_name }} projection expression documentation]({{ site.data.taps.links.dynamodb.projection-expressions }}){:target="new"}
 
       ---
 ---

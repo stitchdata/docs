@@ -72,15 +72,9 @@ object-attributes:
       Refer to our [{{ form-property.display-name }} documentation]({{ doc-link | append: "#grant-access-bucket-iam" }}){:target="new"} for more info about the IAM policy, role, and how to create them in AWS.
     value: "<ROLE_NAME>"
 
-  - name: "use_local_dynamo"
-    type: "string"
-    required: false
-    description: ""
-    value: "True/False"
-
   - name: "region_name"
     type: "string"
     required: true
-    description: ""
+    description: "The region that your instance resides in."
     value: "<YOUR_REGION>"  
 ---
