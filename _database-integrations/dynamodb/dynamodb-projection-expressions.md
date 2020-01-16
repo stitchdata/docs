@@ -1,7 +1,7 @@
 ---
 title: Selecting Amazon DynamoDB Fields Using Projection Queries
 keywords: dynamodb, amazon dynamodb, whitelisting, blacklisting, field selection, column selection
-permalink: /integrations/databases/amazon-dynamodb/field-selection-using-projection-queries
+permalink: /integrations/databases/amazon-dynamodb/field-selection-using-projection-expressions
 summary: "Specify or restrict the data Stitch replicates for Amazon DynamoDB tables using projection expressions."
 input: false
 

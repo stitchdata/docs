@@ -71,7 +71,11 @@ You can select {{ object }}s {% unless integration.column-selection == false %}a
 1. Locate a {{ object }} you want to replicate.
 1. {{ app.menu-paths.sync }}
 1. If there are child objects, they'll automatically display and you'll be prompted to select some. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.db-type == "mongo" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
+{% if integration.db-type == "dynamodb" %}
+1. **Optional**: Select fields by entering a projection expression in the **Fields to Replicate** section. Refer to the [Selecting DynamoDB Fields Using Projection Expressions guide]({{ link.integrations.dynamodb-projection-expressions | prepend: site.baseurl }}) for instructions and examples.
+{% else %}
 1. After you set a {{ object }} to replicate, a page with the {{ object }}'s {{ col }}s will display. De-select {{ col }}s if needed.
+{% endif %}
 {% if integration.db-type == "mongo" and integration.define-replication-methods == false %}
 1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Key**.
 {% else %}

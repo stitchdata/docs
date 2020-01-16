@@ -68,7 +68,7 @@ ssl: false
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -79,16 +79,16 @@ table-level-reset: false
 
 ## Replication methods
 
-define-replication-methods: false
+define-replication-methods: true
 
 log-based-replication-minimum-version: "n/a"
-log-based-replication-master-instance: false
+log-based-replication-master-instance: true
 log-based-replication-read-replica: false
 
 ## Other Replication Methods
 
-key-based-incremental-replication: true
-full-table-replication: false
+key-based-incremental-replication: false
+full-table-replication: true
 
 view-replication: true
 
