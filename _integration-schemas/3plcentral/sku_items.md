@@ -1,6 +1,6 @@
 ---
 tap: "3plcentral"
-version: "1.0"
+version: "1"
 
 name: "sku_items"
 doc-link: "http://api.3plcentral.com/rels/"

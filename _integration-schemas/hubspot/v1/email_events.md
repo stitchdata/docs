@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "1.0"
+version: "1"
 
 name: "email_events"
 doc-link: https://developers.hubspot.com/docs/methods/email/email_events_overview

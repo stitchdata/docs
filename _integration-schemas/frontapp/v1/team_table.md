@@ -1,6 +1,6 @@
 ---
 tap: "frontapp"
-version: "1.0"
+version: "1"
 
 name: "team_table"
 doc-link: "https://dev.frontapp.com/#analytics"

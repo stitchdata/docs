@@ -1,6 +1,6 @@
 ---
 tap: "marketo"
-version: "2.0"
+version: "2"
 
 name: "lists"
 doc-link: http://developers.marketo.com/rest-api/endpoint-reference/lead-database-endpoint-reference/#!/Static_Lists/getListsUsingGET

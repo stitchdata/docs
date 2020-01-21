@@ -1,6 +1,6 @@
 ---
 tap: "taboola"
-version: "1.0"
+version: "1"
 
 name: "campaign_performance"
 doc-link: https://github.com/taboola/Backstage-API/blob/master/Backstage%20API%20-%20Reports.pdf

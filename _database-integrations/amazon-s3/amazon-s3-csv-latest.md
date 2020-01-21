@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Amazon S3 CSV
+title: Amazon S3 CSV (v1)
 keywords: amazon-s3-csv, database integration, etl amazon-s3-csv, amazon-s3-csv etl
 permalink: /integrations/databases/amazon-s3-csv
 summary: "Connect and replicate data from CSV files in your Amazon S3 bucket using Stitch's Amazon S3 CSV integration."
@@ -25,7 +25,7 @@ singer: true
 repo-url: "https://github.com/singer-io/tap-s3-csv"
 status-url: "https://status.aws.amazon.com/"
 
-this-version: "1.0"
+this-version: "1"
 
 file-system: true
 db-type: "s3"
@@ -36,7 +36,6 @@ driver: |
 #       Stitch Supports      #
 # -------------------------- #
 
-status: "Released"
 certified: true
 setup-name: "Amazon S3"
 
@@ -45,7 +44,7 @@ historical: "1 year"
 tier: "Free"
 
 ## Stitch features
-
+api-type: "platform.s3-csv"
 versions: "n/a"
 ssh: false
 ssl: false

@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "1.0"
+version: "1"
 
 name: "search_query_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/search-query-performance-report

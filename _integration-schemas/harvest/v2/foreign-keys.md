@@ -1,6 +1,6 @@
 ---
 tap-reference: "harvest"
-version: "2.0"
+version: "2"
 
 foreign-keys:
   - id: "client-id"

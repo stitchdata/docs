@@ -2,7 +2,6 @@
 title: SparkPost
 permalink: /integrations/webhooks/sparkpost
 redirect_from: /integrations/saas/sparkpost
-tags: [stitch_webhooks]
 keywords: sparkpost, integration, schema, etl sparkpost, sparkpost etl, sparkpost schema, stitch webhooks
 summary: "Connect your SparkPost data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -13,8 +12,6 @@ summary: "Connect your SparkPost data to Stitch using Stitch's Incoming Webhooks
 
 name: "sparkpost"
 display_name: "SparkPost"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,6 +33,9 @@ icon: /images/integrations/icons/sparkpost.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

@@ -1,6 +1,6 @@
 ---
 tap: "campaign-monitor"
-version: "1.0"
+version: "1"
 
 name: "list_bounced_subscribers"
 doc-link: https://www.campaignmonitor.com/api/lists/#bounced-subscribers

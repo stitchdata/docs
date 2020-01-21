@@ -1,6 +1,6 @@
 ---
 tap: "deputy"
-version: "1.0"
+version: "1"
 key: "task-group-setup"
 
 name: "task_group_setups"

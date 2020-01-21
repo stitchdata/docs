@@ -1,6 +1,6 @@
 ---
 tap-reference: "xero"
-version: "1.0"
+version: "1"
 
 name: "payment_terms"
 singer-schema: https://github.com/singer-io/tap-xero/blob/master/tap_xero/schemas/payment_terms.json

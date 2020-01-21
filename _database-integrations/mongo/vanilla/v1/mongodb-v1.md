@@ -16,7 +16,7 @@ display_name: "MongoDB"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [PyMongo 3.8.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}
@@ -26,8 +26,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 singer: true
+repo-url: "https://github.com/singer-io/tap-mongodb"
 certified: true
 
 frequency: "30 minutes"
@@ -37,7 +37,7 @@ db-type: "mongo"
 
 
 ## Stitch features
-
+api-type: "platform.mongodb"
 versions: "2.6 through 4.0"
 ssh: true
 ssl: true

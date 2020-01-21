@@ -1,6 +1,6 @@
 ---
 tap: "facebook-ads"
-version: "1.0"
+version: "1"
 
 name: "ads_insights_platform_and_device"
 doc-link: https://developers.facebook.com/docs/marketing-api/insights/fields/

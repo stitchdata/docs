@@ -1,10 +1,10 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "CostCategory"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/costcategory.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CostCategory.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/CostCategory.json"
 description: |
   The `{{ table.name }}` table contains info about cost categories, which are used to classify different types of costs associated with items.
 

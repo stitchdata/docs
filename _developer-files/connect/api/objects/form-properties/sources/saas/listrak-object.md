@@ -33,12 +33,12 @@ object-attributes:
   - name: "password"
     type: "string"
     required: true
-    description: "The password associated with the Listrak user."
+    description: "The password associated with the {{ form-property.display-name }} user."
     value: "{{ sample-property-data.password }}"
 
   - name: "username"
     type: "string"
     required: true
-    description: "The user's Listrak username."
+    description: "Your {{ form-property.display-name }} username."
     value: "{{ sample-property-data.user }}"
 ---

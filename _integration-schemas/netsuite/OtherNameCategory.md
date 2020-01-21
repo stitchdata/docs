@@ -1,10 +1,10 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "OtherNameCategory"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/othernamecategory.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/OtherNameCategory.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/OtherNameCategory.json"
 description: |
   The `{{ table.name }}` table contains info about the other name categories in your {{ integration.display_name }} account. Other name category values are used on other name records to categorize them. The list of other name records is a collection of records for people or companies who are not vendors, customers, or employees.
 

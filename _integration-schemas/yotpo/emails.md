@@ -1,6 +1,6 @@
 ---
 tap: "yotpo"
-version: "1.0"
+version: "1"
 
 name: "emails"
 doc-link: https://apidocs.yotpo.com/v1.0/reference#email-analytics-intro

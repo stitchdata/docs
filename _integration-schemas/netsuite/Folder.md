@@ -1,10 +1,10 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "Folder"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/folder.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Folder.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Folder.json"
 description: |
   The `{{ table.name }}` table contains info about the folders in your {{ integration.display_name }} File Cabinet.
 

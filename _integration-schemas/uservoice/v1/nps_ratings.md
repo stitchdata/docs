@@ -1,6 +1,6 @@
 ---
 tap: "uservoice"
-version: "1.0"
+version: "1"
 
 name: "nps_ratings"
 doc-link: https://developer.uservoice.com/docs/api/v2/reference/#/

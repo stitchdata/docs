@@ -1,6 +1,6 @@
 ---
 tap: "eloqua"
-version: "1.0"
+version: "1"
 
 name: "activity_email_open"
 key: "activity-email-open"

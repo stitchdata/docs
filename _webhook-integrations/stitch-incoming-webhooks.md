@@ -14,8 +14,6 @@ key: "incoming-webhooks-reference"
 
 name: "incoming-webhooks"
 display_name: "Incoming Webhooks"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,6 +35,9 @@ icon:  /images/integrations/icons/incoming-webhooks.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

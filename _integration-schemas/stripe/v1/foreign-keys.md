@@ -9,7 +9,7 @@
 
 tap-reference: "stripe"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "balance-transaction-id"

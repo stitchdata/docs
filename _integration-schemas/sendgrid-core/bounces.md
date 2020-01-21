@@ -1,6 +1,6 @@
 ---
 tap: "sendgrid-core"
-version: "1.0"
+version: "1"
 
 name: "bounces"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/bounces.html#List-all-bounces-GET

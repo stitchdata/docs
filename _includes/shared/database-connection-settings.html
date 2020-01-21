@@ -50,23 +50,18 @@ below.  -->
     from the common file can be used in other files. -->
   {% assign common = site.data.ui.destination-settings.common %}
 
-  {% assign destination-name = page.display_name | slugify %}
+  {% assign destination-name = page.name %}
 
 <!-- Logic that checks for version info, and gets the correct data file
     if there's more than one version -->
-  {% if page.this-version %}
-    {% assign version = page.this-version | remove: ".0" | prepend: "v" %}
-      {% case page.branded %}
-        {% when true %}
-          {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name][version] %}
-        {% else %}
-          {% assign connection-settings = site.data.ui.destination-settings[page.type][version] %}
-      {% endcase %}
+  {% case include.use-version %}
+    {% when true %}
+      {% assign version = page.this-version | prepend: "v" %}
+        {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name][version] %}
 
-  {% else %}
-    {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name] %}
-  {% endif %}
-
+    {% else %}
+      {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name] %}
+  {% endcase %}
 
   {% capture stitch-location-copy %}
   Click the {{ app.menu-paths.destination-settings }}.

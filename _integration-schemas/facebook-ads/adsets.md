@@ -1,6 +1,6 @@
 ---
 tap: "facebook-ads"
-version: "1.0"
+version: "1"
 
 name: "adsets"
 doc-link: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign

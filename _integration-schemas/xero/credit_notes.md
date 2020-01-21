@@ -1,6 +1,6 @@
 ---
 tap: "xero"
-version: "1.0"
+version: "1"
 
 name: "credit_notes"
 doc-link: &api-doc https://developer.xero.com/documentation/api/credit-notes

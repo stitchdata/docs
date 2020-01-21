@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "subscription_items"
 doc-link: "https://stripe.com/docs/api/subscription_items"

@@ -18,7 +18,7 @@ singer: true
 tap-name: "Shopify"
 repo-url: https://github.com/singer-io/tap-shopify
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST Admin API](https://help.shopify.com/en/api/reference){:target="new"}
@@ -34,11 +34,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.shopify.com/"
 
-table-selection: true
-column-selection: true
+api-type: "platform.shopify"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

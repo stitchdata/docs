@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: FullStory (v1.0)
+title: FullStory (v1)
 permalink: /integrations/saas/fullstory
 keywords: fullstory, integration, schema, etl fullstory, fullstory etl, fullstory schema
 summary: "Connection instructions, replication info, and schema details for Stitch's FullStory integration."
@@ -20,7 +20,7 @@ display_name: "FullStory"
 singer: true 
 repo-url: https://github.com/singer-io/tap-fullstory
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Data Export REST API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
@@ -36,11 +36,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://fullstory.statuspage.io/
 
-table-selection: false
-column-selection: false
+api-type: "platform.fullstory"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: false
+column-selection: false
 
 extraction-logs: true
 loading-reports: true

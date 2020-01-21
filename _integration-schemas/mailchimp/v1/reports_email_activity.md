@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1.0"
+version: "1"
 
 key: "report-email-activity"
 name: "reports_email_activity"

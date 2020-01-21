@@ -1,6 +1,6 @@
 ---
 tap: "typeform"
-version: "1.0"
+version: "1"
 name: "answers"
 
 doc-link: "https://developer.typeform.com/responses/"

@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "1.0"
+version: "1"
 
 name: "clients"
 doc-link: http://help.getharvest.com/api-v1/clients-api/clients/using-the-clients-api/

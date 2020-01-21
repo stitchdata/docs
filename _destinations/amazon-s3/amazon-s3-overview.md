@@ -129,7 +129,7 @@ sections:
           - Existing records - that is, records in files already in the destination - are never updated
           - Data will not be de-duped, meaning that multiple versions of the same record may exist across multiple files in the data warehouse
 
-          Because of this loading strategy, querying may require a different approach than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only | prepend: site.baseurl }}) for more info.
+          Because of this loading strategy, querying may require a different approach than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time. Refer to the [Querying Append-Only Tables documentation]({{ link.replication.append-only-querying | prepend: site.baseurl }}) for more info.
 
         sub-subsections:
           - title: "Example: Key-based Incremental Replication"

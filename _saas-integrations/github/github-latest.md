@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: GitHub (v1.0)
+title: GitHub (v1)
 permalink: /integrations/saas/github
 keywords: github, integration, schema, etl github, github etl, github schema
 summary: "Connection instructions, replication info, and schema details for Stitch's GitHub integration."
@@ -21,7 +21,7 @@ display_name: "GitHub"
 singer: true
 repo-url: https://github.com/singer-io/tap-github
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API v3](https://developer.github.com/v3/){:target="new"}
@@ -37,11 +37,13 @@ frequency: "1 hour"
 tier: "Free"
 status-url: https://status.github.com/messages
 
-table-selection: true
-column-selection: true
+api-type: "platform.github"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

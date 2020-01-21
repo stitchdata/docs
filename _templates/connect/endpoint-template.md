@@ -3,6 +3,7 @@
 #      ENDPOINT DETAILS      #
 # -------------------------- #
 
+product-type: "connect"
 content-type: "api-endpoint"
 endpoint: ""
 key: ""

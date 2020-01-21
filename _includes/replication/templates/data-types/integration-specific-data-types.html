@@ -33,7 +33,7 @@
     {% endif %}
 
 <!-- Gets the data types common to all integrations, and concats the specific types -->
-    {% assign all-data-types = data-type-files.common.all | concat: integration-specific-types | sort:"name" %}
+    {% assign all-data-types = data-type-files.source-types.all-supported | concat: integration-specific-types | sort:"name" %}
 
 
 <!-- The intro & icon explanation -->

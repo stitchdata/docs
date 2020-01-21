@@ -1,5 +1,5 @@
 ---
-title: Harvest (v1.0)
+title: Harvest (v1)
 permalink: /integrations/saas/harvest/v1
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
@@ -17,7 +17,7 @@ display_name: "Harvest"
 singer: true
 repo-url: https://github.com/singer-io/tap-harvest
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST API V1](https://help.getharvest.com/api-v1/){:target="new"}

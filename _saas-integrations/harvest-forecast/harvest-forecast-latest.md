@@ -3,9 +3,8 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Harvest Forecast (v1.0)
+title: Harvest Forecast (v1)
 permalink: /integrations/saas/harvest-forecast
-tags: [saas_integrations]
 keywords: harvest, forecast, integration, schema, etl harvest forecast, harvest forecast etl, harvest forecast schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest Forecast integration."
 layout: singer
@@ -21,7 +20,7 @@ display_name: "Harvest Forecast"
 singer: true 
 repo-url: https://github.com/singer-io/tap-harvest-forecast
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Experimental API](https://help.getharvest.com/forecast/faqs/faq-list/api/){:target="new"}
@@ -36,6 +35,8 @@ historical: "1 year"
 frequency: "60 minutes"
 tier: "Free"
 status-url: https://www.harveststatus.com/
+
+api-type: "platform.harvest-forecast"
 
 anchor-scheduling: true
 cron-scheduling: false

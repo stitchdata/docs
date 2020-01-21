@@ -258,45 +258,45 @@ api:
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.connection-steps.section }}"
 
-          - title: "{{ site.data.connect.data-structures.details.title }}"
+          - title: "{{ site.data.connect.data-structures.notifications.custom-email.title }}"
             method: "object"
-            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.details.section }}"
-
-          - title: "{{ site.data.connect.data-structures.properties.title }}"
-            method: "object"
-            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.properties.section }}"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.notifications.custom-email.section }}"
 
           - title: "{{ site.data.connect.data-structures.report-cards.destination.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.report-cards.destination.section }}"
 
-          - title: "{{ site.data.connect.data-structures.report-cards.source.title }}"
+          - title: "{{ site.data.connect.data-structures.details.title }}"
             method: "object"
-            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.report-cards.source.section }}"
-
-          - title: "{{ site.data.connect.data-structures.stream-schemas.title }}"
-            method: "object"
-            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.stream-schemas.section }}"
-
-          - title: "{{ site.data.connect.data-structures.metadata.top-level.title }}"
-            method: "object"
-            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.metadata.top-level.section }}"
-
-          - title: "{{ site.data.connect.data-structures.metadata.stream-level.title }}"
-            method: "object"
-            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.metadata.stream-level.section }}"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.details.section }}"
 
           - title: "{{ site.data.connect.data-structures.metadata.field-level.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.metadata.field-level.section }}"
 
-          - title: "{{ api.data-structures.notifications.custom-email.title }}"
+          - title: "{{ site.data.connect.data-structures.notifications.hook.title }}"
             method: "object"
-            url: "{{ link.connect.api }}{{ api.data-structures.notifications.custom-email.section }}"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.notifications.hook.section }}"
 
-          - title: "{{ api.data-structures.notifications.hook.title }}"
+          - title: "{{ site.data.connect.data-structures.metadata.top-level.title }}"
             method: "object"
-            url: "{{ link.connect.api }}{{ api.data-structures.notifications.hook.section }}"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.metadata.top-level.section }}"
+
+          - title: "{{ site.data.connect.data-structures.properties.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.properties.section }}"
+
+          - title: "{{ site.data.connect.data-structures.report-cards.source.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.report-cards.source.section }}"
+
+          - title: "{{ site.data.connect.data-structures.metadata.stream-level.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.metadata.stream-level.section }}"
+
+          - title: "{{ site.data.connect.data-structures.stream-schemas.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.stream-schemas.section }}"
 
       - title: "Form properties"
         expand-by-default: true

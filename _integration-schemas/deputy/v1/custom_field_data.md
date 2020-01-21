@@ -1,6 +1,6 @@
 ---
 tap: "deputy"
-version: "1.0"
+version: "1"
 key: "custom-field-data"
 
 name: "custom_field_data"

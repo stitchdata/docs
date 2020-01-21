@@ -3,6 +3,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
+product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-mysql-object"
@@ -13,7 +14,7 @@ key: "source-form-properties-mysql-object"
 # -------------------------- #
 
 title: "MySQL Source Form Property"
-api-type: "mysql"
+api-type: "platform.mysql"
 display-name: "MySQL"
 
 source-type: "database"
@@ -32,6 +33,7 @@ description: ""
 
 uses-common-fields: true
 uses-feature-fields: true
+uses-feature-fields: true
 
 object-attributes:
   - name: "check_hostname"
@@ -43,7 +45,7 @@ object-attributes:
       - `true`
       - `false`
 
-      **Note**: If the user doesn't want to use a custom CA, this property and the `verify_mode` property should both be enabled (`true`).
+      **Note**: If you don't want to use a custom CA, this property and the `verify_mode` property should both be enabled (`true`).
     value: "true"
     
   - name: "ssl_ca"
@@ -88,6 +90,6 @@ object-attributes:
       - `true`
       - `false'
 
-      **Note**: If the user doesn't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
+      **Note**: If you don't want to use a custom CA, this property and the `check_hostname` property should both be enabled (`true`).
     value: "true"
 ---

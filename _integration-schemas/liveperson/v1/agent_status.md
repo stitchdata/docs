@@ -1,6 +1,6 @@
 ---
 tap: "liveperson"
-version: "1.0"
+version: "1"
 key: "agent-status"
 
 name: "agent_status"

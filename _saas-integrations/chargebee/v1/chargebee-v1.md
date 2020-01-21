@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Chargebee
+title: Chargebee (v1)
 permalink: /integrations/saas/chargebee
 keywords: chargebee, integration, schema, etl chargebee, chargebee etl, chargebee schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "Chargebee"
 repo-url: https://github.com/singer-io/tap-chargebee
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://apidocs.chargebee.com/docs/api){:target="new"}
@@ -47,8 +47,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "http://status.chargebee.com/"
 
+api-type: "platform.chargebee"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

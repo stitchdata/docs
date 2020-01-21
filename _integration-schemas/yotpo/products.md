@@ -1,6 +1,6 @@
 ---
 tap: "yotpo"
-version: "1.0"
+version: "1"
 
 name: "products"
 doc-link: https://apidocs.yotpo.com/reference#introduction-to-products

@@ -1,5 +1,5 @@
 ---
-title: Zuora (v1.0)
+title: Zuora (v1)
 permalink: /integrations/saas/zuora
 keywords: zuora, integration, schema, etl zuora, zuora etl, zuora schema
 summary: "Connection instructions and schema details for Stitch's Zuora integration."
@@ -17,7 +17,7 @@ display_name: "Zuora"
 singer: true
 repo-url: https://github.com/singer-io/tap-zuora
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [REST API](https://www.zuora.com/developer/api-reference/){:target="new"} and [AQuA API](https://knowledgecenter.zuora.com/DC_Developers/AB_Aggregate_Query_API/AA_AQuA_API_Introduction){:target="new"}
@@ -33,11 +33,13 @@ frequency: "30 minutes"
 tier: "Standard"
 status-url: "http://trust.zuora.com/"
 
-table-selection: true
-column-selection: true
+api-type: "platform.zuora"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1.0"
+version: "1"
 
 key: "list-segment"
 name: "list_segments"

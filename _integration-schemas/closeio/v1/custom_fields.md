@@ -1,6 +1,6 @@
 ---
 tap: "closeio"
-version: "1.0"
+version: "1"
 
 name: "custom_fields"
 doc-link: ""

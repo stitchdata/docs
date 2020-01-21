@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-version: "2.0"
+version: "2"
 
 name: "adgroup_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adgroupperformancereportcolumn#values

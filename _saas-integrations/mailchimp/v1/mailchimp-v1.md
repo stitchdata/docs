@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: MailChimp
+title: MailChimp (v1)
 permalink: /integrations/saas/mailchimp
 keywords: mailchimp, integration, schema, etl mailchimp, mailchimp etl, mailchimp schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "MailChimp"
 repo-url: https://github.com/singer-io/tap-mailchimp
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API 3.0](https://developer.mailchimp.com/documentation/mailchimp/reference/overview/){:target="new"}
@@ -47,11 +47,13 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.mailchimp.com/"
 
-table-selection: true
-column-selection: true
+api-type: "platform.mailchimp"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-version: "1.0"
+version: "1"
 
 name: "ads"
 doc-link: https://docs.microsoft.com/en-us/bingads/campaign-management-service/ad

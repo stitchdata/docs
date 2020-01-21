@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "1.0"
+version: "1"
 
 name: "display_topics_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/display-topics-performance-report

@@ -9,7 +9,7 @@
 
 
 tap: "salesforce-marketing-cloud"
-version: "1.0"
+version: "1"
 
 name: "list_send"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/listsend.htm
