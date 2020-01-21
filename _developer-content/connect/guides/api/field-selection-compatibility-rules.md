@@ -12,6 +12,7 @@ summary: "To ensure compatibility and that the fields Stitch requires for replic
 product-type: "connect"
 content-type: "guide"
 content-id: "field-selection-compatibility-rules"
+topics: "basics, data selection"
 
 key: "connect-field-rules"
 
@@ -42,7 +43,7 @@ related:
   - title: "Select streams and fields with the Connect API"
     link: "{{ link.connect.guides.select-streams-and-fields | prepend: site.baseurl }}"
 
-  - title: "Connect guides"
+  - title: "All Connect guides"
     link: "{{ link.connect.guides.category | prepend: site.baseurl }}"
 
   - title: "Key-based Incremental Replication"

@@ -12,6 +12,7 @@ summary: "As an API client, you'll need to obtain an API access token before you
 product-type: "connect"
 content-type: "guide"
 content-id: "partner-authentication"
+topics: "basics, authentication"
 
 key: "connect-partner-auth"
 

@@ -10,6 +10,7 @@ summary: ""
 product-type: "connect"
 content-type: "guide"
 content-id: &key "connect-glossary"
+topics: "basics"
 
 key: "connect-glossary"
 
