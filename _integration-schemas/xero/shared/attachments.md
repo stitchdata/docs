@@ -1,6 +1,6 @@
 ---
 tap-reference: "xero"
-version: "1.0"
+version: "1"
 
 name: "attachments"
 singer-schema: 

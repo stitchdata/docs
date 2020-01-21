@@ -1,6 +1,6 @@
 ---
 tap: "listrak"
-version: "1.0"
+version: "1"
 
 name: "message_clicks"
 doc-link:

@@ -1,6 +1,6 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "ContactRole"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/contactrole.html"

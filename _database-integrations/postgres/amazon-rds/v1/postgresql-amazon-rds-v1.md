@@ -1,5 +1,5 @@
 ---
-title: Amazon PostgreSQL RDS (v1.0)
+title: Amazon PostgreSQL RDS (v1)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 permalink: /integrations/databases/amazon-rds-postgresql/v1
 summary: "Connect and replicate data from your Amazon PostgreSQL RDS using Stitch's PostgreSQL integration."
@@ -22,7 +22,7 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 hosting-type: "amazon"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
@@ -31,7 +31,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 setup-name: "PostgreSQL"
 
@@ -41,7 +40,7 @@ port: 5432
 db-type: "postgres"
 
 # Stitch features
-
+api-type: "platform.postgres"
 versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true

@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "invoice_line_items"
 doc-link: "https://stripe.com/docs/api/invoices/line_item"

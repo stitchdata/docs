@@ -1,5 +1,5 @@
 ---
-title: Amazon MySQL RDS
+title: Amazon MySQL RDS (v1)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 permalink: /integrations/databases/amazon-rds-mysql
 summary: "Connect and replicate data from your Amazon RDS MySQL using Stitch's MySQL integration."
@@ -14,7 +14,7 @@ key: "mysql-rds-integration"
 name: "mysql-rds"
 display_name: "Amazon MySQL RDS"
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "amazon"
 
@@ -25,8 +25,9 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 setup-name: "MySQL"
 
 frequency: "30 minutes"
@@ -35,7 +36,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "platform.mysql"
 versions: "n/a"
 ssh: true
 ssl: true

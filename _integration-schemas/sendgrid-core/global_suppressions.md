@@ -1,6 +1,6 @@
 ---
 tap: "sendgrid-core"
-version: "1.0"
+version: "1"
 
 name: "global_suppressions"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/global_suppressions.html#-Global-Unsubscribes

@@ -1,6 +1,6 @@
 ---
 tap: "campaign-monitor"
-version: "1.0"
+version: "1"
 
 name: "campaign_email_client_usage"
 doc-link: https://www.campaignmonitor.com/api/campaigns/#campaign-email-client-usage

@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Selligent
+title: Selligent (v1)
 permalink: /integrations/saas/selligent
 keywords: selligent, integration, schema, etl selligent, selligent etl, selligent schema
 layout: singer
@@ -29,13 +29,13 @@ singer: true
 tap-name: "Selligent"
 repo-url: https://github.com/singer-io/tap-selligent
 
-# this-version: "1.0"
+this-version: "1"
+
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"
@@ -43,8 +43,10 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: ""
 
+api-type: "platform.selligent"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

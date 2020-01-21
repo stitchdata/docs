@@ -44,7 +44,7 @@ all-permissions:
 
 ## The individual steps for creating a BigQuery user for Stitch.
 
-all-steps:
+bigquery:
   - copy: |
       {% include layout/inline_image.html type="right" file="destinations/bigquery-permissions.png" alt="Assigning BigQuery Admin and Storage Admin permissions to a GCP user." max-width="400px" %}
 

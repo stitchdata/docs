@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "2"
 
 name: "companies"
 doc-link: http://developers.hubspot.com/docs/methods/companies/get_company

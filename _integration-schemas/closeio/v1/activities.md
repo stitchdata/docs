@@ -1,6 +1,6 @@
 ---
 tap: "closeio"
-version: "1.0"
+version: "1"
 
 name: "activities"
 doc-link: "https://developer.close.io/#activities"

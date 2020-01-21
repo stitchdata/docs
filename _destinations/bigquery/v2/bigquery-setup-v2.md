@@ -34,6 +34,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Google BigQuery"
+name: "google-bigquery"
+
 type: "bigquery"
 
 ssh: false

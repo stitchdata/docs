@@ -1,6 +1,6 @@
 ---
 tap: "darksky"
-version: "1.0"
+version: "1"
 
 name: "forecast"
 doc-link: "https://darksky.net/dev/docs#overview"

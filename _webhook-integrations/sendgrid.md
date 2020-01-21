@@ -3,7 +3,6 @@ title: SendGrid
 permalink: /integrations/webhooks/sendgrid
 redirect_from: /integrations/saas/sendgrid
 
-tags: [webhook_integrations]
 keywords: sendgrid, integration, schema, etl sendgrid, sendgrid etl, sendgrid schema
 summary: "Connection instructions and schema details for Stitch's SendGrid integration."
 
@@ -13,8 +12,6 @@ summary: "Connection instructions and schema details for Stitch's SendGrid integ
 
 name: "sendgrid"
 display_name: "SendGrid"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,6 +34,9 @@ doc-link: "https://sendgrid.com/docs/API_Reference/Webhooks/event.html"
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

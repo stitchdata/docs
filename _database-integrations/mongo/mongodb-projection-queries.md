@@ -11,8 +11,9 @@ key: "mongodb-projection-queries"
 
 display_name: "MongoDB"
 name: "mongodb"
+db-type: "mongo"
 
-this-version: "1.0"
+this-version: "1"
 
 intro: |
   {% include misc/data-files.html %}
@@ -33,7 +34,6 @@ sections:
     summary: "What versions of the MongoDB integration this feature is available for"
     content: |
       {% include shared/integrations/projection-column-selection.html type="feature-availability" %}
-      
 
   - title: "What are projection queries?"
     anchor: "what-are-projection-queries"

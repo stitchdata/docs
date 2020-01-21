@@ -16,7 +16,7 @@ display_name: "Amazon Microsoft SQL Server RDS"
 
 hosting-type: "amazon"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: "7.2.1.jre8"
 
@@ -24,7 +24,8 @@ driver: "7.2.1.jre8"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mssql
 certified: true
 setup-name: "Microsoft SQL Server"
 
@@ -34,7 +35,7 @@ port: 1433
 db-type: "mssql"
 
 # Stitch features
-
+api-type: "platform.mssql"
 versions: "2012 through 2017"
 ssh: true
 ssl: true
@@ -42,7 +43,7 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

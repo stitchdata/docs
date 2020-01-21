@@ -1,6 +1,6 @@
 ---
 tap: "referral-saasquatch"
-version: "1.0"
+version: "1"
 
 name: "users"
 doc-link: https://docs.referralsaasquatch.com/api/methods#list_users

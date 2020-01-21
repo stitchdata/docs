@@ -37,6 +37,12 @@
             {{ object-method.short | flatify | markdownify }}
         </p>
 
+        {% if object-method.notes %}
+            <p>
+                {{ object-method.notes | flatify | markdownify }}
+            </p>
+        {% endif %}
+
         <ul id="profileTabs" class="nav nav-tabs">
             {% for version in object.versions %}
                 {% if forloop.first == true %}

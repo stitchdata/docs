@@ -1,6 +1,6 @@
 ---
 tap: "sendgrid-core"
-version: "1.0"
+version: "1"
 
 name: "group_members"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/suppressions.html#-GET

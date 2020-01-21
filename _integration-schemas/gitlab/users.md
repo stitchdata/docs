@@ -1,6 +1,6 @@
 ---
 tap: "gitlab"
-version: "1.0"
+version: "1"
 
 name: "users"
 doc-link: https://gitlab.com/help/api/users.md#list-users

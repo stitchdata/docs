@@ -1,6 +1,6 @@
 ---
 tap: "autopilot"
-version: "1.0"
+version: "1"
 
 name: "smart_segments"
 doc-link: http://docs.autopilot.apiary.io/#reference/api-methods/smart-segments/get-list-of-smart-segments

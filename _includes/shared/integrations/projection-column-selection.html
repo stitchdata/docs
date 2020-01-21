@@ -1,3 +1,5 @@
+{% include shared/versioning/integration-version-logic.html item-name="page" %}
+
 {% case page.name %}
 {% when 'mongodb' %}
 
@@ -17,10 +19,9 @@
 
 {% include misc/icons.html %}
 
-{% assign all-integrations = site.database-integrations | where:"name",page.name %}
-{% assign integrations = all-integrations  %}
+The following table indicates the availability of Stitch's {{ page.display_name }} projection {{ projection-type }} feature for each version of the {{ page.display_name }} integration.
 
-The following table indicates the availability of Stitch's MongoDB projection query feature for each version of the MongoDB integration.
+{% assign page-key = page.name | append:"-integration" %}
 
 <table class="attribute-list">
 <tr>
@@ -31,16 +32,17 @@ The following table indicates the availability of Stitch's MongoDB projection qu
 <strong>Availability</strong>
 </td>
 </tr>
-{% for integration in integrations %}
-{% if integration.this-version %}
+{% for version in released-versions %}
+{% assign this-integration = site.database-integrations | where:"key",page-key %}
+{% assign integration-version = this-integration | where:"this-version",version.number | first %}
 <tr>
 <td class="attribute-name">
 <strong>
-<a href="{{ integration.url | prepend: site.baseurl }}">{{integration.this-version | prepend: "v" }}</a>
+<a href="{{ integration-version.url | prepend: site.baseurl }}">{{ version.number | prepend: "v" }}</a>
 </strong>
 </td>
 <td>
-{% case integration.column-selection %}
+{% case integration-version.column-selection %}
 {% when true %}
 {{ supported | replace:"TOOLTIP","Field selection via projection queries is supported for this integration version." }} Supported
 {% when false %}
@@ -48,7 +50,7 @@ The following table indicates the availability of Stitch's MongoDB projection qu
 {% endcase %}
 </td>
 </tr>
-{% endif %}
+
 {% endfor %}
 </table>
 

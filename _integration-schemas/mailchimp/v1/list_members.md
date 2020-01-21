@@ -1,6 +1,6 @@
 ---
 tap: "mailchimp"
-version: "1.0"
+version: "1"
 
 key: "list-member"
 name: "list_members"

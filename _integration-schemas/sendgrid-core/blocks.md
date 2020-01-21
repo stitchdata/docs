@@ -1,6 +1,6 @@
 ---
 tap: "sendgrid-core"
-version: "1.0"
+version: "1"
 
 name: "blocks"
 doc-link: https://sendgrid.com/docs/API_Reference/Web_API_v3/blocks.html#List-all-blocks-GET

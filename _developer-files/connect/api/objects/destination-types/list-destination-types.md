@@ -21,7 +21,10 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.destination-types.list.short }}"
-description: "{{ api.core-objects.destination-types.list.description | flatify }}"
+description: |
+  {{ api.core-objects.destination-types.list.description | flatify }}
+
+  Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#destinations-api-availability" }}) for info on the destinations that are available in the API.
 
 
 # -------------------------- #

@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: RingCentral
+title: RingCentral (v1)
 permalink: /integrations/saas/ringcentral
 keywords: ringcentral, integration, schema, etl ringcentral, ringcentral etl, ringcentral schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "RingCentral"
 repo-url: https://github.com/singer-io/tap-ringcentral
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -43,6 +43,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.ringcentral.com/"
+
+api-type: "platform.ringcentral"
 
 anchor-scheduling: true
 cron-scheduling: true

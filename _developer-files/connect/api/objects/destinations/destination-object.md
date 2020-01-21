@@ -41,6 +41,8 @@ available-methods:
     title: "Create a destination"
     method: "post"
     short: "{{ api.core-objects.destinations.create.description | flatify }}"
+    notes: |
+      Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#destinations-api-availability" }}) for info on the destinations that are available in the API.
 
   - id: "update-a-destination"
     title: "Update a destination"

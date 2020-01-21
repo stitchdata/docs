@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Yotpo (v1.0)
+title: Yotpo (v1)
 permalink: /integrations/saas/yotpo
 keywords: yotpo, integration, schema, etl yotpo, yotpo etl, yotpo schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Yotpo integration."
@@ -23,7 +23,7 @@ singer: true
 tap-name: "Yotpo"
 repo-url: https://github.com/singer-io/tap-yotpo
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Core API](https://apidocs.yotpo.com/reference){:target="new"}
@@ -39,8 +39,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "http://status.yotpo.com/"
 
+api-type: "platform.yotpo"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

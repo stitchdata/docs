@@ -29,6 +29,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Panoply"
+name: "panoply"
+
 type: "panoply"
 
 ssh: false

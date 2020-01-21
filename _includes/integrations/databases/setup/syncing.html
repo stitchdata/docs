@@ -63,6 +63,11 @@ For this reason, we recommend connecting only read replicas to Stitch to prevent
 {% include note.html first-line="**Replicating MyISAM tables**" content=myisam-tables %}
 {% endif %}
 
+{% if integration.log-based-replication-master-instance == true %}
+{% capture log-based-incremental-note %}
+**Note**: If using Log-based Incremental replication, some 
+{% endcapture %}
+{% endif %}
 
 
 You can select {{ object }}s {% unless integration.column-selection == false %}and {{ col }}s{% endunless %} by:
@@ -77,10 +82,10 @@ You can select {{ object }}s {% unless integration.column-selection == false %}a
 1. After you set a {{ object }} to replicate, a page with the {{ object }}'s {{ col }}s will display. De-select {{ col }}s if needed.
 {% endif %}
 {% if integration.db-type == "mongo" and integration.define-replication-methods == false %}
-1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Key**.
+1. In the {{ object | capitalize }} Settings page, define the {{ object }}'s **Replication Key**.
 {% else %}
 {% if integration.key-based-incremental-replication == false %}
-1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %} or skip this step if you want to use the integration's default method{% endif %}.
+1. In the {{ object | capitalize }} Settings page, define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %} or skip this step if you want to use the integration's default method{% endif %}.
 {% else %}
 {% unless integration.define-replication-keys == false %}
 1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method** and, if using Key-based Incremental Replication, its **Replication Key**.

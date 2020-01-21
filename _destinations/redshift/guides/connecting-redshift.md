@@ -23,6 +23,7 @@ keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, r
 summary: "Connect an Amazon Redshift destination to your Stitch account."
 
 content-type: "destination-setup"
+key: "redshift-destination-setup"
 order: 1
 
 toc: true
@@ -34,7 +35,9 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Redshift"
+display_name: "Amazon Redshift"
+name: "redshift"
+
 type: "redshift"
 
 hosting-type: "amazon"
@@ -42,6 +45,8 @@ hosting-type: "amazon"
 ssh: true
 ssl: true
 port: 5439
+
+this-version: "2"
 
 
 # -------------------------- #

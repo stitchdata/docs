@@ -1,6 +1,6 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "Transaction"
 # singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/Transaction.json"

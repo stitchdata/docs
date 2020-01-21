@@ -230,9 +230,6 @@ table {
 			&:last-of-type {
 				border-right: 1px solid $gray-2;
 			}
-			p {
-				margin-bottom: 0 !important;
-			}
 		}
 	}
 	thead {
@@ -314,6 +311,9 @@ table.attribute-list {
 		td {
 			code {
 					font-size: 15px;
+				}
+			p {
+					margin: 0 0 1rem;
 				}
 		}
 /*		td.description {

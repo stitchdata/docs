@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/customerio
 redirect_from: /integrations/saas/customerio
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [stitch_webhooks]
 keywords: customerio, integration, schema, etl customerio, customerio etl, customerio schema, stitch webhooks
 summary: "Connect your Customer.io data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -15,8 +14,6 @@ summary: "Connect your Customer.io data to Stitch using Stitch's Incoming Webhoo
 
 name: "customerio"
 display_name: "Customer.io"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -38,6 +35,9 @@ icon: /images/integrations/icons/customerio.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

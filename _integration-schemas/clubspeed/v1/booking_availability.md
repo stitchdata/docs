@@ -1,6 +1,6 @@
 ---
 tap: "clubspeed"
-version: "1.0"
+version: "1"
 
 name: "booking_availability"
 singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/booking_availability.json"
