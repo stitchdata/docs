@@ -9,6 +9,10 @@ layout: general
 toc: false
 key: "mongodb-projection-queries"
 
+display_name: "MongoDB"
+name: "mongodb"
+db-type: "mongo"
+
 this-version: "1"
 
 intro: |
@@ -29,55 +33,13 @@ sections:
     anchor: "feature-availability"
     summary: "What versions of the MongoDB integration this feature is available for"
     content: |
-      {% include misc/icons.html %}
-
-      {% assign mongo-integrations = site.database-integrations | where:"name","mongodb" %}
-
-      The following table indicates the availability of Stitch's MongoDB projection query feature for each version of the MongoDB integration.
-
-      <table class="attribute-list">
-      <tr>
-      <td class="attribute-name">
-      <strong>Integration version</strong>
-      </td>
-      <td>
-      <strong>Availability</strong>
-      </td>
-      </tr>
-      {% for integration in mongo-integrations %}
-      {% if integration.this-version %}
-      <tr>
-      <td class="attribute-name">
-      <strong>
-      <a href="{{ integration.url | prepend: site.baseurl }}">{{integration.this-version | prepend: "v" }}</a>
-      </strong>
-      </td>
-      <td>
-      {% case integration.column-selection %}
-      {% when true %}
-      {{ supported | replace:"TOOLTIP","Field selection via projection queries is supported for this integration version." }} Supported
-      {% when false %}
-      {{ not-supported | replace:"TOOLTIP","Field selection via projection queries is not supported for this integration version." }} Unsupported
-      {% endcase %}
-      </td>
-      </tr>
-      {% endif %}
-      {% endfor %}
-      </table>
+      {% include shared/integrations/projection-column-selection.html type="feature-availability" %}
 
   - title: "What are projection queries?"
     anchor: "what-are-projection-queries"
     summary: "What projection queries are"
     content: |
-      In MongoDB, the default for queries is to return all fields in matching documents. [Projection queries]({{ site.data.taps.links.mongodb.projection-queries }}){:target="new"} are used to specify or restrict the data returned in query results. By specifying a projection query, you can specify the fields you want to return or exclude.
-
-      For example: The default query behavior in MongoDB is similar to `SELECT *` in SQL. If you wanted to only return a subset of fields, you'd specify them in the `SELECT` clause:
-
-      ```sql
-      SELECT name,
-             is_active
-        FROM customers
-      ```
+      {% include shared/integrations/projection-column-selection.html type="what-are-projection-queries" %}
 
   - title: "Projection query requirements for Stitch"
     anchor: "projection-query-stitch-requirements"
@@ -105,32 +67,13 @@ sections:
       - title: "Adding a new projection query"
         anchor: "adding-new-projection-query"
         content: |
-          When you set a collection to replicate in Stitch, you can define a projection query for the collection in the **Collection Settings** page.
+          {% include shared/integrations/projection-column-selection.html type="adding-new-projection-query" %}
 
-          1. In the MongoDB integration, click the **Collections to Replicate** tab.
-          2. Navigate to the desired collection.
-          3. Click the checkbox to the left of the collection to set it to replicate. This will also open the **Collection Details** page:
-
-             ![The MongoDB Collection Details page in Stitch.]({{ site.baseurl }}/images/integrations/mongodb-collection-details.png)
-          4. Click the **View Collection Settings** button.
-          5. On the **Collection Settings** page, scroll down to the **Fields to Replicate** section.
-          6. Enter the projection query you want the collection to use in the **Projection query** field:
-
-             ![The Projection query field in the Collection Settings page in Stitch.]({{ site.baseurl }}/images/integrations/mongodb-projection-queries.png)
-
-             **Note**: Projection queries include the `_id` field by default, so you don't need to specify it in your query.
-          7. Click {{ app.buttons.save-table-settings }} to save your changes.
-
-          Stitch will use the collection's projection query during the next scheduled replication job, even if a job is currently in progress.
 
       - title: "Modifying an existing projection query"
         anchor: "modifying-existing-projection-query"
         content: |
-          To modify an existing projection query, follow the steps [in the previous section](#adding-new-projection-query), modifying the query as needed. When finished, click {{ app.buttons.save-table-settings }} to save your changes.
-
-          Stitch will use the collection's projection query during the next scheduled replication job, even if a job is currently in progress.
-
-          **Note**: Modifying a projection query won't trigger a full re-replication of a collection. If the collection uses a type of incremental replication, you'll need to [manually reset the collection]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) to backfill the values for any new fields.
+          {% include shared/integrations/projection-column-selection.html type="modifying-existing-projection-query" %}
 
   - title: "Example projection queries"
     anchor: "example-projection-queries"

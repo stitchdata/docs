@@ -1,6 +1,13 @@
 <!-- This file includes the content for setting up S3-based integrations
 					that use IAM access to connect. -->
 
+{% if integration.name == "amazon-s3-csv" %}
+{% assign page-name = "Grant Access to Your Bucket" %}
+
+{% else %}
+{% assign page-name = "Configure Your DynamoDB Integration" %}
+
+{% endif %}
 {% case include.type %}
 
 <!-- RETRIEVING AWS ACCOUNT ID -->
@@ -12,53 +19,64 @@
 
    ![An AWS account ID, highlighted in the AWS Account Settings page]({{ site.baseurl }}/images/integrations/s3-csv-account-id.png)
 
-Keep this handy - you'll need it to complete the next step.
+Keep this handy - you'll need it to complete the setup.
 
 
 <!-- INTRO TO CREATING THE IAM POLICY -->
 {% when 'aws-iam-access-intro' %}
 {% include note.html type="single-line" content="**Note**: To complete this step, you must have permissions in AWS Identity Access Management (IAM) that allow you to create/modify IAM policies and roles." %}
 
-Next, Stitch will display a **Grant Access to Your Bucket** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
+Next, Stitch will display a **{{page-name}}** page. This page contains the info you need to configure bucket access for Stitch, which is accomplished via an IAM policy and role.
 
 **Note**: Saving the integration before you've completed the steps below will result in connection errors.
 
 
 <!-- CREATING THE IAM POLICY -->
 {% when 'create-iam-policy' %}
+{% if integration.name == "amazon-s3-csv" %}
 [An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to bucket resources. The policy Stitch provides is an auto-generated policy unique to the specific bucket you entered in the setup page.
 
 For more info about the top-level permissions the Stitch IAM policy grants, click the link below.
 
-{% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges.amazon-s3-csv.user-privileges %}
+{% else %}
+[An IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json){:target="new"} is JSON-based access policy language to manage permissions to {{ integration.display_name }} resources.
+
+For more info about the permissions the auto-generated policy Stitch IAM policy grants, click the link below.
+
+{% endif %}
+
+{% assign integration-permissions = site.data.taps.extraction.database-setup.user-privileges.[integration.name].user-privileges %}
 
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
 
       <div class="panel-heading">
           <h4 class="panel-title">
-              <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-s3-bucket-permissions">{{ integration.display_name }} Bucket Permissions</a>
+              <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-iam-policy-permissions">{{ integration.display_name }} permissions</a>
           </h4>
       </div>
 
-      <div id="collapse-s3-bucket-permissions" class="panel-collapse collapse noCrossRef">
+      <div id="collapse-iam-policy-permissions" class="panel-collapse collapse noCrossRef">
           <div class="panel-body">
               <table class="attribute-list table-hover">
                   <tr>
                       <td class="attribute-name">
-                          <strong>Permission Name</strong>
+                          <strong>Permission name</strong>
                       </td>
+                      {% if integration.name == "amazon-s3-csv" %}
                       <td class="attribute-description">
                           <strong>Operation</strong>
                       </td>
+                      {% endif %}
                       <td class="attribute-description">
-                          <strong>Operation Description</strong>
+                          <strong>Description</strong>
                       </td>
                   </tr>
 
                   {% for permission in integration-permissions %}
 
                   <!-- Capture the # of objects in the array & use it as the table's rowspan -->
+                  {% if integration.name == "amazon-s3-csv" %}
                       {% for operation in permission.operations %}
                           {%- capture rowspan -%}
                               {{ forloop.length }}
@@ -90,6 +108,17 @@ For more info about the top-level permissions the Stitch IAM policy grants, clic
                                   </tr>
                           {% endcase %}
                       {% endfor %}
+
+                    {% else %}
+                      <tr>
+                        <td class="attribute-name">
+                                  <strong>{{ permission.name }}</strong>
+                              </td>
+                        <td class="attribute-description">
+                                  {{ permission.reason | flatify }}
+                              </td>      
+                      </tr>
+                  {% endif %}
                   {% endfor %}
               </table>
           </div>
@@ -107,7 +136,7 @@ To create the IAM policy:
 6. Select everything currently in the text field and delete it.
 7. In the text field, paste the Stitch IAM policy.
 8. Click **Review policy**.
-9. On the **Review Policy** page, give the policy a name. For example: `stitch_s3`
+9. On the **Review Policy** page, give the policy a name. For example: `stitch_{{ integration.name | replace:"-","_" }}`
 10. Click **Create policy**.
 
 
@@ -120,32 +149,33 @@ To complete this step, you need the following AWS IAM permissions: `CreateRole` 
 
 If you're creating multiple {{ integration.display_name }} integrations, you'll need to complete this step for each integration you're connecting.
 
-The **Role Name** Stitch uses to connect to the Amazon S3 bucket is unique to the integration. Attempting to re-use a role for multiple integrations will cause connection errors.
+The **Role Name** Stitch uses to connect to the Amazon resource is unique to the integration. Attempting to re-use a role for multiple integrations will cause connection errors.
 {% endcapture %}
 
 {% include note.html first-line="**Required permissions**" content=iam-role-notice %}
 
 In this step, you'll create an IAM role for Stitch and apply the IAM policy from the previous step. This will ensure that Stitch is visible in any logs and audits.
 
-To create the role, you'll need the **Account ID**, **External ID**, and **Role Name** values provided on the Stitch **Grant Access to Your Bucket** page.
 
+
+To create the role, you'll need the **Account ID**, **External ID**, and **Role Name** values provided on the Stitch **{{page-name}}** page.
 
 1. In AWS, navigate to the [IAM Roles](https://console.aws.amazon.com/iam/home#/roles){:target="new"} page.
 2. Click **Create Role**.
 3. On the **Create Role** page:
    1. In the **Select type of trusted entity** section, click the **Another AWS account** option.
-   2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **Grant Access to Your Bucket** page.
+   2. In the **Account ID** field, paste the Account ID from Stitch. **Note**: This isn't your AWS account ID from Step 1 - this is the Account ID that displays in Stitch on the **{{page-name}}** page.
    3. In the **Options** section, check the **Require external ID** box.
-   4. In the **External ID** field that displays, paste the External ID from the Stitch **Grant Access to Your Bucket** page:
+   4. In the **External ID** field that displays, paste the External ID from the Stitch **{{page-name}}** page:
       ![Account ID and External ID fields mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/aws-account-external-ids.png)
    5. Click **Next: Permissions**.
 4. On the **Attach permissions** page:
-   1. Search for the policy you created in [Step 6.1](#create-iam-policy).
+   1. Search for the policy you created in the [previous step](#create-iam-policy).
    2. Once located, check the box next to it in the table.
    3. Click **Next: Tags**.
 5. If you want to enter any tags, do so on the **Add tags** page. Otherwise, click **Next: Review**.
 5. On the **Review** page:
-   1. In the **Role name** field, paste the Role Name from the Stitch **Grant Access to Your Bucket** page:
+   1. In the **Role name** field, paste the Role Name from the Stitch **{{page-name}}** page:
       ![Role name field mapped from Stitch to AWS]({{ site.baseurl }}/images/integrations/aws-role-name.png)
 
       **Remember**: Role names are unique to the Stitch {{ integration.display_name }} integration they're created for. Attempting to use the same role for multiple integrations will cause connection errors.

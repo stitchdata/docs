@@ -25,7 +25,6 @@ Ex: MySQL backs Magento, MariaDB, etc. -->
 
 {% endif %}
 
-
 <!-- Get the correct versions 
 If the include has a specific version parameter, only get the version being requested-->
 {% if include.version %}
@@ -48,5 +47,7 @@ If the include has a specific version parameter, only get the version being requ
 
 <!-- Last, pulls all docs that that match the given key  -->
 	{% assign all-versioned-docs = site.documents | where:"key",[include.item-name]key %}
+
+
 <!-- Get the doc that is the latest version based on the given key. -->
 		{% assign latest-version-doc = all-versioned-docs | where:"this-version",latest-version | first %}

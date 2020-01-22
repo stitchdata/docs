@@ -1,0 +1,26 @@
+# -------------------------- #
+#     S3 User Privileges     #
+# -------------------------- #
+
+## The permissions Stitch needs to connect to and replicate data from an S3 database.
+## For S3, these are granted via an auto-generated bucket policy that displays in
+## the Stitch UI in the Integration Settings page.
+
+user-privileges:
+  - name: "dynamodb:ListTables"
+    reason: "Required to list table names associated with the current account."
+    
+  - name: "dynamodb:DescribeStream"
+    reason: "Required to return information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding {{ integration.display_name }} table."
+  
+  - name: "dynamodb:ListStreams"
+    reason: "Required to obtain the stream ARNs for the tables associated with the current account."
+   
+  - name: "dynamodb:DescribeTable"
+    reason: "Required to obtain information about the current account's tables."
+
+  - name: "dynamodb:Scan"
+    reason: "Required to perform a scan on tables using Full Table Replication."
+
+  - name: "dynamodb:GetShardIterator"
+    reason: "Required to perform the Log-based Incremental Replication."
