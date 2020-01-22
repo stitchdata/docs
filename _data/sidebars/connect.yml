@@ -155,6 +155,10 @@ api:
                 method: "post"
                 url: "{{ link.connect.api }}{{ site.data.connect.core-objects.sources.create-iapi-token.anchor }}"
 
+              - title: "{{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.title }}"
+                method: "get"
+                url: "{{ link.connect.api }}{{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.anchor }}"
+
               - title: "{{ site.data.connect.core-objects.sources.revoke-iapi-token.title }}"
                 method: "delete"
                 url: "{{ link.connect.api }}{{ site.data.connect.core-objects.sources.revoke-iapi-token.anchor }}"
@@ -273,6 +277,10 @@ api:
           - title: "{{ site.data.connect.data-structures.notifications.hook.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.notifications.hook.section }}"
+
+          - title: "{{ site.data.connect.data-structures.import-api-access-token.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.import-api-access-token.section }}"
 
           - title: "{{ site.data.connect.data-structures.metadata.top-level.title }}"
             method: "object"

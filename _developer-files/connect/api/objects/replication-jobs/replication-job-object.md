@@ -36,12 +36,12 @@ available-methods:
   - id: "start-a-job"
     title: "Start a replication job"
     method: "post"
-    short: "{{ api.core-objects.replication-jobs.post.short | flatify }}"
+    short: "{{ site.data.connect.core-objects.replication-jobs.post.short | flatify }}"
 
   - id: "stop-a-job"
     title: "Stop a replication job"
     method: "delete"
-    short: "{{ api.core-objects.replication-jobs.delete.short | flatify }}"
+    short: "{{ site.data.connect.core-objects.replication-jobs.delete.short | flatify }}"
 
 
 # -------------------------- #

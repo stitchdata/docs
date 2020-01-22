@@ -11,6 +11,7 @@ summary: "Stitch supports three replication scheduling methods: Replication Freq
 product-type: "connect"
 content-type: "guide"
 content-id: "replication-scheduling-for-sources"
+topics: "sources, scheduling"
 
 key: "connect-scheduling"
 
