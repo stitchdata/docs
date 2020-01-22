@@ -1,5 +1,5 @@
 ---
-title: Selecting Amazon DynamoDB Fields Using Projection Queries
+title: Selecting Amazon DynamoDB Fields Using Projection Expressions
 keywords: dynamodb, amazon dynamodb, whitelisting, blacklisting, field selection, column selection
 permalink: /integrations/databases/amazon-dynamodb/field-selection-using-projection-expressions
 summary: "Specify or restrict the data Stitch replicates for Amazon DynamoDB tables using projection expressions."
@@ -11,8 +11,9 @@ key: "dynamodb-projection-queries"
 
 display_name: "DynamoDB"
 name: "dynamodb"
+db-type: "dynamodb"
 
-this-version: "1.0"
+this-version: "1"
 
 intro: |
   {% include misc/data-files.html %}
@@ -46,7 +47,11 @@ sections:
     content: |
       Projection expressions are compatible with any of Stitch's Replication Methods, including Log-based Incremental.
 
-      Projection expressions entered into Stitch must include the table's hash key. They cannot include condition expressions.
+      Projection expressions must adhere to the following:
+
+      - **Include the table's hash/partition key (Primary Key).** If you're unsure which field is the partition key for a table, sign into your Amazon Web Services (AWS) account and look at the **Table Details** section for the table. The field in the **Primary partition key** field is the table's Primary Key.
+
+      - **Cannot include conditional (condition) expressions.** Stitch's {{ page.display_name }} integration doesn't currently support using conditions in projection expressions.
 
       Projection expressions that don't meet the above criteria will result in [errors during extraction](#error-troubleshooting).
 
@@ -70,7 +75,7 @@ sections:
 
   - title: "Example projection expressions"
     anchor: "example-projection-queries"
-    summary: "Some example projection queries"
+    summary: "Some example projection expressions"
     data:
       - name: "Finn"
         is_active: true
@@ -137,7 +142,7 @@ sections:
 
       - title: "Return specified fields in a map element"
         description: |
-          Using [dot notation]({{ site.data.taps.links.dynamodb.accessing-elements  }}){:target="new"}, return specified fields in a map element. This is formatted as `"<map_element_name>.<field>"`
+          Using [dot notation]({{ site.data.taps.links.dynamodb.accessing-elements  }}){:target="new"}, return specified fields in a map element. This is formatted as `<map_element_name>.<field>`.
 
           In this example, the expression would return the top-level `name` field and `age` and `type` fields from the `details` map.
 
@@ -161,7 +166,7 @@ sections:
 
       - title: "Return specified fields in a list element"
         description: |
-          To access an element in a list, use [the dereference operator]({{ site.data.taps.links.dynamodb.accessing-elements }}){:target="new"} (`[n]`), where `n` is the number of the element in the list. This is formatted as `"<list_element_name>[n]"`
+          To access an element in a list, use [the dereference operator]({{ site.data.taps.links.dynamodb.accessing-elements }}){:target="new"} (`[n]`), where `n` is the number of the element in the list. This is formatted as `<list_element_name>[n]`.
 
           In this example, the expression would return the top-level `name` field and second element from the `acquaintances` list.
 
@@ -183,10 +188,10 @@ sections:
 
       ### Example table data {#example-table-data}
 
-      The examples use data from a table named `customers`, which contains the following documents:
+      The examples use data from a table named `customers`, which uses the `name` field as a Primary Key. This table contains the following records:
 
       {% assign results = section.data %}
-      {% assign headings = "name (string)|is_active (boolean)|details (object)|acquaintances (array)" | split:"|" %}
+      {% assign headings = "name [pk] (string)|is_active (boolean)|details (object)|acquaintances (array)" | split:"|" %}
       {% assign attributes = "name|is_active|details|acquaintances" | split:"|" %}
 
       <table class="attribute-list" style="margin-top: 0px;">
@@ -263,7 +268,7 @@ sections:
 
   - title: "Resources"
     anchor: "projection-query-resources"
-    summary: "Additional resources for projection queries"
+    summary: "Additional resources for projection expressions"
     content: |
       - [{{ page.display_name }} projection expression documentation]({{ site.data.taps.links.dynamodb.projection-expressions }}){:target="new"}
 
