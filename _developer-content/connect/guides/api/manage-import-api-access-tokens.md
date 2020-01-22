@@ -36,7 +36,7 @@ description: "Manage and revoke access tokens for Import API sources using the S
 
 related:
   - title: "Manage Import API access tokens in Stitch"
-    link: "{{ link.import-api.guides.access-tokens | prepend: site.baseurl }}"
+    link: "{{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}"
 
   - title: "Connect API reference"
     link: "{{ link.connect.api | prepend: site.baseurl }}"
