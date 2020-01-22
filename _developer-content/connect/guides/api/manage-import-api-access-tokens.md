@@ -87,6 +87,7 @@ requirements:
 client-id: "116078"
 source-id: "216359"
 token-id: "828704779"
+new-token-id: "828705046"
 
 
 sections:
@@ -107,7 +108,7 @@ sections:
         anchor: "generate--retrieve-iapi-source-id"
         endpoint: "GET {{ site.data.connect.core-objects.sources.list.name | flatify }}"
         content: |
-          If you know the ID of the Import API source you want to use, [skip to the next step](#generate--create-access-tokens).
+          {% include note.html type="single-line" content="**Note**: If you know the ID of the Import API source you want to use, [skip to the next step](#generate--create-new-access-token)." %}
 
           {% capture get-id-content %}
           If you're logged into Stitch, you can locate the ID of your Import API source by clicking into the integration and looking at its URL. The number between `connections/` and `/summary` in the URL is the source ID:
@@ -187,20 +188,58 @@ sections:
           ```
 
           The response will be an [Import API access token object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.import-api-access-token.section }}) with an `access_token` property. The value of this property is the access token you'll need to include in requests made to the Import API:
-
-          ```json
-          {
-            "access_token": "<IMPORT_API_ACCESS_TOKEN>"
-          }
-          ```
           {% endcapture %}
 
           {{ generate-access-token-content | flatify }}
 
-      - title: "Step 3: Retrieve the Import API access token's ID"
-        anchor: "generate--get-iapi-access-token-id"
+          ```json
+          {
+            "id": {{ page.token-id }},
+            "access_token": "<IMPORT_API_ACCESS_TOKEN>"
+          }
+          ```
+
+          **Note**: The API will only return the Import API access token once, immediately after generation. Store the access token and its ID somewhere secure, [as you'll need the access token ID to revoke the token](#rotate-import-api-access-tokens).
+
+  - title: "Rotate Import API access tokens"
+    anchor: "rotate-import-api-access-tokens"
+    content: |
+      If you need to revoke an Import API access token, we recommend first creating a second token and updating your application with it to prevent interruptions. **Note**: Any requests you attempt to send to Stitch during the time an invalid token is in use must be re-sent once valid a token is in place.
+
+      In this section:
+
+      {% include developers/api-tutorial-step-table.html item=subsection item-list=section.subsections %}
+
+    subsections:
+      - title: "Step 1: Retrieve the Import API source's ID"
+        anchor: "rotate--retrieve-iapi-source-id"
+        endpoint: "GET {{ site.data.connect.core-objects.sources.list.name | flatify }}"
+        content: |
+          {% include note.html type="single-line" content="**Note**: If you know the ID of the Import API source you want to use, [skip to the next step](#rotate--create-new-access-token)." %}
+
+          {{ get-id-content | flatify }}
+
+      - title: "Step 2: Create a new Import API access token"
+        anchor: "rotate--create-new-access-token"
+        endpoint: "POST {{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify }}"
+        content: |
+          Before you revoke the original access token, we recommend generating a new one to take its place. This will minimize disruptions to replication while you update your Import API credentials.
+
+          {{ generate-access-token-content | flatify }}
+
+          ```json
+          {
+            "id": {{ page.new-token-id }},
+            "access_token": "<IMPORT_API_ACCESS_TOKEN>"
+          }
+          ```
+
+      - title: "Step 3: Retrieve the Import API access token IDs"
+        anchor: "rotate--get-iapi-access-token-id"
         endpoint: "GET {{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.name | flatify }}"
         content: |
+          {% include note.html type="single-line" content="**Note**: If you already know the ID of the access token you want to revoke, [skip to the next step](#rotate--update-your-import-api-credentials)." %}
+
           {% capture retrieve-token-id-content %}
           Using the Import API source's ID, make a request to the [Get Import API access token IDs endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.get-iapi-access-token-ids.anchor }}) (`{{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.method | upcase }} {{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.name | flatify }}`), replacing `{source_id}` with the ID of the Import API source. In this example, the ID is `{{ page.source-id }}`:
 
@@ -218,52 +257,12 @@ sections:
 
           ```json
           [
-            {{ page.token-id }}
-          ]
-          ```
-
-          Store the access token ID somewhere secure, in case you need to revoke it at a later point.
-
-  - title: "Rotate Import API access tokens"
-    anchor: "rotate-import-api-access-tokens"
-    content: |
-      In this section:
-
-      {% include developers/api-tutorial-step-table.html item=subsection item-list=section.subsections %}
-
-    subsections:
-      - title: "Step 1: Retrieve the Import API source's ID"
-        anchor: "rotate--retrieve-iapi-source-id"
-        endpoint: "GET {{ site.data.connect.core-objects.sources.list.name | flatify }}"
-        content: |
-          If you know the ID of the Import API source you want to use, [skip to the next step](#rotate--create-new-access-token).
-
-          {{ get-id-content | flatify }}
-
-      - title: "Step 2: Create a new Import API access token"
-        anchor: "rotate--create-new-access-token"
-        endpoint: "POST {{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify }}"
-        content: |
-          Before you revoke the original access token, we recommend generating a new one to take its place. This will minimize disruptions to replication while you update your Import API credentials.
-
-          {{ generate-access-token-content | flatify }}
-
-      - title: "Step 3: Retrieve the Import API access token IDs"
-        anchor: "rotate--get-iapi-access-token-id"
-        endpoint: "GET {{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.name | flatify }}"
-        content: |
-          {{ retrieve-token-id-content | flatify }}
-
-          The response will be an array containing the IDs of the access tokens associated with the specified Import API source ID:
-
-          ```json
-          [
-            828705046,            /* New token ID */
+            {{ page.new-token-id | strip }},            /* New token ID */
             {{ page.token-id | strip }}             /* Original token ID */
           ]
           ```
 
-          Import API Access token IDs are auto-incrementing, meaning their values will only increase. The ID with the greater value is the ID for the newer access token. In this example, the ID for the new access token would be `828705046`.
+          Import API Access token IDs are auto-incrementing, meaning their values will only increase. The ID with the greater value is the ID for the newer access token. In this example, the ID for the new access token would be `{{ page.new-token-id }}`.
 
           Store the ID for the new access token somewhere secure, in case you need to revoke it at a later point.
 

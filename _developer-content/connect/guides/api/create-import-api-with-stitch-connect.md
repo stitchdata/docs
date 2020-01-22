@@ -5,7 +5,7 @@
 
 title: Create and Configure an Import API Source with the Connect API
 permalink: /developers/stitch-connect/guides/create-import-api-integration-with-stitch-connect
-summary: "Using the Stitch Connect API, create a new Import API integration and generate an access token. You'll also learn how to push data to the Import API after the source has been configured."
+summary: "Using the Stitch Connect API, create a new Import API source and generate an access token. You'll also learn how to push data to the Import API after the source has been configured."
 
 product-type: "connect"
 content-type: "guide"
@@ -26,7 +26,7 @@ doc-type: "tutorial"
 icon: source
 order: 5
 
-description: "Create an Import API integration using the Stitch Connect API."
+description: "Create an Import API source using the Stitch Connect API."
 
 
 # -------------------------- #
@@ -34,7 +34,7 @@ description: "Create an Import API integration using the Stitch Connect API."
 # -------------------------- #
 
 related:
-  - title: "Import API access tokens in Connect"
+  - title: "Manage Import API access tokens in Connect"
     link: "{{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl }}"
 
   - title: "Structuring data for the Import API"
@@ -54,7 +54,7 @@ intro: |
   {% include misc/data-files.html %}
 
   {% capture import-api-notice %}
-  **Note**: This guide focuses on creating an Import API source using Stitch Connect. Refer to the [Stitch Import API access token documention]({{ link.import-api.guides.access-tokens | prepend: site.baseurl }}) for instructions on generating API access tokens in the Stitch web app.
+  **Note**: This guide focuses on creating an Import API source using Stitch Connect. Refer to the [Managing Import API access tokens in Stitch guide]({{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}) for instructions on generating API access tokens in the Stitch web app.
   {% endcapture %}
 
   {% include note.html type="single-line" content=import-api-notice %}
@@ -190,9 +190,12 @@ steps:
 
       ```json
       {
+        "id": 828792559,
         "access_token": "<IMPORT_API_ACCESS_TOKEN>"
       }
       ```
+
+      **Note**: The API will only return the Import API access token once, immediately after generation. Store the access token and its ID somewhere secure, [as you'll need the access token ID to revoke the token]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl | append: "#rotate-import-api-access-tokens" }}).
 
   - title: "Push data to the Import API"
     anchor: "push-data-import-api"
