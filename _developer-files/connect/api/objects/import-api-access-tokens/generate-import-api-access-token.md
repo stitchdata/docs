@@ -28,7 +28,8 @@ description: |
   When using this endpoint, note the following:
 
   - **Using this endpoint won't create an Import API source**. Use the [Create a source]({{ site.data.connect.core-objects.sources.create.anchor }}) endpoint to first create the source and retrieve its ID. Refer to the [Create and configure an Import API source guide]({{ link.connect.guides.create-import-api-source | prepend: site.baseurl }}) for more info.
-  - **Each Import API source can have a maximum of active two access tokens**. To generate additional access tokens, revoke an active token first and then create a new token.
+  
+  - **Each Import API source can have a maximum of active two access tokens**. To generate additional access tokens, revoke an active token first and then create a new token. Refer to the [Managing and Revoking Import API Access Tokens via the Connect API]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl | append: "#rotate-import-api-access-tokens" }}) guide for instructions.
 
 
 # -------------------------- #
@@ -50,7 +51,9 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of `200 OK` and an [Import API access token object]({{ site.data.connect.data-structures.import-api-access-token.section }}). The `access_token` property contains the newly generated Import API access token.
+  If successful, the API will return a status of `200 OK` and an [Import API access token object]({{ site.data.connect.data-structures.import-api-access-token.section }}).
+
+  **Note**: The API will only return the Import API access token once, immediately after generation.
 
 
 # ------------------------------ #
@@ -70,6 +73,7 @@ examples:
     language: "json"
     code: |
       {
+        "id": 828792559,
         "access_token": "<IMPORT_API_ACCESS_TOKEN>"
       }
 

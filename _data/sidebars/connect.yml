@@ -278,6 +278,10 @@ api:
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.notifications.hook.section }}"
 
+          - title: "{{ site.data.connect.data-structures.import-api-access-token.title }}"
+            method: "object"
+            url: "{{ link.connect.api }}{{ site.data.connect.data-structures.import-api-access-token.section }}"
+
           - title: "{{ site.data.connect.data-structures.metadata.top-level.title }}"
             method: "object"
             url: "{{ link.connect.api }}{{ site.data.connect.data-structures.metadata.top-level.section }}"
