@@ -160,9 +160,9 @@ replication-sections:
     anchor: "log-based-incremental-replication"
     summary: "Details about Log-based Incremental Replication via {{ integration.display_name }} streams."
     content: |
-      Stitch's {{ integration.display_name }} integration uses [{{ integration.display_name }} Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html):{target="new"} to perform Log-based Incremental Replication. To use Log-based Incremental Replication, streams must be enabled on every table in {{ integration.display_name }} you want to replicate using this Replication Method. 
+      Stitch's {{ integration.display_name }} integration uses [{{ integration.display_name }} Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html){:target="new"} to perform Log-based Incremental Replication. To use Log-based Incremental Replication, streams must be enabled on every table in {{ integration.display_name }} you want to replicate using this Replication Method. 
 
-      Refer to [Amazon's documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html#Streams.Enabling):{target="new"} for instructions on enabling streams for {{ integration.display_name }} tables. The **Manage Stream** options must be one of the following, or replication will be unsuccessful:
+      Refer to [Amazon's documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html#Streams.Enabling){:target="new"} for instructions on enabling streams for {{ integration.display_name }} tables. The **Manage Stream** options must be one of the following, or replication will be unsuccessful:
 
         - `New Image`
         - `New and old images`
@@ -173,9 +173,9 @@ replication-sections:
     anchor: "full-table-replication"
     summary: "Details about Full Table Replication Eventually Consistent Reads."
     content: |
-      To perform Full Table Replications with Stitch's {{ integration.display_name }} integration, Stitch uses scans to return data. A scan returns data by accessing all item within a table. Stich uses scans rather than queries, because a query requires the user to specify the hash key (primary key). Scans allow for no user action to be required. For more information about scans, click [here](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html):{target="new"}.
+      To perform Full Table Replications with Stitch's {{ integration.display_name }} integration, Stitch uses scans to return data. A scan returns data by accessing all item within a table. Stich uses scans rather than queries, because a query requires the user to specify the hash key (primary key). Scans allow for no user action to be required. For more information about scans, click [here](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html){:target="new"}.
 
-      Stitch's {{ integration.display_name }} integration will only use eventually consistent reads from your selected {{ integration.display_name }} tables. What this means for you is that you will not see all of your recent data right away, but it will eventually catch up and return the latest records. For more information on Amazon's {{ integration.display_name }} Read Consistency, please click [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html):{target="new"}.
+      Stitch's {{ integration.display_name }} integration will only use eventually consistent reads from your selected {{ integration.display_name }} tables. What this means for you is that you will not see all of your recent data right away, but it will eventually catch up and return the latest records. For more information on Amazon's {{ integration.display_name }} Read Consistency, please click [here](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html){:target="new"}.
 
       
 ---
