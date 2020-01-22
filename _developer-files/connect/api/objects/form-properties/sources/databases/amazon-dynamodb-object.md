@@ -14,6 +14,7 @@
 #        CONTENT TYPE        #
 # -------------------------- #
 
+product-type: "connect"
 content-type: "api-form"
 form-type: "source"
 key: "source-form-properties-amazon-dynamodb-object"
@@ -28,14 +29,8 @@ api-type: "platform.dynamodb"
 display-name: "Amazon DynamoDB"
 
 source-type: "database"
-docs-name: "amazon-dynamodb"
+docs-name: "dynamodb"
 db-type: "dynamodb"
-
-property-description: |
-  CSV files in an Amazon DynamoDB bucket
-
-description: |
-  Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append:"#setup-requirements" }}) for requirements for CSV files.
 
 
 # -------------------------- #
@@ -67,14 +62,21 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The name of the AWS IAM role Stitch should assume when extracting data from Amazon S3. This role will have the permissions in the IAM policy associated with the role.
+      The name of the AWS IAM role Stitch should assume when extracting data from {{ form-property.display-name }}. This role will have the permissions in the IAM policy associated with the role.
 
-      Refer to our [{{ form-property.display-name }} documentation]({{ doc-link | append: "#grant-access-bucket-iam" }}){:target="new"} for more info about the IAM policy, role, and how to create them in AWS.
+      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#grant-access-bucket-iam" }}){:target="new"} for more info about the IAM policy, role, and how to create them in AWS.
     value: "<ROLE_NAME>"
+
+  - name: "use_local_dynamo"
+    type: "string"
+    required: false
+    description: "**This is a Stitch internal field.**"
+    value: ""
 
   - name: "region_name"
     type: "string"
     required: true
-    description: "The region that your instance resides in."
-    value: "<YOUR_REGION>"  
+    description: |
+      The name of the region your {{ form-property.display-name }} instance resides in.
+    value: "us-east-2"  
 ---
