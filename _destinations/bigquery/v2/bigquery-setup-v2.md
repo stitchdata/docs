@@ -66,7 +66,7 @@ requirements:
 
       - **Enabled billing for the GCP project**. The project must have [billing enabled and an attached credit card]({{ site.data.destinations.bigquery.resource-links.enable-billing }}). This is required for Stitch to successfully load data.
 
-      - **An existing Google {{ destination.display_name }} instance in the GCP project.** Stitch will not create an instance for you.
+      - **An existing {{ destination.display_name }} instance in the GCP project.** Stitch will not create an instance for you.
 
   - item: |
       **Permissions in the GCP project that allow you to create Identity Access Management (IAM) service accounts.** Stitch uses a service account during the replication process to load data into {{ destination.display_name }}. Refer to [Google's documentation]({{ site.data.destinations.bigquery.resource-links.service-accounts }}){:target="new"} for more info about service accounts and the permissions required to create them.

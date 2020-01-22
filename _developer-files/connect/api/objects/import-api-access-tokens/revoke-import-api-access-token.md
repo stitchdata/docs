@@ -21,8 +21,8 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 
-short: "{{ api.core-objects.sources.revoke-iapi-token.short }}"
-description: "{{ api.core-objects.sources.revoke-iapi-token.description | flatify }}"
+short: "{{ site.data.connect.core-objects.sources.revoke-iapi-token.short }}"
+description: "{{ site.data.connect.core-objects.sources.revoke-iapi-token.description | flatify }}"
 
 
 # -------------------------- #
@@ -52,9 +52,8 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of `200 OK` and a [Source object]({{ api.core-objects.sources.object }}) with `connection` and `report_card` properties.
+  If successful, the API will return a status of `200 OK` and a [Source object]({{ api.core-objects.sources.object }}) a `report_card` property.
 
-  The `connection` property contains a `properties.token` object. This object contains key-value pairs of the token IDs and access tokens currently in use for the Import API source. When a token is successfully revoked, it will no longer be present in this object.
 
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #
@@ -74,9 +73,7 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      {% assign new-token-id = "545799083" %}
-
-      {{ site.data.connect.code-examples.sources.import-api.full-object | replace:"<TOKEN_ID>",new-token-id }}
+      {{ site.data.connect.code-examples.sources.import-api.full-object }}
 
   - type: "Errors"
 ---

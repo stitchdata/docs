@@ -45,6 +45,12 @@ object-attributes:
   #   description: ""
   #   value: ""
 
+  # - name: "results_per_page"
+  #   type: "string"
+  #   required: "false"
+  #   description: "The amount of results to load per page."
+  #   value: "175"
+
   - name: "shop"
     type: "string"
     required: true

@@ -70,14 +70,19 @@ available-methods:
     short: "{{ site.data.connect.core-objects.sources.delete.description | flatify }}"
 
   - id: "generate-iapi-access-token"
-    title: "Generate Import API source access token"
+    title: "Generate an Import API source access token"
     method: "post"
     short: "{{ site.data.connect.core-objects.sources.create-iapi-token.short | flatify }}"
 
+  - id: "get-iapi-access-token-ids"
+    title: "Get Import API access token IDs"
+    method: "get"
+    short: "{{ site.data.connect.core-objects.sources.create-iapi-token.short | flatify }}"
+
   - id: "revoke-iapi-access-token"
-    title: "Revoke Import API source access token"
+    title: "Revoke an Import API source access token"
     method: "delete"
-    short: "{{ site.data.connect.core-objects.sources.revoke-iapi-token.short | flatify }}"
+    short: "{{ site.data.connect.core-objects.sources.get-iapi-access-token-ids.short | flatify }}"
 
 
 # -------------------------- #

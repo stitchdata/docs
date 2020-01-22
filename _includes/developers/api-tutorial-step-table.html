@@ -1,0 +1,43 @@
+<!-- This include is used to format section/subsection steps in developer tutorials. -->
+
+<!-- Variables assigned based on parameters passed
+    into the include. Ex: page.sections, or sections.subsections -->
+{% assign item = include.item %}
+{% assign item-list = include.item-list %}
+
+<table class="attribute-list">
+    <tr>
+        <td width="5%; fixed">
+            <strong>Step</strong>
+        </td>
+        <td width="40%; fixed">
+            <strong>Action</strong>
+        </td>
+        <td>
+            <strong>Endpoint</strong>
+        </td>
+    </tr>
+    {% for item in item-list %}
+        <tr>
+            <td>
+                {% case item.title %}
+                    {% when 'Next steps' %}
+                    {% else %}
+                        {% if include.step-number %}
+                            {{ include.step-number | append: forloop.index }}
+                        {% else %}
+                            {{ forloop.index }}
+                        {% endif %}
+                    {% endcase %}
+            </td>
+            <td>
+                <a href="#{{ item.anchor }}">
+                    {{ item.title | flatify | replace_regex: "(Step [0-9]:)","" }}
+                </a>
+            </td>
+            <td>
+                {{ item.endpoint | flatify }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
