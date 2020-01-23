@@ -20,7 +20,7 @@ repo-url: https://github.com/singer-io/tap-marketo
 this-version: "2"
 
 api: |
-  [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"}
+  [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"} and [{{ integration.display_name }} Bulk API](https://developers.marketo.com/rest-api/bulk-extract/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
@@ -49,7 +49,7 @@ loading-reports: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration extracts data using the Bulk API, and replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
+  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
 
 # -------------------------- #
