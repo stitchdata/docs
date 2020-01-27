@@ -24,11 +24,14 @@ Your organization may require a different process, but the simplest way to creat
    {{ postgres-setup.grant-schema-usage | strip }}
    ```
 
-5. Grant the `stitch` user `SELECT` privileges on the tables in the schema:
+5. Grant the `stitch` user `SELECT` privileges by running this command for every table you want to replicate: 
 
    ```sql
-   {{ postgres-setup.grant-select-on-tables | strip }}
+   {{ postgres-setup.grant-select-on-table | strip }}
    ```
+
+   Limiting access to only the tables you want to replicate ensures that the integration can complete discovery (a structure sync) in a timely manner. If you encounter issues in Stitch where tables aren't displaying, try limiting the Stitch database user's table access.
+
 
 6. Alter the schema's default privileges to grant `SELECT` privileges on tables to `stitch`. This is required to ensure that objects created in the schema after connecting to Stitch will remain accessible to the `stitch` user:
 

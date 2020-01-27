@@ -67,12 +67,12 @@ create-login-command: |
 create-user-command: |
   CREATE USER <stitch_username> FOR LOGIN 
 
+grant-select-on-table: |
+  GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>
+
 grant-select-command:
   all-tables: |
     GRANT SELECT to <stitch_username>
-
-  specific-tables: |
-    GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>
 
   change-tracking-tables: |
     GRANT VIEW CHANGE TRACKING ON <schema_name>.<table_name> TO <stitch_username>

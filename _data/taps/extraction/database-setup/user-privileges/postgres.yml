@@ -133,6 +133,9 @@ grant-connect-on-database: |
 grant-schema-usage: |
   GRANT USAGE ON SCHEMA <schema_name> TO stitch
 
+grant-select-on-table: |
+  GRANT SELECT ON <schema_name>.<table_name> TO stitch
+
 grant-select-on-tables: |
   GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO stitch
 

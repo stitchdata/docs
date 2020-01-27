@@ -12,19 +12,13 @@
    {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-create-session | flatify | rstrip }}
    ```
 
-4. Grant the Stitch user `SELECT` privileges. This can be done one of two ways: Granting access to all tables, or only granting access to specific tables you want to replicate.
+4. Grant the Stitch user `SELECT` privileges by running this command for every table you want to replicate:
 
-   - To grant Stitch access **to all tables**, run:
+   ```sql
+   {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-on-table | flatify | rstrip }}
+   ```
 
-     ```sql
-     {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-all-tables | flatify | rstrip }}
-     ```
-
-   - To grant Stitch access **to specific tables**, run the following command for each table you want to replicate. Replace `<SCHEMA>` and `<TABLE>` with the name of the schema and table, respectively:
-
-     ```sql
-     {{ site.data.taps.extraction.database-setup.user-privileges.oracle.grant-select-specific-tables | flatify | rstrip }}
-     ```
+   Limiting access to only the tables you want to replicate ensures that the integration can complete discovery (a structure sync) in a timely manner. If you encounter issues in Stitch where tables aren't displaying, try limiting the Stitch database user's table access.
 
 {% capture log-based-replication-privileges %}
 If you want to use Log-based Incremental Replication, you'll also need to grant additional permissions to the Stitch user:

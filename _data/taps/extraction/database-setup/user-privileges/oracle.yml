@@ -23,10 +23,7 @@ defaults:
       Required to log into the {{ integration.display_name }} database.
 
     select: &select-reason |
-      Required to select data from the tables and columns you want to replicate.
-
-      - `SELECT ANY TABLE` grants `SELECT` privileges to any table in the connected database.
-      - `SELECT ON <SCHEMA.TABLE>` grants `SELECT` privileges only to the specified table.
+      Required to select data from specified tables.
 
     execute-dbms-logmnr: &execute-dbms-logmnr-reason |
       **Required to use Log-based Incremental Replication.** Allows the Stitch user to execute the `DBMS_LOGMNR` package for LogMiner.
@@ -184,8 +181,8 @@ grant-create-session: |
 grant-select-all-tables: |
   GRANT SELECT ANY TABLE TO STITCH
 
-grant-select-specific-tables: |
-  GRANT SELECT ON <SCHEMA>.<TABLE> to STITCH
+grant-select-on-table: |
+  GRANT SELECT ON <schema_name>.<table_name> to STITCH
 
 select-any-transaction: |
   GRANT SELECT ANY TRANSACTION TO STITCH
