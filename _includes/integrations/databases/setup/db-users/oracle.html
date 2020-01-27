@@ -1,6 +1,6 @@
 
 1. If you aren't already, log into your database as a user with `CREATE USER` and `GRANT` privileges.
-2. Run the following command to create the Stitch database user, replacing `<password>` with a secure password:
+2. Run the following command to create the Stitch database user, replacing `<stitch_username>` with the name of the database user and `<password>` with a secure password:
 
    ```sql
    {{ site.data.taps.extraction.database-setup.user-privileges.oracle.create-user-command | flatify | rstrip }}

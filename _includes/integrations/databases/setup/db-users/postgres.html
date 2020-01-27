@@ -6,25 +6,25 @@ Your organization may require a different process, but the simplest way to creat
 **Note**: The user performing this step should also own the schema(s) that Stitch is being granted access to.
 
 1. Log into your database.
-2. Create a database user named `stitch`, replacing `<password>` with a password:
+2. Create the database user, replacing `<stitch_username>` with the name of the database user and `<password>` with a password:
 
    ```sql
    {{ postgres-setup.create-user-command-default | strip }}
    ```
 
-3. Grant the `stitch` user `CONNECT` privileges to the database, replacing `<database_name>` with the name of a database you want to connect Stitch to:
+3. Grant the database user `CONNECT` privileges to the database, replacing `<database_name>` with the name of a database you want to connect Stitch to:
 
    ```sql
    {{ postgres-setup.grant-connect-on-database | strip }}
    ```
 
-4. Grant the `stitch` user schema usage privileges, replacing `<schema_name>` with the name of a schema you want to replicate data from:
+4. Grant the database user schema usage privileges, replacing `<schema_name>` with the name of a schema you want to replicate data from:
 
    ```sql
    {{ postgres-setup.grant-schema-usage | strip }}
    ```
 
-5. Grant the `stitch` user `SELECT` privileges by running this command for every table you want to replicate: 
+5. Grant the database user `SELECT` privileges by running this command for every table you want to replicate: 
 
    ```sql
    {{ postgres-setup.grant-select-on-table | strip }}
@@ -33,7 +33,7 @@ Your organization may require a different process, but the simplest way to creat
    Limiting access to only the tables you want to replicate ensures that the integration can complete discovery (a structure sync) in a timely manner. If you encounter issues in Stitch where tables aren't displaying, try limiting the Stitch database user's table access.
 
 
-6. Alter the schema's default privileges to grant `SELECT` privileges on tables to `stitch`. This is required to ensure that objects created in the schema after connecting to Stitch will remain accessible to the `stitch` user:
+6. Alter the schema's default privileges to grant `SELECT` privileges on tables to the database user. This is required to ensure that objects created in the schema after connecting to Stitch will remain accessible to the `stitch` user:
 
    ```sql
    {{ postgres-setup.alter-default-schema-privileges | strip }}

@@ -125,28 +125,28 @@ aurora-postgresql-rds:
 # -------------------------- #
 
 create-user-command-default: |
-  CREATE USER stitch WITH ENCRYPTED PASSWORD '<password>'
+  CREATE USER <stitch_username> WITH ENCRYPTED PASSWORD '<password>'
 
 grant-connect-on-database: |
-  GRANT CONNECT ON DATABASE <database_name> TO stitch
+  GRANT CONNECT ON DATABASE <database_name> TO <stitch_username>
 
 grant-schema-usage: |
-  GRANT USAGE ON SCHEMA <schema_name> TO stitch
+  GRANT USAGE ON SCHEMA <schema_name> TO <stitch_username>
 
 grant-select-on-table: |
-  GRANT SELECT ON <schema_name>.<table_name> TO stitch
+  GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>
 
 grant-select-on-tables: |
-  GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO stitch
+  GRANT SELECT ON ALL TABLES IN SCHEMA <schema_name> TO <stitch_username>
 
 alter-default-schema-privileges: |
-  ALTER DEFAULT PRIVILEGES IN SCHEMA <schema_name> GRANT SELECT ON TABLES TO stitch
+  ALTER DEFAULT PRIVILEGES IN SCHEMA <schema_name> GRANT SELECT ON TABLES TO <stitch_username>
 
 rds-grant-replication: |
-  GRANT rds_replication TO stitch
+  GRANT rds_replication TO <stitch_username>
 
 postgresql-create-replication-role: |
   CREATE ROLE replication REPLICATION LOGIN
 
 postgresql-grant-replication-role: |
-  GRANT replication TO stitch
+  GRANT replication TO <stitch_username>
