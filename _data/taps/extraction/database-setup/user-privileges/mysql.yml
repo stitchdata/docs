@@ -131,3 +131,6 @@ grant-user-select-command: |
 
 grant-user-replication-command: |
   GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<stitch_username>'@'localhost';
+
+revoke-select: |
+  REVOKE SELECT ON *.* TO '<stitch_username>';

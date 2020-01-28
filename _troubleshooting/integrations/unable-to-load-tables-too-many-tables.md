@@ -45,35 +45,68 @@ sections:
         type: "postgres"
       - name: "Oracle"
         type: "oracle"
+    database-table: |
+      <table class="attribute-list">
+      {% for database in section.databases %}
+      <tr>
+      <td width="20%; fixed" align="right">
+      <strong>{{ database.name }}</strong>
+      </td>
+      <td>
+      <code>{{ site.data.taps.extraction.database-setup.user-privileges[database.type][command] | replace:"<","&lt;" | flatify | strip }}</code>
+      </td>
+      </tr>
+      {% endfor %}
+      </table>
     content: |
-      Limit the authorizing database user's access only to the tables you want to replicate.
+      Limit the authorizing database user's access only to the tables you want to replicate:
 
-      To see which database user Stitch is using to connect to the database:
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
 
-      1. Click into the integration from the {{ app.page-names.dashboard }}.
-      2. Click the **Settings** tab.
-      3. Locate the **User** or **Username** field.
+    subsections:
+      - title: "Step 1: Identify the database user"
+        anchor: "solution--identify-database-user"
+        content: |
+          To see which database user Stitch is using to connect to the database:
 
-      To limit this database user's table access:
+          1. Click into the integration from the {{ app.page-names.dashboard }}.
+          2. Click the **Settings** tab.
+          3. Locate the **User** or **Username** field.
 
-      1. Log into your database as a user with the ability to grant privileges.
-      2. Locate your database in the table below.
-      3. Run the appropriate command on every table you want to replicate, replacing `<database_name>`, `<schema_name>`, `<table_name>`, and `<stitch_username>` with the name of the database, schema, table, and database user, respectively:
+          The name of the database user in this field will be used to complete the remaining steps.
 
-         <table class="attribute-list">
-         {% for database in section.databases %}
-         <tr>
-         <td width="20%; fixed" align="right">
-         <strong>{{ database.name }}</strong>
-         </td>
-         <td>
-         <code>{{ site.data.taps.extraction.database-setup.user-privileges[database.type]grant-select-on-table | replace:"<","&lt;" | flatify | strip }}</code>
-         </td>
-         </tr>
-         {% endfor %}
-         </table>
+      - title: "Step 2: Revoke the database user's current access"
+        anchor: "solution--revoke-current-access"
+        content: |
+          {% include note.html type="single-line" content="**Note**: If you don't have appropriate `REVOKE` privileges or you're unsure how to complete this step, reach out to a member of your technical or database administration team before continuing." %}
 
-         **Note**: These commands will work for any database integration backed by one of the databases mentioned above. For example: The command for MySQL will also work on Amazon RDS MySQL, Amazon RDS Aurora MySQL, MariaDB, etc.
-      
+          Next, revoke the database user's current access. This will remove the overly permissive access the user currently has in preparation for the next step.
+
+          1. Log into your database as a user with the ability to revoke privileges.
+          2. Locate your database in the table below.
+          3. Run the appropriate command, replacing `<schema_name>` and `<stitch_username>` with the name of the schema and [database user from Step 1](#solution--identify-database-user), respectively:
+
+             {% assign command = "revoke-select" %}
+
+          {{ section.database-table | flatify }}
+
+          **Note**: These commands will work for any database integration backed by one of the databases mentioned above. For example: The command for MySQL will also work on Amazon RDS MySQL, Amazon RDS Aurora MySQL, MariaDB, etc.
+
+      - title: "Step 3: Grant new table-level privileges"
+        anchor: "solution--limit-table-access"
+        content: |
+          To limit this database user's table access:
+
+          1. Log into your database as a user with the ability to grant privileges.
+          2. Locate your database in the table below.
+          3. Run the appropriate command on every table you want to replicate, replacing `<database_name>`, `<schema_name>`, `<table_name>`, and `<stitch_username>` with the name of the database, schema, table, and [database user from Step 1](#solution--identify-database-user), respectively:
+
+             {% assign command = "grant-select-on-table" %}
+
+          {{ section.database-table | flatify | markdownify }}
+
+             **Note**: These commands will work for any database integration backed by one of the databases mentioned above. For example: The command for MySQL will also work on Amazon RDS MySQL, Amazon RDS Aurora MySQL, MariaDB, etc.
 ---
 {% include misc/data-files.html %}

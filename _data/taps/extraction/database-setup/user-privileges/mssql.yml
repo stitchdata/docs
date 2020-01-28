@@ -62,17 +62,24 @@ microsoft-azure:
 # -------------------------- #
 
 create-login-command: |
-  CREATE LOGIN <stitch_username> WITH PASSWORD='<password>'
+  CREATE LOGIN <stitch_username> WITH PASSWORD='<password>';
 
 create-user-command: |
-  CREATE USER <stitch_username> FOR LOGIN 
+  CREATE USER <stitch_username> FOR LOGIN;
+  GO
 
 grant-select-on-table: |
-  GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>
+  GRANT SELECT ON <schema_name>.<table_name> TO <stitch_username>;
+  GO
+
+revoke-select: |
+  REVOKE SELECT FROM <stitch_username>
+  GO
 
 grant-select-command:
   all-tables: |
-    GRANT SELECT to <stitch_username>
+    GRANT SELECT TO <stitch_username>
 
   change-tracking-tables: |
-    GRANT VIEW CHANGE TRACKING ON <schema_name>.<table_name> TO <stitch_username>
+    GRANT VIEW CHANGE TRACKING ON <schema_name>.<table_name> TO <stitch_username>;
+    GO

@@ -181,6 +181,9 @@ grant-create-session: |
 grant-select-all-tables: |
   GRANT SELECT ANY TABLE TO <stitch_username>
 
+revoke-select: |
+  REVOKE SELECT ANY TABLE FROM <stitch_username>
+
 grant-select-on-table: |
   GRANT SELECT ON <schema_name>.<table_name> to <stitch_username>
 
