@@ -1,5 +1,5 @@
 ---
-title: Unable to Load Tables due to Source Database Access Level
+title: Unable to Load Tables Due to Source Database Access Level
 keywords: tables to replicate, unable to load tables, table issues
 permalink: /troubleshooting/too-many-tables-to-load-database-integration
 summary: "Mitigate issues with tables displaying in the Tables to Replicate tab by limiting the authorizing database user's access to source tables."
