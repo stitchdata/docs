@@ -96,7 +96,7 @@ You can select {{ object }}s {% unless integration.column-selection == false %}a
    {% if integration.db-type == "mongo" %}
    {% capture mongo-rep-key-notice %}
    **Missing Replication Key Fields**<br>
-   Verify that the field is both indexed and in the root of the document if it's missing from the Replication Key dropdown. Refer to the [MongoDB Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) for more info.
+   Replication Keys must be in the root of the document and have a [single field index](https://docs.mongodb.com/v4.0/indexes/#single-field){:target="new"} applied. If a field is missing from the Replication Key dropdown, verify that both of these criteria are met. Refer to the [MongoDB Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) for more info.
    {% endcapture %}
 
    {% include tip.html content=mongo-rep-key-notice %}
