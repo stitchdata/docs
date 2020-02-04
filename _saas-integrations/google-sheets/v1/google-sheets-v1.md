@@ -107,6 +107,16 @@ setup-steps:
 
 
 # -------------------------- #
+#     Replication Details    #
+# -------------------------- #
+
+  - title: Spreadsheet Setup
+    anchor: "spreadsheet-setup"
+    content: |
+      For proper table replication in Stitch's {{ integration.display_name }} integration, all of your sheets must have column headers in the first row. Starting from row two is where your data should begin.
+
+
+# -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
