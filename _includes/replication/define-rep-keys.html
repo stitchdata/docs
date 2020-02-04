@@ -11,9 +11,9 @@
 ## Defining Replication Keys
 
 {% if page.title contains "Mongo" %}
-After you set a collection to sync, you'll be prompted to select a Replication Key.
+After you set a collection to replicate, you'll be prompted to select a Replication Key.
 {% else %}
-After you set a table to sync and select [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}) as the Replication Method, you'll need to select a column to be used as the Replication Key for the table.
+After you set a table to replicate and select [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}) as the Replication Method, you'll need to select a column to be used as the Replication Key for the table.
 {% endif %}
 
 After you select a {{ col }} from the drop-down, click the **Update Settings** button.
@@ -22,4 +22,4 @@ After you select a {{ col }} from the drop-down, click the **Update Settings** b
 
 Changing an existing Replication Key for a {{ object }} is simple - just open up the {{ Object }} Settings page for the {{ object }} and select the new Replication Key {{ col }} from the drop-down menu.
 
-**When you change a {{ object }}'s Replication Key, Stitch will queue a full re-sync of the {{ object }}'s data**. We do this to ensure that there aren't any gaps because of the Replication Key switch.
+**When you change a {{ object }}'s Replication Key, Stitch will queue a full re-replication of the {{ object }}'s data**. We do this to ensure that there aren't any gaps because of the Replication Key switch.

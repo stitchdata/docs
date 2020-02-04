@@ -11,7 +11,7 @@ weight: 2
 ---
 {% include misc/data-files.html %}
 
-Replication Keys are columns that Stitch uses to identify new and updated data for replication. As Stitch's Mongo integration uses only [Incremental Replication]({{ link.replication.rep-methods | prepend: site.baseurl | append: "#incremental-replication" }}), when you set a Mongo collection to sync, you'll also need to define a Replication Key.
+Replication Keys are columns that Stitch uses to identify new and updated data for replication. Stitch's Mongo integration uses Key-based [incremental replication]({{ link.replication.key-based-incremental | prepend: site.baseurl}}), so when you set a Mongo collection to replicate, you'll also need to define a Replication Key.
 
 Incorrectly setting a Replication Key can cause data discrepancies, latency, and high row counts. As Mongo Replication Keys have their own set of quirks, it's important to understand how they work and what makes a good key.
 

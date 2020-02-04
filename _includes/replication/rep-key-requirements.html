@@ -3,10 +3,10 @@
 {% if page.title contains "Mongo" %}
 Stitch uses a field you define - called a Replication Key - to identify new and updated data for replication. For Mongo connections, Stitch requires that the Replication Key field:
 
-1. be indexed, AND
+1. be single field indexed, AND
 2. exist in the **root** of the document.
 
-If you want to sync Mongo data and are going to add query parameters - which is what [Incremental Replication]({{site.baseurl}}/replication/replication-methods#incremental-replication) does - undue stress could be put on your Mongo database. By indexing the fields you want to sync, that stress can be relieved.
+If you want to replicate Mongo data and are going to add query parameters - which is what [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl}}) does - undue stress could be put on your Mongo database. By indexing the fields you want to replicate, that stress can be relieved.
 
 {% else %}
 
