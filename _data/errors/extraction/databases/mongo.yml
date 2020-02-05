@@ -18,10 +18,25 @@ raw-error:
 
 # '[VALUE]' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
 
+documentation:
+  projection-queries: &projection-queries
+    category: "Projection queries"
+    category-doc: "{{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}"
+
+  replication-keys: &replication-keys
+    category: "Replication Keys"
+    category-doc: "{{ link.replication.mongo-rep-keys | prepend: site.baseurl }}"
+
 all:
+## Projection query excludes _id field
   - message: *blacklist-id
     id: "projection-blacklisted-id"
-    meaning: |
+    applicable-to: &all-mongo "MongoDB v1-backed database integrations"
+    level: "critical"
+    <<: *projection-queries
+    version: "1"
+    summary: "Projection query excludes the collection's _id field"
+    cause: |
       A projection query for a collection set to replicate is excluding the collection's `_id` field.
 
       For example:
@@ -29,15 +44,20 @@ all:
       ```json
       { "_id": 0 }
       ```
-
     fix-it: |
       Modify the collection's projection query to remove the exclusion of the `_id` field. Stitch requires the `_id` field for replication; excluding it in projection queries is not supported.
 
       Refer to the [Selecting MongoDB Fields Using Projection Queries guide]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) for more info.
 
+# Projection query contains inclusion and exclusion criteria
   - message: *projection-inclusion-exclusion
     id: "projection-inclusion-exclusion"
-    meaning: |
+    applicable-to: *all-mongo
+    level: "critical"
+    <<: *projection-queries
+    version: "1"
+    summary: "Projection query contains inclusion and exclusion statements"
+    cause: |
       A projection query for a collection set to replicate includes both inclusion and exclusion statements. MongoDB doesn't currently support inclusion and exclusion statements in the same projection query.
 
       The following projection query is an example of including both types of statements:
@@ -59,10 +79,16 @@ all:
 
       Refer to the [Selecting MongoDB Fields Using Projection Queries guide]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) for more info and examples of projection queries.
 
+## Projection query is invalid JSON
   - message: *invalid-json
     id: "projection-invalid-json"
-    meaning: |
-      A projection query for a collection set to replicate isn't valid JSON. A projection query is a JSON object; keys within the object must be enclosed in double quotes (`"`)
+    applicable-to: *all-mongo
+    level: "critical"
+    <<: *projection-queries
+    version: "1"
+    summary: "Projection query contains invalid JSON"
+    cause: |
+      A projection query for a collection set to replicate isn't valid JSON. A projection query is a JSON object; keys within the object must be enclosed in double quotes (`"`).
 
       For example: The following projection queries are invalid JSON:
 
@@ -82,17 +108,36 @@ all:
 
       You can use [JSONFormatter](https://jsonformatter.curiousconcept.com/){:target="new"} to validate the projection query before entering it into Stitch.
 
+## Unsupported Replication Key type
   - message: *rep-key-type
     id: "unsupported-rep-key-type"
-    meaning: |
-      A Replication Key field contains an incompatible data type. [Stitch requires MongoDB Replication Keys](https://github.com/singer-io/tap-mongodb/blob/master/tap_mongodb/sync_strategies/common.py#L77){:target="new"} to be `DATE-TIME`, `INTEGER`, `TIMESTAMP`, or `ObjectId` fields.
-    fix-it: |
-      1. Select a different Replication Key for the collection, or
-      2. Convert the data to a supported Replication Key data type, if possible.
+    applicable-to: *all-mongo
+    level: "critical"
+    <<: *replication-keys
+    version: "1"
+    summary: "Incompatible data type for Replication Key"
+    cause: |
+      A Replication Key field contains an incompatible data type.
 
+      [Stitch requires MongoDB Replication Key fields](https://github.com/singer-io/tap-mongodb/blob/master/tap_mongodb/sync_strategies/common.py#L77){:target="new"} to be one of the following data types:
+
+      - `DATE-TIME`
+      - `INTEGER`
+      - `TIMESTAMP`
+      - `ObjectId`
+    fix-it: |
+      - Select a different Replication Key for the collection, or
+      - Convert the data to a supported Replication Key data type, if possible
+
+## Database user not authorized on local
   - message: *local-not-authorized
     id: "local-not-authorized"
-    meaning: |
+    applicable-to: *all-mongo
+    level: "critical"
+    category: "Database user privileges"
+    version: "1"
+    summary: "Insufficient privileges on local database"
+    cause: |
       The Stitch MongoDB database user isn't authorized to execute commands on the `local` database. This is required to successfully replicate data.
     fix-it: |
       Grant the Stitch MongoDB database user `read` access to the `local` database using [`grantRolesToUser`](https://docs.mongodb.com/v4.0/reference/method/db.grantRolesToUser/){:target="new"}:
