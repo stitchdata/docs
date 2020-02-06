@@ -56,19 +56,19 @@ mongodb:
             **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.
 
   - name: "Authentication Database"
-    version: "1.0"
+    version: "1"
     copy: |
       Enter the name of the Stitch user's [authentication database](https://docs.mongodb.com/v3.4/core/security-users/#user-authentication-database){:target="new"}. This is the name of the database where the Stitch user was initially created.
 
             **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.
 
   - name: "Replica Set"
-    version: "1.0"
+    version: "1"
     copy: |
       **Optional.** The name of the replica set to be used for Log-based Incremental Replication.
 
   - name: *schema-names-tables-name
-    version: "1.0"
+    version: "1"
     copy: *schema-names-tables-description
 
 
@@ -108,15 +108,15 @@ mongodb-atlas:
             **Note:** If you're connecting an Atlas-based {{ integration.display_name }} instance, this must be the `admin` database. See the [Create a Mongo database user section](#create-database-user) for more info on this requirement.
 
   - name: "Authentication Database"
-    version: "1.0"
+    version: "1"
     copy: |
       This must be `admin`. This is the name of the Stitch user's [authentication database](https://docs.mongodb.com/v3.4/core/security-users/#user-authentication-database){:target="new"}. This is the name of the database where the [Stitch database user was initially created](#create-database-user).
 
   - name: "Replica Set"
-    version: "1.0"
+    version: "1"
     copy: |
       **Optional.** The name of the replica set you retrieved in the previous step ([3.1](#locate-database-connection-details)) to be used for Log-based Incremental Replication.
 
   - name: *schema-names-tables-name
-    version: "1.0"
+    version: "1"
     copy: *schema-names-tables-description
