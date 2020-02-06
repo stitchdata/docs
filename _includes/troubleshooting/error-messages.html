@@ -5,7 +5,7 @@
 <ul>
     {% for error in errors %}
         <li>
-            <a href="#{{ error.id }}">{{ error.message }}</a>
+            <a href="#{{ error.id }}">{{ error.message | flatify | truncatewords: 20 }}</a>
         </li>
     {% endfor %}
 </ul>
@@ -16,8 +16,8 @@
     {{ error.summary }}
 </h3>
 
-{% highlight shell %}
-{{ error.message }}
+{% highlight markdown %}
+{{ error.message | flatify }}
 {% endhighlight %}
 
 <table class="attribute-list">
