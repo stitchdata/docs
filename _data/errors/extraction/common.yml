@@ -28,6 +28,9 @@ time-limit: &time-limit
 
     Stitch will automatically retry extraction based on the integration's schedule.
 
+# ---------------------------- #
+#  Database Extraction Errors  #
+# ---------------------------- #
 
 databases:
   - <<: *time-limit
@@ -43,6 +46,11 @@ databases:
       Decrease the number of discoverable tables by limiting the Stitch database user's access only to tables you want to replicate. You can accomplish this by altering the Stitch database user's privileges in the database.
 
       Refer to the [documentation for your database]({{ site.baseurl }}/integrations/databases/#all-database-integrations) for instructions.
+
+
+# ---------------------------- #
+#    SaaS Extraction Errors    #
+# ---------------------------- #
 
 saas:
   - <<: *time-limit
