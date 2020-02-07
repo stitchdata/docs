@@ -32,58 +32,76 @@ weight: 7
 #        CONTENT DATA        #
 # -------------------------- #
 
-analytics:
+featured:
+
+  - name: "Amazon Quicksight"
+    id: "amazon-quicksight"
+    url: https://aws.amazon.com/quicksight/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-redshift-and-amazon-quicksight-to-deliver-business-analytics
 
   - name: "Metabase"
     id: "metabase"
     url: https://www.metabase.com/
     pricing: "Proprietary"
-    partner: true
     tutorial: https://www.stitchdata.com/blog/tutorial-metabase-with-data-warehouse-for-analytics
 
   - name: "Google Data Studio"
     id: "google-data-studio"
     url: https://datastudio.google.com/
     pricing: "Proprietary"
-    partner: true
     tutorial: https://www.stitchdata.com/blog/tutorial-using-google-data-studio-with-bigquery-and-stitch
 
   - name: "PowerBI"
     id: "powerbi"
     url: https://powerbi.microsoft.com/
     pricing: "Proprietary"
-    partner: true
     tutorial: https://www.stitchdata.com/blog/tutorial-using-power-bi-with-your-data-warehouse-for-analytics-2
-
-  - name: "Grafana"
-    id: "grafana"
-    url: https://grafana.com/
-    pricing: "Proprietary"
-    partner: true
 
   - name: "Tableau"
     id: "tableau"
     url: https://www.tableau.com/
     pricing: "Proprietary"
-    partner: true
     tutorial: https://www.stitchdata.com/blog/tutorial-connecting-tableau-to-your-data-warehouse-for-analytics
 
   - name: "Chart.io"
     id: "chartio"
     url: https://chartio.com/?utm_source=stitch&utm_medium=documentation&utm_campaign=stitch+partner+referral
     pricing: "Proprietary"
-    partner: true
     tutorial: https://www.stitchdata.com/blog/tutorial-using-chartio-with-a-data-warehouse-for-business-analytics
-
-  - name: "Looker"
-    id: "looker"
-    url: http://www.looker.com/
-    pricing: "Proprietary"
-    partner: true
 
   - name: "Mode"
     id: "mode-analytics"
     url: https://www.modeanalytics.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-how-to-use-mode-with-a-data-warehouse-for-analytics
+
+  - name: "Alterxy"
+    id: "alteryx"
+    url: https://www.alteryx.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-alteryx-designer-with-stitch
+
+analytics:
+
+  - name: "Qlik"
+    id: "qlik"
+    url: https://www.qlik.com/us
+    pricing: "Proprietary"
+
+  - name: "Plotly"
+    id: "plotly"
+    url: https://plot.ly/
+    pricing: "Proprietary"
+
+  - name: "Shiny"
+    id: "shiny"
+    url: https://shiny.rstudio.com/
+    pricing: "Proprietary"
+
+  - name: "Looker"
+    id: "looker"
+    url: http://www.looker.com/
     pricing: "Proprietary"
     partner: true
 
@@ -300,7 +318,26 @@ sections:
   - title: "Analytics tools"
     anchor: "analytics-tools"
     content: |
-      Stitch can consolidate your data for use in some of the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
+      Stitch can consolidate your data for use in the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
+
+      <h3>Tutorials</h3>
+      <p>On the Stitch blog, we walk you through how to use your Stitch data with each of the following tools:<p>
+
+      <ul class="tiles three-columns">
+      {% assign featured = page.featured | sort:"name" %}
+      {% for tool in featured %}
+          <li>
+              <a href="{{ tool.url }}" target="new">
+                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}">
+              </a>
+              <strong>{{ tool.name }}</strong><br>
+              {% if tool.tutorial %}<a href="{{tool.tutorial}}" target="_blank">Using Stitch and {{tool.name}} →</a>{% endif %}
+          </li>
+      {% endfor %}
+      </ul>
+
+      <h3>Additional analytics tools</h3>
+      <p>Stitch customers also enjoy these options:</p>
 
       <ul class="tiles three-columns">
       {% assign analytics = page.analytics | sort:"name" %}
@@ -310,7 +347,6 @@ sections:
                   <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}">
               </a>
               <strong>{{ tool.name }}</strong><br>
-              {% if tool.tutorial %}<a href="{{tool.tutorial}}" target="_blank">Tutorial: using Stitch <br/>and {{tool.name}} →</a>{% endif %}
           </li>
       {% endfor %}
       </ul>
