@@ -33,6 +33,31 @@ weight: 7
 # -------------------------- #
 
 analytics:
+
+  - name: "Google Data Studio"
+    id: "google-data-studio"
+    url: https://datastudio.google.com
+    pricing: "Proprietary"
+    partner: true
+
+  - name: "PowerBI"
+    id: "powerbi"
+    url: https://powerbi.microsoft.com/
+    pricing: "Proprietary"
+    partner: true
+
+  - name: "Grafana"
+    id: "grafana"
+    url: https://grafana.com/
+    pricing: "Proprietary"
+    partner: true
+
+  - name: "Tableau"
+    id: "tableau"
+    url: https://www.tableau.com/
+    pricing: "Proprietary"
+    partner: true
+
   - name: "Chart.io"
     id: "chartio"
     url: https://chartio.com/?utm_source=stitch&utm_medium=documentation&utm_campaign=stitch+partner+referral
