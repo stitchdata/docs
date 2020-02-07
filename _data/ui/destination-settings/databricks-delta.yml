@@ -1,0 +1,20 @@
+# ------------------------------ #
+#  DATABRICKS DELTA DESTINATION  #
+# ------------------------------ #
+
+## This file contains the properties required to successfully set up
+## a Databricks Delta destination in Stitch.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/common/database-connections.yml
+
+
+databricks-delta:
+  - name: "Access Token"
+    copy: "TODO"
+
+  - name: "JDBC URL"
+    copy: "TODO"
+
+  - name: "Bucket Name"
+    copy: "Enter the name of Amazon S3 bucket Stitch should use to stage your data before loading to {{ destination.display_name }}. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `stitch-databricks-delta-bucket`"
