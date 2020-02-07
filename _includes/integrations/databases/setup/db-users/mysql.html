@@ -6,15 +6,15 @@
    {{ site.data.taps.extraction.database-setup.user-privileges.mysql.create-user-command | flatify | rstrip }}
    ```
 
-   Replace `[password]` with a secure password. {% if integration.ssh == true %}If using SSH, this can be different than the SSH password.{% endif %}
+   Replace `<password>` with a secure password. {% if integration.ssh == true %}If using SSH, this can be different than the SSH password.{% endif %}
 
-3. Grant the Stitch user `SELECT` privileges on the database:
+3. Grant the Stitch user `SELECT` privileges by running this command for every table you want to replicate: 
 
    ```sql
-   {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-user-select-command | flatify | rstrip }}
+   {{ site.data.taps.extraction.database-setup.user-privileges.mysql.grant-select-on-table | flatify | rstrip }}
    ```
 
-   To restrict the Stitch user from accessing data in specific objects, you can instead run `GRANT` commands that only allow access to the data you permit.
+   Limiting access to only the tables you want to replicate ensures that the integration can complete discovery (a structure sync) in a timely manner. If you encounter issues in Stitch where tables aren't displaying, try limiting the Stitch database user's table access.
 
 {% unless integration.log-based-replication-master-instance == false %}
    **Note:** Column-level permissions are not supported for use with Log-based Incremental Replication. Restricting access to columns will cause replication issues.

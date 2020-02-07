@@ -1,0 +1,32 @@
+# ------------------------------------------------- #
+#   DYNAMODB -BACKED INTEGRATION SETTINGS FIELDS    #
+# ------------------------------------------------- #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each DynamoDB-backed database integration.
+
+## Depending on the provider of the database, some field names
+## or values will vary. See the lists below for specifics.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+dynamodb:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+    version: "all"  
+
+  - name: "AWS Account ID"
+    copy: "Paste the AWS account ID you retrieved in [Step 1](#retrieve-aws-account-id)."
+
+    version: "all"
+    
+  - name: "AWS Region"
+    copy: "Select the region that your instance resides in. For example: `US East (N. Virginia)`"
+
+    version: "all"
+
+  

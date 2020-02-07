@@ -6,7 +6,7 @@ order: 3
 
 sections:
   - content: |
-      The Import API uses an [API access token]({{ link.import-api.guides.access-tokens | prepend: site.baseurl }}) to authenticate requests. Import API access tokens can be generated and managed in the **{{ app.page-names.int-settings }}** page for any Import API integration in your [Stitch account]({{ site.sign-in }}){:target="new"}.
+      The Import API uses an [API access token]({{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}) to authenticate requests. Import API access tokens can be generated and managed in the **{{ app.page-names.int-settings }}** page for any Import API integration in your [Stitch account]({{ site.sign-in }}){:target="new"}. If you're a [Stitch Connect]({{ link.connect.overview | prepend: site.baseurl }}) user, you can also use the Connect API to [create Import API sources]({{ link.connect.guides.create-import-api-source | prepend: site.baseurl }}) and [manage their access tokens]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl }}).
 
       Authentication is performed via bearer auth, where your Import API access token is provided in the header of your request as `-H 'Authorization: Bearer at_<IMPORT_API_ACCESS_TOKEN>'`. 
 
@@ -14,7 +14,7 @@ sections:
 
       If an API access token is ever lost or compromised, you can revoke it and create a new token.
 
-      Refer to the [Stitch Import API access token]({{ link.import-api.guides.access-tokens | prepend: site.baseurl }}) documentation for more info.
+      Refer to the [Managing Import API access tokens in Stitch]({{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}) guide for more info.
 
   - title: "Stitch client IDs"
     anchor: "stitch-client-id"

@@ -3,7 +3,6 @@ title: MongoDB (v1)
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
 permalink: /integrations/databases/mongodb/v1
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
-input: false
 
 key: "mongodb-integration"
 
@@ -37,6 +36,7 @@ db-type: "mongo"
 
 
 ## Stitch features
+
 api-type: "platform.mongodb"
 versions: "2.6 through 4.0"
 ssh: true

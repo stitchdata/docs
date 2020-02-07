@@ -1,13 +1,14 @@
-## Replication Keys vs. Primary Keys
+## Replication Keys and Primary Keys
 
 When it comes to replicating your data, there are a lot of ‘keys’ involved. It can be difficult to keep them all straight, but aside from Replication Keys, there’s one more you should keep in mind: Primary Keys.
 
 In Stitch, Replication Keys and Primary Keys serve two different purposes:
 
-- **Replication Keys** are used during the Extraction phaseof the replication process - or when Stitch is querying your data source - to identify new and updated data for replication.
+- **Replication Keys** are used during the Extraction phase of the replication process - or when Stitch is querying your data source - to identify new and updated data for replication.
 
   In the Stitch app, Replication Keys have a <img src="{{ site.baseurl }}/images/replication/replication-key-icon.png" alt="Replication Key icon" style="border: 0px;"> next to the column name.
-- **Primary Keys** are used during the last step of the replication process, which is when Stitch loads replicated data into your data warehouse. Primary Keys identify unique rows within a table and ensure that only the most recently updated version of that record appears in your data warehouse.
+
+- **Primary Keys** are used during the last step of the replication process, which is when Stitch loads replicated data into your destination. Primary Keys identify unique rows within a table and ensure that only the most recently updated version of that record appears in your destination.
 
   In the Stitch app, Primary Keys have a <img src="{{ site.baseurl }}/images/replication/primary-key-icon.png" alt="Primary Key icon" style="border: 0px;"> next to the column name.
 

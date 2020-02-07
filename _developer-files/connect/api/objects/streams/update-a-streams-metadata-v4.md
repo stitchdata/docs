@@ -124,7 +124,7 @@ examples:
                            {
                              "breadcrumb": [],
                              "metadata": {
-                               "selected": "true"
+                               "selected": true
                              }
                            }
                          ]

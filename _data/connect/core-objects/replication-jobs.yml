@@ -13,11 +13,13 @@ post:
   title: "Start a replication job"
   method: "post"
   anchor: "#start-a-job"
-  description: "Starts a replication job for a source using the source's unique identifier."
+  description: &post-description "Starts a replication job for a source using the source's unique identifier."
+  short: *post-description
 
 delete:
   name: "{{ site.data.connect.api.core-objects.replication-jobs.base }}"
   title: "Stop a replication job"
   method: "delete"
   anchor: "#stop-a-job"
-  description: "Stops an in-progress replication job for a source using the source's unique identifier."
+  description: &delete-description "Stops an in-progress replication job for a source using the source's unique identifier."
+  short: *delete-description
