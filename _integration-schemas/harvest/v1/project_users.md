@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "1.0"
+version: "1"
 
 name: "project_users"
 doc-link: http://help.getharvest.com/api-v1/users-api/users/user-assignments#get-users-assigned-to-projects

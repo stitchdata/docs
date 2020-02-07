@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Klaviyo
+title: Klaviyo (v1)
 permalink: /integrations/saas/klaviyo
 keywords: klaviyo, integration, schema, etl klaviyo, klaviyo etl, klaviyo schema
 layout: singer
@@ -29,13 +29,12 @@ singer: true
 tap-name: "Klaviyo"
 repo-url: https://github.com/singer-io/tap-klaviyo
 
-# this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"
@@ -43,8 +42,10 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.klaviyo.com/"
 
+api-type: "platform.klaviyo"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

@@ -1,6 +1,6 @@
 ---
 tap: "referral-saasquatch"
-version: "1.0"
+version: "1"
 
 name: "referrals"
 doc-link: https://docs.referralsaasquatch.com/api/methods/#open_list_referrals

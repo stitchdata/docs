@@ -189,7 +189,7 @@ integrations:
   database-integration: /integrations/databases/INTEGRATION
 
   mongodb-projection-queries: /integrations/databases/mongodb/field-selection-using-projection-queries
-
+  dynamodb-projection-expressions: /integrations/databases/amazon-dynamodb/field-selection-using-projection-expressions
 
 # -------------------------- #
 #         Replication        #
@@ -254,10 +254,12 @@ connect:
 
     create-configure-a-source: /developers/stitch-connect/api#quick-start
     create-import-api-source: /developers/stitch-connect/guides/create-import-api-integration-with-stitch-connect
+    manage-import-api-access-tokens: /developers/stitch-connect/guides/manage-import-api-access-tokens
     field-selection-compatibility-rules: /developers/stitch-connect/guides/field-selection-compatibility-rules
     select-streams-and-fields: /developers/stitch-connect/guides/select-streams-and-fields-with-connect-api
     replication-scheduling-for-sources: /developers/stitch-connect/guides/replication-scheduling-for-sources
     partner-authentication: /developers/stitch-connect/guides/stitch-partner-authentication-guide
+    connection-reference: /developers/stitch-connect/guides/source-destination-reference
 
 
 import-api:
@@ -267,7 +269,7 @@ import-api:
   guides:
     category: /developers/import-api/guides
     quick-start: /developers/import-api/guides/quick-start
-    access-tokens: /developers/import-api/guides/import-api-access-tokens
+    manage-access-tokens-stitch: /developers/import-api/guides/manage-import-api-access-tokens
     structure-data: /developers/import-api/guides/structure-data-for-the-import-api
     sequence-data: /developers/import-api/guides/sequencing-data-for-the-import-api
     troubleshooting-data: /developers/import-api/guides/troubleshooting-import-api-data
@@ -301,6 +303,7 @@ troubleshooting:
 ## Replication
   postgres-hot-standby: /troubleshooting/postgres-hot-standby-settings-replication
   salesforce-too-many-columns: /troubleshooting/salesforce-replication-too-many-columns
+  source-database-access-level-issue: /troubleshooting/too-many-tables-to-load-database-integration
 
 ## Error Notifications
   errors: /troubleshooting/error-notifications

@@ -2,9 +2,6 @@
      It lists out each database type that Stitch supports log-based rep for.-->
 
 
-<!-- Get all databases where the input is true -->
-{% assign all-databases = site.database-integrations | where:"input",true %}
-
 <!-- Use the feature-details list in the page's formatter.
      It contains a list the databases that support log-based rep and
      what the feature is called. We're using this list because it's easier
@@ -12,15 +9,28 @@
 
 {% for feature in page.feature-details %}
 
+<!-- Get the latest version of the database integration -->
+{% assign latest-version = site.data.taps.versions[feature.db-type]latest-version %}
+
+
 #### Support for {{ feature.database }} databases {#{{ feature.db-type | append: "-support" }}}
 
-{% assign databases-of-this-type = all-databases | where:"db-type", feature.db-type | sort:"display_name" %}
+This table is for {{ latest-version | prepend: "v" }} of Stitch's {{ feature.database }} or {{ feature.database }}-based database integrations.
+
+
+<!-- Get databases of this type,
+     Then only get those where input: true,
+          And then get those that are for the latest version of the integration. -->
+{% assign all-databases = site.database-integrations | where:"db-type", feature.db-type %}
+     {% assign only-inputs = all-databases | where:"input",true %}
+          {% assign databases-of-this-type = only-inputs | where:"this-version",latest-version | sort:"display_name" %}
 
 <table class="attribute-list">
 <!-- The list of parameters to check, which will make up the table columns -->
      {% assign binlog-support = "log-based-replication-Master-instance|log-based-replication-Read-replica|log-based-replication-Minimum-version" | split:"|" %}
      <tr>
-          <td>
+          <td width="30%; fixed" align="right">
+               <strong>Database integration</strong>
           </td>
           {% for support-type in binlog-support %}
                <td>
@@ -35,11 +45,8 @@
      </tr>
      {% for database in databases-of-this-type %}
           <tr>
-               <td width="35%; fixed" align="right">
+               <td width="30%; fixed" align="right">
                     <strong><a href="{{ database.url | prepend: site.baseurl }}">{{ database.display_name }}</a></strong>
-                    {% if database.this-version %}
-                         <br>{{ database.this-version | prepend: "v" }}
-                    {% endif %}
                </td>
 
                {% for base-support-type in binlog-support %}
@@ -88,6 +95,8 @@
 
                                                   (<a href="{{ doc-link | flatify }}">link</a>)
                                              {% endif %}
+                                        {% else %}
+                                             {{ not-applicable | replace:"TOOLTIP","Not applicable" }}
                                    {% endcase %}
                          {% endcase %}
                     </td>

@@ -33,6 +33,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Google BigQuery"
+name: "google-bigquery"
+
 type: "bigquery"
 
 this-version: "2"

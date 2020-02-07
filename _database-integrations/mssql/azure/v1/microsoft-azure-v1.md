@@ -16,7 +16,7 @@ display_name: "Microsoft Azure SQL Database"
 
 hosting-type: "microsoft-azure"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: "7.2.1.jre8"
 
@@ -24,7 +24,8 @@ driver: "7.2.1.jre8"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mssql
 certified: true
 
 frequency: "30 minutes"
@@ -33,14 +34,14 @@ port: 1433
 db-type: "mssql"
 
 ## Stitch features
-
+api-type: "platform.mssql"
 ssh: true
 ssl: true
 
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

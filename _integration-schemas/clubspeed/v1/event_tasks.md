@@ -1,6 +1,6 @@
 ---
 tap: "clubspeed"
-version: "1.0"
+version: "1"
 
 name: "event_tasks"
 singer-schema: "https://github.com/singer-io/tap-clubspeed/blob/master/tap_clubspeed/schemas/event_tasks.json"

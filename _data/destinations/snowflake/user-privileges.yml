@@ -62,13 +62,14 @@ create-grant-user: &create-grant-user-sql |
 
   GRANT ROLE <stitch_role> TO USER <stitch_user>;
 
+
 # -------------------------- #
 #   STEPS FOR CREATING USER  #
 # -------------------------- #
 
 ## The individual steps for creating a Snowflake user for Stitch.
 
-all-steps:
+snowflake:
   - copy: |
       Create a role for the Stitch user:
     command: *create-role-sql

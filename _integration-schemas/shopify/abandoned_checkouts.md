@@ -1,6 +1,6 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "abandoned_checkouts"
 doc-link: "https://help.shopify.com/en/api/reference/orders/abandoned_checkouts"

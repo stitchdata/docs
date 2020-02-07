@@ -1,6 +1,6 @@
 ---
 tap-reference: "xero"
-version: "1.0"
+version: "1"
 
 name: "tracking_categories"
 doc-link: https://developer.xero.com/documentation/api/tracking-categories

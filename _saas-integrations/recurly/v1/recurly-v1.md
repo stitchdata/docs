@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Recurly (v1.0)
+title: Recurly (v1)
 permalink: /integrations/saas/recurly/v1
 keywords: recurly, integration, schema, etl recurly, recurly etl, recurly schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "Recurly"
 repo-url: https://github.com/singer-io/tap-recurly
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Partner API (v2018-08-09)](https://partner-docs.recurly.com/v2018-08-09#section/Getting-Started){:target="new"}
@@ -48,7 +48,7 @@ tier: "Standard"
 status-url: "https://status.recurly.com/"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

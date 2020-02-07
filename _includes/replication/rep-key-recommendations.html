@@ -1,7 +1,7 @@
-### Replication Key Recommendations
+### Replication Key recommendations {#replication-key-recommendations}
 
 {% if page.title contains "Mongo" %}
-1. **Replication Key fields should contain only one data type.** While Mongo allows you to have multiple data types in a single field, we strongly recommend keeping Replication Key fields to just one. This is because of the way Mongo compares and sorts data types and how this can impact replication.
+1. **Replication Key fields should contain only one data type.** While MongoDB allows you to have multiple data types in a single field, we strongly recommend keeping Replication Key fields to just one. This is because of the way MongoDB compares and sorts data types and how this can impact replication. Refer to the [Replication Key gotchas](#replication-key-gotchas) section for more info and an example
 
 2. **Date and timestamp fields are great Replication Key candidates**. We’re big fans of using `updatedAt` or `modifiedAt`. This is the best way to ensure that both new records and updates to existing records are captured.
 
@@ -14,5 +14,6 @@
 
 {% else %}
 - **For tables where existing records are updated**: We’re big fans of using `updated_at` or `modified_at` columns as Replication Keys. This is the best way to ensure that both new records and updates to existing records are captured.
+
 - **For <a href="#" data-toggle="tooltip" data-original-title="{{ site.data.tooltips.append-only-rep }}">Append-Only</a> tables**: We recommend using a unique, auto-incrementing integer as the Replication Key for these types of tables. However, a `created_at` date or `timestamp` column may also be suitable.
 {% endif %}

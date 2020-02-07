@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "charges"
 doc-link: "https://stripe.com/docs/api/charges/object"

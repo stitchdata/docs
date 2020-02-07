@@ -18,7 +18,7 @@ display_name: "Zendesk Chat"
 singer: false
 status-url: "https://status.zendesk.com/"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://developer.zendesk.com/rest_api/docs/chat/introduction){:target="new"}

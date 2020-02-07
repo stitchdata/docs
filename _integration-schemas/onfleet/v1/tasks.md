@@ -1,6 +1,6 @@
 ---
 tap: "onfleet"
-version: "1.0"
+version: "1"
 
 name: "tasks"
 doc-link: "http://docs.onfleet.com/docs/tasks"

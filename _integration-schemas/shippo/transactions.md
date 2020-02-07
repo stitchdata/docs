@@ -1,6 +1,6 @@
 ---
 tap: "shippo"
-version: "1.0"
+version: "1"
 
 name: "transactions"
 doc-link: https://goshippo.com/docs/reference#transactions

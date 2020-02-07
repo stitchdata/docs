@@ -1,10 +1,10 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "TimeBill"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/timebill.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/TimeBill.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/TimeBill.json"
 description: |
   The `{{ table.name }}` table contains info about the time transactions in your {{ integration.display_name }} account. Also known as time bills, these transactions records the hours worked by an employee. This transaction can be used to record billable hours and invoice customers.
 

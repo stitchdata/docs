@@ -1,6 +1,6 @@
 ---
 tap-reference: "heap"
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "event-id"

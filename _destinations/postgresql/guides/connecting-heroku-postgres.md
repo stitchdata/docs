@@ -18,6 +18,7 @@ keywords: postgres data warehouse, postgresql data warehouse, etl to postgres, p
 summary: "Connect a Heroku-PostgreSQL destination to your Stitch account."
 
 content-type: "destination-setup"
+key: "heroku-postgres-destination-setup"
 order: 4
 
 toc: true
@@ -30,11 +31,18 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Heroku"
+name: "heroku"
+
 type: "postgres"
 setup-name: "PostgreSQL"
 
 ssh: false
 ssl: true
+
+api-type: "postgres"
+
+this-version: "1"
+
 
 # -------------------------- #
 #        Requirements        #
@@ -67,8 +75,7 @@ steps:
     content: |
       Stitch requires `CREATE` permissions to create integration schemas and tables in your destination and load data. [By default](https://devcenter.heroku.com/articles/heroku-postgresql-credentials#the-default-credential){:target="new"}, {{ page.display_name }} credentials don't include `CREATE` permissions, so you'll need to grant them to the database user before continuing.
 
-      {% assign clean-database-name = page.display_name | downcase %}
-      {% include destinations/templates/destination-user-setup.html database-type=clean-database-name %}
+      {% include destinations/templates/destination-user-setup.html %}
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"

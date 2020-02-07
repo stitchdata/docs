@@ -8,11 +8,10 @@ permalink: /developers/stitch-connect/guides/select-streams-and-fields-with-conn
 redirect_from: /stitch-connect/guides/select-streams-and-fields-with-connect-api
 summary: "Using the Stitch Connect API, select a source's streams and fields for replication using this step-by-step tutorial."
 
-
-
 product-type: "connect"
 content-type: "guide"
 content-id: "select-streams-and-fields"
+topics: "basics, data selection"
 
 key: "connect-select-data"
 
@@ -67,7 +66,7 @@ intro: |
 
 requirements:
   - item: |
-      **Valid credentials**. Using the Connect API requires a valid [access token]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.api.access-api }}), which is obtained through partner credentials.
+      **Access to Stitch Connect and valid Connect API credentials.** Connect access is a Stitch Enterprise feature. Refer to the [Connect API reference]({{ link.connect.api | flatify | prepend: site.baseurl }}#authentication) for more info on obtaining API credentials.
   - item: |
       **Access to a source with a `field_selection` connection step**. This guide will use a [Shopify SaaS source]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section |  append: "-shopify-object" }}) as an example, but any source type with a `field_selection` step will work.
 

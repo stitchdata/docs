@@ -1,5 +1,5 @@
 ---
-title: Google CloudSQL MySQL
+title: Google CloudSQL MySQL (v1)
 keywords: google cloudsql, cloudsql, cloud sql, database integration, etl cloudsql, cloudsql etl, cloudsql mysql, cloudsql mysql etl
 permalink: /integrations/databases/google-cloudsql-mysql
 summary: "Connect and replicate data from your Google CloudSQL MySQL database using Stitch's Google CloudSQL MySQL integration."
@@ -17,7 +17,7 @@ singer: true
 
 repo-url: https://github.com/singer-io/tap-mysql
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "google-cloudsql"
 
@@ -28,7 +28,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 
 frequency: "30 minutes"
@@ -37,7 +38,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "platform.cloudsql"
 versions: "n/a"
 ssh: false
 ssl: false

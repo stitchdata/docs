@@ -42,15 +42,17 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://ads.google.com/status#hl=en&v=status"
 
+api-type: "platform.doubleclick-campaign-manager"
+
 anchor-scheduling: true
 cron-scheduling: false
-
-extraction-logs: true
-loading-reports: true
 
 table-selection: true
 column-selection: false
 table-level-reset: false
+
+extraction-logs: true
+loading-reports: true
 
 append-only-integration: true
 

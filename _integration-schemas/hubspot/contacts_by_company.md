@@ -1,6 +1,6 @@
 ---
 tap: "hubspot"
-version: "2.0"
+version: "2"
 
 name: "contacts_by_company"
 doc-link: 

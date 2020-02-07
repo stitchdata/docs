@@ -15,7 +15,7 @@ sections:
       The API is built to accept JSON requests and to return JSON in all responses, including errors.
 
   - title: "API functionality"
-    anchor: "api-funcitonality"
+    anchor: "api-functionality"
     content: |
       Using the Import API, you can:
 
@@ -28,7 +28,9 @@ sections:
     content: |
       Anyone with a Stitch account can use the Import API. If you don't currently have an account, [sign up for a free one here]({{ site.home }}){:target="new"}.
 
-      After you have a Stitch account, refer to the [Stitch Import API access tokens documentation]({{ link.import-api.guides.access-tokens | prepend: site.baseurl }}) for instructions on generating an API access token. 
+      After you create a Stitch account, refer to the [Managing Import API access tokens in Stitch]({{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}) guide for instructions on generating an Import API access token in the Stitch app.
+
+      **Note**: If you're a Stitch Connect user, refer to the [Managing Import API access tokens via the Connect API]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl }}) guide.
 
   - title: "API support"
     anchor: "getting-help"

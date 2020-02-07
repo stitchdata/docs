@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "2.0"
+version: "2"
 
 name: "expenses"
 doc-link: https://help.getharvest.com/api-v2/expenses-api/expenses/expenses/

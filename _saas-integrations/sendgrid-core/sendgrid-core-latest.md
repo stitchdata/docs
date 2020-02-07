@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: SendGrid Core (v1.0)
+title: SendGrid Core (v1)
 permalink: /integrations/saas/sendgrid-core
 keywords: sendgrid, integration, schema, etl sendgrid, sendgrid etl, sendgrid schema
 summary: "Connections instructions, replication info, and schema details for Stitch's SendGrid Core integration."
@@ -21,7 +21,7 @@ display_name: "SendGrid Core"
 singer: true 
 repo-url: https://github.com/singer-io/tap-sendgrid
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [SendGrid v3 API](https://sendgrid.com/docs/API_Reference/api_v3.html){:target="new"}
@@ -37,8 +37,10 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.sendgrid.com/
 
+api-type: "platform.sendgrid"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: true
 column-selection: true

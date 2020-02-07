@@ -145,7 +145,7 @@ sections:
       Primary Keys for table do not match Primary Keys of incoming data
       ```
 
-      If you recieve this error, you should [reset the table(s)]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) mentioned in the error. This will queue a full re-replication of the table, which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
+      If you receive this error, you should [reset the table(s)]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}) mentioned in the error. This will queue a full re-replication of the table, which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
 ---
 {% include misc/data-files.html %}
 {% assign destination = site.destinations | where:"type",page.type | first %}

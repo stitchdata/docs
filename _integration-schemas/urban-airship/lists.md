@@ -1,6 +1,6 @@
 ---
 tap: "urban-airship"
-version: "1.0"
+version: "1"
 
 name: "lists"
 doc-link: http://docs.urbanairship.com/api/ua.html#static-lists

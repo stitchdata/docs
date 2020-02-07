@@ -1,0 +1,98 @@
+# ----------------------------------- #
+#  DYNAMODB V1 SUPPORTED DATA TYPES   #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to DYNAMODB VERSION 1.
+
+# Source: 
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## DynamoDB has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/dynamodb/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+bigdecimal:
+  stitch-type: "integer"
+
+bigint:
+  stitch-type: "integer"
+
+bit:
+  stitch-type: "boolean"
+
+boolean:
+  stitch-type: "boolean"
+
+byte:
+  stitch-type: "string"  
+
+calendar:
+  stitch-type: "string"  
+
+char:
+  stitch-type: "string"
+      
+date:
+  stitch-type: "string"
+  format: "date-time"
+      
+decimal:
+  stitch-type: "number"
+
+double:
+  stitch-type: "number"
+
+float:
+  stitch-type: "number"  
+      
+integer:
+  stitch-type: "integer"
+
+long:
+  stitch-type: "integer"  
+
+longvarchar:
+  stitch-type: "string"
+
+longnvarchar:
+  stitch-type: "string"
+
+nchar:
+  stitch-type: "string"
+
+numeric:
+  stitch-type: "number"
+      
+nvarchar:
+  stitch-type: "string"
+
+real:
+  stitch-type: "number"
+
+smallint:
+  stitch-type: "integer"
+
+string:
+  stitch-type: "string"  
+
+time:
+  stitch-type: "string"
+  format: "date-time"
+
+timestamp:
+  stitch-type: "string"
+  format: "date-time"
+
+tinyint:
+  stitch-type: "integer"
+
+varchar:
+  stitch-type: "string"

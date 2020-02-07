@@ -119,6 +119,8 @@ setup-steps:
 
       4. **Segments and Filters aren't currently supported.** If you're interested in us adding these features, please get in touch with us.
 
+      5. **Lifetime value and cohort metrics aren't currently supported**. If you're interested in us adding these features, get in touch with us.
+
       After you grant Stitch access to your {{ integration.display_name }} profile, you can select the specific Metrics and Dimensions you want to replicate to your destination.
       {% endcapture %}
 

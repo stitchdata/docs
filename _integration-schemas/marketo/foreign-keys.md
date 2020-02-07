@@ -1,7 +1,7 @@
 ---
 tap-reference: "marketo"
 
-version: "2.0"
+version: "2"
 
 foreign-keys:
   - id: "activity-id"

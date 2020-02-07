@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/segment
 redirect_from: /integrations/saas/segment
 layout: saas  ## this uses the SaaS layout b/c it's more SaaS than webhook. The setup is very different.
 
-tags: [saas_integrations]
 keywords: segment, integration, schema, etl segment, segment etl, segment schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Segment integration."
 format: ## controls formatting options in template
@@ -18,8 +17,6 @@ format: ## controls formatting options in template
 
 name: "segment"
 display_name: "Segment"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,6 +33,9 @@ icon: /images/integrations/icons/segment.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #      Incompatiblities      #

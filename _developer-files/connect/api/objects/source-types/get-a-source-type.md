@@ -21,7 +21,10 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.get.short }}"
-description: "{{ api.core-objects.source-types.get.description | flatify }}"
+description: |
+  {{ api.core-objects.source-types.get.description | flatify }}
+
+  Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for info on the sources that are available in the API.
 
 
 # -------------------------- #
@@ -53,8 +56,8 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
+      curl {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }} \
+           -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 
   - type: "Response"

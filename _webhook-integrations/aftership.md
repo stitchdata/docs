@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/aftership
 redirect_from: /integrations/saas/aftership
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [stitch_webhooks]
 keywords: aftership, integration, schema, etl aftership, aftership etl, aftership schema, stitch webhooks
 summary: "Connect your AfterShip data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -14,8 +13,6 @@ summary: "Connect your AfterShip data to Stitch using Stitch's Incoming Webhooks
 
 name: "aftership"
 display_name: "AfterShip"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,6 +34,9 @@ icon: /images/integrations/icons/aftership.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

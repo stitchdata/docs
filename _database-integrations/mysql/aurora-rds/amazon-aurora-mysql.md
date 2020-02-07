@@ -1,5 +1,5 @@
 ---
-title: Amazon Aurora (MySQL) RDS
+title: Amazon Aurora MySQL RDS (v1)
 keywords: amazon aurora, aurora mysql, database integration, etl aurora, aurora etl
 permalink: /integrations/databases/amazon-aurora-mysql
 summary: "Connect and replicate data from your Amazon Aurora RDS database using Stitch's Aurora integration."
@@ -21,7 +21,7 @@ singer: true
 tap-name: "MySQL"
 repo-url: https://github.com/singer-io/tap-mysql
 
-this-version: "1.0"
+this-version: "1"
 
 hosting-type: "amazon"
 
@@ -32,7 +32,8 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 setup-name: "Amazon Aurora"
 
@@ -42,7 +43,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "platform.aurora"
 versions: "n/a"
 ssh: true
 ssl: true

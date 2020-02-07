@@ -1,6 +1,6 @@
 ---
 tap: "stripe"
-version: "1.0"
+version: "1"
 
 name: "balance_transactions"
 doc-link: "https://stripe.com/docs/api/balance/balance_transaction"

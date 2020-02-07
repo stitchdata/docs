@@ -13,8 +13,6 @@ summary: "Connect your Vero data to Stitch using Stitch's Incoming Webhooks inte
 
 name: "vero"
 display_name: "Vero"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,6 +34,9 @@ icon:  /images/integrations/icons/vero.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

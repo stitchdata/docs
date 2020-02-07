@@ -48,17 +48,25 @@ list:
   description: "Lists the sources for an account, including active, paused, and deleted sources."
 
 create-iapi-token:
-  name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}/tokens"
+  name: &token-endpoint "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}/tokens"
   title: "Generate Import API access token"
   method: "post"
   anchor: "#generate-iapi-access-token"
-  short: &create-iapi-token-desc "Generates a new access token for an Import API source."
+  short: &create-iapi-token-desc "Generates a new access token for an existing Import API source."
   description: *create-iapi-token-desc
+
+get-iapi-access-token-ids:
+  name: *token-endpoint
+  title: "Get Import API access token IDs"
+  method: "get"
+  anchor: "#get-iapi-access-token-ids"
+  short: &get-iapi-token-ids-desc "Lists the IDs of the active access tokens for an existing Import API source."
+  description: *get-iapi-token-ids-desc
 
 revoke-iapi-token:
   name: "{{ site.data.connect.api.core-objects.sources.base }}/{source_id}/tokens/{token_id}"
   title: "Revoke Import API access token"
   method: "delete"
   anchor: "#revoke-iapi-access-token"
-  short: &revoke-iapi-token-desc "Revokes an existing access token for an Import API source."
+  short: &revoke-iapi-token-desc "Revokes an existing access token for an existing Import API source."
   description: *revoke-iapi-token-desc

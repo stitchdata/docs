@@ -1,6 +1,6 @@
 ---
 tap: "bronto"
-version: "1.0"
+version: "1"
 
 name: "inbound_activity"
 doc-link: http://dev.bronto.com/api/soap/objects/general/activityobject/

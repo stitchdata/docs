@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Heap (v1.0)
+title: Heap (v1)
 permalink: /integrations/saas/heap
 keywords: heap, integration, schema, etl heap, heap etl, heap schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Heap integration."
@@ -32,7 +32,7 @@ singer: true
 tap-name: "Heap"
 repo-url: https://github.com/singer-io/tap-heap
 
-this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -44,6 +44,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.heapanalytics.com/"
+
+api-type: "platform.heap"
 
 anchor-scheduling: true
 cron-scheduling: false

@@ -1,6 +1,6 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "order_refunds"
 doc-link: "https://help.shopify.com/en/api/reference/orders/refund"

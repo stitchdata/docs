@@ -9,7 +9,7 @@
 
 tap-reference: "typeform"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
 # Forms doesn't currently have its own table, but it might some day

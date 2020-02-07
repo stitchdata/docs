@@ -1,6 +1,6 @@
 ---
 tap: "gitlab"
-version: "1.0"
+version: "1"
 
 name: "issues"
 doc-link: https://gitlab.com/help/api/issues.md#list-project-issues

@@ -4,7 +4,6 @@ permalink: /integrations/webhooks/drip
 redirect_from: /integrations/saas/drip
 ## Some users may experience a blip while the redirect works - it's normal.
 
-tags: [stitch_webhooks]
 keywords: drip, integration, schema, etl drip, drip etl, drip schema, stitch webhooks
 summary: "Connect your Drip data to Stitch using Stitch's Incoming Webhooks integration. In this guide, you'll find setup instructions, info about replication, and the data you can expect to see in your data warehouse."
 
@@ -14,8 +13,6 @@ summary: "Connect your Drip data to Stitch using Stitch's Incoming Webhooks inte
 
 name: "drip"
 display_name: "Drip"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -37,6 +34,9 @@ icon: /images/integrations/icons/drip.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #
