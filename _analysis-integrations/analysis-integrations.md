@@ -34,17 +34,26 @@ weight: 7
 
 analytics:
 
-  - name: "Google Data Studio"
-    id: "google-data-studio"
-    url: https://datastudio.google.com
+  - name: "Metabase"
+    id: "metabase"
+    url: https://www.metabase.com/
     pricing: "Proprietary"
     partner: true
+    tutorial: https://www.stitchdata.com/blog/tutorial-metabase-with-data-warehouse-for-analytics
+
+  - name: "Google Data Studio"
+    id: "google-data-studio"
+    url: https://datastudio.google.com/
+    pricing: "Proprietary"
+    partner: true
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-google-data-studio-with-bigquery-and-stitch
 
   - name: "PowerBI"
     id: "powerbi"
     url: https://powerbi.microsoft.com/
     pricing: "Proprietary"
     partner: true
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-power-bi-with-your-data-warehouse-for-analytics-2
 
   - name: "Grafana"
     id: "grafana"
@@ -57,12 +66,14 @@ analytics:
     url: https://www.tableau.com/
     pricing: "Proprietary"
     partner: true
+    tutorial: https://www.stitchdata.com/blog/tutorial-connecting-tableau-to-your-data-warehouse-for-analytics
 
   - name: "Chart.io"
     id: "chartio"
     url: https://chartio.com/?utm_source=stitch&utm_medium=documentation&utm_campaign=stitch+partner+referral
     pricing: "Proprietary"
     partner: true
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-chartio-with-a-data-warehouse-for-business-analytics
 
   - name: "Looker"
     id: "looker"
@@ -289,9 +300,7 @@ sections:
   - title: "Analytics tools"
     anchor: "analytics-tools"
     content: |
-      We've partnered with some of the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
-
-      As a bonus, some tools - like Mode - also include a built-in SQL querying tool.
+      Stitch can consolidate your data for use in some of the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
 
       <ul class="tiles three-columns">
       {% assign analytics = page.analytics | sort:"name" %}
@@ -301,7 +310,7 @@ sections:
                   <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}">
               </a>
               <strong>{{ tool.name }}</strong><br>
-              {{ tool.price }}
+              {% if tool.tutorial %}<a href="{{tool.tutorial}}" target="_blank">Tutorial: using Stitch <br/>and {{tool.name}} →</a>{% endif %}
           </li>
       {% endfor %}
       </ul>
