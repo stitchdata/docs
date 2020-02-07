@@ -1,20 +1,20 @@
 # ------------------------------------------ #
-#   GOOGLE BIGQUERY (V2) REPLICATION DETAILS #
+#    DATABRICKS DELTA REPLICATION DETAILS    #
 # ------------------------------------------ #
 
 ## Details about replication/loading for
-## Stitch's Google BigQuery (v2) destination.
+## Stitch's Databricks Delta destination.
 
 
 # ------------------------------ #
 #       GENERAL DETAILS          #
 # ------------------------------ #
 
-primary-key-support: true/false
+primary-key-support: true
 
-nested-structure-support: true/false
+nested-structure-support: true
 nested-structure-support-description: |
-  Nested data structures will be maintained.
+  Nested data structures (JSON arrays and objects) will be loaded intact into a `STRING` column. This column will have a column property of `"JSON"`.
 
 rename-original-column-in-split: true/false
 
@@ -23,9 +23,9 @@ rename-original-column-in-split: true/false
 #       LOADING BEHAVIOR         #
 # ------------------------------ #
 
-configurable-loading-behavior: true/false
+configurable-loading-behavior: false
 
-default-loading-behavior: ""
+default-loading-behavior: "Upsert"
 
 loading-behavior-types:
   - "Upsert"

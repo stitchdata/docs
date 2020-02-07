@@ -1,5 +1,5 @@
 # --------------------------------------- #
-#   GOOGLE BIGQUERY DESTINATION DETAILS   #
+#   DATABRICKS DELTA DESTINATION DETAILS  #
 # --------------------------------------- #
 
 ## Details about the destination provider.
@@ -9,35 +9,36 @@
 #       General/Pricing      #
 # -------------------------- #
 
-description: ""
+description: |
+  {{ destination.display_name }} is an open source storage layer that sits on top of your existing data lake file storage. Stitch's {{ destination.display_name }} destination is compatible with Amazon S3 data lakes. 
 
-fully-managed: true/false
+fully-managed: false
 
 free-option: "Yes (trial)"
 
 pricing-model: "Usage"
 
-pricing-details: ""
+# pricing-details: ""
 
 
 # -------------------------- #
 #         Table limits       #
 # -------------------------- #
 
-max-columns-per-table: ""
+max-columns-per-table: "None"
 
-max-tables-per-database: ""
+max-tables-per-database: "None"
 
 
 # -------------------------- #
 #      Object name limits    #
 # -------------------------- #
 
-case-sensitivity: "Sensitive/Insensitive"
+case-sensitivity: "Insensitive"
 
-table-name-length: " characters"
+table-name-length: "128 characters"
 
-column-name-length: " characters"
+column-name-length: "128 characters"
 
 
 # -------------------------- #
@@ -47,8 +48,8 @@ column-name-length: " characters"
 column-name-rules: |
   - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
   - Must begin with a letter or an underscore
-  - Must be less than the maximum length of {{ site.data.destinations.destination-type.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
-  - Must not be prefixed or suffixed with any of [{{ destination.display_name }}'s or Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#destination-type-reserved-keywords" }})
+  - Must be less than the maximum length of {{ site.data.destinations.databricks-delta.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+  - Must not be prefixed or suffixed with any of [Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#destination-type-reserved-keywords" }})
 
 column-name-transformations:
   - transformation: "Convert uppercase and mixed case to lowercase"

@@ -1,12 +1,12 @@
-# ---------------------------- #
-#  [DESTINATION] DATA TYPING   #
-# ---------------------------- #
+# ------------------------------- #
+#  DATABRICKS DELTA DATA TYPING   #
+# ------------------------------- #
 
-## Details about data typing for [destination] destinations.
+## Details about data typing for Databricks Delta destinations.
 ## Includes:
-##  - Stitch types mapped to [destination]-specific types
+##  - Stitch types mapped to Databricks Delta-specific types
 ##  - Data type suffixes
-##  - Limitations on each data type, imposed by [destination]
+##  - Limitations on each data type, imposed by Databricks Delta
 
 
 ## NOTE: Relevant files:
@@ -21,19 +21,17 @@
 ## Data types specific to DESTINATION destinations:
 ## REMOVE IF NOT NEEDED.
 specific:
-  - name: ""
-  - name: ""
+  - name: "json"
 
 # ---------------------------- #
 #           BIGINT             #
 # ---------------------------- #
 
-bigint:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
-  range: ""
-  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+bigint: &integer
+  destination-type: "integer"
+  suffix: "it"
+  # range: ""
+  # loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
 
 # ---------------------------- #
@@ -41,9 +39,9 @@ bigint:
 # ---------------------------- #
 
 boolean:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+  destination-type: "boolean"
+  suffix: "bo"
+  # doc-link: ""
 
 
 # ---------------------------- #
@@ -51,12 +49,12 @@ boolean:
 # ---------------------------- #
 
 date:
-  destination-type: ""
-  suffix: ""
+  destination-type: "timestamp-tz"
+  suffix: "ti"
   description: "Stored in UTC"
-  doc-link: ""
-  range: ""
-  loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # doc-link: ""
+  # range: ""
+  # loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
   # date-range: &date-range ""
   # timezone-support: &timezone-support "None"
 
@@ -66,9 +64,9 @@ date:
 # ---------------------------- #
 
 double:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+  destination-type: "double"
+  suffix: "db"
+  # doc-link: ""
 
 
 # ---------------------------- #
@@ -76,34 +74,44 @@ double:
 # ---------------------------- #
 
 float:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
+  destination-type: "float"
+  suffix: "fl"
+  # doc-link: ""
 
 
 # ---------------------------- #
 #           INTEGER            #
 # ---------------------------- #
 
-integer:
-  destination-type: ""
-  suffix: ""
-  doc-link: ""
-  range: ""
-  loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+integer: *integer
+
+
+# ---------------------------- #
+#            LONG              #
+# ---------------------------- #
+
+long:
+  destination-type: "long"
+  suffix: "lg"
+  # doc-link: ""
+
+
+# ---------------------------- #
+#            JSON              #
+# ---------------------------- #
+
+json:
+  destination-type: "json"
+  suffix: "json"
+  description: "Used to store nested JSON structures (objects and arrays)."
+  # doc-link: ""
 
 
 # ---------------------------- #
 #           NUMBER             #
 # ---------------------------- #
 
-number:
-  destination-type: ""
-  suffix: ""
-  description: ""
-  doc-link: ""
-  range: ""
-  loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
+number: *integer
 
 
 # ---------------------------- #
@@ -111,7 +119,7 @@ number:
 # ---------------------------- #
 
 string:
-  destination-type: ""
-  suffix: ""
-  description: ""
-  doc-link: ""
+  destination-type: "string"
+  suffix: "st"
+  # description: ""
+  # doc-link: ""
