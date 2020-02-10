@@ -34,7 +34,7 @@ status-url: ""
 tap-name: "recharge"
 repo-url: https://github.com/singer-io/tap-recharge
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [ReCharge Payments API](https://developer.rechargepayments.com/){:target="new"}
@@ -44,7 +44,9 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: true 
+certified: true
+
+api-type: "platform.recharge"
 
 historical: "1 year"
 frequency: "1 hour"
@@ -93,23 +95,25 @@ requirements-list:
   - item: "**A Shopify Account**. You need this to access your {{ integration.display_name }} information."
 
 setup-steps:
-  - title: "Obtain Your {{ integration.display_name }} API Key"
-    anchor: "obtain-api-key"
+  - title: "Obtain your {{ integration.display_name }} access token"
+    anchor: "obtain-access-token"
     content: |
-      1. Log into your Shopify account, select `Apps`, and then click on your {{ integration.display_name }} application.
+      1. Log into your Shopify account, select **Apps**, and then click on your {{ integration.display_name }} application.
          {% include layout/image.html file="/integrations/recharge-apps-screen.png" alt="Shopify Apps page." enlarge=true max-width="550" %}
       {:start="2"}
-      2. In the application, click on the `EXPLORE {{ integration.display_name }}` option.
-         {% include layout/image.html file="/integrations/recharge-explore-button.png" alt="EXPLORE ReCharge button." enlarge=true max-width="250" %}
-      {:start="3"}
-      3. Click on the `Integrations` tab, and then click `API tokens...`.
-         {% include layout/image.html file="/integrations/recharge-integrations-api-tokens.png" alt="Integrations page with API token link." enlarge=true max-width="550" %}
+      2. In the application, click the **EXPLORE {{ integration.display_name }}** located near the top right corner of the page.
+      3. Click on the **Integrations** tab, and then click **API tokens...**.
+         {% include layout/image.html file="/integrations/recharge-integrations-access-token.png" alt="Integrations page with API token link." enlarge=true max-width="550" %}
       {:start="4"}   
-      4. Click on `Create an API token` and fill out the `Details` and `Permission`. In the `Permission` section, select `Read Access` from the dropdown menu for each item. Save to obtain your API key and keep it readily available to set up the inegration.
-         {% include layout/image.html file="/integrations/recharge-api-token.png" alt="The API key creation page." enlarge=true max-width="550" %}
+      4. Click on **Create an API token**.
+      5.  On the **Create an API token** page:
+          - In the **Details** section, enter a **Nickname** and **Contact email** into their respective fields.
+          - In the **Permission** section, select the `Read Access` scope for each permission.
+      6. Click **Save** to create the Access Token.    
+         {% include layout/image.html file="/integrations/recharge-access-token.png" alt="The API key creation page." enlarge=true max-width="550" %}
   - title: "add integration"
     content: |
-      4. In the `API Key` field, enter the API key you obtained in the [previous step](#obtain-api-key).
+      4. In the **Access Token** field, enter the access token you obtained in the [previous step](#obtain-access-token).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection

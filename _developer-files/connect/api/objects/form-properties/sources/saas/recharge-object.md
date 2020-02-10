@@ -29,7 +29,6 @@ display-name: "ReCharge"
 source-type: "saas"
 docs-name: "recharge" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
-property-description: ""
 ## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
 ## See the Heap object for an example
 
@@ -49,6 +48,6 @@ object-attributes:
   - name: "access_token"
     type: "string"
     required: true
-    description: "Your {{ form-property.display-name }} access token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link }}) for instructions on obtaining this credential."
-    value: "<{{ form-property.display-name | upcase }}_SECRET_KEY>"
+    description: "Your {{ form-property.display-name }} access token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-access-token" }}) for instructions on obtaining this credential."
+    value: "<{{ form-property.display-name | upcase }}_ACCESS_TOKEN>"
 ---
