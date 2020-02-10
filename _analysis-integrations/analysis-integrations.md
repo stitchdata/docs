@@ -11,6 +11,7 @@ summary: "Stitch gives you the ability to consolidate and optimize your data, bu
 
 layout: general
 toc: true
+feedback: false
 
 level: "category"
 
