@@ -14,6 +14,7 @@ keywords: databricks-delta, databricks-delta data warehouse, databricks-delta da
 summary: "Connect a Databricks Delta destination to your Stitch account."
 
 content-type: "destination-setup"
+key: "databricks-delta-destination-setup"
 order: 1
 
 toc: true
@@ -28,7 +29,7 @@ use-tutorial-sidebar: false
 type: "databricks-delta"
 display_name: "Databricks Delta"
 
-hosting-type: "amazon" # amazon, generic, microsoft, etc.
+hosting-type: "amazon"
 
 this-version: "1"
 

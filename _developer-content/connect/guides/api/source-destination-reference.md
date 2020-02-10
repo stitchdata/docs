@@ -34,6 +34,9 @@ description: "Current API availability for Stitch's destinations and sources."
 # -------------------------- #
 
 related:
+  - title: "All destinations"
+    link: "{{ site.baseurl }}/destinations"
+
   - title: "All integrations"
     link: "{{ site.baseurl }}/integrations"
     
@@ -78,9 +81,9 @@ sections:
       - **API availability**: Indicates if the destination is available via the API. {{ supported | replace:"TOOLTIP","Available in Connect" }} indicates that the destination is supported; {{ not-supported | replace:"TOOLTIP","Not available in Connect" }} indicates the destination isn't supported.
       - **API form property**: If the destination is supported, this column will contain the name of the destination's corresponding API [destination form property]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.destination-form-properties.section }}). Use this info to create the destination using the [Create a destination endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.destinations.create.anchor }}).
 
-      {% assign destinations = site.destinations | where:"content-type","destination-setup" | sort:"display_name" %}
+      {% assign destinations = site.destinations | where:"content-type","destination-setup" | sort_natural:"display_name" %}
       {% assign form-properties = site.developer-files | where:"content-type","api-form" %}
-      {% assign forms-of-type = form-properties | where:"form-type","destination" | sort:"display-name" %}
+      {% assign forms-of-type = form-properties | where:"form-type","destination" | sort_natural:"display-name" %}
 
       <table class="attribute-list">
       <tr>
