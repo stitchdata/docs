@@ -84,6 +84,36 @@ featured:
 
 analytics:
 
+  - name: "Domo"
+    id: "domo"
+    url: https://www.domo.com/
+    pricing: "Proprietary"
+
+  - name: "Sisense"
+    id: "sisense"
+    url: https://www.sisense.com/
+    pricing: "Proprietary"
+
+  - name: "Knime"
+    id: "knime"
+    url: https://www.knime.com/
+    pricing: "Open Source"
+
+  - name: "Superset"
+    id: "superset"
+    url: https://superset.incubator.apache.org/
+    pricing: "Open Source"
+
+  - name: "Highcharts"
+    id: "highcharts"
+    url: https://www.highcharts.com/
+    pricing: "Open Source"
+
+  - name: "Grafana"
+    id: "grafana"
+    url: https://grafana.com/
+    pricing: "Open Source"
+
   - name: "Qlik"
     id: "qlik"
     url: https://www.qlik.com/us
@@ -310,7 +340,9 @@ intro: |
   {% include misc/data-files.html %}
   {% include misc/icons.html %}
 
-  Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you'll need an additional visualization or middle ware tool. 
+  Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you'll need an additional visualization or middle ware tool.
+
+  <img src="{{ site.baseurl }}/images/analysis-tools/analysis-tools-diagram.svg" alt="Using Stitch with analysis tools">
 
   Whether you want to create visual analyses or run SQL queries, Stitch is compatible with a broad range of tools - from business intelligence platforms to SQL editors to data science tools.
 
@@ -318,20 +350,20 @@ sections:
   - title: "Analytics tools"
     anchor: "analytics-tools"
     content: |
-      Stitch can consolidate your data for use in the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
+      Stitch consolidates your data for use in the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
 
       <h3>Tutorials</h3>
       <p>On the Stitch blog, we walk you through how to use your Stitch data with each of the following tools:<p>
 
-      <ul class="tiles three-columns">
+      <ul class="tiles two-columns">
       {% assign featured = page.featured | sort:"name" %}
       {% for tool in featured %}
           <li>
               <a href="{{ tool.url }}" target="new">
-                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}">
+                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}" style="height: 50px">
               </a>
               <strong>{{ tool.name }}</strong><br>
-              {% if tool.tutorial %}<a href="{{tool.tutorial}}" target="_blank">Using Stitch and {{tool.name}} →</a>{% endif %}
+              {% if tool.tutorial %}<a class="btn-primary" style="padding: 3px 10px; white-space: normal;" href="{{tool.tutorial}}" target="_blank" title="Using Stitch and {{tool.name}}">Using Stitch with {{tool.name}} →</a>{% endif %}
           </li>
       {% endfor %}
       </ul>
@@ -339,14 +371,14 @@ sections:
       <h3>Additional analytics tools</h3>
       <p>Stitch customers also enjoy these options:</p>
 
-      <ul class="tiles three-columns">
+      <ul class="tiles three-columns link-tiles">
       {% assign analytics = page.analytics | sort:"name" %}
       {% for tool in analytics %}
           <li>
-              <a href="{{ tool.url }}" target="new">
-                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}">
+              <a href="{{ tool.url }}" target="new" style="padding: 0 20px 10px 20px;">
+                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}" style="height: 50px">
+                  <strong>{{ tool.name }}</strong>
               </a>
-              <strong>{{ tool.name }}</strong><br>
           </li>
       {% endfor %}
       </ul>
