@@ -1,0 +1,193 @@
+# ------------------------------- #
+#  DATABRICKS DELTA DATA TYPING   #
+# ------------------------------- #
+
+## Details about data typing for Databricks Delta destinations.
+## Includes:
+##  - Stitch types mapped to Databricks Delta-specific types
+##  - Data type suffixes
+##  - Limitations on each data type, imposed by Databricks Delta
+
+
+## NOTE: Relevant files:
+##  - Stitch data types: _data/taps/extraction/data-types/stitch-types.yml
+##  - All supported source types: _data/taps/extraction/data-types/source-types.yml
+
+
+# ---------------------------- #
+#       DATA TYPE MAPPING      #
+# ---------------------------- #
+
+## Data types specific to DESTINATION destinations:
+## REMOVE IF NOT NEEDED.
+specific:
+  - name: "json object"
+  - name: "json array"
+
+
+# ---------------------------- #
+#            ARRAY             #
+# ---------------------------- #
+
+json array: &string
+  destination-type: "string"
+  suffix: "st"
+  description: |
+    Used to store nested JSON structures (objects and arrays). These columns will have a column property comment of `"json"`.
+
+
+
+# ---------------------------- #
+#           BIGINT             #
+# ---------------------------- #
+
+bigint: &integer
+  destination-type: "bigint"
+  suffix: "it"
+  # range: ""
+  # loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
+
+
+# ---------------------------- #
+#           BOOLEAN            #
+# ---------------------------- #
+
+boolean:
+  destination-type: "boolean"
+  suffix: "bo"
+  # doc-link: ""
+
+
+# ---------------------------- #
+#            DATE              #
+# ---------------------------- #
+
+date:
+  destination-type: "timestamp-tz"
+  suffix: "ti"
+  description: "Stored in UTC"
+  # doc-link: ""
+  # range: ""
+  # loading-error: "{{ site.data.destinations.common.loading-errors.timestamp-out-of-range }}"
+  # date-range: &date-range ""
+  # timezone-support: &timezone-support "None"
+
+
+# ---------------------------- #
+#           DOUBLE             #
+# ---------------------------- #
+
+double:
+  destination-type: "double"
+  suffix: "db"
+  description: |
+    Stored as `DOUBLE(38,6)`
+  # doc-link: ""
+
+
+# ---------------------------- #
+#           FLOAT              #
+# ---------------------------- #
+
+float:
+  destination-type: "float"
+  suffix: "fl"
+  # doc-link: ""
+
+
+# ---------------------------- #
+#           INTEGER            #
+# ---------------------------- #
+
+integer: *integer
+
+
+# ---------------------------- #
+#            LONG              #
+# ---------------------------- #
+
+long:
+  destination-type: "long"
+  suffix: "lg"
+  # doc-link: ""
+
+
+# ---------------------------- #
+#           NUMBER             #
+# ---------------------------- #
+
+number: *integer
+
+
+# ---------------------------- #
+#           OBJECT             #
+# ---------------------------- #
+
+json object: *string
+
+
+# ---------------------------- #
+#           STRING             #
+# ---------------------------- #
+
+string:
+  destination-type: "string"
+  suffix: "st"
+
+
+list:
+  - id: "max-record-size"
+    categories: "data-limits"
+    important: true
+    value: *max-record-size
+    description: |
+      Records that exceed this limit will be rejected. Rejected columns are logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "date-and-time-timezone-support"
+    categories: "data-limits"
+    value: *timezone-support
+    description: |
+      {{ destination.display_name }} will store the value in UTC as `TIMESTAMP WITH TIMEZONE`.
+
+      More info about timestamp data types can be found in ['s documentation](){:target="new"}.
+
+  - id: "date-and-time-date-range"
+    categories: "data-limits"
+    value: *date-range
+    description: |
+      Date values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} date data types can be found in ['s documentation](){:target="new"}.
+
+  - id: "date-and-time-timestamp-range"
+    categories: "data-limits"
+    value: *timestamp-range
+    description: |
+      Timestamp values outside of this range will be rejected and logged in the [`sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+      More info about {{ destination.display_name }} time data types can be found in ['s documentation](){:target="new"}.
+
+  - id: "integer-range"
+    categories: "data-limits"
+    value: *integer-range
+    description: |
+      Integer values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-precision"
+    categories: "data-limits"
+    value: *decimal-precision
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "decimal-scale"
+    categories: "data-limits"
+    value: *decimal-scale
+    description: |
+      Decimal values outside of this range will be rejected and logged in the [`_sdc_rejected` table]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
+
+  - id: "strings-max-width"
+    categories: "data-limits"
+    value: *strings-max-width
+    important: true
+    description: |
+      String values that exceed this limit will be truncated to the maximum size to allow the data to be loaded into {{ destination.display_name }}.
