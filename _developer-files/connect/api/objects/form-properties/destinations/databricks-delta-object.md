@@ -34,11 +34,12 @@ description: |
 
 uses-common-fields: false
 object-attributes:
-  - name: "s3_bucket" # TODO: The name of this property may change. The report card isn't live yet.
+  - name: "staging_area"
     type: "string"
     required: true
     read-only: false
-    description: "The name of the Amazon S3 bucket Stitch will stage data to before loading into {{ form-property.display-name }}."
+    description: |
+      The name of the Amazon S3 bucket Stitch will stage data to before loading into {{ form-property.display-name }}.
     value: |
       "stitch-databricks-delta-bucket"
 
@@ -47,7 +48,7 @@ object-attributes:
     required: true
     read-only: false
     description: |
-      TODO
+      A Databricks REST API access token. Refer to the [{{ form-property.display-name }} documentation]({{ link.destinations.setup.databricks-delta | append:"#generate-databricks-api-access-token" }}) for instructions on generating this credential.
     value: |
       "<ACCESS_TOKEN>"
 
@@ -56,7 +57,7 @@ object-attributes:
     required: true
     read-only: false
     description: |
-      TODO
+      Refer to the [{{ form-property.display-name }} documentation]({{ link.destinations.setup.databricks-delta | append:"#retrieve-jdbc-url" }}) for instructions on retrieving this info.
     value: |
       "TODO"
 ---
