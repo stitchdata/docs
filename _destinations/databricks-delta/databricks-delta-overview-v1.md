@@ -34,6 +34,7 @@ related:
 # -------------------------- #
 
 display_name: "Databricks Delta"
+name: "databricks-delta"
 type: "databricks-delta"
 
 this-version: "1"
@@ -99,15 +100,27 @@ sections:
             content: |
               {% include replication/replication-process-phases.html phase="data-extraction" %}
 
-          - title: "Step 2: Preparation"
+          - title: "Step 2: Stitch's internal pipeline"
             anchor: "replication--stitch-internal-pipeline"
             content: |
-              {{ site.data.tooltips.prepare }} Refer to the [System overview guide]({{ link.getting-started.basic-concepts | prepend: site.baseurl | append: "#system-architecture--preparing" }}) for a more detailed explanation of the Preparation phase.
+              {% include replication/replication-process-phases.html phase="internal-pipeline" %}
 
-          - title: "Step 3: Loading"
-            anchor: "replication--loading"
+          - title: "Step 3: Amazon S3 bucket"
+            anchor: "replication--amazon-s3-bucket"
             content: |
-              Stitch loads the data into {{ destination.display_name }}.
+              Data is loaded into the Amazon S3 bucket you provide during destination setup.
+
+              TODO: Is this step and the staging step the same thing?
+
+          - title: "Step 4: Staging tables"
+            anchor: "replication--staging-tables"
+            content: |
+              todo
+
+          - title: "Step 5: Data merge"
+            anchor: "replication--amazon-s3-bucket"
+            content: |
+              Data is merged from the staging tables into tables in {{ destination.display_name }}.
 
       - title: "Loading behavior"
         anchor: "loading-behavior"
@@ -122,23 +135,21 @@ sections:
       - title: "Primary Keys"
         anchor: "replication--primary-keys"
         content: |
-          TODO: Alter this to use table properties
+          Stitch requires Primary Keys to de-dupe incrementally replicated data. To ensure Primary Key data is available, Stitch creates a `stitch.pks` [table property comment]({{ site.data.destinations.databricks-delta.resource-links.table-properties }}){:target="new"} when the table is initially created in {{ destination.display_name }}. The table property comment is an array of strings that contain the names of the Primary Key columns for the table. 
 
-          Stitch requires Primary Keys to de-dupe incrementally replicated data. To ensure Primary Key data is available, Stitch creates a `primary_keys` [table comment](https://docs.aws.amazon.com/redshift/latest/dg/r_COMMENT.html){:target="new"}. The comment is an array of strings that contain the names of the Primary Key columns for the table. 
-
-          For example: A table comment for a table with a single Primary Key:
+          For example: A table property comment for a table with a single Primary Key:
 
           ```json
-          '{"primary_keys":["id"]}'
+          (stitch.pks='id')
           ```
 
-          And a table comment for a table with a composite Primary Key:
+          And a table property comment for a table with a composite Primary Key:
 
           ```json
-          '{"primary_keys":["event_id","created_at"]}'
+          (stitch.pks='id,created_at')
           ```
 
-          **Note**: Removing or incorrectly altering Primary Key table comments can lead to replication issues.
+          **Note**: Removing or incorrectly altering Primary Key table property comments can lead to replication issues.
 
       - title: "Incompatible sources"
         anchor: "replication--incompatible-sources"
@@ -173,9 +184,11 @@ sections:
       - title: "JSON structures"
         anchor: "transformations--json-structures"
         content: |
-          TODO: Update this for JSON columns
+          {{ destination.display_name }} supports nested records within tables. When JSON objects and arrays are replicated, Stitch will load the JSON intact into a `STRING` column and add a property of `"json"` to the column.
 
-          {{ destination.display_name }} destinations don't have native support for nested data structures. To ensure nested data can be loaded, Stitch will flatten objects and arrays into columns and subtables, respectively. For more info and examples, refer to the [Handling nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}).
+          For example: [TODO]
+
+          Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.complex-data }}){:target="new"} for examples and instructions on working with complex data structures.
 
       - title: "Column names"
         anchor: "transformations--column-naming"
@@ -191,14 +204,12 @@ sections:
       - title: "Timezones"
         anchor: "transformations--timezones"
         content: |
-          TODO: Update this 
-          
-          {{ destination.display_name }} will store the value as `TIMESTAMP WITHOUT TIMEZONE`. In {{ destination.display_name }}, this data is stored without timezone information and expressed as UTC.
+          {{ destination.display_name }} will store the value as `TIMESTAMP WITHO TIMEZONE`. In {{ destination.display_name }}, this data is stored with timezone information and expressed as UTC.
 
   - title: "Compare destinations"
     anchor: "compare-destinations"
     content: |
-      **Not sure if {{ destination.display_name }} is the data warehouse for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
+      **Not sure if {{ destination.display_name }} is the destination for you?** Check out the [Choosing a Stitch Destination]({{ link.destinations.overviews.choose-destination | prepend: site.baseurl }}) guide to compare each of Stitch's destination offerings.
 ---
 {% assign destination = page %}
 {% include misc/data-files.html %}
