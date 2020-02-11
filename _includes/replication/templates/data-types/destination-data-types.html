@@ -9,8 +9,8 @@
 
 {% assign destination-types = site.data.destinations[destination.type][version]data-types %}
 
-{% if destination-data-types.specific %}
-	{% assign data-types = site.data.taps.extraction.data-types.stitch-types | concat: destination-data-types.specific | sort: "name" %}
+{% if destination-types.specific %}
+	{% assign data-types = site.data.taps.extraction.data-types.stitch-types | concat: destination-types.specific | sort: "name" %}
 {% else %}
 	{% assign data-types = site.data.taps.extraction.data-types.stitch-types | sort: "name" %}
 {% endif %}
