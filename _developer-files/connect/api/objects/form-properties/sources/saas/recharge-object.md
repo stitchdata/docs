@@ -48,6 +48,7 @@ object-attributes:
   - name: "access_token"
     type: "string"
     required: true
-    description: "Your {{ form-property.display-name }} access token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-access-token" }}) for instructions on obtaining this credential."
+    description: |
+      Your {{ form-property.display-name }} access token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-access-token" }}) for instructions on obtaining this credential.
     value: "<{{ form-property.display-name | upcase }}_ACCESS_TOKEN>"
 ---
