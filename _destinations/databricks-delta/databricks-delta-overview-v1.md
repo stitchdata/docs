@@ -108,16 +108,9 @@ sections:
           - title: "Step 3: Amazon S3 bucket"
             anchor: "replication--amazon-s3-bucket"
             content: |
-              Data is loaded into the Amazon S3 bucket you provide during destination setup.
+              Data is loaded into the Amazon S3 bucket you provide during destination setup. During this step, the data is staged before being merged into {{ destination.display_name }}.
 
-              TODO: Is this step and the staging step the same thing?
-
-          - title: "Step 4: Staging tables"
-            anchor: "replication--staging-tables"
-            content: |
-              todo
-
-          - title: "Step 5: Data merge"
+          - title: "Step 4: Data merge"
             anchor: "replication--amazon-s3-bucket"
             content: |
               Data is merged from the staging tables into tables in {{ destination.display_name }}.
