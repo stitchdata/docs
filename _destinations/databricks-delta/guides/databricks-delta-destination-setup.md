@@ -58,25 +58,8 @@ requirements:
 steps:
   - title: ""
     anchor: ""
-    content: ""
-
-  - title: "Configure database connection settings"
-    anchor: "connect-settings"
     content: |
-# > REMOVE IF NOT NEEDED:
-
-# {% include integrations/templates/configure-connection-settings.html %}
-
-  - title: "Create a Stitch {{ destination.display_name }} database user"
-    anchor: "create-database-user"
-    content: |
-      > REMOVE IF NOT NEEDED:
-
-      {% include note.html type="single-line" content="**Note**: You must have superuser privileges or the ability to create a user and grant privileges to complete this step." %}
-
-      In the following tabs are the instructions for creating a Stitch {{ destination.display_name }} database user and explanations for the permissions Stitch requires.
-
-      {% include destinations/templates/destination-user-setup.html %}
+      TODO: 
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
