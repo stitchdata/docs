@@ -7,11 +7,11 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/destination-templates/destination-setup/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-title: Connecting a Databricks Delta Destination to Stitch
+title: Connecting a Databricks Delta Lake Destination to Stitch
 permalink: /destinations/databricks-delta/connecting-a-databricks-delta-destination-to-stitch
 
 keywords: databricks-delta, databricks-delta data warehouse, databricks-delta data warehouse, databricks-delta etl, etl to databricks-delta, databricks-delta destination
-summary: "Connect a Databricks Delta destination to your Stitch account."
+summary: "Connect a Databricks Delta Lake destination to your Stitch account."
 
 content-type: "destination-setup"
 key: "databricks-delta-destination-setup"
@@ -27,7 +27,7 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 type: "databricks-delta"
-display_name: "Databricks Delta"
+display_name: "Databricks Delta Lake"
 
 hosting-type: "amazon"
 
@@ -59,7 +59,35 @@ steps:
   - title: ""
     anchor: ""
     content: |
-      TODO: 
+      TODO: https://www.stitchdata.com/docs/destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
+
+  - title: "Grant Databricks access to your Amazon S3 bucket"
+    anchor: "grant-databricks-access-to-s3"
+    content: |
+      TODO: https://docs.databricks.com/administration-guide/cloud-configurations/aws/iam-roles.html
+
+  - title: "Generate a Databricks access token"
+    anchor: "generate-databricks-api-access-token"
+    content: |
+      Next, you'll generate a [Databricks access token]({{ site.data.destinations.databricks-delta.resource-links.api-access-token }}){:target="new"}.
+
+      1. Sign into your Databricks account, if you haven't already.
+      2. Click the **user profile icon** in the upper right corner of your Databricks workspace.
+      3. Click **User Settings**.
+      4. Click the **Access Tokens** tab:
+
+         ![]({{ site.baseurl }}/images/destinations/databricks-access-tokens-tab.png)
+
+      5. In the tab, click the **Generate New Token** button. {% include layout/image.html type="right" file="/destinations/databricks-new-access-token.png" alt="todo" max-width="400" %}
+      {:start="6"}
+      6. In the window that displays, enter the following: 
+         - **Comment**: `Stitch destination`
+         - **Lifetime (days)**: **Leave this field blank.** If you enter a value, your token will eventually expire and break the connection to Stitch.
+      7. Click **Generate**. {% include layout/image.html type="right" file="/destinations/databricks-generated-token.png" alt="todo" max-width="400" %}
+      {:start="8"}
+      8. Copy the token somewhere secure. Databricks will only display the token once.
+      9. Click **Done** after you copy the token.
+      
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
