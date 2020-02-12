@@ -76,18 +76,33 @@ steps:
       3. Click **User Settings**.
       4. Click the **Access Tokens** tab:
 
-         ![]({{ site.baseurl }}/images/destinations/databricks-access-tokens-tab.png)
+         ![The Access Tokens tab in the User Settings page of Databricks]({{ site.baseurl }}/images/destinations/databricks-access-tokens-tab.png)
 
-      5. In the tab, click the **Generate New Token** button. {% include layout/image.html type="right" file="/destinations/databricks-new-access-token.png" alt="todo" max-width="400" %}
+      5. In the tab, click the **Generate New Token** button. {% include layout/image.html type="right" file="/destinations/databricks-new-access-token.png" alt="The Generate New Token window in Databricks" max-width="400" %}
       {:start="6"}
       6. In the window that displays, enter the following: 
          - **Comment**: `Stitch destination`
          - **Lifetime (days)**: **Leave this field blank.** If you enter a value, your token will eventually expire and break the connection to Stitch.
-      7. Click **Generate**. {% include layout/image.html type="right" file="/destinations/databricks-generated-token.png" alt="todo" max-width="400" %}
+      7. Click **Generate**. {% include layout/image.html type="right" file="/destinations/databricks-generated-token.png" alt="A newly generated access token in Databricks" max-width="400" %}
       {:start="8"}
       8. Copy the token somewhere secure. Databricks will only display the token once.
       9. Click **Done** after you copy the token.
       
+  - title: "Retrieve the Databricks' cluster JDBC URL"
+    anchor: "retrieve-jdbc-url"
+    content: |
+      {% include layout/image.html type="right" file="/destinations/databricks-cluster-details-page.png" alt="The Advanced Options section of the Cluster Details page in Databricks" max-width="400" enlarge=true%}
+      Next, you'll retrieve your [Databricks' cluster JDBC URL]({{ site.data.destinations.databricks-delta.resource-links.connect-bi-tools }}){:target="new"}. 
+
+      1. Click the **Clusters** option in the menu on the left side of your Databricks workspace.
+      2. Click the cluster you want to use.
+      3. On the cluster's details page, click **Advanced Options**.
+      4. Click the **JDBC/ODBC** tab. 
+      5. Locate the **JDBC URL** field and copy the value:
+
+         ![The Advanced Options section of the Cluster Details page in Databricks]({{ site.baseurl }}/images/destinations/databricks-cluster-advanced-options.png)
+
+      Keep this handy - you'll need it to complete the setup in Stitch.
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
