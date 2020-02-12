@@ -22,4 +22,4 @@ databricks-delta:
     copy: |
       Enter the name of Amazon S3 bucket Stitch should use to stage your data before loading to {{ destination.display_name }}. This will be the name of the bucket you configured access for in [Step 1](#grant-stitch-access-to-s3) and [Step 2](#grant-databricks-access-to-s3).
 
-      Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `stitch-databricks-delta-bucket`
+            Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `stitch-databricks-delta-bucket`

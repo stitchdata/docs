@@ -107,18 +107,22 @@ steps:
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
-      To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch.
+      To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch:
+
+      {% for substep in step.substeps %}
+      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
-      - title: "Locate the {{ destination.display_name }} connection details"
-        anchor: "locate-connection-details-aws"
-        content: |
-          {% include shared/connection-details/amazon.html type="connection-details" %}
-
       - title: "Enter connection details into Stitch"
         anchor: "enter-connection-details-into-stitch"
         content: |
           {% include shared/database-connection-settings.html type="general" %}
+
+      - title: "Define SSH connection details"
+        anchor: "define-ssh-connection-details"
+        content: |
+          {% include shared/database-connection-settings.html type="ssh" %}
 
       - title: "Save the destination"
         anchor: "save-destination"
