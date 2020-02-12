@@ -11,10 +11,15 @@
 
 databricks-delta:
   - name: "Access Token"
-    copy: "TODO"
+    copy: |
+      Paste the access token you generated in [Step 3](generate-databricks-api-access-token).
 
   - name: "JDBC URL"
-    copy: "TODO"
+    copy: |
+      Paste the JDBC URL you retrieved in [Step 4](#retrieve-jdbc-url).
 
   - name: "Bucket Name"
-    copy: "Enter the name of Amazon S3 bucket Stitch should use to stage your data before loading to {{ destination.display_name }}. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `stitch-databricks-delta-bucket`"
+    copy: |
+      Enter the name of Amazon S3 bucket Stitch should use to stage your data before loading to {{ destination.display_name }}. This will be the name of the bucket you configured access for in [Step 1](#grant-stitch-access-to-s3) and [Step 2](#grant-databricks-access-to-s3).
+
+      Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `stitch-databricks-delta-bucket`
