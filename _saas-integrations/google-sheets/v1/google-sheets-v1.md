@@ -18,23 +18,23 @@ keywords: google-sheeets, integration, schema, etl google-sheeets, google-sheeet
 layout: singer
 # input: false
 
-key: "google-sheeets-setup"
+key: "google-sheets-setup"
 
 
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
 
-name: "google-sheeets"
+name: "google-sheets"
 display_name: "Google Sheets"
 
 singer: true
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
-tap-name: "google-sheets"
+tap-name: "Google Sheets"
 repo-url: https://github.com/singer-io/tap-google-sheeets
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [Google Sheets v4 AP1](https://developers.google.com/sheets/api){:target="new"}
@@ -45,6 +45,8 @@ api: |
 # -------------------------- #
 
 certified: true 
+
+api-type: "platform.google-sheets"
 
 historical: "1 year"
 frequency: "1 hour"
@@ -100,7 +102,7 @@ setup-steps:
       {% include layout/image.html file="/integrations/google-sheets-spreadsheet-id.png" alt="Google Sheets URL containing the Spreadsheet ID." enlarge=true max-width="850" %}
   - title: "add integration"
     content: |
-      4. In the `Spreadsheet ID` field, enter your Spreadsheet ID you obtained from the [previous step](#obtain-spreadsheet-id). Please note that to integrate another spreadsheet, you'll need to repeat these steps over again with another {{ integration.display_name }} integration.
+      4. In the **Spreadsheet ID** field, enter your Spreadsheet ID you obtained from the [previous step](#obtain-spreadsheet-id). **Note**: To integrate another spreadsheet, you'll need to repeat these steps over again with another {{ integration.display_name }} integration.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
@@ -110,10 +112,20 @@ setup-steps:
 #     Replication Details    #
 # -------------------------- #
 
-  - title: Spreadsheet Setup
+replication sections:  
+  - title: "Spreadsheet Setup"
     anchor: "spreadsheet-setup"
     content: |
-      For proper table replication in Stitch's {{ integration.display_name }} integration, all of your sheets must have column headers in the first row. Starting from row two is where your data should begin.
+      For proper table replication in Stitch's {{ integration.display_name }} integration, all of your sheets must have column headers in the first row. Row two is where your data should begin.
+
+  - title: "Replication Outputs for your Individual Sheets"
+    anchor: "replication-outputs"
+    content: |
+      Stitch's {{ integration.display_name }} integration will output tables containing metadata about your spreadsheet, as well as replications of your individual sheets. For each sheet, the integration will output the schema of its resources, based on the column headers and datatypes in row two. It will also output a record for all columns that have columns headers and for each row of data.
+
+      The primary key in each row of a sheet is the row number. The field for the primary key is `__sdc_row`. The foreign keys included in the sheet are connected to the **Spreadsheet Metadata**, `__sdc_spreadsheet_id`, and the **Sheet Metadata**, `__sdc_sheet_id`.
+
+
 
 
 # -------------------------- #

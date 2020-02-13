@@ -1,6 +1,6 @@
 ---
 tap: "google-sheets"
-version: "1.0"
+version: "1"
 key: "sheets_loaded"
 
 name: "sheets_loaded"
@@ -15,6 +15,18 @@ api-method:
     doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
 
 attributes:
+  - name: "sheetId"
+    type: "integer"
+    primary-key: true
+    description: "The ID of the sheet."
+    foreign-key-id: "sheet-id"
+
+  - name: "spreadsheetId"
+    type: "string"
+    primary-key: true
+    description: "The ID of the spreadsheet."
+    foreign-key-id: "spreadsheet-id"
+
   - name: "lastRowNumber"
     type: "integer"
     description: "The number of the last row."
@@ -22,14 +34,6 @@ attributes:
   - name: "loadDate"
     type: "date-time"
     description: "The date the sheets were loaded."
-
-  - name: "sheetId"
-    type: "integer"
-    description: "The ID of the sheet. Must be non-negative. This field cannot be changed once set."
-
-  - name: "spreadsheetId"
-    type: "string"
-    description: "The ID of the spreadsheet. This field is read-only."
 
   - name: "title"
     type: "string"

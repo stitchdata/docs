@@ -1,6 +1,6 @@
 ---
 tap: "google-sheets"
-version: "1.0"
+version: "1"
 key: "file_metadata"
 
 name: "file_metadata"

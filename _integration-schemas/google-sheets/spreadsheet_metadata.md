@@ -1,6 +1,6 @@
 ---
 tap: "google-sheets"
-version: "1.0"
+version: "1"
 key: "spreadsheet_metadata"
 
 name: "spreadsheet_metadata"
@@ -15,6 +15,12 @@ api-method:
     doc-link: "https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/sheets#top_of_page"
 
 attributes:
+  - name: "spreadsheetId"
+    type: "string"
+    primary-key: true
+    description: "The ID of the spreadsheet."
+    foreign-key-id: "spreadsheet-id"
+
   - name: "properties"
     type: "object"
     description: "Overall properties of a spreadsheet."
@@ -29,7 +35,6 @@ attributes:
             - an ISO 639-1 language code such as `en`
             - an ISO 639-2 language code such as `fil`, if no 639-1 code exists
             - a combination of the ISO language code and country code, such as `en_US`
-          Note: when updating this field, not all locales/languages are supported.
       - name: "timeZone"
         type: "string"
         description: "The time zone of the spreadsheet, in CLDR format such as `America/New_York`. If the time zone isn't recognized, this may be a custom time zone such as `GMT-07:00`."
@@ -37,11 +42,7 @@ attributes:
         type: "string"
         description: "The title of the spreadsheet."
 
-  - name: "spreadsheetId"
-    type: "string"
-    description: "The ID of the spreadsheet. This field is read-only."
-
   - name: "spreadsheetUrl"
     type: "string"
-    description: "The url of the spreadsheet. This field is read-only."
+    description: "The url of the spreadsheet."
 ---

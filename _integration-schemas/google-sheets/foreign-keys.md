@@ -9,7 +9,7 @@
 
 tap-reference: "google-sheets"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "file-id"
@@ -18,4 +18,34 @@ foreign-keys:
     all-foreign-keys:
       - table: "file_metadata"
         join-on: "id"
+
+  - id: "spreadsheet-id"
+    table: "spreadsheet_metadata"
+    attribute: "spreadsheetId"
+    all-foreign-keys:
+      - table: "spreadsheet_metadata"
+        join-on: "spreadsheetId"
+      - table: "sheet_metadata"
+        join-on: "spreadsheetId"
+      - table: "sheets_loaded"
+        join-on: "spreadsheetId"  
+
+
+  - id: "sheet-id"
+    table: "sheet_metadata"
+    attribute: "sheetId"
+    all-foreign-keys:
+      - table: "sheet_metadata"
+        join-on: "sheetId"
+      - table: "sheets_loaded"
+        join-on: "sheetId"
+
+
+  - id: "column-index"
+    table: "sheet_metadata"
+    attribute: "columns.column-index"
+    all-foreign-keys:
+      - table: "sheet_metadata"
+        join-on: "columns.column-index"
+
 ---
