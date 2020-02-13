@@ -60,17 +60,10 @@ requirements:
 # -------------------------- #
 
 steps:
-  - title: "Grant Databricks access to your Amazon S3 bucket"
-    anchor: "grant-databricks-access-to-s3"
-    content: |
-      TODO: https://docs.databricks.com/administration-guide/cloud-configurations/aws/iam-roles.html
-
   - title: "Generate a Databricks access token"
     anchor: "generate-databricks-api-access-token"
     content: |
-      Next, you'll generate a [Databricks access token]({{ site.data.destinations.databricks-delta.resource-links.api-access-token }}){:target="new"}.
-
-      1. Sign into your Databricks account, if you haven't already.
+      1. Sign into your Databricks account.
       2. Click the **user profile icon** in the upper right corner of your Databricks workspace.
       3. Click **User Settings**.
       4. Click the **Access Tokens** tab:
@@ -106,8 +99,6 @@ steps:
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
-      To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch:
-
       {% for substep in step.substeps %}
       - [Step 4.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
@@ -144,6 +135,21 @@ steps:
         anchor: "add-bucket-policy"
         content: |
           {% include destinations/amazon-s3/add-verify-bucket-policy.html type="add-bucket-policy" %}
+
+  - title: "Grant Databricks access to your Amazon S3 bucket"
+    anchor: "grant-databricks-access-to-s3"
+    content: |
+      {% capture databricks-access-note %}
+      **Note**: You'll need the [**Allow Cluster Creation** privilege]({{ site.data.destinations.databricks-delta.resource-links.cluster-privileges | append: "#types-of-permissions" }}){:target="new"} in Databricks to complete this step.
+      {% endcapture %}
+      
+      {% include note.html type="single-line" content=databricks-access-note %}
+
+      To complete the setup, you'll need to configure your AWS account to allow access from Databricks. This is required to complete loading data into {{ destination.display_name }}.  Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access }}){:target="new"} for help configuing AWS access for Databricks.
+
+      **Note**: The Databricks cluster must have a **Databricks Runtime Version of 6.3 or higher** to work with Stitch. When you reach the [**Launch a new cluster with the S3 IAM role** step]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access | append: "#step-6-launch-a-cluster-with-the-s3-iam-role" }}){:target="new"} of Databricks' **Configuring S3 access** guide, make sure you select **version 6.3 or higher**:
+
+      ![]({{ site.baseurl }}/images/destinations/databricks-runtime-version.png)
 ---
 {% include misc/data-files.html %}
 {% assign destination = page %}
