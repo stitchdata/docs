@@ -48,10 +48,12 @@ intro: |
 
 requirements:
   - item: |
-      {% assign destination = page %}
-      **An up-and-running {{ destination.display_name }} instance.** Instructions for creating a {{ destination.display_name }} destination are outside the scope of this tutorial; our instructions assume that you have an instance up and running. For help getting started with {{ destination.display_name }}, refer to [<PROVIDER>'s documentation](){:target="new"}.
-  - item: ""
-
+      **An Amazon Web Services (AWS) account with a {{ destination.display_name }} deployment.** Instructions for configuring a {{ destination.display_name }} deployment are outside the scope of this tutorial; our instructions assume that you have {{ destination.display_name }} up and running. Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.configure-aws-account }}){:target="new"} for help configuring your AWS account with Databricks.
+  - item: |
+      **An existing Amazon S3 bucket.** This bucket must be in the same AWS account as the Databricks deployment or have a cross-account bucket policy that allows access to the bucket from the AWS account with the Databricks deployment.
+  - item: |
+      **Permissions to manage S3 buckets in AWS**. Your AWS user must be able to add and modify bucket policies in the AWS account or accounts where the S3 bucket and Databricks deployment reside.
+  
 
 # -------------------------- #
 #     Setup Instructions     #
