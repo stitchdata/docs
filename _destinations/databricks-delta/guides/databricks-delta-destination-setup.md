@@ -26,8 +26,10 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-type: "databricks-delta"
 display_name: "Databricks Delta Lake"
+name: "databricks-delta"
+
+type: "databricks-delta"
 
 hosting-type: "amazon"
 
@@ -56,11 +58,6 @@ requirements:
 # -------------------------- #
 
 steps:
-  - title: ""
-    anchor: ""
-    content: |
-      TODO: https://www.stitchdata.com/docs/destinations/amazon-s3/connecting-an-amazon-s3-data-warehouse-to-stitch
-
   - title: "Grant Databricks access to your Amazon S3 bucket"
     anchor: "grant-databricks-access-to-s3"
     content: |
@@ -110,7 +107,7 @@ steps:
       To complete the setup, you need to enter your {{ destination.display_name }} connection details into the {{ app.page-names.dw-settings }} page in Stitch:
 
       {% for substep in step.substeps %}
-      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 4.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
@@ -128,6 +125,23 @@ steps:
         anchor: "save-destination"
         content: |
           {% include shared/database-connection-settings.html type="finish-up" %}
+
+  - title: "Grant Stitch access to your Amazon S3 bucket"
+    anchor: "grant-stitch-access-to-s3"
+    content: |
+      {% for substep in step.substeps %}
+      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+    substeps:
+      - title: "Copy the Stitch bucket policy"
+        anchor: "copy-bucket-policy"
+        content: |
+          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="bucket-example" %}
+
+      - title: "Create the Stitch bucket policy in AWS"
+        anchor: "add-bucket-policy"
+        content: |
+          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="add-bucket-policy" %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = page %}
