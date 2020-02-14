@@ -1,0 +1,125 @@
+# ----------------------------------- #
+#  MONGODB V1 SUPPORTED DATA TYPES #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to MongoDB v2.
+
+# Source: https://github.com/singer-io/tap-mongodb/blob/master/tap_mongodb/sync_strategies/common.py#L74
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## MongoDB has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/mongo/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+array:
+  stitch-type: "array"
+  tooltip: |
+    ARRAYs are supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+bigint: &not-applicable
+  stitch-type: "not applicable"
+  tooltip: "This data type isn't applicable to {{ page.display_name }}."
+
+bit: *not-applicable
+
+boolean:
+  stitch-type: "boolean"
+
+bson_datetime:
+  stitch-type: "string"
+
+# bytes:
+# # Return the original base64 encoded string
+# return base64.b64encode(value).decode('utf-8')
+
+char: *not-applicable
+      
+date:
+  stitch-type: "string"
+
+dbref:
+  stitch-type: "object"
+  tooltip: |
+    Data for this type will be typed as an OBJECT with <strong>id</strong>, <strong>collection</strong>, and <strong>database</strong> properties.
+
+    OBJECTs are supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+decimal: *not-applicable
+
+decimal128:
+  stitch-type: "double"
+# decimal128
+# if isinstance(value, bson.decimal128.Decimal128):
+# return value.to_decimal()
+
+double:
+  stitch-type: "decimal"
+
+float:
+  stitch-type: "number"  
+      
+integer:
+  stitch-type: "integer"
+
+int64:
+  stitch-type: "integer"
+
+javascript:
+  stitch-type: "string"
+
+javascriptwithscope:
+  stitch-type: "object"
+  tooltip: |
+    If a <strong>scope</strong> value is present, this type will be stored as an OBJECT with <strong>value</strong> and <strong>scope</strong> properties.
+
+    OBJECTs are supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+longvarchar: *not-applicable
+
+longnvarchar: *not-applicable
+
+nchar: *not-applicable
+
+numeric: *not-applicable
+      
+nvarchar: *not-applicable
+
+object:
+  stitch-type: "object"
+  tooltip: |
+    OBJECTs are supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+objectid:
+  stitch-type: "string"
+
+real: *not-applicable
+
+regex:
+  stitch-type: "object"
+  tooltip: |
+    Data for this type will be typed as an OBJECT with <strong>pattern</strong> and <strong>flags</strong> properties.
+
+    OBJECTs are supported, but may be denested depending on the destination you're using. <a href='{{ link.destinations.storage.nested-structures | prepend: site.baseurl }}'>Learn more.</a>
+
+smallint: *not-applicable
+
+time: *not-applicable
+
+timestamp:
+  stitch-type: "string"
+
+tinyint: *not-applicable
+
+uuid:
+  stitch-type: "string"
+
+varchar:
+  stitch-type: "string"
