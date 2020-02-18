@@ -29,10 +29,6 @@ display-name: "Google Sheets"
 source-type: "saas"
 docs-name: "google-sheets" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
-
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #

@@ -76,6 +76,8 @@ feature-summary: |
 
   Stitch's {{ integration.display_name }} integration will generate tables containing data related to metadata and the individual sheets within a spreadsheet. Currently, the Stitch {{ integration.display_name }} integration replicates one spreadsheet at a time. To replicate another spreadsheet, you will need to create another {{ integration.display_name }} integration.
 
+  Stitch's {{ integration.display_name }} currently does not support the **IMPORTRANGE()** function to update the `modified_at` field. It also does not support spreadsheet integrations from shared **Team Drives**.
+
 
 # -------------------------- #
 #      Incompatibilities     #
