@@ -4,6 +4,7 @@ permalink: /integrations/saas/jira/v1
 keywords: jira, integration, schema, etl jira, jira etl, jira schema
 summary: "Connection instructions and schema details for Stitch's JIRA integration."
 layout: singer
+input: false
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
