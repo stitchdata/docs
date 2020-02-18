@@ -61,10 +61,13 @@ decimal128:
 # return value.to_decimal()
 
 double:
-  stitch-type: "decimal"
+  stitch-type: "decimal/double"
+  tooltip: &decimal-tooltip |
+    Depending on the precision value, data might be typed as a <strong>DOUBLE</strong> or a <strong>DECIMAL</strong> and result in an undesirable column split. This has been changed for v2.
 
 float:
-  stitch-type: "number"  
+  stitch-type: "decimal/double"
+  tooltip: *decimal-tooltip
       
 integer:
   stitch-type: "integer"
