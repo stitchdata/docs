@@ -3,25 +3,11 @@
 
 {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" %}
 
-<!-- Gets the non-Singer version to be used in the copy -->
-{% for version in released-versions %}
-    {% if version.number != latest-version %}
-        {% capture old-version %}
-            {{ version.number }}
-        {% endcapture %}
-    {% endif %}
-{% endfor %}
+{% capture identify-version %}
+**Need some help identifying your {{ integration.display_name }} version?** Refer to the [Identifying an integration version guide]({{ link.integration.identify-integration-version | prepend: site.baseurl }}).
+{% endcapture %}
 
-<p>To identify the version of the {{ integration.display_name }} integration you're using:</p>
-<ol>
-    <li><a href="{{ site.sign-in }}" target="new">Sign into your Stitch account</a>.</li>
-    <li>On the {{ app.page-names.dashboard }}, click the {{ integration.display_name }} integration you want to check.</li>
-    <li>Click the <strong>Extraction Logs</strong> tab:</li>
-    <ul>
-        <li>If you see a list of extraction logs, the integration's version is <strong>{{ latest-version | prepend: "v" }}</strong>.</li>
-        <li>If you see <strong>No logs available for this integration yet.</strong>, the integration's version is <strong>{{ old-version | strip | prepend: "v" }}</strong>.</li>
-    </ul>
-</ol>
+{% include note.html type="single-line" content=identify-version %}
 
 <ul class="tiles three-columns">
     {% for version in released-versions %}
