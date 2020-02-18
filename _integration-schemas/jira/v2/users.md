@@ -1,6 +1,7 @@
 ---
 tap: "jira"
-version: "1"
+version: "2"
+key: "user"
 
 name: "users"
 doc-link: ""
@@ -17,15 +18,11 @@ api-method:
     doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-user-search-get"
     
 attributes:
-  - name: "key"
-    type: "string"
-    primary-key: true
-    description: "The user key."
-    foreign-key-id: "user-key"
-
   - name: "accountId"
     type: "string"
+    primary-key: true
     description: "The user's account ID."
+    foreign-key-id: "user-id"
 
   - name: "active"
     type: "boolean"

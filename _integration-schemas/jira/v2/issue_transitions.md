@@ -1,6 +1,7 @@
 ---
 tap: "jira"
-version: "1"
+version: "2"
+key: "issue-transition"
 
 name: "issue_transitions"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get"

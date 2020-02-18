@@ -1,6 +1,7 @@
 ---
 tap: "jira"
-version: "1"
+version: "2"
+key: "issue-comment"
 
 name: "issue_comments"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-comment-get"
@@ -38,6 +39,7 @@ attributes:
       - name: "accountId"
         type: "string"
         description: "The account ID of the user, which uniquely identifies the user across all Atlassian products."
+        foreign-key-id: "user-id"
 
       - name: "active"
         type: "boolean"
@@ -75,7 +77,6 @@ attributes:
       - name: "key"
         type: "string"
         description: "The user's key."
-        foreign-key-id: "user-key"
 
       - name: "name"
         type: "string"
@@ -133,6 +134,7 @@ attributes:
       - name: "accountId"
         type: "string"
         description: "The account ID of the user, which uniquely identifies the user across all Atlassian products."
+        foreign-key-id: "user-id"
 
       - name: "active"
         type: "boolean"

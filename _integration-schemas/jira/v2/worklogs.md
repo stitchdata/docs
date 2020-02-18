@@ -1,6 +1,7 @@
 ---
 tap: "jira"
-version: "1"
+version: "2"
+key: "worklog"
 
 name: "worklogs"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-worklog-updated-get"
@@ -49,6 +50,7 @@ attributes:
       - name: "accountId"
         type: "string"
         description: "The {{ description-type }}'s account ID."
+        foreign-key-id: "user-id"
 
       - name: "active"
         type: "boolean"
@@ -155,6 +157,7 @@ attributes:
       - name: "accountId"
         type: "string"
         description: "The {{ description-type }}'s account ID."
+        foreign-key-id: "user-id"
 
       - name: "active"
         type: "boolean"

@@ -1,6 +1,7 @@
 ---
 tap: "jira"
-version: "1"
+version: "2"
+key: "project"
 
 name: "projects"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-get"
@@ -70,6 +71,7 @@ attributes:
           - name: "accountId"
             type: "string"
             description: "The {{ description-type }}'s account ID."
+            foreign-key-id: "user-id"
 
           - name: "active"
             type: "boolean"
@@ -210,6 +212,7 @@ attributes:
           - name: "accountId"
             type: "string"
             description: "The {{ description-type }}'s account ID."
+            foreign-key-id: "user-id"
 
           - name: "active"
             type: "boolean"

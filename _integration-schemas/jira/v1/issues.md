@@ -1,7 +1,7 @@
 ---
 tap: "jira"
 version: "1"
-
+key: "issue"
 
 name: "issues"
 doc-link: https://docs.atlassian.com/jira/REST/ondemand/#api/2/issue-getIssue

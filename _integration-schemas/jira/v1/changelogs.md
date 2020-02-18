@@ -1,6 +1,7 @@
 ---
 tap: "jira"
 version: "1"
+key: "changelog"
 
 name: "changelogs"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-changelog-get"
