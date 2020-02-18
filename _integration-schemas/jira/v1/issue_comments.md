@@ -5,7 +5,7 @@ key: "issue-comment"
 
 name: "issue_comments"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-comment-get"
-singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_comments.json"
+singer-schema: "https://github.com/singer-io/tap-jira/tree/77206190933146b7cf51f14bfc7aaf670539ca5f/tap_jira/schemas/issue_comments.json"
 description: |
   The `{{ table.name }}` table contains info about comments made on issues.
 

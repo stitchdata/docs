@@ -5,7 +5,7 @@ key: "issue"
 
 name: "issues"
 doc-link: https://docs.atlassian.com/jira/REST/ondemand/#api/2/issue-getIssue
-singer-schema: https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issues.json
+singer-schema: https://github.com/singer-io/tap-jira/tree/77206190933146b7cf51f14bfc7aaf670539ca5f/tap_jira/schemas/issues.json
 description: |
   The `issues` table contains info about the issues in your {{ integration.display_name }} instance. This table only contains core issue data - some data is located in other tables, such as [`changelogs`](#changelogs), [`issue_comments`](#issue_comments), and [`issue_transitions`](#issue_transitions).
 
