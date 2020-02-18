@@ -1247,12 +1247,12 @@ blockquote p {
 }
 
 /* line 805, ../sass/_components.scss */
-.tutorial {
+.tutorial, .beta {
   background-color: #66bdff;
 }
 
 /* line 809, ../sass/_components.scss */
-.concept, .all-plans {
+.concept, .all-plans, .released {
   background-color: #82bd41;
 }
 
@@ -1270,18 +1270,23 @@ blockquote p {
 	background-color: $stitch-yellow;
 }*/
 /* line 825, ../sass/_components.scss */
+.deprecated, .sunset {
+  background-color: #969696;
+}
+
+/* line 829, ../sass/_components.scss */
 .enterprise {
   background-color: #82bd41;
 }
 
 /* API/JS HEADINGS */
-/* line 833, ../sass/_components.scss */
+/* line 836, ../sass/_components.scss */
 .api-js-heading {
   width: 100%;
   margin: 40px 0px 20px 0px;
   border: 1px solid #EAEAEA;
 }
-/* line 838, ../sass/_components.scss */
+/* line 841, ../sass/_components.scss */
 .api-js-heading div.method {
   color: #ffffff;
   padding: 20px 30px 13px 30px;
@@ -1290,37 +1295,37 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 847, ../sass/_components.scss */
+/* line 850, ../sass/_components.scss */
 .object {
   background-color: #66bdff;
 }
 
-/* line 851, ../sass/_components.scss */
+/* line 854, ../sass/_components.scss */
 .post {
   background-color: #82bd41;
 }
 
-/* line 855, ../sass/_components.scss */
+/* line 858, ../sass/_components.scss */
 .put {
   background-color: #66bdff;
 }
 
-/* line 859, ../sass/_components.scss */
+/* line 862, ../sass/_components.scss */
 .get {
   background-color: #0675c1;
 }
 
-/* line 863, ../sass/_components.scss */
+/* line 866, ../sass/_components.scss */
 .function {
   background-color: #0675c1;
 }
 
-/* line 867, ../sass/_components.scss */
+/* line 870, ../sass/_components.scss */
 .delete {
   background-color: #E96065;
 }
 
-/* line 871, ../sass/_components.scss */
+/* line 874, ../sass/_components.scss */
 .method-bullet {
   padding: 3px 5px 3px 5px;
   margin-top: -3px;
@@ -1329,29 +1334,29 @@ blockquote p {
   font-weight: 600;
 }
 
-/* line 879, ../sass/_components.scss */
+/* line 882, ../sass/_components.scss */
 .method-function {
   padding: 1.5em;
   line-height: 1em;
 }
 
-/* line 884, ../sass/_components.scss */
+/* line 887, ../sass/_components.scss */
 .method-resource {
   padding: 0px;
 }
-/* line 887, ../sass/_components.scss */
+/* line 890, ../sass/_components.scss */
 .method-resource h4 {
   margin-bottom: 1em;
   line-height: 1em;
 }
 
 /* Footer CTA */
-/* line 895, ../sass/_components.scss */
+/* line 898, ../sass/_components.scss */
 hr.footer-cta {
   margin: 3em 0 0;
 }
 
-/* line 899, ../sass/_components.scss */
+/* line 902, ../sass/_components.scss */
 .footer-signup-cta {
   margin-top: 30px;
   background: linear-gradient(135deg, #237288 0%, #181a28 100%);
@@ -1362,7 +1367,7 @@ hr.footer-cta {
   z-index: 1;
   height: 9rem;
 }
-/* line 909, ../sass/_components.scss */
+/* line 912, ../sass/_components.scss */
 .footer-signup-cta:before {
   content: "";
   position: absolute;
@@ -1374,7 +1379,7 @@ hr.footer-cta {
   border-right: 9rem solid transparent;
   z-index: -1;
 }
-/* line 921, ../sass/_components.scss */
+/* line 924, ../sass/_components.scss */
 .footer-signup-cta .wrapper {
   width: auto;
   margin: 0 auto;
@@ -1382,18 +1387,18 @@ hr.footer-cta {
   justify-content: center;
   z-index: 2;
 }
-/* line 928, ../sass/_components.scss */
+/* line 931, ../sass/_components.scss */
 .footer-signup-cta .wrapper div {
   padding: 0 10px;
 }
-/* line 933, ../sass/_components.scss */
+/* line 936, ../sass/_components.scss */
 .footer-signup-cta p {
   line-height: 1.4;
   font-size: 1.2rem;
   margin: 0;
   margin-top: 15px;
 }
-/* line 940, ../sass/_components.scss */
+/* line 943, ../sass/_components.scss */
 .footer-signup-cta .btn-default {
   padding: 15px 30px;
   /* make the standard button a little bigger */
@@ -1403,7 +1408,7 @@ hr.footer-cta {
   border-color: #66bdff;
   color: #000000;
 }
-/* line 948, ../sass/_components.scss */
+/* line 951, ../sass/_components.scss */
 .footer-signup-cta .btn-default:hover, .footer-signup-cta .btn-default:active, .footer-signup-cta .btn-default:focus {
   background-color: #66bdff;
   border-color: #66bdff;

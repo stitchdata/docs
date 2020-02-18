@@ -802,11 +802,11 @@ blockquote {
 	font-weight: 600;
 }
 
-.tutorial {
+.tutorial, .beta {
 	background-color: $bit-blue;
 }
 
-.concept, .all-plans {
+.concept, .all-plans, .released {
 	background-color: $green-junction;
 }
 
@@ -822,10 +822,13 @@ blockquote {
 	background-color: $stitch-yellow;
 }*/
 
+.deprecated, .sunset {
+	background-color: $gray-byte;
+}
+
 .enterprise {
 	background-color: $magenta-relay;
 }
-
 
 
 /* API/JS HEADINGS */
