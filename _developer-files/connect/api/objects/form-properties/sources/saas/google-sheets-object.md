@@ -45,6 +45,7 @@ object-attributes:
   - name: "spreadsheet_id"
     type: "string"
     required: true
-    description: "The unique identifier of your spreadsheet. It's also a good idea to link back to the setup docs for this, since locating the spreadsheet ID isn't totally straightforward. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-spreadsheet-id" }}) for instructions on locating this info."
+    description: |
+      The unique identifier of your spreadsheet. It's also a good idea to link back to the setup docs for this, since locating the spreadsheet ID isn't totally straightforward. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-spreadsheet-id" }}) for instructions on locating this info.
     value: "<YOUR_SPREADSHEET_ID>"   
 ---
