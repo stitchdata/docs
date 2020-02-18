@@ -1,9 +1,8 @@
 ---
-title: MongoDB (v1)
+title: MongoDB (v2)
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
-permalink: /integrations/databases/mongodb/v1
+permalink: /integrations/databases/mongodb/v2
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
-show-in-menus: false
 
 key: "mongodb-integration"
 
@@ -16,7 +15,7 @@ display_name: "MongoDB"
 
 hosting-type: "generic"
 
-this-version: "1"
+this-version: "2"
 
 driver: |
   [PyMongo 3.8.0](https://docs.mongodb.com/ecosystem/drivers/pymongo/){:target="new"}

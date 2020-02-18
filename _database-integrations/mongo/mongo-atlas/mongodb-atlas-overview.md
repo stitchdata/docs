@@ -1,20 +1,20 @@
 ---
-title: MongoDB
+title: MongoDB Atlas
 keywords: mongodb, mongodb, database integration, etl mongodb, mongodb etl, mongodb etl, etl
-permalink: /integrations/databases/mongodb
-summary: "Connect and replicate data from your MongoDB database using Stitch's MongoDB integration."
+permalink: /integrations/databases/mongodb-atlas
+summary: "Connect and replicate data from your MongoDB Atlas database using Stitch's MongoDB integration."
 layout: general
 input: false
 
-key: "mongodb-integration"
+key: "mongodb-atlas-integration"
 
 show-in-menus: true
 has-versions: true
 has-specific-data-types: false
 
 db-type: "mongo"
-name: "mongodb"
-display_name: "MongoDB"
+name: "mongodb-atlas"
+display_name: "MongoDB Atlas"
 
 sections:
   - title: "Identify your version"
@@ -40,10 +40,10 @@ sections:
         content: |
           {% include shared/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
       
-      - title: "Data types"
-        anchor: "data-types"
-        summary: "Data types"
-        content: |
-          {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
+      # - title: "Data types"
+      #   anchor: "data-types"
+      #   summary: "Data types"
+      #   content: |
+      #     {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
 ---
 {% include misc/data-files.html %}
