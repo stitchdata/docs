@@ -1,6 +1,7 @@
 ---
 tap: "jira"
-version: "1"
+version: "2"
+key: "resolution"
 
 name: "resolutions"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-projectCategory-post"

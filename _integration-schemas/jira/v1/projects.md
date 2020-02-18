@@ -1,10 +1,11 @@
 ---
 tap: "jira"
 version: "1"
+key: "project"
 
 name: "projects"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-project-get"
-singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/projects.json"
+singer-schema: "https://github.com/singer-io/tap-jira/tree/77206190933146b7cf51f14bfc7aaf670539ca5f/tap_jira/schemas/projects.json"
 description: |
   The `{{ table.name }}` table contains info about the projects in your {{ integration.display_name }} account.
 

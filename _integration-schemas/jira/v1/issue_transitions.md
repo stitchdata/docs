@@ -1,10 +1,11 @@
 ---
 tap: "jira"
 version: "1"
+key: "issue-transition"
 
 name: "issue_transitions"
 doc-link: "https://developer.atlassian.com/cloud/jira/platform/rest/v2/#api-api-2-issue-issueIdOrKey-transitions-get"
-singer-schema: "https://github.com/singer-io/tap-jira/blob/master/tap_jira/schemas/issue_transitions.json"
+singer-schema: "https://github.com/singer-io/tap-jira/tree/77206190933146b7cf51f14bfc7aaf670539ca5f/tap_jira/schemas/issue_transitions.json"
 description: |
   The `{{ table.name }}` table contains info about issue transitions.
 
