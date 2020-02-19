@@ -32,4 +32,4 @@ Not sure what destination you're using? You can find out by navigating to the {{
 
 Click the {{ app.menu-paths.destination-settings }} at the top of the screen.
 
-The settings form on this page will indicate which destination you have. For example: if you're using Postgres as your data warehouse, the heading at the top of the form will say "Postgres."
+The settings form on this page will indicate which destination you have. For example: If you're using PostgreSQL as your destination, the heading at the top of the form will say "PostgreSQL."
