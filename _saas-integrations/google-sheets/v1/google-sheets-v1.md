@@ -74,9 +74,13 @@ column-selection: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. Refer to the [Schema](#schema) section for a list of objects available for replication.
 
-  Stitch's {{ integration.display_name }} integration will generate tables containing data related to metadata and the individual sheets within a spreadsheet. Currently, the Stitch {{ integration.display_name }} integration replicates one spreadsheet at a time. To replicate another spreadsheet, you will need to create another {{ integration.display_name }} integration.
+  Stitch's {{ integration.display_name }} integration will generate tables containing data related to metadata and the individual sheets within a spreadsheet.
 
-  Stitch's {{ integration.display_name }} currently does not support the **IMPORTRANGE()** function to update the `modified_at` field. It also does not support spreadsheet integrations from shared **Team Drives**.
+  **Note**: There are a few limitations:
+
+  - Currently, the {{ integration.display_name }} integration replicates one spreadsheet at a time. To replicate another spreadsheet, you will need to create another {{ integration.display_name }} integration in Stitch.
+  - The `IMPORTRANGE()` function in {{ integration.display_name }} isn't currently supported. This integration identifies new and updated data using a spreadsheet's last `updated_at` value, which the `IMPORTRANGE()` doesn't update when used.
+  - Spreadsheets from shared **Team Drives** aren't currently supported. Permission errors will surface during extraction if you connect a spreadsheet from a Team Drive.
 
 
 # -------------------------- #
