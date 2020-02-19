@@ -3,7 +3,7 @@
 #        Page Controls       #
 # -------------------------- #
 
-title: Databricks Delta Destination Reference
+title: Databricks Delta (v1) Destination Reference
 permalink: /destinations/databricks-delta/reference
 keywords: delta, databricks delta, delta data warehouse, databricks delta etl, etl to databricks delta
 summary: "Reference documentation for Stitch's Databricks Delta destination, including info about Stitch features, replication, and transformations."
