@@ -48,8 +48,8 @@ object-attributes:
       Connection information for the Amazon S3 bucket Stitch will stage data to before loading into {{ form-property.display-name }}.
     value: |
       {
-           "scheme": "service_account",
-           "bucket_name": "<YOUR_PROJECT_ID>"
+           "scheme": "s3",
+           "bucket_name": "<S3-BUCKET-NAME>"
           }
     subattributes:
       - name: "scheme"
