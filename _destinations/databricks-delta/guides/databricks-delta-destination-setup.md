@@ -35,6 +35,7 @@ hosting-type: "amazon"
 
 this-version: "1"
 
+ssh: true
 
 # -------------------------- #
 #        Introduction        #
@@ -78,7 +79,7 @@ steps:
 
       To complete the setup, you'll need to configure your AWS account to allow access from Databricks. This is required to complete loading data into {{ destination.display_name }}.  Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access }}){:target="new"} for help configuing AWS access for Databricks.
 
-      **Note**: The Databricks cluster must have a **Databricks Runtime Version of 6.3 or higher** to work with Stitch. When you reach the [**Launch a new cluster with the S3 IAM role** step]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access | append: "#step-6-launch-a-cluster-with-the-s3-iam-role" }}){:target="new"} of Databricks' **Configuring S3 access** guide, make sure you select **version 6.3 or higher**:
+      **Note**: The Databricks cluster must have a **[Databricks Runtime]({{ site.data.destinations.databricks-delta.resource-links.databricks-runtime }}){:target="new"} Version of 6.3 or higher** to work with Stitch. When you reach the [**Launch a new cluster with the S3 IAM role** step]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access | append: "#step-6-launch-a-cluster-with-the-s3-iam-role" }}){:target="new"} of Databricks' **Configuring S3 access** guide, make sure you select **version 6.3 or higher**:
 
       ![]({{ site.baseurl }}/images/destinations/databricks-runtime-version.png)
 
@@ -122,7 +123,7 @@ steps:
     anchor: "connect-stitch"
     content: |
       {% for substep in step.substeps %}
-      - [Step 4.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
