@@ -3,7 +3,7 @@
 
 {% include misc/icons.html %}
 
-{% assign destinations = site.destinations | where:"destination",true %}
+{% assign destinations = site.destinations | where:"destination",true | sort_natural:"display_name" %}
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
@@ -54,7 +54,7 @@
                     <td class="attribute-name">
                         <strong>
                             <a href="{{ destination.url | prepend: site.baseurl }}">
-                                {{ destination.display_name }}
+                                {{ destination.display_name }} ({{ version }})
                             </a>
                         </strong>
                     </td>
