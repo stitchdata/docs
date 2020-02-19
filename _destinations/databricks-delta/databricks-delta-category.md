@@ -54,24 +54,25 @@ sections:
       {{ guide.summary | markdownify }}
       {% endfor %}
 
-  - title: "Using {{ page.display_name }}"
-    anchor: "using-destination"
-    guides:
-      - key:
-      - key: 
-    content: |
-      {% for guide in section.guides %}
-      {% assign this-guide = site.documents | where:"key",guide.key | first %}
-      <span class="h4">
-      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
-      </span>
-      {{ this-guide.summary | flatify }}
-      {% endfor %}
+  # - title: "Using {{ page.display_name }}"
+  #   anchor: "using-destination"
+  #   guides:
+  #     - key:
+  #     - key: 
+  #   content: |
+  #     {% for guide in section.guides %}
+  #     {% assign this-guide = site.documents | where:"key",guide.key | first %}
+  #     <span class="h4">
+  #     [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+  #     </span>
+  #     {{ this-guide.summary | flatify }}
+  #     {% endfor %}
 
   - title: "Reference"
     anchor: "reference-guides"
     guides:
       - key: "dedicated-overview"
+      - key: "databricks-delta-loading-reference"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
 #   - loading-errors
