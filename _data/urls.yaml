@@ -134,7 +134,7 @@ destinations:
 
 
 # -------------------------- #
-#        Data Storage        #
+#          Loading           #
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
@@ -165,11 +165,22 @@ destinations:
     redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
     bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
     primary-key-system-table: /replication/loading/primary-keys-system-table
-    reserved-keywords: /replication/loading/reserved-keywords
 
     loading-behavior: /replication/loading/understanding-loading-behavior
 
     bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+
+    reserved-keywords:
+      overview: /replication/loading/reserved-keywords
+      redshift-v2: /replication/loading/reserved-keywords#redshift-v2-reserved-keywords
+      bigquery-v1: /replication/loading/reserved-keywords#bigquery-v1-reserved-keywords
+      bigquery-v2: /replication/loading/reserved-keywords#bigquery-v2-reserved-keywords
+      databricks-delta-v1: /replication/loading/reserved-keywords#databricks-delta-v1-reserved-keywords
+      azure-v1: /replication/loading/reserved-keywords#microsoft-azure-v1-reserved-keywords
+      postgres-v1: /replication/loading/reserved-keywords#postgres-v1-reserved-keywords
+      panoply-v2: /replication/loading/reserved-keywords#panoply-v2-reserved-keywords
+      snowflake-v1: /replication/loading/reserved-keywords#snowflake-v1-reserved-keywords
+
 
 # -------------------------- #
 #         INTEGRATIONS       #

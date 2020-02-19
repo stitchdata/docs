@@ -49,7 +49,8 @@ column-name-rules: |
   - Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (`_`)
   - Must begin with a letter or an underscore
   - Must be less than the maximum length of {{ site.data.destinations.databricks-delta.destination-details.column-name-length }}. Columns that exceed this limit will be [rejected by {{ destination.display_name }}]({{ link.destinations.storage.rejected-records | prepend: site.baseurl }}).
-  - Must not be prefixed or suffixed with any of [Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#destination-type-reserved-keywords" }})
+  {% assign destination-version = destination.type | append: "-v" | append: destination.this-version %}
+  - Must not be prefixed or suffixed with any of [Stitch's reserved keyword prefixes or suffixes]({{ link.destinations.storage.reserved-keywords[destination-version] | prepend: site.baseurl }})
 
 column-name-transformations:
   - transformation: "Convert uppercase and mixed case to lowercase"
