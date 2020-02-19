@@ -37,11 +37,7 @@ this-version: "1"
 
 ssh: true
 
-# -------------------------- #
-#        Introduction        #
-# -------------------------- #
 
-intro: |
 
 # -------------------------- #
 #      Setup Requirements    #

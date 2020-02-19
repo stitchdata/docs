@@ -136,7 +136,7 @@ sections:
         content: |
           When developing your Import API script, you should keep these general guidelines in mind:
 
-          - **Field names shouldn't include reserved words**. This includes the keywords [reserved by Stitch]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl }}) and by [your destination]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append: "#destination-reserved-keywords" }}). For example: Fields shouldn't contain `{{ system-column.prefix }}`, a Stitch system prefix.
+          - **Field names shouldn't include reserved words**. This includes the keywords [reserved by Stitch]({{ link.destinations.storage.reserved-keywords.overview | prepend: site.baseurl }}) and by [your destination]({{ link.destinations.storage.reserved-keywords.overview | prepend: site.baseurl | append: "#destination-reserved-keywords" }}). For example: Fields shouldn't contain `{{ system-column.prefix }}`, a Stitch system prefix.
 
           - **Fields should contain one data type per field.** This affects not only how data is typed in your destination, but the resulting structure of destination tables. Refer to the [Data typing section](#changed-data-type-handling) for more info.
 
