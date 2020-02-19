@@ -31,6 +31,11 @@ pk-column-change:
   anchor: "pk-column-change"
   if: "The table's Primary Key(s) is/are changed."
 
+pk-column-column-split:
+  heading: "The data type for a Primary Key column changes in the source?"
+  anchor: "pk-column-column-split"
+  if: "A Primary Key column in a source contains multiple data types."
+
 ## Customer removes Primary Keys in the destination
 remove-pk-column:
   heading: "I remove the Primary Key columns for a table in the destination?"

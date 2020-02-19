@@ -65,6 +65,6 @@ column-name-transformations:
     source-column: "<code>customer#id</code> or <code>!customerid</code>"
     destination-column: "<code>customer_id</code> and <code>_customerid</code>"
 
-  - transformation: "Convert leading numbers to underscores"
-    source-column: "<code>4customerid</code>"
+  - transformation: "Convert leading non-letter characters to an underscore"
+    source-column: "<code>4customerid</code> or <code>!customerid</code>"
     destination-column: "<code>_customerid</code>"
