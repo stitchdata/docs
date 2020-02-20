@@ -2,6 +2,47 @@
 #       SOURCE OBJECTS       #
 # -------------------------- #
 
+
+import-api:
+  access-token: |
+    {
+      "properties": {
+        "token": {
+          "<TOKEN_ID>": "<IMPORT_API_ACCESS_TOKEN>"
+        }
+      }
+    }
+  full-object: |
+    {
+      "properties": {},
+      "updated_at": "2020-01-02T15:49:27Z",
+      "schedule": null,
+      "name": "import_api",
+      "type": "import_api",
+      "deleted_at": null,
+      "system_paused_at": null,
+      "stitch_client_id": 116078,
+      "paused_at": null,
+      "id": 126890,
+      "display_name": "Import API",
+      "created_at": "2020-01-02T15:49:27Z",
+      "report_card": {
+        "type": "import_api",
+        "current_step": 2,
+        "current_step_type": "fully_configured",
+        "steps": [
+          {
+            "type": "form",
+            "properties": []
+          },
+          {
+            "type": "fully_configured",
+            "properties": []
+          }
+        ]
+      }
+    }
+
 mysql: |
   {
     "properties": {

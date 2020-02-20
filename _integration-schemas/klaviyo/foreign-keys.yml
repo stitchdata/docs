@@ -1,0 +1,91 @@
+---
+tap-reference: "klaviyo"
+
+version: "1"
+
+foreign-keys: 
+  - id: "bounce-id"
+    attribute: "id"
+    table: "bounce"
+    all-foreign-keys:
+      - table: "bounce"
+        join-on: "id"
+     
+  - id: "click-id"
+    attribute: "id"
+    table: "click"  
+    all-foreign-keys:
+      - table: "click"   
+        join-on: "click-id"
+
+  - id: "dropped-id"
+    attribute: "id"
+    table: "dropped_email"  
+    all-foreign-keys:
+      - table: "dropped_email"   
+        join-on: "dropped-id"
+
+  - id: "spam-id"
+    attribute: "id"
+    table: "mark_as_spam"  
+    all-foreign-keys:
+      - table: "mark_as_spam"   
+        join-on: "spam-id"
+
+  - id: "open-id"
+    attribute: "id"
+    table: "open"  
+    all-foreign-keys:
+      - table: "open"   
+        join-on: "open-id"
+
+  - id: "receive-id"
+    attribute: "id"
+    table: "receive"  
+    all-foreign-keys:
+      - table: "receive"   
+        join-on: "receive-id"
+
+  - id: "subscribe-id"
+    attribute: "id"
+    table: "subscribe_list"  
+    all-foreign-keys:
+      - table: "subscribe_list"   
+        join-on: "subscribe-id"
+
+  - id: "unsub-list-id"
+    attribute: "id"
+    table: "unsub_list"  
+    all-foreign-keys:
+      - table: "unsub_list"   
+        join-on: "unsub-id"
+
+  - id: "unsubscribe-id"
+    attribute: "id"
+    table: "unsubscribe"  
+    all-foreign-keys:
+      - table: "unsubscribe"   
+        join-on: "unsubscribe-id"
+        
+  - id: "update-email-id"
+    attribute: "id"
+    table: "update_email_preferences"  
+    all-foreign-keys:
+      - table: "update_email_preferences"   
+        join-on: "update-email-id"  
+
+  - id: "list-id"
+    attribute: "id"
+    table: "lists"
+    all-foreign-keys:
+      - tale: "lists"                
+        join-on: "id"
+
+  - id: "exclusion-id"
+    attribute: "email"
+    table: "global_exclusions"
+    all-foreign-keys:
+      - table: "global_exclusions"
+        join-on: "email"    
+    
+---

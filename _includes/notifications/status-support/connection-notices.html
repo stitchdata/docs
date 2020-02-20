@@ -1,0 +1,32 @@
+<!-- This contains the logic and includes for displaying the
+    callout blocks at the top of destination and integration
+    pages.  -->
+
+{% case page.connection-type %}
+    {% when 'destination' %}
+        {% include shared/versioning/destination-version-logic.html item-name="page" %}
+
+        {% assign connection-is-certified = true %}
+
+    {% when 'integration' %}
+        {% include shared/versioning/integration-version-logic.html item-name="page" %}
+
+        {% assign connection-is-certified = page.certified %}
+
+    <!-- Only display this for integrations that haven't been sunset -->
+        {% if this-version.status != "sunset" %}
+            {% include notifications/status-support/support.html %}
+        {% endif %}
+
+{% endcase %}
+
+
+<!-- Based on the version's status, display the correct notice: -->
+    {% case this-version.status %}
+        {% when 'beta' %}
+            {% include notifications/status-support/beta.html %}
+        {% when 'deprecated' %}
+            {% include notifications/status-support/deprecated.html %}
+        {% when 'sunset' %}
+            {% include notifications/status-support/sunset.html %}
+    {% endcase %}

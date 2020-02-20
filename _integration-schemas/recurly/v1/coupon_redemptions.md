@@ -1,6 +1,6 @@
 "number"---
 tap: "recurly"
-version: "1.0"
+version: "1"
 
 name: "coupon_redemptions"
 key: "coupon-redemption"

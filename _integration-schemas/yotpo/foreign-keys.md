@@ -1,7 +1,7 @@
 ---
 tap-reference: "yotpo"
 
-version: "1.0"
+version: "1"
 
 foreign-keys:
   - id: "email-address-id"

@@ -1,6 +1,6 @@
 ---
 tap: "xero"
-version: "1.0"
+version: "1"
 
 name: "contacts"
 doc-link: &api-doc https://developer.xero.com/documentation/api/contacts

@@ -1,0 +1,42 @@
+# --------------------------------------- #
+#  SNOWFLAKE DESTINATION STITCH DETAILS   #
+# --------------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for Snowflake destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+# stitch-plan-availability: "all"
+
+supported-versions: "n/a"
+
+available-in-connect: true
+
+api-type: "snowflake"
+
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: false ## Indicates whether SSL can be configured via the API
+
+ssh: false
+
+vpn: false
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: true
+workload-performance-management-description: ""

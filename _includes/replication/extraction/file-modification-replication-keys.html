@@ -7,27 +7,29 @@ While data from {{ integration.display_name }} integrations is replicated using 
 The table below compares Key-based Incremental Replication and [Replication Key]({{ link.replication.rep-keys | prepend: site.baseurl }}) behavior for {{ integration.display_name }} to that of other integrations.
 
 <table class="attribute-list">
-<tr>
-<td>
-</td>
-<td>
-<strong>{{ integration.display_name }}</strong>
-</td>
-<td>
-<strong>Other integrations</strong>
-</td>
-</tr>
-{% for comparison in site.data.taps.extraction.replication-methods.key-based-incremental.database-file-integrations %}
-<tr>
-<td align="right" width="35%; fixed">
-<strong>{{ comparison.item | flatify }}</strong>
-</td>
-<td>
-{{ comparison.this-integration | markdownify }}
-</td>
-<td>
-{{ comparison.other-integrations | markdownify }}
-</td>
-</tr>
-{% endfor %}
+	<tr>
+		<td>
+		</td>
+		<td>
+			<strong>{{ integration.display_name }}</strong>
+		</td>
+		<td>
+			<strong>Other integrations</strong>
+		</td>
+	</tr>
+<!-- The content for this file is kept in:
+	_data/taps/extraction/replication-methods/key-based-incremental.yml -->
+	{% for comparison in site.data.taps.extraction.replication-methods.key-based-incremental.database-file-integrations %}
+		<tr>
+			<td align="right" width="30%; fixed">
+				<strong>{{ comparison.item | flatify }}</strong>
+			</td>
+			<td>
+				{{ comparison.this-integration | markdownify }}
+			</td>
+			<td>
+				{{ comparison.other-integrations | markdownify }}
+			</td>
+		</tr>
+	{% endfor %}
 </table>

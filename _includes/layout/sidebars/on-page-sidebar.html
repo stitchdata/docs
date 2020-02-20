@@ -94,7 +94,7 @@
 	    	{% for related in page.related %}
 	    		<li>
             		<a href="{{ related.link | flatify }}">
-		            	{{ related.title }}
+		            	{{ related.title | flatify }}
 		            </a>
 		        </li>
 	    	{% endfor %}

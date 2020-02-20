@@ -11,6 +11,7 @@ input: false
 layout: tutorial
 use-tutorial-sidebar: true
 
+key: "pagerduty-email-notifications"
 type: "notifications"
 weight: 5
 

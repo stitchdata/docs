@@ -1,9 +1,11 @@
 ---
-title: Amazon MySQL RDS
+title: Amazon MySQL RDS (v1)
 keywords: amazon, amazon rds, rds, relational database services, database integration, etl rds, rds etl
 permalink: /integrations/databases/amazon-rds-mysql
 summary: "Connect and replicate data from your Amazon RDS MySQL using Stitch's MySQL integration."
 show-in-menus: true
+
+key: "mysql-rds-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -12,7 +14,7 @@ show-in-menus: true
 name: "mysql-rds"
 display_name: "Amazon MySQL RDS"
 
-# this-version: "1.0"
+this-version: "1"
 
 hosting-type: "amazon"
 
@@ -23,8 +25,9 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
+singer: true
+repo-url: https://github.com/singer-io/tap-mysql
 setup-name: "MySQL"
 
 frequency: "30 minutes"
@@ -33,7 +36,7 @@ port: 3306
 db-type: "mysql"
 
 ## Stitch features
-
+api-type: "platform.mysql"
 versions: "n/a"
 ssh: true
 ssl: true
@@ -116,7 +119,7 @@ setup-steps:
 
           Skipping this step or disabling automatic backups will cause replication issues in Stitch.
 
-          Refer to the **Transaction Size** section of [Amazon's Importing Data into a MySQL DB Instance](https://docs.amazonaws.cn/en_us/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.Other.html){:target="new"} documentation for more info.
+          Refer to the **Transaction Size** section of [Amazon's Importing Data into a MySQL DB Instance](https://docs.aws.amazon.com/en_us/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.Other.html){:target="new"} documentation for more info.
           {% endcapture %}
           {% include note.html type="single-line" content=mysql-rds-backup-requirement %}
 
@@ -132,7 +135,7 @@ setup-steps:
         content: |
           {% include integrations/databases/setup/binlog/mysql-server-id.html %}
 
-      - title: "Define the binlong retention setting"
+      - title: "Define the binlog retention setting"
         anchor: "define-binlog-retention-setting"
         content: |
           {% include integrations/databases/setup/binlog/amazon-rds/define-database-settings.html content="binlog-retention-hours" %}

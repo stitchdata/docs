@@ -9,7 +9,7 @@
 
 
 tap: "salesforce-marketing-cloud"
-# version: 
+version: "1"
 
 name: "subscriber"
 doc-link: https://developer.salesforce.com/docs/atlas.en-us.noversion.mc-apis.meta/mc-apis/subscriber.htm

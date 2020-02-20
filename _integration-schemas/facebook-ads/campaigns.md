@@ -1,6 +1,6 @@
 ---
 tap: "facebook-ads"
-version: 1.0
+version: "1"
 
 name: "campaigns"
 doc-link: https://developers.facebook.com/docs/reference/ads-api/adcampaign/
@@ -77,10 +77,6 @@ attributes:
   - name: "start_time"
     type: "date-time"
     description: "The campaign's start time."
-
-  - name: "end_time"
-    type: "date-time"
-    description: "The campaign's end time."
 
   - name: "ads"
     type: "array"

@@ -1,6 +1,6 @@
 ---
 tap: "typeform"
-version: "1.0"
+version: "1"
 
 name: "questions"
 doc-link: "https://developer.typeform.com/create/reference/retrieve-form/"

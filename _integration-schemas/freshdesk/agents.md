@@ -1,6 +1,6 @@
 ---
 tap: "freshdesk"
-# version: ""
+version: "1"
 
 name: "agents"
 

@@ -2,18 +2,26 @@
 #        JIRA VERSIONS       #
 # -------------------------- #
 
-latest-version: "1.0"
+latest-version: "2"
 
 released-versions:
-  - number: "1.0"
-    date-released: "February 27, 2019"
+  - number: "2"
+    status: "released"
+    date-released: "February 28, 2020"
     # date-last-connection:
-    deprecated: false
-    deprecation-date: "n/a"
+    deprecation-date: ""
+    sunset-date: ""
+
+  - number: "1"
+    status: "released"
+    date-released: "February 27, 2019"
+    date-last-connection: "February 28, 2020"
+    deprecation-date: ""
+    sunset-date: ""
 
   - number: "15-10-2015"
+    status: "deprecated"
     date-released: "October 15, 2015"
     date-last-connection: "February 26, 2019"
-    deprecated: true
     deprecation-date: "April 17, 2019"
     sunset-date: "July 15, 2019"

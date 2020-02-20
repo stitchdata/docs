@@ -1,7 +1,7 @@
 ---
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
-keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database repli8cation
+keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database replication
 tags: [replication]
 layout: general
 
@@ -41,10 +41,20 @@ example-table:
 # --------------------------- #
 
 feature-details:
+  - database: "Amazon DynamoDB"
+    db-type: "dynamodb"
+    name: "DynamoDB streams"
+    link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html"
+
   - database: "Microsoft SQL Server"
     db-type: "mssql"
     name: "Change Tracking"
     link: "https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/about-change-tracking-sql-server?view=sql-server-2017"
+
+  - database: "MongoDB"
+    db-type: "mongo"
+    name: "OpLog"
+    link: "https://docs.mongodb.com/manual/core/replica-set-oplog/"
 
   - database: "MySQL"
     db-type: "mysql"
@@ -92,7 +102,9 @@ sections:
       - **Log message** - A single change made to a database. For example: An `UPDATE` to a record.
       - **Log position ID** - A unique identifier corresponding to the position of a log message in a log file. These values are incremental, increasing as log messages are generated.
 
+         - In **Amazon DynamoDB**, this is called a **Shard iterator.** [Shard iterators](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html){:target="new"} are used to identify a specific position within a unique shard.
          - In **Microsoft SQL Server**, this is called the **Change Tracking Version**. As [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/work-with-change-tracking-sql-server?view=sql-server-2017#version-numbers){:target="new"} notes, this concept is similar to `rowversion`.
+         - In **MongoDB**, this is a field in the database log named `ts`. The `ts` field is a combination of a timestamp and an ordinal (integer counter) value. For example: `"ts": Timestamp(1412180887, 1)` The timestamp is in seconds since the Unix epoch, and the ordinal is used to differentiate between entries that occured during the same second.
          - In **MySQL and PostgreSQL**, this is called a **Log Sequence Number (LSN)**.
          - In **Oracle**, this is called a **System Change Number (SCN)**.
       - **Replication job** - {{ site.data.tooltips.replication-job }}
@@ -103,7 +115,6 @@ sections:
       {% for feature in page.feature-details %}
       - **{{ feature.database }}**: [{{ feature.name }}]({{ feature.link }}){:target="new"}
       {% endfor %}
-
 
   - title: "How {{ page.title }} works"
     anchor: "how-log-based-incremental-replication-works"
@@ -209,15 +220,17 @@ sections:
           For example: If data in a table is modified using `ALTER`, the changes won't be written to the log or identified by Stitch.
 
 ## STRUCTURAL CHANGES
-      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention"
+      - title: "Limitation {{ forloop.index }}: Structural changes require manual intervention (Microsoft SQL Server, MySQL, PostgreSQL, Oracle)"
         anchor: "limitation--structural-changes"
         content: |
+          {% include note.html type="single-line" content="**Note**: This section is applicable only to **Microsoft SQL Server, MySQL, Oracle**, and **PostgreSQL**-backed database integrations." %}
+
           Any time the structure of a source table changes, you'll need to [reset the table from the {{ app.page-names.table-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). This will queue a full re-replication of the table and ensure that structural changes are correctly captured.
 
           Structural changes can include adding new columns, removing columns, changing a data type, etc. Resetting the table is required due to how messages in logs are structured and how Stitch's integrations validate table schemas when extracting data. When a structural change occurs without a table being reset, an extraction error similar to the following will surface in the [Extraction Logs]({{ link.replication.extraction-logs | prepend: site.baseurl }}):
 
           ```
-          {{ site.data.errors.database-extraction.mysql.raw-error.schema-violation | lstrip | rstrip }}
+          {{ site.data.errors.extraction.databases.mysql.raw-error.schema-violation | lstrip | rstrip }}
           ```
 
           For this reason, Stitch recommends using {{ page.title }} with tables that have structures that don't change frequently.
@@ -259,7 +272,7 @@ sections:
               1,Finn,human,2,Jake,dog,3,Bubblegum,princess
               ```
 
-              Stitch's MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
+              Stitch's Microsoft SQL Server, MySQL, Oracle, and PostgreSQL integrations use JSON schema validation to ensure that values in log messages are attributed to the correct fields when data is loaded into your destination. For this reason, schema changes in a source - whether it's changing a column's data type or re-ordering columns - will cause an extraction error to occur.
 
               If the column order or data types of a source table change in any capacity, the integration will not persist new or updated records that use this updated schema, as it does not have a means of attributing values to their proper columns based on the ordinal set when compared to the expected schema that was previously detected.
 
@@ -318,12 +331,12 @@ sections:
 
           - **For MySQL databases**:
             ```
-            {{ site.data.errors.database-extraction.mysql.raw-error.log-retention-purge | strip }}
+            {{ site.data.errors.extraction.databases.mysql.raw-error.log-retention-purge | strip }}
             ```
 
           - **For Oracle databases**:
             ```
-            {{ site.data.errors.database-extraction.oracle.raw-error.missing-logfile | strip }}
+            {{ site.data.errors.extraction.databases.oracle.raw-error.missing-logfile | strip }}
             ```
 
           To resolve the error, you'll need to [reset the integration from the {{ app.page-names.int-settings }} page]({{ link.replication.reset-rep-keys | prepend: site.baseurl }}). **Note**: This is different than resetting an individual table.

@@ -13,14 +13,17 @@
 # -------------------------- #
 
 title: Connecting an Amazon Redshift Destination to Stitch
-permalink: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
-redirect_from: /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+permalink: /destinations/amazon-redshift/connecting-redshift-data-warehouse-to-stitch
+redirect_from: 
+  - /destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel
+  - /destinations/redshift/connecting-redshift-data-warehouse-to-stitch
 
 keywords: redshift, amazon redshift, redshift data warehouse, etl to redshift, redshift etl, create redshift user, stitch redshift user, stitch user
 
 summary: "Connect an Amazon Redshift destination to your Stitch account."
 
 content-type: "destination-setup"
+key: "redshift-destination-setup"
 order: 1
 
 toc: true
@@ -32,7 +35,9 @@ use-tutorial-sidebar: false
 #     Destination Details    #
 # -------------------------- #
 
-display_name: "Redshift"
+display_name: "Amazon Redshift"
+name: "redshift"
+
 type: "redshift"
 
 hosting-type: "amazon"
@@ -40,6 +45,8 @@ hosting-type: "amazon"
 ssh: true
 ssl: true
 port: 5439
+
+this-version: "2"
 
 
 # -------------------------- #

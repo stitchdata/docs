@@ -12,11 +12,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Asana
+title: Asana (v1)
 permalink: /integrations/saas/asana
 keywords: asana, integration, schema, etl asana, asana etl, asana schema
 layout: singer
 # input: false
+
+key: "asana-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -29,7 +31,7 @@ singer: true
 tap-name: "Asana"
 repo-url: https://github.com/singer-io/tap-asana
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://asana.com/developers/documentation/examples-tutorials/overview){:target="new"}
@@ -38,7 +40,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"
@@ -46,8 +47,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://trust.asana.com/"
 
+api-type: "platform.asana"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

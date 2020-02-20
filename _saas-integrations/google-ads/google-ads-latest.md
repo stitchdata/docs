@@ -9,6 +9,8 @@ keywords: google adwords, google ads, google adwords data, etl google adwords, g
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Ads integration."
 layout: singer
 
+key: "google-ads-setup"
+
 microsites:
   - title: "{{ page.display_name }} to BigQuery"
     url: "http://adwords.tobigquery.com/"
@@ -24,7 +26,7 @@ singer: true
 tap-name: "Google AdWords"
 repo-url: https://github.com/singer-io/tap-adwords
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [Google AdWords API (v201809)](https://developers.google.com/adwords/api/docs/guides/start){:target="new"}
@@ -35,7 +37,6 @@ api: |
 
 api-version: "v201809"
 
-status: "Released"
 certified: true
 
 historical: "30 days"
@@ -43,14 +44,21 @@ frequency: "24 hours"
 tier: "Free"
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
+api-type: "platform.adwords"
+
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: true
 column-selection: true
 
-anchor-scheduling: true
-cron-scheduling: false
-
 extraction-logs: true
 loading-reports: true
+
+append-only-integration: false
+append-only-tables: true
+append-only-tables-description: "All Report tables"
+
 
 ## Row usage details
 
@@ -70,7 +78,6 @@ row-usage-hog-reasons:
 ## account for any updates to existing records made during 
 ## this time.
 
-replication-notes: true
 attribution-window: "30 days"
 
 # -------------------------- #

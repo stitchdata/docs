@@ -1,6 +1,6 @@
 ---
 tap: "yotpo"
-version: "1.0"
+version: "1"
 
 name: "product_reviews"
 doc-link: https://apidocs.yotpo.com/reference#section-what-are-reviews

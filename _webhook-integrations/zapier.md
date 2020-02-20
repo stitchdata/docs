@@ -13,8 +13,6 @@ summary: "Connect your Zapier data to Stitch using Stitch's Incoming Webhooks in
 
 name: "zapier"
 display_name: "Zapier"
-author: "Stitch"
-author-url: "https://www.stitchdata.com"
 
 # -------------------------- #
 #       Stitch Details       #
@@ -36,6 +34,9 @@ icon:  /images/integrations/icons/zapier.svg
 
 table-selection: false
 column-selection: false
+
+extraction-logs: false
+loading-reports: false
 
 # -------------------------- #
 #     Integration Tables     #

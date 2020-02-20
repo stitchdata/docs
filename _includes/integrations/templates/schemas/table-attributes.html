@@ -35,7 +35,7 @@
 						<p>
 							<strong>
 								{% if attribute.doc-link %}
-	                            	<a href="{{ attribute.doc-link }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a>
+	                            	<a href="{{ attribute.doc-link | flatify }}" title="Opens in new window: {{ integration.display_name }} {{ table.name }} table {{ attribute.name }} attribute documentation" target="new">{{ attribute.name | flatify }}</a>
 	                        	{% else %}
 	                            	{{ attribute.name | flatify }}
 	                        	{% endif %}

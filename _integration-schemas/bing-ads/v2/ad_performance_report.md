@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-version: "2.0"
+version: "2"
 
 name: "ad_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/adperformancereportcolumn#values
@@ -18,7 +18,9 @@ description: |
   - `FinalURL` is now `FinalUrl`
   - `FinalMobileURL` is now `FinalMobileUrl`
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+append-only-loading: true
+
 attribution-window: true
 
 attributes:

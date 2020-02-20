@@ -8,7 +8,7 @@ layout: general
 toc: true
 
 type: "account-settings"
-weight: 1
+weight: 3
 
 enterprise-cta:
   title: "Need HIPAA compliance?"

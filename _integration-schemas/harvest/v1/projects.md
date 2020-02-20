@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "1.0"
+version: "1"
 
 name: "projects"
 doc-link: http://help.getharvest.com/api-v1/projects-api/projects/create-and-show-projects#projects-parameters

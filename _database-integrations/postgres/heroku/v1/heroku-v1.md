@@ -1,11 +1,13 @@
 ---
-title: Heroku (v1.0)
+title: Heroku (v1)
 keywords: heroku, heroku-postgres, database integration, etl heroku, heroku etl
 permalink: /integrations/databases/heroku/v1
 summary: "Connect and replicate data from your Heroku database using Stitch's Heroku integration."
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostgres.com/"
+
+key: "heroku-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -18,7 +20,7 @@ singer: true
 tap-name: "Postgres"
 repo-url: "https://github.com/singer-io/tap-postgres"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
@@ -27,7 +29,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "1 hour"
@@ -36,7 +37,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-
+api-type: "platform.heroku_pg"
 versions: "9.3+"
 ssh: false
 ssl: true
@@ -109,6 +110,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

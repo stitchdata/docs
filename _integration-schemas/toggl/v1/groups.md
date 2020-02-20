@@ -1,6 +1,6 @@
 ---
 tap: "toggl"
-version: "1.0"
+version: "1"
 
 name: "groups"
 doc-link: "https://github.com/toggl/toggl_api_docs/blob/master/chapters/groups.md"

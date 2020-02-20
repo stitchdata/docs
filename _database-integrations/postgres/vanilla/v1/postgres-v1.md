@@ -1,5 +1,5 @@
 ---
-title: PostgreSQL (v1.0)
+title: PostgreSQL (v1)
 keywords: postgresql, postgres, database integration, etl postgres, postgres etl, postgresql etl, etl
 permalink: /integrations/databases/postgresql/v1
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
@@ -7,6 +7,8 @@ summary: "Connect and replicate data from your PostgreSQL database using Stitch'
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"
+
+key: "postgres-integration"
 
 # -------------------------- #
 #     Integration Details    #
@@ -21,7 +23,7 @@ repo-url: "https://github.com/singer-io/tap-postgres"
 
 hosting-type: "generic"
 
-this-version: "1.0"
+this-version: "1"
 
 driver: |
   [Psycopg 2.7.4](http://initd.org/psycopg/docs/index.html){:target="new"}
@@ -30,7 +32,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "1 hour"
@@ -39,7 +40,7 @@ port: 5432
 db-type: "postgres"
 
 ## Stitch features
-
+api-type: "platform.postgres"
 versions: "9.3+; 9.4+ for binlog"
 ssh: true
 ssl: true
@@ -202,7 +203,6 @@ setup-steps:
         anchor: "ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
-
       - title: "Define the SSL connection details"
         anchor: "ssl-connection-details"
         content: |
@@ -219,6 +219,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

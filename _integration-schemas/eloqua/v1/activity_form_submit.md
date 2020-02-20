@@ -1,6 +1,6 @@
 ---
 tap: "eloqua"
-version: "1.0"
+version: "1"
 
 name: "activity_form_submit"
 key: "activity-form-submit"

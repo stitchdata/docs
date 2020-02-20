@@ -1,9 +1,11 @@
 ---
-title: Outbrain (v1.0)
+title: Outbrain (v1)
 permalink: /integrations/saas/outbrain
 keywords: outbrain, integration, schema, etl outbrain, outbrain etl, outbrain schema
 summary: "Connection instructions and schema details for Stitch's Outbrain integration."
 layout: singer
+
+key: "outbrain-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -15,7 +17,7 @@ display_name: "Outbrain"
 singer: true
 repo-url: https://github.com/singer-io/tap-outbrain
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Amplify API](http://developer.outbrain.com/home-page/amplify-api/){:target="new"}
@@ -24,15 +26,16 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+api-type: "platform.outbrain"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: false
 column-selection: false

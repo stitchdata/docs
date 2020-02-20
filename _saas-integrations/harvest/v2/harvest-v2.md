@@ -1,9 +1,11 @@
 ---
-title: Harvest (v2.0)
+title: Harvest (v2)
 permalink: /integrations/saas/harvest
 keywords: harvest, harvest integration, schema, etl harvest, harvest etl, harvest schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Harvest integration."
 layout: singer
+
+key: "harvest-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -14,7 +16,7 @@ display_name: "Harvest"
 singer: true
 repo-url: https://github.com/singer-io/tap-harvest
 
-this-version: "2.0"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} REST API V2](https://help.getharvest.com/api-v2/){:target="new"}
@@ -23,7 +25,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -31,13 +32,16 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://harveststatus.com/
 
+api-type: "platform.harvest"
+
 table-selection: false
 column-selection: false
 
-extraction-logs: true
-loading-reports: true
 anchor-scheduling: true
 cron-scheduling: false
+
+extraction-logs: true
+loading-reports: true
 
 
 # -------------------------- #

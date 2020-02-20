@@ -1,0 +1,41 @@
+# --------------------------------------- #
+#      POSTGRESQL REPLICATION DETAILS     #
+# --------------------------------------- #
+
+## Details about replication/loading for
+## Stitch's PostgreSQL destination.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+primary-key-support: true
+
+nested-structure-support: false
+nested-structure-support-description: "Nested data structures will be flattened into relational objects."
+
+rename-original-column-in-split:  true
+
+
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+default-loading-behavior: "Upsert"
+
+loading-behavior-types:
+  - "Upsert"
+
+loading-behavior-description: ""
+
+
+# - id: "primary-keys"
+# categories: "replication"
+# value: *primary-key-support
+# description: |
+#   {{ destination.display_name }} destinations natively support Primary Keys.
+
+#   Stitch requires Primary Keys to de-dupe data during Incremental Replication. Primary Key columns are created using [Primary Key constraints](https://www.postgresql.org/docs/10/static/ddl-constraints.html#DDL-CONSTRAINTS-PRIMARY-KEYS){:target="new"}, which requires that values be both unique and not null.

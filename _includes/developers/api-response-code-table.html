@@ -1,0 +1,90 @@
+
+<!-- This file displays response code tables for general docs, as well as specific endpoints. -->
+
+<table class="attribute-list">
+    <tr>
+        <td align="right">
+            <strong>
+                Code
+            </strong>
+        </td>
+
+{% case include.type %}
+
+<!-- For endpoint-specific response codes. This will show in the 'errors' tab of each
+    endpoint's documentation. -->
+    {% when 'endpoint' %}
+    <!-- If the example specifies a non-endpoint-specific file, use that instead.
+            For an example, look at the custom-email and hook notifications endpoints.
+            While they're both under /notifications, each one has its own set of errors.
+            This allows them to display only the ones that are relevant. -->
+        {% if example.error-file %}
+            {% assign all-response-codes = site.data[page.product-type]response-codes[example.error-file]all | compact %}
+
+        {% else %}
+            {% assign all-response-codes = site.data[page.product-type]response-codes[item.endpoint]all | compact %}
+        {% endif %}
+            <td width="30%; fixed">
+                <strong>
+                    Condition
+                </strong>
+            </td>
+            <td>
+                <strong>
+                    Response body
+                </strong>
+            </td>
+        </tr>
+            {% for response-code in all-response-codes %}
+                {% assign response-codes = response-code.responses | where_exp:"response","response.method contains item.method" %}
+
+                    {% for response in response-codes %}
+                        {% if response.version contains "all" or response.version contains item.version %}
+                            <tr>
+                                <td align="right">
+                                    <strong>{{ response-code.code }}</strong>
+                                </td>
+                                <td>
+                                    {{ response.condition | markdownify }}
+                                </td>
+                                <td>
+                                    {{ response.response-body | flatify | markdownify }}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+            {% endfor %}
+    </table>
+
+
+<!-- For the general response code documentation -->
+    {% else %}
+        {% assign general-response-codes = site.data[page.product-type].response-codes.general-codes.all-codes %}
+                <td width="25%; fixed">
+                    <strong>
+                        Text
+                    </strong>
+                </td>
+                <td>
+                    <strong>
+                        Description
+                    </strong>
+                </td>
+            </tr>
+            {% for code in general-response-codes %}
+                <tr>
+                    <td align="right">
+                        <strong>
+                            {{ code.code }}
+                        </strong>
+                    </td>
+                    <td>
+                        {{ code.text | flatify | markdownify }}
+                    </td>
+                    <td>
+                        {{ code.description | flatify | markdownify }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+{% endcase %}

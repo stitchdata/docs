@@ -3,11 +3,13 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: AppsFlyer (v1.0)
+title: AppsFlyer (v1)
 permalink: /integrations/saas/appsflyer
 keywords: appsflyer, integration, schema, etl appsflyer, appsflyer etl, appsflyer schema
 summary: "Connection instructions, replication info, and schema details for Stitch's AppsFlyer integration."
 layout: singer
+
+key: "appsflyer-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -20,13 +22,12 @@ repo-url: https://github.com/singer-io/tap-appsflyer
 api: |
   [{{ integration.display_name }} Raw Data Reports V5 API](https://help.fullstory.com/develop-rest/data-export-api){:target="new"}
 
-# this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "60 days"
@@ -34,13 +35,15 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: http://status.appsflyer.com/
 
+api-type: "platform.appsflyer"
+
+anchor-scheduling: true
+cron-scheduling: true
+
 table-selection: false
 column-selection: false
 
-anchor-scheduling: false
-cron-scheduling: false
-
-extraction-logs: false
+extraction-logs: true
 loading-reports: true
 
 

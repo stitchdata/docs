@@ -1,10 +1,10 @@
 ---
 tap: "netsuite"
-version: "1.0"
+version: "1"
 
 name: "VendorCategory"
 doc-link: "https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2017_2/schema/record/vendorcategory.html"
-singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/VendorCategory.json"
+# singer-schema: "https://github.com/singer-io/tap-netsuite/blob/master/tap_netsuite/schemas/VendorCategory.json"
 description: |
   The `{{ table.name }}` table contains info about the categories that can be applied to vendors in your {{ integration.display_name }} account.
 

@@ -25,17 +25,13 @@ Depending on your setup and the access you grant to the Stitch database user, yo
    {{ site.data.taps.extraction.database-setup.user-privileges.mssql.create-user-command | strip }}
    ```
 
-2. Grant the Stitch user `SELECT` privileges. To grant `SELECT` privileges to all tables in the database, run this command:
+2. Grant the Stitch user `SELECT` privileges by running this command for every table you want to replicate: 
 
    ```sql
-   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.all-tables | strip }}
+   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-on-table | strip }}
    ```
 
-   If you want to limit the Stitch user to specific tables, run this command instead:
-
-   ```sql
-   {{ site.data.taps.extraction.database-setup.user-privileges.mssql.grant-select-command.specific-tables | strip }}
-   ```
+   Limiting access to only the tables you want to replicate ensures that the integration can complete discovery (a structure sync) in a timely manner. If you encounter issues in Stitch where tables aren't displaying, try limiting the Stitch database user's table access.
 
 {% unless integration.log-based-replication-master-instance == false %}
    **Note:** Column-level permissions are not supported for use with Log-based Incremental Replication. Restricting access to columns will cause replication issues.

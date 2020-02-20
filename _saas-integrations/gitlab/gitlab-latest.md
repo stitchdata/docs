@@ -1,9 +1,11 @@
 ---
-title: GitLab (v1.0)
+title: GitLab (v1)
 permalink: /integrations/saas/gitlab
 keywords: gitlab, integration, schema, etl gitlab, gitlab etl, gitlab schema
 summary: "Connection instructions and schema details for Stitch's GitLab integration."
 layout: singer
+
+key: "gitlab-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -15,7 +17,7 @@ display_name: "GitLab"
 singer: true
 repo-url: https://github.com/singer-io/tap-gitlab
 
-# this-version:"1.0"
+this-version: "1"
 
 api: |
   [GitLab REST API](https://docs.gitlab.com/ee/api/README.html){:target="new"}
@@ -24,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false # Community-supported integration
 
 historical: "1 year"
@@ -32,11 +33,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: https://status.gitlab.com/
 
-table-selection: false
-column-selection: false
+api-type: "platform.gitlab"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: false
+column-selection: false
 
 extraction-logs: true
 loading-reports: true
@@ -72,9 +75,16 @@ setup-steps:
     content: |
       4. In the **API URL** field, enter `https://gitlab.com/api/v3`
       5. In the **Private Token** field, paste the **Personal Access Token** you created in the previous section.
-      6. In the **Projects to Track** field, enter the projects you want to track **separated by spaces**.
+      6. In the **Projects** and **Groups to Track** fields, you'll enter the projects and/or groups you want to track as a **space-separated** list.
 
-         For example: in an organization named `stitch`, there are two projects to track: `stitch-data` and `stitch-docs`. To track them, you'd enter them like this: `stitch/stitch-data stitch/stitch-docs`
+         For example: `stitchdata/group-a`, or `stitchdata/project-a stitchdata/project-b`
+
+         **Note**: A value for one of these fields must be provided. Additionally, the way you define these settings determines how some data is replicated:
+
+         - If **groups** are provided but **projects** aren't, all group projects will be replicated.
+         - If **groups** and **projects** are provided, the selected projects of the listed groups will be replicated.
+         - If **projects** are provided but **groups** aren't, all listed projects will be replicated.
+
   - title: "historical sync"
   - title: "replication frequency"
 

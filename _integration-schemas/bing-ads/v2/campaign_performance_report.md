@@ -1,6 +1,6 @@
 ---
 tap: "bing-ads"
-version: "2.0"
+version: "2"
 
 name: "campaign_performance_report"
 doc-link: https://docs.microsoft.com/en-us/bingads/reporting-service/campaignperformancereportcolumn#values
@@ -24,7 +24,9 @@ description: |
   - `HistoricLandingPageExperience` is now `HistoricalLandingPageExperience`
   - `Status` is now `CampaignStatus`
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+append-only-loading: true
+
 attribution-window: true
 
 attributes:

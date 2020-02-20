@@ -2,12 +2,12 @@
 
     {% include misc/icons.html %}
 
-    {% assign common = site.data.taps.extraction.data-types.common %}
+    {% assign common = site.data.taps.extraction.data-types.source-types %}
 
 <p>As of <strong>{{ common.last-updated }}</strong>, the data types in the table below are supported for all integrations.</p>
 
 <table width="100%; fixed" class="attribute-list">
-    {% for data-type in common.all %}
+    {% for data-type in common.all-supported %}
     <!-- Get the data-type's index in the array and then divide it by 4 (the #
         of columns in the table) and get the remainder. If the last item in the
         array isn't divisible by 4, we need to add the correct number of cells to

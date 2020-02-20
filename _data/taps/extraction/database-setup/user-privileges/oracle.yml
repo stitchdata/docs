@@ -23,10 +23,7 @@ defaults:
       Required to log into the {{ integration.display_name }} database.
 
     select: &select-reason |
-      Required to select data from the tables and columns you want to replicate.
-
-      - `SELECT ANY TABLE` grants `SELECT` privileges to any table in the connected database.
-      - `SELECT ON <SCHEMA.TABLE>` grants `SELECT` privileges only to the specified table.
+      Required to select data from specified tables.
 
     execute-dbms-logmnr: &execute-dbms-logmnr-reason |
       **Required to use Log-based Incremental Replication.** Allows the Stitch user to execute the `DBMS_LOGMNR` package for LogMiner.
@@ -179,37 +176,40 @@ create-user-command: |
   CREATE USER STITCH IDENTIFIED BY <password>
   
 grant-create-session: |
-  GRANT CREATE SESSION TO STITCH
+  GRANT CREATE SESSION TO <stitch_username>
 
 grant-select-all-tables: |
-  GRANT SELECT ANY TABLE TO STITCH
+  GRANT SELECT ANY TABLE TO <stitch_username>
 
-grant-select-specific-tables: |
-  GRANT SELECT ON <SCHEMA>.<TABLE> to STITCH
+revoke-select: |
+  REVOKE SELECT ANY TABLE FROM <stitch_username>
+
+grant-select-on-table: |
+  GRANT SELECT ON <schema_name>.<table_name> to <stitch_username>
 
 select-any-transaction: |
-  GRANT SELECT ANY TRANSACTION TO STITCH
+  GRANT SELECT ANY TRANSACTION TO <stitch_username>
 
 select-any-dictionary: |
-  GRANT SELECT ANY DICTIONARY TO STITCH
+  GRANT SELECT ANY DICTIONARY TO <stitch_username>
 
 grant-execute-catalog-role:
-  GRANT EXECUTE_CATALOG_ROLE TO STITCH
+  GRANT EXECUTE_CATALOG_ROLE TO <stitch_username>
 
 execute-dbms-logmnr:
-  GRANT EXECUTE ON DBMS_LOGMNR TO STITCH
+  GRANT EXECUTE ON DBMS_LOGMNR TO <stitch_username>
 
 execute-dbms-logmnr-d:
-  GRANT EXECUTE ON DBMS_LOGMNR_D TO STITCH
+  GRANT EXECUTE ON DBMS_LOGMNR_D TO <stitch_username>
 
 select-v-database: |
-  GRANT SELECT ON SYS.V_$DATABASE TO STITCH
+  GRANT SELECT ON SYS.V_$DATABASE TO <stitch_username>
 
 select-v-archived-log: |
-  GRANT SELECT ON SYS.V_$ARCHIVED_LOG TO STITCH
+  GRANT SELECT ON SYS.V_$ARCHIVED_LOG TO <stitch_username>
 
 select-logmnr-contents: |
-  GRANT SELECT ON SYS.V_$LOGMNR_CONTENTS TO STITCH
+  GRANT SELECT ON SYS.V_$LOGMNR_CONTENTS TO <stitch_username>
 
 grant-logmining-version-12: |
-  GRANT LOGMINING TO STITCH
+  GRANT LOGMINING TO <stitch_username>

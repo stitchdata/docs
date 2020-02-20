@@ -1,0 +1,85 @@
+---
+layout: page
+---
+
+{% if page.product-type == "connect" %}
+    {% assign connect = site.data.connect.general %}
+    {% assign sample-property-data = site.data.connect.sample-property-data %}
+    {% assign js = site.data.connect.js-client %}
+{% endif %}
+
+{% assign general = site.data[page.product-type].general %}
+{% assign api = site.data[page.product-type].api %}
+
+{% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
+    {% assign docs = all-docs | where:"content-type",page.content-type | sort:"order" %}
+
+{% include misc/data-files.html %}
+
+{% for doc in docs %}
+    {% if doc.title != "" %}
+        {% if doc.anchor %}
+            <h2 id="{{ doc.anchor }}">
+        {% else %}
+            <h2 id="{{ doc.title | downcase | slugify }}">
+        {% endif %}
+            {{ doc.title }}
+        </h2>
+    {% endif %}
+
+    {% if doc.sections %}
+        {% for section in doc.sections %}
+            {% if section.title %}
+
+            <h3 id="{{ section.anchor }}">
+                {% if doc.title == "Quick Start" %}
+                    Step {{ forloop.index }}:
+                {% endif %}
+                {% capture top-level-step %}
+                    {{ forloop.index }}
+                {% endcapture %}
+                {{ section.title | flatify }}
+            </h3>
+            {% endif %}
+
+            {{ section.content | flatify | markdownify }}
+
+{% if section.include %}
+{{ section.include | flatify }}
+{% endif %}
+
+            {% if section.subsections %}
+                {% for subsection in section.subsections %}
+                    {% if subsection.title %}
+                        <h4 id="{{ subsection.anchor }}">
+                            {% if doc.title == "Quick Start" %}
+                                Step {{ top-level-step | strip }}.{{ forloop.index }}: 
+                            {% endif %}
+                                {{ subsection.title | flatify }}
+                        </h4>
+                    {% endif %}
+
+                    {{ subsection.content | flatify | markdownify }}
+
+                    {% if subsection.steps %}
+                        {% for step in subsection.steps %}
+                            <h5 id="{{ step.anchor }}">
+                                Step {{ forloop.index }}: {{ step.title }}
+                            </h5>
+
+                            {{ step.content | flatify | markdownify }}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if doc.include %}
+        {% include {{doc.include}} %}
+    {% endif %}
+
+    {% unless forloop.last == true %}
+        <hr>
+    {% endunless %}
+{% endfor %}

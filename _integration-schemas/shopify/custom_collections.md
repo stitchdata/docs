@@ -1,6 +1,6 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "custom_collections"
 doc-link: "https://help.shopify.com/en/api/reference/products/customcollection"
@@ -46,7 +46,7 @@ attributes:
   - name: "image"
     type: "object"
     description: "Details about images associated with the custom collection."
-    object-properties:
+    subattributes:
       - name: "alt"
         type: "string"
         description: "Alternative text that describes the collection image."

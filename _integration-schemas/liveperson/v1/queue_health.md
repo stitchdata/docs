@@ -1,6 +1,6 @@
 ---
 tap: "liveperson"
-version: "1.0"
+version: "1"
 key: "queue-health"
 
 name: "queue_health"

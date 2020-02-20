@@ -3,10 +3,10 @@ title: Square
 permalink: /integrations/saas/square
 keywords: square, integration, schema, etl square, square etl, square schema
 summary: "Connection instructions and schema details for Stitch's Square integration."
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+layout: singer
+old-schema-template: true
+
+key: "square-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -18,6 +18,8 @@ display_name: "Square"
 singer: false
 status-url: "http://issquareup.com/"
 
+this-version: "04-05-2016"
+
 api: |
   [{{ integration.display_name }} Connect v1 API](https://developer.squareup.com/docs/api/connect/v1#navsection-v1endpoints){:target="new"}
 
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -428,33 +429,23 @@ tables:
       - name: clockout_location_id
       - name: created_at
       - name: updated_at
+
+# -------------------------- #
+#      Setup Instructions    #
+# -------------------------- #
+
+  - title: "add integration"
+  - title: "historical sync"
+  - title: "replication frequency"
+  - title: "Authorizing Stitch to Access Square"
+    anchor: "authorize-stitch"
+    content: |
+      Lastly, you'll be directed to Square's website to complete the setup.
+
+      1. Enter your Square credentials and click **Login**.
+      2. After the authorization process successfully completes, you'll be redirected back to Stitch.
+      3. Click {{ app.buttons.finish-int-setup }}.
+  - title: "track data"
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
-
-
-
-{% contentfor setup %}
-Connecting your Square data to Stitch a four-step process:
-
-1. [Add Square as a Stitch data source](#add-stitch-data-source)
-3. [Define the Historical Sync](#define-historical-sync)
-4. [Define the Replication Frequency](#define-rep-frequency)
-5. [Authorize Stitch to access Square](#authorize-stitch)
-
-{% include integrations/shared-setup/connection-setup.html %}
-
-{% include integrations/saas/setup/historical-sync.html %}
-
-{% include integrations/shared-setup/replication-frequency.html %}
-
-### Authorizing Stitch to Access Square {#authorize-stitch}
-
-Lastly, you'll be directed to Square's website to complete the setup.
-
-1. Enter your Square credentials and click **Login**.
-2. After the authorization process successfully completes, you'll be redirected back to Stitch.
-3. Click {{ app.buttons.finish-int-setup }}.
-
-{% include integrations/shared-setup/initial-syncs.html %}
-{% endcontentfor %}

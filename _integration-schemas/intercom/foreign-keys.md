@@ -1,7 +1,7 @@
 ---
 tap-reference: "intercom"
 
-version: "15-10-2015"
+version: "02-02-2016"
 
 foreign-keys:
   - id: "admin-id"

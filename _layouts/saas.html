@@ -5,11 +5,11 @@ layout: page
 {% assign integration = page %}
 {% include misc/data-files.html %}
 
-<!-- Support, beta, and Singer notice -->
-{% include notifications/support-beta-singer-notice.html %}
+<!-- SUPPORT AND SINGER NOTICE-->
+    {% include notifications/status-support/connection-notices.html %}
 
 <!-- integration snapshot -->
-{% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type="saas" %}
+{% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="saas" %}
 
 <!-- connection instructions -->
 <h2 id="setup">Connecting {{ integration.display_name }}</h2>

@@ -1,6 +1,6 @@
 ---
 tap: "onfleet"
-version: "1.0"
+version: "1"
 
 name: "hubs"
 doc-link: "http://docs.onfleet.com/docs/hubs"

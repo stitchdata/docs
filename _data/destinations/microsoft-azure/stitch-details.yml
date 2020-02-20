@@ -1,0 +1,39 @@
+# --------------------------------------- #
+# AZURE SQL DW DESTINATION STITCH DETAILS #
+# --------------------------------------- #
+
+# Details about Stitch's implementation &
+# requirements for Microsoft Azure SQL Data Warehouse destinations.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+pricing-tier: "Standard"
+
+supported-versions: "n/a"
+
+available-in-connect: true
+
+api-type: "azure_sqldw"
+
+
+# ------------------------------ #
+#      CONNECTION METHODS        #
+# ------------------------------ #
+
+ssl: true
+
+connect-ssl: false ## Indicates whether SSL can be configured via the API
+
+ssh: true
+
+vpn: false
+
+
+# ------------------------------ #
+#    WORKLOAD PERFORMANCE MGMT   #
+# ------------------------------ #
+
+workload-performance-management: false

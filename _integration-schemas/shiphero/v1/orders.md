@@ -1,6 +1,6 @@
 ---
 tap: "shiphero"
-version: "1.0"
+version: "1"
 
 name: "orders"
 doc-link: "https://shipheropublic.docs.apiary.io/#reference/orders/get-orders/get-orders"
@@ -307,7 +307,6 @@ attributes:
   - name: "lock_data"
     type: "object"
     description: ""
-    object-properties: 
 
   - name: "order_date"
     type: "date-time"

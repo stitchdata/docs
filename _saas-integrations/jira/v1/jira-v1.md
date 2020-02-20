@@ -1,13 +1,15 @@
 ---
-title: JIRA (v1.0)
-permalink: /integrations/saas/jira
-tags: [saas_integrations]
+title: JIRA (v1)
+permalink: /integrations/saas/jira/v1
 keywords: jira, integration, schema, etl jira, jira etl, jira schema
 summary: "Connection instructions and schema details for Stitch's JIRA integration."
 layout: singer
+input: false
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://mysql.topostgres.com/"
+
+key: "jira-setup"
 
 # -------------------------- #
 #     Integration Details    #
@@ -19,7 +21,7 @@ singer: true
 status-url: "http://status.atlassian.com/"
 repo-url: "https://github.com/singer-io/tap-jira"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Cloud REST API v2](https://developer.atlassian.com/cloud/jira/platform/rest/v2/){:target="new"}
@@ -28,18 +30,19 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 
-table-selection: true
-column-selection: true
+api-type: "platform.jira"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

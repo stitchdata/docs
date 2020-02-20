@@ -1,0 +1,104 @@
+# -------------------------- #
+#  MongoDB Extraction Errors #
+# -------------------------- #
+
+## This file contains the extraction errors that can arise 
+## while replicating data from a MongoDB-backed database.
+
+raw-error:
+  replication-key-type: &rep-key-type "[DATA_TYPE] is not a supported replication key type"
+
+  local-not-authorized: &local-not-authorized "not authorized on local to execute command { <COMMAND> }"
+
+  blacklist-id: &blacklist-id "Projection blacklists key property id"
+
+  projection-inclusion-exclusion: &projection-inclusion-exclusion "Projection cannot have a mix of inclusion and exclusion."
+  
+  invalid-json: &invalid-json "The projection: [PROJECTION_QUERY] for stream [COLLECTION_NAME] is not valid json"
+
+# '[VALUE]' is not a valid ObjectId, it must be a 12-byte input or a 24-character hex string
+
+all:
+  - message: *blacklist-id
+    id: "projection-blacklisted-id"
+    meaning: |
+      A projection query for a collection set to replicate is excluding the collection's `_id` field.
+
+      For example:
+
+      ```json
+      { "_id": 0 }
+      ```
+
+    fix-it: |
+      Modify the collection's projection query to remove the exclusion of the `_id` field. Stitch requires the `_id` field for replication; excluding it in projection queries is not supported.
+
+      Refer to the [Selecting MongoDB Fields Using Projection Queries guide]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) for more info.
+
+  - message: *projection-inclusion-exclusion
+    id: "projection-inclusion-exclusion"
+    meaning: |
+      A projection query for a collection set to replicate includes both inclusion and exclusion statements. MongoDB doesn't currently support inclusion and exclusion statements in the same projection query.
+
+      The following projection query is an example of including both types of statements:
+
+      ```json
+      { "name": 1, "type": 0 }
+      ```
+
+    fix-it: |
+      Modify the collection's projection query to use only inclusion or only exclusion statements. For example:
+
+      ```json
+      { "name": 1, "type": 1 }
+      ```
+
+      ```json
+      { "name": 0, "type": 0 }
+      ```
+
+      Refer to the [Selecting MongoDB Fields Using Projection Queries guide]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) for more info and examples of projection queries.
+
+  - message: *invalid-json
+    id: "projection-invalid-json"
+    meaning: |
+      A projection query for a collection set to replicate isn't valid JSON. A projection query is a JSON object; keys within the object must be enclosed in double quotes (`"`)
+
+      For example: The following projection queries are invalid JSON:
+
+      ```json
+      { 'name': 1, 'type': 1 }
+      ```
+
+      ```json
+      "name: 1, "type": 1
+      ```
+    fix-it: |
+      Modify the collection's projection query to be valid JSON. For example:
+
+      ```json
+      { "name": 1, "type": 1 }
+      ```
+
+      You can use [JSONFormatter](https://jsonformatter.curiousconcept.com/){:target="new"} to validate the projection query before entering it into Stitch.
+
+  - message: *rep-key-type
+    id: "unsupported-rep-key-type"
+    meaning: |
+      A Replication Key field contains an incompatible data type. [Stitch requires MongoDB Replication Keys](https://github.com/singer-io/tap-mongodb/blob/master/tap_mongodb/sync_strategies/common.py#L77){:target="new"} to be `DATE-TIME`, `INTEGER`, `TIMESTAMP`, or `ObjectId` fields.
+    fix-it: |
+      1. Select a different Replication Key for the collection, or
+      2. Convert the data to a supported Replication Key data type, if possible.
+
+  - message: *local-not-authorized
+    id: "local-not-authorized"
+    meaning: |
+      The Stitch MongoDB database user isn't authorized to execute commands on the `local` database. This is required to successfully replicate data.
+    fix-it: |
+      Grant the Stitch MongoDB database user `read` access to the `local` database using [`grantRolesToUser`](https://docs.mongodb.com/v4.0/reference/method/db.grantRolesToUser/){:target="new"}:
+
+      ```javascript
+      db.grantRolesToUser( "stitch", {role: "read", db: "local"} )
+      ```
+
+      **Note**: You need the [`grantRole` action](https://docs.mongodb.com/v4.0/reference/privilege-actions/#grantRole){:target="new"} on a database to perform `grantRolesToUser`.

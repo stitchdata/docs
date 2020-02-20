@@ -5,6 +5,8 @@ permalink: /integrations/databases/postgresql/v15-10-2015
 summary: "Connect and replicate data from your PostgreSQL database using Stitch's PostgreSQL integration."
 input: false
 
+key: "postgres-integration"
+
 microsites:
   - title: "{{ page.display_name }} to Postgres"
     url: "http://postgres.topostges.com/"
@@ -27,7 +29,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "30 minutes"
@@ -146,6 +147,11 @@ setup-steps:
         anchor: "create-replication-schedule"
         content: |
           {% include integrations/shared-setup/replication-frequency.html %}
+
+      - title: "Save the integration"
+        anchor: "save-integration"
+        content: |
+          {% include shared/database-connection-settings.html type="finish-up" %}
 
   - title: "Select data to replicate"
     anchor: "sync-data"

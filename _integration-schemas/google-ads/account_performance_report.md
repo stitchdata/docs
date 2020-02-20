@@ -1,6 +1,6 @@
 ---
 tap: "google-ads"
-version: "1.0"
+version: "1"
 
 name: "account_performance_report"
 doc-link: https://developers.google.com/adwords/api/docs/appendix/reports/account-performance-report
@@ -9,7 +9,9 @@ description: |
 
   [This is a **Report** table](#replication). See the **Replication** section for information on how data is replicated and loaded for this table.
 
-replication-method: "Append-Only (Incremental)"
+replication-method: "Key-based Incremental"
+append-only-loading: true
+
 attribution-window: true
 
 attributes:

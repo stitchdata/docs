@@ -1,9 +1,11 @@
 ---
-title: Braintree (v1.0)
+title: Braintree (v1)
 permalink: /integrations/saas/braintree
 keywords: braintree, integration, schema, etl braintree, braintree etl, braintree schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Braintree integration."
 layout: singer
+
+key: "braintree-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -15,6 +17,8 @@ display_name: "Braintree"
 singer: true
 repo-url: https://github.com/singer-io/tap-braintree
 
+this-version: "1"
+
 api: |
   [{{ integration.display_name }} API](https://developers.braintreepayments.com/start/overview){:target="new"}
 
@@ -22,7 +26,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false # Community-supported integration
 
 historical: "1 year"
@@ -31,11 +34,13 @@ tier: "Free"
 status-url: https://status.braintreepayments.com/
 whitelist-ips: true
 
+api-type: "platform.braintree"
+
 table-selection: false
 column-selection: false
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

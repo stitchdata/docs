@@ -19,6 +19,8 @@ summary: "Connections instructions, replication info, and schema details for Sti
 layout: singer
 # input: false
 
+key: "typeform-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -30,7 +32,7 @@ singer: true
 tap-name: "Typeform"
 repo-url: https://github.com/singer-io/tap-typeform
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Responses API](https://developer.typeform.com/responses/){:target="new"}
@@ -39,7 +41,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"
@@ -47,8 +48,10 @@ frequency: "1 hour"
 tier: "Free"
 status-url: "https://status.typeform.com/"
 
+api-type: "platform.typeform"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

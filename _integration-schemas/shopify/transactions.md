@@ -1,6 +1,6 @@
 ---
 tap: "shopify"
-version: "1.0"
+version: "1"
 
 name: "transactions"
 doc-link: "https://help.shopify.com/en/api/reference/orders/transaction"
@@ -83,7 +83,7 @@ attributes:
       - `capture` - A transfer of money that was reserved during the authorization of a shop.
       - `sale` - The authorization and capture of a payment.
       - `void` - The cancellation of a pending authorization or capture.
-      - `refund` - The parial or full return of captured money to the customer.
+      - `refund` - The partial or full return of captured money to the customer.
 
   - name: "location_id"
     type: "integer"
@@ -111,7 +111,7 @@ attributes:
   - name: "payment_details"
     type: "object"
     description: "Details about the credit card used for the transaction."
-    object-properties:
+    subattributes:
       - name: "avs_result_code"
         type: "string"
         description: |

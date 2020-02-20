@@ -1,6 +1,6 @@
 ---
 tap: "outbrain"
-# version: "1.0"
+version: "1"
 
 name: "campaigns"
 doc-link: http://docs.amplifyv01.apiary.io/#reference/campaigns
@@ -10,7 +10,7 @@ description: |
 
 replication-method: "Full Table"
 api-method:
-  name: listAllCampaignsAssociatedWithAMarketer
+  name: "List all campaigns associated with a marketer"
   doc-link: http://docs.amplifyv01.apiary.io/#reference/campaigns/campaigns-collection-via-marketer/list-all-campaigns-associated-with-a-marketer
 
 attributes:

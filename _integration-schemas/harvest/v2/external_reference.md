@@ -1,6 +1,6 @@
 ---
 tap: "harvest"
-version: "2.0"
+version: "2"
 
 name: "external_references"
 doc-link: 

@@ -40,9 +40,9 @@ sections:
     content: |
       To set data to replicate, click into the integration from the {{ app.page-names.dashboard }} page and find the table or column you want to replicate. Then, {{ app.menu-paths.sync | replace: "Click","click" }} Keep in mind that:
 
-      - **For database integration tables**, all columns will be set to replicate automatically.
+      - **For database integration tables**, all columns will be set to replicate automatically. Additionally, you'll be prompted to select a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for tables that you set to replicate.
 
-         Additionally, you'll be prompted to select a [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) for tables that you set to replicate.
+        **Note**: For MongoDB integrations, fields are selected by using [projection queries]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) in the **Collection Settings** page.
       - **For SaaS integration tables that support column selection**, you can select columns by clicking on the **table name** and then tracking columns to replicate.
 
       **Note**: Parent objects - or objects that contain other objects - must be set to replicate for the objects they contain to replicate. For example: For a column to replicate, the table that contains it must also be selected. If applicable, so must the schema containing the table, and the database containing the schema.

@@ -6,6 +6,8 @@ summary: "Connect and replicate data from your Microsoft Azure database using St
 show-in-menus: false
 input: false
 
+key: "microsoft-azure-integration"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -23,7 +25,6 @@ driver: "6.2.2.jre7"
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Deprecated"
 certified: true
 
 frequency: "30 minutes"

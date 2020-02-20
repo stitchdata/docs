@@ -19,7 +19,7 @@ layout: page
 
 
 <!-- INTEGRATION SNAPSHOT -->
-    {% include integrations/templates/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}
+    {% include shared/versioning/integration-supported-features.html type="integration-snapshot" feature-type="databases" %}
 
 
 <!-- CONNECTION INSTRUCTIONS -->
@@ -33,7 +33,7 @@ layout: page
         {% case integration.tier %}
             {% when 'Standard' %}
                 <li>
-                    <strong>A Standard Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a Standard plan is selected after the trial ends.
+                    <strong>A Standard or higher Stitch plan.</strong> While those currently in the Free Trial will also be able to set up {{ integration.display_name }}, replication will be paused until a Standard plan or higher is selected after the trial ends.
                 </li>
             {% when 'Enterprise' %}
                 <li>
@@ -110,17 +110,7 @@ layout: page
 
 
 {% if integration.replication-sections %}
-    <h2 id="replication">{{ integration.display_name }} Replication</h2>
-
-    {% for section in integration.replication-sections %}
-        {% if section.title %}
-            <h3 id="{{ section.anchor }}">{{ section.title | flatify }}</h3>
-        {% endif %}
-
-        {{ section.content | flatify | markdownify }}
-    {% endfor %}
-
-    <hr>
+    {% include layout/additional-sections.html section-type="replication" %}
 {% endif %}
 
 

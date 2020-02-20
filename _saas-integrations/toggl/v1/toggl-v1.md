@@ -12,12 +12,14 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Toggl (v1.0)
+title: Toggl (v1)
 permalink: /integrations/saas/toggl
 keywords: toggl, integration, schema, etl toggl, toggl etl, toggl schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Toggl integration."
 layout: singer
 # input: false
+
+key: "toggl-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -30,7 +32,7 @@ singer: true
 tap-name: "Toggl"
 repo-url: https://github.com/singer-io/tap-toggl
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API v8](https://github.com/toggl/toggl_api_docs/blob/master/toggl_api.md){:target="new"}
@@ -39,15 +41,16 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
 certified: false 
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+api-type: "platform.toggl"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

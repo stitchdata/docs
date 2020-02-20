@@ -5,6 +5,8 @@ keywords: autopilot, autopilot schema, autopilot data, etl autopilot, autopilot 
 summary: "Connection instructions and schema details for Stitch's Autopilot integration."
 layout: singer
 
+key: "autopilot-setup"
+
 # -------------------------- #
 #         Tap Details        #
 # -------------------------- #
@@ -18,13 +20,12 @@ repo-url: https://github.com/singer-io/tap-autopilot
 api: |
   [{{ integration.display_name }} REST API](https://autopilot.docs.apiary.io/#){:target="new"}
 
-# this-version: "1.0"
+this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false
 
 historical: "1 year"
@@ -32,11 +33,13 @@ frequency: "60 minutes"
 tier: "Free"
 status-url: "http://status.autopilothq.com/"
 
-table-selection: false
-column-selection: false
+api-type: "platform.autopilot"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: false
+column-selection: false
 
 extraction-logs: true
 loading-reports: true

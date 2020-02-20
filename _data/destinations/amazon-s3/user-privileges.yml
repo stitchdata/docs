@@ -1,0 +1,80 @@
+# -------------------------------------------------- #
+#  Amazon S3 (DESTINATION) User Privileges and Setup #
+# -------------------------------------------------- #
+
+## This file contains info about the privileges and setup steps
+## required to create a Stitch database user for an Amazon S3 destination.
+
+defaults:
+  names:
+    put-object: &put-object-name "s3:PutObject"
+    get-object: &get-object-name "s3:GetObject"
+    list-bucket: &list-bucket-name "s3:ListBucket"
+
+  doc-links:
+    object-operations: &object-operations-doc-link "https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-objects"
+    bucket-operations: &bucket-operations-doc-link "https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-buckets"
+
+  reasons:
+    put-object: &put-object-reason |
+      Required to add objects, such as files, to an S3 bucket. Granting the `{{ destination-user-setup.defaults.names.put-object }}` permission in a bucket policy allows the user to perform the following operations:
+
+      - [PUT Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUT.html){:target="new"}
+      - [POST Object](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html){:target="new"}
+      - [Initiate Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadInitiate.html){:target="new"}
+      - [Upload Part](http://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPart.html){:target="new"}
+      - [Complete Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html){:target="new"}
+      - [PUT Object - Copy](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html){:target="new"}
+
+    get-object: &get-object-reason |
+      Required to read objects in an S3 bucket. Granting the `{{ destination-user-setup.defaults.names.get-object }}` permission in a bucket policy allows the user to perform the following operations:
+
+      - [GET Object](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html){:target="new"}
+      - [HEAD Object](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html){:target="new"}
+
+    list-bucket: &list-bucket-reason |
+      Required to determine if an S3 bucket exists, if access is allowed to the bucket is allowed, and to list the objects in the bucket. Granting the `{{ destination-user-setup.defaults.names.list-bucket }}` permission in a bucket policy allows the user to perform the following operations:
+
+      - [GET Bucket (List Objects)](){:target="new"}
+      - [HEAD Bucket](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html){:target="new"}
+
+
+# -------------------------- #
+#    AMAZON S3 PRIVILEGES    #
+# -------------------------- #
+
+all-permissions:
+  - name: *put-object-name
+    reason: *put-object-reason
+    doc-link: *object-operations-doc-link
+
+  - name: *get-object-name
+    reason: *get-object-reason
+    doc-link: *object-operations-doc-link
+
+  - name: *list-bucket-name
+    reason: *list-bucket-reason
+    doc-link: *bucket-operations-doc-link
+
+
+# -------------------------- #
+#     STEPS FOR S3 SETUP     #
+# -------------------------- #
+
+## The individual steps for granting access to S3 for Stitch.
+
+amazon-s3:
+  - copy: |
+      {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="400px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
+
+      Sign into AWS in another tab, if you aren't currently logged in.
+  - copy: "Click **Services** near the top-left corner of the page."
+  - copy: "Under the **Storage** option, click **S3**."
+  - copy: "A page listing all buckets currently in use will display. Click the **name of the bucket** you want to connect to Stitch."
+  - copy: "Click the **Permissions** tab."
+  - copy: "In the **Permissions** tab, click the **Bucket Policy** button."
+  - copy: "In the Bucket policy editor, paste the bucket policy code from Stitch."
+  - copy: |
+      When finished, click **Save**.
+
+      Leave this page open for now - you'll come back to it in the next step.

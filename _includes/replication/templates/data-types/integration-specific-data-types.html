@@ -9,18 +9,18 @@
     all the other versions. If the page has a 'this-version' property,
     we'll only get the version for the page. -->
     {% if include.version %}
-        {% include integrations/templates/versioning/version-logic.html this-version=include.version %}
+        {% include shared/versioning/integration-version-logic.html this-version=include.version connection-type="integration" item-name="integration" %}
 
 <!-- Otherwise, we'll get all the released versions for the integration. -->
     {% else %}
-        {% include integrations/templates/versioning/version-logic.html %}
+        {% include shared/versioning/integration-version-logic.html connection-type="integration" item-name="integration" %}
     {% endif %}
 
 
 <!-- Assign variables, so they're easier to re-use later-->
     {% assign data-type-files = site.data.taps.extraction.data-types %}
 
-    {% assign this-integration = data-type-files[integration_name] %}
+    {% assign this-integration = data-type-files[page_name] %}
 
 
 <!-- Get the data types! 
@@ -33,7 +33,7 @@
     {% endif %}
 
 <!-- Gets the data types common to all integrations, and concats the specific types -->
-    {% assign all-data-types = data-type-files.common.all | concat: integration-specific-types | sort:"name" %}
+    {% assign all-data-types = data-type-files.source-types.all-supported | concat: integration-specific-types | sort:"name" %}
 
 
 <!-- The intro & icon explanation -->
@@ -77,15 +77,21 @@
             <td>
             </td>
             {% for version in released-versions %}
-                {% for doc in all-versioned-docs %}
-                    {% if version.number == doc.this-version %}
+                {% assign this-version-guide = all-versioned-docs | where:"this-version",version.number | first %}
+
+                {% assign clean-version = version.number | prepend: "v" %}
+
+                <!-- Check if there's a data file for the specific version. If there isn't
+                    skip it. -->
+                    {% if this-integration[clean-version] %}
                         <td>
                             <strong>{{ display_name }}<br>
-                            <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                            <a href="{{ this-version-guide.url | prepend: site.baseurl }}">
+                                version {{ version.number }}</a>
+                            </strong>
                             {% if version.number == latest-version %} (latest){% endif %}
                         </td>
                     {% endif %}
-                {% endfor %}
             {% endfor %}
         {% endif %}
     </tr>
@@ -96,54 +102,58 @@
                 <strong>{{ data-type.name | upcase }}</strong>
             </td>
             {% for version in released-versions %}
-        <!-- Remove the '.0' from the version, as it's not used in data file names -->
-                {% assign clean-version = version.number | remove: ".0" | prepend: "v" %}
-                <td>
-                    {% case this-integration.[clean-version].[data-type.name]stitch-type %}
+                {% assign clean-version = version.number | prepend: "v" %}
 
-                    <!-- If the data-type is unsupported, show the unsupported icon -->
-                        {% when 'unsupported' %}
-                            {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}
+            <!-- Check if there's a data file for the specific version. If there isn't
+                    skip it. -->
+                {% if this-integration[clean-version] %}
+                    <td>
+                        {% case this-integration.[clean-version].[data-type.name]stitch-type %}
 
-                        {% else %}
+                        <!-- If the data-type is unsupported, show the unsupported icon -->
+                            {% when 'unsupported' %}
+                                {{ not-supported | replace:"TOOLTIP","This data type is unsupported for this version of the integration." }}
 
-                    <!-- If the data-type has a tooltip property, do this: -->
-                            {% if this-integration.[clean-version].[data-type.name]tooltip %}
-
-                        <!-- Capture the tooltip and flatify it, in case internal links are included -->
-                                {% capture flatified-tooltip %}
-                                {{ this-integration.[clean-version].[data-type.name]tooltip | flatify }}
-                                {% endcapture %}
-
-                        <!-- Put the flatified tooltip into the icon's tooltip -->
-                                {% case this-integration.[clean-version].[data-type.name]stitch-type %}
-                                    {% when 'not applicable' %}
-                                        {{ not-applicable | replace:"TOOLTIP",flatified-tooltip }}
-
-                                    {% else %}
-                                        {{ info-icon | replace:"TOOLTIP",flatified-tooltip }}
-                                {% endcase %}
-                                
                             {% else %}
 
-                    <!-- Otherwise, just show the supported icon -->
-                                {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }}
-                            {% endif %}
-                    {% endcase %}
+                        <!-- If the data-type has a tooltip property, do this: -->
+                                {% if this-integration.[clean-version].[data-type.name]tooltip %}
 
-            <!-- If the data-type includes a doc link, do this -->
-                    {% if this-integration.[clean-version].[data-type.name]doc-link %}
-                        <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}</a>
+                            <!-- Capture the tooltip and flatify it, in case internal links are included -->
+                                    {% capture flatified-tooltip %}
+                                    {{ this-integration.[clean-version].[data-type.name]tooltip | flatify }}
+                                    {% endcapture %}
 
-            <!-- Otherwise, just output the data-type name and transform it. -->
-                    {% else %}
-                        {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}
-                    {% endif %}
+                            <!-- Put the flatified tooltip into the icon's tooltip -->
+                                    {% case this-integration.[clean-version].[data-type.name]stitch-type %}
+                                        {% when 'not applicable' %}
+                                            {{ not-applicable | replace:"TOOLTIP",flatified-tooltip }}
 
-                    {% if this-integration.[clean-version].[data-type.name]format %}
-                        , formatted as {{ this-integration.[clean-version].[data-type.name]format | upcase }}
-                    {% endif %}
-                </td>
+                                        {% else %}
+                                            {{ info-icon | replace:"TOOLTIP",flatified-tooltip }}
+                                    {% endcase %}
+                                    
+                                {% else %}
+
+                        <!-- Otherwise, just show the supported icon -->
+                                    {{ supported | replace:"TOOLTIP","This data type is supported for this version of the integration." }}
+                                {% endif %}
+                        {% endcase %}
+
+                <!-- If the data-type includes a doc link, do this -->
+                        {% if this-integration.[clean-version].[data-type.name]doc-link %}
+                            <a href="{{ this-integration.[clean-version].[data-type.name]doc-link | flatify }}">{{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}</a>
+
+                <!-- Otherwise, just output the data-type name and transform it. -->
+                        {% else %}
+                            {{ this-integration.[clean-version].[data-type.name]stitch-type | upcase | strip }}
+                        {% endif %}
+
+                        {% if this-integration.[clean-version].[data-type.name]format %}
+                            , formatted as {{ this-integration.[clean-version].[data-type.name]format | upcase }}
+                        {% endif %}
+                    </td>
+                {% endif %}
             {% endfor %}
         </tr>
     {% endfor %}

@@ -11,6 +11,10 @@
 
 In the **Replication Frequency** section, you'll create the integration's [replication schedule]({{ link.replication.rep-scheduling | prepend: site.baseurl }}). An integration's replication schedule determines how often Stitch runs a replication job, and the time that job begins.
 
+{% if include.notice %}
+{{ include.notice | flatify | markdownify }}
+{% endif %}
+
 {{ integration.display_name }} integrations support the following replication scheduling methods:
 
 - [Replication Frequency]({{ link.replication.rep-frequency | prepend: site.baseurl }})

@@ -1,5 +1,6 @@
 ---
 # tap: "outbrain"
+# version: "1"
 
 # Not currently persisted as endpoint is too slow
 

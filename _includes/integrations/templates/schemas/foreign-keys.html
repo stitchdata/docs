@@ -42,7 +42,7 @@
         {% if key.id == attribute-key.foreign-key-id %}
             {% if key.all-foreign-keys %}
                 <p>
-                    <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                    <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
                     <strong>Reference</strong>:
                 </p>
 
@@ -50,7 +50,7 @@
                         {% for foreign-key in key.all-foreign-keys %}
                             {% unless foreign-key.table == table.name %}
                             <li>
-                                <a href="#{{ foreign-key.table }}">
+                                <a href="#{{ foreign-key.table | slugify }}">
                                     {% if foreign-key.subattribute %}
                                         {%- capture full-table-name -%}
                                             {{ foreign-key.subattribute | prepend: "." | prepend: foreign-key.table }}
@@ -82,7 +82,7 @@
 
             {% else %}
 
-                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #cc3399" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
+                <i class="fa fa-table fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="This column can be used to join the {{ table.name }} table to other tables."></i>
                     <strong>Reference</strong>: 
                     <a href="#{{ key.table }}">
                         {{ key.table }}.{{ key.join-on }}

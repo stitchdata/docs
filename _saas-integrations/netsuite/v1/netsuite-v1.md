@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: NetSuite (v1.0)
+title: NetSuite (v1)
 permalink: /integrations/saas/netsuite-suitetalk
 redirect_from: 
   - /integrations/saas/netsuite
@@ -20,6 +20,8 @@ redirect_from:
 keywords: netsuite, integration, schema, etl netsuite, netsuite etl, netsuite schema
 layout: singer
 # input: false
+
+key: "netsuite-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -31,7 +33,7 @@ display_name: "NetSuite"
 singer: true
 tap-name: "NetSuite"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   {{ integration.display_name }} SuiteTalk API (v2017_2)
@@ -40,15 +42,16 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
 tier: "Standard"
 
+api-type: "platform.netsuite"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -273,7 +276,9 @@ replication-sections:
       In this section:
 
       {% for section in page.replication-sections %}
+      {% if section.title %}
       - [{{ section.title | flatify }}](#{{ section.anchor }})
+      {% endif %}
       {% endfor %}
 
   - title: "Custom records"
@@ -285,11 +290,11 @@ replication-sections:
       - title: "Table names for custom record types"
         anchor: "custom-record-types-table-names"
         content: |
-          Custom record tables are named `customrecord_[custom_record_name]`, where `[custom_record_name]` is the value of the ID field in the Custom Record Setup page in {{ integration.display_name }}.
+          Custom record tables are named `custrecord_[custom_record_name]`, where `[custom_record_name]` is the value of the ID field in the Custom Record Setup page in {{ integration.display_name }}.
 
-          For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `customrecord_promo_discount`.
+          For example: If a custom record were named `promo discount` in {{ integration.display_name }}, the corresponding table for those records would be named `custrecord_promo_discount`.
 
-          If the ID field in the Custom Record Setup page is left blank, {{ integration.display_name }} will auto-assign a numerical ID to the record. In Stitch, the table for the custom record would then be something like `customrecord_123`, where `123` is the ID auto-assigned by {{ integration.display_name }}.
+          If the ID field in the Custom Record Setup page is left blank, {{ integration.display_name }} will auto-assign a numerical ID to the record. In Stitch, the table for the custom record would then be something like `custrecord_123`, where `123` is the ID auto-assigned by {{ integration.display_name }}.
 
       - title: "Replication methods for custom record types"
         anchor: "custom-record-type-replication"

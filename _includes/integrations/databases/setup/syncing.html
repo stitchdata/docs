@@ -1,10 +1,12 @@
-{% if integration.name == "mongodb" %}
+{% if integration.db-type == "mongo" %}
     {% assign object = "collection" %}
+    {% assign button = "Collections" %}
     {% assign col = "field" %}
     {% assign rep-key = link.replication.mongo-rep-keys %}
 
 {% else %}
     {% assign object = "table" %}
+    {% assign button = "Tables" %}
     {% assign col = "column" %}
     {% assign rep-key = link.replication.rep-keys %}
 {% endif %}
@@ -13,29 +15,42 @@
 
 The last step is to select [select the {{ object }}s {% unless integration.column-selection == false %}and {{ col }}s{% endunless %} you want to replicate]({{ link.replication.syncing | prepend: site.baseurl }}).
 
+
+<!-- Copy based on whether Rep Methods can be
+    defined by the user for an integration. -->
 {% case integration.define-replication-methods %}
+
+<!-- If Rep Methods can be set by the user: -->
 {% when true %}
 
+<!-- If a default Rep Method can be set for the integration -->
 {% if integration.set-default-replication-method == true %}
 {% capture object-selection-action %}
 Stitch will use the default Replication Method selected in the [**{{ app.page-names.int-settings }}** page](#define-default-replication-method). You can choose a different Replication Method for individual {{ object }}s during this process.
 {% endcapture %}
 
 {% else %}
+
+<!-- If a default Rep Method can't be set for the integration -->
 {% capture object-selection-action %}
 you'll also need to define its [Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}) {% if integration.key-based-incremental-replication == true %}and, if using Key-based Incremental Replication, its [Replication Key]({{ rep-key | prepend: site.baseurl }}){% endif %}.
 {% endcapture %}
 {% endif %}
 
 {% else %}
-<!-- For Mongo! -->
 
+<!-- If Rep Methods can't be set by the user: -->
+<!-- For Mongo! -->
 {% capture object-selection-action %}
-you'll also need to define its [Replication Key]({{ rep-key | prepend: site.baseurl }}). {% if integration.name == "mongodb" %}**Note**: Any table set to replicate will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). Stitch doesn't currently support other Replication Methods for {{ integration.display_name }} integrations.{% endif %}
+you'll also need to define its [Replication Key]({{ rep-key | prepend: site.baseurl }}). {% if integration.db-type == "mongo" %}**Note**: Any table set to replicate will use [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl }}). Stitch doesn't currently support other Replication Methods for this version (v{{ integration.this-version }}) of the {{ integration.display_name }} integration.{% endif %}
 {% endcapture %}
+
 {% endcase %}
 
+
+{% unless integration.define-replication-keys == false %}
 When you track a {{ object }}, {{ object-selection-action | strip }}
+{% endunless %}
 
 
 {% if integration.db-type == "mysql" %}
@@ -48,34 +63,48 @@ For this reason, we recommend connecting only read replicas to Stitch to prevent
 {% include note.html first-line="**Replicating MyISAM tables**" content=myisam-tables %}
 {% endif %}
 
+{% if integration.log-based-replication-master-instance == true %}
+{% capture log-based-incremental-note %}
+**Note**: If using Log-based Incremental replication, some 
+{% endcapture %}
+{% endif %}
 
 
 You can select {{ object }}s {% unless integration.column-selection == false %}and {{ col }}s{% endunless %} by:
 
-1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables }} tab.
-2. Locate a {{ object }} you want to replicate.
-3. {{ app.menu-paths.sync }}
-4. If there are child objects, they'll automatically display and you'll be prompted to select some.
-5. After you set a {{ object }} to replicate, the {{ Object }} Settings page will display. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.name == "mongodb" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
-{% if integration.name == "mongodb" %}
-6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Key**.
+1. In the {{ app.page-names.int-details }} page, click the {{ app.buttons.tables | replace:"Tables",button }} tab.
+1. Locate a {{ object }} you want to replicate.
+1. {{ app.menu-paths.sync }}
+1. If there are child objects, they'll automatically display and you'll be prompted to select some. **Note**: When you track a table, by default **all** {{ col }}s will also be tracked{% if integration.db-type == "mongo" and integration.column-selection == false %}; additionally, tracking individual fields isn't currently supported at this time{% endif %}.
+{% if integration.db-type == "dynamodb" %}
+1. **Optional**: Select fields by entering a projection expression in the **Fields to Replicate** section. Refer to the [Selecting DynamoDB Fields Using Projection Expressions guide]({{ link.integrations.dynamodb-projection-expressions | prepend: site.baseurl }}) for instructions and examples.
+{% else %}
+1. After you set a {{ object }} to replicate, a page with the {{ object }}'s {{ col }}s will display. De-select {{ col }}s if needed.
+{% endif %}
+{% if integration.db-type == "mongo" and integration.define-replication-methods == false %}
+1. In the {{ object | capitalize }} Settings page, define the {{ object }}'s **Replication Key**.
 {% else %}
 {% if integration.key-based-incremental-replication == false %}
-6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %} or skip this step if you want to use the integration's default method{% endif %}.
+1. In the {{ object | capitalize }} Settings page, define the {{ object }}'s **Replication Method**{% if integration.set-default-replication-method == true %} or skip this step if you want to use the integration's default method{% endif %}.
 {% else %}
-6. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method** and, if using Key-based Incremental Replication, its **Replication Key**.
+{% unless integration.define-replication-keys == false %}
+1. In the {{ Object }} Settings page, define the {{ object }}'s **Replication Method** and, if using Key-based Incremental Replication, its **Replication Key**.
+{% endunless %}
 {% endif %}
 {% endif %}
 
-   {% if integration.name == "mongodb" %}
+   {% if integration.db-type == "mongo" %}
    {% capture mongo-rep-key-notice %}
    **Missing Replication Key Fields**<br>
-   If you don't see the field you want to use in the Replication Key drop-down, verify that the field is both indexed and in the root of the document. Refer to the [Mongo Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) for more info.
+   Replication Keys must be in the root of the document and have a [single field index](https://docs.mongodb.com/v4.0/indexes/#single-field){:target="new"} applied. If a field is missing from the Replication Key dropdown, verify that both of these criteria are met. Refer to the [MongoDB Replication Keys guide]({{ rep-key | prepend: site.baseurl }}) for more info.
    {% endcapture %}
 
    {% include tip.html content=mongo-rep-key-notice %}
+{% if integration.column-selection == true %}
+1. **Optional**: Select or exclude fields by entering a projection query in the **Fields to Replicate** section. Refer to the [Selecting MongoDB Fields Using Projection Queries guide]({{ link.integrations.mongodb-projection-queries | prepend: site.baseurl }}) for instructions and examples.
+{% endif %}
    {% endif %}
-7. Repeat this process for every {{ object }} you want to replicate.
+1. Repeat this process for every {{ object }} you want to replicate.
 {% if integration.singer == true %}
-8. {{ app.menu-paths.finalize-selections | flatify }}
+1. {{ app.menu-paths.finalize-selections | flatify }}
 {% endif %}

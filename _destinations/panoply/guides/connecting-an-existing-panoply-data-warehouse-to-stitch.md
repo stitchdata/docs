@@ -29,6 +29,8 @@ use-tutorial-sidebar: false
 # -------------------------- #
 
 display_name: "Panoply"
+name: "panoply"
+
 type: "panoply"
 
 ssh: false
@@ -42,7 +44,7 @@ port: 5439
 
 intro: |
   {% capture account-creation %}
-  Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply destination, [reach out to Panoply]({{ site.data.destinations.resource-links[destination.type]main-site }}){:target="new"}.
+  Stitch is in no way involved with the management of Panoply data warehouses. If you have billing questions or need help regarding your Panoply destination, [reach out to Panoply]({{ site.data.destinations[destination.type]resource-links.main-site }}){:target="new"}.
   {% endcapture %}
 
   {% include note.html first-line="**Panoply account management**" content=account-creation %}

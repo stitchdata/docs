@@ -1,6 +1,6 @@
 ---
 tap: "marketo"
-version: "2.0"
+version: "2"
 
 name: "programs"
 doc-link: http://developers.marketo.com/rest-api/assets/programs/

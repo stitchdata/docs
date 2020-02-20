@@ -1,6 +1,6 @@
 ---
 tap: "campaign-manager"
-# version: "1.0"
+version: "1"
 
 name: "[sample_report_table]"
 

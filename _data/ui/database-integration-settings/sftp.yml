@@ -1,0 +1,33 @@
+# ------------------------------------------ #
+#     SFTP INTEGRATION SETTINGS FIELDS       #
+# ------------------------------------------ #
+
+## This file contains the names and descriptions of fields in the 
+## Integration Settings page for each SFTP-backed database integration.
+
+## NOTE: 'defaults' is a variable assigned to this file: 
+## /_data/ui/database-integration-settings/default-fields.yml
+
+
+sftp:
+  - name: "{{ defaults.field-names.integration-name }}"
+    copy: |
+      {{ defaults.field-copy.integration-name | flatify }}
+
+  - name: "{{ defaults.field-names.host }}"
+    copy: |
+      {{ defaults.field-copy.host | replace: "instance","server" | replace:"dbname","server" | flatify }}
+
+  - name: "{{ defaults.field-names.port }}"
+    copy: |
+      Enter the port used by the {{ integration.display_name }} server. The default is `22`.
+
+  - name: "{{ defaults.field-names.username }}"
+    copy: |
+      Enter the username of the {{ integration.display_name }} user. This should be the same user that added the public key to `authorized_keys` in [Step 2.2](#add-public-key-to-authorized-keys).
+
+  - name: "{{ defaults.field-names.password }}"
+    copy: |
+      **Note**: If you [configured SSH for the {{ integration.display_name }} server](#configure-ssh-for-server), you don't need to enter a password.
+
+            Otherwise, enter the password of the {{ integration.display_name }} user.

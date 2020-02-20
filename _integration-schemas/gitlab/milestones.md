@@ -1,6 +1,6 @@
 ---
 tap: "gitlab"
-# version: ""
+version: "1"
 
 name: "milestones"
 doc-link: https://gitlab.com/help/api/milestones.md#list-project-milestones

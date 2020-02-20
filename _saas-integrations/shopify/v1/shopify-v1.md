@@ -5,6 +5,8 @@ keywords: shopify, integration, schema, etl shopify, shopify etl, shopify schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Shopify integration."
 layout: singer
 
+key: "shopify-setup"
+
 # -------------------------- #
 #     Integration Details    #
 # -------------------------- #
@@ -16,7 +18,7 @@ singer: true
 tap-name: "Shopify"
 repo-url: https://github.com/singer-io/tap-shopify
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} REST Admin API](https://help.shopify.com/en/api/reference){:target="new"}
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 historical: "1 year"
@@ -33,11 +34,13 @@ frequency: "30 minutes"
 tier: "Free"
 status-url: "https://status.shopify.com/"
 
-table-selection: true
-column-selection: true
+api-type: "platform.shopify"
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
+
+table-selection: true
+column-selection: true
 
 extraction-logs: true
 loading-reports: true

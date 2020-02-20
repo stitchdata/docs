@@ -11,6 +11,7 @@ summary: "Stitch gives you the ability to consolidate and optimize your data, bu
 
 layout: general
 toc: true
+feedback: false
 
 level: "category"
 
@@ -32,22 +33,106 @@ weight: 7
 #        CONTENT DATA        #
 # -------------------------- #
 
-analytics:
+featured:
+
+  - name: "Amazon Quicksight"
+    id: "amazon-quicksight"
+    url: https://aws.amazon.com/quicksight/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-redshift-and-amazon-quicksight-to-deliver-business-analytics
+
+  - name: "Metabase"
+    id: "metabase"
+    url: https://www.metabase.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-metabase-with-data-warehouse-for-analytics
+
+  - name: "Google Data Studio"
+    id: "google-data-studio"
+    url: https://datastudio.google.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-google-data-studio-with-bigquery-and-stitch
+
+  - name: "PowerBI"
+    id: "powerbi"
+    url: https://powerbi.microsoft.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-power-bi-with-your-data-warehouse-for-analytics-2
+
+  - name: "Tableau"
+    id: "tableau"
+    url: https://www.tableau.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-connecting-tableau-to-your-data-warehouse-for-analytics
+
   - name: "Chart.io"
     id: "chartio"
     url: https://chartio.com/?utm_source=stitch&utm_medium=documentation&utm_campaign=stitch+partner+referral
     pricing: "Proprietary"
-    partner: true
-
-  - name: "Looker"
-    id: "looker"
-    url: http://www.looker.com/
-    pricing: "Proprietary"
-    partner: true
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-chartio-with-a-data-warehouse-for-business-analytics
 
   - name: "Mode"
     id: "mode-analytics"
     url: https://www.modeanalytics.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-how-to-use-mode-with-a-data-warehouse-for-analytics
+
+  - name: "Alterxy"
+    id: "alteryx"
+    url: https://www.alteryx.com/
+    pricing: "Proprietary"
+    tutorial: https://www.stitchdata.com/blog/tutorial-alteryx-designer-with-stitch
+
+analytics:
+
+  - name: "Domo"
+    id: "domo"
+    url: https://www.domo.com/
+    pricing: "Proprietary"
+
+  - name: "Sisense"
+    id: "sisense"
+    url: https://www.sisense.com/
+    pricing: "Proprietary"
+
+  - name: "Knime"
+    id: "knime"
+    url: https://www.knime.com/
+    pricing: "Open Source"
+
+  - name: "Superset"
+    id: "superset"
+    url: https://superset.incubator.apache.org/
+    pricing: "Open Source"
+
+  - name: "Highcharts"
+    id: "highcharts"
+    url: https://www.highcharts.com/
+    pricing: "Open Source"
+
+  - name: "Grafana"
+    id: "grafana"
+    url: https://grafana.com/
+    pricing: "Open Source"
+
+  - name: "Qlik"
+    id: "qlik"
+    url: https://www.qlik.com/us
+    pricing: "Proprietary"
+
+  - name: "Plotly"
+    id: "plotly"
+    url: https://plot.ly/
+    pricing: "Proprietary"
+
+  - name: "Shiny"
+    id: "shiny"
+    url: https://shiny.rstudio.com/
+    pricing: "Proprietary"
+
+  - name: "Looker"
+    id: "looker"
+    url: http://www.looker.com/
     pricing: "Proprietary"
     partner: true
 
@@ -256,7 +341,9 @@ intro: |
   {% include misc/data-files.html %}
   {% include misc/icons.html %}
 
-  Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you'll need an additional visualization or middle ware tool. 
+  Stitch gives you the ability to consolidate and optimize your data, but if you want to do some exploring, you'll need an additional visualization or middle ware tool.
+
+  <img src="{{ site.baseurl }}/images/analysis-tools/analysis-tools-diagram.svg" alt="Using Stitch with analysis tools">
 
   Whether you want to create visual analyses or run SQL queries, Stitch is compatible with a broad range of tools - from business intelligence platforms to SQL editors to data science tools.
 
@@ -264,19 +351,35 @@ sections:
   - title: "Analytics tools"
     anchor: "analytics-tools"
     content: |
-      We've partnered with some of the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
+      Stitch consolidates your data for use in the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
 
-      As a bonus, some tools - like Mode - also include a built-in SQL querying tool.
+      <h3>Tutorials</h3>
+      <p>On the Stitch blog, we walk you through how to use your Stitch data with each of the following tools:<p>
 
-      <ul class="tiles">
+      <ul class="tiles two-columns">
+      {% assign featured = page.featured | sort:"name" %}
+      {% for tool in featured %}
+          <li>
+              <a href="{{ tool.url }}" target="new">
+                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}" style="height: 50px">
+              </a>
+              <strong>{{ tool.name }}</strong><br>
+              {% if tool.tutorial %}<a class="btn-primary" style="padding: 3px 10px; white-space: normal;" href="{{tool.tutorial}}" target="_blank" title="Using Stitch and {{tool.name}}">Using Stitch with {{tool.name}} →</a>{% endif %}
+          </li>
+      {% endfor %}
+      </ul>
+
+      <h3>Additional analytics tools</h3>
+      <p>Stitch customers also enjoy these options:</p>
+
+      <ul class="tiles three-columns link-tiles">
       {% assign analytics = page.analytics | sort:"name" %}
       {% for tool in analytics %}
           <li>
-              <a href="{{ tool.url }}" target="new">
-                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}">
+              <a href="{{ tool.url }}" target="new" style="padding: 0 20px 10px 20px;">
+                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}" style="height: 50px">
+                  <strong>{{ tool.name }}</strong>
               </a>
-              <strong>{{ tool.name }}</strong><br>
-              {{ tool.price }}
           </li>
       {% endfor %}
       </ul>

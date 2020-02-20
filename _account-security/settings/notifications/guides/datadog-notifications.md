@@ -10,6 +10,7 @@ summary: "Integrate Stitch notifications with Datadog using Stitch's Custom emai
 input: false
 layout: tutorial
 
+key: "datadog-email-notifications"
 type: "notifications"
 weight: 6
 

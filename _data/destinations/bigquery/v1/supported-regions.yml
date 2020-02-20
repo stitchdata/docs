@@ -1,0 +1,30 @@
+# --------------------------------- #
+# GOOGLE BIGQUERY V1 SUPPORTED REGIONS #
+# --------------------------------- #
+
+## The Google Cloud Storage (GCS) locations
+## Stitch supports for version 1 of Google BigQuery destinations.
+
+- category: &americas "Americas"
+  name: "US"
+  description: "United States"
+
+- category: &europe "Europe"
+  name: "EU"
+  description: "European Union"
+
+- category: *europe
+  name: "europe-west2"
+  description: "London"
+
+- category: &asia-pacific "Asia Pacific"
+  name: "asia-northeast1"
+  description: "Tokyo"
+
+- category: *asia-pacific
+  name: "asia-southeast1"
+  description: "Singapore"
+
+- category: *asia-pacific
+  name: "australia-southeast1"
+  description: "Sydney"

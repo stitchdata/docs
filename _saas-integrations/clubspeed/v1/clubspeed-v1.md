@@ -12,12 +12,14 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Club Speed (v1.0)
+title: Club Speed (v1)
 permalink: /integrations/saas/clubspeed
 keywords: club speed, integration, schema, etl club speed, club speed etl, club speed schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Club Speed integration."
 layout: singer
 # input: false
+
+key: "clubspeed-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -30,24 +32,26 @@ singer: true
 tap-name: "Club Speed"
 repo-url: https://github.com/singer-io/tap-clubspeed
 
-# this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} API](https://www.programmableweb.com/api/club-speed){:target="new"}
+
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: false 
 
 historical: "1 year"
 frequency: "30 minutes"
 tier: "Free"
 
+api-type: "platform.clubspeed"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true

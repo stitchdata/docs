@@ -7,7 +7,7 @@ Run this query to count how many of a single data type there are in the table’
 - `knownDataTypeId` with the Mongo BSON data type ID. You can find the data type IDs [here in Mongo’s docs](https://docs.mongodb.com/manual/reference/bson-types/#bson-types).
 
 {% highlight sql %}
-   db.nameOfCollection.count({replicationKeyField: {$type: knownDataTypeId}});
+db.nameOfCollection.count({replicationKeyField: {$type: knownDataTypeId}});
 {% endhighlight %}
 
 Next, run this query to get a count of **all** records in the table:

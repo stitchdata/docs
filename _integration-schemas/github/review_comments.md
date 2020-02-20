@@ -1,6 +1,6 @@
 ---
 tap: "github"
-# version: "1.0"
+version: "1"
 
 name: "review_comments"
 doc-link: https://developer.github.com/v3/pulls/comments/

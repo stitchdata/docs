@@ -297,6 +297,7 @@
                      (let [positions [
                                       "tap"
                                       "version"
+                                      "key"
                                       "name"
                                       "doc-link"
                                       "singer-schema"
@@ -317,6 +318,7 @@
                              1)))
                    "tap"                (string/replace tap-name "tap-" "")
                    "version"            tap-version
+                   "key"																""
                    "name"               stream-name
                    "doc-link"           ""
                    "singer-schema"      (format "https://github.com/singer-io/%s/blob/master/%s"

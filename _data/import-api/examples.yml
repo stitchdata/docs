@@ -1,0 +1,29 @@
+# -------------------------- #
+#    IMPORT API EXAMPLES     #
+# -------------------------- #
+
+## This file lists example projects other people have
+## built using the Stitch Import API.
+
+google-sheets:
+  url: "https://github.com/stitchdata/google-sheets-integration"
+  description: |
+    A JavaScript-based script that enables data from Google Sheets to be pushed to Stitch.
+
+
+# -------------------------- #
+#          PROJECTS          #
+# -------------------------- #
+
+all:
+  - title: "Google Sheets"
+    author: |
+      [Shaun McAvinney](https://github.com/shaunymca){:target="new"}
+    description: "{{ site.data.import-api.examples.google-sheets.description }}"
+    url: "{{ site.data.import-api.examples.google-sheets.url }}"
+
+  - title: "FullContact via AWS Lambda"
+    author: |
+      [Fishtown Analytics](https://www.fishtownanalytics.com/){:target="new"}
+    description: "A horizontally scalable replicator for FullContact data that sends data to the Stitch Import API via AWS Lambda."
+    url: "https://github.com/fishtown-analytics/fullcontact-stitch"

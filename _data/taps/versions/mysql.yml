@@ -5,11 +5,19 @@
 # This is applicable to any MySQL-based database integration.
 # Ex: Amazon Aurora, MariaDB, etc.
 
-latest-version: "0.14"
+latest-version: "1"
 
 released-versions:
-  - number: "0.14"
+  - number: "1"
+    status: "released"
     date-released: "October 24, 2017"
     # date-last-connection:
-    deprecated: false
-    deprecation-date: "n/a"
+    deprecation-date: ""
+    sunset-date: ""
+
+  - number: "15-10-2015"
+    status: "sunset"
+    date-released: "October 15, 2015"
+    date-last-connection: "October 24, 2017"
+    deprecation-date: "December 24, 2017"
+    sunset-date: "September 1, 2019"

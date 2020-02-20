@@ -1,9 +1,11 @@
 ---
-title: Salesforce (v1.0)
+title: Salesforce (v1)
 permalink: /integrations/saas/salesforce/
 keywords: salesforce, integration, schema, etl salesforce, salesforce etl, salesforce schema
 summary: "Connections instructions, replication info, and schema details for Stitch's Salesforce integration."
 layout: singer
+
+key: "salesforce-setup"
 
 # -------------------------- #
 #         Tap Details        #
@@ -16,7 +18,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-salesforce
 status-url: "https://trust.salesforce.com/trust/instances"
 
-this-version: "1.0"
+this-version: "1"
 
 api: |
   [{{ integration.display_name }} Lightning Platform REST API (v41.0)](https://developer.salesforce.com/docs/atlas.en-us.210.0.api_rest.meta/api_rest/intro_what_is_rest_api.htm){:target="new"}
@@ -25,7 +27,6 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 frequency: "1 hour"
@@ -33,8 +34,10 @@ historical: "1 year"
 tier: "Standard"
 whitelist-ips: true
 
+api-type: "platform.salesforce"
+
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 table-selection: true
 column-selection: true

@@ -11,7 +11,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Oracle
+title: Oracle (v1)
 keywords: oracle, database integration, etl oracle, oracle etl
 permalink: /integrations/databases/oracle
 summary: "Connect and replicate data from your Oracle database using Stitch's Oracle integration."
@@ -30,7 +30,7 @@ singer: true
 tap-name: "Oracle"
 repo-url: "https://github.com/singer-io/tap-oracle"
 
-# this-version: "1.0"
+this-version: "1"
 has-specific-data-types: true
 
 hosting-type: "generic"
@@ -42,7 +42,6 @@ driver: |
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Released"
 certified: true
 
 enterprise: true
@@ -57,7 +56,7 @@ port: 1521
 db-type: "oracle"
 
 ## Stitch features
-
+api-type: "platform.oracle"
 versions: "n/a"
 ssh: true
 ssl: true
@@ -65,7 +64,7 @@ ssl: true
 ## General replication features
 
 anchor-scheduling: true
-cron-scheduling: false
+cron-scheduling: true
 
 extraction-logs: true
 loading-reports: true
@@ -159,7 +158,7 @@ setup-steps:
 
           If the result to the query in [Step 3.1](#verify-current-archiving-mode) is `NOARCHIVELOG`, then you'll need to enable `ARCHIVELOG` mode. **Skip to [Step 3.3](#configure-rman-backups) if the result was `ARCHIVELOG`.**
 
-          1. Shut down the database instance. The database and any associated instances must be shut down before the datbase's archiving mode can be changed.
+          1. Shut down the database instance. The database and any associated instances must be shut down before the database's archiving mode can be changed.
 
              ```sql
              SHUTDOWN IMMEDIATE
@@ -307,12 +306,12 @@ replication-sections:
   - content: |
       {% for section in integration.replication-sections %}
       {% if section.title %}
-      - [{{ section.title }}]({{ section.anchor }})
+      - [{{ section.title }}](#{{ section.anchor }})
       {% endif %}
       {% endfor %}
 
   - title: "Overview of Log-based Incremental Replication using LogMiner"
-    anchor: "logminer-replication-overview"
+    anchor: "logminer-replication-integration"
     content: |
       Stitch uses {{ integration.display_name }}'s [LogMiner package]({{ site.data.taps.links[integration.name]logminer }}){:target="new"} to replicate data incrementally. This means that when Log-based Incremental is selected as the Replication Method for a table, Stitch will only replicate new or updated data for the table during each replication job.
 
