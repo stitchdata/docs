@@ -29,7 +29,7 @@ singer: true
 tap-name: "LinkedIn Ads"
 repo-url: https://github.com/singer-io/tap-linkedin-ads
 
-# this-version: "1.0"
+# this-version: "1"
 
 # -------------------------- #
 #       Stitch Details       #
