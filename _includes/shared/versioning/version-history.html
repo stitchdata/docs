@@ -21,8 +21,11 @@ release and deprecation dates -->
 
 <table class="attribute-list">
     <tr>
-        <td class="attribute-name">
+        <td width="25%; fixed" align="right">
             <strong>Version</strong>
+        </td>
+        <td>
+            <strong>Status</strong>
         </td>
         <td>
             <strong>Release date</strong>
@@ -38,11 +41,15 @@ release and deprecation dates -->
         {% for doc in all-versioned-docs %}
             {% if version.number == doc.this-version %}
                 <tr>
-                    <td class="attribute-name">
+                    <td width="25%; fixed" align="right">
                         <strong>
                             <a href="{{ doc.url | prepend: site.baseurl }}">version {{ version.number }}</a>
                         </strong>
                         {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+
+                    <td class="attribute-description">
+                        {{ version.status | capitalize }}
                     </td>
 
                     <td class="attribute-description">

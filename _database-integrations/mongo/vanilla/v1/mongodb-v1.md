@@ -3,6 +3,7 @@ title: MongoDB (v1)
 keywords: mongodb, mongo, database integration, etl mongo, mongodb etl
 permalink: /integrations/databases/mongodb/v1
 summary: "Connect and replicate data from your MongoDB database using Stitch's Mongo integration."
+show-in-menus: false
 
 key: "mongodb-integration"
 

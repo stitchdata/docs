@@ -12,7 +12,7 @@
 ## /_data/ui/database-integration-settings/default-fields.yml
 
 
-dynamodb:
+amazon-dynamodb:
   - name: "{{ defaults.field-names.integration-name }}"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
@@ -28,5 +28,3 @@ dynamodb:
     copy: "Select the region that your instance resides in. For example: `US East (N. Virginia)`"
 
     version: "all"
-
-  

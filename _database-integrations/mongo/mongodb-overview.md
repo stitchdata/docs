@@ -40,10 +40,10 @@ sections:
         content: |
           {% include shared/versioning/integration-supported-features.html type="version-comparison" feature-type="databases" %}
       
-      # - title: "Data types"
-      #   anchor: "data-types"
-      #   summary: "Data types"
-      #   content: |
-      #     {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
+      - title: "Data types"
+        anchor: "data-types"
+        summary: "Data types"
+        content: |
+          {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true %}
 ---
 {% include misc/data-files.html %}

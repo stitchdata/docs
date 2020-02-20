@@ -24,7 +24,7 @@ key: "dynamodb-integration"
 #     Integration Details    #
 # -------------------------- #
 
-name: "dynamodb"
+name: "amazon-dynamodb"
 display_name: "Amazon DynamoDB"
 
 singer: true
