@@ -76,7 +76,7 @@ setup-steps:
       
   - title: "add integration"
     content: |
-      4. In the **Accounts** field, enter a comma-separated list of the account IDs of the campaign accounts you want to replicate data from. These will be the account IDs you retrieved in [Step 1](#retrieve-account-ids). For example: `503123456, 503234567`, etc.
+      4. In the **Accounts** field, enter a comma-separated list of the account IDs of the campaign accounts you want to replicate data from. These will be the account IDs you retrieved in [Step 1](#retrieve-account-ids). For example: `503123456,503234567`, etc.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"

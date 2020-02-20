@@ -20,7 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The ID of the account associated with the user."
-    #foreign-key-id: "account-id"
+    foreign-key-id: "account-id"
 
   - name: "user_person_id"
     type: "string"

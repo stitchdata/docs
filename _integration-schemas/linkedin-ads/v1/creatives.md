@@ -20,6 +20,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The creative ID."
+    foreign-key-id: "creative-id"
   
   - name: "last_modified_time"
     type: "date-time"
