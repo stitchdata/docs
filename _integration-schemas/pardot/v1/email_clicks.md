@@ -24,6 +24,7 @@ attributes:
 
   - name: "created_at"
     type: "date-time"
+    replication-key: true
     description: "The time that the email click occurred."
 
   - name: "drip_program_action_id"
