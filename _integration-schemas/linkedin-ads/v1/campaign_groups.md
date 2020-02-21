@@ -1,6 +1,6 @@
 ---
 tap: "linkedin-ads"
-version: "1.0"
+version: "1"
 key: "campaign-group"
 
 name: "campaign_groups"
