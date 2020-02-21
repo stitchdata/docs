@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: LinkedIn Ads (v1.0)
+title: LinkedIn Ads (v1)
 permalink: /integrations/saas/linkedin-ads
 keywords: linkedin ads, integration, schema, etl linkedin ads, linkedin ads etl, linkedin ads schema, linkedin, 
 layout: singer
@@ -35,8 +35,8 @@ repo-url: https://github.com/singer-io/tap-linkedin-ads
 #       Stitch Details       #
 # -------------------------- #
 
-status: "Open Beta"
-certified: true 
+certified: true
+api-type: "platform.linkedin-ads"
 
 historical: "1 year"
 frequency: "1 hour"
@@ -62,7 +62,7 @@ requirements-list:
   - item: "**Access to a {{ integration.display_name }} Campaign Manager account**. Verify that you have access to use the Ad accounts you want to replicate data from. This is necessary to connect to Stitch."
 
 setup-steps:
-  - title: "Retrieve your {{ integration.display_name }} Account IDs"
+  - title: "Retrieve your {{ integration.display_name }} account IDs"
     anchor: "retrieve-account-ids"
     content: |
       1. Login to your LinkedIn account.
