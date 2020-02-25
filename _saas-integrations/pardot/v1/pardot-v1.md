@@ -44,7 +44,9 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: true 
+certified: true
+
+api-type: "platform.pardot"
 
 historical: "1 year"
 frequency: "1 hour"

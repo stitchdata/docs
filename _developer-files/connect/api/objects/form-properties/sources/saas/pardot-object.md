@@ -45,6 +45,19 @@ object-attributes:
   - name: "user_key"
     type: "string"
     required: true
-    description: "32-character hexadecimal user key for your user account."
+    description: |
+      32-character hexadecimal user key for your user account. This user key allows Stitch to access your {{ form-property.diaplay-name }} account's API. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-user-key" }}) for instructions on retrieving this credential.
     value: "<YOUR_USER_KEY>"
+
+  - name: "email"
+    type: "string"
+    required: true
+    description: "The email address used for your {{ form-property.diaplay-name }} account."
+    value: "<YOUR_EMAIL_ADDRESS>"
+    
+  - name: "password"
+    type: "string"
+    required: true
+    description: "The password used for your {{ form-property.diaplay-name }} account."
+    value: "<YOUR_PASSWORD>"    
 ---
