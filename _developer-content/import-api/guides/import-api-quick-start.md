@@ -35,8 +35,8 @@ description: "Generate your Import API credentials and push your first batch of 
 # -------------------------- #
 
 related:
-  - title: "Stitch Import API access tokens"
-    link: "{{ link.import-api.guides.access-tokens | prepend: site.baseurl }}"
+  - title: "Manage Import API access tokens in Stitch"
+    link: "{{ link.import-api.guides.manage-access-tokens-stitch | prepend: site.baseurl }}"
 
   - title: "Structuring and typing data for the Import API"
     link: "{{ link.import-api.guides.structure-data | prepend: site.baseurl }}"

@@ -163,6 +163,6 @@ steps:
   - title: "Complete the setup for Stitch"
     anchor: "complete-the-setup-for-stitch"
     content: |
-      {% include shared/ssh/ssh-connection-guide-links.html hosting-type="generic" %}
+      {% include shared/ssh/ssh-connection-guide-links.html %}
 ---
 {% include misc/data-files.html %}

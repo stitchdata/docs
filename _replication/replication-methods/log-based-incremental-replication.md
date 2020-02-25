@@ -1,7 +1,7 @@
 ---
 title: Log-based Incremental Replication
 permalink: /replication/replication-methods/log-based-incremental
-keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database repli8cation
+keywords: replicate, replication, replication method, stitch replicates data, change data capture, logical replication, log replication, binary replication, binary database replication
 tags: [replication]
 layout: general
 
@@ -41,6 +41,11 @@ example-table:
 # --------------------------- #
 
 feature-details:
+  - database: "Amazon DynamoDB"
+    db-type: "dynamodb"
+    name: "DynamoDB streams"
+    link: "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html"
+
   - database: "Microsoft SQL Server"
     db-type: "mssql"
     name: "Change Tracking"
@@ -97,6 +102,7 @@ sections:
       - **Log message** - A single change made to a database. For example: An `UPDATE` to a record.
       - **Log position ID** - A unique identifier corresponding to the position of a log message in a log file. These values are incremental, increasing as log messages are generated.
 
+         - In **Amazon DynamoDB**, this is called a **Shard iterator.** [Shard iterators](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html){:target="new"} are used to identify a specific position within a unique shard.
          - In **Microsoft SQL Server**, this is called the **Change Tracking Version**. As [Microsoft's documentation](https://docs.microsoft.com/en-us/sql/relational-databases/track-changes/work-with-change-tracking-sql-server?view=sql-server-2017#version-numbers){:target="new"} notes, this concept is similar to `rowversion`.
          - In **MongoDB**, this is a field in the database log named `ts`. The `ts` field is a combination of a timestamp and an ordinal (integer counter) value. For example: `"ts": Timestamp(1412180887, 1)` The timestamp is in seconds since the Unix epoch, and the ordinal is used to differentiate between entries that occured during the same second.
          - In **MySQL and PostgreSQL**, this is called a **Log Sequence Number (LSN)**.
@@ -109,7 +115,6 @@ sections:
       {% for feature in page.feature-details %}
       - **{{ feature.database }}**: [{{ feature.name }}]({{ feature.link }}){:target="new"}
       {% endfor %}
-
 
   - title: "How {{ page.title }} works"
     anchor: "how-log-based-incremental-replication-works"

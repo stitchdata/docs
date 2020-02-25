@@ -22,25 +22,28 @@
         <td class="table-subheading">
         </td>
         {% for version in released-versions %}
-            {% assign this-version = all-versioned-docs | where:"this-version",version.number | first %}
-            <td class="table-subheading">
-                <strong>{{ display_name }}<br>
-                <a href="{{ this-version-guide.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
-                {% if version.number == latest-version %} (latest){% endif %}
-            </td>
+            {% for integration in all-versioned-docs %}
+                {% if version.number == integration.this-version %}
+                    <td class="table-subheading">
+                        <strong>{{ display_name }}<br>
+                        <a href="{{ integration.url | prepend: site.baseurl }}">version {{ version.number }}</a></strong>
+                        {% if version.number == latest-version %} (latest){% endif %}
+                    </td>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
     </tr>
 
     {% for category in snapshot-categories %}
         <tr>
-            <td colspan="3" class="table-subheading">
+            <td colspan="{{ all-versioned-docs | size | plus: 1 }}" class="table-subheading">
                 <strong>{{ category.name | replace:"-"," " | upcase }}</strong>
             </td>
         </tr>
 
         {% for attribute in category.attributes %}
             <tr>
-                <td width="38%; fixed" align="right">
+                <td width="30%; fixed" align="right">
                     <strong>
                         {% if attribute.doc-link %}
                             <a href="{{ attribute.doc-link | flatify }}">{{ attribute.display-name }}</a>

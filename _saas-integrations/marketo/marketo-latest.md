@@ -20,7 +20,7 @@ repo-url: https://github.com/singer-io/tap-marketo
 this-version: "2"
 
 api: |
-  [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"}
+  [{{ integration.display_name }} REST API](https://developers.marketo.com/rest-api/){:target="new"} and [{{ integration.display_name }} Bulk API](https://developers.marketo.com/rest-api/bulk-extract/){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #
