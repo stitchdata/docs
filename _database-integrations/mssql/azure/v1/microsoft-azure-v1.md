@@ -139,6 +139,13 @@ setup-steps:
         anchor: "ssl-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssl" %}
+      
+      - title: "Define Log-based Replication setting"
+        anchor: "define-log-based-replication-setting"
+        content: |
+          {% include note.html type="single-line" content="**Note**: Skip this step if you're not planning to use Log-based Incremental Replication. [Click to skip ahead](#create-replication-schedule)." %}
+
+          {% include integrations/databases/setup/binlog/log-based-replication-default-setting.html %}
 
       - title: "Create a replication schedule"
         anchor: "create-replication-schedule"
