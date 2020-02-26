@@ -58,7 +58,8 @@ object-attributes:
   - name: "project_id"
     type: "string"
     required: true
-    description: "Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-project-dataset-ids" }}) for instructions on obtaining this credential.""
+    description: |
+      Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-project-dataset-ids" }}) for instructions on obtaining this credential.
     value: "<YOUR_PROJECT_ID>"
     
   - name: "service_account_json"
@@ -67,7 +68,7 @@ object-attributes:
     description: |
       Details and credentials for the Google Cloud Platform (GCP) IAM service account Stitch will use to replicate data.
 
-      This data is generated when a [JSON project key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys){:target="new"} is created for the service account using the GCP Console. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-gcp-iam-service-account" }}) for instructions on obtaining this credential."
+      This data is generated when a [JSON project key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys){:target="new"} is created for the service account using the GCP Console. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#create-gcp-iam-service-account" }}) for instructions on obtaining this credential.
     value: |
       {
            "type": "service_account",
