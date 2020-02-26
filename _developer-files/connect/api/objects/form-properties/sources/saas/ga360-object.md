@@ -46,7 +46,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The ID of a dataset within your {{ form-property.display-name }} project. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-project-dataset-ids" }}) for instructions on obtaining this credential."
+      The ID of a dataset within your {{ form-property.display-name }} project. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-project-dataset-ids" }}) for instructions on obtaining this credential.
     value: "<YOUR_DATASET_ID>"
 
   - name: "page_size"
