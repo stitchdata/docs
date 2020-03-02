@@ -138,13 +138,13 @@ sections:
           For example: A table property comment for a table with a single Primary Key:
 
           ```json
-          (stitch.pks='id')
+          (stitch.pks="id")
           ```
 
           And a table property comment for a table with a composite Primary Key:
 
           ```json
-          (stitch.pks='id,created_at')
+          (stitch.pks="id,created_at")
           ```
 
           **Note**: Removing or incorrectly altering Primary Key table property comments can lead to replication issues.
@@ -182,9 +182,7 @@ sections:
       - title: "JSON structures"
         anchor: "transformations--json-structures"
         content: |
-          {{ destination.display_name }} supports nested records within tables. When JSON objects and arrays are replicated, Stitch will load the JSON intact into a `STRING` column and add a property of `"json"` to the column.
-
-          For example: [TODO]
+          {{ destination.display_name }} supports nested records within tables. When JSON objects and arrays are replicated, Stitch will load the JSON intact into a `STRING` column and add a comment (`"json"`) specifying that the column contains JSON data.
 
           Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.complex-data }}){:target="new"} for examples and instructions on working with complex data structures.
 
