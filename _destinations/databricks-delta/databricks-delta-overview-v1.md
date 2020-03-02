@@ -108,12 +108,17 @@ sections:
           - title: "Step 3: Amazon S3 bucket"
             anchor: "replication--amazon-s3-bucket"
             content: |
-              Data is loaded into the Amazon S3 bucket you provide during destination setup. During this step, the data is staged before being merged into {{ destination.display_name }}.
+              Data is loaded into S3 files in the Amazon S3 bucket you provide during destination setup.
 
-          - title: "Step 4: Data merge"
-            anchor: "replication--amazon-s3-bucket"
+          - title: "Step 4: Staging data"
+            anchor: "replication--staging-data"
             content: |
-              Data is merged from the staging tables into tables in {{ destination.display_name }}.
+              Data is copied from the Amazon S3 bucket and placed into staging tables in {{ destination.display_name }}.
+
+          - title: "Step 5: Data merge"
+            anchor: "replication--data-merge"
+            content: |
+              Data is merged from the staging tables into real tables in {{ destination.display_name }}.
 
       - title: "Loading behavior"
         anchor: "loading-behavior"
