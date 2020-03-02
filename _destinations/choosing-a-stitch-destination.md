@@ -57,6 +57,14 @@ sections:
 
       Refer to the [Integration and destination compatibility reference]({{ link.destinations.overviews.compatibility | prepend: site.baseurl }}) for more info.
 
+  - title: "Destination and analysis tool compatibility"
+    anchor: "destination--tool-compatibility"
+    summary: "Is your prefered analysis tool compatible with your destination?"
+    content: |
+      You may want to investigate whether your prefered analysis tool supports a native connection to your Stitch destination. We've investigated some popular options for you. See the [Analysis tools reference]({{ site.baseurl }}/analysis-tools/#analytics) for more about using popular analysis tools with Stitch.
+
+      {% include analysis-tools/destination-compatibility.html %}
+
   - title: "Replication, transformations, and data structure"
     anchor: "replication-transformations"
     summary: "Will the structure of the data suit your needs?"

@@ -384,6 +384,12 @@ sections:
       {% endfor %}
       </ul>
 
+      <h3>Destination compatibility</h3>
+      <p>When picking an analysis tool, you may want to investigate whether the tool supports a native connection to your Stitch destination. We've investigated some popular options for you:</p>
+
+      {% include analysis-tools/destination-compatibility.html %}
+
+
   - title: "SQL editors"
     anchor: "sql-editors"
     content: |
