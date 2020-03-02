@@ -102,7 +102,7 @@
   # if: uses default
   then:
     v1: |
-      {{ destination.display_name }} will store integer data as `DECIMAL(38,0)`. {{ destination.display_name }} considers integer data types to be synonymous with `NUMBER`, and as a result, Stitch will load them as such.
+      {{ destination.display_name }} will store integer data as `BIGINT`.
 
 
 ## Column contains integer data out of range

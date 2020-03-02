@@ -82,12 +82,12 @@
   # if: uses default
   then:
     v1: &column-name-special-char |
-      {{ destination.display_name }} will remove all non-word characters. For example:
+      {{ destination.display_name }} will convert special characters to underscores. For example:
 
       | Columns in source |  | Columns in {{ destination.display_name }} |
       |-------------------+--+--------------------------|
-      | `!CUSTOMERID`     |  | `customerid`             |
-      | `CUSTOMER!ID`     |  | `customerid`             |
+      | `!CUSTOMERID`     |  | `_customerid`             |
+      | `CUSTOMER!ID`     |  | `customer_id`             |
 
 
 ## Column name begins with a non-letter character
@@ -96,10 +96,9 @@
   # if: uses default
   then:
     v1: &column-name-starts-non-letter |
-      {{ destination.display_name }} will replace the non-letter characters with an underscore. For example:
+      {{ destination.display_name }} will conserve the non-letter characters and prefix the name with an underscore. For example:
 
-      | Columns in dource |  | Columns in {{ destination.display_name }} |
+      | Columns in source |  | Columns in {{ destination.display_name }} |
       |-------------------+--+--------------------------|
-      | `123customerid`   |  | `_customerid`            |
-      | `_customerid`     |  | `_customerid`            |
-      | `_987CUSTOMERID`  |  | `_customerid`            |
+      | `123customerid`   |  | `_123customerid`            |
+      | `_987CUSTOMERID`  |  | `_987customerid`            |

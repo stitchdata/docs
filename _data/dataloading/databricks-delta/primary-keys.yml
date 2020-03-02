@@ -48,13 +48,15 @@
   # if: uses default
   then:
     v1: |
-      Changing a table's Primary Key(s) is not permitted in {{ destination.display_name }}. 
+      Changing a table's Primary Key(s) is only permitted if the table is using Full Table Replication.
 
-      If Primary Key columns are changed, Stitch will stop processing data for the table.
+      If Primary Key columns are changed for a table using Key-based or Log-based Incremental Replication, Stitch will stop processing data for the table.
   error:
     v1: &pk-change-error "{{ site.data.destinations.databricks-delta.loading-errors.primary-key-mismatch }}"
   fix-it: 
     v1: &reinstate-pks |
+      For tables using Key-based or Log-based Incremental Replication:
+      
       - Re-instate the table's Primary Key(s) to allow Stitch to continue processing data for the table, or
       - Drop the table in {{ destination.display_name }} and then reset the table in Stitch. This will re-create the table using the new Primary Keys and allow loading to continue.
 
