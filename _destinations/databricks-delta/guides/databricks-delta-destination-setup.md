@@ -35,9 +35,6 @@ hosting-type: "amazon"
 
 this-version: "1"
 
-ssh: true
-
-
 
 # -------------------------- #
 #      Setup Requirements    #
@@ -57,56 +54,91 @@ requirements:
 # -------------------------- #
 
 steps:
-  - title: "Grant Databricks access to your Amazon S3 bucket"
-    anchor: "grant-databricks-access-to-s3"
+  - title: "Configure S3 bucket access in AWS"
+    anchor: "configure-s3-bucket-access-in-aws"
     content: |
-      {% capture databricks-access-note %}
-      **Note**: You'll need the [**Allow Cluster Creation** privilege]({{ site.data.destinations.databricks-delta.resource-links.cluster-privileges | append: "#types-of-permissions" }}){:target="new"} in Databricks to complete this step.
-      {% endcapture %}
-      
-      {% include note.html type="single-line" content=databricks-access-note %}
+      {% for substep in step.substeps %}
+      - [Step 1.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+    substeps:
+      - title: "Grant Stitch access to your Amazon S3 bucket"
+        anchor: "grant-stitch-access-to-s3"
+        content: |
+          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="add-bucket-policy" %}
 
-      First, you'll configure your AWS account to allow access from Databricks. This is required to complete loading data into {{ destination.display_name }}.  Refer to [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access }}){:target="new"} for help configuing AWS access for Databricks.
+      - title: "Grant Databricks access to your Amazon S3 bucket"
+        anchor: "grant-databricks-access-to-s3"
+        content: |
+          Next, you'll configure your AWS account to allow access from Databricks by creating an IAM role and policy. This is required to complete loading data into {{ destination.display_name }}.
 
-      **Note**: The Databricks cluster must have a **[Databricks Runtime]({{ site.data.destinations.databricks-delta.resource-links.databricks-runtime }}){:target="new"} Version of 6.3 or higher** to work with Stitch. When you reach the [**Launch a new cluster with the S3 IAM role** step]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access | append: "#step-6-launch-a-cluster-with-the-s3-iam-role" }}){:target="new"} of Databricks' **Configuring S3 access** guide, make sure you select **version 6.3 or higher**:
+          Follow steps 1-4 in [Databricks' documentation]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access }}){:target="new"} to create the IAM policy and role for Databricks.
 
-      ![]({{ site.baseurl }}/images/destinations/databricks-runtime-version.png)
-
-  - title: "Retrieve the Databricks' cluster JDBC URL"
-    anchor: "retrieve-jdbc-url"
+  - title: "Configure access in Databricks"
+    anchor: "configure-access-in-databricks"
     content: |
-      {% include layout/image.html type="right" file="/destinations/databricks-cluster-details-page.png" alt="The Advanced Options section of the Cluster Details page in Databricks" max-width="400" enlarge=true%}
-      Next, you'll retrieve your [Databricks' cluster JDBC URL]({{ site.data.destinations.databricks-delta.resource-links.connect-bi-tools }}){:target="new"}. 
+      {% for substep in step.substeps %}
+      - [Step 2.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      {% endfor %}
+    substeps:
+      - title: "Add the Databricks S3 IAM role to Databricks"
+        anchor: "add-s3-iam-role-databricks"
+        content: |
+          Follow [step 5 in this Databricks guide]({{ site.data.destinations.databricks-delta.resource-links.databricks-s3-access | append: "#step-5-add-the-s3-iam-role-to-databricks" }}){:target="new"} to add  IAM role you created for Databricks in [Step 1.2](#grant-databricks-access-to-s3) to your Databricks account.
 
-      1. Sign into your Databricks account, if you haven't already.
-      2. Click the **Clusters** option in the menu on the left side of your Databricks workspace.
-      3. Click the cluster you created in [Step 1](#grant-databricks-access-to-s3).
-      4. On the cluster's details page, click **Advanced Options**.
-      5. Click the **JDBC/ODBC** tab. 
-      6. Locate the **JDBC URL** field and copy the value:
+          After the Databricks IAM role has been added using the Databricks [Admin Console](https://docs.databricks.com/administration-guide/admin-console.html#admin-console){:target="new"}, proceed to the next step. 
 
-         ![The Advanced Options section of the Cluster Details page in Databricks]({{ site.baseurl }}/images/destinations/databricks-cluster-advanced-options.png)
+      - title: "Create a Databricks cluster"
+        anchor: "create-databricks-cluster"
+        content: |
+          {% capture databricks-access-note %}
+          **Note**: You'll need the [**Allow Cluster Creation** privilege]({{ site.data.destinations.databricks-delta.resource-links.cluster-privileges | append: "#types-of-permissions" }}){:target="new"} in Databricks to complete this step.
+          {% endcapture %}
+          
+          {% include note.html type="single-line" content=databricks-access-note %}
 
-      Keep this handy - you'll need it to complete the setup in Stitch.
+          1. Sign into your Databricks account.
+          2. Click the **Clusters** option on the left side of the page.
+          3. Click the **+ Create Cluster** button.
+          4. In the **Cluster Name** field, enter a name for the cluster.
+          5. In the **Databricks Runtime Version** field, select a version that's **6.3 or higher.** This is required for {{ destination.display_name }} to work with Stitch:
 
-  - title: "Generate a Databricks access token"
-    anchor: "generate-databricks-api-access-token"
-    content: |
-      1. Click the **user profile icon** in the upper right corner of your Databricks workspace.
-      2. Click **User Settings**.
-      3. Click the **Access Tokens** tab:
+             ![Databricks Runtime Version field with version Runtime: 6.3 selected]({{ site.baseurl }}/images/destinations/databricks-runtime-version.png)
+          6. In the **Advanced Options** section, locate the **IAM Role** field.
+          7. In the dropdown menu, select the Databricks IAM role you added to your account [in the previous step](#add-s3-iam-role-databricks).
+          8. When finished, click the **Create Cluster** button to create the cluster.
 
-         ![The Access Tokens tab in the User Settings page of Databricks]({{ site.baseurl }}/images/destinations/databricks-access-tokens-tab.png)
+      - title: "Retrieve the Databricks cluster's JDBC URL"
+        anchor: "retrieve-jdbc-url"
+        content: |
+          Next, you'll retrieve your [Databricks' cluster JDBC URL]({{ site.data.destinations.databricks-delta.resource-links.connect-bi-tools }}){:target="new"}.
 
-      4. In the tab, click the **Generate New Token** button. {% include layout/image.html type="right" file="/destinations/databricks-new-access-token.png" alt="The Generate New Token window in Databricks" max-width="400" %}
-      {:start="5"}
-      5. In the window that displays, enter the following: 
-         - **Comment**: `Stitch destination`
-         - **Lifetime (days)**: **Leave this field blank.** If you enter a value, your token will eventually expire and break the connection to Stitch.
-      6. Click **Generate**. {% include layout/image.html type="right" file="/destinations/databricks-generated-token.png" alt="A newly generated access token in Databricks" max-width="400" %}
-      {:start="7"}
-      7. Copy the token somewhere secure. Databricks will only display the token once.
-      8. Click **Done** after you copy the token.
+          1. On the **Clusters** page in Databricks, click the cluster you created in the previous step.
+          2. Open the **Advanced Options** section.
+          3. Click the **JDBC/ODBC** tab. 
+          4. Locate the **JDBC URL** field and copy the value:
+
+             ![The Advanced Options section of the Cluster Details page in Databricks]({{ site.baseurl }}/images/destinations/databricks-cluster-advanced-options.png)
+
+          Keep this handy - you'll need it to complete the setup in Stitch.
+
+      - title: "Generate a Databricks access token"
+        anchor: "generate-databricks-api-access-token"
+        content: |
+          1. Click the **user profile icon** in the upper right corner of your Databricks workspace.
+          2. Click **User Settings**.
+          3. Click the **Access Tokens** tab:
+
+             ![The Access Tokens tab in the User Settings page of Databricks]({{ site.baseurl }}/images/destinations/databricks-access-tokens-tab.png)
+
+          4. In the tab, click the **Generate New Token** button. {% include layout/image.html type="right" file="/destinations/databricks-new-access-token.png" alt="The Generate New Token window in Databricks" max-width="400" %}
+          {:start="5"}
+          5. In the window that displays, enter the following: 
+             - **Comment**: `Stitch destination`
+             - **Lifetime (days)**: **Leave this field blank.** If you enter a value, your token will eventually expire and break the connection to Stitch.
+          6. Click **Generate**. {% include layout/image.html type="right" file="/destinations/databricks-generated-token.png" alt="A newly generated access token in Databricks" max-width="400" %}
+          {:start="7"}
+          7. Copy the token somewhere secure. Databricks will only display the token once.
+          8. Click **Done** after you copy the token.
 
   - title: "Connect Stitch"
     anchor: "connect-stitch"
@@ -114,23 +146,6 @@ steps:
       {% include shared/database-connection-settings.html type="general" %}
 
       {% include shared/database-connection-settings.html type="finish-up" %}
-
-  - title: "Grant Stitch access to your Amazon S3 bucket"
-    anchor: "grant-stitch-access-to-s3"
-    content: |
-      {% for substep in step.substeps %}
-      - [Step 5.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
-      {% endfor %}
-    substeps:
-      - title: "Copy the Stitch bucket policy"
-        anchor: "copy-bucket-policy"
-        content: |
-          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="bucket-example" %}
-
-      - title: "Create the Stitch bucket policy in AWS"
-        anchor: "add-bucket-policy"
-        content: |
-          {% include destinations/amazon-s3/add-verify-bucket-policy.html type="add-bucket-policy" %}
 ---
 {% include misc/data-files.html %}
 {% assign destination = page %}

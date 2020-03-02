@@ -18,6 +18,12 @@ put-object: &put-object
     - [Complete Multipart Upload](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadComplete.html){:target="new"}
     - [PUT Object - Copy](https://docs.aws.amazon.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html){:target="new"}
 
+delete-object: &delete-object
+  name: "s3:DeleteObject"
+  doc-link: "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html"
+  reason: |
+    Required to remove obsolete staging tables during loading.
+
 get-object: &get-object
   name: "s3:GetObject"
   doc-link: *object-operations-doc-link
@@ -42,9 +48,10 @@ list-bucket: &list-bucket
 # ------------------------------ #
 
 all-permissions:
-  - *put-object
+  - *delete-object
   - *get-object
   - *list-bucket
+  - *put-object
 
 
 # -------------------------- #
@@ -54,16 +61,40 @@ all-permissions:
 ## The individual steps for granting access to S3 for Stitch.
 
 databricks-delta:
-  - copy: |
-      TODO: CHANGE THIS IMAGE FOR DATABRICKS POLICY
-
-      {% include layout/inline_image.html type="right" file="destinations/amazon-s3-bucket-policy.png" max-width="400px" alt="Adding an Amazon S3 bucket policy in the AWS console" %}
-
-      Sign into AWS in another tab, if you aren't currently logged in.
+  - copy: "Sign into your Amazon Web Services (AWS) account as a user with privileges that allow you to manage S3 buckets."
   - copy: "Click **Services** near the top-left corner of the page."
   - copy: "Under the **Storage** option, click **S3**."
   - copy: "A page listing all buckets currently in use will display. Click the **name of the bucket** that is used with Databricks."
   - copy: "Click the **Permissions** tab."
   - copy: "In the **Permissions** tab, click the **Bucket Policy** button."
-  - copy: "In the Bucket policy editor, paste the bucket policy code from Stitch."
+  - copy: |
+      In the Bucket policy editor, paste the following bucket policy. **Replace `<YOUR-BUCKET-NAME>` with the name of your S3 bucket**:
+
+      ```json
+      {
+        "Version": "2012-10-17",
+        "Id": "Policy-LoaderDelta-MWF",
+        "Statement": [
+          {
+            "Sid": "Stmt123",
+            "Effect": "Allow",
+            "Principal": {
+              "AWS": [
+                "arn:aws:iam::218546966473:role/LoaderDelta"
+              ]
+            },
+            "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:DeleteBucket"
+            ],
+            "Resource": [
+              "arn:aws:s3:::<YOUR-BUCKET-NAME>",
+              "arn:aws:s3:::<YOUR-BUCKET-NAME>/"
+            ]
+          }
+        ]
+      }
+      ```
   - copy: "When finished, click **Save**."
