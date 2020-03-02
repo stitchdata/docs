@@ -226,7 +226,7 @@ attributes:
             description: "The Google Click ID."
           - name: "isVideoAd"
             type: "boolean"
-            description: "True if it is a Trueview video ad."
+            description: "`TRUE` if it is a Trueview video ad."
           - name: "page"
             type: "number"
             description: "Page number in search results where the ad was shown."
