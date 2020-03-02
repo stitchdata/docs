@@ -1,14 +1,14 @@
 ---
-tap: "ga360"
+tap: "google-analytics-360"
 version: "1"
-key: "ga360"
+key: "sessions"
 
 name: "ga_sessions"
 doc-link: "https://support.google.com/analytics/answer/3437719?hl=en&ref_topic=3416089"
 singer-schema: "https://github.com/singer-io/tap-ga360/blob/master/tap_ga360/schemas/ga_sessions.json"
 description: "This table contains information about general Google Analytics sessions."
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
     name: "BigQuery Export schema"
@@ -25,7 +25,18 @@ attributes:
     type: "number"
     primary-key: true
     description: "An identifier for this session."
-    foreign-key-id: "visit-id" 
+    foreign-key-id: "visit-id"
+
+  - name: "visitStartTime"
+    type: "number"
+    primary-key: true
+    description: "The timestamp expressed as POSIX time."
+    foreign-key-id: "visit-start-time" 
+
+  - name: "date"
+    type: "date-time"
+    description: "The date of the session in YYYYMMDD format. For more details about the replication process, refer to the the integration's [replication section]({{ doc-link | append: "#table-replication" }})."
+    replication-key: true
 
   - name: "channelGrouping"
     type: "string"
@@ -45,10 +56,6 @@ attributes:
       - name: "value"
         type: "string"
         description: "The value of the custom dimension."
-
-  - name: "date"
-    type: "date-time"
-    description: "The date of the session in YYYYMMDD format."
 
   - name: "device"
     type: "object"
@@ -226,7 +233,7 @@ attributes:
             description: "The Google Click ID."
           - name: "isVideoAd"
             type: "boolean"
-            description: "`TRUE` if it is a Trueview video ad."
+            description: "True if it is a Trueview video ad."
           - name: "page"
             type: "number"
             description: "Page number in search results where the ad was shown."
@@ -269,10 +276,6 @@ attributes:
   - name: "visitNumber"
     type: "number"
     description: "The session number for this user."
-
-  - name: "visitStartTime"
-    type: "number"
-    description: "The timestamp expressed as POSIX time."
     
   - name: "visitorId"
     type: "number"

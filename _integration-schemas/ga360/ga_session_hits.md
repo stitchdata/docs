@@ -1,14 +1,14 @@
 ---
-tap: "ga360"
+tap: "google-analytics-360"
 version: "1"
-key: "ga360"
+key: "session_hits"
 
 name: "ga_session_hits"
 doc-link: "https://support.google.com/analytics/answer/3437719?hl=en&ref_topic=3416089"
 singer-schema: "https://github.com/singer-io/tap-ga360/blob/master/tap_ga360/schemas/ga_session_hits.json"
 description: "This table contains information about Google Analytics session hits."
 
-replication-method: "Full Table"
+replication-method: "Key-based Incremental"
 
 api-method:
     name: "BigQuery Export schema"
@@ -26,6 +26,18 @@ attributes:
     primary-key: true
     description: "The unique visitor ID - also known as client ID."
     foreign-key-id: "full-visitor-id"
+
+  - name: "visitStartTime"
+    type: "number"
+    primary-key: true
+    description: "The timestamp expressed as POSIX time."
+    foreign-key-id: "visit-start-time"
+
+  - name: "hitNumber"
+    type: "number"
+    primary-key: true
+    description: "The sequenced hit number. For the first hit of each session, this is set to `1`."
+    foreign-key-id: "hit-number" 
 
   - name: "appInfo"
     type: "object"
@@ -59,7 +71,7 @@ attributes:
   - name: "contentGroup"
     type: "object"
     description: |
-      This section contains information about content grouping. For more information about content groups, [click here](https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/#){:target="new"}
+      This section contains information about content grouping. For more information about content groups, [click here](https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/#){:target="new"}.
     subattributes:
       - name: "contentGroup1"
         type: "string"
@@ -213,10 +225,6 @@ attributes:
       - name: "experimentVariant"
         type: "string"
         description: "The variation or combination of variations present in a hit for an experiment."
-
-  - name: "hitNumber"
-    type: "number"
-    description: "The sequenced hit number. For the first hit of each session, this is set to `1`."
 
   - name: "hour"
     type: "number"
@@ -696,9 +704,5 @@ attributes:
 
   - name: "type"
     type: "string"
-    description: "The type of hit"
-
-  - name: "visitStartTime"
-    type: "number"
-    description: "The timestamp expressed as POSIX time."
+    description: "The type of hit."
 ---
