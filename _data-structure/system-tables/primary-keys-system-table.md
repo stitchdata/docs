@@ -58,8 +58,6 @@ sections:
     
       De-duplicating data only applies to tables using an [Incremental Replication Method]({{ link.replication.rep-methods | prepend: site.baseurl }}). This ensures that only the most recent version of a record is loaded into the table.
 
-      [TODO- BQ destinations using append-only rep]
-
       Tables using [Full Table Replication]({{ link.replication.full-table-rep | prepend: site.baseurl }}) are not de-duped, but loaded in full during each replication job.
 
   - title: "Determining Primary Keys"
