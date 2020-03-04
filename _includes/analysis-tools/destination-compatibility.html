@@ -49,7 +49,7 @@
  						{% if tool[destination]link-copy %}
  							{{ supported | remove: " fa-lg" | replace:"TOOLTIP","Supported" }}
  							
- 							<a href="{{ tool[destination]link-url }}" target="_blank">
+ 							<a class="tool-compatibility" href="{{ tool[destination]link-url }}" target="_blank">
  								{{ tool[destination]link-copy }}
  							</a>
  						{% endif %}
