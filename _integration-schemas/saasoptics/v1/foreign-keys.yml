@@ -1,0 +1,143 @@
+---
+tap-reference: "saasoptics"
+
+version: "1"
+
+foreign-keys: 
+  - id: "account-id"
+    attribute: "account"
+    table: "accounts"
+    all-foreign-keys:
+      - table: "accounts"
+        join-on: "id"
+      - table: "items"
+        join-on: "asset_account"
+      - table: "items"
+        join-on: "income_account"
+      - table: "items"
+        join-on: "liability_account"
+
+  - id: "auto-renewal-profile-id"
+    attribute: "autorenewal_profile"
+    table: "auto_renewal_profiles"
+    all-foreign-keys:
+      - table: "auto_renewal_profiles"   
+        join-on: "id"
+      - table: "transactions"
+
+  - id: "billing-description-id"
+    attribute: ""
+    table: "billing_descriptions"
+    all-foreign-keys:
+      - table: "billing_descriptions"
+        join-on: "id"
+
+  - id: "billing-method-id"
+    attribute: "billing_method"
+    table: "billing_methods"
+    all-foreign-keys:
+      - table: "billing_methods"
+        join-on: "id"
+      - table: "items"
+      - table: "transactions"
+
+  - id: "contract-id"
+    attribute: ""
+    table: "contracts"
+    all-foreign-keys:
+      - table: "contracts"
+        join-on: "id"
+      - table: "transactions"
+
+  - id: "country-code-id"
+    attribute: ""
+    table: "country_codes"
+    all-foreign-keys:
+      - table: "country_codes"
+        join-on: "id"
+
+  - id: "currency-code-id"
+    attribute: ""
+    table: "currency_codes"
+    all-foreign-keys:
+      - table: "currency_codes"
+        join-on: "id"
+
+  - id: "customer-id"
+    attribute: "customer"
+    table: "customers"
+    all-foreign-keys:
+      - table: "contracts"
+      - table: "customers"
+        join-on: "id"
+
+  - id: "invoice-id"
+    attribute: "invoice"
+    table: "invoices"
+    all-foreign-keys:
+      - table: "invoices"
+        join-on: "id"
+      - table: "invoices"
+        subattribute: "line_items"
+
+  - id: "item-id"
+    attribute: "item"
+    table: "items"
+    all-foreign-keys:
+      - table: "items"
+        join-on: "id"
+      - table: "invoices"
+        subattribute: "line_items"
+      - table: "transactions"
+      - table: "transactions"
+        join-on: "renew_using_item"
+
+  - id: "payment-term-id"
+    attribute: "payment_terms"
+    table: "payment_terms"
+    all-foreign-keys:
+      - table: "contracts"
+        subattribute: "billing_profile"
+      - table: "payment_terms"
+        join-on: "id"
+
+  - id: "register-id"
+    attribute: "register"
+    table: "registers"
+    all-foreign-keys:
+      - table: "contracts"
+      - table: "registers"
+        join-on: "id"
+
+  - id: "revenue-entry-id"
+    attribute: "revenue_entry"
+    table: "revenue_entries"
+    all-foreign-keys:
+      - table: "revenue_entries"   
+        join-on: "id"
+
+  - id: "revenue-recognition-method-id"
+    attribute: "revenue_recognition_method"
+    table: "revenue_recognition_methods"  
+    all-foreign-keys:
+      - table: "items"
+      - table: "revenue_recognition_methods"
+        join-on: "id"
+
+  - id: "sale-order-id"
+    attribute: "sale_order"
+    table: "sales_orders"
+    all-foreign-keys:
+      - table: "sales_orders"
+        join-on: "id"
+
+  - id: "transaction-id"
+    attribute: ""
+    table: "transactions"
+    all-foreign-keys:
+      - table: "transaction"
+        join-on: "id"
+      - table: "invoices"
+        subattribute: "line_items"
+      - table: "revenue_entries"
+---
