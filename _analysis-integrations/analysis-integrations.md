@@ -147,7 +147,7 @@ compatibility-list:
     # amazon-redshift:
     # amazon-s3:
     google-bigquery:
-      link-copy: "Via plugin"
+      link-copy: "Supported"
       link-url: "https://support.google.com/datastudio/answer/6370296"
     # microsoft-azure:
     postgresql:
@@ -159,8 +159,8 @@ compatibility-list:
     # amazon-redshift:
     # amazon-s3:
     google-bigquery:
-      link-copy: "Supported"
-      link-url: https://grafana.com/grafana/plugins/doitintl-bigquery-datasource via plugin
+      link-copy: "Via plugin"
+      link-url: "https://grafana.com/grafana/plugins/doitintl-bigquery-datasource"
     # microsoft-azure:
     postgresql:
       link-copy: "Supported"
