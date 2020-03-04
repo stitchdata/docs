@@ -29,136 +29,237 @@ display-title: "Analysis tools"
 display-summary: "Interact with your Stitch-replicated data using an additional analysis tool."
 weight: 7
 
+
 # -------------------------- #
-#        CONTENT DATA        #
+#       ANALYTICS TOOLS      #
 # -------------------------- #
 
-featured:
-
-  - name: "Amazon Quicksight"
-    id: "amazon-quicksight"
-    url: https://aws.amazon.com/quicksight/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-using-redshift-and-amazon-quicksight-to-deliver-business-analytics
-
-  - name: "Metabase"
-    id: "metabase"
-    url: https://www.metabase.com/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-metabase-with-data-warehouse-for-analytics
-
-  - name: "Google Data Studio"
-    id: "google-data-studio"
-    url: https://datastudio.google.com/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-using-google-data-studio-with-bigquery-and-stitch
-
-  - name: "PowerBI"
-    id: "powerbi"
-    url: https://powerbi.microsoft.com/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-using-power-bi-with-your-data-warehouse-for-analytics-2
-
-  - name: "Tableau"
-    id: "tableau"
-    url: https://www.tableau.com/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-connecting-tableau-to-your-data-warehouse-for-analytics
-
-  - name: "Chart.io"
-    id: "chartio"
-    url: https://chartio.com/?utm_source=stitch&utm_medium=documentation&utm_campaign=stitch+partner+referral
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-using-chartio-with-a-data-warehouse-for-business-analytics
-
-  - name: "Mode"
-    id: "mode-analytics"
-    url: https://www.modeanalytics.com/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-how-to-use-mode-with-a-data-warehouse-for-analytics
-
-  - name: "Alterxy"
-    id: "alteryx"
-    url: https://www.alteryx.com/
-    pricing: "Proprietary"
-    tutorial: https://www.stitchdata.com/blog/tutorial-alteryx-designer-with-stitch
+## Properties for analytics tools:
+  ## name: "Display name for the tool"
+  ## url: "URL for the tool's marketing site"
+  ## tutorial: "URL for tutorial on the Stitch blog - if included, it will display in the "Tutorials" section. Don't include if the tool doesn't have a tutorial."
 
 analytics:
+  - name: "Alteryx"
+    url: https://www.alteryx.com/
+    tutorial: https://www.stitchdata.com/blog/tutorial-alteryx-designer-with-stitch
 
-  - name: "Domo"
-    id: "domo"
-    url: https://www.domo.com/
-    pricing: "Proprietary"
+  - name: "Amazon Quicksight"
+    url: https://aws.amazon.com/quicksight/
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-redshift-and-amazon-quicksight-to-deliver-business-analytics
 
-  - name: "Sisense"
-    id: "sisense"
-    url: https://www.sisense.com/
-    pricing: "Proprietary"
-
-  - name: "Knime"
-    id: "knime"
-    url: https://www.knime.com/
-    pricing: "Open Source"
-
-  - name: "Superset"
-    id: "superset"
-    url: https://superset.incubator.apache.org/
-    pricing: "Open Source"
-
-  - name: "Highcharts"
-    id: "highcharts"
-    url: https://www.highcharts.com/
-    pricing: "Open Source"
-
-  - name: "Grafana"
-    id: "grafana"
-    url: https://grafana.com/
-    pricing: "Open Source"
-
-  - name: "Qlik"
-    id: "qlik"
-    url: https://www.qlik.com/us
-    pricing: "Proprietary"
-
-  - name: "Plotly"
-    id: "plotly"
-    url: https://plot.ly/
-    pricing: "Proprietary"
-
-  - name: "Shiny"
-    id: "shiny"
-    url: https://shiny.rstudio.com/
-    pricing: "Proprietary"
-
-  - name: "Looker"
-    id: "looker"
-    url: http://www.looker.com/
-    pricing: "Proprietary"
-    partner: true
-
-  - name: "Indicative"
-    id: "indicative"
-    url: https://indicative.com/
-    pricing: "Proprietary"
-    partner: true
-
-  - name: "Redash"
-    id: "redash"
-    url: https://redash.io/
-    pricing: "Free & Proprietary"
-    partner: true
+  - name: "Chart.io"
+    url: https://chartio.com/?utm_source=stitch&utm_medium=documentation&utm_campaign=stitch+partner+referral
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-chartio-with-a-data-warehouse-for-business-analytics
 
   - name: "Cluvio"
-    id: "cluvio"
     url: https://www.cluvio.com/?utm_source=stitch&utm_medium=partner+page&utm_campaign=stitch+partner+referral
-    pricing: "Proprietary"
-    partner: true 
+
+  - name: "Domo"
+    url: https://www.domo.com/
+
+  - name: "Google Data Studio"
+    url: https://datastudio.google.com/
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-google-data-studio-with-bigquery-and-stitch
+
+  - name: "Grafana"
+    url: https://grafana.com/
+
+  - name: "Highcharts"
+    url: https://www.highcharts.com/
+
+  - name: "Indicative"
+    url: https://indicative.com/
+
+  - name: "Knime"
+    url: https://www.knime.com/
+
+  - name: "Looker"
+    url: http://www.looker.com/
+
+  - name: "Metabase"
+    url: https://www.metabase.com/
+    tutorial: https://www.stitchdata.com/blog/tutorial-metabase-with-data-warehouse-for-analytics
+
+  - name: "Mode"
+    url: https://www.modeanalytics.com/
+    tutorial: https://www.stitchdata.com/blog/tutorial-how-to-use-mode-with-a-data-warehouse-for-analytics
+
+  - name: "Qlik"
+    url: https://www.qlik.com/us
+
+  - name: "Plotly"
+    url: https://plot.ly/
+
+  - name: "PowerBI"
+    url: https://powerbi.microsoft.com/
+    tutorial: https://www.stitchdata.com/blog/tutorial-using-power-bi-with-your-data-warehouse-for-analytics-2
+
+  - name: "Redash"
+    url: https://redash.io/
+
+  - name: "Shiny"
+    url: https://shiny.rstudio.com/
+
+  - name: "Sisense"
+    url: https://www.sisense.com/
+
+  - name: "Superset"
+    url: https://superset.incubator.apache.org/
+
+  - name: "Tableau"
+    url: https://www.tableau.com/
+    tutorial: https://www.stitchdata.com/blog/tutorial-connecting-tableau-to-your-data-warehouse-for-analytics
 
   - name: "Trifacta"
-    id: "trifacta"
     url: https://www.trifacta.com/
-    pricing: "Proprietary"
-    partner: true
+
+
+# --------------------------------- #
+#  ANALYTICS TOOLS & COMAPTIBILITY  #
+# --------------------------------- #
+
+## Destinations the analytics tool may be compatible with. Adding a tool to this list will display it in the "Destination compatibility" section.
+
+## Properties for this list:
+  ## name: "Display name for the tool"
+  ## [destination]: The slugified name of the destination. Lowercase, spaces are dashes. Ex: amazon-redshift. This can be commented out if the combo isn't compatible.
+
+    ## link-copy: "Add only if the tool+destination combo is compatible. This will be the copy that displays for the link in the table."
+    ## link-url: "URL for documentation/guide/etc about the tool+destination combo."
+
+compatibility-list:
+  - name: "Amazon Quicksight"
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://docs.aws.amazon.com/quicksight/latest/user/supported-data-sources.html"
+    amazon-s3:
+      link-copy: "Supported"
+      link-url: https://www.tableau.com/about/blog/2017/5/connect-your-s3-data-amazon-athena-connector-tableau-103-71105)
+    # google-bigquery:
+    # microsoft-azure:
+    # postgresql:
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://docs.aws.amazon.com/quicksight/latest/user/supported-data-sources.html"
+
+  - name: "Google Data Studio"
+    # amazon-redshift:
+    # amazon-s3:
+    google-bigquery:
+      link-copy: "Via plugin"
+      link-url: "https://support.google.com/datastudio/answer/6370296"
+    # microsoft-azure:
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://support.google.com/datastudio/answer/7288010"
+    # snowflake:
+
+  - name: "Grafana"
+    # amazon-redshift:
+    # amazon-s3:
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: https://grafana.com/grafana/plugins/doitintl-bigquery-datasource via plugin
+    # microsoft-azure:
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://grafana.com/docs/grafana/latest/features/datasources/postgres/"
+    # snowflake:
+
+  - name: "Looker"
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://docs.looker.com/setup-and-management/database-config/amazon-redshift"
+    # amazon-s3:
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: "https://docs.looker.com/setup-and-management/database-config/google-bigquery"
+    microsoft-azure:
+      link-copy: "Supported"
+      link-url: "https://docs.looker.com/setup-and-management/database-config/ms-azure-sql-dw"
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://docs.looker.com/setup-and-management/database-config/postgresql"
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://docs.looker.com/setup-and-management/database-config/snowflake"
+
+  - name: "Metabase"
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://www.metabase.com/docs/latest/administration-guide/01-managing-databases.html"
+    # amazon-s3:
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: "https://www.metabase.com/docs/latest/administration-guide/databases/bigquery.html"
+    # microsoft-azure:
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://www.metabase.com/docs/latest/administration-guide/01-managing-databases.html"
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://www.metabase.com/docs/latest/administration-guide/01-managing-databases.html"
+
+  - name: "Qlik"
+    url: https://www.qlik.com/us
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/Redshift/Redshift-connector.htm"
+    amazon-s3:
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/GoogleBigQuery/Google-BigQuery-Connector.htm"
+    # microsoft-azure:
+    # postgresql:
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/Snowflake/Snowflake-connector.htm"
+
+  - name: "PowerBI"
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://docs.microsoft.com/en-us/power-bi/desktop-connect-redshift"
+    amazon-s3:
+      link-copy: "Via REST API"
+      link-url: "https://community.powerbi.com/t5/Power-Query/Can-I-connect-to-a-Amazon-S3-bucket-using-Power-Query/td-p/111919"
+    google-bigquery: 
+      link-copy: "Supported"
+      link-url: "https://docs.microsoft.com/en-us/power-bi/desktop-connect-bigquery"
+    microsoft-azure:
+      link-copy: "Supported"
+      link-url: "https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi"
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://docs.microsoft.com/en-us/power-bi/desktop-data-sources"
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://docs.microsoft.com/en-us/power-bi/desktop-connect-snowflake"
+
+  - name: "Tableau"
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://help.tableau.com/current/pro/desktop/en-us/examples_amazonredshift.htm"
+    amazon-s3:
+      link-copy: "Via Amazon Athena"
+      link-url: "https://www.tableau.com/about/blog/2017/5/connect-your-s3-data-amazon-athena-connector-tableau-103-71105"
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: "https://help.tableau.com/current/pro/desktop/en-us/examples_googlebigquery.htm"
+    microsoft-azure:
+      link-copy: "Supported"
+      link-url: "https://help.tableau.com/current/pro/desktop/en-us/examples_azure_sql_dw.htm"
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://help.tableau.com/current/pro/desktop/en-us/examples_postgresql.htm"
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://help.tableau.com/current/pro/desktop/en-us/examples_snowflake.htm"
+
+
+# -------------------------- #
+#          SQL TOOLS         #
+# -------------------------- #
 
 sql:
   - name: "SQL Workbench"
@@ -242,6 +343,11 @@ sql:
     webapp: true
     operating-system: "Windows, OS X"
 
+
+# -------------------------- #
+#     DATA SCIENCE TOOLS     #
+# -------------------------- #
+
 data-science:
   - name: "Amazon Machine Learning"
     url: https://aws.amazon.com/machine-learning/
@@ -317,9 +423,9 @@ display-table: |
   <td valign="top">
   {% case tool.webapp %}
   {% when true %}
-  {{ supported }}
+  {{ supported | replace: "TOOLTIP", "This tool has a web app." }}
   {% when false %}
-  {{ not-supported }}
+  {{ not-supported | replace: "TOOLTIP", "This tool doesn't have a web app."}}
   {% endcase %}
   </td>
   
@@ -353,36 +459,64 @@ sections:
     content: |
       Stitch consolidates your data for use in the best-in-class tools for business intelligence and visualization. These tools will enable you to take a deep-dive into your data and visualize the results.
 
-      <h3>Tutorials</h3>
-      <p>On the Stitch blog, we walk you through how to use your Stitch data with each of the following tools:<p>
-
-      <ul class="tiles two-columns">
-      {% assign featured = page.featured | sort:"name" %}
-      {% for tool in featured %}
-          <li>
-              <a href="{{ tool.url }}" target="new">
-                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}" style="height: 50px">
-              </a>
-              <strong>{{ tool.name }}</strong><br>
-              {% if tool.tutorial %}<a class="btn-primary" style="padding: 3px 10px; white-space: normal;" href="{{tool.tutorial}}" target="_blank" title="Using Stitch and {{tool.name}}">Using Stitch with {{tool.name}} →</a>{% endif %}
-          </li>
+      {% for subsection in section.subsections %}
+      - [{{ subsection.summary }}](#{{ subsection.summary }})
       {% endfor %}
-      </ul>
 
-      <h3>Additional analytics tools</h3>
-      <p>Stitch customers also enjoy these options:</p>
+    subsections:
+  ## If a tool has a `tutorial` property, it'll show in the list in this section.
 
-      <ul class="tiles three-columns link-tiles">
-      {% assign analytics = page.analytics | sort:"name" %}
-      {% for tool in analytics %}
-          <li>
-              <a href="{{ tool.url }}" target="new" style="padding: 0 20px 10px 20px;">
-                  <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.id }}.svg" alt="{{ tool.name }}" style="height: 50px">
-                  <strong>{{ tool.name }}</strong>
-              </a>
-          </li>
-      {% endfor %}
-      </ul>
+      - title: "Tutorials"
+        anchor: "tutorials"
+        summary: "Stitch tutorials for setting up some popular tools"
+        content: |
+          On the Stitch blog, we walk you through how to use your Stitch data with each of the following tools:
+
+          <ul class="tiles two-columns">
+          {% assign tutorials = page.analytics | sort_natural:"name" %}
+          {% for tool in tutorials %}
+            {% if tool.tutorial %}
+              <li>
+                  <a href="{{ tool.url }}" target="new">
+                      <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.name | slugify }}.svg" alt="{{ tool.name }}" style="height: 50px">
+                  </a>
+                  <strong>{{ tool.name }}</strong><br>
+                  {% if tool.tutorial %}<a class="btn-primary" style="padding: 3px 10px; white-space: normal;" href="{{tool.tutorial}}" target="_blank" title="Using Stitch and {{tool.name}}">Using Stitch with {{tool.name}} →</a>{% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+          </ul>
+
+## If a tool doesn't have a `tutorial` property, it'll show in the list in this section.
+      - title: "Additional analytics tools"
+        anchor: "additional-analytics-tools"
+        summary: "Additional analytics tools"
+        content: |
+          Stitch customers also enjoy these options:
+
+          <ul class="tiles three-columns link-tiles">
+          {% assign analytics = page.analytics | sort_natural:"name" %}
+
+            {% for tool in analytics %}
+              {% if tool.tutorial == nil %}
+                <li>
+                    <a href="{{ tool.url }}" target="new" style="padding: 0 20px 10px 20px;">
+                        <img src="{{ site.baseurl }}/images/analysis-tools/{{ tool.name | slugify }}.svg" alt="{{ tool.name }}" style="height: 50px">
+                        <strong>{{ tool.name }}</strong>
+                    </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+
+## If a tool is in the `compatibility-list` list, it'll show in the list in this section.
+      - title: "Destination compatibility"
+        anchor: "destination-compatibility"
+        summary: "Compatibility with Stitch destinations"
+        content: |
+          When picking an analysis tool, you may want to investigate whether the tool supports a native connection to your Stitch destination. We've investigated some popular options for you:
+
+          {% include analysis-tools/destination-compatibility.html %}
 
   - title: "SQL editors"
     anchor: "sql-editors"
