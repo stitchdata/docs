@@ -11,22 +11,27 @@
 
 sftp:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
   - name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.host | replace: "instance","server" | replace:"dbname","server" | flatify }}
 
   - name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: |
       Enter the port used by the {{ integration.display_name }} server. The default is `22`.
 
   - name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: |
       Enter the username of the {{ integration.display_name }} user. This should be the same user that added the public key to `authorized_keys` in [Step 2.2](#add-public-key-to-authorized-keys).
 
   - name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: |
       **Note**: If you [configured SSH for the {{ integration.display_name }} server](#configure-ssh-for-server), you don't need to enter a password.
 
