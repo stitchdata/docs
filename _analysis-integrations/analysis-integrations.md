@@ -201,21 +201,6 @@ compatibility-list:
       link-copy: "Supported"
       link-url: "https://www.metabase.com/docs/latest/administration-guide/01-managing-databases.html"
 
-  - name: "Qlik"
-    url: https://www.qlik.com/us
-    amazon-redshift:
-      link-copy: "Supported"
-      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/Redshift/Redshift-connector.htm"
-    amazon-s3:
-    google-bigquery:
-      link-copy: "Supported"
-      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/GoogleBigQuery/Google-BigQuery-Connector.htm"
-    # microsoft-azure:
-    # postgresql:
-    snowflake:
-      link-copy: "Supported"
-      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/Snowflake/Snowflake-connector.htm"
-
   - name: "PowerBI"
     amazon-redshift:
       link-copy: "Supported"
@@ -235,6 +220,38 @@ compatibility-list:
     snowflake:
       link-copy: "Supported"
       link-url: "https://docs.microsoft.com/en-us/power-bi/desktop-connect-snowflake"
+
+  - name: "Qlik"
+    url: https://www.qlik.com/us
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/Redshift/Redshift-connector.htm"
+    # amazon-s3:
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/GoogleBigQuery/Google-BigQuery-Connector.htm"
+    # microsoft-azure:
+    # postgresql:
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://help.qlik.com/en-US/connectors/Subsystems/ODBC_connector_help/Content/Connectors_ODBC/Snowflake/Snowflake-connector.htm"
+
+  - name: "Sisense"
+    amazon-redshift:
+      link-copy: "Supported"
+      link-url: "https://documentation.sisense.com/latest/managing-data/connectors/redshift-live.htm"
+    amazon-s3:
+      link-copy: "Via Amazon Athena"
+      link-url: "https://documentation.sisense.com/latest/managing-data/connectors/athena.htm"
+    google-bigquery:
+      link-copy: "Supported"
+      link-url: "https://documentation.sisense.com/latest/managing-data/connectors/bigquerylive.htm"
+    postgresql:
+      link-copy: "Supported"
+      link-url: "https://documentation.sisense.com/latest/managing-data/connectors/postgresql-live.htm"
+    snowflake:
+      link-copy: "Supported"
+      link-url: "https://documentation.sisense.com/latest/managing-data/connectors/snowflake-live.htm"
 
   - name: "Tableau"
     amazon-redshift:
