@@ -61,7 +61,7 @@ db-type: "oracle"
 api-type: "platform.oracle"
 versions: "n/a"
 ssh: true
-ssl: true
+ssl: false
 
 ## General replication features
 
@@ -229,11 +229,6 @@ setup-steps:
         anchor: "ssh-connection-details"
         content: |
           {% include shared/database-connection-settings.html type="ssh" %}
-
-      - title: "Define the SSL connection details"
-        anchor: "ssl-connection-details"
-        content: |
-          {% include shared/database-connection-settings.html type="ssl" %}
 
       - title: "Define the default replication method"
         anchor: "define-default-replication-method"
