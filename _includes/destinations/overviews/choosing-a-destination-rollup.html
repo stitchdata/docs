@@ -3,28 +3,33 @@
 
 {% include misc/icons.html %}
 
-{% assign destinations = site.destinations | where:"destination",true %}
+{% assign destinations = site.destinations | where:"destination",true | sort_natural: "display_name" %}
 
 <ul id="profileTabs" class="nav nav-tabs">
     <li class="active">
         <a href="#general" data-toggle="tab">
-            General</a>
+            General
+        </a>
     </li>
     <li>
         <a href="#pricing-tab" data-toggle="tab">
-            Pricing</a>
+            Pricing
+        </a>
     </li>
     <li>
         <a href="#stitch-support" data-toggle="tab">
-            Stitch details</a>
+            Stitch details
+        </a>
     </li>
     <li>
         <a href="#destination-details" data-toggle="tab">
-            Destination details</a>
+            Destination details
+        </a>
     </li>
     <li>
         <a href="#replication-and-transformations" data-toggle="tab">
-            Replication and transformations</a>
+            Replication and transformations
+        </a>
     </li>
 </ul>
 
@@ -35,6 +40,9 @@
         <table class="attribute-list table-hover">
             <tr>
                 <td class="attribute-name">
+                </td>
+                <td>
+                    <strong>Version</strong>
                 </td>
                 <td class="attribute-description">
                     <strong>Release status</strong>
@@ -57,6 +65,9 @@
                                 {{ destination.display_name }}
                             </a>
                         </strong>
+                    </td>
+                    <td>
+                        {{ version }}
                     </td>
                     <td class="attribute-description">
                         {{ only-this-version.status | capitalize }}
@@ -103,6 +114,9 @@
             <tr>
                 <td class="attribute-name">
                 </td>
+                <td>
+                    <strong>Version</strong>
+                </td>
                 <td class="attribute-description">
                     <strong>Pricing model</strong>
                 </td>
@@ -116,6 +130,9 @@
                         <strong>
                             <a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a>
                         </strong>
+                    </td>
+                    <td>
+                        {{ version }}
                     </td>
                     <td class="attribute-description">
                         <a href="{{ site.data.destinations[destination.type]resource-links.pricing }}" target="new">
@@ -142,12 +159,15 @@
     <!-- GENERAL STITCH DETAILS -->
         <table class="attribute-list table-hover">
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     <strong>GENERAL STITCH DETAILS</strong>
                 </td>
             </tr>
             <tr>
-                <td class="attribute-name">
+                <td align="right" width="20%; fixed">
+                </td>
+                <td width="15%; fixed">
+                    <strong>Version</strong>
                 </td>
                 <td class="attribute-description">
                     <strong>API availability</strong>
@@ -155,7 +175,7 @@
                 <td>
                     <strong>Incompatible<br>sources</strong>
                 </td>
-                <td width="30%; fixed">
+                <td>
                     <strong>Notes</strong>
                 </td>
             </tr>
@@ -169,10 +189,13 @@
                 {% endif %}
 
                 <tr>
-                    <td class="attribute-name">
+                    <td align="right">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
-                    <td width>
+                    <td>
+                        {{ version }}
+                    </td>
+                    <td>
                         {% case stitch-details.available-in-connect %}
                             {% when true %}
                                 {{ supported | replace:"TOOLTIP","This destination is available in the Connect API." }} Available
@@ -203,13 +226,16 @@
     <!-- CONNECTION METHOD SUPPORT -->
         <table class="attribute-list table-hover">
             <tr>
-                <td colspan="4">
+                <td colspan="5">
                     <strong>CONNECTION METHOD SUPPORT</strong>
                 </td>
             </tr>
             {% assign all-connection-methods ="ssl|ssh|vpn" | split: "|" %}
             <tr>
-                <td>
+                <td align="right" width="20%; fixed">
+                </td>
+                <td width="15%; fixed">
+                    <strong>Version</strong>
                 </td>
                 {% for connection-method in all-connection-methods %}
                     <td>
@@ -227,8 +253,11 @@
                     {% endif %}
 
                     <tr>
-                        <td class="attribute-name">
+                        <td align="right">
                             <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                        </td>
+                        <td>
+                            {{ version }}
                         </td>
                     {% for connection-method in all-connection-methods %}
                         <td width="25%; fixed">
@@ -266,6 +295,9 @@
             <tr>
                 <td class="attribute-name">
                 </td>
+                <td>
+                    <strong>Version</strong>
+                </td>
                 <td class="attribute-description">
                     <strong>Table name length</strong>
                     <a data-toggle="tooltip" data-original-title="{{ site.data.tooltips.table-name-limit }}">{{ question-icon | replace:"TOOLTIP","" }}</a>
@@ -280,6 +312,9 @@
                     <td class="attribute-name">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
                     </td>
+                    <td>
+                        {{ destination.this-version | prepend: "v" }}
+                    </td>
                     <td class="attribute-description">
                         {{ site.data.destinations[destination.type]destination-details.table-name-length | default: "n/a" }}
                     </td>
@@ -292,12 +327,15 @@
     <!-- OTHER DESTINATION DETAILS -->
         <table class="attribute-list table-hover">
             <tr>
-                <td colspan="3">
+                <td colspan="4">
                     <strong>OTHER DETAILS</strong>
                 </td>
             </tr>
             <tr>
                 <td class="attribute-name">
+                </td>
+                <td>
+                    <strong>Version</strong>
                 </td>
                 <td class="attribute-description">
                     <strong>Case sensitivity</strong>
@@ -312,6 +350,9 @@
                 <tr>
                     <td class="attribute-name">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                    </td>
+                    <td>
+                        {{ destination.this-version | prepend: "v" }}
                     </td>
                     <td class="attribute-description">
                         {{ site.data.destinations[destination.type]destination-details.case-sensitivity | default: "n/a" }}
@@ -332,6 +373,9 @@
             <tr>
                 <td class="attribute-name">
                 </td>
+                <td>
+                    <strong>Version</strong>
+                </td>
                 <td width="35%; fixed">
                     <strong>Default loading behavior</strong><a data-toggle="tooltip" data-original-title="The destination's default loading behavior type.">{{ question-icon | replace:"TOOLTIP","" }}</a>
                 </td>
@@ -345,6 +389,9 @@
                 <tr>
                     <td class="attribute-name">
                         <strong><a href="{{ destination.url | prepend: site.baseurl }}">{{ destination.display_name }}</a></strong>
+                    </td>
+                    <td>
+                        {{ version }}
                     </td>
                     <td width="35%; fixed">
                         {{ site.data.destinations[destination.type][version]replication.default-loading-behavior }}
