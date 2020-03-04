@@ -21,6 +21,7 @@
 ssl:
   - name: "SSL Certificate"
     connect: "ssl_ca"
+    version: "1"
     copy: |
       The certificate (typically a CA or server certificate) Stitch should verify the SSL connection against. The connection will succeed only if the server's certifcate verifies against the certificate provided.
 
@@ -43,27 +44,41 @@ ssl:
 #       VANILLA MYSQL        #
 # -------------------------- #
 
-mysql:
-  - name: "{{ defaults.field-names.integration-name }}"
+mysql: &standard-fields
+  - &integration-name
+    name: "{{ defaults.field-names.integration-name }}"
+    version: "1"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
-  - name: "{{ defaults.field-names.host }}"
+  - &host
+    name: "{{ defaults.field-names.host }}"
+    version: "1"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
-  - name: "{{ defaults.field-names.port }}"
+  - &port
+    name: "{{ defaults.field-names.port }}"
+    version: "1"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
+  - &username
+    name: "{{ defaults.field-names.username }}"
+    version: "1"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
+  - &password
+    name: "{{ defaults.field-names.password }}"
+    version: "1"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
-  - name: "{{ defaults.field-names.database }}"
+  - &database
+    name: "{{ defaults.field-names.database }}"
+    version: "1"
     copy: "{{ defaults.field-copy.optional-database | flatify }}"
 
-  - name: &server-id-name "Server ID"
+  - &server-id
+    name: &server-id-name "Server ID"
+    version: "1"
     copy: &server-id-copy |
       **Optional**: Enter the unique server ID of instance you're connecting to Stitch.
 
@@ -74,24 +89,14 @@ mysql:
 #      AURORA MYSQL RDS      #
 # -------------------------- #
 
-aurora-rds:
-  - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
-
+aurora-rds: &rds-fields
+  - *integration-name
   - name: "{{ defaults.field-names.host }}"
     copy: |
       {{ defaults.field-copy.host-rds | flatify }}
-
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
-
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
-
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
-
+  - *port
+  - *username
+  - *password
   - name: "{{ defaults.field-names.database }}"
     copy: |
       Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.
@@ -102,106 +107,38 @@ aurora-rds:
 # -------------------------- #
 
 magento:
-  - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
-
-  - name: "{{ defaults.field-names.host }}"
-    copy: "{{ defaults.field-copy.host | flatify }}"
-
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
-
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
-
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
-
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ defaults.field-copy.optional-database | flatify }}"
+  - *integration-name
+  - *host
+  - *port
+  - *username
+  - *password
+  - *database
 
 
 # -------------------------- #
 #           MARIADB          #
 # -------------------------- #
 
-mariadb:
-  - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
-
-  - name: "{{ defaults.field-names.host }}"
-    copy: "{{ defaults.field-copy.host | flatify }}"
-
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
-
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
-
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
-
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ defaults.field-copy.optional-database | flatify }}"
-
-  - name: *server-id-name
-    copy: *server-id-copy
+mariadb: *standard-fields
 
 
 # -------------------------- #
 #          MYSQL RDS         #
 # -------------------------- #
 
-mysql-rds:
-  - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
-
-  - name: "{{ defaults.field-names.host }}"
-    copy: |
-      {{ defaults.field-copy.host-rds | flatify }}
-
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
-
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
-
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
-
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ defaults.field-copy.optional-database | flatify }}"
-
-  - name: *server-id-name
-    copy: *server-id-copy
+mysql-rds: *rds-fields
 
 # -------------------------- #
 #      CLOUDSQL MYSQL        #
 # -------------------------- #
 
 cloudsql-mysql:
-  - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
-
+  - *integration-name
   - name: "{{ defaults.field-names.host }}"
     copy: |
       {{ defaults.field-copy.host-cloudsql | flatify }}
-
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
-
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
-
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
-
-  - name: "{{ defaults.field-names.database }}"
-    copy: "{{ defaults.field-copy.optional-database | flatify }}"
-
-  - name: *server-id-name
-    copy: *server-id-copy
+  - *port
+  - *username
+  - *password
+  - *database
+  - *server-id

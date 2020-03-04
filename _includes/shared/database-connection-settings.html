@@ -63,6 +63,8 @@ below.  -->
       {% assign connection-settings = site.data.ui.destination-settings[page.type][destination-name] %}
   {% endcase %}
 
+    {% assign ssl-fields = site.data.ui.destination-settings[page.type]ssl %}
+
   {% capture stitch-location-copy %}
   Click the {{ app.menu-paths.destination-settings }}.
   {% endcapture %}
@@ -119,8 +121,6 @@ If you're using an SSH tunnel to connect your {{ page.display_name }} database t
 
 <!-- IF THE CONNECTION HAS SPECIFIC SSL FIELDS, SHOW THEM -->
 {% if include.ssl-fields == true %}
-
-{% assign ssl-fields = site.data.ui.destination-settings[page.type]ssl %}
 
 1. Check the **{{ defaults.field-names.ssl }}** checkbox. {{ defaults.field-copy.ssl }}
 2. Fill in the fields as follows:
