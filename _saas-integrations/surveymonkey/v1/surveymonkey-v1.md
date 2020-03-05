@@ -120,8 +120,9 @@ setup-steps:
          ![Your SurveyMonkey access token.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 600px;"}
          {:start="7"}
       7. To allow Stitch to access your survey information, you will need to give view permissions. Scroll down to the **Scope** section and you will see several scope requirements. **View Surveys**, **View Responses**, and **View Survey Details** are all required view permissions that Stitch needs. Click on each of those until it appears green and shows that it's required.
-      {% include layout/image.html file="/integrations/surveymonkey-scope-requirements.png" alt="SurveyMonkey app scope requirements." enlarge=true max-width="750" %}
-      {:start="8"}
+
+         ![SurveyMonkey app scope requirements]({{ site.baseurl }}/images/integrations/surveymonkey-scope-requirements.png){:style="max-width: 600px;"}
+         {:start="8"}
       8. Click **Update Scopes**.
 
       **Note**: You do not need a paid SurveyMonkey account to have access to your access token, however without a paid account you will not be able deploy your app and it will be disabled in 90 days. You can contact SurveyMonkey at api-support@surveymonkey.com to request an extention.
