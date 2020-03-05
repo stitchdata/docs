@@ -79,7 +79,7 @@
             {% for version in released-versions %}
                 {% assign this-version-guide = all-versioned-docs | where:"this-version",version.number | first %}
 
-                {% assign clean-version = version.number | remove: ".0" | prepend: "v" %}
+                {% assign clean-version = version.number | prepend: "v" %}
 
                 <!-- Check if there's a data file for the specific version. If there isn't
                     skip it. -->
@@ -102,8 +102,7 @@
                 <strong>{{ data-type.name | upcase }}</strong>
             </td>
             {% for version in released-versions %}
-        <!-- Remove the '.0' from the version, as it's not used in data file names -->
-                {% assign clean-version = version.number | remove: ".0" | prepend: "v" %}
+                {% assign clean-version = version.number | prepend: "v" %}
 
             <!-- Check if there's a data file for the specific version. If there isn't
                     skip it. -->

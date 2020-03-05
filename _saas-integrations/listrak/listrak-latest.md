@@ -93,6 +93,16 @@ setup-steps:
          - **Analytics Access** - This allows the Stitch user to view analytics for messages, contacts, and lists for available lists.
          - **API Access** - This allows the Stitch user to replicate data from your {{ integration.display_name }} using the {{ integration.display_name }} API.
       9. Click **Add User** when finished.
+
+  - title: "Add Stitch IP Addresses to SOAP API Whitelist."
+    anchor: "ip-addresses-whitelist"  
+    content: |
+      1. In your {{ integration.display_name }} account, navigate to **Manage > Accounts > SOAP API IP Authorization**.
+      2. Add the following IP addresses:
+           {% for ip in ip-addresses %}
+           - {{ ip.ip }}
+           {% endfor %}
+  
   - title: "add integration"
     content: |
       4. In the **Username** field, enter the Stitch {{ integration.display_name }} user's username.

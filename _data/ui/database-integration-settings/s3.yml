@@ -14,11 +14,14 @@
 
 amazon-s3-csv:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
   - name: "S3 Bucket"
+    version: "all"
     copy: "Enter the name of bucket you want to replicate data from. Enter only the bucket name: No URLs, `https`, or S3 parts. For example: `com-test-stitch-bucket`"
 
   - name: "AWS Account ID"
+    version: "all"
     copy: "Paste the AWS account ID you retrieved in [Step 1](#retrieve-aws-account-id)."

@@ -2,15 +2,22 @@
 #      MONGODB VERSIONS      #
 # -------------------------- #
 
-latest-version: "1"
+latest-version: "2"
 
 tap-name: "MongoDB"
 
 released-versions:
+  - number: "2"
+    status: "released"
+    date-released: "February 14, 2020"
+    # date-last-connection: ""
+    deprecation-date: ""
+    sunset-date: ""
+
   - number: "1"
     status: "released"
     date-released: "November 4, 2019"
-    # date-last-connection:
+    date-last-connection: "February 14, 2020"
     deprecation-date: ""
     sunset-date: ""
 
@@ -38,6 +45,15 @@ released-versions:
 # _includes/shared/versioning/changelog.html
 
 changelog-entries:
+  - date: "February 14, 2020"
+    version: "2"
+    type: "new-version"
+    content: |
+      Highlights include:
+
+      - Support for `DATE-TIME` data types. These values will no longer be loaded as `STRING`.
+      - Changes to `DECIMAL` and `DOUBLE` handling. In v1, columns could be split into two data types (`DECIMAL` or `DOUBLE`) based on their precision values. In v2, these values will always be loaded as `DOUBLE`.
+
   # - date: "November 4, 2019"
   #   version: "11-01-2016"
   #   type: "version-deprecation"

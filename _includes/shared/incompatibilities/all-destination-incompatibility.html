@@ -24,7 +24,7 @@
 					{% if total-versions > 1 %}v{{ destination.this-version }}{% endif %}
 				</strong> 
 
-				(<a href="{{ destination.url }}">link</a>)
+				(<a href="{{ destination.url | prepend: site.baseurl }}">link</a>)
 			</td>
 		</tr>
 

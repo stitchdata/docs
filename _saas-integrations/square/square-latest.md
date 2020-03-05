@@ -4,10 +4,7 @@ permalink: /integrations/saas/square
 keywords: square, integration, schema, etl square, square etl, square schema
 summary: "Connection instructions and schema details for Stitch's Square integration."
 layout: singer
-format: ## controls formatting options in template
-  schema-list: true
-  table-desc: true
-  list: expand
+old-schema-template: true
 
 key: "square-setup"
 

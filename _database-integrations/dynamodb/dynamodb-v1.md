@@ -24,11 +24,11 @@ key: "dynamodb-integration"
 #     Integration Details    #
 # -------------------------- #
 
-name: "dynamodb"
+name: "amazon-dynamodb"
 display_name: "Amazon DynamoDB"
 
 singer: true
-tap-name: "tap-dynamodb"
+tap-name: "Amazon DynamoDB"
 repo-url: "https://github.com/singer-io/tap-dynamodb"
 status-url: "https://status.aws.amazon.com/"
 
