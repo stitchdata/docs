@@ -1,3 +1,10 @@
+# ------------------------------------------ #
+#      Google BigQuery Loading Errors        #
+# ------------------------------------------ #
+
+## This file contains loading errors specific to Google BigQuery destinations.
+
+
 firewall: &firewall "Connection refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections."
 
 timestamp-out-of-range: &timestamp-out-of-range "timestamp out of range for {{ destination.display_name }} on [TIMESTAMP]"
@@ -22,3 +29,135 @@ max-record-size: ""
 # Can't accept a record larger than 3999998 bytes
 
 # A single record is larger than the Stitch API limit of 4 Mb
+
+all:
+## Timestamp out of range
+  - message: *timestamp-out-of-range
+    id: "timestamp-out-of-range"
+    applicable-to: &all-destinations "All destinations"
+    level: &warning "warning"
+    category: "Destination data type limits"
+    summary: "Timestamp out of range"
+    cause: "Timestamp data exceeds the destination's allowed range."
+    fix-it: &offending-values |
+      Remove offending values in the source, or change them to be within the allowed range for the destination type.
+
+      Refer to the data typing documentation for your destination for info on the allowed limits for the destination:
+
+      {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
+
+      {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
+      {% if site.data.destinations[destination.type][version]data-types %}
+      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#transformations--data-typing" }})
+      {% endif %}
+      {% endfor %}
+
+## Integer out of range
+  - message: *integer-out-of-range
+    id: "integer-out-of-range"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Destination data type limits"
+    summary: "Integer out of range"
+    cause: "Integer data exceeds the destination's allowed range."
+    fix-it: *offending-values
+
+## Decimal out of range
+  - message: *decimal-out-of-range
+    id: "decimal-out-of-range"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Destination data type limits"
+    summary: "Decimal out of range"
+    cause: "Decimal data exceeds the destination's allowed range."
+    fix-it: *offending-values
+
+## Table name length exceeds limit
+  - message: *table-name-limit
+    id: "table-name-limit"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Destination object naming"
+    summary: "Table name exceeds destination limit"
+    cause: "A table name contains more characters than allowed by the destination."
+    fix-it: |
+      1. If possible, change the table name in the source to be less than the destination's limit for table names, or
+      2. De-select the table in Stitch
+
+      If neither solution is feasible, you may need to select a destination with a higher character limit for table names.
+
+      Refer to the reference documentation for your destination for info on table name limits:
+
+      {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
+
+      {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
+      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#destination-details" }})
+      {% endfor %}
+
+## Column name length exceeds limit
+  - message: *column-name-limit
+    id: "column-name-limit"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Destination object naming"
+    summary: "Column name exceeds destination limit"
+    cause: "A column name contains more characters than allowed by the destination."
+    fix-it: |
+      1. If possible, change the column name in the source to be less than the destination's limit for column names, or
+      2. De-select the column in Stitch
+
+      If neither solution is feasible, you may need to select a destination with a higher character limit for column names.
+
+      Refer to the reference documentation for your destination for info on column name limits:
+
+      {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
+
+      {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
+      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#destination-details" }})
+      {% endfor %}
+
+## Table contains too many columns
+  - message: *too-many-columns
+    id: "column-limit-exceeded"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Destination object limits"
+    summary: "Table contains too many columns"
+    cause: "A table contains more columns than the destination allows."
+    fix-it: |
+      De-select columns in Stitch to allow data to continue loading into the destination table.
+
+      Refer to the reference documentation for your destination for info on the columns per table limit:
+
+      {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
+
+      {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
+      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#destination-details" }})
+      {% endfor %}
+
+## Field name collision
+  - message: *field-name-collision
+    id: "field-name-collision"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Destination object naming"
+    summary: "Column name collision"
+    cause: "Two columns are replicated that canonicalize to the same name."
+    fix-it: |
+      If possible, re-name one of the columns in the source so that both column names will be unique when replicated to the destination.
+
+## Reserved data type suffix
+  - message: *reserved-datatype-suffix
+    id: "reserved-data-type-suffix"
+    applicable-to: *all-destinations
+    level: *warning
+    category: "Stitch object naming"
+    summary: "Table or column contains reserved words"
+    cause: "A table or column contains reserved words."
+    fix-it: |
+      Remove the reserved words by re-naming the table or column in the source.
+
