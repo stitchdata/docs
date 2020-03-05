@@ -97,11 +97,12 @@ setup-steps:
       1. Login to your your {{ integration.display_name }} and click on **My Surveys** on the upper left-hand portion of the screen.
       2. Select the survey that you want to replicate data from.
       3. Go to **Collect Responses** to access your survey link. If you don't currently have a link to your survey, continue to the next step. If you do, skip to step 5.
-      {% include layout/image.html file="/integrations/surveymonkey-collect-responses.png" alt="SurveyMonkey's survey breadcrumbs." enlarge=true max-width="550" %}
-      {:start="4"}
+
+         ![{{ integration.display_name }} Collect Responses tab]({{ site.baseurl }}/images/integrations/surveymonkey-collect-responses.png){:style="max-width: 450px;"}
+         {:start="4"}
       4. Click **Send Surveys Your Way** and then **Get Web Link**.
-      5. The last portion of your survey URL is the survey id. Keep this readily available.
-      {% include layout/image.html file="/integrations/surveymonkey-survey-id-weblink.png" alt="Survey URL containing the Survey ID." enlarge=true max-width="550" %}
+      5. The last portion of your survey URL is the survey ID. Keep this readily available.
+         ![Survey URL containing the Survey ID.]({{ site.baseurl }}/images/integrations/surveymonkey-survey-id-weblink.png){:style="max-width: 450px;"}
 
   - title: "Obtain your access token"
     anchor: "obtain-access-token"
@@ -110,15 +111,18 @@ setup-steps:
       2. Select **My Apps** on the upper menu panel.
       3. Click **Add a New App**.
       4. In the pop-up window, give your app a nickname, for example: Stitch Integration. Select **Private App**, and then click on the **Create App** button.
-      {% include layout/image.html file="/integrations/surveymonkey-app-creation.png" alt="Window to create your SurveyMonkey app." enlarge=true max-width="550" %}
-      {:start="5"}
-      5. You are now in your app. Click on the settings tab underneath your app's nickname. Scroll down to **Credentials** and you will find your access token. Keep this credential readily available for the integration.
-      {% include layout/image.html file="/integrations/surveymonkey-access-token.png" alt="Your SurveyMonkey access token." enlarge=true max-width="750" %}
-      {:start="6"}
-      6. To allow Stitch to access your survey information, you will need to give view permissions. Scroll down to the **Scope** section and you will see several scope requirements. **View Surveys**, **View Responses**, and **View Survey Details** are all required view permissions that Stitch needs. Click on each of those until it appears green and shows that it's required.
+
+         ![Window to create your SurveyMonkey app.]({{ site.baseurl }}/images/integrations/surveymonkey-app-creation.png){:style="max-width: 400px;"}
+         {:start="5"}
+      5. You are now in your app. Click the **Settings** tab underneath your app's nickname.
+      6. Scroll down to **Credentials** and you will find your access token. Keep this credential readily available for the integration.
+         
+         ![Your SurveyMonkey access token.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 600px;"}
+         {:start="7"}
+      7. To allow Stitch to access your survey information, you will need to give view permissions. Scroll down to the **Scope** section and you will see several scope requirements. **View Surveys**, **View Responses**, and **View Survey Details** are all required view permissions that Stitch needs. Click on each of those until it appears green and shows that it's required.
       {% include layout/image.html file="/integrations/surveymonkey-scope-requirements.png" alt="SurveyMonkey app scope requirements." enlarge=true max-width="750" %}
-      {:start="7"}
-      7. Click **Update Scopes**.
+      {:start="8"}
+      8. Click **Update Scopes**.
 
       **Note**: You do not need a paid SurveyMonkey account to have access to your access token, however without a paid account you will not be able deploy your app and it will be disabled in 90 days. You can contact SurveyMonkey at api-support@surveymonkey.com to request an extention.
 
@@ -128,7 +132,7 @@ setup-steps:
       # 4. In the [FIELD_NAME] field, [instructions]
   - title: "historical sync"
   - title: "replication frequency"
-  - title: "track data" ## remove this if the integration doesn't support at least table selection
+  - title: "track data"
 
 
 # -------------------------- #
@@ -136,14 +140,7 @@ setup-steps:
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/surveymonkey
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/surveymonkey/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
