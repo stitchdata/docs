@@ -10,6 +10,9 @@ description: "This table contains information about Google Analytics session hit
 
 replication-method: "Key-based Incremental"
 
+replication-key:
+  name: "ga_sessions_YYYYMMDD"
+
 api-method:
     name: "BigQuery Export schema"
     doc-link: "https://support.google.com/analytics/answer/3437719?hl=en&ref_topic=3416089"
