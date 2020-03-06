@@ -9,7 +9,7 @@ redirect_from:
   - /troubleshooting/database-integration-connection-errors
   - /troubleshooting/integrations/database-connection-errors
 
-summary: "Connection errors for database integrations and how to resolve them."
+summary: "Resolve errors related to connecting to a database integration."
 type: "database-integration, error"
 
 level: "guide"

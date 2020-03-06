@@ -9,13 +9,13 @@ redirect_from:
   - /troubleshooting/destination-connection-errors
   - /troubleshooting/destinations/destination-connection-errors
 
-summary: "Stitch periodically performs checks on the connection to your destination to ensure the connection remains active and healthy. In this article are some of the most common errors you might see if Stitch has trouble performing the connection check to your destination and how to resolve them."
+summary: "Resolve errors related to connecting to your Stitch destination."
 type: "all-destinations, error"
 
 level: "guide"
 top-level: ""
 # category: "connection-errors"
-type: "destination, error"
+type: "all-destinations, destination, error"
 popular: true
 
 intro: |

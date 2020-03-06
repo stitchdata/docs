@@ -8,14 +8,15 @@ permalink: /troubleshooting/destinations/destination-loading-error-reference
 redirect_from: 
   - /troubleshooting/destinations/redshift-data-loading-errors
   - /troubleshooting/destinations/postgres-data-loading-errors
+  - /troubleshooting/destinations/destination-data-loading-errors
 
-summary: "Received an error about Stitch loading data into your Redshift data warehouse? Check out these common errors and how to resolve them."
+summary: "Resolve errors related to loading data into your Stitch destination."
 type: "all-destinations, error"
 
 level: "guide"
 top-level: ""
 # category: "connection-errors"
-type: "destination, error"
+type: "all-destinations, destination, error"
 popular: true
 
 display_name: "[DESTINATION]"

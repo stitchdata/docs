@@ -17,7 +17,7 @@ summary: "Extraction errors for database integrations and how to resolve them."
 level: "guide"
 top-level: "replication"
 # category: "extraction-errors"
-type: "integration, error"
+type: "database-integration, error, replication"
 popular: true
 
 # Used to create a callout box that lists the applicable integrations for the section.
