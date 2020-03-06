@@ -8,7 +8,7 @@
 raw-error:
   replication-key-type: &rep-key-type "[DATA_TYPE] is not a supported replication key type"
 
-  local-not-authorized: &local-not-authorized "not authorized on local to execute command { <COMMAND> }"
+  local-not-authorized: &local-not-authorized "not authorized on local to execute command { [COMMAND] }"
 
   blacklist-id: &blacklist-id "Projection blacklists key property id"
 
@@ -31,10 +31,10 @@ all:
 ## Projection query excludes _id field
   - message: *blacklist-id
     id: "projection-blacklisted-id"
-    applicable-to: &all-mongo "MongoDB v1-backed database integrations"
+    applicable-to: &all-mongo "MongoDB v1+-backed database integrations"
     level: "critical"
     <<: *projection-queries
-    version: "1"
+    version: "1,2"
     summary: "Projection query excludes the collection's _id field"
     cause: |
       A projection query for a collection set to replicate is excluding the collection's `_id` field.
@@ -55,7 +55,7 @@ all:
     applicable-to: *all-mongo
     level: "critical"
     <<: *projection-queries
-    version: "1"
+    version: "1,2"
     summary: "Projection query contains inclusion and exclusion statements"
     cause: |
       A projection query for a collection set to replicate includes both inclusion and exclusion statements. MongoDB doesn't currently support inclusion and exclusion statements in the same projection query.
@@ -85,7 +85,7 @@ all:
     applicable-to: *all-mongo
     level: "critical"
     <<: *projection-queries
-    version: "1"
+    version: "1,2"
     summary: "Projection query contains invalid JSON"
     cause: |
       A projection query for a collection set to replicate isn't valid JSON. A projection query is a JSON object; keys within the object must be enclosed in double quotes (`"`).
@@ -114,17 +114,20 @@ all:
     applicable-to: *all-mongo
     level: "critical"
     <<: *replication-keys
-    version: "1"
+    version: "1,2"
     summary: "Incompatible data type for Replication Key"
     cause: |
       A Replication Key field contains an incompatible data type.
 
       [Stitch requires MongoDB Replication Key fields](https://github.com/singer-io/tap-mongodb/blob/master/tap_mongodb/sync_strategies/common.py#L77){:target="new"} to be one of the following data types:
 
-      - `DATE-TIME`
-      - `INTEGER`
-      - `TIMESTAMP`
-      - `ObjectId`
+      {% assign supported-key-types = site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types | sort_natural:"type" %}
+
+      {% for data-type in supported-key-types %}
+      {% if data-type.integration contains "All" or data-type.integration contains "MongoDB" %}
+      - `{{ data-type.type | upcase }}`
+      {% endif %}
+      {% endfor %}
     fix-it: |
       - Select a different Replication Key for the collection, or
       - Convert the data to a supported Replication Key data type, if possible
@@ -135,15 +138,13 @@ all:
     applicable-to: *all-mongo
     level: "critical"
     category: "Database user privileges"
-    version: "1"
+    version: "1,2"
     summary: "Insufficient privileges on local database"
     cause: |
       The Stitch MongoDB database user isn't authorized to execute commands on the `local` database. This is required to successfully replicate data.
     fix-it: |
-      Grant the Stitch MongoDB database user `read` access to the `local` database using [`grantRolesToUser`](https://docs.mongodb.com/v4.0/reference/method/db.grantRolesToUser/){:target="new"}:
+      Grant the Stitch MongoDB database user `read` access to the `local` database. Refer to the guide for your MongoDB type for instructions:
 
-      ```javascript
-      db.grantRolesToUser( "stitch", {role: "read", db: "local"} )
-      ```
-
-      **Note**: You need the [`grantRole` action](https://docs.mongodb.com/v4.0/reference/privilege-actions/#grantRole){:target="new"} on a database to perform `grantRolesToUser`.
+      {% for integration in applicable-integrations %}
+      - [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl | append: "/v2" | append: "#create-a-database-user" }})
+      {% endfor %}

@@ -20,6 +20,19 @@ top-level: "replication"
 type: "integration, error"
 popular: true
 
+# Used to create a callout box that lists the applicable integrations for the section.
+applicable-integrations-note: |
+  {% assign database-integrations = site.database-integrations | where:"show-in-menus",true | sort_natural:"display_name" %}
+
+  {% capture applicable-integration-note %}
+  {% assign applicable-integrations = database-integrations | where:"db-type",section.db-type %}
+  {% for integration in applicable-integrations %}
+  - {{ integration.display_name }}
+  {% endfor %}
+  {% endcapture %}
+
+  {% include note.html first-line="**The extraction errors in this section are applicable to the following database integrations:**" content=applicable-integration-note %}
+
 intro: |
   When Stitch replicates data from a database integration, it will check for the required user permissions and database server settings. If permissions or server settings aren't properly defined, you may receive an error during the Extraction phase of the replication process.
 
@@ -43,28 +56,40 @@ sections:
 
   - title: "Microsoft SQL Server extraction errors"
     anchor: "microsoft-sql-server-error-reference"
+    db-type: "mssql"
     content: |
+      {{ page.applicable-integrations-note | flatify }}
+
       {% assign errors = site.data.errors.extraction.databases.mssql.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="microsoft-sql-server-error-reference" display-name="Microsoft SQL Server" %}
 
   - title: "MongoDB extraction errors"
     anchor: "mongodb-error-reference"
+    db-type: "mongo"
     content: |
+      {{ page.applicable-integrations-note | flatify }}
+
       {% assign errors = site.data.errors.extraction.databases.mongo.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html  top-anchor="mongodb-error-reference" display-name="MongoDB" %}
 
   - title: "MySQL extraction errors"
     anchor: "mysql-error-reference"
+    db-type: "mysql"
     content: |
+      {{ page.applicable-integrations-note | flatify }}
+
       {% assign errors = site.data.errors.extraction.databases.mysql.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="mysql-error-reference" display-name="MySQL" %}
 
   - title: "Oracle extraction errors"
     anchor: "oracle-error-reference"
+    db-type: "oracle"
     content: |
+      {{ page.applicable-integrations-note | flatify }}
+
       {% assign errors = site.data.errors.extraction.databases.oracle.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="oracle-error-reference" display-name="Oracle" %}
