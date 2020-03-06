@@ -320,7 +320,7 @@ sections:
     content: |
       If a collection's projection query doesn't meet [Stitch's requirements](#projection-query-stitch-requirements), a critical error will arise during Extraction. Extractions will not be successful until the issue is resolved.
 
-      For a list of possible errors and how to resolve them, refer to the [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | prepend: site.baseurl }}).
+      For a list of possible errors and how to resolve them, refer to the [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | flatify | prepend: site.baseurl }}).
 
   - title: "Resources"
     anchor: "projection-query-resources"
@@ -328,7 +328,7 @@ sections:
     content: |
       - [MongoDB projection query documentation]({{ site.data.taps.links.mongodb.projection-queries }}){:target="new"}
       - [MongoDB dot notation documentation]({{ site.data.taps.links.mongodb.dot-notation }}){:target="new"}
-      - [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | prepend: site.baseurl }})
+      - [MongoDB Extraction Errors reference]({{ link.troubleshooting.mongodb-extraction-errors | flatify | prepend: site.baseurl }})
 
       ---
 ---

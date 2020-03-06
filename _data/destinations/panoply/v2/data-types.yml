@@ -93,7 +93,7 @@ number:
   description: |
     Precision must be between 1 and 38; scale must be between 0 and the precision value
   doc-link: "https://docs.aws.amazon.com/redshift/latest/dg/r_Numeric_types201.html#r_Numeric_types201-decimal-or-numeric-type"
-  # range: ""
+  range: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
 
 
