@@ -28,17 +28,46 @@ all:
   - message: "Numeric out of range for BigQuery on [NUMERIC]"
     id: "numeric-out-of-range"
     applicable-to: "All Google BigQuery destination versions"
-    level: "critical"
-    category: ""
-    summary: ""
-    cause: |
-    fix-it: 
+    level: "warning"
+    category: "Destination data type limits"
+    summary: "Numeric data out of range"
+    cause: "Numeric data exceeds the destination's allowed range."
+    data-type: "number"
+    fix-it: |
+      Remove offending values in the source, or change them to be within the allowed range for Google BigQuery:
 
-  - message: "[ARRAY] is an array with a mixture of types"
-    id: ""
-    applicable-to: "Google BigQuery v1 destinations"
-    level: "critical"
-    category: ""
-    summary: ""
-    cause: |
-    fix-it: ""
+      {% assign all-destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
+      {% assign destinations = all-destinations | where:"name","bigquery" %}
+
+      <table class="attribute-list" style="font-size: 14px;">
+      <tr>
+      <td align="right" width="15%; fixed">
+      <strong>Version</strong>
+      </td>
+      <td>
+      <strong>Range</strong>
+      </td>
+      </tr>
+      {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
+      {% if site.data.destinations[destination.type][version]data-types %}
+      <tr>
+      <td align="right">
+      <a href="{{ destination.url | prepend: site.baseurl | append: "" }}">{{ version }}</a>
+      </td>
+      <td>
+      {{ site.data.destinations[destination.type][version]data-types[error.data-type]range | markdownify }}
+      </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      </table>
+
+  # - message: "[ARRAY] is an array with a mixture of types"
+  #   id: ""
+  #   applicable-to: "Google BigQuery v1 destinations"
+  #   level: "critical"
+  #   category: ""
+  #   summary: ""
+  #   cause: |
+  #   fix-it: ""

@@ -39,19 +39,41 @@ all:
     category: "Destination data type limits"
     summary: "Timestamp out of range"
     cause: "Timestamp data exceeds the destination's allowed range."
+    data-type: "date"
     fix-it: &offending-values |
-      Remove offending values in the source, or change them to be within the allowed range for the destination type.
-
-      Refer to the data typing documentation for your destination for info on the allowed limits for the destination:
+      Remove offending values in the source, or change them to be within the allowed range for the destination type:
 
       {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
 
+      <table class="attribute-list" style="font-size: 14px;">
+      <tr>
+      <td align="right">
+      <strong>Destination</strong>
+      </td>
+      <td>
+      <strong>Version</strong>
+      </td>
+      <td>
+      <strong>Range</strong>
+      </td>
+      </tr>
       {% for destination in destinations %}
       {% assign version = destination.this-version | prepend: "v" %}
       {% if site.data.destinations[destination.type][version]data-types %}
-      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#transformations--data-typing" }})
+      <tr>
+      <td align="right">
+      <a href="{{ destination.url | prepend: site.baseurl | append: "" }}"><strong>{{ destination.display_name }}</strong></a>
+      </td>
+      <td>
+      {{ version }}
+      </td>
+      <td>
+      {{ site.data.destinations[destination.type][version]data-types[error.data-type]range | markdownify }}
+      </td>
+      </tr>
       {% endif %}
       {% endfor %}
+      </table>
 
 ## Integer out of range
   - message: *integer-out-of-range
@@ -61,6 +83,7 @@ all:
     category: "Destination data type limits"
     summary: "Integer out of range"
     cause: "Integer data exceeds the destination's allowed range."
+    data-type: "integer"
     fix-it: *offending-values
 
 ## Decimal out of range
@@ -71,6 +94,7 @@ all:
     category: "Destination data type limits"
     summary: "Decimal out of range"
     cause: "Decimal data exceeds the destination's allowed range."
+    data-type: "number"
     fix-it: *offending-values
 
 ## Table name length exceeds limit
@@ -81,20 +105,43 @@ all:
     category: "Destination object naming"
     summary: "Table name exceeds destination limit"
     cause: "A table name contains more characters than allowed by the destination."
-    fix-it: |
-      1. If possible, change the table name in the source to be less than the destination's limit for table names, or
-      2. De-select the table in Stitch
+    object: "table"
+    fix-it: &object-names |
+      1. If possible, change the {{ error.object }} name in the source to be less than the destination's limit for {{ error.object }} names, or
+      2. De-select the {{ error.object }} in Stitch
 
-      If neither solution is feasible, you may need to select a destination with a higher character limit for table names.
-
-      Refer to the reference documentation for your destination for info on table name limits:
+      If neither solution is feasible, you may need to select a destination with a higher character limit for {{ error.object }} names. Refer to the table below for each destination's {{ error.object }} name limits:
 
       {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
 
+      <table class="attribute-list">
+      <tr>
+      <td align="right" width="45%; fixed">
+      <strong>Destination</strong>
+      </td>
+      <td>
+      <strong>Version</strong>
+      </td>
+      <td>
+      <strong>Limit</strong>
+      </td>
+      </tr>
       {% for destination in destinations %}
       {% assign version = destination.this-version | prepend: "v" %}
-      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#destination-details" }})
+      <tr>
+      <td align="right">
+      <a href="{{ destination.url | prepend: site.baseurl | append: "" }}"><strong>{{ destination.display_name }}</strong></a>
+      </td>
+      <td>
+      {{ version }}
+      </td>
+      <td>
+      {% assign attribute = error.object | append: "-name-length" %}
+      {{ site.data.destinations[destination.type]destination-details[attribute] }}
+      </td>
+      </tr>
       {% endfor %}
+      </table>
 
 ## Column name length exceeds limit
   - message: *column-name-limit
@@ -104,20 +151,9 @@ all:
     category: "Destination object naming"
     summary: "Column name exceeds destination limit"
     cause: "A column name contains more characters than allowed by the destination."
-    fix-it: |
-      1. If possible, change the column name in the source to be less than the destination's limit for column names, or
-      2. De-select the column in Stitch
+    object: "column"
+    fix-it: *object-names
 
-      If neither solution is feasible, you may need to select a destination with a higher character limit for column names.
-
-      Refer to the reference documentation for your destination for info on column name limits:
-
-      {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
-
-      {% for destination in destinations %}
-      {% assign version = destination.this-version | prepend: "v" %}
-      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#destination-details" }})
-      {% endfor %}
 
 ## Table contains too many columns
   - message: *too-many-columns
@@ -130,14 +166,38 @@ all:
     fix-it: |
       De-select columns in Stitch to allow data to continue loading into the destination table.
 
-      Refer to the reference documentation for your destination for info on the columns per table limit:
+      Refer to the table below for each destination's columns per table limit:
 
       {% assign destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
 
+      <table class="attribute-list">
+      <tr>
+      <td align="right" width="45%; fixed">
+      <strong>Destination</strong>
+      </td>
+      <td>
+      <strong>Version</strong>
+      </td>
+      <td>
+      <strong>Limit</strong>
+      </td>
+      </tr>
       {% for destination in destinations %}
       {% assign version = destination.this-version | prepend: "v" %}
-      - [{{ destination.display_name }} ({{ version }})]({{ destination.url | prepend: site.baseurl | append: "#destination-details" }})
+      <tr>
+      <td align="right">
+      <a href="{{ destination.url | prepend: site.baseurl | append: "#destination-details" }}"><strong>{{ destination.display_name }}</strong></a>
+      </td>
+      <td>
+      {{ version }}
+      </td>
+      <td>
+      {{ site.data.destinations[destination.type]destination-details.max-columns-per-table }}
+      </td>
+      </tr>
       {% endfor %}
+      </table>
+
 
 ## Field name collision
   - message: *field-name-collision
@@ -146,7 +206,10 @@ all:
     level: *warning
     category: "Destination object naming"
     summary: "Column name collision"
-    cause: "Two columns are replicated that canonicalize to the same name."
+    cause: |
+      Two columns are replicated that canonicalize to the same name.
+
+      For example: In Amazon Redshift, Stitch lowercases column names `cUsTomErId` and `customerid` would can
     fix-it: |
       If possible, re-name one of the columns in the source so that both column names will be unique when replicated to the destination.
 
@@ -160,4 +223,3 @@ all:
     cause: "A table or column contains reserved words."
     fix-it: |
       Remove the reserved words by re-naming the table or column in the source.
-

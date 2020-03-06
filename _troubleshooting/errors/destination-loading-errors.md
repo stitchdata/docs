@@ -18,8 +18,10 @@ top-level: ""
 type: "destination, error"
 popular: true
 
+display_name: "[DESTINATION]"
+
 intro: |
-  
+  {% assign destination = page %}
 
   In this reference:
 
@@ -37,10 +39,12 @@ sections:
 
       {% include troubleshooting/error-messages.html top-anchor="common-error-reference" display-name="Common" %}
 
-  - title: "Amazon Redshift loading errors"
+  - title: "Amazon Redshift and Panoply loading errors"
     anchor: "amazon-redshift-error-reference"
     content: |
       {% assign errors = site.data.destinations.redshift.loading-errors | sort_natural:"message" %}
+
+      {% include note.html type="single-line" content="**Note**: The errors in this section are applicable to Amazon Redshift and Panoply destinations." %}
 
       {% include troubleshooting/error-messages.html top-anchor="amazon-redshift-error-reference" display-name="Amazon Redshift" %}
 
@@ -61,7 +65,7 @@ sections:
   - title: "Snowflake loading errors"
     anchor: "snowflake-error-reference"
     content: |
-      {% assign errors = site.data.destinations.snowflake.loading-errors | sort_natural:"message" %}
+      {% assign errors = site.data.destinations.snowflake.loading-errors.all | sort_natural:"message" %}
 
       {% include troubleshooting/error-messages.html top-anchor="snowflake-error-reference" display-name="Snowflake" %}
 ---
