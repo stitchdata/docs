@@ -26,5 +26,9 @@ foreign-keys:
     attribute: "id"
     all-foreign-keys:
       - table: "survey_details"
-        join-on: "id"      
+        join-on: "id"
+      - table: "responses"
+        join-on: "survey_id"
+      - table: "simplified_responses"
+        join-on: "survey_id"  
 ---

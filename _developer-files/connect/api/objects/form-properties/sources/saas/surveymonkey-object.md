@@ -46,12 +46,14 @@ object-attributes:
   - name: "access_token"
     type: "string"
     required: true
-    description: "The access token. This access token allows Stitch to access your {{ form-property.display_name }} account's API. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-access-token" }}) for instructions on locating this info."
+    description: |
+      The access token. This access token allows Stitch to access your {{ form-property.display_name }} account's API. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-access-token" }}) for instructions on locating this info.
     value: "<YOUR_ACCESS_TOKEN>"
 
   - name: "survey_id"
     type: "string"
     required: false
-    description: "The survey ID. These survey IDs are used to pull simplified responses for specific surveys. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-survey-id" }}) for instructions on locating this info."
+    description: |
+      The survey ID. These survey IDs are used to pull simplified responses for specific surveys. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-survey-id" }}) for instructions on locating this info.
     value: "<YOUR_SURVEY_ID"  
 ---

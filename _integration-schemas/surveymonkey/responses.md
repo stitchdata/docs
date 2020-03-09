@@ -11,7 +11,7 @@ description: "This table contains information about your survey responses."
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "GET Response"
+    name: "GET Survey Responses"
     doc-link: "https://developer.surveymonkey.com/api/v3/#collectors-id-responses-id-details"
 
 attributes:
@@ -134,6 +134,7 @@ attributes:
   - name: "survey_id"
     type: "string"
     description: "ID of the survey the response was taken for."
+    foreign-key-id: "survey-id"
   
   - name: "total_time"
     type: "integer"

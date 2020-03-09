@@ -153,6 +153,7 @@ attributes:
   - name: "survey_id"
     type: "string"
     description: "ID of the survey the response was taken for."
+    foreign-key-id: "survey-id"
  
   - name: "total_time"
     type: "integer"
