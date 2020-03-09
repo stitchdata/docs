@@ -115,7 +115,7 @@ setup-steps:
          ![Window to create your SurveyMonkey app.]({{ site.baseurl }}/images/integrations/surveymonkey-app-creation.png){:style="max-width: 400px;"}
          {:start="5"}
       5. You are now in your app. Click the **Settings** tab underneath your app's nickname.
-      6. Scroll down to **Credentials** and you will find your access token. Keep this credential readily available for the integration.
+      6. Scroll down to **Credentials** to find your access token. Keep this credential readily available.
          
          ![Your SurveyMonkey access token.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 600px;"}
          {:start="7"}
