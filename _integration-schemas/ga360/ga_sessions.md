@@ -35,7 +35,7 @@ attributes:
 
   - name: "date"
     type: "date-time"
-    description: "The date of the session in YYYYMMDD format. For more details about the replication process, refer to the the integration's [replication section](#table-replication)."
+    description: "The date of the session in `YYYYMMDD` format. For more details about the replication process, refer to the [Replication section](#replication)."
     replication-key: true
 
   - name: "channelGrouping"
