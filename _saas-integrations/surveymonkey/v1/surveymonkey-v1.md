@@ -110,7 +110,7 @@ setup-steps:
       1. Login to your SurveyMonkey account on the [developer website](https://developer.surveymonkey.com/).
       2. Select **My Apps** on the upper menu panel.
       3. Click **Add a New App**.
-      4. In the pop-up window, give your app a nickname, for example: Stitch Integration. Select **Private App**, and then click on the **Create App** button.
+      4. In the pop-up window, give your app a nickname. For example: `Stitch Integration`. Select **Private App**, and then click the **Create App** button.
 
          ![Window to create your SurveyMonkey app.]({{ site.baseurl }}/images/integrations/surveymonkey-app-creation.png){:style="max-width: 400px;"}
          {:start="5"}
