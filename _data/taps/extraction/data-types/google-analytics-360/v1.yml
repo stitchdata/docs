@@ -1,0 +1,85 @@
+# ----------------------------------- #
+#  [INTEGRATION] [V] SUPPORTED DATA TYPES #
+# ----------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to Google Analytics 360.
+
+# Source: https://github.com/singer-io/tap-ga360/blob/master/tap_ga360/schema.py#L4
+
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## GA360 has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/ga360/specific.yml
+
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+bigint:
+  stitch-type: "integer" ## not listed
+
+bit:
+  stitch-type: "boolean" ## not listed
+
+boolean:
+  stitch-type: "boolean"
+
+char:
+  stitch-type: "string" ## not listed
+      
+date: &date
+  stitch-type: "string"
+  format: "date-time"
+      
+decimal:
+  stitch-type: "number" ## not listed
+
+double:
+  stitch-type: "number" ## not listed
+
+float:
+  stitch-type: "number"
+
+float64:
+  stitch-type: "number"
+      
+integer:
+  stitch-type: "number"
+
+longvarchar:
+  stitch-type: "string" ## not listed
+
+longnvarchar:
+  stitch-type: "string" ## not listed
+
+nchar:
+  stitch-type: "string" ## not listed
+
+numeric:
+  stitch-type: "number" ## not listed
+      
+nvarchar:
+  stitch-type: "string" ## not listed
+
+real:
+  stitch-type: "number" ## not listed
+
+smallint:
+  stitch-type: "integer" ## not listed
+
+string:
+  stitch-type: "string"
+
+time: *date
+
+timestamp: *date
+
+tinyint:
+  stitch-type: "integer" ## not listed
+
+varchar:
+  stitch-type: "string"
