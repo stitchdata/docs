@@ -25,6 +25,8 @@ foreign-keys:
       - table: "transfers"
       - table: "transfers"
         join-on: "failure_balance_transaction"
+      - table: "disputes"
+        join-on: "balance_transactions.id"  
 
 # We don't get this table now,
 # but maybe we will at some point
@@ -52,7 +54,7 @@ foreign-keys:
         join-on: "id"
       - table: "customers"
         subtable: "cards"
-        join-on: "id"
+        join-on: "id"  
 
   - id: "charge-id"
     table: "charges"
@@ -61,6 +63,8 @@ foreign-keys:
       - table: "charges"
         join-on: "id"
       - table: "invoices"
+      - table: "disputes"
+        join-on: "charge-id"
 
   - id: "coupon-id"
     table: "coupons"
@@ -168,6 +172,8 @@ foreign-keys:
     attribute: "payout"
     all-foreign-keys:
       - table: "payouts"
+        join-on: "id" 
+      - table: "payout_transactions"
         join-on: "id"  
 
   - id: "product-id"
@@ -224,4 +230,18 @@ foreign-keys:
         join-on: "source_transfer"
       - table: "transfers"
         join-on: "id"
+
+  - id: "dispute-id"
+    table: "disputes"
+    attribute: "id"
+    all-foreign-keys:
+      - table: "disputes"
+        join-on: "id"
+
+  - id: "payout-transaction-id"
+    table: "payout_transactions"
+    attribute: "id"
+    all-foreign-keys:
+      - table: "payout_transactions"
+        join-on: "id"         
 ---

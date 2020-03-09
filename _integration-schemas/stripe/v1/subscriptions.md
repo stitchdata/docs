@@ -262,9 +262,19 @@ attributes:
         type: "array"
         description: "The pricing tiers associated with the plan."
         subattributes:
-          - name: "value"
-            type: "integer"
-            description: "The pricing tier."
+          - name: "items"
+            type: "object"
+            description: ""
+            subattributes:
+              - name: "flat_amount"
+                type: "integer"
+                description: ""
+              - name: "unit_amount"
+                type: "integer"
+                description: ""
+              - name: "up_to"
+                type: "integer"
+                description: "" 
 
       - name: "tiers_mode"
         type: "string"
