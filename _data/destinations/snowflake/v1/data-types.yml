@@ -92,7 +92,7 @@ number:
   suffix: "de"
   # description: ""
   doc-link: "https://docs.snowflake.net/manuals/sql-reference/data-types-numeric.html#decimal-numeric"
-  # range: ""
+  range: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
 
 

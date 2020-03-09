@@ -310,14 +310,18 @@ troubleshooting:
 ## Error Notifications
   errors: /troubleshooting/error-notifications
 
+  database-extraction-errors: /troubleshooting/integrations/database-extraction-error-reference
+
   reauth-integrations: /troubleshooting/integrations/reauthorizing-integrations
-  dw-loading-errors: /troubleshooting/destinations/data-loading-errors
+  dw-loading-errors: /troubleshooting/destinations/destination-loading-error-reference
   view-dependency-errors: /troubleshooting/destinations/redshift-dependent-view-errors
   aws-io-errors: /troubleshooting/destinations/aws-io-errors
-  mysql-extraction-errors: /troubleshooting/integrations/mysql-database-extraction-errors
-  mongodb-extraction-errors: /troubleshooting/integrations/mongodb-database-extraction-errors
+  mysql-extraction-errors: "{{ link.troubleshooting.database-extraction-errors }}#mysql-error-reference"
+  mongodb-extraction-errors: "{{ link.troubleshooting.database-extraction-errors }}#mongodb-error-reference"
+  oracle-extraction-errors: "{{ link.troubleshooting.database-extraction-errors }}#oracle-error-reference"
+  mssql-extraction-errors: "{{ link.troubleshooting.database-extraction-errors }}#microsoft-sql-server-error-reference-error-reference"
 
 ## Connection Errors
   saas-connection-errors: /troubleshooting/integrations/saas-integration-connection-errors
-  db-connection-errors: /troubleshooting/integrations/database-connection-errors
-  dw-connection-errors: /troubleshooting/destinations/destination-connection-errors
+  db-connection-errors: /troubleshooting/integrations/database-connection-error-reference
+  dw-connection-errors: /troubleshooting/destinations/destination-connection-error-reference
