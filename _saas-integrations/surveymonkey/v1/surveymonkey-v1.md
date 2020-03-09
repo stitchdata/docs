@@ -37,14 +37,14 @@ repo-url: https://github.com/singer-io/tap-surveymonkey
 this-version: "1"
 
 api: |
-  [REST API v3](https://developer.surveymonkey.com/api/v3/){:target="new"}
+  [{{ integration.display_name }} REST API v3](https://developer.surveymonkey.com/api/v3/){:target="new"}
 
 
 # -------------------------- #
 #       Stitch Details       #
 # -------------------------- #
 
-certified: true
+certified: false
 
 api-type: "platform.surveymonkey"
 
@@ -104,7 +104,7 @@ setup-steps:
       5. The last portion of your survey URL is the survey ID. Keep this readily available.
          ![Survey URL containing the Survey ID.]({{ site.baseurl }}/images/integrations/surveymonkey-survey-id-weblink.png){:style="max-width: 450px;"}
 
-  - title: "Create an app"
+  - title: "Create a {{ integration.display_name }} app"
     anchor: "app-creation"
     content: |
       {% for substep in step.substeps %}
@@ -127,28 +127,43 @@ setup-steps:
              
              ![Your SurveyMonkey access token.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 600px;"}
 
+      - title: "Grant scopes (permissions)"
+        anchor: "grant-scopes-permissions"
+        content: |
+          {% include layout/image.html file="/integrations/surveymonkey-scope-requirements.png" type="right" max-width="450" %}
+          To allow Stitch to access your survey information, you will need to give view permissions. Scroll down to the **Scope** section and click on the following scopes:
+
+          - **View Surveys**
+          - **View Responses**
+          - **View Survey Details**
+
+          The scopes will turn green and show as `Required`.
+          
+          Click **Update Scopes**.
+
       - title: "Deploy your app"
         anchor: "deploy-app"
         content: |
-          {% include note.html first-line="**About your SurveyMonkey Account**" content="You do not need a paid SurveyMonkey account to have access to your access token, however without a paid account you will not be able deploy your app and it will be disabled in 90 days. If your app is is disabled, contact SurveyMonkey at **api-support@surveymonkey.com** to request an extention." %}
+          {% capture first-line %}**Free {{ integration.display_name }} users and auto-disabling apps**{% endcapture %}
+
+          {% capture paid-account-content %}
+          Deplying your {{ integration.display_name }} app is necessary to prevent the app from being auto-disabled by {{ integration.display_name }}. Only paid {{ integration.display_name }} accounts have the ability to deploy apps.
+
+          **Undeployed apps are disabled by {{ integration.display_name }} 90 days from their creation.** 
+
+          If you don't have a paid {{ integration.display_name }} account, you can still use your access token to set up the integration in Stitch, but {{ integration.display_name }} will auto-disable your app after 90 days. If your app is is disabled, contact SurveyMonkey at **api-support@surveymonkey.com** to request an extension.
+          {% endcapture %}
+
+          {% include note.html first-line=first-line content=paid-account-content %}
           
-          1. To allow Stitch to access your survey information, you will need to give view permissions. Scroll down to the **Scope** section and click on the following scopes:
+          If you have a paid {{ integration.display_name }} account, scroll back up to the top of this web page and click **Deploy** in the upper right section:
 
-             - **View Surveys**
-             - **View Responses**
-             - **View Survey Details**
-
-             The scopes will turn green and show as `Required`.
-
-             ![SurveyMonkey app scope requirements]({{ site.baseurl }}/images/integrations/surveymonkey-scope-requirements.png){:style="max-width: 600px;"}
-             {:start="2"}
-          2. Click **Update Scopes**.
-          3. If you have a paid {{ integration.display_name }} account, scroll back up to the top of this web page and click **Deploy** in the upper right section.
+          ![Deploy button on the SurveyMonkey app Settings page]({{ site.baseurl }}/images/integrations/surveymonkey-deploy-app.png){:style="max-width: 450px"}
 
   - title: "add integration"
     content: |
-      4. In the **Access Token** field, add your access token that you obtained in [step 2.1](#obtain-access-token).
-      5. In the **Survey Id** field, add your survey ID that you retrieved in [step 1](#retrieve-survey-id).
+      4. In the **Access Token** field, add your access token that you obtained in [Step 2.1](#obtain-access-token).
+      5. In the **Survey Id** field, add your survey ID that you retrieved in [Step 1](#retrieve-survey-id).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
