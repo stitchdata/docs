@@ -169,11 +169,37 @@ attributes:
 
   - name: "reason"
     type: "string"
-    description: "The reason given by the cardholder for the dispute. Possible values are: `bank_cannot_process`, `check_returned`, `credit_not_processed`, `customer_initiated`, `debit_not_authorized`, `duplicate`, `fraudulent`, `general`, `incorrect_account_details`, `insufficient_funds`, `product_not_received`, `product_unacceptable`, `subscription_canceled`, or `unrecognized`."
+    description: |
+      The reason given by the cardholder for the dispute. Possible values are: 
+
+      - `bank_cannot_process`
+      - `check_returned`
+      - `credit_not_processed`
+      - `customer_initiated`
+      - `debit_not_authorized`
+      - `duplicate`
+      - `fraudulent`
+      - `general`
+      - `incorrect_account_details`
+      - `insufficient_funds`
+      - `product_not_received`
+      - `product_unacceptable`
+      - `subscription_canceled`
+      - `unrecognized`
 
   - name: "status"
     type: "string"
-    description: "The current status of the dispute. Possible values are: `warning_needs_response`, `warning_under_review`, `warning_closed`, `needs_response`, `under_review`, `charge_refunded`, `won`, or `lost`."
+    description: |
+      The current status of the dispute. Possible values are: 
+
+      - `warning_needs_response`
+      - `warning_under_review`
+      - `warning_closed`
+      - `needs_response`
+      - `under_review`
+      - `charge_refunded`
+      - `won`
+      - `lost`
 
   - name: "updated"
     type: "date-time"
