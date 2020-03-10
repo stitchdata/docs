@@ -7,27 +7,37 @@
 
 raw-error:
   binlog-not-enabled: &binlog-not-enabled "MySQL binary logging is not enabled."
-  server-id-not-unique: &server-id-not-unique "(1236, 'A slave with the same server_uuid/server_id as this slave has connected to the master [...]'')"
-  master-server-id-not-set: &master-server-id-not-set "(1236, 'Misconfigured master - server id was not set')"
-  binlog-format-row: &binlog-format-row "[...] binlog_format is not set to 'ROW': [MIXED or STATEMENT]."
-  binlog-row-image-full: &binlog-row-image-full "[...] binlog_row_image is not set to 'FULL': [MINIMAL or NOBLOB]."
+  server-id-not-unique: &server-id-not-unique "A slave with the same server_uuid/server_id as this slave has connected to the master"
+  master-server-id-not-set: &master-server-id-not-set "Misconfigured master - server id was not set"
+  binlog-format-row: &binlog-format-row "binlog_format is not set to 'ROW': [MIXED or STATEMENT]."
+  binlog-row-image-full: &binlog-row-image-full "binlog_row_image is not set to 'FULL': [MINIMAL or NOBLOB]."
   schema-violation: &schema-violation |
     Error persisting data for table "[table_name]": Record 0 did not conform to schema
-  binlog-unsupported-views: &binlog-unsupported-views "[...] it is a view."
+  binlog-unsupported-views: &binlog-unsupported-views "It is a view."
   log-retention-purge: &log-retention-purge "Unable to replicate binlog stream because the following binary log(s) no longer exist: [binary_log_file_name]"
-  binlog-current-position: &binlog-current-position "[...] requested position ([log_file_position_from_state]) for log file [binary_log_file_name] is greater than current position ([current_log_file_position_on_server])."
-  version-requirement: &version-requirement "[...] binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication."
+  binlog-current-position: &binlog-current-position "Requested position ([log_file_position_from_state]) for log file [binary_log_file_name] is greater than current position ([current_log_file_position_on_server])."
+  version-requirement: &version-requirement "binlog_row_image system variable does not exist. MySQL version must be at least 5.6.2 to use binlog replication."
+
+
+documentation:
+  binlog-replication: &binlog-replication
+    category: "Log-based Incremental Replication"
+    category-doc: "{{ link.replication.log-based-incremental | prepend: site.baseurl }}"
 
 
 all:
 
 ## Binlog is not enabled
   - message: *binlog-not-enabled
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "binlog-not-enabled"
-    meaning: |
-      Binary logging is not enabled for the MySQL server.
+    applicable-to: &all-mysql "MySQL v1-backed database integrations"
+    summary: &binlog-not-enabled-summary "Binary logging isn't enabled"
+    cause: "Binary logging isn't enabled for the MySQL server."
     fix-it: |
-      Enable binary logging on your MySQL server. This is done by defining the `log-bin` parameter.
+      Enable binary logging on your MySQL server. This is done by defining the `log_bin` parameter.
 
       The steps for enabling binary logging will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
 
@@ -40,10 +50,16 @@ all:
 
 ## Server ID is not unique
   - message: *server-id-not-unique
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "server-id-not-unique"
-    meaning: |
-      The server ID of the instance Stitch is connected to is not unique. When using Log-based Replication, the ID of the server Stitch connects to must be unique. This is because MySQL doesn't allow replication to occur using the same server ID simultaneously across multiple connections.
+    applicable-to: *all-mysql
+    summary: "MySQL server ID isn't unique"
+    cause: |
+      The server ID of the instance Stitch is connected to is not unique.
 
+      When using Log-based Replication, the ID of the server Stitch connects to must be unique. This is because MySQL doesn't allow replication to occur using the same server ID simultaneously across multiple connections.
     fix-it: |
       If you're using Log-based Replication and any of the following are true, you'll need to define a unique server ID in the integration's **Settings** page in Stitch:
 
@@ -62,23 +78,32 @@ all:
 
 ## Master server ID isn't set
   - message: *master-server-id-not-set
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "master-server-id-not-set"
-    meaning: |
-      The [likely cause of this error is setting server parameters](https://dba.stackexchange.com/questions/76089/error-1236-from-master-after-restored-replication){:target="new"} - in this case, related to enabling binlog replication - on the master server without rebooting the master.
+    applicable-to: *all-mysql
+    summary: "MySQL server ID not set"
+    cause: |
+      The server ID for the MySQL server hasn't been set.
 
-      Rebooting the master instance is required for server parameter changes to take effect.
-
+      The [likely cause of this error is setting server parameters](https://dba.stackexchange.com/questions/76089/error-1236-from-master-after-restored-replication){:target="new"} on the master server without rebooting the master, which is required for server parameter changes to take effect.
     fix-it: |
       Reboot the master instance to ensure the server parameters for enabling binlog are applied.
 
 
 ## Unsupported binlog_format parameter value
   - message: *binlog-format-row
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "binlog-format-row"
-    meaning: |
+    applicable-to: *all-mysql
+    summary: "Unsupported value for binlog_format server parameter"
+    cause: |
       The `binlog_format` server parameter is not set to `ROW`, which Stitch requires for MySQL Log-based Replication.
     fix-it: |
-      Change the `binlog_format` paramter to `ROW`. This ensures that binary replication is "row-based", meaning that events affecting individual rows are captured.
+      Change the `binlog_format` parameter to `ROW`. This ensures that binary replication is "row-based", meaning that events affecting individual rows are captured.
 
       {% capture mysql-server-settings-list %}
       The steps for changing this parameter will vary depending on the type of MySQL database you're using. Click the links below to view instructions for that database.
@@ -95,8 +120,13 @@ all:
 
 ## Unsupported binlog_row_image parameter value
   - message: *binlog-row-image-full
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "binlog-row-image-full"
-    meaning: |
+    applicable-to: *all-mysql
+    summary: "Unsupported value for binlog_row_image server parameter"
+    cause: |
       The `binlog_row_image` parameter is not set to `FULL`, which Stitch requires for MySQL Log-based Replication.
       
     fix-it: |
@@ -107,17 +137,24 @@ all:
 
 ## Schema violation
   - message: *schema-violation
+    level: "critical"
+    category: "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--structural-changes" }}
+    version: "1"
     id: "schema-violation"
-    meaning: |
-      The data replicated for a table does not match the expected schema. This occurs when the structure of a table changes in the source and Stitch is unable to verify its schema..
-
-      This can be caused by:
-
-      - Altering the table's schema by removing a column, adding a new column to the middle of the table, or changing the order of columns
-      - Changing the data type of a column
-      - The Stitch database user not having access to all the columns in the table
+    applicable-to: *all-mysql
+    summary: "Schema violation"
+    cause: |
+      The data replicated for a table does not match the expected schema. This occurs when the structure of a table changes in the source and Stitch is unable to verify its schema. 
 
       This occurs due to how Log-based Incremental Replication works, and how log messages are structured in database binary files. Refer to the [Log-based Incremental Replication]({{ link.replication.log-based-rep | prepend: site.baseurl | append: "#limitation-4--structural-changes" }}) documentation for more info and examples.
+
+      This can occur when:
+
+      - The table's schema is altered by removing a column, adding a new column to the middle of the table, or changing the order of columns
+      - The data type of a column is changed
+      - The Stitch database user doesn't have access to all the columns in the table
 
     fix-it: |
       To resolve the error, you'll need to perform a table-level reset. To do this, open the **{{ app.page-names.table-settings }}** page for the table and click the {{ app.buttons.reset-rep-keys }} button. This will clear the table's Replication Key value and queue a full re-replication of the table.
@@ -132,8 +169,15 @@ all:
 
 ## View replication error
   - message: *binlog-unsupported-views
+    level: "critical"
+    category: "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--views-are-unsupported" }}
+    version: "1"
     id: "binlog-unsupported-views"
-    meaning: |
+    applicable-to: *all-mysql
+    summary: "A view is using an unsupported Replication Method"
+    cause: |
       The source object is a database view. Binary logging doesn't track events that occur in database views, so Stitch is unable to use Log-based Replication for views.
     fix-it: |
       Update the view's Replication Method to either [Key-based Incremental]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}).
@@ -141,13 +185,22 @@ all:
 
 ## Log retention settings & purges
   - message: *log-retention-purge
+    level: "critical"
+    category: "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--log-retention" }}
+    version: "1"
     id: "log-retention-purge"
-    meaning: |
-      The requested binary log file has been removed from the server. When a binary log file is removed before Stitch can read from it, replicaiton will be unable to proceed.
+    applicable-to: *all-mysql
+    summary: "Insufficient log retention settings"
+    cause: |
+      The requested binary log file has been removed from the server. When a binary log file is removed before Stitch can read from it, replication will be unable to proceed.
 
-      This error typically arises due to insufficient log retention settings, which define how long log files remain on a server before they're automatically purged.
+      This can be caused by:
 
-      It can also be caused by binary log files being purged before historical replication completes or critical errors that prevent Stitch from replicating data. When this occurs, it means Stitch was unable to proceed to the binary log file before the retention period passed and the log was purged.
+      - Insufficient log retention settings, which define how long log files remain on a server before they're automatically purged.
+
+      - Binary log files being purged before historical replication completes or critical errors that prevent Stitch from replicating data. When this occurs, it means Stitch was unable to proceed to the binary log file before the retention period passed and the log was purged.
     fix-it: |
       To resolve the error, you'll need to perform an integration-level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-integration }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
 
@@ -160,8 +213,13 @@ all:
 
 ## Binlog is ahead of current position on server
   - message: *binlog-current-position
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "binlog-current-position"
-    meaning: |
+    applicable-to: *all-mysql
+    summary: "Unavailable log file position"
+    cause: |
       When Stitch replicates data using Log-based Replication, it will "bookmark" its place by saving a position in the log file. When the next replication job begins, Stitch will use this value to identify the place in the log where it should begin reading data.
 
       This error means that the log position Stitch has is "ahead" of the server. To summarize, the log position Stitch is attempting to use is greater than the log position that the MySQL database has available.
@@ -175,9 +233,15 @@ all:
 
 ## Unsupported MySQL version
   - message: *version-requirement
+    level: "critical"
+    <<: *binlog-replication
+    version: "1"
     id: "version-requirement"
-    meaning: |
-      The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running. This means that binary logging, or binlog replication, is not a feature supported by the current database version.
+    applicable-to: *all-mysql
+    summary: "MySQL version is insufficient for Log-based Incremental Replication"
+    cause: |
+      The `binlog_row_image` parameter doesn't exist in the version that the source MySQL database is running.
 
+       The version of the MySQL database is less than 5.6.2, which is the minimum version that supports binlog replication. Versions prior to 5.6.2 don't support the binlog replication feature, which is required to use Log-based Incremental Replication in Stitch.
     fix-it: |
       The source MySQL database must be running MySQL version 5.6.2 or greater to use binlog replication. If you can upgrade your database version, you may be able to use binlog replication.

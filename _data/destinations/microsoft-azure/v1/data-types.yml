@@ -25,7 +25,7 @@
 bigint: &bigint
   destination-type: "bigint"
   suffix: "bi"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=aps-pdw-2016-au7"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15"
   range: "-2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)"
   loading-error: "{{ site.data.destinations.common.loading-errors.integer-out-of-range }}"
 
@@ -64,7 +64,7 @@ double: &float
   destination-type: "float"
   suffix: "fl"
   description: "Stored as `FLOAT(53)`"
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/float-and-real-transact-sql?view=aps-pdw-2016-au7"
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/float-and-real-transact-sql?view=sql-server-ver15"
 
 
 # ---------------------------- #
@@ -90,8 +90,8 @@ number:
   suffix: "de"
   description: |
     Precision must be between 1 and 38; scale must be between 0 and the precision value
-  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=aps-pdw-2016-au7"
-  # range: ""
+  doc-link: "https://docs.microsoft.com/en-us/sql/t-sql/data-types/decimal-and-numeric-transact-sql?view=sql-server-ver15"
+  range: "Precision must be between 1 and 38; scale must be between 0 and the precision value"
   loading-error: "{{ site.data.destinations.common.loading-errors.decimal-out-of-range }}"
 
 

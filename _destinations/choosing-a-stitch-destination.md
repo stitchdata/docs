@@ -96,7 +96,7 @@ sections:
 
           {% assign attributes = "Destination|Version|Default loading behavior|Loading behavior is configurable?" | split:"|" %}
 
-          {% assign destinations = site.destinations | where:"destination",true | sort:"display_name" %}
+          {% assign destinations = site.destinations | where:"destination",true | sort_natural:"display_name" %}
 
           <table class="attribute-list">
           <tr>
@@ -114,7 +114,7 @@ sections:
           {% assign version = destination.this-version | prepend: "v" %}
           <tr>
           <td align="right">
-          {{ destination.display_name }}
+          <strong>{{ destination.display_name }}</strong>
           </td>
           <td width="15%; fixed">
           {{ version }}
@@ -163,7 +163,7 @@ sections:
           {% assign destination-replication = site.data.destinations[destination.type][version]replication %}
           <tr>
           <td align="right">
-          {{ destination.display_name }}
+          <strong>{{ destination.display_name }}</strong>
           </td>
           <td width="12%; fixed">
           {{ version }}

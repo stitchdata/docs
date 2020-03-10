@@ -1,6 +1,73 @@
-primary-key-change: &primary-key-change "Primary key change is not permitted"
+# ------------------------------------------ #
+#      Google BigQuery Loading Errors        #
+# ------------------------------------------ #
 
-numeric-out-of-range: &numeric-out-of-range "Numeric out of range for {{ destination.display_name }} on [NUMERIC]"
+## This file contains loading errors specific to Google BigQuery destinations.
 
-# Applicable only to v1.
-array-mixed-data-types: &array-mixed-data-types "[ARRAY] is an array with a mixture of types"
+# "Primary key change is not permitted"
+
+all:
+## Primary Key change not allowed
+  - message: "Primary key change is not permitted"
+    id: "pk-change-not-permitted"
+    applicable-to: "Google BigQuery v2 destinations"
+    level: "critical"
+    category: "Primary Keys"
+    category-doc: "{{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}"
+    summary: "Primary Key change is not permitted"
+    cause: |
+      The Primary Keys of incoming data don't match the Primary Keys of the table in the destination.
+
+      This can be caused by:
+
+      1. The Primary Keys being changed in the source, or
+      2. The [`{{ stitch.system-tables.sdc-primary-keys.name }}` table]({{ link.destinations.storage.primary-key-system-table | prepend: site.baseurl }}) is altered or dropped
+    fix-it: |
+      Reset the table(s) mentioned in the error. This will queue a full re-replication of the table(s), which will ensure Primary Keys are correctly captured and used to de-dupe data when loading.
+
+  - message: "Numeric out of range for BigQuery on [NUMERIC]"
+    id: "numeric-out-of-range"
+    applicable-to: "All Google BigQuery destination versions"
+    level: "warning"
+    category: "Destination data type limits"
+    summary: "Numeric data out of range"
+    cause: "Numeric data exceeds the destination's allowed range."
+    data-type: "number"
+    fix-it: |
+      Remove offending values in the source, or change them to be within the allowed range for Google BigQuery:
+
+      {% assign all-destinations = site.destinations | where:"content-type","destination-overview" | sort_natural:"display_name" %}
+      {% assign destinations = all-destinations | where:"name","bigquery" %}
+
+      <table class="attribute-list" style="font-size: 14px;">
+      <tr>
+      <td align="right" width="15%; fixed">
+      <strong>Version</strong>
+      </td>
+      <td>
+      <strong>Range</strong>
+      </td>
+      </tr>
+      {% for destination in destinations %}
+      {% assign version = destination.this-version | prepend: "v" %}
+      {% if site.data.destinations[destination.type][version]data-types %}
+      <tr>
+      <td align="right">
+      <a href="{{ destination.url | prepend: site.baseurl | append: "" }}">{{ version }}</a>
+      </td>
+      <td>
+      {{ site.data.destinations[destination.type][version]data-types[error.data-type]range | markdownify }}
+      </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+      </table>
+
+  # - message: "[ARRAY] is an array with a mixture of types"
+  #   id: ""
+  #   applicable-to: "Google BigQuery v1 destinations"
+  #   level: "critical"
+  #   category: ""
+  #   summary: ""
+  #   cause: |
+  #   fix-it: ""

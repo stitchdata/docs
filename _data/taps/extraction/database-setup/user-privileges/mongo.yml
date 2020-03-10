@@ -28,9 +28,14 @@ mongodb:
 # -------------------------- #
 
 mongodb-atlas:
-  - name: "Only read any database"
+  - name: "read"
     reason: |
-      Required to read data from databases in the cluster. This is equivalent to the `readAnyDatabase` role.
+      Required to read from the [`local` database](https://docs.mongodb.com/v4.0/reference/local-database/){:target="new"}.
+    doc-link: "https://docs.mongodb.com/v4.0/reference/built-in-roles/#read"
+
+  - name: "readAnyDatabase"
+    reason: |
+      Required to read data from databases in the cluster.
     doc-link: "https://docs.mongodb.com/v4.0/reference/built-in-roles/#readAnyDatabase"
 
 
