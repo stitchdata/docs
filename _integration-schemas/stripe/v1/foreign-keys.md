@@ -136,7 +136,6 @@ foreign-keys:
     all-foreign-keys:
       - table: "invoice_line_items"
         join-on: "id"
-
       - table: "invoices"
         subattribute: "lines"
         join-on: "value"
