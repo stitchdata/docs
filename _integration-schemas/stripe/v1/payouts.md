@@ -19,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The payout ID."
-    #foreign-key-id: "payout-id"
+    foreign-key-id: "payout-id"
   
   - name: "created"
     type: "date-time"

@@ -7,7 +7,7 @@ doc-link: "https://stripe.com/docs/api/payouts"
 singer-schema: "https://github.com/singer-io/tap-stripe/blob/master/tap_stripe/schemas/payout_transactions.json"
 description: "This table contains info about payout transactions."
 
-replication-method: "Full Table Replication"
+replication-method: "Full Table"
 
 api-method:
     name: "List all payouts"
@@ -18,7 +18,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The payout transaction ID."
-    foreign-key-id: "payout-transaction-id"
+    # foreign-key-id: "payout-transaction-id"
 
   - name: "payout_id"
     type: "string"

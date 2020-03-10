@@ -95,7 +95,7 @@ foreign-keys:
       - table: "customers"
         join-on: "id"
       - table: "customers"
-        subtable: "cards"
+        subattribute: "cards"
       - table: "customers"
         subattribute: "discount__coupon" 
       - table: "invoice_items"
@@ -138,7 +138,7 @@ foreign-keys:
         join-on: "id"
 
       - table: "invoices"
-        subtable: "lines"
+        subattribute: "lines"
         join-on: "value"
 
   - id: "plan-id"
@@ -174,7 +174,7 @@ foreign-keys:
       - table: "payouts"
         join-on: "id" 
       - table: "payout_transactions"
-        join-on: "id"  
+        join-on: "payout_id"
 
   - id: "product-id"
     table: "products"
@@ -209,7 +209,7 @@ foreign-keys:
     attribute: "subscription"
     all-foreign-keys:
       - table: "customers"
-        subtable: "subscriptions"
+        subattribute: "subscriptions"
         join-on: "id"
       - table: "customers"
         subattribute: "discount__coupon"
