@@ -113,17 +113,19 @@ attributes:
     subattributes:
       - name: "items"
         type: "object"
-        description: ""
+        description: "Details about the pricing tier associated with the plan."
         subattributes:
           - name: "flat_amount"
             type: "integer"
-            description: ""
+            description: "The price for the entire tier."
+
           - name: "unit_amount"
             type: "integer"
-            description: ""
+            description: "The per unit price for units relevant to the tier."
+
           - name: "up_to"
             type: "integer"
-            description: ""     
+            description: "Up to and including to this quantity will be included in the tier."     
 
   - name: "tiers_mode"
     type: "string"
