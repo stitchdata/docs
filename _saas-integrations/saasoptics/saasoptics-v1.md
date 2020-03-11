@@ -36,7 +36,7 @@ repo-url: https://github.com/singer-io/tap-saasoptics
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST API](){:target="new"}
+  [{{ integration.display_name }} REST API](https://saasoptics.zendesk.com/hc/en-us/articles/115003595913-URLs-and-REST-Info){:target="new"}
 
 
 # -------------------------- #
@@ -57,8 +57,8 @@ cron-scheduling: true
 extraction-logs: true
 loading-reports: true
 
-table-selection: true/false
-column-selection: true/false
+table-selection: true
+column-selection: true
 
 # attribution-window: "# days"
 # attribution-is-configurable: 
@@ -78,21 +78,32 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
-requirements-list:
-  - item: ""
-  - item: ""
-
-requirements-info:
-
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Identify your account name and server subdomain"
+    anchor: "account-subdomain"
     content: |
-      [Add content]
+      The server subdomain and account name are in the URL you use to access your {{ integration.display_name }}. If you are unsure of what your link is, locate it within your welcome email from {{ integration.display_name }}. Your server subdomain is the first portion of the URL, and the account name is between the first and second forward slashes.
+
+      ![SaaSOptics URL format.]({{ site.baseurl }}/images/integrations/saasoptics-url.png){:style="max-width: 550px;"}
+
+  - title: "Obtain your token"
+    anchor: "obtain-token"
+    content: |
+      1. Login to the {{ integration.display_name }} account you want to replicate data from.
+      2. In the upper right hand side of the page, click on the user account button that shows your username.
+      3. Click on **API**.
+
+         ![SaaSOptics API hyperlink.]({{ site.baseurl }}/images/integrations/saasoptics-api-button.png){:style="max-width: 550px;"}
+         {:start="4"}
+      4. Generate an API token and keep note of it - you will use it for the Stitch integration.
+         ![Your SaaSOptics API token.]({{ site.baseurl }}/images/integrations/saasoptics-api-token.png){:style="max-width: 550px;"}
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI. EX:
-      # 4. In the [FIELD_NAME] field, [instructions]
+    content: |
+      4. In the **Account Name** field, enter the account name you identified in [step 1](#account-subdomian).
+      5. In the **Server Subdomain** field, enter the subdomain you identified in [step 1](#account-subdomain).
+      6. In the **Token** field, enter the API token you obtained in [step 2](#obtain-token).
+
+      {% include note.html type=single-line content="**Note**: The **Date Window Field** is an internal field for Stitch use. The default value is `60`; it is optional to change it." %}
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection
