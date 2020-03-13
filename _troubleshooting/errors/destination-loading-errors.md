@@ -13,6 +13,8 @@ redirect_from:
 summary: "Resolve errors related to loading data into your Stitch destination."
 type: "all-destinations, error"
 
+key: "destination-loading-errors"
+
 level: "guide"
 top-level: ""
 # category: "connection-errors"

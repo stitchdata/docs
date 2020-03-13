@@ -70,6 +70,8 @@ sections:
   - title: "Troubleshooting"
     anchor: "troubleshooting-destination"
     guides:
+      - key: "destination-loading-errors"
+      - key: "destination-connection-errors"
       - key: "redshift-vacuum-error"
       - key: "redshift-view-dependencies"
     content: |
@@ -85,6 +87,7 @@ sections:
     anchor: "reference-guides"
     guides:
       - key: "dedicated-overview"
+      - key: "panoply-loading-reference"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
       - key: "reserved-keywords"

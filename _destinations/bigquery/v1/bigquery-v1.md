@@ -61,10 +61,26 @@ sections:
     content: |
       {% include layout/category-sections.html %}
 
+  - title: "Troubleshooting"
+    anchor: "troubleshooting-destination"
+    guides:
+      - key: "destination-loading-errors"
+      - key: "destination-connection-errors"
+    content: |
+      {% for guide in section.guides %}
+      {% assign this-guide = site.documents | where:"key",guide.key | first %}
+      <span class="h4">
+      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+      </span>
+      {{ this-guide.summary | flatify }}
+      {% endfor %}
+
   - title: "Reference"
     anchor: "reference-guides"
     guides:
       - key: "bigquery-reference"
+        version: "1"
+      - key: "bigquery-loading-reference"
         version: "1"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"

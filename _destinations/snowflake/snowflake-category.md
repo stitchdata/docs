@@ -54,10 +54,25 @@ sections:
       {{ guide.summary | markdownify }}
       {% endfor %}
 
+  - title: "Troubleshooting"
+    anchor: "troubleshooting-destination"
+    guides:
+      - key: "destination-loading-errors"
+      - key: "destination-connection-errors"
+    content: |
+      {% for guide in section.guides %}
+      {% assign this-guide = site.documents | where:"key",guide.key | first %}
+      <span class="h4">
+      [{{ this-guide.title }}]({{ this-guide.url | prepend: site.baseurl }})
+      </span>
+      {{ this-guide.summary | flatify }}
+      {% endfor %}
+
   - title: "Reference"
     anchor: "reference-guides"
     guides:
       - key: "dedicated-overview"
+      - key: "snowflake-loading-reference"
       - key: "source-destination-compatibility"
       - key: "system-tables-and-columns"
       - key: "reserved-keywords"
