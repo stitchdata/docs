@@ -42,19 +42,30 @@ all:
 ## View replication error
   - message: *logminer-views
     id: "logminer-views-not-supported"
-    meaning: |
+    applicable-to: &all-oracle "All Oracle-backed database integrations"
+    level: "critical"
+    category: &log-based-category "Log-based Incremental Replication"
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--views-are-unsupported" }}
+    version: "1"
+    summary: "A database view is using Log-based Incremental Replication"
+    cause: |
       The source object is a database view. Binary logging doesn't track events that occur in database views, so Stitch is unable to use Log-based Replication for views.
     
     fix-it: |
-      To replicate the view, its Replication Method must be [Full Table Replication]({{ link.replication.full-table | prepend: site.baseurl }}).
+      Change the view's Replication Method to [Key-based Incremental]({{ link.replication.key-based-incremental | prepend: site.baseurl }}) or [Full Table]({{ link.replication.full-table | prepend: site.baseurl }}).
 
-## VERSION
- 
 
 ## Unsupported supplemental_log_data parameter value
   - message: *supplemental-logging-not-all
-    id: "supplmenetal-logging-incorrect"
-    meaning: |
+    id: "supplemental-logging-incorrect"
+    applicable-to: *all-oracle 
+    level: "critical"
+    category: *log-based-category
+    category-doc: "{{ link.replication.log-based-incremental | prepend: site.baseurl }}"
+    version: "1"
+    summary: "Supplemental logging is incorrectly defined"
+    cause: |
       Supplemental logging is incorrectly defined either for the database or the table. Supplemental logging is required by Oracle to use LogMiner, which Stitch uses to perform Log-based Incremental Replication.
     fix-it: |
       Stitch supports supplemental logging at the database and table level:
@@ -77,7 +88,14 @@ all:
 ## Log retention settings & purges
   - message: *missing-logfile
     id: "missing-logfile"
-    meaning: |
+    applicable-to: *all-oracle 
+    level: "critical"
+    category: *log-based-category
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl | append: "#limitation--log-retention" }}
+    version: "1"
+    summary: "Missing log files and insufficient RMAN retention policy settings"
+    cause: |
       The requested log file has been removed from the server. When a log file is removed before Stitch can read from it, replicaiton will be unable to proceed.
 
       This error typically arises due to [insufficient RMAN retention policy settings]({{ site.baseurl }}/integrations/databases/oracle#configure-rman-backups), which define how long log files remain on a server before they're automatically purged.
@@ -94,24 +112,23 @@ all:
 # No new data during RMAN retention window
   - message: *no-logfile-current-session
     id: "no-logfile-current-session"
-    meaning: |
-      LogMiner is unable to locate the System Change Number (SCN) value Stitch has saved. SCNs are used to identify data in log files for incremental replication.
+    applicable-to: *all-oracle 
+    level: "critical"
+    category: *log-based-category
+    category-doc: |
+      {{ link.replication.log-based-incremental | prepend: site.baseurl }}
+    version: "1"
+    summary: "Unavailable SCNs and RMAN retention window settings"
+    cause: |
+      LogMiner is unable to locate the System Change Number (SCN) value Stitch has saved. SCNs are used to identify data in log files for Log-based Incremental Replication.
 
-      This may occur for a few reasons:
-
-      1. **No new data is logged for the length of the RMAN retention window.** For example: If the RMAN retention window is set to 2 days and no new data is created for two successive days, this error may occur.
-      2. **The integration is paused for longer than the RMAN retention window.** For example: If the RMAN retention window is set to 2 days and the integration is paused in Stitch for longer than two days, this error may occur.
-
+      - **No new data is logged for the length of the RMAN retention window.** For example: If the RMAN retention window is set to 2 days and no new data is created for two consecutive days, this error may occur.
+      
+      - **The integration is paused for longer than the RMAN retention window.** For example: If the RMAN retention window is set to 2 days and the integration is paused in Stitch for longer than two days, this error may occur.
     fix-it: |
       1. Verify the current RMAN retention window length.
       2. [Increase the RMAN retention window]({{ site.baseurl }}/integrations/databases/oracle#configure-rman-backups). For example: Increase the window from 2 days to 7.
       3. Perform an integration level reset. To do this, open the **{{ app.page-names.int-settings }}** page and click the {{ app.buttons.reset-integration }} button. This will clear the integration's Replication Keys and queue a full re-replication of the integration.
-
-  # - message: ""
-  #   id: ""
-  #   meaning: ""
-  #   fix-it: ""
-
 
 # https://docs.oracle.com/en/database/oracle/oracle-database/19/errmg/ORA-00910.html#GUID-D9EBDFFA-88C6-4185-BD2C-E1B959A97274
 
@@ -125,7 +142,7 @@ all:
 # ORA-01343: LogMiner encountered corruption in the logstream
 # Cause: Log file is missing a range of scn values.
 
-# Action: Verify the contiguity of the scn range reprented by the log files added to LogMiner.
+# Action: Verify the contiguity of the scn range represented by the log files added to LogMiner.
 
 
 ## Error persisting data for table "[table_name]": Forbidden

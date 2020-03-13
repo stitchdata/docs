@@ -267,4 +267,8 @@ attributes:
   - name: "ctr"
     type: "number"
     description: "The percentage of times people saw your ad and performed a click (all)."
+
+  - name: "video_play_curve_actions"
+    type: "number"
+    description: "A video-play based curve graph that illustrates the percentage of video plays that reached a given second. Entries 0 to 14 represent seconds 0 thru 14. Entries 15 to 17 represent second ranges [15 to 20), [20 to 25), and [25 to 30). Entries 18 to 20 represent second ranges [30 to 40), [40 to 50), and [50 to 60). Entry 21 represents plays over 60 seconds."  
 ---

@@ -50,7 +50,7 @@
                         {% for foreign-key in key.all-foreign-keys %}
                             {% unless foreign-key.table == table.name %}
                             <li>
-                                <a href="#{{ foreign-key.table }}">
+                                <a href="#{{ foreign-key.table | slugify }}">
                                     {% if foreign-key.subattribute %}
                                         {%- capture full-table-name -%}
                                             {{ foreign-key.subattribute | prepend: "." | prepend: foreign-key.table }}

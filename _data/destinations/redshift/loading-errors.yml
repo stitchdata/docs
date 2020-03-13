@@ -1,45 +1,100 @@
-table-owner: &table-owner "ERROR: must be owner of relation [TABLE_NAME]"
-# <td valign="top">Stitch is not the owner of tables in Redshift, which is needed to perform functions necessary to loading data.</td>
-# <td valign="top">Verify that the Stitch user has all the required permissions as outlined <a href="{{ link.destinations.setup.redshift | prepend: site.baseurl }}">in this article</a>.
+# ------------------------------------------ #
+#      Amazon Redshift Loading Errors        #
+# ------------------------------------------ #
 
-denied-schema: &denied-schema "ERROR: permission denied for schema [SCHEMA_NAME]"
-# Stitch does not have permissions to create tables within a schema in Redshift.
+## This file contains loading errors specific to Amazon Redshift destinations.
 
-schema-creation: &schema-creation "Encountered error while attempting to create new schema."
-# Stitch is unable to create or load data into a schema in your data warehouse.
+## Table owner
+- message: "ERROR: must be owner of relation [TABLE_NAME]"
+  id: "table-owner"
+  applicable-to: &redshift-destinations "Amazon Redshift destinations"
+  level: "critical"
+  category: "Database user privileges"
+  summary: "Insufficient table privileges"
+  cause: |
+    Stitch is not the owner of a table in Amazon Redshift, which is required to perform functions necessary to load data.
+  fix-it: &all-privileges |
+    Verify that the database user authorizing the connection has all the required privileges as outlined in the [Amazon Redshift setup instructions]({{ link.destinations.setup.redshift | prepend: site.baseurl | append: "#create-database-user" }}).
 
-password-failed: &password-failed |
-  FATAL: password authentication failed for user "[USER_NAME]"
 
-database-does-not-exist: &database-does-not-exist |
-  FATAL: database "[DATABASE_NAME]" does not exist
+## Permission denied for schema
+- message: "ERROR: permission denied for schema [SCHEMA_NAME]"
+  id: "schema-permission-denied"
+  applicable-to: *redshift-destinations
+  level: "critical"
+  category: "Database user privileges"
+  summary: "Insufficient schema privileges"
+  cause: "Stitch does not have privileges to create tables within a schema in Amazon Redshift."
+  fix-it: *all-privileges
+   
 
-connection-failed: &connection-failed "The connection attempt failed."
-# <td valign="top">Stitch cannot connect to the Redshift instance.</td>
-# <td valign="top">Verify and test your Redshift configuration in the <strong>{{ app.page-names.dw-settings }}</strong> page of Stitch.
+## Schema creation
+- message: "Encountered error while attempting to create new schema."
+  id: "error-schema-creation"
+  applicable-to: *redshift-destinations
+  level: "critical"
+  category: "Database user privileges"
+  summary: "Cannot create new schema"
+  cause: "Stitch is unable to create or load data into a schema in your destination. This is usually due to insufficient database user privileges."
+  fix-it: *all-privileges
 
-io-error: &io-error "An I/O error occurred while sending to the backend."
+## Database doesn't exist
+- message: |
+    FATAL: database "[DATABASE_NAME]" does not exist
+  id: "database-does-not-exist"
+  applicable-to: *redshift-destinations
+  level: "critical"
+  category: "Connection settings"
+  summary: "Database doesn't exist"
+  cause: "Stitch can't find the database in Amazon Redshift that has been entered into the {{ app.page-names.dw-settings }} page."
+  fix-it: "Verify that the correct database is entered in the {{ app.page-names.dw-settings }} page of Stitch."
 
-resize-mode: &resize-mode |
-  ERROR: Cannot execute query because system is in resize mode
-  Detail: System is in resize mode, and ONLY read-only queries are allowed to execute.
-# <td valign="top">Someone adjusted (up or down) the number of nodes of your Redshift instance and Amazon is currently applying that change.</td>
-# <td valign="top">This is a transient issue - Stitch should be able to resume syncing data once the resize is completed.
-# </td>
+## Resize mode
+- message: |
+    ERROR: Cannot execute query because system is in resize mode
+    Detail: System is in resize mode, and ONLY read-only queries are allowed to execute.
+  id: "resize-mode"
+  applicable-to: *redshift-destinations
+  level: "critical"
+  category: "End-user destination change"
+  summary: "System is in resize mode"
+  cause: |
+    Someone adjusted (up or down) the number of nodes of your Amazon Redshift instance and Amazon is currently applying that change.
+  fix-it: "This is a transient issue. Stitch should be able to resume loading data once the resize is completed."
 
-dependent-views: &dependent-views |
-  ERROR: cannot drop table [SCHEMA_NAME].[TABLE_NAME] column type because other objects depend on it
-  Hint: Use DROP ... CASCADE< to drop the dependent objects too.
 
-disk-full-detail: &disk-full-detail |
-  ERROR: Disk Full Detail:
-  -----------------------------
-  error:  Disk Full
-  code:      1016
-  context:   node: 3
-  query:     1005177
-  location:  fdisk_api.cpp:345
-  process:   query3_66 [pid=27629]
-  -----------------------------
-# <li>Add additional nodes to make your Redshift instance larger, OR</li>
-# <li>Remove tables and/or data from the existing instance to free up disk space.</li>
+## Dependent views
+- message: |
+    ERROR: cannot drop table [SCHEMA_NAME].[TABLE_NAME] column type because other objects depend on it
+    Hint: Use DROP ... CASCADE to drop the dependent objects too.
+  id: "dependent-views"
+  applicable-to: *redshift-destinations
+  level: "critical"
+  category: "Dependent views"
+  category-doc: "{{ link.troubleshooting.view-dependency-errors | prepend: site.baseurl }}"
+  summary: "Dependent views"
+  cause: |
+    Stitch is attempting to widen a `VARCHAR` column and can't because a view is built on top of the table.
+  fix-it: |
+    Temporarily drop the dependent views, which will allow Stitch to widen the columns. This process usually takes about an hour.
+
+## Disk full 
+- message: |
+    ERROR: Disk Full Detail:
+    -----------------------------
+    error:  Disk Full
+    code:      1016
+    context:   node: 3
+    query:     1005177
+    location:  fdisk_api.cpp:345
+    process:   query3_66 [pid=27629]
+    -----------------------------
+  id: "disk-full"
+  applicable-to: *redshift-destinations
+  level: "critical"
+  category: "Destination disk space"
+  summary: "Disk is full"
+  cause: "The Amazon Redshift instance is full."
+  fix-it: |
+    - Add additional nodes to make your Amazon Redshift instance larger, or
+    - Remove tables and/or data from the existing instance to free up disk space

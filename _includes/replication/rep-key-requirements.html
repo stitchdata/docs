@@ -1,20 +1,59 @@
+{% capture data-type-table %}
+<table class="attribute-list">
+	<tr>
+		<td width="25%; fixed" align="right"><strong>Data type</strong>
+		</td>
+		<td>
+			<strong>Available for</strong>
+		</td>
+		<td>
+			<strong>Notes</strong>
+		</td>
+	</tr>
+	{% if page.title contains "Mongo" %}
+		{% assign all-types = site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
+			{% assign types-all-integrations = all-types | where:"integration","All" %}
+			{% assign types-mongodb-integrations = all-types | where:"integration","MongoDB v1+" %}
+		
+				{% assign supported-data-types = types-all-integrations | concat: types-mongodb-integrations %}
+	{% else %}
+		{% assign supported-data-types = site.data.taps.extraction.replication-methods.key-based-incremental.allowed-data-types %}
+	{% endif %}
+
+	{% for data-type in supported-data-types %}
+		<tr>
+			<td align="right">
+				<strong>{{ data-type.type | upcase }}</strong>
+			</td>
+			<td>
+				{{ data-type.integration | append: " integrations" }}
+			</td>
+			<td>
+				{{ data-type.notes | flatify | markdownify }}
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endcapture %}
+
+
 ## Replication Key requirements {#replication-key-requirements}
 
 {% if page.title contains "Mongo" %}
-Stitch uses a field you define - called a Replication Key - to identify new and updated data for replication. For MongoDB integrations, Stitch requires that the Replication Key field:
+Stitch uses a field you define - called a Replication Key - to identify new and updated data for replication. For MongoDB integrations, Replication Key fields:
 
-1. be single field indexed, AND
-2. exist in the **root** of the document.
+{% for requirement in site.data.taps.extraction.replication-methods.key-based-incremental.other-requirements %}
+- {{ requirement | remove: "(MongoDB only)" }}
+{% endfor %}
+- Must be one of the data types in the table below:
 
-If you want to replicate MongoDB data and are going to add query parameters - which is what [Key-based Incremental Replication]({{ link.replication.key-based-incremental | prepend: site.baseurl}}) does - undue stress could be put on your MongoDB database. By indexing the fields you want to replicate, that stress can be relieved.
+{{ data-type-table | flatify }}
 
 {% else %}
 
 To use [Key-based Incremental Replication]({{site.baseurl}}/replication/replication-methods#incremental-replication), a table must contain one of the following column types to be used as the Replication Key:
 
-- a large integer, which includes `BIGINT`, `INT` and `MEDIUMINT`
-- `datetime`
-- `timestamp`
+{{ data-type-table | flatify }}
 
 When Stitch replicates your data, it will store the last recorded maximum value in the Replication Key column and compare it against the data source - **not what's in your destination** - to identify new/updated data. 
 

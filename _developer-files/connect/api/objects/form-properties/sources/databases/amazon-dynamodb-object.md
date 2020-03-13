@@ -29,7 +29,7 @@ api-type: "platform.dynamodb"
 display-name: "Amazon DynamoDB"
 
 source-type: "database"
-docs-name: "dynamodb"
+docs-name: "amazon-dynamodb"
 db-type: "dynamodb"
 
 

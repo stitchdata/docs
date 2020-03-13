@@ -1,0 +1,158 @@
+# -------------------------- #
+#   NetSuite SuiteTalk Errors  #
+# -------------------------- #
+
+## This file contains extraction errors and how to (potentially)
+## fix them for the NetSuite integration.
+
+## An object containing raw error messages
+raw-error:
+  subsidiary-not-allowed: &subsidiary-not-allowed |
+    Permission Violation: The subsidiary restrictions on your role prevent you from seeing this record.
+
+# INSUFFICIENT_PERMISSION
+  insufficient-transaction-permission: &insufficient-transaction-permission |
+    You do not have permission to access this type of transaction.
+
+# INSUFFICIENT_PERMISSION
+  insufficient-record-permissions: &insufficient-record-permissions |
+    Permission Violation: The restrictions on your role deny you access to this record.
+
+# WS_REQUEST_BLOCKED
+  concurrent-request-limit: &concurrent-request-limit |
+    SuiteTalk concurrent request limit exceeded. Request blocked.
+
+# WS_PERMISSION_REQD
+  insufficient-soap-permission: &insufficient-soap-permission |
+    You do not have permission to access SOAP web services feature.
+
+# WS_FEATURE_REQD
+  soap-not-enabled: &soap-not-enabled |
+    You have not enabled SOAP web services feature for your account.
+
+  disabled-customer-access: &disabled-customer-access |
+    Invalid login. Customer access is disabled.
+
+# ACCT_TEMP_UNAVAILABLE
+  netsuite-maintenance: &netsuite-maintenance |
+    The account you are trying to access is currently unavailable while we undergo our regularly scheduled maintenance.
+
+# IP_REQUEST
+  ip-address-not-whitelisted: &ip-address-not-whitelisted |
+    Your IP address {[IP_ADDRESS]} does not match any of the ipaddress rules specified for this account.
+
+all:
+  - message: *subsidiary-not-allowed
+    id: "subsidiary-not-allowed"
+    applicable-to: &netsuite-v1 "NetSuite v1 integrations"
+    level: "critical"
+    category: "User permissions"
+    version: "1" 
+    summary: "Subsidiary-level permissions are unsupported"
+    cause: |
+      Subsidiary-specific permissions aren't compatible with Stitch's NetSuite integration. The permissions granted to the NetSuite user authorizing the integration must be account-level permissions.
+    fix-it: |
+      Grant the authorizing NetSuite user account-level permissions.
+
+  - message: *insufficient-record-permissions
+    id: "insufficient-record-permissions-record-type"
+    applicable-to: *netsuite-v1
+    level: "critical"
+    category: "User permissions"
+    version: "1"
+    summary: "Insufficient NetSuite user permissions for record type"
+    cause: |
+      This error can have two caues:
+
+      1. The NetSuite user authorizing the integration doesn't have the permissions required to access this record type, OR
+      2. The table in the error is related to a specific feature in NetSuite that your NetSuite account doesn't have access to. For example: Accounting Periods.
+    fix-it: |
+      To resolve this issue:
+
+      1. Verify that your NetSuite account has access to the feature the table relates to. For example: Accounting Periods.
+
+         If your account doesn't have access to the feature, de-select the table in Stitch to allow replication for other tables to proceed.
+
+      2. If your account does have access to the feature, grant the authorizing NetSuite user the permissions required to access the record type related to the feature. For example: Accounting Periods.
+
+         Refer to the [NetSuite setup guide]({{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#create-configure-stitch-role" }}) for instructions and info about the permissions Stitch requires.
+
+  - message: *concurrent-request-limit
+    id: "concurrent-request-limit"
+    applicable-to: *netsuite-v1
+    level: "critical"
+    category: "NetSuite limitation"
+    version: "1" 
+    summary: "Concurrent API sessions not allowed"
+    cause: |
+      The NetSuite user authorizing the integration has multiple active API sessions.
+    fix-it: |
+      NetSuite allows a user to have one active API session at a time. If you have multiple NetSuite integrations - even if they're outside of Stitch - we recommend [creating a NetSuite user for each integration]({{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#create-configure-stitch-role" }}) to ensure replication isn't delayed by this NetSuite limitation.
+
+  - message: *insufficient-soap-permission
+    id: "insufficient-soap-permission"
+    applicable-to: *netsuite-v1
+    level: "critical"
+    category: "User permissions"
+    category-doc: |
+      {{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#configure-permissions-save-stitch-role" }}
+    version: "1"
+    summary: "Insufficient SOAP web services permissions"
+    cause: |
+      The NetSuite user authorizing the integration doesn't have the `Web Services` permission. This is required to allow Stitch to use the SuiteTalk API and extract data from NetSuite.
+    fix-it: |
+      Grant the authorizing NetSuite user the `Web Services` permission as outlined in the [NetSuite setup guide]({{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#configure-permissions-save-stitch-role" }}).
+
+  - message: *insufficient-transaction-permission
+    id: "insufficient-transaction-permission"
+    applicable-to: *netsuite-v1
+    level: "critical"
+    category: "User permissions"
+    category-doc: |
+      {{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#configure-permissions-save-stitch-role" }}
+    version: "1"
+    summary: "Insufficient transaction type permissions"
+    cause: |
+      The NetSuite user authorizing the integration doesn't have the permission required to access this transaction type.
+    fix-it: |
+      Grant the authorizing NetSuite user the permission required to access the transaction type. Refer to the **Object permissions** tab in the [NetSuite setup guide]({{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#configure-permissions-save-stitch-role" }}) for a list of permissions.
+
+  - message: *soap-not-enabled
+    id: "soap-not-enabled"
+    applicable-to: *netsuite-v1
+    level: "critical"
+    category: "Incorrect setup"
+    category-doc: |
+      {{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#enable-web-services" }}
+    version: "1"
+    summary: "Web Services hasn't been enabled"
+    cause: |
+      The Web Services feature hasn't been enabled for your NetSuite account. This is required to allow Stitch to use the SuiteTalk API and extract data from NetSuite.
+    fix-it: |
+      Enable the Web Services feature and token-based authentication as outlined in the [NetSuite setup guide]({{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#enable-web-services" }}).
+
+  - message: *ip-address-not-whitelisted
+    id: "ip-address-not-whitelisted"
+    applicable-to: *netsuite-v1
+    level: "critical"
+    category: "Incorrect setup"
+    category-doc: |
+      {{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#whitelist-stitch-ips" }}
+    version: "1"
+    summary: "Stitch's IP addresses aren't whitelisted"
+    cause: |
+      Your NetSuite account enforces IP address rules and Stitch's IP addresses haven't been whitelisted in your NetSuite account.
+    fix-it: |
+      Add Stitch's IP addresses to the **Allowed IP addresses** list for your NetSuite account as outlined in the [NetSuite setup guide]({{ site.baseurl | append: "/integrations/saas/netsuite-suitetalk/#whitelist-stitch-ips" }}).
+
+  - message: *netsuite-maintenance
+    id: "netsuite-maintenance"
+    applicable-to: *netsuite-v1
+    level: "warning"
+    category: "NetSuite maintenance"
+    version: "1"
+    summary: "NetSuite account maintenance"
+    cause: |
+      NetSuite is performing maintenance on your account, making it temporarily unavilable.
+    fix-it: |
+      No action is needed on your part. Replication will resume based on the integration's schedule and succeed when NetSuite completes maintenance on your account.

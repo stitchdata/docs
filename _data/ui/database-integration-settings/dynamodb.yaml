@@ -12,21 +12,18 @@
 ## /_data/ui/database-integration-settings/default-fields.yml
 
 
-dynamodb:
+amazon-dynamodb:
   - name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
     version: "all"  
 
   - name: "AWS Account ID"
-    copy: "Paste the AWS account ID you retrieved in [Step 1](#retrieve-aws-account-id)."
-
     version: "all"
+    copy: "Paste the AWS account ID you retrieved in [Step 1](#retrieve-aws-account-id)."
     
   - name: "AWS Region"
-    copy: "Select the region that your instance resides in. For example: `US East (N. Virginia)`"
-
     version: "all"
-
-  
+    copy: "Select the region that your instance resides in. For example: `US East (N. Virginia)`"

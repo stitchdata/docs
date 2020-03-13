@@ -18,23 +18,35 @@
 # -------------------------- #
 
 oracle:
-  - name: "{{ defaults.field-names.integration-name }}"
+  - &integration-name
+    name: "{{ defaults.field-names.integration-name }}"
+    version: "all"
     copy: |
       {{ defaults.field-copy.integration-name | flatify }}
 
-  - name: "{{ defaults.field-names.host }}"
+  - &host
+    name: "{{ defaults.field-names.host }}"
+    version: "all"
     copy: "{{ defaults.field-copy.host | flatify }}"
 
-  - name: "{{ defaults.field-names.port }}"
+  - &port
+    name: "{{ defaults.field-names.port }}"
+    version: "all"
     copy: "{{ defaults.field-copy.port | flatify }}"
 
-  - name: "{{ defaults.field-names.username }}"
+  - &username
+    name: "{{ defaults.field-names.username }}"
+    version: "all"
     copy: "{{ defaults.field-copy.username | flatify }}"
 
-  - name: "{{ defaults.field-names.password }}"
+  - &password
+    name: "{{ defaults.field-names.password }}"
+    version: "all"
     copy: "{{ defaults.field-copy.password | flatify }}"
 
-  - name: "Oracle System ID (SID)"
+  - &system-id
+    name: "Oracle System ID (SID)"
+    version: "all"
     copy: "Enter the Oracle System ID (SID) of the database you retrieved in [Step 4](#retrieve-oracle-system-id)."
 
 
@@ -43,22 +55,11 @@ oracle:
 # -------------------------- #
 
 oracle-rds:
-  - name: "{{ defaults.field-names.integration-name }}"
-    copy: |
-      {{ defaults.field-copy.integration-name | flatify }}
-
+  - *integration-name
   - name: "{{ defaults.field-names.host }}"
     copy: |
       {{ defaults.field-copy.host-rds | flatify }}
-
-  - name: "{{ defaults.field-names.port }}"
-    copy: "{{ defaults.field-copy.port | flatify }}"
-
-  - name: "{{ defaults.field-names.username }}"
-    copy: "{{ defaults.field-copy.username | flatify }}"
-
-  - name: "{{ defaults.field-names.password }}"
-    copy: "{{ defaults.field-copy.password | flatify }}"
-
-  - name: "Oracle System ID (SID)"
-    copy: "Enter the Oracle System ID (SID) of the database you retrieved in [Step 4](#retrieve-oracle-system-id)."
+  - *port
+  - *username
+  - *password
+  - *system-id
