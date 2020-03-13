@@ -73,20 +73,24 @@ feature-summary: |
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
-
 requirements-list:
-  - item: ""
-  - item: ""
+  - A {{ integration.display_name }} account with **admin privileges**. You need this privilege to retrieve the information required for the Stitch integration.
 
 setup-steps:
-  - title: ""
-    anchor: ""
+  - title: "Retrieve your company and company secret keys"
+    anchor: "retrieve-keys"
     content: |
-      [Add content]
+      1. Login to {{ integration.display_name }} Console.
+      2. Click on **Settings** to open its dropdown menu, and then click on **Developer Settings**.
+      3. In the **Agent Platform** section, click on the {{ integration.display_name }} bubble, save your changes, and then you'll see your **Company Key** and **Company Secret Code**. Keep these available to complete your setup in Stitch.
+         ![Your UJET Company and Company Secret Key.]({{ site.baseurl }}/images/integrations/ujet-company-keys.png){:style="max-width: 550px;"}
+
   - title: "add integration"
-    # content: |
-      # starting with 4., add instructions for additional fields in UI. EX:
-      # 4. In the [FIELD_NAME] field, [instructions]
+    content: |
+      4. In the **Company Key** field, enter your Company Key that you retrieved in [step 1](#retrieve-keys).
+      5. In the **Company Secret** field, enter your Company Secret Code that you retrieved in [step 1](#retrieve-keys).
+      6. In the **Domain Field** field, enter `ujet`, as this is the domain of your {{ integration.display_name }} account URL.
+      7. In the **Subdomain** field, enter the subdomain of your {{ integration.display_name }} account's URL.
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection
