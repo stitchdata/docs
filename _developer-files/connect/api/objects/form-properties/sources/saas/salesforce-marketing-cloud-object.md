@@ -37,6 +37,13 @@ docs-name: "salesforce-marketing-cloud"
 uses-start-date: true
 
 object-attributes:
+  - name: "batch_size"
+    type: "string"
+    required: false
+    description: |
+      **This field is for Stitch internal use only.**
+    value: ""
+
   - name: "client_id"
     type: "string"
     required: true
@@ -50,4 +57,11 @@ object-attributes:
     description: |
       A {{ form-property.display-name }} client secret. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#generate-api-credentials" }}) for instructions on generating this credential.
     value: "<CLIENT_SECRET>"
+
+  - name: "tenant_subdomain"
+    type: "string"
+    required: false
+    description: |
+      The tenant subdomain ID for your {{ form-property.display-name }} account. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-tenant-subdomai" }}) for instructions on retrieving this info.
+    value: "mcx21dt54chc0gprl638px2g7r48"
 ---
