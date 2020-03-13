@@ -1,0 +1,59 @@
+# ------------------------------------------ #
+#    MongoDB Integration Connection Errors   #
+# ------------------------------------------ #
+
+## This file contains connection errors specific to 
+## MongoDB database integrations.
+
+
+## Prematurely reached end of file/stream
+- message: "Prematurely reached end of file/stream"
+  id: "premature-file"
+  applicable-to: "MongoDB database integrations"
+  level: "critical"
+  category: "SSL configuration"
+  summary: "Incorrect SSL configuration"
+  cause: |
+    This error usually means that SSL has been incorrectly configured. Connecting a database integration to Stitch via SSL has two parts: Configuration on the database's server and in the Stitch app. For the connection to be successful, the settings in both Stitch and on the database server must align.
+
+    For example: A MongoDB server doesn't support SSL connections but the SSL option is checked in Stitch. This will result in a connection error.
+  fix-it: |
+    First, verify if the MongoDB server is configured to support SSL connections. Then:
+
+    - **If SSL connections aren't supported,** make sure the **Connect using SSL** box in Stitch is **unchecked** and try saving the integration again.
+    - **If SSL connections are required,** make sure the **Connect using SSL** box in Stitch is **checked** and try saving the integration again.
+
+
+## Authentication database mismatch
+- message: |
+    Timed out after XXXX ms while waiting for a server that matches ReadPreferenceServerSelector{readPreference=primary}.
+
+    Client view of cluster state is {type=UNKNOWN, servers=[{address=[host]:[port], type=UNKNOWN, state=CONNECTING, exception={com.mongodb.MongoSecurityException:
+
+    Exception authenticating MongoCredential{mechanism=null, userName='[user_name]', source='[database_name]', password=, mechanismProperties={}}}, caused by {com.mongodb.MongoCommandException
+
+    Command failed with error 18: 'Authentication failed.' on server [[host]:[port].
+
+    The full response is { "ok" : 0.0, "errmsg" : "Authentication failed.", "code" : 18, "codeName" : "AuthenticationFailed" }}}]
+  id: "mongo-authentication-database"
+  applicable-to: "MongoDB database integrations"
+  level: "critical"
+  category: "Database setup"
+  summary: "User database authentication mismatch"
+  cause: |
+    This error usually means that the database entered into the **Authentication Database** field of the {{ app.page-names.int-settings }} page is not the same database that's used for user authentication.
+
+    **Note**: If this is an Atlas-based MongoDB instance, the authentication database will be the `admin` database.
+
+    Stitch requires a database user and a MongoDB server with `auth` enabled to create MongoDB connections. When authenticating a user in this way, [MongoDB requires that the user be validated against their authentication database](https://docs.mongodb.com/manual/core/security-users/#authenticate-a-user){:target="new"}.
+  fix-it: |
+    1. Ensure that the Stitch database user can perform all the required actions on the authentication database, in addition to any other databases that contain data you want to replicate.
+
+         **Note**: If this is an Atlas-based MongoDB instance, the authentication database will be the `admin` database.
+
+    2. Once the Stitch user's permissions have been verified, re-enter the name of the database into the {{ app.page-names.int-settings }} page:
+
+         - **For Atlas-based MongoDB instances**, this must be `admin`.
+         - **For other MongoDB instances**, enter the name of the authentication database.
+
+    3. When finished, save the integration.

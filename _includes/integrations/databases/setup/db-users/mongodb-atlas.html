@@ -4,10 +4,14 @@
 1. In {{ integration.display_name }}, navigate to the project containing the cluster you want to connect to Stitch. You can do this using the **Context** menu in the top left corner of the page.
 3. Click **Database Access** in the **Security** section on the left side of the page.
 4. Click the **+ Add new user** button on the **Database Access** page.
-{% include layout/image.html type="right" file="/integrations/mongodb-atlas-add-user.png" alt="" max-width="400" %}
+{% include layout/image.html type="right" file="/integrations/mongodb-atlas-add-user.png" alt="" max-width="425" %}
 {:start="5"}
 5. Fill in the fields as follows in the **Add New User** window that displays:
    - **Username**: Enter `stitch`.
    - **Password**: Enter a secure password for the Stitch user.
-   - **User Privileges**: Select `Only read any database`.
-6. Click **Add User** when finished.
+6. Click the **Add Default Privileges** link.
+7. In the **Default Privileges** section:
+   1. Select the `read` role from the dropdown and enter `local` into the **Database** field.
+   2. Click the **+add another role** link.
+   3. Select the `readAnyDatabase` role from the dropdown. The **Database** field should be automatically populated with `admin`.
+8. Click **Add User** when finished.

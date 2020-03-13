@@ -1,0 +1,61 @@
+<!-- TO ADD DESTINATIONS TO THIS TABLE:
+
+	1. Add a slugified version of the destination to the `destinations` array, which is in the header row of the table.
+
+	2. Add a column with the display name of the table to the header row. These columns should be in alphabetical order. 
+
+	3. For every destination you add to the list here, add a property to each tool in `compatibility-list` list of _analysis-integrations/analysis-integrations.md.
+
+	The property should match exactly what's in the `destinations` array in step 1. Ex: If the destination is `amazon-redshift`, the property should look like this:
+
+	  amazon-redshift:
+	    link-copy:
+	    link-url:
+
+    See _analysis-integrations/analysis-integrations.md for info about these properties and how to fill them out.
+-->
+
+<table id="tool-compatibility" style="font-size: 13px">
+	<thead style="font-weight: bold">
+	  <tr>
+	<!-- Add slugified destination name here -->
+	  	{% assign destinations = "amazon-redshift|amazon-s3|google-bigquery|microsoft-azure|postgresql|snowflake" | split:"|" %}
+
+	<!-- Add display name of the destination to a new column here -->
+	    <td width="12%; fixed"> </td>
+	    <td>Amazon <br/>Redshift</td>
+	    <td>Amazon S3</td>
+	    <td>Google <br/>BigQuery</td>
+	    <td>Microsoft <br/>Azure</td>
+	    <td>PostgreSQL <br/>(self-hosted)</td>
+	    <td>Snowflake</td>
+	  </tr>
+	 </thead>
+	 <tbody>
+	 	{% assign analysis-doc = site.documents | where:"key","analysis-tools" | first %}
+		{% assign tool-compatibility = analysis-doc.compatibility-list %}
+
+		{% include misc/icons.html %}
+
+	 	{% for tool in tool-compatibility %}
+ 			<tr>
+ 				<td align="right">
+ 					<strong>{{ tool.name }}</strong>
+					</td>
+
+ 				{% for destination in destinations %}
+ 					<td>
+ 				<!-- If the link-copy property is not nil, this will show up. -->
+ 						{% if tool[destination]link-copy %}
+ 							{{ supported | remove: " fa-lg" | replace:"TOOLTIP","Supported" }}
+ 							
+ 							<a class="tool-compatibility" href="{{ tool[destination]link-url }}" target="_blank">
+ 								{{ tool[destination]link-copy }}
+ 							</a>
+ 						{% endif %}
+ 					</td>
+ 				{% endfor %}
+ 			</tr>
+ 		{% endfor %}
+	</tbody>
+</table>
