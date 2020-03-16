@@ -2,12 +2,48 @@
 #       ASANA VERSIONS       #
 # -------------------------- #
 
-latest-version: "1"
+latest-version: "2"
 
 released-versions:
-  - number: "1"
+  - number: "2"
     status: "released"
-    date-released: "June 28, 2019"
+    date-released: "March 5, 2020"
     # date-last-connection:
     deprecation-date: ""
     sunset-date: ""
+
+  - number: "1"
+    status: "released"
+    date-released: "June 28, 2019"
+    date-last-connection: "March 5, 2020"
+    deprecation-date: ""
+    sunset-date: ""
+
+
+# -------------------------- #
+#   FACEBOOK ADS CHANGELOG   #
+# -------------------------- #
+
+# Changelog entry types:
+# - new-release
+# - version-deprecation
+# - schema-change
+# - maintenance
+# - new-data
+# - feature-support
+# - provider-deprecation
+
+# Depending on the entry type, some initial copy and a pre-defined
+# Summary heading might display. See:
+# _includes/shared/versioning/changelog.html
+
+changelog-entries:
+  - date: "March 5, 2020"
+    version: "2"
+    type: "new-version"
+    content: |
+      Primary Keys for all tables are now `gid`. Stitch implemented this change due to {{ integration.display_name }} [deprecating integer IDs](https://asana.com/developers/news/a-reminder-about-integer-id-deprecation){:target="new"}.
+
+  - date: "June 28, 2019"
+    version: "1"
+    type: "new-version"
