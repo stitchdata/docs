@@ -1,11 +1,11 @@
 ---
 tap: "asana"
-version: "1"
+version: "2"
 key: "task"
 
 name: "tasks"
 doc-link: "https://asana.com/developers/api-reference/tasks"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/tasks.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/tasks.json"
 description: |
   The `{{ table.name }}` table contains info about the tasks in your {{ integration.display_name }} account.
 
@@ -16,10 +16,10 @@ description: |
 replication-method: "Key-based Incremental"
 
 attributes:
-  - name: "id"
-    type: "integer"
+  - name: "gid"
+    type: "string"
     primary-key: true
-    description: "The task ID."
+    description: "The task's GID."
     #foreign-key-id: "task-id"
 
   - name: "modified_at"
@@ -34,10 +34,6 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The assignee's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The assignee's ID."
         foreign-key-id: "user-id"
 
       - name: "resource_type"
@@ -185,19 +181,11 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The follower's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The follower's ID."
         foreign-key-id: "user-id"
 
       - name: "resource_type"
         type: "string"
         description: "This will be `user`."
-
-  - name: "gid"
-    type: "string"
-    description: "The task's GID."
 
   - name: "hearted"
     type: "boolean"
@@ -235,10 +223,6 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The project's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The project ID."
         foreign-key-id: "project-id"
 
       - name: "resource_type"
@@ -252,10 +236,6 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The workspace's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The workspace's ID."
         foreign-key-id: "workspace-id"
 
       - name: "resource_type"

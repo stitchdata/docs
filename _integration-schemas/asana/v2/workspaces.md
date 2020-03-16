@@ -1,26 +1,22 @@
 ---
 tap: "asana"
-version: "1"
+version: "2"
 key: "workspace"
 
 name: "workspaces"
 doc-link: "https://asana.com/developers/api-reference/workspaces"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/workspaces.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/workspaces.json"
 description: |
   The `{{ table.name }}` table contains info about the workspaces associated with your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
 attributes:
-  - name: "id"
-    type: "string"
-    primary-key: true
-    description: "The workspace ID."
-    foreign-key-id: "workspace-id"
-
   - name: "gid"
     type: "integer"
+    primary-key: true
     description: "The workspace's GID."
+    foreign-key-id: "workspace-id"
 
   - name: "is_organization"
     type: "boolean"

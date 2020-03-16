@@ -1,21 +1,21 @@
 ---
 tap: "asana"
-version: "1"
+version: "2"
 key: "user"
 
 name: "users"
 doc-link: "https://asana.com/developers/api-reference/users"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/users.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/users.json"
 description: |
   The `{{ table.name }}` table contains info about the users in your {{ integration.display_name }} account.
 
 replication-method: "Full Table"
 
 attributes:
-  - name: "id"
-    type: "integer"
+  - name: "gid"
+    type: "string"
     primary-key: true
-    description: "The user ID."
+    description: "The user's GID."
     foreign-key-id: "user-id"
 
   - name: "email"
@@ -64,10 +64,6 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The workspace's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The workspace's ID."
         foreign-key-id: "workspace-id"
 
       - name: "resource_type"
