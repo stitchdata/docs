@@ -212,7 +212,8 @@ case-sensitivity:
 reserved-keywords:
   tooltip: "Words and symbols reserved by the destination for use in object names."
   default: |
-    Refer to the [Reserved keywords documentation]({{ link.destinations.storage.reserved-keywords | prepend: site.baseurl | append:"#" | append:destination.type | append:"-reserved-keywords" }}).
+    {% assign destination-version = destination.type | append: "-v" | append: destination.this-version %}
+    Refer to the [Reserved keywords documentation]({{ link.destinations.storage.reserved-keywords.[destination-version] | prepend: site.baseurl }}).
 
 
 # -------------------------- #

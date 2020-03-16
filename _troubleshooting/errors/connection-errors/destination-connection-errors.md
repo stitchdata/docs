@@ -12,6 +12,8 @@ redirect_from:
 summary: "Resolve errors related to connecting to your Stitch destination."
 type: "all-destinations, error"
 
+key: "destination-connection-errors"
+
 level: "guide"
 top-level: ""
 # category: "connection-errors"

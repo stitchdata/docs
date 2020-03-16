@@ -52,7 +52,7 @@ duplicate-field-names:
   if: |
     Two columns are replicated that canonicalize to the same name.
   then: |
-    For example: a table containing both `CustomerId` and `customerid` columns.
+    For example: A table containing both `CustomerId` and `customerid` columns.
 
     {{ destination.display_name }} will reject the records and create a log for the rejected records in the `_sdc_rejected` table in that integration's schema.
   fix-it: |

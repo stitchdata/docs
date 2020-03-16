@@ -95,6 +95,26 @@ bigquery:
     description: *bigquery-prefix
 
 
+# -------------------------------- #
+#         DATABRICKS DELTA         #
+# -------------------------------- #
+  
+databricks-delta:
+  - *sdc-prefix
+  - *rjm-prefix
+  - *boolean-suffix
+  - name: "__db"
+    type: "stitch"
+    description: *changed-types
+  - *float-suffix
+  - *integer-suffix
+  - name: "__lg"
+    type: "stitch"
+    description: *changed-types
+  - *string-suffix
+  - *timestamp-suffix
+
+
 # ----------------------------------- #
 # MICROSOFT AZURE SQL DATA WAREHOUSE  #
 # ----------------------------------- #

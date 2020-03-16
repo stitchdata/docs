@@ -93,7 +93,7 @@
   # if: uses default
   then:
     v1: &column-name-special-char |
-      {{ destination.display_name }} will will remove all non-word characters, including leading underscores. For example:
+      {{ destination.display_name }} will remove all non-word characters, including leading underscores. For example:
 
       | Columns in Source |  | Columns in {{ destination.display_name }} |
       |-------------------+--+--------------------------|

@@ -1,0 +1,105 @@
+# -------------------------------------------- #
+#                                              #
+#         PRIMARY KEYS SCENARIOS               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/primary-keys.yml
+   ## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+
+## Error data lives here: _data/errors/loading/databricks-delta.yml
+
+## Data arrives without a Primary Key:
+- id: no-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      - **Initial job**: Table is created.
+      - **Subsequent jobs**: If using Key-based Incremental or Log-based Incremental Replication, records will be added to the table in an Append-Only fashion.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Data arrives with single Primary Key:
+- id: single-pk
+  rejectable: false
+  # if: uses default
+  then:
+    v1: &primary-keys |
+      - **Initial job:** Table is created with a [table property comment]({{ link.destinations.overviews.databricks-delta | prepend: site.baseurl | append: "#replication--primary-keys" }}) containing the Primary Key information for the table.
+      - **Subsequent jobs:** If using Key-based Incremental or Log-based Incremental Replication, data will be de-duped based on the Primary Key column and upserted into the table.
+
+        If using Full Table Replication, the table will be overwritten in its entirety during each job.
+
+
+## Data arrives with MULTIPLE Primary Keys:
+- id: multiple-pks
+  rejectable: false
+  # if: uses default 
+  then:
+    v1: *primary-keys
+
+
+## Primary Key column is changed in the warehouse:
+- id: pk-column-change
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      Changing a table's Primary Key(s) is only permitted if the table is using Full Table Replication.
+
+      If Primary Key columns are changed for a table using Key-based or Log-based Incremental Replication, Stitch will stop processing data for the table.
+  error:
+    v1: &pk-change-error "{{ site.data.destinations.databricks-delta.loading-errors.primary-key-mismatch }}"
+  fix-it: 
+    v1: &reinstate-pks |
+      For tables using Key-based or Log-based Incremental Replication:
+      
+      - Re-instate the table's Primary Key(s) to allow Stitch to continue processing data for the table, or
+      - Drop the table in {{ destination.display_name }} and then reset the table in Stitch. This will re-create the table using the new Primary Keys and allow loading to continue.
+
+         **Note**: Resetting the table will queue a full re-replication of the table's data.
+
+- id: pk-column-column-split
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      To accommodate data of varying types, Stitch will create multiple columns to ensure data is loaded with the correct type. In the destination, this will look like the column has been “split”. To ensure data is loaded correctly, a Primary Key column may only a single data type.
+
+      For example: Stitch initially detected `INTEGER` values for an `id` column, but during a subsequent replication job, detected `STRING` values. All `INTEGER` values will be placed in the original `id` column, and a new `id__st` column will be created to accommodate the `STRING` values. In {{ destination.display_name }}, the table might look like this:
+
+      | id | id__st | name |
+      |----+--------+------|
+      | 1  |        | Finn |
+      |    | "2"    | Jake |
+
+      Column splits will result in `NULL` values in the `id` column. As Primary Key columns can't contain `NULL` values, this will result in the error below.
+
+  error:
+    v1: "{{ site.data.destinations.databricks-delta.loading-errors.primary-key-does-not-exist }}"
+  fix-it: 
+    v1: |
+      Verify the data type(s) for the Primary Key column in the source. If it contains multiple data types, you'll need to ensure that the column only contains values of one data type.
+
+      **Note**: If the table is using Key-based or Log-based Incremental Replication, you'll also need to do the following:
+
+      1. Drop the table in {{ destination.display_name }}
+      2. Reset the table in Stitch. This will queue a full re-replication of the table's data, and re-create the table in {{ destination.display_name }} with the correct data type for the Primary Key column.
+
+
+## Primary Key column is removed in the warehouse:
+- id: remove-pk-column
+  rejectable: false
+  # if: uses default
+  then:
+    v1: |
+      Changing a table's Primary Key(s) is not permitted in {{ destination.display_name }}.
+
+      If Primary Key columns are changed, Stitch will stop processing data for the table.
+  error:
+    v1: *pk-change-error
+  fix-it:
+    v1: *reinstate-pks

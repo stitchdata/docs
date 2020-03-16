@@ -1,0 +1,35 @@
+# ------------------------------------------ #
+#    DATABRICKS DELTA REPLICATION DETAILS    #
+# ------------------------------------------ #
+
+## Details about replication/loading for
+## Stitch's Databricks Delta destination.
+
+
+# ------------------------------ #
+#       GENERAL DETAILS          #
+# ------------------------------ #
+
+primary-key-support: true
+
+nested-structure-support: true
+nested-structure-support-description: |
+  Nested data structures (JSON arrays and objects) will be loaded intact into a `STRING` column with a comment specifying that the column contains JSON.
+
+rename-original-column-in-split: false
+
+
+# ------------------------------ #
+#       LOADING BEHAVIOR         #
+# ------------------------------ #
+
+configurable-loading-behavior: false
+
+default-loading-behavior: "Upsert"
+
+loading-behavior-types:
+  - "Upsert"
+  - "Append-Only"
+
+loading-behavior-description: |
+  Refer to the [Loading behavior](#loading-behavior) section for more info.

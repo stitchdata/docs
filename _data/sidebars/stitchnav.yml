@@ -152,6 +152,9 @@ all-docs:
       #   - title: "Limitations"
       #     url: "{{ link.destinations.overviews.amazon-s3 }}#limitations"
 
+    - title: "Databricks Delta Lake"
+      url: "/destinations/databricks-delta"
+
     - title: "data world"
       url: "/destinations/data-world"
       # subsections:
@@ -489,7 +492,7 @@ all-docs:
             url: "{{ link.destinations.storage.loading-behavior }}"
 
           - title: "Reserved keywords"
-            url: "{{ link.destinations.storage.reserved-keywords }}"
+            url: "{{ link.destinations.storage.reserved-keywords.overview }}"
 
           - title: "System tables and columns"
             url: "{{ link.destinations.storage.system-tables-and-columns }}"    

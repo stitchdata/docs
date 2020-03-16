@@ -35,7 +35,7 @@ defaults:
     list-bucket: &list-bucket-reason |
       Required to determine if an S3 bucket exists, if access is allowed to the bucket is allowed, and to list the objects in the bucket. Granting the `{{ destination-user-setup.defaults.names.list-bucket }}` permission in a bucket policy allows the user to perform the following operations:
 
-      - [GET Bucket (List Objects)](){:target="new"}
+      - [GET Bucket (List Objects)](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html){:target="new"}
       - [HEAD Bucket](http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html){:target="new"}
 
 

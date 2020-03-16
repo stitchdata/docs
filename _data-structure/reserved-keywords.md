@@ -84,7 +84,7 @@ sections:
 
       {% for destination in destinations %}
       {% if stitch.reserved-keywords[destination.type] %}
-      - [{{ destination.display_name }}](#{{ destination.type }}-reserved-keywords)
+      - [{{ destination.display_name }} ({{ destination.this-version | prepend: "v" }})](#{{ destination.type }}-{{ destination.this-version | prepend: "v" }}-reserved-keywords)
       {% endif %}
       {% endfor %}
       
@@ -94,10 +94,10 @@ sections:
       {% if stitch.reserved-keywords[destination.type] %}
       {% assign reserved-keywords = stitch.reserved-keywords[destination.type] | sort:"name" %}
 
-      ### {{ destination.display_name }} reserved keywords {#{{ destination.type }}-reserved-keywords}
+      ### {{ destination.display_name }} ({{ destination.this-version | prepend: "v" }}) reserved keywords {#{{ destination.type }}-{{ destination.this-version | prepend: "v" }}-reserved-keywords}
 
       {% if site.data.destinations[destination.type]resource-links.reserved-words %}
-      Refer to [{{ destination.title | remove: " Destination" }}'s documentation]({{ site.data.destinations[destination.type]resource-links.reserved-words }}){:target="new"} for the full list of keywords reserved by {{ destination.display_name }}.
+      Refer to [{{ destination.display_name }}'s documentation]({{ site.data.destinations[destination.type]resource-links.reserved-words }}){:target="new"} for the full list of keywords reserved by {{ destination.display_name }}.
       {% endif %}
 
       <table class="attribute-list">

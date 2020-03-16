@@ -97,6 +97,7 @@ destinations:
     bigquery-v2: /destinations/google-bigquery/v2/reference
     bigquery-pricing: /destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs
     
+    databricks-delta: /destinations/databricks-delta/reference
     data-world: /destinations/data-world/reference
     azure: /destinations/microsoft-azure-sql-data-warehouse/reference
     postgres: /destinations/postgresql/reference
@@ -114,6 +115,7 @@ destinations:
     bigquery-v2: /destinations/google-bigquery/v2/connecting-google-bigquery-to-stitch
     bigquery-v1-migration: /destinations/google-bigquery/v2/migrating-from-google-bigquery-v1
     
+    databricks-delta: /destinations/databricks-delta/connecting-a-databricks-delta-destination-to-stitch
     data-world: /destinations/data-world/connecting-a-data-world-data-warehouse-to-stitch
     
     panoply-new: /destinations/panoply/connecting-a-new-panoply-data-warehouse-to-stitch
@@ -132,7 +134,7 @@ destinations:
 
 
 # -------------------------- #
-#        Data Storage        #
+#          Loading           #
 # -------------------------- #
 ## used as link.destinations.loading.[id]
   loading:
@@ -140,6 +142,7 @@ destinations:
     bigquery: /replication/reference/google-bigquery
     bigquery-v1: /replication/reference/google-bigquery/v1
     bigquery-v2: /replication/reference/google-bigquery
+    databricks-delta: /replication/reference/databricks-delta
     panoply: /replication/reference/panoply
     postgres: /replication/reference/postgresql
     redshift: /replication/reference/amazon-redshift
@@ -162,11 +165,22 @@ destinations:
     redshift-encodings: /destinations/amazon-redshift/apply-encodings-sort-dist-keys-redshift
     bigquery-partitioning: /destinations/google-bigquery/apply-table-partitioning-clustering
     primary-key-system-table: /replication/loading/primary-keys-system-table
-    reserved-keywords: /replication/loading/reserved-keywords
 
     loading-behavior: /replication/loading/understanding-loading-behavior
 
     bigquery-nested-structures: /replication/loading/google-bigquery-storing-nested-data-structures
+
+    reserved-keywords:
+      overview: /replication/loading/reserved-keywords
+      redshift-v2: /replication/loading/reserved-keywords#redshift-v2-reserved-keywords
+      bigquery-v1: /replication/loading/reserved-keywords#bigquery-v1-reserved-keywords
+      bigquery-v2: /replication/loading/reserved-keywords#bigquery-v2-reserved-keywords
+      databricks-delta-v1: /replication/loading/reserved-keywords#databricks-delta-v1-reserved-keywords
+      azure-v1: /replication/loading/reserved-keywords#microsoft-azure-v1-reserved-keywords
+      postgres-v1: /replication/loading/reserved-keywords#postgres-v1-reserved-keywords
+      panoply-v2: /replication/loading/reserved-keywords#panoply-v2-reserved-keywords
+      snowflake-v1: /replication/loading/reserved-keywords#snowflake-v1-reserved-keywords
+
 
 # -------------------------- #
 #         INTEGRATIONS       #

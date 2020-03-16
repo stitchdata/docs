@@ -1,0 +1,28 @@
+# -------------------------------------------- #
+#                                              #
+#              WAREHOUSE CHANGES               #
+#                                              #
+# -------------------------------------------- #
+
+## Scenario data lives here: _data/dataloading/scenarios/warehouse-changes.yml
+## NOTE: If something is commented out and marked as 'uses default',
+   ## That means the copy for that thing lives in the file mentioned above.
+## Error data lives here: _data/destinations/databricks-delta/loading-errors.yml
+
+
+## Customer applies partitioning to Stitch-generated tables
+- id: table-partitioning
+  rejectable: false
+  if: "Partitioning is applied to Stitch-generated tables in the destination."
+  then:
+    v1: &table-partitioning |
+      Stitch will respect the partitioning application.
+
+
+## Customer applies clustering to Stitch-generated tables
+- id: table-clustering
+  rejectable: false
+  if: "Clustering is applied to Stitch-generated tables in the destination."
+  then:
+    v1: &table-partitioning |
+      Stitch will respect the cluster application.
