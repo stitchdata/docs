@@ -12,7 +12,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Asana (v1)
+title: Asana (v2)
 permalink: /integrations/saas/asana
 keywords: asana, integration, schema, etl asana, asana etl, asana schema
 layout: singer
@@ -31,7 +31,7 @@ singer: true
 tap-name: "Asana"
 repo-url: https://github.com/singer-io/tap-asana
 
-this-version: "1"
+this-version: "2"
 
 api: |
   [{{ integration.display_name }} API](https://asana.com/developers/documentation/examples-tutorials/overview){:target="new"}

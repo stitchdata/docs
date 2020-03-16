@@ -1,21 +1,21 @@
 ---
 tap: "asana"
-version: "1"
+version: "2"
 key: "tag"
 
 name: "tags"
 doc-link: "https://asana.com/developers/api-reference/tags"
-singer-schema: "https://github.com/singer-io/tap-asana/blob/cb441655c57734e0cf1f61c933b7905c8868b594/tap_asana/schemas/tags.json"
+singer-schema: "https://github.com/singer-io/tap-asana/blob/master/tap_asana/schemas/tags.json"
 description: |
   The `{{ table.name }}` table contains info about the tags in your {{ integration.display_name }} account. A tag is a label that can be attached to any task in Asana.
 
 replication-method: "Key-based Incremental"
 
 attributes:
-  - name: "id"
-    type: "integer"
+  - name: "gid"
+    type: "string"
     primary-key: true
-    description: "The tag ID."
+    description: "The tag GID."
     #foreign-key-id: "tag-id"
 
   - name: "created_at"
@@ -54,10 +54,6 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The follower's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The follower's ID."
         foreign-key-id: "user-id"
 
       - name: "resource_type"
@@ -79,10 +75,6 @@ attributes:
       - name: "gid"
         type: "string"
         description: "The workspace's GID."
-
-      - name: "id"
-        type: "integer"
-        description: "The workspace's ID."
         foreign-key-id: "workspace-id"
 
       - name: "resource_type"
