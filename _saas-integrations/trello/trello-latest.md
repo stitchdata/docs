@@ -246,6 +246,7 @@ setup-steps:
     content: |
       1. Sign into your {{ integration.display_name }} account.
       2. Go to the [{{ integration.display_name }} Developer API Keys page](https://trello.com/app-key/){:target="new"}.
+      3. Add `https://app.stitchdata.com` to the **Allowed Origins**.
       3. Locate the **Key** and **Secret** fields. 
 
       Leave this page open for now - you'll need it to complete the setup in Stitch.
