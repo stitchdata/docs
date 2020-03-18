@@ -17,7 +17,7 @@ sections:
   - title: "Historical webhook data"
     anchor: "historical-webhook-data"
     content: |
-      Webhook data is sent in real-time, which means that only records created after you set up the integration in Stitch will be replicated to your data warehouse. 
+      Webhook data is sent in real-time, which means that only records created after you set up the integration in Stitch will be replicated to your destination. 
 
       While most webhook integrations don't retain historical data due to this as-it-happens approach, some apps may allow you to replay data and send it to Stitch. This is dependent on if the app has this feature, however. 
 
