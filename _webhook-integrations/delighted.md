@@ -38,20 +38,6 @@ column-selection: false
 extraction-logs: false
 loading-reports: false
 
-# -------------------------- #
-#     Integration Tables     #
-# -------------------------- #
-
-tables:
-  - name: "data"
-    doc-link: https://delighted.com/docs/api/webhooks
-    description: ""
-    notes: 
-    replication-method: "Append-Only (Incremental)"
-    nested-structures: true
-    ## attribute-notes: if populated, this will replace the default "While we try to include everything here..." copy.
-    attributes:
-      - name: Shipment ID (<code>id</code>)
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
@@ -59,17 +45,15 @@ tables:
 {% contentfor setup %}
 {% include integrations/webhooks/webhook-setup.html %}
 
+{% include layout/image.html type="right" file="/integrations/delighted-webhook-setup.png" max-width="450" %}
+
 1. Sign into your Delighted account.
-2. Click **Settings**, located in the top right corner.
-3. In the Settings menu, click **Integrations**.
-4. Locate the **Webhooks** option, then click the **Set Up** link.
-5. Using the drop-down menu, select the event you want to track. You can also track everything by selecting the **All Responses** option.
-6. In the next field, paste your Stitch-genereated webhook URL.
-7. If you want to track more than one event, click the **Add a New Rule** link and repeat steps 5 and 6 until all the events you want to track have been added:
-
-   ![Setting up webhooks in Delighted.]({{ site.baseurl }}/images/integrations/delighted-webhook-setup.png)
-
-8. When finished, click **Save & Turn On.**
+2. Click **Integrations**.
+3. Click the **Webhooks** option.
+4. Select the event(s) you want to track using the drop-down menu. You can also track everything by selecting the **All Responses** option.
+5. In the next field, paste your Stitch-genereated webhook URL.
+6. If you want to track more than one event, click the **Add a New Rule** link and repeat steps 5 and 6 until all the events you want to track have been added.
+7. When finished, click **Save changes.**
 {% endcontentfor %}
 
 
