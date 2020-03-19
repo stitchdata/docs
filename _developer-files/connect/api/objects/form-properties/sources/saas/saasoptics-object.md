@@ -46,20 +46,20 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The name of your unique SaaSOptics database schema, called an "account." This account is the one in which your subscription financial records are managed.
+      Your account name. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#account-subdomain" }}) for instructions on retrieving this information.
     value: "<YOUR_ACCOUNT_NAME>"
 
   - name: "server_subdomain"
     type: "string"
     required: true
-    description: "The subdomain of the SaaSOptics server where the account is running."
+    description: "The subdomain of your {{ form-property.display-name }} account. When enterting this information, do not include the `.saasoptics.com` portion of the web address. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#account-subdomain" }}) for instructions on retrieving this information."
     value: "<YOUR_SUBDOMAIN>"
     
   - name: "token"
     type: "string"
     required: true
     description: |
-      The API token. This token allows Stitch to access your {{ form-property.diaplay-name }} account's API. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-token" }}) for instructions on retrieving this credential.
+      A {{ form-propery.display-name }} API token. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-token" }}) for instructions on retrieving this credential.
     value: "<YOUR_API_TOKEN>"
     
   - name: "date_window_size"
