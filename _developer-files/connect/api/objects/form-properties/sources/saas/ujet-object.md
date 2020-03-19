@@ -61,7 +61,7 @@ object-attributes:
   - name: "date_window_size"
     type: "string"
     required: true
-    description: "This is an internal field for stitch use. It is optional to change this value."
+    description: "This is an internal field for Stitch use."
     value: ""
     
   - name: "domain"
