@@ -49,13 +49,15 @@ object-attributes:
   - name: "company_key"
     type: "string"
     required: true
-    description: "The company key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information."
+    description: |
+      The company key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
     value: "<YOUR_COMPANY_KEY>"
 
   - name: "company_secret"
     type: "string"
     required: true
-    description: "The company secret code. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information."
+    description: |
+      The company secret code. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
     value: "<YOUR_COMPANY_SECRET_CODE>"
 
   - name: "date_window_size"
