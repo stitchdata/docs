@@ -50,31 +50,31 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      The company key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
+      Your {{ form-property.display-name }} company key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
     value: "<YOUR_COMPANY_KEY>"
 
   - name: "company_secret"
     type: "string"
     required: true
     description: |
-      The company secret code. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
+      Your {{ form-property.display-name }} company secret code. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-keys" }}) to retrieve this information.
     value: "<YOUR_COMPANY_SECRET_CODE>"
 
   - name: "date_window_size"
     type: "string"
     required: true
-    description: "This is an internal field for Stitch use."
+    description: "**This is an internal field for Stitch use**."
     value: ""
     
   - name: "domain"
     type: "string"
     required: true
-    description: "The domain of your {{ form-property.display-name }} account's web address."
+    description: "The domain of your {{ form-property.display-name }} account's URL."
     value: "ujet"
     
   - name: "subdomain"
     type: "string"
     required: true
-    description: "The subdomain of your {{ form-propery.display-name }} account's web address."
+    description: "The subdomain of your {{ form-propery.display-name }} account's URL. For example: If the URL were `stitch.ujet.com`, the subdomain would be `stitch`."
     value: "your-subdomain"        
 ---
