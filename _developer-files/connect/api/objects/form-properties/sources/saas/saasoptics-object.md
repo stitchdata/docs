@@ -52,7 +52,8 @@ object-attributes:
   - name: "server_subdomain"
     type: "string"
     required: true
-    description: "The subdomain of your {{ form-property.display-name }} account. When enterting this information, do not include the `.saasoptics.com` portion of the web address. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#account-subdomain" }}) for instructions on retrieving this information."
+    description: |
+      The subdomain of your {{ form-property.display-name }} account. When enterting this information, do not include the `.saasoptics.com` portion of the web address. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#account-subdomain" }}) for instructions on retrieving this information.
     value: "<YOUR_SUBDOMAIN>"
     
   - name: "token"
