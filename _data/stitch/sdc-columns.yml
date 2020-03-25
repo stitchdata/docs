@@ -107,15 +107,26 @@ current-columns:
 
     For example: The `ad_performance_report` table may contain data from several Ads accounts. The value in the `_sdc_customer_id` column allows you to associate records with the correct Ads account.
 
+# RECORD HASH
+  record-hash: &record-hash "_sdc_record_hash"
+  record-hash-description: &record-hash-description |
+    **Applicable only to Google Analytics (v1) integrations,** this column is a Stitch-generated SHA 256 hash that should be used as a Primary Key. The hash consists of a UTF-8 encoded JSON list containing:
+
+    - The account ID, web property ID, and profile ID of the associated report
+    - Pairs of `ga:dimension_name` and `dimension_value`
+    - The `start_date` and `end_date` values for the record, in `YYYY-mm-dd` format
+
 # REPORT DATE TIME
   report-date-time: &report-date-time "_sdc_report_datetime"
   report-date-time-description: &report-date-time-description |
     **Applicable only to Google Ads and Campaign Manager inetgrations,** this column indicates the starting time of the Stitch job that extracted the relevant row's data.
 
+# SOURCE FILE
   source-file: &source-file "_sdc_source_file"
   source-file-description: &source-file-description |
     **Applicable only to Intacct and Responsys integrations**, this column contains the file path on the SFTP server of the table's source file.
 
+# SOURCE LINENO
   source-lineno: &source-lineno "_sdc_source_lineno"
   source-lineno-description: &source-lineno-description |
     **Applicable only to Intacct and Responsys integrations**, this column contains the row number for the record in the source file.
@@ -210,6 +221,12 @@ saas:
     applicable-to: "Google Ads"
     description: *customer-id-description
     data: "4224806558"
+
+  - name: *record-hash
+    type: "string"
+    applicable-to: "Google Analytics (v1)"
+    description: *record-hash-description
+    data: "070265d7b7de40082271712d39839cbde58f135e5145d919856aa6737816becc"
 
   - name: *report-date-time
     type: "date-time"
