@@ -89,7 +89,9 @@ replication-sections:
   - title: "Order Refunds table replication"
   - anchor: "order-refunds"
   - content: |
-      The Order Refunds table is a Key-based Incremental file that gets queried for every single order ID. If you have this table selected for replication, the process can potentially be very slow depending on how many refunds exist in the table. With Stich's replication process, this could cause other tables to not be replicated for days to weeks at a time. To ensure timely replications of your other selected tables, consider creating a separate integration for only the Order Refunds table.
+      The Order Refunds file gets queried at every single order ID in the table. If you have this table selected for replication, the process can potentially be very slow depending on how many refunds exist in the table. With Stich's replication process, this could cause other tables to not be replicated for days to weeks at a time. To ensure timely replications of your other selected tables, consider creating a separate integration for only the Order Refunds table.
+
+      Note that depending on how much {{ integration.display_name }} data you have, creating a separate integration for your Order Refunds table may negatively affect your API quota.
       
 
 # -------------------------- #
