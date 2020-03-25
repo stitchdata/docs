@@ -1,5 +1,5 @@
 ---
-title: Google Analytics
+title: Google Analytics (v14-09-2016)
 permalink: /integrations/saas/google-analytics/v14-09-2016
 keywords: google analytics, ga, ga schema, etl google analytics, google analytics etl, google analytics schema
 summary: "Connection instructions, replication info, and schema details for Stitch's Google Analytics integration."
