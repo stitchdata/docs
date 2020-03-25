@@ -48,9 +48,9 @@ object-attributes:
     type: "array"
     required: true
     description: |
-      A list of the custom reports you want to create.
+      An array of objects, each object pertaining to a custom report you want to create.
 
-      Each report you want to create should be its own object and contain `name` and `id` properties.
+      **Note**: Metrics and dimensions for each report can be selected when the source proceeds to the `field_selection` step.
     value: |
       [
            {
