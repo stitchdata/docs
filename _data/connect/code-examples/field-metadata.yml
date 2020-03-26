@@ -74,10 +74,6 @@ request-bodies:
 
 field-exclusion: |
   {
-    "breadcrumb": [
-      "properties",
-      "DeviceOS"
-    ],
     "metadata": {
       "fieldExclusions": [
         [
@@ -115,8 +111,9 @@ field-exclusion: |
 
 unsupported-field: |
   {
-    "metadata": {
-      "unsupported-description": "this field is unsupported by the Bulk API.",
-      "selected": false,
-      "inclusion": "unsupported"
-    }
+     "metadata":{
+        "unsupported-description":"this field is unsupported by the Bulk API.",
+        "selected":false,
+        "inclusion":"unsupported"
+     }
+  }
