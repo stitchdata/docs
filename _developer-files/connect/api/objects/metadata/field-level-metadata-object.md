@@ -75,6 +75,75 @@ object-attributes:
     value: |
       text
 
+# Source: https://github.com/singer-io/tap-google-analytics/blob/master/spikes/discover_metrics_and_dimensions.py#L158
+  - name: "tap_google_analytics.cubes"
+    type: "array"
+    description: |
+      **For Google Analytics sources only.** An array of strings containing the 'cubes' the field is a part of. A cube is a group of metrics and dimensions that are compatible together.
+
+      We recommend using [Google's Dimensions and Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets){:target="new"} to test combinations of metrics and dimensions for compatibility.
+    modifiable: false
+    applies-to: "google-analytics"
+    value: |
+      [
+          "per_active_visitors_nthday_active_visitors_30",
+          "per_active_visitors_date_active_visitors_30",
+          "per_active_visitors_day_active_visitors_30"
+        ]
+
+# source for values: https://github.com/singer-io/tap-google-analytics/blob/master/spikes/discover_metrics_and_dimensions.py#L116
+  - name: "tap_google_analytics.group"
+    type: "array"
+    description: |
+      **For Google Analytics sources only.** The group the field belongs to. Possible values are:
+
+      - `Ad Exchange`
+      - `Adsense`
+      - `Adwords`
+      - `App Tracking`
+      - `Audience`
+      - `Channel Grouping`
+      - `Content Experiments`
+      - `Content Grouping`
+      - `Custom Variables or Columns`
+      - `DoubleClick Bid Manager`
+      - `DoubleClick Campaign Manager`
+      - `DoubleClick Search`
+      - `DoubleClick for Publishers`
+      - `DoubleClick for Publishers Backfill`
+      - `Ecommerce`
+      - `Event Tracking`
+      - `Exceptions`
+      - `Geo Network`
+      - `Goal Conversions`
+      - `Internal Search`
+      - `Lifetime Value and Cohorts`
+      - `Page Tracking`
+      - `Platform or Device`
+      - `Publisher`
+      - `Session`
+      - `Site Speed`
+      - `Social Activities`
+      - `Social Interactions`
+      - `System`
+      - `Time`
+      - `Traffic Sources`
+      - `User`
+      - `User Timings`
+    modifiable: false
+    applies-to: "google-analytics"
+    value: "User"
+
+  - name: "behavior"
+    type: "string"
+    description: |
+      **For Google Analytics sources only.** The type of field. Possible values are `METRIC` and `DIMENSION`.
+
+      **Note**: This property won't be present for fields where `tap_google_analytics.group: Report Fields`.
+    modifiable: false
+    applies-to: "google-analytics"
+    value: "METRIC"
+
   - name: "fieldExclusions"
     type: "array"
     description: |
@@ -109,23 +178,45 @@ object-attributes:
     value: |
       this field is unsupported by the Bulk API.
 
+
+# -------------------------- #
+#           EXAMPLES         #
+# -------------------------- #
+
 examples:
   - type: "Database source"
     code: |
       {
-        "metadata": {
-          "sql-datatype": "double precision",
-          "selected-by-default": true,
-          "inclusion": "available"
-        }
+         "metadata":{
+            "sql-datatype":"double precision",
+            "selected-by-default":true,
+            "inclusion":"available"
+         }
+      }
 
   - type: "SaaS source"
     code: |
       {
-        "metadata": {
-          "selected": false,
-          "inclusion": "available"
-        }
+         "metadata":{
+            "selected":false,
+            "inclusion":"available"
+         }
+      }
+
+  - type: "Google Analytics source"
+    code: |
+      {
+         "metadata":{
+            "inclusion":"available",
+            "tap_google_analytics.cubes":[
+               "per_active_visitors_nthday_active_visitors_30",
+               "per_active_visitors_date_active_visitors_30",
+               "per_active_visitors_day_active_visitors_30"
+            ],
+            "tap_google_analytics.group":"User",
+            "behavior":"METRIC"
+         }
+      }
 
   - type: "Field exclusions"
     code: |
