@@ -94,12 +94,22 @@ setup-steps:
   - title: "Retrieve your access token and Survey ID"
     anchor: "retrieve-access-token-and-survey-id"
     content: |
+
+      {% capture first-line %}**Enterprise {{ integration.display_name }} account required**{% endcapture %}
+
+      {% capture paid-account-content %}
+      An Enterprise {{ integration.display_name }} account is required to install the Stitchdata ETL app and retrieve the access token and survey id required for this installation. 
+      {% endcapture %}
+
+      {% include note.html first-line=first-line content=paid-account-content %}
+
       1. Login to your {{ integration.display_name }} and go to [App Directory](https://www.surveymonkey.com/apps).
-      2. Type in **stitchdata** in the search box to get the Stitchdata app. 
+      2. Type in **stitchdata** in the search input box to find the Stitchdata ETL app. 
       3. Click **Visit Site** button on the right. 
       4. Click **Authorize** button.
-      5. The access token and the list of surveys are shown after authorization. Keep this readily available.
-         ![Access token and the list of Survey IDs.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 450px;"}
+      5. The access token and the list of surveys are shown after authorization. Keep this readily available. Note: You may come back at any time to retrieve your access token or identify a new survey id.
+       
+        ![Access token and the list of Survey IDs.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 450px;"}
 
 
   - title: "add integration"
