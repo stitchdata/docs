@@ -121,6 +121,7 @@ object-attributes:
       - `Page Tracking`
       - `Platform or Device`
       - `Publisher`
+      - `Report Fields`
       - `Session`
       - `Site Speed`
       - `Social Activities`
@@ -137,9 +138,14 @@ object-attributes:
   - name: "behavior"
     type: "string"
     description: |
-      **For Google Analytics sources only.** The type of field. Possible values are `METRIC` and `DIMENSION`.
+      **For Google Analytics and Google Ads sources only.** The type of field. Possible values are:
 
-      **Note**: This property won't be present for fields where `tap_google_analytics.group: Report Fields`.
+      - `ATTRIBUTE` - Goolgle Ads sources only
+      - `METRIC`
+      - `DIMENSION` - Google Analytics sources only
+      - `SEGMENT` - Goolgle Ads sources only
+
+      **Note**: This property won't be present for Google Analytics fields where `tap_google_analytics.group: Report Fields`.
     modifiable: false
     applies-to: "google-analytics"
     value: "METRIC"
