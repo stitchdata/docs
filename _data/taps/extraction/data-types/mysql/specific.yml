@@ -1,0 +1,34 @@
+# --------------------------------- #
+#     MYSQL-SPECIFIC DATA TYPES     #
+# --------------------------------- #
+
+## Data types specific to MySQL.
+
+## Source: https://github.com/singer-io/tap-mysql/blob/master/tap_mysql/__init__.py
+
+- name: "enum"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/enum.html"
+
+- name: "longtext"
+  doc-link: &blob-url "https://dev.mysql.com/doc/refman/8.0/en/blob.html"
+
+- name: "json"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/json.html"
+
+- name: "mediumint"
+  doc-link: *int-url
+
+- name: "mediumtext"
+  doc-link: *blob-url
+
+- name: "smallint"
+  doc-link: &int-url "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+
+- name: "text"
+  doc-link: *blob-url
+
+- name: "tinyint"
+  doc-link: *int-url
+
+- name: "tinyint(1)"
+  doc-link: *int-url

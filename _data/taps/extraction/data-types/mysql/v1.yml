@@ -1,0 +1,89 @@
+# --------------------------------- #
+#   MYSQL V1 SUPPORTED DATA TYPES   #
+# --------------------------------- #
+
+## In addition to the common supported data types (_data/stitch/supported-data-types.yml), the following data types are relevant to MySQL v1.
+
+## Source: https://github.com/singer-io/tap-mysql/blob/master/tap_mysql/__init__.py
+
+# --------------------------------- #
+#  INTEGRATION-SPECIFIC DATA TYPES  #
+# --------------------------------- #
+
+## Remove this entire section if there aren't any data types
+## specific to this integration.
+## Ex: MySQL has specific data types.
+
+## MySQL has integration-specific data types. Refer to:
+## _data/taps/extraction/data-types/mysql/specific.yml
+
+# --------------------------------- #
+#          ALL DATA TYPES           #
+# --------------------------------- #
+
+bigint: &integer
+  stitch-type: "integer"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/integer-types.html"
+
+bit: &boolean
+  stitch-type: "boolean"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/bit-type.html"
+
+boolean: *boolean
+
+char: &string
+  stitch-type: "string"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/blob.html"
+      
+date: &date
+  stitch-type: "string"
+  format: "date-time"
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/date-and-time-types.html"
+      
+decimal: &number
+  stitch-type: "number" 
+  doc-link: "https://dev.mysql.com/doc/refman/8.0/en/fixed-point-types.html"
+
+double: *number
+
+enum: *string
+
+float: *number
+      
+integer: *integer
+
+longtext: *string
+
+longvarchar: *string
+
+longnvarchar: *string
+
+json: *string
+
+mediumint: *integer
+
+mediumtext: *string
+
+nchar: *string
+
+numeric: *number
+      
+nvarchar: *string
+
+real: *number
+
+smallint: *integer  
+
+text: *string
+
+time: *date
+
+timestamp: *date
+
+tinyint: *integer
+
+tinyint(1): *boolean
+
+varchar: *string
+
+varbinary: *string
