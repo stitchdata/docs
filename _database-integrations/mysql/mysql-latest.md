@@ -166,6 +166,24 @@ setup-steps:
     anchor: "sync-data"
     content: |
       {% include integrations/databases/setup/syncing.html %}
+
+
+# -------------------------- #
+#     REPLICATION DETAILS    #
+# -------------------------- #
+
+replication-sections:
+  - content: |
+      {% for section in page.replication-sections %}
+      {% if section.title %}
+      - [{{ section.title }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+      
+  - title: "Data types"
+    anchor: "data-types"
+    content: |
+      {% include replication/templates/data-types/integration-specific-data-types.html specific-types=true display-intro=true version="1" version-column-headers=false %}
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
