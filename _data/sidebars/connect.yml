@@ -25,16 +25,36 @@ api:
         url: *connect
 
       - title: Introduction
-        url: "{{ link.connect.api }}{{ site.data.connect.api.introduction }}"
-        drop-down: false
+        sections:
+          - title: "Introduction"
+            url: "{{ link.connect.api }}{{ site.data.connect.api.introduction }}"
+
+          - title: "API functionality"
+            url: "{{ link.connect.api }}#api-functionality"
+
+          - title: "Tutorials and resources"
+            url: "{{ link.connect.api }}#tutorials-resources"
+
+          - title: "Accessing the API"
+            url: "{{ link.connect.api }}#access-the-api"
+
+          - title: "Terminology"
+            url: "{{ link.connect.api }}#terminology"
 
       # - title: Quick start
       #   url: "{{ link.connect.api }}{{ site.data.connect.api.quick-start }}"
       #   drop-down: false
 
       - title: "Authentication"
-        url: "{{ link.connect.api }}{{ site.data.connect.api.authentication }}"
-        drop-down: false
+        sections:
+          - title: "Overview"
+            url: "{{ link.connect.api }}#authentication-overview"
+
+          - title: "Obtain an access token"
+            url: "{{ link.connect.api }}#obtain-access-token"
+
+          - title: "Credential reference"
+            url: "{{ link.connect.api }}#credential-reference"
 
       - title: "Response codes"
         url: "{{ link.connect.api }}{{ site.data.connect.api.response-codes }}"
