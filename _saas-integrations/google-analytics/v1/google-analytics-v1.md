@@ -16,7 +16,7 @@ title: Google Analytics (v1)
 permalink: /integrations/saas/google-analytics
 keywords: google-analytics, integration, schema, etl google-analytics, google-analytics etl, google-analytics schema
 layout: singer
-input: false
+input: true
 
 key: "google-analytics-setup"
 
@@ -57,6 +57,7 @@ cron-scheduling: true
 
 table-selection: true
 column-selection: true
+table-level-reset: true
 
 extraction-logs: true
 loading-reports: true
@@ -95,7 +96,7 @@ setup-steps:
 
       To add another report, click **Configure another report** and enter a name for the report.
 
-      {% include note.html type="single-line" content="**Renaming reports**: You can rename reports after the integration has been created, but doing so will have implications on where Stitch loads the report's data in your destination. Refer to the [Custom report replication section](#custom-report-replication) for more info." %}
+      {% include note.html type="single-line" content="**Renaming reports**: You can rename reports after the integration has been created, but doing so will have implications on where Stitch loads the report's data in your destination. Refer to the [Custom report replication section](#renamed-reports) for more info." %}
 
   - title: "historical sync"
 
@@ -134,31 +135,76 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:
+  - content: |
+      {% for section in page.replication-sections %}
+      {% if section.summary %}
+      - [{{ section.summary }}](#{{ section.anchor }})
+      {% endif %}
+      {% endfor %}
+
   - title: "Custom report replication"
     anchor: "custom-report-replication"
+    summary: "How Stitch replicates your custom reports"
     content: |
-      1. Metric and dimension selections will be retained.
-      2. Load data into a new table in your destination.
-      3. Will continue replicating data from the bookmark value saved for the table. A new table doesn't equal a full re-replication of that table's data.
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Replication Method"
+        anchor: "replication-method"
+        content: |
+          Custom reports in {{ integration.display_name }} are replicated using Key-based Incremental Replication with `start_date` as a Replication Key. A `start_date` value is a date in `YYYY-MM-DD` format.
+
+          Google Analytics report data is aggregated per day, meaning that the day's data isn't complete until the next day begins. For this reason, data for the current day may be re-replicated until the day is 'complete'.
+
+          For example: Data for `2020-03-26` isn't considered complete by Google until `2020-03-27` begins. The integration may re-replicate data for `2020-03-26` until records for `2020-03-27` start to become available.
+
+      - title: "Renamed reports"
+        anchor: "renamed-reports"
+        content: |
+          {% include note.html type="single-line" content="**Note**: Stitch won't send a notification when a report is renamed. We recommend informing your colleagues when a report is renamed to ensure they're using the new, correct destination table." %}
+
+          When you rename a report after the integration has been created, Stitch will:
+
+          1. **Load data into a new table in your destination.** From the date the report is renamed, Stitch will load all data into a new table. The original table will remain in the destination unless you choose to drop it.
+
+          2. **Continue replicating data from the Replication Key value saved for the table.** You'll need to reset the report to re-replicate all data [from the integration's **Start Date**](#define-historical-sync) and have it loaded into the new table.
+
+             To reset a report, click into the report and then click **Report Settings** on the right side of the page. Click the **Reset Report** button.
+
+          3. **Retain your metric and dimension selections for the report.** You won't need to re-select metrics and dimensions.
 
   - title: "Metrics and dimensions"
     anchor: "metrics-and-dimensions"
+    summary: "Selecting metrics and dimensions in your custom reports"
     content: |
-      TODO
+      When selecting metrics and dimensions in Stitch, keep the following in mind:
+
+      {% for subsection in section.subsections %}
+      - [{{ subsection.title }}](#{{ subsection.anchor }})
+      {% endfor %}
+
+    subsections:
+      - title: "Maximum selection limits"
+        anchor: "maximum-selection-limits"
+        content: |
+          For each report in a {{ integration.display_name }} integration, you can select up to [10 metrics](https://developers.google.com/analytics/devguides/reporting/core/v3/reference#metrics){:target="new"} and [7 dimensions](https://developers.google.com/analytics/devguides/reporting/core/v3/reference#dimensions){:target="new"}. 
+
+          These limits are imposed by Google and can't be changed or worked around. When you reach these limits, you won't be able to make any other selections until you de-select a metric or dimension.
+
+      - title: "Compatibility rules"
+        anchor: "compatibility-rules"
+        content: |
+          The metrics and dimensions you select in custom reports are subject to [Google's compatibility rules](https://support.google.com/analytics/answer/1033861?hl=en#ValidDimensionMetricCombinations){:target="new"}. Refer to [Google's Dimensions and Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets){:target="new"} for a list of valid dimension and metric pairs.
+
 
 # -------------------------- #
 #     Integration Tables     #
 # -------------------------- #
 
 # Looking for the table schemas & info?
-# Each table has a its own .md file in /_integration-schemas/google-analytics
-
-
-# Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+# Each table has a its own .md file in /_integration-schemas/google-analytics/v1
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
