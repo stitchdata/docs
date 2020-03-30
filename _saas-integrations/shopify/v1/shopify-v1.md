@@ -86,12 +86,12 @@ setup-steps:
 # -------------------------- #
 
 replication-sections:  
-  - title: "Order Refunds table replication"
+  - title: "Replicating order refunds"
   - anchor: "order-refunds"
   - content: |
-      The `order_refunds` table gets queried at every single order ID in the table. If you have this table selected for replication, the process can potentially be very slow depending on how many refunds exist in your account. With Stitch's replication process, this could cause other tables to not be replicated for days to weeks at a time. To ensure timely replication of your other selected tables, consider creating a separate integration for only the `order_refunds` table.
+      To extract order refund data, Stitch queries every order in your account. If you have the `order_refunds` table selected for replication, the process can potentially be very slow depending on how many orders and refunds exist in your {{ integration.display_name }} account. As tables are extracted one at a time, this could cause extraction to not proceed for days at a time. To ensure timely replication of your other selected tables, consider creating a separate integration for only the `order_refunds` table.
 
-      Note that creating a separate integration for your `order_refunds` table may negatively affect your {{ integration.display_name }} API quota.
+      **Note**: Creating a separate integration for your `order_refunds` table may negatively affect your {{ integration.display_name }} API quota.
       
 
 # -------------------------- #
