@@ -70,6 +70,13 @@ loading-reports: true
 feature-summary: |
   Stitch's {{ integration.display_name }} integration allows you to create custom reports by selecting the metrics and dimension you want to replicate. You can create multiple reports and configure each of them individually. Refer to the [Schema](#schema) section for more info and an example table schema.
 
+  This integration:
+
+  - Supports creating multiple custom reports
+  - Supports [custom metrics and dimensions](#custom-metrics-dimensions)
+  - Supports Lifetime Values and Cohorts
+  - Doesn't currently support Filters or Segments
+
 
 # -------------------------- #
 #      Setup Instructions    #
@@ -96,7 +103,7 @@ setup-steps:
 
       To add another report, click **Configure another report** and enter a name for the report.
 
-      {% include note.html type="single-line" content="**Renaming reports**: You can rename reports after the integration has been created, but doing so will have implications on where Stitch loads the report's data in your destination. Refer to the [Custom report replication section](#renamed-reports) for more info." %}
+      {% include note.html type="single-line" content="**Renaming and deleting reports**: After the integration is created, renaming and deleting reports will have implications how data from this integration is loaded into your destination. Refer to the [Renamed](#renamed-reports) and [Deleted reports](#deleted-reports) sections for more info." %}
 
   - title: "historical sync"
 
@@ -124,6 +131,8 @@ setup-steps:
 
          - **You can select up to 10 metrics and 7 dimensions per report.** This limit is imposed by Google and can't be changed or worked around. When you reach this limit, you won't be able to make any other selections until you de-select a metric or dimension.
          - **Metric and dimension combinations are subject to Google's compatibility rules.** When you select a metric or dimension, all other metrics and dimensions incompatible with the selection will be greyed out. To test your combos before selecting them in Stitch, use [Google's Dimensions & Metrics Explorer](https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/){:target="new"}.
+         - **Custom metrics and dimensions** will display as either `ga:metricXX` or `ga:dimensionXX`, where `XX` is replaced with the specific number of the metric or dimension. Refer to the [Custom metrics and dimensions section](#custom-metrics-dimensions) for help identifying custom metrics and dimensions in your {{ integration.display_name }} account.
+
       4. Repeat this process for your remaining reports.
       5. When finished, click the **Finalize Your Selections** button at the bottom of the screen to save your selections.
 
@@ -175,6 +184,15 @@ replication-sections:
 
           3. **Retain your metric and dimension selections for the report.** You won't need to re-select metrics and dimensions.
 
+      - title: "Deleted reports"
+        anchor: "deleted-reports"
+        content: |
+          To delete a report, open the integration's settings page, click **Configure another report**, and click **Remove this report**.
+
+          This will permanently remove the report from the integration, including any selected metrics and dimensions.
+
+          **Note**: Deleting a report in Stitch won't automatically remove the corresponding table in your destination.
+
   - title: "Metrics and dimensions"
     anchor: "metrics-and-dimensions"
     summary: "Selecting metrics and dimensions in your custom reports"
@@ -197,6 +215,18 @@ replication-sections:
         anchor: "compatibility-rules"
         content: |
           The metrics and dimensions you select in custom reports are subject to [Google's compatibility rules](https://support.google.com/analytics/answer/1033861?hl=en#ValidDimensionMetricCombinations){:target="new"}. Refer to [Google's Dimensions and Metrics Explorer](https://developers.google.com/analytics/devguides/reporting/core/dimsmets){:target="new"} for a list of valid dimension and metric pairs.
+
+      - title: "Custom metrics and dimensions"
+        anchor: "custom-metrics-dimensions"
+        content: |
+          Custom metrics and dimensions will display as either `ga:metricXX` or `ga:dimensionXX`, where `XX` is replaced with the specific number of the metric or dimension.
+
+          To identify a custom metric or dimension:
+
+          1. Sign into your {{ integration.display_name }} Dashboard.
+          2. Open the Custom Metrics or Dimensions page by navigating to **Admin > Property Column > Custom Definitions > Custom Metric/Dimension**.
+          3. In the row for the metric or dimension, locate the **Index** column.
+          4. Append the value in the **Index** column to either `ga:metric` or `ga:dimension`. For example: If the index for a custom dimension is `1`, the name that displays in Stitch would be `ga:dimension1`.
 
 
 # -------------------------- #
