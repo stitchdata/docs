@@ -69,7 +69,32 @@ microsoft-azure-mysql:
   - name: *binlog-format-name
     value: *binlog-format-value
     description: *binlog-format-description
-    doc-link: "https://dev.mysql.com/doc/refman/5.6/en/replication-options-binary-log.html#sysvar_binlog_format"
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *binlog-row-image-name
+    value: *binlog-row-image-value
+    description: *binlog-row-image-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *expire-logs-days-name
+    value: *expire-logs-days-value
+    description: *expire-logs-days-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *binlog-expire-logs-seconds-name
+    value: *binlog-expire-logs-seconds-value
+    description: *binlog-expire-logs-seconds-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *log-bin-name
+    value: *log-bin-value
+    description: *log-bin-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
+
+  - name: *log-slave-update-name
+    value: *log-slave-update-value
+    description: *log-slave-update-description
+    doc-link: "https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication#configure-the-master-server"
 
 # -------------------------- #
 #      CLOUDSQL SETTINGS     #

@@ -14,7 +14,7 @@ key: "microsoft-azure-mysql-integration"
 name: "microsoft-azure-mysql"
 display_name: "Microsoft Azure MySQL"
 
-hosting-type: "microsoft-azure"
+hosting-type: "generic"
 
 this-version: "1"
 
@@ -29,7 +29,7 @@ singer: true
 repo-url: https://github.com/singer-io/tap-mysql
 certified: true
 
-tap-name: "microsoft-azure-mysql"
+tap-name: "MySQL"
 
 frequency: "30 minutes"
 tier: "Free"
@@ -74,15 +74,13 @@ view-replication: true
 # -------------------------- #
 
 requirements-list:
-  - item: "**For Log-based replication:** Privileges in Azure that allow you to modify server parameters."
-  - item: |
-      **If using Log-based Incremental Replication**, you'll need the `ALTER DATABASE` privilege in {{ integration.display_name }}. This is required to complete the setup for Log-based Incremental Replication.
   - item: |
       **The `CREATE USER` or `INSERT` privilege (for the `mysql` database).** The [`CREATE USER` privilege](https://dev.mysql.com/doc/refman/8.0/en/create-user.html){:target="new"} is required to create a database user for Stitch.
   - item: |
       **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
   - item: |
-      **MySQL master server** must be in a General Purpose or Memory Optimized pricing tier in Azure.        
+      **MySQL master server** must be in a General Purpose or Memory Optimized pricing tier. These pricing tiers allow for faster proccessing of large amounts of real-time data.
+  - item: "**For Log-based replication:** Privileges in Azure that allow you to modify server parameters."            
 
 # -------------------------- #
 #     Setup Instructions     #
