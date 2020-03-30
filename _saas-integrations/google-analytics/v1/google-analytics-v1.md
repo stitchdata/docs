@@ -156,7 +156,7 @@ replication-sections:
         content: |
           Custom reports in {{ integration.display_name }} are replicated using Key-based Incremental Replication with `start_date` as a Replication Key. A `start_date` value is a date in `YYYY-MM-DD` format.
 
-          Google Analytics report data is aggregated per day, meaning that the day's data isn't complete until the next day begins. For this reason, data for the current day may be re-replicated until the day is 'complete'.
+          Google Analytics report data is aggregated per day, meaning that the day's data isn't complete until the next day begins. For this reason, data for the current day may be re-replicated until the day is 'complete'. **Note**: The [attribution modeling of your account](https://support.google.com/analytics/answer/1662518?hl=en){:target="new"} may also affect when data is considered complete.
 
           For example: Data for `2020-03-26` isn't considered complete by Google until `2020-03-27` begins. The integration may re-replicate data for `2020-03-26` until records for `2020-03-27` start to become available.
 
