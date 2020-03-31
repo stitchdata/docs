@@ -79,8 +79,9 @@ requirements-list:
   - item: |
       **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
   - item: |
-      **MySQL master server** must be in a General Purpose or Memory Optimized pricing tier. These pricing tiers allow for faster proccessing of large amounts of real-time data.
-  - item: "**For Log-based replication:** Privileges in Azure that allow you to modify server parameters."            
+      **For Log-based replication:**
+      1. Privileges in Azure that allow you to modify server parameters.
+      2. MySQL master server must be in a General Purpose or Memory Optimized pricing tier. These are the tiers that allow you to create {{ integration.display_name }} read replicas.           
 
 # -------------------------- #
 #     Setup Instructions     #
