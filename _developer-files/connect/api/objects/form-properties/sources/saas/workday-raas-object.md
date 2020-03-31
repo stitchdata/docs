@@ -29,10 +29,6 @@ display-name: "Workday RaaS"
 source-type: "saas"
 docs-name: "workday-raas" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
 
-property-description: ""
-## Used to create a description for the object that doesn't adhere to the standard in _developers/connect/api/documentation/api-form-properties.html
-## See the Heap object for an example
-
 
 # -------------------------- #
 #      OBJECT ATTRIBUTES     #
@@ -55,8 +51,10 @@ object-attributes:
   - name: "reports"
     type: "string"
     required: true
-    description: "Your report URL."
-    value: "<YOUR_REPORT_URL>"
+    description: |
+      Your {{ form-property.display-name }} report URL and table name of your choice. Use comma deliniation to add multiple reports"
+    value: |
+      [{\"report_url\": \"<YOUR_REPORT_URL>", \"table_name\": \"THIS IS MY FIRST TABLE\"},{\"report_url\": \"<YOUR_REPORT_URL", \"table_name\": \"THIS IS MY SECOND TABLE\"}]
     
   - name: "username"
     type: "string"

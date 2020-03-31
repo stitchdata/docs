@@ -37,7 +37,7 @@ repo-url: https://github.com/singer-io/tap-workday-raas
 this-version: "1"
 
 api: |
-  [SOAP API](https://community.workday.com/api){:target="new"}
+  [RaaS API](https://community.workday.com/api){:target="new"}
 
 
 # -------------------------- #
@@ -72,7 +72,7 @@ column-selection: true
 # -------------------------- #
 
 feature-summary: |
-  Stitch's {{ integration.display_name }} integration replicates data using the {{ integration.api | flatify | strip }}. There are no schema files for this integration.
+  Stitch's {{ integration.display_name }} integration replicates data from your defined  reports using the {{ integration.api | flatify | strip }}. For more information on this integration's table creation, refer to the [Schema](#schema) section.
 
 
 # -------------------------- #
@@ -91,7 +91,7 @@ feature-summary: |
 # -------------------------- #
 
 setup-steps:
-  - title: "Retrieve your report URL."
+  - title: "Retrieve your report URL"
     anchor: "retrieve-report-url"
     content: |
       1. Login to your {{ integration.display_name }} account.
@@ -99,16 +99,16 @@ setup-steps:
       3. Select the report you want to replicate in Stitch and ensure that the **Enable As Web Service** box is checked.
       4. Copy the report URL and keep it available for the next step.
 
-      {% include note.html type=single-line content="**Note**: If you would like to replicate multiple reports, repeat steps 3 & 4." %}
+      If you would like to replicate multiple reports, repeat steps 3 and 4.
 
   - title: "add integration"
     content: |
       4. In the **Username** field, enter the username for your {{ integration.display_name }} account.
       5. In the **Password** field, enter the password for your {{ integration.display_ name }} account.
-      6. In the **Report** field, enter the name of your report.
+      6. In the **Report** field, enter the name you would like to name your table. Since this integration replicates data from reports, Stitch converts them into tables.
       7. In the **Report** field, enter the report URL you obtained in [step 1](#retrieve-report-url).
 
-      {% include note.html type=single-line content="**Note**: If you would like to replicate more reports, click on **Configure another report**." %}
+      If you would like to replicate more reports, click on **Configure another report**.
 
   - title: "historical sync"
   - title: "replication frequency"
@@ -124,10 +124,12 @@ setup-steps:
 
 
 # Remove this if you don't need it:
-# schema-sections:
-#  - title: ""
-#    anchor: ""
-#    content: |
+schema-sections:
+ - title: "Workday RaaS table creation"
+   anchor: "table-creation"
+   content: |
+     To replicate your report data, this integration requires you to first define a report within your Workday tenant. The URL for that report is what Stitch uses to extract your data and then transform them into tables.
+
 ---
 {% assign integration = page %}
 {% include misc/data-files.html %}
