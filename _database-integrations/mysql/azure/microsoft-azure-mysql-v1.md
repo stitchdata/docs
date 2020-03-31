@@ -81,7 +81,7 @@ requirements-list:
   - item: |
       **For Log-based replication:**
       1. Privileges in Azure that allow you to modify server parameters.
-      2. MySQL master server must be in a General Purpose or Memory Optimized pricing tier. These are the tiers that allow you to create {{ integration.display_name }} read replicas.           
+      2. MySQL master server must be in a General Purpose or Memory Optimized pricing tier. These are the tiers that allow you to create read replicas of your server.
 
 # -------------------------- #
 #     Setup Instructions     #
