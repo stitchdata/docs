@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1"
+version: "20-05-2019"
 key: "plan"
 
 name: "plans"
@@ -129,8 +129,4 @@ attributes:
 
       - `day`
       - `month`
-
-  - name: "custom_fields"
-    type: "string"
-    description: ""    
 ---

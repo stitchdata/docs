@@ -1,7 +1,7 @@
 ---
 tap-reference: "chargebee"
 
-version: "1"
+version: "20-05-2019"
 
 foreign-keys:
   - id: "addon-id"
@@ -63,9 +63,6 @@ foreign-keys:
         join-on: "entity_id"
       - table: "subscriptions"
         subattribute: "coupons"
-      - table: "orders"
-        subattribute: "line_item_discounts"
-        join-on: "coupon_id"  
 
   - id: "credit-note-id"
     attribute: "cn_id"
@@ -85,9 +82,6 @@ foreign-keys:
         subattribute: "adjustment_applied_credits"
       - table: "invoices"
         subattribute: "linked_credit_notes"
-      - table: "orders"
-        subattribute: "linked_credit_notes"
-        join-on: id  
 
   - id: "customer-id"
     attribute: "customer_id"
@@ -116,11 +110,6 @@ foreign-keys:
       - table: "gifts"
         subattribute: "gift_receiver"
         join-on: "customer_id"
-      - table: "gifts"
-        subattribute: "gifter"
-        join-on: "customer_id"
-      - table: "orders"
-        join-on: "customer_id"  
 
   - id: "line-item-id"
     attribute: "line_item_id"
@@ -150,12 +139,6 @@ foreign-keys:
         subattribute: "line_item_tiers"
       - table: "invoices"
         subattribute: "line_items"
-      - table: "orders"
-        subattribute: "line_item_discounts"
-        join-on: "line_item_id"
-      - table: "orders"
-        subattribute: "line_item_tax"
-        join-on: "line_item_id"    
 
   - id: "invoice-id"
     attribute: "invoice_id"
@@ -180,11 +163,6 @@ foreign-keys:
         join-on: "cn_reference_invoice_id"
       - table: "transactions"
         subattribute: "linked_payments"
-      - table: "gifts"
-        subattribute: "gifter"
-        join-on: "invoice_id"
-      - table: "orders"
-        join-on: "invoice_id" 
 
   - id: "plan-id"
     attribute: "plan_id"
@@ -242,11 +220,6 @@ foreign-keys:
       - table: "subscriptions"
         join-on: "id"
       - table: "transactions"
-      - table: "gifts"
-        subattribute: "gift_receiver"
-        join-on "subscription_id"
-      - table: "orders"
-        join-on: "subscription_id"  
 
   - id: "transaction-id"
     attribute: "txn_id"
@@ -280,20 +253,5 @@ foreign-keys:
         join-on: "reference_transaction_id"
       - table: "transactions"
         join-on: "refunded_txn_id"
-
-  - id: "order-id"
-    attribute: "id"
-    table: "orders"
-    all-foreign-keys:
-      - table: "orders"
-        join-on: "id"
-
-  - id: "gift-id"
-    attribute: "id"
-    table: "gifts"
-    all-foreign-keys:
-      - table: "gifts"
-        join-on: "id"
-      - table: "orders"
-        join-on: "gift_id"          
+     
 ---

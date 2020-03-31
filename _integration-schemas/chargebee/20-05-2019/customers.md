@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1"
+version: "20-05-2019"
 key: "customers"
 
 name: "customers"
@@ -39,10 +39,6 @@ attributes:
       - `on`: When an invoice is created, an automatic attempt to charge the customer's payment method is made.
       - `off`: Automatic collection of charges will not be made.
 
-  - name: "backup_payment_source_id"
-    type: "string"
-    description: ""
-    
   - name: "balances"
     type: "array"
     description: "The list of balances for the customer."
@@ -415,52 +411,4 @@ attributes:
   - name: "vat_number"
     type: "string"
     description: "The VAT number for the customer."
-
-  - name: "vat_number_status"
-    type: "string"
-    description: ""
-    
-  - name: "vat_number_validated_time"
-    type: "date-time"
-    description: ""  
-
-  - name: "entity_code"
-    type: "string"
-    description: ""
-    
-  - name: "exempt_number"
-    type: "string"
-    description: ""  
-
-   - name: "created_from_ip"
-    type: "string"
-    description: ""  
-
-  - name: "is_location_valid"
-    type: "boolean"
-    description: ""  
-
-  - name: "custom_fields"
-    type: "string"
-    description: ""
-    
-  - name: "customer_type"
-    type: "string"
-    description: ""
-
-  - name: "exemption_details"
-    type: "string"
-    description: ""
-
-  - name: "fraud_flag"
-    type: "string"
-    description: ""
-
-  - name: "meta_data"
-    type: "string"
-    description: ""
-    
-  - name: "registered_for_gst"
-    type: "boolean"
-    description: ""    
 ---

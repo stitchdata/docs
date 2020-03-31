@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1"
+version: "20-05-2019"
 key: "addon"
 
 name: "addons"
@@ -184,8 +184,4 @@ attributes:
     type: "string"
     description: |
       Applicable only for quantity type addons. This specifies the type of quantity. For example: If the addon price is `$10` and `agent` is the unit, it will be displayed as `$10/agent`.
-
-  - name: "custom_fields"
-    type: "string"
-    description: ""    
 ---

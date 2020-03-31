@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1"
+version: "20-05-2019"
 key: "subscription"
 
 name: "subscriptions"
@@ -476,8 +476,4 @@ attributes:
     type: "date-time"
     description: |
       The start of the trial period for the subscription. The presence of this value for future subscriptions (`status: future`) implies the subscription will move to `in_trial` when the subscription starts.
-
-  - name: "custom_fields"
-    type: "string"
-    description: ""    
 ---
