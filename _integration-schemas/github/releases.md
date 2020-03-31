@@ -5,7 +5,8 @@ version: "1"
 name: "releases"
 doc-link: "https://developer.github.com/v3/repos/releases/"
 singer-schema: "https://github.com/singer-io/tap-github/blob/master/tap_github/schemas/releases.json"
-description: "The releases table returns a list of releases. This does not include regular Git release tag data. This enpoint will only return actual releases."
+description: |
+  The `{{ table.name }}` table contains a list of releases. **Note**: {{ integration.display_name }} doesn't include regular Git tags that haven't been associated with a release.
 
 replication-method: "Full Table"
 
@@ -18,7 +19,7 @@ attributes:
     type: "string"
     primary-key: true
     description: "The release ID."
-    foreign-key-id: "release-id"
+    # foreign-key-id: "release-id"
 
   - name: "_sdc_repository"
     type: "string"
@@ -31,6 +32,7 @@ attributes:
       - name: "id"
         type: "integer"
         description: "The user ID of the author."
+
       - name: "login"
         type: "string"
         description: "The username of the author."
@@ -45,7 +47,7 @@ attributes:
 
   - name: "draft"
     type: "boolean"
-    description: "`TRUE` if the release is a draft release."
+    description: "If `TRUE`, the release is a draft release."
 
   - name: "html_url"
     type: "string"
@@ -57,7 +59,7 @@ attributes:
 
   - name: "prerelease"
     type: "boolean"
-    description: "`TRUE` the release is a prerelease."
+    description: "If `TRUE`, the release is a pre-release."
 
   - name: "published_at"
     type: "date-time"
