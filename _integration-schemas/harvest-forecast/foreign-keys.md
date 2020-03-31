@@ -43,6 +43,8 @@ foreign-keys:
         join-on: "updated_by_id"
       - table: "projects"
         join-on: "updated_by_id"
+      - table: "placeholders"
+        join-on: "updated_by_id"  
 
   - id: "project-id"
     attribute: "project_id"
@@ -52,4 +54,22 @@ foreign-keys:
       - table: "milestones"
       - table: "projects"
         join-on: "id"
+
+  - id: "placeholder-id"
+    attribute: "id"
+    table: "placeholders"
+    all-foreign-keys:
+      - table: "placeholders"
+        join-on: "id"
+      - table: "roles"
+        subattribute: "placeholder_ids"
+        join-on: "value"
+
+  - id: "role-id"
+    attribute: "id"
+    table: "roles"
+    all-foreign-keys:
+      - table: "roles"
+        join-on: "id"
+
 ---
