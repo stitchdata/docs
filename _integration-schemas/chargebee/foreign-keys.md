@@ -244,7 +244,7 @@ foreign-keys:
       - table: "transactions"
       - table: "gifts"
         subattribute: "gift_receiver"
-        join-on "subscription_id"
+        join-on: "subscription_id"
       - table: "orders"
         join-on: "subscription_id"  
 

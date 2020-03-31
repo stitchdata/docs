@@ -2563,7 +2563,7 @@ attributes:
           - name: "meta_data"
             type: "string"
             description: ""
-            - name: "custom_fields"
+          - name: "custom_fields"
             type: "string"
             description: ""
           - name: "mrr"
