@@ -35,6 +35,14 @@ attributes:
     type: "integer"
     description: "**Applicable only for payments.** The unused amount present for the transaction."
 
+  - name: "amount_capturable"
+    type: "string"
+    description: ""
+
+  - name: "authorization_reason"
+    type: "string"
+    description: ""
+
   - name: "base_currency_code"
     type: "string"
     description: ""
@@ -217,6 +225,26 @@ attributes:
           - `timeout`
           - `needs_attention`
 
+  - name: "linked_payments"
+    type: "array"
+    description: "The list of payments the transaction has been applied to."
+    subattributes:
+      - name: "id"
+        type: "string"
+        description: ""
+
+      - name: "status"
+        type: "string"
+        description: ""
+
+      - name: "amount"
+        type: "integer"
+        description: ""
+
+      - name: "date"
+        type: "date-time"
+        description: ""
+
   - name: "masked_card_number"
     type: "string"
     description: "**Applicable only when `payment_method: card`.** The masked card number used for the transaction."
@@ -250,6 +278,10 @@ attributes:
     description: "The ID of the payment source used for the transaction."
     foreign-key-id: "payment-source-id"
 
+  - name: "reference_authorization_id"
+    type: "string"
+    description: ""
+
   - name: "reference_number"
     type: "string"
     description: "The reference number for the transaction."
@@ -267,6 +299,10 @@ attributes:
   - name: "resource_version"
     type: "integer"
     description: "The version number of the transaction. Each update of the transaction results in an incremental change of this value. **Note**: This attribute will be present only if the credit note has been updated after 2016-09-28."
+
+  - name: "reversal_transaction_id"
+    type: "integer"
+    description: ""
 
   - name: "reversal_txn_id"
     type: "string"
@@ -304,6 +340,10 @@ attributes:
       - `payment_reversal`
 
   - name: "validated_at"
+    type: "date-time"
+    description: ""
+
+  - name: "voided_at"
     type: "date-time"
     description: ""
 ---

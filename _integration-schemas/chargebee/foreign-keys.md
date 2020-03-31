@@ -10,6 +10,9 @@ foreign-keys:
     all-foreign-keys:
       - table: "addon"
         join-on: "id"
+      - table: "coupons"
+        subattribute: "addon_ids"
+        join-on: "value"
       - table: "events"
         subattribute: "content.subscription.addons"
         join-on: "id"
@@ -22,6 +25,9 @@ foreign-keys:
       - table: "invoices"
         subattribute: "notes"
         join-on: "entity_id"
+      - table: "plans"
+        subattribute: "applicable_addons"
+        join-on: "id"
       - table: "subscriptions"
         subattribute: "addons"
         join-on: "id"
@@ -110,6 +116,7 @@ foreign-keys:
         subattribute: "notes"
         join-on: "entity_id"
       - table: "payment_sources"
+      - table: "promotional_credits"
       - table: "subscriptions"
       - table: "transactions"
       - table: "virtual_bank_accounts"
@@ -121,6 +128,17 @@ foreign-keys:
         join-on: "customer_id"
       - table: "orders"
         join-on: "customer_id"  
+
+  - id: "gift-id"
+    attribute: "id"
+    table: "gifts"
+    all-foreign-keys:
+      - table: "gifts"
+        join-on: "id"
+      - table: "orders"
+        join-on: "gift_id"
+      - table: "subscriptions"
+        join-on: "gift_id"
 
   - id: "line-item-id"
     attribute: "line_item_id"
@@ -190,9 +208,12 @@ foreign-keys:
     attribute: "plan_id"
     table: "plans"
     all-foreign-keys:
-      - table: "events"
+      - table: "coupons"
         subattribute: "content.plan"
         join-on: "id"
+      - table: "events"
+        subattribute: "plan_ids"
+        join-on: "value"
       - table: "events"
         subattribute: "content.subscription"
       - table: "plans"
@@ -286,14 +307,5 @@ foreign-keys:
     table: "orders"
     all-foreign-keys:
       - table: "orders"
-        join-on: "id"
-
-  - id: "gift-id"
-    attribute: "id"
-    table: "gifts"
-    all-foreign-keys:
-      - table: "gifts"
-        join-on: "id"
-      - table: "orders"
-        join-on: "gift_id"          
+        join-on: "id"         
 ---

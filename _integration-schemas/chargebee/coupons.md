@@ -37,6 +37,15 @@ attributes:
       - `specific`
       - `not_applicable`
 
+  - name: "addon_ids"
+    type: "array"
+    description: "IDs of the addons associated with the coupon."
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: "The ID of the addon."
+        foreign-key-id: "addon-id"
+
   - name: "apply_discount_on"
     type: "string"
     description: ""
@@ -56,6 +65,10 @@ attributes:
   - name: "created_at"
     type: "date-time"
     description: "The time when the coupon was created."
+
+  - name: "currency_code"
+    type: "string"
+    description: "The currency code (ISO 4217 format) of the coupon. Applicable for `fixed_amount` coupons."
 
   - name: "discount_amount"
     type: "number"
@@ -87,9 +100,21 @@ attributes:
       - `forever`
       - `limited_period`
 
+  - name: "invoice_name"
+    type: "string"
+    description: "The name of the invoice associated with the coupon."
+
+  - name: "invoice_notes"
+    type: "string"
+    description: "Invoice notes for the coupon."
+
   - name: "max_redemptions"
     type: "integer"
     description: "The maximum number of times the coupon can be redeemed."
+
+  - name: "meta_data"
+    type: "string"
+    description: "Additional info about the coupon."
 
   - name: "name"
     type: "string"
@@ -108,6 +133,15 @@ attributes:
       - `all`
       - `specific`
       - `not_applicable`
+
+  - name: "plan_ids"
+    type: "array"
+    description: "IDs of the plans associated with the coupon."
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: "The ID of the plan."
+        foreign-key-id: "plan-id"
 
   - name: "redemptions"
     type: "integer"

@@ -29,11 +29,11 @@ attributes:
 
   - name: "api_version"
     type: "string"
-    description: ""
+    description: "The {{ integration.display_name }} API version used for rendering the event content."
     
   - name: "content"
     type: "object"
-    description: ""
+    description: "The data associated with the event."
     subattributes:
       - name: "addon"
         type: "object"
@@ -3032,9 +3032,11 @@ attributes:
           - name: "updated_at"
             type: "date-time"
             description: ""
+  
   - name: "event_type"
     type: "string"
-    description: ""
+    description: |
+      The event type. Refer to [{{ integration.display_name }}'s documentation](https://apidocs.chargebee.com/docs/api/events#event_types){:target="new"} for a list of possible values.
   
   - name: "object"
     type: "string"
@@ -3042,11 +3044,18 @@ attributes:
   
   - name: "source"
     type: "string"
-    description: ""
-  
+    description: |
+      The source of the event. Refer to [{{ integration.display_name }}'s documentation](https://apidocs.chargebee.com/docs/api/events#event_source){:target="new"} for a list of possible values.
+
   - name: "user"
     type: "string"
-    description: ""
+    description: |
+      The "user" that triggered the event. The value depends on the `source` value:
+
+      - When `source` is `admin_console`: The email address of the user that triggered the event.
+      - When `source` is `api`, `js_api`, or `bulk_operation`: The name of the API key that was used to trigger the event.
+      - When `source` is `external_service`: The name of the service that called the webhook. For example: `ADYEN`, `STRIPE`, `AMAZON_PAYMENTS` etc.
+      - When `source` is `hosted_page` or `portal`: The user attribute is not passed.
   
   - name: "webhook_status"
     type: "string"
