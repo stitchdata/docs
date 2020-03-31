@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1"
+version: "20-05-2019"
 key: "customers"
 
 name: "customers"
@@ -39,10 +39,6 @@ attributes:
       - `on`: When an invoice is created, an automatic attempt to charge the customer's payment method is made.
       - `off`: Automatic collection of charges will not be made.
 
-  - name: "backup_payment_source_id"
-    type: "string"
-    description: ""
-    
   - name: "balances"
     type: "array"
     description: "The list of balances for the customer."
@@ -236,24 +232,6 @@ attributes:
     type: "date-time"
     description: "The time the customer was created."
 
-  - name: "created_from_ip"
-    type: "string"
-    description: "The IP address of the customer." 
-
-  - name: "custom_fields"
-    type: "string"
-    description: ""
-
-  - name: "customer_type"
-    type: "string"
-    description: |
-      **Applicable if you use {{ integration.display_name }}'s AvaTax for Sales integration.**. The type of the customer. Possible values are:
-
-      - `residential`
-      - `business`
-      - `senior_citizen`
-      - `industrial`
-
   - name: "deleted"
     type: "boolean"
     description: "Indicates whether the customer has been deleted or not."
@@ -262,42 +240,17 @@ attributes:
     type: "string"
     description: "The customer's email address."
 
-  - name: "entity_code"
-    type: "string"
-    description: |
-      **Applicable if you use {{ integration.display_name }}'s AvaTax for Sales integration.**. The exemption category of the customer, for USA and Canada.
-
   - name: "excess_payments"
     type: "integer"
     description: "The total unused payments associated with the customer."
-
-  - name: "exemption_details"
-    type: "string"
-    description: "**Applicable if you use {{ integration.display_name }}'s AvaTax for Sales integration.**. Exemption information for the customer."
-
-  - name: "exempt_number"
-    type: "string"
-    description: "**Applicable if you use {{ integration.display_name }}'s AvaTax for Sales integration.**. Indicates if sales should be exempted for the customer." 
 
   - name: "first_name"
     type: "string"
     description: "The first name of the customer."
 
-  - name: "fraud_flag"
-    type: "string"
-    description: |
-      Indicates if the customer has been identified as fraudulent. Possible values are:
-
-      - `safe`
-      - `fraudulent`
-
   - name: "invoice_notes"
     type: "string"
     description: "Invoice notes associated with the customer."
-
-  - name: "is_location_valid"
-    type: "boolean"
-    description: "Indicates if the customer's location is valid, based on their IP address and the card issuing country. Applicable only for EU, New Zealand, and Australia." 
 
   - name: "last_name"
     type: "string"
@@ -306,10 +259,6 @@ attributes:
   - name: "locale"
     type: "string"
     description: "Determines which region-specific language {{ integration.display_name }} uses to communicate with the customer."
-
-  - name: "meta_data"
-    type: "string"
-    description: "Additional info about the customer."
 
   - name: "net_term_days"
     type: "integer"
@@ -443,10 +392,6 @@ attributes:
     type: "integer"
     description: "The refundable credits balance of the customer."
 
-  - name: "registered_for_gst"
-    type: "boolean"
-    description: "Indicates if the customer is registered under GST. Available for Australia only."
-
   - name: "resource_version"
     type: "integer"
     description: "The version number of the customer. Each update of the customer results in an incremental change of this value. **Note**: This attribute will be present only if the customer has been updated after 2016-09-28."
@@ -466,18 +411,4 @@ attributes:
   - name: "vat_number"
     type: "string"
     description: "The VAT number for the customer."
-
-  - name: "vat_number_status"
-    type: "string"
-    description: |
-      **Applicable only if EU and Australian taxes are configured and the VAT number validation is enabled**. Possible values are:
-
-      - `valid`
-      - `invalid`
-      - `not_validated`
-      - `undetermined`
-    
-  - name: "vat_number_validated_time"
-    type: "date-time"
-    description: ""  
 ---

@@ -59,6 +59,7 @@ table-selection: true
 column-selection: true
 
 
+
 # -------------------------- #
 #      Feature Summary       #
 # -------------------------- #
@@ -70,6 +71,10 @@ feature-summary: |
 # -------------------------- #
 #      Setup Instructions    #
 # -------------------------- #
+
+requirement-items:
+- item: |
+    Your **Order Management** feature must be enabled before you can sync your `orders` table. Refer to the [{{ integration.display_name }} docs](https://www.chargebee.com/docs/orders.html) for more information.
 
 setup-steps:
   - title: "Generate an API Key"

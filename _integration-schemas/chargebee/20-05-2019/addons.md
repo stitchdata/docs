@@ -1,6 +1,6 @@
 ---
 tap: "chargebee"
-version: "1"
+version: "20-05-2019"
 key: "addon"
 
 name: "addons"
@@ -45,24 +45,6 @@ attributes:
     type: "date-time"
     description: "The time at which the plan was moved to archived status."
 
-  - name: "avalara_sale_type"
-    type: "string"
-    description: |
-      **Applicable only if you use {{ integration.display_name }}'s AvaTax for Communications integration**. The type of sale carried out. Possible values are:
-
-      - `wholesale`
-      - `retail`
-      - `consumed`
-      - `vendor_use`
-
-  - name: "avalara_service_type"
-    type: "integer"
-    description: "**Applicable only if you use {{ integration.display_name }}'s AvaTax for Communications integration**. The type of service for the product to be taxed."
-
-  - name: "avalara_transaction_type"
-    type: "integer"
-    description: "**Applicable only if you use {{ integration.display_name }}'s AvaTax for Communications integration**. The type of product to be taxed."
-
   - name: "charge_type"
     type: "string"
     description: |
@@ -74,10 +56,6 @@ attributes:
   - name: "currency_code"
     type: "string"
     description: "The currency code (ISO 4217 format) of the addon."
-
-  - name: "custom_fields"
-    type: "string"
-    description: "" 
 
   - name: "description"
     type: "string"
@@ -205,5 +183,5 @@ attributes:
   - name: "unit"
     type: "string"
     description: |
-      Applicable only for quantity type addons. This specifies the type of quantity. For example: If the addon price is `$10` and `agent` is the unit, it will be displayed as `$10/agent`.   
+      Applicable only for quantity type addons. This specifies the type of quantity. For example: If the addon price is `$10` and `agent` is the unit, it will be displayed as `$10/agent`.
 ---
