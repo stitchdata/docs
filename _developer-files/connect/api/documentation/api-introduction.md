@@ -4,6 +4,8 @@ product-type: "connect"
 content-type: "api-doc"
 order: 1
 
+anchor: "introduction-section"
+
 sections:
   - content: |
       {% include misc/data-files.html %}
@@ -29,6 +31,9 @@ sections:
       {% endif %}
       {% endfor %}
 
+  - title: "Tutorials and resources"
+    anchor: "tutorials-resources"
+    content: |
       Check out the [tutorials and resources]({{ link.connect.guides.category | prepend: site.baseurl }}) to learn more about using Stitch Connect.
 
 # {% capture source-config %}

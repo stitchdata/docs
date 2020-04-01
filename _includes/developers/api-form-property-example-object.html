@@ -31,9 +31,9 @@
 {
  "type":"{{ form-property.api-type }}",
  "properties":{
-   {% for attribute in all-form-attributes %}
-   {%- if forloop.last == true -%}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}"
-   {% else %}"{{ attribute.name }}":"{{ attribute.value | flatify | strip }}",
+   {% for attribute in all-form-attributes %}{% capture attribute-value %}{% if attribute.type == "array" %}{{ attribute.value | flatify | strip }}{% else %}"{{ attribute.value | flatify | strip }}"{% endif %}{% endcapture %}
+   {%- if forloop.last == true -%}"{{ attribute.name }}":{{ attribute-value | flatify | strip }}"
+   {% else %}"{{ attribute.name }}":{{ attribute-value | flatify | strip }},
    {% endif %}
    {%- endfor -%}
   }

@@ -4,6 +4,8 @@ product-type: "connect"
 content-type: "api-doc"
 order: 3
 
+anchor: "authentication-overview"
+
 sections:
   - content: |
       {% assign api = site.data.connect.api %}
