@@ -37,6 +37,7 @@ attributes:
       - name: "value"
         type: "string"
         description: "The value of the role."
+        foreign-key-id: "role-id"
 
   - name: "updated_by_id"
     type: "integer"

@@ -27,7 +27,7 @@ attributes:
 
   - name: "person_ids"
     type: "array"
-    description: "Details about the person IDs."
+    description: "IDs of the persons associated with the role."
     subattributes:
       - name: "value"
         type: "integer"
@@ -36,7 +36,7 @@ attributes:
 
   - name: "placeholder_ids"
     type: "array"
-    description: "Details about the placeholder IDs."
+    description: "IDs of the placeholders associated with the role."
     subattributes:
       - name: "value"
         type: "integer"

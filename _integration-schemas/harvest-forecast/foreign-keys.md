@@ -56,9 +56,10 @@ foreign-keys:
         join-on: "id"
 
   - id: "placeholder-id"
-    attribute: "id"
+    attribute: "placeholder_id"
     table: "placeholders"
     all-foreign-keys:
+      - table: "assignments"
       - table: "placeholders"
         join-on: "id"
       - table: "roles"
@@ -69,7 +70,14 @@ foreign-keys:
     attribute: "id"
     table: "roles"
     all-foreign-keys:
+      - table: "people"
+        subattribute: "roles"
+        join-on: "value"
+
+      - table: "placeholders"
+        subattribute: "roles"
+        join-on: "value"
+
       - table: "roles"
         join-on: "id"
-
 ---
