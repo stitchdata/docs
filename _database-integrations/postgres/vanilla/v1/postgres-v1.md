@@ -103,6 +103,12 @@ requirements-list:
       - **A database running PostgreSQL 9.4 or greater** Earlier versions of PostgreSQL do not include logical replication functionality, which is required for Log-based Replication.
       - **The `SUPERUSER` privilege.** If using logical replication, this is required to define the appropriate server settings.
       - **To connect to the master instance.** Log-based replication will only work on master instances due to a feature gap in PostgreSQL 10. [Based on their forums](https://commitfest.postgresql.org/12/788/){:target="new"}, PostgreSQL is working on adding support for using logical replication on a read replica to a future version.
+      - **To check for TOASTed tables and columns**. TOASTed tables and columns in your {{ integration.display_name }} database can cause the following issues when using Log-Based Replication:
+
+          1. Recurring `no known snapshot` errors, or 
+          2. Inaccurate data replication. 
+
+          Refer to the [{{ integration.display_name }} documentation](https://www.postgresql.org/docs/9.5/storage-toast.html){:target="new"} for more information on what TOAST is and how to identify TOASTed tables and columns in your database.
   - item: |
       **If you're not using Log-based Replication**, you'll need:
 
@@ -150,14 +156,6 @@ setup-steps:
           - [Windows](https://github.com/eulerto/wal2json#windows)
 
           After you've installed the plugin, you can move onto the next step.
-
-    {% capture toasted-tables %}
-    TOASTed tables and columns in your {{ integration.display_name }} database can cause the following issues when using Log-Based Replication: 1) recurring `no known snapshot` errors, or 2) inaccurate data replication. Refer to the [{{ integration.display_name }} documentation](https://www.postgresql.org/docs/9.5/storage-toast.html) for more information on what a TOASTed field is.
-    {% endcapture %}
-    
-    {% include important.html first-line="**Check for TOASTed Tables When Using Binlog**" content=toasted-tables %}
-
-
 
       - title: "Edit the client authentication file"
         anchor: "edit-client-authentication-file"
