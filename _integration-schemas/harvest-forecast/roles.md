@@ -23,7 +23,7 @@ attributes:
   
   - name: "name"
     type: "string"
-    description: "The name of the role"
+    description: "The name of the role."
 
   - name: "person_ids"
     type: "array"
