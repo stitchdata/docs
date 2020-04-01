@@ -132,6 +132,9 @@ setup-steps:
          - **You can select up to 10 metrics and 7 dimensions per report.** This limit is imposed by Google and can't be changed or worked around. When you reach this limit, you won't be able to make any other selections until you de-select a metric or dimension.
          - **Metric and dimension combinations are subject to Google's compatibility rules.** When you select a metric or dimension, all other metrics and dimensions incompatible with the selection will be greyed out. To test your combos before selecting them in Stitch, use [Google's Dimensions & Metrics Explorer](https://ga-dev-tools.appspot.com/dimensions-metrics-explorer/){:target="new"}.
          - **Custom metrics and dimensions** will display as either `ga:metricXX` or `ga:dimensionXX`, where `XX` is replaced with the specific number of the metric or dimension. Refer to the [Custom metrics and dimensions section](#custom-metrics-dimensions) for help identifying custom metrics and dimensions in your {{ integration.display_name }} account.
+         - **Some metrics and dimensions are associated with products that must be enabled.** If the product isn't enabled, Stitch will encounter issues during Extraction.
+
+            For example: Metrics and dimensions associated with DoubleClick Campaign Manager can only be replicated successfully if DoubleClick Campaign Manager is enabled.
 
       4. Repeat this process for your remaining reports.
       5. When finished, click the **Finalize Your Selections** button at the bottom of the screen to save your selections.
