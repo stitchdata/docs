@@ -15,7 +15,7 @@ attributes:
     type: "integer"
     primary-key: true
     description: "The placeholder ID."
-    #foreign-key-id: "placeholder-id"
+    foreign-key-id: "placeholder-id"
 
   - name: "updated_at"
     type: "date-time"
