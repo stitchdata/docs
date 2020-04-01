@@ -62,10 +62,10 @@ microsoft-azure:
 # -------------------------- #
 
 create-login-command: |
-  CREATE LOGIN <stitch_username> WITH PASSWORD='<password>';
+  CREATE LOGIN <stitch_login> WITH PASSWORD='<password>';
 
 create-user-command: |
-  CREATE USER <stitch_username> FOR LOGIN;
+  CREATE USER <stitch_username> FOR LOGIN <stitch_login>;
   GO
 
 grant-select-on-table: |
