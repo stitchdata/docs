@@ -151,6 +151,14 @@ setup-steps:
 
           After you've installed the plugin, you can move onto the next step.
 
+    {% capture toasted-tables %}
+    TOASTed tables and columns in your {{ integration.display_name }} database can cause the following issues when using Log-Based Replication: 1) recurring `no known snapshot` errors, or 2) inaccurate data replication. Refer to the [{{ integration.display_name }} documentation](https://www.postgresql.org/docs/9.5/storage-toast.html) for more information on what a TOASTed field is.
+    {% endcapture %}
+    
+    {% include important.html first-line="**Check for TOASTed Tables When Using Binlog**" content=toasted-tables %}
+
+
+
       - title: "Edit the client authentication file"
         anchor: "edit-client-authentication-file"
         content: |
