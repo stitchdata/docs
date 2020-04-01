@@ -90,32 +90,34 @@ feature-summary: |
 #      Setup Instructions    #
 # -------------------------- #
 
+requirements-list:
+  - item: |
+      **An Enterprise {{ integration.display_name }} account.** This is required to complete the setup in {{ integration.display_name }}.
+
 setup-steps:
   - title: "Retrieve your access token and Survey ID"
     anchor: "retrieve-access-token-and-survey-id"
     content: |
-
-      {% capture first-line %}**Enterprise {{ integration.display_name }} account required**{% endcapture %}
-
       {% capture paid-account-content %}
-      An Enterprise {{ integration.display_name }} account is required to install the Stitchdata ETL app and retrieve the access token and survey id required for this installation. 
+      **Note**: An Enterprise {{ integration.display_name }} account is required to complete this step. 
       {% endcapture %}
 
-      {% include note.html first-line=first-line content=paid-account-content %}
+      {% include note.html type="single-line" content=paid-account-content %}
 
-      1. Login to your {{ integration.display_name }} and go to [App Directory](https://www.surveymonkey.com/apps).
-      2. Type in **stitchdata** in the search input box to find the Stitchdata ETL app. 
-      3. Click **Visit Site** button on the right. 
-      4. Click **Authorize** button.
-      5. The access token and the list of surveys are shown after authorization. Keep this readily available. Note: You may come back at any time to retrieve your access token or identify a new survey id.
+      1. Login to your {{ integration.display_name }} and go to [App Directory](https://www.surveymonkey.com/apps){:target="new"}.
+      2. Type `stitchdata` in the search input box to find the Stitchdata ETL app. 
+      3. Click the **Visit Site** button on the right side of the page. 
+      4. Click the **Authorize** button.
+      5. The access token and list of surveys are shown after authorization:
        
-        ![Access token and the list of Survey IDs.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 450px;"}
+         ![Access token and the list of Survey IDs.]({{ site.baseurl }}/images/integrations/surveymonkey-access-token.png){:style="max-width: 450px;"}
 
+      Leave this page open - you'll need it in the next step. **Note**: You may come back at any time to retrieve your access token or identify a new survey ID.
 
   - title: "add integration"
     content: |
       4. In the **Access Token** field, add your access token that you obtained in [Step 1](#retrieve-access-token-and-survey-id).
-      5. In the **Survey Id** field, add your survey ID that you retrieved in [Step 1](#retrieve-access-token-and-survey-idd).
+      5. In the **Survey Id** field, add your survey ID that you retrieved in [Step 1](#retrieve-access-token-and-survey-id).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data"
