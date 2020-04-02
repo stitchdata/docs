@@ -41,6 +41,8 @@ historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
 
+api-type: "platform.covid-19"
+
 anchor-scheduling: true
 cron-scheduling: true
 
@@ -91,7 +93,6 @@ setup-steps:
   - title: "add integration"
     content: |
       4. In the **GitHub Access Token** field, paste the access token you created in [Step 1](#create-access-token).
-      5. In the **GitHub Repository Name** field, enter the path to the {{ integration.display_name }} repository: `singer-io/tap-covid-19`.
 
   - title: "historical sync"
   - title: "replication frequency"
