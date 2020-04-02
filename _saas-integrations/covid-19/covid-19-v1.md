@@ -28,7 +28,7 @@ repo-url: https://github.com/singer-io/tap-covid-19
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST API v3](https://developer.github.com/v3/){:target="new"}
+  [GitHub REST API v3](https://developer.github.com/v3/){:target="new"}
 
 
 # ---------------------------- #
