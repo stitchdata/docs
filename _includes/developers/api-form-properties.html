@@ -6,11 +6,10 @@
 {% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
     {% assign all-form-properties = all-docs | where:"content-type","api-form" %}
 
-
 <!-- Display of correct copy for note about REQUIRED attributes -->
 {% case include.content %}
-    {% when 'destination' %}
-        {% assign form-properties = all-docs | where:"form-type","destination" | sort:"title" %}
+        {% when 'destination' %}
+            {% assign form-properties = all-docs | where:"form-type","destination" | sort:"title" %}
 
 {% capture required-note %}
 **Note**: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided in the `properties` argument for [Creating a Destination]({{ api.core-objects.destinations.create.anchor }}).
@@ -22,7 +21,7 @@
 {% capture required-note %}
 **Note**: Attributes marked as <font color="#E96065">REQUIRED</font> must be provided before the source can be considered <code>fully_configured</code>.
 {% endcapture %}
-{% endcase %}
+    {% endcase %}
 <!-- End it -->
 
 
@@ -52,11 +51,13 @@ the correct description for it. -->
 <!-- The description found in the form property's file. Additional details about setup, etc. -->
     {{ form-property.description | flatify | markdownify }}
 
-    {{ required-note | markdownify }}
 
+{% unless form-property.override-attributes == true %}
+    {{ required-note | markdownify }}
 
 <!-- The table listing of the form property's attributes -->
     {% include developers/api-form-property-field-table.html %}
+{% endunless %}
 
 
 <!-- The example JSON object of the form property -->
