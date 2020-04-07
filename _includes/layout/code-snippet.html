@@ -12,7 +12,7 @@
 </div>
 
 {% capture code-example %}
-```{{ include.language }}
+```{{ include.language | default: "json" }}
 {{ include.code | flatify | rstrip }}
 ```
 {% endcapture %}
