@@ -545,6 +545,59 @@ pre {
 	border-radius: 0;
 }
 
+.code-header {
+	font-weight: bold;
+	display: flex;
+	background-color: $gray-2;
+	flex-wrap: wrap;
+	padding: 10px;
+	margin-bottom: calc(-1 * calc(1em + 0.5vw) + -1px);
+
+	.code-description-container {
+		color: $protocol-black;
+		display: flex;
+		flex: 2;
+		justify-content: flex-start;
+		padding: 5px 0px;
+	}
+
+	.copy-code-container {
+		color: $lochmara;
+		display: flex;
+		flex: 1;
+		justify-content: flex-end;
+	}
+}
+
+.copy-code-button {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding-left: 6px;
+    padding-right: 5px;
+    font-size: large;
+
+    &:hover {
+  		text-decoration: none;
+  		color: $protocol-black;
+	}
+
+    &::before {
+        content: "\f328";
+        font-family: 'Font Awesome 5 Free';
+  		font-weight: 900;
+    }
+
+    // This class will be toggled via JavaScript
+    &.copied {
+        &::before {
+            content: "\f46c";
+        	font-family: 'Font Awesome 5 Free';
+  			font-weight: 900;
+        }
+    }
+}
+
 /* SYSTEM STATUS */
 $red: $chestnut-rose;
 $orange: $jaffa;
