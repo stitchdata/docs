@@ -52,7 +52,7 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Your {{ form-property.display-name }} report URL and table name of your choice. Use comma deliniation to add multiple reports"
+      Your {{ form-property.display-name }} report URL and table name of your choice. It is a stringified JSON array containing objects with the keys `report_url` and `report_name`.
     value: |
       [{\"report_url\": \"<YOUR_REPORT_URL>", \"table_name\": \"THIS IS MY FIRST TABLE\"},{\"report_url\": \"<YOUR_REPORT_URL", \"table_name\": \"THIS IS MY SECOND TABLE\"}]
     

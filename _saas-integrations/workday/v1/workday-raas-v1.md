@@ -97,7 +97,8 @@ setup-steps:
       1. Login to your {{ integration.display_name }} account.
       2. Navigate to your reports.
       3. Select the report you want to replicate in Stitch and ensure that the **Enable As Web Service** box is checked.
-      4. Copy the report URL and keep it available for the next step.
+      4. Copy the **Workday XML** REST link and keep it available for the next step.
+      {% include layout/image.html file="/integrations/workday-report-url.jpg" max-width="415" %}
 
       If you would like to replicate multiple reports, repeat steps 3 and 4.
 
