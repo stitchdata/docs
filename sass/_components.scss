@@ -550,15 +550,14 @@ pre {
 	display: flex;
 	background-color: $gray-2;
 	flex-wrap: wrap;
-	padding: 10px;
-	margin-bottom: calc(-1 * calc(1em + 0.5vw) + -1px);
+	padding: 10px 10px 5px 10px;
+	margin-bottom: -25px;
 
 	.code-description-container {
 		color: $protocol-black;
 		display: flex;
 		flex: 2;
 		justify-content: flex-start;
-		padding: 5px 0px;
 	}
 
 	.copy-code-container {
@@ -567,35 +566,54 @@ pre {
 		flex: 1;
 		justify-content: flex-end;
 	}
-}
 
-.copy-code-button {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    padding-left: 6px;
-    padding-right: 5px;
-    font-size: large;
+	.copy-code-button {
+	    align-items: center;
+	    cursor: pointer;
+	    display: flex;
+	    margin-top: -3px;
+	    padding-left: 6px;
+	    padding-right: 5px;
+	    
 
-    &:hover {
-  		text-decoration: none;
-  		color: $protocol-black;
+	    &:hover {
+	  		text-decoration: none;
+	  		color: $protocol-black;
+	  		transition: all 0.25s ease-in-out;
+		}
+
+	    &::before {
+	        content: "Copy";
+	  		font-weight: 900;
+	    }
+
+	    &::after {
+	    	content: "\f328";
+	        font-family: 'Font Awesome 5 Free';
+	        padding-left: 6px;
+	  		font-weight: 900;
+	  		font-size: large;
+	  	}
+
+	    &.copied {
+	        &::before {
+	            content: "Copied";
+	  			font-weight: 900;
+	        }
+
+	        &::after {
+		    	content: "\f46c";
+		        font-family: 'Font Awesome 5 Free';
+		        padding-left: 6px;
+		  		font-weight: 900;
+		  		font-size: large;
+		    }
+		}
 	}
 
-    &::before {
-        content: "\f328";
-        font-family: 'Font Awesome 5 Free';
-  		font-weight: 900;
-    }
-
-    // This class will be toggled via JavaScript
-    &.copied {
-        &::before {
-            content: "\f46c";
-        	font-family: 'Font Awesome 5 Free';
-  			font-weight: 900;
-        }
-    }
+	& + .highlighter-rouge {
+		margin-top: 0;
+	}
 }
 
 /* SYSTEM STATUS */
