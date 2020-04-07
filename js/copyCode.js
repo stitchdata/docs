@@ -1,3 +1,6 @@
+
+// Used for copy to clipboard functionality in code snippets 
+
 const copyCode = copyCodeButton => {
   const tempTextArea = document.createElement("textarea");
   tempTextArea.textContent = copyCodeButton.getAttribute("data-code");
