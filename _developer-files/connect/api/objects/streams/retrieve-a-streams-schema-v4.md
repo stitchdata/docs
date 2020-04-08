@@ -60,8 +60,7 @@ returns: |
 examples:
   - type: "Request"
     code: |
-      {% assign right-bracket = "}" %}
-      curl {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120643" | replace:"{stream_id","2339248" | remove: right-bracket | strip_newlines }} \
+      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | replace: "{source_id","120643" | replace:"{stream_id","2339248" | remove: right-bracket | strip_newlines }} \
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 

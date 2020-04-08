@@ -41,7 +41,7 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      curl {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+      curl {{ endpoint.full-url | flatify | strip_newlines }} \
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json" 
   - type: "Response"

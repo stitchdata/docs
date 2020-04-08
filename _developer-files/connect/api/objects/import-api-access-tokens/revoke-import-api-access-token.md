@@ -63,10 +63,7 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      {% assign token-id = "544973525" %}
-
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","126890" | replace:"{token_id",token-id | remove: right-bracket | strip_newlines }} \
+      {% assign token-id = "544973525" %}{% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","126890" | replace:"{token_id",token-id | remove: right-bracket | strip_newlines }} \
            -H "Authorization: Bearer <CONNECT_ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 

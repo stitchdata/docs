@@ -43,7 +43,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip }} \
+      curl {{ endpoint.full-url | flatify | strip }} \
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 

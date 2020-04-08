@@ -55,8 +55,7 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      {% assign right-bracket = "}" %}
-      curl {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }} \
+      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }} \
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 
