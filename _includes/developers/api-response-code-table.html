@@ -2,7 +2,7 @@
 <!-- This file displays response code tables for general docs, as well as specific endpoints. -->
 
 <div class="table-responsive">
-    <table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
+    <table class="attribute-list table-hover" {% if include.type == "endpoint" %}style="margin-top: 0px; margin-bottom: 0px;"{% endif %}>
         <tr>
             <td align="right">
                 <strong>
