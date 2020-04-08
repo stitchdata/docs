@@ -14,7 +14,7 @@ description: |
 replication-method: "Key-based Incremental"
 
 attributes:
-  - name: "row_number"
+  - name: "__sdc_row_number"
     type: "integer"
     primary-key: true
     description: "The number of the row in the source CSV."
