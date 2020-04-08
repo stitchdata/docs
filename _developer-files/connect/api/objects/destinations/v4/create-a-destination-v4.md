@@ -63,9 +63,9 @@ examples:
     subexamples:
       - type: "Create a PostgreSQL destination"
         code: |
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
+          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+               -H "Authorization: Bearer <ACCESS_TOKEN>" \
+               -H "Content-Type: application/json" \
                -d "{
                     "type":"postgres",
                     "properties": {

@@ -59,9 +59,9 @@ examples:
       - type: "Create an Amazon S3 destination"
         code: |
           {% capture request-header %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
+          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+               -H "Authorization: Bearer <ACCESS_TOKEN>" \
+               -H "Content-Type: application/json" \
                -d "{
           {% endcapture %}
 

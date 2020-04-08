@@ -41,8 +41,8 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+           -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 
   - type: "Response"
@@ -54,5 +54,4 @@ examples:
       {
         "ephemeral_token":"<EPHEMERAL_TOKEN>"
       }
-
 ---

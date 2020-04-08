@@ -56,7 +56,7 @@ examples:
     language: "json"
     code: |
       {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","126890" | remove: right-bracket | strip_newlines }} \
+      curl {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","126890" | remove: right-bracket | strip_newlines }} \
            -H "Authorization: Bearer <CONNECT_ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 

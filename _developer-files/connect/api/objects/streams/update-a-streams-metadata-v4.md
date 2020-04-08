@@ -111,9 +111,9 @@ examples:
         code: |
           {% capture request-header %}
           {% assign right-bracket = "}" %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120645" | remove: right-bracket | strip_newlines }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
+          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120645" | remove: right-bracket | strip_newlines }} \
+               -H "Authorization: Bearer <ACCESS_TOKEN>" \
+               -H "Content-Type: application/json" \
                -d "{
           {% endcapture %}
           {{ request-header | flatify | rstrip }}

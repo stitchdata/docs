@@ -95,8 +95,8 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-           -H "Content-Type: application/json"
+      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+           -H "Content-Type: application/json" \
            -d "{
                 "partner_id": "<PARTNER_ID>",
                 "partner_secret": "<PARTNER_SECRET>",
