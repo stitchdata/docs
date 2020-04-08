@@ -1,15 +1,16 @@
 
 <!-- This file displays response code tables for general docs, as well as specific endpoints. -->
 
-<table class="attribute-list">
-    <tr>
-        <td align="right">
-            <strong>
-                Code
-            </strong>
-        </td>
+<div class="table-responsive">
+    <table class="attribute-list table-hover" style="margin-top: 0px; margin-bottom: 0px;">
+        <tr>
+            <td align="right">
+                <strong>
+                    Code
+                </strong>
+            </td>
 
-{% case include.type %}
+    {% case include.type %}
 
 <!-- For endpoint-specific response codes. This will show in the 'errors' tab of each
     endpoint's documentation. -->
@@ -55,6 +56,7 @@
                     {% endfor %}
             {% endfor %}
     </table>
+</div>
 
 
 <!-- For the general response code documentation -->
@@ -87,4 +89,5 @@
                 </tr>
             {% endfor %}
         </table>
+</div>
 {% endcase %}
