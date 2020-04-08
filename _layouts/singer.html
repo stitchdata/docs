@@ -107,7 +107,9 @@ non-standard handling of certain data types, etc. -->
     {% else %}
     {% endif %}
 {% else %}
-    {% include integrations/templates/schemas/table-schemas.html %}
+    {% unless integration.exclude-table-schemas == true %}
+        {% include integrations/templates/schemas/table-schemas.html %}
+    {% endunless %}
 {% endif %}
 <!-- SCHEMA DETAILS END -->
 {% endunless %}
