@@ -27,7 +27,7 @@ api-type: "platform.workday-raas"
 display-name: "Workday RaaS"
 
 source-type: "saas"
-docs-name: "workday-raas" # This should be whatever integration.name is. Ex: LinkedIn Ads is linkedin-ads
+docs-name: "workday-raas"
 
 
 # -------------------------- #
@@ -35,11 +35,6 @@ docs-name: "workday-raas" # This should be whatever integration.name is. Ex: Lin
 # -------------------------- #
 
 uses-start-date: true
-
-# Only source-specific attributes need to be listed here.
-# The following attributes are considered common,
-# and therefore don't need to be listed:
-# anchor_time, cron_expression, frequency_in_minutes, image_version, start_date 
 
 object-attributes:
   - name: "password"
@@ -52,9 +47,15 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Your {{ form-property.display-name }} report URL and table name of your choice. It is a stringified JSON array containing objects with the keys `report_url` and `report_name`.
+      A stringified JSON array containing objects with `report_url` and `report_name` keys. For every report you want to replicate from {{ form-property.display-name }}, include an object with these keys:
+
+      - `report_url` - A report's Workday XML REST link. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#retrieve-report-url" }}) for instructions on retrieving this info from {{ form-property.display-name }}.
+      - `report_name` - A report name of your choice
+
+      Refer to the [example object](#{{ form-property.key }}-example-usage) below to see what this value should look like.
+      
     value: |
-      [{\"report_url\": \"<YOUR_REPORT_URL>", \"table_name\": \"THIS IS MY FIRST TABLE\"},{\"report_url\": \"<YOUR_REPORT_URL", \"table_name\": \"THIS IS MY SECOND TABLE\"}]
+      [{\"report_url\": \"<REPORT_URL_1>", \"table_name\": \"REPORT_ONE\"},{\"report_url\": \"<REPORT_URL_2>", \"table_name\": \"REPORT_TWO\"}]
     
   - name: "username"
     type: "string"
