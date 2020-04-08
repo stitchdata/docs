@@ -19,7 +19,7 @@ attributes:
     primary-key: true
     description: "The path to the file in git."
 
-  - name: "_sdc_row_number"
+  - name: "__sdc_row_number"
     type: "integer"
     primary-key: true
     description: "The number of the row in the source CSV."
