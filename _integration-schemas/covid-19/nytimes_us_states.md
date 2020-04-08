@@ -14,7 +14,7 @@ description: |
 replication-method: "Full Table"
 
 attributes:
-  - name: "row_number"
+  - name: "_sdc_row_number"
     type: "integer"
     primary-key: true
     description: "The number of the row in the source CSV."
