@@ -42,12 +42,11 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      {% assign right-bracket = "}" %}
-      curl {{ endpoint.full-url | flatify | strip }} \
+      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | strip }} \
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 
-  - type: "Responses"
+  - type: "Response"
     language: "json"
     code: |
       {

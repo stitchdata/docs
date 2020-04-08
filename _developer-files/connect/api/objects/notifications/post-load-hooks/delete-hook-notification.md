@@ -59,7 +59,7 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 
-  - type: "Responses"
+  - type: "Response"
     language: "json"
     code: |
       null

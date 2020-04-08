@@ -68,8 +68,7 @@ examples:
   - type: "Request"
     language: "json"
     code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip }} \
+      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip }} \
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json" \
            -d "{
@@ -79,7 +78,7 @@ examples:
                  }
                }"
 
-  - type: "Responses"
+  - type: "Response"
     language: "json"
     code: |
       {

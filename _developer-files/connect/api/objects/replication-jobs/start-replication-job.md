@@ -62,15 +62,15 @@ examples:
            -H "Authorization: Bearer <ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
 
-  - type: "Responses"
+  - type: "Response"
     subexamples:
-      - type: "Replication job successfully started"
+      - title: "Replication job successfully started"
         code: |
           {
           "job_name": "116078.120643.sync.c12fb0a7-7e4a-11e9-abdc-0edc2c318fba"
           }
 
-      - type: "Replication not started; another job is in progress"
+      - title: "Replication not started; another job is in progress"
         code: |
           {
             "error": {

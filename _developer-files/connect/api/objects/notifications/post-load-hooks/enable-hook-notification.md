@@ -69,7 +69,7 @@ examples:
                  "enable":true
                }"
 
-  - type: "Responses"
+  - type: "Response"
     language: "json"
     code: |
       {

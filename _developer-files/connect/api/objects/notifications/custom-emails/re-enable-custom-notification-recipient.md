@@ -68,7 +68,7 @@ examples:
                  "disabled_at": null
                }"
 
-  - type: "Responses"
+  - type: "Response"
     language: "json"
     code: |
       {

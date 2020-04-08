@@ -107,7 +107,7 @@ examples:
   - type: "Request"
     language: "json"
     subexamples: 
-      - type: "Selecting a single stream"
+      - title: "Selecting a single stream"
         code: |
           {% capture request-header %}{% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120645" | remove: right-bracket | strip_newlines }} \
                -H "Authorization: Bearer <ACCESS_TOKEN>" \
@@ -129,7 +129,7 @@ examples:
                      ]
                    }"
 
-      - type: "Selecting a single stream and multiple fields"
+      - title: "Selecting a single stream and multiple fields"
         code: |
           {{ request-header | flatify | rstrip }}
                      "streams": [
@@ -165,7 +165,7 @@ examples:
                      ]
                    }"
 
-      - type: "Selecting multiple streams and fields"
+      - title: "Selecting multiple streams and fields"
         code: |
           {{ request-header | flatify | rstrip }}
                      "streams": [
@@ -230,7 +230,7 @@ examples:
                       ]
                     }'
 
-      - type: "Selecting a database table and defining replication"
+      - title: "Selecting a database table and defining replication"
         code: |
           {{ request-header | flatify | rstrip }}
                      "streams": [
@@ -268,7 +268,7 @@ examples:
                      ]
                    }"
 
-      - type: "Selecting a database view and defining replication"
+      - title: "Selecting a database view and defining replication"
         code: |
           {{ request-header | flatify | rstrip }}
                      "streams": [
@@ -311,7 +311,7 @@ examples:
 
   - type: "Response"
     subexamples:
-      - type: "Applicable to all requests"
+      - title: "Applicable to all successful requests"
         code: |
             {
               "status": 200

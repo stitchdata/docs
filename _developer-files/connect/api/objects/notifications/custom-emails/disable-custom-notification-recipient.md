@@ -69,7 +69,7 @@ examples:
                  "disabled_at": "2019-06-01T00:00:00Z"
                }"
 
-  - type: "Responses"
+  - type: "Response"
     language: "json"
     code: |
       {

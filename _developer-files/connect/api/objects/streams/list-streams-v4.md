@@ -60,7 +60,7 @@ examples:
 
   - type: "Response"
     subexamples:
-      - type: "Database source"
+      - title: "Streams for a database source"
         code: |
           [
             {
@@ -133,7 +133,7 @@ examples:
             }
           ]
 
-      - type: "SaaS source"
+      - title: "Streams for a SaaS source"
         code: |
           [
             {

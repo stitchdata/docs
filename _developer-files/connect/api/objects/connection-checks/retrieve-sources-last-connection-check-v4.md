@@ -63,15 +63,15 @@ examples:
   - type: "Response"
     language: "json"
     subexamples:
-      - type: "In progress connection check"
+      - title: "An in progress connection check"
         code: |
           {{ site.data.connect.code-examples.connection-checks.in-progress }}
 
-      - type: "Successful connection check"
+      - title: "A successful connection check"
         code: |
           {{ site.data.connect.code-examples.connection-checks.successful }}
 
-      - type: "Failed connection check"
+      - title: "A failed connection check"
         code: |
           {{ site.data.connect.code-examples.connection-checks.in-progress }}
 ---

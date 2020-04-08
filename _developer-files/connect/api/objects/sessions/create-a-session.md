@@ -48,9 +48,6 @@ examples:
   - type: "Response"
     language: "json"
     code: |
-      HTTP/1.1 200 OK
-      Content-Type: application/json;charset=ISO-8859-1
-
       {
         "ephemeral_token":"<EPHEMERAL_TOKEN>"
       }
