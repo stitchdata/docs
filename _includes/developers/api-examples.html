@@ -23,8 +23,16 @@
 <!-- If there's only 1 example, just display it directly on the page: -->
 {% if example-count == 1 %}
     {% for example in item.examples %}
-{% include layout/code-snippet.html language=example.language code=example.code %}
-{% endfor %}
+        {% if include.type == "endpoint" %}
+            {% capture description %}
+                {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
+            {% endcapture %}
+
+            {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+        {% else %}
+            {% include layout/code-snippet.html language=example.language code=example.code %}
+        {% endif %}
+    {% endfor %}
 
 
 <!-- If there's more than one example, put them into tabs -->
@@ -92,20 +100,43 @@
 <!-- This is still inside the tab; it just has to be
     flush left or Jekyll will throw a fit -->
 {% if example.code %}
-    {% include layout/code-snippet.html language=example.language code=example.code %}
+    {% if include.type == "endpoint" %}
+        {% capture description %}
+            {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
+        {% endcapture %}
+
+        {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+
+    {% else %}
+        {% include layout/code-snippet.html language=example.language code=example.code %}
+    {% endif %}
 {% endif %}
 
 
 <!-- If there are subexamples, list them out: -->
 {% if example.subexamples %}
+<p>
+    <strong>
+        {{ example.type | capitalize | append: "s" }} for {{ item.method | upcase }} {{ item.short-url | flatify }}
+    </strong>
+</p>
+
 {% for subexample in example.subexamples %}
-<p><strong>{{ subexample.type | append: ":" }}</strong></p>
 
 {% if subexample.description %}
 {{ subexample.description | flatify | markdownify }}
 {% endif %}
 
-{% include layout/code-snippet.html language=subexample.language code=subexample.code %}
+    {% if include.type == "endpoint" %}
+        {% capture description %}
+            {% if subexample.title %}{{ subexample.title }}{% endif %}
+        {% endcapture %}
+
+        {% include layout/code-snippet.html code-description=description language=subexample.language code=subexample.code %}
+
+    {% else %}
+        {% include layout/code-snippet.html language=subexample.language code=subexample.code %}
+    {% endif %}
 {% endfor %}
 {% endif %}
         {% endcase %}
