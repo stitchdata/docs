@@ -38,7 +38,7 @@ api: |
 #       Stitch Details       #
 # -------------------------- #
 
-certified: True 
+certified: true 
 
 historical: "1 year"
 frequency: "1 hour"
