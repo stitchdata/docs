@@ -92,12 +92,14 @@ mysql: &standard-fields
 aurora-rds: &rds-fields
   - *integration-name
   - name: "{{ defaults.field-names.host }}"
+    verison: "1"
     copy: |
       {{ defaults.field-copy.host-rds | flatify }}
   - *port
   - *username
   - *password
   - name: "{{ defaults.field-names.database }}"
+    verison: "1"
     copy: |
       Enter the name of the {{ integration.display_name }} database. Stitch will 'find' all databases you give the Stitch user access to - a default database is only used to complete the connection.
 
@@ -135,6 +137,7 @@ mysql-rds: *rds-fields
 cloudsql-mysql:
   - *integration-name
   - name: "{{ defaults.field-names.host }}"
+    version: "1"
     copy: |
       {{ defaults.field-copy.host-cloudsql | flatify }}
   - *port
@@ -146,4 +149,14 @@ cloudsql-mysql:
 # -------------------------- #
 #            AZURE           #
 # -------------------------- #
-microsoft-azure-mysql: *standard-fields
+
+microsoft-azure-mysql:
+  - *integration-name
+  - name: "{{ defaults.field-names.host }}"
+    version: "1"
+    copy: |
+      Paste the **Server name** you retrieved in the [previous step](#locate-connection-details). This should be similar to `<database-name>.mysql.database.azure.com`.
+  - *port
+  - *username
+  - *password
+  - *database
