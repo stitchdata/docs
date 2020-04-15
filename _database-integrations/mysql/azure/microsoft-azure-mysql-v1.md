@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure MySQL (v1)
 keywords: microsoft azure, azure, database integration, etl azure, azure etl
-permalink: /integrations/databases/microsoft-azure-mysql/v1
+permalink: /integrations/databases/microsoft-azure-mysql
 summary: "Connect and replicate data from your Microsoft Azure SQL database using Stitch's Microsoft Azure MySQL integration."
 show-in-menus: true
 
@@ -14,7 +14,8 @@ key: "microsoft-azure-mysql-integration"
 name: "microsoft-azure-mysql"
 display_name: "Microsoft Azure MySQL"
 
-hosting-type: "generic"
+connection-type: "integration"
+hosting-type: "microsoft-azure"
 
 this-version: "1"
 
@@ -40,6 +41,8 @@ db-type: "mysql"
 api-type: "platform.mysql"
 ssh: true
 ssl: true
+
+setup-name: "MySQL"
 
 ## General replication features
 
@@ -79,9 +82,12 @@ requirements-list:
   - item: |
       **The `GRANT OPTION` privilege in {{ integration.display_name }}.** The [`GRANT OPTION` privilege](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_grant-option){:target="new"} is required to grant the necessary privileges to the Stitch database user.
   - item: |
-      **For Log-based replication:**
-      1. Privileges in Azure that allow you to modify server parameters.
-      2. MySQL master server must be in a General Purpose or Memory Optimized pricing tier. These are the tiers that allow you to create read replicas of your server.
+      **If using Log-based Incremental Replication:**, you'll need:
+
+      1. Privileges in Microsoft Azure that allow you to modify server parameters.
+      2. A master server that adheres to [Microsoft's requirements](https://docs.microsoft.com/en-us/azure/mysql/concepts-data-in-replication#requirements){:target="new"}.
+      3. A MySQL database running MySQL version {{ integration.log-based-replication-minimum-version }} or newer.
+
 
 # -------------------------- #
 #     Setup Instructions     #
@@ -100,15 +106,33 @@ setup-steps:
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
+      - title: "Configure the binlog_format server setting"
+        anchor: "configure-binlog-format-server-setting"
+        content: |
+          By default, the `binlog_format` parameter for {{ integration.display_name }} databases is set to `MIXED` and can't be changed in the Azure dashboard or via a SQL client. Stitch requires this parameter to be set to `ROW`.
+
+          **Contact [Microsoft Azure support](https://azure.microsoft.com/en-us/support/create-ticket/){:target="new"} to have this parameter changed for your database before continuing.**
+
       - title: "Configure server settings"
         anchor: "configure-database-server-settings"
         content: |
-          In this step, you'll configure your {{ integration.display_name }} server to use Log-based Incremental Replication.
+          In addition to the `binlog_format` parameter, there are a few other server parameters you'll need to configure to use Log-based Incremental Replication.
 
           {% capture server-instructions %}
-          1. In your **Azure portal**, locate your **Azure Database for MySQL** server.
+          1. In your **Azure portal**, locate and open the **Azure Database for MySQL** database you want to connect to Stitch.
           2. Click **Settings > Server Parameters**.
-          3. Define the requred server settings using their pre-defined defaults. Refer to the <a href="#server-settings-details" data-toggle="tab">Server settings list</a> tab for explanations of these parameters and their default values. **No other configuration is required on your part.**
+          3. Define the following server settings:
+
+          {% assign server-settings = site.data.taps.extraction.database-setup.server-settings.mysql.microsoft-azure-mysql %}
+
+          {% for setting in server-settings %}
+             - `{{ setting.name }}` - `{{ setting.value }}`
+          {% endfor %}
+
+             Refer to the **Server settings list** tab for more info about these settings.
+
+          4. Click **Save** when finished.
+          5. When finished, restart your MySQL server to ensure the changes take effect.
           {% endcapture %}
           
           {% include integrations/templates/configure-server-settings.html %}
@@ -130,9 +154,22 @@ setup-steps:
   - title: "Connect Stitch"
     anchor: "connect-stitch"
     content: |
-      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch.
+      In this step, you'll complete the setup by entering the database's connection details and defining replication settings in Stitch:
+
+      {% for substep in step.substeps %}
+      - [Step 4.{{ forloop.index }}: {{ substep.title | flatify }}](#{{ substep.anchor }})
+      {% endfor %}
 
     substeps:
+      - title: "Locate {{ destination.display_name }} connection details"
+        anchor: "locate-connection-details"
+        content: |
+          In this step, you'll retrieve the server address for the {{ integration.display_name }} you want to connect to Stitch. 
+          
+          This is the value you'll enter in the **Host** field in Stitch in the next step.
+
+          {% include shared/connection-details/microsoft-azure.html %}
+
       - title: "Define the database connection details"
         anchor: "define-connection-details"
         content: |
