@@ -23,6 +23,14 @@ attributes:
     description: "The referral ID."
     # foreign-key-id: "referral-id"
 
+  - name: "dateConverted"
+    type: "date-time"
+    description: "The date the referral was converted."  
+
+  - name: "programId"
+    type: "string"
+    description: "The program ID."  
+
   - name: "referredUser"
     type: "string"
     description: "The ID of the referred user."

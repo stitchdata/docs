@@ -81,6 +81,18 @@ setup-steps:
       4. Click {{ app.buttons.finish-int-setup }}.
   - title: "track data"
 
+# -------------------------- #
+#     Replication Details    #
+# -------------------------- #
+
+replication-sections:  
+  - title: "Replicating order refunds"
+  - anchor: "order-refunds"
+  - content: |
+      To extract order refund data, Stitch queries every order in your account. If you have the `order_refunds` table selected for replication, the process can potentially be very slow depending on how many orders and refunds exist in your {{ integration.display_name }} account. As tables are extracted one at a time, this could cause extraction to not proceed for days at a time. To ensure timely replication of your other selected tables, consider creating a separate integration for only the `order_refunds` table.
+
+      **Note**: Creating a separate integration for your `order_refunds` table may negatively affect your {{ integration.display_name }} API quota.
+      
 
 # -------------------------- #
 #     Integration Tables     #

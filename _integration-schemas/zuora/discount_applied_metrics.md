@@ -1,6 +1,6 @@
 ---
 tap: "zuora"
-version: 1.0
+version: "1"
 
 name: "discountAppliedMetrics"
 doc-link: https://knowledgecenter.zuora.com/CD_Reporting/D_Data_Sources_and_Exports/C_Data_Source_Reference/Discount_Applied_Metrics_Data_Sourceadjustments

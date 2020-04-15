@@ -1,6 +1,6 @@
 ---
 tap: "zuora"
-version: 1.0
+version: "1"
 
 name: "product"
 doc-link: http://knowledgecenter.zuora.com/DC_Developers/SOAP_API/E1_SOAP_API_Object_Reference/Product#Field_Descriptions
