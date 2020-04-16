@@ -25,7 +25,7 @@ key: "kustomer-setup"
 #         Tap Details        #
 # -------------------------- #
 
-name: "kustomer"
+name: "Kustomer"
 display_name: "Kustomer"
 
 singer: true
@@ -49,6 +49,8 @@ certified: true
 historical: "1 year"
 frequency: "1 hour"
 tier: "Free"
+
+api-type: "platform.kustomer"
 
 anchor-scheduling: true
 cron-scheduling: true
@@ -89,24 +91,22 @@ feature-summary: |
 # -------------------------- #
 
 requirements-list:
-  - item: "**An admin role**. You need to have an Admin role to create an API key, or have a role that has **read** and **write** security permissions."
-  - item: ""
-
-requirements-info:
+  - item: |
+      **A {{ integration.display_name }} admin role**. You need to have an Admin role to create an API key, or have a role that has **read** and **write** security permissions.
 
 setup-steps:
-  - title: "Obtain you API key"
+  - title: "Obtain your API key"
     anchor: "obtain-api-key"
     content: |
       1. Login to your {{ integration.display_name }} account.
       2. Navigate to **Settings > API Keys**
       3. Click **New API Key**.
       4. Select the roles that can have access to the API key.
-      5. Select the number of days of when you would like the API key to expire.
+      5. In the section where you are given the option to set an API expiration, leave this blank. You do not want your API key to expire, or else the integration will break.
       6. Click **Create**
       7. Copy the API key and keep it readily available for the next step.
 
-      **Note**: You can only copy the API key once, so save it somewhere else for future reference.
+      **Note**: You can only copy the API key once, so save it somewhere secure for future reference.
   - title: "add integration"
     content: |
     4. In the **API Key** field, enter the API key you obtained in [step 1](#obtain-api-key).

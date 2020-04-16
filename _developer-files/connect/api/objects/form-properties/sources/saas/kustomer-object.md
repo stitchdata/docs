@@ -45,18 +45,18 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Your {{ form-propery.display-name }} API key. Refer to the [{{ form-propery.display-name }} documentation](({{ doc-link | append: "#obtain-api-key" }})) for instruction on how to obtain this."
+      Your {{ form-propery.display-name }} API key. Refer to the [{{ form-propery.display-name }} documentation]({{ doc-link | append: "#obtain-api-key" }}) for instruction on how to obtain this.
     value: "<YOUR_API_KEY>"
 
   - name: "date_window_size"
     type: "string"
     required: false
     description: "This is an internal field for Stitch use."
-    value: "<DATE_WINDOW_SIZE"
+    value: "<DATE_WINDOW_SIZE>"
     
   - name: "page_size_limit"
     type: "string"
     required: false
     description: "This is an internal field for Stitch use."
-    value: "<PAGE_SIZE_LIMIT"    
+    value: "<PAGE_SIZE_LIMIT>"    
 ---
