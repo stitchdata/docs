@@ -2,9 +2,9 @@
 tap: "shopify"
 version: "1"
 
-name: "collects"
-doc-link: "https://help.shopify.com/en/api/reference/products/collect"
-singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collects.json"
+name: "collects"https://shopify.dev/docs/admin-api/rest/reference/products/collect?api[version]=2019-07"
+singer-schema: "https://git
+doc-link: "hub.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collects.json"
 description: |
   The `{{ table.name }}` table contains info about collects, which are used to manage relationships between products and custom collections. For every product in a custom collection, there's a collect that tracks the ID of both the product and the custom collection.
 
@@ -12,7 +12,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve all collects for the shop"
-    doc-link: "https://help.shopify.com/en/api/reference/products/collect"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/products/collect?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].
