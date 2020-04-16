@@ -3,8 +3,8 @@ tap: "shopify"
 version: "1"
 
 name: "collects"https://shopify.dev/docs/admin-api/rest/reference/products/collect?api[version]=2019-07"
-singer-schema: "https://git
-doc-link: "hub.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collects.json"
+singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/collects.json
+doc-link: ""
 description: |
   The `{{ table.name }}` table contains info about collects, which are used to manage relationships between products and custom collections. For every product in a custom collection, there's a collect that tracks the ID of both the product and the custom collection.
 
