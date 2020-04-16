@@ -98,9 +98,8 @@ sections:
 
           In the body of the request, include your `partner_id` and `partner_secret`, along with [the other properties required to create a Stitch client account]({{ site.data.connect.core-objects.accounts.object | prepend: link.connect.api | prepend: site.baseurl }}):
 
-          ```json
-          curl -X {{ site.data.connect.core-objects.accounts.create.method | upcase }} {{ site.data.connect.core-objects.accounts.create.name | prepend: site.data.connect.api.base-url | flatify | strip_newlines }}
-               -H 'Content-Type: application/json'
+          {% capture code %}curl -X {{ site.data.connect.core-objects.accounts.create.method | upcase }} {{ site.data.connect.core-objects.accounts.create.name | prepend: site.data.connect.api.base-url | flatify | strip_newlines }} \
+               -H 'Content-Type: application/json' \
                -d "{
                     "partner_id": "<YOUR_PARTNER_ID>",
                     "partner_secret": "<YOUR_PARTNER_SECRET>",
@@ -109,18 +108,25 @@ sections:
                     "company": "<USER'S_COMPANY>",
                     "email": "<USER'S_EMAIL>@<DOMAIN>"
                   }"
-          ```
+          {% endcapture %}
+
+          {% assign description = "POST " | append: site.data.connect.core-objects.accounts.create.name %}
+
+          {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
           The account that will be created will be owned and managed by the user provided in the Create Account request. This user can then log into the Stitch web interface, receive emails from Stitch, etc.
 
           When successful, this endpoint returns a status of `200 OK` and an object with `access_token` and `stitch_account_id` properties:
 
-          ```json
-          {
+          {% capture code %}{
             "access_token": "<ACCESS_TOKEN>",
             "stitch_account_id": <STITCH_CLIENT_ID>
           }
-          ```
+          {% endcapture %}
+
+          {% assign description = "Response for POST " | append: site.data.connect.core-objects.accounts.create.name %}
+
+          {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
           Your application should store the `access_token` and `stitch_account_id` somewhere secure, as these credentials will be used to make calls to the API.
 
@@ -130,10 +136,13 @@ sections:
           {% capture authenticate-calls %}
           Lastly, use the `access_token` in the header of your API requests to authenticate to the API:
 
-          ```json
-          curl {{ site.data.connect.api.core-objects.sources.list.method | upcase }} {{ site.data.connect.api.core-objects.sources.list.name | prepend: site.data.connect.api.base-url | flatify }}
+          {% capture code %}curl {{ site.data.connect.api.core-objects.sources.list.method | upcase }} {{ site.data.connect.api.core-objects.sources.list.name | prepend: site.data.connect.api.base-url | flatify }} \
                -H 'Authorization: Bearer <ACCESS_TOKEN>'
-          ```
+          {% endcapture %}
+
+          {% assign description = "GET " | append: site.data.connect.api.core-objects.sources.list.name %}
+
+          {% include layout/code-snippet.html code-description=description language="json" code=code %}
           {% endcapture %}
 
           {{ authenticate-calls | flatify }}
@@ -153,9 +162,12 @@ sections:
         content: |
           To initiate the authorization flow, the user will click a link to Stitch that includes your application's API client ID. This is the `partner_id` you obtained when you registered your application. For example:
 
-          ```shell
-          https://app.stitchdata.com/oauth/authorization?client_id={PARTNER_ID}
-          ```
+          {% capture code %}https://app.stitchdata.com/oauth/authorization?client_id={PARTNER_ID}
+          {% endcapture %}
+
+          {% assign description = "Example authorization URL" %}
+
+          {% include layout/code-snippet.html code-description=description language="shell" code=code %}
 
           While only your `partner_id` is required, the URL may also include the following parameters:
 
@@ -203,15 +215,17 @@ sections:
 
           If the user denies the request, Stitch will include error details:
 
-          ```shell
-          https://yourapplication.com/callback?error=access_denied
-          ```
+          {% capture code %}https://yourapplication.com/callback?error=access_denied
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="shell" code=code %}
 
           If the user accepts the request, the callback will include a temporary authorization code to be used in the next step:
 
-          ```shell
-          https://yourapplication.com/callback?code=<STITCH_AUTHORIZATION_CODE>
-          ```
+          {% capture code %}https://yourapplication.com/callback?code=<STITCH_AUTHORIZATION_CODE>
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="shell" code=code %}
 
           **Note**: Each temporary authorization code can only be used once and expires five minutes after creation.
 
@@ -220,22 +234,24 @@ sections:
         content: |
           Lastly, when your application receives the user's request to the callback URL, it should make a request to the Stitch OAuth endpoint to exchange the temporary authorization code for a permanent access token:
 
-          ```json
-          curl {{ site.data.connect.api.base-url }}/oauth/token 
+          {% capture code %}curl {{ site.data.connect.api.base-url }}/oauth/token 
                -d client_secret=<CLIENT_SECRET>
                -d code=<STITCH_AUTHORIZATION_CODE>
                -d grant_type=authorization_code
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           If successful, Stitch will respond with the following:
 
-          ```json
-          {
+          {% capture code %}{
             "token_type": "bearer",
             "access_token": "<ACCESS_TOKEN>",
             "stitch_account_id": <STITCH_ACCOUNT_ID>
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           Your application should store the `access_token` and `stitch_account_id` somewhere secure, as these credentials will be used to make calls to the API.
 

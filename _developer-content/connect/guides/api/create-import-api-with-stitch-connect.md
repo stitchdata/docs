@@ -102,20 +102,22 @@ steps:
     content: |
       When preparing for source creation, the first step is to get the report card for the source you want to create. The report card contains information about the steps required to fully configure a source.
 
-      Use the [Get a source type endpoint]({{ link.connect.api | append: site.data.connect.core-objects.source-types.get.anchor | prepend: site.baseurl }}) to get the report card for source `type: import_api`:
+      Use [GET {{ site.data.connect.core-objects.source-types.get.name | flatify }}]({{ link.connect.api | append: site.data.connect.core-objects.source-types.get.anchor | prepend: site.baseurl }}) to get the report card for source `type: import_api`:
 
       {% assign right-bracket = "}" %}
 
-      ```json
-      curl {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.source-types.get.name | flatify | remove: right-bracket | replace:"{source_type","import_api" | strip_newlines }} \
+      {% capture code %}curl {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.source-types.get.name | flatify | remove: right-bracket | replace:"{source_type","import_api" | strip_newlines }} \
            -H 'Content-Type: application/json' \
            -H 'Authorization: Bearer <CONNECT_API_TOKEN>'
-      ```
+      {% endcapture %}
+
+      {% assign description = "GET " | append: site.data.connect.core-objects.source-types.get.name %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) with a [Connection step object]({{ link.connect.api | append: site.data.connect.data-structures.connection-steps.section | prepend: site.baseurl }}):
 
-      ```json
-      {
+      {% capture code %}{
         "type": "import_api",
         "current_step": 1,
         "current_step_type": "form",
@@ -138,14 +140,18 @@ steps:
           "access": true
         }
       }
-      ```
+      {% endcapture %}
+
+      {% assign description = "Response for GET " | append: site.data.connect.core-objects.source-types.get.name %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       For Import API sources, the only step to being `fully_configured` is to complete the `form` step.
 
   - title: "Create the source and complete the form step"
     anchor: "create-source-complete-form-step"
     content: |
-      Use the [Create a Source endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create.anchor }}) to create the Import API source. The request body must include the following top-level properties:
+      Use [POST {{ site.data.connect.core-objects.sources.create.name | flatify }}]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create.anchor }}) to create the Import API source. The request body must include the following top-level properties:
 
       - `type`: This must be `import_api`.
       - `display_name`: {{ site.data.connect.general.common.attributes.display-name }}
@@ -154,21 +160,27 @@ steps:
 
       This request will complete the `form` step outlined in the source's report card, which you retrieved in [Step 1](#get-iapi-report-card):
 
-      ```json
-      curl -X POST {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.create.name | flatify | strip_newlines }} \
+      {% capture code %}curl -X POST {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.create.name | flatify | strip_newlines }} \
            -H 'Content-Type: application/json' \
            -H 'Authorization: Bearer <CONNECT_API_TOKEN>' \
            -d $'{
                   "type": "import_api",
                   "display_name": "Import API"
                 }
-      ```
+      {% endcapture %}
+
+      {% assign description = "POST " | append: site.data.connect.core-objects.sources.create.name %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) containing the ID, [report card]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}), and current configuration status of the Import API source, which will be `fully_configured`:
 
-      ```json
-      {{ site.data.connect.code-examples.sources.import-api.full-object }}
-      ```
+      {% capture code %}{{ site.data.connect.code-examples.sources.import-api.full-object }}
+      {% endcapture %}
+
+      {% assign description = "Response for POST " | append: site.data.connect.core-objects.sources.create.name %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       Note the `id` value - you'll need it to complete the next step.
 
@@ -177,23 +189,28 @@ steps:
     content: |
       Requests made to the Import API must include an access token associated with the Import API source. In this step, you'll generate an access token for the Import API.
 
-      Using the Import API source's ID, make a request to the [Generate an Import API access token endpoint]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create-iapi-token.anchor }}):
+      Using the Import API source's ID, make a request to [POST {{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify }}]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.create-iapi-token.anchor }}):
 
-      {% assign right-bracket = "}" %}
-      ```json
-      curl -X POST {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify | remove: right-bracket | replace:"{source_id","126890" | strip_newlines }} \
+      {% capture code %}curl -X POST {{ site.data.connect.api.base-url | strip_newlines }}{{ site.data.connect.core-objects.sources.create-iapi-token.name | flatify | remove: right-bracket | replace:"{source_id","126890" | strip_newlines }} \
            -H "Authorization: Bearer <CONNECT_ACCESS_TOKEN>" \
            -H "Content-Type: application/json"
-      ```
+      {% endcapture %}
+
+      {% assign description = "POST " | append: site.data.connect.core-objects.sources.create-iapi-token.name %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       The response will be an [Import API access token object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.import-api-access-token.section }}) with an `access_token` property. The value of this property is the access token you'll need to include in requests made to the Import API:
 
-      ```json
-      {
+      {% capture code %}{
         "id": 828792559,
         "access_token": "<IMPORT_API_ACCESS_TOKEN>"
       }
-      ```
+      {% endcapture %}
+
+      {% assign description = "Response for POST " | append: site.data.connect.core-objects.sources.create-iapi-token.name %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       **Note**: The API will only return the Import API access token once, immediately after generation. Store the access token and its ID somewhere secure, [as you'll need the access token ID to revoke the token]({{ link.connect.guides.manage-import-api-access-tokens | prepend: site.baseurl | append: "#rotate-import-api-access-tokens" }}).
 
@@ -205,23 +222,27 @@ steps:
       While you used the Connect API to create the Import API source, to actually push data, you'll need to use the [Import API]({{ link.import-api.api | prepend: site.baseurl }}). 
 
       {% for substep in step.substeps %}
-      - [Step 3.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
+      - [Step 4.{{ forloop.index }}: {{ substep.title }}](#{{ substep.anchor }})
       {% endfor %}
 
     substeps:
       - title: "Build the request header"
         anchor: "build-import-api-request-header"
         content: |
-          Pushing data to the Import API is accomplished by making a request to `POST {{ site.data.import-api.core-objects.batch.url }}`. The request header must include the Import API access token and a supported media type of `Content-Type: application/json`:
+          Pushing data to the Import API is accomplished by making a request to [POST {{ site.data.import-api.core-objects.batch.url }}]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.batch.anchor }}). The request header must include the Import API access token and a supported media type of `Content-Type: application/json`:
 
-          ```json
-          curl -X POST {{ site.data.import-api.api.base-url | strip_newlines }}{{ site.data.import-api.core-objects.batch.url | flatify | strip_newlines }}
+          {% capture code %}curl -X POST {{ site.data.import-api.api.base-url | strip_newlines }}{{ site.data.import-api.core-objects.batch.url | flatify | strip_newlines }} \
                -H 'Content-Type: application/json' \
                -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-          ```
+          {% endcapture %}
+
+          {% assign description = "POST " | append: site.data.import-api.core-objects.batch.url %}
+
+          {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       - title: "Submit the request"
         anchor: "submit-request-to-import-api"
+        ## NOTE: Part of this content lives in _developer-content/import-api/guides/import-api-quick-start.md. See the `iapi-push` assignment, below.
         content: |
           {% assign iapi-quick-start = site.developer-content | where:"key","import-api-quick-start" | first %}
           {% assign iapi-push = iapi-quick-start.steps | where:"anchor","push-data-to-stitch" | first %}
