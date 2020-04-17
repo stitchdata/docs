@@ -126,11 +126,12 @@ sections:
         content: |
           Post-load notification webhook requests are `POST` requests with a `User-Agent` of `StitchLoadingWebhook`. For example:
 
-          ```curl
-          -X "POST" "https://your-webhook-service.com/webhook"
-          -H 'Content-Type: application/json'
-          -H 'User-Agent: StitchLoadingWebhook'
-          ```
+          {% capture code %}curl -X "POST" "https://your-webhook-service.com/webhook" \
+               -H 'Content-Type: application/json' \
+               -H 'User-Agent: StitchLoadingWebhook'
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           **Note**: At this time, custom request headers are not supported.
 
@@ -141,9 +142,10 @@ sections:
 
           Refer to the [Request body properties section](#request-body-properties) for attribute descriptions:
 
-          ```json
-          {{ stitch.notifications.post-load-webhooks.request-bodies.example-data.no-nested-tables }}
-          ```
+          {% capture code %}{{ stitch.notifications.post-load-webhooks.request-bodies.example-data.no-nested-tables }}
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
   - title: "Request body properties"
     anchor: "request-body-properties"
