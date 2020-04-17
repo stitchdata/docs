@@ -44,7 +44,7 @@ validate-request: |
               "key_names": [
                 "id"
               ]
-            }
+            }'
 
 push-data: |
   curl -X POST {{ site.data.import-api.api.base-url }}{{ site.data.import-api.core-objects.batch.url }} \
@@ -84,4 +84,4 @@ push-data: |
               "key_names": [
                 "id"
               ]
-            }
+            }'

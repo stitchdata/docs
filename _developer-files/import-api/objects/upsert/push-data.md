@@ -21,6 +21,7 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.push.short | flatify }}"
+
 description: |
   {% capture notice %}
   We recommend using the [Create a batch]({{ site.data.import-api.core-objects.batch.anchor }}) endpoint instead. The Batch endpoint allows you to specify a schema and enforce data types, while this endpoint does not.
@@ -125,16 +126,12 @@ examples:
   - type: "Request"
     language: "json"
     subexamples:
-      - type: "Pushing a single record for a single table"
+      - title: "Pushing a single record for a single table"
         code: |
-          {% capture request-header %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
                -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H "Content-Type: application/json" \
+               -H 'Content-Type: application/json' \
                -d $
-          {% endcapture %}
-
-          {{ request-header | rstrip }}
                   '[
                     {
                       "client_id": 7723,
@@ -152,9 +149,12 @@ examples:
                   ]'
 
 
-      - type: "Pushing multiple records for a single table"
+      - title: "Pushing multiple records for a single table"
         code: |
-          {{ request-header | rstrip }}
+          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
+               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
+               -H 'Content-Type: application/json' \
+               -d $
                   '[
                     {
                       "client_id": 7723,
@@ -185,9 +185,12 @@ examples:
                   ]'
 
 
-      - type: "Pushing records for multiple tables"
+      - title: "Pushing records for multiple tables"
         code: |
-          {{ request-header | rstrip }}
+          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
+               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
+               -H 'Content-Type: application/json' \
+               -d $
                   '[
                     {
                       "client_id": 7723,

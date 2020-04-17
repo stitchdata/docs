@@ -21,8 +21,7 @@ sections:
     content: |
       For some the [Push]({{ site.data.import-api.core-objects.push.anchor }}) and [Validate push request]({{ site.data.import-api.core-objects.validate.anchor }}) endpoints, you'll need to include your Stitch client ID for every record contained in a request body. Your Stitch client ID is the unique ID associated with your Stitch account.
 
-      ```json
-      curl -X POST {{ site.data.import-api.api.base-url | append: site.data.import-api.core-objects.push.url }} \
+      {% capture code %}curl -X POST {{ site.data.import-api.api.base-url | append: site.data.import-api.core-objects.push.url }} \
         -H 'Content-Type: application/json' \
         -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
         -d $
@@ -54,7 +53,11 @@ sections:
             "action": "upsert"
           }
         ]'
-        ```
+      {% endcapture %}
+
+      {% assign description = "POST " | append: site.data.import-api.core-objects.push.url %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       {{ site.data.import-api.general.attributes.client-id | remove: "The Stitch client ID associated with your Stitch account." }}
 

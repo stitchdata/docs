@@ -85,19 +85,25 @@ steps:
   - title: "Check the status of the Import API"
     anchor: "check-import-api-status"
     content: |
-      Next, check the status of the Import API. This will ensure that the test request you send in the next step, which will validate your credentials and some sample data, will not fail due to an API outage.
+      Next, check the status of the Import API by sending a request to [GET {{ site.data.import-api.core-objects.api-status.url }}]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.api-status.anchor }}). This will ensure that the test request you send in the next step, which will validate your credentials and some sample data, will not fail due to an API outage.
 
-      **Note**: Using the [Import API status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.api-status.anchor }}) endpoint doesn't require authentication.
+      **Note**: Using this endpoint doesn't require authentication.
 
-      ```json
-      {{ site.data.import-api.code-examples.requests.get-status | flatify | strip }}
-      ```
+      {% capture code %}{{ site.data.import-api.code-examples.requests.get-status | flatify | strip }}
+      {% endcapture %}
+
+      {% assign description = "GET " | append: site.data.import-api.core-objects.api-status.url %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       When the Import API is operating correctly, it will return a `200 OK` status and an [API status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.core-objects.api-status.object-anchor }}) object:
 
-      ```json
-      {{ site.data.import-api.code-examples.responses.get-status | flatify | strip }}
-      ```
+      {% capture code %}{{ site.data.import-api.code-examples.responses.get-status | flatify | strip }}
+      {% endcapture %}
+
+      {% assign description = "Response for GET " | append: site.data.import-api.core-objects.api-status.url %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       If the Import API returns a `5xx` response, check the [Stitch Status page]({{ site.status }}){:target="new"} for reported outages and try again later.
 
@@ -110,20 +116,27 @@ steps:
 
       In the example below, the request will send a single record for the `customers` table to the Import API:
 
-      ```json
-      {{ site.data.import-api.code-examples.requests.push-data | flatify }}
-      ```
+      {% capture code %}{{ site.data.import-api.code-examples.requests.push-data | flatify }}
+      {% endcapture %}
 
-      If successful, the Import API will return a `2xx` status and a [Batch Status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.data-structures.batch-status.section }}) object:
+      {% assign description = "POST " | append: site.data.import-api.core-objects.batch.url %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
+
+      If successful, the Import API will return a `2xx` status and a [Batch Status]({{ link.import-api.api | prepend: site.baseurl | append: site.data.import-api.data-structures.batch-status.section }}) object.
 
       {% assign response-codes = site.data.import-api.response-codes.general-codes.all-codes %}
 
       {% for response-code in response-codes %}
       {% if response-code.code == "201" or response-code.code == "202" %}
-      - `{{ response-code.code }}` - {{ response-code.description }}
-        ```json
-        {{ response-code.example | flatify | strip }}
-        ```
+      If the status is `{{ response-code.code }}`, this means that {{ response-code.description | replace: "The request was","the request was" }} The response body will be:
+      
+      {% capture code %}{{ response-code.example | flatify | strip }}
+      {% endcapture %}
+
+      {% assign description = "Response for GET " | append: site.data.import-api.core-objects.batch.url | append: " ("  | append: response-code.code | append: " status)" %}
+
+      {% include layout/code-snippet.html code-description=description language="json" code=code %}
       {% endif %}
       {% endfor %}
 

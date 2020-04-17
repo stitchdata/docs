@@ -132,16 +132,12 @@ examples:
   - type: "Request"
     language: "json"
     subexamples:
-      - type: "Pushing a single record"
+      - title: "Pushing a single record"
         code: |
-          {% capture request-header %}
-          curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
+          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
                -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H "Content-Type: application/json" \
-               -d $
-          {% endcapture %}
-
-          {{ request-header | rstrip }}
+               -H 'Content-Type: application/json' \
+               -d $'
                     {
                       "table_name": "customers",
                       "schema": {
@@ -175,12 +171,14 @@ examples:
                       "key_names": [
                         "id"
                       ]
-                    }
+                    }'
 
-
-      - type: "Pushing multiple records"
+      - title: "Pushing multiple records"
         code: |
-          {{ request-header | rstrip }}
+          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
+               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
+               -H 'Content-Type: application/json' \
+               -d $'
                     {
                        "table_name":"customers",
                        "schema":{
@@ -224,11 +222,14 @@ examples:
                        "key_names":[
                           "id"
                        ]
-                    }
+                    }'
 
-      - type: "Pushing a record without a Primary Key"
+      - title: "Pushing a record without a Primary Key"
         code: |
-          {{ request-header | rstrip }}
+          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
+               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
+               -H 'Content-Type: application/json' \
+               -d $'
                     {
                        "table_name":"customers_no_primary_keys",
                        "schema":{
@@ -255,7 +256,7 @@ examples:
                              }
                           }
                        ]
-                    }
+                    }'
 
   - type: "Response"
     language: "json"
