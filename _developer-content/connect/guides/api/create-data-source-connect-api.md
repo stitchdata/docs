@@ -4,13 +4,13 @@
 # -------------------------- #
 
 title: Create a Data Source with the Connect API
-permalink: /developers/stitch-connect/guides/create-data-source-with-stitch-connect
+#permalink: /developers/stitch-connect/guides/create-data-source-with-stitch-connect
 summary: "Create a data source using the Stitch Connect API."
 
-product-type: "connect"
-content-type: "guide"
-content-id: "create-data-source"
-topics: "sources, connect api"
+# product-type: "connect"
+# content-type: "guide"
+# content-id: "create-data-source"
+# topics: "sources, connect api"
 
 key: "create-source-connect-api"
 
