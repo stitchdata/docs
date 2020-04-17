@@ -109,7 +109,7 @@ setup-steps:
       **Note**: You can only copy the API key once, so save it somewhere secure for future reference.
   - title: "add integration"
     content: |
-    4. In the **API Key** field, enter the API key you obtained in [step 1](#obtain-api-key).
+      4. In the **API Key** field, enter the API key you obtained in [step 1](#obtain-api-key).
   - title: "historical sync"
   - title: "replication frequency"
   - title: "track data" ## remove this if the integration doesn't support at least table selection
