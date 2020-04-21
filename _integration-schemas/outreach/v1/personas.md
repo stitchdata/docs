@@ -1,0 +1,28 @@
+---
+tap: "outreach"
+version: "0.x"
+name: "personas"
+doc-link: ""
+singer-schema: "https://github.com/singer-io/tap-outreach/blob/master/tap_outreach/schemas/personas.json"
+description: ""
+replication-method: ""
+api-method:
+    name: ""
+    doc-link: ""
+attributes:
+  - name: "createdAt"
+    type: "date-time"
+    description: ""
+  - name: "description"
+    type: "string"
+    description: ""
+  - name: "id"
+    type: "integer"
+    description: ""
+  - name: "name"
+    type: "string"
+    description: ""
+  - name: "updatedAt"
+    type: "date-time"
+    description: ""
+---
