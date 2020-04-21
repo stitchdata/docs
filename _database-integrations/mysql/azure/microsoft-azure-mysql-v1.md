@@ -106,18 +106,9 @@ setup-steps:
 
       {% include integrations/databases/setup/binlog/configure-server-settings-intro.html %}
     substeps:
-      - title: "Configure the binlog_format server setting"
-        anchor: "configure-binlog-format-server-setting"
-        content: |
-          By default, the `binlog_format` parameter for {{ integration.display_name }} databases is set to `MIXED` and can't be changed in the Azure dashboard or via a SQL client. Stitch requires this parameter to be set to `ROW`.
-
-          **Contact [Microsoft Azure support](https://azure.microsoft.com/en-us/support/create-ticket/){:target="new"} to have this parameter changed for your database before continuing.**
-
       - title: "Configure server settings"
         anchor: "configure-database-server-settings"
         content: |
-          In addition to the `binlog_format` parameter, there are a few other server parameters you'll need to configure to use Log-based Incremental Replication.
-
           {% capture server-instructions %}
           1. In your **Azure portal**, locate and open the **Azure Database for MySQL** database you want to connect to Stitch.
           2. Click **Settings > Server Parameters**.
