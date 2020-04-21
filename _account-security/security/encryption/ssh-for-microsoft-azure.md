@@ -101,6 +101,8 @@ steps:
                {{ ip-list | strip }}
                ```
 
+               **Note**: You may also want to add your own IP address(es) to this list. This ensures that you'll also be able to connect to the database via the virtual machine as needed.
+
              - **Source port ranges**: Enter `22`.
              - **Protocol**: Select **TCP**.
              - **Action**: Select **Allow**.
