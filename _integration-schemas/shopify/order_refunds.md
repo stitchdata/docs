@@ -3,7 +3,7 @@ tap: "shopify"
 version: "1"
 
 name: "order_refunds"
-doc-link: "https://help.shopify.com/en/api/reference/orders/refund"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/refund?api[version]=2019-07"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/order_refunds.json"
 description: |
   The `{{ table.name }}` table contains info about refunds associated with orders.
@@ -12,7 +12,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve all refunds from a specific order"
-    doc-link: "https://help.shopify.com/en/api/reference/orders/refund#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/refund?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].
