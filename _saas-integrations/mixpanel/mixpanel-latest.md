@@ -153,7 +153,10 @@ setup-steps:
   - title: "add integration"
     content: |
       4. Paste your API credentials in the the **API Key** and **Secret** fields, respectively.
-  - title: "historical sync"
+  - title: "Define the historical sync"
+    content: |
+      {% include integrations/saas/setup/historical-sync.html %}
+      When selecting a start date, do not exceed 365 days prior to today's date. If the start date exceeds 365 days the {{ integration.display_name }} API will return errors and block extraction.
   - title: "replication frequency"
   - title: "track data"
 
