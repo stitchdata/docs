@@ -3,9 +3,9 @@ tap: "covid-19"
 version: "1"
 key: ""
 
-name: "neherlab_country_codes"
+name: "neherlab_icu_capacity"
 doc-link: ""
-singer-schema: "https://github.com/singer-io/tap-covid-19/blob/master/tap_covid_19/schemas/neherlab_country_codes.json"
+singer-schema: "https://github.com/singer-io/tap-covid-19/blob/master/tap_covid_19/schemas/neherlab_icu_capacity.json"
 description: |
   The `{{ table.name }}` table contains [Neherlab Scenarios Data](https://github.com/neherlab/covid19_scenarios){:target="new"} from [Neherlab Biozentrum, Center for Computational Biology](https://neherlab.org/){:target="new"}.
 
@@ -14,6 +14,11 @@ description: |
 replication-method: "Key-based Incremental"
 
 attributes:
+  - name: "git_path"
+    type: "string"
+    primary-key: true
+    description: "The path to the file in git."
+
   - name: "__sdc_row_number"
     type: "integer"
     primary-key: true
@@ -24,15 +29,7 @@ attributes:
     replication-key: true
     description: "The date the git file was last modified."
 
-  - name: "alpha_2"
-    type: "string"
-    description: ""
-
-  - name: "alpha_3"
-    type: "string"
-    description: ""
-
-  - name: "country_code"
+  - name: "country"
     type: "string"
     description: ""
 
@@ -44,9 +41,9 @@ attributes:
     type: "string"
     description: "The URL of the source git html."
 
-  - name: "git_path"
-    type: "string"
-    description: "The path to the file in git."
+  - name: "git_last_modified"
+    type: "date-time"
+    description: "The date the git file was last modified."
 
   - name: "git_owner"
     type: "string"
@@ -64,35 +61,35 @@ attributes:
     type: "string"
     description: "The git URL."
 
-  - name: "intermediate_region"
-    type: "string"
+  - name: "acute_care"
+    type: "integer"
     description: ""
 
-  - name: "intermediate_region_code"
-    type: "string"
+  - name: "acute_care_per_100k"
+    type: "integer"
     description: ""
 
-  - name: "iso_3166_2"
-    type: "string"
+  - name: "imcu"
+    type: "integer"
     description: ""
 
-  - name: "name"
-    type: "string"
+  - name: "icu"
+    type: "integer"
     description: ""
 
-  - name: "region"
-    type: "string"
+  - name: "critical_care"
+    type: "integer"
     description: ""
 
-  - name: "region_code"
-    type: "string"
+  - name: "critical_care_per_100k"
+    type: "integer"
     description: ""
 
-  - name: "sub_region"
-    type: "string"
+  - name: "percent_of_total"
+    type: "number"
     description: ""
 
-  - name: "sub_region_code"
-    type: "string"
+  - name: "gdp"
+    type: "number"
     description: ""
 ---

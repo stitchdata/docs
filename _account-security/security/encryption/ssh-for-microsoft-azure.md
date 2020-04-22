@@ -101,6 +101,8 @@ steps:
                {{ ip-list | strip }}
                ```
 
+               **Note**: You may also want to add your own IP address(es) to this list. This ensures that you'll also be able to connect to the database via the virtual machine as needed.
+
              - **Source port ranges**: Enter `22`.
              - **Protocol**: Select **TCP**.
              - **Action**: Select **Allow**.
@@ -148,7 +150,40 @@ steps:
       - title: "Create a server firewall rule for the virtual machine"
         anchor: "create-server-firewall-rule-for-vm"
         content: |
-          {% include shared/whitelisting-ips/{{ page.hosting-type }}.html type="ssh" %}
+          <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-integration-setup-vm">I'm connecting an integration.</a>
+                  </h4>
+              </div>
+              <div id="collapse-integration-setup-vm" class="panel-collapse collapse noCrossRef">
+                  <div class="panel-body">
+                  {% capture integration-copy %}
+                  {% include shared/whitelisting-ips/{{ page.hosting-type }}.html connection-type="integration" type="ssh" %}
+                  {% endcapture %}
+
+                  {{ integration-copy | markdownify }}
+                  </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a class="noCrossRef accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse-destination-setup-vm">I'm connecting a destination.</a>
+                  </h4>
+              </div>
+              <div id="collapse-destination-setup-vm" class="panel-collapse collapse noCrossRef">
+                  <div class="panel-body">
+                  {% capture integration-copy %}
+                  {% include shared/whitelisting-ips/{{ page.hosting-type }}.html connection-type="destination" type="ssh" %}
+                  {% endcapture %}
+
+                  {{ integration-copy | markdownify }}
+                  </div>
+              </div>
+            </div>
+          </div>
 
   - title: "Retrieve your Public Key"
     anchor: "retrieve-your-public-key"

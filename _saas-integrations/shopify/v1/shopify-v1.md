@@ -21,7 +21,7 @@ repo-url: https://github.com/singer-io/tap-shopify
 this-version: "1"
 
 api: |
-  [{{ integration.display_name }} REST Admin API](https://help.shopify.com/en/api/reference){:target="new"}
+  [{{ integration.display_name }} REST Admin API (v2019-07)](https://shopify.dev/docs/admin-api/rest/reference){:target="new"}
 
 # -------------------------- #
 #       Stitch Details       #

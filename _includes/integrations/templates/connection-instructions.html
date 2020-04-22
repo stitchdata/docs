@@ -24,7 +24,7 @@ later on in the template.
 
     <!-- If there are any requirements for setting up the
     integration, display them here. -->
-    {% if integration.requirements-list or integration.tier == "Paid" %}
+    {% if integration.requirements-list or integration.tier != "Free" %}
         <h3 id="setup-requirements">{{ integration.display_name }} setup requirements</h3>
             <p>To set up {{ integration.display_name }} in Stitch, you need:</p>
             <ul>
