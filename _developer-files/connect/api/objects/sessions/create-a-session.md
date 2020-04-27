@@ -39,11 +39,8 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.post.without-body | flatify }}"
 
   - type: "Response"
     language: "json"

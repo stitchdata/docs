@@ -17,12 +17,12 @@ version: "1"
 title: "List hook notifications"
 method: "get"
 short-url: |
-  {{ api.core-objects.notifications.hooks.list.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.hooks.list.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.hooks.list.description }}"
+short: "{{ site.data.connect.core-objects.notifications.hooks.list.description }}"
 description: |
-  {{ api.core-objects.notifications.hooks.list.description }} This includes hooks that have been disabled.
+  {{ site.data.connect.core-objects.notifications.hooks.list.description }} This includes hooks that have been disabled.
   **Note**: To use this endpoint, your Stitch plan must include access to the [Post-load hooks]({{ link.account.post-load-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -31,7 +31,7 @@ description: |
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a `post_load` property containing an array of [Hook Notification objects]({{ api.data-structures.notifications.custom-email.section }}), one for each hook notification in the Stitch account.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a `post_load` property containing an array of [Hook Notification objects]({{ site.data.connect.data-structures.notifications.custom-email.section }}), one for each hook notification in the Stitch account.
 
 
 # ------------------------------ #
@@ -40,14 +40,11 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | strip }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: "{{ endpoint.short-url | flatify | strip }}"
+    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    code: ""
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "post_load": [

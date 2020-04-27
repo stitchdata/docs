@@ -93,20 +93,19 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.post.no-token-required | flatify }}"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-           -H "Content-Type: application/json" \
-           -d "{
-                "partner_id": "<PARTNER_ID>",
-                "partner_secret": "<PARTNER_SECRET>",
-                "first_name": "Stitch",
-                "last_name": "Product Team",
-                "company": "Stitch Product Team",
-                "email": "stitch-api-test@stitchdata.com"
-              }"
+        '{
+          "partner_id": "<PARTNER_ID>",
+          "partner_secret": "<PARTNER_SECRET>",
+          "first_name": "Stitch",
+          "last_name": "Product Team",
+          "company": "Stitch Product Team",
+          "email": "stitch-api-test@stitchdata.com"
+        }'
+  
   - type: "Response"
-    language: "json"
     code: |
       {
         "access_token": "at_<ACCESS_TOKEN>",

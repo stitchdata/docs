@@ -6,7 +6,7 @@
 product-type: "connect"
 content-type: "api-endpoint"
 endpoint: "notifications"
-key: "enable-hook-notification"
+key: "re-enable-hook-notification"
 version: "1"
 
 
@@ -17,12 +17,12 @@ version: "1"
 title: "Re-enable a webhook"
 method: "put"
 short-url: |
-  {{ api.core-objects.notifications.hooks.re-enable.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.hooks.re-enable.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.hooks.re-enable.description }}"
+short: "{{ site.data.connect.core-objects.notifications.hooks.re-enable.description }}"
 description: |
-  {{ api.core-objects.notifications.hooks.re-enable.description }}
+  {{ site.data.connect.core-objects.notifications.hooks.re-enable.description }}
   **Note**: To use this endpoint, your Stitch plan must include access to the [Post-load hooks]({{ link.account.post-load-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -51,7 +51,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a single [Hook notification object]({{ api.data-structures.notifications.hook.section }}) with a null `disabled_at` property.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a single [Hook notification object]({{ site.data.connect.data-structures.notifications.hook.section }}) with a null `disabled_at` property.
 
 
 # ------------------------------ #
@@ -60,17 +60,15 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{id","8" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","8" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                 "enable":true
-               }"
+      '{
+         "enable":true
+       }'
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "id": 8,

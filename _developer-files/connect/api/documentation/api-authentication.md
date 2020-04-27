@@ -15,13 +15,11 @@ sections:
 
       In the examples in this documentation, we use bearer auth:
 
-      {% capture code %}curl -X GET {{ api.base-url }}{{ api.core-objects.sources.base }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>"
-      {% endcapture %}
-
+      {% assign request-url = api.core-objects.sources.base %}
+      {% assign header = site.data.connect.request-headers.get %}
       {% assign description = "GET " | append: api.core-objects.sources.base %}
 
-      {% include layout/code-snippet.html code-description=description language="json" code=code %}
+      {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
 
       All requests must be made over HTTPS or they will fail. API requests that don't contain authentication will also fail.
 

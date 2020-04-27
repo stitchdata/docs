@@ -20,10 +20,10 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/metadata
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.streams.update.short }}"
+short: "{{ site.data.connect.core-objects.streams.update.short }}"
 description: |
   {% include misc/data-files.html %}
-  {{ api.core-objects.streams.update.description | flatify }}
+  {{ site.data.connect.core-objects.streams.update.description | flatify }}
 
   Refer to the [Select streams and fields guide]({{ link.connect.guides.select-streams-and-fields | prepend: site.baseurl }}) for instructions on selecting streams and fields.
 
@@ -37,7 +37,7 @@ arguments:
     required: true
     type: "path parameter"
     description: |
-      A path parameter corresponding to the [unique ID of the source]({{ api.core-objects.sources.object }}) containing the stream(s).
+      A path parameter corresponding to the [unique ID of the source]({{ site.data.connect.core-objects.sources.object }}) containing the stream(s).
     example-value: |
       120643
 
@@ -45,7 +45,7 @@ arguments:
     required: true
     type: "array"
     description: |
-      An array of [Stream objects]({{ api.core-objects.streams.object }}), with each object corresponding to a stream to be updated.
+      An array of [Stream objects]({{ site.data.connect.core-objects.streams.object }}), with each object corresponding to a stream to be updated.
 
       Each object is required to have the following properties:
     subarguments:
@@ -105,209 +105,215 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
     subexamples: 
       - title: "Selecting a single stream"
+        request-url: &request-url |
+          {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","120645" | remove: right-bracket | strip_newlines }}
+        header: &header "{{ site.data.connect.request-headers.put.with-body | flatify }}"
         code: |
-          {% capture request-header %}{% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","120645" | remove: right-bracket | strip_newlines }} \
-               -H "Authorization: Bearer <ACCESS_TOKEN>" \
-               -H "Content-Type: application/json" \
-               -d "{
-          {% endcapture %}{{ request-header | flatify | rstrip }}
-                     "streams": [
-                       {
-                         "tap_stream_id": "custom_collections",
-                         "metadata": [
-                           {
-                             "breadcrumb": [],
-                             "metadata": {
-                               "selected": true
-                             }
-                           }
-                         ]
-                       }
-                     ]
-                   }"
+          '{
+             "streams": [
+               {
+                 "tap_stream_id": "custom_collections",
+                 "metadata": [
+                   {
+                     "breadcrumb": [],
+                     "metadata": {
+                       "selected": true
+                     }
+                   }
+                 ]
+               }
+             ]
+           }'
 
       - title: "Selecting a single stream and multiple fields"
+        request-url: *request-url
+        header: *header
         code: |
-          {{ request-header | flatify | rstrip }}
-                     "streams": [
-                       {
-                         "tap_stream_id": "custom_collections",
-                         "metadata": [
-                           {
-                             "breadcrumb": [],
-                             "metadata": {
-                               "selected": true
-                             }
-                           },
-                           {
-                             "breadcrumb": [
-                               "properties",
-                               "title"
-                             ],
-                             "metadata": {
-                               "selected": true
-                             }
-                           },
-                           {
-                             "breadcrumb": [
-                               "properties",
-                               "published_at"
-                             ],
-                             "metadata": {
-                               "selected": true
-                             }
-                           }
-                         ]
-                       }
-                     ]
-                   }"
+          '{
+             "streams": [
+               {
+                 "tap_stream_id": "custom_collections",
+                 "metadata": [
+                   {
+                     "breadcrumb": [],
+                     "metadata": {
+                       "selected": true
+                     }
+                   },
+                   {
+                     "breadcrumb": [
+                       "properties",
+                       "title"
+                     ],
+                     "metadata": {
+                       "selected": true
+                     }
+                   },
+                   {
+                     "breadcrumb": [
+                       "properties",
+                       "published_at"
+                     ],
+                     "metadata": {
+                       "selected": true
+                     }
+                   }
+                 ]
+               }
+             ]
+           }'
 
       - title: "Selecting multiple streams and fields"
+        request-url: *request-url
+        header: *header
         code: |
-          {{ request-header | flatify | rstrip }}
-                     "streams": [
-                        {
-                          "tap_stream_id": "custom_collections",
-                          "metadata": [
-                            {
-                              "breadcrumb": [],
-                              "metadata": {
-                                "selected": true
-                              }
-                            },
-                            {
-                              "breadcrumb": [
-                                "properties",
-                                "title"
-                              ],
-                              "metadata": {
-                                "selected": true
-                              }
-                            },
-                            {
-                              "breadcrumb": [
-                                "properties",
-                                "published_at"
-                              ],
-                              "metadata": {
-                                "selected": true
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "tap_stream_id": "customers",
-                          "metadata": [
-                            {
-                              "breadcrumb": [],
-                              "metadata": {
-                                "selected": true
-                              }
-                            },
-                            {
-                              "breadcrumb": [
-                                "properties",
-                                "first_name"
-                              ],
-                              "metadata": {
-                                "selected": true
-                              }
-                            },
-                            {
-                              "breadcrumb": [
-                                "properties",
-                                "last_name"
-                              ],
-                              "metadata": {
-                                "selected": true
-                              }
-                            }
-                          ]
-                        }
-                      ]
-                    }'
+          '{
+             "streams": [
+                {
+                  "tap_stream_id": "custom_collections",
+                  "metadata": [
+                    {
+                      "breadcrumb": [],
+                      "metadata": {
+                        "selected": true
+                      }
+                    },
+                    {
+                      "breadcrumb": [
+                        "properties",
+                        "title"
+                      ],
+                      "metadata": {
+                        "selected": true
+                      }
+                    },
+                    {
+                      "breadcrumb": [
+                        "properties",
+                        "published_at"
+                      ],
+                      "metadata": {
+                        "selected": true
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tap_stream_id": "customers",
+                  "metadata": [
+                    {
+                      "breadcrumb": [],
+                      "metadata": {
+                        "selected": true
+                      }
+                    },
+                    {
+                      "breadcrumb": [
+                        "properties",
+                        "first_name"
+                      ],
+                      "metadata": {
+                        "selected": true
+                      }
+                    },
+                    {
+                      "breadcrumb": [
+                        "properties",
+                        "last_name"
+                      ],
+                      "metadata": {
+                        "selected": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }'
 
       - title: "Selecting a database table and defining replication"
+        request-url: *request-url
+        header: *header
         code: |
-          {{ request-header | flatify | rstrip }}
-                     "streams": [
-                       {
-                         "tap_stream_id": "demni2mf59dt10-public-customers",
-                         "metadata": [
-                           {
-                             "breadcrumb": [],
-                             "metadata": {
-                               "selected": true,
-                               "replication-method": "INCREMENTAL",
-                               "replication-key": "updated_at"
-                             }
-                           },
-                           {
-                             "breadcrumb": [
-                               "properties",
-                               "name"
-                             ],
-                             "metadata": {
-                               "selected": true
-                             }
-                           },
-                           {
-                             "breadcrumb": [
-                               "properties",
-                               "has_magic"
-                             ],
-                             "metadata": {
-                               "selected": true
-                             }
-                           }
-                         ]
-                       }
-                     ]
-                   }"
+          '{
+             "streams": [
+               {
+                 "tap_stream_id": "demni2mf59dt10-public-customers",
+                 "metadata": [
+                   {
+                     "breadcrumb": [],
+                     "metadata": {
+                       "selected": true,
+                       "replication-method": "INCREMENTAL",
+                       "replication-key": "updated_at"
+                     }
+                   },
+                   {
+                     "breadcrumb": [
+                       "properties",
+                       "name"
+                     ],
+                     "metadata": {
+                       "selected": true
+                     }
+                   },
+                   {
+                     "breadcrumb": [
+                       "properties",
+                       "has_magic"
+                     ],
+                     "metadata": {
+                       "selected": true
+                     }
+                   }
+                 ]
+               }
+             ]
+           }'
 
       - title: "Selecting a database view and defining replication"
+        request-url: *request-url
+        header: *header
         code: |
-          {{ request-header | flatify | rstrip }}
-                     "streams": [
-                         {
-                           "tap_stream_id": "demni2mf59dt10-public-customer_view",
-                           "metadata": [
-                             {
-                               "breadcrumb": [],
-                               "metadata": {
-                                 "replication-key": "updated_at",
-                                 "view-key-properties": [
-                                   "id"
-                                 ],
-                                 "replication-method": "INCREMENTAL",
-                                 "selected": true
-                               }
-                             },
-                             {
-                               "breadcrumb": [
-                                 "properties",
-                                 "name"
-                               ],
-                               "metadata": {
-                                 "selected": true
-                               }
-                             },
-                             {
-                               "breadcrumb": [
-                                 "properties",
-                                 "has_magic"
-                               ],
-                               "metadata": {
-                                 "selected": true
-                               }
-                             }
-                           ]
-                         }
-                       ]
-                     }"
+          '{
+             "streams": [
+                 {
+                   "tap_stream_id": "demni2mf59dt10-public-customer_view",
+                   "metadata": [
+                     {
+                       "breadcrumb": [],
+                       "metadata": {
+                         "replication-key": "updated_at",
+                         "view-key-properties": [
+                           "id"
+                         ],
+                         "replication-method": "INCREMENTAL",
+                         "selected": true
+                       }
+                     },
+                     {
+                       "breadcrumb": [
+                         "properties",
+                         "name"
+                       ],
+                       "metadata": {
+                         "selected": true
+                       }
+                     },
+                     {
+                       "breadcrumb": [
+                         "properties",
+                         "has_magic"
+                       ],
+                       "metadata": {
+                         "selected": true
+                       }
+                     }
+                   ]
+                 }
+               ]
+             }'
 
   - type: "Response"
     subexamples:

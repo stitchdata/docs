@@ -17,12 +17,12 @@ version: "1"
 title: "Re-enable a custom email"
 method: "put"
 short-url: |
-  {{ api.core-objects.notifications.custom-emails.re-enable.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.re-enable.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.custom-emails.re-enable.description }}"
+short: "{{ site.data.connect.core-objects.notifications.custom-emails.re-enable.description }}"
 description: |
-  {{ api.core-objects.notifications.custom-emails.re-enable.description }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.re-enable.description }}
   **Note**: To use this endpoint, your Stitch plan must include access to the [Custom notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -37,6 +37,7 @@ arguments:
     description: "A path parameter corresponding to the unique ID of the custom notification recipient to be re-enabled."
     example-value: |
       22
+  
   - name: "disabled_at"
     required: true
     type: "null"
@@ -59,17 +60,15 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{id","22" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","22" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                 "disabled_at": null
-               }"
+      '{
+         "disabled_at": null
+       }'
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "disabled_at": null

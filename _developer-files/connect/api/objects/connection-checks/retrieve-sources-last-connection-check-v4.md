@@ -52,26 +52,21 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.get }}"
+    code: ""
 
 
 ## Code samples live in: _data/connect/code-examples/connection-checks.yml
   - type: "Response"
-    language: "json"
     subexamples:
       - title: "An in progress connection check"
-        code: |
-          {{ site.data.connect.code-examples.connection-checks.in-progress }}
+        code: "{{ site.data.connect.code-examples.connection-checks.in-progress | lstrip }}"
 
       - title: "A successful connection check"
-        code: |
-          {{ site.data.connect.code-examples.connection-checks.successful }}
+        code: "{{ site.data.connect.code-examples.connection-checks.successful | lstrip }}"
 
       - title: "A failed connection check"
-        code: |
-          {{ site.data.connect.code-examples.connection-checks.in-progress }}
+        code: "{{ site.data.connect.code-examples.connection-checks.in-progress | lstrip }}"
 ---

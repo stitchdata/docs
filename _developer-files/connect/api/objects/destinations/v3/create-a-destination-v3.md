@@ -54,12 +54,10 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
+              '{
                 "type":"s3",
                 "connection": {
                   "s3_bucket":"com-stitch-test-bucket",
@@ -68,10 +66,9 @@ examples:
                   "csv_delimiter":",",
                   "csv_force_quote":true
                   }
-               }"
+               }'
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "id":"<DESTINATION_ID>",

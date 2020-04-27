@@ -59,22 +59,21 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{destination_id","86741" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{destination_id","86741" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                "type":"postgres",
-                "connection": {
-                  "host": "<HOST>",
-                  "port": 5432,
-                  "username": "<USERNAME>",
-                  "database": "<DATABASE>",
-                  "password": "<PASSWORD>",
-                  "ssl": false
-                  }
-              }"
+      '{
+          "type":"postgres",
+          "connection": {
+            "host": "<HOST>",
+            "port": 5432,
+            "username": "<USERNAME>",
+            "database": "<DATABASE>",
+            "password": "<PASSWORD>",
+            "ssl": false
+            }
+        }'
 
   - type: "Response"
     language: "json"

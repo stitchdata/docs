@@ -59,26 +59,23 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                "type":"postgres",
-                "properties": {
-                  "host":"<HOST>",
-                  "port":"5432",
-                  "username":"stitch",
-                  "database":"demni2mf59dt10",
-                  "password":"<PASSWORD>",
-                  "ssl":false
-                  }
-               }"
+      '{
+        "type":"postgres",
+        "properties": {
+          "host":"<HOST>",
+          "port":"5432",
+          "username":"stitch",
+          "database":"demni2mf59dt10",
+          "password":"<PASSWORD>",
+          "ssl":false
+          }
+       }'
 
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "properties": {

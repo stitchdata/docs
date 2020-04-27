@@ -20,8 +20,8 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/{stream_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.streams.retrieve-schema.short }}"
-description: "{{ api.core-objects.streams.retrieve-schema.description | flatify }}"
+short: "{{ site.data.connect.core-objects.streams.retrieve-schema.short }}"
+description: "{{ site.data.connect.core-objects.streams.retrieve-schema.description | flatify }}"
 
 
 # -------------------------- #
@@ -33,14 +33,14 @@ arguments:
     required: true
     type: "path parameter"
     description: |
-      A path parameter corresponding to the [unique ID of the source]({{ api.core-objects.sources.object }}) containing the stream.
+      A path parameter corresponding to the [unique ID of the source]({{ site.data.connect.core-objects.sources.object }}) containing the stream.
     example-value: |
       120643
 
   - name: "stream_id"
     required: true
     type: "path parameter"
-    description: "A path parameter corresponding to the [unique ID of the stream]({{ api.core-objects.streams.object }}) to be retrieved."
+    description: "A path parameter corresponding to the [unique ID of the stream]({{ site.data.connect.core-objects.streams.object }}) to be retrieved."
     example-value: |
       2339248
 
@@ -59,10 +59,10 @@ returns: |
 
 examples:
   - type: "Request"
-    code: |
-      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | replace: "{source_id","120643" | replace:"{stream_id","2339248" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","120643" | replace:"{stream_id","2339248" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    code: ""
 
   - type: "Response"
     code: |

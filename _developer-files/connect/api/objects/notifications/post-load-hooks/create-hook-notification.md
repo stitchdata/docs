@@ -17,12 +17,12 @@ version: "1"
 title: "Create a webhook"
 method: "post"
 short-url: |
-  {{ api.core-objects.notifications.hooks.post.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.hooks.post.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.hooks.post.description }}"
+short: "{{ site.data.connect.core-objects.notifications.hooks.post.description }}"
 description: |
-  {{ api.core-objects.notifications.hooks.post.description }}
+  {{ site.data.connect.core-objects.notifications.hooks.post.description }}
   **Note**: To use this endpoint, your Stitch plan must include access to the [Post-load hooks]({{ link.account.post-load-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -57,7 +57,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a single [Hook notification object]({{ api.data-structures.notifications.hook.section }}).
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a single [Hook notification object]({{ site.data.connect.data-structures.notifications.hook.section }}).
 
 
 # ------------------------------ #
@@ -66,20 +66,17 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                 "type":"post_load",
-                 "config":{  
-                    "url":"https://hooks.zapier.com/hooks/catch/some/webhook/id"
-                 }
-               }"
+      '{
+         "type":"post_load",
+         "config":{  
+            "url":"https://hooks.zapier.com/hooks/catch/some/webhook/id"
+         }
+       }'
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "id": 8,

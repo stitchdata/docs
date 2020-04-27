@@ -22,7 +22,7 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.get.short }}"
 description: |
-  {{ api.core-objects.source-types.get.description | flatify }}
+  {{ site.data.connect.core-objects.source-types.get.description | flatify }}
 
   Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for info on the sources that are available in the API.
 
@@ -44,7 +44,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source Report Card object]({{ api.data-structures.report-cards.source.section }}) corresponding to `type`.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source Report Card object]({{ site.data.connect.data-structures.report-cards.source.section }}) corresponding to `type`.
 
 
 # ------------------------------ #
@@ -53,14 +53,12 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | remove: right-bracket | replace:"{source_type","platform.hubspot" | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    code: ""
 
   - type: "Response"
-    language: "json"
     code: |
       {
         "type": "platform.hubspot",

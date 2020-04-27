@@ -20,8 +20,8 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.streams.list.description }}"
-description: "{{ api.core-objects.streams.list.description }}"
+short: "{{ site.data.connect.core-objects.streams.list.description }}"
+description: "{{ site.data.connect.core-objects.streams.list.description }}"
 
 
 # -------------------------- #
@@ -33,7 +33,7 @@ arguments:
     required: true
     type: "path parameter"
     description: |
-      A path parameter corresponding to the [unique ID of the source]({{ api.core-objects.sources.object }}) containing the streams.
+      A path parameter corresponding to the [unique ID of the source]({{ site.data.connect.core-objects.sources.object }}) containing the streams.
     example-value: |
       120643
 
@@ -43,7 +43,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Stream objects]({{ api.core-objects.streams.object }}), one for each available stream in the source.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Stream objects]({{ site.data.connect.core-objects.streams.object }}), one for each available stream in the source.
 
 
 # ------------------------------ #
@@ -52,11 +52,10 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}curl {{ endpoint.full-url | flatify | replace: "{source_id","120643" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \ 
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","120643" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    code: ""
 
   - type: "Response"
     subexamples:

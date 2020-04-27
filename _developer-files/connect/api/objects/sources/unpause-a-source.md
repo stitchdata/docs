@@ -1,4 +1,8 @@
 ---
+# -------------------------- #
+#      ENDPOINT DETAILS      #
+# -------------------------- #
+
 product-type: "connect"
 content-type: "api-endpoint"
 endpoint: "sources"
@@ -6,17 +10,26 @@ key: "unpause-a-source"
 version: "4"
 
 
+# -------------------------- #
+#       METHOD DETAILS       #
+# -------------------------- #
+
 title: "Unpause a source"
 method: "put"
 short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/{source_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.sources.pause.description }}"
+short: "{{ site.data.connect.core-objects.sources.pause.description }}"
 description: |
-  {{ api.core-objects.sources.unpause.description }}
+  {{ site.data.connect.core-objects.sources.unpause.description }}
 
   **Note**: This endpoint behaves identically to [Update a source](#update-a-source).
+
+
+# -------------------------- #
+#       METHOD ARGUMENTS     #
+# -------------------------- #
 
 arguments:
   - name: "source_id"
@@ -35,22 +48,29 @@ arguments:
       null
 
 
+# -------------------------- #
+#           RETURNS          #
+# -------------------------- #
+
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}) with a `null` `paused_at` value.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ site.data.connect.core-objects.sources.object }}) with a `null` `paused_at` value.
+
+
+# ------------------------------ #
+#   EXAMPLE REQUEST & RESPONSES  #
+# ------------------------------ #
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                 "paused_at":null
-               }"
+      '{
+          "paused_at":null
+      }'
 
   - type: "Response"
-    language: "json"
     code: |
       {
          "properties":{

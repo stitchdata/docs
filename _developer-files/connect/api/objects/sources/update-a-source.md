@@ -20,8 +20,8 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}/{source_id}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.sources.update.description }}"
-description: "{{ api.core-objects.sources.update.description }}"
+short: "{{ site.data.connect.core-objects.sources.update.description }}"
+description: "{{ site.data.connect.core-objects.sources.update.description }}"
 
 
 # -------------------------- #
@@ -66,7 +66,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}).
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ site.data.connect.core-objects.sources.object }}).
 
 
 # ------------------------------ #
@@ -75,20 +75,18 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json" \
-           -d "{
-                   "display_name":"Shopify",
-                   "properties":{
-                      "frequency_in_minutes":"60"
-                   }
-               }"
+      '{
+           "display_name":"Shopify",
+           "properties":{
+              "frequency_in_minutes":"60"
+           }
+       }'
 
   - type: "Response"
-    language: "json"
     code: |
       {
          "properties":{

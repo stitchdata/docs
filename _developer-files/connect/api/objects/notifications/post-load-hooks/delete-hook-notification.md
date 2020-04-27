@@ -17,12 +17,12 @@ version: "1"
 title: "Delete a hook"
 method: "delete"
 short-url: |
-  {{ api.core-objects.notifications.hooks.delete.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.hooks.delete.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.hooks.delete.description }}"
+short: "{{ site.data.connect.core-objects.notifications.hooks.delete.description }}"
 description: |
-  {{ api.core-objects.notifications.hooks.delete.description }}
+  {{ site.data.connect.core-objects.notifications.hooks.delete.description }}
   **Note**: To use this endpoint, your Stitch plan must include access to the [Post-load hooks]({{ link.account.post-load-notifications | prepend: site.baseurl }}) feature.
 
 
@@ -53,14 +53,12 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{id","8" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{id","8" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.delete | flatify }}"
+    code: ""
 
   - type: "Response"
-    language: "json"
     code: |
       null
 
