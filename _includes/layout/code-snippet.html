@@ -1,10 +1,10 @@
-<div class="code-header">{% if include.code-description %}<div class="code-description-container"><strong>{{ include.code-description | flatify }}</strong></div>{% endif %}<div class="copy-code-container"><div class="copy-code-button" data-code="{{ include.code | escape }}" title="Copy to clipboard" tabindex="0"></div></div></div>
+<div class="code-header">{% if include.code-description %}<div class="code-description-container"><strong>{{ include.code-description | flatify }}</strong></div>{% endif %}<div class="copy-code-container"><div class="copy-code-button" data-code="{{ include.code | flatify | escape | rstrip }}" title="Copy to clipboard" tabindex="0"></div></div></div>
 
 
 {% unless include.use-code-block == false %}
 {% capture code-example %}
 ```{{ include.language | default: "json" }}
-{{ include.code | flatify | rstrip }}
+{{ include.code | flatify | rstrip | lstrip }}
 ```
 {% endcapture %}
 

@@ -28,7 +28,11 @@
                 {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
             {% endcapture %}
 
-            {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+            {% if example.type == "Request" %}
+                {% include developers/api-request-examples.html code-description=description type="example" %}
+            {% else %}
+                {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+            {% endif %}
         {% else %}
             {% include layout/code-snippet.html language=example.language code=example.code %}
         {% endif %}
@@ -97,22 +101,6 @@
                 {% endif %}
 
 
-<!-- This is still inside the tab; it just has to be
-    flush left or Jekyll will throw a fit -->
-{% if example.code %}
-    {% if include.type == "endpoint" %}
-        {% capture description %}
-            {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
-        {% endcapture %}
-
-        {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
-
-    {% else %}
-        {% include layout/code-snippet.html language=example.language code=example.code %}
-    {% endif %}
-{% endif %}
-
-
 <!-- If there are subexamples, list them out: -->
 {% if example.subexamples %}
 <p>
@@ -132,12 +120,34 @@
             {% if subexample.title %}{{ subexample.title }}{% endif %}
         {% endcapture %}
 
-        {% include layout/code-snippet.html code-description=description language=subexample.language code=subexample.code %}
+        {% include developers/api-request-examples.html code-description=description type="subexample" %}
 
     {% else %}
         {% include layout/code-snippet.html language=subexample.language code=subexample.code %}
     {% endif %}
 {% endfor %}
+
+{% else %}
+
+<!-- This is still inside the tab; it just has to be
+    flush left or Jekyll will throw a fit -->
+
+{% if include.type == "endpoint" %}
+    {% capture description %}
+        {% if example.type == "Response" %}Response for {% endif %}{{ item.method | upcase }} {{ item.short-url | flatify }}
+    {% endcapture %}
+
+    {% if example.type == "Request" %}
+        {% include developers/api-request-examples.html code-description=description type="example" %}
+
+    {% else %}
+        {% include layout/code-snippet.html code-description=description language=example.language code=example.code %}
+    {% endif %}
+
+{% else %}
+    {% include layout/code-snippet.html language=example.language code=example.code %}
+{% endif %}
+
 {% endif %}
         {% endcase %}
 
