@@ -1,0 +1,92 @@
+# ---------------------------- #
+#   NOTIFICATION CORE OBJECT   #
+# ---------------------------- #
+
+title: "Notifications"
+section: "#notifications"
+object: "#notification--object"
+base: "/notifications/public/v1/api"
+description: "An object representing a notification configuration in Stitch."
+
+
+# ---------------------------- #
+#  CUSTOM EMAIL NOTIFICATIONS  #
+# ---------------------------- #
+
+custom-emails:
+  base: "{{ site.data.connect.core-objects.notifications.base }}/custom-emails"
+  post:
+    name: "{{ site.data.connect.core-objects.notifications.custom-emails.base | flatify }}"
+    title: "Create a custom email"
+    method: "post"
+    anchor: "#create-custom-notification-recipient"
+    description: "Creates a custom email notification recipient."
+
+  disable:
+    name: "{{ site.data.connect.core-objects.notifications.custom-emails.base | flatify }}/{id}"
+    title: "Disable a custom email"
+    method: "put"
+    anchor: "#disable-custom-notification-recipient"
+    description: "Disables (pauses) an existing custom email notification recipient."
+
+  re-enable:
+    name: "{{ site.data.connect.core-objects.notifications.custom-emails.base | flatify }}/{id}"
+    title: "Re-enable a custom email"
+    method: "put"
+    anchor: "#enable-custom-notification-recipient"
+    description: "Re-enables (unpauses) an existing custom email notification recipient."
+
+  list:
+    name: "{{ site.data.connect.core-objects.notifications.custom-emails.base | flatify }}"
+    title: "List custom emails"
+    method: "get"
+    anchor: "#list-custom-notification-recipients"
+    description: "Retrieves a list of all custom email notification recipients for a Stitch account."
+
+  delete:
+    name: "{{ site.data.connect.core-objects.notifications.custom-emails.base | flatify }}/{id}"
+    title: "Delete a custom email"
+    method: "delete"
+    anchor: "#delete-custom-notification-recipient"
+    description: "Deletes an existing custom email notification recipient."
+
+# ------------------------------ #
+#  POST-LOAD HOOK NOTIFICATIONS  #
+# ------------------------------ #
+
+hooks:
+  base: "{{ site.data.connect.core-objects.notifications.base }}/hooks"
+  post:
+    name: "{{ site.data.connect.core-objects.notifications.hooks.base | flatify }}"
+    title: "Create a webhook"
+    method: "post"
+    anchor: "#create-hook-notification"
+    description: "Creates a hook notification."
+
+  disable:
+    name: "{{ site.data.connect.core-objects.notifications.hooks.base | flatify }}/{id}"
+    title: "Disable a webhook"
+    method: "put"
+    anchor: "#disable-hook-notification"
+    description: "Disables an existing hook notification."
+
+  re-enable:
+    name: "{{ site.data.connect.core-objects.notifications.hooks.base | flatify }}/{id}"
+    title: "Re-enable a webhook"
+    method: "put"
+    anchor: "#re-enable-hook-notification"
+    description: "Re-enables a disabled hook notification."
+
+  list:
+    name: "{{ site.data.connect.core-objects.notifications.hooks.base | flatify }}"
+    title: "List webhooks"
+    method: "get"
+    anchor: "#list-hook-notifications"
+    description: "Retrieves a list of all hook notifications for a Stitch account."
+
+  delete:
+    name: "{{ site.data.connect.core-objects.notifications.hooks.base | flatify }}/{id}"
+    title: "Delete a webhook"
+    method: "delete"
+    anchor: "#delete-hook-notification"
+    description: "Deletes an existing hook notification."
