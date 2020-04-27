@@ -156,7 +156,7 @@ setup-steps:
   - title: "Define the historical sync"
     content: |
       {% include integrations/saas/setup/historical-sync.html %}
-      When selecting a start date, do not exceed 365 days prior to today's date. If the start date exceeds 365 days the {{ integration.display_name }} API will return errors and block extraction.
+      When selecting a start date earlier than the default number of days in the integration, refer to your {{ integration.display_name }} account's pricing plan to determine how many days of historical data is allocated. If you enter a number of days greater that what your account has, the {{ integration.display_name }} API will return errors and block extraction.
   - title: "replication frequency"
   - title: "track data"
 
