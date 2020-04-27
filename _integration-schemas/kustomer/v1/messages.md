@@ -1,31 +1,31 @@
 ---
 tap: "kustomer"
-version: "1"
+version: "1.0"
 
-name: "kobjects"
-doc-link: "https://dev.kustomer.com/v1/klasses/"
-singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/kobjects.json"
+name: "messages"
+doc-link: "https://dev.kustomer.com/v1/messages/"
+singer-schema: "https://github.com/singer-io/tap-kustomer/blob/master/tap_kustomer/schemas/messages.json"
 description: |
-  The {{ table.name }} table contains information about {{ integration.display_name }} objects in the {{ integration.display_name }} app.
+  The {{ table.name }} table contains information about messages in the {{ integration.display_name }} app.
 
 replication-method: "Key-based Incremental"
 
 api-method:
-    name: "getKObject"
-    doc-link: "https://dev.kustomer.com/v1/klasses/get-kobject"
-    
+    name: "getMessages"
+    doc-link: "https://dev.kustomer.com/v1/messages/get-message"
+
 attributes:
   - name: "id"
     type: "string"
     primary-key: true
-    description: "The KObject ID."
-    #foreign-key-id: "kobject-id"
+    description: "The message ID."
+    #foreign-key-id: "message-id"
 
   - name: "updated_at"
     type: "string"
-    description: "The date the object was last updated."
-    replication-key: true  
-
+    description: "The day the message was last updated."
+    replication-key: true
+  
   - name: "created_at"
     type: "string"
     description: ""
@@ -106,7 +106,13 @@ attributes:
   - name: "icon"
     type: "string"
     description: ""
-  
+  - name: "images"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "klass"
     type: "object"
     description: ""
@@ -131,10 +137,18 @@ attributes:
       - name: "type"
         type: "string"
         description: ""
+  - name: "tags"
+    type: "array"
+    description: ""
+    subattributes:
+      - name: "value"
+        type: "string"
+        description: ""
   - name: "title"
     type: "string"
     description: ""
   - name: "type"
     type: "string"
     description: ""
+  
 ---

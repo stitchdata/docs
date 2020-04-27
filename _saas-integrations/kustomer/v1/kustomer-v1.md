@@ -25,13 +25,13 @@ key: "kustomer-setup"
 #         Tap Details        #
 # -------------------------- #
 
-name: "Kustomer"
+name: "kustomer"
 display_name: "Kustomer"
 
 singer: true
 status-url: ""
 
-tap-name: "kustomer"
+tap-name: "Kustomer"
 repo-url: https://github.com/singer-io/tap-kustomer
 
 this-version: "1"

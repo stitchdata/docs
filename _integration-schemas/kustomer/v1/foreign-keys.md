@@ -7,7 +7,7 @@
 ## https://docs-about-stitch-docs.netlify.com/reference/integration-templates/saas-foreign-keys/
 ## FOR INSTRUCTIONS & REFERENCE INFO
 
-tap-reference: "integration"
+tap-reference: "kustomer"
 
 version: "1"
 
@@ -66,5 +66,12 @@ foreign-keys:
     attribute: "id"
     all-foreign-keys:
       - table: "conversations"
-        join-on: "id"                                          
+        join-on: "id" 
+
+  - id: "message-id"
+    table: "messages"
+    attribute: "id"
+    all-foreign-keys:
+      - table: "messages"
+        join-on: "id"                                               
 ---
