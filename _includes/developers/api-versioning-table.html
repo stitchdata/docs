@@ -1,7 +1,7 @@
 <!-- Displays a table of endpoints and their versions for APIS. -->
 
 {% assign all-docs = site.developer-files | where:"product-type",page.product-type %}
-  {% assign objects = all-docs |  where:"content-type","api-object" | sort:"order"%}
+  {% assign objects = all-docs |  where:"content-type","api-object" | sort:"order" %}
 
 <table class="attribute-list">
   {% for object in objects %}
@@ -29,9 +29,9 @@
         <td class="attribute-description">
           {% assign all-endpoints = site.developer-files | where:"content-type","api-endpoint" %}
             {% assign object-endpoints = all-endpoints | where:"endpoint",object.endpoint %}
-              {% assign version-endpoints = object-endpoints | where:"version",version.number | sort: "order" %}
+              {% assign version-endpoints = object-endpoints | where_exp:"endpoint","endpoint.version == version.number" | sort: "order" %}
                 <ul>
-                  {% for endpoint in version-endpoints %}
+                  {% for endpoint in object-endpoints %}
                     {% unless endpoint.not-available-until-version %}
                       <li style="margin: 0">
                         <a href="#{{ endpoint.key }}">{{ endpoint.method | upcase }} {{ endpoint.short-url | flatify }}</a>
