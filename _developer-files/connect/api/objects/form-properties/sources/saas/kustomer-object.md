@@ -45,8 +45,8 @@ object-attributes:
     type: "string"
     required: true
     description: |
-      Your {{ form-propery.display-name }} API key. Refer to the [{{ form-propery.display-name }} documentation]({{ doc-link | append: "#obtain-api-key" }}) for instruction on how to obtain this.
-    value: "<YOUR_API_KEY>"
+      Your {{ form-propery.display-name }} API key. Refer to the [{{ form-property.display-name }} documentation]({{ doc-link | append: "#obtain-api-key" }}) for instructions on obtaining this.
+    value: "<YOUR_KUSTOMER_API_KEY>"
 
   - name: "date_window_size"
     type: "string"
