@@ -57,7 +57,7 @@
             {% endfor %}
 
         </ul>
-        <div class="tab-content">
+        <div class="tab-content" style="background-color: #FFFFFF;">
             {% for version in object.versions %}
                 {% if forloop.first == true %}
                     <div role="tabpanel" class="tab-pane active" id="{{ object-method.id }}-{{ version.number | prepend: "v" }}">

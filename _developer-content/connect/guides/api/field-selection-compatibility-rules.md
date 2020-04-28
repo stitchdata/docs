@@ -87,18 +87,25 @@ sections:
             content: |
               For database sources, Stitch will typically query the database's information schema to determine the Primary Key fields and then store the list of Primary Key field names as a list in the [stream's metadata]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.stream-level.section }}) `table-key-properties` property:
 
-              ```json
-              {{ site.data.connect.code-examples.streams.database-stream | rstrip }}
-              ```
+              {% capture code %}{{ site.data.connect.code-examples.streams.database-stream | rstrip }}
+              {% endcapture %}
+
+              {% assign description = "Primary Keys in a database stream" %}
+
+              {% include layout/code-snippet.html code-description=description language="json" code=code %}
+
 
           - title: "Database views"
             anchor: "primary-key-fields--database-views"
             content: |
               For database views, the [stream's metadata]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.stream-level.section }})  will contain an `is-view` property with a value of `true`:
 
-              ```json
-              {{ site.data.connect.code-examples.streams.database-view | rstrip }}
-              ```
+              {% capture code %}{{ site.data.connect.code-examples.streams.database-view | rstrip }}
+              {% endcapture %}
+
+              {% assign description = "Primary Keys in a database view (stream)" %}
+
+              {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
               Primary Key information must be provided in the `view-key-properties` metadata property when the stream is selected for replication. 
 
@@ -107,10 +114,12 @@ sections:
             content: |
               For SaaS sources, Primary Keys are typically hard-coded in the Singer tap backing the source. The list of Primary Key field names will be stored as a list in the [stream's metadata]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.stream-level.section }}) `table-key-properties` property:
 
-              ```json
-              {{ site.data.connect.code-examples.streams.saas-stream | rstrip }}
-              ```
+              {% capture code %}{{ site.data.connect.code-examples.streams.saas-stream | rstrip }}
+              {% endcapture %}
 
+              {% assign description = "Primary Keys in a SaaS stream" %}
+
+              {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
       - title: "Replication Key fields"
         anchor: "replication-key-fields"
@@ -125,9 +134,12 @@ sections:
             content: |
               For database sources, a valid Replication Key must be provided using the `replication-key` metadata property when the stream is selected.
 
-              ```json
-              {{ site.data.connect.code-examples.streams.database-stream | rstrip }}
-              ```
+              {% capture code %}{{ site.data.connect.code-examples.streams.database-stream | rstrip }}
+              {% endcapture %}
+
+              {% assign description = "Replication Keys in a database stream" %}
+
+              {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
               **Note**: This is also applicable to database views if the stream's `replication-method` is set to `INCREMENTAL`.
               
@@ -136,9 +148,14 @@ sections:
             content: |
               For SaaS sources, Replication Keys are hard-coded in the Singer tap backing the source. The list of Replication Key field names will be stored as a list in the [stream's metadata]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.stream-level.section }}) `valid-replication-keys` property:
 
-              ```json
-              {{ site.data.connect.code-examples.streams.saas-stream | rstrip }}
-              ```
+              {% capture code %}{{ site.data.connect.code-examples.streams.saas-stream | rstrip }}
+              {% endcapture %}
+
+              {% assign description = "Replication Keys in a SaaS stream" %}
+
+              {% include layout/code-snippet.html code-description=description language="json" code=code %}
+
+              **Note**: When selecting fields in SaaS streams with a `valid-replication-keys` property, you must explicitly set the stream's `replication-key` to a field in the `valid-replication-keys` property. Selecting this field for replication won't automatically set the field as the stream's Replication Key.
 
   - title: "Field selection rules"
     anchor: "understand-field-selection-rules"
@@ -221,7 +238,7 @@ sections:
     content: |
       While all fields are subject to field selection rules, some fields are also subject to field compatibility rules. This means that certain combinations of fields are not able to be selected together in a single stream.
 
-      These restrictions primarily affect SaaS sources like [Bing Ads]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section | append: "-bing-ads-object" }}), [Google Analytics]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section | append: "-google-analytics-object" }}), or [Google AdWords]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section | append: "-google-adwords-object" }}), and are set by the source.
+      These restrictions primarily affect SaaS sources like [Microsoft Advertising (formerly Bing Ads)]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section | append: "-bing-ads-object" }}), [Google Analytics]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section | append: "-google-analytics-object" }}), or [Google AdWords]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.source-form-properties.section | append: "-google-adwords-object" }}), and are set by the source.
 
     subsections:
       - title: "Field exclusion metadata"
@@ -231,11 +248,14 @@ sections:
 
           If a field is subject to compatibility rules, its [Field-level Metadata object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.data-structures.metadata.field-level.section }}) will contain a `fieldExclusion` property. This property contains a list of arrays that correspond to the `breadcrumb` of an incompatible field.
 
-          For example: Below is the field-level metadata for the `DeviceOS` field in the Bing Ads `ad_group_performance_report` stream:
+          For example: Below is the field-level metadata for the `DeviceOS` field in the Microsoft Advertising (formerly Bing Ads) `ad_group_performance_report` stream:
 
-          ```json
-          {{ site.data.connect.code-examples.field-metadata.field-exclusion }}
-          ```
+          {% capture code %}{{ site.data.connect.code-examples.field-metadata.field-exclusion }}
+          {% endcapture %}
+
+          {% assign description = "Example field-level metadata for a Microsoft Advertising field" %}
+
+          {% include layout/code-snippet.html code-description=description language="json" code=code %}
 
           This indicates that when the `DeviceOS` field is selected, the fields listed in the `fieldExclusions` property cannot also be selected.
 

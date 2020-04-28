@@ -31,15 +31,15 @@ sections:
         content: |
           For successful responses (codes in the `2xx` range) the API will return messages as a JSON object:
 
-          ```json
-          {
+          {% capture code %}{
             "status": "OK",
             "message": "Batch Accepted!"
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           In the Import API documentation, this is referred to as a [Batch Status object]({{ site.data.import-api.data-structures.batch-status.section }}).
-
 
       - title: "Error message formats"
         anchor: "error-message-formats"
@@ -48,21 +48,23 @@ sections:
 
           Some error messages may be returned as strings:
 
-          ```json
-          Content-Type must be application/json
-          ```
+          {% capture code %}Content-Type must be application/json
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           While others may be JSON objects:
 
-          ```json
-          {
+          {% capture code %}{
             "status": "ERROR",
             "error": "Forbidden",
             "errors": {
               "error": "Access token is not associated with this client."
             }
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
       - title: "Error message text"
         anchor: "error-message-text"

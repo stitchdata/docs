@@ -32,7 +32,7 @@ singer: true
 status-url: "https://www.google.com/appsstatus#hl=en&v=status"
 
 tap-name: "Google Sheets"
-repo-url: https://github.com/singer-io/tap-google-sheeets
+repo-url: https://github.com/singer-io/tap-google-sheets
 
 this-version: "1"
 

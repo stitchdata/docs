@@ -3,7 +3,7 @@ tap: "shopify"
 version: "1"
 
 name: "transactions"
-doc-link: "https://help.shopify.com/en/api/reference/orders/transaction"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/transaction?api[version]=2019-07"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/transactions.json"
 description: |
   The `{{ table.name }}` table contains info about transactions.
@@ -12,7 +12,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of transactions"
-    doc-link: "https://help.shopify.com/en/api/reference/orders/transaction#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/transaction?api[version]=2019-07"
 
 date-time: |
   The date and time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601){:target="new"} when the [ITEM] was [ACTION].

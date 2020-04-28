@@ -22,7 +22,7 @@ full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 short: "{{ api.core-objects.source-types.list.short }}"
 description: |
-  {{ api.core-objects.source-types.list.description | flatify }}
+  {{ site.data.connect.core-objects.source-types.list.description | flatify }}
 
   Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for info on the sources that are available in the API.
 
@@ -32,7 +32,7 @@ description: |
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Report Card objects]({{ api.data-structures.report-cards.source.section }}), one for each supported source `type`.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Report Card objects]({{ site.data.connect.data-structures.report-cards.source.section }}), one for each supported source `type`.
 
 
 # ------------------------------ #
@@ -41,14 +41,11 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
+    code: ""
 
   - type: "Response"
-    language: "json"
     code: |
       [
         {

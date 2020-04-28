@@ -60,4 +60,8 @@
 
     {% include developers/api-examples.html type="function" %}
 
+{% unless forloop.last == true %}
+    <hr>
+{% endunless %}
+
 {% endfor %}

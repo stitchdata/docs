@@ -99,26 +99,24 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    header: "{{ site.data.connect.request-headers.post.with-body }}"
+    request-url: "{{ endpoint.short-url | flatify }}"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }} \
-           -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-           -H 'Content-Type: application/transit+json' \
-           -d $'[
-                  {
-                    "client_id": 7723,
-                    "table_name": "customers",
-                    "sequence": 1565881320,
-                    "key_names": [
-                      "id"
-                    ],
-                    "data": {
-                      "id": 1,
-                      "name": "Finn"
-                    },
-                    "action": "upsert"
-                  }
-                ]'
+      '[
+         {
+            "client_id":7723,
+            "table_name":"customers",
+            "sequence":1565881320,
+            "key_names":[
+               "id"
+            ],
+            "data":{
+               "id":1,
+               "name":"Finn"
+            },
+            "action":"upsert"
+         }
+      ]'
 
   - type: "Response"
     language: "json"

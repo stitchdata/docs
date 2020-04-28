@@ -20,11 +20,11 @@ short-url: |
   /v{{ endpoint.version }}{{ object.endpoint-url }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.sources.list.description }}"
+short: "{{ site.data.connect.core-objects.sources.list.description }}"
 description: |
-  {{ api.core-objects.sources.list.description }}
+  {{ site.data.connect.core-objects.sources.list.description }}
 
-  **Note**: This endpoint retrieves specific configuration information about the sources connected to a single account. To retrieve general configuration information about all supported data source types, use the [List all source types]({{ api.source-types.list.anchor }}) endpoint.
+  **Note**: This endpoint retrieves specific configuration information about the sources connected to a single account. To retrieve general configuration information about all supported data source types, use the [List all source types]({{ site.data.connect.core-objects.source-types.list.anchor }}) endpoint.
 
 
 # -------------------------- #
@@ -32,7 +32,7 @@ description: |
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Objects]({{ api.core-objects.sources.object }}), one for each source connected to the account.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and an array of [Source Objects]({{ site.data.connect.core-objects.sources.object }}), one for each source connected to the account.
 
   
 # ------------------------------ #
@@ -41,14 +41,11 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
+    code: ""
 
   - type: "Response"
-    language: "json"
     code: |
       [
         {

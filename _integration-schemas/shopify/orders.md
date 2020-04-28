@@ -3,7 +3,7 @@ tap: "shopify"
 version: "1"
 
 name: "orders"
-doc-link: "https://help.shopify.com/en/api/reference/orders"
+doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/"
 singer-schema: "https://github.com/singer-io/tap-shopify/blob/master/tap_shopify/schemas/orders.json"
 description: |
   The `{{ table.name }}` table contains info about a shop's completed orders.
@@ -16,7 +16,7 @@ replication-method: "Key-based Incremental"
 
 api-method:
     name: "Retrieve a list of orders"
-    doc-link: "https://help.shopify.com/en/api/reference/orders/order#index"
+    doc-link: "https://shopify.dev/docs/admin-api/rest/reference/orders/order?api[version]=2019-07"
 
 attributes:
   # - name: "admin_graphql_api_id"

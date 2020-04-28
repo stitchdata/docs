@@ -21,9 +21,9 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 
-short: "{{ api.core-objects.sources.create.short }}"
+short: "{{ site.data.connect.core-objects.sources.create.short }}"
 description: |
-  {{ api.core-objects.sources.create.description | flatify }}
+  {{ site.data.connect.core-objects.sources.create.description | flatify }}
 
   Refer to the [Destination and source API availability reference]({{ link.connect.guides.connection-reference | prepend: site.baseurl | append: "#sources-api-availability" }}) for info on the sources that are available in the API.
 
@@ -58,7 +58,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property. 
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ site.data.connect.core-objects.sources.object }}) with a `report_card` property. 
 
   The `report_card` property contains the [Source Report Card object]({{ api.data-structures.report-cards.source.section }}) for the source's configuration status.
 
@@ -69,21 +69,19 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.post.with-body | flatify }}"
     code: |
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
-           -d "{
-                   "type":"platform.shopify",
-                   "display_name":"Shopify",
-                   "properties":{
-                      "start_date":"2017-01-01T00:00:00Z",
-                      "frequency_in_minutes":"30"
-                   }
-                }"
+      '{
+         "type":"platform.shopify",
+         "display_name":"Shopify",
+         "properties":{
+            "start_date":"2017-01-01T00:00:00Z",
+            "frequency_in_minutes":"30"
+         }
+      }'
+  
   - type: "Response"
-    language: "json"
     code: |
       {
          "properties":{

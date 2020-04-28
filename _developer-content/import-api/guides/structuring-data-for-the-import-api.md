@@ -190,8 +190,7 @@ sections:
 
           A table's Primary Keys are defined using the `key_names` property in the [Batch endpoint]({{ site.data.import-api.core-objects.batch.anchor | prepend: link.import-api.api | prepend: site.baseurl }}). For example:
 
-          ```json
-          {
+          {% capture code %}{
             "key_names":[
                 "id"
              ],
@@ -225,7 +224,11 @@ sections:
                 }
              ]
           }
-          ```
+          {% endcapture %}
+
+          {% assign description = "Defining Primary Keys for the Batch endpoint" %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           If you choose to define Primary Keys, keep the following in mind:
 
@@ -236,38 +239,65 @@ sections:
 
             For example: Let's assume that `event_id`, `app_id`, and `created_at` are the Primary Keys for the table containing these records:
 
-            ```json
-            [
-               {
-                  "event_id": 1,
-                  "app_id": 1,
-                  "created_at":"2019-08-20T00:00:00+00:00"
-               },
-               {
-                  "event_id":2,
-                  "app_id": 1,
-                  "created_at":"2019-08-20T00:00:00+00:00"
-               }
-            ]
-            ```
+          {% capture code %}
+          [
+             {
+                "event_id":1,
+                "app_id":1,
+                "created_at":"2019-08-20T00:00:00+00:00"
+             },
+             {
+                "event_id":2,
+                "app_id":1,
+                "created_at":"2019-08-20T00:00:00+00:00"
+             }
+          ]
+          {% endcapture %}
+
+          {% assign description = "Example of unique composite Primary Keys" %}
+
+             {% include layout/code-snippet.html use-code-block=false language="json" code-description=description code=code %}
+
+             ```json
+          {{ code | lstrip | rstrip }}
+             ```
 
             While `app_id` and `created_at` have two identical values between these records, the `event_id` makes the records unique.
 
           - Every column in the `key_names` property must be present in both the request's Schema object and in every record for the table. For example:
 
-            ```json
-            {
-              "key_names": ["id","created_at"]
-            }
-            ```
+          {% capture code %}
+          {
+             "key_names":[
+                "id",
+                "created_at"
+             ]
+          }
+          {% endcapture %}
+
+          {% assign description = "Example of defined composite Primary Keys" %}
+
+             {% include layout/code-snippet.html use-code-block=false language="json" code-description=description code=code %}
+
+             ```json
+          {{ code | lstrip | rstrip }}
+             ```
 
             In this case, the Schema object must contain `id` and `created_at` properties. Every record must contain also contain these properties or the Import API will return the following error:
 
-            ```json
+            {% capture code %}
             {
-              "error": "Record is missing key property <KEY_NAME>"
+               "error":"Record is missing key property <KEY_NAME>"
             }
-            ```
+            {% endcapture %}
+
+            {% assign description = "Missing key property error" %}
+
+             {% include layout/code-snippet.html use-code-block=false language="json" code-description=description code=code %}
+
+             ```json
+          {{ code | lstrip | rstrip }}
+             ```
 
   - title: "Data typing"
     anchor: "data-typing"
@@ -289,8 +319,7 @@ sections:
 
           For example: This is the schema for a table named `customers`:
 
-          ```json
-          {
+          {% capture code %}{
              "schema":{
                 "properties":{
                    "id":{
@@ -308,12 +337,15 @@ sections:
                 }
              }
           }
-          ```
+          {% endcapture %}
+
+          {% assign description = "Example table schema" %}
+
+          {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           A record sent to the Import API for the `customers` table could look like this:
 
-          ```json
-          {
+          {% capture code %}{
              "action":"upsert",
              "sequence":1565880017,
              "data":{
@@ -323,7 +355,11 @@ sections:
                 "has_magic":false
              }
           }
-          ```
+          {% endcapture %}
+
+          {% assign description = "Example record sent to the Import API" %}
+
+          {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           This data point would create a table similar to the following, depending on the data types used by your destination:
 
@@ -334,11 +370,14 @@ sections:
           
           Records sent to the Import API must adhere to the JSON schema for the table that contains them, or the API will return a `400` response and an error similar to the following:
 
-          ```json
-          {
+          {% capture code %}{
             "error": "Record 0 did not conform to schema: #/<FIELD_NAME>: expected: <DATA_TYPE>, found: <DATA_TYPE>"
           }
-          ```
+          {% endcapture %}
+
+          {% assign description = "Record did not conform to schema error" %}
+
+          {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           Refer to the **Errors** in the [Batch endpoint documentation]({{ site.data.import-api.core-objects.batch.anchor | append:"--returns" | prepend: link.import-api.api | prepend: site.baseurl }}) for a list of errors and their causes.
 
@@ -361,14 +400,15 @@ sections:
 
           For example:
 
-          ```json
-          {
+          {% capture code %}{
              "id":1,
              "cost":3.14,
              "tax":"1.00"
              "modified_at":"2019-08-13T21:25:03+0000"
           }
-          ```
+          {% endcapture %}
+
+          {% include layout/code-snippet.html language="json" code=code %}
 
           This data point would create a table similar to the following, depending on the data types used by your destination:
 
@@ -376,7 +416,7 @@ sections:
           |--------------+----------------+--------------+--------------------------|
           | 1            | 3.14           | 1.00         | 2019-08-13T21:25:03+0000 |
 
-          <br>
+
           Consider the `modified_at` field in the example. Even though this field contains an ISO 8601 formatted timestamp, the Import API won't type this column as a `timestamp` in the destination. This is because it's being sent as a JSON string.
 
           While JSON doesn't allow for defining data types, you can use the [Batch endpoint](#create-a-batch-endpoint-data-typing) instead. This endpoint accepts a JSON schema and will enforce the data types it declares for each field.
@@ -388,7 +428,7 @@ sections:
 
               For example: Consider the `cost` values for each of the following records:
 
-              ```json
+              {% capture code %}
               {
                  "id":1,
                  "cost":3.14,         // number
@@ -407,7 +447,9 @@ sections:
                  "tax":".55"
                  "modified_at":"2019-08-13T21:35:04+0000"
               }
-              ```
+              {% endcapture %}
+
+              {% include layout/code-snippet.html language="json" code=code %}
 
               As a result of the `cost` values changing between records, the destination table would look like this:
 
