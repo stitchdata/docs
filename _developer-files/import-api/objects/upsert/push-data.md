@@ -124,102 +124,92 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
     subexamples:
       - title: "Pushing a single record for a single table"
+        header: &header "{{ site.data.connect.request-headers.post.with-body }}"
+        request-url: &request-url "{{ endpoint.short-url | flatify }}"
         code: |
-          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
-               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json' \
-               -d $
-                  '[
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565880017,
-                      "data": {
-                        "id": 1,
-                        "name": "Finn"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    }
-                  ]'
-
+          '[
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565880017,
+                "data":{
+                   "id":1,
+                   "name":"Finn"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             }
+          ]'
 
       - title: "Pushing multiple records for a single table"
+        header: *header
+        request-url: *request-url
         code: |
-          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
-               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json' \
-               -d $
-                  '[
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565880017,
-                      "data": {
-                        "id": 4,
-                        "name": "BMO"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    },
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565838645,
-                      "data": {
-                        "id": 5,
-                        "name": "Ice King"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    }
-                  ]'
-
+          '[
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565880017,
+                "data":{
+                   "id":4,
+                   "name":"BMO"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             },
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565838645,
+                "data":{
+                   "id":5,
+                   "name":"Ice King"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             }
+          ]'
 
       - title: "Pushing records for multiple tables"
+        header: *header
+        request-url: *request-url
         code: |
-          curl -X "{{ endpoint.method | upcase }}" "{{ endpoint.full-url | flatify | strip_newlines }}" \
-               -H 'Authorization: Bearer <IMPORT_API_ACCESS_TOKEN>' \
-               -H 'Content-Type: application/json' \
-               -d $
-                  '[
-                    {
-                      "client_id": 7723,
-                      "table_name": "customers",
-                      "sequence": 1565880017,
-                      "data": {
-                        "id": 4,
-                        "name": "BMO"
-                      },
-                      "key_names": [
-                        "id"
-                      ],
-                      "action": "upsert"
-                    },
-                    {
-                      "client_id": 7723,
-                      "table_name": "orders",
-                      "sequence": 1565838645,
-                      "data": {
-                        "order_id": 561,
-                        "customer_id": 4
-                      },
-                      "key_names": [
-                        "order_id"
-                      ],
-                      "action": "upsert"
-                    }
-                  ]'
-
+          '[
+             {
+                "client_id":7723,
+                "table_name":"customers",
+                "sequence":1565880017,
+                "data":{
+                   "id":4,
+                   "name":"BMO"
+                },
+                "key_names":[
+                   "id"
+                ],
+                "action":"upsert"
+             },
+             {
+                "client_id":7723,
+                "table_name":"orders",
+                "sequence":1565838645,
+                "data":{
+                   "order_id":561,
+                   "customer_id":4
+                },
+                "key_names":[
+                   "order_id"
+                ],
+                "action":"upsert"
+             }
+          ]'
 
 
   - type: "Response"
