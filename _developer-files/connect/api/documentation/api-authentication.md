@@ -16,7 +16,7 @@ sections:
       In the examples in this documentation, we use bearer auth:
 
       {% assign request-url = api.core-objects.sources.base %}
-      {% assign header = site.data.connect.request-headers.get %}
+      {% assign header = site.data.connect.request-headers.get.without-body %}
       {% assign description = "GET " | append: api.core-objects.sources.base %}
 
       {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}

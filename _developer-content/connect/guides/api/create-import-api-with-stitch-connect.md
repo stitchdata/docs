@@ -112,7 +112,7 @@ steps:
 
       {% assign description = "GET " | append: example-url %}
 
-      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
       The response will be a [Source object]({{ link.connect.api | prepend: site.baseurl | append: site.data.connect.core-objects.sources.object }}) with a [Connection step object]({{ link.connect.api | append: site.data.connect.data-structures.connection-steps.section | prepend: site.baseurl }}):
 

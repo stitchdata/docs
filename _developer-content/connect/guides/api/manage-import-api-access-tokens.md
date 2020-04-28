@@ -124,7 +124,7 @@ sections:
           {% assign request-url = site.data.connect.core-objects.sources.list.name | flatify | strip_newlines %}
 
           {% assign description = subsection.endpoint | flatify %}
-          {% assign header = site.data.connect.request-headers.get | replace: "<ACCESS","<CONNECT_ACCESS" %}
+          {% assign header = site.data.connect.request-headers.get.without-body | replace: "<ACCESS","<CONNECT_ACCESS" %}
 
           {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
 
@@ -260,7 +260,7 @@ sections:
           {% assign request-url = example-url | flatify | replace: "{source_id",page.source-id | remove: right-bracket | strip_newlines %}
 
           {% assign description = subsection.endpoint %}
-          {% assign header = site.data.connect.request-headers.get | replace: "<ACCESS","<CONNECT_ACCESS" %}
+          {% assign header = site.data.connect.request-headers.get.without-body | replace: "<ACCESS","<CONNECT_ACCESS" %}
 
           {% include developers/api-request-examples.html code-description=description header=header request-url=request-url %}
           {% endcapture %}

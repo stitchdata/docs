@@ -54,7 +54,7 @@ examples:
   - type: "Request"
     request-url: |
       {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
-    header: "{{ site.data.connect.request-headers.get }}"
+    header: "{{ site.data.connect.request-headers.get.without-body }}"
     code: ""
 
 

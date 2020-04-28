@@ -39,7 +39,7 @@ returns: |
 examples:
   - type: "Request"
     request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
-    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
     code: "" 
   
   - type: "Response"

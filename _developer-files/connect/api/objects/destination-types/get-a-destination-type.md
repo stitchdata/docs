@@ -56,7 +56,7 @@ returns: |
 
 examples:
   - type: "Request"
-    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
     request-url: |
       {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | remove: right-bracket | replace:"{destination_type","redshift" | strip_newlines }}
     code: ""

@@ -41,7 +41,7 @@ returns: |
 
 examples:
   - type: "Request"
-    header: "{{ site.data.connect.request-headers.get | flatify }}"
+    header: "{{ site.data.connect.request-headers.get.without-body | flatify }}"
     request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
     code: ""
 

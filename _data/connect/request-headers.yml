@@ -7,10 +7,14 @@
 #        GET REQUESTS        #
 # -------------------------- #
 
-get: |
-  curl "GET" "{{ api.base-url }}{{ request-url | flatify }}" \
-       -H 'Authorization: Bearer <ACCESS_TOKEN>' \
-       -H 'Content-Type: application/json'
+get:
+  without-body: |
+    curl "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json'
+
+  no-token-required: |
+    curl "{{ api.base-url }}{{ request-url | flatify }}" 
 
 
 # -------------------------- #
@@ -46,7 +50,9 @@ put:
          -H 'Content-Type: application/json'
 
   with-body: |
-    {{ site.data.connect.request-headers.put.without-body | flatify | rstrip }} \
+    curl -X "PUT" "{{ api.base-url }}{{ request-url | flatify }}" \
+         -H 'Authorization: Bearer <ACCESS_TOKEN>' \
+         -H 'Content-Type: application/json'
          -d $
 
 

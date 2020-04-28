@@ -108,7 +108,7 @@ steps:
 
           {% assign description = substep.endpoint %}
 
-          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
           A successful connection check and discovery will have a `status` of `succeeded` and a `discovery_exit_status` of `0`:
 
@@ -134,7 +134,7 @@ steps:
 
           {% assign description = substep.endpoint %}
 
-          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
           The response will be the source's [`report_card` object]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: site.data.connect.data-structures.report-cards.source.section }}). In this example, the `current_step` is `4`, which corresponds to the `field_selection` step:
 
@@ -164,7 +164,7 @@ steps:
 
       {% assign description = "GET " | append: example-url %}
 
-      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
+      {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
       The response will be an array of [Stream objects]({{ site.data.connect.api.section | flatify | prepend: site.baseurl | append: api.core-objects.streams.object }}), each object corresponding to a stream available for selection:
 
@@ -232,7 +232,7 @@ steps:
 
           {% assign description = substep.endpoint %}
 
-          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get request-url=request-url %}
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.get.without-body request-url=request-url %}
 
           The response will be a single [Stream Schema object]({{ site.data.connect.api.section | prepend: site.baseurl | append: site.data.connect.data-structures.stream-schemas.section | flatify }}):
 
