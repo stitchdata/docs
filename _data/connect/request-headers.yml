@@ -40,7 +40,7 @@ post:
   with-body: |
     curl -X "POST" "{{ api.base-url }}{{ request-url | flatify }}" \
          -H 'Authorization: Bearer <ACCESS_TOKEN>' \
-         -H 'Content-Type: application/json'
+         -H 'Content-Type: application/json' \
          -d $
 
 
@@ -57,7 +57,7 @@ put:
   with-body: |
     curl -X "PUT" "{{ api.base-url }}{{ request-url | flatify }}" \
          -H 'Authorization: Bearer <ACCESS_TOKEN>' \
-         -H 'Content-Type: application/json'
+         -H 'Content-Type: application/json' \
          -d $
 
 
