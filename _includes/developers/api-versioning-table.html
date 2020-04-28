@@ -33,9 +33,11 @@
                 <ul>
                   {% for endpoint in object-endpoints %}
                     {% unless endpoint.not-available-until-version %}
+                      {% if endpoint.version == version.number %}
                       <li style="margin: 0">
                         <a href="#{{ endpoint.key }}">{{ endpoint.method | upcase }} {{ endpoint.short-url | flatify }}</a>
                       </li>
+                      {% endif %}
                     {% endunless %}
                   {% endfor %}
                 </ul>
