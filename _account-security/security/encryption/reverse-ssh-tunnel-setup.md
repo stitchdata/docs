@@ -3,7 +3,7 @@
 #      Page & Formatting     #
 # -------------------------- #
 
-title: Setting up a Reverse SSH Tunnel
+title: Setting up a Reverse SSH Tunnel for a Database Connection
 permalink: /account-security/data-encryption/setting-up-reverse-ssh-tunnel
 summary: "If a database is privately accessible, you can use a reverse SSH tunnel to connect Stitch. This tutorial will walk you through requesting and configuring a reverse SSH tunnel for use with Stitch."
 
