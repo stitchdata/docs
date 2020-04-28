@@ -24,6 +24,9 @@ property-description: |
 
   {% when 'saas' %}
   {{ connection-name }} connections read data from the {{ connection-name }} API and correspond to source `type: {{ VARIABLE.api-type }}`.
+
+  {% when 'import-api' %}
+  {{ connection-name }} connections receive data you push to the Import API and correspond to source `type: {{ VARIABLE.api-type }}`.
   
   {% endcase %}
   {% endif %}

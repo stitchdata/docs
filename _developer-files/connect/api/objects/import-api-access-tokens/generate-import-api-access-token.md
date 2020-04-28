@@ -62,12 +62,10 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","126890" | remove: right-bracket | strip_newlines }} \
-           -H "Authorization: Bearer <CONNECT_ACCESS_TOKEN>" \
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","126890" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.post.without-body | flatify }}"
+    code: ""
 
   - type: "Response"
     language: "json"

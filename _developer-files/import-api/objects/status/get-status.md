@@ -40,9 +40,9 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "curl"
-    code: |
-      curl {{ endpoint.full-url | flatify | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.get.no-token-required }}"
+    request-url: "{{ endpoint.short-url | flatify }}"
+    code: ""
 
   - type: "Response"
     language: "json"

@@ -94,6 +94,8 @@ sections:
   - title: "What is replication scheduling?"
     anchor: "what-is-replication-scheduling"
     content: |
+      {% assign api = site.data.connect.api %}
+
       Replication scheduling tells Stitch when and how often data extraction should occur.
 
       **Note**: All replication scheduling methods (Replication Frequency, Anchor Scheduling, and Advanced Scheduling) define when data extractions begin. They do not control how long a replication job runs or when data is loaded into a destination.
@@ -194,18 +196,21 @@ sections:
 
           {% assign right-bracket = "}" %}
 
-          ```json
-          curl -X {{ site.data.connect.core-objects.sources.update.method | upcase }} {{ site.data.connect.core-objects.sources.update.name | flatify | replace: "{source_id","86741" | remove: right-bracket | prepend: site.data.connect.api.base-url | strip_newlines  }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
-               -d "{
-                     "display_name":"Shopify",
-                     "properties":{
-                        "start_date":"2017-01-01T00:00:00Z",
-                        "frequency_in_minutes":"1440"
-                     }
-                    }"
-          ```
+          {% assign example-url = site.data.connect.core-objects.sources.update.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines %}
+
+          {% assign description = "PUT " | append: example-url %}
+
+          {% capture code %}'{
+             "display_name":"Shopify",
+             "properties":{
+                "start_date":"2017-01-01T00:00:00Z",
+                "frequency_in_minutes":"1440"
+             }
+          }'
+          {% endcapture %}
+
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
           This means that Stitch will attempt to replicate data from this source every `1440` minutes, or every 24 hours.
 
@@ -224,18 +229,21 @@ sections:
 
           When both properties are defined, the `{{ common.names.anchor-time }}` value will define the time that the `{{ common.names.frequency }}` value is "anchored" to. For example:
 
-          ```json
-          curl -X {{ site.data.connect.core-objects.sources.update.method | upcase }} {{ site.data.connect.core-objects.sources.update.name | flatify | replace: "{source_id","77234" | remove: right-bracket | prepend: site.data.connect.api.base-url | strip_newlines  }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
-               -d "{
-                     "display_name":"Marketo",
-                     "properties":{
-                        "anchor_time":"2018-04-30T03:30:00Z",
-                        "frequency_in_minutes":"360"
-                     }
-                    }"
-          ```
+          {% assign example-url = site.data.connect.core-objects.sources.update.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id","77234" | remove: right-bracket | strip_newlines %}
+
+          {% assign description = "PUT " | append: example-url %}
+
+          {% capture code %}'{
+             "display_name":"Marketo",
+             "properties":{
+                "anchor_time":"2018-04-30T03:30:00Z",
+                "frequency_in_minutes":"360"
+             }
+          }'
+          {% endcapture %}
+
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
 
           In this case, Stitch will run a replication job for the source every `360` minutes, starting at `03:30:00`. This means a job would run at `09:30:00`, `15:30:00`, `21:30:00`, etc.
 
@@ -248,19 +256,22 @@ sections:
 
           To create an advanced (cron) schedule for a source, the `{{ common.names.advanced }}` property must be set. The `{{ common.names.advanced }}` value must be a valid Quartz cron expression representing the replication schedule for the source. For example:
 
-          ```json
-          curl -X {{ site.data.connect.core-objects.sources.update.method | upcase }} {{ site.data.connect.core-objects.sources.update.name | flatify | replace: "{source_id","12345" | remove: right-bracket | prepend: site.data.connect.api.base-url | strip_newlines  }}
-               -H "Authorization: Bearer <ACCESS_TOKEN>" 
-               -H "Content-Type: application/json"
-               -d "{
-                     "display_name":"MySQL",
-                     "properties":{
-                        "cron_expression":"0 0 12 ? * MON-FRI *"
-                     }
-                    }"
-          ```
+          {% assign example-url = site.data.connect.core-objects.sources.update.name %}
+          {% assign request-url = example-url | flatify | replace: "{source_id","12345" | remove: right-bracket | strip_newlines %}
 
-          In this case, Stitch will run a replication job for the source at 12:00PM every day between Monday and Friday.
+          {% assign description = "PUT " | append: example-url %}
+
+          {% capture code %}'{
+             "display_name":"MySQL",
+             "properties":{
+                "cron_expression":"0 0 12 ? * MON-FRI *"
+             }
+          }'
+          {% endcapture %}
+
+          {% include developers/api-request-examples.html code-description=description header=site.data.connect.request-headers.put.with-body request-url=request-url code=code %}
+
+          In this case, Stitch will run a replication job for the source at `12:00PM every day between Monday and Friday`.
 
           For more info, refer to the [Advanced Scheduling documentation]({{ link.replication.advanced-scheduling | prepend: site.baseurl }}).
 ---

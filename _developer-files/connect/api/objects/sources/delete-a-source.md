@@ -21,8 +21,8 @@ short-url: |
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
 
-short: "{{ api.core-objects.sources.delete.description }}"
-description: "{{ api.core-objects.sources.delete.description }}"
+short: "{{ site.data.connect.core-objects.sources.delete.description }}"
+description: "{{ site.data.connect.core-objects.sources.delete.description }}"
 
 
 # -------------------------- #
@@ -43,7 +43,7 @@ arguments:
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ api.core-objects.sources.object }}) with a `report_card` property. The `deleted_at` attribute will be populated.
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a [Source object]({{ site.data.connect.core-objects.sources.object }}) with a `report_card` property. The `deleted_at` attribute will be populated.
 
 
 # ------------------------------ #
@@ -52,15 +52,12 @@ returns: |
 
 examples:
   - type: "Request"
-    language: "json"
-    code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
+    request-url: |
+      {% assign right-bracket = "}" %}{{ endpoint.short-url | flatify | replace: "{source_id","86741" | remove: right-bracket | strip_newlines }}
+    header: "{{ site.data.connect.request-headers.delete | flatify }}"
+    code: ""
 
   - type: "Response"
-    language: "json"
     code: |
       {
          "properties":{

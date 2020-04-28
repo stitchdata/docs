@@ -17,12 +17,12 @@ version: "1"
 title: "Create a custom email"
 method: "post"
 short-url: |
-  {{ api.core-objects.notifications.custom-emails.post.name | flatify }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.post.name | flatify }}
 full-url: |
   {{ api.base-url }}{{ endpoint.short-url | flatify }}
-short: "{{ api.core-objects.notifications.custom-emails.post.description }}"
+short: "{{ site.data.connect.core-objects.notifications.custom-emails.post.description }}"
 description: |
-  {{ api.core-objects.notifications.custom-emails.post.description }}
+  {{ site.data.connect.core-objects.notifications.custom-emails.post.description }}
   **Note**: To use this endpoint, your Stitch plan must include access to the [Custom notification list]({{ link.account.customize-notifications | prepend: site.baseurl }}) feature.
 # -------------------------- #
 #       METHOD ARGUMENTS     #
@@ -36,29 +36,29 @@ arguments:
       The email address that custom email notifications should be sent to.
     example-value: |
       stitch-custom-notification@yourdomain.com
+
+
 # -------------------------- #
 #           RETURNS          #
 # -------------------------- #
 
 returns: |
-  If successful, the API will return a status of <code class="api success">200 OK</code> and a single [Custom Email Notification object]({{ api.data-structures.notifications.custom-email.section }}).
+  If successful, the API will return a status of <code class="api success">200 OK</code> and a single [Custom Email Notification object]({{ site.data.connect.data-structures.notifications.custom-email.section }}).
+
 # ------------------------------ #
 #   EXAMPLE REQUEST & RESPONSES  #
 # ------------------------------ #
 
 examples:
   - type: "Request"
-    language: "json"
+    request-url: "{{ endpoint.short-url | flatify | strip_newlines }}"
+    header: "{{ site.data.connect.request-headers.put.with-body | flatify }}"
     code: |
-      {% assign right-bracket = "}" %}
-      curl -X {{ endpoint.method | upcase }} {{ endpoint.full-url | flatify | strip }}
-           -H "Authorization: Bearer <ACCESS_TOKEN>" 
-           -H "Content-Type: application/json"
-           -d "{
-                 "email_address": "stitch-custom-notification@yourdomain.com"
-               }"
-  - type: "Responses"
-    language: "json"
+      '{
+         "email_address": "stitch-custom-notification@yourdomain.com"
+       }'
+  
+  - type: "Response"
     code: |
       {
         "id": 22,
@@ -67,6 +67,7 @@ examples:
         "created_at": "2019-07-16T19:49:51Z",
         "disabled_at": null
       }
+  
   - type: "Errors"
     error-file: "custom-email-notifications"
   # The errors live in: _data/connect/response-codes/custom-email-notifications.yml
