@@ -226,6 +226,8 @@ sections:
           }
           {% endcapture %}
 
+          {% assign description = "Defining Primary Keys for the Batch endpoint" %}
+
           {% include layout/code-snippet.html language="json" code=code %}
 
           If you choose to define Primary Keys, keep the following in mind:
@@ -252,7 +254,9 @@ sections:
           ]
           {% endcapture %}
 
-             {% include layout/code-snippet.html use-code-block=false language="json" code=code %}
+          {% assign description = "Example of unique composite Primary Keys" %}
+
+             {% include layout/code-snippet.html use-code-block=false language="json" code-description=description code=code %}
 
              ```json
           {{ code | lstrip | rstrip }}
@@ -271,7 +275,9 @@ sections:
           }
           {% endcapture %}
 
-             {% include layout/code-snippet.html use-code-block=false language="json" code=code %}
+          {% assign description = "Example of defined composite Primary Keys" %}
+
+             {% include layout/code-snippet.html use-code-block=false language="json" code-description=description code=code %}
 
              ```json
           {{ code | lstrip | rstrip }}
@@ -285,7 +291,9 @@ sections:
             }
             {% endcapture %}
 
-             {% include layout/code-snippet.html use-code-block=false language="json" code=code %}
+            {% assign description = "Missing key property error" %}
+
+             {% include layout/code-snippet.html use-code-block=false language="json" code-description=description code=code %}
 
              ```json
           {{ code | lstrip | rstrip }}
@@ -331,7 +339,9 @@ sections:
           }
           {% endcapture %}
 
-          {% include layout/code-snippet.html language="json" code=code %}
+          {% assign description = "Example table schema" %}
+
+          {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           A record sent to the Import API for the `customers` table could look like this:
 
@@ -347,7 +357,9 @@ sections:
           }
           {% endcapture %}
 
-          {% include layout/code-snippet.html language="json" code=code %}
+          {% assign description = "Example record sent to the Import API" %}
+
+          {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           This data point would create a table similar to the following, depending on the data types used by your destination:
 
@@ -363,7 +375,9 @@ sections:
           }
           {% endcapture %}
 
-          {% include layout/code-snippet.html language="json" code=code %}
+          {% assign description = "Record did not conform to schema error" %}
+
+          {% include layout/code-snippet.html language="json" code-description=description code=code %}
 
           Refer to the **Errors** in the [Batch endpoint documentation]({{ site.data.import-api.core-objects.batch.anchor | append:"--returns" | prepend: link.import-api.api | prepend: site.baseurl }}) for a list of errors and their causes.
 
